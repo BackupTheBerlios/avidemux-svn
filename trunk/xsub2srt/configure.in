@@ -7,4 +7,81 @@ AC_LANG_CPLUSPLUS
 AC_PROG_CXX
 AM_PROG_LIBTOOL
 
-AC_OUTPUT(Makefile src/Makefile)
+dnl __________GTK2 Stuff____________
+
+ AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
+ if test "$PKG_CONFIG" = "no" ; then
+        echo "************ pkg-config IS MANDATORY ***************"
+        AC_MSG_ERROR([*** pkg-config not found ! ***])
+ fi
+
+dnl    AC_PATH_PROG(PKG_CONFIG,pkg-config, AC_MSG_ERROR([*** pkg-config not found ! ***]))
+   GTK_VERSION=`$PKG_CONFIG  gtk+-2.0 --modversion`
+
+ if test "x$GTK_VERSION" = "x" ; then
+        echo "************ Cannot identify gtk2 version ***************"
+        AC_MSG_ERROR([*** pkg-config installed incorrectly or gtk2-dev absent ! ***])
+ fi
+
+
+   GTK_LIBS=`$PKG_CONFIG  gtk+-2.0 --libs`
+   GTK_CFLAGS=`$PKG_CONFIG  gtk+-2.0 --cflags` 
+
+   AC_SUBST(GTK_CFLAGS)
+   AC_SUBST(GTK_LIBS)
+   AC_SUBST(GTK_VERSION)
+
+   
+   AC_SUBST(AS)
+   AC_SUBST(ASFLAGS)
+dnl __________GTK2 Stuff____________
+dnl _________________ malloc.h ___________________
+
+AC_CHECK_HEADERS(malloc.h,have_malloc_h=yes)
+AC_CHECK_HEADERS(malloc/malloc.h,have_malloc_h=yes)
+if test "x$have_malloc_h" = "xyes"; then
+        CPPFLAGS="$CPPFLAGS -I/usr/include/malloc"
+        AC_DEFINE(HAVE_MALLOC_H,1,[have malloc.h])
+        
+fi
+dnl ____________________ Cygwin / mingwin ? ___________
+use_cygwin=no
+AC_MSG_CHECKING(win32 host)
+
+
+AC_TRY_COMPILE([
+        #if !defined(__CYGWIN__) &&!defined(__MINGW32__)
+                #error
+        #endif
+
+],
+int z=0
+,[
+  use_cygwin=yes
+])
+
+AC_MSG_RESULT($use_cygwin)
+
+dnl ____________________ /CPU____________________________
+
+if test "x$use_cygwin" = "xyes"; then
+        AC_DEFINE(MEMALIGN_HACK,1,"sse on cywin")
+        AC_DEFINE(CYG_MANGLING,1,"Name mangling")
+        AC_DEFINE(rindex,ADM_rindex,"rindex does not exist on cygwin")
+        AC_DEFINE(index,ADM_index,"rindex does not exist on cygwin")
+        AC_DEFINE(fseeko,fseeko_adm,"")
+        AC_DEFINE(ftello,ftello_adm,"")
+        #AC_DEFINE(link(x,y),-1,"")     
+        CXXFLAGS=" $CXXFLAGS -mno-cygwin -mms-bitfields"
+        CFLAGS=" $CFLAGS -mno-cygwin -mms-bitfields"
+        echo "CFLAGS= -mno-cygwin -mms-bitfields -I/usr/include/mingw -I/rot/include " >> adm_lavcodec/config.cpu
+fi
+
+dnl _____________________________________________
+
+CFLAGS="$CFLAGS -I../ADM_library -g"
+CXXFLAGS="$CXXFLAGS -I../ADM_library -g"
+
+
+
+AC_OUTPUT(Makefile ADM_toolkit/Makefile src/Makefile)
