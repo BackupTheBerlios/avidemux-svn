@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Návod na přežití pro stolní MPEG-4 přehrávače</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Stolní MPEG-4 přehrávače
+ </abstract>
+
+<version>1.0</version>
+<date>15 Nov 2004</date>
+<chapter>
+<title>Stolní MPEG-4 přehrávače</title>
+<section>
+	<body><ul>
+		<p> Tak jste si pořídili nablýskaný nový "DivX Certified" DVD přehrávač, ale máte s ním problémy. Tento krátký dokument se pokusí vám pomoct přimět jej k přehrání vašeho videa.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Packed VOP hack</title>
+<section>
+	<body><ul>
+		<p> B snímky jsou fajn, ale způsobují zpoždění o jeden snímek, protože potřebují předchozí i následné I/P snímky, aby mohly být dekódovány.
+		</p>
+		<p>To nejde moc dohromady s omezením VfW (Video for Windows), které víceméně předpokládá jeden snímek do/jeden snímek ven. 
+		</p>
+		<p>K obejití tohoto omezení v DivXNetorks představili PB snímky v AVI. Pro vysvětlení viz kapitola <uri link="bframe.xml.html">B-frames</uri>.
+		</p>
+		<p>V podstatě přidají nekódovaný obrázek (N-VOP) po snímku obsahujícím P i B snímek. Některé přehrávače (většina?) se na tom zaseknou nebo zadrhnou, protože to uměle vytvoří další snímek. K detekci této vlastnosti přidají taky speciální značku v sekci uživatelských dat MPEG-4 streamu. Některé přehrávače použijí tuto informaci k přepnutí do režimu packed VOP, ale není to 100% spolehlivé. Navíc takový stream nevyhovuje 100% ISO standardu.
+		</p>
+		<ul>
+		<li>Pravidlo č. 1: nepoužívejte zabalené (packed) snímky. S Avidemuxem ani nemůžete, ale s některými jinými programy ano.</li>
+		<li>Pravidlo č. 2: když už je máte, rozbalte je.</li>
+		</ul>
+		<p>
+		To uděláte tak, že na otázku, jestli má Avidemux takové snímky rozbalit, odpovíte kladně. Avidemux prohlédne každý snímek, jestli v něm není víc než jeden VOP. Pokud takový najde, obnoví z něj samostatné snímky a odstraní příslušné N-VOP snímky.
+		</p>
+		<p>To se postará o ten packed VOP, ale značka v uživatelských datech zůstane. Abyste ji také odstranili, uložte soubor pomocí <c>Save Unpacked MPEG-4 Video</c> (Uložit rozbalené MPEG-4 video) místo obvyklého Save Video.
+		</p>
+		<p>To najde a za běhu napraví ty značky tak, že stream bude detekován jako nezabalený.</p>
+		<p> Mělo by to napravit každé zabalené video kódované kodekem DivX, ale nemusí to fungovat pro některé soubory kódované kodekem XviD.
+		</p>
+		<warn>Pokud má soubor VBR audio, nezapomeňte provést <c>Audio->Build VBR Time Map</c> po jeho načtení.</warn>
+		<p>Pokud máte velké množství takovýchto souborů ke konverzi, můžete použít skript:
+		</p>
+		<pre>
+#!/bin/bash
+export SRC=/tmp/fma2
+export TGT=/tmp/fma3
+perl foreach.pl $SRC/*.avi "avidemux2 --force-unpack  --load $SRC/%f  \
+--audio-map  --save-unpacked-vop $TGT/fixed_%f --quit"		
+		</pre>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>GMC a Qpel</title>
+<section>
+	<body><ul>
+		<p> XviD a libavcodec umí používat kompletnější modely GMC (Global Motion Compensation) a Qpel
+		(Quarter Pixel) než kodek DivX.</p>
+		<p>S těmito vlastnostmi máte smůlu a musíte video překódovat.</p>
+		<p>To znamená dvouprůchodové kódování pro uchování stejné velikosti.</p>
+		<p>Je i způsob, jak dosáhnout skoro stejného výsledku pouhým jedním průchodem.</p>
+		<p>Za předpokladu, že je vaše video správně zakódováno, předchozí kódování již rozdělilo kvantizaci a bitrate k dosažení dobré kvality při dané velikosti.</p>
+		<p>Proč tuto informaci nevyužít?</p>
+		<p>K tomu nastavte XviD nebo libavcodec tak, aby používaly <c>Follow mode</c> ("The same Qz as input" v nastavení kodeku). V tomto režimu kodek každý snímek zakóduje s kvantizací použitou v předešlém kódování.</p>
+		<p>Výsledkem bude, že budete mít zhruba stejnou velikost/kvalitu v porovnání s originálem, ale za použití pouze jednoho průchodu.</p>
+		<p>To se dá udělat i z příkazového řádku ke zpracování mnoha souborů za sebou:</p>
+		<pre>
+#!/bin/bash
+export SRC=/tmp/fma2
+export TGT=/tmp/fma3
+perl foreach.pl $SRC/*.avi "avidemux2 --force-unpack  --load $SRC/%f  \
+--audio-map  --video-process --video-codec xvid4  --video-conf follow=1000  \
+--save $TGT/fixed_%f --quit"		
+		</pre>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Multiplexace</title>
+<section>
+	<body><ul>
+		<p> Zjistil jsem, že některé programy (jako některé verze Nandubu) neprovádí multiplexaci souboru správně. Stolní přehrávače na tom zadrhávají nebo zamrznou. Oprava je prostá: stačí soubor otevřít a uložit v Avidemuxu.
+		</p>
+		
+	</ul></body>
+</section>
+</chapter>
+</guide>

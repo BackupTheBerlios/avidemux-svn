@@ -23,7 +23,10 @@ Podporované vstupní formáty a kodeky
 			<ti>AVI</ti><ti>Žádné, podporováno je více zvukových stop</ti>
 		</tr>
 		<tr>
-			<ti>MPEG-1/2</ti><ti>Elementary stream nebo program stream (včetně VOB)</ti>
+			<ti>OpenDML</ti><ti>Žádné, podporováno je více zvukových stop</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-1, MPEG-2</ti><ti>Elementary stream, program stream (včetně VOB), transport stream (DVB)</ti>
 		</tr>
 		<tr>
 			<ti>NuppelVideo</ti><ti>Původní/nuppel_gatos/MythTV/FFV1rec</ti>
@@ -38,10 +41,10 @@ Podporované vstupní formáty a kodeky
 			<ti>MPEG-4</ti><ti>Raw MPEG-4 video stream (nekompletní)</ti>
 		</tr>
 		<tr>
-			<ti>MOV/3GPP/MPEG-4</ti><ti>Jednoduchý 3GPP/MP4/MOV soubor. Komprimované hlavičky nejsou podporovány</ti>
+			<ti>MOV/3GPP/MPEG-4</ti><ti>Jednoduchý 3GPP/MP4/MOV soubor, komprimované hlavičky nejsou podporovány</ti>
 		</tr>
 		<tr>
-			<ti>OGM</ti><ti>Podporován je pouze zvuk ve formátu Ogg Vorbis, včetně více zvukových stop</ti>
+			<ti>OGM</ti><ti>O žádném nevím</ti>
 		</tr>
 		</table>
 		</ul></body>
@@ -107,6 +110,9 @@ Podporované vstupní formáty a kodeky
 			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>MAD</ti>
 		</tr>
 		<tr>
+			<ti>AAC</ti><ti>Předběžná podpora</ti><ti>libfaad2</ti>
+		</tr>
+		<tr>
 			<ti>AC3</ti><ti></ti><ti>a52dec</ti>
 		</tr>
 		<tr>
@@ -147,7 +153,7 @@ Podporované vstupní formáty a kodeky
 	<body><ul>
 	<p>
 	WMA vyžaduje vlastní nastavení multiplexace. Podívejte se na hodnotu blockalign na konzoli (obvykle 373 nebo 768).</p>
-	<p>Zadejte tuto hodnotu jako with n bytes packet v <c>File->Set mux options</c>.
+	<p>Zadejte tuto hodnotu jako Split in packets of n bytes v <c>File->AVI Muxer Options</c>.
 	</p>
 	</ul></body>
 </section>
@@ -176,6 +182,9 @@ Podporované vstupní formáty a kodeky
 	</p>
 	<p>Samozřejmě potřebujete příslušný audio kodek pokud chcete zvuk přehrát (MAD nebo a52dec).</p>
 	<p> Pomocí volby <c>Scan file for audio stream</c> můžete nechat Avidemux autodetekovat zvukové stopy, což může chvíli trvat.
+	</p>
+	<p>
+	MPEG TS bude považovaný za perfektní, nebude tedy žádná korekce zahozených nebo poškozených paketů. To znamená, že pokud váš zachycený stream není dokonalý, budete mít problém se synchronizací. V tom případě je lepší použít jiný nástroj jako MPlayer nebo transcode.
 	</p>
 	</ul></body>
 </section>

@@ -116,7 +116,7 @@ Tyto filtry jsou stejné jako normální filtry, ale produkují komprimovaný zv
 	<ul>
 	<p> Založeno na liblame. Zvolíte si bitrate a režim joint stereo nebo stereo. Mono se nastaví automaticky, je-li zdroj mono.
 	</p>
-	<p> Kóduje pouze v CBR módu. Jestli chcete variabilní bitrate (VBR), použijte raději LAME z příkazového řádku a výsledný MP3 soubor nastavte jako audio stopu. Nezapomeňte si přečíst sekci <uri link="./vbrmp3.xml.html">VBR MP3</uri>, jinak budete mít problémy... 
+	<p> Kóduje v režimech CBR i VBR.
 	</p>
 	</ul>
 	</body>

@@ -58,6 +58,9 @@ Nápověda a tipy pro instalaci Avidemuxu
 		<tr>
 			<ti>libvorbis</ti><ti>x</ti><ti>Vorbis enkodér/dekodér</ti><ti><uri>http://www.vorbis.org/</uri></ti>
 		</tr>
+		<tr>
+			<ti>FAAC/FAAD</ti><ti>x</ti><ti>AAC enkodér/dekodér</ti><ti><uri>http://www.audiocoding.com/</uri></ti>
+		</tr>
 
 		</table>
 	</body>

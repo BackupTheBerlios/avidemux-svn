@@ -21,7 +21,7 @@ Nahrávání z TV a export do SVCD, napsal Jens</abstract>
 Koupil jsem si Pinnacle PCTV Pro, která by měla být schopna zachytávat softwarem komprimované MPEG-2 video v DVD kvalitě. Z TV karty vede do zvukové karty audio kabel - externí nebo interní.
 </p>
  <p>
-Pro nahrávání v Linuxu se mi osvědčil program Romana Hochleitnera <uri link="http://frost.htu.tuwien.ac.at/%7Eroman/nuppelvideo/">NuppelVideo</uri>. U něj je důležitý údaj o duplikovaných (zkopírovaných) snímcích. Zkopírovaný snímek je vytvořen z předchozího snímku, pokud vypadne skutečný snímek z obrazu. To je potřeba k udržení synchronizace se zvukem. Na konci nahrávání uvidíte jak na tom jste. Pokud máte nula, jeden nebo dva duplikované snímky, máte skvělý zdroj pro další kroky. Pokud máte hodně zkopírovaných snímků (často mnoho pohromadě), máte problém se svým hardware nebo jste při nahrávání příliš intenzivně pracovali se svým systémem. ;-)
+ K nahrávání pod Linuxem se mi osvědčil program Romana Hochleitnera <uri link="http://frost.htu.tuwien.ac.at/%7Eroman/nuppelvideo/">NuppelVideo</uri>. U něj je důležitý údaj o duplikovaných (zkopírovaných) snímcích. Zkopírovaný snímek je vytvořen z předchozího snímku, pokud vypadne skutečný snímek z obrazu. To je potřeba k udržení synchronizace se zvukem. Na konci nahrávání uvidíte jak na tom jste. Pokud máte nula, jeden nebo dva duplikované snímky, máte skvělý zdroj pro další kroky. Pokud máte hodně zkopírovaných snímků (často mnoho pohromadě), máte problém se svým hardware nebo jste při nahrávání příliš intenzivně pracovali se svým systémem. ;-)
 </p>
  <p>
  Budete také potřebovat nastavit dvě volby jaderného modulu bttv. To můžete udělat v souboru /etc/modules.conf:
@@ -35,7 +35,7 @@ options bttv fieldnr=1 gbuffers=2
 alias char-major-81 bttv
 </pre></ul>
 <p>
- Nahrávací program nuvrec vytvoří jeden nebo více výstupních souborů, každý o velikosti 2 GB. Protože mi to moc nevyhovuje, napsal jsem tento malý <uri link="NuppelVideo-jsc2G.patch">patch</uri>. S přepínačem "-2" docílíte původního chování, bez tohoto přepínače bude výstupem jeden velký soubor.
+ Nahrávací program nuvrec vytvoří jeden nebo více výstupních souborů, každý o velikosti 2 GB. Protože mi to moc nevyhovuje, napsal jsem tento malý <uri link="../en/NuppelVideo-jsc2G.patch">patch</uri>. S přepínačem "-2" docílíte původního chování, bez tohoto přepínače bude výstupem jeden velký soubor.
  </p>
  <p>
  nuvrec ukládá video komprimované kodekem RTjpeg - je to menší bratříček formátu MJPEG. Kanál si musíte zvolit jiným programem (xawtv), ukončit jej a spustit nuvrec. Kvalita přes koaxiální kabel není dobrá. Takže používám kompozitní vstup na své TV kartě a linkový vstup na zvukové kartě Ensoniq ES1371. Pro použití vždy stejného audio profilu jsem vytvořil speciální soubor.
@@ -59,7 +59,7 @@ Podle toho jaký máte systém možná budete chtít zakomentovat OSS a odstrani
 # načte zvukový profil nahrávání videa
 #
 #/usr/sbin/alsactl -f /etc/asound.composite_video restore       # ALSA
-/usr/bin/aumix     -f /etc/<uri link="aumix.composite_video">aumix.composite_video</uri> -L &gt;/dev/null  
+/usr/bin/aumix     -f /etc/<uri link="../en/aumix.composite_video">aumix.composite_video</uri> -L &gt;/dev/null  
 # OSS
 # spustí nahrávání
 nuvrec -H 576 -W 720 -a 32768 -N -S 1 video.nuv
@@ -157,7 +157,7 @@ Otevřete vygenerovaný index.</p>
 	</p>
 	Poslední krok: kódování! <c>Audio->Save Audio</c>: video.mp2.
 	
-	Nebo můžete použít interní knihovnu tooLAME, kvalita je obecně lepší.	
+	Nebo můžete použít interní knihovnu tooLAME, kvalita je obecně lepší.
 
 </body>
 </section>
@@ -185,7 +185,6 @@ Otevřete vygenerovaný index.</p>
 <p>V obou případech nastavte maximální bitrate na 2300, abychom vyhověli specifikaci SVCD. Nezapomeňte nastavit video režim na Process!</p>
 
 <p><c>File->Save Video</c>: video.m2v</p>
-   
  
 
 </body>
@@ -204,7 +203,7 @@ Otevřete vygenerovaný index.</p>
    </li>
 </ul>
  Protože jsem měl nainstalované MJPEG Tools, použil jsem mplex:
-  
+ 
 <ul><pre>$ mplex -f 4 -V -s 2324 -p 1 -o video.mpg video.mp2 video.m2v</pre></ul>
  Máte-li nainstalovaný transcode, můžete zkusit:
  
@@ -236,25 +235,99 @@ vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highes
 </pre></ul>
  měli byste použít tcmplex pro multiplexaci <b>nebo</b> vcdimager verze 
 &gt;= 0.7.
- 
+</p>
+
+<p>
  <b>Budoucnost:
  </b>
- vcdimager také obsahuje dva nástroje zvané vcdxgen a vcdxbuild. 
-   
-<ul><pre>$;./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
-(Super) VideoCD xml description created successfully as `videocd.xml'
-$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild videocd.xml
+ vcdimager také obsahuje dva nástroje zvané vcdxgen a vcdxbuild.
+    
+<ul><pre>$ ./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
+(Super) VideoCD xml description created successfully as `videocd.xml'</pre></ul>
+</p>
+
+<p>
+XML soubor vytvořený pomocí vcdxgen může být změněn, aby podporoval kapitoly. K tomu upravte řadu položek v souboru videocd.xml. Změňte
+</p>
+<ul><pre>  &lt;sequence-items&gt;
+    &lt;sequence-item src="video.mpg" id="sequence-00"/&gt;
+  &lt;sequence-items&gt;</pre></ul>
+
+na
+
+<ul><pre>  &lt;sequence-items&gt;
+    &lt;sequence-item src="video.mpg" id="sequence-00"&gt;
+      &lt;entry id="chapter1"&gt;0.00&lt;/entry&gt;
+      &lt;entry id="chapter2"&gt;15.00&lt;/entry&gt;
+      &lt;entry id="chapter3"&gt;30.00&lt;/entry&gt;
+    &lt;/sequence-item&gt;
+  &lt;sequence-items&gt;</pre></ul>
+<p>
+Čísla ve značkách entry jsou sekundy od začátku stopy. K výsledku podobného kapitolám přepište pbc sekci z
+</p>
+<ul><pre>
+  &lt;pbc&gt;
+    &lt;playlist id="lid-000"&gt;
+      &lt;next ref="lid-end"/&gt;
+      &lt;return ref="lid-end"/&gt;
+      &lt;wait&gt;5&lt;/wait&gt;
+      &lt;autowait&gt;0&lt;/autowait&gt;
+      &lt;play-item ref="sequence-00"/&gt;
+    &lt;/playlist&gt;
+    &lt;endlist id="lid-end" rejected="true"/&gt;
+  &lt;/pbc&gt;
+</pre></ul>
+
+na
+
+<ul><pre>
+  &lt;pbc&gt;
+    &lt;selection id="select-chapter1"&gt;
+      &lt;next ref="select-chapter2"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter1"/&gt;
+    &lt;/selection&gt;
+    &lt;selection id="select-chapter2"&gt;
+      &lt;prev ref="select-chapter1"/&gt;
+      &lt;next ref="select-chapter3"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter2"/&gt;
+    &lt;/selection&gt;
+    &lt;selection id="select-chapter3"&gt;
+      &lt;prev ref="select-chapter2"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter3"/&gt;
+    &lt;/selection&gt;
+    &lt;endlist id="end" rejected="true"/&gt;
+  &lt;/pbc&gt;
+</pre></ul>
+<p>
+Popis XML značek je na <uri link="http://www.geocities.com/medinotes/vcd/general_xml_structure.html">http://www.geocities.com/medinotes/vcd/general_xml_structure.html</uri>.
+</p>
+<p>
+Měli byste si přečíst výborný dokument <uri link="http://www.geocities.com/medinotes/vcd/chapters.html">http://www.geocities.com/medinotes/vcd/chapters.html</uri>, abyste se dozvěděli, proč VCD/SVCD kapitoly nikdy nebudou fungovat jako DVD kapitoly!!!
+
+<ul><pre>
+$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild video.xml
 ++ WARN: initializing libvcd 0.7.13 [linux-gnu/i686]
 ++ WARN:  
 ++ WARN:  this is the UNSTABLE development branch!
 ++ WARN:  use only if you know what you are doing
-++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information++ 
-WARN:     INFO: scanning mpeg sequence item #0 for scanpoints...   
-INFO: writing track 1 (ISO9660)...   
-INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/224kbps/stereo ...   
-INFO: finished ok, image created with 1173 sectors [00:15.48]
+++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information
+++ WARN:  
+   INFO: scanning mpeg sequence item #0 for scanpoints...
+++ WARN: sequence 'sequence-00' is not reachable by PBC
+   INFO: writing track 1 (ISO9660)...
+   INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/128kbps/stereo ...
+   INFO: finished ok, image created with 336057 sectors [74:40.57]
 </pre></ul>
-  </p>
+</p>
   </body>
  </section>
  </chapter>
@@ -262,15 +335,17 @@ INFO: finished ok, image created with 1173 sectors [00:15.48]
  <title>Vypálení image</title>
  <section>
 <body>
-<ul><pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue</pre></ul>
-Samozřejmě sg0 nahraďte vaším skutečným zařízením.
+<ul><pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue
+nebo
+$ cdrdao write --device <i>2,0,0</i> --driver generic-mmc -n videocd.cue</pre></ul>
+Samozřejmě nahraďte sg0 nebo 2,0,0 vaším skutečným zařízením.
 </body>
 </section></chapter>
 <chapter>
 <title>Zpětná extrakce MPEG souboru</title>
 <section>
 <body>
- Někdy můžete chtít získat zpět původní MPEG soubory z SVCD.
+Někdy můžete chtít získat zpět "původní" MPEG soubory z SVCD.
  
  Z disku:
  
@@ -291,7 +366,7 @@ INFO: avseq01.mpg: 450 -&gt; 1260</pre></ul>
  Máte-li s výsledným SVCD problémy, můžete zkusit jeden z následujících tipů:
  <ul>
  <li>Zkuste vcdimager demo  <uri link="http://www.vcdimager.org/pub/vcdimager/examples/test_svcd/">image</uri></li>
- <li>Zkuste mplex nebo tcmplex </li>
+ <li>Použijte mplex nebo tcmplex </li>
  <li>parametry programu vcdimager: </li>
  <pre>
      --broken-svcd-mode

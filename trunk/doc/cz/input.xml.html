@@ -24,8 +24,12 @@
 <td bgcolor="#ddddff" class="tableinfo">®ádné, podporováno je více zvukových stop</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">MPEG-1/2</td>
-<td bgcolor="#ddddff" class="tableinfo">Elementary stream nebo program stream (vèetnì VOB)</td>
+			<td bgcolor="#ddddff" class="tableinfo">OpenDML</td>
+<td bgcolor="#ddddff" class="tableinfo">®ádné, podporováno je více zvukových stop</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-1, MPEG-2</td>
+<td bgcolor="#ddddff" class="tableinfo">Elementary stream, program stream (vèetnì VOB), transport stream (DVB)</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">NuppelVideo</td>
@@ -45,11 +49,11 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MOV/3GPP/MPEG-4</td>
-<td bgcolor="#ddddff" class="tableinfo">Jednoduchý 3GPP/MP4/MOV soubor. Komprimované hlavièky nejsou podporovány</td>
+<td bgcolor="#ddddff" class="tableinfo">Jednoduchý 3GPP/MP4/MOV soubor, komprimované hlavièky nejsou podporovány</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">OGM</td>
-<td bgcolor="#ddddff" class="tableinfo">Podporován je pouze zvuk ve formátu Ogg Vorbis, vèetnì více zvukových stop</td>
+<td bgcolor="#ddddff" class="tableinfo">O ¾ádném nevím</td>
 		</tr>
 		</table>
 		</ul>
@@ -128,6 +132,11 @@
 <td bgcolor="#ddddff" class="tableinfo">MAD</td>
 		</tr>
 		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AAC</td>
+<td bgcolor="#ddddff" class="tableinfo">Pøedbì¾ná podpora</td>
+<td bgcolor="#ddddff" class="tableinfo">libfaad2</td>
+		</tr>
+		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
 <td bgcolor="#ddddff" class="tableinfo"></td>
 <td bgcolor="#ddddff" class="tableinfo">a52dec</td>
@@ -167,7 +176,7 @@
 <ul>
 	<p>
 	WMA vy¾aduje vlastní nastavení multiplexace. Podívejte se na hodnotu blockalign na konzoli (obvykle 373 nebo 768).</p>
-	<p>Zadejte tuto hodnotu jako with n bytes packet v <span class="code">File-&gt;Set mux options</span>.
+	<p>Zadejte tuto hodnotu jako Split in packets of n bytes v <span class="code">File-&gt;AVI Muxer Options</span>.
 	</p>
 	</ul>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap5">5.</a></span>Specifika formátù</p>
@@ -192,6 +201,9 @@
 	</p>
 	<p>Samozøejmì potøebujete pøíslu¹ný audio kodek pokud chcete zvuk pøehrát (MAD nebo a52dec).</p>
 	<p> Pomocí volby <span class="code">Scan file for audio stream</span> mù¾ete nechat Avidemux autodetekovat zvukové stopy, co¾ mù¾e chvíli trvat.
+	</p>
+	<p>
+	MPEG TS bude pova¾ovaný za perfektní, nebude tedy ¾ádná korekce zahozených nebo po¹kozených paketù. To znamená, ¾e pokud vá¹ zachycený stream není dokonalý, budete mít problém se synchronizací. V tom pøípadì je lep¹í pou¾ít jiný nástroj jako MPlayer nebo transcode.
 	</p>
 	</ul>
 <p class="secthead"><a name="doc_chap5_sect2">NuppelVideo </a></p>

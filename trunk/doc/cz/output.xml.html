@@ -32,6 +32,10 @@
 <td bgcolor="#ddddff" class="tableinfo">Audio+video, vhodné pro vytváøení DVD</td>
 		</tr>
 		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">OGM</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio musí být MP3, AC3 nebo Vorbis (CBR/VBR)</td>
+		</tr>
+		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
 <td bgcolor="#ddddff" class="tableinfo">Raw audio nebo video. Napøíklad raw MPEG-4 stream</td>
 		</tr>
@@ -52,7 +56,7 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">XviD</td>
-<td bgcolor="#ddddff" class="tableinfo">Dobrý, rychlý, pøesný, spousta mo¾ností.</td>
+<td bgcolor="#ddddff" class="tableinfo">Dobrý, rychlý, pøesný, spousta mo¾ností</td>
 <td bgcolor="#ddddff" class="tableinfo">XviD 0.9 nebo 1.x</td>
 		</tr>
 		<tr>
@@ -76,7 +80,7 @@
 <td bgcolor="#ddddff" class="tableinfo">Vestavìný</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">VCD/DVD/SVCD</td>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/SVCD/DVD</td>
 <td bgcolor="#ddddff" class="tableinfo">Dobrá kvalita, pomalé</td>
 <td bgcolor="#ddddff" class="tableinfo">mpeg2enc, vestavìný</td>
 		</tr>
@@ -85,8 +89,13 @@
 <td bgcolor="#ddddff" class="tableinfo">Rychlé. Pou¾ívá libavcodec, není úplnì 100% kompatibilní</td>				<td bgcolor="#ddddff" class="tableinfo">Vestavìný</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">XSVCD</td>
+			<td bgcolor="#ddddff" class="tableinfo">DVD (libavcodec)</td>
 <td bgcolor="#ddddff" class="tableinfo">Rychlé. Pou¾ívá libavcodec, není úplnì 100% kompatibilní</td>				<td bgcolor="#ddddff" class="tableinfo">Vestavìný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Snow (libavcodec)</td>
+<td bgcolor="#ddddff" class="tableinfo">Pomalý, zajímavý, experimentální</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavìný</td>
 		</tr>
 		</table>
 		
@@ -121,15 +130,14 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
-<td bgcolor="#ddddff" class="tableinfo">Pou¾ití roury do tooLAME, opravdu dobré!</td>
-<td bgcolor="#ddddff" class="tableinfo">tooLAME</td>
-		</tr>
-		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
-<td bgcolor="#ddddff" class="tableinfo">Pou¾ití libtoolame, stále s chybami</td>
+<td bgcolor="#ddddff" class="tableinfo">Pou¾ití libtoolame, s chybami</td>
 <td bgcolor="#ddddff" class="tableinfo">Vestavìný (libtoolame)</td>
 		</tr>
-
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AAC</td>
+<td bgcolor="#ddddff" class="tableinfo">Pou¾ití FAAC</td>
+<td bgcolor="#ddddff" class="tableinfo">FAAC</td>
+		</tr>
 
 		</table>
 	</ul>
@@ -147,13 +155,14 @@
 	</p>
 	<p>Potom pou¾ijte mplex nebo tcmplex k multiplexaci tìchto dvou souborù a získání øádného .mpg.
 	</p>
-	<p>XVCD export pou¾ívá MPEG-1 kodek z knihovny libavcodec, XSVCD pou¾ívá libavcodec MPEG-2. Nedoporuèuji je k vytváøení VCD/SVCD/DVD (ov¹em zakázat vám to nemù¾u).
-	</p>
 	</ul>
 <p class="secthead"><a name="doc_chap4_sect3">MPEG (2) </a></p>
 <ul>
-	<p>Pokud se pou¾ije <span class="code">File-&gt;Save as DVD PS</span>, ulo¾í se MPEG-2 PS stream (vèetnì NAV packetù). To funguje v re¾imech Copy i Process, chcete-li napøíklad upravit nahrávku z PVR x50. V tom pøípadì se pøepoèítají èasové znaèky GOP, aby se pøede¹lo skokùm v èasovém kódu.
+	<p>Kdy¾ se pou¾ije <span class="code">File-&gt;Save as DVD PS</span>, ulo¾í se MPEG-2 PS stream (vèetnì NAV paketù). To funguje v re¾imech Copy i Process, chcete-li napøíklad upravit nahrávku z PVR x50. V tom pøípadì se pøepoèítají èasové znaèky GOP, aby se pøede¹lo skokùm v èasovém kódu.
 	</p>
+	<p>Pokud ukládáte pomocí Save Video, musíte zpracovat video a audio zvlá¹» a pak provést jejich multiplexaci.
+	</p>
+	<p>S interním tooLAME jsou problémy, FFmpeg audio je funkèní, ale s hor¹í kvalitou.</p>
 	</ul>
 <p class="secthead"><a name="doc_chap4_sect4">Raw </a></p>
 <ul>

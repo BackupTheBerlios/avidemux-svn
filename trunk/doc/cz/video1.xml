@@ -58,7 +58,7 @@ Video filtry: úprava obrazu
 	<ul>
 		<li>Bilinear: Méně ostrý, ale snadněji komprimovatelný</li>
 		<li>Bicubic: Zachovává ostrost, hůře komprimovatelný (například snáze vede ke kostičkování u SVCD)</li>
-		<li>Lanczos: Dává dobrý výsledek</li>
+		<li>Lanczos: Těžko popsat, velmi ostrý</li>
 	</ul>
 	Položky Source (zdroj) a Destination (cíl) jsou důležité. Pokud např. převádíte DVD do AVI, zdroj je 4:3 nebo 16:9 a cíl je 1:1. A naopak u převodu z AVI na SVCD.
 	</p>

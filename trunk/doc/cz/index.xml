@@ -31,14 +31,14 @@ Obsah
 	<body>
 	<ul>
 	<p>	<uri link="./guitour.xml.html">Prostředí programu</uri></p>	
-	<p>	<uri link="./edl.xml.html">EDL soubory</uri></p>
 	<p>	<uri link="./cutting.xml.html">Střih</uri></p>		
 	<p>	<uri link="./vbrmp3.xml.html">VBR MP3</uri></p>
 	<p>	<uri link="./bframe.xml.html">B snímky</uri></p>
 	<p>	<uri link="./dualaudio.xml.html">Duální zvuk v AVI</uri></p>
 	<p>	<uri link="./mpegcutter.xml.html">Střih souborů MPEG</uri></p>
+	<p>	<uri link="./edl.xml.html">EDL soubory</uri></p>
 	<p>	<uri link="./command.xml.html">Spouštění Avidemuxu z příkazové řádky</uri></p>
-	<p>	<uri link="./dvd.xml.html">Vytvoření DVD</uri></p>
+	<p>	<uri link="./script.xml.html">Skriptování</uri></p>
 	</ul>
 	</body>
 </section>
@@ -57,9 +57,11 @@ Obsah
 	<section>	
 	<body>
 	<ul>
-	<p>	<uri link="./dvd2divx.xml.html">Převod DVD do AVI</uri></p>	
+	<p>	<uri link="./dvd2avi.xml.html">Převod DVD do AVI/MPEG-4</uri></p>
+	<p>	<uri link="./standalone.xml.html">Oprava videa pro stolní MPEG-4 přehrávače</uri></p>
 	<p>	<uri link="./divx2vcd.xml.html">Převod AVI na VCD</uri></p>	
 	<p>	<uri link="./capture2SVCD.xml.html">Převod nahrávek na SVCD</uri></p>
+	<p>	<uri link="./DVD/index.html">Vytvoření DVD menu</uri></p>
 	</ul>
 	</body>
 	</section>
