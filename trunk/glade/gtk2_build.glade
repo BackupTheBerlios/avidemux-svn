@@ -41,7 +41,7 @@
 		      <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1971">
+			<widget class="GtkImage" id="image2003">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-open</property>
 			  <property name="icon_size">1</property>
@@ -61,7 +61,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1972">
+			<widget class="GtkImage" id="image2004">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-execute</property>
 			  <property name="icon_size">1</property>
@@ -82,7 +82,7 @@
 		      <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1973">
+			<widget class="GtkImage" id="image2005">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-add</property>
 			  <property name="icon_size">1</property>
@@ -122,7 +122,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="unpacked">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save un-packed mpeg4 video</property>
+			      <property name="label" translatable="yes">Save _Unpacked MPEG-4 Video...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -228,7 +228,7 @@
 			      <accelerator key="O" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1974">
+				<widget class="GtkImage" id="image2006">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-open</property>
 				  <property name="icon_size">1</property>
@@ -248,7 +248,7 @@
 			      <property name="use_underline">True</property>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1975">
+				<widget class="GtkImage" id="image2007">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save-as</property>
 				  <property name="icon_size">1</property>
@@ -269,7 +269,7 @@
 			      <accelerator key="S" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1976">
+				<widget class="GtkImage" id="image2008">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save</property>
 				  <property name="icon_size">1</property>
@@ -303,7 +303,7 @@
 		      <accelerator key="I" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1977">
+			<widget class="GtkImage" id="image2009">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-dialog-question</property>
 			  <property name="icon_size">1</property>
@@ -323,7 +323,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1978">
+			<widget class="GtkImage" id="image2010">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-quit</property>
 			  <property name="icon_size">1</property>
@@ -391,7 +391,7 @@
 		      <accelerator key="6" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1979">
+			<widget class="GtkImage" id="image2011">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-go-forward</property>
 			  <property name="icon_size">1</property>
@@ -412,7 +412,7 @@
 		      <accelerator key="4" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1980">
+			<widget class="GtkImage" id="image2012">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -433,7 +433,7 @@
 		      <accelerator key="8" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1981">
+			<widget class="GtkImage" id="image2013">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-last</property>
 			  <property name="icon_size">1</property>
@@ -454,7 +454,7 @@
 		      <accelerator key="2" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1982">
+			<widget class="GtkImage" id="image2014">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-first</property>
 			  <property name="icon_size">1</property>
@@ -491,7 +491,7 @@
 		      <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1983">
+			<widget class="GtkImage" id="image2015">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-jump-to</property>
 			  <property name="icon_size">1</property>
@@ -525,7 +525,7 @@
 		      <accelerator key="X" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1984">
+			<widget class="GtkImage" id="image2016">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-cut</property>
 			  <property name="icon_size">1</property>
@@ -546,7 +546,7 @@
 		      <accelerator key="C" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1985">
+			<widget class="GtkImage" id="image2017">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-copy</property>
 			  <property name="icon_size">1</property>
@@ -576,7 +576,7 @@
 		      <accelerator key="Delete" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1986">
+			<widget class="GtkImage" id="image2018">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-remove</property>
 			  <property name="icon_size">1</property>
@@ -650,7 +650,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1987">
+			<widget class="GtkImage" id="image2019">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -892,7 +892,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="videoencoder">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Video encoder</property>
+		      <property name="label" translatable="yes">_Video Encoder</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="F3" modifiers="GDK_SHIFT_MASK" signal="activate"/>
 		    </widget>
@@ -901,7 +901,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="audio_encoder1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Audio encoder</property>
+		      <property name="label" translatable="yes">_Audio Encoder</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="F4" modifiers="GDK_SHIFT_MASK" signal="activate"/>
 		    </widget>
@@ -959,6 +959,71 @@
 		  <property name="label">gtk-save</property>
 		  <property name="use_stock">True</property>
 		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		</widget>
+	      </child>
+
+	      <child>
+		<widget class="GtkButton" id="buttonRecent">
+		  <property name="visible">True</property>
+		  <property name="tooltip" translatable="yes">Recent files</property>
+		  <property name="can_default">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+
+		  <child>
+		    <widget class="GtkAlignment" id="alignment10">
+		      <property name="visible">True</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xscale">0</property>
+		      <property name="yscale">0</property>
+
+		      <child>
+			<widget class="GtkHBox" id="hbox13">
+			  <property name="visible">True</property>
+			  <property name="homogeneous">False</property>
+			  <property name="spacing">2</property>
+
+			  <child>
+			    <widget class="GtkImage" id="image633">
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-open</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="padding">0</property>
+			      <property name="expand">False</property>
+			      <property name="fill">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label14">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">Recent</property>
+			      <property name="use_underline">True</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="padding">0</property>
+			      <property name="expand">False</property>
+			      <property name="fill">False</property>
+			    </packing>
+			  </child>
+			</widget>
+		      </child>
+		    </widget>
+		  </child>
 		</widget>
 	      </child>
 
@@ -1028,67 +1093,30 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkButton" id="buttonRecent">
+		<widget class="GtkToggleButton" id="togglebuttonPreview">
 		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">Recent files</property>
-		  <property name="can_default">True</property>
+		  <property name="tooltip" translatable="yes">Open a preview window</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Preview [F7]</property>
+		  <property name="use_underline">True</property>
 		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="active">False</property>
+		  <property name="inconsistent">False</property>
+		  <accelerator key="F7" modifiers="0" signal="clicked"/>
+		</widget>
+	      </child>
 
-		  <child>
-		    <widget class="GtkAlignment" id="alignment10">
-		      <property name="visible">True</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xscale">0</property>
-		      <property name="yscale">0</property>
-
-		      <child>
-			<widget class="GtkHBox" id="hbox13">
-			  <property name="visible">True</property>
-			  <property name="homogeneous">False</property>
-			  <property name="spacing">2</property>
-
-			  <child>
-			    <widget class="GtkImage" id="image633">
-			      <property name="visible">True</property>
-			      <property name="stock">gtk-open</property>
-			      <property name="icon_size">4</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			    </widget>
-			    <packing>
-			      <property name="padding">0</property>
-			      <property name="expand">False</property>
-			      <property name="fill">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkLabel" id="label14">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Recent</property>
-			      <property name="use_underline">True</property>
-			      <property name="use_markup">False</property>
-			      <property name="justify">GTK_JUSTIFY_LEFT</property>
-			      <property name="wrap">False</property>
-			      <property name="selectable">False</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			    </widget>
-			    <packing>
-			      <property name="padding">0</property>
-			      <property name="expand">False</property>
-			      <property name="fill">False</property>
-			    </packing>
-			  </child>
-			</widget>
-		      </child>
-		    </widget>
-		  </child>
+	      <child>
+		<widget class="GtkToggleButton" id="toggleOutput">
+		  <property name="visible">True</property>
+		  <property name="tooltip" translatable="yes">Display output video (playback only)</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Output [F8]</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="active">False</property>
+		  <property name="inconsistent">False</property>
+		  <accelerator key="F8" modifiers="0" signal="clicked"/>
 		</widget>
 	      </child>
 	    </widget>
@@ -1121,117 +1149,6 @@
 		  <property name="spacing">0</property>
 
 		  <child>
-		    <widget class="GtkVBox" id="vbox2">
-		      <property name="visible">True</property>
-		      <property name="homogeneous">False</property>
-		      <property name="spacing">0</property>
-
-		      <child>
-			<widget class="GtkButton" id="buttonFilters">
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Video filters</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">V Filter  [F1]</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			  <accelerator key="F1" modifiers="0" signal="clicked"/>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkButton" id="buttonAudioFilter">
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Audio filters</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">A Filter  [F2]</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			  <accelerator key="F2" modifiers="0" signal="clicked"/>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkToggleButton" id="togglebuttonPreview">
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Open a preview window</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Preview   [F7]</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			  <property name="active">False</property>
-			  <property name="inconsistent">False</property>
-			  <accelerator key="F7" modifiers="0" signal="clicked"/>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkToggleButton" id="toggleOutput">
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Display output video (playback only)</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Output    [F8]</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			  <property name="active">False</property>
-			  <property name="inconsistent">False</property>
-			  <accelerator key="F8" modifiers="0" signal="clicked"/>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkHSeparator" id="hseparator1">
-			  <property name="visible">True</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
-			<widget class="GtkButton" id="buttonBitrate">
-			  <property name="visible">True</property>
-			  <property name="can_focus">True</property>
-			  <property name="label" translatable="yes">Bitrate Calc</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-		    </widget>
-		    <packing>
-		      <property name="padding">0</property>
-		      <property name="expand">True</property>
-		      <property name="fill">True</property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkVBox" id="vbox6">
 		      <property name="visible">True</property>
 		      <property name="homogeneous">False</property>
@@ -1242,7 +1159,7 @@
 			  <property name="visible">True</property>
 			  <property name="label_xalign">0</property>
 			  <property name="label_yalign">0.5</property>
-			  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+			  <property name="shadow_type">GTK_SHADOW_NONE</property>
 
 			  <child>
 			    <widget class="GtkVBox" id="vbox7">
@@ -1253,7 +1170,7 @@
 			      <child>
 				<widget class="GtkOptionMenu" id="optionVCodec">
 				  <property name="visible">True</property>
-				  <property name="can_focus">True</property>
+				  <property name="can_default">True</property>
 				  <property name="history">-1</property>
 				</widget>
 				<packing>
@@ -1271,6 +1188,38 @@
 				  <property name="use_underline">True</property>
 				  <property name="relief">GTK_RELIEF_NORMAL</property>
 				  <accelerator key="F3" modifiers="0" signal="clicked"/>
+				</widget>
+				<packing>
+				  <property name="padding">0</property>
+				  <property name="expand">False</property>
+				  <property name="fill">False</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="GtkButton" id="buttonBitrate">
+				  <property name="visible">True</property>
+				  <property name="can_focus">True</property>
+				  <property name="label" translatable="yes">Bitrate Calc    </property>
+				  <property name="use_underline">True</property>
+				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				</widget>
+				<packing>
+				  <property name="padding">0</property>
+				  <property name="expand">False</property>
+				  <property name="fill">False</property>
+				</packing>
+			      </child>
+
+			      <child>
+				<widget class="GtkButton" id="buttonFilters">
+				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Video filters</property>
+				  <property name="can_focus">True</property>
+				  <property name="label" translatable="yes">V Filter    [F1]</property>
+				  <property name="use_underline">True</property>
+				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <accelerator key="F1" modifiers="0" signal="clicked"/>
 				</widget>
 				<packing>
 				  <property name="padding">0</property>
@@ -1303,16 +1252,16 @@
 			  <child>
 			    <widget class="GtkLabel" id="Video">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Video</property>
+			      <property name="label" translatable="yes">&lt;b&gt;Video&lt;/b&gt;</property>
 			      <property name="use_underline">False</property>
-			      <property name="use_markup">False</property>
+			      <property name="use_markup">True</property>
 			      <property name="justify">GTK_JUSTIFY_LEFT</property>
 			      <property name="wrap">False</property>
 			      <property name="selectable">False</property>
 			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
+			      <property name="yalign">0.49</property>
 			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
+			      <property name="ypad">3</property>
 			    </widget>
 			    <packing>
 			      <property name="type">label_item</property>
@@ -1327,22 +1276,11 @@
 		      </child>
 
 		      <child>
-			<widget class="GtkHSeparator" id="hseparator2">
-			  <property name="visible">True</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-
-		      <child>
 			<widget class="GtkFrame" id="frame3">
 			  <property name="visible">True</property>
 			  <property name="label_xalign">0</property>
 			  <property name="label_yalign">0.5</property>
-			  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+			  <property name="shadow_type">GTK_SHADOW_NONE</property>
 
 			  <child>
 			    <widget class="GtkVBox" id="vbox8">
@@ -1380,6 +1318,23 @@
 			      </child>
 
 			      <child>
+				<widget class="GtkButton" id="buttonAudioFilter">
+				  <property name="visible">True</property>
+				  <property name="tooltip" translatable="yes">Audio filters</property>
+				  <property name="can_focus">True</property>
+				  <property name="label" translatable="yes">A Filter    [F2]</property>
+				  <property name="use_underline">True</property>
+				  <property name="relief">GTK_RELIEF_NORMAL</property>
+				  <accelerator key="F2" modifiers="0" signal="clicked"/>
+				</widget>
+				<packing>
+				  <property name="padding">0</property>
+				  <property name="expand">False</property>
+				  <property name="fill">False</property>
+				</packing>
+			      </child>
+
+			      <child>
 				<widget class="GtkToggleButton" id="togglebuttonAudio">
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Process audio</property>
@@ -1404,16 +1359,16 @@
 			  <child>
 			    <widget class="GtkLabel" id="Audio">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Audio</property>
+			      <property name="label" translatable="yes">&lt;b&gt;Audio&lt;/b&gt;</property>
 			      <property name="use_underline">False</property>
-			      <property name="use_markup">False</property>
+			      <property name="use_markup">True</property>
 			      <property name="justify">GTK_JUSTIFY_LEFT</property>
 			      <property name="wrap">False</property>
 			      <property name="selectable">False</property>
 			      <property name="xalign">0.5</property>
 			      <property name="yalign">0.5</property>
 			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
+			      <property name="ypad">3</property>
 			    </widget>
 			    <packing>
 			      <property name="type">label_item</property>
@@ -1429,7 +1384,7 @@
 		    </widget>
 		    <packing>
 		      <property name="padding">0</property>
-		      <property name="expand">True</property>
+		      <property name="expand">False</property>
 		      <property name="fill">False</property>
 		    </packing>
 		  </child>
@@ -1446,7 +1401,7 @@
 	  <child>
 	    <widget class="GtkDrawingArea" id="guiDrawing">
 	      <property name="width_request">512</property>
-	      <property name="height_request">280</property>
+	      <property name="height_request">288</property>
 	      <property name="visible">True</property>
 	      <property name="sensitive">False</property>
 	    </widget>
