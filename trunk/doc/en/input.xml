@@ -23,6 +23,9 @@ Supported input formats / codecs
 			<ti>Avi</ti><ti>None, multiple audio tracks supported</ti>
 		</tr>
 		<tr>
+			<ti>OpenDML</ti><ti>None, multiple audio tracks supported</ti>
+		</tr>
+		<tr>
 			<ti>Mpeg1/2</ti><ti>Elementary stream, program stream (including vob), transport stream (dvb)</ti>
 		</tr>
 		<tr>
@@ -41,7 +44,7 @@ Supported input formats / codecs
 			<ti>Mov/3GP/Mpeg4</ti><ti>Simple 3gp/MP4/mov file. Compressed header not supported</ti>
 		</tr>
 		<tr>
-			<ti>Ogm</ti><ti>Only audio in ogg/vorbis , mp3 and AC3 is supported, multiple audio supported</ti>
+			<ti>Ogm</ti><ti>None i' aware of</ti>
 		</tr>
 		</table>
 		</ul></body>

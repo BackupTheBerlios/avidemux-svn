@@ -29,7 +29,7 @@ Output format
 			<ti>Mpeg2PS</ti><ti>Audio+Video, suitable to DVD authoring</ti>
 		</tr>
 		<tr>
-			<ti>OGM</ti><ti>Audio track must be MP3 or AC3 CBR</ti>
+			<ti>OGM</ti><ti>Audio track must be MP3, AC3 or Vorbis (CBR/VBR)</ti>
 		</tr>
 		<tr>
 			<ti>Raw</ti><ti>Stripped audio or video. For example raw mpeg4 stream</ti>
@@ -71,7 +71,10 @@ Output format
 			<ti>XVCD</ti><ti>Fast. lavcodec based, somehow not 100% compliant</ti>				<ti>Bundled</ti>
 		</tr>
 		<tr>
-			<ti>XSVCD</ti><ti>Fast, lavcodec based, somehow not 100% compliant</ti>				<ti>Bundled</ti>
+			<ti>DVD(lavcodec)</ti><ti>Fast, lavcodec based, somehow not 100% compliant</ti>				<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Snow(lavcodec)</ti><ti>Slow, interesting, experimental</ti><ti>Bundled</ti>
 		</tr>
 		</table>
 		
@@ -90,7 +93,7 @@ Output format
 			<ti>Uncompressed</ti><ti>Big</ti><ti></ti>
 		</tr>
 		<tr>
-			<ti>MP3</ti><ti>Good quality, CBR only</ti><ti>liblame</ti>
+			<ti>MP3</ti><ti>Good quality, CBR or VBR</ti><ti>liblame</ti>
 		</tr>
 		<tr>
 			<ti>MP2</ti><ti>CBR only, compliant ?</ti><ti>Bundled(lavcodec)</ti>
@@ -98,13 +101,13 @@ Output format
 		<tr>
 			<ti>AC3</ti><ti>CBR only, compliant ?</ti><ti>Bundled(lavcodec)</ti>
 		</tr>
+		
 		<tr>
-			<ti>MP2</ti><ti>using pipe to toolame , really good !</ti><ti>Toolame</ti>
+			<ti>MP2</ti><ti>Using libtoolame, still buggy ?</ti><ti>Bundled(Libtoolame)</ti>
 		</tr>
 		<tr>
-			<ti>MP2</ti><ti>Using libtoolame, still buggy</ti><ti>Bundled(Libtoolame)</ti>
+			<ti>AAC</ti><ti>Using faac</ti><ti>Bundled(Libtoolame)</ti>
 		</tr>
-
 
 		</table>
 	</ul></body>
@@ -128,8 +131,7 @@ Output format
 	</p>
 	<p>Then use mplex or tcmplex to multiplex the 2 files and get a proper .mpg
 	</p>
-	<p>The XVCD export used lavcodec mpeg1 codec, the XSVCD uses lavcodec mpeg2 codec. I do not recommend using them to do VCD/SVCD/DVD (but it is a free country here).
-	</p>
+	
 	</ul></body>
 </section>
 <section>

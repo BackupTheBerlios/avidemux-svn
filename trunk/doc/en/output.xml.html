@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">OGM</td>
-<td bgcolor="#ddddff" class="tableinfo">Audio track must be MP3 or AC3 CBR</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio track must be MP3, AC3 or Vorbis (CBR/VBR)</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
@@ -89,8 +89,13 @@
 <td bgcolor="#ddddff" class="tableinfo">Fast. lavcodec based, somehow not 100% compliant</td>				<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">XSVCD</td>
+			<td bgcolor="#ddddff" class="tableinfo">DVD(lavcodec)</td>
 <td bgcolor="#ddddff" class="tableinfo">Fast, lavcodec based, somehow not 100% compliant</td>				<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Snow(lavcodec)</td>
+<td bgcolor="#ddddff" class="tableinfo">Slow, interesting, experimental</td>
+<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
 		</tr>
 		</table>
 		
@@ -110,7 +115,7 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
-<td bgcolor="#ddddff" class="tableinfo">Good quality, CBR only</td>
+<td bgcolor="#ddddff" class="tableinfo">Good quality, CBR or VBR</td>
 <td bgcolor="#ddddff" class="tableinfo">liblame</td>
 		</tr>
 		<tr>
@@ -123,17 +128,17 @@
 <td bgcolor="#ddddff" class="tableinfo">CBR only, compliant ?</td>
 <td bgcolor="#ddddff" class="tableinfo">Bundled(lavcodec)</td>
 		</tr>
+		
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
-<td bgcolor="#ddddff" class="tableinfo">using pipe to toolame , really good !</td>
-<td bgcolor="#ddddff" class="tableinfo">Toolame</td>
-		</tr>
-		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
-<td bgcolor="#ddddff" class="tableinfo">Using libtoolame, still buggy</td>
+<td bgcolor="#ddddff" class="tableinfo">Using libtoolame, still buggy ?</td>
 <td bgcolor="#ddddff" class="tableinfo">Bundled(Libtoolame)</td>
 		</tr>
-
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AAC</td>
+<td bgcolor="#ddddff" class="tableinfo">Using faac</td>
+<td bgcolor="#ddddff" class="tableinfo">Bundled(Libtoolame)</td>
+		</tr>
 
 		</table>
 	</ul>
@@ -151,8 +156,7 @@
 	</p>
 	<p>Then use mplex or tcmplex to multiplex the 2 files and get a proper .mpg
 	</p>
-	<p>The XVCD export used lavcodec mpeg1 codec, the XSVCD uses lavcodec mpeg2 codec. I do not recommend using them to do VCD/SVCD/DVD (but it is a free country here).
-	</p>
+	
 	</ul>
 <p class="secthead"><a name="doc_chap4_sect3">Mpeg file 2/2 </a></p>
 <ul>

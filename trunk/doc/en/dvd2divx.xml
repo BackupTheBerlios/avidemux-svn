@@ -1,81 +1,88 @@
 <?xml version='1.0' encoding="UTF-8"?>
 <guide >
 <title>Mpeg to Divx tutorial</title>
-<author title="mean"><mail link="fixounet@free.fr">
-Mean</mail>
+<author title="mean, Jeremy West"><mail link="fixounet@free.fr">
+Mean, Jeremy West</mail>
 </author>
 
 <abstract>
-Mpeg to Divx
+Mpeg2 to Mpeg4
  </abstract>
-
-<version>1.0</version>
-<date>08 Feb 2003</date>
+<version>1.1</version>
+<date>05 Nov 2004</date>
 <chapter>
-<title>Getting ready</title>
+<title>About this tutorial</title>
 <body>
-This page is an example of encoding mpeg1 or 2 ( a DVD 
-for example) into AVI, with xvid and mp3 audio.
+<p>
+This tutorial has been broken down into 6 chapters which explain the process of converting an MPEG1 or MPEG2 DVD file into a Mpeg4 ("divx") formatted AVI file.  There are several projects available online which allow you to convert DVD's to DIVX avi, using tools such as the popular <uri link="www.mplayerhq.hu">mencoder</uri>.  The difference between Avidemux and these other projects, is that Avidemux allows you to edit the file before encoding it, and to do a visual check of what you are doing.
+</p>
 </body>
 <section>
-<title>Input stream</title>
+<title>Understanding Mpeg file types</title>
 <body>
 <p>
- Only mpeg video (m1v and m2v) and mpeg program stream are supported by avidemux 
-(mpg/vob).
- The stream must be mono angle, and not cyphered. Let's call this stream
-stream.mpg
-</p>
-<p>
- If your source is a dvd, a good way is to use the very reliable Mplayer like this :
- <c>mplayer -dvd 1 -dumpstream</c>.
- It will create a avidemux compatible vob from the DVD.
-</p>
-<p>
-	VDR files are currently unsupported.
+<b>Supported Mpeg Formats</b>
+<table width="40%" border="1">
+		<tr>
+			<th>Video Only</th><th>Video &amp; Audio</th>
+		</tr>
+		<tr>
+			<ti>m1v</ti><ti>mpg</ti>
+		</tr>
+		<tr>
+			<ti>m2v</ti><ti>vob</ti>
+		</tr>
+		<tr>
+			<ti>x</ti><ti>vdr (mpegTs)</ti>
+		</tr>
+</table>
+<ul>
+	<li>m1v means "MPEG-1 Video", i.e. a file which only contains a so called elementary video stream, without any audio.</li>
+	<li>m2v means "MPEG-2 Video"</li>
+	<li>mpg is a program stream containing the multiplexed video and audio streams.</li>
+	<li>vob is a DVD systems stream which contains video, audio and additional information, it is a also a program stream</li>
+	<li>vdr is a transport stream containing video and audio(s). It is supported  but without sync correction.</li>
+</ul>
+
 </p>
 </body>
 </section>
 <section>
-<title>Indexing</title>
+<title>Getting a usable VOB file using mplayer</title>
 <body>
 <p>
-Avidemux cannot read mpeg stream. Rather it can read mpeg stream index.
+<pre>mplayer dvd://1 -dumpstream</pre>
 </p>
-<p>
-A mpeg stream index is a plain text file describing the mpeg and where the frames are located. It is very similar to the d2v structure of DVD2AVI, a great windows frame server.
-</p>
-<p>It is this index that allows avidemux to random seek in the file and to be frame accurate.
-</p>
-<p>
-To build this index, you have two options :
-<ul>
-<li>Go to <c>misc->index mpeg</c></li>
-<li>Open the mpeg, avidemux will propose to index it(note that the opening will fail, it is normal)</li>
+<ul><p>This will create a file in your working directory called stream.dump.  This is an avidemux compatible vob file in mpeg format with various audio streams</p>
 </ul>
-You will get to this screen : 
-</p>
-<p><img src="../image_tuto/mpegindex.png"></img>
+</body>
+</section>
+<section>
+<title>Loading and Indexing your Mpeg File</title>
+<body>
+<ul>
+	<p>Load this stream.dump file into Avidemux by either clicking the "Open" folder icon in the toolbar, or going <c>File-&gt;Open Video</c></p>
+	<p>You will now be presented with a dialog box asking if you would like to index the mpeg, say yes.</p>
+
+<img src="../image_tuto/mpegindex.png"></img>
+<p>
+	The following dialog box will ask you how you want to index your mpeg.  Mostly, this is to choose the audio.  Since I like doing things the easy way, we will click "Scan file for audio stream".  This feature will read the vob file and present you with a dropdown list of audio stream choices.  Generally the default, or first in the list is the best choice.  Click "Ok" to begin indexing the mpeg.  This may take a number of minutes depending on the speed of your machine.	
+
 </p>
 <p>
-The index and mpeg fields are obvious.
+Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpeg stream index.  An mpeg steam index is a plain text file containing a description of the mpeg and the location of frames throughout the stream.  This file allows avidemux to random seek and stay accurate. Said otherwise, without the index, avidemux cannot handle mpeg files.
 </p>
-<p>
-For the audio track, the simplest is to press the <c>Scan file for audio stream</c> and wait a few seconds.
-The pulldown menus will be filled by detected audio streams and their features (bitrate etc...).
-</p>
-<p>Press <c>Ok</c>, and wait a few minutes, the index is being created. When done, we are ready to play with the mpeg stream.
-</p>
+</ul>
 </body>
 </section>
 </chapter>
 <chapter>
-	<title>Editing the video</title>
+	<title>Editing features and options</title>
 <section>
 	<title>NSTC versus Film</title>
 	<body><ul>
 		<p>
-			Some DVD are coded as 23.976 aka FILM (most movies actually). Some others are coded as 29.97 (NSTC), soap for example. In the first case, the DVD player does a operation to convert it on the fly to NSTC format (telecine). So the mpeg header always says 29.96 as it will always be the final format.	
+			Some DVD are coded as 23.976 aka FILM (most movies actually). Some others are coded as 29.96 (NSTC), soap for example. In the first case, the DVD player does a operation to convert it on the fly to NSTC format (telecine). So the mpeg header always says 29.96 as it will always be the final format.	
 		</p>
 		<p>Avidemux uses mpeg2dec to decode mpeg streams (with a little patch). Mpeg2dec does not do the telecine on FILM movie (and that's better that way).
 		</p>
@@ -84,51 +91,47 @@ The pulldown menus will be filled by detected audio streams and their features (
 		</p>
 		<p>For PAL mpeg, there is no problem, it is always 25 fps.
 		</p>
+		<p>If audio is present, avidemux will try to guesstimate if the video is 23.976 by comparing audio and video duration.</p>
 	</ul></body>
 </section>
 <section>
 	<title>Cropping</title>
-	<body><ul>
-		<p>Now you should have something like this :</p>
-		<img src="../image_tuto/mpeg.png"></img>
-	<p> Time to set some filters to the video. <c>F1</c> to popup the filter list.</p>
-	
-		<img src="../image_tuto/filters.png"></img>
-		<p>
-	We will select the Crop filter, to get ride of the black borders.
-		If the stream is very clean, you can try the <c>autoCrop</c> button.
-		On this example, the borders are very small. They appear in green for easy visual matching.
-
-		</p>
-		<img src="../image_tuto/crop.png"></img>
-	</ul></body>
+	<body><ul>	
+	<p>Cropping is useful in removing the black borders along the top and bottom of the video in a widescreen format.</p>
+	<li>To crop the video, we must apply some video filters.  Before selecting the filters however, use the slider bar at the bottom to select a spot in the middle of the movie.  The reason for this, is that auto crop feature will adjust the cropping based on the current frame.</li>
+	<li>Now press <c>F1</c> to popup the video filter list.</li>
+	<img src="../image_tuto/filters.png"></img>
+	<li>Click "Add" and select the Crop filter.</li>
+	<img src="../image_tuto/crop2.png"></img>
+	<li>Now select the <c>"AutoCrop"</c> button.  You'll notice the black areas will now appear in green to show the areas where the video will be cropped.</li>
+	<li>If you like the way it looks click "Ok" and then close the video filters list.</li>
+</ul>
+</body>
 </section>
 <section>
 	<title>Resizing</title>
-	<body><ul>
+	<body>
+	<ul>
+	<p>If you'd like to resize the video to something smaller, bring back up the video filter list.  To correctly resize a video, it is very important to take the aspect ratio into account. The aspect ratio is the shape of a pixel. On a PC it is mostly square, however, on a DVD it could be 4:3 or 16:9. So, select the input aspect ratio (16:9 is the most common for DVD) and target aspect ration (1:1 for Avi, 4:3 or 16:9 for DVD). Then select the resizing method, bilinear is generally good enough for downsizing. You probably will want to check the <span class="code">16 round up</span> to be sure the final width and height are multiples of 16. Then move the slider until you reach the desired width.</p>
+	<p><img src="../image_tuto/resizedvd.png"></img></p>
+</ul>
 
-		<p> Now that the image has been cropped, we will resize it so something smaller.
-		
-		To do a correct resizing, it is very important to take the aspect ratio into account. The aspect ratio is the shape of a pixel. On a pc it is mostly square, on DVD it could be 4:3 or 16:9. So, select the input aspect ratio (16:9 is the most common for DVD) and target aspect ration (1:1 for Divx, 4:3 or 16:9 to do a DVD or SVCD). Then select the resizing method, bilinear is generally good enough for downsizing. You probably will want to check the <c>16 round up</c> to be sure the final width and height are multiples of 16. Then move the slider until you reach the desired width.
-		</p>
-		<p>
-			<img src="../image_tuto/resizedvd.png"></img>
-		</p>
-	</ul></body>
+	</body>
 </section>
 <section>
 	<title>More video filters</title>
-	<body><ul>
+	<body>
+	
+	<ul>
+	<p>Depending on the source, you may want to add more filters (subtitling, denoiser, deinterlacer...). See <uri link="video.xml.html">video filters</uri> for more information on available filters.  One of the best I've found is the "Mplayer Denoise 3D" filter.  This filters smooths the image a bit.  Default values on it are fine.</p>
+	<p>At this point, the video is ready for any editing you may wish to do.  For information on cutting please see the <uri link="cutting.xml.html">Cutting Guide</uri>.</p>
+</ul>
 
-		<p> Depending on the source, you may want to add more filters (subtitling, denoiser, deinterlacer...). See <uri link="video.xml.html">video filters</uri> for more.
-		</p>
-		<p>The video is now ready, time to set up the video encoding. You can open the preview window and move inside the movie using the slidebar, the preview window will be updated.
-		</p>
-	</ul></body>
+	</body>
 </section>
 </chapter>
 <chapter>
-	<title>Setting up the encoder</title>
+	<title>Configuring the encoder</title>
 <section>
 	<title>Codec</title>
 	<body><ul>
@@ -137,56 +140,76 @@ The pulldown menus will be filled by detected audio streams and their features (
 		</p>
 		<p>Time to select a codec. My two preferred are Xvid and Lavcodec. You can use windows based tutorial for Xvid as the options are the same. For lavcodec, have a look in mplayer documentation.
 		</p>		
-		<p> Let's take Xvid for this mini tutorial.
-		</p>
-		<p><img src="../image_tuto/videocodec.png"></img>
-		</p>
+		
 	</ul></body>
 </section>
 <section>
 	<title>Configuring the codec</title>
-	<body><ul>
-		<p> First we will set the log file for dual pass as we may want to use it later by using <c>Misc->Select Log File</c>
-		</p>
-		<p>Selecting <c>Configure codec</c> will show this dialog.
-		</p>
-		<img src="../image_tuto/xvid.png"></img>
-		<p>We will take 2pass and enter the final size.The size is the video only, you have to take the overall target size and remove the part used by the audio.
-		</p>
-	</ul></body>
+	<body>
+<ul>
+	<p>Start by opening the codec selection dialog box by pressing <c>F3</c>.  The Configure codec box should look something like this.</p>
+	<img src="../image_tuto/xvid.png"></img>
+	<p>Now click in the codec options box and choose "xvid".  After selecting the codec click the configure codec button.  We are going to choose 2pass and ender in a final size for the video only.  The audio size will be added to this to give you your total size.</p>
+</ul>
+</body>
 </section>
 </chapter>
 <chapter>
-	<title>Setting audio</title>
+	<title>Configuring the audio encoder</title>
+	<body><ul>
+	<p>
+	Before converting your DVD file to mpeg, you have a few choices for audio streams.  There are Internal and External streams.  Here is what I mean.
+
+	</p></ul></body>
 <section>
 	<title>Internal audio</title>
 	<body><ul>
-		<p>If you use the audio you selected when creating the index, nothing to do. 
-		</p>
+			<p>This means you use the audio stream you choose when indexing your vob file.  If you would like to use a different audio stream from the stream.dump or vob file, you will need to re-index your file.</p>
+
 	</ul></body>
 </section>
 <section>
 	<title>External audio</title>
 	<body><ul>
-		<p>You can also use a external audio using <c>Audio-source</c> menu entry.
-		</p>
+	<p>This is a feature that allows you to choose an external audio stream instead of the origional audio stream you selected when indexing your file.  To select a different audio stream or track, navigate to <c>Audio-&gt;source</c>.</p>
+
 	</ul></body>
 </section>
-<section>
-	<title>Processing or not ?</title>
-	<body><ul>
-		<p>If you want to let the audio as-is, for example to do a Xvid+AC3 track do nothing and skip the whole chapter. 
-		</p>
-		<p>Else, set the audio to process mode and set (for example) Normalize, 48->44. To get the detail, check <uri link="audio.xml.html">audio filters</uri>
-		</p>
-	</ul></body>
-</section>
+
 <section>
 	<title>Audio codec</title>
-	<body><ul>
-		<p>Same story as for video codec, select a codec, for example MP3, and configure it.		</p>
-		<p>We will take 128 kbps joint stereo, like here</p>
-		<img src="../image_tuto/mp3.png"></img>
+	<body>
+<ul>
+	<p>You have quite a few choices here for your codec.</p>
+<ul>
+	<li>Uncompressed audio</li>
+	<li>FFmpeg mpeg audio</li>
+	<li>FFmpeg ac3 2 channel</li>
+	<li>Toolame mp3</li>
+	<li>Lame mp3</li>
+	<li>FAAC</li>	
+</ul>
+<p>Let me review a few of my favorite options.</p>
+<p>Uncompressed audio</p>
+<ul>
+	This means PCM audio. Big, but lossless.
+</ul>
+<p>Lame mp3</p>
+<ul>
+	This option allows you to create an avi with mp3 audio.  The lame encoder does an excellent job at VBR encoding.
+</ul>
+</ul>
+</body>
+</section>
+
+<section>
+	<title>Do i want processing ?</title>
+<body>	
+<ul>
+	<p>Processing simply means whether or not to process any of the above steps we just walked through.  For example, if you would like to leave your audio track the way it is, and not use a different codec such as mp3, then you don't want processing.</p>
+	<p>If there are any audio filters which you wish to apply, then you will need to process the audio.  Audio filters can be selected by pressing <c>F2</c> then choosing the appropriate filter.</p>  For more information on audio filters, check <uri link="audio.xml.html">audio filters</uri>
+<p>If you would like to process your audio simply press <c>F6</c></p>
+
 	</ul></body>
 </section>
 </chapter>
@@ -195,7 +218,7 @@ The pulldown menus will be filled by detected audio streams and their features (
 <section>
 	<body><ul>
 		<p>Now select <c>File->Save avi</c> and wait a few hours. Done.
-		Avidemux will do pass 1 then pass2 and encode the audio.
+		Avidemux will do pass 1 then switch to pass2 (including audio).
 		</p>
 		<img src="../image_tuto/encoding.png"></img>
 	</ul></body>

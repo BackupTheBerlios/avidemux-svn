@@ -58,6 +58,9 @@ Simple tips and help for installing avidemux
 		<tr>
 			<ti>libvorbis</ti><ti>x</ti><ti>Vorbis encoder/decoder</ti><ti><uri>http://www.vorbis.org/</uri></ti>
 		</tr>
+		<tr>
+			<ti>Faac/faad</ti><ti>x</ti><ti>AAC encoder/decoder</ti><ti><uri>http://www.audiocoding.com/</uri></ti>
+		</tr>
 
 		</table>
 	</body>
@@ -89,6 +92,7 @@ Simple tips and help for installing avidemux
 <section>
 	<body>
 	<p>It is rather straightforward.</p>
+	<p><c>Make -f Makefile.dist</c></p>
 	<p><c>./configure </c></p>
 	<p>Take extra care at the end where a recap of what has been detected appears
 	.For me it looks like this:

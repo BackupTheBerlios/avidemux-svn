@@ -116,7 +116,7 @@ These filters are just like regular filters, but they do output compressed audio
 	<ul>
 	<p> Based on liblame. You can select the bitrate and mode (joint stereo or stereo). For mono, it will be automatic.
 	</p>
-	<p> It encodes only in CBR mode. If you want VBR audio track, better to use the command line lame and to set the resulting mp3 as audio track. Don't forget to read <uri link="./vbrmp3.xml.html">VBR MP3</uri> or you will run into troubles... 
+	<p> It encodes in CBR and VBR modes 
 	</p>
 	</ul>
 	</body>
