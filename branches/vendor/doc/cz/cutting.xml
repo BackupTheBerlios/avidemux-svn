@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Střih</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Střih
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Jednoduchý střih</title>
+<section>
+	<title>Značky (Markers)</title>
+	<body><ul>
+		<p>
+			Značkami A a B se označuje začátek a konec výběru.	
+		</p>
+		<p>
+			Nastavíte je pomocí tlačítek <img src="../images/marka.png"></img> a <img src="../images/markb.png"></img>.	
+		</p>
+		<p> Na body A a B se dostanete z nabídky <c>Edit->Go to Marker A</c> nebo <c>Edit->Go to Marker B</c>.
+		</p>
+		<p> Pozice značek se také zobrazuje na spodní straně okna programu.
+		<img src="../images/markers.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ukládání</title>
+	<body><ul>
+		<p>
+			Po nastavení A a B se uloží video od A do B včetně B.	
+		</p>
+		<p>
+			Tedy [A,B].	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Vystřižení</title>
+	<body><ul>
+		<p>
+			Položka <c>Edit->Delete</c> odstraní [A,B[, tedy bez B.
+			Takto můžete například vystřihnout reklamy z TV nahrávky.
+		</p>
+		<p>
+		Z videa můžete vystřihnout libovolně velkou část.
+		</p>
+		<warning> Když odstraňujete části videa, zůstane zachována synchronizace zvuku uvnitř souboru, ne však externího zvuku. Jinak řečeno, střih provádějte vždy na souboru obsahujícím zvuk.
+		</warning>
+	</ul></body>
+</section>
+<section>
+	<title>Střih a klíčové snímky</title>
+	<body><ul>
+		<p>Tento odstavec platí pouze pro video režim Copy. V módu Process Avidemux zajistí, že bude vše v pořádku.
+		</p>
+		<p>
+			Většina video kodeků používá předchozí snímek jako referenční a následně kóduje jen rozdíly. Jednou za čas je zakódován kompletní snímek bez časového odkazu na další snímky. Takový snímek se nazývá Intra frame, I-frame nebo také klíčový snímek (keyframe).
+		</p>
+		<p>
+			To znamená, že když máte takovouto sekvenci snímků: xxAxxIxxBxxxIxxx, a vystřihnete [A,B[, dostanete xxOOOIxxxxx, přičemž OOO jsou vadné snímky.
+			</p><p>Proč vadné? Protože přišly o své referenční snímky.
+		</p>
+		<p>
+			Jsou dva způsoby jak to vyřešit: 
+			<ul>
+			<li>Značka B je na klíčovém snímku. V tom případě je to bez problémů.</li>
+			<li>Použijte režim Smart Copy. Funguje pouze pro DivX ;-) 3 a MPEG-4. Smart Copy překóduje část, která ztratila referenční snímky, s konstantní kvantizací. Dobré jsou obvykle hodnoty 4 nebo 5. Tím dostanete xxRRRIxxxx, kde R jsou překódované snímky. NEFUNGUJE to s B snímky.</li>
+			</ul>
+		</p>
+
+
+	</ul></body>
+</section>
+<section>
+	<title>Kopírovat/Vložit</title>
+	<body><ul>
+		<p>Kopírování a vkládání je také k dispozici, ale platí stejné omezení týkající se referenčního snímku.
+		</p>
+		<p>Stručně: 
+			<ul>
+			<li>Pokud překódujete video v režimu Process: bez problému.</li>
+			<li>Když zkopírujete video: první snímek vložené části musí být Intra, a snímek následující po vložené části musí být také Intra. V tomto případě bude fungovat Smart copy, ale ne s videem obsahujícím B snímky.</li>
+			</ul>
+		</p>
+
+
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Pokročilé metody střihu</title>
+<section>
+		<p>
+			Možná budete chtít rozdělit video na části dané velikosti (např. 700 MB).
+		</p>
+	<title>Automatické rozdělení</title>
+	<body><ul>
+		<p>
+			V nabídce <c>File->AVI Muxer Options</c> můžete zadat velikost souboru v megabajtech.	
+		</p>
+		<p>
+			Vždy při naplnění požadované velikosti a přítomnosti klíčového snímku Avidemux vytvoří nový soubor. Takže budete mít soubor.avi.1, soubor.avi.2 atd.	
+		</p>
+		<p>
+			Protože nový soubor musí začínat klíčovým snímkem, není to úplně přesné. Raději počítejte s rezervou asi 5 megabajtů.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Cut Wizard</title>
+	<body><ul>
+		<p>
+			Můžete také použít <c>Misc->Cut Wizard</c>. Předtím nastavte značku A.
+		</p>
+		<p>
+			Zadejte parametry: Target size (cílová velikost), # audio track a Audio bitrate (tyto hodnoty jsou už vyplněny). Po stisku tlačítka Compute se dozvíte kam nastavit značku B, abyste dostali příslušnou velikost souboru.
+		</p>
+		<p> Nefunguje to úplně dokonale.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

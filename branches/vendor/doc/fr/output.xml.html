@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Formats de sortie</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Formats de sortie</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Format de fichier</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Format</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Restriction</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
+<td bgcolor="#ddddff" class="tableinfo">Deux pistes audio au maximum</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Flux élémentaire brut</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
+<td bgcolor="#ddddff" class="tableinfo">Vidéo ou audio séparé. Par exemple flux brut mpeg4</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Codecs Vidéo</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nom</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commentaire</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dépendances</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+<td bgcolor="#ddddff" class="tableinfo">Désactivé, la dernière version plante sur un P4</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+<td bgcolor="#ddddff" class="tableinfo">Bon, précis, rapide, de nombreuses options</td>
+<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Lavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Bon, précis, rapide, de nombreuses options</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec(intégré)</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263</td>
+<td bgcolor="#ddddff" class="tableinfo">Réglages depuis lavcodecc</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Huffyuv</td>
+<td bgcolor="#ddddff" class="tableinfo">YV12 Huffyuv, pas compatible avec Windows</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">FFV1</td>
+<td bgcolor="#ddddff" class="tableinfo">Codec vidéo sans perte de lavcodec. Efficace !</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/DVD/SVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Bonne qualité, lent</td>
+<td bgcolor="#ddddff" class="tableinfo">mpeg2enc, intégré</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Rapide. Basé sur lavcodec, mais pas compatible à 100 %</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XSVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Rapide. Basé sur lavcodec, mais pas compatible à 100 %</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré</td>
+		</tr>
+		</table>
+		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Codecs audio</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nom</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commentaire</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dépendances</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Sans compression</td>
+<td bgcolor="#ddddff" class="tableinfo">Fichiers volumineux</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
+<td bgcolor="#ddddff" class="tableinfo">Bonne qualité, CBR uniquement</td>
+<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">CBR uniquement, compatible ?</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré (lavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">CBR uniquement, compatible ?</td>
+<td bgcolor="#ddddff" class="tableinfo">Intégré (lavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">Utilise une redirection vers toolame, vraiment bon !</td>
+<td bgcolor="#ddddff" class="tableinfo">Toolame</td>
+		</tr>
+
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Spécificités des formats</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi </a></p>
+<ul>
+	<p> C'est le format d'enregistrement par défaut. Il est possible d'ajouter une seconde piste audio CBR avec la commande <span class="code">misc-&gt;2nd audio track</span>. Le fichier choisi pour cette seconde piste peut être soit un MP3 CBR soit un AC3.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Fichier Mpeg  </a></p>
+<ul>
+	<p>Seul le flux vidéo élémentaire brut est enregistré, avec pour extension .m1v ou .m2v.
+	</p>
+	<p>Il vous faudra alors sélectionné un encodage audio en mp2, passer le mode audio sur process et choisir <span class="code">File-&gt;save audio</span> pour obtenir un fichier .mp2.
+	</p>
+	<p>Utilisez ensuite mplex ou tcmplex pour multiplexer les deux fichiers et obtenir un .mpg correct.
+	</p>
+	<p>L'export XVCD utilise l'encodeur et les réglages de lavcodec. Pour le configurer, sélectionez FFmpeg comme codec de sortie puis utilisez le menu <span class="code">configure video codec</span>. C'en est encore au stade expérimental.
+	</p>
+	<p>D'un point de vue interne, les images d'une vidéo Mpeg apparaissent comme d'énormes images YV12 non compressées. Assurez-vous donc de les encoder avant d'enregistrer votre vidéo, ou utilisez les options d'enregistrement brut, mais N'ENREGISTREZ PAS un avi en mode copy.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Raw </a></p>
+<ul>
+	<p>
+	Il existe sous deux formes : pour l'audio, il faut utiliser la commande <span class="code">File-&gt;save audio</span>.
+	Cela permet de n'enregistrer que l'audio (traité/encodé ou pas).
+	</p>
+	<p>Pour la vidéo, il faut utiliser <span class="code">File -&gt;save raw</span>. Cela peut être utile pour découper des fichiers mpeg ou pour enregistrer la vidéo séparément, comme un flux vidéo brut h263 ou mp4.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

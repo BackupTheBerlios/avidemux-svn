@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	VBR MP3</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">VBR MP3</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Background</p>
+<ul>
+		<p> Most of the time, avidemux computes the offset and length of audio by doing size= time * bitrate. That works for all CBR stream.
+		</p>
+		<p>
+		For VBR it does not work as bitrate is not constant.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Audio time map</p>
+<p class="secthead"><a name="doc_chap2_sect1">Audio time map </a></p>
+<ul>
+		<p> To compute the start offset/size, avidemux has to know how the bitrate changes. For that use <span class="code">Audio source-&gt;Build vbr time map</span>.
+		</p>
+		<p>
+		Avidemux will then decompress the whole stream one time and build a time map to know how to handle the stream. You will need Mad installed, else it will do nothing.
+		</p>
+		<p>
+		When the time map is built, avidemux will have a conversion table between time and offset, and you will be able to split or save the avi in a VBR way
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">And if i don't ? </a></p>
+<ul>
+		<p>  You will end up with a badly desynced (potentially with too short audio) avi. Even if you just load and save it.
+		</p>
+		<p>  You MUST do it when dealing with VBR mp3. Period. 
+		</p>
+		<p>  The second audio stream for avi cannot be VBR.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

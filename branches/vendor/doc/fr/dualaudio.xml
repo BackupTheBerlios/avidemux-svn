@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Dual audio track</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Double piste audio
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avertissement</title>
+<section>
+	<body><ul>
+		<p> Avidemux ne peut traiter en interne qu'une seule piste audio. 
+		</p>
+		<p>
+		   Cependant, il est possible d'ajouter une seconde piste audio, avec certaines restrictions et notamment qu'aucun traitement ne sera possible sur cette piste supplémentaire.	
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Ajouter une seconde piste audio</title>
+<section>
+<title>Restrictions</title>
+	<body><ul>
+		<p>La seconde piste audio doit être CBR : MP3 CBR ou AC3. Point barre. 
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Menu</title>
+	<body><ul>
+		<p>Pour ajouter une seconde piste audio, utilisez le menu <c>Misc->Second Track->xxxx</c>. Après l'avoir sélectionnée, choisissez <c>File -> Dual audio avi</c> au lieu de <c>File -> save avi</c>. 
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Découper un avi avec deux pistes audio</title>
+	<body><ul>
+		<p> Comme Avidemux ne peut pas traiter plus d'un flux audio en interne, il va falloir ruser un peu.
+		</p>
+		<p>Ouvrez l'avi, puis sélectionnez la deuxième piste audio lorsque le programme vous le demande. 
+		</p>
+		<p> Définissez l'emplacement des marqueurs A et B et choisissez <c>File -> save audio</c> avec /tmp/track11.mp3 comme nom de fichier par exemple. 
+		</p>
+		<p> Réouvrez le même fichier, mais choisissez cette fois-ci la première piste audio. 
+		</p>
+		<p>Découpez-le puis enregistrez-le sous /tmp/avi1.avi. 
+		</p>
+		<p> Rechargez-le et ajoutez /tmp/track11.mp3 comme seconde piste sonore. Enregistrez le résultat avec <c>File -> Dual audio avi</c>. 
+		</p>
+		<p>  
+			Répétez ces opérations pour les différentes parties.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

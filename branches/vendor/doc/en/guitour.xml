@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>GUI Tour</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+GUI Tour
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Lower Toolbar</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Frame type</title>
+	<body><ul>
+		<p> <img src="../images/frametype.png"></img>
+			Type of current image (I/B/P)	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Play</title>
+	<body><ul>
+		<p> <img src="../images/bplay.png"></img>
+			Press it one time to play, a second time to stop	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pause</title>
+	<body><ul>
+		<p> <img src="../images/bpause.png"></img>
+			Press it to stop playback 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous frame</title>
+	<body><ul>
+		<p> <img src="../images/bpframe.png"></img>
+			Press it to go to the previous frame. It can take several seconds as avidemux may have to go back to previous I-frame. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next frame</title>
+	<body><ul>
+		<p> <img src="../images/bnframe.png"></img>
+			Press it to go to the next frame. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bpkframe.png"></img>
+			Press it to go to the previous intra frame (aka keyframe). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bnkframe.png"></img>
+			Press it to go to the next intra frame (aka keyframe). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Markers</title>
+	<body><ul>
+		<p> <img src="../images/bmarkab.png"></img>
+			You see where the A(begin) and B(end) markers are. Only the area [A,B[ will be saved/processed.. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker A</title>
+	<body><ul>
+		<p> <img src="../images/marka.png"></img>
+			Press it to set the A marker(see <uri link="cutting.xml.html">Cutting</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker B</title>
+	<body><ul>
+		<p> <img src="../images/markb.png"></img>
+			Press it to set the B marker(see <uri link="cutting.xml.html">Cutting</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the beginning</title>
+	<body><ul>
+		<p> <img src="../images/bbegin.png"></img>
+			Press it to go to the first frame 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the end</title>
+	<body><ul>
+		<p> <img src="../images/bend.png"></img>
+			Press it to go to the last frame 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to next "black" frame</title>
+	<body><ul>
+		<p> <img src="../images/bnextblack.png"></img>
+			Press it to go to next black frame, black frame being a bit subjective :) 
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Left Toolbar</title>
+<section>	
+	<title>Video filters</title>	
+	<body><ul>	
+		<p> <img src="../images/bvfilter.png"></img>
+		</p>
+		<p>
+			Open the video filter dialog box. See more about filters <uri link="./video.xml.html">here</uri>	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Audio filters</title>	
+	<body><ul>	
+		<p> <img src="../images/bafilter.png"></img>
+		</p>
+		<p>
+			Open the audio filter dialog box. See more about filters <uri link="./audio.xml.html">here</uri>	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Video codec button </title>
+	<body><ul>
+		<p> <img src="../images/bvcodec.png"></img>
+			Press this button to open the video codec selection/configure dialog.	 
+
+		</p>		
+	</ul></body>
+</section>
+
+<section>
+	<title>Audio codec button </title>
+	<body><ul>
+		<p> <img src="../images/bacodec.png"></img>
+			Press this button to open the audio codec selection/configure dialog.	 
+
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>VProcess button </title>
+	<body><ul>
+		<p> <img src="../images/bvprocess.png"></img>
+			When pressed, the saved video will be the processed video (i.e. with filters and encoding applied). If not pressed, it will be the raw copy of source video without alteration.
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Audio process button </title>
+	<body><ul>
+		<p> <img src="../images/baprocess.png"></img>
+			When pressed, the saved audio will be the processed audio (i.e. with filters and encoding applied). If not pressed, it will be the raw copy of source audio without alteration.
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Preview button </title>
+	<body><ul>
+		<p> <img src="../images/bpreview.png"></img>
+			Press this button to open a new window that shows the ouput of filters. If you navigate in the main window, the preview window will reflect the changes.	 
+
+		</p>
+		<p> This preview mode is terribly slow.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ouput button </title>
+	<body><ul>
+		<p> <img src="../images/boutput.png"></img>
+			When pressed, the main window will show you the ouput of filters when playing, and only when playing. 	
+		</p>
+		<p> It is a fast display method, and in most cases you will have real time effects.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Upper Toolbar</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bupbar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Open</title>
+	<body><ul>
+		<p> <img src="../images/bopen.png"></img>
+			Open a file	
+		</p>
+	</ul></body>
+</section>	
+<section>	
+	<title>Info</title>	
+	<body><ul>	
+		<p> <img src="../images/binfo.png"></img>
+			Information about current loaded video (codec/length/...)	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Save</title>	
+	<body><ul>	
+		<p> <img src="../images/bsave.png"></img>
+			Save video	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Recent files</title>	
+	<body><ul>	
+		<p> <img src="../images/brecent.png"></img>
+		Fast access to the 5 opened files.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

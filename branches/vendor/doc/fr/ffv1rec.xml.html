@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Ffv1rec</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Ffv1rec</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Un peu d'histoire</p>
+<p class="secthead"><a name="doc_chap1_sect1">Avant ffv1rec, il y avait nuppel_gatos </a></p>
+<ul>
+		<p>L'année dernièe, j'utilisais une ATI AIW 7500, avec les pilotes <a href="http://gatos.sf.net">Gatos</a>. 
+		</p>
+		<p>Le problème avec cette carte, c'est qu'elle ne propose pas la même interface v4l que le pilote BT8X8. A cause de cela, la plupart des programmes de capture refusent tout simplement de fonctionner.
+		</p>
+		<p>Poussé par ma frustration, j'ai écrit un petit utilitaire nommé nuppel_gatos, qui était un portage de nuppelrec.
+		
+		</p>
+<p>Il utilisait l'interface du pilote gatos pour l'acquisition, et la conversion d'espace colorimétrique YUV422 en YUV420P.
+		</p>
+		<p>Il marchait plutôt bien mais le rapport taille/qualité n'était pas fantastique. Après quelques essais, je me suis trouvé face à un cruel dilemne :
+		<ul>
+			<li>Utiliser nuppel, mais être obligéd'utiliser le format RTjpeg, avec synchronisation parfaite mais une taille très important des fichiers générés</li>
+			<li>Utiliser le format avi, qui permet d'utiliser plein de codecs, mais avec une synchronisation *un tantinet* problematique</li>
+		</ul>
+		</p>
+		<p>Lorsque je dit synchronisation, je parle de vraie synchronisation, pas d'astuces au niveau du conteneur pour resynchroniser les flux audio et vidéo, qui sont desynchroniséss pris indépendamment.
+		</p>
+		<p>J'ai donc modifié nuppel_gatos afin d'encoder des vidéos avec le codec Xvid en mode entrelacé 
+		</p>
+	
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">et maintenant ffv1rec </a></p>
+<ul>
+		<p>Il y a quelques mois, j'ai laché la AIW pour une Ti4200 (je suis un fan d'Enemy Territory :) ) et ai remis la vieille carte Bt8x8.
+		</p>
+		<p>Mêmes causes, mêmes effets. De plus, je voulais tester ffv1, un codec sans perte de <a href="http://www.ffmpeg.org">Ffmpeg</a>. Et c'est ainsi qu'est né ffv1rec :) 
+		</p>
+		<p>Les résultats n'étaient pas très bons par rapport aux objectifs initiaux : une taille correct, mais la puissance du CPU était imédiatement monopolisé.
+		</p>
+		<p>En conclusion à tout ceci, ffv1rec est une évolution de nuppelrec utilisant le même conteneur.
+		</p>
+		<p>Vous avez ainsi une synchronisation parfaite et pouvez encoder avec différents codecs vidéos.</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Principales diff&#65533;ences avec nuppelrec</p>
+<ul>
+		<li>Passage d'un fonctionnement multi processus à un fonctionnement multi threads</li>
+		<li>Vous pouvez spécifier la fréquence audio, comme 48000 pour une  conversion DVD ultérieure avec l'option <span class="code">-b</span>.</li>
+		<li>Vous pouvez stoquer vos réglages dans $HOME/.ffv1recrc, comme indiqué dans la section suivante.</li>
+		<li>Vous pouvez sélectionner le codec vidéo avec l'option <span class="code">-C</span>. XVID ou  HUFFYU recommandé</li>
+		<li>Vous pouvez sélectionner la precision de la motion estimation avec l'option <span class="code">-M x</span>.Recommendé : 0 ou 1</li>
+		<li>Vous pouvez sélectionner le quantificateur avec l'option <span class="code">-q x</span>. Valeur recommandée : 5.</li>
+		<li>Vous pouvez sélectionner la distance entre les images clés avec l'option <span class="code">-d x</span>. Valeur recommandée : 200.</li>
+		
+		<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Vous avez besoin de xvid pour construire build ffv1rec.</p></td></tr></table>
+		<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Il faut que le ./configure ait été fait dans avidemux.</p></td></tr></table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>$HOME/.ffv1recrc</p>
+<ul>	
+	<p>Ce fichier contient vos réglages. Les paramétres passés en ligne de commande sont priritaire, aussi ne soyez pas timide.</p>
+	<p>La syntaxe est la suivante :  
+	</p>
+
+	<ul>
+		<li>
+<span class="code">#</span> pour les commentaires</li>
+		<li>
+<span class="code">opt</span> est l'équivalent de -opt en ligne de commande</li>
+		<li>
+<span class="code">opt=val</span> est l'équivalent de -opt val  en ligne de commande</li>
+	</ul>
+	<p>Comme exemple, voici mon fichier de réglages :
+		<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre></td></tr>
+</table>
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

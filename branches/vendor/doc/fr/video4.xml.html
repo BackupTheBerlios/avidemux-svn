@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Vidéo: luminance et chrominance</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Vidéo: luminance et chrominance</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avant-propos</p>
+	<ul>
+	<p>Les filtres de cette famille jouent sur la luminance ou la chrominance.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtres de luminance/chrominance</p>
+<p class="secthead"><a name="doc_chap2_sect1">Swap u / v  </a></p>
+	<ul>
+	<p>On constate parfois une inversion visible des plans de chrominances, par exemple avec une carte d'acquisition vidéo défectueuse.
+	Ce filtre permet de les remettre dans le bon ordre. Par exemple, dans cette image u/v sont inversés :
+	</p>
+	<p><img src="../image_tuto/swapuv2.png"></p>
+
+	<p>En appliquant le filtre swap u/v, vous obtenez ceci, qui correspond à l'image correcte :</p>
+	<p><img src="../image_tuto/swapuv1.png"></p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Contrast  </a></p>
+	<ul>
+	<p>Ce filtre modifie de façon linéaire le contraste et la luminosité sur la luminance ou les valeurs u/v de chrominance.
+	</p>
+	<p>Il peut être utile pour corriger une vidéo trop claire, trop sombre, trop rouge ou trop bleue.
+	</p>
+	<p><img src="../image_tuto/contrast.png">
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Luma/chroma only  </a></p>
+	<ul>
+	<p>Ces filtres ne sont utiles qu'à des fins de débogage. Ils ne conservent qu'une seule composante (luminance/u/v).
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

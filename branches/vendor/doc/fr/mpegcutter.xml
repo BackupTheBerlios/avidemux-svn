@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Edition de fichiers mpeg</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Edition de fichiers mpeg
+ </abstract>
+
+<version>1.0</version>
+<date>06 Apr 2003</date>
+<chapter>
+<title>Introduction</title>
+<section>
+	<body><ul>
+		<p> Avidemux sait lire les fichiers mpeg une fois l'index crée, en particulier les flux videos purs (.m1v/.m2v) et les fichiers types program stream, par example les fichiers vobs d'un DVD ou les fichiers issus d'une capture avec une winTvPVR. 
+		</p>
+		<p> D'un point de vue interne, les mpeg sont vus sous forme d'images avec un faux codec (MPEG). </p>
+		<p>Si vous enregistrez le fichier en mode copy, vous obtiendrez un mpeg à l'intérieur d'un avi, mais comme ce n'est pas une combinaison standard, seul Avidemux sera capable de lire ce résultat.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Découpage </title>
+<section>
+<title>General</title>
+	<body><ul>
+		<p>Selon la m�hode habituelle, commencez par définir la partie qui vous intéresse avec les boutons  <img src="../images/marka.png"></img> et <img src="../images/markb.png"> </img>.  Il est recommandé de lire la section <uri link="./cutting.xml.html">Découper</uri> si ce n'est déjà fait.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Audio</title>
+	<body><ul>
+		<p>Aucune précaution particulière n'est ici nécessaire. Enregistrez l'audio en mode copy en choisissant <c>File->Save audio</c>. Vous obtiendrez un fichier .mp2 ou .ac3.</p>
+	</ul></body>
+</section>
+<section>
+<title>Vidéo</title>
+	<body><ul>
+		<p>Pour la vidéo, il faut utiliser <c>File->Save raw stream</c>. Cela permet d'obtenir directement les données brutes du démultiplexeur, en courtcicuitant le décodeur. Les images sont re-ordonnées pour être dans un ordre compatible avec n'importe quel player.</p>
+		<p>Vous obtenez ainis un fichier .m1v ou .m2v contenant un flux élémentaire mpeg1/2 qui devrait être synchronisé avec votre fichier audio .mp2.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Système</title>
+	<body><ul>
+		<p> 
+Le moment est venu de remultiplexer les deux flux pour obtenir un fichier .mpg. Le premier  seq_header porte le timestamp de la premième image (non coupé). Cela risque de perturber mplex et vous obtiendrez des tonnes d'avertissements et de messages d'erreur. Idem avec mplayer en le relisant.
+		</p>
+		<p>La meilleure solution consiste à utiliser tcmplex de transcode pour les remultiplexer ensuite.
+
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

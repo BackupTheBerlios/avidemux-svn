@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Cutting</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Cutting</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Simple cutting</p>
+<p class="secthead"><a name="doc_chap1_sect1">Markers </a></p>
+<ul>
+		<p>
+			A and B markers are used to set the start and end of a sequence.	
+		</p>
+		<p>
+			You can set them using the <img src="../images/marka.png"> and <img src="../images/markb.png"> buttons.	
+		</p>
+		<p> You can also jump to A or B marker using <span class="code">Markers-&gt;Go to A</span> or <span class="code">Markers-&gt;Go to B</span> menu entries.
+		</p>
+		<p> Markers position is also recalled at the bottom of the screen.
+		<img src="../images/markers.png">. The -1 means end of video.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">Saving </a></p>
+<ul>
+		<p>
+			If you set markers video will be saved from A to B including B.	
+		</p>
+		<p>
+			That is [A,B].	
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect3">Removing </a></p>
+<ul>
+		<p>
+			The <span class="code">Markers-&gt;Delete</span> menu entry will remove [A,B[ from the stream.
+			It can be used, for example, to remove commercials from a video capture.
+		</p>
+		<p>
+		You can remove as much as you want from the video stream.
+		</p>
+		 When removing parts, the audio inside the stream will keep sync, not an external audio. Said otherwise, be sure to cut a stream which always contains the audio.
+		
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect4">Cutting and keyframe </a></p>
+<ul>
+		<p>This paragraph only applies when video is in copy mode. In process mode, avidemux internals ensure everything is allright.
+		</p>
+		<p>
+			Most video codec use the previous frame as reference and only encode the delta. From time to time a complete frame is encoded with no temporal reference to other frames. These frames are Intra frame, also called I-Frame or KeyFrame.
+		</p>
+		<p>
+			It means that if you have a stream like this : xxAxxIxxBxxxIxxx, and remove [A,B[, you will end up with xxOOOIxxxxx, with OOO being broken frames. 
+			</p>
+<p>Why broken ? Because they lost their reference frames.
+		</p>
+		<p>
+			There is two ways of dealing with that : 
+			<ul>
+			<li>The B markers is a I frame. In that case no problem.</li>
+			<li>You use the smart copy mode. Only available for Divx3 and mpeg4. Smart copy will re-encode the part that losts its reference images with a fixed quantizer. A value of 4 or 5 is generally ok. You will end up with xxRRRIxxxx, where R are re-encoded frames. It DOES NOT work with B frames.</li>
+			</ul>
+		</p>
+
+
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect5">Copy/Paste </a></p>
+<ul>
+		<p>Copy/Paste operations are also available, but the same restrictions concerning reference frame apply.
+		</p>
+		<p>In a nutshell : 
+			<ul>
+			<li>If you process the video : No problem.</li>
+			<li>If you copy the video : The first frame of the pasted part must be Intra, and the frame after the insert point must be Intra too. Smart copy will work in that case, but not with stream containing B frames</li>
+			</ul>
+		</p>
+
+
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Advanced cutting</p>
+<p class="secthead"><a name="doc_chap2_sect1">Autosplit </a></p>
+<ul>
+		<p>
+			Using <span class="code">File -&gt;Avi muxer options</span>, you can specify a file size in megabytes.	
+		</p>
+		<p>
+			Each time that file size is reached and a I-frame is present, avidemux will create a new file. You will end up with foo.avi.1, foo.avi.2 etc...	
+		</p>
+		<p>
+			As the new file must begin by a I-frame, it is not very accurate. It is better to keep a margin of about 5 megabytes.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Cut wizard </a></p>
+<ul>
+		<p>
+			You may also use <span class="code">Misc-&gt;cut wizard</span>. Set the A marker before starting cut wizard.
+		</p>
+		<p>
+			Enter the informations : Target filesize, # of audio track and bitrate of audio track (these are pre-filled). It will tell you where to set the B-marker to reach that size.
+		</p>
+		<p> It is a bit buggy.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

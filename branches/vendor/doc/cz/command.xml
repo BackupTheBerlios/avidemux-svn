@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Používání příkazové řádky</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Používání příkazové řádky
+</abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title> Předmluva</title>
+<section>
+	<body><ul>
+	<p>
+	Jak jste si asi všimli, Avidemux je výrazně orientovaný na grafické uživatelské rozhraní. Protože, podle mě, když pracujete s videem, potřebujete *vidět* co děláte. To má nevýhodu když chcete nechat počítač pracovat samostatně přes noc.
+	</p>
+	<p>Konečným cílem je poskytnout pěkné grafické rozhraní k nastavení a uložení úloh. Poté byste mohli nechat Avidemux zpracovat tyto úlohy a jít se podívat na film nebo si zdřímnout.
+	</p>
+	<p>
+	Tak daleko ještě nejsme. Většina nastavení je uložena v <uri link="edl.xml.html">EDL</uri> souborech. <warn>Stále je však vyžadováno X11 a GTK+!</warn>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>CLI</title>
+<section>
+<title>Spuštění</title>
+	<body><ul>
+	<p> Avidemux může být spuštěn s parametry. Nejjasnější je avidemux soubor.avi, který načte soubor.avi.
+	</p>
+	<p>Můžete také zadat další příkazy, každý začínající --, pro vyvolání akce. Nebudete však mít všechny možnosti grafického rozhraní.
+	</p>
+	<p><warn>V režimu příkazové řádky budou přeskočena všechna dialogová okna a odpovědi na otázky budou automaticky nastaveny na NE.</warn>
+	<warn>Je to velmi důležité. Když například spustíte <c>avidemux2 soubor.nuv</c>, nebudete vyzváni k uložení indexu.</warn>
+	</p>
+	<p>K výpisu aktuálního seznamu příkazů a parametrů slouží avidemux --help.</p>
+	<p> Parametry jsou vyhodnocovány zleva doprava a zpracovány jeden po druhém. Tento režim příkazové řádky není zdaleka neprůstřelný, protože většina kontrol je v grafickém rozhraní.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Příkazy</title>
+	<body><ul>
+<table width="100%" border="1">
+		<tr>
+			<th>Příkaz</th><th>Parametry</th><th>Účel</th>
+		</tr>
+		<tr>
+			<ti>audio-process</ti><ti>Žádné</ti><ti>Nastaví audio na režim Process.</ti>
+		</tr>
+		<tr>
+			<ti>audio-normalize</ti><ti>Žádné</ti><ti>Aktivuje filtr normalizace zvuku.</ti>
+		</tr>
+		<tr>
+			<ti>audio-resample</ti><ti>Žádné</ti><ti>Aktivuje převzorkování ze 48 na 44.1 kHz.</ti>
+		</tr>
+		<tr>
+			<ti>video-process</ti><ti>Žádné</ti><ti>Nastaví video režim na Process.</ti>
+		</tr>
+		<tr>
+			<ti>filters</ti><ti>název souboru</ti><ti>Načte seznam filtrů.</ti>
+		</tr>
+		<tr>
+			<ti>vcd-res</ti><ti>Žádné</ti><ti>Přidá filtry potřebné ke konverzi do VCD rozlišení.</ti>
+		</tr>
+		<tr>
+			<ti>svcd-res</ti><ti>Žádné</ti><ti>Přidá filtry potřebné ke konverzi do SVCD rozlišení.</ti>
+		</tr>
+		<tr>
+			<ti>dvd-res</ti><ti>Žádné</ti><ti>Přidá filtry potřebné ke konverzi do DVD rozlišení.</ti>
+		</tr>
+		<tr>
+			<ti>begin</ti><ti>Číslo snímku</ti><ti>Nastaví počáteční značku výběru.</ti>
+		</tr>
+		<tr>
+			<ti>end</ti><ti>Číslo snímku</ti><ti>Nastaví značku konce výběru.</ti>
+		</tr>
+		<tr>
+			<ti>save-raw-audio</ti><ti>Žádné</ti><ti>Uloží audio v režimu Copy.</ti>
+		</tr>
+		<tr>
+			<ti>save-uncompressed-audio</ti><ti>Žádné</ti><ti>Uloží zvuk jako PCM pokud není aplikován žádný filtr, jinak se aplikují filtry/kodek.</ti>
+		</tr>
+		<tr>
+			<ti>save-raw-video</ti><ti>Žádné</ti><ti>Uloží elementární video stream bez kontejneru, výsledkem bude raw MPEG video!</ti>
+		</tr>
+		<tr>
+			<ti>index-mpeg</ti><ti>MPEG_soubor index_soubor číslo_stopy</ti><ti>Vytvoří index pro MPEG soubor.</ti>
+		</tr>
+		<tr>
+			<ti>load</ti><ti>Název souboru</ti><ti>Načte video.</ti>
+		</tr>
+		<tr>
+			<ti>load-workbench</ti><ti>Název souboru</ti><ti>Načte soubor se seznamem úprav.</ti>
+		</tr>
+		<tr>
+			<ti>save</ti><ti>Název souboru</ti><ti>Uloží soubor. Pokud není nastaven kodek MPEG (VCD,...), bude uložen jako AVI.</ti>
+		</tr>
+		<tr>
+			<ti>save-jpg</ti><ti>Název souboru</ti><ti>Uloží současný snímek jako JPEG.</ti>
+		</tr>
+		<tr>
+			<ti>external-mp3</ti><ti>Název souboru</ti><ti>Načte MPEG audio jako zvukovou stopu.<warn> Pokud je to VBR, musíte poté zadat --audio-map.</warn></ti>
+		</tr>
+		<tr>
+			<ti>external-ac3</ti><ti>Název souboru</ti><ti>Načte AC3 soubor jako zvukovou stopu.</ti>
+		</tr>
+		<tr>
+			<ti>external-wav</ti><ti>Název souboru</ti><ti>Načte WAV soubor jako zvukovou stopu.</ti>
+		</tr>
+		<tr>
+			<ti>audio-delay</ti><ti>Hodnota v ms</ti><ti>Posun A/V synchronizace o danou hodnotu.</ti>
+		</tr>
+		<tr>
+			<ti>audio-map</ti><ti>Žádné</ti><ti>Projde zvukovou stopu aby mohl správně pracovat s VBR.</ti>
+		</tr>
+		<tr>
+			<ti>audio-bitrate</ti><ti>Hodnota</ti><ti>Nastaví audio bitrate. <warn>Musíte zadat platný audio bitrate!</warn></ti>
+		</tr>
+		<tr>
+			<ti>audio-codec</ti><ti>Audio kodek: MP2 | MP3 | AC3</ti><ti>Vybere audio kodek, který se použije když ukládáte v režimu Process.</ti>
+		</tr>
+		<tr>
+			<ti>audio-toolame</ti><ti>Název souboru</ti><ti>Zvuk bude zpracován a poslán rourou na tooLAME. Výsledek bude uložen do zadaného souboru. <warn>Pouze Avidemux2.</warn></ti>
+		</tr>
+		<tr>
+			<ti>video-codec</ti><ti>Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [XVCD</ti><ti>Vybere video kodek, který se použije když ukládáte v režimu Process. </ti>
+		</tr>
+		<tr>
+			<ti>video-conf</ti><ti>cq=q | cbr=br | 2pass=xx </ti><ti>Vybere režim kódování: konstantní kvalita (cq=kvalita), konstantní bitrate (br=bitrate) nebo dvouprůchodový režim, v tom případě zadejte finální velikost v megabajtech.</ti>
+		</tr>		
+		<tr>
+			<ti>2pass-log</ti><ti>Název souboru</ti><ti>Specifikuje soubor obsahující statistiku prvního průchodu. Může být později znovu použit, ale ne v režimu příkazové řádky.</ti>
+		</tr>
+		<tr>
+			<ti>set-pp</ti><ti>Dvě hodnoty</ti><ti>Zvolí postprocessing aplikovaný u FFmpeg dekodéru (MPEG-4, DivX 3, div2,...). První hodnota je filtr, který se má aktivovat: 1 pro horizontální deblocking, 2 pro vertikální a 4 pro deringing. Jejich součet udává aktivované filtry, 7 znamená zaktivovány všechny tři. Druhá hodnota je síla filtru mezi 0 a 5, 5 je nejsilnější. </ti>
+		</tr>
+	<tr>
+			<ti>auto-split</ti><ti>Velikost v megabajtech</ti><ti>Avidemux automaticky rozdělí soubory když dosáhnou dané délky a vytvoří soubor.avi, soubor.avi.1, soubor.avi.2,... Výchozí hodnota je 2 GB. </ti>
+		</tr>
+</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Příklady</title>
+<section>
+	<title>Konverze AVI souboru na VCD</title>
+	<body><ul>
+<p>
+	Tato operace bude rozdělena na 3 části: 
+	<ul>	
+	<li>Komprese obrazu</li>
+	<li>Komprese zvuku</li>
+	<li>Multiplexace: tento poslední krok se provede mimo Avidemux</li>
+	</ul>	
+	</p>
+	<p>Komprese videa: <c>avidemux --load vstup.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</c>
+	</p>
+	<p>Komprese zvuku s libavcodecem: <c>avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </c>
+	</p>
+	<p>Komprese zvuku s tooLAME: <c>avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </c>
+	</p>
+	</ul></body>
+</section>
+<section>
+	<title>Překódování zvukové stopy do MP3 VBR</title>
+	<body><ul>
+	<p>Nejdříve uložte zvuk do WAV formátu: <c>avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </c>
+	</p>
+	<p>Potom jej zkomprimujte pomocí LAME: <c>lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </c>
+	</p>
+	<p>Načtěte ten MP3 soubor a uložte AVI: <c>avidemux --load vstup.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/novy.avi </c>
+	</p>
+	--audio-map je tady velmi důležité, protože jsme vytvořili VBR MP3. Jinak můžete čekat velmi rozhozenou synchronizaci!
+	</ul></body>
+</section>
+</chapter>
+</guide>

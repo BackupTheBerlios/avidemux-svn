@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>VBR MP3</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+VBR MP3
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Оступление</title>
+<section>
+	<body><ul>
+		<p> В большинстве случаев avidemux расчитывает смещение и длину аудио по формуле size= time * bitrate. Это применимо для всех CBR потоков.
+		</p>
+		<p>
+		Для VBR это неправильно, т.к. битрейт не постоянен.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio time map</title>
+<section>
+	<title>Audio time map(временная карта звука)</title>
+	<body><ul>
+		<p> Чтобы расчитать смещение/размер звуквой дорожки нужно знать, как изменяется битрейт. Для этого используется <c>Audio source->audio time map</c>.
+		</p>
+		<p>
+		Avidemux распакует поток и просчитает временную карту изменений. Для работы необходим пакет Mad , иначе ничего не получится.
+		</p>
+		<p>
+		Когда карта создана, avidemux сможет корректно обрабатывать(вырезать, сохранять, разбивать) avi с VBR звуком
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>А если я этого не сделаю ?</title>
+	<body><ul>
+		<p>  Вам же хуже, получите рассинхронизированный avi (чаще всего звук будет короче), даже если вы только загрузили и сохранили его.
+		</p>
+		<p>  Вы ДОЛЖНЫ делать это приработе с VBR mp3. Всегда.
+		</p>
+		<p>  Второй аудио поток в avi не может быть VBR.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

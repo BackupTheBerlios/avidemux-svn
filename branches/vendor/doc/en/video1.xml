@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: Image alteration filters</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video filter: Image alteration
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This set of filters deeply alter the source video : Resize, rotate, flip and crop.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Image Alteration Filters</title>
+<section>
+	<title>Crop</title>
+	<body>
+	<ul>
+	<p>This filter crops the video (for example to remove black border). The cropped value left/right/top/bottom must be even.
+	</p>
+	<p>You can preview the part that will be cropped using the <c>Apply</c> button.
+	</p>
+	<p>On a clean video (dvd), you can try the <c>Autocrop</c> button. It won't work very well on a noisy source (capture)
+	</p>
+	<img src="../image_tuto/crop2.png"></img>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Resize / Mplayer resize</title>
+	<body>
+	<ul>
+	<p>The resize filter is a port to YV12 of avisynth resize filter. Mplayer resize is a port of Michael Niedermayer resize filter, which is used in mplayer
+	</p>
+	<p>Avisynth resize is slightly more accurate, but mplayer resize is 3x faster without any perceptible difference.
+	</p>
+	<p>The filter dialog config box is the same for both filters :
+	</p><p>
+	<img src="../image_tuto/fresize.png"></img>
+	</p>
+	<p>You can direcly enter the new width/height and the resize algorithm or use the slider and the menu.
+	Three resize methods are proposed :
+	<ul>
+		<li>Bilinear : Smooth a bit but easier to encode</li>
+		<li>Bicubic  : Keep sharpness, harder to encode (for example leads more easily to macroblocking in SVCD)</li>
+		<li>Lanczos  : Hard to describe, very sharp.</li>
+	</ul>
+	Source and destination are important. If you do DVD2Divx for example, source is 4/3 or 16/9 and destination is 1:1. The other way around for Divx2SVCD.
+	</p>
+	<p>It is important as 4/3 has non square pixel (different for PAL and NTSC) and if you do 1:1 -> 1:1 you will end up with distorted image.
+	
+	</p>
+	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Blacken Borders</title>
+	<body>
+	<ul>
+	<p>This filter replaces border(s) of video by pure black. It may be useful to replace dirty border by clean one (VHS capture for example)
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Add Black Borders</title>
+	<body>
+	<ul>
+	<p>This filter *ADDS* black border (the previous one replaces). It is used internally by *VCD res to resize a video to a give size without altering the aspect ratio.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Flip vertical</title>
+	<body>
+	<ul>
+	<p>This filter vertically flips the video. Usefull when using broken video capture card for example.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Rotate</title>
+	<body>
+	<ul>
+	<p>This filter was written by Tracy (see file for more informations)	</p>
+	<p>It rotates the video by 90/180/270 degree. The author uses it with video from its camera in landscape mode.</p>
+	<p>
+	<img src="../image_tuto/rotate.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

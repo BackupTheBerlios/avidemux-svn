@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Remember that video filters are only taken into account when video process mode is set.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Process/Copy mode</title>
+<section>
+	<title>Copy mode</title>
+
+	<body>
+	<ul>
+	<p>In that mode, avidemux will just copy the input compressed stream to the file without touching it. 
+	</p>	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Process mode</title>
+
+	<body>
+	<ul>
+	<p>Avidemux will first decompress the video to YV12 frames, then apply the filters if any. Then encode the video with the choosen video compressor.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Meta-Filters</title>
+<section>
+	<body>
+	A meta filter is a group or modification of other filters. Here are some of them :
+	<ul>
+	<li>VCD/SVCD/DVD res: These meta-filters automatically resize the video into the correct size to be compatible with VCD/DVD/SVCD. They internally use add black borders and resize.</li>
+	<li>Partial:  This meta filter alters another filter so that it only applies on a part of the video. For example, you may want to deinterlace only a part of the video. To do so, create a deinterlace filter, select it and press the <c>Partial</c> button. Enter the start/end frame.</li>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filters family</title>
+<section>
+	<body>
+	<ul>
+		<li><uri link="./video1.xml.html">Image alteration filters</uri></li>
+		<li><uri link="./video2.xml.html">Interlacing filters</uri></li>
+		<li><uri link="./video3.xml.html">Convolution filters</uri></li>
+		<li><uri link="./video4.xml.html">Luma/chroma filters</uri></li>
+		<li><uri link="./video5.xml.html">Smoothing filters</uri></li>
+		<li><uri link="./video6.xml.html">Misc filters</uri></li>
+		
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

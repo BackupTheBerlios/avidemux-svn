@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Входные форматы</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Поддерживаемые входные форматы/кодеки
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Форматы файлов</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Формат</th><th>Ограничения</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>Только 2 звуковые дорожки</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Элементарный (ES) или програмный (PS) потоки (включая vob)</ti>
+		</tr>
+		<tr>
+			<ti>NuppelVideo</ti><ti>Обычный или от nuppel_gatos</ti>
+		</tr>
+		<tr>
+			<ti>Images</ti><ti>Последовательность bmp, именованных im0001.bmp im0002.bmp ...</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Видео кодеки</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Комментарий</th><th>Зависимости</th>
+		</tr>
+		<tr>
+			<ti>DivX,XviD</ti><ti>3.11,4,5,... Воспроизведение B-фреймов может быть с рывками (divx или lavcodec)</ti><ti>Divx или lavcodec</ti>
+		</tr>
+		<tr>
+			<ti>VP3</ti><ti></ti><ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Воспроизведение может быть с рывками (на качестве кодирования не отразится) </ti>				<ti>статически(libmpeg2)</ti>
+		</tr>
+		<tr>
+			<ti>Mjpeg</ti><ti>Необходим пакет mjpegtools. Возможно придется настроить swap u/v в декодере</ti>				<ti>Mjegtools</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>Основан на Lavcodec </ti>				<ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>WMV2</ti><ti>Основан на  Lavcodec </ti>				<ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>H263</ti><ti>Основан на Lavcodec </ti>				<ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>MSMP4V2</ti><ti>Основан на Lavcodec </ti>				<ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>Raw rgb</ti><ti>Собственный</ti>				<ti>Статически</ti>
+		</tr>
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Аудио кодеки</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Комментарий</th><th>Зависимости</th>
+		</tr>
+		<tr>
+			<ti>Uncompressed</ti><ti></ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>Mad</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti></ti><ti>A52Dec</ti>
+		</tr>
+		<tr>
+			<ti>WMA</ti><ti>в большинстве случаев работает </ti><ti>Статически(libavcodec)</ti>
+		</tr>
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Проблемы кодеков</title>
+<section>
+<title>"Problem decompressing frame"</title>
+	<body><ul>
+	<p>
+	Это означает, что кодек вернул сообщение об ошибке или  avidemux не может подобрать соответсвующий видео кодек.
+	</p><p>
+	В этом случае вы можете обрабатывать только аудио.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>После Save(A+V) avi "битый", Save audio работает нормально</title>
+	<body><ul>
+	<p>
+	То же самое для аудио. Соответствующий кодек не был найден (отсутствовал при компиляции или не поддерживается).
+	</p>
+	<p> Вы можете сохранять или вырезать  avi, но не редактировать аудио
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>После сохранения вместо звука один шум (WMA)</title>
+	<body><ul>
+	<p>
+	для WMA существуют некоторые особенности. Найдите значение blockalign в консольных сообщениях (обычно 373 или 768)</p>
+	<p>Введите это значение как <c>bytes per packet</c> в <c>file -> mux</c> .
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Специфика форматов</title>
+<section>
+<title>Mpeg файл</title>
+	<body><ul>
+	<p>Avidemux не может оперировать "сырым" (raw) mpeg потоком, а открывет индексный файл,
+	содержащий навигационную информацию. Это нужно для доступа к произвольному кадру.</p>
+	<p>
+	Т.о. вы можете использовать меню <c>misc->index mpeg</c> или открыть непосредственно mpeg файл.
+	В последнем случае вы будете перенаправлены на диалог индексирования. Но открытие закончится
+	сообщением <b>fail</b>. Это нормально, теперь переоткройте foo.mpg.idx.
+	</p>
+	<p>
+	Если выбранный файл назван наподобие foo1.xxx, avidemux попытается открыть так же foo2.xxx, foo3.xxx
+	Это будет сделано автоматически, но имена должны удовлетворять условию *[0-9].xxx
+	</p>
+	<p>
+	Avidemux может управлять одним (и только одним) аудио потоком для mpeg. Аудио поток выбирается
+	по полю id mpeg (sub) потока.
+	</p>
+	<p>Это значение C0--С7 для mpeg аудио (.mpg, vcd,...) или 0--7 для AC3 аудио.
+	</p>
+	<p>Например, если вам нужна вторая ac3 дорожка, введите <c>1</c>.
+	</p>
+	<p>Естественно, для проигрывания понадобится соответсвующий кодек (mad или a52).
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Nuppel Video</title>
+	<body><ul>
+	<p>
+	Так же, как и mpeg поток, nuppel video не содержит встроенных индексов.
+	</p><p>
+	Avidemux создает их непосредственно во время загрузки файла (это может занять некоторое время).
+	</p><p>
+	Avidemux пытается поддерживать аудио/видео синхронизацию, но иногда это приводит к разным результатам.
+	Хотя мой личный опыт большей частью положителен (я делал 8-часовую запись без каких-либо проблем).
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>WMV2 Video</title>
+	<body><ul>
+	<p>
+	Avidemux может работать с контентом в WMV2 формате (Windows Media Player 7.x/8.x) - но видео данные в этом случае должны находитсья в AVI контейнере.
+	</p>
+	<p>
+	Создать avi, содержащий wmv вы можете с помощью MEncoder в copy режиме, например: <code>mencoder [wmv file] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi file]</code>
+	</p>
+	<p>
+	На текущий  момент вы должны задать выходную частоту кадров <strong>100.0</strong> FPS, иначе будут проблемы с потерей кадров в редактируемом видео.
+	</p>
+	<p>
+	После создания avi айла, загрузите его в Avidemux для редактирования.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>BMPs Video</title>
+	<body><ul>
+	<p>
+	Avidemux может также открыть последовательность несжатых bmp(rgb) изображений.
+	</p><p>
+	Их имена должны удовлетворять условию xx0000.bmp xx00001.bmp и т.д..
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

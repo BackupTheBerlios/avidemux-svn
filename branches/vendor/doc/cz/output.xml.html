@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Výstupní formáty</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Výstupní formáty</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Formáty souborů</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Formát</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Omezení</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AVI</td>
+<td bgcolor="#ddddff" class="tableinfo">Maximálně 2 audio stopy</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw elementary stream</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-2 PS</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio+video, vhodné pro vytváření DVD</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw audio nebo video. Například raw MPEG-4 stream</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Video kodeky</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Poznámka</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Závislost</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DivX</td>
+<td bgcolor="#ddddff" class="tableinfo">Deaktivovaný, podpora odstraněna, nová verze nefunguje na P4</td>
+<td bgcolor="#ddddff" class="tableinfo">DivX</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">Dobrý, rychlý, přesný, spousta možností.</td>
+<td bgcolor="#ddddff" class="tableinfo">XviD 0.9 nebo 1.x</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Dobrý, rychlý, přesný, spousta možností</td>
+<td bgcolor="#ddddff" class="tableinfo">libavcodec (vestavěný)</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H.263</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastavení z libavcodecu</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">HuffYUV</td>
+<td bgcolor="#ddddff" class="tableinfo">YV12 HuffYUV, nekompatibilní s Windows</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">FFV1</td>
+<td bgcolor="#ddddff" class="tableinfo">Bezeztrátový video kodek z libavcodecu. Účinný!</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/DVD/SVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Dobrá kvalita, pomalé</td>
+<td bgcolor="#ddddff" class="tableinfo">mpeg2enc, vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Rychlé. Používá libavcodec, není úplně 100% kompatibilní</td>				<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XSVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Rychlé. Používá libavcodec, není úplně 100% kompatibilní</td>				<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		</table>
+		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Audio kodeky</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Poznámka</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Závislost</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Nekomprimovaný</td>
+<td bgcolor="#ddddff" class="tableinfo">Velké</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
+<td bgcolor="#ddddff" class="tableinfo">Dobrá kvalita, pouze CBR</td>
+<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">Pouze CBR, kompatibilní?</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný (libavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">Pouze CBR, kompatibilní?</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný (libavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">Použití roury do tooLAME, opravdu dobré!</td>
+<td bgcolor="#ddddff" class="tableinfo">tooLAME</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">Použití libtoolame, stále s chybami</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný (libtoolame)</td>
+		</tr>
+
+
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Specifika formátů</p>
+<p class="secthead"><a name="doc_chap4_sect1">AVI </a></p>
+<ul>
+	<p> Je výchozím výstupním formátem. Druhá CBR audio stopa se může přidat pomocí <span class="code">Audio-&gt;Second Audio Track</span>. Může to být buď MP3 CBR nebo AC3.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">MPEG (1) </a></p>
+<ul>
+	<p>Pokud použijete <span class="code">File-&gt;Save Video</span>, bude uložen pouze raw video elementary stream. Tedy .m1v nebo .m2v.
+	</p>
+	<p>Musíte zvolit MP2 audio enkodér, nastavit audio režim na Process a přes <span class="code">Audio-&gt;Save Audio</span> uložit .mp2.
+	</p>
+	<p>Potom použijte mplex nebo tcmplex k multiplexaci těchto dvou souborů a získání řádného .mpg.
+	</p>
+	<p>XVCD export používá MPEG-1 kodek z knihovny libavcodec, XSVCD používá libavcodec MPEG-2. Nedoporučuji je k vytváření VCD/SVCD/DVD (ovšem zakázat vám to nemůžu).
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">MPEG (2) </a></p>
+<ul>
+	<p>Pokud se použije <span class="code">File-&gt;Save as DVD PS</span>, uloží se MPEG-2 PS stream (včetně NAV packetů). To funguje v režimech Copy i Process, chcete-li například upravit nahrávku z PVR x50. V tom případě se přepočítají časové značky GOP, aby se předešlo skokům v časovém kódu.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect4">Raw </a></p>
+<ul>
+	<p>
+	Je k dispozici ve dvou podobách: pro zvuk jako <span class="code">Audio-&gt;Save Audio</span>.
+	Tak se uloží pouze zvukový soubor (ať už upravený/komprimovaný či nikoli).
+	</p>
+	<p>Pro video je položka <span class="code">File-&gt;Save Raw Video Stream</span>. Může být užitečná pro střih MPEG souborů nebo k uložení například raw H.263 nebo MPEG-4 video streamu.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

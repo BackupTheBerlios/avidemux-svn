@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Formati di ingresso</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Formati di ingresso</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Formati di file</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Formato</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Restrizioni</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
+<td bgcolor="#ddddff" class="tableinfo">Vengono utilizzati solo i primi due flussi</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Flussi elementari o flussi di programma (VOB compresi)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">NuppelVideo</td>
+<td bgcolor="#ddddff" class="tableinfo">Regolare o da nuppel_gatos</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Immagini</td>
+<td bgcolor="#ddddff" class="tableinfo">Gruppi di bitmap bmp, con nomi tipo im0001.bmp im0002.bmp ...</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263(+)</td>
+<td bgcolor="#ddddff" class="tableinfo">Flussi video grezzi h263(+) </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg4</td>
+<td bgcolor="#ddddff" class="tableinfo">Flussi video grezzi mpeg4 (incompleto)</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Codec video</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nome</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commento</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dipendenze</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DivX,XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">3.11,4,5,... La riproduzione dei B-frame sarà a scatti (basata su divx o lavcodec)</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx o lavcodec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VP3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">La riproduzione sarà a scatti, ma è accurata al frame</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto (libmpeg2)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mjpeg</td>
+<td bgcolor="#ddddff" class="tableinfo">Richiesti Mjpegtools. Potrebbe essere necessario utilizzare l'opzione swap u/v nella configurazione del decoder</td>				<td bgcolor="#ddddff" class="tableinfo">Mjpegtools</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Huffyuv</td>
+<td bgcolor="#ddddff" class="tableinfo">Basato su lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMV2</td>
+<td bgcolor="#ddddff" class="tableinfo">Basato su lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263</td>
+<td bgcolor="#ddddff" class="tableinfo">Basato su lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MSMP4V2</td>
+<td bgcolor="#ddddff" class="tableinfo">Basato su lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw rgb</td>
+<td bgcolor="#ddddff" class="tableinfo">Interno</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DV type ?</td>
+<td bgcolor="#ddddff" class="tableinfo">Basato su lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto</td>
+		</tr>
+		</table>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Codec audio</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nome</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commento</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dipendenze</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Non compresso</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3/2</td>
+<td bgcolor="#ddddff" class="tableinfo">CBR/ABR/...</td>
+<td bgcolor="#ddddff" class="tableinfo">Mad</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">A52Dec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMA</td>
+<td bgcolor="#ddddff" class="tableinfo">Per lo più funzionante</td>
+<td bgcolor="#ddddff" class="tableinfo">Nel pacchetto (libavcodec)</td>
+		</tr>
+
+		</table>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Problemi di codec</p>
+<p class="secthead"><a name="doc_chap4_sect1">Problem decompressing frame </a></p>
+<ul>
+	<p>
+	Il codec ha ritornato un errore oppure avidemux non è in grado
+	di trovare il codec appropriato.
+	</p>
+<p>
+	E' possibile elaborare l'audio e salvare comunque il file avi ma
+	non elaborare il video.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Save(A+V) will generate bad AVI Save audio will work </a></p>
+<ul>
+	<p>
+	Medesimo messaggio per l'audio. Il codec audio non è stato
+	trovato (non compilato o sconosciuto).
+	</p>
+	<p>E' possibile salvare e tagliare il file avi, ma non elaborare l'audio.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">After saving the audio is full of noise (WMA) </a></p>
+<ul>
+	<p>
+	WMA richiede muxing personalizzato. Controllare il valore di
+	allineamento blocchi nella console (Generalmente 373 o 768).
+	</p>
+	<p>Inserire il valore come <span class="code">bytes per packet</span> in file -&gt; mux options.
+	</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap5">5.</a></span>Formati specifici</p>
+<p class="secthead"><a name="doc_chap5_sect1">File Mpeg </a></p>
+<ul>
+	<p>Avidemux non può aprire flussi mpeg grezzi. Può invece aprire
+	flussi mpeg indicizzati.
+	L'indice è un file di testo che contiene informazioni di
+	navigazione. E' necessario per permettere l'accuratezza dei
+	frame.
+	</p>
+	<p>
+	E' possibile utilizzare l'opzione di menu <span class="code">misc-&gt;index mpeg</span> oppure aprire direttamente il file mpeg.
+	Nell'ulltimo caso si verrà ridirezionati alla dialog box di
+	indicizzazione mpeg con i campi precompilati. Ma l'apertura
+	<b>fallirà</b>.
+	E' perfettamente normale: semplicemente aprite foo.mpg.idx
+	subito dopo.
+	</p>
+	<p>
+	Se il file selezionato si chiama foo1.xxx, avidemux cercherà di aggiungervi foo2.xxx, foo3.xxx
+	Ciò viene eseguito automaticamente, ma i files devono avere nomi come *[0-9].xxx
+	</p>
+	<p>
+	Avidemux può operare un (ed uno solo) flusso audio dal file mpeg. Questo flusso audio è referenziato dall'id del suo (sub)flusso mpeg.
+	</p>
+	<p>E' C0-C7 per l'audio mpeg (.mpg, vcd,...) e 0-7 per l'audio AC3.
+	</p>
+	<p>Se è necessaria la seconda traccia audio ac3 dal file mpeg, inserire  <span class="code">1</span>.
+	</p>
+	<p>Naturalmente è necessario il codec audio appropriato per la riproduzione (mad o a52).
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect2">Nuppel Video </a></p>
+<ul>
+	<p>
+	Come per i flussi mpeg, Nuppel Video non ha indici interni.
+	</p>
+<p>
+	Avidemux li ricostruirà automticamente durante il caricamento
+	(operazione che può richiedere alcuni minuti).
+	</p>
+<p>
+	Avidemux cercherà di mantenere la sincronia audio/video, ma ciò
+	di tanto in tanto potrà causare un &quot;plop&quot;.
+	L'esperienza personale dice che si tratta di una buona
+	carattetistica (testato con un file nuppel_gatos di 8 ore senza
+	problemi).
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect3">Video WMV2 </a></p>
+<ul>
+	<p>
+	Anche se Avidemux è ora in grado di aprire un file WMV2 (formato
+	Windows Media Player 7.x/8.x), i dati video devono essere
+	contenuti in un flusso AVI.
+	</p>
+	<p>
+	Per creare questo flusso potete usare il pacchetto MEncoder in
+	modalità di copia (es.):
+	mencoder [wmv file] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi file]
+	</p>
+	<p>
+	Attualmente, è necessario forzare il framerate del file in
+	uscita a 100.0 frames per secondo (FPS), altrimenti verrà riscontrato un grosso volume di scarto di frame nell'elaborazione del video.
+	</p>
+	<p>
+	Dopo aver creato il file è possibile caricarlo con Avidemux per
+	l'elaborazione.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect4">Video BMP </a></p>
+<ul>
+	<p>
+	Avidemux può aprire anche un flusso di files bmp non compressi
+	(rgb1).
+	</p>
+<p>
+	I nomi dei files devono seguire lo schema xx0000.bmp xx00001.bmp (vale a dire:m lettere + n cifre+.bmp).
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

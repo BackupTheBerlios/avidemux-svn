@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Audio</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Audio</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Process/Copy mode</p>
+<p class="secthead"><a name="doc_chap1_sect1">Copy mode </a></p>
+	<ul>
+	<p>In that mode, avidemux will just copy the audio source (external/avi/...) to the output. It is used when you just cut an avi for example or change the audio track.That also applies to mpeg encoding/transcoding/requantizing.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Process mode </a></p>
+	<ul>
+	<p>Avidemux will first decompress the audio, then apply the filters if any. If you don't set any filters, you will end up with a huge wav file as audio track.
+	</p>
+	<p>To be used,  the corresponding audio codec must be present on your system. See <a href="input.xml.html">input format</a>.
+	</p>
+	<p>When using <span class="code">Audio-&gt;Save audio</span>, the audio is saved depending on the current mode. If the mode is set to copy, you will save a raw AC3/MP3/WMA... track. In process mode, the file will be processed then saved
+	</p>
+	<p>It can be useful to encode a track in MP2 to create a video CD for example. You will end up with a .m1v video elementary stream and a .mp2.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filters</p>
+<p class="secthead"><a name="doc_chap2_sect1">Normalize </a></p>
+	<ul>
+	<p>That filter normalize linearily the audio. It helps if the overall volume is very low (for example from ac3 audio track).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Convert to 44.1 khz </a></p>
+	<ul>
+	<p>That filter does the 48-&gt;44.1khz conversion. If the input is not 48 khz, it does nothing .
+	</p>
+	<p>It is based on wavefs44, borrowed from DVD2AVI.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Time shift </a></p>
+	<ul>
+	<p>This filter shifts the audio by removing the beginning or duplicating to create new sound. The value entered is the shift in ms.
+	</p>
+	<p>It is <b>the only filter to work also in copy mode</b>. Very handy to correct a sync error on avi or mpeg file.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Resample to  </a></p>
+	<ul>
+	<p>This filter  resamples the audio to the user given frequency. It is faster than the 48-&gt;44.1 but may be of lower quality. It is based on a slightly modified sox engine.
+	</p>	
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">Pal2Film and Film2Pal  </a></p>
+	<ul>
+	<p>If you want to alter a video and change its fps from film (23.976) to pal (25) you have to use the film2pal filter on audio stream to keep audio/video sync. The opposite is true for pal to film encoding.
+	</p>	
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Encoder Filters</p>
+<p>
+These filters are just like regular filters, but they do output compressed audio.
+</p>
+<p>
+</p>
+<p class="secthead"><a name="doc_chap3_sect1">Uncompressed </a></p>
+	<ul>
+	<p>It does nothing and ouput the audio as PCM wav file. Handy to convert MP3-&gt;wave for example.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">MP3 </a></p>
+	<ul>
+	<p> Based on liblame. You can select the bitrate and mode (joint stereo or stereo). For mono, it will be automatic.
+	</p>
+	<p> It encodes only in CBR mode. If you want VBR audio track, better to use the command line lame and to set the resulting mp3 as audio track. Don't forget to read <a href="./vbrmp3.xml.html">VBR MP3</a> or you will run into troubles... 
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">Ffmpeg  mpeg audio </a></p>
+	<ul>
+	<p>This is lavcodec mpeg audio encoder.
+	</p>
+	<p>It encodes only in CBR mode (and no joint stereo, even if there is an entry in the dialog). It is declared suitable to use as DVD audio track.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">Ffmpeg AC3 </a></p>
+	<ul>
+	<p>Also from libavcodec.
+	</p>
+	<p>It encodes stereo AC3 files. Never tried to see if the resulting AC3 is acceptable by an hardware decoder	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect5">Toolame (internal) </a></p>
+	<ul>
+	<p>This is using a preversion of toolame that is a library and thus usable directly by avidemux without piping.
+	</p>
+	<p>From 2.0.24 and after, it is suitable to use as VCD/DVD audio track</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Use case</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi with WMA audio </a></p>
+	<ul>
+	<p>Say you have an avi with WMA audio and want to convert it to MP3.
+	</p>
+	<p>Load your avi, let the video to copy as we won't modify it.
+	</p>
+	<p>Set the audio to process and select MP3 codec, <span class="code">Audio-&gt;Audio codec</span>
+	</p>
+	<p>Select <span class="code">Audio-&gt;configure codec</span>, set 128kbps j-stereo
+	</p>
+	<p><span class="code">File-&gt;save avi</span>, and voila you just converted the audio track.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap4_sect2">Avi with 44.1 Khz mp3 audio to DVD </a></p>
+	<ul>
+	<p>In that case, we will select process mode, resample to 48 khz and ffmpeg mpeg audio.
+	</p>
+	<p>The audio track will be first decompressed to PCM, then upsampled to 48 Khz and finally compressed to mpeg audio
+	</p>
+	<p>You can then use <span class="code">Audio-save audio</span> to get the .mp2 file, or use <span class="code">File-Save as DVD PS</span> to directly save it as a mpeg containing both audio and video. This mpeg is suitable to dvd authoring directly.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

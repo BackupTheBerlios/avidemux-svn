@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: Luma and Chroma</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: Luma / chroma filters
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This filter family alters chroma and or luma.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Luma/Chroma filters</title>
+<section>
+	<title>Swap u / v </title>
+	<body>
+	<ul>
+	<p>Sometimes there is a visible inversion on chroma planes (some broken video capture cards do that).
+	This filters swap them back. For example, this image has swapped u/v :
+	</p>
+	<p><img src="../image_tuto/swapuv2.png"></img></p>
+	
+	<p>After applying swap u/v, you end up with that one, which is correct :</p>
+	<p><img src="../image_tuto/swapuv1.png"></img></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Contrast </title>
+	<body>
+	<ul>
+	<p>This filter linearily adjusts contrast/brightness on luma and or chroma u/v.
+	</p>
+	<p>It can help on too bright/too dark/too red/too blue video.
+	</p>
+	<p><img src="../image_tuto/contrast.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Luma/chroma only </title>
+	<body>
+	<ul>
+	<p>These filters are for debug. They let only one component (luma/u/v).
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

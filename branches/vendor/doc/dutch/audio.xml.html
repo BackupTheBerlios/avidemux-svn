@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Audio</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Audio</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Process/Copy mode</p>
+<p class="secthead"><a name="doc_chap1_sect1">Copy mode </a></p>
+	<ul>
+	<p>In that mode, avidemux will just copy the audio source (external/avi/...) to the output. It is used when you just cut an avi for example or change the audio track.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Process mode </a></p>
+	<ul>
+	<p>Avidemux zal eerst het geluid uitpakken en dan de filters gebruiken die je              eventueel gebruikt. 
+Als je geen filter gebruikt zal dit resulteren in een zeer grootte &quot;wav&quot; file als audio file .
+	</p>
+	<p>
+                        Om te gebruiken moet je wel de juiste codecs geinstalleerd hebben . Zie
+                        <a href="input.xml.html">input format</a>.
+	</p>
+	<p>Waneer je <span class="code">File-&gt;Save audio</span>, gebruikt de audio word weggeschreven afhankelijk van de instelling die je gebruikt. Als je de instelling &quot; set to copy&quot; gebruikt, schrijf je een  raw AC3/MP3/WMA... track. In process mode, de file will be processed en dan weggeschreven
+	</p>
+	<p>Om een (s)vcd te creeren is het handig om een track naar mp2 te encoderen. .
+Je zal eindigen met een : a.m1v video en een a.mp2 audio file.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Filters</p>
+<p class="secthead"><a name="doc_chap2_sect1">Normalize </a></p>
+	<ul>
+	<p>Dit filter normaliseert linearily de audio. Het helpt als het totale volume (van ac3 bijvoorbeeld audiospoor) zeer laag is.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Convert to 44.1 khz </a></p>
+	<ul>
+	<p>Die filter doet 48-&gt;44. 1khz omzetting. Als de input geen khz 48 is, doet het niets..
+	</p>
+	<p>Het is gebaseerd op wavefs44, die van DVDVI wordt geleend..
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Time shift </a></p>
+	<ul>
+	<p>Dit filter verplaatst audio die het begin verwijdert of nieuw geluid te kopieeren / te creren. De ingestelde waarde is in Ms.
+	</p>
+	<p>It is <b>Het is het enige filter om ook &quot; copy mode&quot; te werken 
+                     </b>. Zeer handig om een syncfout op avidossier te verbeteren.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">6db press </a></p>
+	<ul>
+	<p>Deze filter vergroot de lage niveauaudio bij OB 6 en vermindert geleidelijk aan de versterking tot het 1 bereikt.
+	</p>
+	<p>Het is een beetje experimenteel en kan vervorming veroorzaken. Dubbele controle wanneer je het wilt gebruiken.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Encoder Filters</p>
+<p>
+Dze filters encoderen de audio 
+</p>
+<p>
+</p>
+<p class="secthead"><a name="doc_chap3_sect1">Uncompressed </a></p>
+	<ul>
+	<p>Het doet niets en ouput de audio als PCM wav file. Handig om bijvoorbeeld MP3-&gt;wave om te zetten.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">MP3 </a></p>
+	<ul>
+	<p> Gebaseerd op liblame. U kunt bitrate en de wijze (gezamenlijke stereo of stereo) selecteren. Voor mono, zal het automatisch zijn.
+	</p>
+	<p> Het codeert alleen in CBR mode. Als u audiospoor VBR wilt, is het beter om de command line lame te gebruiken en de daaruit voorvleoiende  mp3  weg te zetten als  audiospoor. Vergeet niet te lezen <a href="./vbrmp3.xml.html">VBR MP3</a> of u zult problemen tegenkomen. .... 
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">MP2 </a></p>
+	<ul>
+	<p>Dit is lavcodec mpeg audiocodec
+	</p>
+	<p>Het codeert alleen in CBR mode(en geen gezamenlijke stereo-installatie, zelfs als er een ingang in de dialoog is).  voor slechts gemak, i&quot;m ware believer van toolame: ) .I
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">AC3 </a></p>
+	<ul>
+	<p>Also from libavcodec.
+	</p>
+	<p>Het codeert stereocAc3 files. Nooit geprobeerd om te zien of de gecreerde AC3 aanvaardbaar is voor  een hardwaredecoder
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Use case</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi with WMA audio </a></p>
+	<ul>
+	<p>stel dat u een avi met Wma- audio hebt en het in MP3 wilt omzetten.
+	</p>
+	<p>Laad uw avi, laat de video op copy staan  aangezien wij het niet zullen wijzigen.
+	</p>
+	<p>De audio instelling op process mode om MP3 codec te bewerken en te selecteren, , <span class="code">Audio-&gt;Audio codec</span>
+	</p>
+	<p>Selecteer <span class="code">Audio-&gt;configure codec</span>, set 128kbps j-stereo
+	</p>
+	<p>
+<span class="code">File-&gt;save avi</span>, en voila u heeft een audiospoor omgezet 
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

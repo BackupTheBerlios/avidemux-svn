@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Dual audio track</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Dual audio track</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avertissement</p>
+<ul>
+		<p> Avidemux ne peut traiter en interne qu'une seule piste audio. 
+		</p>
+		<p>
+		   Cependant, il est possible d'ajouter une seconde piste audio, avec certaines restrictions et notamment qu'aucun traitement ne sera possible sur cette piste supplémentaire.	
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Ajouter une seconde piste audio</p>
+<p class="secthead"><a name="doc_chap2_sect1">Restrictions </a></p>
+<ul>
+		<p>La seconde piste audio doit être CBR : MP3 CBR ou AC3. Point barre. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Menu </a></p>
+<ul>
+		<p>Pour ajouter une seconde piste audio, utilisez le menu <span class="code">Misc-&gt;Second Track-&gt;xxxx</span>. Après l'avoir sélectionnée, choisissez <span class="code">File -&gt; Dual audio avi</span> au lieu de <span class="code">File -&gt; save avi</span>. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Découper un avi avec deux pistes audio </a></p>
+<ul>
+		<p> Comme Avidemux ne peut pas traiter plus d'un flux audio en interne, il va falloir ruser un peu.
+		</p>
+		<p>Ouvrez l'avi, puis sélectionnez la deuxième piste audio lorsque le programme vous le demande. 
+		</p>
+		<p> Définissez l'emplacement des marqueurs A et B et choisissez <span class="code">File -&gt; save audio</span> avec /tmp/track11.mp3 comme nom de fichier par exemple. 
+		</p>
+		<p> Réouvrez le même fichier, mais choisissez cette fois-ci la première piste audio. 
+		</p>
+		<p>Découpez-le puis enregistrez-le sous /tmp/avi1.avi. 
+		</p>
+		<p> Rechargez-le et ajoutez /tmp/track11.mp3 comme seconde piste sonore. Enregistrez le résultat avec <span class="code">File -&gt; Dual audio avi</span>. 
+		</p>
+		<p>  
+			Répétez ces opérations pour les différentes parties.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

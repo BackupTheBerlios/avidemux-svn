@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Scripting</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Scripting</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Foreword</p>
+	<ul>
+	<p>In some case, you end up doing often the same kind of actions to videos. For example, applying always the same filter(s) to a captured movie. On the other hand, you can be tempted to try different settings to see the effect. In both cases, using the nice UI from avidemux does not make things easier.
+	</p>
+	<p>Some commands are available throught <a href="./command.xml.html">command line</a>, but that's not the easiest way.
+	</p>
+	<p>There is an ongoing work for scripting capabilities. It means having a simple script language that you can
+	execute to perform actions unmanned.
+	</p>
+	<p>
+	The objective at the end, is to be able to do everything through the script language, but we are far from it.
+	</p>
+	
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Script</p>
+	<ul>
+	<p>A script is a simple text file. It has a syntax near C language, but much more simpler.</p>
+	<p>You can access it using either file-&gt;run script, or using the --run command from cli.</p>
+	<p>A ligne beginning by either <span class="code">//</span> or <span class="code">#</span> is ignored (you can make script executable and invoke avidemux that way :)</p>
+	<p>A script is a sequence of function call. A function call is <span class="code">function(param1,param2....);</span>
+	</p>
+	<p>A parameter can be a integer, a float, true/false or a string. For string, you can also use quoted string for filename ("my file.avi").
+	</p>
+	<p>The script is parsed one time to check for grammar or syntax error, then executed. If a command fails, the script stops.</p>
+	
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Commands</p>
+	<ul>
+	<p>Here is the set of command available as of now. To get a list, do avidemux2 --list</p>
+	<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>File command</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Load</td>
+<td bgcolor="#ddddff" class="tableinfo">filename</td>
+<td bgcolor="#ddddff" class="tableinfo"> </td>
+<td bgcolor="#ddddff" class="tableinfo"> </td>
+<td bgcolor="#ddddff" class="tableinfo">Load the file given as parameter </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Append</td>
+<td bgcolor="#ddddff" class="tableinfo">filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Append a file (does not work)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">LoadAudio</td>
+<td bgcolor="#ddddff" class="tableinfo">type</td>
+<td bgcolor="#ddddff" class="tableinfo">filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Load the file as external audio. The first argument is the type : mp3, ac3, wav</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Process command</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">videoprocess</td>
+<td bgcolor="#ddddff" class="tableinfo">true/false</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Set video process mode to on(process) or off (copy)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audioprocess</td>
+<td bgcolor="#ddddff" class="tableinfo">true/false</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Same for audio</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Save command</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Save the file</td>
+		</tr>			
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">savejpg</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Save the current image as jpeg</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">saveaudio</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Save audio track to the file given</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">savedvd</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Save as save DVD PS, i.e. a dvd compatible program stream</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">scanvbr</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Build the audio time map, to be able to deal with vbr mp3</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">saveraw</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Save the raw video stream, useful to cut a mpeg for example</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Audio filter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">normalize</td>
+<td bgcolor="#ddddff" class="tableinfo">true/false</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Set the normalize filter on/off</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">downsample</td>
+<td bgcolor="#ddddff" class="tableinfo">true/false</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Set the 48 to 44.1 khz filter on/off</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">resample</td>
+<td bgcolor="#ddddff" class="tableinfo">targetfrequency</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Resample to targetfrequency. Passing 0 means disabling the filter</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">delay</td>
+<td bgcolor="#ddddff" class="tableinfo">delay in ms</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Apply a delay to audio (also in copy mode). Passing 0   disables the filter</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">film2pal</td>
+<td bgcolor="#ddddff" class="tableinfo">true/false</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Set the film2pal audio filter on or off</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Codecs </b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">audiocodec</td>
+<td bgcolor="#ddddff" class="tableinfo">codec name</td>
+<td bgcolor="#ddddff" class="tableinfo">bitrate in kbps</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Select the audio codec, can be lame,mp2,ac3,toolame,none </td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">videocodec</td>
+<td bgcolor="#ddddff" class="tableinfo">codec name</td>
+<td bgcolor="#ddddff" class="tableinfo">Mode</td>
+<td bgcolor="#ddddff" class="tableinfo">optional: codec conf file</td>
+				<td bgcolor="#ddddff" class="tableinfo">Select the video codec, can be xvid4,ffv1, h263...The mode is cq=<span class="code">qz</span>, or cbr=<span class="code">bitrate in kbps</span>, or 2pass=<span class="code">size in megabytes</span>. Optionnaly, the third argument can be a file containing fine settings for the codec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Video filters </b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">loadfilter</td>
+<td bgcolor="#ddddff" class="tableinfo">filename</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Load the xml file describing the list of video filters.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Misc </b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameter</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">setfps</td>
+<td bgcolor="#ddddff" class="tableinfo">float</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Change the frame per second of the movie</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">exit</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Exit immediately</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">sleep</td>
+<td bgcolor="#ddddff" class="tableinfo">integer</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">wait N seconds</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">goto</td>
+<td bgcolor="#ddddff" class="tableinfo">integer</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Go to frame number N</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">setmarkerA</td>
+<td bgcolor="#ddddff" class="tableinfo">integer</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Set the start marker on given frame</td>
+		</tr>
+		<tr>
+
+			<td bgcolor="#ddddff" class="tableinfo">setmarkerB</td>
+<td bgcolor="#ddddff" class="tableinfo">integer</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+				<td bgcolor="#ddddff" class="tableinfo">Set the end marker on given frame</td>
+		</tr>
+		
+	</table>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Examples</p>
+	<ul>
+	<p>The fist example just navigate in a file</p>
+	<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+Load("/work/samples/2mn.avi");
+AudioProcess(1);
+videoProcess(1);
+sleep(500);
+goto(0);
+sleep(500);
+goto(10);
+sleep(500);
+goto(20);
+sleep(500);
+goto(30);
+sleep(500);
+goto(40);
+sleep(500);
+# comment
+exit();
+
+	</pre></td></tr>
+</table>
+	<p>The second example encode a file and set video.</p>
+<a name="doc_chap_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+Load("/work/samples/2mn.avi");
+videoprocess(on);
+//videocodec(xvid4,cq=5);
+loadfilter("/home/fx/ep1_b.edl.flt");
+videocodec(xvid4,2pass=12,"/home/fx/ep1_b.edl.flt.vcodec");
+save("/tmp/plop.avi");
+exit();
+
+</pre></td></tr>
+</table>
+	
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Audio</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Audio</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Mode Process/Copy</p>
+<p class="secthead"><a name="doc_chap1_sect1">Mode Copy </a></p>
+	<ul>
+	<p>Dans ce mode, avidemux se contente de recopier la source audio (externe/avi/...) sur la sortie. Il sert quand vous vous contentez de découper un avi par exemple, ou quand vous changez la piste audio.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Mode Process </a></p>
+	<ul>
+	<p>Avidemux va d'abord décompresser la piste audio avant de lui appliquer les filtres éventuels. Si vous n'en avez défini aucun, vous obtenez un énorme fichier wav comme piste audio.
+	</p>
+	<p>Pour pouvoir l'utiliser,  vous devez avoir installé le codec audio correspondant sur votre système. Voir <a href="input.xml.html">format d'entrée</a>.
+	</p>
+	<p>Lorsque vous utilisez la commande <span class="code">File-&gt;Save audio</span>, la piste audio est enregistrée suivant le mode courant. En mode Copy, vous enregistrez directement un fichier AC3/MP3/WMA... En mode Process, le fichier est d'abord traité avant d'être enregistré	</p>
+	<p>Il peut être utile de coder une piste en MP2, par exemple pour créer un VCD. Vous vous retrouverez avec d'un côté un flux vidéo élémentaire .m1v et de l'autre un fichier .mp2.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtres</p>
+<p class="secthead"><a name="doc_chap2_sect1">Normalize </a></p>
+	<ul>
+	<p>Ce filtre régularise l'audio de manière linéaire. Il sert si le volume général est très faible (par exemple pour une piste audio ac3).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Convert to 44.1 khz </a></p>
+	<ul>
+	<p>Ce filtre convertit de 48 en 44,1 kHz. Si le signal en entrée n'est pas en 48 kHz, il ne fait rien.
+	</p>
+	<p>Il utilise wavefs44, emprunté à DVD2AVI.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Time shift </a></p>
+	<ul>
+	<p>Ce filtre décale l'audio en supprimant ou en dupliquant le début pour créer du son supplémentaire. La valeur saisie correspond au décalage en ms.
+	</p>
+	<p>Il s'agit du <b>seul filtre qui fonctionne également en mode Copy</b>, et il est bien pratique pour corriger un problème de synchronisation dans un fichier avi.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">6db press </a></p>
+	<ul>
+	<p>Ce filtre amplifie le niveau audio le plus faible de 6 db, cette amplification diminuant progressivement pour atteindre 1.
+	</p>
+	<p>Il est un peu buggué et peut générer un peu de distorsion. Prenez vos précautions lorsque vous l'utilisez.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Filtres d'encodage</p>
+<p>
+Ce sont des filtres réguliers, dont le rôle consiste à encoder la piste audio.
+</p>
+<p>
+</p>
+<p class="secthead"><a name="doc_chap3_sect1">Uncompressed </a></p>
+	<ul>
+	<p>Il ne fait rien et fait sortir l'audio sous forme de fichier PCM wav. Il sert par exemple pour convertir un MP3 en wav.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">MP3 </a></p>
+	<ul>
+	<p> Il utilise liblame. Vous pouvez choisir le débit (bitrate) et le mode (joint stereo ou stereo). Pour le mono, cela se fait automatiquement.
+	</p>
+	<p> L'encodage se fait uniquement en mode CBR. Si vous voulez une piste audio en VBR, il est préférable d'utiliser lame en ligne de commande et d'indiquer le mp3 ainsi obtenu comme piste audio de votre film. Pour éviter les ennuis, n'oubliez pas de consulter <a href="./vbrmp3.xml.html">VBR MP3</a>.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">MP2 </a></p>
+	<ul>
+	<p>Il s'agit de l'encodeur mpeg lavcodec.
+	</p>
+	<p>Il encode uniquement en mode CBR (et pas de joint stereo, même si l'option est disponible dans la boîte de dialogue). Il n'est là que pour des raisons pratiques, je suis un fidèle fervent de toolame :) .
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">AC3 </a></p>
+	<ul>
+	<p>Egalement de libavcodec.
+	</p>
+	<p>Il génère des fichiers AC3 stéréo. Je n'ai jamais testé si les AC3 obtenus étaient lisibles par un décodeur matériel	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Exemple d'utilisation</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi avec piste audio WMA </a></p>
+	<ul>
+	<p>Supposons que vous ayez un avi avec une piste audio WMA que vous souhaitez convertir en MP3.
+	</p>
+	<p>Chargez votre avi et laissez le mode vidéo sur Copy car nous n'allons pas modifier cette composante.
+	</p>
+	<p>Réglez le mode audio sur Process et sélectionnez le codec MP3, <span class="code">Audio-&gt;Audio codec</span>
+	</p>
+	<p>Sélectionnez <span class="code">Audio-&gt;configure codec</span> et choisissez 128kbps j-stereo
+	</p>
+	<p><span class="code">File-&gt;save avi</span>, et voilà, vous avez converti votre piste audio.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Mpeg to Divx tutorial</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Mpeg to Divx tutorial</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Getting ready</p>
+This page is an example of encoding mpeg1 or 2 ( a DVD 
+for example) into AVI, with xvid and mp3 audio.
+<p class="secthead"><a name="doc_chap1_sect1">Input stream </a></p>
+<p>
+ Only mpeg video (m1v and m2v) and mpeg program stream are supported by avidemux 
+(mpg/vob).
+ The stream must be mono angle, and not cyphered. Let's call this stream
+stream.mpg
+</p>
+<p>
+ If your source is a dvd, a good way is to use the very reliable Mplayer like this :
+ <span class="code">mplayer -dvd 1 -dumpstream</span>.
+ It will create a avidemux compatible vob from the DVD.
+</p>
+<p>
+	VDR files are currently unsupported.
+</p>
+<p class="secthead"><a name="doc_chap1_sect2">Indexing </a></p>
+<p>
+Avidemux cannot read mpeg stream. Rather it can read mpeg stream index.
+</p>
+<p>
+A mpeg stream index is a plain text file describing the mpeg and where the frames are located. It is very similar to the d2v structure of DVD2AVI, a great windows frame server.
+</p>
+<p>It is this index that allows avidemux to random seek in the file and to be frame accurate.
+</p>
+<p>
+To build this index, you have two options :
+<ul>
+<li>Go to <span class="code">misc-&gt;index mpeg</span>
+</li>
+<li>Open the mpeg, avidemux will propose to index it(note that the opening will fail, it is normal)</li>
+</ul>
+You will get to this screen : 
+</p>
+<p><img src="../image_tuto/mpegindex.png">
+</p>
+<p>
+The index and mpeg fields are obvious.
+</p>
+<p>
+For the audio track, the simplest is to press the <span class="code">Scan file for audio stream</span> and wait a few seconds.
+The pulldown menus will be filled by detected audio streams and their features (bitrate etc...).
+</p>
+<p>Press <span class="code">Ok</span>, and wait a few minutes, the index is being created. When done, we are ready to play with the mpeg stream.
+</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Editing the video</p>
+<p class="secthead"><a name="doc_chap2_sect1">NSTC versus Film </a></p>
+<ul>
+		<p>
+			Some DVD are coded as 23.976 aka FILM (most movies actually). Some others are coded as 29.97 (NSTC), soap for example. In the first case, the DVD player does a operation to convert it on the fly to NSTC format (telecine). So the mpeg header always says 29.96 as it will always be the final format.	
+		</p>
+		<p>Avidemux uses mpeg2dec to decode mpeg streams (with a little patch). Mpeg2dec does not do the telecine on FILM movie (and that's better that way).
+		</p>
+		<p>It means that avidemux cannot tell the difference between FILM and NSTC.
+		So if the mpeg looks progressive (not interlaced) and obvious desync appears (and gets worse and worse), use <span class="code">Misc-&gt;Change fps</span> and set it to 23.976.
+		</p>
+		<p>For PAL mpeg, there is no problem, it is always 25 fps.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Cropping </a></p>
+<ul>
+		<p>Now you should have something like this :</p>
+		<img src="../image_tuto/mpeg.png">
+	<p> Time to set some filters to the video. <span class="code">F1</span> to popup the filter list.</p>
+	
+		<img src="../image_tuto/filters.png">
+		<p>
+	We will select the Crop filter, to get ride of the black borders.
+		If the stream is very clean, you can try the <span class="code">autoCrop</span> button.
+		On this example, the borders are very small. They appear in green for easy visual matching.
+
+		</p>
+		<img src="../image_tuto/crop.png">
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Resizing </a></p>
+<ul>
+
+		<p> Now that the image has been cropped, we will resize it so something smaller.
+		
+		To do a correct resizing, it is very important to take the aspect ratio into account. The aspect ratio is the shape of a pixel. On a pc it is mostly square, on DVD it could be 4:3 or 16:9. So, select the input aspect ratio (16:9 is the most common for DVD) and target aspect ration (1:1 for Divx, 4:3 or 16:9 to do a DVD or SVCD). Then select the resizing method, bilinear is generally good enough for downsizing. You probably will want to check the <span class="code">16 round up</span> to be sure the final width and height are multiples of 16. Then move the slider until you reach the desired width.
+		</p>
+		<p>
+			<img src="../image_tuto/resizedvd.png">
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect4">More video filters </a></p>
+<ul>
+
+		<p> Depending on the source, you may want to add more filters (subtitling, denoiser, deinterlacer...). See <a href="video.xml.html">video filters</a> for more.
+		</p>
+		<p>The video is now ready, time to set up the video encoding. You can open the preview window and move inside the movie using the slidebar, the preview window will be updated.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Setting up the encoder</p>
+<p class="secthead"><a name="doc_chap3_sect1">Codec </a></p>
+<ul>
+		<p> Obviously we want to encode the video, so we set the video to process mode (<span class="code">F5</span>).
+
+		</p>
+		<p>Time to select a codec. My two preferred are Xvid and Lavcodec. You can use windows based tutorial for Xvid as the options are the same. For lavcodec, have a look in mplayer documentation.
+		</p>		
+		<p> Let's take Xvid for this mini tutorial.
+		</p>
+		<p><img src="../image_tuto/videocodec.png">
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Configuring the codec </a></p>
+<ul>
+		<p> First we will set the log file for dual pass as we may want to use it later by using <span class="code">Misc-&gt;Select Log File</span>
+		</p>
+		<p>Selecting <span class="code">Configure codec</span> will show this dialog.
+		</p>
+		<img src="../image_tuto/xvid.png">
+		<p>We will take 2pass and enter the final size.The size is the video only, you have to take the overall target size and remove the part used by the audio.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Setting audio</p>
+<p class="secthead"><a name="doc_chap4_sect1">Internal audio </a></p>
+<ul>
+		<p>If you use the audio you selected when creating the index, nothing to do. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">External audio </a></p>
+<ul>
+		<p>You can also use a external audio using <span class="code">Audio-source</span> menu entry.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Processing or not ? </a></p>
+<ul>
+		<p>If you want to let the audio as-is, for example to do a Xvid+AC3 track do nothing and skip the whole chapter. 
+		</p>
+		<p>Else, set the audio to process mode and set (for example) Normalize, 48-&gt;44. To get the detail, check <a href="audio.xml.html">audio filters</a>
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect4">Audio codec </a></p>
+<ul>
+		<p>Same story as for video codec, select a codec, for example MP3, and configure it.		</p>
+		<p>We will take 128 kbps joint stereo, like here</p>
+		<img src="../image_tuto/mp3.png">
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap5">5.</a></span>Saving </p>
+<ul>
+		<p>Now select <span class="code">File-&gt;Save avi</span> and wait a few hours. Done.
+		Avidemux will do pass 1 then pass2 and encode the audio.
+		</p>
+		<img src="../image_tuto/encoding.png">
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

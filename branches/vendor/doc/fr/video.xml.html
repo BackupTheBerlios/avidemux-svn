@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avant-propos</p>
+	<ul>
+	<p>Rappelez-vous que les filtres vidéo ne sont pris en compte que lorsque le mode video process est activé.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Modes Process/Copy </p>
+<p class="secthead"><a name="doc_chap2_sect1">Mode Copy </a></p>
+	<ul>
+	<p>Dans ce mode, avidemux se contente de recopier le flux compressé en entrée vers le fichier sans l'altérer.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Mode Process </a></p>
+	<ul>
+	<p>Avidemux va commencer par décompresser la vidéo en images YV12 avant de leur appliquer les filtres éventuels. Il encode ensuite la vidéo selon la méthode choisie.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Méta-filtres</p>
+	Un méta-filtre est un regroupement ou une modification d'autres filtres. En voici certains :
+	<ul>
+	<li>VCD/SVCD/DVD res : ces méta-filtres redimensionnent automatiquement dans la taille correcte pour qu'elle soit compatible VCD/DVD/SVC. Ils utilisent en interne les filtres add black borders et resize.</li>
+	<li>Partial: ce méta-filtre modifie un autre filtre de façon à ce qu'il ne s'applique qu'à une partie de la vidéo. Il se peut, par exemple, que vous souhaitiez désentrelacer une partie seulement de la vidéo. Pour ce faire, créez un filtre de désentrelacement, sélectionnez-le et cliquez sur le bouton <span class="code">Partial</span>. Saisissez l'image de début et celle de fin.</li>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Familles de filtres</p>
+	<ul>
+		<li><a href="./video1.xml.html">Filtres de modification des images</a></li>
+		<li><a href="./video2.xml.html">Filtres d'entrelacement</a></li>
+		<li><a href="./video3.xml.html">Filtres de convolution</a></li>
+		<li><a href="./video4.xml.html">Filtres de luminance/chrominance</a></li>
+		<li><a href="./video5.xml.html">Filtres d'atténuation</a></li>
+		<li><a href="./video6.xml.html">Filtres divers</a></li>
+
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video : Requantizing and encoding to mpeg2 PS (DVD)
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This doc needs to be done.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Dual audio track</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Dual audio track
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Warning</title>
+<section>
+	<body><ul>
+		<p> Avidemux can only handle one audio track internally. 
+		</p>
+		<p>
+		   Nonetheless, there is a way to add a second audio track, with limited support and no processing at all on that second audio track.	
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Adding a second audio track</title>
+<section>
+<title>Restrictions</title>
+	<body><ul>
+		<p> The second audio track must be CBR, that is MP3 CBR or AC3. Period. 
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Menu</title>
+	<body><ul>
+		<p> To add a second audio track, use the <c>Audio->Second Track->xxxx</c> menu. After selecting it, use <c>File -> Dual audio avi</c> instead of <c>File ->Save video</c>. 
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Cutting a dual audio avi</title>
+	<body><ul>
+		<p> As Avidemux cannot handle more than one audio stream internally we will have to play a bit .
+		</p>
+		<p> Open the avi, when prompted select the second audio track 
+		</p>
+		<p> Set the A and B markers and use <c>File -> save audio</c> as /tmp/track11.mp3 for example. 
+		</p>
+		<p> Reopen the same avi, but this time select the first audio track. 
+		</p>
+		<p> Cut it, and save it as /tmp/avi1.avi. 
+		</p>
+		<p> Reload it, and add /tmp/track11.mp3 as second track. Save using  <c>File -> Dual audio avi</c> menu. 
+		</p>
+		<p>  
+			Repeat for each part.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

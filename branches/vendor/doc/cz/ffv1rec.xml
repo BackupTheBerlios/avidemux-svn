@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>ffv1rec</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+ffv1rec
+ </abstract>
+
+<version>1.0</version>
+<date>25 August 2003</date>
+<chapter>
+<title>Historie</title>
+<section>
+<title>Před ffv1rec byl nuppel_gatos</title>
+	<body><ul>
+		<p> 
+		Minulý rok jsem používal kartu ATI AIW 7500, s ovladači <uri link="http://gatos.sf.net">GATOS</uri>. 
+		</p>
+		<p>Problém je, že tato karta neposkytuje stejné v4l rozhraní jako ovladač BT8X8. Takže většina nahrávacích prohramů prostě nefunguje.
+		</p>
+		<p>Frustrován touto skutečností jsem si napsal utilitku nazvanou nuppel_gatos, což byl port programu NuppelVideo.
+		
+		</p><p>K nahrávání používal rozhraní ovladače GATOS, plus konverzi z YUV422 na YUV420P.
+		</p>
+		<p>Fungoval pěkně, ale poměr velikost/kvalita nebyl moc dobrý. Experimentování mne postavilo před hrozné dilema:
+		<ul>
+			<li>Používat NuppelVideo, ale zůstat u formátu RTjpeg, perfektní synchronizace, obrovské soubory</li>
+			<li>Používat AVI, s možností použít jiný kodek, synchronizace, *ehm*, problematická</li>
+		</ul>
+		</p>
+		<p>Když mluvím o synchronizaci, myslím tím skutečnou synchronizaci. Žádné triky na úrovni kontejneru k nápravě synchronizace zvuku a obrazu, které se rozcházejí když se vezmou samostatně.
+		</p>
+		<p>Takže jsem upravil nuppel_gatos tak, aby uměl komprimovat video kodekem XviD v prokládaném režimu. 
+		</p>
+	
+	</ul></body>
+</section>
+<section>
+<title>A nyní ffv1rec</title>
+	<body><ul>
+		<p>Před několika měsíci jsem skončil s AIW a pořídil si Ti4200 (jsem tak trochu fanda Enemy Territory :)) a instaloval zpět kartu BT8x8.
+		</p>
+		<p>Stejné příčiny, stejné následky. Navíc jsem chtěl otestovat FFV1, bezeztrátový kodek z <uri link="http://www.ffmpeg.org/">FFmpegu</uri>. A je tu ffv1rec. :) 
+		</p>
+		<p>Výsledek primárních cílů byl špatný: velikost dobrá, ale vytížení procesoru se okamžitě vyšplhalo na maximum.
+		</p>
+		<p>Takže abych toto zajímavé pojednání ukončil, ffv1rec vznikl evolucí z  NuppelVidea a používá také stejný kontejner.
+		</p>
+		<p>Máte perfektní synchronizaci i možnost komprimovat video různými kodeky.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Hlavní rozdíly oproti nuvrec</title>
+<section>
+	<body><ul>
+		<li>Vlákna místo procesů</li>
+		<li>Můžete zadat audio frekvenci, jako 48000 pro pozdější konverzi na DVD, přepínačem <c>-b</c></li>
+		<li>Nastavení se může uložit v $HOME/.ffv1recrc, viz následující část</li>
+		<li>Můžete si zvolit video kodek přepínačem <c>-C</c>. Doporučený je XVID nebo HUFFYU</li>
+		<li>Nastavit se dá i odhad pohybu u kodeku parametrem <c>-M</c>. Doporučeno: 0 nebo 1</li>
+		<li>Můžete si zvolit kvantizaci parametrem <c>-q</c>. Doporučeno: 5</li>
+		<li>Vzdálenost mezi klíčovými snímky se dá nastavit parametrem <c>-d</c>. Doporučeno: 200</li>
+		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Verze kodeku XviD</title>
+<section>
+	<body><ul>	
+	<p>Od verze Avidemuxu 2.0.22 byla do ffv1rec přidána částečná podpora kodeku XviD verze 1.x, ale před kompilací ffv1rec <b>musíte</b> nejdříve zkompilovat Avidemux (nebo alespoň spustit ./configure).
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>$HOME/.ffv1recrc</title>
+<section>
+	<body><ul>	
+	<p>Tento soubor obsahuje vaše nastavení. Parametry z příkazové řádky jej přepíší.</p>
+	<p>Syntaxe:
+	</p>
+
+	<ul>
+		<li><c>#</c> je komentář</li>
+		<li><c>parametr</c> je totéž co -parametr z příkazové řádky</li>
+		<li><c>parametr=hodnota</c> je stejné jako -parametr hodnota z příkazové řádky</li>
+	</ul>
+	<p>
+		Jako příklad uvedu své nastavení:
+		<pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

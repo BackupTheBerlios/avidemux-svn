@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Vidéo: filtres de convolution</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Vidéo : filtres de convolution
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Cette famille de filtres regroupe des fitres de convolution, comme mean (moyenne), median (médiane), sharpen (accentuer), ...
+	</p>
+	<p>Les fitlres de convolution prennent une matrice 3x3 et l'appliquent au voisinnage de chaque pixel. Ils peuvent s'appliquer à la chrominance, à la luminance ou aux deux.
+	</p>
+	<p> Appliqués à la seule chrominance, les filtres Median et Mean s'avèrent particulièrement efficaces pour éliminer le bruit qui affecte une capture à partir d'un magnétoscope.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Filtres de convolution</title>
+<section>
+	<title>Mean</title>
+	<body>
+	<ul>
+	<p>Ce filtre affecte à chaque pixel la valeur moyenne de ses voisins. C'est un filtre passe bas assez rudimentaire.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Median</title>
+	<body>
+	<ul>
+	<p>Ce filtre affecte à chaque pixel la valeur médiane de ses voisins. Il est comparable à mean mais élimine des valeurs différentes. Il supprime efficacement le bruit dans les hautes fréquences (comme les points blancs des vieux films), mais crée beaucoup de flou.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Sharpen</title>
+	<body>
+	<ul>
+	<p>Ce filtre a cela d'intéressant qu'il introduit des valeurs négatives dans la matrice de convolution. Il accentue l'image en augmentant la différence entre chaque pixel et ceux qui l'entourent. Cela peut faire apparaître des artéfacts si la source est déjà très contrastée.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Gaussian smooth</title>
+	<body>
+	<ul>
+	<p>Il s'agite encore d'un filtre qui calcule une moyenne, comme mean, mais les coefficients utilisés sont différents et le résultat obtenu moins brutal. Il crée toujours un flou important, mais moins que celui de mean.
+
+	</p>
+	</ul>
+	</body>
+</section>
+
+</chapter>
+</guide>

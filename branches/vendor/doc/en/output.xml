@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Output formats</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Output format
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>File format</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Format</th><th>Restriction</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>Up to 2 audio track</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Raw elementary stream</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg2PS</ti><ti>Audio+Video, suitable to DVD authoring</ti>
+		</tr>
+		<tr>
+			<ti>OGM</ti><ti>Audio track must be MP3 or AC3 CBR</ti>
+		</tr>
+		<tr>
+			<ti>Raw</ti><ti>Stripped audio or video. For example raw mpeg4 stream</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Video codec</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Comment</th><th>Dependancy</th>
+		</tr>
+		<tr>
+			<ti>Divx</ti><ti>Disabled, latest version crashes on P4</ti><ti>Divx</ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>Good, accurate, fast, plenty of options</ti><ti>Xvid 0.9 or 1.x</ti>
+		</tr>
+		<tr>
+			<ti>Lavcodec</ti><ti>Good, accurate, fast, plenty of options</ti><ti>Lavcodec(bundled)</ti>
+		</tr>		
+		<tr>
+			<ti>H263</ti><ti>Settings from lavcodecc</ti><ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>YV12 Huffyuv, not compatible with windows</ti><ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>FFV1</ti><ti>Lossless video codec from lavcodec. Efficient !</ti><ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>VCD/DVD/SVCD</ti><ti>Good quality, slow</ti><ti>mpeg2enc, Bundled</ti>
+		</tr>
+		<tr>
+			<ti>XVCD</ti><ti>Fast. lavcodec based, somehow not 100% compliant</ti>				<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>XSVCD</ti><ti>Fast, lavcodec based, somehow not 100% compliant</ti>				<ti>Bundled</ti>
+		</tr>
+		</table>
+		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio codec</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Comment</th><th>Dependancy</th>
+		</tr>
+		<tr>
+			<ti>Uncompressed</ti><ti>Big</ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3</ti><ti>Good quality, CBR only</ti><ti>liblame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>CBR only, compliant ?</ti><ti>Bundled(lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti>CBR only, compliant ?</ti><ti>Bundled(lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>using pipe to toolame , really good !</ti><ti>Toolame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Using libtoolame, still buggy</ti><ti>Bundled(Libtoolame)</ti>
+		</tr>
+
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Format specific</title>
+<section>
+<title>Avi</title>
+	<body><ul>
+	<p> It is the default save format. A second CBR audio track can be added using <c>Audio->Second audio track</c>. It can be either MP3 CBR or AC3.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Mpeg file 1/2</title>
+	<body><ul>
+	<p>If <c>File-Save video</c> is used, only raw video elementary stream will be written. That is .m1v or .m2v
+	</p>
+	<p>You will have to select mp2 audio encoder, set the audio to process and <c>Audio->save audio</c> to obtain the .mp2.
+	</p>
+	<p>Then use mplex or tcmplex to multiplex the 2 files and get a proper .mpg
+	</p>
+	<p>The XVCD export used lavcodec mpeg1 codec, the XSVCD uses lavcodec mpeg2 codec. I do not recommend using them to do VCD/SVCD/DVD (but it is a free country here).
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Mpeg file 2/2</title>
+	<body><ul>
+	<p>If <c>File-Save DVD PS</c> is used, you will save as a mpeg2 PS stream (including NAV packet). That works in both copy and process mode, if for example you want to edit a PVRx50 captured stream. The GOP timestamp are recomputed in that case to avoid jump in the timecode.
+	</p>
+	<p>If you are using save video, you will have to process video and audio separately and mux them back together</p>
+	<p>Internal toolame has some issues, ffmpeg audio is known to work, albeit with a lesser quality.
+	</p>
+	</ul></body>
+</section>
+
+<section>
+<title>Raw</title>
+	<body><ul>
+	<p>
+	This is available in two forms : For audio using the <c>Audio->save audio</c> menu entry.
+	It will save the audio only (processed/encoded or not).
+	</p>
+	<p>For video it is using <c>File ->save raw</c>. Can be useful to cut mpeg files or to save stripped video. For example, raw h263 or mp4 video stream.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>Indice</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Documentazione principale
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Installazione e formati supportati</title>
+<section>
+	<title>Installazione</title>
+	<body>
+	<ul>
+	<p>	<uri link="./install.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Formati di ingresso supportati e codec</title>
+	<body>
+	<ul>
+	<p>	<uri link="./input.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Formati di uscita supportati e codec</title>
+	<body>
+	<ul>
+	<p>	<uri link="./output.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Operazioni elementari: taglio, mp3 VBR, tracce dual audio eccetera...</title>
+<section>
+	<title>L'interfaccia</title>
+	<body>
+	<ul>
+	<p>	<uri link="./guitour.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Operazioni di taglio</title>
+	<body>
+	<ul>
+	<p>	<uri link="./cutting.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MP3 VBR</title>
+	<body>
+	<ul>
+	<p>	<uri link="./vbrmp3.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Avi con tracce dual audio</title>
+	<body>
+	<ul>
+	<p>	<uri link="./dualaudio.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtri audio</title>
+	<body>
+	<ul>
+	<p>	<uri link="./audio.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Filtri video</title>
+	<body>
+	<ul>
+	<p>	<uri link="./video.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Tutorial</title>
+	<section>
+	<title>Da Mpeg a Xvid</title>
+	<body>
+	<ul>
+	<p>	<uri link="./dvd2divx.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+	</section>
+	<section>
+	<title>Da Divx a Vcd</title>
+	<body>
+	<ul>
+	<p>	<uri link="./divx2vcd.xml.html">Italiano</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

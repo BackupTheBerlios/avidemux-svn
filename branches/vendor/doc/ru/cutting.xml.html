@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Вырезание</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Вырезание</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Простое вырезание</p>
+<p class="secthead"><a name="doc_chap1_sect1">Маркеры </a></p>
+<ul>
+		<p>
+			Маркеры A и B устанавливают соответственно начало и конец последовательности.
+		</p>
+		<p>
+			Вы можете установить их используя <img src="../images/marka.png"> и <img src="../images/markb.png"> кнопки.
+		</p>
+		<p> Перейти к маркеру A или B можно с помощью меню <span class="code">Markers-&gt;Go to A</span> или <span class="code">Markers-&gt;Go to B</span>.
+		</p>
+		<p> Позиции маркеров указаны указаны внизу главного окна программы.
+		<img src="../images/markers.png">. -1 означает конец видео.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">Сохранение </a></p>
+<ul>
+		<p>
+			Если маркеры будут установлены, видео будет сохранено от A до B включая B.
+		</p>
+		<p>
+			[A,B].
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect3">Удаление </a></p>
+<ul>
+		<p>
+			Пункт меню <span class="code">Markers-&gt;Delete</span> предназначен для удаления [A,B[ из потока.
+			Очень удобно, например, для вырезания рекламы из записанного фильма.
+		</p>
+		<p>
+		Можете удалять сколько угодно.
+		</p>
+		 При удалении части потока звук внутри потока будет синхронизирован с видео, но это не работает для внешней звуковой дорожки. Другими словами, убедитесь, что поток уже содержит звук.
+		
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect4">Вырезание и keyframes(ключевые кадры) </a></p>
+<ul>
+		<p>Описанное ниже применимо только для режима copy . В режиме process avidemux всегда будет перекодировать все подряд .
+		</p>
+		<p>
+			Многие видео кодеки используют предыдущий кадр как основу для следующего и кодируют только разницу. Периодически в поток вставляют полные кадры, кодирование которых не зависит от предыдущих или последующих. Их назвыают &quot;Intra frame&quot;, &quot;I-Frame&quot; или &quot;KeyFrame&quot;.
+		</p>
+		<p>
+			Это означает, что если вы сделаете в потоке выборку : xxAxxIxxBxxxIxxx, и удалите [A,B[, вы получите xxOOOIxxxxx, где OOO - испорченые кадры.
+			</p>
+<p>Почему испорченные ? Потому что для них нет опорного кадра.
+		</p>
+		<p>
+			Есть два способа обойти это:
+			<ul>
+			<li>Совместить B маркер с ближайшим keyframe. </li>
+			<li>Использовать режим smart copy. Доступен только для Divx3 и mpeg4. В режиме Smart copy будут перекодированы только необходимые кадры до опорного с фиксированным квантованием. Значение 4 или 5 вполне достаточно. Вы получите xxRRRIxxxx, где R - перекодированные кадры</li>
+			</ul>
+		</p>
+
+
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Расширенные опции</p>
+<p class="secthead"><a name="doc_chap2_sect1">Авторазбиение </a></p>
+<ul>
+		<p>
+			Используя меню <span class="code">File -&gt;Set mux options</span>, укажите размер файла в мегабайтах.
+		</p>
+		<p>
+			При достижении указанного размера на очередном keyframe avidemux создаст новый файл foo.avi.1, foo.avi.2 etc...
+		</p>
+		<p>
+			Так как новый файл должен начинаться с keyframe, это работает не очень точно по размеру. Лучше предумотреть запас около 5 MB   .
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Помощник </a></p>
+<ul>
+		<p>
+			Вы можете использовать также <span class="code">Misc-&gt;cut wizard</span>. Установите A маркер перед началом.
+		</p>
+		<p>
+			Введите информацию: Размер файла, номер звуковой дорожки и ее битрейт(предустановлено). Это подскажет вам место маркера B для достижения заданного размера.
+		</p>
+		<p> Готово не полностью.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

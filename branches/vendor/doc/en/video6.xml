@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: Misc filters</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: Misc filters
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>As of today, only subtitle filter in this family.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Misc</title>
+<section>
+	<title>Subtitler </title>
+	<body>
+	<ul>
+	<p>This filter is one of the more sophisticated. Its dialog window is like this :
+	</p>
+	<p>
+		<img src="../image_tuto/fsub.png"></img>
+	</p>
+	<p>
+		The two first steps are to select the sub file and the TTF font. The sub file can be in either srt or sub format (autodetected).
+		You can select a color for the subtitles, using the color button.
+		You will see something like this :
+		</p>
+		<p>		<img src="../image_tuto/fsubcolor.png"></img>	</p>
+		<warn>It is better to select the sub color in the yellow/green color, else you will have
+		visible problem to read it due to the colorspace used.</warn>
+		<p>
+			Once selected, you can place the sub position inside the image using the right slider.
+		</p>
+		<p>Daniel Lima added a couple of new features :
+		<ul>
+			<li>autosplit : The line breaks will be ignored in most case, and the lines will be cut
+			to best fit onscreen.</li>
+			<li>Force Background : A black background will be set below the subtitles. It can be useful to overwrite previous burnt-in subs</li>
+		</ul>
+		</p>
+		<p>Don't forget to select your code page / language, of course.
+		
+		</p>
+			
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

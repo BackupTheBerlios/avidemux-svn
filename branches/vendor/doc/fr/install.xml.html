@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Installer Avidemux</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Installer Avidemux</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Paquetages nécessaires</p>
+		<p>Il vous faudra une machine avec une architecture Unix, de préférence x86. Avidemux peut également fonctionner dans ue certaine mesure sur Sparc et Mac</p>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Paquetage</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commentaire</b></td>
+		</tr>	
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Gtk+ et glib 2.x</td>
+<td bgcolor="#ddddff" class="tableinfo"> et pkg-config (correctement configuré !)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libmad</td>
+<td bgcolor="#ddddff" class="tableinfo"> Il est facultatif, mais faites-moi confiance, vous voudrez l'avoir !</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libxml2</td>
+<td bgcolor="#ddddff" class="tableinfo"> Sert aux descriptions des filtres et à ~/.avidemuxrc</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">nasm (pour x86)</td>
+<td bgcolor="#ddddff" class="tableinfo"> Si vous vous intéressez aux VCD/SVCD/... sur x86, vous voudrez l'avoir ! (5 fois plus rapide)</td>
+		</tr>
+		</table>		
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Paquetages facultatifs</p>
+<p class="secthead"><a name="doc_chap2_sect1">Paquetages audio </a></p>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nom</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Version</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Fonction</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Site</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libMad</td>
+<td bgcolor="#ddddff" class="tableinfo">0.14.2b</td>
+<td bgcolor="#ddddff" class="tableinfo">Décodeur audio Mpeg 1/2/3</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://mad.sf.net">http://mad.sf.net</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">a52dec</td>
+<td bgcolor="#ddddff" class="tableinfo">0.7.4</td>
+<td bgcolor="#ddddff" class="tableinfo">Décodeur AC3</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://liba52.sf.net">http://liba52.sf.net</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+<td bgcolor="#ddddff" class="tableinfo">3.9x</td>
+<td bgcolor="#ddddff" class="tableinfo">Encodeur MP3</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.mp3dev.org/mp3">http://www.mp3dev.org/mp3</a></td>
+		</tr>
+		</table>
+	<p class="secthead"><a name="doc_chap2_sect2">Paquetages vidéo </a></p>
+	<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nom</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Version</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Fonction</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Site</b></td>
+		</tr>
+		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+<td bgcolor="#ddddff" class="tableinfo">0.9</td>
+<td bgcolor="#ddddff" class="tableinfo">Encodeur Mpeg4</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.xvid.org">http://www.xvid.org</a></td>
+		</tr>
+		
+	</table>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Installation</p>
+	<p>Elle est assez évidente.</p>
+	<p><span class="code">./configure </span></p>
+	<p>Portez une attention toute particulière aux derniers messages qui s'affichent :  ils récapitulent ce qui a été détecté. Pour moi, ils ressemblent à ceci :
+	<a name="doc_chap3_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 3.1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>nasm found : /usr/bin/nasm
+MMX is ON
+cpu done
+ GTK+ version        : 2.2.4
+ Divx5.0.5 ?         : yes
+ *** DISABLED ***
+ Xvid  Codec         : yes
+ Mad decoder         : yes
+ OSS                 : yes
+ ALSA                : yes
+ Xvideo              : yes
+ Lame                : yes
+ Ogg Vorbis          : yes
+ A52/AC3             : yes
+ FFMPEG              : yes
+ ARTS                : yes
+ FreeType            : yes
+ XML2                : yes
+ Toolame             : /usr/local/bin/toolame
+ Lame                : /usr/bin/lame
+ locale              : ${prefix}/share/locale
+ Little endian cpu   : yes
+
+	</pre></td></tr>
+</table>
+	</p>
+	<p>Si vous pensez qu'il vous manque quelque chose, vérifiez que vous avez également installé le paquetage -dev.
+	</p>
+	<p>La commande configure créera également la bibliothèque lavcodec.</p>
+
+	<p>Une fois cette commande achevée, faites <span class="code">make </span> puis  <span class="code">make install </span>.
+	Un paquetage de traductions (un début d'internationalisation) s'installe également.</p>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Problèmes d'installation courants</p>
+<p class="secthead"><a name="doc_chap4_sect1">Echecs lors de la compilation </a></p>
+	<p>La compilation échoue parce qu'il est impossible d'ouvrir gtkxxx. Cela veut généralement dire que pkg-config/gtk+/glib n'est pas installé ou pas configuré.
+	</p>
+	<p class="secthead"><a name="doc_chap4_sect2">Elle échoue parce qu'il est impossible de lier jpeg mmx </a></p>
+	Regardez le fichier /usr/lib/liblavjpeg.la (ou dans /usr/local/lib)
+	Si vous trouvez :
+	<a name="doc_chap4_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 4.1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		dependency_libs=' -L/usr/src/redhat/BUILD/mjpegtools-1.6.0/jpeg-mmx -ljpeg-mmx'
+	</pre></td></tr>
+</table>
+	modifiez-le en
+	<a name="doc_chap4_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 4.2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		dependency_libs=''
+	</pre></td></tr>
+</table>
+
+	Merci à Jens pour ce point, qui intéressera beaucoup d'utilisateurs RedHat et Suse.
+
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

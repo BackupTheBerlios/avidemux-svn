@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Summary</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Main doc
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Install and supported formats</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./install.xml.html">Install</uri></p>	
+	<p>	<uri link="./input.xml.html">Supported Input formats</uri></p>	
+	<p>	<uri link="./output.xml.html">Suported Output formats</uri></p>	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Elementary operation: cutting, VBR mp3, dual audio track etc....</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./guitour.xml.html">GUI Tour, bars and buttons</uri></p>	
+	<p>	<uri link="./edl.xml.html">Edl File</uri></p>
+	<p>	<uri link="./cutting.xml.html">Cutting</uri></p>		
+	<p>	<uri link="./vbrmp3.xml.html">VBR MP3</uri></p>
+	<p>	<uri link="./bframe.xml.html">B Frames</uri></p>
+	<p>	<uri link="./dualaudio.xml.html">Dual audio AVI</uri></p>
+	<p>	<uri link="./mpegcutter.xml.html">Cutting mpeg</uri></p>
+	<p>	<uri link="./command.xml.html">Calling avidemux from command line</uri></p>
+	<p>	<uri link="./script.xml.html">Scripting</uri></p>
+	<p>	<uri link="./DVD/index.html">Creating DVD</uri> NEW </p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filters</title>
+	<body>
+	<ul>
+	<p>	<uri link="./audio.xml.html">Audio filters</uri></p>	
+	<p>	<uri link="./video.xml.html">Video filters</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Tutorials</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./dvd2divx.xml.html">DVD to Divx</uri></p>	
+	<p>	<uri link="./divx2vcd.xml.html">Divx to VCD</uri></p>	
+	<p>	<uri link="./capture2SVCD.xml.html">Capture to SVCD</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+<chapter>
+<title>Add-ons</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./ffv1rec.xml.html">English</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

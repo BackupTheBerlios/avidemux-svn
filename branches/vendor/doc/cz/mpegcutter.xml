@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Editace MPEG souborů</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Editace MPEG souborů
+ </abstract>
+
+<version>1.0</version>
+<date>06 Apr 2003</date>
+<chapter>
+<title>Úvod</title>
+<section>
+	<body><ul>
+		<p> Avidemux umí číst (indexované) MPEG soubory, a to jak elementary stream, tak program stream (tj. např. VOB soubory), díky mpeg2dec.
+		</p>
+		<p>
+		  Interně je MPEG viděn jako snímky s falešným kodekem (MPEG). 
+		</p>
+		<p>Pokud soubor uložíte v režimu Copy, výsledkem bude MPEG v AVI, ale protože to není standardní, bude jej umět přečíst jen Avidemux.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Rozdělení, externí multiplexace </title>
+<section>
+<title>Obecné</title>
+	<body><ul>
+		<p> Jako obvykle si vyberte část kterou chcete pomocí <img src="../images/marka.png"></img> a <img src="../images/markb.png"> </img>.  Měli byste si přečíst kapitolu <uri link="./cutting.xml.html">Střih</uri> pokud jste tak neučinili dříve.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Audio</title>
+	<body><ul>
+		<p> 
+Nevyžaduje žádnou zvláštní péči. Jen uložte audio v režimu Copy pomocí <c>Audio->Save Audio</c>. Uloží se soubor .mp2 nebo .ac3.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Video</title>
+	<body><ul>
+		<p> 
+Pro video použijeme <c>File->Save Raw Video Stream</c>. Při této volbě bude demuxer požádán o surová video data, vynechá se dekódování MPEGu. Také zrekonstruuje PTS/DTS logiku pro získání validního MPEG streamu.
+		</p>
+		<p> Nyní máte .m1v nebo .m2v MPEG-1/2 elementární stream, který by se měl spojit se souborem .mp2.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Systém</title>
+	<body><ul>
+		<p> 
+Teď je čas na remultiplexaci obou streamů k získání konečného souboru .mpg. První seq_header má časovou značku prvního snímku (nestřiženého). To může zmást mplex a uvidíte spoustu chybových hlášek.
+		</p>
+		<p>Nejlepší je k opětovné multiplexaci použít tcmplex z transcode.
+
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Rozdělení, interní multiplexace </title>
+<section>
+<title>Obecné</title>
+	<body><ul>
+		<p> Jako obvykle si vyberte část kterou chcete pomocí <img src="../images/marka.png"></img> a <img src="../images/markb.png"> </img>. Měli byste si přečíst kapitolu <uri link="./cutting.xml.html">Střih</uri> pokud jste tak neučinili dříve. V tomto režimu Avidemux uloží MPEG-2 PS stream (lvemux součást z <uri link="http://lvempeg.sf.net">lvempeg</uri>). Tento MPEG-2 PS obsahuje NAV paket a je vhodný pro vytváření DVD. I můj Pioneer je akceptuje. :)
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Audio</title>
+	<body><ul>
+		<p> 
+Audio musí být 48 kHz a buď MP2 nebo AC3 (v současné době to znamená libavcodec AC3 nebo libavcodec MP2). Může být z režimu Process nebo Copy (například editace nahrávky z PVR).
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Video</title>
+	<body><ul>
+		<p> Video musí být MPEG (což je pochopitelné). Tak jako u audia může být v režimu Copy (upravený PVR nebo DVD) nebo Process (zkonvertovaný AVI nebo nuv).
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Uložení</title>
+	<body><ul>
+		<p> Nyní použijeme <c>File->Save as DVD PS</c>. Pokud je audio v režimu Copy, budete dotázáni na korekci A/V posunu. U DVD to bývá v rozmezí 0 až 200 ms. U PVR nahrávek to může být cokoli.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Důležité</title>
+	<body><ul>
+		<p> Jsou tu dvě důležité věci:
+		<ul>
+			<li>Multiplexace implicitně přinese posun 40 ms. To lze celkem zanedbat pokud synchronizace byla perfektní.</li>
+			<li>Při ukládání jako MPEG PS bude časová známka GOP přepočítána, aby se zabránilo skoku v případě editovaných PVR streamů.</li>
+		</ul>
+		</p>
+	</ul></body>
+</section>
+
+</chapter>
+</guide>

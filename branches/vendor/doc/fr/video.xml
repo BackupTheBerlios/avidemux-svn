@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Vidéo
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Rappelez-vous que les filtres vidéo ne sont pris en compte que lorsque le mode video process est activé.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Modes Process/Copy </title>
+<section>
+	<title>Mode Copy</title>
+
+	<body>
+	<ul>
+	<p>Dans ce mode, avidemux se contente de recopier le flux compressé en entrée vers le fichier sans l'altérer.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Mode Process</title>
+
+	<body>
+	<ul>
+	<p>Avidemux va commencer par décompresser la vidéo en images YV12 avant de leur appliquer les filtres éventuels. Il encode ensuite la vidéo selon la méthode choisie.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Méta-filtres</title>
+<section>
+	<body>
+	Un méta-filtre est un regroupement ou une modification d'autres filtres. En voici certains :
+	<ul>
+	<li>VCD/SVCD/DVD res : ces méta-filtres redimensionnent automatiquement dans la taille correcte pour qu'elle soit compatible VCD/DVD/SVC. Ils utilisent en interne les filtres add black borders et resize.</li>
+	<li>Partial: ce méta-filtre modifie un autre filtre de façon à ce qu'il ne s'applique qu'à une partie de la vidéo. Il se peut, par exemple, que vous souhaitiez désentrelacer une partie seulement de la vidéo. Pour ce faire, créez un filtre de désentrelacement, sélectionnez-le et cliquez sur le bouton <c>Partial</c>. Saisissez l'image de début et celle de fin.</li>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Familles de filtres</title>
+<section>
+	<body>
+	<ul>
+		<li><uri link="./video1.xml.html">Filtres de modification des images</uri></li>
+		<li><uri link="./video2.xml.html">Filtres d'entrelacement</uri></li>
+		<li><uri link="./video3.xml.html">Filtres de convolution</uri></li>
+		<li><uri link="./video4.xml.html">Filtres de luminance/chrominance</uri></li>
+		<li><uri link="./video5.xml.html">Filtres d'atténuation</uri></li>
+		<li><uri link="./video6.xml.html">Filtres divers</uri></li>
+
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

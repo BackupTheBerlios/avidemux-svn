@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Présentation de l'interface graphique</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Présentation de l'interface
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Barre d'outils inférieure</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Type d'image</title>
+	<body><ul>
+		<p> <img src="../images/frametype.png"></img>
+			Type de l'image courante(I/B/P)	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Lecture</title>
+	<body><ul>
+		<p> <img src="../images/bplay.png"></img>
+			Cliquez une première fois pour lancer la lecture, une deuxième pour l'arrêter	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pause</title>
+	<body><ul>
+		<p> <img src="../images/bpause.png"></img>
+			Cliquez pour suspendre puis reprendre la lecture 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Image précédente</title>
+	<body><ul>
+		<p> <img src="../images/bpframe.png"></img>
+			Cliquez ici pour atteindre l'image précédente. Cela peut prendre plusieurs secondes s'il s'agit d'une image I. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Image suivante</title>
+	<body><ul>
+		<p> <img src="../images/bnframe.png"></img>
+			Cliquez ici pour atteindre l'image suivante. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Image I précédente</title>
+	<body><ul>
+		<p> <img src="../images/bpkframe.png"></img>
+			Cliquez ici pour atteindre l'image I (Intra frame ou image clé) précédente. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Image I suivante</title>
+	<body><ul>
+		<p> <img src="../images/bnkframe.png"></img>
+			Cliquez ici pour atteindre l'image I suivante. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Marqueurs</title>
+	<body><ul>
+		<p> <img src="../images/bmarkab.png"></img>
+			Cette zone indique l'emplacement des marqueurs A (début) et B (fin). Seule la plage [A,B[ sera enregistrée/traitée.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Définir le marqueur A</title>
+	<body><ul>
+		<p> <img src="../images/marka.png"></img>
+			Cliquez ici pour définir l'emplacement du marqueur A (voir <uri link="cutting.xml.html">Couper</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Définir le marqueur B</title>
+	<body><ul>
+		<p> <img src="../images/markb.png"></img>
+			Cliquez ici pour définir l'emplacement du marqueur B (voir <uri link="cutting.xml.html">Couper</uri>).
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Revenir au début</title>
+	<body><ul>
+		<p> <img src="../images/bbegin.png"></img>
+			Cliquez ici pour atteindre la première image 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Aller à la fin</title>
+	<body><ul>
+		<p> <img src="../images/bend.png"></img>
+			Cliquez ici pour atteindre la dernière image 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Atteindre la prochaine image "noire"</title>
+	<body><ul>
+		<p> <img src="../images/bnextblack.png"></img>
+			Cliquez ici pour atteindre la prochaine image noire, la notion d'image noire étant un peu subjective :) 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Bouton Preview</title>
+	<body><ul>
+		<p> <img src="../images/bpreview.png"></img>
+			Cliquez ici pour ouvrir une fenêtre où s'affiche la sortie des filtres. Si vous naviguez dans la fenêtre principale, les changement se reflètent dans la fenêtre d'aperçu.	 
+
+		</p>
+		<p> Ce mode d'aperçu est terriblement lent.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Bouton Ouput</title>
+	<body><ul>
+		<p> <img src="../images/boutput.png"></img>
+			Lorsque ce bouton est enfoncé, la fenêtre principale affiche la sortie des filtres uniquement lors de la lecture. 	
+		</p>
+		<p> C'est une méthode d'affichage rapide qui vous permettra d'avoir des effets en temps réel dans la plupart des cas.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Bouton VProcess</title>
+	<body><ul>
+		<p> <img src="../images/bvprocess.png"></img>
+			Lorsque ce bouton est enfoncé, la vidéo que vous enregistrerez aura été traitée (c'est-à-dire que les filtre et l'encodage lui auront été appliqués). Sinon, ce sera la copie directe de la source vidéo, sans modification.
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Bouton AProcess</title>
+	<body><ul>
+		<p> <img src="../images/baprocess.png"></img>
+			Le même principe appliqué à l'audio.
+		</p>		
+	</ul></body>
+</section>
+
+</chapter>
+<chapter>
+<title>Barre d'outils supérieure</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bupbar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ouvrir</title>
+	<body><ul>
+		<p> <img src="../images/bopen.png"></img>
+			Ouvre un fichier	
+		</p>
+	</ul></body>
+</section>	
+<section>	
+	<title>Info</title>	
+	<body><ul>	
+		<p> <img src="../images/binfo.png"></img>
+			Affiche des informations sur la vidéo actuellement chargée (codec/longueur/...)	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Enregistrer</title>	
+	<body><ul>	
+		<p> <img src="../images/bsave.png"></img>
+			Enregistre la vidéo	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Filtres vidéo</title>	
+	<body><ul>	
+		<p> <img src="../images/bvfilter.png"></img>
+		</p>
+		<p>
+			Ouvre la boîte de dialogue des filtres vidéo. Plus d'informations sur ces filtres <uri link="./video.xml.html">ici</uri>	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Filtres audio</title>	
+	<body><ul>	
+		<p> <img src="../images/bafilter.png"></img>
+		</p>
+		<p>
+			Ouvre la boîte de dialogue des filtres audio. Plus d'informations sur ces filtres <uri link="./audio.xml.html">here</uri>	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Codecs audio et vidéo</title>	
+	<body><ul>	
+		<p> <img src="../images/bcodec.png"></img>
+		Permettent de sélecitonner les codecs audio et vidéo qui seront utilisés (uniquement en mode process)
+						
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Fichiers récents</title>	
+	<body><ul>	
+		<p> <img src="../images/brecent.png"></img>
+		Accès rapide aux 5 derniers fichiers ouverts.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

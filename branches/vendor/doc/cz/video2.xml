@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: filtry prokládání</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: filtry prokládání
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Tato kategorie filtrů pracuje s prokládaným obrazem.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtry prokládání</title>
+<section>
+	<title>Deinterlace</title>
+	<body>
+	<ul>
+	<p>Port filtru Smart Deinterlacer od Donalda Grafta do YV12.
+	</p>
+	<p>Detekuje jestli je obraz prokládaný a prolne prokládané části.
+	</p>
+	<p>Má dva parametry:
+	<ul><li>Motion Threshold: práh pohybu, čím nižší hodnota, tím citlivější je detekce prokládání. Příliš nízké hodnoty znamenají větší rozmazání obrazu!</li>
+	<li>Blend Threshold: práh prolnutí, když je obraz detekován jako prokládaný, prolne jeho části pod tímto prahem. Jeho hodnota musí být menší než u předchozího parametru.</li>
+	</ul>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>KernelDeint</title>
+	<body>
+	<ul>
+	<p>Port filtru Donalda Grafta z programu AviSynth, více na <uri link="http://www.neuron2.net/">www.neuron2.net</uri>.
+	</p>
+	<p>Je velmi účinný.
+	</p>	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>PAL Field Shift</title>
+	<body>
+	<ul>
+	<p>Tento filtr vezme půlsnímek z obrazu a druhý půlsnímek z dalšího.
+	</p>
+	<p>Řada filmů (i některá DVD) má tento druh prokládání. 
+	</p>
+	<p>Neprovádí žádnou kontrolu či detekci, takže jej aktivujte, podívejte se na náhled, a jste-li spokojeni s výsledkem, můžete jej použít.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>PAL Smart</title>
+	<body>
+	<ul>
+	<p>Mix dvou předchozích filtrů. 
+	</p>
+	<p>Analyzuje aktuální snímek a snímek s PAL Shiftem, vybere ten méně prokládaný a na něj aplikuje Smart Deinterlace. Nebere v potaz barevnou složku, takže v ní může dojít k menším chybám.
+	</p>
+	<p>Je trochu pomalý, ale při správném typu videa velmi účinný.
+	</p>
+	<p>Může se použít i jako jednoduchý IVTC, protože zrekonstruuje progresivní snímky, ale ponechá 30 snímků za sekundu, neodstraní duplikáty k dosažení 24 fps.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Drop</title>
+	<body>
+	<ul>
+	<p>Tento filtr napsal Ron Reithoffer.
+	</p>
+	<p>Pokud je půlsnímek příliš odlišný od sousedních v prostoru/čase (výpadky na VHS), je zahozen a nahrazen průměrem z předchozího a následujícího řádku snímku.
+	</p>
+	<p>Podle autora musí být tento filtr první v pořadí, a nefunguje moc dobře s hodně prokládaným obrazem.
+	</p>
+	<p><img src="../image_tuto/dropout.jpg"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>IVTC: skrytý</title>
+	<body>
+	<ul>
+	<p>K převodu filmu (24 fps) do NTSC (30 fps) se někdy používá proces zvaný telecine. Duplikuje půlsnímky k přidání pátého snímku.</p>
+	<p>  1 2 3 4 =&gt; 1 2 2 3 4 
+	</p>
+	<p>  1 2 3 4 =&gt; 1 2 3 3 4
+	</p>
+	<p>
+	Pokud možno, je vždy mnohem lepší získat původní neprokládaný obraz, protože je vhodnější ke kódování a taky lépe komprimovatelný.	
+	</p>
+	<p>
+	Tento filtr používá metodu hrubé síly k získání původních snímků. "Počítá" prokládané artefakty v obrázcích, a pokud jsou dva obrázky nejvíce prokládané a následují po sobě, považuje je za kandidáty.
+	</p>
+	<p>Momentálně nesmí být první obrázek prokládaný (zkontrolujte v náhledu!), jinak by identifikace snímků s telecine selhala. Je to velmi nevyzrálý filtr, varoval jsem vás.
+	</p>
+	<p><b>Tento filtr je dočasně skrytý.</b></p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>MPlayer IVTC</title>
+	<body>
+	<ul>
+	<p>Toto je port IVTC filtru Richarda Felkera z programu <uri link="http://mplayerhq.hu/">MPlayer</uri>.</p>
+	<p>Je v rané fázi (Avidemux a MPlayer jsou trochu odlišné programy) a čas od času se vám mohou objevovat prokládané snímky. Jinak funguje velice pěkně.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Pulldown </title>
+	<body>
+	<ul>
+	<p>Tento filtr zkonvertuje video ze 24 fps na 30 fps duplikací půlsnímků. Může se hodit pro DVD přehrávače, které si neporadí dobře s VCD na 24 fps.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Půlsnímkové filtry</title>
+<section>
+<title>SwapFields </title>
+	<body>
+	<ul>
+	<p>U zachytávacích karet a software velmi často narazíte na přehozené půlsnímky. Vypadá to jako prokládání, ale je v celém obraze, ne jen v pohybujících se částech.</p>
+	<p>
+	Tento filtr je prohodí zpátky. Tady je krátký příklad, nejdříve obrázek s prohozenými půlsnímky:
+	</p>
+	<img src="../images/swap1.png"></img>
+	<p>
+		A výstup filtru SwapFields:
+	</p>
+	<img src="../images/swap2.png"></img>
+
+	</ul>
+	</body>
+</section>
+<section>
+<title>Smart SwapFields </title>
+	<body>
+	<ul>
+	<p>Také je běžné, že nahrávací karta/software několikrát půlsnímky prohodí. Tento filtr se snaží detekovat jestli jsou půlsnímky prohozené, a pokud ano, prohodí je zpátky.
+	</p>
+	<p>Obvykle je lepší používat tento filtr než SwapFields.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Keep even fields </title>
+	<body>
+	<ul>
+	<p>Tento filtr ponechá sudé půlsnímky, tj. sudé řádky.</p>
+	<p>Svislé rozlišení se zmenší na polovinu.</p> 
+	</ul>
+	</body>
+</section>
+<section>
+<title>Keep odd fields </title>
+	<body>
+	<ul>
+	<p>Totéž jako předchozí, liché půlsnímky</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Separate Fields </title>
+	<body>
+	<ul>
+	<p>Oddělí od sebe půlsnímky rozdělením obrazu na dva, z nichž každý je tvořen jedním půlsnímkem.
+	</p>
+	<p>Takže se zdvojnásobí snímková frekvence, počet snímků bude dvojnásobný a vertikální rozlišení poloviční.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Merge Fields </title>
+	<body>
+	<ul>
+	<p>Opak předchozího filtru.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>VBR MP3</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+VBR MP3
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Background</title>
+<section>
+	<body><ul>
+		<p> Most of the time, avidemux computes the offset and length of audio by doing size= time * bitrate. That works for all CBR stream.
+		</p>
+		<p>
+		For VBR it does not work as bitrate is not constant.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio time map</title>
+<section>
+	<title>Audio time map</title>
+	<body><ul>
+		<p> To compute the start offset/size, avidemux has to know how the bitrate changes. For that use <c>Audio source->Build vbr time map</c>.
+		</p>
+		<p>
+		Avidemux will then decompress the whole stream one time and build a time map to know how to handle the stream. You will need Mad installed, else it will do nothing.
+		</p>
+		<p>
+		When the time map is built, avidemux will have a conversion table between time and offset, and you will be able to split or save the avi in a VBR way
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>And if i don't ?</title>
+	<body><ul>
+		<p>  You will end up with a badly desynced (potentially with too short audio) avi. Even if you just load and save it.
+		</p>
+		<p>  You MUST do it when dealing with VBR mp3. Period. 
+		</p>
+		<p>  The second audio stream for avi cannot be VBR.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

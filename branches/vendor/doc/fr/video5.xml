@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Vidéo: filtres d'atténuation</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Vidéo : filtres d'atténuation
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Les filtres de cette famille permettent d'adoucir les images d'une vidéo, ce qui est très utile pour supprimer le bruit d'une vidéo après son acquisition.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+
+<title>Filtres d'atténuation</title>
+<section>
+	<title>Stabilize </title>
+	<body>
+	<ul>
+	<p>Ce filtre remplace chaque pixel dépassant un certain seuil par la moyenne pondérée de ses voisins spatiaux et temporels.</p>
+	<p>Cela permet de supprimer du bruit délicatement.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Denoise</title>
+	<body>
+	<ul>
+	<p>Ce filtre est un portage du filtre DNR de transcode</p>
+	<p>Il remplace chaque pixel dépassant le seuil de la référence par une moyenne entre la référence et sa valeur initiale</p>
+	<p>Il applique pour la luminance et la chrominance deux seuils distincts.</p>
+	<p>Il devient assez vigoureux lorsque vous commencez à augmenter les valeurs de seuil par défaut.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FluxSmooth </title>
+	<body>
+	<ul>
+	<p>Ce filtre a été porté depuis avisynth et sa version originale est due à Ross Thomas.</p>
+	<p>Consultez la documentation d'avisynth pour plus de détails.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Temporal Cleaner </title>
+	<body>
+	<ul>
+	<p>Ce filtre a été écrit à l'origine par Jim Casaburi, et fait partie des filtres de virtual dub.</p>
+	<p>Il a été porté de virtual dub à avisynth par Vlad59.</p>
+	<p>Consultez la doc de virtual dub ou d'avisynth pour plus de détails.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Mplayer Denoise3D </title>
+	<body>
+	<ul>
+	<p>Ce filtre est un portage de Denoise3D de Mplayer, écrit par Daniel Moreno.</p>
+	<p>Il supprime le bruit de façon très efficace.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Mplayer HQDenoise3D </title>
+	<body>
+	<ul>
+	<p>Ce filtre est un portage de HQD3D de Mplayer, écrit par Daniel Moreno et A'rpi.</p>
+	<p> Il est très bon pour éliminer le bruit, mais sa qualité a un prix : il est deux à trois fois plus lent que le précédent.</p>
+	<p>Il est donc probable que vous préfériez Denoise3d.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+</guide>

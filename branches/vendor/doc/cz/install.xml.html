@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Instalace Avidemuxu</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Instalace Avidemuxu</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Povinné závislosti</p>
+		<p>Budete potřebovat počítač s unixovým systémem, pokud možno x86. Do jisté míry to funguje i na platformách SPARC a Mac.</p>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Balíček</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Poznámka</b></td>
+		</tr>	
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">GTK+ a GLib 2.x</td>
+<td bgcolor="#ddddff" class="tableinfo"> A pkg-config (správně nakonfigurovaný pkg-config!)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libmad</td>
+<td bgcolor="#ddddff" class="tableinfo"> Nepovinné, ale určitě tuto knihovnu budete chtít!</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libxml2</td>
+<td bgcolor="#ddddff" class="tableinfo"> Používá se pro popisy filtrů a ~/.avidemuxrc</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">NASM (pro x86)</td>
+<td bgcolor="#ddddff" class="tableinfo"> Pokud vytváříte VCD/SVCD/... na x86 tak jej chcete! (5x rychlejší)</td>
+		</tr>
+		</table>		
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Volitelný software</p>
+<p class="secthead"><a name="doc_chap2_sect1">Audio </a></p>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Verze</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Účel</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Adresa</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libmad</td>
+<td bgcolor="#ddddff" class="tableinfo">0.14.2b</td>
+<td bgcolor="#ddddff" class="tableinfo">MPEG-1/2/3 audio dekodér</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://mad.sf.net/">http://mad.sf.net/</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">a52dec</td>
+<td bgcolor="#ddddff" class="tableinfo">0.7.4</td>
+<td bgcolor="#ddddff" class="tableinfo">AC3 dekodér</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://liba52.sf.net/">http://liba52.sf.net/</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+<td bgcolor="#ddddff" class="tableinfo">3.9x</td>
+<td bgcolor="#ddddff" class="tableinfo">MP3 enkodér</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.mp3dev.org/mp3/">http://www.mp3dev.org/mp3/</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libvorbis</td>
+<td bgcolor="#ddddff" class="tableinfo">x</td>
+<td bgcolor="#ddddff" class="tableinfo">Vorbis enkodér/dekodér</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.vorbis.org/">http://www.vorbis.org/</a></td>
+		</tr>
+
+		</table>
+	<p class="secthead"><a name="doc_chap2_sect2">Video </a></p>
+	<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Verze</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Účel</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Adresa</b></td>
+		</tr>
+		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">0.9</td>
+<td bgcolor="#ddddff" class="tableinfo">MPEG-4 enkodér</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.xvid.org/">http://www.xvid.org/</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">1.x</td>
+<td bgcolor="#ddddff" class="tableinfo">MPEG-4 enkodér</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.xvid.org/">http://www.xvid.org/</a></td>
+		</tr>
+		
+	</table>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Avidemux2 bude staticky slinkován s XviD 0.9 <b>NEBO</b> 1.x.</p></td></tr></table>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Instalace</p>
+	<p>Je celkem jednoduchá.</p>
+	<p><span class="code">./configure </span></p>
+	<p>Všimněte si zejména informací na konci výpisu, které shrnují co bylo nadetekováno. U mě to vypadá takto:
+	<a name="doc_chap3_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 3.1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>nasm found : /usr/bin/nasm
+MMX is ON
+cpu done
+ GTK+ version        : 2.2.4
+ Divx5.0.5 ?         : yes
+ *** DISABLED ***
+ Xvid  Codec         : yes
+ Mad decoder         : yes
+ OSS                 : yes
+ ALSA                : yes
+ Xvideo              : yes
+ Lame                : yes
+ Ogg Vorbis          : yes
+ A52/AC3             : yes
+ FFMPEG              : yes
+ ARTS                : yes
+ FreeType            : yes
+ XML2                : yes
+ Toolame             : /usr/local/bin/toolame
+ Lame                : /usr/bin/lame
+ locale              : ${prefix}/share/locale
+ Little endian cpu   : yes
+
+	</pre></td></tr>
+</table>
+	</p>
+	<p>Pokud si myslíte, že něco chybí, ujistěte se, že máte nainstalován i příslušný -dev balíček.
+	</p>
+	<p>configure také sestaví knihovnu libavcodec.</p>
+	
+	<p>Až skončí configure, napište příkaz <span class="code">make </span> a pak <span class="code">make install </span>.
+	Nainstaluje se i balík jazykových verzí (začátek rané fáze překladu aplikace).</p>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Časté problémy při instalaci</p>
+<p class="secthead"><a name="doc_chap4_sect1">Kompilace selže </a></p>
+	<p> Kompilace se ukončí s chybovou hláškou že nelze otevřít gtkxxx. To obvykle znamená že není nainstalováno nebo nakonfigurováno pkg-config/GTK+/GLib.
+	</p>
+	<p class="secthead"><a name="doc_chap4_sect2">Linkování selže s chybou JPEG MMX </a></p>
+	Podívejte se na /usr/lib/liblavjpeg.la (nebo v /usr/local/lib).
+	Pokud najdete toto:
+	<a name="doc_chap4_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 4.1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		dependency_libs=' -L/usr/src/redhat/BUILD/mjpegtools-1.6.0/jpeg-mmx -ljpeg-mmx'
+	</pre></td></tr>
+</table>
+	změňte to na:
+	<a name="doc_chap4_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing 4.2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		dependency_libs=''	
+	</pre></td></tr>
+</table>
+
+	Díky Jensovi za tip k tomuto problému, se kterým se často setkávají uživatelé distribucí Red Hat a SUSE Linux.
+
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Používání příkazové řádky</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Používání příkazové řádky</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span> Předmluva</p>
+<ul>
+	<p>
+	Jak jste si asi všimli, Avidemux je výrazně orientovaný na grafické uživatelské rozhraní. Protože, podle mě, když pracujete s videem, potřebujete *vidět* co děláte. To má nevýhodu když chcete nechat počítač pracovat samostatně přes noc.
+	</p>
+	<p>Konečným cílem je poskytnout pěkné grafické rozhraní k nastavení a uložení úloh. Poté byste mohli nechat Avidemux zpracovat tyto úlohy a jít se podívat na film nebo si zdřímnout.
+	</p>
+	<p>
+	Tak daleko ještě nejsme. Většina nastavení je uložena v <a href="edl.xml.html">EDL</a> souborech. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Stále je však vyžadováno X11 a GTK+!</p></td></tr></table>
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>CLI</p>
+<p class="secthead"><a name="doc_chap2_sect1">Spuštění </a></p>
+<ul>
+	<p> Avidemux může být spuštěn s parametry. Nejjasnější je avidemux soubor.avi, který načte soubor.avi.
+	</p>
+	<p>Můžete také zadat další příkazy, každý začínající --, pro vyvolání akce. Nebudete však mít všechny možnosti grafického rozhraní.
+	</p>
+	<p><table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>V režimu příkazové řádky budou přeskočena všechna dialogová okna a odpovědi na otázky budou automaticky nastaveny na NE.</p></td></tr></table>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Je to velmi důležité. Když například spustíte <span class="code">avidemux2 soubor.nuv</span>, nebudete vyzváni k uložení indexu.</p></td></tr></table>
+	</p>
+	<p>K výpisu aktuálního seznamu příkazů a parametrů slouží avidemux --help.</p>
+	<p> Parametry jsou vyhodnocovány zleva doprava a zpracovány jeden po druhém. Tento režim příkazové řádky není zdaleka neprůstřelný, protože většina kontrol je v grafickém rozhraní.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Příkazy </a></p>
+<ul>
+<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Příkaz</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parametry</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Účel</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-process</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastaví audio na režim Process.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-normalize</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Aktivuje filtr normalizace zvuku.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-resample</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Aktivuje převzorkování ze 48 na 44.1 kHz.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-process</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastaví video režim na Process.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">filters</td>
+<td bgcolor="#ddddff" class="tableinfo">název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte seznam filtrů.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">vcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Přidá filtry potřebné ke konverzi do VCD rozlišení.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">svcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Přidá filtry potřebné ke konverzi do SVCD rozlišení.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">dvd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Přidá filtry potřebné ke konverzi do DVD rozlišení.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">begin</td>
+<td bgcolor="#ddddff" class="tableinfo">Číslo snímku</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastaví počáteční značku výběru.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">end</td>
+<td bgcolor="#ddddff" class="tableinfo">Číslo snímku</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastaví značku konce výběru.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Uloží audio v režimu Copy.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-uncompressed-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Uloží zvuk jako PCM pokud není aplikován žádný filtr, jinak se aplikují filtry/kodek.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-video</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Uloží elementární video stream bez kontejneru, výsledkem bude raw MPEG video!</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">index-mpeg</td>
+<td bgcolor="#ddddff" class="tableinfo">MPEG_soubor index_soubor číslo_stopy</td>
+<td bgcolor="#ddddff" class="tableinfo">Vytvoří index pro MPEG soubor.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte video.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load-workbench</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte soubor se seznamem úprav.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Uloží soubor. Pokud není nastaven kodek MPEG (VCD,...), bude uložen jako AVI.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-jpg</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Uloží současný snímek jako JPEG.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-mp3</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte MPEG audio jako zvukovou stopu.<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b> Pokud je to VBR, musíte poté zadat --audio-map.</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-ac3</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte AC3 soubor jako zvukovou stopu.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-wav</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Načte WAV soubor jako zvukovou stopu.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-delay</td>
+<td bgcolor="#ddddff" class="tableinfo">Hodnota v ms</td>
+<td bgcolor="#ddddff" class="tableinfo">Posun A/V synchronizace o danou hodnotu.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-map</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné</td>
+<td bgcolor="#ddddff" class="tableinfo">Projde zvukovou stopu aby mohl správně pracovat s VBR.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-bitrate</td>
+<td bgcolor="#ddddff" class="tableinfo">Hodnota</td>
+<td bgcolor="#ddddff" class="tableinfo">Nastaví audio bitrate. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Musíte zadat platný audio bitrate!</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio kodek: MP2 | MP3 | AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">Vybere audio kodek, který se použije když ukládáte v režimu Process.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-toolame</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Zvuk bude zpracován a poslán rourou na tooLAME. Výsledek bude uložen do zadaného souboru. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Pouze Avidemux2.</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Vybere video kodek, který se použije když ukládáte v režimu Process. </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-conf</td>
+<td bgcolor="#ddddff" class="tableinfo">cq=q | cbr=br | 2pass=xx </td>
+<td bgcolor="#ddddff" class="tableinfo">Vybere režim kódování: konstantní kvalita (cq=kvalita), konstantní bitrate (br=bitrate) nebo dvouprůchodový režim, v tom případě zadejte finální velikost v megabajtech.</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">2pass-log</td>
+<td bgcolor="#ddddff" class="tableinfo">Název souboru</td>
+<td bgcolor="#ddddff" class="tableinfo">Specifikuje soubor obsahující statistiku prvního průchodu. Může být později znovu použit, ale ne v režimu příkazové řádky.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">set-pp</td>
+<td bgcolor="#ddddff" class="tableinfo">Dvě hodnoty</td>
+<td bgcolor="#ddddff" class="tableinfo">Zvolí postprocessing aplikovaný u FFmpeg dekodéru (MPEG-4, DivX 3, div2,...). První hodnota je filtr, který se má aktivovat: 1 pro horizontální deblocking, 2 pro vertikální a 4 pro deringing. Jejich součet udává aktivované filtry, 7 znamená zaktivovány všechny tři. Druhá hodnota je síla filtru mezi 0 a 5, 5 je nejsilnější. </td>
+		</tr>
+	<tr>
+			<td bgcolor="#ddddff" class="tableinfo">auto-split</td>
+<td bgcolor="#ddddff" class="tableinfo">Velikost v megabajtech</td>
+<td bgcolor="#ddddff" class="tableinfo">Avidemux automaticky rozdělí soubory když dosáhnou dané délky a vytvoří soubor.avi, soubor.avi.1, soubor.avi.2,... Výchozí hodnota je 2 GB. </td>
+		</tr>
+</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Příklady</p>
+<p class="secthead"><a name="doc_chap3_sect1">Konverze AVI souboru na VCD </a></p>
+<ul>
+<p>
+	Tato operace bude rozdělena na 3 části: 
+	<ul>	
+	<li>Komprese obrazu</li>
+	<li>Komprese zvuku</li>
+	<li>Multiplexace: tento poslední krok se provede mimo Avidemux</li>
+	</ul>	
+	</p>
+	<p>Komprese videa: <span class="code">avidemux --load vstup.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</span>
+	</p>
+	<p>Komprese zvuku s libavcodecem: <span class="code">avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </span>
+	</p>
+	<p>Komprese zvuku s tooLAME: <span class="code">avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </span>
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Překódování zvukové stopy do MP3 VBR </a></p>
+<ul>
+	<p>Nejdříve uložte zvuk do WAV formátu: <span class="code">avidemux --load vstup.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </span>
+	</p>
+	<p>Potom jej zkomprimujte pomocí LAME: <span class="code">lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </span>
+	</p>
+	<p>Načtěte ten MP3 soubor a uložte AVI: <span class="code">avidemux --load vstup.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/novy.avi </span>
+	</p>
+	--audio-map je tady velmi důležité, protože jsme vytvořili VBR MP3. Jinak můžete čekat velmi rozhozenou synchronizaci!
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

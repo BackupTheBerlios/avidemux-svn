@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Установка Avidemux</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Несколько советов для помощи при инсталяции avidemux
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Обязательные условия</title>
+<section>
+	<body>
+		<p>Вам потребуется  PC , работающий под управлением юниксобразной системы (linux/freebsd/...).</p>
+		<ul>
+		<li>Gtk+ и glib 1.2.X ( не 2.x)</li>
+		<li>libmad ( это опционально, но поверьте, вам этого захочется!)</li>
+		</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Дополнительные пакеты</title>
+<section>
+		<title>Аудио</title>
+	<body>
+		<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Версия</th><th>Описание</th><th>Источник</th>
+		</tr>
+		<tr>
+			<ti>libMad</ti><ti>0.14.2b</ti><ti>Mpeg 1/2/3 audio decoder</ti>
+			<ti><uri>http://mad.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>a52dec</ti><ti>0.7.4</ti><ti>AC3 decoder</ti><ti><uri>http://liba52.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>liblame</ti><ti>3.9x</ti><ti>MP3 encoder</ti><ti><uri>http://www.mp3dev.org/mp3</uri></ti>
+		</tr>
+		</table>
+	</body>
+</section>
+<section>
+		<title>Видео</title>
+	<body>
+	<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Версия</th><th>Описание</th><th>Источник</th>
+		</tr>
+		<tr>
+			<ti>mjpegtools</ti><ti>1.6</ti><ti>Mpeg 1/2 video encoder</ti>
+			<ti><uri>http://mjpeg.sourceforge.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>0.9</ti><ti>Mpeg4 encoder</ti>
+			<ti><uri>http://www.xvid.org</uri></ti>
+		</tr>
+		<tr>
+			<ti>Divx</ti><ti>5.0.1</ti><ti>Mpeg4 encoder/decoder</ti>
+			<ti><uri>http://www.divx.com</uri></ti>
+		</tr>
+	</table>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Установка</title>
+<section>
+	<body>
+	<p>Ничего необычного.</p>
+	<p><c>./configure --disable-warnings</c></p>
+	<p>Внимательно просмотрите сообщения в конце процесса конфигурирования, все ли необходимые компоненты найдены для
+	полноценной работы.
+	Если что-то упущено, проверьте еще раз, установлены ли соответствующие -devel пакеты.
+	</p>
+	<p>В процессе конфигурирования будет собрана библиотека lavcodec .</p>
+
+	<p>Если все прошло успешно -  <c>make</c>.
+	Avidemux состоит только из одного файла, скопируйте его вручную в нужное вам место.</p>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Возможные проблемы при сборке</title>
+<section>
+	<title>automake error</title>
+	<body>
+	<p> Возможны проблемы со сдвигом времени. Попробуйте <c>touch -r *</c> сразу после распаковки.
+	</p>
+	</body>
+</section>
+<section>
+	<title>Падает сразу после запуска</title>
+	<body>
+	Как правило, причина этому наличие нескольких библиотек libdivxencore и libdivxdecore в разных местах.
+	<p>Оставьте только один комплект и повторите configure после <c>make clean</c>
+	</p>
+	<p>Возможно также, что у вас не MMX процессор (pentium 1). используйте <c>--disable-mmx</c> ключ для configure.
+	</p>
+	</body>
+</section>
+</chapter>
+</guide>

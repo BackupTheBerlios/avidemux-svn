@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video: Image alteration filters</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video: Image alteration filters</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Foreword</p>
+	<ul>
+	<p>This set of filters deeply alter the source video : Resize, rotate, flip and crop.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Image Alteration Filters</p>
+<p class="secthead"><a name="doc_chap2_sect1">Crop </a></p>
+	<ul>
+	<p>This filter crops the video (for example to remove black border). The cropped value left/right/top/bottom must be even.
+	</p>
+	<p>You can preview the part that will be cropped using the <span class="code">Apply</span> button.
+	</p>
+	<p>On a clean video (dvd), you can try the <span class="code">Autocrop</span> button. It won't work very well on a noisy source (capture)
+	</p>
+	<img src="../image_tuto/crop2.png">
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Resize / Mplayer resize </a></p>
+	<ul>
+	<p>The resize filter is a port to YV12 of avisynth resize filter. Mplayer resize is a port of Michael Niedermayer resize filter, which is used in mplayer
+	</p>
+	<p>Avisynth resize is slightly more accurate, but mplayer resize is 3x faster without any perceptible difference.
+	</p>
+	<p>The filter dialog config box is the same for both filters :
+	</p>
+<p>
+	<img src="../image_tuto/fresize.png">
+	</p>
+	<p>You can direcly enter the new width/height and the resize algorithm or use the slider and the menu.
+	Three resize methods are proposed :
+	<ul>
+		<li>Bilinear : Smooth a bit but easier to encode</li>
+		<li>Bicubic  : Keep sharpness, harder to encode (for example leads more easily to macroblocking in SVCD)</li>
+		<li>Lanczos  : Hard to describe, very sharp.</li>
+	</ul>
+	Source and destination are important. If you do DVD2Divx for example, source is 4/3 or 16/9 and destination is 1:1. The other way around for Divx2SVCD.
+	</p>
+	<p>It is important as 4/3 has non square pixel (different for PAL and NTSC) and if you do 1:1 -&gt; 1:1 you will end up with distorted image.
+	
+	</p>
+	
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Blacken Borders </a></p>
+	<ul>
+	<p>This filter replaces border(s) of video by pure black. It may be useful to replace dirty border by clean one (VHS capture for example)
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Add Black Borders </a></p>
+	<ul>
+	<p>This filter *ADDS* black border (the previous one replaces). It is used internally by *VCD res to resize a video to a give size without altering the aspect ratio.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">Flip vertical </a></p>
+	<ul>
+	<p>This filter vertically flips the video. Usefull when using broken video capture card for example.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect6">Rotate </a></p>
+	<ul>
+	<p>This filter was written by Tracy (see file for more informations)	</p>
+	<p>It rotates the video by 90/180/270 degree. The author uses it with video from its camera in landscape mode.</p>
+	<p>
+	<img src="../image_tuto/rotate.png">
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

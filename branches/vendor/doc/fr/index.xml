@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Summary</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Document principal
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Installation et formats supportés</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./install.xml.html">Installation</uri></p>	
+	<p>	<uri link="./input.xml.html">Formats supportés en entrée</uri></p>	
+	<p>	<uri link="./output.xml.html">Formats supportés en sortie</uri></p>	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Opérations élémentaires : découpage, mp3 VBR, double piste audio, etc.</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./guitour.xml.html">Présentation de l'interface, barres et boutons</uri></p>	
+	<p>	<uri link="./edl.xml.html">Fichier Edl</uri></p>
+	<p>	<uri link="./cutting.xml.html">Découper</uri></p>		
+	<p>	<uri link="./vbrmp3.xml.html">MP3 VBR</uri></p>
+	<p>	<uri link="./bframe.xml.html">Images B</uri></p>
+	<p>	<uri link="./dualaudio.xml.html">AVI avec deux pistes sonores</uri></p>
+	<p>	<uri link="./mpegcutter.xml.html">Découper un mpeg</uri></p>
+	<p>	<uri link="./command.xml.html">Lancer Avidemux depuis la ligne de commande</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtres</title>
+	<body>
+	<ul>
+	<p>	<uri link="./audio.xml.html">Filtres audio</uri></p>	
+	<p>	<uri link="./video.xml.html">Filtres vidéo</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Tutoriels</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./dvd2divx.xml.html">Conversion d'un DVD en Divx</uri></p>	
+	<p>	<uri link="./divx2vcd.xml.html">Conversion d'un Divx en VCD</uri></p>	
+	<p>	<uri link="./capture2SVCD.xml.html">Conversion d'une capture en SVD</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+<chapter>
+<title>Suppléments</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./ffv1rec.xml.html">Ffv1rec</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

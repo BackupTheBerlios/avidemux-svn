@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Nezapomeňte, že video filtry se aplikují pouze v režimu Process pro video.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Režim Process/Copy</title>
+<section>
+	<title>Režim Copy</title>
+
+	<body>
+	<ul>
+	<p>V tomto režimu Avidemux pouze zkopíruje vstupní stream do souboru aniž by jej měnil. 
+	</p>	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Režim Process</title>
+
+	<body>
+	<ul>
+	<p>Avidemux nejdříve dekomprimuje video do YV12 snímků, potom aplikuje filtry, používají-li se nějaké. Pak zkomprimuje video zvoleným video kompresorem.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Metafiltry</title>
+<section>
+	<body>
+	Metafiltr je skupina nebo modifikace jiných filtrů. Jsou to:
+	<ul>
+	<li>VCD/SVCD/DVD res: tyto metafiltry automaticky nastaví správné hodnoty změny velikosti tak, aby byla kompatibilní s VCD/SVCD/DVD. Interně používají filtry Add black borders a Resize.</li>
+	<li>Partial: tento metafiltr mění jiný filtr tak, aby se aplikoval jen na část videa. Například můžete chtít odstranit prokládání jen v části nahrávky. V tom případě přidejte filtr Deinterlace, vyberte jej a klikněte na tlačítko <c>Partial</c>. Zadejte čísla snímků od-do.</li>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Kategorie filtrů</title>
+<section>
+	<body>
+	<ul>
+		<li><uri link="./video1.xml.html">Filtry pro úpravu obrazu</uri></li>
+		<li><uri link="./video2.xml.html">Filtry prokládání</uri></li>
+		<li><uri link="./video3.xml.html">Filtry s konvolučním jádrem</uri></li>
+		<li><uri link="./video4.xml.html">Filtry luminance/chrominance</uri></li>
+		<li><uri link="./video5.xml.html">Filtry pro vyhlazení obrazu</uri></li>
+		<li><uri link="./video6.xml.html">Různé filtry</uri></li>
+		
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

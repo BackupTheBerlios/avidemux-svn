@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide >
+<title>Návod na převod MPEG do AVI</title>
+<author title="mean"><mail link="fixounet@free.fr">
+Mean</mail>
+</author>
+
+<abstract>
+Návod na převod MPEG do AVI
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Příprava</title>
+<body>
+Tato stránka slouží jako příklad kódování z MPEG-1 nebo MPEG-2 (např. DVD) do AVI, kodekem XviD a zvukem v MP3.
+</body>
+<section>
+<title>Vstupní stream</title>
+<body>
+<p>
+Avidemux podporuje pouze MPEG video (m1v a m2v) a MPEG program stream (mpg/vob).
+ Stream musí být s jedním pohledem (ne multi angle), a nekódovaný. Nazvěme jej stream.mpg.
+</p>
+<p>
+ Pokud je vaším zdrojem DVD, je dobré použít velmi spolehlivý MPlayer:
+ <c>mplayer -dvd 1 -dumpstream</c>.
+ Vytvoří VOB soubor z DVD, který Avidemux umí načíst.
+</p>
+<p>
+	VDR momentálně podporován není.
+</p>
+</body>
+</section>
+<section>
+<title>Indexace</title>
+<body>
+<p>
+Avidemux neumí přímo číst MPEG. Umí však načíst jeho index.
+</p>
+<p>
+Index je textový soubor popisující MPEG a jeho snímky. Je velmi podobný struktuře D2V programu DVD2AVI, výborného frameserveru pro Windows.
+</p>
+<p>Tento index Avidemuxu umožňuje přímý přístup v souboru s přesností na snímky.
+</p>
+<p>
+Pro vytvoření indexu máte dvě možnosti:
+<ul>
+<li><c>Misc->Index MPEG</c></li>
+<li>Otevřete MPEG, Avidemux navrhne jeho indexaci (všimněte si, že otevření selže, to je normální)</li>
+</ul>
+Dostanete se k tomuto dialogu:
+</p>
+<p><img src="../image_tuto/mpegindex.png"></img>
+</p>
+<p>
+Význam položek Select Index a MPEG je zřejmý.
+</p>
+<p>
+U zvukové stopy je nejjednodušší kliknout na <c>Scan file for audio stream</c> a chvíli počkat.
+Rozbalovací nabídky se vyplní detekovanými audio streamy a jejich vlastnostmi (bitrate atd.).
+</p>
+<p>Klikněte na <c>OK</c> a čekejte, vytváří se index. Po dokončení už můžeme s MPEG souborem začít pracovat.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+	<title>Editace videa</title>
+<section>
+	<title>NSTC versus Film</title>
+	<body><ul>
+		<p>
+			Některá DVD jsou zakódována s 23.976 fps, neboli FILM (většina filmů). Některé však jako 29.97 (NSTC), například seriály. V prvním případě DVD přehrávač přímo při přehrávání provádí konverzi do NSTC formátu (telecine). Takže hlavička MPEGu vždy říká 29.97, protože to je finální formát.	
+		</p>
+		<p>Avidemux používá mpeg2dec k dekódování MPEG streamů (s malou úpravou). mpeg2dec neaplikuje telecine na FILM DVD (a je to tak lepší).
+		</p>
+		<p>To znamená, že Avidemux neumí rozlišit FILM a NSTC.
+		Takže když MPEG vypadá jako progresivní (neprokládaný) a evidentně se postupně rozchází zvuk s obrazem (čím dál víc), použijte <c>Misc->Change fps</c> a nastavte hodnotu na 23.976.
+		</p>
+		<p>Pro MPEG v naší normě PAL to není problém, má vždy 25 snímků za sekundu.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ořez</title>
+	<body><ul>
+		<p>Teď byste měli mít něco takového:</p>
+		<img src="../image_tuto/mpeg.png"></img>
+	<p> Nastavíme si nějaké filtry na obraz. <c>F1</c> zobrazí seznam filtrů.</p>
+	
+		<img src="../image_tuto/filters.png"></img>
+		<p>
+	Zvolíme filtr Crop (ořez), abychom se zbavili černých okrajů.
+		Pokud je obraz velmi čistý, můžete zkusit tlačítko <c>Autocrop</c> pro automatickou detekci.
+		V našem příkladě jsou okraje velmi malé. Pro snadné rozlišení se zobrazují zeleně.
+
+		</p>
+		<img src="../image_tuto/crop.png"></img>
+	</ul></body>
+</section>
+<section>
+	<title>Změna velikosti</title>
+	<body><ul>
+
+		<p> Když je obraz oříznutý, zmenšíme jej.
+		
+		Pro správnou změnu velikosti je velmi důležité vzít v úvahu poměr stran. Poměr stran je tvar bodu. Na PC je většinou čtvercový, na DVD může být 4:3 nebo 16:9. Takže zadejte vstupní poměr stran (16:9 je u DVD nejběžnější) a cílový poměr stran (1:1 pro AVI, 4:3 nebo 16:9 pro DVD nebo SVCD). Poté zvolte metodu interpolace, bilineární je obvykle dostatečně dobrá pro zmenšení. Zřejmě budete chtít zatrhnout <c>16 round up</c>, aby finální výška a šířka byly násobky 16. Potom posuvníkem nastavte požadovanou velikost.
+		</p>
+		<p>
+			<img src="../image_tuto/resizedvd.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Další video filtry</title>
+	<body><ul>
+
+		<p> Podle toho jaký máte zdroj možná budete chtít přidat další filtry (odstranění prokládání a šumu, přidání titulků,...). Viz kapitola <uri link="video.xml.html">Obraz a filtry</uri>.
+		</p>
+		<p>Video je nyní připravené, je načase nastavit jeho kompresi. Můžete si ještě otevřít okno náhledu (Preview) a pohybovat se v něm posuvníkem, náhledové okno se bude aktualizovat.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Nastavení enkodéru</title>
+<section>
+	<title>Kodek</title>
+	<body><ul>
+		<p> Pochopitelně když chceme komprimovat video, nastavíme video režim na Process (<c>F5</c>).
+
+		</p>
+		<p>Vybereme si kodek. Mé dva preferované jsou XviD a libavcodec. Na XviD můžete použít návody pro Windows, nastavení je stejné. Pro libavcodec je dobrá dokumentace MPlayeru.
+		</p>		
+		<p> Pro tento mininávod si zvolíme XviD.
+		</p>
+		<p><img src="../image_tuto/videocodec.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Konfigurace kodeku</title>
+	<body><ul>
+		<p> Nejdřív si nastavíme umístění log souboru pro dvouprůchodové kódování, protože ho později možná budeme chtít použít, z nabídky <c>Misc->Select Log File</c>
+		</p>
+		<p><c>Configure codec</c> otevře tento dialog:
+		</p>
+		<img src="../image_tuto/xvid.png"></img>
+		<p>Vybereme Two pass a zadáme finální velikost. To je velikost pouze videa bez zvuku, od celkové cílové velikosti tedy odečtěte velikost zvukové stopy.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Nastavení zvuku</title>
+<section>
+	<title>Interní zvuk</title>
+	<body><ul>
+		<p>Pokud používáte audio stopu zvolenou při indexování, nemusíte nic dělat. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Externí zvuk</title>
+	<body><ul>
+		<p>Externí zvukový soubor si můžete vybrat z položky menu <c>Audio->Source</c>.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Nastavit režim Process nebo ne?</title>
+	<body><ul>
+		<p>Pokud chcete zachovat zvuk beze změny, například XviD+AC3, nic nedělejte a přeskočte celou sekci. 
+		</p>
+		<p>V opačném případě nastavte Process mód pro audio a (například) Normalize, 48->44.1. Podrobnosti jsou v kapitole <uri link="audio.xml.html">Audio</uri>.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Audio kodek</title>
+	<body><ul>
+		<p>Stejně jako u video kodeku zvolte kodek, například MP3, a nastavte jej.		</p>
+		<p>My nastavíme 128 kbps joint stereo, jako na obrázku:</p>
+		<img src="../image_tuto/mp3.png"></img>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Uložení </title>
+<section>
+	<body><ul>
+		<p>Nakonec uložte pomocí <c>File->Save Video</c> a počkejte pár hodin. Hotovo.
+		Avidemux provede první průchod, potom druhý průchod a kompresi zvuku.
+		</p>
+		<img src="../image_tuto/encoding.png"></img>
+	</ul></body>
+</section>
+</chapter>
+</guide>

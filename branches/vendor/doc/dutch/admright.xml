@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<mainpage id="News">
+<title>Avidemux News</title>
+	<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+	</author>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<section>
+<body>
+	<title>Updated 11 February 2003</title>
+	<p>
+	Het nieuwe design van de site en de documentatie over avidemux zijn bijna klaar
+                         
+	</p>
+	<p>
+	There is a patch in the forum that fixes a big problem with the subtitler filter.
+                     Er is een patch voor de ontertiteling (filter) 
+	</p>
+</body>
+</section>
+</chapter>
+</mainpage>

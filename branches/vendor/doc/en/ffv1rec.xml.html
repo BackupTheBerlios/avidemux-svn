@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Ffv1rec</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Ffv1rec</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>History</p>
+<p class="secthead"><a name="doc_chap1_sect1">Before ffv1rec, there was nuppel_gatos </a></p>
+<ul>
+		<p> 
+		Last year i was using a ATI AIW 7500, with the <a href="http://gatos.sf.net">Gatos</a> drivers. 
+		</p>
+		<p>The problem with that card is that it does not provide the same v4l interface
+		as BT8X8 driver. So most of the capture programs simply do not work.
+		</p>
+		<p>So, out of frustration i hacked a little utility called nuppel_gatos, which was a port of nuppelrec.
+		
+		</p>
+<p>It used the gatos driver interface to capture, plus YUV422 to YUV420P colorspace conversion.
+		</p>
+		<p>It worked nicely but the ratio size/quality was not that good. After experimenting i found that i had a cruel dilemma:
+		<ul>
+			<li>Use nuppel, but be stuck with RTjpeg format, sync perfect, size huge</li>
+			<li>Use avi, could use other codec, sync *ahem* problematic</li>
+		</ul>
+		</p>
+		<p>When i speak of sync i mean real sync. Not trick at container level to resync audio and video streams which are async when taken independently.
+		</p>
+		<p>So, i modified the nuppel_gatos to encode video using Xvid codec in interlaced mode. 
+		</p>
+	
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">and now ffv1rec </a></p>
+<ul>
+		<p>Some months ago, i dropped the AIW to buy a Ti4200 (i'm a bit fan of Enemy Territory :) ) and put back the Bt8x8 card.
+		</p>
+		<p>Same causes, same consequences. Plus i wanted to test ffv1, a lossless codec from <a href="http://www.ffmpeg.org">Ffmpeg</a>. And here comes ffv1rec :) 
+		</p>
+		<p>The result for the primary objectives were not good: Size good, but CPU max-out instantly.
+		</p>
+		<p>So to conclude this interesting piece, ffv1rec is an evolution of nuppelrec that uses the same container as nuppelrec.
+		</p>
+		<p>You keep the sync perfectly and are able to encode using various video codecs.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Main differences to nuppelrec</p>
+<ul>
+		<li>Switch from multi process to multi threads</li>
+		<li>You can specify an audio frequency, like 48000 for DVD conversion later using the <span class="code">-b</span> switch.</li>
+		<li>You can store your settings in $HOME/.ffv1recrc see following chapter.</li>
+		<li>You can select the video codec using the <span class="code">-C</span> switch.Recommended XVID or HUFFYU</li>
+		<li>You can select the motion search using the <span class="code">-M x</span> switch. Recommended : 0 or 1</li>
+		<li>You can select the quantizer using the <span class="code">-q x</span> switch. Recommended : 5</li>
+		<li>You can select the distance between key frames using the <span class="code">-d x</span> switch. Recommended : 200.</li>
+		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Xvid version</p>
+<ul>	
+	<p>From avidemux 2.0.22 and ongoing, partial support for xvid 1.x has been added to ffv1rec, but you <b>must</b> build avidemux first (or at least the ./configure) before trying to build ffv1rec.
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>$HOME/.ffv1recrc</p>
+<ul>	
+	<p>This file stores your settings. The command line parameters will override it, so dont be shy.</p>
+	<p>The syntax is 
+	</p>
+
+	<ul>
+		<li>
+<span class="code">#</span> for comments</li>
+		<li>
+<span class="code">opt</span> is the same as -opt when on command line</li>
+		<li>
+<span class="code">opt=val</span> is the same as -opt val  when on command line</li>
+	</ul>
+	<p>
+		For example, here is mine :
+		<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre></td></tr>
+</table>
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

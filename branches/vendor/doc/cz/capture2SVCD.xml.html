@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Nahrávání z TV a export do SVCD, napsal Jens</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Nahrávání z TV a export do SVCD, napsal Jens</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Nahrávání</p>
+<p class="secthead"><a name="doc_chap1_sect1">Úvod </a></p>
+<p>
+Koupil jsem si Pinnacle PCTV Pro, která by měla být schopna zachytávat softwarem komprimované MPEG-2 video v DVD kvalitě. Z TV karty vede do zvukové karty audio kabel - externí nebo interní.
+</p>
+ <p>
+Pro nahrávání v Linuxu se mi osvědčil program Romana Hochleitnera <a href="http://frost.htu.tuwien.ac.at/%7Eroman/nuppelvideo/">NuppelVideo</a>. U něj je důležitý údaj o duplikovaných (zkopírovaných) snímcích. Zkopírovaný snímek je vytvořen z předchozího snímku, pokud vypadne skutečný snímek z obrazu. To je potřeba k udržení synchronizace se zvukem. Na konci nahrávání uvidíte jak na tom jste. Pokud máte nula, jeden nebo dva duplikované snímky, máte skvělý zdroj pro další kroky. Pokud máte hodně zkopírovaných snímků (často mnoho pohromadě), máte problém se svým hardware nebo jste při nahrávání příliš intenzivně pracovali se svým systémem. ;-)
+</p>
+ <p>
+ Budete také potřebovat nastavit dvě volby jaderného modulu bttv. To můžete udělat v souboru /etc/modules.conf:
+</p>
+<ul>
+<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+
+###
+### Video
+###
+options bttv fieldnr=1 gbuffers=2
+alias char-major-81 bttv
+</pre></td></tr>
+</table>
+</ul>
+<p>
+ Nahrávací program nuvrec vytvoří jeden nebo více výstupních souborů, každý o velikosti 2 GB. Protože mi to moc nevyhovuje, napsal jsem tento malý <a href="NuppelVideo-jsc2G.patch">patch</a>. S přepínačem "-2" docílíte původního chování, bez tohoto přepínače bude výstupem jeden velký soubor.
+ </p>
+ <p>
+ nuvrec ukládá video komprimované kodekem RTjpeg - je to menší bratříček formátu MJPEG. Kanál si musíte zvolit jiným programem (xawtv), ukončit jej a spustit nuvrec. Kvalita přes koaxiální kabel není dobrá. Takže používám kompozitní vstup na své TV kartě a linkový vstup na zvukové kartě Ensoniq ES1371. Pro použití vždy stejného audio profilu jsem vytvořil speciální soubor.
+ </p>
+ <p class="secthead"><a name="doc_chap1_sect2">
+ Zachytávání videa
+  </a></p>
+<p>
+Podle toho jaký máte systém možná budete chtít zakomentovat OSS a odstranit komentář u ALSA.
+<ul>
+<a name="doc_chap_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+# uloží současný zvukový profil
+#/usr/sbin/alsactl -f /tmp/audio_profile store  # pro ALSA zvuk
+/usr/bin/aumix     -f /tmp/audio_profile -S     # pro OSS
+# načte zvukový profil nahrávání videa
+#
+#/usr/sbin/alsactl -f /etc/asound.composite_video restore       # ALSA
+/usr/bin/aumix     -f /etc/<a href="aumix.composite_video">aumix.composite_video</a> -L &gt;/dev/null  
+# OSS
+# spustí nahrávání
+nuvrec -H 576 -W 720 -a 32768 -N -S 1 video.nuv
+# -H 576 -W 720 pro DVD kvalitu - používejte dobré hodnoty, výsledek nebude nikdy
+#               lepší než zdroj
+# -a 32768      pro 50% hlasitost zvuku - 2 fáze:
+#                1. tato hlasitost jde do linkového vstupu přes interní/externí
+#                   audio kabel do zvukové karty
+#                2. nahrávácí hlasitost zvukové karty je nastavena naším zvukovým
+#                   profilem výše
+#               protože mám zapojen kabel přímo z VHS do zvukové karty, tato hodnota
+#               u mě nemá žádný vliv
+# -N            bez (LZO) komprese
+# -S 1          Video zdroj: 0 koaxiální kabel
+#                            1 kompozitní video
+# obnoví zvukový profil
+#
+#/usr/sbin/alsactl -f /tmp/audio_profil restore       
+# ALSA
+/usr/bin/aumix     -f /tmp/audio_profil -L &gt;/dev/null  
+# OSS
+# úklid
+rm -f /tmp/audio_profile
+</pre></td></tr>
+</table>
+</ul>
+</p>
+<p class="secthead"><a name="doc_chap1_sect3">
+ Nahrávání s programem ffv1rec
+  </a></p>
+	<p>Máte-li rychlý procesor, můžete používat <a href="./ffv1rec.xml.html">ffv1rec</a>, který má lepší obraz při nižší velikosti souboru za cenu mnohem většího vytížení procesoru.
+	</p>
+	<p>Základy z předchozí sekce platí i zde, protože se generují modifikované nuv soubory.
+	</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Komprese do MPEG-2/SVCD</p>
+<p>
+ 	Účelem tohoto odstavce je připravit <a href="./edl.xml.html">EDL/projektový soubor</a>, obsahující soubor s původní nahrávkou, vystřiženými reklamami a vyčištěným obrazem.
+</p>
+<p class="secthead"><a name="doc_chap2_sect1">Vytvoření indexu </a></p>
+<p>Nejdříve vytvoříme index souboru pro pozdější rychlé načtení.</p>
+<p>
+Otevřete soubor - <span class="code">File-&gt;Open Video</span>: <span class="input">video.nuv</span>. Po dokončení načítání budete vyzváni k uložení indexu: video.nuv.idx.</p>
+<p>
+Otevřete vygenerovaný index.</p>
+   
+<p class="secthead"><a name="doc_chap2_sect2">Vystřižení reklam </a></p>
+	<p>
+	Pro každou nežádoucí část nastavte značku A na začátek části, kterou chcete odstranit, stiskem <img src="../images/marka.png">, potom přejděte na první snímek následující <b>po</b> posledním snímku reklamy a klikněte na <img src="../images/markb.png">.
+	</p>
+<p>
+	To vybere oblast [značka A, značka B[.
+	</p>
+<p>
+	Stiskněte <span class="code">Ctrl+X</span>. Postup zopakujte pro odstranění všech reklam.
+	</p>
+<p>
+	Když jste s výsledkem spokojeni, uložte EDL soubor pomocí <span class="code">Edit-&gt;Save Edit List</span>.
+	 Například video.edl.
+	 </p>
+<p>
+	 Teď máme <a href="./edl.xml.html">EDL</a> soubor obsahující pouze zajímavou část videa.
+	</p>
+   
+  <p class="secthead"><a name="doc_chap2_sect3">Komprese zvuku v Avidemuxu </a></p>
+
+	<p>Otevřete EDL soubor a nastavte zvukové filtry tlačítkem
+	<img src="../images/bafilter.png">.</p>
+	<p>
+	Vyberte Normalize, chceme aby všechna naše SVCD měla stejnou základní úroveň hlasitosti.
+	</p>
+<p>
+	Nezapomeňte stisknout <img src="../images/baprocess.png">.
+	</p>
+<p>
+	Nakonec vyberte kodek, v našem případě chceme mít MPEG audio.
+	Takže klikněte na A Codec, vyberte <span class="code">FFmpeg MPEG audio</span> a nakonfigurujte jej.
+	Například 224 kbits Stereo.
+	</p>
+	Poslední krok: kódování! <span class="code">Audio-&gt;Save Audio</span>: video.mp2.
+	
+	Nebo můžete použít interní knihovnu tooLAME, kvalita je obecně lepší.	
+
+<p class="secthead"><a name="doc_chap2_sect4">Komprese videa v Avidemuxu </a></p>
+<p> 
+	První krok je načtení seznamu úprav: <span class="code">Edit-&gt;Load Edit List</span>.
+</p>
+<p>	Ořízneme obraz, aplikujeme nějaké <a href="./video.xml.html">filtry</a> a změníme velikost pro SVCD.
+</p>
+<p>	Otevřeme si seznam filtrů pomocí <span class="code">F1</span> nebo <img src="../images/bvfilter.png">. 
+</p>
+<p>První filtr bude Crop k odstranění černých nebo blikajících okrajů. S ořezem nešetřete, i malé "nečisté" části na okrajích by ztížily kompresi a snížily kvalitu.</p>	
+<p>	Můžete také chtít odstranit prokládání. Podle toho jestli používáte normu PAL nebo NTSC a podle typu zdroje zvolte Deinterlace, PAL Smart, IVTC... Vyzkoušejte je v náhledovém okně a vyberte si ten který preferujete.</p>
+	
+<p> Pak klikněte na tlačítko <span class="code">SVCD res</span> a změňte velikost na 480*xxx. 
+Zdroj je považován za 1:1, pokud tomu tak není, udělejte to ručně.   
+</p>
+
+<p>Poslední krok: kódování</p>
+<p>Zvolte a nakonfigurujte video kodek SVCD. Máte-li dost času, použijte dvouprůchodové kódování (Two pass), jinak např. hodnotu konstantní kvantizace (quantizer) 7.</p>
+<p>V obou případech nastavte maximální bitrate na 2300, abychom vyhověli specifikaci SVCD. Nezapomeňte nastavit video režim na Process!</p>
+
+<p><span class="code">File-&gt;Save Video</span>: video.m2v</p>
+   
+ 
+
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Multiplexace zvuku a obrazu</p>
+<p>
+ Na to existují dva programy:
+ 
+<ul>
+   <li>mplex z balíku MJPEG Tools</li>
+   <li>tcmplex z transcode
+   </li>
+</ul>
+ Protože jsem měl nainstalované MJPEG Tools, použil jsem mplex:
+  
+<ul>
+<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ mplex -f 4 -V -s 2324 -p 1 -o video.mpg video.mp2 video.m2v</pre></td></tr>
+</table>
+</ul>
+ Máte-li nainstalovaný transcode, můžete zkusit:
+ 
+<ul>
+<a name="doc_chap_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ tcmplex -i video.m2v -p video.mp2 -o video.mpg -m s </pre></td></tr>
+</table>
+</ul>
+</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Sestavení SVCD image</p>
+<p>
+ Nemůžete soubory zapsat přímo na CD-R. Pro vytoření obrazu SVCD 
+použijte vcdimager:
+ 
+<ul>
+<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ vcdimager -t svcd video.mpg  
+INFO: scanning mpeg track #0 for scanpoints...   
+INFO: writing track 1 (ISO9660)...   
+INFO: writing track 2, MPEG2, PAL S (480x576/25fps), 1 audio stream...
+finished ok, image created with 1023 sectors (2406096 bytes)
+</pre></td></tr>
+</table>
+</ul>
+ Pokud dostanete tuto hlášku:
+ 
+<ul>
+<a name="doc_chap_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ vcdimager -t svcd video.mpg
+INFO: scanning mpeg track #0 for scanpoints...
+vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highest (obj-&gt;iso_bitmap) + 1 == 225' failed.Aborted (core dumped)
+</pre></td></tr>
+</table>
+</ul>
+ měli byste použít tcmplex pro multiplexaci <b>nebo</b> vcdimager verze 
+&gt;= 0.7.
+ 
+ <b>Budoucnost:
+ </b>
+ vcdimager také obsahuje dva nástroje zvané vcdxgen a vcdxbuild. 
+   
+<ul>
+<a name="doc_chap_pre3"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .3</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$;./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
+(Super) VideoCD xml description created successfully as `videocd.xml'
+$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild videocd.xml
+++ WARN: initializing libvcd 0.7.13 [linux-gnu/i686]
+++ WARN:  
+++ WARN:  this is the UNSTABLE development branch!
+++ WARN:  use only if you know what you are doing
+++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information++ 
+WARN:     INFO: scanning mpeg sequence item #0 for scanpoints...   
+INFO: writing track 1 (ISO9660)...   
+INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/224kbps/stereo ...   
+INFO: finished ok, image created with 1173 sectors [00:15.48]
+</pre></td></tr>
+</table>
+</ul>
+  </p>
+  <p class="chaphead"><span class="chapnum"><a name="doc_chap5">5.</a></span>Vypálení image</p>
+<ul>
+<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ cdrdao write --device <span class="input">/dev/sg0</span> videocd.cue</pre></td></tr>
+</table>
+</ul>
+Samozřejmě sg0 nahraďte vaším skutečným zařízením.
+<p class="chaphead"><span class="chapnum"><a name="doc_chap6">6.</a></span>Zpětná extrakce MPEG souboru</p>
+ Někdy můžete chtít získat zpět původní MPEG soubory z SVCD.
+ 
+ Z disku:
+ 
+<ul>
+<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ vcdrip --rip -b videocd.bin
+INFO: avseq01.mpg: 450 -&gt; 1023</pre></td></tr>
+</table>
+</ul>
+ Z CD-R:
+ 
+<ul>
+<a name="doc_chap_pre2"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .2</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>$ vcdrip --rip --cdrom-device=/dev/scd0
+INFO: avseq01.mpg: 450 -&gt; 1260</pre></td></tr>
+</table>
+</ul>
+ 
+ <p class="chaphead"><span class="chapnum"><a name="doc_chap7">7.</a></span>Závěr</p>
+ Máte-li s výsledným SVCD problémy, můžete zkusit jeden z následujících tipů:
+ <ul>
+ <li>Zkuste vcdimager demo  <a href="http://www.vcdimager.org/pub/vcdimager/examples/test_svcd/">image</a>
+</li>
+ <li>Zkuste mplex nebo tcmplex </li>
+ <li>parametry programu vcdimager: </li>
+ <a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+     --broken-svcd-mode
+     --nopbc
+     --broken-svcd-mode --update-scan-offsets --nopbc</pre></td></tr>
+</table>
+</ul>
+ <br><br>
+</td></tr></table></td></tr></table></body>
+</html>

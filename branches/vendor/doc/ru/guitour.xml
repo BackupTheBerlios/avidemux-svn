@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Элементы управления</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Элементы управления
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Панель управления</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Play</title>
+	<body><ul>
+		<p> <img src="../images/bplay.png"></img>
+			Нажмите один раз для воспроизведения, второй для останова
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pause</title>
+	<body><ul>
+		<p> <img src="../images/bpause.png"></img>
+			Остановит воспроизведение
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous frame</title>
+	<body><ul>
+		<p> <img src="../images/bpframe.png"></img>
+			Переместит на предыдущий кадр. Это может занять несколько секунд, т.к. avidemux вынужден обратиться к предыдущему ключевому кадру.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next frame</title>
+	<body><ul>
+		<p> <img src="../images/bnframe.png"></img>
+			Следующий кадр.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bpkframe.png"></img>
+			Возвращает на предыдущий keyframe.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bnkframe.png"></img>
+			Следующий ключевой кадр ( keyframe).
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker A</title>
+	<body><ul>
+		<p> <img src="../images/marka.png"></img>
+			Установить маркер A (см. <uri link="cutting.xml.html">Cutting</uri>).
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker B</title>
+	<body><ul>
+		<p> <img src="../images/markb.png"></img>
+			Установить маркер B (см. <uri link="cutting.xml.html">Cutting</uri>).
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the beginning</title>
+	<body><ul>
+		<p> <img src="../images/bbegin.png"></img>
+			Перейти на первый кадр
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the end</title>
+	<body><ul>
+		<p> <img src="../images/bend.png"></img>
+			Перейти на последний кадр
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Audio source</title>
+	<body><ul>
+		<p> <img src="../images/baudio.png"></img>
+			Выбор активного источника звука (avi/external wav/external MP3..)
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Preview button </title>
+	<body><ul>
+		<p> <img src="../images/bpreview.png"></img>
+			Открывает окно предпросмотра с разультатами работы фильтров. Обновляется вместе с основным окном.
+
+		</p>
+		<p> Это режим предпросмотра очень медленный.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ouput button </title>
+	<body><ul>
+		<p> <img src="../images/boutput.png"></img>
+			Когда нажата, главное окно будет отображать видео с результатами наложения фильтров при воспроизведении и только при воспроизведении.
+		</p>
+		<p> Это быстрый метод и в большинстве случаев вы увидите эффекты в реальном режиме времени.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

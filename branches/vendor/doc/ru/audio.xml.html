@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Аудио</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Аудио</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Режим Process/Copy </p>
+<p class="secthead"><a name="doc_chap1_sect1">Режим Copy  </a></p>
+	<ul>
+	<p>В этом режиме avidemux копирует аудио данные (внешние/из_avi/...) на выход без перекодирования. Применим, например, при монтировании avi или смене аудиотрека.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Режим Process  </a></p>
+	<ul>
+	<p>Avidemux сначала декодирует аудио, затем применит указанный кодек. Если кодек не указан, вы получите звуковую дорожку в wav формате.
+	</p>
+	<p>Чтобы это все работало, естественно, необходимые аудиокодеки должны присутствовать в вашей системе. Подробности см. <a href="input.xml.html">Входные форматы</a>.
+	</p>
+	<p>При использовании <span class="code">File-&gt;Save audio</span>, аудио будет сохранено в зависимости от выбранного режима. Если выбран режим copy, вы сохраните отдельно неизмененный AC3/MP3/WMA... трек. В режиме process файл будет перед сохранением обработан.
+	</p>
+	<p>Это может понадобиться, например, для создания VCD, где требуется звук в формате mp2.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Фильтры</p>
+<p class="secthead"><a name="doc_chap2_sect1">Normalize </a></p>
+	<ul>
+	<p>Фильтр normalize &quot;нормализует&quot; громкость звучания. Может помочь для очень тихого звука в некоторых ac3 треках, например.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Convert to 44.1 khz </a></p>
+	<ul>
+	<p>Фильтр делает преобразование 48-&gt;44.1khz . Если частота дискретизации входного сигнала будет отличаться от 48 khz, не делает ничего.
+	</p>
+	<p>Базируется на wavefs44, заимствовано из DVD2AVI.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Time shift </a></p>
+	<ul>
+	<p>Этот фильтр  может смещать по времени начало звуковой дорожки. Значения вводятся в милисекундах (ms).
+	</p>
+	<p>Это <b> единственный фильтр, который может применяться в режиме copy </b>. Очень полезно для коррекции ошибок синхронизации в avi.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">6db press </a></p>
+	<ul>
+	<p>Этот фильтр усиливает &quot;слабый&quot; звук на 6 db и постепенно снижает усиление до 1.
+	</p>
+	<p>Фильтр еще не протестирован полностью, могут появиться искажения, будте осторожны.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Фильтры-кодеки</p>
+<p>
+В общем случае это тоже фильтры, назначение которых - кодирование аудио.
+</p>
+<p>
+</p>
+<p class="secthead"><a name="doc_chap3_sect1">Uncompressed </a></p>
+	<ul>
+	<p>Ничего не делает и выдает звук как PCM wav файл. Для конвертирования MP3-&gt;wave например.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">MP3 </a></p>
+	<ul>
+	<p> Базируется на liblame. Вы можете выбрать битрейт и режим (joint stereo или stereo), режим mono будет выбран автоматически .
+	</p>
+	<p> Кодирование идет только в CBR режиме. Если нужна звуковая дорожка в VBR режиме, лучше ее создать с помощью lame и вставить получившийся mp3 как звуковую дорожку. Не забудте прочитать <a href="./vbrmp3.xml.html">VBR MP3</a> или у вас будут проблемы...
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">MP2 </a></p>
+	<ul>
+	<p>Используется собственный mpeg-audio кодек из lavcodec .
+	</p>
+	<p>Кодирует только в CBR режиме (режим joint stereo отсутствует, даже если выставить в диалоге). Нужен только для вашей прихоти :) .
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">AC3 </a></p>
+	<ul>
+	<p>Так же используется  libavcodec.
+	</p>
+	<p>Создает стерео AC3 файл. Вряд ли результирующий файл будет совместим с аппаратными декодерами AC3.	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Пример использования</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi c WMA звуком </a></p>
+	<ul>
+	<p>Например у вас есть avi с WMA звуком и вы хотите конвертировать его в MP3.
+	</p>
+	<p>Загрузите ваш avi, выставите для видео режим copy, т.к. его не требуется изменять.
+	</p>
+	<p>Установите audio в режим process и выберите MP3 кодек, <span class="code">Audio-&gt;Audio codec</span>
+	</p>
+	<p>Выберите <span class="code">Audio-&gt;configure codec</span>, установите 128kbps j-stereo,
+	</p>
+	<p>
+<span class="code">File-&gt;save avi</span>  и вуаля, вы получили только то, что хотели - ковертировали только звук .
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>
