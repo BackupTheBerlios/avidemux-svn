@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Duální zvuk</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Duální zvuk</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Varování</p>
+<ul>
+		<p> Avidemux umí interně zpracovávat pouze jednu zvukovou stopu. 
+		</p>
+		<p>
+		   Nicméně existuje způsob jak přidat druhou, s omezenou podporou a bez jakéhokoli zpracování této druhé stopy.	
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Přidání druhé zvukové stopy</p>
+<p class="secthead"><a name="doc_chap2_sect1">Omezení </a></p>
+<ul>
+		<p> Druhá zvuková stopa musí být CBR, tj. pouze MP3 CBR nebo AC3.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Menu </a></p>
+<ul>
+		<p> Pro přidání druhé zvukové stopy použijte položku <span class="code">Audio-&gt;Second Audio Track-&gt;xxx</span>. Poté zvolte <span class="code">File-&gt;Save As Dual Audio AVI</span> místo <span class="code">File-&gt;Save Video</span>. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Střih AVI souborů s duálním zvukem </a></p>
+<ul>
+		<p> Protože Avidemux interně nezvládá víc než jednu zvukovou stopu, musíme si s tím trošku pohrát.
+		</p>
+		<p> Otevřete duální AVI, na výzvu Take second audio track? odpovězte Yes.
+		</p>
+		<p> Nastavte značky A a B a uložte zvuk pomocí <span class="code">Audio-&gt;Save Audio</span> jako např. /tmp/11.mp3. 
+		</p>
+		<p> Znovu otevřete ten stejný AVI soubor, ale tentokrát odpovězte No, čímž vyberete první zvukovou stopu. 
+		</p>
+		<p> Nastavte značky na stejné pozice a uložte jej jako /tmp/11.avi. 
+		</p>
+		<p> Po opětovném načtení přidejte /tmp/11.mp3 jako druhou stopu. Uložte pomocí <span class="code">File-&gt;Save As Dual Audio AVI</span>. 
+		</p>
+		<p>  
+			Zopakujte pro všechny části.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

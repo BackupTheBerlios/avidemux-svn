@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>Formats de sortie</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Formats de sortie
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Format de fichier</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Format</th><th>Restriction</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>Deux pistes audio au maximum</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Flux élémentaire brut</ti>
+		</tr>
+		<tr>
+			<ti>Raw</ti><ti>Vidéo ou audio séparé. Par exemple flux brut mpeg4</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codecs Vidéo</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Commentaire</th><th>Dépendances</th>
+		</tr>
+		<tr>
+			<ti>Divx</ti><ti>Désactivé, la dernière version plante sur un P4</ti><ti>Divx</ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>Bon, précis, rapide, de nombreuses options</ti><ti>Xvid</ti>
+		</tr>
+		<tr>
+			<ti>Lavcodec</ti><ti>Bon, précis, rapide, de nombreuses options</ti><ti>Lavcodec(intégré)</ti>
+		</tr>		
+		<tr>
+			<ti>H263</ti><ti>Réglages depuis lavcodecc</ti><ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>YV12 Huffyuv, pas compatible avec Windows</ti><ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>FFV1</ti><ti>Codec vidéo sans perte de lavcodec. Efficace !</ti><ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>VCD/DVD/SVCD</ti><ti>Bonne qualité, lent</ti><ti>mpeg2enc, intégré</ti>
+		</tr>
+		<tr>
+			<ti>XVCD</ti><ti>Rapide. Basé sur lavcodec, mais pas compatible à 100 %</ti><ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>XSVCD</ti><ti>Rapide. Basé sur lavcodec, mais pas compatible à 100 %</ti><ti>Intégré</ti>
+		</tr>
+		</table>
+		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codecs audio</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Commentaire</th><th>Dépendances</th>
+		</tr>
+		<tr>
+			<ti>Sans compression</ti><ti>Fichiers volumineux</ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3</ti><ti>Bonne qualité, CBR uniquement</ti><ti>liblame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>CBR uniquement, compatible ?</ti><ti>Intégré (lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti>CBR uniquement, compatible ?</ti><ti>Intégré (lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Utilise une redirection vers toolame, vraiment bon !</ti><ti>Toolame</ti>
+		</tr>
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Spécificités des formats</title>
+<section>
+<title>Avi</title>
+	<body><ul>
+	<p> C'est le format d'enregistrement par défaut. Il est possible d'ajouter une seconde piste audio CBR avec la commande <c>misc->2nd audio track</c>. Le fichier choisi pour cette seconde piste peut être soit un MP3 CBR soit un AC3.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Fichier Mpeg </title>
+	<body><ul>
+	<p>Seul le flux vidéo élémentaire brut est enregistré, avec pour extension .m1v ou .m2v.
+	</p>
+	<p>Il vous faudra alors sélectionné un encodage audio en mp2, passer le mode audio sur process et choisir <c>File->save audio</c> pour obtenir un fichier .mp2.
+	</p>
+	<p>Utilisez ensuite mplex ou tcmplex pour multiplexer les deux fichiers et obtenir un .mpg correct.
+	</p>
+	<p>L'export XVCD utilise l'encodeur et les réglages de lavcodec. Pour le configurer, sélectionez FFmpeg comme codec de sortie puis utilisez le menu <c>configure video codec</c>. C'en est encore au stade expérimental.
+	</p>
+	<p>D'un point de vue interne, les images d'une vidéo Mpeg apparaissent comme d'énormes images YV12 non compressées. Assurez-vous donc de les encoder avant d'enregistrer votre vidéo, ou utilisez les options d'enregistrement brut, mais N'ENREGISTREZ PAS un avi en mode copy.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Raw</title>
+	<body><ul>
+	<p>
+	Il existe sous deux formes : pour l'audio, il faut utiliser la commande <c>File->save audio</c>.
+	Cela permet de n'enregistrer que l'audio (traité/encodé ou pas).
+	</p>
+	<p>Pour la vidéo, il faut utiliser <c>File ->save raw</c>. Cela peut être utile pour découper des fichiers mpeg ou pour enregistrer la vidéo séparément, comme un flux vidéo brut h263 ou mp4.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

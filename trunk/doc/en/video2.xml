@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video : Interlacing filters
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This filter family deals with interlaced video.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Interlacing  filters</title>
+<section>
+	<title>Deinterlace</title>
+	<body>
+	<ul>
+	<p>This filter is a port of Donald Graft smart-deinterlace filter to YV12
+	</p>
+	<p>It detects if the image is interlaced and blurs the interlaced parts.
+	</p>
+	<p>This filter takes two parameters :
+	<ul><li>Motion threshold : The lower this value, the more easily the interlacing will be detected. Too low means a lot of blurring !</li>
+	<li>Blend threshold : When the video has been detected as interlaced, the parts that are under this threshold are blurred. It must be smaller than the previous threshold</li>
+	</ul>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Kernel Deint</title>
+	<body>
+	<ul>
+	<p>This filter is a port of Donald Graft kernel deint (avisynth), more stuff <uri link="http://www.neuron2.net">here</uri>.
+	</p>
+	<p>It is very efficient.
+	</p>	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Shift</title>
+	<body>
+	<ul>
+	<p>This filter  takes a field from an image and the other field from the next image.
+	</p>
+	<p>A lot of movie (and some DVD) are interlaced this way. 
+	</p>
+	<p>This filter does not do any check, so activate it, preview it, and if you are happy with the result keep it.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Smart</title>
+	<body>
+	<ul>
+	<p>This filter is a mix between the two above. 
+	</p>
+	<p>It evals the current image and the Pal-shifted image, then takes the less interlaced one and smart deinterlace it. Since chroma is not taken into account, it can lead to small chroma error.
+	</p>
+	<p>It is a bit on the slow side, but very efficient when the video is of the good type.
+	</p>
+	<p>It can be used also as a cheap IVTC, as it will reconstruct the progressive frame, but will keep the video at 30 fps and will not discard duplicates to reach 24 fps.
+	</p>
+	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Drop</title>
+	<body>
+	<ul>
+	<p>This filter has been written by Ron Reithoffer.
+	</p>
+	<p>If a field is too different from spatial/temporal neighbours (VHS drop out) it is discarded and replaced by an average value from previous and next frame line.
+	</p>
+	<p>According to the author, this must be the first filter in the filter chain, and will not work well with very interlaced image.
+	</p>
+	<p><img src="../image_tuto/dropout.jpg"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>IVTC : HIDDEN</title>
+	<body>
+	<ul>
+	<p>In some case, to convert a movie (24 fps) to NTSC (30 fps), a telecine process is applied. It duplicate fields of frames to add a 5th image.</p>
+	<p>  1 2 3 4 =&gt; 1 2 2 3 4 
+	</p>
+	<p>  1 2 3 4 =&gt; 1 2 3 3 4
+	</p>
+	<p>
+	Whenever possible it is much better to retrieve the original progressive image as it is more suitable to encoding and also easier to encode.	
+	</p>
+	<p>
+	This filter uses a brute force approach to retrieve the original frames. It "counts" the interlacing effects in a image and consider that if two images are the most interlaced AND they follow each other they are candidates.
+	</p>
+	<p>At the moment, the first image must not be interlaced (check with preview!) else the filter will fail identifying the telecined frames. It is a very immature filter, you have been warned.
+	</p>
+	<p><b>This filter is temporarily hidden</b></p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Mplayer IVTC</title>
+	<body>
+	<ul>
+	<p>This is a port of Richard Felker IVTC filter, ported from <uri link="http://mplayerhq.hu">mplayer</uri>.</p>
+	<p>It is early job (avidemux and mplayer are a bit different) and you may have from time to time an interlaced frame appearing. Except from that it works very nicely .
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Pulldown </title>
+	<body>
+	<ul>
+	<p>This filter converts a 24 fps to a 30 fps video by duplicating fields. Could be handy for DVD driver that hiccups on 24 fps VCD.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Fields related filters</title>
+<section>
+<title>Swap fields </title>
+	<body>
+	<ul>
+	<p>It is very common that capture card/capture software swaps the fields. It will look like a interlacing effect, but on the whole image, not only on moving part</p>
+	<p>
+	This filter swaps the fields back. Here is a short example, first the image which has swapped fields :
+	</p>
+	<img src="../images/swap1.png"></img>
+	<p>
+		And the ouput of the Swap Fields filter :
+	</p>
+	<img src="../images/swap2.png"></img>
+
+	</ul>
+	</body>
+</section>
+<section>
+<title>Smart Swap fields </title>
+	<body>
+	<ul>
+	<p>It is also common that the capture card/software swaps fields back and forth several times. This filter tries to detect if the fields are swapped, and if so swaps them back.
+	</p>
+	<p>It is usually better to use this one, rather than the SwapFields filter.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Keep even field </title>
+	<body>
+	<ul>
+	<p>This filter will keep even field, i.e. even line numbers.</p>
+	<p>It will halve the vertical resolution by 2</p> 
+	</ul>
+	</body>
+</section>
+<section>
+<title>Keep odd field </title>
+	<body>
+	<ul>
+	<p>Same as above for odd field</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Separate Fields </title>
+	<body>
+	<ul>
+	<p>This filter will split a image in two images, each one receiving one of the field.
+	</p>
+	<p>So you will double the framerate, double the number of images, and halves vertical resolution.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+<title>Merge Fields </title>
+	<body>
+	<ul>
+	<p>Opposite of above filter.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

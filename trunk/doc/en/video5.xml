@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: Smoothing filters</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: Smoothing filters
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This filter family smooths the video, very useful to get rid of the noise on captured source.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+
+<title>Smoother filters</title>
+<section>
+	<title>Stabilize </title>
+	<body>
+	<ul>
+	<p>This filter replaces each pixel with the threshold by a weighted average of its spatial and temporal neightboors	</p>
+	<p>It is a light denoiser.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Denoise </title>
+	<body>
+	<ul>
+	<p>This filter has been ported from transcode DNR filter</p>
+	<p>It replaces each pixel with threshold of the reference by an average of reference and pixel</p>
+	<p>It deals with luma and chroma with separate thresholds.</p>
+	<p>It is a strong filter if you raise the default threshold values.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FluxSmooth </title>
+	<body>
+	<ul>
+	<p>This filter has been ported avisynth, and has been originally written by  Ross Thomas .</p> 
+	<p>See avisynth doc to get more details </p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Temporal Cleaner </title>
+	<body>
+	<ul>
+	<p>This filter is originally from Jim Casaburi, part of virtual dub filters.</p> 
+	<p> It has been ported from virtual dub to avisynth by Vlad59.</p> 
+	<p>See virtual dub/avisynth doc to get more details </p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Mplayer Denoise3D </title>
+	<body>
+	<ul>
+	<p>This filter is a port of Mplayer Denoise3D filter, written by Daniel Moreno.</p> 
+	<p> It is a very good denoiser.</p> 
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Mplayer HQDenoise3D </title>
+	<body>
+	<ul>
+	<p>This filter is a port of Mplayer HQD3D filter, written by Daniel Moreno and A'rpi.</p> 
+	<p> It is a very good denoiser, but its quality has a price :Two to three time slower than Denoise3D</p> 
+	<p>You will probably be happy with Denoise3d.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+</guide>

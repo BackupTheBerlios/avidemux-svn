@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	B-frame</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">B-frame</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Images B</p>
+<p class="secthead"><a name="doc_chap1_sect1">Introduction </a></p>
+<ul>
+	<p>Ce chapitre est une introduction à la gestion des images B. Si ce concept vous est familier, vous pouvez passer au chapitre suivant sans problème.
+	</p>	
+	<p>On peut classer les images vidéo en 3 catégories :
+	<ul>
+		<li>Images I (Intra frames) : parfois appelées "images clés", elles ne dépendent pas d'une autre image et peuvent être décodées de façon indépendante. Vous pouvez vous les représenter comme des images jpeg.</li>
+		<li>Images P (Predicted frames) : ces images "prédites" sont déduites de l'image (I ou P) qui les précède, et ne peuvent pas être reconstituées si le décodeur n'a pas traité les images précédentes.</li>
+		<li>Images B (Bidirectional predicted frames) : ces images "prédites" dans les deux directions sont décodées en fonction de l'image (I ou P) qui les précède et de celle qui les suit. </li>
+	</ul>
+	</p>
+	<p>L'intérêt des images B est double. Tout d'abord leur prédiction est légèrement plus précise. Ensuite, et c'est le plus important, elles n'ont pas d'impact sur la qualité des images suivantes et peuvent donc être codées dans une qualité inférieure sans dégrader la séquence dans son ensemble.
+	</p>
+	<p>Comme les images B dépendent à la fois d'une image passée et d'une image future, le décodeur doit connaître à l'avance l'image I ou P à venir pour pouvoir les décoder correctement.</p>
+	<p>C'est là qu'intervient l'opposition PTS/DTS.</p>
+	<p>Le PTS (Presentation Time Stamp) correspond d'une certaine manière au numéro de l'image pour son affichage. Il détermine l'ordre dans lequel vous verrez les images décodées.
+	</p>
+	<p>Le DTS (Decoder Time Stamp) correspond au numéro de l'image pour son décodage.</p>
+	<p>Imaginons que vous ayez une courte vidéo constituée de la manière suivante : I-0 B-1 B-2 P-3</p>
+	<p>B-1 et B-2 dépendent de I-0 et de P-3. L'odre DTS correspondant serait donc : I-0 P-3 B-1 B-2.</p>
+	<p>Pour simplifier, on peut dire que le fichier est encodé selon l'ordre DTS.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Donc ? </a></p>
+<ul>
+		<p>Le problème est que pour afficher une vidéo correctement, le codec doit trouver un moyen d'extraire les images dans le bon ordre et de façon séquentielle (c-à-d une image en entrée, une image en sortie) 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect3">La manière mpeg (la bonne) </a></p>
+<ul>
+		<p>La manière habituelle de résoudre ce genre de problème consiste pour le codec à retarder le décodage de 3 images, afin de toujours disposer des deux images de référence pour décoder une image. 
+		</p>
+		<p> Entrée  0 3 1 2 . .</p>
+		<p> Sortie  - - - 0 1 2 3 . .</p>
+		<p>Cela ne pose aucun problème pour un lecteur, puisque, le retard induit étant connu lors de la création du fichier, il est facilement compensé et l'audio reste synchronisé.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect4">La manière Divx et Xvid (la moins bonne) </a></p>
+<ul>
+		<p>Pour pouvoir utiliser l'opposition PTS/DTS avec une application qui n'est pas prévue pour gérer ce genre de flux, le codec Divx (et xvid lorsqu'il foncitonne en mode compatible) use d'une astuce différente.
+		</p>
+		<p>Ils utilisent une variante des images PB et en regroupe plusieurs en une seule. Donc l'application pense qu'il s'agit d'une seule images et le codec traite tout en interne.
+		</p>
+		<p>Avec l'exemple précédent, Divx créerait un fichier qui ressemblerait à ceci,  () indiquant une image dans le fichier.
+		</p>
+		<p>Entrée  (0 3 1 2) - - - . . . </p>
+		<p>Sortie          1 2 3 ....</p>
+	<p>Des images vides (null frames) sont insérées à l'endroit des images regroupées. Le codec sait que s'il reçoit une image vide après un paquet d'images, il doit tirer les images du paquet.</p>
+	<p>Du point de vue du coder, c'est intéressant car cela ne génère par de délai entre l'entrée et la sortie, et les fichiers avi ne disposent pas d'un champ PTS/DTS pour renseigner le décodeur du lecteur.</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect5">Donc ? (la suite) </a></p>
+<ul>
+		<p>Ce comportement correspond à l'objectif d'Avidemux : donner une précision à l'image près. 
+		</p>
+		<p>Avec la manière mpeg, il y a un décalage ce qui est donné au codec et que qui en ressort. Ce n'est pas acceptable, car cela ne vous permet pas de savoir précisément quelle image vous voyez.
+		</p>
+		<p>La manière divx/xvid est problématique car les images 2 3 4 sont vues comme des images nulles et il est <b>impossible</b> de couper un flux à l'image près ainsi.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect6">Comment Avidemux s'en sort-il ? </a></p>
+<ul>
+		<p>C'est simple, Avidemux gère l'opposition PTS/DTS lui-même et force le codec à produire les images immédiatement. La partie éditeur d'Avidemux connaît l'ordre DTS/PTS des images et approvisionne le décodeur correctement. Vous avez ainsi à la fois une précision à l'image près et des images B.
+		</p>
+		<p>Le problème est que les divx/xvid masquent le type des images en les regroupant, si bien que l'éditeur ne peut pas les traiter pour le moment.
+		</p>
+		<p>Pour pouvoir fonctionner, Avidemux doit savoir quelles images sont des images B. Dans le cas d'un mpeg, l'indexation fournit ce type d'information. Dans le cas d'un avi, il faut modifier l'index afin de marquer les images B. Cela se fait facilement en choisissant misc-&gt;build keyframe index (l'opération prend environ 40 secondes pour un avi d'une heure).</p>
+
+<p>La morale de tout ceci est double :
+	<ul>
+	<li>N'oubliez pas de réindexer un avi qui contient des images B (dans le cas contraire, vous aurez un message d'avertissement)</li>
+	<li>N'espérez pas avoir une précision à l'image près pour un fichier Divx 5 contenant des images B. Vous aurez un délai de 2 images.</li>
+
+	</ul>
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

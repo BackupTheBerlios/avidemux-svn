@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Установка Avidemux</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Установка Avidemux</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Обязательные условия</p>
+		<p>Вам потребуется  PC , работающий под управлением юниксобразной системы (linux/freebsd/...).</p>
+		<ul>
+		<li>Gtk+ и glib 1.2.X ( не 2.x)</li>
+		<li>libmad ( это опционально, но поверьте, вам этого захочется!)</li>
+		</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Дополнительные пакеты</p>
+<p class="secthead"><a name="doc_chap2_sect1">Аудио </a></p>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Название</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Версия</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Описание</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Источник</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libMad</td>
+<td bgcolor="#ddddff" class="tableinfo">0.14.2b</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg 1/2/3 audio decoder</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://mad.sf.net">http://mad.sf.net</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">a52dec</td>
+<td bgcolor="#ddddff" class="tableinfo">0.7.4</td>
+<td bgcolor="#ddddff" class="tableinfo">AC3 decoder</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://liba52.sf.net">http://liba52.sf.net</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+<td bgcolor="#ddddff" class="tableinfo">3.9x</td>
+<td bgcolor="#ddddff" class="tableinfo">MP3 encoder</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.mp3dev.org/mp3">http://www.mp3dev.org/mp3</a></td>
+		</tr>
+		</table>
+	<p class="secthead"><a name="doc_chap2_sect2">Видео </a></p>
+	<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Название</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Версия</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Описание</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Источник</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">mjpegtools</td>
+<td bgcolor="#ddddff" class="tableinfo">1.6</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg 1/2 video encoder</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://mjpeg.sourceforge.net">http://mjpeg.sourceforge.net</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+<td bgcolor="#ddddff" class="tableinfo">0.9</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg4 encoder</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.xvid.org">http://www.xvid.org</a></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+<td bgcolor="#ddddff" class="tableinfo">5.0.1</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg4 encoder/decoder</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.divx.com">http://www.divx.com</a></td>
+		</tr>
+	</table>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Установка</p>
+	<p>Ничего необычного.</p>
+	<p><span class="code">./configure --disable-warnings</span></p>
+	<p>Внимательно просмотрите сообщения в конце процесса конфигурирования, все ли необходимые компоненты найдены для
+	полноценной работы.
+	Если что-то упущено, проверьте еще раз, установлены ли соответствующие -devel пакеты.
+	</p>
+	<p>В процессе конфигурирования будет собрана библиотека lavcodec .</p>
+
+	<p>Если все прошло успешно -  <span class="code">make</span>.
+	Avidemux состоит только из одного файла, скопируйте его вручную в нужное вам место.</p>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Возможные проблемы при сборке</p>
+<p class="secthead"><a name="doc_chap4_sect1">automake error </a></p>
+	<p> Возможны проблемы со сдвигом времени. Попробуйте <span class="code">touch -r *</span> сразу после распаковки.
+	</p>
+	<p class="secthead"><a name="doc_chap4_sect2">Падает сразу после запуска </a></p>
+	Как правило, причина этому наличие нескольких библиотек libdivxencore и libdivxdecore в разных местах.
+	<p>Оставьте только один комплект и повторите configure после <span class="code">make clean</span>
+	</p>
+	<p>Возможно также, что у вас не MMX процессор (pentium 1). используйте <span class="code">--disable-mmx</span> ключ для configure.
+	</p>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

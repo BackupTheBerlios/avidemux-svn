@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>B-frame</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+B-Frame
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>B-Frames</title>
+<section>
+	<title>Introduction</title>
+	<body><ul>
+	<p>
+	This chapter is an introduction to B-frame handling. If you are familiar with the concepts you can safely skip it.
+	</p>	
+	<p>Video frames can be divided among 3 types :
+	<ul>
+		<li>I-Frame: Intra frame, also called keyframe. They have no reference frame and can be decoded on their own. They can be thought of a jpeg image.</li>
+		<li>P-Frame: Predicted frame. They are deduced from the previous frame (I or P) and cannot be built if the decoder has not decoded the previous frames.</li>
+		<li>B-Frame: They are decoded from the previous and next I-P frames. </li>
+	</ul>
+	</p>
+	<p>
+	B frames are interesting for two facts. First they have a slightly better prediction. And second and more important, they do not impact the quality of following frames, so they can be coded with lower quality without degrading the whole sequence.
+	</p>
+	<p>Since B-frames depend on both past and future picture, the decoder have to be fed with future I-P frames before being able to decode them.</p>
+	<p>There comes the PTS/DTS logic.</p>
+	<p> Presentation Time Stamp is the presentation time, it could be thought of as  display frame number. It is the order you will see the decoded frames.
+	</p>
+	<p>The DTS is the Decoder Time Stamp, i.e. the decoding frame number.</p>
+	<p>Assume if you have a short video like this : I-0 B-1 B-2 P-3</p>
+	<p>B-1 and B-2 depends on both I-0 and P-3. The corresponding DTS order would be : I-0 P-3 B-1 B-2.</p>
+	<p>To keep thing simple, the file is encoded with DTS order</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>So what ?</title>
+	<body><ul>
+		<p>
+			The problem is that to keep showing the video in the right order, the codec has to do things to pop out the frames in the correct order and sequentially (i.e. one frame in , one frame out) 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>The mpeg way (the right way)</title>
+	<body><ul>
+		<p>
+			The usual way to do this is that the codec delays decoding for 3 frames. Like that, he always have the two reference frames to decode frames. 
+		</p>
+		<p> In  0 3 1 2 . .</p>
+		<p> Out - - - 0 1 2 3 . .</p>
+		<p>
+			This is perfectly legit for a player as the delay is known when creating the file and thus compensated (i.e. the audio stays in sync).
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Divx (and xvid ways)</title>
+	<body><ul>
+		<p> To be able to use the PTS/DTS with application not used to deal with such stream, Divx codec (and xvid when in compatibility mode) use a different trick.
+		</p>
+		<p>They use a variant of PB frames and pack several frames in one. So the application thinks it is only one frame and the codec hides all this internally.
+		</p>
+		<p>If we take the previous example, Divx would create a file like this, the () means one frame in the file.
+		</p>
+		<p> In (0 3 1 2) - - - . . . </p>
+		<p>Out 0         1 2 3 ....</p>
+	<p>Null frames are inserted where frames were packed. The codec knows that if it receives null frame after a pack of frames, it should pop out frames from the pack</p>
+	<p>From a coder point of view, it is interesting as it does not introduce a delay between in and out, and avi files have not the PTS/DTS field to hint the decoder/player.</p>
+	</ul></body>
+</section>
+<section>
+	<title>So what part 2 ?</title>
+	<body><ul>
+		<p>This behaviour collides with avidemux aim : To provide frame accuracy. 
+		</p>
+		<p>In the mpeg way, there is a delay between what's fed to the codec and what's out. It is not acceptable as you would never know which actual frame your are looking at.
+		</p>
+		<p>The divx/xvid way is tricky because frame 2 3 4 are seen a null frame and we <b>cannot</b> cut such a stream with frame accuracy.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>How does avidemux do then ?</title>
+	<body><ul>
+		<p>Simple, avidemux handles the PTS/DTS logic himself and force the codec to popout the frames immediately. The editor part of avidemux knows the DTS/PTS order of the frames and feeds the decoder correctly. You have frame accuracy and B-frames.
+		</p>
+		<p>The problem is that divx/xvid hides the frames type by packing them, so the editor cannot deal with that for now.
+		</p>
+		<p>From avidemux 2.0.24 and afterward, the packed bitstream is automatically unpacked upon loading. But only for avi/openDML. If the source is a OGM file, first save it as an avi and reload.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

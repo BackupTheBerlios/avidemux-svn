@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Видео</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Видео
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Режим Process/Copy </title>
+<section>
+	<title>Режим Copy</title>
+
+	<body>
+	<ul>
+	<p>В этом режиме avidemux копирует входной видео поток на выход без изменений.
+	</p>
+	<p>Есть исключение : при экспорте в *VCD, видео устанавливается в режим process.
+	</p>
+	<warn>Не используйте режим copy для mpeg1/2 видео, всегда устанавливайте режим process! </warn>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Режим Process</title>
+
+	<body>
+	<ul>
+	<p>Avidemux сначала распакует видео на YV12 фреймы, применит указанные фильтры, затем закодирует снова выбранным видео кодеком.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Мета-фильтры</title>
+<section>
+	<body>
+	Мета-фильтр это группа фильтров или фильтр, модифицирующий другие фильтры. Вот некоторые из них :
+	<ul>
+	<li>VCD/SVCD/DVD res: эти мета-фильтры автоматически изменят разрешение видео до совместимого с VCD/DVD/SVC. Внутри они используют "add black borders" и "resize".</li>
+	<li>Partial:  этот мета-фильтр устанавливает действие других фильтров только на части видео. Например, вам понадобилось применить "deinterlace" только на части видео. Для этого подключите фильтр "deinterlace", выберите его и нажмие кнопку <c>Partial</c> . Введите начальный и конечный фреймы.</li>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Фильтры для работы с изображением</title>
+<section>
+	<title>Crop (обрезание краев)</title>
+	<body>
+	<ul>
+	<p>Этот фильтр обрезает размер кадра (например для удаления черных бордюров). Значения left/right/top/bottom должны быть четными.
+	</p>
+	<p>Вы можете посмотреть предварительные результаты обрезания используя кнопку <c>update</c> .
+	</p>
+	<p>На качественном материале (dvd), можно попробовать кнопку <c>Autopcrop</c>.
+	</p>
+	<img src="../image_tuto/crop2.png"></img>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Resize</title>
+	<body>
+	<ul>
+	<p>Этот фильтр предназначен для изменения размеров кадра. Алгоритм позаимствован из avisynth . Доступны два метода (эквиваленты  bilinear/bicubic).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Blacken Borders</title>
+	<body>
+	<ul>
+	<p>Фильтр заменяет существующие бордюры в видео на чисто-черные. Используется для замены зашумленных полос на чистые (например в оцифрованом с VHS ролике)
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Add Black Borders</title>
+	<body>
+	<ul>
+	<p>Этот фильтр *добавляет* черные бордюры (предыдущий заменял). Используется при подготовке *VCD для изменения размера кадра без изменения значения соотношения сторон (aspect ratio).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Flip vertical</title>
+	<body>
+	<ul>
+	<p>Переворачивает изображение "вверх ногами". Такое изображение дают некоторые карты захвата.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Rotate</title>
+	<body>
+	<ul>
+	<p>Фильтр авторства "Tracy" 	</p>
+	<p>Поворачивает изображение на 90/180/270 градусов. Автор использует его для обработки видео с камеры, работающей в портретном режиме.</p>
+	<p>
+	<img src="../image_tuto/rotate.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Interlacing related filters</title>
+<section>
+	<title>Deinterlace</title>
+	<body>
+	<ul>
+	<p>Это порт фильтра от Donaldа Graftа - "smart-deinterlace filter to YV12"
+	</p>
+	<p>Обнаруживает чересстрочные кадры и производит сглаживание.
+	</p>
+	<p>Фильтр имеет два параметра :
+	<ul><li>Detection threshold (порог обнаружения) : при больших значениях легче обнаруживается чересстрочность, но слишком большие значения приведут к размыванию картинки!</li>
+	<li>Blur threshold (порог размывания): когда чересстрочность будет обнаружена, части изображения, параметры чересстрочности которого превысят этот порог, будут сглажены. Значение должно быть меньше, чем у предыдущего порога</li>
+	</ul>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Shift</title>
+	<body>
+	<ul>
+	<p>Этот фильтр берет первое поле из одного кадра и второе из следующего.
+	</p>
+	<p>Некоторые фильмы (и некоторые DVD) имеют чересстрочное изображение такого типа.
+	</p>
+	<p>Этот фильтр не делает никаких проверок, поэтому прежде чем применять его, убедитесь в корректности его работы с помощью "preview". </p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Smart</title>
+	<body>
+	<ul>
+	<p>Этот фильтр что-то среднее между двумя предыдущими.
+	</p>
+	<p>Он сравнивает текущую картинку и после применения "Pal-shift" , выбирает вариант с меньшим искажением и применяет "smart deinterlace". Т.к. цвет в этом процессе не учавствует, цветовые искажения минимальны.
+	</p>
+	<p>Работает медленно, но очень эффективно на качественном видео.
+	</p>
+	<p>Может быть использован также как простой способ для IVTC (Inverse Telecine), т.к. реконструирует прогрессивность кадров, но не удаляет кадры для преобразования 30fps в 24.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Drop</title>
+	<body>
+	<ul>
+	<p>Фильтр написал Ron Reithoffer.
+	</p>
+	<p>Если строки в соседних кадрах сильно отличаются (выпадающие строки в VHS) они заменяются усредненными значениями, вычисленными на основе строк из предыдущих и последующих кадров.
+	</p>
+	<p>Автор утверждает, что этот фильтр должен быть первым в цепочке фильтров, но не очень хорошо работает с чересстрочным материалом.
+	</p>
+	<p><img src="../image_tuto/dropout.jpg"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Convolution Kernel based filters</title>
+<section>
+	<title>Convolution</title>
+	<body>
+	<ul>
+	<p>Эти фильтры замещают каждый пиксель его усредненным значением, вычисленным на матрице 3x3 (исключая "Large median", который использует матрицу 5x5 ).
+	</p>
+	<p>Они могут работать с яркостью и/или цветностью.
+	</p>
+	<p>Median и Mean используют только цветность и очень показательны на материалах с большим уровнем цветового шума (записанного с VCR или TV).
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Luma/Chroma filters</title>
+<section>
+	<title>Swap u / v </title>
+	<body>
+	<ul>
+	<p>Меняет местами цветовые составляющие (такое изображение дают некоторые карты захвата).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Contrast </title>
+	<body>
+	<ul>
+	<p>Этот фильтр линейно изменяет контрастность/яркость  для яркостного и/или цветовых каналов.
+	</p>
+	<p>Поможет "выровнять" слишком яркое/темное/синее/красное видео.
+	</p>
+	<p><img src="../image_tuto/contrast.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Luma/chroma only </title>
+	<body>
+	<ul>
+	<p>Фильтр для отладки. Выделяет только одну компоненту (luma/u/v).
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Smoother filters</title>
+<section>
+	<title>Stabilize </title>
+	<body>
+	<ul>
+	<p>Фильтр замещает каждый пиксел, перешедший условия порога усредненным
+	 по времени и в пространстве относительно окружения.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Denoise </title>
+	<body>
+	<ul>
+	<p>Фильтр портирован из  transcode (DNR filter)</p>
+	<p>Порог для яркости/контрастности выставляется раздельно.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FluxSmooth </title>
+	<body>
+	<ul>
+	<p>Фильт портирован из avisynth, оригинал написал Ross Thomas .</p>
+	<p>Детали можно узнать из документации на avisynth </p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Temporal Cleaner </title>
+	<body>
+	<ul>
+	<p>Оригинальный фильтр написал Jim Casaburi для  virtual dub .</p>
+	<p> После Vlad59 портировал его для avisynth .</p>
+	<p>Подробности в документации на virtual dub/avisynth </p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Misc</title>
+<section>
+	<title>Subtitle </title>
+	<body>
+	<ul>
+	<p>Фильтр добавляет субтитры текстового формата srt/sub из файла
+	</p>
+	<p>Вы можете выбрать шрифт и размер.
+	</p>
+	<p>
+		<img src="../image_tuto/sub.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Ffv1rec</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Ffv1rec
+ </abstract>
+
+<version>1.0</version>
+<date>25 August 2003</date>
+<chapter>
+<title>Un peu d'histoire</title>
+<section>
+<title>Avant ffv1rec, il y avait nuppel_gatos</title>
+	<body><ul>
+		<p>L'année dernièe, j'utilisais une ATI AIW 7500, avec les pilotes <uri link="http://gatos.sf.net">Gatos</uri>. 
+		</p>
+		<p>Le problème avec cette carte, c'est qu'elle ne propose pas la même interface v4l que le pilote BT8X8. A cause de cela, la plupart des programmes de capture refusent tout simplement de fonctionner.
+		</p>
+		<p>Poussé par ma frustration, j'ai écrit un petit utilitaire nommé nuppel_gatos, qui était un portage de nuppelrec.
+		
+		</p><p>Il utilisait l'interface du pilote gatos pour l'acquisition, et la conversion d'espace colorimétrique YUV422 en YUV420P.
+		</p>
+		<p>Il marchait plutôt bien mais le rapport taille/qualité n'était pas fantastique. Après quelques essais, je me suis trouvé face à un cruel dilemne :
+		<ul>
+			<li>Utiliser nuppel, mais être obligéd'utiliser le format RTjpeg, avec synchronisation parfaite mais une taille très important des fichiers générés</li>
+			<li>Utiliser le format avi, qui permet d'utiliser plein de codecs, mais avec une synchronisation *un tantinet* problematique</li>
+		</ul>
+		</p>
+		<p>Lorsque je dit synchronisation, je parle de vraie synchronisation, pas d'astuces au niveau du conteneur pour resynchroniser les flux audio et vidéo, qui sont desynchroniséss pris indépendamment.
+		</p>
+		<p>J'ai donc modifié nuppel_gatos afin d'encoder des vidéos avec le codec Xvid en mode entrelacé 
+		</p>
+	
+	</ul></body>
+</section>
+<section>
+<title>et maintenant ffv1rec</title>
+	<body><ul>
+		<p>Il y a quelques mois, j'ai laché la AIW pour une Ti4200 (je suis un fan d'Enemy Territory :) ) et ai remis la vieille carte Bt8x8.
+		</p>
+		<p>Mêmes causes, mêmes effets. De plus, je voulais tester ffv1, un codec sans perte de <uri link="http://www.ffmpeg.org">Ffmpeg</uri>. Et c'est ainsi qu'est né ffv1rec :) 
+		</p>
+		<p>Les résultats n'étaient pas très bons par rapport aux objectifs initiaux : une taille correct, mais la puissance du CPU était imédiatement monopolisé.
+		</p>
+		<p>En conclusion à tout ceci, ffv1rec est une évolution de nuppelrec utilisant le même conteneur.
+		</p>
+		<p>Vous avez ainsi une synchronisation parfaite et pouvez encoder avec différents codecs vidéos.</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Principales diff�ences avec nuppelrec</title>
+<section>
+	<body><ul>
+		<li>Passage d'un fonctionnement multi processus à un fonctionnement multi threads</li>
+		<li>Vous pouvez spécifier la fréquence audio, comme 48000 pour une  conversion DVD ultérieure avec l'option <c>-b</c>.</li>
+		<li>Vous pouvez stoquer vos réglages dans $HOME/.ffv1recrc, comme indiqué dans la section suivante.</li>
+		<li>Vous pouvez sélectionner le codec vidéo avec l'option <c>-C</c>. XVID ou  HUFFYU recommandé</li>
+		<li>Vous pouvez sélectionner la precision de la motion estimation avec l'option <c>-M x</c>.Recommendé : 0 ou 1</li>
+		<li>Vous pouvez sélectionner le quantificateur avec l'option <c>-q x</c>. Valeur recommandée : 5.</li>
+		<li>Vous pouvez sélectionner la distance entre les images clés avec l'option <c>-d x</c>. Valeur recommandée : 200.</li>
+		
+		<warn>Vous avez besoin de xvid pour construire build ffv1rec.</warn>
+		<warn>Il faut que le ./configure ait été fait dans avidemux.</warn>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>$HOME/.ffv1recrc</title>
+<section>
+	<body><ul>	
+	<p>Ce fichier contient vos réglages. Les paramétres passés en ligne de commande sont priritaire, aussi ne soyez pas timide.</p>
+	<p>La syntaxe est la suivante :  
+	</p>
+
+	<ul>
+		<li><c>#</c> pour les commentaires</li>
+		<li><c>opt</c> est l'équivalent de -opt en ligne de commande</li>
+		<li><c>opt=val</c> est l'équivalent de -opt val  en ligne de commande</li>
+	</ul>
+	<p>Comme exemple, voici mon fichier de réglages :
+		<pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

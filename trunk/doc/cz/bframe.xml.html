@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	B-frames</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">B-frames</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>B-frames</p>
+<p class="secthead"><a name="doc_chap1_sect1">Úvod </a></p>
+<ul>
+	<p>
+	Tato část je úvodem do práce s B snímky. Pokud jste s touto problematikou již obeznámeni, můžete ji klidně přeskočit.
+	</p>	
+	<p>Video snímky se dají rozdělit na tři typy:
+	<ul>
+		<li>I-frame: Intra frame, nazývaný též klíčový snímek (keyframe). Nemají žádný referenční snímek a mohou být dekódovány samostatně. Můžete si je představit jako obrázek JPEG.</li>
+		<li>P-frame: Predicted frame. P snímky jsou odvozeny z předchozího snímku (I nebo P) a nemohou být sestaveny dokud dekodér nedekódoval předchozí snímky.</li>
+		<li>B-frame: B snímky jsou dekódovány z předchozích a následujících I/P snímků. </li>
+	</ul>
+	</p>
+	<p>
+	B snímky jsou zajímavé ze dvou důvodů. Za prvé mají trochu lepší predikci. A za druhé, což je důležitější, neovlivňují kvalitu následujících snímků, takže mohou být kódovány s nižší kvalitou, aniž by degradovaly kvalitu celé sekvence.
+	</p>
+	<p>Protože B snímky závisí na předchozím i následujícím obraze, dekodér musí dostat následující I/P snímky dříve než je může dekódovat.</p>
+	<p>Tady přichází na řadu PTS/DTS logika.</p>
+	<p> Presentation Time Stamp je prezentační čas, tedy něco jako číslo zobrazení snímku. To je pořadí ve kterém uvidíte dekódované snímky.
+	</p>
+	<p>DTS je Decoder Time Stamp, tedy číslo dekódování snímku.</p>
+	<p>Předpokládejme například takovéto video: I-0 B-1 B-2 P-3</p>
+	<p>B-1 a B-2 závisí na I-0 i P-3. Příslušné DTS pořadí bude: I-0 P-3 B-1 B-2.</p>
+	<p>Jednoduše řečeno, soubor je zakódován v DTS pořadí.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">No a? </a></p>
+<ul>
+		<p>
+			Problém je, že k tomu, aby se video zobrazovalo ve správném pořadí, musí kodek vypouštět snímky ve správném pořadí a sekvenčně (tj. jeden snímek do, jeden snímek ven). 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect3">MPEG (správný způsob) </a></p>
+<ul>
+		<p>
+			Obvyklý způsob je že kodek zpozdí dekódování o 3 snímky. Takto má vždy ty dva referenční snímky potřebné k dekódování snímku. 
+		</p>
+		<p> Vstup  0 3 1 2 . .</p>
+		<p> Výstup - - - 0 1 2 3 . .</p>
+		<p>
+			To je pro přehrávače zcela v pořádku, protože to zpoždění je známo při vytváření souboru a tudíž kompenzováno (tj. zůstane zachována synchronizace se zvukem).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect4">DivX (a XviD) </a></p>
+<ul>
+		<p> Aby se PTS/DTS mohl používat s aplikacemi, které nejsou připraveny na práci s takovýmto streamem, kodek DivX (a XviD v kompatibilním režimu) používá jiný trik.
+		</p>
+		<p>Používá variantu PB snímků a zabalí několik snímků do jednoho. Takže aplikace si myslí, že to je jen jeden snímek a kodek toto všechno interně skryje.
+		</p>
+		<p>Vezmeme-li si předchozí příklad, DivX by vytvořil takovýto soubor (závorky znamenají jeden snímek v souboru):
+		</p>
+		<p> Vstup (0 3 1 2) - - - . . . </p>
+		<p>Výstup 0         1 2 3 ....</p>
+	<p>Tam kde byly zabalené snímky se vloží snímky prázdné. Kodek ví, že když obdrží prázdný snímek po balíčku snímků, má vypustit snímky z toho balíčku.</p>
+	<p>To je zajímavé, protože to nezpůsobuje zpoždění mezi vstupem a výstupem a AVI soubory nemají PTS/DTS políčko pro informaci dekodéru/přehrávače.</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect5">No a? 2. část </a></p>
+<ul>
+		<p>Toto chování je v rozporu s cílem Avidemuxu: poskytovat snímkovou přesnost. 
+		</p>
+		<p>U MPEG způsobu je zpoždění mezi tím co je předáváno kodeku a jeho výstupem. To je nepřijatelné, protože byste nikdy nevěděli, na který snímek se ve skutečnosti díváte.
+		</p>
+		<p>DivX/XviD způsob je záludný, protože snímky 2 3 4 jsou viděny jako prázdné snímky a <b>nelze</b> stříhat takovýto stream s přesností na snímky.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect6">Co tedy Avidemux dělá? </a></p>
+<ul>
+		<p>Jednoduše, Avidemux pracuje s PTS/DTS logikou sám a nutí kodek vypouštět snímky okamžitě. Editační část Avidemuxu zná DTS/PTS pořadí snímků a předává dekodéru snímky správně. Máte snímkovou přesnost i B-frames.
+		</p>
+		<p>Problém je to, že DivX/XviD skrývá typ snímků jejich zabalením, takže editor si s tím zatím neporadí.
+		</p>
+		<p>V Avidemuxu od verze 2.0.24 je packed bitstream automaticky rozbalen při načtení. Ale jen u AVI/OpenDML. Pokud je zdrojem OGM soubor, uložte jej nejdřív jako AVI a otevřete.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

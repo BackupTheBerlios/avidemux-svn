@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Fichier Edl</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Fichier Edl</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Introduction</p>
+<ul>
+		<p>Une belle inteface graphique permet le plus souvent d'arriver facilement à faire ce que l'on veut et d'être à peu près sûr du résultat. Dans le cadre d'opérations sur des vidéos, qui peuvent être très longues, cela a l'inconvénient de requérir la présence de l'utilisateur.</p>
+		<p>L'idée à la base du fichier edl (EDit List, liste de modifications) est de pouvoir définir une sorte de projet avec l'interface graphique pour le continuer plus tard ou l'exécuter depuis la ligne de commande pendant que vous en profitez pour dormir ou avoir une vie normale.</p>
+		<p>Le fichier edl permet de stocker ce type de projet. Il contient une image à peu près fidèle du point où vous en étiez lorsque vous l'avez sauvegardé, ce qui peut s'avérer très utile au cas, fort improbable, où Avidemux en viendrait à planter
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Liste de modifications/plan de travail</p>
+<ul>
+	<p>Du point de vue du programme, tout se résume à un ensemble de segments faisant référence à des vidéos auxquelles on applique des filtres. Ces vidéos sont celles que vous chargez avec les commandes <span class="code">load video</span> ou <span class="code">append video</span>. Si vous ne faites rien de plus, il n'y aura qu'un segment par vidéo. Si vous découpez une vidéo ou si vous faites des opérations de copier/coller, elle sera séparée en plusieurs segments.
+	</p>
+	<p>Lorsque vous sauvegardez une liste de modifications/plan de travail, vous créez deux fichiers. Le premier contient les segments et les vidéos. Si vous le rechargez, vous vous retrouverez exactement au point où vous entiez, c'est-à-dire que si vous avez coupé ou ajouté des vidéos, vous les retrouverez telles quelles.
+	</p>
+	<p>Le second fichier porte le même nom, suivi d'une extension .flt. Il contient la liste de filtres avec lesquels vous travaillez.</p>
+	<p>Donc, en enregistrant une liste de modifications/plan de travail et en la recharggeant, vous retrouverez tout vos éléments à part les filtres audio, les codecs audio et vidéo et leurs réglages.</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>and more</p>
+<ul>
+Le fichier de modifications/plan de travailcontient également :
+		<ul>		
+		<li>Les modes audio et vidéo (copy/process)</li>
+		<li>La liste des filtres audio (normalize, etc.)</li>
+		<li>Le codec audio et sa configuration</li>
+		<li>Le codec vidéo et sa configuration</li>
+		</ul>
+	Il ne manque donc plus grand chose.
+</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Exemple</p>
+<ul>
+	<p>Imaginons que vous ayez une série de captures à convertir en divx ou en SVCD. Chargez les différents fichiers et effectuez les réglages nécessaires (filtres/codec/etc.) puis enregistrez le fichier edl.
+	</p>
+	<p>Créez ensuite un simple script comme celui-ci :
+	<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		avidemux2 --load episode1.edl --video-process --save /tmp/episode1.avi --quit
+		avidemux2 --load episode2.edl --video-process --save /tmp/episode2.avi --quit
+		avidemux2 --load episode3.edl --video-process --save /tmp/episode3.avi --quit
+	</pre></td></tr>
+</table>
+	Vous pouvez alors traiter l'ensemble de vos fichiers en une nuit.
+	</p>
+	<p>Les fichiers edl sont de simples fichiers texte, que vous pouvez donc ouvrir pour voir de quoi ils ont l'air.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

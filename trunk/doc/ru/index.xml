@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Содержание</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Main doc
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Установка и поддерживаемые форматы</title>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./install.xml.html">Установка</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./input.xml.html">Поддерживаемые входные форматы и кодеки</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./output.xml.html">Поддерживаемые выходные форматы и кодеки</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Навигация</title>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./guitour.xml.html">Элементы управления</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./hotkeys.xml.html">Клавиатурные скращения</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Простейшие операции</title>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./cutting.xml.html">Вырезание</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./vbrmp3.xml.html">VBR MP3</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./dualaudio.xml.html">Двойная аудио дорожка</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Аудио</title>
+	<body>
+	<ul>
+	<p>	<uri link="./audio.xml.html">Аудио фильтры</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Видео</title>
+	<body>
+	<ul>
+	<p>	<uri link="./video.xml.html">Видео фильтры</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Примеры</title>
+<section>
+	<body>
+	<ul>
+	<p>	<uri link="./dvd2divx.xml.html">Пример Mpeg -> Divx</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+<body>
+	<ul>
+	<p>	<uri link="./divx2vcd.xml.html">Пример Divx -> VCD</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

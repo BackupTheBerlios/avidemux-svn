@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Duální zvuk</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Duální zvuk
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Varování</title>
+<section>
+	<body><ul>
+		<p> Avidemux umí interně zpracovávat pouze jednu zvukovou stopu. 
+		</p>
+		<p>
+		   Nicméně existuje způsob jak přidat druhou, s omezenou podporou a bez jakéhokoli zpracování této druhé stopy.	
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Přidání druhé zvukové stopy</title>
+<section>
+<title>Omezení</title>
+	<body><ul>
+		<p> Druhá zvuková stopa musí být CBR, tj. pouze MP3 CBR nebo AC3.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Menu</title>
+	<body><ul>
+		<p> Pro přidání druhé zvukové stopy použijte položku <c>Audio->Second Audio Track->xxx</c>. Poté zvolte <c>File->Save As Dual Audio AVI</c> místo <c>File->Save Video</c>. 
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Střih AVI souborů s duálním zvukem</title>
+	<body><ul>
+		<p> Protože Avidemux interně nezvládá víc než jednu zvukovou stopu, musíme si s tím trošku pohrát.
+		</p>
+		<p> Otevřete duální AVI, na výzvu Take second audio track? odpovězte Yes.
+		</p>
+		<p> Nastavte značky A a B a uložte zvuk pomocí <c>Audio->Save Audio</c> jako např. /tmp/11.mp3. 
+		</p>
+		<p> Znovu otevřete ten stejný AVI soubor, ale tentokrát odpovězte No, čímž vyberete první zvukovou stopu. 
+		</p>
+		<p> Nastavte značky na stejné pozice a uložte jej jako /tmp/11.avi. 
+		</p>
+		<p> Po opětovném načtení přidejte /tmp/11.mp3 jako druhou stopu. Uložte pomocí <c>File->Save As Dual Audio AVI</c>. 
+		</p>
+		<p>  
+			Zopakujte pro všechny části.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

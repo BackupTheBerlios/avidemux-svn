@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: různé filtry</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: různé filtry
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>V současné době je v této kategorii jen titulkovací filtr.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Různé</title>
+<section>
+	<title>Subtitler </title>
+	<body>
+	<ul>
+	<p>Tento filtr patří k těm sofistikovanějším. Jeho dialogové okno vypadá takto:
+	</p>
+	<p>
+		<img src="../image_tuto/fsub.png"></img>
+	</p>
+	<p>
+		Nejdříve vyberte soubor s titulky a TTF font. Soubor s titulky může být ve formátu srt nebo sub (autodetekováno).
+		Můžete si zvolit barvu titulků stisknutím tlačítka Select.
+		Uvidíte něco takového:
+		</p>
+		<p>		<img src="../image_tuto/fsubcolor.png"></img>	</p>
+		<warn>Je lepší vybírat barvy ze žluté/zelené oblasti, jinak to bude vypadat problematicky kvůli použitému barevnému prostoru.</warn>
+		<p>
+			Umístění titulků v obraze můžete změnit pravým posuvníkem.
+		</p>
+		<p>Daniel Lima přidal několik nových funkcí:
+		<ul>
+			<li>Autosplit: konce řádků budou ve většině případů ignorovány a řádky budou zalamovány tak, aby se nejlépe vešly na obrazovku.</li>
+			<li>Force background: přidá černé pozadí pod titulky. Může to být užitečné pro přepsání původních titulků.</li>
+		</ul>
+		</p>
+		<p>Samozřejmě nezapomeňte zvolit kódovou stránku/jazyk.
+		
+		</p>
+			
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

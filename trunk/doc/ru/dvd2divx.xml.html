@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Пример конвертирования Mpeg в Divx </title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Пример конвертирования Mpeg в Divx </p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Подготовка</p>
+Здесь описан пример перекодирования mpeg1 или 2 (DVD
+например) в AVI, используя xvid видео кодек и mp3 звук.
+<p class="secthead"><a name="doc_chap1_sect1">Входной поток </a></p>
+<p>
+ Только mpeg видео (m1v and m2v) и mpeg-ps поддерживаются в Avidemux
+(mpg/vob).
+ Поток должен быть с одним angle (точкой обзора), не шифрованный. Назовем его
+stream.mpg
+</p>
+<p>
+ Если источник dvd, можно использовать Mplayer :
+ <span class="code">mplayer -dvd 1 -dumpstream</span>.
+ Это создаст читаемый в avidemux vob из DVD.
+</p>
+<p>
+	VDR файлы пока не поддерживатся.
+</p>
+<p class="secthead"><a name="doc_chap1_sect2">Индексирование </a></p>
+<p>
+Avidemux не может читать mpeg поток непосредственно, прежде он должен прочитать индекс этого mpeg потока.
+</p>
+<p>
+Индекс mpeg потока это обычный текстовый файл описывающий mpeg и последовательность кадров. По структуре он схож с d2v из DVD2AVI.
+</p>
+<p>Этот индекс позволяет делать в avidemux случайный поиск с точностью до кадра.
+</p>
+<p>
+Чтобы создать индекс, необходимы следующие шаги:
+<ul>
+<li>Выбрать в меню <span class="code">misc-&gt;index mpeg</span>
+</li>
+<li>Открыть mpeg файл, avidemux предложит проиндексировать его (учтите, вы не сможете открыть файл, это нормально)</li>
+</ul>
+Вы увидите подобное:
+</p>
+<p>
+<img src="../image_tuto/indexMpg.png">
+</p>
+<p>
+С индексами для mpeg все ясно.
+</p>
+<p>
+С полями id в потоках звука несколько запутанно.
+<ul>
+<li>Если mpeg поток содержит mpeg-audio поток (.mp2), как в VCD : C0 - первый аудио трек, C1 - второй и т.д.</li>
+<li>Если поток содержит AC3 звук, 0 это первая AC3 дорожка, 1 - вторая и т.д. </li>
+</ul>
+Теперь дождитесь, пока будет просчитан индекс и откройте созданный индексный файл.
+<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note">
+<b>Warning: </b>Произвольный поиск иногда работает некорректно, но с последовательным доступом все отлично (напр. кодирование)</p></td></tr></table>
+<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note">
+<b>Warning: </b>Для пользователей TiVo необходимо увеличить значение переменной MG_CACHE до 70, т.к.  TiVo может использовать очень большой размер gop</p></td></tr></table>
+Теперь мы готовы работать с потоком.
+</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Редактирование видео</p>
+<p class="secthead"><a name="doc_chap2_sect1">NSTC vs Film </a></p>
+<ul>
+		<p>
+			Некоторые DVD кодированы с fps 23.976 aka FILM (большинство). Други используют значение 29.97 (NSTC), soap например. В первом случае DVD проигрыватель конвертирует налету в NSTC format (telecine). Таким образом, в заголовках mpeg всегда указано значение 29.96 и это всегда будет конечным форматом.
+		</p>
+		<p>Avidemux использует mpeg2dec для декодирования mpeg потока (с небольшими изменениями). Mpeg2dec не выполняет telecine для FILM  .
+		</p>
+		<p>Это означает, что avidemux не может определить разницу между FILM и NSTC.
+		Если вы заметили все возрастающую рассинхронизацию видео и звука, используйте <span class="code">Video Processing-&gt;Change framerate</span> и установите значение 23.976.
+		</p>
+		<p>Для mpeg в PAL проблем нет, они всегда имеют  25 fps.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Cropping </a></p>
+<ul>
+		<p>Теперь вы должны иметь что-то подобное :</p>
+		<img src="../image_tuto/mpeg.png">
+	<p> Время подобрать фильтры. CTRL+F выдаст список возможных.</p>
+
+		<img src="../image_tuto/filters.png">
+		<p>
+	Мы будем использовать Crop фильтр для удаления черных бордюров.
+		Если поток качественный, можете попробовать <span class="code">autoCrop</span> кнопку.
+		На примере бордюры очень небольшие. Они отображаются зеленым для наглядности.
+
+		</p>
+		<img src="../image_tuto/crop.png">
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Resizing </a></p>
+<ul>
+
+		<p> После обрезания, изменим размеры на что-нибудь меньшее.
+		</p>
+		<p>Не забывайте, что большинство DVD в формате 16/9, имейте это ввиду при изменении размеров. Откройте снова окно фильтров и выбирите resize .
+		</p>
+		<p>Изменим размер до 480x272, помня про 16/9, причем ширина должна быть кратна 16, а высота 8.
+		</p>
+		<p>В любое время вы можете изменить настройки фильтра щелкнув кнопку <span class="code">configure</span>. Для оценки результата используйте кнопку <span class="code">preview</span> или  режим play с нажатой кнопкой <span class="code">output</span> .
+		</p>
+		<p> Для информации, наша цепочка видео фильтров выглядит так:
+		</p>
+		<img src="../image_tuto/filter2.png">
+
+		<img src="../image_tuto/resized.png">
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect4">Больше фильтров </a></p>
+<ul>
+
+		<p> В зависимости от исходного материала и поставленной цели вам могут понадобиться дополнительные фильтры (subtitling, denoiser, deinterlacer...). Читайте раздел <a href="video.xml.html">video filters</a> .
+		</p>
+		<p>Вы можете открыть окно предпросмотра и &quot;прокручивать&quot; видео в основном окне бегунком или &quot;горячими&quot; клавишами, предпросмотр так же будет обновляться.
+		</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Настройка кодирования</p>
+<p class="secthead"><a name="doc_chap3_sect1">Кодеки </a></p>
+<ul>
+		<p> Т.к. мы будем кодировать, нужно выставить режим process для видео.
+
+		</p>
+		<p>Выбраем кодек. Я предпочитаю Xvid и Lavcodec. Вы можете найти win-tutorial для Xvid, для lavcodec обратитесь к документации на mplayer.
+		</p>
+		<p> Divx версия для Linux очень отстает, поэтому не будем говорить об этом.
+		</p>
+		<p> Возьмем Xvid для нашего небольшого примера.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Настройка кодека </a></p>
+<ul>
+		<p> Сначала определим файл журнала для второго прохода <span class="code">Video processing-&gt;Set log file</span>
+		</p>
+		<p>Выбор меню <span class="code">Video processing-&gt;configure codec</span> покажет этот диалог.
+		</p>
+		<img src="../image_tuto/xvid.png">
+		<p>Используем 2pass и введем конечный размер . Это рамер чистого видео без служебных заголоков avi, поэтому делайте 5% запас. Установим размер равным 600 и нажмем ok.
+		</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Установки звука</p>
+<p class="secthead"><a name="doc_chap4_sect1">Внутренний звук </a></p>
+<ul>
+		<p>Если используется звук, который был выбран при индексировании, ничего делать не надо.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Внешний звук </a></p>
+<ul>
+		<p>Можно использовать внешний звук через меню <span class="code">Audio-source</span>.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Режим process или нет ? </a></p>
+<ul>
+		<p>Если желаете сохранить звук &quot;как есть&quot;, например сделать Xvid+AC3, то ничего не меняйте.
+		</p>
+		<p>Иначе установите audio в режим process  и подключите (например) Normalize, 48-&gt;44. С деталями ознакомтесь здесь <a href="audio.xml.html">audio filters</a>
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect4">Аудио кодеки </a></p>
+<ul>
+		<p>Процедура такая-же, как и для видео, выберите кодек, MP3 например, и настройте его		</p>
+		<p>Установим 128 kbps joint stereo, как здесь</p>
+		<img src="../image_tuto/mp3.png">
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap5">5.</a></span>Сохранение </p>
+<ul>
+		<p>Теперь выберите <span class="code">File-&gt;Save avi</span> и ждите.... Готово.
+		Avidemux выполнит первый проход, затем второй и перекодирует звук.
+		</p>
+		<img src="../image_tuto/encoding.png">
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Видео с двумя аудио дорожками</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Видео с двумя аудио дорожками</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Внимание!</p>
+<ul>
+		<p> Avidemux может управлять только одной аудио дорожкой внутри.
+		</p>
+		<p>
+		   Однако существует способ добавить вторую аудио дорожку, правда с некоторыми ограничениями .
+		</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Добавление второй аудио дорожки</p>
+<p class="secthead"><a name="doc_chap2_sect1">Ограничения </a></p>
+<ul>
+		<p> Звук для второй дорожки должен быть записан как CBR, т.е. MP3 CBR или AC3.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Меню </a></p>
+<ul>
+		<p> Для добавления второй аудио дорожки используйте меню <span class="code">Misc-&gt;Second Track-&gt;xxxx</span> . Затем при сохранении используйте <span class="code">File -&gt; Dual audio avi</span> вместо <span class="code">File -&gt; save avi</span>.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Вырезание в avi с двумя audio </a></p>
+<ul>
+		<p> Так как Avidemux не может управлять более чем одним звуковым потоком одновременно, в этом случае придется немного повозиться.
+		</p>
+		<p> Откройте avi и, когда будет предложено, выберите вторую звуковую дорожку.
+		</p>
+		<p> Установите маркеры и используйте <span class="code">File -&gt; save audio</span> как /tmp/track11.mp3 например.
+		</p>
+		<p> Откройте тот же avi, но в этот раз выберите первую дорожку.
+		</p>
+		<p> Вырежите необходимое и сохраните как /tmp/avi1.avi.
+		</p>
+		<p> Теперь откройте /tmp/avi1.avi и добавьте /tmp/track11.mp3 как вторую дорожку. Используйте диалог  <span class="code">File -&gt; Dual audio avi</span> .
+		</p>
+		<p>
+			Повторить для каждой части.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

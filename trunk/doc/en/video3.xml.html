@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video: Convolution filters</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video: Convolution filters</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Foreword</p>
+	<ul>
+	<p>This filter family deals with convolution filters : Mean, median, sharpen, ....
+	</p>
+	<p>The convolution filters take a 3x3 matrix and apply it to the pixel neighbours. They can be applied on luma/chroma or both. 
+	</p>
+	<p> Median and Mean filters applied on chroma only are very efficient to get rid of chroma noise from VCR capture
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Convolution   filters</p>
+<p class="secthead"><a name="doc_chap2_sect1">Mean </a></p>
+	<ul>
+	<p>The filter replaces a pixel by the average value of its neighboors. It is a crude low pass filter.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Median </a></p>
+	<ul>
+	<p>The filter replaces a pixel by median value of its neighbor. It is a bit like mean, except it removes very different value. Efficient to remove high fq noise (like spot of white in old movies). It blurs a lot.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Sharpen </a></p>
+	<ul>
+	<p>This filter is interesting as it has negative values in the convolution matrix. It sharpens the image by
+	enhancing difference between near pixels. It can lead to artefacts if the source has a lot of contrast already.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Gaussian smooth </a></p>
+	<ul>
+	<p>It is also an averaging filter, like mean. But coefficients are different and the result is less brutal. Still strong a blurring, but less than mean.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

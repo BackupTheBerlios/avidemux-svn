@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Střih</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Střih</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Jednoduchý střih</p>
+<p class="secthead"><a name="doc_chap1_sect1">Značky (Markers) </a></p>
+<ul>
+		<p>
+			Značkami A a B se označuje začátek a konec výběru.	
+		</p>
+		<p>
+			Nastavíte je pomocí tlačítek <img src="../images/marka.png"> a <img src="../images/markb.png">.	
+		</p>
+		<p> Na body A a B se dostanete z nabídky <span class="code">Edit-&gt;Go to Marker A</span> nebo <span class="code">Edit-&gt;Go to Marker B</span>.
+		</p>
+		<p> Pozice značek se také zobrazuje na spodní straně okna programu.
+		<img src="../images/markers.png">
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">Ukládání </a></p>
+<ul>
+		<p>
+			Po nastavení A a B se uloží video od A do B včetně B.	
+		</p>
+		<p>
+			Tedy [A,B].	
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect3">Vystřižení </a></p>
+<ul>
+		<p>
+			Položka <span class="code">Edit-&gt;Delete</span> odstraní [A,B[, tedy bez B.
+			Takto můžete například vystřihnout reklamy z TV nahrávky.
+		</p>
+		<p>
+		Z videa můžete vystřihnout libovolně velkou část.
+		</p>
+		 Když odstraňujete části videa, zůstane zachována synchronizace zvuku uvnitř souboru, ne však externího zvuku. Jinak řečeno, střih provádějte vždy na souboru obsahujícím zvuk.
+		
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect4">Střih a klíčové snímky </a></p>
+<ul>
+		<p>Tento odstavec platí pouze pro video režim Copy. V módu Process Avidemux zajistí, že bude vše v pořádku.
+		</p>
+		<p>
+			Většina video kodeků používá předchozí snímek jako referenční a následně kóduje jen rozdíly. Jednou za čas je zakódován kompletní snímek bez časového odkazu na další snímky. Takový snímek se nazývá Intra frame, I-frame nebo také klíčový snímek (keyframe).
+		</p>
+		<p>
+			To znamená, že když máte takovouto sekvenci snímků: xxAxxIxxBxxxIxxx, a vystřihnete [A,B[, dostanete xxOOOIxxxxx, přičemž OOO jsou vadné snímky.
+			</p>
+<p>Proč vadné? Protože přišly o své referenční snímky.
+		</p>
+		<p>
+			Jsou dva způsoby jak to vyřešit: 
+			<ul>
+			<li>Značka B je na klíčovém snímku. V tom případě je to bez problémů.</li>
+			<li>Použijte režim Smart Copy. Funguje pouze pro DivX ;-) 3 a MPEG-4. Smart Copy překóduje část, která ztratila referenční snímky, s konstantní kvantizací. Dobré jsou obvykle hodnoty 4 nebo 5. Tím dostanete xxRRRIxxxx, kde R jsou překódované snímky. NEFUNGUJE to s B snímky.</li>
+			</ul>
+		</p>
+
+
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect5">Kopírovat/Vložit </a></p>
+<ul>
+		<p>Kopírování a vkládání je také k dispozici, ale platí stejné omezení týkající se referenčního snímku.
+		</p>
+		<p>Stručně: 
+			<ul>
+			<li>Pokud překódujete video v režimu Process: bez problému.</li>
+			<li>Když zkopírujete video: první snímek vložené části musí být Intra, a snímek následující po vložené části musí být také Intra. V tomto případě bude fungovat Smart copy, ale ne s videem obsahujícím B snímky.</li>
+			</ul>
+		</p>
+
+
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Pokročilé metody střihu</p>
+<p class="secthead"><a name="doc_chap2_sect1">Automatické rozdělení </a></p>
+<ul>
+		<p>
+			V nabídce <span class="code">File-&gt;AVI Muxer Options</span> můžete zadat velikost souboru v megabajtech.	
+		</p>
+		<p>
+			Vždy při naplnění požadované velikosti a přítomnosti klíčového snímku Avidemux vytvoří nový soubor. Takže budete mít soubor.avi.1, soubor.avi.2 atd.	
+		</p>
+		<p>
+			Protože nový soubor musí začínat klíčovým snímkem, není to úplně přesné. Raději počítejte s rezervou asi 5 megabajtů.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Cut Wizard </a></p>
+<ul>
+		<p>
+			Můžete také použít <span class="code">Misc-&gt;Cut Wizard</span>. Předtím nastavte značku A.
+		</p>
+		<p>
+			Zadejte parametry: Target size (cílová velikost), # audio track a Audio bitrate (tyto hodnoty jsou už vyplněny). Po stisku tlačítka Compute se dozvíte kam nastavit značku B, abyste dostali příslušnou velikost souboru.
+		</p>
+		<p> Nefunguje to úplně dokonale.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

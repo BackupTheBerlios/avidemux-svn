@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>MP3 vbr</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+MP3 VBR
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>La base</title>
+<section>
+	<body><ul>
+		<p>Nella maggioranza dei casi, avidemux calcola l'offset e la lunghezza dell'audio con la moltiplicazione dimensione = tempo * bitrate. Ciò funziona per tutti i flussi CBR.
+		</p>
+		<p>
+		Non funziona con i flussi VBR in quanti il bitrate non è
+		costante.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Temporizzazione audio</title>
+<section>
+	<title>Temporizzazione audio</title>
+	<body><ul>
+		<p>Per calcolare l'offset di partenza/dimensione, avidemux deve conoscere come varia il bitrate. Utilizzare il menu <c>Audio source->audio time map</c>.
+		</p>
+		<p>
+		Avidemux decomprimerà l'intero flusso crendo poi una
+		mappa di temporizzazione per poter essere in grado di
+		valutarlo. E' necessario avere Mad installato,
+		altrimenti questa opzione sarà inefficace.
+		</p>
+		<p>
+		A mappa di temporizzazione costruita, avidemux avrà a
+		disposizione una tabella di conversione tra tempo ed
+		offset per poter dividere o salvare il file avi in VBR.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>E se non lo faccio?</title>
+	<body><ul>
+		<p>Il risultato sarà un file avi desincronizzato difettoso (potenzialmente con un audio di durata molto inferiore), anche se lo caricherete e salverete solamente.
+		</p>
+		<p>E' un'operazione NECESSARIA per gli mp3 VBR. Punto.
+		</p>
+		<p>Il secondo flusso audio nel file avi non può essere
+		VBR.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

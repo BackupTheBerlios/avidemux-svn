@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Obsah</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Obsah
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Instalace a podporované formáty</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./install.xml.html">Instalace</uri></p>	
+	<p>	<uri link="./input.xml.html">Podporované vstupní formáty a kodeky</uri></p>	
+	<p>	<uri link="./output.xml.html">Podporované výstupní formáty a kodeky</uri></p>	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Základní operace</title>
+<section>
+	
+	<body>
+	<ul>
+	<p>	<uri link="./guitour.xml.html">Prostředí programu</uri></p>	
+	<p>	<uri link="./edl.xml.html">EDL soubory</uri></p>
+	<p>	<uri link="./cutting.xml.html">Střih</uri></p>		
+	<p>	<uri link="./vbrmp3.xml.html">VBR MP3</uri></p>
+	<p>	<uri link="./bframe.xml.html">B snímky</uri></p>
+	<p>	<uri link="./dualaudio.xml.html">Duální zvuk v AVI</uri></p>
+	<p>	<uri link="./mpegcutter.xml.html">Střih souborů MPEG</uri></p>
+	<p>	<uri link="./command.xml.html">Spouštění Avidemuxu z příkazové řádky</uri></p>
+	<p>	<uri link="./dvd.xml.html">Vytvoření DVD</uri></p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Obraz a filtry</title>
+	<body>
+	<ul>
+	<p>	<uri link="./audio.xml.html">Zvukové filtry</uri></p>	
+	<p>	<uri link="./video.xml.html">Obrazové filtry</uri></p>
+	</ul>
+	</body>
+</chapter>
+<chapter>
+<title>Návody</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./dvd2divx.xml.html">Převod DVD do AVI</uri></p>	
+	<p>	<uri link="./divx2vcd.xml.html">Převod AVI na VCD</uri></p>	
+	<p>	<uri link="./capture2SVCD.xml.html">Převod nahrávek na SVCD</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+<chapter>
+<title>Doplňky</title>
+	<section>	
+	<body>
+	<ul>
+	<p>	<uri link="./ffv1rec.xml.html">ffv1rec</uri></p>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

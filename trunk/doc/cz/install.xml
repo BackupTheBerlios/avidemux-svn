@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Instalace Avidemuxu</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Nápověda a tipy pro instalaci Avidemuxu
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Povinné závislosti</title>
+<section>
+	<body>
+		<p>Budete potřebovat počítač s unixovým systémem, pokud možno x86. Do jisté míry to funguje i na platformách SPARC a Mac.</p>
+		<table width="100%" border="1">
+		<tr>
+			<th>Balíček</th><th>Poznámka</th>
+		</tr>	
+		<tr>
+			<ti>GTK+ a GLib 2.x</ti><ti> A pkg-config (správně nakonfigurovaný pkg-config!)</ti>
+		</tr>
+		<tr>
+			<ti>libmad</ti><ti> Nepovinné, ale určitě tuto knihovnu budete chtít!</ti>
+		</tr>
+		<tr>
+			<ti>libxml2</ti><ti> Používá se pro popisy filtrů a ~/.avidemuxrc</ti>
+		</tr>		
+		<tr>
+			<ti>NASM (pro x86)</ti><ti> Pokud vytváříte VCD/SVCD/... na x86 tak jej chcete! (5x rychlejší)</ti>
+		</tr>
+		</table>		
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Volitelný software</title>
+<section>
+		<title>Audio</title>
+	<body>
+		<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Verze</th><th>Účel</th><th>Adresa</th>
+		</tr>
+		<tr>
+			<ti>libmad</ti><ti>0.14.2b</ti><ti>MPEG-1/2/3 audio dekodér</ti>
+			<ti><uri>http://mad.sf.net/</uri></ti>
+		</tr>
+		<tr>
+			<ti>a52dec</ti><ti>0.7.4</ti><ti>AC3 dekodér</ti><ti><uri>http://liba52.sf.net/</uri></ti>
+		</tr>
+		<tr>
+			<ti>liblame</ti><ti>3.9x</ti><ti>MP3 enkodér</ti><ti><uri>http://www.mp3dev.org/mp3/</uri></ti>
+		</tr>
+		<tr>
+			<ti>libvorbis</ti><ti>x</ti><ti>Vorbis enkodér/dekodér</ti><ti><uri>http://www.vorbis.org/</uri></ti>
+		</tr>
+
+		</table>
+	</body>
+</section>
+<section>
+		<title>Video</title>
+	<body>
+	<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Verze</th><th>Účel</th><th>Adresa</th>
+		</tr>
+		
+		<tr>
+			<ti>XviD</ti><ti>0.9</ti><ti>MPEG-4 enkodér</ti>
+			<ti><uri>http://www.xvid.org/</uri></ti>
+		</tr>
+		<tr>
+			<ti>XviD</ti><ti>1.x</ti><ti>MPEG-4 enkodér</ti>
+			<ti><uri>http://www.xvid.org/</uri></ti>
+		</tr>
+		
+	</table>
+	<warn>Avidemux2 bude staticky slinkován s XviD 0.9 <b>NEBO</b> 1.x.</warn>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Instalace</title>
+<section>
+	<body>
+	<p>Je celkem jednoduchá.</p>
+	<p><c>./configure </c></p>
+	<p>Všimněte si zejména informací na konci výpisu, které shrnují co bylo nadetekováno. U mě to vypadá takto:
+	<pre>nasm found : /usr/bin/nasm
+MMX is ON
+cpu done
+ GTK+ version        : 2.2.4
+ Divx5.0.5 ?         : yes
+ *** DISABLED ***
+ Xvid  Codec         : yes
+ Mad decoder         : yes
+ OSS                 : yes
+ ALSA                : yes
+ Xvideo              : yes
+ Lame                : yes
+ Ogg Vorbis          : yes
+ A52/AC3             : yes
+ FFMPEG              : yes
+ ARTS                : yes
+ FreeType            : yes
+ XML2                : yes
+ Toolame             : /usr/local/bin/toolame
+ Lame                : /usr/bin/lame
+ locale              : ${prefix}/share/locale
+ Little endian cpu   : yes
+
+	</pre>
+	</p>
+	<p>Pokud si myslíte, že něco chybí, ujistěte se, že máte nainstalován i příslušný -dev balíček.
+	</p>
+	<p>configure také sestaví knihovnu libavcodec.</p>
+	
+	<p>Až skončí configure, napište příkaz <c>make </c> a pak <c>make install </c>.
+	Nainstaluje se i balík jazykových verzí (začátek rané fáze překladu aplikace).</p>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Časté problémy při instalaci</title>
+<section>
+	<title>Kompilace selže</title>
+	<body>
+	<p> Kompilace se ukončí s chybovou hláškou že nelze otevřít gtkxxx. To obvykle znamená že není nainstalováno nebo nakonfigurováno pkg-config/GTK+/GLib.
+	</p>
+	</body>
+</section>
+<section>
+	<title>Linkování selže s chybou JPEG MMX</title>
+	<body>
+	Podívejte se na /usr/lib/liblavjpeg.la (nebo v /usr/local/lib).
+	Pokud najdete toto:
+	<pre>
+		dependency_libs=' -L/usr/src/redhat/BUILD/mjpegtools-1.6.0/jpeg-mmx -ljpeg-mmx'
+	</pre>
+	změňte to na:
+	<pre>
+		dependency_libs=''	
+	</pre>
+
+	Díky Jensovi za tip k tomuto problému, se kterým se často setkávají uživatelé distribucí Red Hat a SUSE Linux.
+
+	</body>
+</section>
+</chapter>
+</guide>

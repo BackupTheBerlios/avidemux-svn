@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Vstupní formáty</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Podporované vstupní formáty a kodeky
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Formáty souborů</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Formát</th><th>Omezení</th>
+		</tr>
+		<tr>
+			<ti>AVI</ti><ti>Žádné, podporováno je více zvukových stop</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-1/2</ti><ti>Elementary stream nebo program stream (včetně VOB)</ti>
+		</tr>
+		<tr>
+			<ti>NuppelVideo</ti><ti>Původní/nuppel_gatos/MythTV/FFV1rec</ti>
+		</tr>
+		<tr>
+			<ti>Obrázky</ti><ti>Sada obrázků BMP nebo JPEG, pojmenovaných im0001.bmp im0002.bmp...</ti>
+		</tr>
+		<tr>
+			<ti>H.263(+)</ti><ti>Raw H.263(+) video stream</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-4</ti><ti>Raw MPEG-4 video stream (nekompletní)</ti>
+		</tr>
+		<tr>
+			<ti>MOV/3GPP/MPEG-4</ti><ti>Jednoduchý 3GPP/MP4/MOV soubor. Komprimované hlavičky nejsou podporovány</ti>
+		</tr>
+		<tr>
+			<ti>OGM</ti><ti>Podporován je pouze zvuk ve formátu Ogg Vorbis, včetně více zvukových stop</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Video kodeky</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Poznámka</th><th>Závislost</th>
+		</tr>
+		<tr>
+			<ti>DivX, XviD</ti><ti>3.11, 4, 5 s B-frames i bez</ti><ti>libavcodec (vestavěný)</ti>
+		</tr>
+		<tr>
+			<ti>VP3</ti><ti></ti><ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-1/2</ti><ti>Založený na libmpeg2</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>MJPEG</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>HuffYUV</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>WMV2</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>H.263</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>MSMP4V2</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>SVQ3</ti><ti>Používá libavcodec</ti>	<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>Raw RGB</ti><ti>Interní</ti>	<ti>Vestavěný</ti>
+		</tr>		
+		<tr>
+			<ti>DV typ ?</ti><ti>Používá libavcodec</ti>		<ti>Vestavěný</ti>
+		</tr>
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio kodeky</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Poznámka</th><th>Závislost</th>
+		</tr>
+		<tr>
+			<ti>Nekomprimovaný</ti><ti></ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>MAD</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti></ti><ti>a52dec</ti>
+		</tr>
+		<tr>
+			<ti>WMA</ti><ti>Většinou funkční</ti><ti>Vestavěný (libavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>Vorbis</ti><ti>Většinou funkční</ti><ti>libvorbis, pouze v souborech OGM</ti>
+		</tr>
+		
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Problémy</title>
+<section>
+<title>Problem decompressing frame</title>
+	<body><ul>
+	<p>
+	Tato hláška znamená buď že kodek vrátil chybu, nebo že Avidemux nemohl najít patřičný video kodek.
+	</p><p>
+	I tak můžete zpracovat zvuk a uložit AVI soubor, ale nemůžete zpracovávat obraz.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Save(A+V) will generate bad AVI Save audio will work</title>
+	<body><ul>
+	<p>
+	Stejná hláška pro audio. Audio kodek nebyl nalezen (program nebyl zkompilován s jeho podporou nebo je to neznámý kodek).
+	</p>
+	<p> Můžete stříhat a uložit AVI soubor, ale bez zpracování zvuku.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Po uložení je zvuk plný šumu (WMA)</title>
+	<body><ul>
+	<p>
+	WMA vyžaduje vlastní nastavení multiplexace. Podívejte se na hodnotu blockalign na konzoli (obvykle 373 nebo 768).</p>
+	<p>Zadejte tuto hodnotu jako with n bytes packet v <c>File->Set mux options</c>.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Specifika formátů</title>
+<section>
+<title>Soubory MPEG</title>
+	<body><ul>
+	<p>Avidemux nemůže přímo načíst MPEG soubory. Načte však indexovaný MPEG.
+	Tento index je textový soubor obsahující navigační informace. Je to potřeba pro přesnost na snímky.</p>
+	<p>
+	Takže použijte buď <c>Misc->Index MPEG</c> nebo přímo otevřete MPEG.
+	Ve druhém případě budete přesměrováni na dialog MPEG Indexer s předvyplněnými položkami. Až se vytvoří index, bude znovu otevřen.
+	</p>
+	<p>
+	Pokud se vybraný soubor jmenuje soubor1.xxx, Avidemux se pokusí připojit soubor2.xxx, soubor3.xxx,...
+	To se děje automaticky, ale název souboru musí být *[0-9].xxx.
+	</p>
+	<p>
+	Avidemux zvládá jeden (a pouze jeden) audio stream z MPEGu. Ten je označen svým MPEG (sub)stream ID.
+	</p>
+	<p>Je to C0-C7 pro MPEG audio (.mpg, VCD,...), A0-A7 pro PCM audio, a 0-7 pro AC3 audio.
+	</p>
+	<p>Takže když chcete druhou AC3 stopu za svého MPEG souboru, zadejte <c>1</c>.
+	</p>
+	<p>Samozřejmě potřebujete příslušný audio kodek pokud chcete zvuk přehrát (MAD nebo a52dec).</p>
+	<p> Pomocí volby <c>Scan file for audio stream</c> můžete nechat Avidemux autodetekovat zvukové stopy, což může chvíli trvat.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>NuppelVideo</title>
+	<body><ul>
+	<p>
+	Stejně jako MPEG i soubor ve formátu NuppelVideo neobsahuje index.
+	</p><p>
+	Avidemux jej automaticky sestaví při načítání (to nějakou dobu potrvá).
+	</p><p>
+	Avidemux se bude snažit udržet synchronizaci obrazu a zvuku, což ale může čas od času způsobit drobné "přeskočení" ve zvuku.
+	Z osobní zkušenosti můžu říct, že je to celkem dobré (zkusil jsem osmihodinový nuppel_gatos soubor, bez problémů).
+	</p>
+	<p> Pokud jste soubor otevřeli z grafického prostředí programu (a ne z příkazové řádky), budete při načtení vyzváni k uložení indexu.
+	Kliknete-li na Yes a uložíte jej, můžete později tento index použít k velmi rychlému načtení téhož souboru.
+	</p>
+	<p>Pro uživatele MythTV s kartou WinTV PVR x50 nebo podobnou jsou nuv soubory ve skutečnosti obyčejný MPEG, viz výše.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>WMV2 video</title>
+	<body><ul>
+	<p>
+	I když Avidemux umí otevřít obsah WMV2 souborů (formát Windows Media Player 7.x/8.x), video data musí být obsažena v kontejneru AVI.
+	</p>
+	<p>
+	K jeho vytvoření můžete použít MEncoder v režimu copy, např.: <code>mencoder [wmv soubor] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi soubor]</code>
+	</p>
+	<p>
+	Momentálně také musíte nastavit výstupní snímkovou frekvenci na <strong>100.0</strong> fps, jinak vám potom při editaci bude vypadávat spousta snímků.
+	</p>
+	<p>
+	Po vytvoření výstupního souboru jej můžete otevřít v Avidemuxu pro editaci.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Sada obrázků BMP/JPEG</title>
+	<body><ul>
+	<p>
+	Avidemux také umí otevřít sekvenci z BMP souborů (RGB) nebo sadu souborů JPEG.
+	</p><p>
+	Musejí být pojmenovány xx0000.bmp xx00001.bmp (tedy m písmen + n čísel + .bmp). Pro JPEG je to přípona jpg.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

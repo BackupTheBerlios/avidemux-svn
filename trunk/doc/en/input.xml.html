@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Input formats</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Input formats</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>File format</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Format</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Restriction</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
+<td bgcolor="#ddddff" class="tableinfo">None, multiple audio tracks supported</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Elementary stream, program stream (including vob), transport stream (dvb)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">NuppelVideo</td>
+<td bgcolor="#ddddff" class="tableinfo">Regular/nuppel_gatos/Myth Tv/FFV1rec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Images</td>
+<td bgcolor="#ddddff" class="tableinfo">Set of bmps or jpeg , name like im0001.bmp im0002.bmp ...</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263(+)</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw h263(+) video stream</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg4</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw mpeg4 video stream (incomplete)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mov/3GP/Mpeg4</td>
+<td bgcolor="#ddddff" class="tableinfo">Simple 3gp/MP4/mov file. Compressed header not supported</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Ogm</td>
+<td bgcolor="#ddddff" class="tableinfo">Only audio in ogg/vorbis , mp3 and AC3 is supported, multiple audio supported</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Video codec</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Name</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Comment</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dependancy</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DivX,XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">3.11,4,5 with or without B-frames</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec(bundled)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VP3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">libMpeg2 based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mjpeg</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Huffyuv</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMV2</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MSMP4V2</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">SVQ3</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw rgb</td>
+<td bgcolor="#ddddff" class="tableinfo">Internal</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DV type ?</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>		<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Audio codec</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Name</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Comment</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dependancy</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Uncompressed</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3/2</td>
+<td bgcolor="#ddddff" class="tableinfo">CBR/ABR/...</td>
+<td bgcolor="#ddddff" class="tableinfo">Mad</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AAC</td>
+<td bgcolor="#ddddff" class="tableinfo">Very preliminary support</td>
+<td bgcolor="#ddddff" class="tableinfo">libfaad2</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">A52Dec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMA</td>
+<td bgcolor="#ddddff" class="tableinfo">Mostly Working</td>
+<td bgcolor="#ddddff" class="tableinfo">Bundled(libavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Vorbis</td>
+<td bgcolor="#ddddff" class="tableinfo">Mostly Working</td>
+<td bgcolor="#ddddff" class="tableinfo">libvorbis, only in ogm files</td>
+		</tr>
+		
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Codec problem</p>
+<p class="secthead"><a name="doc_chap4_sect1">Problem decompressing frame </a></p>
+<ul>
+	<p>
+	It means that either the codec returned an error or that avidemux could not find the appropriate video codec.
+	</p>
+<p>
+	You can process the audio and save the avi anyway but cannot process the video.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Save(A+V) will generate bad AVI Save audio will work </a></p>
+<ul>
+	<p>
+	Same message for audio. The audio codec was not found (not compiled in or unknown).
+	</p>
+	<p> You can save and cut the avi, but cannot process the audio
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">After saving the audio is full of noise (WMA) </a></p>
+<ul>
+	<p>
+	WMA needs custom muxing problem. Look at the blockalign value in the console (generally 373 or 768)</p>
+	<p>Enter that value as <span class="code">bytes per packet</span> in file -&gt; mux options.
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap5">5.</a></span>Format specific</p>
+<p class="secthead"><a name="doc_chap5_sect1">Mpeg file </a></p>
+<ul>
+	<p>Avidemux cannot open raw mpeg streams. Instead it can open indexed mpeg streams.
+	The index is a text file containing navigation informations. It is needed to allow frame
+	accuracy.</p>
+	<p>
+	So either you use the <span class="code">misc-&gt;index mpeg</span> menu entry or open directly the mpeg.
+	In the latter case, you will be redirected to the index mpeg dialog with the fields
+	pre-filled. Once the index is created, it will be silently re-opened.
+	</p>
+	<p>
+	If the selected file looks like foo1.xxx, avidemux will try to append foo2.xxx, foo3.xxx
+	It is done automatically but the file must have a name like *[0-9].xxx
+	</p>
+	<p>
+	Avidemux can handle one (and only one) audio stream from mpeg. This audio stream is referenced
+	by its mpeg (sub) stream id.
+	</p>
+	<p>It is C0--c7 for mpeg audio (.mpg, vcd,...), A0--A7 for PCM audio, and 0--7 for AC3 audio.
+	</p>
+	<p>So if you want the second ac3 track from your mpeg file, enter <span class="code">1</span>.
+	</p>
+	<p>Of course, you will need the audio codec to play it back (mad or a52).</p>
+	<p> You can let avidemux autodetect the audio tracks available using <span class="code">Scan File for audio stream</span>,
+		be aware that it can take a few seconds.
+	</p>
+	<p>Mpeg-TS will be considered perfect, i.e. there will be no correction for dropped or damaged packets. It means that if your captured stream is not perfect you will have async problems. In that case, better to use another tool, such as mencoder or transcode.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect2">Nuppel Video </a></p>
+<ul>
+	<p>
+	As for mpeg streams, nuppel video file has no internal index.
+	</p>
+<p>
+	Avidemux will rebuild it automatically upon loading (that could take some minutes).
+	</p>
+<p>
+	Avidemux will try to maintain audio/video sync, but it could cause a "plop" from time to time.
+	From personal experience, it is rather good (i tried with a 8 hours long nuppel_gatos file 
+	without problem).
+	</p>
+	<p> If you used the menu (and not the command line) you will be asked to save an index upon loading.
+	If you say yes and save it, loading this index will load the same nuv file but very quickly.
+	</p>
+	<p>For mythTv users with a WinTv PVR x50 or similar cards, the nuv files are in fact plain mpeg, see above.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect3">WMV2 Video </a></p>
+<ul>
+	<p>
+	Although Avidemux can now open the contents of a WMV2 file (Windows Media Player 7.x/8.x format) - the video data must be contained within an AVI container.
+	</p>
+	<p>
+	To create this container, you can use the MEncoder package in copy mode (eg.): mencoder [wmv file] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi file]
+	</p>
+	<p>
+	Currently, you must also forcefully set the framerate of the output file to 100.0 frames per second (FPS), otherwise you will experience large amounts of frame dropping when you come to edit your actual video footage.
+	</p>
+	<p>
+	After you have created your output file, you can load it into Avidemux for editing.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect4">BMPs Video / Jpeg videos </a></p>
+<ul>
+	<p>
+	Avidemux can also open a stream of uncompressed bmp files (rgb) or a set of jpeg files.
+	</p>
+<p>
+	Their name must follow the pattern xx0000.bmp xx00001.bmp (that is :m letters + n digits+.bmp).
+	Change bmp to jpg if it is jpeg.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Using the command line</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Using the command line</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span> Foreword</p>
+<ul>
+	<p>
+	As you probably have noticed, avidemux is very GUI oriented. Because, according to me, when doing video stuff you need to *see* what you are doing. It has a drawback when you went to let the computer work alone by night.
+	</p>
+	<p>The ultimate goal is to provide a nice GUI to set up your processing job, and save a job. After that, run avidemux on these jobs and go watch a movie or have a nap.
+	</p>
+	<p>
+	We are not that far away. Most of the settings are stored in <a href="edl.xml.html">EDL</a> files. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>You will still need X11 and gtk1/2 running !</p></td></tr></table>
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Cli</p>
+<p class="secthead"><a name="doc_chap2_sect1">Invoking </a></p>
+<ul>
+	<p> Avidemux may be called with arguments. The most obvious is avidemux myFile.avi, that will load myFile.avi.
+	</p>
+	<p>You can also provide other commands, each one of them beginning by -- to invoke an action. You won't have the full capabilities of the GUI though.
+	</p>
+	<p><table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>When in command line mode, all alert boxes will be skipped and questions will be automatically set to NO</p></td></tr></table>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>It is very important. For example if you do <span class="code">avidemux2 file.nuv</span> you won't be prompted to save an index.</p></td></tr></table>
+	</p>
+	<p>To get up to date command list and parameters, just do avidemux --help.</p>
+	<p> The args are evaluated from left to right and processed one at a time. The command line is far from bullet proof as most of the checks are inside the GUI.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Commands </a></p>
+<ul>
+<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Command</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Parameters</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Aim</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-process</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Set the audio to process mode</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-normalize</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Activate audio normalization filter</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-resample</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Activate 48 44.1 khz downsampling</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-process</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Set the video to process mode</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">filters</td>
+<td bgcolor="#ddddff" class="tableinfo">filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load a filter set</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">vcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Add needed filters to convert to VCD resolution</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">svcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Add needed filters to convert to SVCD resolution</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">dvd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Add needed filters to convert to DVD resolution</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">begin</td>
+<td bgcolor="#ddddff" class="tableinfo">Frame number</td>
+<td bgcolor="#ddddff" class="tableinfo">Set the start marker to frame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">end</td>
+<td bgcolor="#ddddff" class="tableinfo">Frame number</td>
+<td bgcolor="#ddddff" class="tableinfo">Set the end marker to frame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Save audio in copy mode</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-uncompressed-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Save audio as pcm is no filter is applied and else apply filters/codec </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-video</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Save elementary video stream and strip the container, you will end up with raw mpeg video!</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">index-mpeg</td>
+<td bgcolor="#ddddff" class="tableinfo">mpeg_file index_file tracknumber</td>
+<td bgcolor="#ddddff" class="tableinfo">Create the index for the mpeg file</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load a video</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load-workbench</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load a workbench/edit list</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Save the file. If the codec is not set to mpeg (VCD,...) it will saved as an avi</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-jpg</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Save current image as jpeg</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-mp3</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load the mpeg audio as soundtrack.<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b> If VBR you must put a --audio-map afterward</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-ac3</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load the ac3 file as soundtrack.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-wav</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Load the wav file as soundtrack.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-delay</td>
+<td bgcolor="#ddddff" class="tableinfo">value in ms</td>
+<td bgcolor="#ddddff" class="tableinfo">Shift the audio / video sync by value.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-map</td>
+<td bgcolor="#ddddff" class="tableinfo">None</td>
+<td bgcolor="#ddddff" class="tableinfo">Scan the audio to properly handle VBR audio.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-bitrate</td>
+<td bgcolor="#ddddff" class="tableinfo">value</td>
+<td bgcolor="#ddddff" class="tableinfo">Set the audio bitrate. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>You must enter a valid audio bitrate!</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio codec : MP2|MP3|AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">Select the audio codec that will be used when you set process mode.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-toolame</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">The audio will be processed and piped to toolame. The result will be saved in the given file. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Avidemux2 only</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [ XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Select the video codec that will be used when you save in process mode. </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-conf</td>
+<td bgcolor="#ddddff" class="tableinfo">cq=q | cbr=br | 2pass=xx </td>
+<td bgcolor="#ddddff" class="tableinfo">Select the encoding mode : Constant Quality (cq=quality), constant bitrate (br=bitrate) or 2 pass mode, in that case , give the final size in megabyte.</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">2pass-log</td>
+<td bgcolor="#ddddff" class="tableinfo">Filename</td>
+<td bgcolor="#ddddff" class="tableinfo">Specify the file that will contain the statitics for first pass. It may be re-used later, but not in CLI mode.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">set-pp</td>
+<td bgcolor="#ddddff" class="tableinfo">Two Values</td>
+<td bgcolor="#ddddff" class="tableinfo">Select the postprocessing to apply to FFmpeg decoder (mpeg4, divx3,div2...). The first value is the filter to activate :1 for horizontal deblocking,2 for vertical deblocking and 4 for deringing. Sum them up to activate filter, 7 means all three activated. The second value is the filter strength between 0 and 5, 5 being the stronger. </td>
+		</tr>
+	<tr>
+			<td bgcolor="#ddddff" class="tableinfo">auto-split</td>
+<td bgcolor="#ddddff" class="tableinfo">Size in megaBytes</td>
+<td bgcolor="#ddddff" class="tableinfo">Avidemux will automaticallty split the files when they reached the given size and create file.avi, file.avi.1, file.avi.2....The default is 2 gB </td>
+		</tr>
+</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Examples</p>
+<p class="secthead"><a name="doc_chap3_sect1">Converting AVI file to VCD </a></p>
+<ul>
+<p>
+	This operation will be divided in 3 parts : 
+	<ul>	
+	<li>Encode video</li>
+	<li>Encode audio</li>
+	<li>Multiplex: This last step will be made outside avidemux</li>
+	</ul>	
+	</p>
+	<p>Encoding the video : <span class="code">avidemux --load input.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</span>
+	</p>
+	<p>Encoding the audio with lavcodec : <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </span>
+	</p>
+	<p>Encoding the audio with toolame : <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </span>
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Re-encoding a soundtrack to MP3 VBR </a></p>
+<ul>
+	<p>First save the audio in wav format <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </span>
+	</p>
+	<p>Then encode it with lame : <span class="code">lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </span>
+	</p>
+	<p>Reload the mp3 and save avi : <span class="code">avidemux --load input.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/new.avi </span>
+	</p>
+	The audio map is very important as we have generated a VBR mp3. Else expect async big time !.
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

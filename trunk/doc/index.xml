@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Doc</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Main doc
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Document Translations</title>
+<section>
+	<title>English</title>
+	<body>
+	<ul>
+	<p>	<uri link="./en/index.html">English</uri></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Russian</title>
+	<body>
+	<ul>
+	<p>	<uri link="./ru/index.html">Russian</uri>, translated by Dmitry Popkov</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Czech</title>
+	<body>
+	<ul>
+	<p>	<uri link="./cz/index.html">Czech</uri>, translated by Jakub Misak</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Italian</title>
+	<body>
+	<ul>
+	<p>	<uri link="./it/index.html">Italian</uri>, translated by Snowdog</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>French</title>
+	<body>
+	<ul>
+	<p>	<uri link="./fr/index.html">Italian</uri>, translated by Camille Moulin</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Raw XML files</title>
+	<body>
+	<ul>
+	<p>	<uri link="./xmldoc.tgz">XML/English</uri>, if you want to translate the documentation, get this file, translate the Xml's and send them to me. 
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

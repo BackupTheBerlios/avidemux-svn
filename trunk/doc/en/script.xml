@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Scripting</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Scripting : Doing some automated stuff
+ </abstract>
+
+<version>1.0</version>
+<date>30 May 2004</date>
+
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>In some case, you end up doing often the same kind of actions to videos. For example, applying always the same filter(s) to a captured movie. On the other hand, you can be tempted to try different settings to see the effect. In both cases, using the nice UI from avidemux does not make things easier.
+	</p>
+	<p>Some commands are available throught <uri link="./command.xml.html">command line</uri>, but that's not the easiest way.
+	</p>
+	<p>There is an ongoing work for scripting capabilities. It means having a simple script language that you can
+	execute to perform actions unmanned.
+	</p>
+	<p>
+	The objective at the end, is to be able to do everything through the script language, but we are far from it.
+	</p>
+	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Script</title>
+<section>
+
+	<body>
+	<ul>
+	<p>A script is a simple text file. It has a syntax near C language, but much more simpler.</p>
+	<p>You can access it using either file->run script, or using the --run command from cli.</p>
+	<p>A ligne beginning by either <c>//</c> or <c>#</c> is ignored (you can make script executable and invoke avidemux that way :)</p>
+	<p>A script is a sequence of function call. A function call is <c>function(param1,param2....);</c>
+	</p>
+	<p>A parameter can be a integer, a float, true/false or a string. For string, you can also use quoted string for filename ("my file.avi").
+	</p>
+	<p>The script is parsed one time to check for grammar or syntax error, then executed. If a command fails, the script stops.</p>
+	
+	</ul>
+	</body>
+</section>
+
+</chapter>
+<chapter>
+<title>Commands</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Here is the set of command available as of now. To get a list, do avidemux2 --list</p>
+	<table width="100%" border="1">
+		<tr>
+			<th>File command</th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+			<ti>Load</ti><ti>filename</ti><ti> </ti><ti> </ti><ti>Load the file given as parameter </ti>
+		</tr>
+		<tr>
+			<ti>Append</ti><ti>filename</ti><ti></ti><ti></ti><ti>Append a file (does not work)</ti>
+		</tr>
+		<tr>
+			<ti>LoadAudio</ti><ti>type</ti><ti>filename</ti><ti></ti><ti>Load the file as external audio. The first argument is the type : mp3, ac3, wav</ti>
+		</tr>
+		<tr>
+			<th>Process command</th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+			<ti>videoprocess</ti><ti>true/false</ti><ti></ti><ti></ti><ti>Set video process mode to on(process) or off (copy)</ti>
+		</tr>
+		<tr>
+			<ti>audioprocess</ti><ti>true/false</ti><ti></ti><ti></ti><ti>Same for audio</ti>
+		</tr>
+		<tr>
+			<th>Save command</th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+			<ti>save</ti><ti>Filename</ti><ti></ti><ti></ti><ti>Save the file</ti>
+		</tr>			
+		<tr>
+			<ti>savejpg</ti><ti>Filename</ti><ti></ti><ti></ti><ti>Save the current image as jpeg</ti>
+		</tr>
+		<tr>
+			<ti>saveaudio</ti><ti>Filename</ti><ti></ti><ti></ti><ti>Save audio track to the file given</ti>
+		</tr>
+		<tr>
+			<ti>savedvd</ti><ti>Filename</ti><ti></ti><ti></ti>
+				<ti>Save as save DVD PS, i.e. a dvd compatible program stream</ti>
+		</tr>
+		<tr>
+
+			<ti>scanvbr</ti><ti></ti><ti></ti><ti></ti>
+				<ti>Build the audio time map, to be able to deal with vbr mp3</ti>
+		</tr>
+		<tr>
+
+			<ti>saveraw</ti><ti>Filename</ti><ti></ti><ti></ti>
+				<ti>Save the raw video stream, useful to cut a mpeg for example</ti>
+		</tr>
+		<tr>
+			<th>Audio filter</th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+
+			<ti>normalize</ti><ti>true/false</ti><ti></ti><ti></ti>
+				<ti>Set the normalize filter on/off</ti>
+		</tr>
+		<tr>
+
+			<ti>downsample</ti><ti>true/false</ti><ti></ti><ti></ti>
+				<ti>Set the 48 to 44.1 khz filter on/off</ti>
+		</tr>
+		<tr>
+
+			<ti>resample</ti><ti>targetfrequency</ti><ti></ti><ti></ti>
+				<ti>Resample to targetfrequency. Passing 0 means disabling the filter</ti>
+		</tr>
+		<tr>
+
+			<ti>delay</ti><ti>delay in ms</ti><ti></ti><ti></ti>
+				<ti>Apply a delay to audio (also in copy mode). Passing 0   disables the filter</ti>
+		</tr>
+		<tr>
+
+			<ti>film2pal</ti><ti>true/false</ti><ti></ti><ti></ti>
+				<ti>Set the film2pal audio filter on or off</ti>
+		</tr>
+		<tr>
+			<th>Codecs </th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+
+			<ti>audiocodec</ti><ti>codec name</ti><ti>bitrate in kbps</ti><ti></ti>
+				<ti>Select the audio codec, can be lame,mp2,ac3,toolame,none </ti>
+		</tr>
+		<tr>
+
+			<ti>videocodec</ti><ti>codec name</ti><ti>Mode</ti><ti>optional: codec conf file</ti>
+				<ti>Select the video codec, can be xvid4,ffv1, h263...The mode is cq=<c>qz</c>, or cbr=<c>bitrate in kbps</c>, or 2pass=<c>size in megabytes</c>. Optionnaly, the third argument can be a file containing fine settings for the codec</ti>
+		</tr>
+		<tr>
+			<th>Video filters </th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+
+			<ti>loadfilter</ti><ti>filename</ti><ti></ti><ti></ti>
+				<ti>Load the xml file describing the list of video filters.</ti>
+		</tr>
+		<tr>
+			<th>Misc </th><th>Parameter</th><th>Parameter</th><th>Parameter</th><th>Description</th>
+		</tr>
+		<tr>
+
+			<ti>setfps</ti><ti>float</ti><ti></ti><ti></ti>
+				<ti>Change the frame per second of the movie</ti>
+		</tr>
+		<tr>
+
+			<ti>exit</ti><ti></ti><ti></ti><ti></ti>
+				<ti>Exit immediately</ti>
+		</tr>
+		<tr>
+
+			<ti>sleep</ti><ti>integer</ti><ti></ti><ti></ti>
+				<ti>wait N seconds</ti>
+		</tr>
+		<tr>
+
+			<ti>goto</ti><ti>integer</ti><ti></ti><ti></ti>
+				<ti>Go to frame number N</ti>
+		</tr>
+		<tr>
+
+			<ti>setmarkerA</ti><ti>integer</ti><ti></ti><ti></ti>
+				<ti>Set the start marker on given frame</ti>
+		</tr>
+		<tr>
+
+			<ti>setmarkerB</ti><ti>integer</ti><ti></ti><ti></ti>
+				<ti>Set the end marker on given frame</ti>
+		</tr>
+		
+	</table>
+	</ul>
+	</body>
+</section>
+
+</chapter>
+<chapter>
+<title>Examples</title>
+<section>
+
+	<body>
+	<ul>
+	<p>The fist example just navigate in a file</p>
+	<pre>
+Load("/work/samples/2mn.avi");
+AudioProcess(1);
+videoProcess(1);
+sleep(500);
+goto(0);
+sleep(500);
+goto(10);
+sleep(500);
+goto(20);
+sleep(500);
+goto(30);
+sleep(500);
+goto(40);
+sleep(500);
+# comment
+exit();
+
+	</pre>
+	<p>The second example encode a file and set video.</p>
+<pre>
+Load("/work/samples/2mn.avi");
+videoprocess(on);
+//videocodec(xvid4,cq=5);
+loadfilter("/home/fx/ep1_b.edl.flt");
+videocodec(xvid4,2pass=12,"/home/fx/ep1_b.edl.flt.vcodec");
+save("/tmp/plop.avi");
+exit();
+
+</pre>
+	
+	</ul>
+	</body>
+</section>
+
+</chapter>
+</guide>

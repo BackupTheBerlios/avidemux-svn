@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: filtry pro vyhlazení obrazu</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: filtry pro vyhlazení obrazu
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Filtry v této kategorii vyhlazují obraz, což je velmi užitečné pro odstranění šumu v nahrávkách.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+
+<title>Filtry pro vyhlazení obrazu</title>
+<section>
+	<title>Stabilize </title>
+	<body>
+	<ul>
+	<p>Nahradí každý pixel podle prahu průměrem sousedních pixelů v prostoru a čase.</p>
+	<p>Jemně odstraňuje šum.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Denoise </title>
+	<body>
+	<ul>
+	<p>Port filtru DNR z programu transcode. Redukce šumu.</p>
+	<p>Má dva samostatné prahy pro jasovou a barevnou složku.</p>
+	<p>Účinek je silný když zvýšíte výchozí hodnoty prahu.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FluxSmooth </title>
+	<body>
+	<ul>
+	<p>Redukce šumu, vyhlazení. Tento filtr původně napsal Ross Thomas pro AviSynth.</p> 
+	<p>Viz dokumentace pro AviSynth.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Temporal Cleaner </title>
+	<body>
+	<ul>
+	<p>Původním autorem tohoto filtru pro redukci šumu je Jim Casaburi, filtr byl pro VirtualDub.</p> 
+	<p> Vlad59 udělal verzi pro AviSynth.</p> 
+	<p>Viz jejich původní dokumentace.</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MPlayer Denoise3D </title>
+	<body>
+	<ul>
+	<p>Port filtru denoise3d z MPlayeru, který napsal Daniel Moreno.</p> 
+	<p> Je to velmi dobrý filtr na odstranění šumu.</p> 
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MPlayer HQDenoise3D </title>
+	<body>
+	<ul>
+	<p>Port filtru hqd3d z MPlayeru, který napsal Daniel Moreno a A'rpi.</p> 
+	<p> Je velmi dobrý, ale daní za vyšší kvalitu je to že je 2x-3x pomalejší než Denoise3D.</p> 
+	<p>Pravděpodobně vám bude stačit Denoise3D.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+</guide>

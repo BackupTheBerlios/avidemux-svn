@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Výstupní formáty</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Výstupní formáty
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Formáty souborů</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Formát</th><th>Omezení</th>
+		</tr>
+		<tr>
+			<ti>AVI</ti><ti>Maximálně 2 audio stopy</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-1/2</ti><ti>Raw elementary stream</ti>
+		</tr>
+		<tr>
+			<ti>MPEG-2 PS</ti><ti>Audio+video, vhodné pro vytváření DVD</ti>
+		</tr>
+		<tr>
+			<ti>Raw</ti><ti>Raw audio nebo video. Například raw MPEG-4 stream</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Video kodeky</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Poznámka</th><th>Závislost</th>
+		</tr>
+		<tr>
+			<ti>DivX</ti><ti>Deaktivovaný, podpora odstraněna, nová verze nefunguje na P4</ti><ti>DivX</ti>
+		</tr>
+		<tr>
+			<ti>XviD</ti><ti>Dobrý, rychlý, přesný, spousta možností.</ti><ti>XviD 0.9 nebo 1.x</ti>
+		</tr>
+		<tr>
+			<ti>libavcodec</ti><ti>Dobrý, rychlý, přesný, spousta možností</ti><ti>libavcodec (vestavěný)</ti>
+		</tr>		
+		<tr>
+			<ti>H.263</ti><ti>Nastavení z libavcodecu</ti><ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>HuffYUV</ti><ti>YV12 HuffYUV, nekompatibilní s Windows</ti><ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>FFV1</ti><ti>Bezeztrátový video kodek z libavcodecu. Účinný!</ti><ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>VCD/DVD/SVCD</ti><ti>Dobrá kvalita, pomalé</ti><ti>mpeg2enc, vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>XVCD</ti><ti>Rychlé. Používá libavcodec, není úplně 100% kompatibilní</ti>				<ti>Vestavěný</ti>
+		</tr>
+		<tr>
+			<ti>XSVCD</ti><ti>Rychlé. Používá libavcodec, není úplně 100% kompatibilní</ti>				<ti>Vestavěný</ti>
+		</tr>
+		</table>
+		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio kodeky</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Název</th><th>Poznámka</th><th>Závislost</th>
+		</tr>
+		<tr>
+			<ti>Nekomprimovaný</ti><ti>Velké</ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3</ti><ti>Dobrá kvalita, pouze CBR</ti><ti>liblame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Pouze CBR, kompatibilní?</ti><ti>Vestavěný (libavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti>Pouze CBR, kompatibilní?</ti><ti>Vestavěný (libavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Použití roury do tooLAME, opravdu dobré!</ti><ti>tooLAME</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Použití libtoolame, stále s chybami</ti><ti>Vestavěný (libtoolame)</ti>
+		</tr>
+
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Specifika formátů</title>
+<section>
+<title>AVI</title>
+	<body><ul>
+	<p> Je výchozím výstupním formátem. Druhá CBR audio stopa se může přidat pomocí <c>Audio->Second Audio Track</c>. Může to být buď MP3 CBR nebo AC3.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>MPEG (1)</title>
+	<body><ul>
+	<p>Pokud použijete <c>File->Save Video</c>, bude uložen pouze raw video elementary stream. Tedy .m1v nebo .m2v.
+	</p>
+	<p>Musíte zvolit MP2 audio enkodér, nastavit audio režim na Process a přes <c>Audio->Save Audio</c> uložit .mp2.
+	</p>
+	<p>Potom použijte mplex nebo tcmplex k multiplexaci těchto dvou souborů a získání řádného .mpg.
+	</p>
+	<p>XVCD export používá MPEG-1 kodek z knihovny libavcodec, XSVCD používá libavcodec MPEG-2. Nedoporučuji je k vytváření VCD/SVCD/DVD (ovšem zakázat vám to nemůžu).
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>MPEG (2)</title>
+	<body><ul>
+	<p>Pokud se použije <c>File->Save as DVD PS</c>, uloží se MPEG-2 PS stream (včetně NAV packetů). To funguje v režimech Copy i Process, chcete-li například upravit nahrávku z PVR x50. V tom případě se přepočítají časové značky GOP, aby se předešlo skokům v časovém kódu.
+	</p>
+	</ul></body>
+</section>
+
+<section>
+<title>Raw</title>
+	<body><ul>
+	<p>
+	Je k dispozici ve dvou podobách: pro zvuk jako <c>Audio->Save Audio</c>.
+	Tak se uloží pouze zvukový soubor (ať už upravený/komprimovaný či nikoli).
+	</p>
+	<p>Pro video je položka <c>File->Save Raw Video Stream</c>. Může být užitečná pro střih MPEG souborů nebo k uložení například raw H.263 nebo MPEG-4 video streamu.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

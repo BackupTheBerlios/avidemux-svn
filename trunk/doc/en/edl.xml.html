@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Edl file</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Edl file</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Introduction</p>
+<ul>
+		<p>
+		Having a nice UI is a good thing (tm) to easily get to the point and be sure of the result. It has a drawback as video operations tend to be long : User presence.
+		</p>
+		<p>The idea behind the edl file is to have a kind of project that you set up with the ui, and later on continue or execute in command line mode while you are sleeping/having a life/whatever.
+		</p>
+		<p>An edl file is a kind of project file. It contains almost an up to date image of what you
+		were doing when you saved it. It is very useful to continue if (god forbid) avidemux crashed.	
+		
+		</p>		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Workbench/Edit list</p>
+<ul>
+	<p>Internally, avidemux sees everything as a collection of segments referencing videos on which we apply filters. This videos are the video you load through <span class="code">Open video</span> or <span class="code">append video</span>. If you do nothing, there will be one segment per video. If you chop the video, it will be splitted in several segments, and same thing if you copy/paste.
+	</p>
+	<p>When you save a workbench/edit list, three files will be created. The first file contains all segments and videos. If you reload it, you will be exactly at the same point, i.e. if you cut or appended videos you will retrieve them.
+	</p>
+	<p>The second file has a the same name and a .flt suffix. It is the filter list you are working on.</p>
+	<p>So by saving at one point the workbench/edit list and reloading them you will restore everything except audio filters and audio/video codec and their settings</p>
+	<p>The third file contains the video codec configuration, it can be loaded as a standalone file to have access to fine codec tuning.</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>and more</p>
+<ul>
+The workbench/edl file also contains:
+		<ul>		
+		<li>Video and audio mode (copy/process)</li>
+		<li>Audio filter list (normalize etc..)</li>
+		<li>Audio codec and its configuration</li>
+		<li>Video codec and its configuration (in the .vcodec file)</li>
+		</ul>
+	So almost everything is there.
+</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Example</p>
+<ul>
+	<p>Let's say you want to encode a bunch of capture to divx or SVCD. Load each file and set them up (filters/codec/etc...) and save the edl file
+	</p>
+	<p>Then make a simple script like this :
+	<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		avidemux2 --load episode1.edl --video-process --save /tmp/episode1.avi --quit
+		avidemux2 --load episode2.edl --video-process --save /tmp/episode2.avi --quit
+		avidemux2 --load episode3.edl --video-process --save /tmp/episode3.avi --quit
+	</pre></td></tr>
+</table>
+	And you can process the whole series in one night.
+	</p>
+	<p>Edl as simple text file, you can open it to see what it looks like.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

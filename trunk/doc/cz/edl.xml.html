@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Soubor EDL</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Soubor EDL</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Úvod</p>
+<ul>
+		<p>
+		Pěkné grafické rozhraní je dobrá věc, snadno se doberete výsledku kterým si můžete být jistí. Protože však práce s videem bývá často zdlouhavá, má to i nevýhodu: vyžaduje přítomnost uživatele.
+		</p>
+		<p>Myšlenka EDL souborů spočívá v tom, že si v grafickém rozhraní nastavíte nějaký projekt, a později v něm můžete pokračovat nebo jeho zpracování spustit z příkazové řádky zatímco třeba spíte.
+		</p>
+		<p>EDL je soubor projektu, který obsahuje aktuální obraz toho co jste dělali když jste jej uložili. Je i velmi užitečný pro pokračování když by Avidemux (chraňbůh) zhavaroval.	
+		
+		</p>		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Seznam úprav (edit list)</p>
+<ul>
+	<p>Avidemux interně vidí vše jako soubor segmentů odkazujících na video na které aplikujeme filtry. To jsou ty video soubory které načtete pomocí <span class="code">Open Video</span> nebo <span class="code">Append Video</span>. Pokud nic neuděláte, bude tam jeden segment a video. Pokud video stříháte, bude rozděleno do několika segmentů, totéž platí pro Kopírovat/Vložit.
+	</p>
+	<p>Když seznam úprav uložíte (pomocí <span class="code">Edit-&gt;Save Edit List</span>), vytvoří se tři soubory. První soubor obsahuje všechny segmenty a video soubory. Po jeho opětovném načtení (<span class="code">Edit-&gt;Load Edit List</span>) se vrátíte přesně do stejného stavu v jakém jste jej uložili, tedy i se střihem či připojením dalších souborů.
+	</p>
+	<p>Druhý soubor má stejný název a připonu .flt. Obsahuje seznam použitých filtrů.</p>
+	<p>Takže když otevřete uložený seznam úprav, obnoví se vše kromě audio filtrů a audio/video kodeků a jejich nastavení.</p>
+	<p>Třetí soubor obsahuje konfiguraci video kodeku, může být načten i jako samostatný soubor pro doladění parametrů kodeku.</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>A navíc</p>
+<ul>
+Soubor úprav také obsahuje:
+		<ul>		
+		<li>Video a audio režim (Copy/Process)</li>
+		<li>Seznam audio filtrů (Normalize atd.)</li>
+		<li>Audio kodek a jeho konfiguraci</li>
+		<li>Video kodek a jeho konfiguraci (v souboru .vcodec)</li>
+		</ul>
+	Takže je tam skoro všechno.
+</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Příklad</p>
+<ul>
+	<p>Řekněme že chcete překódovat několik nahrávek z TV do AVI nebo SVCD. Otevřete každý soubor a nastavte parametry (filtry, kodeky atd.) a uložte soubor EDL.
+	</p>
+	<p>Potom vytvořte takovýto jednoduchý skript:
+	<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+		avidemux2 --load epizoda1.edl --video-process --save /tmp/epizoda1.avi --quit
+		avidemux2 --load epizoda2.edl --video-process --save /tmp/epizoda2.avi --quit
+		avidemux2 --load epizoda3.edl --video-process --save /tmp/epizoda3.avi --quit
+	</pre></td></tr>
+</table>
+	A můžete nechat přes noc zpracovat celý seriál.
+	</p>
+	<p>EDL je prostý textový soubor, můžete si jej otevřít a podívat se jak vypadá.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Using the command line</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Using the command line
+</abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title> Foreword</title>
+<section>
+	<body><ul>
+	<p>
+	As you probably have noticed, avidemux is very GUI oriented. Because, according to me, when doing video stuff you need to *see* what you are doing. It has a drawback when you went to let the computer work alone by night.
+	</p>
+	<p>The ultimate goal is to provide a nice GUI to set up your processing job, and save a job. After that, run avidemux on these jobs and go watch a movie or have a nap.
+	</p>
+	<p>
+	We are not that far away. Most of the settings are stored in <uri link="edl.xml.html">EDL</uri> files. <warn>You will still need X11 and gtk1/2 running !</warn>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Cli</title>
+<section>
+<title>Invoking</title>
+	<body><ul>
+	<p> Avidemux may be called with arguments. The most obvious is avidemux myFile.avi, that will load myFile.avi.
+	</p>
+	<p>You can also provide other commands, each one of them beginning by -- to invoke an action. You won't have the full capabilities of the GUI though.
+	</p>
+	<p><warn>When in command line mode, all alert boxes will be skipped and questions will be automatically set to NO</warn>
+	<warn>It is very important. For example if you do <c>avidemux2 file.nuv</c> you won't be prompted to save an index.</warn>
+	</p>
+	<p>To get up to date command list and parameters, just do avidemux --help.</p>
+	<p> The args are evaluated from left to right and processed one at a time. The command line is far from bullet proof as most of the checks are inside the GUI.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Commands</title>
+	<body><ul>
+<table width="100%" border="1">
+		<tr>
+			<th>Command</th><th>Parameters</th><th>Aim</th>
+		</tr>
+		<tr>
+			<ti>audio-process</ti><ti>None</ti><ti>Set the audio to process mode</ti>
+		</tr>
+		<tr>
+			<ti>audio-normalize</ti><ti>None</ti><ti>Activate audio normalization filter</ti>
+		</tr>
+		<tr>
+			<ti>audio-resample</ti><ti>None</ti><ti>Activate 48 44.1 khz downsampling</ti>
+		</tr>
+		<tr>
+			<ti>video-process</ti><ti>None</ti><ti>Set the video to process mode</ti>
+		</tr>
+		<tr>
+			<ti>filters</ti><ti>filename</ti><ti>Load a filter set</ti>
+		</tr>
+		<tr>
+			<ti>vcd-res</ti><ti>None</ti><ti>Add needed filters to convert to VCD resolution</ti>
+		</tr>
+		<tr>
+			<ti>svcd-res</ti><ti>None</ti><ti>Add needed filters to convert to SVCD resolution</ti>
+		</tr>
+		<tr>
+			<ti>dvd-res</ti><ti>None</ti><ti>Add needed filters to convert to DVD resolution</ti>
+		</tr>
+		<tr>
+			<ti>begin</ti><ti>Frame number</ti><ti>Set the start marker to frame</ti>
+		</tr>
+		<tr>
+			<ti>end</ti><ti>Frame number</ti><ti>Set the end marker to frame</ti>
+		</tr>
+		<tr>
+			<ti>save-raw-audio</ti><ti>None</ti><ti>Save audio in copy mode</ti>
+		</tr>
+		<tr>
+			<ti>save-uncompressed-audio</ti><ti>None</ti><ti>Save audio as pcm is no filter is applied and else apply filters/codec </ti>
+		</tr>
+		<tr>
+			<ti>save-raw-video</ti><ti>None</ti><ti>Save elementary video stream and strip the container, you will end up with raw mpeg video!</ti>
+		</tr>
+		<tr>
+			<ti>index-mpeg</ti><ti>mpeg_file index_file tracknumber</ti><ti>Create the index for the mpeg file</ti>
+		</tr>
+		<tr>
+			<ti>load</ti><ti>Filename</ti><ti>Load a video</ti>
+		</tr>
+		<tr>
+			<ti>load-workbench</ti><ti>Filename</ti><ti>Load a workbench/edit list</ti>
+		</tr>
+		<tr>
+			<ti>save</ti><ti>Filename</ti><ti>Save the file. If the codec is not set to mpeg (VCD,...) it will saved as an avi</ti>
+		</tr>
+		<tr>
+			<ti>save-jpg</ti><ti>Filename</ti><ti>Save current image as jpeg</ti>
+		</tr>
+		<tr>
+			<ti>external-mp3</ti><ti>Filename</ti><ti>Load the mpeg audio as soundtrack.<warn> If VBR you must put a --audio-map afterward</warn></ti>
+		</tr>
+		<tr>
+			<ti>external-ac3</ti><ti>Filename</ti><ti>Load the ac3 file as soundtrack.</ti>
+		</tr>
+		<tr>
+			<ti>external-wav</ti><ti>Filename</ti><ti>Load the wav file as soundtrack.</ti>
+		</tr>
+		<tr>
+			<ti>audio-delay</ti><ti>value in ms</ti><ti>Shift the audio / video sync by value.</ti>
+		</tr>
+		<tr>
+			<ti>audio-map</ti><ti>None</ti><ti>Scan the audio to properly handle VBR audio.</ti>
+		</tr>
+		<tr>
+			<ti>audio-bitrate</ti><ti>value</ti><ti>Set the audio bitrate. <warn>You must enter a valid audio bitrate!</warn></ti>
+		</tr>
+		<tr>
+			<ti>audio-codec</ti><ti>Audio codec : MP2|MP3|AC3</ti><ti>Select the audio codec that will be used when you set process mode.</ti>
+		</tr>
+		<tr>
+			<ti>audio-toolame</ti><ti>Filename</ti><ti>The audio will be processed and piped to toolame. The result will be saved in the given file. <warn>Avidemux2 only</warn></ti>
+		</tr>
+		<tr>
+			<ti>video-codec</ti><ti>Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [ XVCD</ti><ti>Select the video codec that will be used when you save in process mode. </ti>
+		</tr>
+		<tr>
+			<ti>video-conf</ti><ti>cq=q | cbr=br | 2pass=xx </ti><ti>Select the encoding mode : Constant Quality (cq=quality), constant bitrate (br=bitrate) or 2 pass mode, in that case , give the final size in megabyte.</ti>
+		</tr>		
+		<tr>
+			<ti>2pass-log</ti><ti>Filename</ti><ti>Specify the file that will contain the statitics for first pass. It may be re-used later, but not in CLI mode.</ti>
+		</tr>
+		<tr>
+			<ti>set-pp</ti><ti>Two Values</ti><ti>Select the postprocessing to apply to FFmpeg decoder (mpeg4, divx3,div2...). The first value is the filter to activate :1 for horizontal deblocking,2 for vertical deblocking and 4 for deringing. Sum them up to activate filter, 7 means all three activated. The second value is the filter strength between 0 and 5, 5 being the stronger. </ti>
+		</tr>
+	<tr>
+			<ti>auto-split</ti><ti>Size in megaBytes</ti><ti>Avidemux will automaticallty split the files when they reached the given size and create file.avi, file.avi.1, file.avi.2....The default is 2 gB </ti>
+		</tr>
+</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Examples</title>
+<section>
+	<title>Converting AVI file to VCD</title>
+	<body><ul>
+<p>
+	This operation will be divided in 3 parts : 
+	<ul>	
+	<li>Encode video</li>
+	<li>Encode audio</li>
+	<li>Multiplex: This last step will be made outside avidemux</li>
+	</ul>	
+	</p>
+	<p>Encoding the video : <c>avidemux --load input.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</c>
+	</p>
+	<p>Encoding the audio with lavcodec : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </c>
+	</p>
+	<p>Encoding the audio with toolame : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </c>
+	</p>
+	</ul></body>
+</section>
+<section>
+	<title>Re-encoding a soundtrack to MP3 VBR</title>
+	<body><ul>
+	<p>First save the audio in wav format <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </c>
+	</p>
+	<p>Then encode it with lame : <c>lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </c>
+	</p>
+	<p>Reload the mp3 and save avi : <c>avidemux --load input.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/new.avi </c>
+	</p>
+	The audio map is very important as we have generated a VBR mp3. Else expect async big time !.
+	</ul></body>
+</section>
+</chapter>
+</guide>

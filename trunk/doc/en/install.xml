@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Installing Avidemux</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Simple tips and help for installing avidemux
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Mandatory packages</title>
+<section>
+	<body>
+		<p>You will need a unix based machine, preferably x86. It also works to some extend on Sparc and Macs</p>
+		<table width="100%" border="1">
+		<tr>
+			<th>Package</th><th>Comment</th>
+		</tr>	
+		<tr>
+			<ti>Gtk+ and glib 2.x</ti><ti> and pkg-config (correctly configured pkg-config !)</ti>
+		</tr>
+		<tr>
+			<ti>libmad</ti><ti> it is optional but believe me, you want it!</ti>
+		</tr>
+		<tr>
+			<ti>libxml2</ti><ti> Used for filter descriptions and ~/.avidemuxrc</ti>
+		</tr>		
+		<tr>
+			<ti>nasm (for x86)</ti><ti> If you do VCD/SVCD/... on x86 you want it ! (5 x faster)</ti>
+		</tr>
+		</table>		
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Optional Packages</title>
+<section>
+		<title>Audio packages</title>
+	<body>
+		<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Version</th><th>Aim</th><th>Site</th>
+		</tr>
+		<tr>
+			<ti>libMad</ti><ti>0.14.2b</ti><ti>Mpeg 1/2/3 audio decoder</ti>
+			<ti><uri>http://mad.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>a52dec</ti><ti>0.7.4</ti><ti>AC3 decoder</ti><ti><uri>http://liba52.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>liblame</ti><ti>3.9x</ti><ti>MP3 encoder</ti><ti><uri>http://www.mp3dev.org/mp3</uri></ti>
+		</tr>
+		<tr>
+			<ti>libvorbis</ti><ti>x</ti><ti>Vorbis encoder/decoder</ti><ti><uri>http://www.vorbis.org/</uri></ti>
+		</tr>
+
+		</table>
+	</body>
+</section>
+<section>
+		<title>Video packages</title>
+	<body>
+	<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Version</th><th>Aim</th><th>Site</th>
+		</tr>
+		
+		<tr>
+			<ti>Xvid</ti><ti>0.9</ti><ti>Mpeg4 encoder</ti>
+			<ti><uri>http://www.xvid.org</uri></ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>1.x</ti><ti>Mpeg4 encoder</ti>
+			<ti><uri>http://www.xvid.org</uri></ti>
+		</tr>
+		
+	</table>
+	<warn>Avidemux2 will be statically linked to 0.9 <b>OR</b> 1.x</warn>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Installation</title>
+<section>
+	<body>
+	<p>It is rather straightforward.</p>
+	<p><c>./configure </c></p>
+	<p>Take extra care at the end where a recap of what has been detected appears
+	.For me it looks like this:
+	<pre>nasm found : /usr/bin/nasm
+MMX is ON
+cpu done
+ GTK+ version        : 2.2.4
+ Divx5.0.5 ?         : yes
+ *** DISABLED ***
+ Xvid  Codec         : yes
+ Mad decoder         : yes
+ OSS                 : yes
+ ALSA                : yes
+ Xvideo              : yes
+ Lame                : yes
+ Ogg Vorbis          : yes
+ A52/AC3             : yes
+ FFMPEG              : yes
+ ARTS                : yes
+ FreeType            : yes
+ XML2                : yes
+ Toolame             : /usr/local/bin/toolame
+ Lame                : /usr/bin/lame
+ locale              : ${prefix}/share/locale
+ Little endian cpu   : yes
+
+	</pre>
+	</p>
+	<p>If you think something is missing, check that you have also installed the -dev package.
+	</p>
+	<p>Configure will also build lavcodec library.</p>
+	
+	<p>When configure is done, <c>make </c> then <c>make install </c>  .
+	There is a pack of translations (a beginning of  start of internationalisation) also installed.</p>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Common install problems</title>
+<section>
+	<title>Compilation fails</title>
+	<body>
+	<p> It fails saying cannot open gtkxxx. Usually it means pkg-config/gtk+/glib is not installed or configured
+	</p>
+	</body>
+</section>
+<section>
+	<title>It fails at link, with jpeg mmx</title>
+	<body>
+	Look at /usr/lib/liblavjpeg.la (or in /usr/local/lib)
+	if you find this  :
+	<pre>
+		dependency_libs=' -L/usr/src/redhat/BUILD/mjpegtools-1.6.0/jpeg-mmx -ljpeg-mmx'
+	</pre>
+	change it to
+	<pre>
+		dependency_libs=''	
+	</pre>
+
+	Thanks Jens for that one that hits a lot RedHat and Suse users.
+
+	</body>
+</section>
+</chapter>
+</guide>

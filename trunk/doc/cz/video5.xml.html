@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video: filtry pro vyhlazení obrazu</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video: filtry pro vyhlazení obrazu</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Předmluva</p>
+	<ul>
+	<p>Filtry v této kategorii vyhlazují obraz, což je velmi užitečné pro odstranění šumu v nahrávkách.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtry pro vyhlazení obrazu</p>
+<p class="secthead"><a name="doc_chap2_sect1">Stabilize  </a></p>
+	<ul>
+	<p>Nahradí každý pixel podle prahu průměrem sousedních pixelů v prostoru a čase.</p>
+	<p>Jemně odstraňuje šum.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Denoise  </a></p>
+	<ul>
+	<p>Port filtru DNR z programu transcode. Redukce šumu.</p>
+	<p>Má dva samostatné prahy pro jasovou a barevnou složku.</p>
+	<p>Účinek je silný když zvýšíte výchozí hodnoty prahu.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">FluxSmooth  </a></p>
+	<ul>
+	<p>Redukce šumu, vyhlazení. Tento filtr původně napsal Ross Thomas pro AviSynth.</p> 
+	<p>Viz dokumentace pro AviSynth.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Temporal Cleaner  </a></p>
+	<ul>
+	<p>Původním autorem tohoto filtru pro redukci šumu je Jim Casaburi, filtr byl pro VirtualDub.</p> 
+	<p> Vlad59 udělal verzi pro AviSynth.</p> 
+	<p>Viz jejich původní dokumentace.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">MPlayer Denoise3D  </a></p>
+	<ul>
+	<p>Port filtru denoise3d z MPlayeru, který napsal Daniel Moreno.</p> 
+	<p> Je to velmi dobrý filtr na odstranění šumu.</p> 
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect6">MPlayer HQDenoise3D  </a></p>
+	<ul>
+	<p>Port filtru hqd3d z MPlayeru, který napsal Daniel Moreno a A'rpi.</p> 
+	<p> Je velmi dobrý, ale daní za vyšší kvalitu je to že je 2x-3x pomalejší než Denoise3D.</p> 
+	<p>Pravděpodobně vám bude stačit Denoise3D.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

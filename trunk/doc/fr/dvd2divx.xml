@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide >
+<title>Tutoriel de conversion de Mpeg en Divx</title>
+<author title="mean"><mail link="fixounet@free.fr">
+Mean</mail>
+</author>
+
+<abstract>
+Mpeg en Divx
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Préliminaires</title>
+<body>
+Cette page présente un exemple d'encodage d'un mpeg1 ou mpeg2 (un DVD 
+par exemple) en AVI, codé en xvid et en mp3 pour l'audio.
+</body>
+<section>
+<title>Flux en entrée</title>
+<body>
+<p>
+ Seuls les flux mpeg vidéo (m1v et m2v) et flux de programme mpeg sont supportés par Avidemux
+(mpg/vob). Ce flux doit être mono et non chiffré. Appelons-le stream.mpg
+</p>
+<p>Si votre source est un DVD, vous avez tout intérêt à utiliser l'excellent Mplayer de la manière suivante :
+ <c>mplayer -dvd 1 -dumpstream</c>.
+ Cela crée à partir du DVD un vob compatible avec Avidemux.
+</p>
+<p>Les fichiers VDR ne sont pas supportés pour le moment.
+</p>
+</body>
+</section>
+<section>
+<title>Indexation</title>
+<body>
+<p>
+Avidemux ne sait pas lire un flux mpeg. En revanche, il sait lire un index de flux mpeg.
+</p>
+<p>
+Un index de flux  mpeg est un fichier de texte simple décrivant le mpeg et indiquant où se trouvent les images. Il a une structure assez proche de celle des fichiers d2v de DVD2AVI, un excellent serveur d'images (frame server) pour Windows.
+</p>
+<p>C'est cet index qui permet à Avidemux d'accéder de façon aléatoire à une image précise dans le fichier.
+</p>
+<p>
+Pour générer cet index, vous avez deux possibilités :
+<ul>
+<li>Choisissez <c>misc->index mpeg</c></li>
+<li>Ouvrez le mpeg, Avidemux vous propose de l'indexer (notez que le fichier ne s'ouvrira pas, c'est normal)</li>
+</ul>
+Vous obtiendrez un écran de ce type : 
+</p>
+<p><img src="../image_tuto/indexMpg.png"></img>
+</p>
+<p>
+Les champs index et mpeg se passent de commentaires.
+</p>
+<p>
+Le champ stream id demande en revanche quelques précisions.
+<ul>
+<li>Si le flux contient un flux audio mpeg (.mp2), par exemple dans le cas d'un vcd : C0 correspond à la première piste sonore, C1 à la deuxième, etc.</li>
+<li>Si le flux contient une piste AC3, 0 correspond à la première piste AC3, 1 à la seconde, etc.</li>
+</ul>
+Patientez quelques minutes, le temps que l'index soit généré. Une fois que c'est fait, réouvrez l'index.
+<warn>L'accès aléatoire est un peu buggué, mais l'accès séquentiel (c-à-d l'encodage) est correct</warn>
+<warn>Pour les utilisateurs de  TiVo, il se peut que vous deviez passer la taille de MG_CACHE à 70 car TiVo utilise parfois des gop très très longs</warn>
+Nous sommes maintenant prêts pour nous amuser avec le flux mpeg.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+	<title>Editer la vidéo</title>
+<section>
+	<title>NSTC / Film</title>
+	<body><ul>
+		<p>Cetains DVD (la plupart, en fait) sont codés en 23,976 ips (FILM) et d'autres en 29,96 ips (NSTC), soap par exemple. Dans le premier cas, le lecteur de DVD effectue une opération de conversion à la volée au format NSTC (telecine). L'en-tête mpeg doit toujours indiquer 29,96,  puisque cela correspondra toujours au format final.	
+		</p>
+		<p>Avidemux se sert de mpeg2dec (avec un petit patch) pour décoder les flux mpeg. Mpeg2dec n'effectue pas d'opération telecine sur les films FILM (et c'est mieux ainsi).
+		</p>
+		<p>Cela veut dire qu'Aavidemux ne peut pas faire la différence entre FILM et NSTC.	Aussi, si le mpeg looks vous semble progressif (pas entrelacé) et qu'une désynchronisation évidente apparaît (et s'aggrave), utilisez <c>Video Processing->Change framerate</c> et passez-le à 23,976.
+		</p>
+		<p>Pour les mpeg PAL, il n'y a pas de problème, la cadence est toujours de 25 ips.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Rogner</title>
+	<body><ul>
+		<p>Vous devriez avoir à présent quelque chose qui ressemble à ceci :</p>
+		<img src="../image_tuto/mpeg.png"></img>
+	<p>Il est temps d'appliquer quelques filtres à la vidéo. CTRL+F pour faire apparaître la liste des filtres.</p>
+	
+		<img src="../image_tuto/filters.png"></img>
+		<p>Nous allons sélectionner le filtre Crop (rogner), pour nous débarasser des bordures noires.Si le flux est suffisamment propre, vous pouvez essayer le bouton <c>autoCrop</c>.
+		Sur cet exemple, les bordures sont très étroires. Nous les avons coloriées en vert pour qu'elles soient plus visibles.
+
+		</p>
+		<img src="../image_tuto/crop.png"></img>
+	</ul></body>
+</section>
+<section>
+	<title>Redimensionner</title>
+	<body><ul>
+
+		<p>A présent que l'image a été recadrée, nous allons la redimensionner à dans un format inférieur.</p>
+		<p>Lors de cette opération, ne perdez pas de vue que la plupart des DVD sont en 16/9. Nous allons ouvrir la fenêtre des filtres et sélectionner resize.
+		</p>
+		<p>Nous allons choisir une taille de 480x272, pour avoir un rapport de 16/9, une largeur multiple de 16 et une hauteur multiple de 8.</p>
+		<p>Vous pouvez à tout moment sélectionner un filtre en cliquant sur le bouton  <c>configure</c>. Pour voie le résultat, utilisez le bouton <c>preview</c> ou lisez la vidéo avec <c>output</c> enfoncé.
+		</p>
+		<p>Pour information, notre série de filtres vidéo ressemble à ceci : 
+		</p>
+		<img src="../image_tuto/filter2.png"></img>
+		
+		<img src="../image_tuto/resized.png"></img>
+	</ul></body>
+</section>
+<section>
+	<title>Autres filtres vidéo</title>
+	<body><ul>
+
+		<p>Selon la nature de votre source, vous pourrez être tenté d'ajouter d'autres filtres (sous-titrage, suppression de bruit, désentrelacement, ...). Consultez la page <uri link="video.xml.html">video filters</uri> à ce sujet.
+		</p>
+		<p>La vidéo est prête, reste à régler son encodage. Vous pouvez ouvrir la fenêtre d'aperçu et vous déplacer dans le film avec l'ascenceur, la fenêtre reflètera vos déplacements.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Paramétrer l'encodeur</title>
+<section>
+	<title>Codec</title>
+	<body><ul>
+		<p>Comme nous voulons encoder la vidéo, nous allons passer la vidéo en mode  process.</p>
+		<p>Il est temps à présent de sélectionner un codec. Mes deux préférés sont Xvid et Lavcodec. Vous pouvez utiliser un tutoriel fait pour Xvid sous Windows, car les options sont les mêmes. Pour lavcodec, jetez un oeil à la documentation de mplayer.
+		</p>
+		<p> La version linux de divx n'est pas très riche, c'est pourquoi je ne vais pas en parler.</p>
+		<p>Nous allons lui préférer Xvid pour ce minitutoriel.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Configurer le codec</title>
+	<body><ul>
+		<p>Nous allons commencer par définir le fichier journal pour la double passe, dont nous aurons peut-être besoin ultérieurement,  avec <c>Video processing->Set log file</c></p>
+		<p>La boîte de dialogue suivante s'affiche avec <c>Video processing->configure codec</c>.</p>
+		<img src="../image_tuto/xvid.png"></img>
+		<p>Nous choisissons ici 2pass et saisissons la taille finale. Cette taille correspond à celle de la vidéo uniquement et ne comprend pas les données propres à l'avi (overhead). Il est donc bon de prendre une marge de 5%. Nous choisisson ici 600 et cliquons sur Ok.</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Régler l'audio</title>
+<section>
+	<title>Audio interne</title>
+	<body><ul>
+		<p>Si vous utilisez l'audio que vous aviez sélectionné lors de la création de l'index, il n'y a rien à faire. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Audio externe</title>
+	<body><ul>
+		<p>Vous pouvez également utiliser un fichier audio externe en passant par le menu <c>Audio-source</c>.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Traiter ou pas ?</title>
+	<body><ul>
+		<p>Si vous souhaitez laisser l'audio tel quel, par exemple pour un Xvid+AC3, vous n'avez rien de particulier à faire et pouvez passer toute cette section. 
+		</p>
+		<p>Sinon, passez l'audio en mode process et activez (par exemple) Normalize, 48->44. Pour plus de détails, consultez <uri link="audio.xml.html">filtres audio</uri>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Codec audio</title>
+	<body><ul>
+		<p>Même chose que pour le codec vidéo : sélectionnez-en un, par exemple MP3, et configurez-le.</p>
+		<p>Ici, nous allons choisir 128 kbps joint stéreo :</p>
+		<img src="../image_tuto/mp3.png"></img>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+	<title>Enregistrer </title>
+<section>
+	<body><ul>
+		<p>Sélectionnez à présent <c>File->Save avi</c> et patientez plusieurs heures. Et voilà.
+		Avidemux va effectuer la passe 1 puis la passe 2 et encoder l'audio.
+		</p>
+		<img src="../image_tuto/encoding.png"></img>
+	</ul></body>
+</section>
+</chapter>
+</guide>

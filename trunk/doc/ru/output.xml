@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Выходные форматы</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Выходные форматы
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Форматы файлов</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Формат</th><th>Примечание</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>До двух аудио дорожек</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Raw mpeg4 stream</ti>
+		</tr>
+		<tr>
+			<ti>Raw</ti><ti>"чистое" аудио или видео (raw mpeg4 stream например)</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Видео кодеки</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Примечание</th><th>Зависимости</th>
+		</tr>
+		<tr>
+			<ti>Divx</ti><ti>Медленный, малый выбор параметров</ti><ti>Divx</ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>Хорошее качество, точность, скорость, большой набор параметров</ti><ti>Xvid</ti>
+		</tr>
+		<tr>
+			<ti>Lavcodec</ti><ti>Хорошее качество, точность, скорость, большой набор параметров</ti><ti>Lavcodec(статически)</ti>
+		</tr>
+		<tr>
+			<ti>Mjpeg</ti><ti></ti><ti>Mjpegtools</ti>
+		</tr>
+		<tr>
+			<ti>H263</ti><ti>настройки lavcodec</ti><ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>YV12 Huffyuv, не совместим с версией для windows</ti><ti>Статически</ti>
+		</tr>
+		<tr>
+			<ti>VCD/DVD/SVCD</ti><ti>Хорошее качество, медленно</ti><ti>mjpegtools</ti>
+		</tr>
+		<tr>
+			<ti>XVCD</ti><ti>Быстро, настройки lavcodec</ti>				<ti>Статически</ti>
+		</tr>
+		</table>
+		"настройки lavcodec" означает, что необходимо выбрать lavcodec (ffmpeg) как выходной кодек в настройках
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Аудио кодеки</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Название</th><th>Примечание</th><th>Зависимости</th>
+		</tr>
+		<tr>
+			<ti>Uncompressed</ti><ti>Big</ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3</ti><ti>Хорошее качество, только CBR </ti><ti>liblame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>только CBR </ti><ti>Статически(lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti>только CBR </ti><ti>Статически(lavcodec)</ti>
+		</tr>
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Ограничения форматов</title>
+<section>
+<title>Avi</title>
+	<body><ul>
+	<p> Это формат по умолчанию при сохранении. Вторая аудио дорожка в формате MP3 CBR или AC3 может быть добавлена через меню <c>misc->2nd audio track</c>.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Mpeg файл</title>
+	<body><ul>
+	<p>Будет записан только "сырой"(raw) элементарный видео поток  .m1v или .m2v
+	</p>
+	<p>Для звука выберите mp2 аудио кодек, режим process и <c>File->save audio</c> для сохранения в .mp2.
+	</p>
+	<p>После используйте mplex или tcmplex для соединения аудио и видео в один .mpg
+	</p>
+	<p>Экспорт в XVCD использует lavcodec и его установки. Для настройки выберите выходной кодек FFmpeg и используйте <c>configure video codec</c> меню. Это пока только для любителей поэкспериментировать, не оттестировано.
+	</p>
+	<p>Внутри mpeg видео кадры выглядят как огромные некомпрессированные кадры YV12 формата. Всегда кодируйте mpeg перед сохранением,
+	или используйте опцию "raw". Но НИКОГДА не сохраняйте avi в режиме copy.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Raw</title>
+	<body><ul>
+	<p>
+	Это доступно в двух режимах : для аудио используйте меню <c>File->save audio</c> .
+	При этом сохранится только аудио (обработанное или нет).
+	</p>
+	<p>Для видео используйте <c>File ->save raw</c>. Применимо для вырезания в mpeg файлах . Например raw h263 или mp4 видео поток.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

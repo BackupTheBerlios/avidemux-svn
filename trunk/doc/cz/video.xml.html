@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Předmluva</p>
+	<ul>
+	<p>Nezapomeňte, že video filtry se aplikují pouze v režimu Process pro video.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Režim Process/Copy</p>
+<p class="secthead"><a name="doc_chap2_sect1">Režim Copy </a></p>
+	<ul>
+	<p>V tomto režimu Avidemux pouze zkopíruje vstupní stream do souboru aniž by jej měnil. 
+	</p>	
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Režim Process </a></p>
+	<ul>
+	<p>Avidemux nejdříve dekomprimuje video do YV12 snímků, potom aplikuje filtry, používají-li se nějaké. Pak zkomprimuje video zvoleným video kompresorem.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Metafiltry</p>
+	Metafiltr je skupina nebo modifikace jiných filtrů. Jsou to:
+	<ul>
+	<li>VCD/SVCD/DVD res: tyto metafiltry automaticky nastaví správné hodnoty změny velikosti tak, aby byla kompatibilní s VCD/SVCD/DVD. Interně používají filtry Add black borders a Resize.</li>
+	<li>Partial: tento metafiltr mění jiný filtr tak, aby se aplikoval jen na část videa. Například můžete chtít odstranit prokládání jen v části nahrávky. V tom případě přidejte filtr Deinterlace, vyberte jej a klikněte na tlačítko <span class="code">Partial</span>. Zadejte čísla snímků od-do.</li>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Kategorie filtrů</p>
+	<ul>
+		<li><a href="./video1.xml.html">Filtry pro úpravu obrazu</a></li>
+		<li><a href="./video2.xml.html">Filtry prokládání</a></li>
+		<li><a href="./video3.xml.html">Filtry s konvolučním jádrem</a></li>
+		<li><a href="./video4.xml.html">Filtry luminance/chrominance</a></li>
+		<li><a href="./video5.xml.html">Filtry pro vyhlazení obrazu</a></li>
+		<li><a href="./video6.xml.html">Různé filtry</a></li>
+		
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

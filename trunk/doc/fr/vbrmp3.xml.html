@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	MP3 VBR</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">MP3 VBR</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Informations préalables</p>
+<ul>
+		<p> Le plus souvent, Avidemux calcule le décalge et la longueur de l'audio selon la formule taille = durée * débit. Cela fonctionne pour tous les flux CBR.
+		</p>
+		<p>Pour les VBR, cela ne peut pas fonctionner puisque le débit n'est pas constant.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Carte temporelle de l'audio</p>
+<p class="secthead"><a name="doc_chap2_sect1">Carte temporelle de l'audio </a></p>
+<ul>
+		<p>Pour calculer le décalage initial/la taille, Avidemux doit le connaître le détail des variations du débit. Pour cela, utilisez la commande <span class="code">Audio source-&gt;audio time map</span>.
+		</p>
+		<p>
+		Avidemux va alors decompresser l'ensemble du flux en une fois et générer une carte temporelle pour savoir comment traiter le flux. Vous devez avoir installé Mad, sans quoi rien ne se passera.
+		</p>
+		<p>Une fois la carte temporelle réalisée, Avidemux dispose d'une table de conversion entre le temps et le décalage, et vous pourrez alors diviser ou enregistrer l'avi en VBR</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Et si je ne le fais pas ? </a></p>
+<ul>
+		<p>Vous vous retrouverez avec un avi méchamment désynchronisé (et avec une piste audio probablement trop courte). Même si vous contentez de l'ouvrir et de l'enregistrer.
+		</p>
+		<p>Vous DEVEZ le faire lorsque vous utilisez un mp3 VBR. Point barre. 
+		</p>
+		<p>La seconde piste audio de l'avi ne peut pas être VBR.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

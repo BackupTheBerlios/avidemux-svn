@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Editace MPEG souborů</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Editace MPEG souborů</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Úvod</p>
+<ul>
+		<p> Avidemux umí číst (indexované) MPEG soubory, a to jak elementary stream, tak program stream (tj. např. VOB soubory), díky mpeg2dec.
+		</p>
+		<p>
+		  Interně je MPEG viděn jako snímky s falešným kodekem (MPEG). 
+		</p>
+		<p>Pokud soubor uložíte v režimu Copy, výsledkem bude MPEG v AVI, ale protože to není standardní, bude jej umět přečíst jen Avidemux.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Rozdělení, externí multiplexace </p>
+<p class="secthead"><a name="doc_chap2_sect1">Obecné </a></p>
+<ul>
+		<p> Jako obvykle si vyberte část kterou chcete pomocí <img src="../images/marka.png"> a <img src="../images/markb.png">.  Měli byste si přečíst kapitolu <a href="./cutting.xml.html">Střih</a> pokud jste tak neučinili dříve.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Audio </a></p>
+<ul>
+		<p> 
+Nevyžaduje žádnou zvláštní péči. Jen uložte audio v režimu Copy pomocí <span class="code">Audio-&gt;Save Audio</span>. Uloží se soubor .mp2 nebo .ac3.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Video </a></p>
+<ul>
+		<p> 
+Pro video použijeme <span class="code">File-&gt;Save Raw Video Stream</span>. Při této volbě bude demuxer požádán o surová video data, vynechá se dekódování MPEGu. Také zrekonstruuje PTS/DTS logiku pro získání validního MPEG streamu.
+		</p>
+		<p> Nyní máte .m1v nebo .m2v MPEG-1/2 elementární stream, který by se měl spojit se souborem .mp2.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect4">Systém </a></p>
+<ul>
+		<p> 
+Teď je čas na remultiplexaci obou streamů k získání konečného souboru .mpg. První seq_header má časovou značku prvního snímku (nestřiženého). To může zmást mplex a uvidíte spoustu chybových hlášek.
+		</p>
+		<p>Nejlepší je k opětovné multiplexaci použít tcmplex z transcode.
+
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Rozdělení, interní multiplexace </p>
+<p class="secthead"><a name="doc_chap3_sect1">Obecné </a></p>
+<ul>
+		<p> Jako obvykle si vyberte část kterou chcete pomocí <img src="../images/marka.png"> a <img src="../images/markb.png">. Měli byste si přečíst kapitolu <a href="./cutting.xml.html">Střih</a> pokud jste tak neučinili dříve. V tomto režimu Avidemux uloží MPEG-2 PS stream (lvemux součást z <a href="http://lvempeg.sf.net">lvempeg</a>). Tento MPEG-2 PS obsahuje NAV paket a je vhodný pro vytváření DVD. I můj Pioneer je akceptuje. :)
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Audio </a></p>
+<ul>
+		<p> 
+Audio musí být 48 kHz a buď MP2 nebo AC3 (v současné době to znamená libavcodec AC3 nebo libavcodec MP2). Může být z režimu Process nebo Copy (například editace nahrávky z PVR).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect3">Video </a></p>
+<ul>
+		<p> Video musí být MPEG (což je pochopitelné). Tak jako u audia může být v režimu Copy (upravený PVR nebo DVD) nebo Process (zkonvertovaný AVI nebo nuv).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect4">Uložení </a></p>
+<ul>
+		<p> Nyní použijeme <span class="code">File-&gt;Save as DVD PS</span>. Pokud je audio v režimu Copy, budete dotázáni na korekci A/V posunu. U DVD to bývá v rozmezí 0 až 200 ms. U PVR nahrávek to může být cokoli.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect5">Důležité </a></p>
+<ul>
+		<p> Jsou tu dvě důležité věci:
+		<ul>
+			<li>Multiplexace implicitně přinese posun 40 ms. To lze celkem zanedbat pokud synchronizace byla perfektní.</li>
+			<li>Při ukládání jako MPEG PS bude časová známka GOP přepočítána, aby se zabránilo skoku v případě editovaných PVR streamů.</li>
+		</ul>
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

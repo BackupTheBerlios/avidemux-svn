@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: barevné a jasové filtry</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: barevné a jasové filtry
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Filtry v této kategorii mění jasovou a barevnou složku.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Barevné a jasové filtry</title>
+<section>
+	<title>Swap U &amp; V</title>
+	<body>
+	<ul>
+	<p>Přehodí složky chrominance U a V (inverze barev, dělají to třeba některé TV karty). Například tento obrázek má prohozené složky U a V:
+	</p>
+	<p><img src="../image_tuto/swapuv2.png"></img></p>
+	
+	<p>Po aplikaci Swap U &amp; V dostanete správné barvy:</p>
+	<p><img src="../image_tuto/swapuv1.png"></img></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Contrast </title>
+	<body>
+	<ul>
+	<p>Lineární úprava kontrastu/jasu na jasové (Luma) a barevné (Chroma U/V) složce.
+	</p>
+	<p>Může prospět příliš světlému/tmavému/červenému/modrému obrazu.
+	</p>
+	<p><img src="../image_tuto/contrast.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Luma/chroma only </title>
+	<body>
+	<ul>
+	<p>Kontrolní filtry pro zobrazení pouze luminance nebo chrominance.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

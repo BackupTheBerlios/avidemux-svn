@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: filtry pro úpravu obrazu</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video filtry: úprava obrazu
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Tato sada filtrů výrazně mění zdrojový obraz: změna velikosti, rotace, převrácení a ořez.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Filtry pro úpravu obrazu</title>
+<section>
+	<title>Crop</title>
+	<body>
+	<ul>
+	<p>Provede ořez obrazu (například k odstranění černých pruhů). Hodnoty musí být sudé.
+	</p>
+	<p>Oříznuté části se znázorní po stisku tlačítka <c>Apply</c>.
+	</p>
+	<p>Na čistém obraze (DVD) můžete zkusit <c>Autocrop</c>. Na zašuměném obraze (TV nahrávka) to nebude fungovat moc dobře.
+	</p>
+	<img src="../image_tuto/crop2.png"></img>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Resize/MPlayer resize</title>
+	<body>
+	<ul>
+	<p>Resize je port filtru z AviSynthu do YV12. MPlayer resize je port filtru Michaela Niedermayera, který se používá v MPlayeru.
+	</p>
+	<p>AviSynth Resize je o něco přesnější, ale MPlayer resize je 3x rychlejší bez postřehnutelného rozdílu.
+	</p>
+	<p>Konfigurační dialog je stejný pro oba filtry:
+	</p><p>
+	<img src="../image_tuto/fresize.png"></img>
+	</p>
+	<p>Můžete přímo zadat novou výšku a šířku a algoritmus převzorkování, nebo použít posuvník.
+	K dispozici jsou tři metody interpolace:
+	<ul>
+		<li>Bilinear: Méně ostrý, ale snadněji komprimovatelný</li>
+		<li>Bicubic: Zachovává ostrost, hůře komprimovatelný (například snáze vede ke kostičkování u SVCD)</li>
+		<li>Lanczos: Dává dobrý výsledek</li>
+	</ul>
+	Položky Source (zdroj) a Destination (cíl) jsou důležité. Pokud např. převádíte DVD do AVI, zdroj je 4:3 nebo 16:9 a cíl je 1:1. A naopak u převodu z AVI na SVCD.
+	</p>
+	<p>Je to důležité, protože 4:3 nemá čtvercové pixely (rozdílné u PAL a NTSC) a pokud děláte převod 1:1->1:1, bude výsledný obraz zkreslený.
+	
+	</p>
+	
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Blacken Borders</title>
+	<body>
+	<ul>
+	<p>Nahradí okraje obrazu čistou černou. Může být užitečný k vyčištění černých okrajů (např. u VHS nahrávky).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Add black borders</title>
+	<body>
+	<ul>
+	<p>Tento filtr *přidá* černé okraje (předchozí je nahradí). Interně je používán metafiltry *VCD res ke změně velikosti bez změny poměru stran.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Flip Vertical</title>
+	<body>
+	<ul>
+	<p>Vertikálně přetočí video. Hodí se například pro nahrávky z některých TV karet.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Rotate</title>
+	<body>
+	<ul>
+	<p>Tento filtr napsal Tracy (viz soubor pro další informace).</p>
+	<p>Otočí video o 90/180/270 stupňů. Autor jej používá pro video ze své kamery v otočené pozici.</p>
+	<p>
+	<img src="../image_tuto/rotate.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>
