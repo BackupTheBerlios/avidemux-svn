@@ -41,7 +41,7 @@
 		      <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2003">
+			<widget class="GtkImage" id="image2019">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-open</property>
 			  <property name="icon_size">1</property>
@@ -61,7 +61,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2004">
+			<widget class="GtkImage" id="image2020">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-execute</property>
 			  <property name="icon_size">1</property>
@@ -82,7 +82,7 @@
 		      <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2005">
+			<widget class="GtkImage" id="image2021">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-add</property>
 			  <property name="icon_size">1</property>
@@ -116,46 +116,6 @@
 			      <property name="label" translatable="yes">Save _Video...</property>
 			      <property name="use_underline">True</property>
 			      <accelerator key="S" modifiers="GDK_CONTROL_MASK" signal="activate"/>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="unpacked">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save _Unpacked MPEG-4 Video...</property>
-			      <property name="use_underline">True</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="save_as_dvd_ps1">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save as _DVD PS...</property>
-			      <property name="use_underline">True</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="save_as_ogm1">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save as _OGM...</property>
-			      <property name="use_underline">True</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="save_raw_video_stream1">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save _Raw Video Stream...</property>
-			      <property name="use_underline">True</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="save_as_dual_audio_avi1">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save as Dual _Audio AVI...</property>
-			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
 
@@ -228,7 +188,7 @@
 			      <accelerator key="O" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image2006">
+				<widget class="GtkImage" id="image2022">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-open</property>
 				  <property name="icon_size">1</property>
@@ -248,7 +208,7 @@
 			      <property name="use_underline">True</property>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image2007">
+				<widget class="GtkImage" id="image2023">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save-as</property>
 				  <property name="icon_size">1</property>
@@ -269,7 +229,7 @@
 			      <accelerator key="S" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image2008">
+				<widget class="GtkImage" id="image2024">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save</property>
 				  <property name="icon_size">1</property>
@@ -303,7 +263,7 @@
 		      <accelerator key="I" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2009">
+			<widget class="GtkImage" id="image2025">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-dialog-question</property>
 			  <property name="icon_size">1</property>
@@ -323,7 +283,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2010">
+			<widget class="GtkImage" id="image2026">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-quit</property>
 			  <property name="icon_size">1</property>
@@ -391,7 +351,7 @@
 		      <accelerator key="6" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2011">
+			<widget class="GtkImage" id="image2027">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-go-forward</property>
 			  <property name="icon_size">1</property>
@@ -412,7 +372,7 @@
 		      <accelerator key="4" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2012">
+			<widget class="GtkImage" id="image2028">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -433,7 +393,7 @@
 		      <accelerator key="8" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2013">
+			<widget class="GtkImage" id="image2029">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-last</property>
 			  <property name="icon_size">1</property>
@@ -454,7 +414,7 @@
 		      <accelerator key="2" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2014">
+			<widget class="GtkImage" id="image2030">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-first</property>
 			  <property name="icon_size">1</property>
@@ -491,7 +451,7 @@
 		      <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2015">
+			<widget class="GtkImage" id="image2031">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-jump-to</property>
 			  <property name="icon_size">1</property>
@@ -525,7 +485,7 @@
 		      <accelerator key="X" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2016">
+			<widget class="GtkImage" id="image2032">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-cut</property>
 			  <property name="icon_size">1</property>
@@ -546,7 +506,7 @@
 		      <accelerator key="C" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2017">
+			<widget class="GtkImage" id="image2033">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-copy</property>
 			  <property name="icon_size">1</property>
@@ -576,7 +536,7 @@
 		      <accelerator key="Delete" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2018">
+			<widget class="GtkImage" id="image2034">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-remove</property>
 			  <property name="icon_size">1</property>
@@ -650,7 +610,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image2019">
+			<widget class="GtkImage" id="image2035">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -1379,6 +1339,100 @@
 			  <property name="padding">0</property>
 			  <property name="expand">False</property>
 			  <property name="fill">False</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkFrame" id="frame4">
+			  <property name="visible">True</property>
+			  <property name="label_xalign">0</property>
+			  <property name="label_yalign">0.5</property>
+			  <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+
+			  <child>
+			    <widget class="GtkOptionMenu" id="optionmenu1">
+			      <property name="visible">True</property>
+			      <property name="can_focus">True</property>
+			      <property name="history">0</property>
+
+			      <child>
+				<widget class="GtkMenu" id="menu1">
+
+				  <child>
+				    <widget class="GtkMenuItem" id="avi1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">Avi</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+
+				  <child>
+				    <widget class="GtkMenuItem" id="ogm1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">OGM</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+
+				  <child>
+				    <widget class="GtkMenuItem" id="mpeg_video_only1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">Mpeg video</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+
+				  <child>
+				    <widget class="GtkMenuItem" id="mpeg_a+v1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">Mpeg A+V</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+
+				  <child>
+				    <widget class="GtkMenuItem" id="avi_dual_audio1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">Avi, 2 audio</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+
+				  <child>
+				    <widget class="GtkMenuItem" id="avi_unpacked_vop1">
+				      <property name="visible">True</property>
+				      <property name="label" translatable="yes">Avi, unp. vop</property>
+				      <property name="use_underline">True</property>
+				    </widget>
+				  </child>
+				</widget>
+			      </child>
+			    </widget>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label17">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">&lt;b&gt;Outp. fmt&lt;/b&gt;</property>
+			      <property name="use_underline">False</property>
+			      <property name="use_markup">True</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="type">label_item</property>
+			    </packing>
+			  </child>
+			</widget>
+			<packing>
+			  <property name="padding">0</property>
+			  <property name="expand">True</property>
+			  <property name="fill">True</property>
 			</packing>
 		      </child>
 		    </widget>
