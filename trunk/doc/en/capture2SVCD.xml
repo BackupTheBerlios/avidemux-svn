@@ -269,7 +269,7 @@ vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highes
 <p>
 The XML File created by vcdxgen can be changed to support chapters. To do this
 edit the sequence items in the videocd.xml file. Change:
-
+</p>
 <ul><pre>  &lt;sequence-items&gt;
     &lt;sequence-item src="video.mpg" id="sequence-00"/&gt;
   &lt;sequence-items&gt;</pre></ul>
@@ -283,10 +283,10 @@ to
       &lt;entry id="chapter3"&gt;30.00&lt;/entry&gt;
     &lt;/sequence-item&gt;
   &lt;sequence-items&gt;</pre></ul>
-
+<p>
 The numbers inside the entry tags are seconds from start of the track. To
 have a DVD chapter like handling, rewrite the pdc section from:
-
+</p>
 <ul><pre>
   &lt;pbc&gt;
     &lt;playlist id="lid-000"&gt;
@@ -329,9 +329,11 @@ to
     &lt;endlist id="end" rejected="true"/&gt;
   &lt;/pbc&gt;
 </pre></ul>
-
-A description of the xml tags can be found at <a href="http://www.geocities.com/medinotes/vcd/general_xml_structure.html">http://www.geocities.com/medinotes/vcd/general_xml_structure.html</a>.<br>
-You should read the excellent document <a href="http://www.geocities.com/medinotes/vcd/chapters.html">http://www.geocities.com/medinotes/vcd/chapters.html</a> to learn, why VCD/SVCD chapters never will work like DVD chapters !!!
+<p>
+A description of the xml tags can be found at <uri link="http://www.geocities.com/medinotes/vcd/general_xml_structure.html">http://www.geocities.com/medinotes/vcd/general_xml_structure.html</uri>.
+</p>
+<p>
+You should read the excellent document <uri link="http://www.geocities.com/medinotes/vcd/chapters.html">http://www.geocities.com/medinotes/vcd/chapters.html</uri> to learn, why VCD/SVCD chapters never will work like DVD chapters !!!
 
 <ul><pre>
 $ ./vcdimager-0.7.13/frontends/xml/vcdxbuild video.xml
@@ -348,7 +350,6 @@ $ ./vcdimager-0.7.13/frontends/xml/vcdxbuild video.xml
    INFO: finished ok, image created with 336057 sectors [74:40.57]
 </pre></ul>
 </p>
-
   </body>
  </section>
  </chapter>
