@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Modalità Process/Copy</p>
+<p class="secthead"><a name="doc_chap1_sect1">Modalità Copy </a></p>
+	<ul>
+	<p>In quaesta modalità, avidemux copierà solamente il flusso video in entrata sul file selezionato senza modificarlo. 
+	</p>
+	<p>Vi è un'eccezione: per l'esportazione verso *VCD il video è impostato in modalità Process.
+	</p>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note">
+<b>Warning: </b>Per i flussi mpeg1/2, il video è internamente visto come un frame non compresso YV12, per cui assicuratevi di non essere mai in modalità Copy quando lavorate su questi flussi mpeg.</p></td></tr></table>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note">
+<b>Warning: </b>Tagliare il file in qualunque punto causerà dei problemi.</p></td></tr></table>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Modalità Process </a></p>
+	<ul>
+	<p>Avidemux inizialmente decomprimerà il video in frames YV12, sui quali applicherà eventuali filtri. Quindi condificherà il video usando il codec prescelto.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Meta-Filtri</p>
+	Un meta filtro è un gruppo o una modifica di altri filtri. Ecco alcuni di essi:
+	<ul>
+	<li>VCD/SVCD/DVD res: Questi meta-filtri ridimensionano automaticamente il video nella dimensione giusta per essere compatibili con gli standard VCD/DVD/SVCD. Essi utilizzano internamente black borders e resize.</li>
+	<li>Partial:  questo meta-filtro modifica un altro filtro in modo che venga applicato ad una parte del video. Per esempio, potrete deinterlacciare solo una parte del video. Per farlo, creare un filtro deinterlace, selezionatelo e cliccare sul pulsante <span class="code">Partial</span>. Inserire i frame di inizio/fine.</li>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Filtri di alterazione dell'immagine</p>
+<p class="secthead"><a name="doc_chap3_sect1">Crop </a></p>
+	<ul>
+	<p>Questo filtro ritaglia una porzione del video (per esempio per eliminare i bordi neri). I valori di ritaglio sinistro/destro/sopra/sotto devono essere pari.
+	</p>
+	<p>Un'anteprima della parte ritagliata è disponibile cliccando sul pulsante <span class="code">update</span>.
+	</p>
+	<p>Su di un video pulito (dvd), potete provare cliccando sul pulsante <span class="code">Autopcrop</span>.
+	</p>
+	<img src="../image_tuto/crop2.png">
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">Resize </a></p>
+	<ul>
+	<p>Questo filtro ridimensiona il video. E' derivato dalla funzione resize di avisynth. Sono disponibili due metodi (equivalenti a bilineare/bicubico).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">Blacken Borders </a></p>
+	<ul>
+	<p>Questo filtro sostituisce i bordi del video con bordi in nero puro. E' utile per sostituire bordi rovinati con bordi perfettamente neri (per esempio nell'acquisizione da VHS).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">Add Black Borders </a></p>
+	<ul>
+	<p>Questo filtro *AGGIUNGE* i bordi neri (il precedente li sostituisce). E' usato internamente da *VCD res per ridimensionare il video ad una data dimensione senza alterarne le proporzioni.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect5">Flip vertical </a></p>
+	<ul>
+	<p>Questo filtro ribalta verticalmente il video. Utile per esempio con schede di acquisizione video malfunzionanti.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect6">Rotate </a></p>
+	<ul>
+	<p>Questo filtro è stato scritto da Tracy (vedi il file per maggiori informazioni)	</p>
+	<p>Ruota l'immagine di 90/180/270 gradi. L'autore lo usa con i video realizzati con la sua videocamera in modalità landscape.</p>
+	<p>
+	<img src="../image_tuto/rotate.png">
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Filtri di deinterlacciamento</p>
+<p class="secthead"><a name="doc_chap4_sect1">Deinterlace </a></p>
+	<ul>
+	<p>Questo filtro è una trasposizione a YV12 del filtro smart-deintarlace scritto da Donald Graft.
+	</p>
+	<p>Riconosce se l'immagine è interlacciata e ne offusca le relative parti.
+	</p>
+	<p>Questo filtro richiede due parametri:
+	<ul>
+<li>Detection threshold : minore è il valore e più facilmente verrà riconosciuto l'interlacciamento. Un valore troppo basso darà un eccessivo offuscamento!</li>
+	<li>Blur threshold : se il video viene riconosciuto come interlacciato, le parti sotto questa soglia saranno offuscate. Il valore deve essere più basso della soglia precedente.</li>
+	</ul>
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap4_sect2">Pal Shift </a></p>
+	<ul>
+	<p>Questo filtro prende un campo di una immagine ed un altro
+	dalla successiva.
+	</p>
+	<p>Molti film (e alcuni DVD) sono itnerlacciati in questo modo.
+	</p>
+	<p>Questo filtro non effettua alcun controllo, per cui attivarlo, visualizzaee un'anteprima e se soddisfatti mantenerlo.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap4_sect3">Pal Smart </a></p>
+	<ul>
+	<p>Questo filtro è un misto tra i due precedenti.
+	</p>
+	<p>Analizza l'immagine corrente e l'immagine con il filtro Pal-shift, dopodiché prende la meno interlacciata tra le due e applica il filtro smart deinterlace. Dato che il chroma non viene preso in considerazione possono verificarsi piccoli errori di chroma.
+	</p>
+	<p>E' un pò lento ma molto efficiente se il video è di buona qualità.
+	</p>
+	<p>Può essere utilizzato anche come un IVTC economico dato che ricostruisce il frame progressivo, ma mantiene il video a 30 fps non scartando i duplicati per raggiungere i 24 fps.
+	</p>
+	<p>Questo filtro è un misto tra i due precedenti.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap4_sect4">Drop </a></p>
+	<ul>
+	<p>Questo filtro è stato scritto da Ron Reithoffer.
+	</p>
+	<p>Se un campo è troppo diverso dai vicini in termini spazio/temporali (dropout VHS) viene scartato e sostituito con il valore medio tra il fram precedente e quello successivo.
+	</p>
+	<p>Secondo l'autore questo deve essere il primo filtro nella lista e non funziona come si deve con immagini molto interlacciate.
+	</p>
+	<p>
+<img src="../image_tuto/dropout.jpg">
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap5">5.</a></span>Filtri basati su Convolution Kernel</p>
+<p class="secthead"><a name="doc_chap5_sect1">Convolution </a></p>
+	<ul>
+	<p>Questi filtri sostituiscono ogni pixel con una convoluzione basata su di una matrice 3x3 bounding (eccetto il filtro Large median che opera su di una matrice 5x5). 
+	</p>
+	<p>Possono lavorare su luma e/o chroma.
+	</p>
+	<p>Median e Mean usati sul solo chroma sono molto utili per eliminare i disturbi sulle acquisizioni da videocassette.
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap6">6.</a></span>Filtri Luma/Chroma</p>
+<p class="secthead"><a name="doc_chap6_sect1">Swap u / v  </a></p>
+	<ul>
+	<p>Talvolta vi sono inversioni visibili sui piani chroma (provocati da alcune schede di acquisizione difettose).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap6_sect2">Contrast  </a></p>
+	<ul>
+	<p>Questo filtro regola linearmente il contrasto e la luminosità su luma e/o chroma u/v.
+	</p>
+	<p>Può essere d'aiuto su video troppo chiari, troppo scuri o
+	con dominanti blu o rosse.
+	</p>
+	<p>
+<img src="../image_tuto/contrast.png">
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap6_sect3">Luma/chroma only  </a></p>
+	<ul>
+	<p>Questi filtri sono presenti solo per debug e funzionano su di un solo componente (luma/u/v).
+	</p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap7">7.</a></span>Filtri Smoother</p>
+<p class="secthead"><a name="doc_chap7_sect1">Stabilize  </a></p>
+	<ul>
+	<p>Questo filtro sostituisce ogni pixel con il valore di soglia basandosi su di una media pesata tra i suoi vicini temporali e spaziali.	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap7_sect2">Denoise  </a></p>
+	<ul>
+	<p>Questo filtro è stato importato dal filtro DNR di transcode.</p>
+	<p>Sostituisce ogni pixel con un valore di soglia basato su di una media di riferimento del pixel stesso.</p>
+	<p>Lavora su luma e chroma con soglie separate.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap7_sect3">FluxSmooth  </a></p>
+	<ul>
+	<p>Questo filtro è stato importato da avisynth, ed è stato originariamente scritto da Ross Thomas.</p> 
+	<p>Vedere la documentazione di avisynth per i dettagli.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap7_sect4">Temporal Cleaner  </a></p>
+	<ul>
+	<p>Questo filtro è originario di Jim Casaburi e parte dei filtri di virtual dub.</p> 
+	<p>E' stato portato da virtual dub ad avisynth da Vlad59.</p> 
+	<p>Vedere le documentazioni di virtual dub/avisynth per i dettagli. </p>
+	</ul>
+	<p class="chaphead">
+<span class="chapnum"><a name="doc_chap8">8.</a></span>Vari</p>
+<p class="secthead"><a name="doc_chap8_sect1">Subtitle  </a></p>
+	<ul>
+	<p>Questo titolo aggiunge i sottotitoli presenti in un file di
+	testo srt/sub.
+	</p>
+	<p>E' possibile selezionare carattere e tipo di carattere.
+	</p>
+	<p>
+		<img src="../image_tuto/sub.png">
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

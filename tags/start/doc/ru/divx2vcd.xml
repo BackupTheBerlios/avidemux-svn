@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide >
+<title>Пример Divx -> VCD</title>
+<author title="mean"><mail link="fixounet@free.fr">
+Mean</mail>
+</author>
+
+<abstract>
+Divx to VC </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>О чем это?</title>
+<body>
+Описан пример изготовления VCD из DIVX avi.
+Эти знания пригодятся также для подготовки SVCD или DVD.
+</body>
+<section>
+<title>Входные данные</title>
+<body>
+<ul>
+<p>
+Любой avi с помощью подходящих кодеков может быть перекодирован в VCD. Например Divx+MP3
+(напомню, что должен быть установлен пакет mad для работы с MP3 ).
+</p>
+<p>Экспорт в VCD выполняется в 3 этапа : кодирование видео, кодирование аудио и микширование.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Кодирование видео</title>
+<body>
+<ul>
+<p>
+Сначала надо подогнать размер кадра видео к стандарту Video CD
+</p>
+<p>
+Т.е. 352*240 для NTSC или 352*288 для PAL
+</p>
+<p>
+Загрузите исходный avi, и откройте окно фильтров <c>CTRL+F</c>.
+</p>
+<p>
+	<img src="../image_tuto/filters.png">filters</img>
+</p>
+<p>
+Выберите <c>VCD res</c>. Этот мета-фильтр автоматически преобразует размеры и добавит черные бордюры для соответствия размеров без искажения соотношения сторон .
+</p>
+<p>
+Теперь выберите пункт меню <c>File->Save mpeg->Save mpeg1 video (VCD)</c> и дайте название сохраняемому файлу. Например /tmp/videocd.m1v.
+</p>
+<p>А теперь почитайте другие разделы документации, пока не окончится перекодирование .
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Кодирование аудио</title>
+<body>
+<ul>
+<p>
+Выставьте аудио в режим process и выберите <c>Audio processing->Audio codec->mp2</c>.
+</p>
+<p>
+Дальше в <c>Audio processing->Configure Codec</c> надо выставить режим stereo / 224 kbps.
+</p>
+<p>Добавьте <c>Normalize</c> и <c>48->44</c> аудио фильтры при необходимости.
+</p>
+<p>
+Сохраните <c>File -> Save audio</c> например как /tmp/videocd.mp2. Еще раз перечитайте документацию на avidemux , посмотрите воскресное кино и возвращайтесь через часик.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Что дальше?</title>
+<section>
+<title>Микширование результатов </title>
+<body>
+<ul>
+<p>
+Теперь у вас есть два готовых отдельных файла с видео и аудио.
+Используйте mplex :
+</p>
+<p>
+mplex  -S XXX -f 1 -o /tmp/videocd.mpg videocd.m1v videocd.mp2
+</p>
+<p> XXX замените значением размера  CD : 790 для 80 mn CD.
+</p>
+<p>После окончания работы mplex получите окончательный videocd.mpg . Осталось создать VCD
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>VCD imager </title>
+<body>
+<ul>
+<p>
+Для простого VCD без глав, меню и т.д. просто используйте
+</p>
+<p>
+<c>vcdimager -t vcd20 videocd.mpg</c>
+</p>
+<p>При этом на выходе получите videocd.cue и videocd.bin. Остается только прожечь диск с помощью cdrdao.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bash rules</title>
+<section>
+<title>То же самое без GUI </title>
+<body>
+<ul>
+<p>
+ Все выше описанное можно сделать с помощью командной строки
+</p>
+<p>
+<c>avidemux --load input.avi --vcd-res --save-vcd /tmp/videocd.m1v --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 --quit</c>
+</p>
+<p>Подобным способом можно полностью автоматизировать преобразование avi->VCD
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

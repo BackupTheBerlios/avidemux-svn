@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Utilistion de la ligne de commande</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Utilistion de la ligne de commande</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avant-propos</p>
+<ul>
+	<p>
+	Comme vous l'avez sans doute remarqué, Avidemux est très orienté interface graphique. Parce que, selon moi, lorsque vous manipulez des vidéos, vous devez *voir* ce que vous êtes en train de faire. Cette approche n'est en revanche pas très adaptée lorsqu'il s'agit de laisser l'ordinateur travailler tout seul pendant la nuit.
+	</p>
+	<p>Le fin du fin serait donc de disposer d'une interface graphique agréable pour définir les traitements à effectuer et de les enregistrer. Après cela, il suffirait de les soumettre à Avidemux et vous pourriez en profiter pour regarder un bon film ou faire une petite sieste.
+	</p>
+	<p>
+	Dans les faits, on en est presque là. La plupart des réglages sont stockés dans les fichiers <a href="edl.xml.html">EDL</a>. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Vous aurez toujours besoin de X11 et gtk1/2 !</p></td></tr></table>
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Ligne de commande</p>
+<p class="secthead"><a name="doc_chap2_sect1">Appel </a></p>
+<ul>
+	<p> Vous pouvez passez plusieurs arguments en appelant Avidemux. Le plus évident est avidemux monFichier.avi, qui charge monFichier.avi.
+	</p>
+	<p>Vous pouvez également spécifier d'autres commandes, qui toutes commencent par --. Cependant, cettte méthode ne vous donne pas accès à autant de possibilités que l'interface graphique.
+	</p>
+	<p><table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>En mode ligne de commande, toutes les boîtes de dialogue sont sautées et la réponse à toutes les questions est définie automatiquement à NON</p></td></tr></table>
+	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Ce point est capital. Par exemple, si vous exécutez <span class="code">avidemux2 file.nuv</span>, le programme ne vous demandera pas si vous souhaitez enregistrer un index.</p></td></tr></table>
+	</p>
+	<p>Pour obtenir une liste à jour des commandes et des paramètres, tapez avidemux --help.</p>
+	<p>Les arguments sont évalués de la gauche vers la droite et traités un par un. La ligne de commande n'est pas une méthode complètement sûre car la plupart des contrôles sont éffectués au niveau de l'interface graphique.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Commandes </a></p>
+<ul>
+<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Commande</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Paramètres</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Description</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-process</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Passe l'audio en mode process</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-normalize</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Active le filtre de normalisation audio</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-resample</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Active le sous-échantillonnage de 48 à 44,1 khz</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-process</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Passe la vidéo en mode process</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">filters</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge une liste de filtres</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">vcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Ajoute les filtres nécessaires pour la conversion en résolution VCD</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">svcd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Ajoute les filtres nécessaires pour la conversion en résolution SVCD</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">dvd-res</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Ajoute les filtres nécessaires pour la conversion en résolution DVD</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">begin</td>
+<td bgcolor="#ddddff" class="tableinfo">Numéro de l'image</td>
+<td bgcolor="#ddddff" class="tableinfo">Place le marqueur de début sur l'image spécifiée</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">end</td>
+<td bgcolor="#ddddff" class="tableinfo">Numéro de l'image</td>
+<td bgcolor="#ddddff" class="tableinfo">Place le marqueur de fin sur l'image spécifiée</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Enregistre l'audio en mode copy</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-uncompressed-audio</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Enregistre l'audio au format pcm après avoir appliqué les filtres éventuels</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-raw-video</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Enregistre un flux vidéo élémentaire et vide le conteneur, ce qui donne un fichier vidéo mpeg brut.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">index-mpeg</td>
+<td bgcolor="#ddddff" class="tableinfo">fichier_mpeg fichier_d_index numéro_de_piste</td>
+<td bgcolor="#ddddff" class="tableinfo">Crée l'index du fichier mpeg</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge une vidéo</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">load-workbench</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge une liste de modifications</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Enregistre le fichier. Si le codec choisi n'est pas un codec mpeg (VCD,...), il est enregistré au format avi</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">save-jpg</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Enregistre l'image courante au format jpeg</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-mp3</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge le mpeg comme piste sonore.<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b> Si le fichier est en VBR, vous devez faire suivre cette commande par --audio-map</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-ac3</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge le fichier ac3 comme piste sonore.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">external-wav</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Charge le fichier wav comme piste sonore.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-delay</td>
+<td bgcolor="#ddddff" class="tableinfo">Valeur en ms</td>
+<td bgcolor="#ddddff" class="tableinfo">Décale l'audio par rapport à la vidéo de la valeur indiquée.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-map</td>
+<td bgcolor="#ddddff" class="tableinfo">Aucun</td>
+<td bgcolor="#ddddff" class="tableinfo">Analyse l'audio pour traiter correctement l'audio VBR.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-bitrate</td>
+<td bgcolor="#ddddff" class="tableinfo">Valeur</td>
+<td bgcolor="#ddddff" class="tableinfo">Définit le débit (bitrate) audio. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Vous devez indiquer une valeur correcte pour le débit audio !</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Codec audio : MP2|MP3|AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">Indique le codec audio à utiliser lorsque vous avez défini l'enregistrement ebe used you set save in process mode.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">audio-toolame</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">L'audio est traité puis redirigé vers toolame. Le résultat est enregistré dans le fichier spécifié. <table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Avidemux2 uniquement</p></td></tr></table>
+</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-codec</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [ XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Indique le codec vidéo qui sera utilisé pour enregistrer la vidéo en mode process. </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">video-conf</td>
+<td bgcolor="#ddddff" class="tableinfo">cq=q | cbr=br | 2pass=xx </td>
+<td bgcolor="#ddddff" class="tableinfo">Indique le mode d'encodage : qualité constante (cq=qualité), débit (bitrate) constant (br=débit) ou mode 2pass ; dans ce dernier cas, indiquez la taille finale en Mo.</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">2pass-log</td>
+<td bgcolor="#ddddff" class="tableinfo">Nom du fichier</td>
+<td bgcolor="#ddddff" class="tableinfo">Indique le fichier qui contiendra les statistiques pour la première passe. Il pourra être réutilisé par la suite, mais pas en mode CLI.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">set-pp</td>
+<td bgcolor="#ddddff" class="tableinfo">Deux valeurs</td>
+<td bgcolor="#ddddff" class="tableinfo">Sélectionne le post-traitement à appliquer au décodeur FFmpeg (mpeg4, divx3,div2, ...). La première valeur correspond au filtre à activer :1 pour le déblocage horizontal,2 pour le déblocage vertical et 4 pour le "deringing". Ajoutez ces valeurs pour activer plusieurs filtres, 7 indiquant de les activer tous. La seconde valeur correspond à l'intensité du filtre, comprise entre 0 et 5, 5 indiquant un effet maximal. </td>
+		</tr>
+	<tr>
+			<td bgcolor="#ddddff" class="tableinfo">auto-split</td>
+<td bgcolor="#ddddff" class="tableinfo">Taille en Mo</td>
+<td bgcolor="#ddddff" class="tableinfo">Avidemux décompose automatiquement les fichiers lorqu'ils dépassent la taille indiquée et crée plusieurs fichiers nommés fichier.avi, fichier.avi.1, fichier.avi.2, etc. La taille par défaut est de 2 Go. </td>
+		</tr>
+</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Exemples</p>
+<p class="secthead"><a name="doc_chap3_sect1">Convertir un fichier AVI en VCD </a></p>
+<ul>
+<p>
+	On peut décomposer cette opération en trois étapes  : 
+	<ul>
+	<li>Encoder la vidéo</li>
+	<li>Encoder l'audio</li>
+	<li>Multiplexer : cette dernière étape se réalise en dehors d'Avidemux</li>
+	</ul>	
+	</p>
+	<p>Encoder la vidéo : <span class="code">avidemux --load input.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</span>
+	</p>
+	<p>Encoder l'audio avec lavcodec : <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </span>
+	</p>
+	<p>Encoder l'audio avec toolame : <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </span>
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Ré-encoder une bande son en MP3 VBR </a></p>
+<ul>
+	<p>Commencez par enregister l'audio au format wav <span class="code">avidemux --load input.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </span>
+	</p>
+	<p>Encodez-le ensuite avec lame : <span class="code">lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </span>
+	</p>
+	<p>Rechargez le mp3 et enregistrez l'avi : <span class="code">avidemux --load input.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/new.avi </span>
+	</p>
+	Le paramètre audio-map est capital puisque nous avons généré un mp3 VBR. Sans lui, vous aurez de gros problèmes de synchronisation !
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

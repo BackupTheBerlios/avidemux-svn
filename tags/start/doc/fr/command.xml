@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Utilistion de la ligne de commande</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Utilistion de la ligne de commande
+</abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+	<body><ul>
+	<p>
+	Comme vous l'avez sans doute remarqué, Avidemux est très orienté interface graphique. Parce que, selon moi, lorsque vous manipulez des vidéos, vous devez *voir* ce que vous êtes en train de faire. Cette approche n'est en revanche pas très adaptée lorsqu'il s'agit de laisser l'ordinateur travailler tout seul pendant la nuit.
+	</p>
+	<p>Le fin du fin serait donc de disposer d'une interface graphique agréable pour définir les traitements à effectuer et de les enregistrer. Après cela, il suffirait de les soumettre à Avidemux et vous pourriez en profiter pour regarder un bon film ou faire une petite sieste.
+	</p>
+	<p>
+	Dans les faits, on en est presque là. La plupart des réglages sont stockés dans les fichiers <uri link="edl.xml.html">EDL</uri>. <warn>Vous aurez toujours besoin de X11 et gtk1/2 !</warn>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Ligne de commande</title>
+<section>
+<title>Appel</title>
+	<body><ul>
+	<p> Vous pouvez passez plusieurs arguments en appelant Avidemux. Le plus évident est avidemux monFichier.avi, qui charge monFichier.avi.
+	</p>
+	<p>Vous pouvez également spécifier d'autres commandes, qui toutes commencent par --. Cependant, cettte méthode ne vous donne pas accès à autant de possibilités que l'interface graphique.
+	</p>
+	<p><warn>En mode ligne de commande, toutes les boîtes de dialogue sont sautées et la réponse à toutes les questions est définie automatiquement à NON</warn>
+	<warn>Ce point est capital. Par exemple, si vous exécutez <c>avidemux2 file.nuv</c>, le programme ne vous demandera pas si vous souhaitez enregistrer un index.</warn>
+	</p>
+	<p>Pour obtenir une liste à jour des commandes et des paramètres, tapez avidemux --help.</p>
+	<p>Les arguments sont évalués de la gauche vers la droite et traités un par un. La ligne de commande n'est pas une méthode complètement sûre car la plupart des contrôles sont éffectués au niveau de l'interface graphique.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Commandes</title>
+	<body><ul>
+<table width="100%" border="1">
+		<tr>
+			<th>Commande</th><th>Paramètres</th><th>Description</th>
+		</tr>
+		<tr>
+			<ti>audio-process</ti><ti>Aucun</ti><ti>Passe l'audio en mode process</ti>
+		</tr>
+		<tr>
+			<ti>audio-normalize</ti><ti>Aucun</ti><ti>Active le filtre de normalisation audio</ti>
+		</tr>
+		<tr>
+			<ti>audio-resample</ti><ti>Aucun</ti><ti>Active le sous-échantillonnage de 48 à 44,1 khz</ti>
+		</tr>
+		<tr>
+			<ti>video-process</ti><ti>Aucun</ti><ti>Passe la vidéo en mode process</ti>
+		</tr>
+		<tr>
+			<ti>filters</ti><ti>Nom du fichier</ti><ti>Charge une liste de filtres</ti>
+		</tr>
+		<tr>
+			<ti>vcd-res</ti><ti>Aucun</ti><ti>Ajoute les filtres nécessaires pour la conversion en résolution VCD</ti>
+		</tr>
+		<tr>
+			<ti>svcd-res</ti><ti>Aucun</ti><ti>Ajoute les filtres nécessaires pour la conversion en résolution SVCD</ti>
+		</tr>
+		<tr>
+			<ti>dvd-res</ti><ti>Aucun</ti><ti>Ajoute les filtres nécessaires pour la conversion en résolution DVD</ti>
+		</tr>
+		<tr>
+			<ti>begin</ti><ti>Numéro de l'image</ti><ti>Place le marqueur de début sur l'image spécifiée</ti>
+		</tr>
+		<tr>
+			<ti>end</ti><ti>Numéro de l'image</ti><ti>Place le marqueur de fin sur l'image spécifiée</ti>
+		</tr>
+		<tr>
+			<ti>save-raw-audio</ti><ti>Aucun</ti><ti>Enregistre l'audio en mode copy</ti>
+		</tr>
+		<tr>
+			<ti>save-uncompressed-audio</ti><ti>Aucun</ti><ti>Enregistre l'audio au format pcm après avoir appliqué les filtres éventuels</ti>
+		</tr>
+		<tr>
+			<ti>save-raw-video</ti><ti>Aucun</ti><ti>Enregistre un flux vidéo élémentaire et vide le conteneur, ce qui donne un fichier vidéo mpeg brut.</ti>
+		</tr>
+		<tr>
+			<ti>index-mpeg</ti><ti>fichier_mpeg fichier_d_index numéro_de_piste</ti><ti>Crée l'index du fichier mpeg</ti>
+		</tr>
+		<tr>
+			<ti>load</ti><ti>Nom du fichier</ti><ti>Charge une vidéo</ti>
+		</tr>
+		<tr>
+			<ti>load-workbench</ti><ti>Nom du fichier</ti><ti>Charge une liste de modifications</ti>
+		</tr>
+		<tr>
+			<ti>save</ti><ti>Nom du fichier</ti><ti>Enregistre le fichier. Si le codec choisi n'est pas un codec mpeg (VCD,...), il est enregistré au format avi</ti>
+		</tr>
+		<tr>
+			<ti>save-jpg</ti><ti>Nom du fichier</ti><ti>Enregistre l'image courante au format jpeg</ti>
+		</tr>
+		<tr>
+			<ti>external-mp3</ti><ti>Nom du fichier</ti><ti>Charge le mpeg comme piste sonore.<warn> Si le fichier est en VBR, vous devez faire suivre cette commande par --audio-map</warn></ti>
+		</tr>
+		<tr>
+			<ti>external-ac3</ti><ti>Nom du fichier</ti><ti>Charge le fichier ac3 comme piste sonore.</ti>
+		</tr>
+		<tr>
+			<ti>external-wav</ti><ti>Nom du fichier</ti><ti>Charge le fichier wav comme piste sonore.</ti>
+		</tr>
+		<tr>
+			<ti>audio-delay</ti><ti>Valeur en ms</ti><ti>Décale l'audio par rapport à la vidéo de la valeur indiquée.</ti>
+		</tr>
+		<tr>
+			<ti>audio-map</ti><ti>Aucun</ti><ti>Analyse l'audio pour traiter correctement l'audio VBR.</ti>
+		</tr>
+		<tr>
+			<ti>audio-bitrate</ti><ti>Valeur</ti><ti>Définit le débit (bitrate) audio. <warn>Vous devez indiquer une valeur correcte pour le débit audio !</warn></ti>
+		</tr>
+		<tr>
+			<ti>audio-codec</ti><ti>Codec audio : MP2|MP3|AC3</ti><ti>Indique le codec audio à utiliser lorsque vous avez défini l'enregistrement ebe used you set save in process mode.</ti>
+		</tr>
+		<tr>
+			<ti>audio-toolame</ti><ti>Nom du fichier</ti><ti>L'audio est traité puis redirigé vers toolame. Le résultat est enregistré dans le fichier spécifié. <warn>Avidemux2 uniquement</warn></ti>
+		</tr>
+		<tr>
+			<ti>video-codec</ti><ti>Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [ XVCD</ti><ti>Indique le codec vidéo qui sera utilisé pour enregistrer la vidéo en mode process. </ti>
+		</tr>
+		<tr>
+			<ti>video-conf</ti><ti>cq=q | cbr=br | 2pass=xx </ti><ti>Indique le mode d'encodage : qualité constante (cq=qualité), débit (bitrate) constant (br=débit) ou mode 2pass ; dans ce dernier cas, indiquez la taille finale en Mo.</ti>
+		</tr>		
+		<tr>
+			<ti>2pass-log</ti><ti>Nom du fichier</ti><ti>Indique le fichier qui contiendra les statistiques pour la première passe. Il pourra être réutilisé par la suite, mais pas en mode CLI.</ti>
+		</tr>
+		<tr>
+			<ti>set-pp</ti><ti>Deux valeurs</ti><ti>Sélectionne le post-traitement à appliquer au décodeur FFmpeg (mpeg4, divx3,div2, ...). La première valeur correspond au filtre à activer :1 pour le déblocage horizontal,2 pour le déblocage vertical et 4 pour le "deringing". Ajoutez ces valeurs pour activer plusieurs filtres, 7 indiquant de les activer tous. La seconde valeur correspond à l'intensité du filtre, comprise entre 0 et 5, 5 indiquant un effet maximal. </ti>
+		</tr>
+	<tr>
+			<ti>auto-split</ti><ti>Taille en Mo</ti><ti>Avidemux décompose automatiquement les fichiers lorqu'ils dépassent la taille indiquée et crée plusieurs fichiers nommés fichier.avi, fichier.avi.1, fichier.avi.2, etc. La taille par défaut est de 2 Go. </ti>
+		</tr>
+</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Exemples</title>
+<section>
+	<title>Convertir un fichier AVI en VCD</title>
+	<body><ul>
+<p>
+	On peut décomposer cette opération en trois étapes  : 
+	<ul>
+	<li>Encoder la vidéo</li>
+	<li>Encoder l'audio</li>
+	<li>Multiplexer : cette dernière étape se réalise en dehors d'Avidemux</li>
+	</ul>	
+	</p>
+	<p>Encoder la vidéo : <c>avidemux --load input.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</c>
+	</p>
+	<p>Encoder l'audio avec lavcodec : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </c>
+	</p>
+	<p>Encoder l'audio avec toolame : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </c>
+	</p>
+	</ul></body>
+</section>
+<section>
+	<title>Ré-encoder une bande son en MP3 VBR</title>
+	<body><ul>
+	<p>Commencez par enregister l'audio au format wav <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample --save-uncompressed-audio /tmp/videocd.wav </c>
+	</p>
+	<p>Encodez-le ensuite avec lame : <c>lame /tmp/videocd.wav -vbr -v -V 4 /tmp/videocd.mp3 </c>
+	</p>
+	<p>Rechargez le mp3 et enregistrez l'avi : <c>avidemux --load input.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/new.avi </c>
+	</p>
+	Le paramètre audio-map est capital puisque nous avons généré un mp3 VBR. Sans lui, vous aurez de gros problèmes de synchronisation !
+	</ul></body>
+</section>
+</chapter>
+</guide>

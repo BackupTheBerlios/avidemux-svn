@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Prostředí programu</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Prostředí programu
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Spodní nástrojová lišta</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Typ snímku</title>
+	<body><ul>
+		<p> <img src="../images/frametype.png"></img>
+			Typ současného snímku (I/B/P).	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Přehrát</title>
+	<body><ul>
+		<p> <img src="../images/bplay.png"></img>
+			Při prvním stisknutí spustí přehrávání, druhé stisknutí jej zastaví.	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pauza</title>
+	<body><ul>
+		<p> <img src="../images/bpause.png"></img>
+			Zastaví přehrávání. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Předchozí snímek</title>
+	<body><ul>
+		<p> <img src="../images/bpframe.png"></img>
+			Přejde na předchozí snímek. Může to trvat několik sekund, když se Avidemux musí vrátit k předchozímu klíčovému snímku. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Následující snímek</title>
+	<body><ul>
+		<p> <img src="../images/bnframe.png"></img>
+			Přechod na další snímek. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Předchozí klíčový snímek</title>
+	<body><ul>
+		<p> <img src="../images/bpkframe.png"></img>
+			Přechod na předchozí I-frame (klíčový snímek). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Následující klíčový snímek</title>
+	<body><ul>
+		<p> <img src="../images/bnkframe.png"></img>
+			Přechod na další I-frame.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Značky</title>
+	<body><ul>
+		<p> <img src="../images/bmarkab.png"></img>
+			Zobrazuje pozici značek A (začátek) a B (konec). Uložen/zpracován bude pouze výběr [A,B[. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Nastav značku A</title>
+	<body><ul>
+		<p> <img src="../images/marka.png"></img>
+			Stisknutím se nastaví značka A (viz <uri link="cutting.xml.html">Střih</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Nastav značku B</title>
+	<body><ul>
+		<p> <img src="../images/markb.png"></img>
+			Nastaví značku B (viz <uri link="cutting.xml.html">Střih</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Jdi na začátek</title>
+	<body><ul>
+		<p> <img src="../images/bbegin.png"></img>
+			Přejde na první snímek.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Jdi na konec</title>
+	<body><ul>
+		<p> <img src="../images/bend.png"></img>
+			Přejde na poslední snímek. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Jdi na další "černý" snímek</title>
+	<body><ul>
+		<p> <img src="../images/bnextblack.png"></img>
+			Přejde na následující černý snímek, i když černý snímek je poněkud subjektivní pojem. :) 
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Levá nástrojová lišta</title>
+<section>	
+	<title>Video filtry</title>	
+	<body><ul>	
+		<p> <img src="../images/bvfilter.png"></img>
+		</p>
+		<p>
+			Otevře dialogové okno video filtrů. Více v kapitole <uri link="./video.xml.html">Video</uri>.	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Audio filtry</title>	
+	<body><ul>	
+		<p> <img src="../images/bafilter.png"></img>
+		</p>
+		<p>
+			Otevře dialogové okno audio filtrů. Více v kapitole <uri link="./audio.xml.html">Audio</uri>.	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Video kodek</title>
+	<body><ul>
+		<p> <img src="../images/bvcodec.png"></img>
+			Otevře dialogové okno pro výběr a konfiguraci video kodeku.	 
+
+		</p>		
+	</ul></body>
+</section>
+
+<section>
+	<title>Audio kodek</title>
+	<body><ul>
+		<p> <img src="../images/bacodec.png"></img>
+			Otevře dialogové okno pro výběr a konfiguraci audio kodeku.	 
+
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Zpracování obrazu</title>
+	<body><ul>
+		<p> <img src="../images/bvprocess.png"></img>
+			Když je toto tlačítko stisknuté, uloží se zpracovaný obraz (tedy s aplikovanými filtry a kodekem). Pokud není stisknuté, uloží se nezměněná kopie zdrojového obrazu.
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Zpracování zvuku</title>
+	<body><ul>
+		<p> <img src="../images/baprocess.png"></img>
+			Když je toto tlačítko stisknuté, uloží se zpracovaný zvuk (tedy s aplikovanými filtry a kodekem). Pokud není stisknuté, uloží se nezměněná kopie zdrojového zvuku.
+		</p>		
+	</ul></body>
+</section>
+<section>
+	<title>Náhled</title>
+	<body><ul>
+		<p> <img src="../images/bpreview.png"></img>
+			Otevře nové okno s náhledem ukazujícím výstup filtrů. Při navigaci v hlavním okně náhled reflektuje změny.	 
+
+		</p>
+		<p> Tento režim náhledu je hrozně pomalý.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Výstup</title>
+	<body><ul>
+		<p> <img src="../images/boutput.png"></img>
+			Je-li zapnut, uvidíte v hlavním okně výstup filtrů při přehrávání. Pouze při přehrávání. 	
+		</p>
+		<p> Je to rychlá zobrazovací metoda, většinou zvládne efekty v reálném čase.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Horní nástrojová lišta</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bupbar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Otevřít</title>
+	<body><ul>
+		<p> <img src="../images/bopen.png"></img>
+			Otevře soubor.	
+		</p>
+	</ul></body>
+</section>	
+<section>	
+	<title>Info</title>	
+	<body><ul>	
+		<p> <img src="../images/binfo.png"></img>
+			Informace o momentálně načteném souboru (kodek, délka...).	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Uložit</title>	
+	<body><ul>	
+		<p> <img src="../images/bsave.png"></img>
+			Uloží video.	
+		</p>
+	</ul></body>
+</section>
+<section>	
+	<title>Nedávné soubory</title>	
+	<body><ul>	
+		<p> <img src="../images/brecent.png"></img>
+		Rychlý přístup k 5 posledně otevřeným souborům.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

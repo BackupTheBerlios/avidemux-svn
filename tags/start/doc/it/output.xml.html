@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Formati di uscita</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Formati di uscita</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Formati di file</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Formato</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Restrizioni</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
+<td bgcolor="#ddddff" class="tableinfo">Fino a 2 tracce audio</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Flusso elementare grezzo</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
+<td bgcolor="#ddddff" class="tableinfo">Audio o video stripped. Per esempio flussi mpeg4 grezzi.</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Codec video</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nome</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commento</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dipendenze</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+<td bgcolor="#ddddff" class="tableinfo">Opzioni non numerose, lento</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+<td bgcolor="#ddddff" class="tableinfo">Buono, accurato, veloce, ricco di opzioni</td>
+<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Lavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Buono, accurato, veloce, ricco di opzioni</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec (compreso)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mjpeg</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Mjpegtools</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263</td>
+<td bgcolor="#ddddff" class="tableinfo">Configurazione lavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Compreso</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Huffyuv</td>
+<td bgcolor="#ddddff" class="tableinfo">YV12 Huffyuv, non compatibile con Windows</td>
+<td bgcolor="#ddddff" class="tableinfo">Compreso</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/DVD/SVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Buona qualità, lento</td>
+<td bgcolor="#ddddff" class="tableinfo">mjpegtools</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Veloce, scarso, configurazione lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Compreso</td>
+		</tr>
+		</table>
+		Configurazione lavcodec significa che è necessario selezionare lavcodec (ffmpeg) come codec di uscita e configurarlo da lì.
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Codec audio</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Nome</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Commento</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Dipendenze</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Uncompressed</td>
+<td bgcolor="#ddddff" class="tableinfo">Voluminoso</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
+<td bgcolor="#ddddff" class="tableinfo">Buona qualità, solo CBR</td>
+<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">Solo CBR, compatibile?</td>
+<td bgcolor="#ddddff" class="tableinfo">Compreso (lavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">Solo CBR only, compatibile?</td>
+<td bgcolor="#ddddff" class="tableinfo">Compreso (lavcodec)</td>
+		</tr>
+
+		</table>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Formati specifici</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi </a></p>
+<ul>
+	<p>E' il formato predefinito di salvataggio. E' possibile aggiungere una seconda traccia audio CBR con <span class="code">misc-&gt;2nd audio track</span>. Può essere indifferentemente MP3 CBR o AC3.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">File Mpeg </a></p>
+<ul>
+	<p>Verrè scritto solamente un flusso elementare grezzo, .m1v o .m2v.</p>
+	<p>Per ottenere un file audio .mp2 selezionare l'encoder audio mp2, configurare l'audio come process e selezionare <span class="code">File-&gt;save audio</span>.
+	</p>
+	<p>Infine utilizzare mplex o tcmplex per effettuare il multiplex dei due file ed ottenere un .mpg valido.
+	</p>
+	<p>L'esportazione XVCD utilizza l'encoder e la configurazione lavcodec. per cvonfigurarlo selezionare il codec d'uscita FFmpeg ed utilizzare il menu <span class="code">configure video codec</span>. Altamente sperimentale.
+	</p>
+	<p>I frame video Mpeg sono visti internamente come enormi frames
+	YV12 non compressi. Perciò assicurarsi sempre di codificarli
+	prima di salvarli o di utilizzare il salvataggio in forma
+	grezza; NON salvare avi in modalità copia.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Raw (Grezzo) </a></p>
+<ul>
+	<p>
+	Disponibile in due forme: per l'audio scegliere il menu <span class="code">File-&gt;save audio</span>. Salverà solamente l'audio (processato/codificato o meno).
+	</p>
+	<p>Per il video utilizzare <span class="code">File -&gt;save raw</span>. E' utile per tagliare file mpeg o salvare video stripped, per esempio h263 grezzi o flussi mp4.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Vstupní formáty</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Vstupní formáty</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Formáty souborů</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Formát</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Omezení</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AVI</td>
+<td bgcolor="#ddddff" class="tableinfo">Žádné, podporováno je více zvukových stop</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Elementary stream nebo program stream (včetně VOB)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">NuppelVideo</td>
+<td bgcolor="#ddddff" class="tableinfo">Původní/nuppel_gatos/MythTV/FFV1rec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Obrázky</td>
+<td bgcolor="#ddddff" class="tableinfo">Sada obrázků BMP nebo JPEG, pojmenovaných im0001.bmp im0002.bmp...</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H.263(+)</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw H.263(+) video stream</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-4</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw MPEG-4 video stream (nekompletní)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MOV/3GPP/MPEG-4</td>
+<td bgcolor="#ddddff" class="tableinfo">Jednoduchý 3GPP/MP4/MOV soubor. Komprimované hlavičky nejsou podporovány</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">OGM</td>
+<td bgcolor="#ddddff" class="tableinfo">Podporován je pouze zvuk ve formátu Ogg Vorbis, včetně více zvukových stop</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Video kodeky</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Poznámka</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Závislost</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DivX, XviD</td>
+<td bgcolor="#ddddff" class="tableinfo">3.11, 4, 5 s B-frames i bez</td>
+<td bgcolor="#ddddff" class="tableinfo">libavcodec (vestavěný)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VP3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MPEG-1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Založený na libmpeg2</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MJPEG</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">HuffYUV</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMV2</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H.263</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MSMP4V2</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">SVQ3</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw RGB</td>
+<td bgcolor="#ddddff" class="tableinfo">Interní</td>	<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>		
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">DV typ ?</td>
+<td bgcolor="#ddddff" class="tableinfo">Používá libavcodec</td>		<td bgcolor="#ddddff" class="tableinfo">Vestavěný</td>
+		</tr>
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Audio kodeky</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Název</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Poznámka</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Závislost</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Nekomprimovaný</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3/2</td>
+<td bgcolor="#ddddff" class="tableinfo">CBR/ABR/...</td>
+<td bgcolor="#ddddff" class="tableinfo">MAD</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">a52dec</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">WMA</td>
+<td bgcolor="#ddddff" class="tableinfo">Většinou funkční</td>
+<td bgcolor="#ddddff" class="tableinfo">Vestavěný (libavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Vorbis</td>
+<td bgcolor="#ddddff" class="tableinfo">Většinou funkční</td>
+<td bgcolor="#ddddff" class="tableinfo">libvorbis, pouze v souborech OGM</td>
+		</tr>
+		
+		</table>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Problémy</p>
+<p class="secthead"><a name="doc_chap4_sect1">Problem decompressing frame </a></p>
+<ul>
+	<p>
+	Tato hláška znamená buď že kodek vrátil chybu, nebo že Avidemux nemohl najít patřičný video kodek.
+	</p>
+<p>
+	I tak můžete zpracovat zvuk a uložit AVI soubor, ale nemůžete zpracovávat obraz.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Save(A+V) will generate bad AVI Save audio will work </a></p>
+<ul>
+	<p>
+	Stejná hláška pro audio. Audio kodek nebyl nalezen (program nebyl zkompilován s jeho podporou nebo je to neznámý kodek).
+	</p>
+	<p> Můžete stříhat a uložit AVI soubor, ale bez zpracování zvuku.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Po uložení je zvuk plný šumu (WMA) </a></p>
+<ul>
+	<p>
+	WMA vyžaduje vlastní nastavení multiplexace. Podívejte se na hodnotu blockalign na konzoli (obvykle 373 nebo 768).</p>
+	<p>Zadejte tuto hodnotu jako with n bytes packet v <span class="code">File-&gt;Set mux options</span>.
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap5">5.</a></span>Specifika formátů</p>
+<p class="secthead"><a name="doc_chap5_sect1">Soubory MPEG </a></p>
+<ul>
+	<p>Avidemux nemůže přímo načíst MPEG soubory. Načte však indexovaný MPEG.
+	Tento index je textový soubor obsahující navigační informace. Je to potřeba pro přesnost na snímky.</p>
+	<p>
+	Takže použijte buď <span class="code">Misc-&gt;Index MPEG</span> nebo přímo otevřete MPEG.
+	Ve druhém případě budete přesměrováni na dialog MPEG Indexer s předvyplněnými položkami. Až se vytvoří index, bude znovu otevřen.
+	</p>
+	<p>
+	Pokud se vybraný soubor jmenuje soubor1.xxx, Avidemux se pokusí připojit soubor2.xxx, soubor3.xxx,...
+	To se děje automaticky, ale název souboru musí být *[0-9].xxx.
+	</p>
+	<p>
+	Avidemux zvládá jeden (a pouze jeden) audio stream z MPEGu. Ten je označen svým MPEG (sub)stream ID.
+	</p>
+	<p>Je to C0-C7 pro MPEG audio (.mpg, VCD,...), A0-A7 pro PCM audio, a 0-7 pro AC3 audio.
+	</p>
+	<p>Takže když chcete druhou AC3 stopu za svého MPEG souboru, zadejte <span class="code">1</span>.
+	</p>
+	<p>Samozřejmě potřebujete příslušný audio kodek pokud chcete zvuk přehrát (MAD nebo a52dec).</p>
+	<p> Pomocí volby <span class="code">Scan file for audio stream</span> můžete nechat Avidemux autodetekovat zvukové stopy, což může chvíli trvat.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect2">NuppelVideo </a></p>
+<ul>
+	<p>
+	Stejně jako MPEG i soubor ve formátu NuppelVideo neobsahuje index.
+	</p>
+<p>
+	Avidemux jej automaticky sestaví při načítání (to nějakou dobu potrvá).
+	</p>
+<p>
+	Avidemux se bude snažit udržet synchronizaci obrazu a zvuku, což ale může čas od času způsobit drobné "přeskočení" ve zvuku.
+	Z osobní zkušenosti můžu říct, že je to celkem dobré (zkusil jsem osmihodinový nuppel_gatos soubor, bez problémů).
+	</p>
+	<p> Pokud jste soubor otevřeli z grafického prostředí programu (a ne z příkazové řádky), budete při načtení vyzváni k uložení indexu.
+	Kliknete-li na Yes a uložíte jej, můžete později tento index použít k velmi rychlému načtení téhož souboru.
+	</p>
+	<p>Pro uživatele MythTV s kartou WinTV PVR x50 nebo podobnou jsou nuv soubory ve skutečnosti obyčejný MPEG, viz výše.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect3">WMV2 video </a></p>
+<ul>
+	<p>
+	I když Avidemux umí otevřít obsah WMV2 souborů (formát Windows Media Player 7.x/8.x), video data musí být obsažena v kontejneru AVI.
+	</p>
+	<p>
+	K jeho vytvoření můžete použít MEncoder v režimu copy, např.: mencoder [wmv soubor] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi soubor]
+	</p>
+	<p>
+	Momentálně také musíte nastavit výstupní snímkovou frekvenci na 100.0 fps, jinak vám potom při editaci bude vypadávat spousta snímků.
+	</p>
+	<p>
+	Po vytvoření výstupního souboru jej můžete otevřít v Avidemuxu pro editaci.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap5_sect4">Sada obrázků BMP/JPEG </a></p>
+<ul>
+	<p>
+	Avidemux také umí otevřít sekvenci z BMP souborů (RGB) nebo sadu souborů JPEG.
+	</p>
+<p>
+	Musejí být pojmenovány xx0000.bmp xx00001.bmp (tedy m písmen + n čísel + .bmp). Pro JPEG je to přípona jpg.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Audio</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Audio
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Režim Process/Copy</title>
+<section>
+	<title>Režim Copy</title>
+
+	<body>
+	<ul>
+	<p>V tomto režimu Avidemux pouze zkopíruje zdrojový zvuk (externí/AVI/...) do výstupu. Používá se například když jen stříháte AVI soubor nebo měníte zvukovou stopu. To platí i pro MPEG kódování/překódování/rekvantizaci.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Režim Process</title>
+
+	<body>
+	<ul>
+	<p>Avidemux nejdříve dekomprimuje zvuk, poté aplikuje filtry, jsou-li nějaké použity. Pokud žádný filtr nenastavíte, výsledným formátem zvuku bude nekomprimovaný WAV.
+	</p>
+	<p>Abyste jej mohli používat, musíte mít nainstalovaný příslušný kodek. Viz <uri link="input.xml.html">vstupní formáty a kodeky</uri>.
+	</p>
+	<p>Při použití <c>Audio->Save Audio</c> je zvuk uložen v závislosti na vybraném režimu. Pokud je nastaven na Copy, pouze se uloží neupravený soubor AC3/MP3/WMA... V režimu Process bude zvuk nejdříve zpracován a poté uložen.
+	</p>
+	<p>Takto můžete například zakódovat zvuk v MP2 formátu k přípravě Video CD. Výsledkem budou soubory .m1v (video elementary stream) a .mp2.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtry</title>
+<section>
+	<title>Normalize</title>
+	<body>
+	<ul>
+	<p>Tento filtr provede lineární normalizaci zvuku. Vhodné když je nízká celková hlasitost (např. ve zvukové stopě v AC3).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Convert to 44.1 kHz</title>
+	<body>
+	<ul>
+	<p>Konverze 48->44.1 kHz. Pokud vstupní frekvence není 48 kHz, filtr nedělá nic.
+	</p>
+	<p>Založeno na wavefs44, vypůjčeném z DVD2AVI.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Time shift</title>
+	<body>
+	<ul>
+	<p>Časový posun zvuku, odstraní začátek nebo vytvoří nový zvuk duplikací. Zadaná hodnota určuje časový posun v milisekundách.
+	</p>
+	<p>Je to <b>jediný filtr který funguje i v režimu Copy</b>. Velmi šikovný k nápravě špatné synchronizace zvuku a obrazu v AVI nebo MPEG souborech.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Resample to </title>
+	<body>
+	<ul>
+	<p>Převzorkuje audio na požadovanou frekvenci. Je rychlejší než 48->44.1, ale kvalita může být horší. Je založen na lehce modifikovaném jádru sox.
+	</p>	
+	</ul>
+	</body>
+</section>
+
+<section>
+	<title>PAL->Film a Film->PAL </title>
+	<body>
+	<ul>
+	<p>Pokud chcete upravit video a změnit jeho snímkovou frekvenci z 23.976 (FILM) na 25 (PAL), musíte použít audio filtr Film->PAL, aby se zachovala synchronizace obrazu a zvuku. Opakem je PAL->Film.
+	</p>	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Kódovací filtry</title>
+<body>
+<p>
+Tyto filtry jsou stejné jako normální filtry, ale produkují komprimovaný zvuk.
+</p><p>
+</p>
+</body>
+<section>
+	<title>Uncompressed</title>
+	<body>
+	<ul>
+	<p>Nedělá nic, výstupem je PCM WAV. Vhodný např. ke konverzi MP3->WAV.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MP3</title>
+	<body>
+	<ul>
+	<p> Založeno na liblame. Zvolíte si bitrate a režim joint stereo nebo stereo. Mono se nastaví automaticky, je-li zdroj mono.
+	</p>
+	<p> Kóduje pouze v CBR módu. Jestli chcete variabilní bitrate (VBR), použijte raději LAME z příkazového řádku a výsledný MP3 soubor nastavte jako audio stopu. Nezapomeňte si přečíst sekci <uri link="./vbrmp3.xml.html">VBR MP3</uri>, jinak budete mít problémy... 
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FFmpeg MPEG audio</title>
+	<body>
+	<ul>
+	<p>Toto je MPEG audio enkodér z knihovny libavcodec.
+	</p>
+	<p>Kóduje pouze v CBR módu (a bez joint sterea, přestože je v dialogovém okně k dispozici). Je vyhlášen za vhodný pro použití na DVD audio stopy.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>FFmpeg AC3</title>
+	<body>
+	<ul>
+	<p>Taky z libavcodecu.
+	</p>
+	<p>Kóduje stereo AC3 soubory. Akceptovatelnost hardwarovými dekodéry nevyzkoušena.	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>tooLAME (interní)</title>
+	<body>
+	<ul>
+	<p>Používá pre-verzi tooLAME která je knihovnou, a tudíž přímo použitelná pro Avidemux bez rour.
+	</p>
+	<p>Od verze 2.0.24 je vhodný pro použití jako VCD/DVD audio stopa.</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Příklad použití</title>
+<section>
+	<title>AVI se zvukem ve WMA</title>
+	<body>
+	<ul>
+	<p>Řekněme, že máte AVI soubor s WMA zvukem, který chcete převést do MP3.
+	</p>
+	<p>Otevřete jej, nechte video režim na Copy, protože obraz nebudeme měnit.
+	</p>
+	<p>Nastavte audio režim na Process a po kliknutí na tlačítko A Codec zvolte MP3 kodek.
+	</p>
+	<p>Tlačítko Configure codec otevře konfigurační dialog kodeku, zde nastavte 128 kbps Joint Stereo.
+	</p>
+	<p><c>File->Save Video</c> - a právě jste úspěšně zkonvertovali zvuk.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Převod AVI s 44.1 kHz MP3 zvukem na DVD</title>
+	<body>
+	<ul>
+	<p>V takovém případě zvolíme režim Process, Resample to 48 kHz a FFmpeg MPEG audio.
+	</p>
+	<p>Audio stopa bude nejdřív dekomprimována do PCM, poté převzorkována na 48 kHz a konečně zkomprimována na MPEG audio.
+	</p>
+	<p>Můžete použít <c>Audio->Save Audio</c> k získání .mp2 souboru, nebo <c>File->Save as DVD PS</c> k přímému uložení jako MPEG obsahující audio i video. Tento MPEG je vhodný k přímému vytvoření DVD.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

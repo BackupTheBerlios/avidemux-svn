@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Installer Avidemux</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Instructions simples pour installer Avidemux
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Paquetages nécessaires</title>
+<section>
+	<body>
+		<p>Il vous faudra une machine avec une architecture Unix, de préférence x86. Avidemux peut également fonctionner dans ue certaine mesure sur Sparc et Mac</p>
+		<table width="100%" border="1">
+		<tr>
+			<th>Paquetage</th><th>Commentaire</th>
+		</tr>	
+		<tr>
+			<ti>Gtk+ et glib 2.x</ti><ti> et pkg-config (correctement configuré !)</ti>
+		</tr>
+		<tr>
+			<ti>libmad</ti><ti> Il est facultatif, mais faites-moi confiance, vous voudrez l'avoir !</ti>
+		</tr>
+		<tr>
+			<ti>libxml2</ti><ti> Sert aux descriptions des filtres et à ~/.avidemuxrc</ti>
+		</tr>		
+		<tr>
+			<ti>nasm (pour x86)</ti><ti> Si vous vous intéressez aux VCD/SVCD/... sur x86, vous voudrez l'avoir ! (5 fois plus rapide)</ti>
+		</tr>
+		</table>		
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Paquetages facultatifs</title>
+<section>
+		<title>Paquetages audio</title>
+	<body>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Version</th><th>Fonction</th><th>Site</th>
+		</tr>
+		<tr>
+			<ti>libMad</ti><ti>0.14.2b</ti><ti>Décodeur audio Mpeg 1/2/3</ti>
+			<ti><uri>http://mad.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>a52dec</ti><ti>0.7.4</ti><ti>Décodeur AC3</ti><ti><uri>http://liba52.sf.net</uri></ti>
+		</tr>
+		<tr>
+			<ti>liblame</ti><ti>3.9x</ti><ti>Encodeur MP3</ti><ti><uri>http://www.mp3dev.org/mp3</uri></ti>
+		</tr>
+		</table>
+	</body>
+</section>
+<section>
+		<title>Paquetages vidéo</title>
+	<body>
+	<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Version</th><th>Fonction</th><th>Site</th>
+		</tr>
+		
+		<tr>
+			<ti>Xvid</ti><ti>0.9</ti><ti>Encodeur Mpeg4</ti>
+			<ti><uri>http://www.xvid.org</uri></ti>
+		</tr>
+		
+	</table>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Installation</title>
+<section>
+	<body>
+	<p>Elle est assez évidente.</p>
+	<p><c>./configure </c></p>
+	<p>Portez une attention toute particulière aux derniers messages qui s'affichent :  ils récapitulent ce qui a été détecté. Pour moi, ils ressemblent à ceci :
+	<pre>nasm found : /usr/bin/nasm
+MMX is ON
+cpu done
+ GTK+ version        : 2.2.4
+ Divx5.0.5 ?         : yes
+ *** DISABLED ***
+ Xvid  Codec         : yes
+ Mad decoder         : yes
+ OSS                 : yes
+ ALSA                : yes
+ Xvideo              : yes
+ Lame                : yes
+ Ogg Vorbis          : yes
+ A52/AC3             : yes
+ FFMPEG              : yes
+ ARTS                : yes
+ FreeType            : yes
+ XML2                : yes
+ Toolame             : /usr/local/bin/toolame
+ Lame                : /usr/bin/lame
+ locale              : ${prefix}/share/locale
+ Little endian cpu   : yes
+
+	</pre>
+	</p>
+	<p>Si vous pensez qu'il vous manque quelque chose, vérifiez que vous avez également installé le paquetage -dev.
+	</p>
+	<p>La commande configure créera également la bibliothèque lavcodec.</p>
+
+	<p>Une fois cette commande achevée, faites <c>make </c> puis  <c>make install </c>.
+	Un paquetage de traductions (un début d'internationalisation) s'installe également.</p>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Problèmes d'installation courants</title>
+<section>
+	<title>Echecs lors de la compilation</title>
+	<body>
+	<p>La compilation échoue parce qu'il est impossible d'ouvrir gtkxxx. Cela veut généralement dire que pkg-config/gtk+/glib n'est pas installé ou pas configuré.
+	</p>
+	</body>
+</section>
+<section>
+	<title>Elle échoue parce qu'il est impossible de lier jpeg mmx</title>
+	<body>
+	Regardez le fichier /usr/lib/liblavjpeg.la (ou dans /usr/local/lib)
+	Si vous trouvez :
+	<pre>
+		dependency_libs=' -L/usr/src/redhat/BUILD/mjpegtools-1.6.0/jpeg-mmx -ljpeg-mmx'
+	</pre>
+	modifiez-le en
+	<pre>
+		dependency_libs=''
+	</pre>
+
+	Merci à Jens pour ce point, qui intéressera beaucoup d'utilisateurs RedHat et Suse.
+
+	</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Vidéo: luminance et chrominance</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Vidéo: filtres de luminance/chrominance
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Les filtres de cette famille jouent sur la luminance ou la chrominance.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtres de luminance/chrominance</title>
+<section>
+	<title>Swap u / v </title>
+	<body>
+	<ul>
+	<p>On constate parfois une inversion visible des plans de chrominances, par exemple avec une carte d'acquisition vidéo défectueuse.
+	Ce filtre permet de les remettre dans le bon ordre. Par exemple, dans cette image u/v sont inversés :
+	</p>
+	<p><img src="../image_tuto/swapuv2.png"></img></p>
+
+	<p>En appliquant le filtre swap u/v, vous obtenez ceci, qui correspond à l'image correcte :</p>
+	<p><img src="../image_tuto/swapuv1.png"></img></p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Contrast </title>
+	<body>
+	<ul>
+	<p>Ce filtre modifie de façon linéaire le contraste et la luminosité sur la luminance ou les valeurs u/v de chrominance.
+	</p>
+	<p>Il peut être utile pour corriger une vidéo trop claire, trop sombre, trop rouge ou trop bleue.
+	</p>
+	<p><img src="../image_tuto/contrast.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Luma/chroma only </title>
+	<body>
+	<ul>
+	<p>Ces filtres ne sont utiles qu'à des fins de débogage. Ils ne conservent qu'une seule composante (luminance/u/v).
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

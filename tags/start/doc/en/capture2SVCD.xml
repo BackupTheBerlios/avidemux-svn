@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide >
+<title>Capturing to SVCD tutorial, by Jens</title>
+<author title="JSC"><mail link="">
+JSC</mail>
+</author>
+
+<abstract>
+Capturing and exporting to SVCD, by Jens</abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Capturing</title>
+
+
+<section>
+<title>Preamble</title>
+<body>
+<p>
+I bought a Pinnacle PCTV pro which should be able to capture a software encoded MPEG2-stream in DVD quality. There is a audio cable from the TV card into the soundcard 
+- external or internal.
+</p>
+ <p>
+ To capture under Linux i found Roman Hochleitner's <uri link="http://frost.htu.tuwien.ac.at/%7Eroman/nuppelvideo/">NuppelVideo</uri> 
+really useful. The important thing on it is the output of copied frames. A
+copied frame is generated from the previous frame, if the actual frame (from
+video) is lost. This is needed to keep audio in sync. On the end of the capturing
+process you will see, what you got. If you have zero, one or two copied frames,
+you have a excellent source for the next steps. If you have many copied frames
+(often many of them come together), you have problems with your hardware
+or worked too hard on your OS while capturing ;-)
+</p>
+ <p>
+ To use this feature you need to apply two extra options to the bttv module 
+in the kernel. You can do that through the file /etc/modules.conf
+</p>
+<ul><pre>
+
+###
+### Video
+###
+options bttv fieldnr=1 gbuffers=2
+alias char-major-81 bttv
+</pre></ul>
+<p>
+ The record program nuvrec will generate one or more output files, each of 
+2 GB size. Cause i find this not very handy, i've written this <uri link="NuppelVideo-jsc2G.patch">patch</uri>. With argument "-2" you will get 
+the original behaviour, without this argument the output will be one big file.
+ </p>
+ <p>
+ nuvrec will write out a RTJPEG compressed audio/video stream - it's the
+smaller brother of the MJPEG format. You have to choose a channel with some
+other program (i.e. with xawtv), end this program and start nuvrec. The quality 
+over the coax cable is not really good. So i use the composite video input 
+on my TV card and the line in on my ;Ensoniq ES1371 sound card. To get 
+the same audio profile each time, i have created a special file for that.
+ </p>
+ </body>
+ </section>
+
+ 
+ 
+ <section>
+ <title>
+ Capturing sequence
+ </title>
+<body>
+<p>
+Depending on your sound system, you may want to comment out the OSS/kernel part
+and uncomment the Alsa one.
+<ul><pre>
+# save current audio profile
+#/usr/sbin/alsactl -f /tmp/audio_profile store  # for ALSA sound
+/usr/bin/aumix     -f /tmp/audio_profile -S     # for kernel sound driver
+# load video capture audio profile
+#
+#/usr/sbin/alsactl -f /etc/asound.composite_video restore       # ALSA
+/usr/bin/aumix     -f /etc/<uri link="aumix.composite_video">aumix.composite_video</uri> -L &gt;/dev/null  
+# kernel
+# capture
+nuvrec -H 576 -W 720 -a 32768 -N -S 1 video.nuv
+# -H 576 -W 720 for DVD quality - use good values here, your video will never be
+#               better than the source
+# -a 32768      for 50% audio volume - there are 2 stages:
+#                1. this volume level goes out to LINE OUT over the internal/external
+#                   audio cable to the soundcard
+#                2. the capture volume in the soundcard is set by our audio profile
+#                   above
+#               cause i have a direct cable from VHS to my audio card, this value
+#               has no effect for me
+# -N            no (lzo) compression
+# -S 1          Video source: 0 coax cable
+#                             1 composite video
+# restore the audio profile
+#
+#/usr/sbin/alsactl -f /tmp/audio_profile restore       
+# ALSA
+/usr/bin/aumix     -f /tmp/audio_profile -L &gt;/dev/null  
+# kernel
+# clean up
+rm -f /tmp/audio_profile
+</pre></ul>
+</p>
+</body>
+</section>
+
+<section>
+ <title>
+ Capturing sequence with ffv1rec
+ </title>
+<body>
+	<p>Alternatively, if you have a fast cpu, you can use <uri link="./ffv1rec.xml.html">ffv1rec</uri>, which gives better picture with a smaller size at the cost of a much higher CPU consumption.
+	</p>
+	<p>The previous chaper basics still applies as the generated stream is a modified nuv file.
+	</p>
+</body>
+</section>
+</chapter>
+
+
+
+<chapter>
+<title>Encode to Mpeg2/SVCD</title>
+<body>
+<p>
+ 	The aim of this paragraph is to proper a <uri link="./edl.xml.html">edl/project</uri> file containing
+	the original captured file, with all commercials removed and video cleaned up as much as possible.
+</p>
+</body>
+<section>
+<title>Generate an index</title>
+<body>
+<p>First we will create an index of the file to allow fast reloading later.</p><p>
+Open the file <c>File-&gt; Open video</c> : <i>video.nuv</i>. Upon loading completion, you will be prompted
+to save an index : video.nuv.idx</p><p>
+Reload the generated index</p>
+   
+</body>
+</section>
+
+<section>
+<title>Commercials removal</title>
+<body>
+	<p>
+	For each unwanted part, set the markA at the beginning of the part you want to remove by pressing <img src="../images/marka.png">markA</img>, then go the first frame <b>after</b> the last frame of the commercial and press <img src="../images/markb.png">markB</img>.
+	</p><p>
+	That selects an area for action [markA,markB[.
+	</p><p>
+	Press <c>CTRL+X</c>. And repeat to remove beginning/ ending crap and all commercials.
+	</p><p>
+	When satisfied with the result, save the edl file by using the <c>Edit ->save edit list </c> menu.
+	 For example, video.edl.
+	 </p><p>
+	 Now we have an <uri link="./edl.xml.html">edl</uri> file containing only the interesting part of the video.
+	</p>
+   
+  </body>
+ </section>
+
+
+<section>
+<title>Encode audio with avidemux:</title>
+<body>
+
+	<p>Reload the edl, and set the audio filters using the 
+	<img src="../images/bafilter.png">bafilter</img></p>
+	<p>
+	Select Normalize WAV, we wish to have all SVCD's with the same base volume.
+	</p><p>
+	Don't forget to press the <img src="../images/baprocess.png">process</img>.
+	</p><p>
+	Finally, don't forget to select a codec, in our case we want to have mpeg audio.
+	So press the audio codec, and select <c>FFmpeg mpeg audio</c> and configure.
+	For example, 224 kbits stereo.
+	</p>
+	Last step: encoding! . <c>File->save audio</c> : video.mp2.
+	
+	Alternatively, you could use the internal toolame library, the quality is generally better.	
+
+</body>
+</section>
+
+
+<section>
+<title>Encode video with avidemux</title>
+<body>
+<p> 
+	The first step is to reload the workbench :<c>Edit->Load Edit List</c>.
+</p>
+<p>	We will crop the video, apply some <uri link="./video.xml.html">filters</uri> and resize the video to SVCD.
+</p>
+<p>	Let's go to the filter chain, either by using <c>F1</c> or <img src="../images/bvfilter.png"></img>. 
+</p>
+<p>The first filter will be crop to remove black borders or flickering part, don't hesitate to cut deep. Noise will make the encoding harder and drop the quality</p>	
+<p>	You may also want to deinterlace the movie. Depending if you use Pal or NTSC and the source you may want Deinterlace, Pal Smart, ivtc .... Try them using the preview and pick the one you prefer.</p>
+	
+<p> When happy, click the <c>SVCD Res</c> button to resize it to 480*xxx. 
+<warning>The source is considered as being 1:1, do it manually if it is not the case</warning>   
+</p>
+
+<p>Last step : encoding.</p>
+<p>Select video codec, SVCD and configure. If you have plenty of time, select 2 pass, else CQ = 7 for example.</p>
+<p>In both cases set the max bitrate to 2300 to be within SVCD specs. Don't forget to set video mode to process!</p>
+
+<p><c>File / save video</c>: video.m2v</p>
+   
+ 
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Multiplex audio and video </title>
+<section>
+<body>
+<p>
+ There are two programs to do that:
+ 
+<ul>
+   <li>mplex from mjpegtools package</li>
+   <li>tcmplex from transcode package
+   </li>
+</ul>
+ cause i had mjpegtools installed, i used that.
+ 
+<ul><pre>$ mplex -f 4 -V -s 2324 -p 1 -o video.mpg video.mp2 video.m2v</pre></ul>
+ if you have transcode installed, you can try:
+ 
+<ul><pre>$ tcmplex -i video.m2v -p video.mp2 -o video.mpg -m s </pre></ul>
+</p>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Build SVCD image</title>
+<section>
+<body>
+<p>
+ You cannot write the files directly to the CD-R. To build a compliant SVCD 
+you should use vcdimager:
+ 
+<ul><pre>$ vcdimager -t svcd video.mpg  
+INFO: scanning mpeg track #0 for scanpoints...   
+INFO: writing track 1 (ISO9660)...   
+INFO: writing track 2, MPEG2, PAL S (480x576/25fps), 1 audio stream...
+finished ok, image created with 1023 sectors (2406096 bytes)
+</pre></ul>
+ if you get:
+ 
+<ul><pre>$ vcdimager -t svcd video.mpg
+INFO: scanning mpeg track #0 for scanpoints...
+vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highest (obj-&gt;iso_bitmap) + 1 == 225' failed.Aborted (core dumped)
+</pre></ul>
+ then you should use tcmplex for multiplexing <b>or</b> vcdimager with version 
+&gt;= 0.7
+ 
+ <b>The future:
+ </b>
+ vcdimager also contain two tools named vcdxgen and vcdxbuild. 
+   
+<ul><pre>$;./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
+(Super) VideoCD xml description created successfully as `videocd.xml'
+$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild videocd.xml
+++ WARN: initializing libvcd 0.7.13 [linux-gnu/i686]
+++ WARN:  
+++ WARN:  this is the UNSTABLE development branch!
+++ WARN:  use only if you know what you are doing
+++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information++ 
+WARN:     INFO: scanning mpeg sequence item #0 for scanpoints...   
+INFO: writing track 1 (ISO9660)...   
+INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/224kbps/stereo ...   
+INFO: finished ok, image created with 1173 sectors [00:15.48]
+</pre></ul>
+  </p>
+  </body>
+ </section>
+ </chapter>
+ <chapter>
+ <title>Burning the image</title>
+ <section>
+<body>
+<ul><pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue</pre></ul>
+Of course replace sg0 by your actual cd-writer device.
+</body>
+</section></chapter>
+<chapter>
+<title>Extracting back the Mpeg file</title>
+<section>
+<body>
+ Sometimes you may need the "original" MPEG files back from SVCD.
+ 
+ From the Hard Disc:
+ 
+<ul><pre>$ vcdrip --rip -b videocd.bin
+INFO: avseq01.mpg: 450 -&gt; 1023</pre></ul>
+ From the CD-R:
+ 
+<ul><pre>$ vcdrip --rip --cdrom-device=/dev/scd0
+INFO: avseq01.mpg: 450 -&gt; 1260</pre></ul>
+ 
+ </body> 
+</section>
+</chapter>
+<chapter>
+<title>Final words</title>
+<section>
+<body>
+ If you have problems with the resulting SVCD, you may want to try one of these :
+ <ul>
+ <li>Try vcdimager demo  <uri link="http://www.vcdimager.org/pub/vcdimager/examples/test_svcd/">image</uri></li>
+ <li>Use mplex / or tcmplex </li>
+ <li>vcdimager options : </li>
+ <pre>
+     with option --broken-svcd-mode
+     with option --nopbc
+     with option --broken-svcd-mode --update-scan-offsets --nopbc</pre></ul>
+ </body> 
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>L'interfaccia grafica</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+L'interfaccia grafica
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Barra degli strumenti</title>
+<section>
+	<body><ul>
+		<p> <img src="../images/bar.png"></img>
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Play</title>
+	<body><ul>
+		<p> <img src="../images/bplay.png"></img>
+		Premere una volta per avviare la riproduzione, una seconda per fermarla.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pause</title>
+	<body><ul>
+		<p> <img src="../images/bpause.png"></img>
+		Premere per fermare la riproduzione 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous frame</title>
+	<body><ul>
+		<p> <img src="../images/bpframe.png"></img>
+		Premere per tornare al frame precedente. L'operazione può richiedere parecchi secondi in quanto avidemux deve tornare al precedente I-frame.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next frame</title>
+	<body><ul>
+		<p> <img src="../images/bnframe.png"></img>
+		Premere per andare al frame successivo. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Previous Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bpkframe.png"></img>
+			Premere per tornare al frame intermedio precedente (keyframe). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Next Intra-frame</title>
+	<body><ul>
+		<p> <img src="../images/bnkframe.png"></img>
+				Premere per tornare al frame intermedio successivo (keyframe). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker A</title>
+	<body><ul>
+		<p> <img src="../images/marka.png"></img>
+			Premere per inserire il marcatore A (vedere <uri link="cutting.xml.html">Operazioni di taglio</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Set marker B</title>
+	<body><ul>
+		<p> <img src="../images/markb.png"></img>
+		Premere per inserire il marcatore B (vedere <uri link="cutting.xml.html">Operazioni di taglio</uri>). 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the beginning</title>
+	<body><ul>
+		<p> <img src="../images/bbegin.png"></img>
+			Premere per tornare al primo frame. 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Go to the end</title>
+	<body><ul>
+		<p> <img src="../images/bend.png"></img>
+			Premere per andare all'ultimo frame.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Audio source</title>
+	<body><ul>
+		<p> <img src="../images/baudio.png"></img>
+			Questa finestra indica quale è la sorgente audio attiva
+			(avi/wav esterno/MP3 esterno..) 
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pulsante Preview</title>
+	<body><ul>
+		<p> <img src="../images/bpreview.png"></img>
+			Premere il pulsante per aprire una nuova finestra che offrirà l'anteprima dei filtri applicati. Navigando nella finestra principale, l'anteprima verrà aggiornata di conseguenza.
+
+		</p>
+		<p>Questa funzione di anteprima è terribilmente lenta.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Pulsante Output</title>
+	<body><ul>
+		<p> <img src="../images/boutput.png"></img>
+		Se premuto, nella finestra principale verrà visualizzato durante la riproduzione (e solo durante di essa) il filmato con i filtri applicati.
+		</p>
+		<p>E' un metodo di visualizzazione veloce e nella maggioranza dei casi con effetto di tempo reale. 
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

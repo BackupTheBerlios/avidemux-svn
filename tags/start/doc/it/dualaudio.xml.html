@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Traccia audio Dual</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Traccia audio Dual</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Avviso</p>
+<ul>
+		<p>Avidemux è in grado di operare internamente solo su
+		una traccia audio.
+		</p>
+		<p>Tuttavia vi è un modo per aggiungere una seconda
+		traccia audio, anche se con supporto limitato e senza
+		poter essere processata.
+		</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Aggiungere una seconda traccia audio</p>
+<p class="secthead"><a name="doc_chap2_sect1">Restrizioni </a></p>
+<ul>
+		<p>La seconda traccia audio deve essere in CBR, sia essa MP3 o AC3. Punto.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Menu </a></p>
+<ul>
+		<p>Per aggiungere una seconda traccia audio utilizzare
+		il menu <span class="code">Misc-&gt;Second Track-&gt;xxxx</span>. Dopo aver selezionato il file, utilizzare l'opzione <span class="code">File -&gt; Dual audio avi</span> invece di <span class="code">File -&gt; save avi</span>. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Tagliare un avi con dual audio </a></p>
+<ul>
+		<p>Dato che Avidemux non è in grado di operare internamente su più di un flusso audio, dovremo aggirare questo problema.
+		</p>
+		<p>Aprire il file avi, quando richiesto selezionare la seconda traccia audio.
+		</p>
+		<p>Posizionare i marcatori A e B e selezionare il menu <span class="code">File -&gt; save audio</span> digitando per esempio /tmp/track11.mp3. 
+		</p>
+		<p>Riaprire lo stesso file avi, ma stavolta selezionare la prima traccia audio. 
+		</p>
+		<p>Tagliare e salvare come /tmp/avi1.avi. 
+		</p>
+		<p>Ricaricare l'ultimo file salvato ed aggiungere /tmp/track11.mp3come seconda traccia. Salvare con il menu  <span class="code">File -&gt; Dual audio avi</span>. 
+		</p>
+		<p>  Ripetere per ogni spezzone.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Vidéo</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Vidéo</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avant-propos</p>
+	<ul>
+	<p>Cette catégorie de filtres concerne les vidéos entrelacées.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtres d'entrelacement</p>
+<p class="secthead"><a name="doc_chap2_sect1">Deinterlace </a></p>
+	<ul>
+	<p>Il s'agit d'un portage du filtre de Donald Graft smart-deinterlace pour YV12
+	</p>
+	<p>Il détecte si l'image est entrelacée et rend floues les parties qui le sont.
+	</p>
+	<p>Ce filtre accepte deux paramètres :
+	<ul>
+<li>Detection threshold (Seuil de détection) : Plus cette valeur est faible, plus l'entrelacement est détecté facilement. Des valeurs trop basses entraîneront un flou excessif !</li>
+	<li>Blur threshold (Seuil de flou) : Lorsque la vidéo a été identifiée comme entrelacée, les parties inférieures à ce seuil sont rendues floues. Sa valeur doit être inférieure à celle du seuil précédent.</li>
+	</ul>
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Pal Shift </a></p>
+	<ul>
+	<p>Ce filtre prend une trame dans une image et l'autre dans l'image suivante.
+	</p>
+	<p>De nombreux films (et certains DVD) sont entrelacés de cette manière.
+	</p>
+	<p>Ce filtre n'effectue aucun contrôle, alors appliquez-le, regardez ce que cela donne et si le résultat vous plaît, conservez-le.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Pal Smart </a></p>
+	<ul>
+	<p>Ce filtre est une combinaison des deux précédents.
+	</p>
+	<p>Il compare l'image courante et le traitement de celle-ci par le filtre Pal Shift, puis applique le filtre deinterlace à la moins entrelacée des deux. Comme ce filtre ne tient pas compte de la chrominance, il se peut qu'il génère de légères erreurs à ce niveau.
+	</p>
+	<p>Il est assez lent, mais très efficace sur les vidéos du bon type.
+	</p>
+	<p>Il peut également faire office d'IVTC de fortune, en reconstruisant les images progressives, mais il conserve la cadence de la vidéo à 30 ips et ne supprime pas les images en double pour atteindre 24 ips.
+	</p>
+	<p>Il s'agit d'une combinaison des deux filtres précédents. </p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Drop </a></p>
+	<ul>
+	<p>Ce filtre a été écrit par Ron Reithoffer.
+	</p>
+	<p>Lorsqu'il détecte une trame trop différente de ses voisines spatiales ou temporelles (drop out VHS), ce filtre la supprime et la remplace par une valeur moyenne entre l'image suivante et l'image précédente.
+	</p>
+	<p>Selon son auteur, ce filtre doit être appliqué en premier et ne fonctionne pas très bien avec les images fortement entrelacées.
+	</p>
+	<p><img src="../image_tuto/dropout.jpg">
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">IVTC  </a></p>
+	<ul>
+	<p>Dans certains cas, pour convertir un film (24 ips) en NTSC (30 ips), on lui applique un processus telecine. Il duplique certaines trames des images de façon à obtenir une cinquième image.</p>
+	<p>  1 2 3 4 =&gt; 1 2 2 3 4
+	</p>
+	<p>  1 2 3 4 =&gt; 1 2 3 3 4
+	</p>
+	<p>
+	Lorque cela s'avère possible, il est préférable de prendre l'image progressive originale, mieux adaptée et plus facile à encoder.
+	</p>
+	<p>
+	Ce filtre adopte une approche systématique pour repérer les images originales. Il "comptabilise" les effets d'entrelacement dans chaque image et si deux images sont les plus entrelacées ET qu'elles se suivent alors il considère qu'elles sont susceptibles de convenir.
+	</p>
+	<p>Pour le moment, la première image ne doit pas être entrelacée (vérifiez ce point à la prévisualisation), sans quoi le filtre ne parviendra pas à identifier les images ayant subi un effet telecine. Ce filtre manque encore de mâturité : vous êtes prévenu !
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect6">Pulldown  </a></p>
+	<ul>
+	<p>Ce filtre convertit une vidéo de 24 ips à 30 ips en dupliquant certaines de ses trames. Il peut s'avérer pratique pour les lecteurs DVD qui ont un peu de mal avec les VCD à 24 ips.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Filtres liés aux trames</p>
+<p class="secthead"><a name="doc_chap3_sect1">Swap field  </a></p>
+	<ul>
+	<p>Il n'est pas rare que les logiciels ou les cartes d'acquisition intervertissent les trames. Cela donne alors une sorte d'effet d'entrelacement, mais sur l'ensemble de l'image, et plus seulement sur les éléments qui se déplacent</p>
+	<p>
+	Ce filtre permet de remettre les trames dans le bon ordre. Voici un exemple simple, où les trames de la première image ont été interverties :
+	</p>
+	<img src="../images/swap1.png">
+	<p>
+		Voici la sortie du filtre SwapFields :
+	</p>
+	<img src="../images/swap2.png">
+
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">Smart Swap field  </a></p>
+	<ul>
+	<p>Il n'est pas rare non plus qu'un logiciel ou une carte d'acquisition intervertisse l'ordre des trames plusieurs fois. Ce filtre essaie de détecter les endroits où ces changements se produisent pour rétablir les trames dans le bon ordre.
+	</p>
+	<p>Il est généralement recommandé de préférer ce filtre au précédent.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">Keep even field  </a></p>
+	<ul>
+	<p>Ce filtre ne conserve que les trames paires, c'est-à-dire les lignes portant un numéro pair dans les images.</p>
+	<p>Il diminue donc la résolution verticale de moitié.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">Keep odd field  </a></p>
+	<ul>
+	<p>Identique au précédent, mais pour les trames impaires.</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect5">Separate Fields  </a></p>
+	<ul>
+	<p>Ce filtre crée deux images à partir d'une image initiale, chacune conservant une trame de l'originale.
+	</p>
+	<p>Vous doublez ainsi la cadence, doublez le nombre d'images et divisez la résolution verticale par deux.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect6">Merge Fields  </a></p>
+	<ul>
+	<p>Effectue l'opération inverse du précédent.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

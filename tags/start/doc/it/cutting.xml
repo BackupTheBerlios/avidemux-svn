@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>Operazioni di taglio</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Operazioni di taglio
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Semplici operazioni di taglio</title>
+<section>
+	<title>Marcatori</title>
+	<body><ul>
+		<p>I marcatori A e B vengono usati per definire inizio e
+		fine di una sequenza.
+		</p>
+		<p>Utilizzare i pulsanti <img src="../images/marka.png"></img> e <img src="../images/markb.png"></img>.	
+		</p>
+		<p>E' possibile accedere velocemente ai punti marcati A o B utilizzando il menu <c>Markers->Go to A</c> oppure <c>Markers->Go to B</c>.
+		</p>
+		<p>La posizione dei marcatori è indicata anche nella parte bassa dello schermo
+		<img src="../images/markers.png"></img>. La cifra -1
+		indica la fine del video.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Salvataggio</title>
+	<body><ul>
+		<p>Il video con i marcatori posizionati sarà salvato tra
+		A e B compreso, vale a dire [A,B].	
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Eliminare</title>
+	<body><ul>
+		<p>
+			Il menu <c>Markers->Delete</c> eliminerà la sequenza [A,B[ dal flusso, utile ad esempio per togliere la pubblicità da un video.
+		</p>
+		<p>
+		E' possibile eliminare tutto ciò che si vuole dal flusso
+		video.
+		</p>
+		<warning>Procedendo all'eliminazione di una parte, l'audio del flusso rimarrà sincronizzato. Ciò non avviene per l'audio esterno al flusso. In altre parole, assicuratevi di tagliare flussi che contengano audio.
+		</warning>
+	</ul></body>
+</section>
+<section>
+	<title>Operazioni di taglio e frame chiave</title>
+	<body><ul>
+		<p>Quanto descritto in questo paragrafo si applica solo al video in modalità copy. In modalità process avidemux provvede internamente ad assicurare che tutto sia a posto.
+		</p>
+		<p>
+		La maggioranza dei codec video utilizza il frame
+		precedente come riferimento e codifica solo il valore
+		delta. Ad intervalli un frame completo viene codificato
+		senza riferimenti temporali ad altri frame. Questi frame
+		sono chiamati Intra frame, I-Frame o frame chiave
+		(keyframe).
+		</p>
+		<p>
+		Se si ha un flusso come questo: xxAxxIxxBxxxIxxx, e si toglie [A,B[, si finirà per avere xxOOOIxxxxx, con OOO come frame difettosi. 
+			</p><p>Perchè difettosi? perchè hanno perso i loro frame di riferimento.
+		</p>
+		<p>
+		E' possibile ovviare in due modi:
+			<ul>
+			<li>Il marcatore B è un I-frame. Nessun problema in questo caso.</li>
+			<li>Viene usata la modalità smart copy, disponibile solo per Divx3 e mpeg4, che ricodificherà la parte senza riferimenti con un quantizzatore fisso. Un valore di 4 o 5 è generalmente corretto. Il risultato finale sarà xxRRRIxxxx, dove R sono i frame ricodificati.</li>
+			</ul>
+		</p>
+
+
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Operazioni avanzate di taglio</title>
+<section>
+		<p>
+		E' possibile suddividere il video in parti di una data
+		dimensione (esempio 700 MB).
+		</p>
+	<title>Taglio automatico</title>
+	<body><ul>
+		<p>
+			Tramite il menu <c>File ->Set mux options</c> è possibile specificare una dimensione del file in megabytes.
+		</p>
+		<p>
+		Ad ogni raggiungimento di questa dimensione e di un
+		frame chiave avidemux creerà un nuovo file. Il risultato
+		saranno più file denominati foo.avi.1, foo.avi.2 etc...	
+		</p>
+		<p>
+		Dato che il nuovo file deve iniziare con un frame
+		chiave, ciò non è accurato. E' meglio adottare una
+		tolleranza di 5 megabytes.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Wizard di taglio</title>
+	<body><ul>
+		<p>
+		E' possibile utilizzare il menu <c>Misc->cut wizard</c>. Selezionare il marcatore A prima di avviare il wizard.
+		</p>
+		<p>
+		Inserire le informazioni: dimensione desiderata del
+		file, numero di tracce audio e loro bitrate (campi
+		precompilati). sarà proposto il punto dove posizionare
+		il marcatore B.
+		</p>
+		<p>Questa procedura è un pò bacata.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

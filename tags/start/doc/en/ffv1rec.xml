@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Ffv1rec</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Ffv1rec
+ </abstract>
+
+<version>1.0</version>
+<date>25 August 2003</date>
+<chapter>
+<title>History</title>
+<section>
+<title>Before ffv1rec, there was nuppel_gatos</title>
+	<body><ul>
+		<p> 
+		Last year i was using a ATI AIW 7500, with the <uri link="http://gatos.sf.net">Gatos</uri> drivers. 
+		</p>
+		<p>The problem with that card is that it does not provide the same v4l interface
+		as BT8X8 driver. So most of the capture programs simply do not work.
+		</p>
+		<p>So, out of frustration i hacked a little utility called nuppel_gatos, which was a port of nuppelrec.
+		
+		</p><p>It used the gatos driver interface to capture, plus YUV422 to YUV420P colorspace conversion.
+		</p>
+		<p>It worked nicely but the ratio size/quality was not that good. After experimenting i found that i had a cruel dilemma:
+		<ul>
+			<li>Use nuppel, but be stuck with RTjpeg format, sync perfect, size huge</li>
+			<li>Use avi, could use other codec, sync *ahem* problematic</li>
+		</ul>
+		</p>
+		<p>When i speak of sync i mean real sync. Not trick at container level to resync audio and video streams which are async when taken independently.
+		</p>
+		<p>So, i modified the nuppel_gatos to encode video using Xvid codec in interlaced mode. 
+		</p>
+	
+	</ul></body>
+</section>
+<section>
+<title>and now ffv1rec</title>
+	<body><ul>
+		<p>Some months ago, i dropped the AIW to buy a Ti4200 (i'm a bit fan of Enemy Territory :) ) and put back the Bt8x8 card.
+		</p>
+		<p>Same causes, same consequences. Plus i wanted to test ffv1, a lossless codec from <uri link="http://www.ffmpeg.org">Ffmpeg</uri>. And here comes ffv1rec :) 
+		</p>
+		<p>The result for the primary objectives were not good: Size good, but CPU max-out instantly.
+		</p>
+		<p>So to conclude this interesting piece, ffv1rec is an evolution of nuppelrec that uses the same container as nuppelrec.
+		</p>
+		<p>You keep the sync perfectly and are able to encode using various video codecs.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Main differences to nuppelrec</title>
+<section>
+	<body><ul>
+		<li>Switch from multi process to multi threads</li>
+		<li>You can specify an audio frequency, like 48000 for DVD conversion later using the <c>-b</c> switch.</li>
+		<li>You can store your settings in $HOME/.ffv1recrc see following chapter.</li>
+		<li>You can select the video codec using the <c>-C</c> switch.Recommended XVID or HUFFYU</li>
+		<li>You can select the motion search using the <c>-M x</c> switch. Recommended : 0 or 1</li>
+		<li>You can select the quantizer using the <c>-q x</c> switch. Recommended : 5</li>
+		<li>You can select the distance between key frames using the <c>-d x</c> switch. Recommended : 200.</li>
+		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Xvid version</title>
+<section>
+	<body><ul>	
+	<p>From avidemux 2.0.22 and ongoing, partial support for xvid 1.x has been added to ffv1rec, but you <b>must</b> build avidemux first (or at least the ./configure) before trying to build ffv1rec.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>$HOME/.ffv1recrc</title>
+<section>
+	<body><ul>	
+	<p>This file stores your settings. The command line parameters will override it, so dont be shy.</p>
+	<p>The syntax is 
+	</p>
+
+	<ul>
+		<li><c>#</c> for comments</li>
+		<li><c>opt</c> is the same as -opt when on command line</li>
+		<li><c>opt=val</c> is the same as -opt val  when on command line</li>
+	</ul>
+	<p>
+		For example, here is mine :
+		<pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre>
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>HowTo capture from bt878 and write to a SVCD</title>
+      
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+   
+  <meta name="author" content="JSC">
+</head>
+  <body>
+ 
+<h2>HowTo capture from bt878 and write to SVCD</h2>
+ 
+<h3>Content</h3>
+ 
+<ul>
+   <li><a href="#Capture">Capture</a></li>
+   <li><a href="#Edit">Edit</a></li>
+   <li><a href="#Encode_audio">Encode Audio</a></li>
+   <li><a href="#Encode_Video">Encode Video</a></li>
+   <li><a href="#Multiplex">Multiplex</a></li>
+   <li><a href="#Build_a_SVCD_image">Build a SVCD image</a></li>
+   <li><a href="#Burn_it">Burn it</a></li>
+   <li><a href="#Extract_the_MPEG_file">Extract the MPEG file</a><br>
+   </li>
+   <li><a href="#Some_notes">Some notes</a></li>
+  <li><a href="#TODO">ToDo</a><br>
+  </li>
+ 
+</ul>
+ 
+<h3><a name="Capture"></a>Capture</h3>
+ I bought a <a
+ href="http://www.miro.com/ProductPage.asp?Product_ID=103&amp;Langue_ID=4">Pinnacle 
+PCTV pro</a> which should be able to capture a software encoded MPEG2-stream 
+in DVD quality. There is a audio cable from the TV card into the soundcard 
+- external or internal.<br>
+ <br>
+ To capture under Linux i found Roman Hochleitner's <a
+ href="http://frost.htu.tuwien.ac.at/%7Eroman/nuppelvideo/">NuppelVideo</a> 
+really useful. The important thing on it is the output of copied frames. A
+copied frame is generated from the previous frame, if the actual frame (from
+video) is lost. This is needed to keep audio in sync. On the end of the capturing
+process you will see, what you got. If you have zero, one or two copied frames,
+you have a excellent source for the next steps. If you have many copied frames
+(often many of them come together), you have problems with your hardware
+or worked to hard on your OS while capturing ;-)<br>
+ <br>
+ To use this feature you need to apply two extra options to the bttv module 
+in the kernel. You can &nbsp;do that through the file /etc/modules.conf<br>
+ 
+<pre>###<br>### Video<br>###<br>options bttv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fieldnr=1 gbuffers=2<br>alias&nbsp;&nbsp; char-major-81&nbsp;&nbsp;&nbsp; bttv</pre>
+ <br>
+ The record program nuvrec will generate one or more output files, each of&nbsp; 
+2 GB size. Cause i find this not very handy, i've written this <a
+ href="jsc-nuppelvideo-2g.patch">patch</a>. With argument "-2" you will get 
+the original behaviour, without this argument the output will be one big file.<br>
+ <br>
+ nuvrec will write out a RTJPEG compressed audio/video stream - it's the
+smaller brother of the MJPEG format. You have to choose a channel with some
+other program (i.e. with xawtv), end this program and start nuvrec. The quality 
+over the coax cable is not really good. So i use the composite video input 
+on my TV card and the line in on my &nbsp;Ensoniq ES1371 sound card. To get 
+the same audio profile each time, i have created a special file for that.<br>
+ <br>
+ My capturing sequence:<br>
+ 
+<pre># save current audio profile<br>#/usr/sbin/alsactl -f /tmp/audio_profile store  # for ALSA sound<br>/usr/bin/aumix     -f /tmp/audio_profile -S     # for kernel sound driver<br><br># load video capture audio profile<br>#/usr/sbin/alsactl -f /etc/asound.composite_video restore       # ALSA<br>/usr/bin/aumix     -f /etc/<a
+ href="aumix.composite_video">aumix.composite_video</a> -L &gt;/dev/null  # kernel<br><br># capture<br>nuvrec -H 576 -W 720 -a 32768 -N -S 1 video.nuv<br># -H 576 -W 720 for DVD quality - use good values here, your video will never be<br>#               better than the source<br># -a 32768      for 50% audio volume - there are 2 stages:<br>#                1. this volume level goes out to LINE OUT over the internal/external<br>#                   audio cable to the soundcard<br>#                2. the capture volume in the soundcard is set by our audio profile<br>#                   above<br>#               cause i have a direct cable from VHS to my audio card, this value<br>#               has no effect for me<br># -N            no (lzo) compression<br># -S 1          Video source: 0 coax cable<br>#                             1 composite video<br><br># restore the audio profile<br>#/usr/sbin/alsactl -f /tmp/audio_profile restore       # ALSA<br>/usr/bin/aumix     -f /tmp/audio_profile -L &gt;/dev/null  # kernel<br><br># clean up<br>rm -f /tmp/audio_profile<br></pre>
+ <b>There is a short way to encode the full stream to a MPEG stream:</b> 
+<pre># extract audio data and encode it<br>nuvplay -e video.nuv | toolame -s 44.1 -b 192 -p 2 -m s - video.mp2<br><br># extract video data and encode it (DVD format)<br>exportvideo -Y 2 video.nuv "|mpeg2enc -b 9300 -q 7 -N -f 8 -a 2 -n p -o video.m2v"<br><br># multiplex it (DVD)<br>mplex -f 8 -V -s 2324 -p 1 -o video.mpg --max-segment-size 20000 video.m1v video.mp2<br>## --max-segment-size 20000<br>##         &nbsp;split output files after 20 GB == never ;-)<br></pre>
+ But you have some trash at begin and end of the stream. Sometimes you have 
+commercials inside. Short: you wish to edit/cut the stream first.<br>
+ <br>
+ You can try nuvedit, but short after that, you will search for another,
+better tool.<br>
+ <br>
+ 
+<h3><a name="Edit"></a>Edit the stream</h3>
+ Here i use avidemux 0.9 rc2.<br>
+ 
+<ul>
+   <li><b>File</b> -&gt; <b>Open video</b> -&gt; <i>video.nuv</i></li>
+   <li>Play or jump to the start of your real video data - first good frame</li>
+   <li>Set <b>B&lt;</b> (<b>&gt;A</b> is 000000)</li>
+   <li><b>Markers</b> -&gt; <b>Delete</b></li>
+   <li>Play or jump to the end of your real video data - first bad frame</li>
+   <li>Set <b>&gt;A</b></li>
+   <li>Go to the end of the stream (<b>&gt;|</b>)</li>
+   <li><b>Markers</b> -&gt; <b>Delete</b></li>
+   <li>[Same procedure for commercials]</li>
+   <li><b>Markers</b> -&gt; <b>Save Workbench</b><br>
+ Save this state for later editing or multiple encoding with other options<br>
+   </li>
+ 
+</ul>
+ 
+<h3><a name="Encode_audio"></a>Encode audio</h3>
+ with avidemux:<br>
+ 
+<ul>
+   <li><b>Markers</b> -&gt; <b>Load Workbench</b><br>
+ if needed<br>
+   </li>
+   <li><b>Audio Processing</b> -&gt; <b>Audio Mode: Process</b><br>
+   </li>
+   <li><b>Audio Processing</b> -&gt; <b>Normalize WAV<br>
+     </b>wish to have all SVCD's with the same base volume<b><br>
+     </b></li>
+   <li><b>Audio Processing</b> -&gt; <b>Audio Codec</b> -&gt; <b>MP2 encode 
+(ff)</b></li>
+   <li><b>Audio Processing</b> -&gt; <b>Configure Audio Codec</b> -&gt; <b>Bitrate:</b> 
+    <i>224 Kbps</i>, <b>Mode:</b> <i>Stereo</i></li>
+   <li><b>File</b> -&gt; <b>Save Audio</b> -&gt; <i>video.mp2<br>
+     </i></li>
+ 
+</ul>
+ or with avidemux and toolame:<br>
+ 
+<ul>
+   <li><b>Markers</b> -&gt; <b>Load Workbench</b><br>
+  if needed<br>
+    </li>
+   <li><b>Audio Processing</b> -&gt; <b>Audio Mode: Process</b><br>
+    </li>
+   <li><b>Audio Processing</b> -&gt; <b>Normalize WAV</b></li>
+   <li><b>Audio Processing</b> -&gt; <b>Audio Codec</b> -&gt; <b>uncompressed</b> 
+(PCM)</li>
+   <li><b>File</b> -&gt; <b>Save Audio</b> -&gt; <i>video.wav</i></li>
+ 
+</ul>
+ 
+<pre>$ toolame -s 44.1 -b 224 -p 2 -m s video.wav video.mp2</pre>
+ 
+<h3><a name="Encode_Video"></a>Encode Video</h3>
+ with avidemux:<br>
+ 
+<ul>
+   <li><b>Markers</b> -&gt; <b>Load Workbench</b><br>
+ if needed</li>
+   <li><b>Video Processing</b> -&gt; <b>Video Mode: Process</b></li>
+   <li><b>Video Processing</b> -&gt; <b>Filters setup</b></li>
+   <li>[Filters] <b>Add</b> -&gt; <b>Crop</b><br>
+ crop all "black" or flickering borders - they will drop your encoding performance 
+and "enlarge" the resulting MPEG size</li>
+   <li>[Filters] <b>Add</b> -&gt; <b>PAL-SMART -&gt; Motion Threshold: </b><i>15</i><b>, 
+Blend Threshold: </b><i>9</i><b><br>
+     </b>intelligent deinterlace routine: deinterlaces only if needed</li>
+   <li>[Filters] <b>Add</b> -&gt; <b>SVCD res</b><br>
+ a virtual filter: resize with the same aspect ratio to SVCD resolution,
+then add black borders to the width/height to reach the SVCD resolution for
+both values</li>
+   <li>[Filters] <b>Done</b></li>
+   <li><b>File</b> -&gt; <b>Save Mpeg</b> -&gt; <b>Save mpeg2 video (SVCD)</b> 
+-&gt; <i>video.m2v -&gt; </i><b>Max Bitrate:</b><i> 2500, </i><b>Quantisation:</b> 
+    <i>14</i></li>
+ 
+</ul>
+ 
+<h3><a name="Multiplex"></a>Multiplex the stuff together</h3>
+ there are two programs to do that:<br>
+ 
+<ul>
+   <li>mplex from mjpegtools package</li>
+   <li>tcmplex from transcode package<br>
+   </li>
+ 
+</ul>
+ cause i had mjpegtools installed, i used that.<br>
+ 
+<pre>$ mplex -f 4 -V -s 2324 -p 1 -o video.mpg video.mp2 video.m2v<br></pre>
+ if you have transcode installed, you can try:<br>
+ 
+<pre>$ tcmplex -i video.m2v -p video.mp2 -o video.mpg -m s </pre>
+ 
+<h3><a name="Build_a_SVCD_image"></a>Build a SVCD image</h3>
+ You cannot write the files directly to the CD-R. To build a compliant SVCD 
+you should use vcdimager:<br>
+ 
+<pre>$ vcdimager -t svcd video.mpg<br>  &nbsp;INFO: scanning mpeg track #0 for scanpoints...<br>   INFO: writing track 1 (ISO9660)...<br>   INFO: writing track 2, MPEG2, PAL S (480x576/25fps), 1 audio stream...<br>finished ok, image created with 1023 sectors (2406096 bytes)<br></pre>
+ if you get:<br>
+ 
+<pre>$ vcdimager -t svcd video.mpg&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; INFO: scanning mpeg track #0 for scanpoints...<br>vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highest (obj-&gt;iso_bitmap) + 1 == 225' failed.<br>Aborted (core dumped)</pre>
+ then you should use tcmplex for multiplexing <b>or</b> vcdimager with version 
+&gt;= 0.7<br>
+ <br>
+ <b>The future:<br>
+ </b><br>
+ vcdimager also contain two tools named vcdxgen and vcdxbuild. <br>
+   
+<pre>$&nbsp;./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg<br>(Super) VideoCD xml description created successfully as `videocd.xml'<br>$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild videocd.xml<br>++ WARN: initializing libvcd 0.7.13 [linux-gnu/i686]<br>++ WARN:  <br>++ WARN:  this is the UNSTABLE development branch!<br>++ WARN:  use only if you know what you are doing<br>++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information<br>++ WARN:  <br>   INFO: scanning mpeg sequence item #0 for scanpoints...<br>   INFO: writing track 1 (ISO9660)...<br>   INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/224kbps/stereo ...<br>   INFO: finished ok, image created with 1173 sectors [00:15.48]<br></pre>
+ 
+<h3><a name="Burn_it"></a>Burn it</h3>
+ 
+<pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue</pre>
+ 
+<h3><a name="Extract_the_MPEG_file"></a>Extract the MPEG file</h3>
+ Sometimes you may need the "original" MPEG files back from SVCD.<br>
+ <br>
+ From the Hard Disc:<br>
+ 
+<pre>$ vcdrip --rip -b videocd.bin<br>  &nbsp;INFO: avseq01.mpg: 450 -&gt; 1023<br></pre>
+ From the CD-R:<br>
+ 
+<pre>$ vcdrip --rip --cdrom-device=/dev/scd0<br>   INFO: avseq01.mpg: 450 -&gt; 1260<br></pre>
+ 
+<h3><a name="Some_notes"></a>Some notes</h3>
+ The resulting SVCD plays fine on Mean's Pioneer DVD-Player. On my AIWA HT-DV90 
+all seems OK, except the last frames. ~ 40 frames before the end of the video, 
+the actual frame will freeze for 2 seconds, than the logo of the DVD-Player 
+will be displayed. If the MPEG2 video is viewed with xine, all is OK.<br>
+ <br>
+ If i use vcdimage &gt;= 0.7 this frame will not freeze any more, but will 
+ever be the last shown frame.<br>
+ <br>
+ Other stuff tested:<br>
+ 
+<ul>
+   <li>tcmplex from transcode-0.6.3</li>
+   <li>vcdimager-0.7.13</li>
+   
+  <ul>
+     <li>with option --broken-svcd-mode</li>
+     <li>with option --nopbc</li>
+     <li>with option --broken-svcd-mode --update-scan-offsets --nopbc</li>
+   
+  </ul>
+   <li>cut all to get only the last 137 frames</li>
+   <li>Mean found that audio is 1,2 seconds smaller than video</li>
+   
+  <ul>
+     <li>extract PCM audio from avidemux</li>
+     <li>PCM length is OK: 5,5 seconds</li>
+     <li>append some extra audio to the PCM stream</li>
+     <li>generate MP2 with toolame</li>
+     <li>audio is now longer as video, but same effect<br>
+     </li>
+   
+  </ul>
+   <li>extract of the mpeg-stream from the SVCD; then compared with cmp =&gt; 
+identical to the original (no end of media or physical media problem)<br>
+   </li>
+ 
+</ul>
+ We suggest that this i a problem of my DVD-Player. <br>
+ <br>
+<h3><a name="TODO"></a><b>TODO</b></h3>
+ 
+<ul>
+   <li>Test the SVCD from <a
+ href="http://www.vcdimager.org/pub/vcdimager/examples/test_svcd/">http://www.vcdimager.org/pub/vcdimager/examples/test_svcd/</a><br>
+   </li>
+ 
+</ul>
+ 
+<blockquote>if it works:</blockquote>
+ 
+<ul>
+   
+  <ul>
+     <li>search for other tools, that can do vcdimagers work</li>
+   
+  </ul>
+ 
+</ul>
+ 
+<blockquote>if it has the same problems:<br>
+ </blockquote>
+ 
+<ul>
+   
+  <ul>
+     <li>extend the video stream with black and silent data</li>
+     <li>append a still video image (to say it's time to swap disk i.e.)<br>
+ Make a nice image with gimp, save it as foo0001.bmp<br>
+  copy foo001.bmp to foo002/3/4/5/.....<br>
+  Load foo001.bmp<br>
+  Change fps to 25<br>
+       <br>
+ export as SVCD<br>
+       <br>
+ add second mpeg to vcdimager</li>
+   
+  </ul>
+  <li>Find a way to set jump-points for faster FastForward / FastBackward
+jumps.<br>
+For now my player provides only 1x/2x/4x and 8x Speed forward/backward "playing".
+(On a commercial DVD i found 16x also - why not on SVCD?). A jump-point all
+5 minutes will be great. Should use the xml-Mode of the vcdimager tools and
+setup this there.<br>
+  </li>
+ 
+</ul>
+ 
+<pre><br></pre>
+ <br>
+</body>
+</html>

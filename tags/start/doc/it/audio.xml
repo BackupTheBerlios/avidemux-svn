@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>Audio</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Audio
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Modalità Process/Copy</title>
+<section>
+	<title>Modalità Copy</title>
+
+	<body>
+	<ul>
+	<p>
+	Inq uesta modalità avidemux copierà semplicemente la sorgente
+	audio (esterna/avi/...) verso l'uscita. Utilizzata per esempio quando si
+	taglia un avi o si modifica la colonna sonora.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Modalità Process</title>
+
+	<body>
+	<ul>
+	<p>
+	Avidemux dapprima decomprimerà l'audio quindi applicherà gli
+	eventuali filtri.
+	Senza filtri il risultato sarà un'enorme file audio in formato
+	wav.
+	</p>
+	<p>
+	Per poter essere utilizzato, il codec audio prescelto deve
+	essere disponibile sul sistema.
+	Vedere <uri link="input.xml.html">formati di ingresso</uri>.
+	</p>
+	<p>Utilizzando il menu <c>File->Save audio</c>, l'audio sarà salvato in funzione della modalità corrente. Se la modalità è Copy verrà salvata una traccia AC3/MP3/WMA... grezza. In modalità Process il file sarà processato e poi salvato.
+	</p>
+	<p>
+	Utilizzabile per esempio nella codifica in MP2 per la creazione
+	di un video CD. Il risultato sarà un flusso video elementare
+	.m1v ed un .mp2.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtri</title>
+<section>
+	<title>Normalize</title>
+	<body>
+	<ul>
+	<p>
+	Questo filtro normalizza linearmente l'audio. E' d'aiuto se il
+	volume complessivo è molto basso (ad esempio con le tracce audio
+	ac3).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Convert to 44.1 khz</title>
+	<body>
+	<ul>
+	<p>
+	Questo filtro effettua la conversione 48->44.1khz. Se il campionamento originale non è di 48 khz, non opera alcunché.
+	</p>
+	<p>Basato su wavefs44, preso in prestito da DVD2AVI.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Time shift</title>
+	<body>
+	<ul>
+	<p>
+	Questo filtro trasla il ny audio eliminando l'inizio o duplicando
+	per creare un nuovo suono. Il valore della traslazione è
+	espresso in millisecondi.
+	</p>
+	<p>E' <b>l'unico filtro che lavora anche in modalità Copy</b>. Molto utile per correggere un errore di sincronia in un file avi.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>6db press</title>
+	<body>
+	<ul>
+	<p>Questo filtro aplifica l'audio di basso volume di 6 db e
+	gradualmente abbassa l'amplificazione fino a raggiungere il
+	livello 1.
+	</p>
+	<p>E' un pò bacato e può causare distorsione. Ricontrollare il risultato dopo l'uso.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Filtri di codifica</title>
+<body>
+<p>
+Questi filtri regolari hanno lo scopo di codificare l'audio.
+</p><p>
+</p>
+</body>
+<section>
+	<title>Uncompressed</title>
+	<body>
+	<ul>
+	<p>
+	Non filtra nulla e manda l'audio in uscita su di un file PCM
+	wave. Utile per la conversione MP3->wave.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MP3</title>
+	<body>
+	<ul>
+	<p>Basato su liblame. E' possibile selezionare bitrate e modalità (joint stereo o stereo). Per la modalità mono la regolazione è automatica.
+	</p>
+	<p>La codifica avviene solo in modalità CBR. Per ottenere una traccia audio VBR utilizzare lame da linea di comando ed aggiungere la video la risultante traccia audio. Non dimenticare di leggere <uri link="./vbrmp3.xml.html">VBR MP3</uri> per evitare problemi...
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>MP2</title>
+	<body>
+	<ul>
+	<p>Encoder audio lavcodec mpeg.
+	</p>
+	<p>
+	La codifica avviene solo in CBR (e non in joint stereo anche se
+	indicato). Disponibile solo per comodità: sono un fan di toolame
+	:).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>AC3</title>
+	<body>
+	<ul>
+	<p>Da libavcodec.
+	</p>
+	<p>
+	Codifica file stereo AC3. Il file AC3 risultante non è ancora
+	stato provato su decoder hardware.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Un caso pratico</title>
+<section>
+	<title>Avi con audio WMA</title>
+	<body>
+	<ul>
+	<p>Poniamo che abbiate un file avi con audio WMA da convertire in MP3.
+	</p>
+	<p>Caricate il vostro avi, lasciando il video in modalità copy dato che non dovrà essere modificato.
+	</p>
+	<p>Selezionare la modalità process per l'audio scegliendo il codec MP3 in <c>Audio->Audio codec</c>
+	</p>
+	<p>Selezionare <c>Audio->configure codec</c>, indicando 128kbps j-stereo
+	</p>
+	<p><c>File->save avi</c> per convertire la traccia audio.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

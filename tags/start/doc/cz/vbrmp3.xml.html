@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	VBR MP3</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">VBR MP3</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Vysvětlení</p>
+<ul>
+		<p> Avidemux většinou vypočítá pozici a délku zvuku jako velikost=čas*bitrate. To funguje pro všechny CBR zvukové stopy.
+		</p>
+		<p>
+		S VBR to nefunguje, protože bitrate není konstantní.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Časová mapa zvuku</p>
+<p class="secthead"><a name="doc_chap2_sect1">Časová mapa zvuku </a></p>
+<ul>
+		<p> K výpočtu počáteční pozice/velikosti musí Avidemux vědět jak se mění bitrate. K tomu slouží funkce <span class="code">Audio-&gt;Build VBR Time Map</span>.
+		</p>
+		<p>
+		Avidemux potom dekomprimuje celý stream a sestaví časovou mapu, aby věděl jak s ním zacházet. Musíte mít nainstalovaný MAD, jinak to nic neudělá.
+		</p>
+		<p>
+		Až se celá mapa sestaví, Avidemux bude mít konverzní tabulku mezi časem a pozicí, a vy pak budete moci AVI soubor rozdělit nebo uložit s VBR MP3.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">A když to neudělám? </a></p>
+<ul>
+		<p>  Budete mít AVI s hodně rozhozenou synchronizací (možná s příliš krátkým zvukem). I když soubor jen otevřete a uložíte.
+		</p>
+		<p>  Prostě to MUSÍTE udělat když máte AVI s VBR MP3. 
+		</p>
+		<p>  Druhá audio stopa v AVI souboru nemůže být VBR.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

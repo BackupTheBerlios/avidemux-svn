@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: filtry s konvolučním jádrem</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video: filtry s konvolučním jádrem
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Předmluva</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Tato rodina filtrů zahrnuje konvoluční filtry: Mean, Median, Sharpen,...
+	</p>
+	<p>Konvoluční filtry aplikují matici 3x3 na sousední pixely. Mohou být aplikovány i odděleně na jasovou (luma) a barvonosnou (chroma) složku. 
+	</p>
+	<p> Filtry Median a Mean aplikované pouze na chrominanci velmi účinně potlačují barevný šum na videonahrávkách.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Filtry s konvolučním jádrem</title>
+<section>
+	<title>Mean</title>
+	<body>
+	<ul>
+	<p>Nahradí pixel průměrnou hodnotou svých sousedů. Je to prostý filtr s dolní propustí.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Median</title>
+	<body>
+	<ul>
+	<p>Nahradí pixel mediánem svých sousedů. Je trochu podobný jako Mean, ale odstraňuje jiné hodnoty. Je účinný k odstranění vysokofrekvenčního šumu (jako např. u starých filmů). Hodně rozmazává.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Sharpen</title>
+	<body>
+	<ul>
+	<p>Tento filtr je zajímavý tím že má záporné hodnoty v konvoluční matici. Zaostřuje obraz zvýšením rozdílu mezi sousedními pixely. Může vést k nežádoucím artefaktům pokud je zdroj již dost kontrastní.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Gaussian Smooth</title>
+	<body>
+	<ul>
+	<p>Rovněž průměruje hodnoty, jako Mean. Ale koeficienty jsou jiné a účinek je méně drastický. I tak silně rozostřuje, ale méně než Mean.
+	</p>
+	</ul>
+	</body>
+</section>
+
+</chapter>
+</guide>

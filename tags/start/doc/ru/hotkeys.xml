@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding="KOI8-R"?>
+<guide link="doc/">
+<title>Клавиатурные сокращения</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Клавиатурные сокращения
+ </abstract>
+
+<version>1.0</version>
+<date>20 Feb 2003</date>
+<chapter>
+<title>File</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Команда</th><th>Сочетания клавиш</th>
+		</tr>
+		<tr>
+			<ti>Open video</ti><ti>Ctrl+O</ti>
+		</tr>
+		<tr>
+			<ti>Open broken avi</ti><ti>Ctrl+Z</ti>
+		</tr>
+		<tr>
+			<ti>Save AVI (A+V)</ti><ti>Ctrl+S</ti>
+		</tr>
+		<tr>
+			<ti>Save raw video</ti><ti>Ctrl+R</ti>
+		</tr>
+		<tr>
+			<ti>Set mux options</ti><ti>Shift+Ctrl+S</ti>
+		</tr>
+		<tr>
+			<ti>Avi info</ti><ti>Ctrl+I</ti>
+		</tr>
+		<tr>
+			<ti>Save image (bmp)</ti><ti>Ctrl+B</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Play</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Команда</th><th>Сочетания клавиш</th>
+		</tr>
+		<tr>
+			<ti>Play avi</ti><ti>P, пробел</ti>
+		</tr>
+		<tr>
+			<ti>Next Frame</ti><ti>Ctrl+N, стрелка вправо</ti>
+		</tr>
+		<tr>
+			<ti>Next KFrame</ti><ti>Shift+Ctrl+N, стрелка вверх</ti>
+		</tr>
+		<tr>
+			<ti>Previous Frame</ti><ti>Ctrl+P, стрелка влево</ti>
+		</tr>
+		<tr>
+			<ti>Previous KFrame</ti><ti>Shift+Ctrl+P, стрелка вниз</ti>
+		</tr>
+		<tr>
+			<ti>Go to</ti><ti>Ctrl+G</ti>
+		</tr>
+		<tr>
+			<ti>Go to begin avi</ti><ti>Page Up</ti>
+		</tr>
+		<tr>
+			<ti>Go to end avi</ti><ti>Page Down</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Markers</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Команда</th><th>Сочетания клавиш</th>
+		</tr>
+		<tr>
+			<ti>Mark Begin(A)</ti><ti>Alt+B, Home</ti>
+		</tr>
+		<tr>
+			<ti>Mark End(B)</ti><ti>Alt+E, End</ti>
+		</tr>
+		<tr>
+			<ti>Copy</ti><ti>Ctrl+C</ti>
+		</tr>
+		<tr>
+			<ti>Delete</ti><ti>Ctrl+X, Delete</ti>
+		</tr>
+		<tr>
+			<ti>Go to A</ti><ti>Shift+Atl+B</ti>
+		</tr>
+		<tr>
+			<ti>Go to B</ti><ti>Shift+Alt+E</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Audio source</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Команда</th><th>Сочетания клавиш</th>
+		</tr>
+		<tr>
+			<ti>AVI</ti><ti>Ctrl+A</ti>
+		</tr>
+		<tr>
+			<ti>External MP3</ti><ti>Ctrl+M</ti>
+		</tr>
+		<tr>
+			<ti>External AC3</ti><ti>Ctrl+3</ti>
+		</tr>
+		<tr>
+			<ti>External WAV</ti><ti>Ctrl+V</ti>
+		</tr>
+		<tr>
+			<ti>None</ti><ti>Ctrl+E</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+
+<chapter>
+<title>Filters</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Команда</th><th>Сочетания клавиш</th>
+		</tr>
+		<tr>
+			<ti>Filters setup</ti><ti>Ctrl+F</ti>
+		</tr>
+
+		</table>
+		</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Выходные форматы</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Выходные форматы</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Форматы файлов</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Формат</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Примечание</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
+<td bgcolor="#ddddff" class="tableinfo">До двух аудио дорожек</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+<td bgcolor="#ddddff" class="tableinfo">Raw mpeg4 stream</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
+<td bgcolor="#ddddff" class="tableinfo">&quot;чистое&quot; аудио или видео (raw mpeg4 stream например)</td>
+		</tr>
+		</table>
+		</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Видео кодеки</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Название</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Примечание</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Зависимости</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+<td bgcolor="#ddddff" class="tableinfo">Медленный, малый выбор параметров</td>
+<td bgcolor="#ddddff" class="tableinfo">Divx</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+<td bgcolor="#ddddff" class="tableinfo">Хорошее качество, точность, скорость, большой набор параметров</td>
+<td bgcolor="#ddddff" class="tableinfo">Xvid</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Lavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Хорошее качество, точность, скорость, большой набор параметров</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec(статически)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mjpeg</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Mjpegtools</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H263</td>
+<td bgcolor="#ddddff" class="tableinfo">настройки lavcodec</td>
+<td bgcolor="#ddddff" class="tableinfo">Статически</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Huffyuv</td>
+<td bgcolor="#ddddff" class="tableinfo">YV12 Huffyuv, не совместим с версией для windows</td>
+<td bgcolor="#ddddff" class="tableinfo">Статически</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/DVD/SVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Хорошее качество, медленно</td>
+<td bgcolor="#ddddff" class="tableinfo">mjpegtools</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">XVCD</td>
+<td bgcolor="#ddddff" class="tableinfo">Быстро, настройки lavcodec</td>				<td bgcolor="#ddddff" class="tableinfo">Статически</td>
+		</tr>
+		</table>
+		&quot;настройки lavcodec&quot; означает, что необходимо выбрать lavcodec (ffmpeg) как выходной кодек в настройках
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Аудио кодеки</p>
+<ul>
+		<table class="ntable">
+		<tr>
+			<td bgcolor="#7a5ada" class="infohead"><b>Название</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Примечание</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Зависимости</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Uncompressed</td>
+<td bgcolor="#ddddff" class="tableinfo">Big</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
+<td bgcolor="#ddddff" class="tableinfo">Хорошее качество, только CBR </td>
+<td bgcolor="#ddddff" class="tableinfo">liblame</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">MP2</td>
+<td bgcolor="#ddddff" class="tableinfo">только CBR </td>
+<td bgcolor="#ddddff" class="tableinfo">Статически(lavcodec)</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AC3</td>
+<td bgcolor="#ddddff" class="tableinfo">только CBR </td>
+<td bgcolor="#ddddff" class="tableinfo">Статически(lavcodec)</td>
+		</tr>
+
+		</table>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap4">4.</a></span>Ограничения форматов</p>
+<p class="secthead"><a name="doc_chap4_sect1">Avi </a></p>
+<ul>
+	<p> Это формат по умолчанию при сохранении. Вторая аудио дорожка в формате MP3 CBR или AC3 может быть добавлена через меню <span class="code">misc-&gt;2nd audio track</span>.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect2">Mpeg файл </a></p>
+<ul>
+	<p>Будет записан только &quot;сырой&quot;(raw) элементарный видео поток  .m1v или .m2v
+	</p>
+	<p>Для звука выберите mp2 аудио кодек, режим process и <span class="code">File-&gt;save audio</span> для сохранения в .mp2.
+	</p>
+	<p>После используйте mplex или tcmplex для соединения аудио и видео в один .mpg
+	</p>
+	<p>Экспорт в XVCD использует lavcodec и его установки. Для настройки выберите выходной кодек FFmpeg и используйте <span class="code">configure video codec</span> меню. Это пока только для любителей поэкспериментировать, не оттестировано.
+	</p>
+	<p>Внутри mpeg видео кадры выглядят как огромные некомпрессированные кадры YV12 формата. Всегда кодируйте mpeg перед сохранением,
+	или используйте опцию &quot;raw&quot;. Но НИКОГДА не сохраняйте avi в режиме copy.
+	</p>
+	</ul>
+<p class="secthead"><a name="doc_chap4_sect3">Raw </a></p>
+<ul>
+	<p>
+	Это доступно в двух режимах : для аудио используйте меню <span class="code">File-&gt;save audio</span> .
+	При этом сохранится только аудио (обработанное или нет).
+	</p>
+	<p>Для видео используйте <span class="code">File -&gt;save raw</span>. Применимо для вырезания в mpeg файлах . Например raw h263 или mp4 видео поток.
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

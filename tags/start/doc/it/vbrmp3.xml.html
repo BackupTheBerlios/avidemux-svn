@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	MP3 vbr</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">MP3 vbr</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>La base</p>
+<ul>
+		<p>Nella maggioranza dei casi, avidemux calcola l'offset e la lunghezza dell'audio con la moltiplicazione dimensione = tempo * bitrate. Ciò funziona per tutti i flussi CBR.
+		</p>
+		<p>
+		Non funziona con i flussi VBR in quanti il bitrate non è
+		costante.
+		</p>
+	</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Temporizzazione audio</p>
+<p class="secthead"><a name="doc_chap2_sect1">Temporizzazione audio </a></p>
+<ul>
+		<p>Per calcolare l'offset di partenza/dimensione, avidemux deve conoscere come varia il bitrate. Utilizzare il menu <span class="code">Audio source-&gt;audio time map</span>.
+		</p>
+		<p>
+		Avidemux decomprimerà l'intero flusso crendo poi una
+		mappa di temporizzazione per poter essere in grado di
+		valutarlo. E' necessario avere Mad installato,
+		altrimenti questa opzione sarà inefficace.
+		</p>
+		<p>
+		A mappa di temporizzazione costruita, avidemux avrà a
+		disposizione una tabella di conversione tra tempo ed
+		offset per poter dividere o salvare il file avi in VBR.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">E se non lo faccio? </a></p>
+<ul>
+		<p>Il risultato sarà un file avi desincronizzato difettoso (potenzialmente con un audio di durata molto inferiore), anche se lo caricherete e salverete solamente.
+		</p>
+		<p>E' un'operazione NECESSARIA per gli mp3 VBR. Punto.
+		</p>
+		<p>Il secondo flusso audio nel file avi non può essere
+		VBR.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

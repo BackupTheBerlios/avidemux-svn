@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Soubor EDL</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Soubor EDL
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Úvod</title>
+<section>
+	<body><ul>
+		<p>
+		Pěkné grafické rozhraní je dobrá věc, snadno se doberete výsledku kterým si můžete být jistí. Protože však práce s videem bývá často zdlouhavá, má to i nevýhodu: vyžaduje přítomnost uživatele.
+		</p>
+		<p>Myšlenka EDL souborů spočívá v tom, že si v grafickém rozhraní nastavíte nějaký projekt, a později v něm můžete pokračovat nebo jeho zpracování spustit z příkazové řádky zatímco třeba spíte.
+		</p>
+		<p>EDL je soubor projektu, který obsahuje aktuální obraz toho co jste dělali když jste jej uložili. Je i velmi užitečný pro pokračování když by Avidemux (chraňbůh) zhavaroval.	
+		
+		</p>		
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Seznam úprav (edit list)</title>
+<section>
+	<body><ul>
+	<p>Avidemux interně vidí vše jako soubor segmentů odkazujících na video na které aplikujeme filtry. To jsou ty video soubory které načtete pomocí <c>Open Video</c> nebo <c>Append Video</c>. Pokud nic neuděláte, bude tam jeden segment a video. Pokud video stříháte, bude rozděleno do několika segmentů, totéž platí pro Kopírovat/Vložit.
+	</p>
+	<p>Když seznam úprav uložíte (pomocí <c>Edit->Save Edit List</c>), vytvoří se tři soubory. První soubor obsahuje všechny segmenty a video soubory. Po jeho opětovném načtení (<c>Edit->Load Edit List</c>) se vrátíte přesně do stejného stavu v jakém jste jej uložili, tedy i se střihem či připojením dalších souborů.
+	</p>
+	<p>Druhý soubor má stejný název a připonu .flt. Obsahuje seznam použitých filtrů.</p>
+	<p>Takže když otevřete uložený seznam úprav, obnoví se vše kromě audio filtrů a audio/video kodeků a jejich nastavení.</p>
+	<p>Třetí soubor obsahuje konfiguraci video kodeku, může být načten i jako samostatný soubor pro doladění parametrů kodeku.</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>A navíc</title>
+<section>
+	<body><ul>
+Soubor úprav také obsahuje:
+		<ul>		
+		<li>Video a audio režim (Copy/Process)</li>
+		<li>Seznam audio filtrů (Normalize atd.)</li>
+		<li>Audio kodek a jeho konfiguraci</li>
+		<li>Video kodek a jeho konfiguraci (v souboru .vcodec)</li>
+		</ul>
+	Takže je tam skoro všechno.
+</ul></body>
+</section>
+</chapter>		
+<chapter>
+<title>Příklad</title>
+<section>
+	<body><ul>
+	<p>Řekněme že chcete překódovat několik nahrávek z TV do AVI nebo SVCD. Otevřete každý soubor a nastavte parametry (filtry, kodeky atd.) a uložte soubor EDL.
+	</p>
+	<p>Potom vytvořte takovýto jednoduchý skript:
+	<pre>
+		avidemux2 --load epizoda1.edl --video-process --save /tmp/epizoda1.avi --quit
+		avidemux2 --load epizoda2.edl --video-process --save /tmp/epizoda2.avi --quit
+		avidemux2 --load epizoda3.edl --video-process --save /tmp/epizoda3.avi --quit
+	</pre>
+	A můžete nechat přes noc zpracovat celý seriál.
+	</p>
+	<p>EDL je prostý textový soubor, můžete si jej otevřít a podívat se jak vypadá.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: filtres de modification des images</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Filtres vidéo : modification des images
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Avant-propos</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Cet ensemble de filtres affectent profondément la source vidéo : redimensionnement, rotation, symétrie et rognage.
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Filtres de modification des images</title>
+<section>
+	<title>Rognage</title>
+	<body>
+	<ul>
+	<p>Ce filtre permet de rogner la vidéo, pour en supprimer une bordure noire par exemple. Les valeurs dont l'image est rognée à gauche/à droite/en haut/en bas doivent être paires.
+	</p>
+	<p>Le bouton <c>update</c> vous permet de visualiser quelle partie de l'image supprimée.
+	</p>
+	<p>Avec une vidéo bien propre (depuis un dvd), vous pouvez essayer le bouton <c>Autocrop</c>, qui risque de ne pas fonctionner avec une source contenant trop de parasites (depuis une capture).
+	</p>
+	<img src="../image_tuto/crop2.png"></img>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Redimensionnement / redimensionnement Mplayer</title>
+	<body>
+	<ul>
+	<p>Le filtre de redimensionnement est un portage en YV12 de celui d'avisynth. Le filtre de redimensionnement Mplayer est un portage de celui de Michael Niedermayer, qui est utilisé dans mplayer.
+	</p>
+	<p>Le filtre d'avisynth est légèrement plus précis, mais celui de mplayer est trois fois plus rapide sans qu'il y ait de différence perceptible au niveau de la qualité.
+	</p>
+	<p>La boîte de dialogue de configuration est identique pour les deux filtres :
+	</p><p>
+	<img src="../image_tuto/fresize.png"></img>
+	</p>
+	<p>Vous pouvez saisir directement la nouvelle largeur/hauteur ainsi que l'algorithme de redimensionnement ou utiliser le curseur et le menu.
+	Le programme vous propose trois méthodes de redimensionnement :
+	<ul>
+		<li>Bilinear : Adoucit un peu le résultat, mais est facile à encoder</li>
+		<li>Bicubic : Préserve la netteté, mais est plus difficile à encoder (par exemple il peut plus facilement provoquer un macroblocage dans SVCD)</li>
+		<li>Lanczos : Entre les deux ; donne de bons résultats</li>
+	</ul>
+	La source et la destination ont leur importance. Si vous choisissez DVD2Divx par exemple, la source sera 4/3 ou 16/9 et la destination 1:1. L'inverse pour Divx2SVCD.
+	</p>
+	<p>C'est important car le format 4/3 n'a pas des pixels carrés (contrairement au PAL ou au NTSC) et si vous choisissez 1:1 -> 1:1 vous obtiendrez une image déformée.
+
+	</p>
+
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Noircir la bordure</title>
+	<body>
+	<ul>
+	<p>Ce filtre remplace la bordure de la vidéo par du noir pur. Cela peut servir à supprimer les parasites d'une bordure existante (avec une capture VHS par exemple).
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Ajouter une bordure noire</title>
+	<body>
+	<ul>
+	<p>Ce filtre *AJOUTE* une bordure noire (le précédent remplace celle existante). Il est utilisé en interne par *VCD res pour redimensionner une vidéo afin d'atteindre une taille donnée sans en modifier les proportions visuelles.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Symétrie verticale</title>
+	<body>
+	<ul>
+	<p>Ce filtre inverse le haut et le bas de la vidéo. Il peut servir avec des cartes de capture vidéo défectueuses.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Rotation</title>
+	<body>
+	<ul>
+	<p>Ce filtre a été écrit par Tracy (consultez le fichier pour plus de renseignements)	</p>
+	<p>Il fait pivoter la vidéo de 90/180/270 degrés. Son auteur l'utilise avec des vidéos prises avec sa caméra en mode paysage.</p>
+	<p>
+	<img src="../image_tuto/rotate.png"></img>
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+</guide>

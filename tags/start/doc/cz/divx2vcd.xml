@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide >
+<title>Převod AVI na MPEG</title>
+<author title="mean"><mail link="fixounet@free.fr">
+Mean</mail>
+</author>
+
+<abstract>
+Převod AVI na MPEG </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Příprava</title>
+<body>
+Tato stránka slouží jako příklad převodu AVI na VCD.
+Nastavení kódování k vytvoření SVCD nebo DVD si budete schopni odvodit. U DVD je to trochu jinak, protože
+Avidemux je schopen přímo zapsat řádné MPEG PS soubory (audio+video), viz <uri link="dvd.xml.html">DVD</uri>
+</body>
+<section>
+<title>Vstupní stream</title>
+<body>
+<ul>
+<p>
+Jakýkoli AVI soubor s vhodnými kodeky může být zakódován na VCD. Například DivX+MP3
+(k práci s MP3 zvukem musíte mít MAD).
+</p>
+<p>VCD export sestává ze tří kroků: komprese obrazu, komprese zvuku a multiplexace.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Komprese obrazu</title>
+<body>
+<ul>
+<p>
+Napřed upravíme velikost tak, aby vyhovovala specifikaci Video CD.
+</p>
+<p>
+To znamená 352*240 pro NTSC nebo 352*288 pro PAL.
+</p>
+<p>
+Po načtení zdrojového AVI souboru si otevřete okno s video filtry pomocí <c>F1</c>.
+</p>
+<p>
+	<img src="../image_tuto/filters.png">filters</img>
+</p>
+<p>
+Klikněte na tlačítko <c>VCD res</c> na pravé straně. To automaticky změní velikost obrazu a přidá černé okraje k dosažení správné velikosti bez změny poměru stran.
+</p>
+<p>
+Teď otevřete dialog pro výběr kodeku tlačítkem V Codec. Zvolte VCD. Tam se nic nekonfiguruje.
+</p>
+<p>Nakonec <c>File->Save Video</c> a zvolte soubor pro uložení video streamu. Například /tmp/videocd.m1v.
+</p>
+<p>Teď si můžete přečíst další části dokumentace Avidemuxu, a za pár hodin pokračovat.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Komprese zvuku</title>
+<body>
+<ul>
+<p>Zvuk je s největší pravděpodobností zakódován ve formátu, který není kompatibilní s VCD. Takže jej překódujeme.</p>
+<p>
+Nastavte audio režim Process - <c>F6</c>, a vyberte audio kodek - <c>F4</c>.
+</p><p>
+<img src="../images/audiocodec.png"></img>
+</p>
+<p>
+Zvolte <c>FFmpeg MPEG audio</c> a stiskněte tlačítko Configure codec. Musíte nastavit <c>Stereo</c> a <c>224 kbps</c>.
+</p>
+<p>
+<img src="../images/audioconfig.png"></img>
+</p>
+<p> Nyní přidáme nějaké audio filtry, které mohou být potřeba, stiskněte <c>F2</c>. </p>
+<p>Jsou tři možnosti:
+<ul>
+	<li>Frekvence je 44.1 kHz, zvolte None</li>
+	<li>Frekvence je 48 kHz, zvolte 48 to 44.1 kHz</li>
+	<li>Frekvence je jiná, zvolte <c>Resample to Hz</c> a zadejte 44100</li>
+</ul>
+Dle potřeby můžete přidat <c>Normalize</c>.
+</p>
+<p>
+<img src="../images/audiofilter.png"></img>
+</p>
+
+<p>
+Uložte pomocí <c>Audio->Save Audio</c>, například do /tmp/videocd.mp2. Znovu si projděte dokumentaci, podívejte se na film, přečtěte si knížku, a za hodinu se vraťte zpět.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Po Avidemuxu</title>
+<section>
+<title>Multiplexace </title>
+<body>
+<ul>
+<p>
+Teď máte připraven samostatný audio a video stream.
+Sloučíte je programem mplex:
+</p>
+<p>
+mplex  -S XXX -f 1 -o /tmp/videocd.mpg videocd.m1v videocd.mp2
+</p>
+<p>Hodnotu XXX nahraďte velikostí svého CD: 790 pro 80 minutové CD.
+</p>
+<p>Po dokončení budete mít hotový validní videocd.mpg soubor. Čas k vytvoření VCD.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>VCD image </title>
+<body>
+<ul>
+<p>
+Jednoduché VCD bez kapitol, menu atd. uděláte takto:
+</p>
+<p>
+<c>vcdimager -t vcd20 videocd.mpg</c>
+</p>
+<p>To vytvoří soubory videocd.cue a videocd.bin, vypálíte programem cdrdao.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Není nad bash</title>
+<section>
+<title>Totéž bez GUI </title>
+<body>
+<ul>
+<p>
+ Stejné opreace můžete provést z příkazového řádku:
+</p>
+<p>
+<c>avidemux --load vstup.avi --vcd-res --video-process --video-codec VCD --save /tmp/videocd.m1v --audio-process --audio-normalize --audio-downample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 --quit</c>
+</p>
+<p>Takto můžete udělat plně automatický AVI->VCD skript.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

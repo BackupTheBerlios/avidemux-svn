@@ -1,0 +1,83 @@
+--- Makefile.orig	Sun Dec  1 13:12:14 2002
++++ Makefile	Sun Dec  1 13:12:33 2002
+@@ -1,6 +1,6 @@
+ CC=gcc
+ #CFLAGS= -g -Wall -O3  -mcpu=pentium -march=pentium -funroll-loops -fexpensive-optimizations -finline
+-CFLAGS= -Wall -O3 -DMMX -mcpu=pentium -march=pentium -funroll-loops -fexpensive-optimizations -finline-functions
++CFLAGS= -Wall -O3 -DMMX -mcpu=pentium -march=pentium -funroll-loops -fexpensive-optimizations -finline-functions -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+ 
+ V4LDIR=/usr/src/linux/drivers/char/
+ COPTS=$(CFLAGS) -I$(V4LDIR)
+--- nuvrec.c.orig	Wed Jul  4 23:59:58 2001
++++ nuvrec.c	Sun Dec  1 22:59:46 2002
+@@ -75,6 +75,7 @@
+ int rawmode=0;
+ int usebttv=1;
+ struct video_audio origaudio;
++int do_split=0;
+ 
+ //#define DP(DSTRING) fprintf(stderr, "%s\n", DSTRING);
+ #define DP(DSTRING)
+@@ -792,11 +793,13 @@
+       // we have no frames in our cycle buffer
+ //fprintf(stderr,"*");
+ 
+-      if (byteswritten > MAXBYTES) {
+-        actfile++;
+-        if (0 != create_nuppelfile(fname, actfile, w, h)) {
+-          fprintf(stderr, "cannot open %s-%d.nuv for writing\n", fname, actfile);
+-          exit(1);
++      if( do_split ){
++        if (byteswritten > MAXBYTES) {
++          actfile++;
++          if (0 != create_nuppelfile(fname, actfile, w, h)) {
++            fprintf(stderr, "cannot open %s-%d.nuv for writing\n", fname, actfile);
++            exit(1);
++          }
+         }
+       }
+ 
+@@ -804,11 +807,13 @@
+       continue;   // check for next frame
+     }
+ 
+-    if (byteswritten > MAXBYTESFORCE) {
+-      actfile++;
+-      if (0 != create_nuppelfile(fname, actfile, w, h)) {
+-        fprintf(stderr, "cannot open %s-%d.nuv for writing\n", fname, actfile);
+-        exit(1);
++    if( do_split ){
++      if (byteswritten > MAXBYTESFORCE) {
++        actfile++;
++        if (0 != create_nuppelfile(fname, actfile, w, h)) {
++          fprintf(stderr, "cannot open %s-%d.nuv for writing\n", fname, actfile);
++          exit(1);
++        }
+       }
+     }
+ 
+@@ -1068,6 +1073,7 @@
+    fprintf(stderr, "         -Q ............ shut up\n");
+    fprintf(stderr, "         -N ............ no (lzo) compression\n");
+    fprintf(stderr, "         -z ............ video only (i.e. no audio)\n");
++   fprintf(stderr, "         -2 ............ split output files after 2 GB\n");
+    fprintf(stderr, "         -h ............ this help\n");
+    fprintf(stderr, "\n");
+    exit(-1);
+@@ -1122,7 +1128,7 @@
+   now.tv_sec=0; // reset
+   now.tv_usec=0; // reset
+ 
+-  while ((c=getopt(argc,argv,"q:l:c:S:W:H:t:NTV:A:a:srf:pnb:x:y:zQ")) != -1) {
++  while ((c=getopt(argc,argv,"q:l:c:S:W:H:t:NTV:A:a:srf:pnb:x:y:zQ2")) != -1) {
+     switch(c) {
+       case 'q': Q  = atoi(optarg);  break;
+       case 'l': M1 = atoi(optarg); break;
+@@ -1145,6 +1151,7 @@
+       case 'Q': quiet = 1;   break;
+       case 'r': rawmode = 1;   break;
+       case 'a': volume = atoi(optarg);   break;
++      case '2': do_split = 1;   break;
+       case 'h': usage();  break;
+   
+       default: usage();

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding="iso-8859-1"?>
+<guide link="doc/">
+<title>Formati di uscita</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Formati di uscita
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Formati di file</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Formato</th><th>Restrizioni</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>Fino a 2 tracce audio</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Flusso elementare grezzo</ti>
+		</tr>
+		<tr>
+			<ti>Raw</ti><ti>Audio o video stripped. Per esempio flussi mpeg4 grezzi.</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codec video</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nome</th><th>Commento</th><th>Dipendenze</th>
+		</tr>
+		<tr>
+			<ti>Divx</ti><ti>Opzioni non numerose, lento</ti><ti>Divx</ti>
+		</tr>
+		<tr>
+			<ti>Xvid</ti><ti>Buono, accurato, veloce, ricco di opzioni</ti><ti>Xvid</ti>
+		</tr>
+		<tr>
+			<ti>Lavcodec</ti><ti>Buono, accurato, veloce, ricco di opzioni</ti><ti>Lavcodec (compreso)</ti>
+		</tr>
+		<tr>
+			<ti>Mjpeg</ti><ti></ti><ti>Mjpegtools</ti>
+		</tr>
+		<tr>
+			<ti>H263</ti><ti>Configurazione lavcodec</ti><ti>Compreso</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>YV12 Huffyuv, non compatibile con Windows</ti><ti>Compreso</ti>
+		</tr>
+		<tr>
+			<ti>VCD/DVD/SVCD</ti><ti>Buona qualità, lento</ti><ti>mjpegtools</ti>
+		</tr>
+		<tr>
+			<ti>XVCD</ti><ti>Veloce, scarso, configurazione lavcodec</ti>				<ti>Compreso</ti>
+		</tr>
+		</table>
+		Configurazione lavcodec significa che è necessario selezionare lavcodec (ffmpeg) come codec di uscita e configurarlo da lì.
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codec audio</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nome</th><th>Commento</th><th>Dipendenze</th>
+		</tr>
+		<tr>
+			<ti>Uncompressed</ti><ti>Voluminoso</ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3</ti><ti>Buona qualità, solo CBR</ti><ti>liblame</ti>
+		</tr>
+		<tr>
+			<ti>MP2</ti><ti>Solo CBR, compatibile?</ti><ti>Compreso (lavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti>Solo CBR only, compatibile?</ti><ti>Compreso (lavcodec)</ti>
+		</tr>
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Formati specifici</title>
+<section>
+<title>Avi</title>
+	<body><ul>
+	<p>E' il formato predefinito di salvataggio. E' possibile aggiungere una seconda traccia audio CBR con <c>misc->2nd audio track</c>. Può essere indifferentemente MP3 CBR o AC3.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>File Mpeg</title>
+	<body><ul>
+	<p>Verrè scritto solamente un flusso elementare grezzo, .m1v o .m2v.</p>
+	<p>Per ottenere un file audio .mp2 selezionare l'encoder audio mp2, configurare l'audio come process e selezionare <c>File->save audio</c>.
+	</p>
+	<p>Infine utilizzare mplex o tcmplex per effettuare il multiplex dei due file ed ottenere un .mpg valido.
+	</p>
+	<p>L'esportazione XVCD utilizza l'encoder e la configurazione lavcodec. per cvonfigurarlo selezionare il codec d'uscita FFmpeg ed utilizzare il menu <c>configure video codec</c>. Altamente sperimentale.
+	</p>
+	<p>I frame video Mpeg sono visti internamente come enormi frames
+	YV12 non compressi. Perciò assicurarsi sempre di codificarli
+	prima di salvarli o di utilizzare il salvataggio in forma
+	grezza; NON salvare avi in modalità copia.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Raw (Grezzo)</title>
+	<body><ul>
+	<p>
+	Disponibile in due forme: per l'audio scegliere il menu <c>File->save audio</c>. Salverà solamente l'audio (processato/codificato o meno).
+	</p>
+	<p>Per il video utilizzare <c>File ->save raw</c>. E' utile per tagliare file mpeg o salvare video stripped, per esempio h263 grezzi o flussi mp4.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

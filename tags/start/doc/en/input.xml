@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Input formats</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Supported input formats / codecs
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>File format</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Format</th><th>Restriction</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>None, multiple audio tracks supported</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Elementary stream, program stream (including vob), transport stream (dvb)</ti>
+		</tr>
+		<tr>
+			<ti>NuppelVideo</ti><ti>Regular/nuppel_gatos/Myth Tv/FFV1rec</ti>
+		</tr>
+		<tr>
+			<ti>Images</ti><ti>Set of bmps or jpeg , name like im0001.bmp im0002.bmp ...</ti>
+		</tr>
+		<tr>
+			<ti>H263(+)</ti><ti>Raw h263(+) video stream</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg4</ti><ti>Raw mpeg4 video stream (incomplete)</ti>
+		</tr>
+		<tr>
+			<ti>Mov/3GP/Mpeg4</ti><ti>Simple 3gp/MP4/mov file. Compressed header not supported</ti>
+		</tr>
+		<tr>
+			<ti>Ogm</ti><ti>Only audio in ogg/vorbis , mp3 and AC3 is supported, multiple audio supported</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Video codec</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Comment</th><th>Dependancy</th>
+		</tr>
+		<tr>
+			<ti>DivX,XviD</ti><ti>3.11,4,5 with or without B-frames</ti><ti>Lavcodec(bundled)</ti>
+		</tr>
+		<tr>
+			<ti>VP3</ti><ti></ti><ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>libMpeg2 based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Mjpeg</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>WMV2</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>H263</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>MSMP4V2</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>SVQ3</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>Raw rgb</ti><ti>Internal</ti>	<ti>Bundled</ti>
+		</tr>		
+		<tr>
+			<ti>DV type ?</ti><ti>Lavcodec based</ti>		<ti>Bundled</ti>
+		</tr>
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio codec</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Name</th><th>Comment</th><th>Dependancy</th>
+		</tr>
+		<tr>
+			<ti>Uncompressed</ti><ti></ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>Mad</ti>
+		</tr>
+		<tr>
+			<ti>AAC</ti><ti>Very preliminary support</ti><ti>libfaad2</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti></ti><ti>A52Dec</ti>
+		</tr>
+		<tr>
+			<ti>WMA</ti><ti>Mostly Working</ti><ti>Bundled(libavcodec)</ti>
+		</tr>
+		<tr>
+			<ti>Vorbis</ti><ti>Mostly Working</ti><ti>libvorbis, only in ogm files</ti>
+		</tr>
+		
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codec problem</title>
+<section>
+<title>Problem decompressing frame</title>
+	<body><ul>
+	<p>
+	It means that either the codec returned an error or that avidemux could not find the appropriate video codec.
+	</p><p>
+	You can process the audio and save the avi anyway but cannot process the video.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Save(A+V) will generate bad AVI Save audio will work</title>
+	<body><ul>
+	<p>
+	Same message for audio. The audio codec was not found (not compiled in or unknown).
+	</p>
+	<p> You can save and cut the avi, but cannot process the audio
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>After saving the audio is full of noise (WMA)</title>
+	<body><ul>
+	<p>
+	WMA needs custom muxing problem. Look at the blockalign value in the console (generally 373 or 768)</p>
+	<p>Enter that value as <c>bytes per packet</c> in file -> mux options.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Format specific</title>
+<section>
+<title>Mpeg file</title>
+	<body><ul>
+	<p>Avidemux cannot open raw mpeg streams. Instead it can open indexed mpeg streams.
+	The index is a text file containing navigation informations. It is needed to allow frame
+	accuracy.</p>
+	<p>
+	So either you use the <c>misc->index mpeg</c> menu entry or open directly the mpeg.
+	In the latter case, you will be redirected to the index mpeg dialog with the fields
+	pre-filled. Once the index is created, it will be silently re-opened.
+	</p>
+	<p>
+	If the selected file looks like foo1.xxx, avidemux will try to append foo2.xxx, foo3.xxx
+	It is done automatically but the file must have a name like *[0-9].xxx
+	</p>
+	<p>
+	Avidemux can handle one (and only one) audio stream from mpeg. This audio stream is referenced
+	by its mpeg (sub) stream id.
+	</p>
+	<p>It is C0--c7 for mpeg audio (.mpg, vcd,...), A0--A7 for PCM audio, and 0--7 for AC3 audio.
+	</p>
+	<p>So if you want the second ac3 track from your mpeg file, enter <c>1</c>.
+	</p>
+	<p>Of course, you will need the audio codec to play it back (mad or a52).</p>
+	<p> You can let avidemux autodetect the audio tracks available using <c>Scan File for audio stream</c>,
+		be aware that it can take a few seconds.
+	</p>
+	<p>Mpeg-TS will be considered perfect, i.e. there will be no correction for dropped or damaged packets. It means that if your captured stream is not perfect you will have async problems. In that case, better to use another tool, such as mencoder or transcode.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Nuppel Video</title>
+	<body><ul>
+	<p>
+	As for mpeg streams, nuppel video file has no internal index.
+	</p><p>
+	Avidemux will rebuild it automatically upon loading (that could take some minutes).
+	</p><p>
+	Avidemux will try to maintain audio/video sync, but it could cause a "plop" from time to time.
+	From personal experience, it is rather good (i tried with a 8 hours long nuppel_gatos file 
+	without problem).
+	</p>
+	<p> If you used the menu (and not the command line) you will be asked to save an index upon loading.
+	If you say yes and save it, loading this index will load the same nuv file but very quickly.
+	</p>
+	<p>For mythTv users with a WinTv PVR x50 or similar cards, the nuv files are in fact plain mpeg, see above.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>WMV2 Video</title>
+	<body><ul>
+	<p>
+	Although Avidemux can now open the contents of a WMV2 file (Windows Media Player 7.x/8.x format) - the video data must be contained within an AVI container.
+	</p>
+	<p>
+	To create this container, you can use the MEncoder package in copy mode (eg.): <code>mencoder [wmv file] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [avi file]</code>
+	</p>
+	<p>
+	Currently, you must also forcefully set the framerate of the output file to <strong>100.0</strong> frames per second (FPS), otherwise you will experience large amounts of frame dropping when you come to edit your actual video footage.
+	</p>
+	<p>
+	After you have created your output file, you can load it into Avidemux for editing.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>BMPs Video / Jpeg videos</title>
+	<body><ul>
+	<p>
+	Avidemux can also open a stream of uncompressed bmp files (rgb) or a set of jpeg files.
+	</p><p>
+	Their name must follow the pattern xx0000.bmp xx00001.bmp (that is :m letters + n digits+.bmp).
+	Change bmp to jpg if it is jpeg.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Tutorial da Mpeg a Divx</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Tutorial da Mpeg a Divx</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>Preparazione</p>
+Questa pagina illustra un esempio di conversione di un file avi divx in
+formato VCD.
+Sarete in grado di dedurre i settaggi per convertire un SVCD o un VCD.
+<p class="secthead"><a name="doc_chap1_sect1">Flusso di ingresso </a></p>
+<ul>
+<p>
+Qualunque file avi codificato con un codec ragionevole può essere convertito in
+VCD. Per esempio un file DivX+MP3 (avrete bisogno mad per poter leggere
+il flusso MP3)
+</p>
+<p>La conversione in VCD è realizzata in tre passaggi: codifica video,
+codifica audio e unione dei flussi audio e video.
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap1_sect2">Codifica del video </a></p>
+<ul>
+<p>
+Prima di tutto il video sarà ridimensionato per aderire alle specifiche
+Video CD
+</p>
+<p>
+Vale a dire 352*240 per il sistema NTSC o 352*288 per il PAL
+</p>
+<p>
+Dopo aver caricato il file AVI sorgente, con <span class="code">CTRL+F</span> appare la
+finestra di configurazione dei filtri.
+</p>
+<p>
+	<img src="../image_tuto/filters.png">
+</p>
+<p>
+Cliccare sul pulsante a destra <span class="code">VCD res</span>. Questo pulsante ridimensionerà automaticamente il video ed aggiungerà bordature nere per ottenere la giusta dimensione del fotogramma senza alterarne il rapporto di aspetto.
+</p>
+<p>
+Ora selezionare <span class="code">File-&gt;Save mpeg-&gt;Save mpeg1 video (VCD)</span> indicando il nome del file di flusso video. Per esempio: /tmp/videocd.m1v.
+</p>
+<p>Adesso potete leggere altra documentazione di avidemux e controllare
+fra un paio d'ore il risultato.
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap1_sect3">Codifica dell'audio </a></p>
+<ul>
+<p>
+Settare l'audio su process e selezionate <span class="code">Audio processing-&gt;Audio codec-&gt;mp2</span>.
+</p>
+<p>
+Selezionare <span class="code">Audio processing-&gt;Configure Codec</span> and set stereo / 224 kbps.
+</p>
+<p>Aggiungere <span class="code">Normalize</span> ed il filtro audio <span class="code">48-&gt;44</span> se necessario.
+</p>
+<p>
+Selezionare <span class="code">File -&gt; Save audio</span> per esempio /tmp/videocd.mp2. Rileggere la documentazione di avidemux, guardare pure un film, leggere un libro e controllare il risultato dopo un'oretta.
+</p>
+</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Dopo avidemux</p>
+<p class="secthead"><a name="doc_chap2_sect1">Unire i flussi audio e video </a></p>
+<ul>
+<p>
+I flussi audio e video sono ora pronti.
+Utilizzare mplex come segue:
+</p>
+<p>
+mplex  -S XXX -f 1 -o /tmp/videocd.mpg videocd.m1v videocd.mp2
+</p>
+<p>Il valore indicato come XXX deve essere sostituito con la dimensione del CD:  790 per un CD da 80 minuti.
+</p>
+<p>Una volta terminato il file risultante videocd.mpg sarà un file valido per poter essere utilizzato per creare un VCD.
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap2_sect2">VCD imager  </a></p>
+<ul>
+<p>
+Per realizzare un semplice VCD senza capitoli, menu, eccetera digitare
+solamente
+</p>
+<p>
+<span class="code">vcdimager -t vcd20 videocd.mpg</span>
+</p>
+<p>Saranno creati i file videocd.cue e videocd.bin, che possono essere masterizzati utilizzando cdrdao.
+</p>
+</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Le regole per la shell</p>
+<p class="secthead"><a name="doc_chap3_sect1">La stessa cosa senza l'interfaccia </a></p>
+<ul>
+<p>
+E' possibile compiere le stesse operazioni utilizzando la linea di comando
+</p>
+<p>
+<span class="code">avidemux --load input.avi --vcd-res --save-vcd /tmp/videocd.m1v --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 --quit</span>
+</p>
+<p>In questo modo è possibile realizzare uno script che automatizzi la
+conversione avi-&gt;VCD
+</p>
+</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

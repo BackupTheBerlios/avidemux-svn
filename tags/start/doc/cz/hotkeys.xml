@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Klávesové zkratky</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Klávesové zkratky
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>File (Soubor)</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Akce</th><th>Klávesová zkratka</th>
+		</tr>
+		<tr>
+			<ti>Open video (Otevřít)</ti><ti>Ctrl+O</ti>
+		</tr>
+		<tr>
+			<ti>Open broken AVI (Načíst vadný AVI soubor)</ti><ti>Ctrl+Z</ti>
+		</tr>
+		<tr>
+			<ti>Save AVI (Uložit AVI soubor)</ti><ti>Ctrl+S</ti>
+		</tr>
+		<tr>
+			<ti>Save raw video (Uložit raw MPEG/stream)</ti><ti>Ctrl+R</ti>
+		</tr>
+		<tr>
+			<ti>Set mux options (Nastavení multiplexace)</ti><ti>Shift+Ctrl+S</ti>
+		</tr>
+		<tr>
+			<ti>AVI Info (Informace o AVI souboru)</ti><ti>Ctrl+I</ti>
+		</tr>
+		<tr>
+			<ti>Save Image (Uložit obrázek BMP)</ti><ti>Ctrl+B</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Play (Přehrávání)</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Akce</th><th>Klávesová zkratka</th>
+		</tr>
+		<tr>
+			<ti>Play AVI (Přehrát)</ti><ti>Mezerník</ti>
+		</tr>
+		<tr>
+			<ti>Next Frame (Další snímek)</ti><ti>Šipka doprava</ti>
+		</tr>
+		<tr>
+			<ti>Next KFrame (Další klíčový snímek)</ti><ti>Šipka nahoru</ti>
+		</tr>
+		<tr>
+			<ti>Previous Frame (Předchozí snímek)</ti><ti>Šipka doleva</ti>
+		</tr>
+		<tr>
+			<ti>Previous KFrame (Předchozí klíčový snímek)</ti><ti>Šipka dolů</ti>
+		</tr>
+		<tr>
+			<ti>Go to (Jdi na snímek)</ti><ti>Ctrl+G</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Markers (Značky)</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Akce</th><th>Klávesová zkratka</th>
+		</tr>
+		<tr>
+			<ti>Mark Begin(A) (Značka A)</ti><ti>Home</ti>
+		</tr>
+		<tr>
+			<ti>Mark End(B) (Značka B)</ti><ti>End</ti>
+		</tr>
+		<tr>
+			<ti>Copy (Kopírovat)</ti><ti>Ctrl+C</ti>
+		</tr>
+		<tr>
+			<ti>Delete (Odstranit)</ti><ti>Del, Ctrl+X</ti>
+		</tr>
+		<tr>
+			<ti>Go to A (Jdi na A)</ti><ti>Shift+Alt+B</ti>
+		</tr>
+		<tr>
+			<ti>Go to B (Jdi na B)</ti><ti>Shift+Alt+E</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Audio Source (Zdroj zvuku)</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Akce</th><th>Klávesová zkratka</th>
+		</tr>
+		<tr>
+			<ti>AVI</ti><ti>Ctrl+A</ti>
+		</tr>
+		<tr>
+			<ti>External MP3 (Externí MP3)</ti><ti>Ctrl+M</ti>
+		</tr>
+		<tr>
+			<ti>External AC3</ti><ti>Ctrl+3</ti>
+		</tr>
+		<tr>
+			<ti>External WAV</ti><ti>Ctrl+V</ti>
+		</tr>
+		<tr>
+			<ti>None (Žádný)</ti><ti>Ctrl+E</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Video Processing (Zpracování obrazu)</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Akce</th><th>Klávesová zkratka</th>
+		</tr>
+		<tr>
+			<ti>Filters setup (Filtry)</ti><ti>Ctrl+F</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>HowTo build a DVD menui, by Jens</title>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="JSC">
+</head>
+<body>
+ 
+<h2>HowTo build a DVD menu, by JSC</h2>
+ 
+<h3>Content</h3>
+ 
+<ul>
+   <li><a href="#prolog">Prolog</a>
+   <li><a href="#structure">My structure on harddisk</a>
+   <li><a href="#step1">Step 1 - The trailer</a>
+   <li><a href="#step2">Step 2 - Thumbnails</a>
+   <li><a href="#step3">Step 3 - Customize the gimp template</a>
+   <li><a href="#step4">Step 4 - Export the source files for the menu</a>
+   <li><a href="#step5">Step 5 - Build the menu</a>
+   <li><a href="#step6">Step 6 - Author the DVD</a>
+</ul>
+ 
+<h3><a name="prolog"></a>Prolog</h3>
+<p>
+I have searched many days to find any information how to build DVD menus.
+Mostly i found "You can do it with gimp", but nobody has written how.
+So this HowTo will explain how i build menus based on my novice level
+knowledge of gimp ;-) and a working example!<br>
+If you have some hints, how to do some things better, faster, simplified
+or the best - do it automatic - please drop me a note over the avidemux forum.
+</p>
+
+<p>
+My DVD will contain a starting trailer before the DVD menu. Than you will
+see a menu with DVD title and subtitle, thumbnails and title of each video.
+You can select a thumbnail and choose <enter> to start the video. If the
+video ends, you will come back to the menu again.<br>
+Because i'm capturing a TV series, i will have mostly 5 videos on one DVD.
+Keep in mind that you can choose as many videos as you want. It's just an
+example. There are unused layers in the dxf file for a 4 video DVD menu also.
+</p>
+
+<h3><a name="structure"></a>My structure on harddisk</h3>
+<p>
+To understand all the files and paths here an overview of my directory organisation:
+<pre>
+project_dir/
+project_dir/mpegs/             # the video files - video: 720x576 MPEG2, audio: 48kHz MP2
+project_dir/mpegs/video1.mpg
+project_dir/mpegs/video2.mpg
+project_dir/mpegs/video3.mpg
+project_dir/mpegs/video4.mpg
+project_dir/mpegs/video5.mpg
+project_dir/dvd_stuff/         # the trailer and menu help files
+project_dir/dvd_stuff/Makefile
+project_dir/dvd_stuff/dvd_menu.xcf
+project_dir/dvd_stuff/dvd_menu_background.jpg
+project_dir/dvd_stuff/dvd_menu_background_submuxed.mpg
+project_dir/dvd_stuff/dvd_menu_highlight.png
+project_dir/dvd_stuff/dvd_menu_selected.png
+project_dir/dvd_stuff/dvd_menu_submux.xml
+project_dir/dvd_stuff/dvdauthor.xml
+project_dir/dvd_stuff/trailer.mpg
+project_dir/dvd_stuff/video1-1.jpg
+project_dir/dvd_stuff/video1-2.jpg
+project_dir/dvd_stuff/video2-1.jpg
+project_dir/dvd_stuff/video3-1.jpg
+project_dir/dvd_stuff/video3-2.jpg
+project_dir/dvd_stuff/video4-1.jpg
+project_dir/dvd_stuff/video4-2.jpg
+project_dir/dvd_stuff/video5-1.jpg
+# created by the process ...
+project_dir/dvd_content/       # here will dvdauthor place the DVD tree
+project_dir/dvd_content.img    # toast THIS to DVD-R
+</pre>
+</p>
+
+<p>
+To get a working structure on other computers too, i'm working with relative
+path values. Please note, that the working directory for all described 
+commands is the "project_dir/dvd_stuff/" directory.
+</p>
+
+<p>
+You can download the tree <a href="HowTo_build_a_DVD_menu_data.tgz">here</a>.
+</p>
+
+<p>
+If you wish to play with some dummy data, you could run:
+<pre>
+$ make example_data
+</pre>
+in the "project_dir/dvd_stuff/" directory. It will create:
+<pre>
+project_dir/mpegs/video1.mpg
+project_dir/mpegs/video2.mpg
+project_dir/mpegs/video3.mpg
+project_dir/mpegs/video4.mpg
+project_dir/mpegs/video5.mpg
+project_dir/dvd_stuff/trailer.mpg
+project_dir/dvd_stuff/video1-1.jpg
+project_dir/dvd_stuff/video1-2.jpg
+project_dir/dvd_stuff/video2-1.jpg
+project_dir/dvd_stuff/video3-1.jpg
+project_dir/dvd_stuff/video3-2.jpg
+project_dir/dvd_stuff/video4-1.jpg
+project_dir/dvd_stuff/video4-2.jpg
+project_dir/dvd_stuff/video5-1.jpg
+</pre>
+</p>
+
+<h3><a name="step1"></a>Step 1 - The trailer</h3>
+<p>
+The captured TV series in my case has a trailer 3-5 minutes after the begin
+in each video. I'm simply will copy this trailer and place it before the DVD
+menu.
+</p>
+
+<p>
+Open "../mpegs/video1.mpg" in avidemux2 and index it if needed. Choose the
+start frame of the trailer as "&gt;A" and the end of the trailer as "B&lt;".
+Use "File -&gt; Save -&gt; Save as DVD PS" to save the file as
+"../dvd_stuff/trailer.mpg". Quit avidemux2.
+</p>
+
+<h3><a name="step2"></a>Step 2 - Thumbnails</h3>
+<p>
+I will use a characteristic picture from each video as reference point in the
+menu. It is not so ugly/simple as a point or circle and not so complex to handle
+like a frame around dynamic text.
+</p>
+
+<p>
+Open the first video "../mpegs/video1.mpg" in avidemux2, scroll through
+the film and search for a characteristic frame. I'm using the percent-bar for 
+"fast playing" the video. Keep the mouse-button down and move it slowly. So you
+get really fine jumps through the stream.
+</p>
+
+<p>
+You should search for a bright frame. It will have the best contrast in front of
+the black background.  If you have found the right frame, just save it as jpg
+file. Use &lt;Ctrl&gt; + &lt;j&gt; and save it as "../dvd_stuff/video1-1.jpg".
+If there are other important frames, save it as "video1-2.jpg", ... we will
+decide later which is the best.
+</p>
+
+<p>
+Do for same for video2.mpg .. video5.mpg.
+</p>
+
+<p>
+Now we have at least 5 pictures in clear quality and of the format 720x576 pixel.
+Because we use the ready mpeg files, they are already handled by crop, add
+border, deinterlace, smooth-filters, ... of avidemux2. The pictures are good, but
+are to big in visible size.
+</p>
+
+<p>
+To scale the pictures down to thumbnails, use:
+<pre>
+$ convert -scale 144x115 infile.jpg outfile.jpg
+</pre>
+for every generated picture.<br>
+If you use my naming scheme, simple type:
+<pre>
+$ make
+video1-1.jpg 720x576 => 144x115
+video1-2.jpg 720x576 => 144x115
+video2-1.jpg 720x576 => 144x115
+video3-1.jpg 720x576 => 144x115
+video4-1.jpg 720x576 => 144x115
+video5-1.jpg 720x576 => 144x115
+[some notes]
+$ 
+</pre>
+</p>
+
+<h3><a name="step3"></a>Step 3 - Customize the gimp template</h3>
+<p>
+<pre>
+$ gimp dvd_menu.xcf
+</pre>
+<ul>
+<li>doubleclick: Window "The GIMP", "T"
+    <ul><li>choose "Use Dynamic Text" and "Close"</ul>
+<li>edit the text of the "Title" layer
+    <ul><li>select: Window "Layers, Channels & Paths", Layer "Title"
+        <li>click into the image window, GDynText window appears, edit the text, end with "OK"
+        <li>the edited text appears in the middle or left of the image window (it depends on the orientation choosen in the GDynText window)
+        <li>choose: Window "The GIMP", "Move layers & selections" (7th icon)
+        <li>go over the edited text selection and move it back to the original position
+        <li>choose: Window "The GIMP", "T" again
+    </ul>
+<li>edit the text of the "Subtitle" layer
+<li>edit the text of the "Pic1 Title" layer
+<li>edit the text of the "Pic2 Title" layer
+<li>edit the text of the "Pic3 Title" layer
+<li>edit the text of the "Pic4 Title" layer
+<li>edit the text of the "Pic5 Title" layer
+<li>select: window "Layers, Channels & Paths", layer "Picto"
+<li>View -&gt; Zoom -&gt; 4:1<br>
+    This will give you pixel exact placing of the thumbnails.
+<li>insert the thumbnail of the first video into the picto layer
+    <ul><li>File -&gt; Open... -&gt; video1-1.jpg
+        <li>File -&gt; Open... -&gt; video1-2.jpg
+        <li>go to the image window of the best thumbnail and choose &lt;Ctrl&gt; + &lt;c&gt;
+        <li>close all thumbnails (&lt;Ctrl&gt; + &lt;w&gt; inside image window)
+        <li>in the image window of the "Picto" layer: &lt;Ctrl&gt; + &lt;v&gt;
+        <li>the image will occure in the middle of the image window, it is still selected
+        <li>move the image to the exact position - just click and move, it will automatic scroll if needed
+    </ul>
+<li>insert the thumbnail of the second video into the picto layer
+<li>insert the thumbnail of the third video into the picto layer
+<li>insert the thumbnail of the fourth video into the picto layer
+<li>insert the thumbnail of the fifth video into the picto layer
+<li>View -&gt; Zoom -&gt; 1:1
+<li>save dvd_menu.xcf for further use (&lt;Ctrl&gt; + &lt;s&gt;)
+</ul>
+</p>
+
+<h3><a name="step4"></a>Step 4 - Export the source files for the menu</h3>
+<p>
+<pre>
+$ gimp dvd_menu.xcf
+</pre>
+<ul>
+<li>go to window "Layers, Channels & Paths" and make only these layers visible:
+    <ul><li>Picto
+        <li>Pic1 Title
+        <li>Pic2 Title
+        <li>Pic3 Title
+        <li>Pic4 Title
+        <li>Pic5 Title
+        <li>Title
+        <li>Subtitle
+        <li>Background
+    </ul>
+<li>save all currently visible layers as: dvd_menu_background.jpg
+<li>go to window "Layers, Channels & Paths" and make only layer "Button Highlight 5Buttons" visible
+<li>save this currently visible layer as: dvd_menu_highlight.png<br>
+    This will be the view of the frame around the thumbnail while using the cursor keys on the DVD player.
+<li>go to window "Layers, Channels & Paths" and make only layer "Button
+    Selected 5Buttons" visible
+<li>save this currently visible layer as: dvd_menu_selected.png<br>
+    This will be the view of the frame around the thumbnail 1-2 seconds after
+    pressing "Enter" on the DVD player. It will give a featback to the user,
+    faster than loading the video from the disc and just begin to play.
+<li>quit gimp
+</ul>
+</p>
+
+<h3><a name="step5"></a>Step 5 - Build the menu</h3>
+<p>
+A DVD menu is not static. It is a MPEG2 stream with video and audio data. If
+the streams ends, it will be played from start again. To build a video without
+audio, i'm using:
+<pre>
+# jpg to MPEG2 video
+$ jpeg2yuv -n 50 -I p -f 25 -j dvd_menu_background.jpg | mpeg2enc -n p -f 8 -o dvd_menu_background.m2v
+
+# generate silent mp2 audio # no audio is not valid, but silence is ok ;-)
+$ dd if=/dev/zero bs=4 count=1920 | toolame -b 128 -s 48 /dev/stdin dvd_menu_background.mp2
+
+# build the MPEG PS stream
+$ mplex -f 8 dvd_menu_background.m2v dvd_menu_background.mp2 -o dvd_menu_background.mpg
+</pre>
+</p>
+
+<p>
+To insert the button information into this stream, i use:
+<pre>
+$ cat dvd_menu_submux.xml
+&lt;subpictures&gt;
+  &lt;stream&gt;
+    &lt;spu start="00:00:00.0" end="00:00:00.0"
+         highlight="dvd_menu_highlight.png"
+         select="dvd_menu_selected.png"
+         autooutline="infer"
+         force="yes"
+         autoorder="rows"/&gt;
+  &lt;stream&gt;
+&lt;subpictures&gt;
+$ vi dvd_menu_submux.xml    # if needed
+$ spumux dvd_menu_submux.xml < dvd_menu_background.mpg > dvd_menu_background_submuxed.mpg
+</pre>
+</p>
+
+<p>
+If you use my naming scheme, you would do both (building mpg file and insert
+button infos) by running:
+<pre>
+$ make
+[many output]
+[some notes]
+$
+</pre>
+</p>
+
+<h3><a name="step6"></a>Step 6 - Author the DVD</h3>
+<p>
+The structure of the DVD is described in "dvdauthor.xml". I wish to play the
+trailer and call the menu then. The selected thumbnail should call the
+related mpeg video. After the end of this video, then menu should be visible.
+My DVD player has no real fast forward mode. So i wish to have jump references
+all 5 minutes.
+</p>
+<p>
+<pre>
+$ cat dvdauthor.xml 
+&lt;dvdauthor dest="../dvd_content/"&gt;
+   &lt;vmgm&gt;
+      &lt;menus&gt;
+         &lt;pgc&gt;
+            &lt;vob file="trailer.mpg"/&gt;
+            &lt;post&gt; jump titleset 1 menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+      &lt;/menus&gt;
+   &lt;/vmgm&gt;
+   &lt;titleset&gt;
+      &lt;menus&gt;
+         &lt;pgc&gt;
+            &lt;button&gt; jump title 1; &lt;/button&gt;
+            &lt;button&gt; jump title 2; &lt;/button&gt;
+            &lt;button&gt; jump title 3; &lt;/button&gt;
+            &lt;button&gt; jump title 4; &lt;/button&gt;
+            &lt;button&gt; jump title 5; &lt;/button&gt;
+            &lt;vob file="dvd_menu_background_submuxed.mpg" pause="inf"/&gt;
+         &lt;/pgc&gt;
+      &lt;/menus&gt;
+ 
+      &lt;titles&gt;
+         &lt;pgc&gt;
+            &lt;vob file="../mpegs/video1.mpg" chapters="0,5:00,10:00,15:00,20:00,25:00,30:00,35:00" pause="3" /&gt;
+            &lt;post&gt; call menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+  
+         &lt;pgc&gt;
+            &lt;vob file="../mpegs/video2.mpg" chapters="0,5:00,10:00,15:00,20:00,25:00,30:00,35:00" pause="3" /&gt;
+            &lt;post&gt; call menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+  
+         &lt;pgc&gt;
+            &lt;vob file="../mpegs/video3.mpg" chapters="0,5:00,10:00,15:00,20:00,25:00,30:00,35:00" pause="3" /&gt;
+            &lt;post&gt; call menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+ 
+         &lt;pgc&gt;
+            &lt;vob file="../mpegs/video4.mpg" chapters="0,5:00,10:00,15:00,20:00,25:00,30:00,35:00" pause="3" /&gt;
+            &lt;post&gt; call menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+         &lt;pgc&gt;
+            &lt;vob file="../mpegs/video5.mpg" chapters="0,5:00,10:00,15:00,20:00,25:00,30:00,35:00" pause="3" /&gt;
+            &lt;post&gt; call menu; &lt;/post&gt;
+         &lt;/pgc&gt;
+      &lt;/titles&gt;
+   &lt;/titleset&gt;
+&lt;/dvdauthor&gt;
+$ dvdauthor -x dvdauthor.xml
+</pre>
+The structure is prepared, you should check the stuff with "ogle" now:
+<pre>
+$ ogle ../dvd_content/
+</pre>
+But remember: ogle has timing issues (buttons come earlier than background) and
+confused colors (the left line of the frame around the thumbnails has sometimes
+another color than red) sometimes and in my version used. Not all effects you
+see in ogle, are also visible on your dvd player!<br>
+<br>
+Now you can build a DVD image:
+<pre>
+$ mkisofs -dvd-video -o ../dvd_content.img ../dvd_content/
+</pre>
+</p>
+
+<p>
+If you use my naming scheme, you can handle the complete step by running:
+<pre>
+$ make vdvd
+<b>dvdauthor -x dvdauthor.xml</b>
+DVDAuthor::dvdauthor, version 0.6.10.
+Build options: gnugetopt iconv freetype
+Send bugs to &lt;dvdauthor-users@lists.sourceforge.net&gt;
+
+INFO: Locale=C
+INFO: Converting filenames to ANSI_X3.4-1968
+INFO: dvdauthor creating VTS
+STAT: Picking VTS 01
+
+STAT: Processing dvd_menu_background_submuxed.mpg...
+
+INFO: Video pts = 0.184 .. 2.184
+INFO: Audio[8] pts = 0.144 .. 0.192
+INFO: Audio[32] pts = 0.184 .. 0.184
+STAT: VOBU 4 at 0MB, 1 PGCS
+INFO: Generating VTSM with the following video attributes:
+INFO: MPEG version: mpeg2
+INFO: TV standard: pal
+INFO: Aspect ratio: 4:3
+INFO: Resolution: 720x576
+INFO: Audio ch 0 format: mp2/2ch, 48khz 20bps
+
+STAT: Processing ../mpegs/video1.mpg...
+STAT: VOBU 16 at 0MB, 5 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+
+STAT: Processing ../mpegs/video2.mpg...
+STAT: VOBU 41 at 1MB, 5 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+
+STAT: Processing ../mpegs/video3.mpg...
+STAT: VOBU 66 at 2MB, 5 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+
+STAT: Processing ../mpegs/video4.mpg...
+STAT: VOBU 91 at 3MB, 5 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+
+STAT: Processing ../mpegs/video5.mpg...
+STAT: VOBU 116 at 4MB, 5 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+STAT: VOBU 125 at 5MB, 5 PGCS
+INFO: Generating VTS with the following video attributes:
+INFO: MPEG version: mpeg2
+INFO: TV standard: pal
+INFO: Aspect ratio: 4:3
+INFO: Resolution: 720x576
+INFO: Audio ch 0 format: mp2/2ch, 48khz 20bps
+
+STAT: fixed 4 VOBUS                         
+STAT: fixed 125 VOBUS                         
+INFO: dvdauthor creating table of contents
+INFO: Scanning ../dvd_content//VIDEO_TS/VTS_01_0.IFO
+INFO: Creating menu for TOC
+
+STAT: Processing trailer.mpg...
+STAT: VOBU 16 at 0MB, 1 PGCS
+INFO: Video pts = 0.184 .. 15.184
+INFO: Audio[8] pts = 0.144 .. 0.456
+STAT: VOBU 25 at 1MB, 1 PGCS
+INFO: Generating VMGM with the following video attributes:
+INFO: MPEG version: mpeg2
+INFO: TV standard: pal
+INFO: Aspect ratio: 4:3
+INFO: Resolution: 720x576
+INFO: Audio ch 0 format: mp2/2ch, 48khz 20bps
+
+STAT: fixed 25 VOBUS                         
+<b>mkisofs -dvd-video -o ../dvd_content.img ../dvd_content</b>
+Total translation table size: 0
+Total rockridge attributes bytes: 0
+Total directory bytes: 4096
+Path table size(bytes): 42
+Max brk space used 4124
+3616 extents written (7 Mb)
+
+<b>Please verify DVD structure with:
+ogle ../dvd_content</b>
+</pre>
+</p>
+
+</body>
+</html>

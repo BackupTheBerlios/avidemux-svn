@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	ffv1rec</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">ffv1rec</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Historie</p>
+<p class="secthead"><a name="doc_chap1_sect1">Před ffv1rec byl nuppel_gatos </a></p>
+<ul>
+		<p> 
+		Minulý rok jsem používal kartu ATI AIW 7500, s ovladači <a href="http://gatos.sf.net">GATOS</a>. 
+		</p>
+		<p>Problém je, že tato karta neposkytuje stejné v4l rozhraní jako ovladač BT8X8. Takže většina nahrávacích prohramů prostě nefunguje.
+		</p>
+		<p>Frustrován touto skutečností jsem si napsal utilitku nazvanou nuppel_gatos, což byl port programu NuppelVideo.
+		
+		</p>
+<p>K nahrávání používal rozhraní ovladače GATOS, plus konverzi z YUV422 na YUV420P.
+		</p>
+		<p>Fungoval pěkně, ale poměr velikost/kvalita nebyl moc dobrý. Experimentování mne postavilo před hrozné dilema:
+		<ul>
+			<li>Používat NuppelVideo, ale zůstat u formátu RTjpeg, perfektní synchronizace, obrovské soubory</li>
+			<li>Používat AVI, s možností použít jiný kodek, synchronizace, *ehm*, problematická</li>
+		</ul>
+		</p>
+		<p>Když mluvím o synchronizaci, myslím tím skutečnou synchronizaci. Žádné triky na úrovni kontejneru k nápravě synchronizace zvuku a obrazu, které se rozcházejí když se vezmou samostatně.
+		</p>
+		<p>Takže jsem upravil nuppel_gatos tak, aby uměl komprimovat video kodekem XviD v prokládaném režimu. 
+		</p>
+	
+	</ul>
+<p class="secthead"><a name="doc_chap1_sect2">A nyní ffv1rec </a></p>
+<ul>
+		<p>Před několika měsíci jsem skončil s AIW a pořídil si Ti4200 (jsem tak trochu fanda Enemy Territory :)) a instaloval zpět kartu BT8x8.
+		</p>
+		<p>Stejné příčiny, stejné následky. Navíc jsem chtěl otestovat FFV1, bezeztrátový kodek z <a href="http://www.ffmpeg.org/">FFmpegu</a>. A je tu ffv1rec. :) 
+		</p>
+		<p>Výsledek primárních cílů byl špatný: velikost dobrá, ale vytížení procesoru se okamžitě vyšplhalo na maximum.
+		</p>
+		<p>Takže abych toto zajímavé pojednání ukončil, ffv1rec vznikl evolucí z  NuppelVidea a používá také stejný kontejner.
+		</p>
+		<p>Máte perfektní synchronizaci i možnost komprimovat video různými kodeky.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Hlavní rozdíly oproti nuvrec</p>
+<ul>
+		<li>Vlákna místo procesů</li>
+		<li>Můžete zadat audio frekvenci, jako 48000 pro pozdější konverzi na DVD, přepínačem <span class="code">-b</span>
+</li>
+		<li>Nastavení se může uložit v $HOME/.ffv1recrc, viz následující část</li>
+		<li>Můžete si zvolit video kodek přepínačem <span class="code">-C</span>. Doporučený je XVID nebo HUFFYU</li>
+		<li>Nastavit se dá i odhad pohybu u kodeku parametrem <span class="code">-M</span>. Doporučeno: 0 nebo 1</li>
+		<li>Můžete si zvolit kvantizaci parametrem <span class="code">-q</span>. Doporučeno: 5</li>
+		<li>Vzdálenost mezi klíčovými snímky se dá nastavit parametrem <span class="code">-d</span>. Doporučeno: 200</li>
+		
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Verze kodeku XviD</p>
+<ul>	
+	<p>Od verze Avidemuxu 2.0.22 byla do ffv1rec přidána částečná podpora kodeku XviD verze 1.x, ale před kompilací ffv1rec <b>musíte</b> nejdříve zkompilovat Avidemux (nebo alespoň spustit ./configure).
+	</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>$HOME/.ffv1recrc</p>
+<ul>	
+	<p>Tento soubor obsahuje vaše nastavení. Parametry z příkazové řádky jej přepíší.</p>
+	<p>Syntaxe:
+	</p>
+
+	<ul>
+		<li>
+<span class="code">#</span> je komentář</li>
+		<li>
+<span class="code">parametr</span> je totéž co -parametr z příkazové řádky</li>
+		<li>
+<span class="code">parametr=hodnota</span> je stejné jako -parametr hodnota z příkazové řádky</li>
+	</ul>
+	<p>
+		Jako příklad uvedu své nastavení:
+		<a name="doc_chap_pre1"></a><table class="ntable" width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td class="infohead" bgcolor="#7a5ada"><p class="caption">
+			Code listing .1</p></td></tr>
+<tr><td bgcolor="#ddddff"><pre>
+C=XVID
+q=4
+M=1
+d=200
+S=1
+b=48000
+s
+W=768
+H=576
+x=200
+</pre></td></tr>
+</table>
+	</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

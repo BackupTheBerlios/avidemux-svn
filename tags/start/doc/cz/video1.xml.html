@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Video: filtry pro úpravu obrazu</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Video: filtry pro úpravu obrazu</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Předmluva</p>
+	<ul>
+	<p>Tato sada filtrů výrazně mění zdrojový obraz: změna velikosti, rotace, převrácení a ořez.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtry pro úpravu obrazu</p>
+<p class="secthead"><a name="doc_chap2_sect1">Crop </a></p>
+	<ul>
+	<p>Provede ořez obrazu (například k odstranění černých pruhů). Hodnoty musí být sudé.
+	</p>
+	<p>Oříznuté části se znázorní po stisku tlačítka <span class="code">Apply</span>.
+	</p>
+	<p>Na čistém obraze (DVD) můžete zkusit <span class="code">Autocrop</span>. Na zašuměném obraze (TV nahrávka) to nebude fungovat moc dobře.
+	</p>
+	<img src="../image_tuto/crop2.png">
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Resize/MPlayer resize </a></p>
+	<ul>
+	<p>Resize je port filtru z AviSynthu do YV12. MPlayer resize je port filtru Michaela Niedermayera, který se používá v MPlayeru.
+	</p>
+	<p>AviSynth Resize je o něco přesnější, ale MPlayer resize je 3x rychlejší bez postřehnutelného rozdílu.
+	</p>
+	<p>Konfigurační dialog je stejný pro oba filtry:
+	</p>
+<p>
+	<img src="../image_tuto/fresize.png">
+	</p>
+	<p>Můžete přímo zadat novou výšku a šířku a algoritmus převzorkování, nebo použít posuvník.
+	K dispozici jsou tři metody interpolace:
+	<ul>
+		<li>Bilinear: Méně ostrý, ale snadněji komprimovatelný</li>
+		<li>Bicubic: Zachovává ostrost, hůře komprimovatelný (například snáze vede ke kostičkování u SVCD)</li>
+		<li>Lanczos: Dává dobrý výsledek</li>
+	</ul>
+	Položky Source (zdroj) a Destination (cíl) jsou důležité. Pokud např. převádíte DVD do AVI, zdroj je 4:3 nebo 16:9 a cíl je 1:1. A naopak u převodu z AVI na SVCD.
+	</p>
+	<p>Je to důležité, protože 4:3 nemá čtvercové pixely (rozdílné u PAL a NTSC) a pokud děláte převod 1:1-&gt;1:1, bude výsledný obraz zkreslený.
+	
+	</p>
+	
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Blacken Borders </a></p>
+	<ul>
+	<p>Nahradí okraje obrazu čistou černou. Může být užitečný k vyčištění černých okrajů (např. u VHS nahrávky).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Add black borders </a></p>
+	<ul>
+	<p>Tento filtr *přidá* černé okraje (předchozí je nahradí). Interně je používán metafiltry *VCD res ke změně velikosti bez změny poměru stran.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">Flip Vertical </a></p>
+	<ul>
+	<p>Vertikálně přetočí video. Hodí se například pro nahrávky z některých TV karet.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect6">Rotate </a></p>
+	<ul>
+	<p>Tento filtr napsal Tracy (viz soubor pro další informace).</p>
+	<p>Otočí video o 90/180/270 stupňů. Autor jej používá pro video ze své kamery v otočené pozici.</p>
+	<p>
+	<img src="../image_tuto/rotate.png">
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

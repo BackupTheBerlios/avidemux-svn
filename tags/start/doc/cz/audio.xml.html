@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Audio</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Audio</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Režim Process/Copy</p>
+<p class="secthead"><a name="doc_chap1_sect1">Režim Copy </a></p>
+	<ul>
+	<p>V tomto režimu Avidemux pouze zkopíruje zdrojový zvuk (externí/AVI/...) do výstupu. Používá se například když jen stříháte AVI soubor nebo měníte zvukovou stopu. To platí i pro MPEG kódování/překódování/rekvantizaci.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap1_sect2">Režim Process </a></p>
+	<ul>
+	<p>Avidemux nejdříve dekomprimuje zvuk, poté aplikuje filtry, jsou-li nějaké použity. Pokud žádný filtr nenastavíte, výsledným formátem zvuku bude nekomprimovaný WAV.
+	</p>
+	<p>Abyste jej mohli používat, musíte mít nainstalovaný příslušný kodek. Viz <a href="input.xml.html">vstupní formáty a kodeky</a>.
+	</p>
+	<p>Při použití <span class="code">Audio-&gt;Save Audio</span> je zvuk uložen v závislosti na vybraném režimu. Pokud je nastaven na Copy, pouze se uloží neupravený soubor AC3/MP3/WMA... V režimu Process bude zvuk nejdříve zpracován a poté uložen.
+	</p>
+	<p>Takto můžete například zakódovat zvuk v MP2 formátu k přípravě Video CD. Výsledkem budou soubory .m1v (video elementary stream) a .mp2.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtry</p>
+<p class="secthead"><a name="doc_chap2_sect1">Normalize </a></p>
+	<ul>
+	<p>Tento filtr provede lineární normalizaci zvuku. Vhodné když je nízká celková hlasitost (např. ve zvukové stopě v AC3).
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Convert to 44.1 kHz </a></p>
+	<ul>
+	<p>Konverze 48-&gt;44.1 kHz. Pokud vstupní frekvence není 48 kHz, filtr nedělá nic.
+	</p>
+	<p>Založeno na wavefs44, vypůjčeném z DVD2AVI.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Time shift </a></p>
+	<ul>
+	<p>Časový posun zvuku, odstraní začátek nebo vytvoří nový zvuk duplikací. Zadaná hodnota určuje časový posun v milisekundách.
+	</p>
+	<p>Je to <b>jediný filtr který funguje i v režimu Copy</b>. Velmi šikovný k nápravě špatné synchronizace zvuku a obrazu v AVI nebo MPEG souborech.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Resample to  </a></p>
+	<ul>
+	<p>Převzorkuje audio na požadovanou frekvenci. Je rychlejší než 48-&gt;44.1, ale kvalita může být horší. Je založen na lehce modifikovaném jádru sox.
+	</p>	
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect5">PAL-&gt;Film a Film-&gt;PAL  </a></p>
+	<ul>
+	<p>Pokud chcete upravit video a změnit jeho snímkovou frekvenci z 23.976 (FILM) na 25 (PAL), musíte použít audio filtr Film-&gt;PAL, aby se zachovala synchronizace obrazu a zvuku. Opakem je PAL-&gt;Film.
+	</p>	
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Kódovací filtry</p>
+<p>
+Tyto filtry jsou stejné jako normální filtry, ale produkují komprimovaný zvuk.
+</p>
+<p>
+</p>
+<p class="secthead"><a name="doc_chap3_sect1">Uncompressed </a></p>
+	<ul>
+	<p>Nedělá nic, výstupem je PCM WAV. Vhodný např. ke konverzi MP3-&gt;WAV.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect2">MP3 </a></p>
+	<ul>
+	<p> Založeno na liblame. Zvolíte si bitrate a režim joint stereo nebo stereo. Mono se nastaví automaticky, je-li zdroj mono.
+	</p>
+	<p> Kóduje pouze v CBR módu. Jestli chcete variabilní bitrate (VBR), použijte raději LAME z příkazového řádku a výsledný MP3 soubor nastavte jako audio stopu. Nezapomeňte si přečíst sekci <a href="./vbrmp3.xml.html">VBR MP3</a>, jinak budete mít problémy... 
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect3">FFmpeg MPEG audio </a></p>
+	<ul>
+	<p>Toto je MPEG audio enkodér z knihovny libavcodec.
+	</p>
+	<p>Kóduje pouze v CBR módu (a bez joint sterea, přestože je v dialogovém okně k dispozici). Je vyhlášen za vhodný pro použití na DVD audio stopy.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect4">FFmpeg AC3 </a></p>
+	<ul>
+	<p>Taky z libavcodecu.
+	</p>
+	<p>Kóduje stereo AC3 soubory. Akceptovatelnost hardwarovými dekodéry nevyzkoušena.	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap3_sect5">tooLAME (interní) </a></p>
+	<ul>
+	<p>Používá pre-verzi tooLAME která je knihovnou, a tudíž přímo použitelná pro Avidemux bez rour.
+	</p>
+	<p>Od verze 2.0.24 je vhodný pro použití jako VCD/DVD audio stopa.</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap4">4.</a></span>Příklad použití</p>
+<p class="secthead"><a name="doc_chap4_sect1">AVI se zvukem ve WMA </a></p>
+	<ul>
+	<p>Řekněme, že máte AVI soubor s WMA zvukem, který chcete převést do MP3.
+	</p>
+	<p>Otevřete jej, nechte video režim na Copy, protože obraz nebudeme měnit.
+	</p>
+	<p>Nastavte audio režim na Process a po kliknutí na tlačítko A Codec zvolte MP3 kodek.
+	</p>
+	<p>Tlačítko Configure codec otevře konfigurační dialog kodeku, zde nastavte 128 kbps Joint Stereo.
+	</p>
+	<p><span class="code">File-&gt;Save Video</span> - a právě jste úspěšně zkonvertovali zvuk.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap4_sect2">Převod AVI s 44.1 kHz MP3 zvukem na DVD </a></p>
+	<ul>
+	<p>V takovém případě zvolíme režim Process, Resample to 48 kHz a FFmpeg MPEG audio.
+	</p>
+	<p>Audio stopa bude nejdřív dekomprimována do PCM, poté převzorkována na 48 kHz a konečně zkomprimována na MPEG audio.
+	</p>
+	<p>Můžete použít <span class="code">Audio-&gt;Save Audio</span> k získání .mp2 souboru, nebo <span class="code">File-&gt;Save as DVD PS</span> k přímému uložení jako MPEG obsahující audio i video. Tento MPEG je vhodný k přímému vytvoření DVD.
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Editing mpeg files</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Mpeg edition
+ </abstract>
+
+<version>1.0</version>
+<date>06 Apr 2003</date>
+<chapter>
+<title>Introduction</title>
+<section>
+	<body><ul>
+		<p> Avidemux can read (indexed) mpeg file, both elementary stream and program stream (i.e. vob files for example) thanks to mpeg2dec 
+		</p>
+		<p>
+		  Internally, the mpeg are seen as frames with a fake codec (MPEG). 
+		</p>
+		<p>If you save the file in copy mode, you will end up with mpeg inside avi, but since it is non standard, only avidemux will be able to read it back.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Splitting, external muxing </title>
+<section>
+<title>General</title>
+	<body><ul>
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"></img> and <img src="../images/markb.png"> </img>.  You should read <uri link="./cutting.xml.html">cutting</uri> if you did not already.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Audio</title>
+	<body><ul>
+		<p> 
+No special care to take here. Just save the audio in copy mode using <c>File->Save audio</c> menu entry. You will end-up with either foo.mp2 or foo.ac3.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Video</title>
+	<body><ul>
+		<p> 
+For video, we will use <c>File->Save raw stream</c>. This menu entry will ask the demuxer the raw data, bypassing the mpeg decoding step. It will also reconstruct the PTS/DTS logic to have a compliant mpeg stream.
+		</p>
+		<p> Now you have a foo.m1v or foo.m2v mpeg1/2 elementary stream which should be synced with foo.mp2.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>System</title>
+	<body><ul>
+		<p> 
+Now it is time to remultiplex both streams to end-up with foo.mpg. The first seq_header has the timestamp of the first frame (uncut). It may confuse mplex and you will end up with tons of error/warning messages.
+		</p>
+		<p>The best is to use tcmplex from transcode to mux them back together.
+
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Splitting, internal muxing </title>
+<section>
+<title>General</title>
+	<body><ul>
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"></img> and <img src="../images/markb.png"> </img>.  You should read <uri link="./cutting.xml.html">cutting</uri> if you did not already. In that mode, avidemux will write a mpeg2 PS stream (lvemux lower part from <uri link="http://lvempeg.sf.net">lvempeg</uri>. This mpeg2 PS contains NAV packet and is suitable to DVD authoring. Even my Pioneer accepts them :).
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Audio</title>
+	<body><ul>
+		<p> 
+Audio must be 48 kHz and either MP2 or AC3 (as of today it means libavcodec AC3 or libavcodec MP2). It can be either from copy and/or process mode (for example editing a PVR capture file).
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Video</title>
+	<body><ul>
+		<p> The video must be mpeg (that seems obvious). As for audio, it can be in copy mode (edited PVR or DVD) or process mode (converted avi or converted nuv).
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Saving</title>
+	<body><ul>
+		<p> Now, it is time to use <c>File-save DVD PS</c>. If audio is in copy mode, you will be asked the A/V shift to correct. For DVD it ranges from 0 to about 200 ms. For PVR captured stream it can be anything.
+		</p>
+	</ul></body>
+</section>
+<section>
+<title>Important</title>
+	<body><ul>
+		<p> There is two importants things to consider here :
+		<ul>
+			<li>The muxing will introduce by default a 40 ms shift. Can be neglected if the sync was perfect.</li>
+			<li>When saving as mpeg PS, the GOP timestamp will be recomputed to avoid jump in case of edited PVR streams.</li>
+		</ul>
+		</p>
+	</ul></body>
+</section>
+
+</chapter>
+</guide>

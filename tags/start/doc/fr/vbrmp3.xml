@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>MP3 VBR</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+ MP3 VBR
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Informations préalables</title>
+<section>
+	<body><ul>
+		<p> Le plus souvent, Avidemux calcule le décalge et la longueur de l'audio selon la formule taille = durée * débit. Cela fonctionne pour tous les flux CBR.
+		</p>
+		<p>Pour les VBR, cela ne peut pas fonctionner puisque le débit n'est pas constant.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Carte temporelle de l'audio</title>
+<section>
+	<title>Carte temporelle de l'audio</title>
+	<body><ul>
+		<p>Pour calculer le décalage initial/la taille, Avidemux doit le connaître le détail des variations du débit. Pour cela, utilisez la commande <c>Audio source->audio time map</c>.
+		</p>
+		<p>
+		Avidemux va alors decompresser l'ensemble du flux en une fois et générer une carte temporelle pour savoir comment traiter le flux. Vous devez avoir installé Mad, sans quoi rien ne se passera.
+		</p>
+		<p>Une fois la carte temporelle réalisée, Avidemux dispose d'une table de conversion entre le temps et le décalage, et vous pourrez alors diviser ou enregistrer l'avi en VBR</p>
+	</ul></body>
+</section>
+<section>
+	<title>Et si je ne le fais pas ?</title>
+	<body><ul>
+		<p>Vous vous retrouverez avec un avi méchamment désynchronisé (et avec une piste audio probablement trop courte). Même si vous contentez de l'ouvrir et de l'enregistrer.
+		</p>
+		<p>Vous DEVEZ le faire lorsque vous utilisez un mp3 VBR. Point barre. 
+		</p>
+		<p>La seconde piste audio de l'avi ne peut pas être VBR.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Dual audio track</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Dual audio track</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Warning</p>
+<ul>
+		<p> Avidemux can only handle one audio track internally. 
+		</p>
+		<p>
+		   Nonetheless, there is a way to add a second audio track, with limited support and no processing at all on that second audio track.	
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Adding a second audio track</p>
+<p class="secthead"><a name="doc_chap2_sect1">Restrictions </a></p>
+<ul>
+		<p> The second audio track must be CBR, that is MP3 CBR or AC3. Period. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Menu </a></p>
+<ul>
+		<p> To add a second audio track, use the <span class="code">Audio-&gt;Second Track-&gt;xxxx</span> menu. After selecting it, use <span class="code">File -&gt; Dual audio avi</span> instead of <span class="code">File -&gt;Save video</span>. 
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Cutting a dual audio avi </a></p>
+<ul>
+		<p> As Avidemux cannot handle more than one audio stream internally we will have to play a bit .
+		</p>
+		<p> Open the avi, when prompted select the second audio track 
+		</p>
+		<p> Set the A and B markers and use <span class="code">File -&gt; save audio</span> as /tmp/track11.mp3 for example. 
+		</p>
+		<p> Reopen the same avi, but this time select the first audio track. 
+		</p>
+		<p> Cut it, and save it as /tmp/avi1.avi. 
+		</p>
+		<p> Reload it, and add /tmp/track11.mp3 as second track. Save using  <span class="code">File -&gt; Dual audio avi</span> menu. 
+		</p>
+		<p>  
+			Repeat for each part.
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

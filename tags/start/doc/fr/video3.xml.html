@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Vidéo: filtres de convolution</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Vidéo: filtres de convolution</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Avant-propos</p>
+	<ul>
+	<p>Cette famille de filtres regroupe des fitres de convolution, comme mean (moyenne), median (médiane), sharpen (accentuer), ...
+	</p>
+	<p>Les fitlres de convolution prennent une matrice 3x3 et l'appliquent au voisinnage de chaque pixel. Ils peuvent s'appliquer à la chrominance, à la luminance ou aux deux.
+	</p>
+	<p> Appliqués à la seule chrominance, les filtres Median et Mean s'avèrent particulièrement efficaces pour éliminer le bruit qui affecte une capture à partir d'un magnétoscope.
+	</p>
+	</ul>
+	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Filtres de convolution</p>
+<p class="secthead"><a name="doc_chap2_sect1">Mean </a></p>
+	<ul>
+	<p>Ce filtre affecte à chaque pixel la valeur moyenne de ses voisins. C'est un filtre passe bas assez rudimentaire.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Median </a></p>
+	<ul>
+	<p>Ce filtre affecte à chaque pixel la valeur médiane de ses voisins. Il est comparable à mean mais élimine des valeurs différentes. Il supprime efficacement le bruit dans les hautes fréquences (comme les points blancs des vieux films), mais crée beaucoup de flou.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Sharpen </a></p>
+	<ul>
+	<p>Ce filtre a cela d'intéressant qu'il introduit des valeurs négatives dans la matrice de convolution. Il accentue l'image en augmentant la différence entre chaque pixel et ceux qui l'entourent. Cela peut faire apparaître des artéfacts si la source est déjà très contrastée.
+	</p>
+	</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Gaussian smooth </a></p>
+	<ul>
+	<p>Il s'agite encore d'un filtre qui calcule une moyenne, comme mean, mais les coefficients utilisés sont différents et le résultat obtenu moins brutal. Il crée toujours un flou important, mais moins que celui de mean.
+
+	</p>
+	</ul>
+	<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>VBR MP3</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+VBR MP3
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Vysvětlení</title>
+<section>
+	<body><ul>
+		<p> Avidemux většinou vypočítá pozici a délku zvuku jako velikost=čas*bitrate. To funguje pro všechny CBR zvukové stopy.
+		</p>
+		<p>
+		S VBR to nefunguje, protože bitrate není konstantní.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Časová mapa zvuku</title>
+<section>
+	<title>Časová mapa zvuku</title>
+	<body><ul>
+		<p> K výpočtu počáteční pozice/velikosti musí Avidemux vědět jak se mění bitrate. K tomu slouží funkce <c>Audio->Build VBR Time Map</c>.
+		</p>
+		<p>
+		Avidemux potom dekomprimuje celý stream a sestaví časovou mapu, aby věděl jak s ním zacházet. Musíte mít nainstalovaný MAD, jinak to nic neudělá.
+		</p>
+		<p>
+		Až se celá mapa sestaví, Avidemux bude mít konverzní tabulku mezi časem a pozicí, a vy pak budete moci AVI soubor rozdělit nebo uložit s VBR MP3.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>A když to neudělám?</title>
+	<body><ul>
+		<p>  Budete mít AVI s hodně rozhozenou synchronizací (možná s příliš krátkým zvukem). I když soubor jen otevřete a uložíte.
+		</p>
+		<p>  Prostě to MUSÍTE udělat když máte AVI s VBR MP3. 
+		</p>
+		<p>  Druhá audio stopa v AVI souboru nemůže být VBR.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=KOI8-R">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Пример Divx -&gt; VCD</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Пример Divx -&gt; VCD</p>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap1">1.</a></span>О чем это?</p>
+Описан пример изготовления VCD из DIVX avi.
+Эти знания пригодятся также для подготовки SVCD или DVD.
+<p class="secthead"><a name="doc_chap1_sect1">Входные данные </a></p>
+<ul>
+<p>
+Любой avi с помощью подходящих кодеков может быть перекодирован в VCD. Например Divx+MP3
+(напомню, что должен быть установлен пакет mad для работы с MP3 ).
+</p>
+<p>Экспорт в VCD выполняется в 3 этапа : кодирование видео, кодирование аудио и микширование.
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap1_sect2">Кодирование видео </a></p>
+<ul>
+<p>
+Сначала надо подогнать размер кадра видео к стандарту Video CD
+</p>
+<p>
+Т.е. 352*240 для NTSC или 352*288 для PAL
+</p>
+<p>
+Загрузите исходный avi, и откройте окно фильтров <span class="code">CTRL+F</span>.
+</p>
+<p>
+	<img src="../image_tuto/filters.png">
+</p>
+<p>
+Выберите <span class="code">VCD res</span>. Этот мета-фильтр автоматически преобразует размеры и добавит черные бордюры для соответствия размеров без искажения соотношения сторон .
+</p>
+<p>
+Теперь выберите пункт меню <span class="code">File-&gt;Save mpeg-&gt;Save mpeg1 video (VCD)</span> и дайте название сохраняемому файлу. Например /tmp/videocd.m1v.
+</p>
+<p>А теперь почитайте другие разделы документации, пока не окончится перекодирование .
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap1_sect3">Кодирование аудио </a></p>
+<ul>
+<p>
+Выставьте аудио в режим process и выберите <span class="code">Audio processing-&gt;Audio codec-&gt;mp2</span>.
+</p>
+<p>
+Дальше в <span class="code">Audio processing-&gt;Configure Codec</span> надо выставить режим stereo / 224 kbps.
+</p>
+<p>Добавьте <span class="code">Normalize</span> и <span class="code">48-&gt;44</span> аудио фильтры при необходимости.
+</p>
+<p>
+Сохраните <span class="code">File -&gt; Save audio</span> например как /tmp/videocd.mp2. Еще раз перечитайте документацию на avidemux , посмотрите воскресное кино и возвращайтесь через часик.
+</p>
+</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap2">2.</a></span>Что дальше?</p>
+<p class="secthead"><a name="doc_chap2_sect1">Микширование результатов  </a></p>
+<ul>
+<p>
+Теперь у вас есть два готовых отдельных файла с видео и аудио.
+Используйте mplex :
+</p>
+<p>
+mplex  -S XXX -f 1 -o /tmp/videocd.mpg videocd.m1v videocd.mp2
+</p>
+<p> XXX замените значением размера  CD : 790 для 80 mn CD.
+</p>
+<p>После окончания работы mplex получите окончательный videocd.mpg . Осталось создать VCD
+</p>
+</ul>
+<p class="secthead"><a name="doc_chap2_sect2">VCD imager  </a></p>
+<ul>
+<p>
+Для простого VCD без глав, меню и т.д. просто используйте
+</p>
+<p>
+<span class="code">vcdimager -t vcd20 videocd.mpg</span>
+</p>
+<p>При этом на выходе получите videocd.cue и videocd.bin. Остается только прожечь диск с помощью cdrdao.
+</p>
+</ul>
+<p class="chaphead">
+<span class="chapnum"><a name="doc_chap3">3.</a></span>Bash rules</p>
+<p class="secthead"><a name="doc_chap3_sect1">То же самое без GUI  </a></p>
+<ul>
+<p>
+ Все выше описанное можно сделать с помощью командной строки
+</p>
+<p>
+<span class="code">avidemux --load input.avi --vcd-res --save-vcd /tmp/videocd.m1v --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 --quit</span>
+</p>
+<p>Подобным способом можно полностью автоматизировать преобразование avi-&gt;VCD
+</p>
+</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

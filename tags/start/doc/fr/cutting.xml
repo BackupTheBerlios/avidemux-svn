@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Découper</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Découper
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Découpage simple</title>
+<section>
+	<title>Marqueurs</title>
+	<body><ul>
+		<p>Les marqueurs A et B servent à indiquer le début et la fin d'une séquence.	
+		</p>
+		<p>Vous pouvez les définir à l'aide des boutons <img src="../images/marka.png"></img> et <img src="../images/markb.png"></img>.	
+		</p>
+		<p>Vous pouvez également passer directement à l'emplacement du marqueur A ou du marqueur B en choisissant <c>Markers->Go to A</c> ou <c>Markers->Go to B</c>.
+		</p>
+		<p>La position des marqueurs apparaît également au bas de l'écran.
+		<img src="../images/markers.png"></img>. La valeur  -1 correspond à la fin de la vidéo.</p>
+	</ul></body>
+</section>
+<section>
+	<title>Enregistrer</title>
+	<body><ul>
+		<p>Si vous définissez les marqueurs, seule la partie de la vidéo située entre les points A et B compris sera enregistrée.</p>
+		<p>C'est-à-dire [A,B].</p>
+	</ul></body>
+</section>
+<section>
+	<title>Supprimer</title>
+	<body><ul>
+		<p>L'entrée de menu <c>Markers->Delete</c> permet de supprimer le segment [A,B[ du flux. Elle peut par exemple être utile pour supprimer la publicité dans une capture vidéo.
+		</p>
+		<p>Vous pouvez supprimer tout ce que vous voulez du flux vidéo.
+		</p>
+		<warning>Lorsque vous supprimez une partie d'une vidéo, l'audio à l'intérieur du flux reste synchronisé, ce qui n'est pas le cas de l'audio externe. Assurez-vous donc de ne découper que des flux contenant l'audio.</warning>
+	</ul></body>
+</section>
+<section>
+	<title>Découpage et image clé</title>
+	<body><ul>
+		<p>Ce paragraphe ne s'applique que lorsque la vidéo est en mode Copy. En mode Process, les fonctions internes d'Avidemux s'assurent que tout se passe bien.
+		</p>
+		<p>La plupart des codecs se servent de l'image précédente comme référence et n'encodent que la différence. De temps à autre, une image est encodée sans référence temporelle à un autre image. On parle alors d'image I (I-Frame) ou d'image clé.
+		</p>
+		<p>Cela implique que si vous avez un flux de la forme xxAxxIxxBxxxIxxx, et que vous supprimez [A,B[, vous obtenez un flux de la forme xxOOOIxxxxx, où OOO sont des images brisées. 
+			</p><p>Pourquoi brisées ? Parce qu'elles ont perdu leur image de référence.</p>
+		<p>On peut gérer ce point de deux manières : 
+			<ul>
+			<li>Le marqueur B est sur une image I. Dans ce cas, il n'y a pas de problème.</li>
+			<li>Vous utilisez le mode Smart copy, disponible uniquement pour Divx3 et mpeg4. Smart copy réencode les parties qui ont perdu leur références avec une quantification fixe. Une valeur de 4 ou 5 fait généralement l'affaire. Vous obtenez donc un flux de la forme xxRRRIxxxx, où R correspond à une image réencodée.</li>
+			</ul>
+		</p>
+
+
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Découpage avancé</title>
+<section>
+		<p>Il peut arriver que vous souhaitiez découper une vidéo en parties de taille fixe (par exemple 700 Mo)
+		</p>
+	<title>Découpage automatique</title>
+	<body><ul>
+		<p>En choisissant <c>File ->Set mux options</c>, vous pouvez indiquer une taille de fichier en mégaoctets.	
+		</p>
+		<p>Chaque fois que cette taille est atteinte et qu'Avidemux peut trouver une image I, il crée un nouveau fichier. Vous obtenez ainsi une série de fichiers foo.avi.1, foo.avi.2 etc.	
+		</p>
+		<p>Comme le nouveau fichier doit commencer par une image I, la taille n'est pas très précisé, c'est pourquoi il est souhaitable de prévoir une marge de 5 Mo.
+		</p>
+	</ul></body>
+</section>
+<section>
+	<title>Assistant de découpage</title>
+	<body><ul>
+		<p>Vous avez également la possibilité de passer par le menu  <c>Misc->cut wizard</c>. Placez le marqueur A au bon endroit avant de lancer l'assistant.
+		</p>
+		<p>Saisissez les informations suivantes : taille du fichier cible, nombre de pistes audio et débit de celles-ci (ces champs sont préremplis). Le programme vous indique alors où placer le marqueur B pour atteindre la taille voulue.
+		</p>
+		<p>Cet assistant est encore un peu buggué pour le moment.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>

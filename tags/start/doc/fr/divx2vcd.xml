@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide >
+<title>Tutoriel de conversion de Divx en VCD</title>
+<author title="mean"><mail link="fixounet@free.fr">
+Mean</mail>
+</author>
+
+<abstract>
+Divx en VC </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Préparatifs</title>
+<body>Cette page donne un exemple de codage d'un AVI provenant d'un Divx en VCD. 
+Vous pourre en déduire les réglages pour encoder en SVCD ou en DVD.Le cas d'un DVD est légèrement différent car Avidemux est capable de générer directement des fichiers mpaeg PS (audio+vidéo) corrects (voir <a href="dvd.xml.html">DVD</a>).
+</body>
+<section>
+<title>Flux en entrée</title>
+<body>
+<ul>
+<p>Tout Avi avec les codecs appropriés peut être encodé en VCD : Divx+MP3 par exemple
+(notez que vous aurez besoin de mad pour gérer le flux MP3).
+</p>
+<p>L'export en VCD s'effectue en 3 étapes : encodage vidéo, encodage audio et multiplexage.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Encoder la vidéo</title>
+<body>
+<ul>
+<p>Nous allons commencer par redimensionner la vidéo pour qu'elle corresponde aux spécifications d'un CD vidéo.
+</p>
+<p>
+C'est-à-dire  352*240 pour du NTSC et 352*288 pour du PAL.
+</p>
+<p>
+Après avoir chargé l'Avi source, ouvrez la fenêtre des filtres vidéo avec <c>F1</c>.
+</p>
+<p>
+	<img src="../image_tuto/filters.png">filtres</img>
+</p>
+<p>
+Cliquez sur le bouton <c>VCD res</c> de la colonne de droite. Il permet de redimensionner automatiquement la vidéo et d'ajouter une bordure noire afin d'obtenir un format correct sans modifier les proportions de l'image. Sélectionnez ensuite le codec vidéo avec le bouton vcodec. Choisissez VCD. Rien d'autre à configurer ici.
+</p>
+<p>
+Enfin, choisissez <c>File->Save video</c> et sélectionnez le fichier pour le flux vidéo, /tmp/videocd.m1v par exemple.
+</p>
+<p>Vous pouvez à présent vous plonger dans le reste de la documentation d'Avidemux et revenir quelques heures plus tard.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>Encoder l'audio</title>
+<body>
+<ul>
+<p>Il y a toutes les chances pour que l'audio soit codé dans un format incompatible avec le VCD, aussi, il va falloir le réencoder. Passez l'audio en mode process avec <c>F6</c> et sélectionnez le codec audio avec <c>F4</c>.
+</p>
+<p>
+<img src="../images/audiocodec.png"></img>
+</p>
+<p>
+Sélectionnez <c>FFmpeg audio</c> et cliquez sur Configure Codec. Choisissez ensuite <c>Stereo</c> et <c>224 kbits</c>.
+</p>
+<p>
+<img src="../images/audioconfig.png"></img>
+</p>
+<p>Nous allons à présent ajouter quelques filtres audio qui peuvent être utiles ; appuyez sur  <c>F2</c>.
+</p>
+<p>Il y a trois possibilités ici :
+</p><ul>
+	<li>L'audio est à 44,1 Khz ; sélectionnez None.</li>
+	<li>L'audio est à 48 Khz, sélectionnez 48-41.</li>
+	<li>L'audio est à une autre fréquence ; sélectionnez  <c>Resample</c> et saisissez 44100.</li>
+</ul>
+Vous pouvez ajouter le filtre <c>Normalize</c> si vous le souhaitez.
+<p>
+Sélectionnez <c>File -> Save audio</c> et par exemple /tmp/videocd.mp2. Retournez à vos lectures favorites et revenez une heure plus tard.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Après Avidemux</title>
+<section>
+<title>Multiplexer le résultat </title>
+<body>
+<ul>
+<p>
+Vos flux audio et vidéo sont prêts à présent.
+Utilisez mplex de cette façon : 
+</p>
+<p>
+mplex  -S XXX -f 1 -o /tmp/videocd.mpg videocd.m1v videocd.mp2
+</p>
+<p>Remplacez la valeur XXX par la taille de votre CD : 790 pour un CD de 80 mn.</p>
+<p>Cette opération vous donne un fichier videocd.mpg valide. Il est de créer le VCD.
+</p>
+</ul>
+</body>
+</section>
+<section>
+<title>VCD imager</title>
+<body>
+<ul>
+<p>
+Pour créer un VCD simple, sans chapitres, ni menu, etc., il suffit de faire.
+</p>
+<p>
+<c>vcdimager -t vcd20 videocd.mpg</c>
+</p>
+<p>Cela	génère deux fichiers videocd.cue et videocd.bin, que vous pouvez graver avec cdrdao.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bash rulez</title>
+<section>
+<title>La même chose sans l'interface </title>
+<body>
+<ul>
+<p>
+ Vous pouvez effectuer les mêmes opérations à partir de la ligne de commande.
+</p>
+<p>
+<c>avidemux --load input.avi --vcd-res --save-vcd /tmp/videocd.m1v --audio-process --audio-normalize --audio-resample --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 --quit</c>
+</p>
+<p>Cela vous permet de créer un script de conversion entièrement automatique d'un avi en VCD.
+</p>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<link title="new" rel="stylesheet" href="../plop.css" type="text/css">
+<title>Avidemux 
+	
+		Documentation
+	
+-- 
+	Editing mpeg files</title>
+</head>
+<body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
+<br><p class="dochead">Editing mpeg files</p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Introduction</p>
+<ul>
+		<p> Avidemux can read (indexed) mpeg file, both elementary stream and program stream (i.e. vob files for example) thanks to mpeg2dec 
+		</p>
+		<p>
+		  Internally, the mpeg are seen as frames with a fake codec (MPEG). 
+		</p>
+		<p>If you save the file in copy mode, you will end up with mpeg inside avi, but since it is non standard, only avidemux will be able to read it back.
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Splitting, external muxing </p>
+<p class="secthead"><a name="doc_chap2_sect1">General </a></p>
+<ul>
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"> and <img src="../images/markb.png">.  You should read <a href="./cutting.xml.html">cutting</a> if you did not already.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect2">Audio </a></p>
+<ul>
+		<p> 
+No special care to take here. Just save the audio in copy mode using <span class="code">File-&gt;Save audio</span> menu entry. You will end-up with either foo.mp2 or foo.ac3.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect3">Video </a></p>
+<ul>
+		<p> 
+For video, we will use <span class="code">File-&gt;Save raw stream</span>. This menu entry will ask the demuxer the raw data, bypassing the mpeg decoding step. It will also reconstruct the PTS/DTS logic to have a compliant mpeg stream.
+		</p>
+		<p> Now you have a foo.m1v or foo.m2v mpeg1/2 elementary stream which should be synced with foo.mp2.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap2_sect4">System </a></p>
+<ul>
+		<p> 
+Now it is time to remultiplex both streams to end-up with foo.mpg. The first seq_header has the timestamp of the first frame (uncut). It may confuse mplex and you will end up with tons of error/warning messages.
+		</p>
+		<p>The best is to use tcmplex from transcode to mux them back together.
+
+		</p>
+	</ul>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Splitting, internal muxing </p>
+<p class="secthead"><a name="doc_chap3_sect1">General </a></p>
+<ul>
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"> and <img src="../images/markb.png">.  You should read <a href="./cutting.xml.html">cutting</a> if you did not already. In that mode, avidemux will write a mpeg2 PS stream (lvemux lower part from <a href="http://lvempeg.sf.net">lvempeg</a>. This mpeg2 PS contains NAV packet and is suitable to DVD authoring. Even my Pioneer accepts them :).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect2">Audio </a></p>
+<ul>
+		<p> 
+Audio must be 48 kHz and either MP2 or AC3 (as of today it means libavcodec AC3 or libavcodec MP2). It can be either from copy and/or process mode (for example editing a PVR capture file).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect3">Video </a></p>
+<ul>
+		<p> The video must be mpeg (that seems obvious). As for audio, it can be in copy mode (edited PVR or DVD) or process mode (converted avi or converted nuv).
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect4">Saving </a></p>
+<ul>
+		<p> Now, it is time to use <span class="code">File-save DVD PS</span>. If audio is in copy mode, you will be asked the A/V shift to correct. For DVD it ranges from 0 to about 200 ms. For PVR captured stream it can be anything.
+		</p>
+	</ul>
+<p class="secthead"><a name="doc_chap3_sect5">Important </a></p>
+<ul>
+		<p> There is two importants things to consider here :
+		<ul>
+			<li>The muxing will introduce by default a 40 ms shift. Can be neglected if the sync was perfect.</li>
+			<li>When saving as mpeg PS, the GOP timestamp will be recomputed to avoid jump in case of edited PVR streams.</li>
+		</ul>
+		</p>
+	</ul>
+<br><br>
+</td></tr></table></td></tr></table></body>
+</html>

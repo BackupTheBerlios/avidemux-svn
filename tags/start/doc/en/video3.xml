@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Video: Convolution filters</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Video : Convolution filters
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This filter family deals with convolution filters : Mean, median, sharpen, ....
+	</p>
+	<p>The convolution filters take a 3x3 matrix and apply it to the pixel neighbours. They can be applied on luma/chroma or both. 
+	</p>
+	<p> Median and Mean filters applied on chroma only are very efficient to get rid of chroma noise from VCR capture
+	</p>
+	</ul>
+	</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Convolution   filters</title>
+<section>
+	<title>Mean</title>
+	<body>
+	<ul>
+	<p>The filter replaces a pixel by the average value of its neighboors. It is a crude low pass filter.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Median</title>
+	<body>
+	<ul>
+	<p>The filter replaces a pixel by median value of its neighbor. It is a bit like mean, except it removes very different value. Efficient to remove high fq noise (like spot of white in old movies). It blurs a lot.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Sharpen</title>
+	<body>
+	<ul>
+	<p>This filter is interesting as it has negative values in the convolution matrix. It sharpens the image by
+	enhancing difference between near pixels. It can lead to artefacts if the source has a lot of contrast already.
+	</p>
+	</ul>
+	</body>
+</section>
+<section>
+	<title>Gaussian smooth</title>
+	<body>
+	<ul>
+	<p>It is also an averaging filter, like mean. But coefficients are different and the result is less brutal. Still strong a blurring, but less than mean.
+	</p>
+	</ul>
+	</body>
+</section>
+
+</chapter>
+</guide>

@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Formats d'entrée</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Formats/codecs supportés en entrée
+ </abstract>
+
+<version>1.0</version>
+<date>08 Feb 2003</date>
+<chapter>
+<title>Formats de fichiers</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Format</th><th>Restriction</th>
+		</tr>
+		<tr>
+			<ti>Avi</ti><ti>Aucune</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Flux élémentaire ou flux de programme (y compris vob)</ti>
+		</tr>
+		<tr>
+			<ti>NuppelVideo</ti><ti>Regular/nuppel_gatos/Myth Tv/FFV1rec</ti>
+		</tr>
+		<tr>
+			<ti>Images</ti><ti>Série de bmp ou de jpeg, nommées im0001.bmp im0002.bmp ...</ti>
+		</tr>
+		<tr>
+			<ti>H263(+)</ti><ti>Flux vidéo brut h263(+)</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg4</ti><ti>Flux vidéo brut mpeg4 (incomplet)</ti>
+		</tr>
+		<tr>
+			<ti>Mov/3GP/Mpeg4</ti><ti>Fichiers 3gp/MP4/mov simples. Les en-têtes compressés ne sont pas supportés</ti>
+		</tr>
+		<tr>
+			<ti>Ogg</ti><ti>Interne, seul le flux vidéo est pris</ti>
+		</tr>
+		</table>
+		</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codecs vidéo</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Commentaire</th><th>Dépendance</th>
+		</tr>
+		<tr>
+			<ti>DivX,XviD</ti><ti>3.11,4,5 avec ou sans images-B</ti><ti>Lavcodec(intégré)</ti>
+		</tr>
+		<tr>
+			<ti>VP3</ti><ti></ti><ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>Mpeg1/2</ti><ti>Basé sur libMpeg2</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>Mjpeg</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>Huffyuv</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>WMV2</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>H263</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>MSMP4V2</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>SVQ3</ti><ti>Basé sur Lavcodec</ti>	<ti>Intégré</ti>
+		</tr>
+		<tr>
+			<ti>Raw rgb</ti><ti>Interne</ti>	<ti>Intégré</ti>
+		</tr>
+
+		<tr>
+			<ti>DV type ?</ti><ti>Lavcodec based</ti>		<ti>Intégré</ti>
+		</tr>
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Codecs audio</title>
+<section>
+	<body><ul>
+		<table width="100%" border="1">
+		<tr>
+			<th>Nom</th><th>Commentaire</th><th>Dépendence</th>
+		</tr>
+		<tr>
+			<ti>Sans compression</ti><ti></ti><ti></ti>
+		</tr>
+		<tr>
+			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>Mad</ti>
+		</tr>
+		<tr>
+			<ti>AC3</ti><ti></ti><ti>A52Dec</ti>
+		</tr>
+		<tr>
+			<ti>WMA</ti><ti>Fonctionne la plupart du temps</ti><ti>Intégré (libavcodec)</ti>
+		</tr>
+
+		</table>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Problèmes de codecs</title>
+<section>
+<title>Problème pour décompresser l'image</title>
+	<body><ul>
+	<p>
+	Cela veut dire soit que le codec a renvoyé une erreur, soir qu'Avidemux n'a pas pu trouver le codec vidéo approprié.
+	</p><p>
+	Vous pourrez traiter l'audio et enregistrer le fichier avi malgré cela, mais vous ne pourrez pas traiter la vidéo.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Enregistrer l'audio et la vidéo génère un AVI défectueux Enregistrer l'audio fonctionne</title>
+	<body><ul>
+	<p>
+	Même message pour l'audio. Le codec audio n'a pu être trouvé (pas compilé ou inconnu).
+	</p>
+	<p>Vous pouvez enregister et couper l'avi, mais pas traiter l'audio.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Après enregistrement, l'audio est plein de bruit (WMA)</title>
+	<body><ul>
+	<p>
+	Le format WMA a des exigences particulières au niveau du multiplexage. Regardez la valeur blockalign dans la console (généralement 373 ou 768)</p>
+	<p>Saisissez cette valeur dans le champ <c>bytes per packet</c> de la fenêtre <c>file -> mux options</c>.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Problèmes spécifiques à un format</title>
+<section>
+<title>Mpeg file</title>
+	<body><ul>
+	<p>Avidemux ne peut pas ouvrir de flux mpeg bruts. En revanche, il peut ouvrir des flux mpeg indexés.
+	L'index est un fichier texgte contenant des informations sur la navigation. Il est indispensalbe pour repérer les images avec précision.</p>
+	<p>
+	Vous pouvez passer par le menu <c>misc->index mpeg</c> ou ouvrir directement le mpeg.
+	Dans ce cas, vous serez redirigé vers la boîte de dialogue index mpeg dont les champs seront préremplis. Il fois l'index créé, il sera réouvert de façon transparente.
+	</p>
+	<p>
+	Si le nom du fichier est quelque chose comme foo1.xxx, Avidemux essaiera d'ajouter foo2.xxx, foo3.xxx. Cela se fait automatiquement, mais il est impératif que le nom du fichier soit de la forme *[0-9].xxx.
+	</p>
+	<p>
+	Avidemux peut aussi gérer un (et un seul) flux audio du mpeg. Ce flux est repéré par son identifiant de (sous-)flux.
+	</p>
+	<p>Il vaut C0--c7 pour de l'audio mpeg (.mpg, vcd,...), A0--A7 pour de l'audio PCM et 0--7 pour de l'audio AC3.
+	</p>
+	<p>Ainsi, pour désigner la seconde piste audio AC3 de votre fichier mpeg, entrez <c>1</c>.
+	</p>
+	<p>Bien sûr, il vous faudra le codec audio adéquat (mad ou a52) pour le pouvoir lire.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Nuppel Video</title>
+	<body><ul>
+	<p>
+	Comme les flux mpeg, un fichier nuppel video n'a pas d'index interne.
+	</p><p>
+	Avidemux le générera automatiquement lors du chargement (l'opération peut prendre plusieurs minutes).
+	</p><p>
+	Avidemux fera de son mieux pour conserver la synchronisation audio/vidéo, mais de temps à autre, un  "plop" peut survenir.
+	D'après mon expérience personnelle, cela fonctionne plutôt bien (j'ai fait un essai avec un fichier nuppel_gatos de huit heures qui n'a pas posé de problèmes).
+	</p>
+	<p>Si vous êtes passé par le menu (et pas par la ligne de commande), le programme vous demandera au chargement si vous voulez enregistrer un index.
+	Si vous répondez oui, en rechargeant cet index, vous rechargerez le même fichier nuv mais bien plus rapidement.</p>
+	</ul></body>
+</section>
+<section>
+<title>WMV2 Video</title>
+	<body><ul>
+	<p>
+	Bien qu'Avidemux soit à présent capable d'ouvrir le contenu d'un fichier WMV2 (format de Windows Media Player 7.x/8.x), les données vidéo doivent se trouver dans un conteneur.
+	</p>
+	<p>
+	Pour créer ce conteneur, vous pouvez utiliser le paquetage MEncoder en mode copie (par exemple : <code>mencoder [fichier wmv] -oac copy -ovc copy -cache 8192 -ofps 100.0 -o [fichier avi]</code>
+	</p>
+	<p>
+	Pour le moment, vous devez également forcer la cadence du fichier de sortie à <strong>100.0</strong> images par seconde (IPS), sans quoi vous perdrez de nombreuses images lorsque vous éditerez votre métrage vidéo réel.
+	</p>
+	<p>
+	Une fois votre fichier de sortie créé, vous pouvez le charger et l'éditer dans Avidemux.
+	</p>
+	</ul></body>
+</section>
+<section>
+<title>Vidéo BMP/ Vidéo Jpeg</title>
+	<body><ul>
+	<p>
+	Avidemux peut également ouvrir un flux de fichiers bmp sans compression (rvb) ou une série de fichiers jpeg.
+	</p><p>
+	Ils doivent être nommés selon le schéma xx0000.bmp xx00001.bmp (à savoir  m lettres + n chiffres+.bmp).
+	Pour les jpeg, il suffit de changer l'extension en jpg.
+	</p>
+	</ul></body>
+</section>
+</chapter>
+</guide>
