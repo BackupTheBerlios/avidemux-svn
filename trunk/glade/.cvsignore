@@ -1,2 +1,11 @@
 *.c*
 *.h*
+AUTHORS
+ChangeLog
+Makefile.am
+NEWS
+README
+*.in
+po
+*.bak
+src
