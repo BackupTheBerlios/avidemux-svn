@@ -39,7 +39,7 @@ Main doc
 	<p>	<uri link="./mpegcutter.xml.html">Cutting mpeg</uri></p>
 	<p>	<uri link="./command.xml.html">Calling avidemux from command line</uri></p>
 	<p>	<uri link="./script.xml.html">Scripting</uri></p>
-	<p>	<uri link="./DVD/index.html">Creating DVD</uri> NEW </p>
+	<p>	<uri link="./DVD/index.html">Creating DVD</uri>  </p>
 	</ul>
 	</body>
 </section>
@@ -58,6 +58,7 @@ Main doc
 	<section>	
 	<body>
 	<ul>
+	<p>	<uri link="./standalone.xml.html">Fixing mpeg4 files so they play on standalone</uri> NEW </p>	
 	<p>	<uri link="./dvd2divx.xml.html">DVD to Divx</uri></p>	
 	<p>	<uri link="./divx2vcd.xml.html">Divx to VCD</uri></p>	
 	<p>	<uri link="./capture2SVCD.xml.html">Capture to SVCD</uri></p>

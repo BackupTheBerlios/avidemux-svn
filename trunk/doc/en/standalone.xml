@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Survival guide for standalone mpeg4 player</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Dual audio track
+ </abstract>
+
+<version>1.0</version>
+<date>15 Nov 2004</date>
+<chapter>
+<title>Standalone mpeg4 player</title>
+<section>
+	<body><ul>
+		<p> So you got a new shiny "divx" certified standalone dvd player but have problems with it. This small doc tries to help you make it play your videos.
+		</p>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>The packed vop hack</title>
+<section>
+	<body><ul>
+		<p> B frames are nice but they induce a one frame delay shift because a b frame needs both its previous and next I/P frames to be decoded.
+		</p>
+		<p>That does not cope very well with VFW (video for windows) limitation that more or less assume one frame in/ one frame out. 
+		</p>
+		<p>To workaround this, DivxNetork introduced PB frame in avi. To explain it see the <uri link="bframe.xml.html">b-frame</uri> doc.
+		</p>
+		<p>Basically they add a non coded image (N-vop) after an frame containing both a P and a B frame. Some (most?) players choke or stutter on that as it creates artificially additionnal frame. To detect that, they put also a specific marker in the user data section of the mpeg4 stream. Some players use that information to switch to packed vop mode, but it is not 100% reliable. Plus the stream is not 100% iso compliant.
+		</p>
+		<ul>
+		<li>Rule #1 : Dont use packed frames. With avidemux you can't but with some other software you can.</li>
+		<li>Rule #2 : If you have some, depack them.</li>
+		</ul>
+		<p>
+		In order to do so, when prompted if avidemux should depack such frame, say yes. Avidemux will take each frame and scan for more than one vop inside it. If it finds several it re-creates separate frames and destroy the corresponding N-vop frames.
+		</p>
+		<p>That will take care of the packed vop, but the marker in user data will remain. to also remove it, use <c>save unpacked vop</c> instead of the usual save video.
+		</p>
+		<p>That will scan and fix on the fly the marker so that the stream are detected as non packed stream.</p>
+		<p> That should solve all Divx packed file, but may not work for some xvid files.
+		</p>
+		<warn>If the file has VBR audio, don't forget to do a <c>Misc/Build VBR map</c> after loading it.</warn>
+		<p>If you have a huge amount of such files to convert you can use a script like:
+		</p>
+		<pre>
+#!/bin/bash
+export SRC=/tmp/fma2
+export TGT=/tmp/fma3
+perl foreach.pl $SRC/*.avi "avidemux2 --force-unpack  --load $SRC/%f  --audio-map  --save-unpacked-vop $TGT/fixed_%f --quit"		
+		</pre>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>GMC and Qpel</title>
+<section>
+	<body><ul>
+		<p> Xvid and lavcodec can use more complete GMC (global motion compensation) and Qpel
+		(Quarter Pixel) models than divx codec.</p>
+		<p>With those, you are screwed and need to re-encode the video</p>
+		<p>That means dual-pass encoding to keep the same size.</p>
+		<p>There is a way to get almost the same result using only one pass.</p>
+		<p>Assuming your video is correctly done, the previous encoding already distributed quantizers and bitrate to get a good quality for a given size.</p>
+		<p>Why not reuse that information ?</p>
+		<p>To do so, set xvid (or lavcodec) to use <c>Follow mode</c>. In that mode, they will encode each frame with the quantizer used previously to encode it.</p>
+		<p>The result will have about the same size/quality compared to the original but using only one pass.</p>
+		<p>That can be done using cli mode also to process plenty of files in a row :</p>
+		<pre>
+#!/bin/bash
+export SRC=/tmp/fma2
+export TGT=/tmp/fma3
+perl foreach.pl $SRC/*.avi "avidemux2 --force-unpack  --load $SRC/%f  --audio-map  --video-process --video-codec xvid4  --video-conf follow=1000  --save $TGT/fixed_%f --quit"		
+		</pre>
+	</ul></body>
+</section>
+</chapter>
+<chapter>
+<title>Muxing</title>
+<section>
+	<body><ul>
+		<p> I have found that some software (like some version of nandub) does not mux properly the file. That makes standalone stutters and freeze. The fix is simple
+		: just load and save the file in avidemux2
+		</p>
+		
+	</ul></body>
+</section>
+</chapter>
+</guide>
