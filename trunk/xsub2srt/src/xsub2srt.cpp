@@ -19,18 +19,51 @@
  ***************************************************************************/
 
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
-#include <iostream>
-#include <cstdlib>
 
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <glib.h>
+#include <gtk/gtk.h>
+#include <signal.h>
+#include "../ADM_library/ADM_assert.h"
 
-int main(int argc, char *argv[])
+static void onexit( void );
+static void sig_segfault_handler(int signo);
+
+extern void ADM_memStat( void );
+
+int main(int argc, char **argv)
 {
-  cout << "Hello, world!" << endl;
+  printf("\n*******************\n");
+  printf("  Xsub2srt, v  " VERSION "\n");
+  printf("*******************\n");
+  
 
-  return EXIT_SUCCESS;
+        signal(11, sig_segfault_handler); // show stacktrace on default
+        atexit(onexit);
+
+        
+        gtk_set_locale();
+        gtk_init(&argc, &argv);
+
+        gtk_main();
+
+  
+  
+}
+//*****************************
+void onexit( void )
+{
+  ADM_memStat();
+  printf("\n Goodbye...\n\n");
+}
+void sig_segfault_handler(int signo)
+{
+  g_on_error_stack_trace ("avidemux");
+  printf("Memory stat:\n");
+  signo=0; // will keep GCC happy
+  exit(1); // _exit(1) ???
 }
