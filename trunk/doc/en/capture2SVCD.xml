@@ -255,25 +255,100 @@ vcdimager: vcd.c:612: _finalize_vcd_iso_track: Assertion `_vcd_salloc_get_highes
 </pre></ul>
  then you should use tcmplex for multiplexing <b>or</b> vcdimager with version 
 &gt;= 0.7
- 
+</p>
+
+<p> 
  <b>The future:
  </b>
  vcdimager also contain two tools named vcdxgen and vcdxbuild. 
    
-<ul><pre>$;./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
-(Super) VideoCD xml description created successfully as `videocd.xml'
-$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild videocd.xml
+<ul><pre>$ ./vcdimager-0.7.13/frontends/xml/vcdxgen -t svcd video.mpg
+(Super) VideoCD xml description created successfully as `videocd.xml'</pre></ul>
+</p>
+
+<p>
+The XML File created by vcdxgen can be changed to support chapters. To do this
+edit the sequence items in the videocd.xml file. Change:
+
+<ul><pre>  &lt;sequence-items&gt;
+    &lt;sequence-item src="video.mpg" id="sequence-00"/&gt;
+  &lt;sequence-items&gt;</pre></ul>
+
+to
+
+<ul><pre>  &lt;sequence-items&gt;
+    &lt;sequence-item src="video.mpg" id="sequence-00"&gt;
+      &lt;entry id="chapter1"&gt;0.00&lt;/entry&gt;
+      &lt;entry id="chapter2"&gt;15.00&lt;/entry&gt;
+      &lt;entry id="chapter3"&gt;30.00&lt;/entry&gt;
+    &lt;/sequence-item&gt;
+  &lt;sequence-items&gt;</pre></ul>
+
+The numbers inside the entry tags are seconds from start of the track. To
+have a DVD chapter like handling, rewrite the pdc section from:
+
+<ul><pre>
+  &lt;pbc&gt;
+    &lt;playlist id="lid-000"&gt;
+      &lt;next ref="lid-end"/&gt;
+      &lt;return ref="lid-end"/&gt;
+      &lt;wait&gt;5&lt;/wait&gt;
+      &lt;autowait&gt;0&lt;/autowait&gt;
+      &lt;play-item ref="sequence-00"/&gt;
+    &lt;/playlist&gt;
+    &lt;endlist id="lid-end" rejected="true"/&gt;
+  &lt;/pbc&gt;
+</pre></ul>
+
+to
+
+<ul><pre>
+  &lt;pbc&gt;
+    &lt;selection id="select-chapter1"&gt;
+      &lt;next ref="select-chapter2"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter1"/&gt;
+    &lt;/selection&gt;
+    &lt;selection id="select-chapter2"&gt;
+      &lt;prev ref="select-chapter1"/&gt;
+      &lt;next ref="select-chapter3"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter2"/&gt;
+    &lt;/selection&gt;
+    &lt;selection id="select-chapter3"&gt;
+      &lt;prev ref="select-chapter2"/&gt;
+      &lt;timeout ref="end"/&gt;
+      &lt;wait&gt;1&lt;/wait&gt;
+      &lt;loop jump-timing="immediate"&gt;1&lt;/loop&gt;
+      &lt;play-item ref="chapter3"/&gt;
+    &lt;/selection&gt;
+    &lt;endlist id="end" rejected="true"/&gt;
+  &lt;/pbc&gt;
+</pre></ul>
+
+A description of the xml tags can be found at <a href="http://www.geocities.com/medinotes/vcd/general_xml_structure.html">http://www.geocities.com/medinotes/vcd/general_xml_structure.html</a>.<br>
+You should read the excellent document <a href="http://www.geocities.com/medinotes/vcd/chapters.html">http://www.geocities.com/medinotes/vcd/chapters.html</a> to learn, why VCD/SVCD chapters never will work like DVD chapters !!!
+
+<ul><pre>
+$ ./vcdimager-0.7.13/frontends/xml/vcdxbuild video.xml
 ++ WARN: initializing libvcd 0.7.13 [linux-gnu/i686]
 ++ WARN:  
 ++ WARN:  this is the UNSTABLE development branch!
 ++ WARN:  use only if you know what you are doing
-++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information++ 
-WARN:     INFO: scanning mpeg sequence item #0 for scanpoints...   
-INFO: writing track 1 (ISO9660)...   
-INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/224kbps/stereo ...   
-INFO: finished ok, image created with 1173 sectors [00:15.48]
+++ WARN:  see http://www.hvrlab.org/~hvr/vcdimager/ for more information
+++ WARN:  
+   INFO: scanning mpeg sequence item #0 for scanpoints...
+++ WARN: sequence 'sequence-00' is not reachable by PBC
+   INFO: writing track 1 (ISO9660)...
+   INFO: writing track 2, MPEG2, PAL 2/3 D1 (480x576/25fps), audio[0]: l2/44.1kHz/128kbps/stereo ...
+   INFO: finished ok, image created with 336057 sectors [74:40.57]
 </pre></ul>
-  </p>
+</p>
+
   </body>
  </section>
  </chapter>
@@ -281,8 +356,10 @@ INFO: finished ok, image created with 1173 sectors [00:15.48]
  <title>Burning the image</title>
  <section>
 <body>
-<ul><pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue</pre></ul>
-Of course replace sg0 by your actual cd-writer device.
+<ul><pre>$ cdrdao write --device <i>/dev/sg0</i> videocd.cue
+or
+$ cdrdao write --device <i>2,0,0</i> --driver generic-mmc -n videocd.cue</pre></ul>
+Of course replace sg0 or 2,0,0 by your actual cd-writer device.
 </body>
 </section></chapter>
 <chapter>
