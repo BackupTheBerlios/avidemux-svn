@@ -36,12 +36,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="open_video1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Open Video...</property>
+		      <property name="label" translatable="yes">_Open Video...</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1603">
+			<widget class="GtkImage" id="image1923">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-open</property>
 			  <property name="icon_size">1</property>
@@ -57,11 +57,11 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="run_script1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Run script</property>
+		      <property name="label" translatable="yes">_Run Script...</property>
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1604">
+			<widget class="GtkImage" id="image1924">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-execute</property>
 			  <property name="icon_size">1</property>
@@ -77,12 +77,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="append_video1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Append Video...</property>
+		      <property name="label" translatable="yes">_Append Video...</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1605">
+			<widget class="GtkImage" id="image1925">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-add</property>
 			  <property name="icon_size">1</property>
@@ -104,7 +104,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="save_stuff">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Save</property>
+		      <property name="label" translatable="yes">_Save</property>
 		      <property name="use_underline">True</property>
 
 		      <child>
@@ -113,7 +113,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="save_as_avi1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save Video...</property>
+			      <property name="label" translatable="yes">Save _Video...</property>
 			      <property name="use_underline">True</property>
 			      <accelerator key="S" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 			    </widget>
@@ -122,7 +122,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="save_as_dvd_ps1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save as DVD PS</property>
+			      <property name="label" translatable="yes">Save as _DVD PS...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -130,7 +130,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="save_as_ogm1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save as OGM</property>
+			      <property name="label" translatable="yes">Save as _OGM...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -146,7 +146,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="save_as_dual_audio_avi1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save As _Dual Audio AVI...</property>
+			      <property name="label" translatable="yes">Save as Dual _Audio AVI...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -154,7 +154,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="save_images1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save images</property>
+			      <property name="label" translatable="yes">Save _Images</property>
 			      <property name="use_underline">True</property>
 
 			      <child>
@@ -163,7 +163,7 @@
 				  <child>
 				    <widget class="GtkMenuItem" id="save_image1">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Save BMP Image...</property>
+				      <property name="label" translatable="yes">Save _BMP Image...</property>
 				      <property name="use_underline">True</property>
 				      <accelerator key="M" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 				    </widget>
@@ -172,7 +172,7 @@
 				  <child>
 				    <widget class="GtkMenuItem" id="save_jpg_image1">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Save Jpg image</property>
+				      <property name="label" translatable="yes">Save _JPEG Image...</property>
 				      <property name="use_underline">True</property>
 				      <accelerator key="J" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 				    </widget>
@@ -181,7 +181,7 @@
 				  <child>
 				    <widget class="GtkMenuItem" id="save_selection_as_jpegs1">
 				      <property name="visible">True</property>
-				      <property name="label" translatable="yes">Save selection as jpegs</property>
+				      <property name="label" translatable="yes">Save _Selection as JPEGs...</property>
 				      <property name="use_underline">True</property>
 				    </widget>
 				  </child>
@@ -193,7 +193,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="requantize_mpeg1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Requantize mpeg</property>
+			      <property name="label" translatable="yes">Requantize _MPEG...</property>
 			      <property name="use_underline">True</property>
 			      <accelerator key="Q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 			    </widget>
@@ -206,7 +206,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="project1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Project</property>
+		      <property name="label" translatable="yes">_Project</property>
 		      <property name="use_underline">True</property>
 
 		      <child>
@@ -215,12 +215,12 @@
 			  <child>
 			    <widget class="GtkImageMenuItem" id="load_project">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Load project</property>
+			      <property name="label" translatable="yes">_Load Project...</property>
 			      <property name="use_underline">True</property>
 			      <accelerator key="O" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1606">
+				<widget class="GtkImage" id="image1926">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-open</property>
 				  <property name="icon_size">1</property>
@@ -236,11 +236,11 @@
 			  <child>
 			    <widget class="GtkImageMenuItem" id="save_project_as1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save project as ...</property>
+			      <property name="label" translatable="yes">Save Project _as ...</property>
 			      <property name="use_underline">True</property>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1607">
+				<widget class="GtkImage" id="image1927">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save-as</property>
 				  <property name="icon_size">1</property>
@@ -256,12 +256,12 @@
 			  <child>
 			    <widget class="GtkImageMenuItem" id="save_current_project">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Save project</property>
+			      <property name="label" translatable="yes">_Save Project</property>
 			      <property name="use_underline">True</property>
 			      <accelerator key="S" modifiers="GDK_MOD1_MASK" signal="activate"/>
 
 			      <child internal-child="image">
-				<widget class="GtkImage" id="image1608">
+				<widget class="GtkImage" id="image1928">
 				  <property name="visible">True</property>
 				  <property name="stock">gtk-save</property>
 				  <property name="icon_size">1</property>
@@ -281,7 +281,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="avi_muxer_options1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">AVI Muxer Options...</property>
+		      <property name="label" translatable="yes">AVI _Muxer Options</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="U" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -290,12 +290,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="video_informations1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Video Informations...</property>
+		      <property name="label" translatable="yes">Video _Information</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="I" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1609">
+			<widget class="GtkImage" id="image1929">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-dialog-question</property>
 			  <property name="icon_size">1</property>
@@ -311,11 +311,11 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="quit1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Quit</property>
+		      <property name="label" translatable="yes">_Quit</property>
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1610">
+			<widget class="GtkImage" id="image1930">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-quit</property>
 			  <property name="icon_size">1</property>
@@ -344,7 +344,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="play_video1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Play Video</property>
+		      <property name="label" translatable="yes">Play _Video</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="P" modifiers="0" signal="activate"/>
 		    </widget>
@@ -353,7 +353,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="decoder_options1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Decoder Options...</property>
+		      <property name="label" translatable="yes">_Decoder Options</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="P" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -363,7 +363,7 @@
 		    <widget class="GtkMenuItem" id="set_postprocessing1">
 		      <property name="visible">True</property>
 		      <property name="tooltip" translatable="yes">Select postprocessing level</property>
-		      <property name="label" translatable="yes">Set Postprocessing</property>
+		      <property name="label" translatable="yes">_Set Postprocessing...</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="T" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -378,12 +378,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="next_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Next Frame</property>
+		      <property name="label" translatable="yes">_Next Frame</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="6" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1611">
+			<widget class="GtkImage" id="image1931">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-go-forward</property>
 			  <property name="icon_size">1</property>
@@ -399,12 +399,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="previous_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Previous Frame</property>
+		      <property name="label" translatable="yes">_Previous Frame</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="4" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1612">
+			<widget class="GtkImage" id="image1932">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -420,12 +420,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="next_intra_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Next Intra Frame</property>
+		      <property name="label" translatable="yes">N_ext Intra Frame</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="8" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1613">
+			<widget class="GtkImage" id="image1933">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-last</property>
 			  <property name="icon_size">1</property>
@@ -441,12 +441,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="previous_intra_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Previous Intra Frame</property>
+		      <property name="label" translatable="yes">P_revious Intra Frame</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="2" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1614">
+			<widget class="GtkImage" id="image1934">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-goto-first</property>
 			  <property name="icon_size">1</property>
@@ -462,7 +462,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="search_next_black_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Search _Next Black Frame</property>
+		      <property name="label" translatable="yes">Search Next _Black Frame</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -470,7 +470,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="search_previous_black_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Search _Previous Black Frame</property>
+		      <property name="label" translatable="yes">Search Previous Black _Frame</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -478,12 +478,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="jum_to_frame1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Jump to Frame...</property>
+		      <property name="label" translatable="yes">_Jump to Frame...</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1615">
+			<widget class="GtkImage" id="image1935">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-jump-to</property>
 			  <property name="icon_size">1</property>
@@ -512,12 +512,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="cut1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Cut</property>
+		      <property name="label" translatable="yes">Cu_t</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="X" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1616">
+			<widget class="GtkImage" id="image1936">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-cut</property>
 			  <property name="icon_size">1</property>
@@ -533,12 +533,12 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="copy1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Copy</property>
+		      <property name="label" translatable="yes">_Copy</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="C" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1617">
+			<widget class="GtkImage" id="image1937">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-copy</property>
 			  <property name="icon_size">1</property>
@@ -554,7 +554,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="paste1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Paste</property>
+		      <property name="label" translatable="yes">_Paste</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="V" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -563,14 +563,14 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="delete1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Delete</property>
+		      <property name="label" translatable="yes">_Delete</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="Delete" modifiers="0" signal="activate"/>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1618">
+			<widget class="GtkImage" id="image1938">
 			  <property name="visible">True</property>
-			  <property name="stock">gtk-delete</property>
+			  <property name="stock">gtk-remove</property>
 			  <property name="icon_size">1</property>
 			  <property name="xalign">0.5</property>
 			  <property name="yalign">0.5</property>
@@ -590,7 +590,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="set_marker_a1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Set Marker A</property>
+		      <property name="label" translatable="yes">Set Marker _A</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="bracketleft" modifiers="0" signal="activate"/>
 		    </widget>
@@ -599,7 +599,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="set_marker_b1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Set Marker B</property>
+		      <property name="label" translatable="yes">Set Marker _B</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="bracketright" modifiers="0" signal="activate"/>
 		    </widget>
@@ -614,7 +614,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="go_to_marker_a1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Go to Marker A</property>
+		      <property name="label" translatable="yes">_Go to Marker A</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="bracketleft" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -623,7 +623,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="go_to_marker_b1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Go to Marker B</property>
+		      <property name="label" translatable="yes">G_o to Marker B</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="bracketright" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -642,7 +642,7 @@
 		      <property name="use_underline">True</property>
 
 		      <child internal-child="image">
-			<widget class="GtkImage" id="image1619">
+			<widget class="GtkImage" id="image1939">
 			  <property name="visible">True</property>
 			  <property name="stock">gtk-undo</property>
 			  <property name="icon_size">1</property>
@@ -662,7 +662,7 @@
 	  <child>
 	    <widget class="GtkMenuItem" id="audio_source1">
 	      <property name="visible">True</property>
-	      <property name="label" translatable="yes">Audio</property>
+	      <property name="label" translatable="yes">_Audio</property>
 	      <property name="use_underline">True</property>
 
 	      <child>
@@ -671,7 +671,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="source1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Source</property>
+		      <property name="label" translatable="yes">_Source</property>
 		      <property name="use_underline">True</property>
 
 		      <child>
@@ -743,7 +743,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="second_audio_track1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_Second Audio Track</property>
+		      <property name="label" translatable="yes">Second Audio _Track</property>
 		      <property name="use_underline">True</property>
 
 		      <child>
@@ -781,7 +781,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="to_toolame1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">tooLAME...</property>
+			      <property name="label" translatable="yes">_tooLAME...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -789,7 +789,7 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="to_lame1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">LAME...</property>
+			      <property name="label" translatable="yes">_LAME...</property>
 			      <property name="use_underline">True</property>
 			    </widget>
 			  </child>
@@ -797,14 +797,8 @@
 			  <child>
 			    <widget class="GtkMenuItem" id="to_other1">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Other...</property>
+			      <property name="label" translatable="yes">_Other...</property>
 			      <property name="use_underline">True</property>
-			    </widget>
-			  </child>
-
-			  <child>
-			    <widget class="GtkMenuItem" id="separator2">
-			      <property name="visible">True</property>
 			    </widget>
 			  </child>
 			</widget>
@@ -815,7 +809,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="save_audio1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Save _Audio...</property>
+		      <property name="label" translatable="yes">Sa_ve Audio...</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="B" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -837,7 +831,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="preferences1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_Preferences...</property>
+		      <property name="label" translatable="yes">_Preferences</property>
 		      <property name="use_underline">True</property>
 		      <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 		    </widget>
@@ -854,7 +848,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="bitrate_histogram1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_Bitrate Histogram...</property>
+		      <property name="label" translatable="yes">_Bitrate Histogram</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -862,7 +856,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="cut_wizard1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Cut _Wizard...</property>
+		      <property name="label" translatable="yes">Cut _Wizard</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -878,7 +872,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="rebuild_frames">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_Rebuild Frames (I &amp; B)...</property>
+		      <property name="label" translatable="yes">_Rebuild Frames (I &amp; B)</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -902,7 +896,7 @@
 		  <child>
 		    <widget class="GtkMenuItem" id="guess_size/bitrate1">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Guess size/bitrate</property>
+		      <property name="label" translatable="yes">_Guess Size/Bitrate</property>
 		      <property name="use_underline">True</property>
 		    </widget>
 		  </child>
@@ -914,7 +908,7 @@
 	  <child>
 	    <widget class="GtkMenuItem" id="about1">
 	      <property name="visible">True</property>
-	      <property name="label" translatable="yes">_About</property>
+	      <property name="label" translatable="yes">A_bout</property>
 	      <property name="use_underline">True</property>
 	    </widget>
 	  </child>
@@ -1291,8 +1285,8 @@
 	</widget>
 	<packing>
 	  <property name="padding">0</property>
-	  <property name="expand">False</property>
-	  <property name="fill">False</property>
+	  <property name="expand">True</property>
+	  <property name="fill">True</property>
 	</packing>
       </child>
 
@@ -1309,7 +1303,7 @@
 	</widget>
 	<packing>
 	  <property name="padding">0</property>
-	  <property name="expand">True</property>
+	  <property name="expand">False</property>
 	  <property name="fill">False</property>
 	</packing>
       </child>
@@ -1773,8 +1767,8 @@
 		    </widget>
 		    <packing>
 		      <property name="padding">0</property>
-		      <property name="expand">True</property>
-		      <property name="fill">True</property>
+		      <property name="expand">False</property>
+		      <property name="fill">False</property>
 		    </packing>
 		  </child>
 
@@ -1794,14 +1788,14 @@
 		    </widget>
 		    <packing>
 		      <property name="padding">0</property>
-		      <property name="expand">True</property>
-		      <property name="fill">True</property>
+		      <property name="expand">False</property>
+		      <property name="fill">False</property>
 		    </packing>
 		  </child>
 		</widget>
 		<packing>
 		  <property name="padding">0</property>
-		  <property name="expand">True</property>
+		  <property name="expand">False</property>
 		  <property name="fill">False</property>
 		</packing>
 	      </child>
@@ -1829,26 +1823,13 @@
 		  <property name="spacing">0</property>
 
 		  <child>
-		    <widget class="GtkHBox" id="hbox18">
+		    <widget class="GtkTable" id="table1">
 		      <property name="visible">True</property>
+		      <property name="n_rows">2</property>
+		      <property name="n_columns">2</property>
 		      <property name="homogeneous">False</property>
-		      <property name="spacing">0</property>
-
-		      <child>
-			<widget class="GtkButton" id="buttonGotoA">
-			  <property name="height_request">20</property>
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Go to marker A</property>
-			  <property name="label" translatable="yes">A:</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
+		      <property name="row_spacing">0</property>
+		      <property name="column_spacing">0</property>
 
 		      <child>
 			<widget class="GtkLabel" id="labelMarkA">
@@ -1865,38 +1846,12 @@
 			  <property name="ypad">0</property>
 			</widget>
 			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
-			</packing>
-		      </child>
-		    </widget>
-		    <packing>
-		      <property name="padding">0</property>
-		      <property name="expand">False</property>
-		      <property name="fill">False</property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkHBox" id="hbox19">
-		      <property name="visible">True</property>
-		      <property name="homogeneous">False</property>
-		      <property name="spacing">0</property>
-
-		      <child>
-			<widget class="GtkButton" id="buttonGotoB">
-			  <property name="height_request">20</property>
-			  <property name="visible">True</property>
-			  <property name="tooltip" translatable="yes">Go to marker B</property>
-			  <property name="label" translatable="yes">B:</property>
-			  <property name="use_underline">True</property>
-			  <property name="relief">GTK_RELIEF_NORMAL</property>
-			</widget>
-			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
+			  <property name="left_attach">1</property>
+			  <property name="right_attach">2</property>
+			  <property name="top_attach">0</property>
+			  <property name="bottom_attach">1</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options"></property>
 			</packing>
 		      </child>
 
@@ -1915,16 +1870,57 @@
 			  <property name="ypad">0</property>
 			</widget>
 			<packing>
-			  <property name="padding">0</property>
-			  <property name="expand">False</property>
-			  <property name="fill">False</property>
+			  <property name="left_attach">1</property>
+			  <property name="right_attach">2</property>
+			  <property name="top_attach">1</property>
+			  <property name="bottom_attach">2</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options"></property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkButton" id="buttonGotoA">
+			  <property name="height_request">20</property>
+			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Go to marker A</property>
+			  <property name="label" translatable="yes">A:</property>
+			  <property name="use_underline">True</property>
+			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			</widget>
+			<packing>
+			  <property name="left_attach">0</property>
+			  <property name="right_attach">1</property>
+			  <property name="top_attach">0</property>
+			  <property name="bottom_attach">1</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options">fill</property>
+			</packing>
+		      </child>
+
+		      <child>
+			<widget class="GtkButton" id="buttonGotoB">
+			  <property name="height_request">20</property>
+			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Go to marker B</property>
+			  <property name="label" translatable="yes">B:</property>
+			  <property name="use_underline">True</property>
+			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			</widget>
+			<packing>
+			  <property name="left_attach">0</property>
+			  <property name="right_attach">1</property>
+			  <property name="top_attach">1</property>
+			  <property name="bottom_attach">2</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options">fill</property>
 			</packing>
 		      </child>
 		    </widget>
 		    <packing>
 		      <property name="padding">0</property>
-		      <property name="expand">False</property>
-		      <property name="fill">False</property>
+		      <property name="expand">True</property>
+		      <property name="fill">True</property>
 		    </packing>
 		  </child>
 		</widget>
@@ -1951,15 +1947,15 @@
 	    </widget>
 	    <packing>
 	      <property name="padding">0</property>
-	      <property name="expand">True</property>
-	      <property name="fill">True</property>
+	      <property name="expand">False</property>
+	      <property name="fill">False</property>
 	    </packing>
 	  </child>
 	</widget>
 	<packing>
 	  <property name="padding">0</property>
-	  <property name="expand">True</property>
-	  <property name="fill">True</property>
+	  <property name="expand">False</property>
+	  <property name="fill">False</property>
 	</packing>
       </child>
     </widget>
