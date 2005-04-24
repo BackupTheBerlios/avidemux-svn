@@ -14,7 +14,7 @@
 <br><p class="dochead">Editing mpeg files</p>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Introduction</p>
 <ul>
-		<p> Avidemux can read (indexed) mpeg file, both elementary stream and program stream (i.e. vob files for example) thanks to mpeg2dec 
+		<p> Avidemux can read (indexed) mpeg file, both elementary streams, program streams and transport streams 
 		</p>
 		<p>
 		  Internally, the mpeg are seen as frames with a fake codec (MPEG). 
@@ -54,7 +54,7 @@ Now it is time to remultiplex both streams to end-up with foo.mpg. The first seq
 <p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Splitting, internal muxing </p>
 <p class="secthead"><a name="doc_chap3_sect1">General </a></p>
 <ul>
-		<p> As usual, define the section you are interested in using <img src="../images/marka.png"> and <img src="../images/markb.png">.  You should read <a href="./cutting.xml.html">cutting</a> if you did not already. In that mode, avidemux will write a mpeg2 PS stream (lvemux lower part from <a href="http://lvempeg.sf.net">lvempeg</a>. This mpeg2 PS contains NAV packet and is suitable to DVD authoring. Even my Pioneer accepts them :).
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"> and <img src="../images/markb.png">.  You should read <a href="./cutting.xml.html">cutting</a> if you did not already. In that mode, avidemux will write a mpeg2 PS stream using libmplex. The stream will be suitable for dvd authoring using dvdauthor.
 		</p>
 	</ul>
 <p class="secthead"><a name="doc_chap3_sect2">Audio </a></p>
@@ -70,7 +70,7 @@ Audio must be 48 kHz and either MP2 or AC3 (as of today it means libavcodec AC3 
 	</ul>
 <p class="secthead"><a name="doc_chap3_sect4">Saving </a></p>
 <ul>
-		<p> Now, it is time to use <span class="code">File-save DVD PS</span>. If audio is in copy mode, you will be asked the A/V shift to correct. For DVD it ranges from 0 to about 200 ms. For PVR captured stream it can be anything.
+		<p> Now, it is time to use output format <span class="code">Mpeg A+V (PS)</span>. If audio and video are not synced you can use the timeshift audio filter, even in copy mode.
 		</p>
 	</ul>
 <p class="secthead"><a name="doc_chap3_sect5">Important </a></p>

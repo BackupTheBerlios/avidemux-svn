@@ -15,7 +15,7 @@ Simple tips and help for installing avidemux
 <title>Mandatory packages</title>
 <section>
 	<body>
-		<p>You will need a unix based machine, preferably x86. It also works to some extend on Sparc and Macs</p>
+		<p>You will need a unix based machine, preferably x86. It also works to some extend on Sparc and MacOsX and Windows (mingw needed)</p>
 		<table width="100%" border="1">
 		<tr>
 			<th>Package</th><th>Comment</th>
@@ -32,7 +32,8 @@ Simple tips and help for installing avidemux
 		<tr>
 			<ti>nasm (for x86)</ti><ti> If you do VCD/SVCD/... on x86 you want it ! (5 x faster)</ti>
 		</tr>
-		</table>		
+		</table>
+		<p>You will also need automake, autoconf and autotools with recent versions. Of course if you are using a rpm/deb based distro you need the -dev packages also.</p>
 	</body>
 </section>
 </chapter>
@@ -59,6 +60,9 @@ Simple tips and help for installing avidemux
 			<ti>libvorbis</ti><ti>x</ti><ti>Vorbis encoder/decoder</ti><ti><uri>http://www.vorbis.org/</uri></ti>
 		</tr>
 		<tr>
+			<ti>libOgg</ti><ti>x</ti><ti>Needed by Vorbis</ti><ti><uri>http://www.vorbis.org/</uri></ti>
+		</tr>		
+		<tr>
 			<ti>Faac/faad</ti><ti>x</ti><ti>AAC encoder/decoder</ti><ti><uri>http://www.audiocoding.com/</uri></ti>
 		</tr>
 
@@ -81,9 +85,26 @@ Simple tips and help for installing avidemux
 			<ti>Xvid</ti><ti>1.x</ti><ti>Mpeg4 encoder</ti>
 			<ti><uri>http://www.xvid.org</uri></ti>
 		</tr>
+		<tr>
+			<ti>x264</ti><ti>1.x</ti><ti>Mpeg4 AVC encoder</ti>
+			<ti><uri>http://www.videolan.org/x264.html</uri></ti>
+		</tr>
 		
 	</table>
 	<warn>Avidemux2 will be statically linked to 0.9 <b>OR</b> 1.x</warn>
+</body>
+</section>
+<section>
+	<title>Misc packages</title>
+	<body>
+	<table width="100%" border="1">
+	<tr>
+		<th>Name</th><th>Version</th><th>Aim</th><th>Site</th>
+	</tr>
+	<tr>
+		<ti>Freetype</ti><ti>x</ti><ti>Needed for subtitles</ti><ti><uri>http://www.freetype.org/</uri></ti>
+		</tr>
+	</table>
 	</body>
 </section>
 </chapter>
@@ -153,6 +174,17 @@ cpu done
 	</pre>
 
 	Thanks Jens for that one that hits a lot RedHat and Suse users.
+
+	</body>
+</section>
+<section>
+	<title>automake complain or AM_GNU_AS or AM_GNU_GETTEXT error</title>
+	<body>
+	<p>
+	You need a <b>recent</b> version of automake and autoconf.
+	</p>
+	<p>For the AM_GNU_GETTEXT, install gettext-dev.
+	</p>
 
 	</body>
 </section>

@@ -53,12 +53,47 @@ Video: Luma / chroma filters
 	</body>
 </section>
 <section>
+	<title>Luma equalizer </title>
+	<body>
+		<ul>
+			<p>This filter can tweak the luma distribution on an image. It is usually to correct white not really white, black not really black effect.
+			</p>
+			<p><img src="../images/equalizer.png"></img>
+			</p>
+			<p>The upper white drawing is the original luma, the lower one is the modified luma.</p>
+			<p>The displayed image is made of four square : original modified then modified original.</p>
+		</ul>
+	</body>
+</section>
+
+<section>
 	<title>Luma/chroma only </title>
 	<body>
 	<ul>
 	<p>These filters are for debug. They let only one component (luma/u/v).
 	</p>
 	</ul>
+	</body>
+</section>
+<section>
+	<title>Mplayer Hue </title>
+	<body>
+		<ul>
+			<p>This is a port of MPlayer hue filter. You can alter hue and saturatio. .
+			</p>
+			<p>The left part of the image is left unchanged, the right part has its hue/saturation changed.</p>
+			<p><img src="../images/hue.png"></img>
+			</p>
+		</ul>s
+	</body>
+</section>
+<section>
+	<title>Mplayer Eq2 </title>
+	<body>
+		<ul>
+			<p>This is a port of MPlayer equalizer filter, still under construction .
+			</p>
+		</ul>
 	</body>
 </section>
 </chapter>

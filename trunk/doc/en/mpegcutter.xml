@@ -15,7 +15,7 @@ Mpeg edition
 <title>Introduction</title>
 <section>
 	<body><ul>
-		<p> Avidemux can read (indexed) mpeg file, both elementary stream and program stream (i.e. vob files for example) thanks to mpeg2dec 
+		<p> Avidemux can read (indexed) mpeg file, both elementary streams, program streams and transport streams 
 		</p>
 		<p>
 		  Internally, the mpeg are seen as frames with a fake codec (MPEG). 
@@ -69,7 +69,7 @@ Now it is time to remultiplex both streams to end-up with foo.mpg. The first seq
 <section>
 <title>General</title>
 	<body><ul>
-		<p> As usual, define the section you are interested in using <img src="../images/marka.png"></img> and <img src="../images/markb.png"> </img>.  You should read <uri link="./cutting.xml.html">cutting</uri> if you did not already. In that mode, avidemux will write a mpeg2 PS stream (lvemux lower part from <uri link="http://lvempeg.sf.net">lvempeg</uri>. This mpeg2 PS contains NAV packet and is suitable to DVD authoring. Even my Pioneer accepts them :).
+		<p> As usual, define the section you are interested in using <img src="../images/marka.png"></img> and <img src="../images/markb.png"> </img>.  You should read <uri link="./cutting.xml.html">cutting</uri> if you did not already. In that mode, avidemux will write a mpeg2 PS stream using libmplex. The stream will be suitable for dvd authoring using dvdauthor.
 		</p>
 	</ul></body>
 </section>
@@ -91,7 +91,7 @@ Audio must be 48 kHz and either MP2 or AC3 (as of today it means libavcodec AC3 
 <section>
 <title>Saving</title>
 	<body><ul>
-		<p> Now, it is time to use <c>File-save DVD PS</c>. If audio is in copy mode, you will be asked the A/V shift to correct. For DVD it ranges from 0 to about 200 ms. For PVR captured stream it can be anything.
+		<p> Now, it is time to use output format <c>Mpeg A+V (PS)</c>. If audio and video are not synced you can use the timeshift audio filter, even in copy mode.
 		</p>
 	</ul></body>
 </section>

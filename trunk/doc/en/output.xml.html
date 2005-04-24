@@ -14,6 +14,8 @@
 <br><p class="dochead">Output formats</p>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>File format</p>
 <ul>
+	<p>If you dont change the output format and edit a mpeg or ogm, you will end up with weird stuff like mpeg1 in avi or vorbis in avi that could be unplayable.
+	</p>
 		<table class="ntable">
 		<tr>
 			<td bgcolor="#7a5ada" class="infohead"><b>Format</b></td>
@@ -21,24 +23,36 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Avi</td>
-<td bgcolor="#ddddff" class="tableinfo">Up to 2 audio track</td>
+<td bgcolor="#ddddff" class="tableinfo">Plain avi, no OpenDML</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">Mpeg1/2</td>
+			<td bgcolor="#ddddff" class="tableinfo">Avi Dual Audio</td>
+<td bgcolor="#ddddff" class="tableinfo">Avi with two audio tracks</td>
+		</tr>
+
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg Video</td>
 <td bgcolor="#ddddff" class="tableinfo">Raw elementary stream</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">Mpeg2PS</td>
-<td bgcolor="#ddddff" class="tableinfo">Audio+Video, suitable to DVD authoring</td>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg A+V (PS)</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg PS stream (VCD/SVCD/DVD)</td>
 		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg A+V (TS)</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg TS stream to stream to a dreambox :)</td>
+		</tr>		
+		
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">OGM</td>
 <td bgcolor="#ddddff" class="tableinfo">Audio track must be MP3, AC3 or Vorbis (CBR/VBR)</td>
 		</tr>
+		
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">Raw</td>
-<td bgcolor="#ddddff" class="tableinfo">Stripped audio or video. For example raw mpeg4 stream</td>
+			<td bgcolor="#ddddff" class="tableinfo">Unp. vop.</td>
+<td bgcolor="#ddddff" class="tableinfo">Avi+mpeg4 with the packed vop hack stripped</td>
 		</tr>
+		
 		</table>
 		</ul>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Video codec</p>
@@ -60,7 +74,7 @@
 <td bgcolor="#ddddff" class="tableinfo">Xvid 0.9 or 1.x</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">Lavcodec</td>
+			<td bgcolor="#ddddff" class="tableinfo">Mpeg4 (Lavcodec)</td>
 <td bgcolor="#ddddff" class="tableinfo">Good, accurate, fast, plenty of options</td>
 <td bgcolor="#ddddff" class="tableinfo">Lavcodec(bundled)</td>
 		</tr>		
@@ -84,13 +98,14 @@
 <td bgcolor="#ddddff" class="tableinfo">Good quality, slow</td>
 <td bgcolor="#ddddff" class="tableinfo">mpeg2enc, Bundled</td>
 		</tr>
+		
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">XVCD</td>
-<td bgcolor="#ddddff" class="tableinfo">Fast. lavcodec based, somehow not 100% compliant</td>				<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+			<td bgcolor="#ddddff" class="tableinfo">VCD/SVCD/DVD(lavcodec)</td>
+<td bgcolor="#ddddff" class="tableinfo">Fast, lavcodec based, somehow not 100% compliant</td>				<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">DVD(lavcodec)</td>
-<td bgcolor="#ddddff" class="tableinfo">Fast, lavcodec based, somehow not 100% compliant</td>				<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+			<td bgcolor="#ddddff" class="tableinfo">H264</td>
+<td bgcolor="#ddddff" class="tableinfo">Very preliminary support</td>				<td bgcolor="#ddddff" class="tableinfo">x264</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Snow(lavcodec)</td>
@@ -112,6 +127,11 @@
 			<td bgcolor="#ddddff" class="tableinfo">Uncompressed</td>
 <td bgcolor="#ddddff" class="tableinfo">Big</td>
 <td bgcolor="#ddddff" class="tableinfo"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">Vorbis</td>
+<td bgcolor="#ddddff" class="tableinfo">Be sure to select ogm as output !</td>
+<td bgcolor="#ddddff" class="tableinfo">libvorbis/libogg</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MP3</td>
@@ -137,7 +157,7 @@
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">AAC</td>
 <td bgcolor="#ddddff" class="tableinfo">Using faac</td>
-<td bgcolor="#ddddff" class="tableinfo">Bundled(Libtoolame)</td>
+<td bgcolor="#ddddff" class="tableinfo">Faac</td>
 		</tr>
 
 		</table>
@@ -147,32 +167,17 @@
 <ul>
 	<p> It is the default save format. A second CBR audio track can be added using <span class="code">Audio-&gt;Second audio track</span>. It can be either MP3 CBR or AC3.
 	</p>
-	</ul>
-<p class="secthead"><a name="doc_chap4_sect2">Mpeg file 1/2 </a></p>
-<ul>
-	<p>If <span class="code">File-Save video</span> is used, only raw video elementary stream will be written. That is .m1v or .m2v
-	</p>
-	<p>You will have to select mp2 audio encoder, set the audio to process and <span class="code">Audio-&gt;save audio</span> to obtain the .mp2.
-	</p>
-	<p>Then use mplex or tcmplex to multiplex the 2 files and get a proper .mpg
-	</p>
 	
 	</ul>
-<p class="secthead"><a name="doc_chap4_sect3">Mpeg file 2/2 </a></p>
-<ul>
-	<p>If <span class="code">File-Save DVD PS</span> is used, you will save as a mpeg2 PS stream (including NAV packet). That works in both copy and process mode, if for example you want to edit a PVRx50 captured stream. The GOP timestamp are recomputed in that case to avoid jump in the timecode.
-	</p>
-	<p>If you are using save video, you will have to process video and audio separately and mux them back together</p>
-	<p>Internal toolame has some issues, ffmpeg audio is known to work, albeit with a lesser quality.
-	</p>
-	</ul>
-<p class="secthead"><a name="doc_chap4_sect4">Raw </a></p>
+<p class="secthead"><a name="doc_chap4_sect2">Mpeg file  </a></p>
 <ul>
 	<p>
-	This is available in two forms : For audio using the <span class="code">Audio-&gt;save audio</span> menu entry.
-	It will save the audio only (processed/encoded or not).
+	If you use <span class="code">Mpeg A+V (PS)</span> as output format you will end up with a VCD, SVCD or DVD stream.
+	Of course the audio must also be suitable for SVCD/VCD/DVD use.
+	Avidemux is now using libmplex for maximum compliance.
 	</p>
-	<p>For video it is using <span class="code">File -&gt;save raw</span>. Can be useful to cut mpeg files or to save stripped video. For example, raw h263 or mp4 video stream.
+	<p>If you use <span class="code">Mpeg Video</span> as output format, only the raw video elementary stream will be saved. That means there will be no audio and that it is not suitable for VCD/SVCD/DVD authoring.
+	You have to save the audio only (using audio-save)  and use mplex or tcmplex to rebuild a mpeg PS stream.
 	</p>
 	</ul>
 <br><br>

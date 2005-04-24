@@ -44,7 +44,7 @@ Supported input formats / codecs
 			<ti>Mov/3GP/Mpeg4</ti><ti>Simple 3gp/MP4/mov file. Compressed header not supported</ti>
 		</tr>
 		<tr>
-			<ti>Ogm</ti><ti>None i' aware of</ti>
+			<ti>Ogm</ti><ti>None i'm aware of</ti>
 		</tr>
 		</table>
 		</ul></body>
@@ -80,6 +80,12 @@ Supported input formats / codecs
 			<ti>H263</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
 		</tr>
 		<tr>
+			<ti>FFV1</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
+		</tr>
+		<tr>
+			<ti>H264</ti><ti>Lavcodec based</ti>	<ti>Bundled, experimental</ti>
+		</tr>
+		<tr>
 			<ti>MSMP4V2</ti><ti>Lavcodec based</ti>	<ti>Bundled</ti>
 		</tr>
 		<tr>
@@ -104,8 +110,12 @@ Supported input formats / codecs
 			<th>Name</th><th>Comment</th><th>Dependancy</th>
 		</tr>
 		<tr>
-			<ti>Uncompressed</ti><ti></ti><ti></ti>
+			<ti>Uncompressed (PCM)</ti><ti></ti><ti></ti>
 		</tr>
+		<tr>
+			<ti>AMR Narrow Band</ti><ti></ti><ti>Etsi code bundled</ti>
+		</tr>
+		
 		<tr>
 			<ti>MP3/2</ti><ti>CBR/ABR/...</ti><ti>Mad</ti>
 		</tr>
@@ -116,7 +126,7 @@ Supported input formats / codecs
 			<ti>AC3</ti><ti></ti><ti>A52Dec</ti>
 		</tr>
 		<tr>
-			<ti>WMA</ti><ti>Mostly Working</ti><ti>Bundled(libavcodec)</ti>
+			<ti>WMA</ti><ti>Mostly Working</ti><ti>Bundled(libavcodec), works only with gcc 3.4.x!</ti>
 		</tr>
 		<tr>
 			<ti>Vorbis</ti><ti>Mostly Working</ti><ti>libvorbis, only in ogm files</ti>
@@ -189,6 +199,9 @@ Supported input formats / codecs
 	</p>
 	<p>Mpeg-TS will be considered perfect, i.e. there will be no correction for dropped or damaged packets. It means that if your captured stream is not perfect you will have async problems. In that case, better to use another tool, such as mencoder or transcode.
 	</p>
+	
+	<p>If you happen to have a non perfect Mpeg-Ts stream or a mpeg-PES (such as the ones generated
+	by some DVB cards), you can try to use replex to convert them to a proper mpeg PS stream.</p>
 	</ul></body>
 </section>
 <section>

@@ -9,8 +9,8 @@
 Video : Interlacing filters
  </abstract>
 
-<version>1.0</version>
-<date>08 Feb 2003</date>
+<version>1.1</version>
+<date>24 Apr 2005</date>
 
 <chapter>
 <title>Foreword</title>
@@ -26,6 +26,42 @@ Video : Interlacing filters
 </chapter>
 <chapter>
 <title>Interlacing  filters</title>
+<section>
+	<title>Decomb telecide</title>
+	<body>
+		<ul>
+			<p>This is (yet another) port of <uri link="http://www.neuron2.net">Donal Graft</uri>. Its aim is to remove combing, including inverse telecine.
+				Note that it does not alter framerate, and that you must use also
+				<c>Decomb decimate</c> to do a proper IVTC.
+			</p>
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Decomb decimate</title>
+	<body>
+		<ul>
+			<p>This is (yet another) port of <uri link="http://www.neuron2.net">Donal Graft</uri>. It removes frames according to several strategies. The most common usage is with telecide to do inverse telecide.
+			</p>
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Smart</title>
+	<body>
+		<ul>
+			<p>This filter is a mix between the two above. 
+			</p>
+			<p>It evals the current image and the Pal-shifted image, then takes the less interlaced one and smart deinterlace it. Since chroma is not taken into account, it can lead to small chroma error.
+			</p>
+			<p>It is a bit on the slow side, but very efficient when the video is of the good type.
+			</p>
+			<p>It can be used also as a cheap IVTC, as it will reconstruct the progressive frame, but will keep the video at 30 fps and will not discard duplicates to reach 24 fps.
+			</p>
+			
+		</ul>
+	</body>
+</section>
 <section>
 	<title>Deinterlace</title>
 	<body>
@@ -43,6 +79,52 @@ Video : Interlacing filters
 	</body>
 </section>
 <section>
+	<title>Lavcodec PP  deinterlacer</title>
+	<body>
+		<ul>
+			<p>This filter is a port of lavcodec deinterlacer </p>
+			<p>You can select :
+				<ul>
+					<li>Libear blend</li>
+					<li>Linear interpolation</li>
+					<li>Cubic interpolation</li>
+					<li>Median interpolation</li>
+					<li>FFmpeg deinterlacer</li>
+				</ul>
+			The best is to refer to mplayer/ffmpeg documentation for more details.
+			</p>
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Pal Shift</title>
+	<body>
+		<ul>
+			<p>This filter  takes a field from an image and the other field from the next image.
+			</p>
+			<p>A lot of movie (and some DVD) are interlaced this way. 
+			</p>
+			<p>This filter does not do any check, so activate it, preview it, and if you are happy with the result keep it.
+			</p>
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Drop</title>
+	<body>
+		<ul>
+			<p>This filter has been written by Ron Reithoffer.
+			</p>
+			<p>If a field is too different from spatial/temporal neighbours (VHS drop out) it is discarded and replaced by an average value from previous and next frame line.
+			</p>
+			<p>According to the author, this must be the first filter in the filter chain, and will not work well with very interlaced image.
+			</p>
+			<p><img src="../image_tuto/dropout.jpg"></img>
+			</p>
+		</ul>
+	</body>
+</section>
+<section>
 	<title>Kernel Deint</title>
 	<body>
 	<ul>
@@ -53,91 +135,10 @@ Video : Interlacing filters
 	</ul>
 	</body>
 </section>
-<section>
-	<title>Pal Shift</title>
-	<body>
-	<ul>
-	<p>This filter  takes a field from an image and the other field from the next image.
-	</p>
-	<p>A lot of movie (and some DVD) are interlaced this way. 
-	</p>
-	<p>This filter does not do any check, so activate it, preview it, and if you are happy with the result keep it.
-	</p>
-	</ul>
-	</body>
-</section>
-<section>
-	<title>Pal Smart</title>
-	<body>
-	<ul>
-	<p>This filter is a mix between the two above. 
-	</p>
-	<p>It evals the current image and the Pal-shifted image, then takes the less interlaced one and smart deinterlace it. Since chroma is not taken into account, it can lead to small chroma error.
-	</p>
-	<p>It is a bit on the slow side, but very efficient when the video is of the good type.
-	</p>
-	<p>It can be used also as a cheap IVTC, as it will reconstruct the progressive frame, but will keep the video at 30 fps and will not discard duplicates to reach 24 fps.
-	</p>
-	
-	</ul>
-	</body>
-</section>
-<section>
-	<title>Drop</title>
-	<body>
-	<ul>
-	<p>This filter has been written by Ron Reithoffer.
-	</p>
-	<p>If a field is too different from spatial/temporal neighbours (VHS drop out) it is discarded and replaced by an average value from previous and next frame line.
-	</p>
-	<p>According to the author, this must be the first filter in the filter chain, and will not work well with very interlaced image.
-	</p>
-	<p><img src="../image_tuto/dropout.jpg"></img>
-	</p>
-	</ul>
-	</body>
-</section>
-<section>
-<title>IVTC : HIDDEN</title>
-	<body>
-	<ul>
-	<p>In some case, to convert a movie (24 fps) to NTSC (30 fps), a telecine process is applied. It duplicate fields of frames to add a 5th image.</p>
-	<p>  1 2 3 4 =&gt; 1 2 2 3 4 
-	</p>
-	<p>  1 2 3 4 =&gt; 1 2 3 3 4
-	</p>
-	<p>
-	Whenever possible it is much better to retrieve the original progressive image as it is more suitable to encoding and also easier to encode.	
-	</p>
-	<p>
-	This filter uses a brute force approach to retrieve the original frames. It "counts" the interlacing effects in a image and consider that if two images are the most interlaced AND they follow each other they are candidates.
-	</p>
-	<p>At the moment, the first image must not be interlaced (check with preview!) else the filter will fail identifying the telecined frames. It is a very immature filter, you have been warned.
-	</p>
-	<p><b>This filter is temporarily hidden</b></p>
-	</ul>
-	</body>
-</section>
-<section>
-<title>Mplayer IVTC</title>
-	<body>
-	<ul>
-	<p>This is a port of Richard Felker IVTC filter, ported from <uri link="http://mplayerhq.hu">mplayer</uri>.</p>
-	<p>It is early job (avidemux and mplayer are a bit different) and you may have from time to time an interlaced frame appearing. Except from that it works very nicely .
-	</p>
-	</ul>
-	</body>
-</section>
-<section>
-<title>Pulldown </title>
-	<body>
-	<ul>
-	<p>This filter converts a 24 fps to a 30 fps video by duplicating fields. Could be handy for DVD driver that hiccups on 24 fps VCD.
-	</p>
-	</ul>
-	</body>
-</section>
+
 </chapter>
+
+
 
 <chapter>
 <title>Fields related filters</title>
@@ -206,5 +207,27 @@ Video : Interlacing filters
 	</ul>
 	</body>
 </section>
+<section>
+	<title>Stack Fields </title>
+	<body>
+		<ul>
+			<p>Each field is put on top of one another. Useful to see if some blending occured/if the fields are progressive.
+			</p>
+		<p>
+			<img src="../images/stack.png"></img>
+		</p>
+		</ul>
+	</body>
+</section>
+<section>
+	<title>UnStack Fields </title>
+	<body>
+		<ul>
+			<p>Opposite of previous filter.
+			</p>
+		</ul>
+	</body>
+</section>
+
 </chapter>
 </guide>

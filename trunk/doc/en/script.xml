@@ -234,7 +234,18 @@ save("/tmp/plop.avi");
 exit();
 
 </pre>
-	
+	<p>The third example re-encodes a file using xvid and a video filter and letting audio unchanged</p>
+<pre>
+Load("ghost1_raw.avi");
+AddVideoFilter(mphqdenoise3d,param1=4.000000,param2=3.000000,param3=6.000000);
+SetFormat("AVI");
+VideoProcess(1);
+videocodec(XVID4,"2pass=180","/huge/ghost/dummy.prh.vcodec");
+save("flt_1.avi");
+
+</pre>
+You will notice we reuse a video codec configuration from a project file. It allows you to 
+fine tune a codec.
 	</ul>
 	</body>
 </section>

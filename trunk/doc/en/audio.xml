@@ -92,6 +92,15 @@ Audio
 	</ul>
 	</body>
 </section>
+<section>
+	<title>Channels </title>
+	<body>
+		<ul>
+			<p>Allow you to switch from mono to stereo. It is sometimes needed as for example, mono audio is illegal for VCD.
+			</p>	
+		</ul>
+	</body>
+</section>
 </chapter>
 <chapter>
 <title>Encoder Filters</title>

@@ -100,7 +100,7 @@ Using the command line
 			<ti>load-workbench</ti><ti>Filename</ti><ti>Load a workbench/edit list</ti>
 		</tr>
 		<tr>
-			<ti>save</ti><ti>Filename</ti><ti>Save the file. If the codec is not set to mpeg (VCD,...) it will saved as an avi</ti>
+			<ti>save</ti><ti>Filename</ti><ti>Save the file. Default output format is avi</ti>
 		</tr>
 		<tr>
 			<ti>save-jpg</ti><ti>Filename</ti><ti>Save current image as jpeg</ti>
@@ -124,11 +124,9 @@ Using the command line
 			<ti>audio-bitrate</ti><ti>value</ti><ti>Set the audio bitrate. <warn>You must enter a valid audio bitrate!</warn></ti>
 		</tr>
 		<tr>
-			<ti>audio-codec</ti><ti>Audio codec : MP2|MP3|AC3</ti><ti>Select the audio codec that will be used when you set process mode.</ti>
+			<ti>audio-codec</ti><ti>Audio codec : MP2|MP3|AC3|TOOLAME</ti><ti>Select the audio codec that will be used when you set process mode.</ti>
 		</tr>
-		<tr>
-			<ti>audio-toolame</ti><ti>Filename</ti><ti>The audio will be processed and piped to toolame. The result will be saved in the given file. <warn>Avidemux2 only</warn></ti>
-		</tr>
+		
 		<tr>
 			<ti>video-codec</ti><ti>Divx | Xvid | FFmpeg4 | VCD | SVCD | DVD | XSVCD [ XVCD</ti><ti>Select the video codec that will be used when you save in process mode. </ti>
 		</tr>
@@ -136,11 +134,8 @@ Using the command line
 			<ti>video-conf</ti><ti>cq=q | cbr=br | 2pass=xx </ti><ti>Select the encoding mode : Constant Quality (cq=quality), constant bitrate (br=bitrate) or 2 pass mode, in that case , give the final size in megabyte.</ti>
 		</tr>		
 		<tr>
-			<ti>2pass-log</ti><ti>Filename</ti><ti>Specify the file that will contain the statitics for first pass. It may be re-used later, but not in CLI mode.</ti>
-		</tr>
-		<tr>
-			<ti>set-pp</ti><ti>Two Values</ti><ti>Select the postprocessing to apply to FFmpeg decoder (mpeg4, divx3,div2...). The first value is the filter to activate :1 for horizontal deblocking,2 for vertical deblocking and 4 for deringing. Sum them up to activate filter, 7 means all three activated. The second value is the filter strength between 0 and 5, 5 being the stronger. </ti>
-		</tr>
+			<ti>output-format</ti><ti>AVI|OGM|PS|ES|TS </ti><ti>Set the output format. ES is for video only, PS for program stream (VCD/SVCD/DVD) and TS for transport stream.</ti>
+		</tr>						
 	<tr>
 			<ti>auto-split</ti><ti>Size in megaBytes</ti><ti>Avidemux will automaticallty split the files when they reached the given size and create file.avi, file.avi.1, file.avi.2....The default is 2 gB </ti>
 		</tr>
@@ -153,19 +148,12 @@ Using the command line
 <section>
 	<title>Converting AVI file to VCD</title>
 	<body><ul>
-<p>
-	This operation will be divided in 3 parts : 
-	<ul>	
-	<li>Encode video</li>
-	<li>Encode audio</li>
-	<li>Multiplex: This last step will be made outside avidemux</li>
-	</ul>	
+	
+	<p>Encoding the audio with lavcodec : 
+		<c>avidemux2 --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --output-format PS --video-process --vcd-res --video-codec VCD --save output.mpg --quit</c>			
 	</p>
-	<p>Encoding the video : <c>avidemux --load input.avi --vcd-res --video-codec VCD --save /tmp/videcd.m1v</c>
-	</p>
-	<p>Encoding the audio with lavcodec : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --save-uncompressed-audio /tmp/videocd.mp2 </c>
-	</p>
-	<p>Encoding the audio with toolame : <c>avidemux --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec MP2 --audio-bitrate 224 --audio-toolame /tmp/videocd.mp2 </c>
+	<p>Encoding the audio with toolame : 
+		<c>avidemux2 --load input.avi --audio-process --audio-normalize --audio-resample 44100 --audio-codec TOOLAME --audio-bitrate 224 --output-format PS --video-process --vcd-res --video-codec VCD --save output.mpg --quit</c>	
 	</p>
 	</ul></body>
 </section>
@@ -178,7 +166,13 @@ Using the command line
 	</p>
 	<p>Reload the mp3 and save avi : <c>avidemux --load input.avi --external-mp3 /tmp/videocd.mp3 --audio-map --save /tmp/new.avi </c>
 	</p>
+	<p>
 	The audio map is very important as we have generated a VBR mp3. Else expect async big time !.
+	</p>
+	<p>It is just an example as you can encode to mp3 vbr using the GUI directly.
+	</p>
+	   
+	
 	</ul></body>
 </section>
 </chapter>

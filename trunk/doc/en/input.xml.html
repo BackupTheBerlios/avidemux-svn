@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Ogm</td>
-<td bgcolor="#ddddff" class="tableinfo">None i' aware of</td>
+<td bgcolor="#ddddff" class="tableinfo">None i'm aware of</td>
 		</tr>
 		</table>
 		</ul>
@@ -96,6 +96,14 @@
 <td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
 		</tr>
 		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">FFV1</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">H264</td>
+<td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled, experimental</td>
+		</tr>
+		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MSMP4V2</td>
 <td bgcolor="#ddddff" class="tableinfo">Lavcodec based</td>	<td bgcolor="#ddddff" class="tableinfo">Bundled</td>
 		</tr>
@@ -122,10 +130,16 @@
 <td bgcolor="#7a5ada" class="infohead"><b>Dependancy</b></td>
 		</tr>
 		<tr>
-			<td bgcolor="#ddddff" class="tableinfo">Uncompressed</td>
+			<td bgcolor="#ddddff" class="tableinfo">Uncompressed (PCM)</td>
 <td bgcolor="#ddddff" class="tableinfo"></td>
 <td bgcolor="#ddddff" class="tableinfo"></td>
 		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">AMR Narrow Band</td>
+<td bgcolor="#ddddff" class="tableinfo"></td>
+<td bgcolor="#ddddff" class="tableinfo">Etsi code bundled</td>
+		</tr>
+		
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">MP3/2</td>
 <td bgcolor="#ddddff" class="tableinfo">CBR/ABR/...</td>
@@ -144,7 +158,7 @@
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">WMA</td>
 <td bgcolor="#ddddff" class="tableinfo">Mostly Working</td>
-<td bgcolor="#ddddff" class="tableinfo">Bundled(libavcodec)</td>
+<td bgcolor="#ddddff" class="tableinfo">Bundled(libavcodec), works only with gcc 3.4.x!</td>
 		</tr>
 		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Vorbis</td>
@@ -208,6 +222,9 @@
 	</p>
 	<p>Mpeg-TS will be considered perfect, i.e. there will be no correction for dropped or damaged packets. It means that if your captured stream is not perfect you will have async problems. In that case, better to use another tool, such as mencoder or transcode.
 	</p>
+	
+	<p>If you happen to have a non perfect Mpeg-Ts stream or a mpeg-PES (such as the ones generated
+	by some DVB cards), you can try to use replex to convert them to a proper mpeg PS stream.</p>
 	</ul>
 <p class="secthead"><a name="doc_chap5_sect2">Nuppel Video </a></p>
 <ul>

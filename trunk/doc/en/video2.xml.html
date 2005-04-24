@@ -18,7 +18,31 @@
 	</p>
 	</ul>
 	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Interlacing  filters</p>
-<p class="secthead"><a name="doc_chap2_sect1">Deinterlace </a></p>
+<p class="secthead"><a name="doc_chap2_sect1">Decomb telecide </a></p>
+		<ul>
+			<p>This is (yet another) port of <a href="http://www.neuron2.net">Donal Graft</a>. Its aim is to remove combing, including inverse telecine.
+				Note that it does not alter framerate, and that you must use also
+				<span class="code">Decomb decimate</span> to do a proper IVTC.
+			</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect2">Decomb decimate </a></p>
+		<ul>
+			<p>This is (yet another) port of <a href="http://www.neuron2.net">Donal Graft</a>. It removes frames according to several strategies. The most common usage is with telecide to do inverse telecide.
+			</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect3">Pal Smart </a></p>
+		<ul>
+			<p>This filter is a mix between the two above. 
+			</p>
+			<p>It evals the current image and the Pal-shifted image, then takes the less interlaced one and smart deinterlace it. Since chroma is not taken into account, it can lead to small chroma error.
+			</p>
+			<p>It is a bit on the slow side, but very efficient when the video is of the good type.
+			</p>
+			<p>It can be used also as a cheap IVTC, as it will reconstruct the progressive frame, but will keep the video at 30 fps and will not discard duplicates to reach 24 fps.
+			</p>
+			
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect4">Deinterlace </a></p>
 	<ul>
 	<p>This filter is a port of Donald Graft smart-deinterlace filter to YV12
 	</p>
@@ -31,72 +55,46 @@
 	</ul>
 	</p>
 	</ul>
-	<p class="secthead"><a name="doc_chap2_sect2">Kernel Deint </a></p>
+	<p class="secthead"><a name="doc_chap2_sect5">Lavcodec PP  deinterlacer </a></p>
+		<ul>
+			<p>This filter is a port of lavcodec deinterlacer </p>
+			<p>You can select :
+				<ul>
+					<li>Libear blend</li>
+					<li>Linear interpolation</li>
+					<li>Cubic interpolation</li>
+					<li>Median interpolation</li>
+					<li>FFmpeg deinterlacer</li>
+				</ul>
+			The best is to refer to mplayer/ffmpeg documentation for more details.
+			</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect6">Pal Shift </a></p>
+		<ul>
+			<p>This filter  takes a field from an image and the other field from the next image.
+			</p>
+			<p>A lot of movie (and some DVD) are interlaced this way. 
+			</p>
+			<p>This filter does not do any check, so activate it, preview it, and if you are happy with the result keep it.
+			</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect7">Drop </a></p>
+		<ul>
+			<p>This filter has been written by Ron Reithoffer.
+			</p>
+			<p>If a field is too different from spatial/temporal neighbours (VHS drop out) it is discarded and replaced by an average value from previous and next frame line.
+			</p>
+			<p>According to the author, this must be the first filter in the filter chain, and will not work well with very interlaced image.
+			</p>
+			<p><img src="../image_tuto/dropout.jpg">
+			</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap2_sect8">Kernel Deint </a></p>
 	<ul>
 	<p>This filter is a port of Donald Graft kernel deint (avisynth), more stuff <a href="http://www.neuron2.net">here</a>.
 	</p>
 	<p>It is very efficient.
 	</p>	
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect3">Pal Shift </a></p>
-	<ul>
-	<p>This filter  takes a field from an image and the other field from the next image.
-	</p>
-	<p>A lot of movie (and some DVD) are interlaced this way. 
-	</p>
-	<p>This filter does not do any check, so activate it, preview it, and if you are happy with the result keep it.
-	</p>
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect4">Pal Smart </a></p>
-	<ul>
-	<p>This filter is a mix between the two above. 
-	</p>
-	<p>It evals the current image and the Pal-shifted image, then takes the less interlaced one and smart deinterlace it. Since chroma is not taken into account, it can lead to small chroma error.
-	</p>
-	<p>It is a bit on the slow side, but very efficient when the video is of the good type.
-	</p>
-	<p>It can be used also as a cheap IVTC, as it will reconstruct the progressive frame, but will keep the video at 30 fps and will not discard duplicates to reach 24 fps.
-	</p>
-	
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect5">Drop </a></p>
-	<ul>
-	<p>This filter has been written by Ron Reithoffer.
-	</p>
-	<p>If a field is too different from spatial/temporal neighbours (VHS drop out) it is discarded and replaced by an average value from previous and next frame line.
-	</p>
-	<p>According to the author, this must be the first filter in the filter chain, and will not work well with very interlaced image.
-	</p>
-	<p><img src="../image_tuto/dropout.jpg">
-	</p>
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect6">IVTC : HIDDEN </a></p>
-	<ul>
-	<p>In some case, to convert a movie (24 fps) to NTSC (30 fps), a telecine process is applied. It duplicate fields of frames to add a 5th image.</p>
-	<p>  1 2 3 4 =&gt; 1 2 2 3 4 
-	</p>
-	<p>  1 2 3 4 =&gt; 1 2 3 3 4
-	</p>
-	<p>
-	Whenever possible it is much better to retrieve the original progressive image as it is more suitable to encoding and also easier to encode.	
-	</p>
-	<p>
-	This filter uses a brute force approach to retrieve the original frames. It "counts" the interlacing effects in a image and consider that if two images are the most interlaced AND they follow each other they are candidates.
-	</p>
-	<p>At the moment, the first image must not be interlaced (check with preview!) else the filter will fail identifying the telecined frames. It is a very immature filter, you have been warned.
-	</p>
-	<p><b>This filter is temporarily hidden</b></p>
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect7">Mplayer IVTC </a></p>
-	<ul>
-	<p>This is a port of Richard Felker IVTC filter, ported from <a href="http://mplayerhq.hu">mplayer</a>.</p>
-	<p>It is early job (avidemux and mplayer are a bit different) and you may have from time to time an interlaced frame appearing. Except from that it works very nicely .
-	</p>
-	</ul>
-	<p class="secthead"><a name="doc_chap2_sect8">Pulldown  </a></p>
-	<ul>
-	<p>This filter converts a 24 fps to a 30 fps video by duplicating fields. Could be handy for DVD driver that hiccups on 24 fps VCD.
-	</p>
 	</ul>
 	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Fields related filters</p>
 <p class="secthead"><a name="doc_chap3_sect1">Swap fields  </a></p>
@@ -140,6 +138,19 @@
 	<p>Opposite of above filter.
 	</p>
 	</ul>
+	<p class="secthead"><a name="doc_chap3_sect7">Stack Fields  </a></p>
+		<ul>
+			<p>Each field is put on top of one another. Useful to see if some blending occured/if the fields are progressive.
+			</p>
+		<p>
+			<img src="../images/stack.png">
+		</p>
+		</ul>
+	<p class="secthead"><a name="doc_chap3_sect8">UnStack Fields  </a></p>
+		<ul>
+			<p>Opposite of previous filter.
+			</p>
+		</ul>
 	<br><br>
 </td></tr></table></td></tr></table></body>
 </html>

@@ -23,7 +23,7 @@ GUI Tour
 	<title>Frame type</title>
 	<body><ul>
 		<p> <img src="../images/frametype.png"></img>
-			Type of current image (I/B/P)	
+			Type of current image (I/B/P). The number between () shows the quantizer used to encode the displayed image. It has, of course, meaning only when used with quantizer type codec (mpeg).
 		</p>
 	</ul></body>
 </section>
@@ -47,7 +47,7 @@ GUI Tour
 	<title>Previous frame</title>
 	<body><ul>
 		<p> <img src="../images/bpframe.png"></img>
-			Press it to go to the previous frame. It can take several seconds as avidemux may have to go back to previous I-frame. 
+			Press it to go to the previous frame. It can take several seconds as avidemux may have to go back to previous I-frame and redecode from it to get to the desired frame. 
 		</p>
 	</ul></body>
 </section>
@@ -79,7 +79,7 @@ GUI Tour
 	<title>Markers</title>
 	<body><ul>
 		<p> <img src="../images/bmarkab.png"></img>
-			You see where the A(begin) and B(end) markers are. Only the area [A,B[ will be saved/processed.. 
+			You see where the A(begin) and B(end) markers are. Only the area [A,B[ will be saved/processed. Pressing A or B allows to go to that frame directly.
 		</p>
 	</ul></body>
 </section>
@@ -116,10 +116,10 @@ GUI Tour
 	</ul></body>
 </section>
 <section>
-	<title>Go to next "black" frame</title>
+	<title>Go to previous or next "black" frame</title>
 	<body><ul>
 		<p> <img src="../images/bnextblack.png"></img>
-			Press it to go to next black frame, black frame being a bit subjective :) 
+			Press it to search for the next/previous black frame. It may take some times and remember that black is somehow subjective. 
 		</p>
 	</ul></body>
 </section>
@@ -150,7 +150,7 @@ GUI Tour
 	<title>Video codec button </title>
 	<body><ul>
 		<p> <img src="../images/bvcodec.png"></img>
-			Press this button to open the video codec selection/configure dialog.	 
+			This pulldown allows you to select the codec that will be used if video processing is activated. If a supported codec does not appear here, it means avidemux has not been built with support for it.	 
 
 		</p>		
 	</ul></body>
@@ -160,7 +160,7 @@ GUI Tour
 	<title>Audio codec button </title>
 	<body><ul>
 		<p> <img src="../images/bacodec.png"></img>
-			Press this button to open the audio codec selection/configure dialog.	 
+			This pulldown allows you to select the codec that will be used if audio processing is activated	 
 
 		</p>		
 	</ul></body>
@@ -181,6 +181,11 @@ GUI Tour
 		</p>		
 	</ul></body>
 </section>
+
+</chapter>
+<chapter>
+<title>Upper Toolbar</title>
+
 <section>
 	<title>Preview button </title>
 	<body><ul>
@@ -202,46 +207,6 @@ GUI Tour
 		</p>
 	</ul></body>
 </section>
-</chapter>
-<chapter>
-<title>Upper Toolbar</title>
-<section>
-	<body><ul>
-		<p> <img src="../images/bupbar.png"></img>
-		</p>
-	</ul></body>
-</section>
-<section>
-	<title>Open</title>
-	<body><ul>
-		<p> <img src="../images/bopen.png"></img>
-			Open a file	
-		</p>
-	</ul></body>
-</section>	
-<section>	
-	<title>Info</title>	
-	<body><ul>	
-		<p> <img src="../images/binfo.png"></img>
-			Information about current loaded video (codec/length/...)	
-		</p>
-	</ul></body>
-</section>
-<section>	
-	<title>Save</title>	
-	<body><ul>	
-		<p> <img src="../images/bsave.png"></img>
-			Save video	
-		</p>
-	</ul></body>
-</section>
-<section>	
-	<title>Recent files</title>	
-	<body><ul>	
-		<p> <img src="../images/brecent.png"></img>
-		Fast access to the 5 opened files.
-		</p>
-	</ul></body>
-</section>
+
 </chapter>
 </guide>

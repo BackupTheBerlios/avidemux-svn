@@ -86,6 +86,32 @@ Video: Smoothing filters
 	</ul>
 	</body>
 </section>
+<section>
+	<title>Donald Graft's MSmooth  </title>
+	<body>
+		<ul>
+			<p>This filter is a port of Donald Graft MSmooth</p> 
+			<p>It smooths the image while not blurring edges. Very usefull on animes.</p> 
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Forced PostProcessing </title>
+	<body>
+		<ul>
+			<p>This filter applies a blind postprocessing on the picture</p> 
+			<p>The input number (quant) gives the strength the filter has, higher number means more postprocessing</p> 
+		</ul>
+	</body>
+</section>
+<section>
+	<title>Soften</title>
+	<body>
+		<ul>
+			<p>A variant of stabilize</p> 
+		</ul>
+	</body>
+</section>
 </chapter>
 
 </guide>

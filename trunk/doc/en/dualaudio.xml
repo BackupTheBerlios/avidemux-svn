@@ -35,29 +35,10 @@ Dual audio track
 <section>
 <title>Menu</title>
 	<body><ul>
-		<p> To add a second audio track, use the <c>Audio->Second Track->xxxx</c> menu. After selecting it, use <c>File -> Dual audio avi</c> instead of <c>File ->Save video</c>. 
+		<p> To add a second audio track, use the <c>Audio->Second Track->xxxx</c> menu. After selecting it, set the output format to <c>avi (dual audio)</c>. 
 		</p>
 	</ul></body>
 </section>
-<section>
-<title>Cutting a dual audio avi</title>
-	<body><ul>
-		<p> As Avidemux cannot handle more than one audio stream internally we will have to play a bit .
-		</p>
-		<p> Open the avi, when prompted select the second audio track 
-		</p>
-		<p> Set the A and B markers and use <c>File -> save audio</c> as /tmp/track11.mp3 for example. 
-		</p>
-		<p> Reopen the same avi, but this time select the first audio track. 
-		</p>
-		<p> Cut it, and save it as /tmp/avi1.avi. 
-		</p>
-		<p> Reload it, and add /tmp/track11.mp3 as second track. Save using  <c>File -> Dual audio avi</c> menu. 
-		</p>
-		<p>  
-			Repeat for each part.
-		</p>
-	</ul></body>
-</section>
+
 </chapter>
 </guide>

@@ -20,7 +20,7 @@
 <p class="secthead"><a name="doc_chap1_sect2">Frame type </a></p>
 <ul>
 		<p> <img src="../images/frametype.png">
-			Type of current image (I/B/P)	
+			Type of current image (I/B/P). The number between () shows the quantizer used to encode the displayed image. It has, of course, meaning only when used with quantizer type codec (mpeg).
 		</p>
 	</ul>
 <p class="secthead"><a name="doc_chap1_sect3">Play </a></p>
@@ -38,7 +38,7 @@
 <p class="secthead"><a name="doc_chap1_sect5">Previous frame </a></p>
 <ul>
 		<p> <img src="../images/bpframe.png">
-			Press it to go to the previous frame. It can take several seconds as avidemux may have to go back to previous I-frame. 
+			Press it to go to the previous frame. It can take several seconds as avidemux may have to go back to previous I-frame and redecode from it to get to the desired frame. 
 		</p>
 	</ul>
 <p class="secthead"><a name="doc_chap1_sect6">Next frame </a></p>
@@ -62,7 +62,7 @@
 <p class="secthead"><a name="doc_chap1_sect9">Markers </a></p>
 <ul>
 		<p> <img src="../images/bmarkab.png">
-			You see where the A(begin) and B(end) markers are. Only the area [A,B[ will be saved/processed.. 
+			You see where the A(begin) and B(end) markers are. Only the area [A,B[ will be saved/processed. Pressing A or B allows to go to that frame directly.
 		</p>
 	</ul>
 <p class="secthead"><a name="doc_chap1_sect10">Set marker A </a></p>
@@ -89,10 +89,10 @@
 			Press it to go to the last frame 
 		</p>
 	</ul>
-<p class="secthead"><a name="doc_chap1_sect14">Go to next "black" frame </a></p>
+<p class="secthead"><a name="doc_chap1_sect14">Go to previous or next "black" frame </a></p>
 <ul>
 		<p> <img src="../images/bnextblack.png">
-			Press it to go to next black frame, black frame being a bit subjective :) 
+			Press it to search for the next/previous black frame. It may take some times and remember that black is somehow subjective. 
 		</p>
 	</ul>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Left Toolbar</p>
@@ -115,14 +115,14 @@
 <p class="secthead"><a name="doc_chap2_sect3">Video codec button  </a></p>
 <ul>
 		<p> <img src="../images/bvcodec.png">
-			Press this button to open the video codec selection/configure dialog.	 
+			This pulldown allows you to select the codec that will be used if video processing is activated. If a supported codec does not appear here, it means avidemux has not been built with support for it.	 
 
 		</p>		
 	</ul>
 <p class="secthead"><a name="doc_chap2_sect4">Audio codec button  </a></p>
 <ul>
 		<p> <img src="../images/bacodec.png">
-			Press this button to open the audio codec selection/configure dialog.	 
+			This pulldown allows you to select the codec that will be used if audio processing is activated	 
 
 		</p>		
 	</ul>
@@ -138,7 +138,8 @@
 			When pressed, the saved audio will be the processed audio (i.e. with filters and encoding applied). If not pressed, it will be the raw copy of source audio without alteration.
 		</p>		
 	</ul>
-<p class="secthead"><a name="doc_chap2_sect7">Preview button  </a></p>
+<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Upper Toolbar</p>
+<p class="secthead"><a name="doc_chap3_sect1">Preview button  </a></p>
 <ul>
 		<p> <img src="../images/bpreview.png">
 			Press this button to open a new window that shows the ouput of filters. If you navigate in the main window, the preview window will reflect the changes.	 
@@ -147,41 +148,12 @@
 		<p> This preview mode is terribly slow.
 		</p>
 	</ul>
-<p class="secthead"><a name="doc_chap2_sect8">Ouput button  </a></p>
+<p class="secthead"><a name="doc_chap3_sect2">Ouput button  </a></p>
 <ul>
 		<p> <img src="../images/boutput.png">
 			When pressed, the main window will show you the ouput of filters when playing, and only when playing. 	
 		</p>
 		<p> It is a fast display method, and in most cases you will have real time effects.
-		</p>
-	</ul>
-<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Upper Toolbar</p>
-<ul>
-		<p> <img src="../images/bupbar.png">
-		</p>
-	</ul>
-<p class="secthead"><a name="doc_chap3_sect2">Open </a></p>
-<ul>
-		<p> <img src="../images/bopen.png">
-			Open a file	
-		</p>
-	</ul>
-<p class="secthead"><a name="doc_chap3_sect3">Info </a></p>
-<ul>	
-		<p> <img src="../images/binfo.png">
-			Information about current loaded video (codec/length/...)	
-		</p>
-	</ul>
-<p class="secthead"><a name="doc_chap3_sect4">Save </a></p>
-<ul>	
-		<p> <img src="../images/bsave.png">
-			Save video	
-		</p>
-	</ul>
-<p class="secthead"><a name="doc_chap3_sect5">Recent files </a></p>
-<ul>	
-		<p> <img src="../images/brecent.png">
-		Fast access to the 5 opened files.
 		</p>
 	</ul>
 <br><br>

@@ -13,7 +13,7 @@
 <body style="margin-left:0px;margin-top:0px;" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td valign="top" align="right" colspan="1" bgcolor="#ffffff"><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="99%" class="content" valign="top" align="left">
 <br><p class="dochead">Installing Avidemux</p>
 <p class="chaphead"><span class="chapnum"><a name="doc_chap1">1.</a></span>Mandatory packages</p>
-		<p>You will need a unix based machine, preferably x86. It also works to some extend on Sparc and Macs</p>
+		<p>You will need a unix based machine, preferably x86. It also works to some extend on Sparc and MacOsX and Windows (mingw needed)</p>
 		<table class="ntable">
 		<tr>
 			<td bgcolor="#7a5ada" class="infohead"><b>Package</b></td>
@@ -35,7 +35,8 @@
 			<td bgcolor="#ddddff" class="tableinfo">nasm (for x86)</td>
 <td bgcolor="#ddddff" class="tableinfo"> If you do VCD/SVCD/... on x86 you want it ! (5 x faster)</td>
 		</tr>
-		</table>		
+		</table>
+		<p>You will also need automake, autoconf and autotools with recent versions. Of course if you are using a rpm/deb based distro you need the -dev packages also.</p>
 	<p class="chaphead"><span class="chapnum"><a name="doc_chap2">2.</a></span>Optional Packages</p>
 <p class="secthead"><a name="doc_chap2_sect1">Audio packages </a></p>
 		<table class="ntable">
@@ -70,6 +71,12 @@
 <td bgcolor="#ddddff" class="tableinfo"><a href="http://www.vorbis.org/">http://www.vorbis.org/</a></td>
 		</tr>
 		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">libOgg</td>
+<td bgcolor="#ddddff" class="tableinfo">x</td>
+<td bgcolor="#ddddff" class="tableinfo">Needed by Vorbis</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.vorbis.org/">http://www.vorbis.org/</a></td>
+		</tr>		
+		<tr>
 			<td bgcolor="#ddddff" class="tableinfo">Faac/faad</td>
 <td bgcolor="#ddddff" class="tableinfo">x</td>
 <td bgcolor="#ddddff" class="tableinfo">AAC encoder/decoder</td>
@@ -98,9 +105,30 @@
 <td bgcolor="#ddddff" class="tableinfo">Mpeg4 encoder</td>
 			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.xvid.org">http://www.xvid.org</a></td>
 		</tr>
+		<tr>
+			<td bgcolor="#ddddff" class="tableinfo">x264</td>
+<td bgcolor="#ddddff" class="tableinfo">1.x</td>
+<td bgcolor="#ddddff" class="tableinfo">Mpeg4 AVC encoder</td>
+			<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.videolan.org/x264.html">http://www.videolan.org/x264.html</a></td>
+		</tr>
 		
 	</table>
 	<table class="ncontent" width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ffbbbb"><p class="note"><b>Warning: </b>Avidemux2 will be statically linked to 0.9 <b>OR</b> 1.x</p></td></tr></table>
+<p class="secthead"><a name="doc_chap2_sect3">Misc packages </a></p>
+	<table class="ntable">
+	<tr>
+		<td bgcolor="#7a5ada" class="infohead"><b>Name</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Version</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Aim</b></td>
+<td bgcolor="#7a5ada" class="infohead"><b>Site</b></td>
+	</tr>
+	<tr>
+		<td bgcolor="#ddddff" class="tableinfo">Freetype</td>
+<td bgcolor="#ddddff" class="tableinfo">x</td>
+<td bgcolor="#ddddff" class="tableinfo">Needed for subtitles</td>
+<td bgcolor="#ddddff" class="tableinfo"><a href="http://www.freetype.org/">http://www.freetype.org/</a></td>
+		</tr>
+	</table>
 	<p class="chaphead"><span class="chapnum"><a name="doc_chap3">3.</a></span>Installation</p>
 	<p>It is rather straightforward.</p>
 	<p><span class="code">Make -f Makefile.dist</span></p>
@@ -166,6 +194,13 @@ cpu done
 </table>
 
 	Thanks Jens for that one that hits a lot RedHat and Suse users.
+
+	<p class="secthead"><a name="doc_chap4_sect3">automake complain or AM_GNU_AS or AM_GNU_GETTEXT error </a></p>
+	<p>
+	You need a <b>recent</b> version of automake and autoconf.
+	</p>
+	<p>For the AM_GNU_GETTEXT, install gettext-dev.
+	</p>
 
 	<br><br>
 </td></tr></table></td></tr></table></body>
