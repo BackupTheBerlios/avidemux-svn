@@ -1,0 +1,3 @@
+Load("2mn.avi");
+SaveJPG("out/2mn_jpg.jpg");
+exit();

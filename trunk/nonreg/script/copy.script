@@ -1,0 +1,3 @@
+Load("2mn.avi");
+Save("out/2mn_copy.avi");
+exit();
