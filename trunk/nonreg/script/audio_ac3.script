@@ -1,0 +1,6 @@
+Load("2mn.avi");
+audioCodec("ac3",128);
+audioprocess(1);
+setformat("AVI");
+Save("out/ac3.avi");
+exit();
