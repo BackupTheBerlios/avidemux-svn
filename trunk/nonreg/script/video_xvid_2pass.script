@@ -1,0 +1,6 @@
+Load("2mn.avi");
+videoCodec(XVID4,2PASS=11);
+videoprocess(1);
+setformat("AVI");
+Save("out/video_xvid_2p.avi");
+exit();

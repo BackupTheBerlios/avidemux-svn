@@ -1,0 +1,6 @@
+Load("2mn.avi");
+videoCodec(FFmpeg4,CBR=1500);
+videoprocess(1);
+setformat("AVI");
+Save("out/video_ff4_cbr.avi");
+exit();
