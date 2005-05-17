@@ -1,0 +1,83 @@
+#
+# this file will be used as input for pref.h and pref.cpp
+#
+
+# option_name :: name without '-'; the dot is the separator used for the xml tree
+#		 '.' will be changed to '_'
+#		 all letters will be changed to there upper case equivalents
+# type        :: ( UINT | INT | ULONG | LONG | FLOAT | STRING )
+# value       :: default value; used if no xml value available
+# minimum     :: the smallest value this option can have (ignored for STRING)
+# maximum     :: the largest  value this option can have (ignored for STRING)
+
+# option name				type	value	minimum	maximum (incl.)
+codecs.svcd.enctype,			UINT,	0,	0,	99999
+codecs.svcd.bitrate,			UINT,	1500000,16000,	2748000
+codecs.svcd.quantizer,			UINT,	4,	2,	31
+codecs.svcd.finalsize,			UINT,	700,	0,	99999
+codecs.svcd.interlaced,			UINT,	0,	0,	1
+codecs.svcd.bff,			UINT,	0,	0,	1
+codecs.svcd.widescreen,			UINT,	0,	0,	1
+codecs.svcd.matrix,			UINT,	0,	0,	99999
+codecs.svcd.gopsize,			UINT,	12,	0,	99999
+codecs.svcd.maxbitrate,			UINT,	2500,	0,	2748
+codecs.dvd.enctype,			UINT,	0,	0,	99999
+codecs.dvd.bitrate,			UINT,	1500000,16000,	9900000
+codecs.dvd.quantizer,			UINT,	4,	2,	31
+codecs.dvd.finalsize,			UINT,	700,	0,	99999
+codecs.dvd.interlaced,			UINT,	0,	0,	1
+codecs.dvd.bff,				UINT,	0,	0,	1
+codecs.dvd.widescreen,			UINT,	0,	0,	1
+codecs.dvd.matrix,			UINT,	0,	0,	99999
+codecs.dvd.gopsize,			UINT,	12,	0,	99999
+codecs.dvd.maxbitrate,			UINT,	9000,	0,	9900
+codecs.xvid.enctype,			UINT,	0,	0,	99999
+codecs.xvid.quantizer,			UINT,	4,	2,	32
+codecs.xvid.bitrate,			UINT,	1500000,17,	5900000
+codecs.xvid.finalsize,			UINT,	700,	0,	3999
+filters.subtitle.fontname,		STRING, "/usr/X11R6/lib/X11/fonts/truetype/arial.ttf"
+filters.subtitle.charset,		STRING, "ISO-8859-1"
+filters.subtitle.fontsize,		UINT,	24,	1,	576
+filters.subtitle.ypercent,		INT,	255,	0,	255
+filters.subtitle.upercent,		INT,	0,	0,	255
+filters.subtitle.vpercent,		INT,	0,	0,	255
+filters.subtitle.selfadjustable,	UINT,	0,	0,	1
+filters.subtitle.usebackgroundcolor,	UINT,	0,	0,	1
+test.string,	STRING,	"abcdhfgd"
+test.int,	INT,	0,	-3,	3
+test.uint,	UINT,	1,	0,	3
+test.long,	LONG,	1,	-4,	999999999999
+test.ulong,	ULONG,	2,	0,	999999999999
+test.float,	FLOAT,	0.0,	-0.35,	0.35
+# codec metasettings for mpeg2enc based
+settings.mpegsplit, UINT,790,	400,	5000
+# codec settings
+codecs.preferredcodec,			STRING,	FFmpeg4
+device.audiodevice,			STRING,	OSS
+device.audio.alsa_device,               STRING, "plughw:0,0"
+device.videodevice,			UINT,	0,	0,	10
+# lastfiles
+lastfiles.file1,			STRING,	""
+lastfiles.file2,			STRING,	""
+lastfiles.file3,			STRING,	""
+lastfiles.file4,			STRING,	""
+lastdir_read,				STRING,	""
+lastdir_write,				STRING,	""
+# lame
+lame_cli,				STRING, ""
+pipe_cmd,				STRING, ""
+pipe_param,				STRING, ""
+lame_path,				STRING, ""
+toolame_path,				STRING, ""
+lvemux_path,				STRING, ""
+requant_path,				STRING, ""
+# feature
+feature.swap_if_A_greater_than_B,	UINT,   1,      0,      1
+feature.svcdres.preferedsourceratio,	STRING, "1:1"
+feature.saveprefsonexit,		UINT,	1,	0,	1
+feature.ignoresavedmarkers,		UINT,	0,	0,	1
+feature.use_lavcodec_mpeg,		UINT,	0,	0,	1
+feature.disable_nuv_resync,		UINT,	0,	0,	1
+feature.tryautoidx,			UINT,	0,	0,	1
+feature.use_odml,                       UINT,   0,      0,      1
+
