@@ -1,0 +1,8 @@
+Load("2mn.avi");
+videoCodec(DVD,CBR=5000);
+audioCodec("TOOLAME",128);
+videoprocess(1);
+audioprocess(1);
+setformat("PS");
+Save("out/video_DVD_cbr.mpg");
+exit();
