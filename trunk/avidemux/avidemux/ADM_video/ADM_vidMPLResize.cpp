@@ -45,7 +45,8 @@ extern "C" {
 }
 #endif
 
-#include "ADM_video/swscale.h"
+#include "../MPlayer_pp/img_format.h"
+#include "../MPlayer_pp/swscale.h"
 #include "ADM_toolkit/ADM_cpuCap.h"
 #include "ADM_filter/video_filters.h"
 
@@ -190,7 +191,7 @@ uint8_t AVDMVideoStreamMPResize::reset(uint32_t nw, uint32_t old,uint32_t algo)
 		#define ADD(x,y) if( CpuCaps::has##x()) flags|=SWS_CPU_CAPS_##y;
 		ADD(MMX,MMX);		
 		ADD(3DNOW,3DNOW);
-		//ADD(MMXEXT,MMX2);
+		ADD(MMXEXT,MMX2);
 #endif	
 #if 0 //def USE_ALTIVEC
 		flags|=SWS_CPU_CAPS_ALTIVEC;

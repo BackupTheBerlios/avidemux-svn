@@ -81,7 +81,8 @@ extern "C" {
 }
 #endif
 
-#include "ADM_video/swscale.h"
+#include "MPlayer_pp/img_format.h"
+#include "MPlayer_pp/swscale.h"
 #include "ADM_toolkit/ADM_cpuCap.h"
 
 #include "ADM_toolkit/ADM_debugID.h"
