@@ -2130,6 +2130,7 @@ static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW
 	else
 	{
 		long counter= -2*dstW;
+		uint8_t * src_fsize=src+filterSize;
 //		filter-= counter*filterSize/2;
 		filterPos-= counter/2;
 		dst-= counter/2;
@@ -2171,7 +2172,7 @@ static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW
 			" jnc 1b			\n\t"
 
 			: "+r" (counter), "+r" (filter)
-			: "m" (filterPos), "m" (dst), "m"(src+filterSize),
+			: "m" (filterPos), "m" (dst), "m"(src_fsize),
 			  "m" (src), "r" ((long)filterSize*2)
 			: "%"REG_b, "%"REG_a, "%"REG_c
 		);
@@ -2206,6 +2207,7 @@ static inline void RENAME(hyscale)(uint16_t *dst, int dstWidth, uint8_t *src, in
 				   int srcFormat, uint8_t *formatConvBuffer, int16_t *mmx2Filter,
 				   int32_t *mmx2FilterPos)
 {
+	int xIncLow=xInc&0xffff,xIncHigh=xInc>>16;
     if(srcFormat==IMGFMT_YUY2)
     {
 	RENAME(yuy2ToY)(formatConvBuffer, src, srcW);
@@ -2350,7 +2352,7 @@ FUNNY_Y_CODE
 		" jb 1b				\n\t"
 
 
-		:: "r" (src), "m" (dst), "m" (dstWidth), "m" (xInc>>16), "m" (xInc&0xFFFF)
+		:: "r" (src), "m" (dst), "m" (dstWidth), "m" (xIncHigh), "m" (xIncLow)
 		: "%"REG_a, "%"REG_b, "%ecx", "%"REG_D, "%esi"
 		);
 #ifdef HAVE_MMX2
@@ -2376,6 +2378,7 @@ inline static void RENAME(hcscale)(uint16_t *dst, int dstWidth, uint8_t *src1, u
 				   int srcFormat, uint8_t *formatConvBuffer, int16_t *mmx2Filter,
 				   int32_t *mmx2FilterPos)
 {
+	int xIncLow=xInc&0xffff,xIncHigh=xInc>>16;
     if(srcFormat==IMGFMT_YUY2)
     {
 	RENAME(yuy2ToUV)(formatConvBuffer, formatConvBuffer+2048, src1, src2, srcW);
@@ -2542,7 +2545,7 @@ FUNNY_UV_CODE
 		"cmp %2, %%"REG_a"		\n\t"
 		" jb 1b				\n\t"
 
-		:: "m" (src1), "m" (dst), "m" ((long)dstWidth), "m" ((long)(xInc>>16)), "m" ((xInc&0xFFFF)),
+		:: "m" (src1), "m" (dst), "m" ((long)dstWidth), "m" ((long)(xIncHigh)), "m" ((xIncLow)),
 		"r" (src2)
 		: "%"REG_a, "%"REG_b, "%ecx", "%"REG_D, "%esi"
 		);
