@@ -388,6 +388,7 @@ while(_parser->getAbsPos()+8<_vobSubInfo->lines[idx+1].fileOffset)
                 }// end while
         }
   }     
+  return 1;
 }
 vobSubBitmap::vobSubBitmap(uint32_t w, uint32_t h)
 {
