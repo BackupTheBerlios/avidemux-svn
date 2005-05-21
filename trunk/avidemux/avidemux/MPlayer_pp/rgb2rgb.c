@@ -7,15 +7,16 @@
  *  Written by Nick Kurshev.
  *  palette & yuv & runtime cpu stuff by Michael (michaelni@gmx.at) (under GPL)
  */
-#include <inttypes.h>
 #include "../../config.h"
+#include <stdio.h>
+#include <inttypes.h>
 #include "rgb2rgb.h"
 #include "swscale.h"
 //#include "cpudetect.h"
 #include "../admmangle.h"
 #include "../../adm_lavcodec/bswap.h"
 //#include "../libvo/fastmemcpy.h"
-
+#include "wrapper.h"
 #define FAST_BGR2YV12 // use 7 bit coeffs instead of 15bit
 
 void (*rgb24to32)(const uint8_t *src,uint8_t *dst,unsigned src_size);

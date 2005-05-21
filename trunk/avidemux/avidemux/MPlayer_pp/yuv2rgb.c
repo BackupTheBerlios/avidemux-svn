@@ -46,7 +46,7 @@
 #ifdef HAVE_MLIB
 #include "yuv2rgb_mlib.c"
 #endif
-
+#include "wrapper.h"
 #define DITHER1XBPP // only for mmx
 
 const uint8_t  __attribute__((aligned(8))) dither_2x2_4[2][8]={

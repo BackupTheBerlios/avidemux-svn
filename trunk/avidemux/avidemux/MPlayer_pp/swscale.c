@@ -56,7 +56,9 @@ untested special converters
 #include <unistd.h>
 #include "../../config.h"
 #include "../admmangle.h"
-#include <assert.h>
+//#include <assert.h>
+#include "wrapper.h"
+#if 0
 #ifdef HAVE_MALLOC_H
 #include <malloc.h>
 #else
@@ -66,6 +68,7 @@ untested special converters
 #include <sys/mman.h>
 #if defined(MAP_ANON) && !defined(MAP_ANONYMOUS)
 #define MAP_ANONYMOUS MAP_ANON
+#endif
 #endif
 #endif
 #include "swscale.h"
