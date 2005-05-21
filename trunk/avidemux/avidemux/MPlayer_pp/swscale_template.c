@@ -765,14 +765,24 @@ static inline void RENAME(yuv2yuvX)(SwsContext *c, int16_t *lumFilter, int16_t *
 		asm volatile(
 				YSCALEYUV2YV12X(0, CHR_MMX_FILTER_OFFSET)
 				:: "r" (&c->redDither),
-				"r" (uDest), "m" ((long)chrDstW)
+				"r" (uDest),
+#ifdef ARCH_X86_64				
+			       	"m" (chrDstW)
+#else
+			       	"m" ((long)chrDstW)
+#endif				
 				: "%"REG_a, "%"REG_d, "%"REG_S
 			);
 
 		asm volatile(
 				YSCALEYUV2YV12X(4096, CHR_MMX_FILTER_OFFSET)
 				:: "r" (&c->redDither),
-				"r" (vDest), "m" ((long)chrDstW)
+				"r" (vDest),
+#ifdef ARCH_X86_64				
+			       	"m" (chrDstW)
+#else
+			       	"m" ((long)chrDstW)
+#endif				
 				: "%"REG_a, "%"REG_d, "%"REG_S
 			);
 	}
@@ -780,7 +790,12 @@ static inline void RENAME(yuv2yuvX)(SwsContext *c, int16_t *lumFilter, int16_t *
 	asm volatile(
 			YSCALEYUV2YV12X(0, LUM_MMX_FILTER_OFFSET)
 			:: "r" (&c->redDither),
-			   "r" (dest), "m" ((long)dstW)
+			   "r" (dest),
+#ifdef ARCH_X86_64				
+			       	"m" (dstW)
+#else
+			       	"m" ((long)dstW)
+#endif				
 			: "%"REG_a, "%"REG_d, "%"REG_S
 		);
 #else
@@ -2545,7 +2560,13 @@ FUNNY_UV_CODE
 		"cmp %2, %%"REG_a"		\n\t"
 		" jb 1b				\n\t"
 
-		:: "m" (src1), "m" (dst), "m" ((long)dstWidth), "m" ((long)(xIncHigh)), "m" ((xIncLow)),
+		:: "m" (src1), "m" (dst), 
+#ifdef ARCH_X86_64
+		"m" (dstWidth), "m" (xIncHigh),
+#else
+		"m" ((long)dstWidth), "m" ((long)(xIncHigh)),
+#endif
+		 "m" ((xIncLow)),
 		"r" (src2)
 		: "%"REG_a, "%"REG_b, "%ecx", "%"REG_D, "%esi"
 		);
