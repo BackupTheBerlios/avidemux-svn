@@ -71,12 +71,13 @@
 #include "rgb2rgb.h"
 #include "swscale.h"
 #include "swscale_internal.h"
-#include "../mangle.h"
+#include "../admmangle.h"
 #include "img_format.h" //FIXME try to reduce dependency of such stuff
+#include "wrapper.h"
 
 #undef PROFILE_THE_BEAST
 #undef INC_SCALING
-
+#ifdef HAVE_ALTIVEC
 typedef unsigned char ubyte;
 typedef signed char   sbyte;
 
@@ -933,3 +934,4 @@ altivec_yuv2packedX (SwsContext *c,
   if (vCCoeffsBank) free (vCCoeffsBank);
 
 }
+#endif

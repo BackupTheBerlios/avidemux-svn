@@ -53,7 +53,7 @@ untested special converters
 #include <string.h>
 #include <math.h>
 #include <stdio.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include "../../config.h"
 #include "../admmangle.h"
 //#include <assert.h>
