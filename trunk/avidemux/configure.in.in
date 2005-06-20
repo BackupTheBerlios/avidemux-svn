@@ -923,4 +923,12 @@ if test prefs.in -nt prefs.h -o prefs.in -nt prefs.cpp; then
 	perl ../admin/prefs_gen.pl
 fi
 cd ..
+dnl _______________________________________________________
+dnl detect gcc 2.9x.x
+dnl _______________________________________________________
+if { echo '#if __GNUC__ == 2 && __GNUC_MINOR__ >= 95'
+     echo ' yes '
+     echo '#endif'; } | ${CC} -E - | grep yes > /dev/null; then
+   AC_DEFINE(GCC_2_95_X,1,we are using gcc 2.9x.x)
+fi
 
