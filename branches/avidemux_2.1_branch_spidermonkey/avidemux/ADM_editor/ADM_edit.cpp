@@ -24,6 +24,7 @@
 #include "fourcc.h"
 #include "avio.hxx"
 #include "ADM_editor/ADM_edit.hxx"
+#include "ADM_script/ADM_JSGlobal.h"
 #include "ADM_inpics/ADM_pics.h"
 #include "ADM_nuv/ADM_nuv.h"
 #include "ADM_h263/ADM_h263.h"
@@ -57,6 +58,7 @@ extern uint8_t indexMpeg (char *mpeg, char *file, uint8_t aid);
 
 extern uint8_t loadVideoCodecConf( char *name);
 extern uint8_t parseScript(char *name);
+
 //
 //
 
@@ -293,6 +295,8 @@ UNUSED_ARG(mode);
   		return loadWorbench(name);
         case Script_FileType:
                 return parseScript(name);
+	case ECMAScript_FileType:
+		return parseECMAScript(name);
                 
     default:
       if (type == Unknown_FileType)
