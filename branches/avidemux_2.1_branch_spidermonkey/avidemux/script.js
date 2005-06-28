@@ -36,12 +36,12 @@ app.currentframe = 5000;
 app.markerA=2000;
 app.markerB=3000;
 //app.video.Clear();
-app.video.Codec("DVD","","DVD");
+app.video.Codec("DVD","","divx-to-dvd.vcodec");
 app.video.SaveJPEG("/home/amistry/tmp/test.jpg");
 app.video.Save("/home/amistry/tmp/test.avi");
 //app.container = "OGM";
 app.SaveDVD("/home/amistry/tmp/test.mpg");
 //app.SaveOGM("/home/amistry/tmp/test.ogm");
 //app.Save("/home/amistry/tmp/test1.avi");
-//app.video.ListBlackFrames("/home/amistry/tmp/test-blackframe.lst");
-
+app.video.ListBlackFrames("/home/amistry/tmp/test-blackframe.lst");
+app.Exit();

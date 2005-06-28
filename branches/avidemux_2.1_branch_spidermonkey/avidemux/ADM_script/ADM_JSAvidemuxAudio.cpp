@@ -42,24 +42,24 @@ extern void HandleAction(Action act);
 JSPropertySpec ADM_JSAvidemuxAudio::avidemuxaudio_properties[] = 
 { 
 
-	{ "normalize", normalize_prop, JSPROP_ENUMERATE },
-	{ "downsample", downsample_prop, JSPROP_ENUMERATE },
-	{ "resample", resample_prop, JSPROP_ENUMERATE },
-	{ "delay", delay_prop, JSPROP_ENUMERATE },
-	{ "film2pal", film2pal_prop, JSPROP_ENUMERATE },
-	{ "pal2film", pal2film_prop, JSPROP_ENUMERATE },
-	{ "mono2stereo", mono2stereo_prop, JSPROP_ENUMERATE },
-	{ "stereo2mono", stereo2mono_prop, JSPROP_ENUMERATE },
+	{ "normalize", normalize_prop, JSPROP_ENUMERATE },	// normalize audio
+	{ "downsample", downsample_prop, JSPROP_ENUMERATE },	// downsample
+	{ "resample", resample_prop, JSPROP_ENUMERATE },	// resample
+	{ "delay", delay_prop, JSPROP_ENUMERATE },	// set audio delay
+	{ "film2pal", film2pal_prop, JSPROP_ENUMERATE },	// convert film to pal
+	{ "pal2film", pal2film_prop, JSPROP_ENUMERATE },	// convert pal to film
+	{ "mono2stereo", mono2stereo_prop, JSPROP_ENUMERATE },	// convert mono to stereo
+	{ "stereo2mono", stereo2mono_prop, JSPROP_ENUMERATE },	// convert stereo to mono
 	{ 0 }
 };
 
 JSFunctionSpec ADM_JSAvidemuxAudio::avidemuxaudio_methods[] = 
 {
-	{ "ScanVBR", ScanVBR, 0, 0, 0 },
-	{ "Save", Save, 1, 0, 0 },
-	{ "Load", Load, 2, 0, 0 },
-	{ "Reset", Reset, 0, 0, 0 },
-	{ "Codec", Codec, 2, 0, 0 },
+	{ "ScanVBR", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
+	{ "Save", Save, 1, 0, 0 },	// save audio stream
+	{ "Load", Load, 2, 0, 0 },	// load audio stream
+	{ "Reset", Reset, 0, 0, 0 },	// reset audio stream
+	{ "Codec", Codec, 2, 0, 0 },	// set output codec
 	{ 0 }
 };
 
@@ -178,12 +178,10 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
 				break;
 			case resample_prop:
 				priv->getObject()->m_nResample = JSVAL_TO_INT(*vp);
-				printf("Getting a weird linker error here.\n");
 				audioFilterResample(priv->getObject()->m_nResample);
 				break;
 			case delay_prop:
 				priv->getObject()->m_nDelay = JSVAL_TO_INT(*vp);
-				printf("Getting a weird linker error here.\n");
 				audioFilterDelay(priv->getObject()->m_nDelay);
 				break;
 			case film2pal_prop:

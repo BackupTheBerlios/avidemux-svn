@@ -53,29 +53,29 @@ extern uint8_t addFile(char *name);
 JSPropertySpec ADM_JSAvidemux::avidemux_properties[] = 
 { 
 
-	{ "videoProcess", videoProcess_prop, JSPROP_ENUMERATE },
-	{ "audioProcess", audioProcess_prop, JSPROP_ENUMERATE },
-	{ "markerA", markerA_prop, JSPROP_ENUMERATE },
-	{ "markerB", markerB_prop, JSPROP_ENUMERATE },
-	{ "audio", audio_prop, JSPROP_ENUMERATE },
-	{ "video", video_prop, JSPROP_ENUMERATE },
-	{ "container", container_prop, JSPROP_ENUMERATE },
-	{ "currentframe", currentframe_prop, JSPROP_ENUMERATE },
-	{ "fps", fps_prop, JSPROP_ENUMERATE },
+	{ "videoProcess", videoProcess_prop, JSPROP_ENUMERATE },	// process video when saving
+	{ "audioProcess", audioProcess_prop, JSPROP_ENUMERATE },	// process audio when saving
+	{ "markerA", markerA_prop, JSPROP_ENUMERATE },	// set marker A
+	{ "markerB", markerB_prop, JSPROP_ENUMERATE },	// set marker B
+	{ "audio", audio_prop, JSPROP_ENUMERATE },	// audio object
+	{ "video", video_prop, JSPROP_ENUMERATE },	// video object
+	{ "container", container_prop, JSPROP_ENUMERATE },	// set container type
+	{ "currentframe", currentframe_prop, JSPROP_ENUMERATE },	// set current frame
+	{ "fps", fps_prop, JSPROP_ENUMERATE },	// set movie frame rate
 	{ 0 }
 };
 
 JSFunctionSpec ADM_JSAvidemux::avidemux_methods[] = 
 {
-	{ "Append", Append, 1, 0, 0 },
-	{ "Delete", Delete, 2, 0, 0 },
-	{ "Exit", Exit, 0, 0, 0 },
-	{ "Load", Load, 1, 0, 0 },
-	{ "LoadFilters", LoadFilters, 1, 0, 0 },
-	{ "Save", Save, 1, 0, 0 },
-	{ "SaveDVD", SaveDVD, 1, 0, 0 },
-	{ "SaveOGM", SaveOGM, 1, 0, 0 },
-	{ "GoToTime", GoToTime, 3, 0, 0 },
+	{ "Append", Append, 1, 0, 0 },	// append video
+	{ "Delete", Delete, 2, 0, 0 },	// delete section
+	{ "Exit", Exit, 0, 0, 0 },	// exit Avidemux
+	{ "Load", Load, 1, 0, 0 },	// Load movie
+	{ "LoadFilters", LoadFilters, 1, 0, 0 },	// Load filters from file
+	{ "Save", Save, 1, 0, 0 },	// Save movie
+	{ "SaveDVD", SaveDVD, 1, 0, 0 },	// Save movie as DVD
+	{ "SaveOGM", SaveOGM, 1, 0, 0 },	// Save movie as OGM
+	{ "GoToTime", GoToTime, 3, 0, 0 },	// more current frame to time index
 	{ 0 }
 };
 
@@ -246,6 +246,7 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 					printf("Setting container format \"%s\"\n",pContainer);
 					for(int i=0;i<NB_CONT;i++)
 					{
+						printf("%s\n",container[i].name);
 						if(!strcasecmp(pContainer,container[i].name))
 						{
 							UI_SetCurrentFormat(container[i].type);

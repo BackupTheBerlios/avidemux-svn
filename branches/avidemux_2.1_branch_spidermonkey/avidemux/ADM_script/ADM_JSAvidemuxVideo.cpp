@@ -49,16 +49,16 @@ JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] =
 
 JSFunctionSpec ADM_JSAvidemuxVideo::avidemuxvideo_methods[] = 
 {
-	{ "Clear", Clear, 0, 0, 0 },
-	{ "Add", Add, 3, 0, 0 },
-	{ "IndexMPEG", IndexMPEG, 3, 0, 0 },
-	{ "AddFilter", AddFilter, 10, 0, 0 },
-	{ "Codec", Codec, 3, 0, 0 },
-	{ "CodecConf", CodecConf, 1, 0, 0 },
-	{ "Save", Save, 1, 0, 0 },
-	{ "SaveJPEG", SaveJPEG, 1, 0, 0 },
-	{ "ListBlackFrames", ListBlackFrames, 1, 0, 0 },
-	{ "PostProcess", PostProcess, 3, 0, 0 },
+	{ "Clear", Clear, 0, 0, 0 },	// clear
+	{ "Add", Add, 3, 0, 0 },	// add
+	{ "IndexMPEG", IndexMPEG, 3, 0, 0 },	// Index an MPEG
+	{ "AddFilter", AddFilter, 10, 0, 0 },	// Add filter to filter chain
+	{ "Codec", Codec, 3, 0, 0 },	// Set the video codec
+	{ "CodecConf", CodecConf, 1, 0, 0 },	// load video codec config
+	{ "Save", Save, 1, 0, 0 },	// save video portion of the stream
+	{ "SaveJPEG", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
+	{ "ListBlackFrames", ListBlackFrames, 1, 0, 0 },	// output a list of the black frame to a file
+	{ "PostProcess", PostProcess, 3, 0, 0 },	// Postprocess
 	{ 0 }
 };
 
@@ -218,6 +218,7 @@ JSBool ADM_JSAvidemuxVideo::Codec(JSContext *cx, JSObject *obj, uintN argc,
 		*rval = BOOLEAN_TO_JSVAL(false);
 	else
 	{// begin valid
+		printf("Valid codec conf %s found.\n",JS_GetStringBytes(JSVAL_TO_STRING(argv[2])));
 		char *codec,*conf;
 		codec = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 		conf = JS_GetStringBytes(JSVAL_TO_STRING(argv[1]));
