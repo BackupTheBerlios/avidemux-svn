@@ -4,8 +4,6 @@
 #pragma once
 
 // Spidermonkey
- // HACK: Add this to configure later
-#define XP_UNIX
 #include <jsapi.h>
 #include "ADM_AvidemuxAudio.h"
 #include <config.h>

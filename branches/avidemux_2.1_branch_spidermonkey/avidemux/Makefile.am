@@ -69,6 +69,7 @@ avidemux2_LDADD   =  \
 
 
 INCLUDES = $(all_includes) $(GTK_CFLAGS) $(XML_CFLAGS) \
+	$(SMONKEY_CFLAGS) \
 	-DADMLOCALE='"'$(ADM_LOCALEDIR)'"'
 
 # the library search path.

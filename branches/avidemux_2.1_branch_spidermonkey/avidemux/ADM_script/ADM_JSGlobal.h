@@ -3,7 +3,6 @@
 
 // Spidermonkey
 // HACK: Add this to configure later
-#define XP_UNIX
 #include <jsapi.h>
 
 // javscript debugging helper

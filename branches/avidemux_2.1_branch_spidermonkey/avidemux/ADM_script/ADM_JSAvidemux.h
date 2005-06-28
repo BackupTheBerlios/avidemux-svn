@@ -2,14 +2,11 @@
 #define _ADM_JSAVIDEMUX_H
 
 #pragma once
-
-// Spidermonkey
- // HACK: Add this to configure later
-#define XP_UNIX
-#include <jsapi.h>
-#include "ADM_Avidemux.h"
 #include <config.h>
 
+// Spidermonkey
+#include <jsapi.h>
+#include "ADM_Avidemux.h"
 class ADM_JSAvidemux
 {
 public:

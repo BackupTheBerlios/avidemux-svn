@@ -4,11 +4,9 @@
 #pragma once
 
 // Spidermonkey
- // HACK: Add this to configure later
-#define XP_UNIX
+#include <config.h>
 #include <jsapi.h>
 #include "ADM_AvidemuxVideo.h"
-#include <config.h>
 
 class ADM_JSAvidemuxVideo
 {

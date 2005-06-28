@@ -19,5 +19,5 @@ noinst_HEADERS = adm_command.h ADM_JSGlobal.h ADM_Avidemux.h \
 
 
 
-INCLUDES = -I$(top_srcdir)/avidemux
+INCLUDES = -I$(top_srcdir)/avidemux $(SMONKEY_CFLAGS)
 

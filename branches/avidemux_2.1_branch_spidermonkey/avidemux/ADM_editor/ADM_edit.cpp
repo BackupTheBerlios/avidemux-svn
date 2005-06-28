@@ -58,7 +58,6 @@ extern uint8_t indexMpeg (char *mpeg, char *file, uint8_t aid);
 
 extern uint8_t loadVideoCodecConf( char *name);
 extern uint8_t parseScript(char *name);
-
 //
 //
 
