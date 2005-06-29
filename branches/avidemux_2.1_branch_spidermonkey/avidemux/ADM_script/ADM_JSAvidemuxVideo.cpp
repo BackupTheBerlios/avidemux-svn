@@ -10,10 +10,10 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
-
+#include "config.h"
 #include <stdlib.h>
 #include "ADM_JSAvidemuxVideo.h"
-// #include "ADM_library/default.h"
+#include "ADM_library/default.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_gui2/GUI_ui.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"
@@ -45,16 +45,16 @@ JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] =
 
 JSFunctionSpec ADM_JSAvidemuxVideo::avidemuxvideo_methods[] = 
 {
-	{ "Clear", Clear, 0, 0, 0 },	// clear
-	{ "Add", Add, 3, 0, 0 },	// add
-	{ "IndexMPEG", IndexMPEG, 3, 0, 0 },	// Index an MPEG
-	{ "AddFilter", AddFilter, 10, 0, 0 },	// Add filter to filter chain
-	{ "Codec", Codec, 3, 0, 0 },	// Set the video codec
-	{ "CodecConf", CodecConf, 1, 0, 0 },	// load video codec config
-	{ "Save", Save, 1, 0, 0 },	// save video portion of the stream
-	{ "SaveJPEG", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
-	{ "ListBlackFrames", ListBlackFrames, 1, 0, 0 },	// output a list of the black frame to a file
-	{ "PostProcess", PostProcess, 3, 0, 0 },	// Postprocess
+	{ "clear", Clear, 0, 0, 0 },	// clear
+	{ "add", Add, 3, 0, 0 },	// add
+	{ "indexMPEG", IndexMPEG, 3, 0, 0 },	// Index an MPEG
+	{ "addFilter", AddFilter, 10, 0, 0 },	// Add filter to filter chain
+	{ "codec", Codec, 3, 0, 0 },	// Set the video codec
+	{ "codecConf", CodecConf, 1, 0, 0 },	// load video codec config
+	{ "save", Save, 1, 0, 0 },	// save video portion of the stream
+	{ "saveJPEG", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
+	{ "listBlackFrames", ListBlackFrames, 1, 0, 0 },	// output a list of the black frame to a file
+	{ "postProcess", PostProcess, 3, 0, 0 },	// Postprocess
 	{ 0 }
 };
 

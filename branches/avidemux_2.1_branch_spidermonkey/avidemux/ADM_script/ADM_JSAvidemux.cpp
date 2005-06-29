@@ -54,22 +54,22 @@ JSPropertySpec ADM_JSAvidemux::avidemux_properties[] =
 	{ "audio", audio_prop, JSPROP_ENUMERATE },	// audio object
 	{ "video", video_prop, JSPROP_ENUMERATE },	// video object
 	{ "container", container_prop, JSPROP_ENUMERATE },	// set container type
-	{ "currentframe", currentframe_prop, JSPROP_ENUMERATE },	// set current frame
+	{ "currentFrame", currentframe_prop, JSPROP_ENUMERATE },	// set current frame
 	{ "fps", fps_prop, JSPROP_ENUMERATE },	// set movie frame rate
 	{ 0 }
 };
 
 JSFunctionSpec ADM_JSAvidemux::avidemux_methods[] = 
 {
-	{ "Append", Append, 1, 0, 0 },	// append video
-	{ "Delete", Delete, 2, 0, 0 },	// delete section
-	{ "Exit", Exit, 0, 0, 0 },	// exit Avidemux
-	{ "Load", Load, 1, 0, 0 },	// Load movie
-	{ "LoadFilters", LoadFilters, 1, 0, 0 },	// Load filters from file
-	{ "Save", Save, 1, 0, 0 },	// Save movie
-	{ "SaveDVD", SaveDVD, 1, 0, 0 },	// Save movie as DVD
-	{ "SaveOGM", SaveOGM, 1, 0, 0 },	// Save movie as OGM
-	{ "GoToTime", GoToTime, 3, 0, 0 },	// more current frame to time index
+	{ "append", Append, 1, 0, 0 },	// append video
+	{ "delete", Delete, 2, 0, 0 },	// delete section
+	{ "exit", Exit, 0, 0, 0 },	// exit Avidemux
+	{ "load", Load, 1, 0, 0 },	// Load movie
+	{ "loadFilters", LoadFilters, 1, 0, 0 },	// Load filters from file
+	{ "save", Save, 1, 0, 0 },	// Save movie
+	{ "saveDVD", SaveDVD, 1, 0, 0 },	// Save movie as DVD
+	{ "saveOGM", SaveOGM, 1, 0, 0 },	// Save movie as OGM
+	{ "goToTime", GoToTime, 3, 0, 0 },	// more current frame to time index
 	{ 0 }
 };
 
