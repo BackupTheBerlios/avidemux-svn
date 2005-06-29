@@ -1,3 +1,15 @@
+// C++ Interface: Spider Monkey interface
+//
+// Description: 
+//
+//
+// Author: Anish Mistry
+//      Some modification by mean
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+
 #include <stdlib.h>
 #include <math.h>
 #include "ADM_JSAvidemux.h"
@@ -16,25 +28,7 @@
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_gui2/GUI_ui.h"
 #include "ADM_filter/video_filters.h"
-
-typedef struct ADM_CONTAINER
-{
-    ADM_OUT_FORMAT type;
-    const char     *name;
-}ADM_CONTAINER;
-#define MK_CONT(x) {ADM_##x,#x}
-#define NB_CONT sizeof(container)/sizeof(ADM_CONTAINER)
-
-const ADM_CONTAINER container[]=
-{
-  MK_CONT(AVI),
-  MK_CONT(OGM),
-  MK_CONT(ES),
-  MK_CONT(PS),
-  MK_CONT(AVI_DUAL),
-  MK_CONT(AVI_UNP),
-  MK_CONT(FMT_DUMMY)  
-};
+#include "ADM_script/ADM_container.h"
 
 extern int A_openAvi (char *name);
 extern int A_Save (char *name);
