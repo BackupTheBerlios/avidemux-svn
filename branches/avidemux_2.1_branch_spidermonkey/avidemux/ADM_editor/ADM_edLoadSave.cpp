@@ -182,7 +182,7 @@ printf("\n **Saving script project **\n");
   
   fprintf (fd,"//%02ld segments\n", _nb_segment);
   fprintf (fd,"app.clearSegments();\n");
-  goto _nd;
+  
  
 
 for (uint32_t i = 0; i < _nb_segment; i++)
@@ -198,13 +198,14 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 
         uint32_t pptype, ppstrength,ppswap;
                 video_body->getPostProc( &pptype, &ppstrength, &ppswap);
-                fprintf(fd,"\n#** Postproc **\n");
-                fprintf(fd,"setpostproc(%d,%d,%d);\n",pptype,ppstrength,ppswap);
+                fprintf(fd,"\n//** Postproc **\n");
+                fprintf(fd,"app.video.setPostProc(%d,%d,%d);\n",pptype,ppstrength,ppswap);
 
 
 // Filter
 //___________________________
-        fprintf(fd,"\n#** Filters **\n");
+        fprintf(fd,"\n//** Filters **\n");
+        goto _nd;
         filterSaveScriptFD(fd);
 // Video codec
 //___________________________

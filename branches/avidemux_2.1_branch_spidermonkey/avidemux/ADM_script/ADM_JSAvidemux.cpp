@@ -9,7 +9,7 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
-
+#include "config.h"
 #include <stdlib.h>
 #include <math.h>
 #include "ADM_JSAvidemux.h"
@@ -29,6 +29,11 @@
 #include "ADM_gui2/GUI_ui.h"
 #include "ADM_filter/video_filters.h"
 #include "ADM_script/ADM_container.h"
+
+#include "ADM_toolkit/ADM_debugID.h"
+#define MODULE_NAME MODULE_SCRIPT
+#include "ADM_toolkit/ADM_debug.h"
+
 
 extern int A_openAvi (char *name);
 extern int A_Save (char *name);
@@ -69,6 +74,8 @@ JSFunctionSpec ADM_JSAvidemux::avidemux_methods[] =
 	{ "save", Save, 1, 0, 0 },	// Save movie
 	{ "saveDVD", SaveDVD, 1, 0, 0 },	// Save movie as DVD
 	{ "saveOGM", SaveOGM, 1, 0, 0 },	// Save movie as OGM
+        { "clearSegments", ClearSegments ,0,0,0}, // Clear all segments
+        { "addSegment", AddSegment ,3,0,0}, // Clear all segments
 	{ "goToTime", GoToTime, 3, 0, 0 },	// more current frame to time index
 	{ 0 }
 };
@@ -237,7 +244,7 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 				{
 					priv->getObject()->m_pContainer = JSVAL_TO_STRING(*vp);
 					char *pContainer = JS_GetStringBytes(priv->getObject()->m_pContainer);
-					printf("Setting container format \"%s\"\n",pContainer);
+					aprintf("Setting container format \"%s\"\n",pContainer);
 					for(int i=0;i<NB_CONT;i++)
 					{
 						printf("%s\n",container[i].name);
@@ -349,7 +356,7 @@ JSBool ADM_JSAvidemux::Delete(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	int a = JSVAL_TO_INT(argv[0]);
 	int b = JSVAL_TO_INT(argv[1]);
-	printf("Deleting %d-%d\n",a,b);
+	aprintf("Deleting %d-%d\n",a,b);
 	*rval = BOOLEAN_TO_JSVAL(A_delete(a,b));
 	return JS_TRUE;
 }// end Delete
@@ -395,7 +402,36 @@ JSBool ADM_JSAvidemux::SaveOGM(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(A_saveDVDPS(pTempStr));
 	return JS_TRUE;
 }// end SaveOGM
-
+JSBool ADM_JSAvidemux::ClearSegments(JSContext *cx, JSObject *obj, uintN argc, 
+                                       jsval *argv, jsval *rval)
+{// begin ClearSegments
+        ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
+        // default return value
+        *rval = BOOLEAN_TO_JSVAL(false);
+        if(argc != 0)
+                return JS_FALSE;
+        printf("clearing segments \n");
+        *rval = BOOLEAN_TO_JSVAL(video_body->deleteAllSegments());
+        return JS_TRUE;
+}// end ClearSegments
+/*
+add a segment. addsegment(source video,startframe, nbframes)",     
+*/
+JSBool ADM_JSAvidemux::AddSegment(JSContext *cx, JSObject *obj, uintN argc, 
+                                       jsval *argv, jsval *rval)
+{// begin AddSegment
+        ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
+        // default return value
+        *rval = BOOLEAN_TO_JSVAL(false);
+        if(argc != 3)
+                return JS_FALSE;
+        int a = JSVAL_TO_INT(argv[0]);
+        int b = JSVAL_TO_INT(argv[1]);
+        int c = JSVAL_TO_INT(argv[2]);
+        aprintf("adding segment :%d %d %d\n",a,b,c);
+        *rval = BOOLEAN_TO_JSVAL( video_body->addSegment(a,b,c));
+        return JS_TRUE;
+}// end AddSegment
 
 JSBool ADM_JSAvidemux::Exit(JSContext *cx, JSObject *obj, uintN argc, 
                                        jsval *argv, jsval *rval)

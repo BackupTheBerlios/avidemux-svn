@@ -28,6 +28,8 @@ public:
 	static JSBool SaveOGM(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool GoToTime(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool LoadFilters(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
+        static JSBool ClearSegments(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
+        static JSBool AddSegment(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 
 	static JSPropertySpec avidemux_properties[];
 	static JSFunctionSpec avidemux_methods[];

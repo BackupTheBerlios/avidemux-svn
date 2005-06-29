@@ -52,9 +52,9 @@ JSFunctionSpec ADM_JSAvidemuxVideo::avidemuxvideo_methods[] =
 	{ "codec", Codec, 3, 0, 0 },	// Set the video codec
 	{ "codecConf", CodecConf, 1, 0, 0 },	// load video codec config
 	{ "save", Save, 1, 0, 0 },	// save video portion of the stream
-	{ "saveJPEG", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
+	{ "saveJpeg", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
 	{ "listBlackFrames", ListBlackFrames, 1, 0, 0 },	// output a list of the black frame to a file
-	{ "postProcess", PostProcess, 3, 0, 0 },	// Postprocess
+	{ "setPostProc", PostProcess, 3, 0, 0 },	// Postprocess
 	{ 0 }
 };
 
