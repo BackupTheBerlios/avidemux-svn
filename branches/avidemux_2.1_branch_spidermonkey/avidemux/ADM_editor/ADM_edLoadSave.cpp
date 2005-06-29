@@ -164,23 +164,25 @@ printf("\n **Saving script project **\n");
 
 // Save source and segment
 //______________________________________________
-  fprintf (fd, "#!ADM000\n");
-  fprintf (fd, "#--automatically built--\n");
-  fprintf (fd, "#--Project: %s\n\n",name);
+  fprintf( fd,"//AD  <- These first 4 characters need to be the first 4 characters to identify the ECMAScript file to Avidemux");
+  fprintf (fd, "//\n");
+  fprintf (fd, "//--automatically built--\n");
+  fprintf (fd, "//--Project: %s\n\n",name);
 
-  fprintf (fd,"\n#** Video **\n");
-  fprintf (fd,"# %02ld videos source \n", _nb_video);
+  fprintf (fd, "var app = new Avidemux();\n");
+  fprintf (fd,"\n//** Video **\n");
+  fprintf (fd,"// %02ld videos source \n", _nb_video);
   for (uint32_t i = 0; i < _nb_video; i++)
     {
         if(!i)
-                fprintf (fd, "load(\"%s\");\n", _videos[i]._aviheader->getMyName ());
+                fprintf (fd, "app.load(\"%s\");\n", _videos[i]._aviheader->getMyName ());
         else
-        fprintf (fd, "append(\"%s\");\n", _videos[i]._aviheader->getMyName ());
+        fprintf (fd, "app.append(\"%s\");\n", _videos[i]._aviheader->getMyName ());
     }
   
-  fprintf (fd,"#%02ld segments\n", _nb_segment);
-  fprintf (fd,"clearSegments();\n");
-
+  fprintf (fd,"//%02ld segments\n", _nb_segment);
+  fprintf (fd,"app.clearSegments();\n");
+  goto _nd;
  
 
 for (uint32_t i = 0; i < _nb_segment; i++)
@@ -189,7 +191,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
                 src=_segments[i]._reference;
                 start=_segments[i]._start_frame;
                 nb=_segments[i]._nb_frames;
-          fprintf (fd, "addSegment(%lu,%lu,%lu);\n",src,start,nb);
+          fprintf (fd, "app.addSegment(%lu,%lu,%lu);\n",src,start,nb);
     }
 // postproc
 //___________________________
@@ -270,7 +272,8 @@ uint32_t extraDataSize;
                 default:ADM_assert(0);
         }
         
-  fprintf(fd,"\n#End of script\n");
+_nd:
+  fprintf(fd,"\n//End of script\n");
   // All done
   fclose (fd);
   
