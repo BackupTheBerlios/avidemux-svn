@@ -52,8 +52,6 @@ extern uint8_t addFile(char *name);
 JSPropertySpec ADM_JSAvidemux::avidemux_properties[] = 
 { 
 
-	{ "videoProcess", videoProcess_prop, JSPROP_ENUMERATE },	// process video when saving
-	{ "audioProcess", audioProcess_prop, JSPROP_ENUMERATE },	// process audio when saving
 	{ "markerA", markerA_prop, JSPROP_ENUMERATE },	// set marker A
 	{ "markerB", markerB_prop, JSPROP_ENUMERATE },	// set marker B
 	{ "audio", audio_prop, JSPROP_ENUMERATE },	// audio object
@@ -144,12 +142,7 @@ JSBool ADM_JSAvidemux::JSGetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 		ADM_JSAvidemux *priv = (ADM_JSAvidemux *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
-			case videoProcess_prop:
-				*vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bVideoProcess);
-				break;
-			case audioProcess_prop:
-				*vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bAudioProcess);
-				break;
+
 			case markerA_prop:
 				*vp = INT_TO_JSVAL(frameStart);
 				break;
@@ -198,14 +191,6 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 		ADM_JSAvidemux *priv = (ADM_JSAvidemux *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
-			case videoProcess_prop:
-				priv->getObject()->m_bVideoProcess = JSVAL_TO_BOOLEAN(*vp);
-				UI_setVProcessToggleStatus(priv->getObject()->m_bVideoProcess);
-				break;
-			case audioProcess_prop:
-				priv->getObject()->m_bAudioProcess = JSVAL_TO_BOOLEAN(*vp);
-				UI_setAProcessToggleStatus(priv->getObject()->m_bAudioProcess);
-				break;
 			case markerA_prop:
 				{
 					int f=JSVAL_TO_INT(*vp);

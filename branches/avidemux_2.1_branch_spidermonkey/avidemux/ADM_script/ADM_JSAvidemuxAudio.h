@@ -30,6 +30,7 @@ public:
 	static JSFunctionSpec avidemuxaudio_methods[];
 	enum
 	{
+                audioprocess_prop,
 		normalize_prop,
 		downsample_prop,
 		resample_prop,
@@ -40,6 +41,8 @@ public:
 		stereo2mono_prop
 	};
 	static JSClass m_classAvidemuxAudio;
+        
+
 
 //protected:
 	void setObject(ADM_AvidemuxAudio *pObject);

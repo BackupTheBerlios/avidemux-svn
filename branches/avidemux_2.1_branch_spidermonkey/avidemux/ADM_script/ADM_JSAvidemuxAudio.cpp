@@ -38,6 +38,8 @@ extern void HandleAction(Action act);
 JSPropertySpec ADM_JSAvidemuxAudio::avidemuxaudio_properties[] = 
 { 
 
+        { "process", audioprocess_prop, JSPROP_ENUMERATE },        // process audio when saving
+
 	{ "normalize", normalize_prop, JSPROP_ENUMERATE },	// normalize audio
 	{ "downsample", downsample_prop, JSPROP_ENUMERATE },	// downsample
 	{ "resample", resample_prop, JSPROP_ENUMERATE },	// resample
@@ -51,11 +53,11 @@ JSPropertySpec ADM_JSAvidemuxAudio::avidemuxaudio_properties[] =
 
 JSFunctionSpec ADM_JSAvidemuxAudio::avidemuxaudio_methods[] = 
 {
-	{ "ScanVBR", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
-	{ "Save", Save, 1, 0, 0 },	// save audio stream
-	{ "Load", Load, 2, 0, 0 },	// load audio stream
-	{ "Reset", Reset, 0, 0, 0 },	// reset audio stream
-	{ "Codec", Codec, 2, 0, 0 },	// set output codec
+	{ "scanVBR", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
+	{ "save", Save, 1, 0, 0 },	// save audio stream
+	{ "load", Load, 2, 0, 0 },	// load audio stream
+	{ "reset", Reset, 0, 0, 0 },	// reset audio stream
+	{ "codec", Codec, 2, 0, 0 },	// set output codec
 	{ 0 }
 };
 
@@ -123,6 +125,9 @@ JSBool ADM_JSAvidemuxAudio::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 		ADM_JSAvidemuxAudio *priv = (ADM_JSAvidemuxAudio *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
+                        case audioprocess_prop:
+                                *vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bAudioProcess);
+                                break;
 			case normalize_prop:
 				*vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bNormalize);
 				break;
@@ -164,6 +169,10 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
 		ADM_JSAvidemuxAudio *priv = (ADM_JSAvidemuxAudio *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
+                        case audioprocess_prop:
+                                priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
+                                UI_setAProcessToggleStatus(priv->getObject()->m_bAudioProcess);
+                                break;
 			case normalize_prop:
 				priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterNormalize(priv->getObject()->m_bNormalize);

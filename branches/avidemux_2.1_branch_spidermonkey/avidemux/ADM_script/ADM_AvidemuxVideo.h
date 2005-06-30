@@ -8,7 +8,7 @@ public:
 	virtual ~ADM_AvidemuxVideo(void);
 
 	// member variables
-
+        bool m_bVideoProcess;
 };
 
 #endif

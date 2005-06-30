@@ -9,6 +9,7 @@ public:
 	virtual ~ADM_AvidemuxAudio(void);
 
 	// member variables
+        bool m_bAudioProcess;
 	bool m_bNormalize;
 	bool m_bDownsample;
 	unsigned long m_nResample;

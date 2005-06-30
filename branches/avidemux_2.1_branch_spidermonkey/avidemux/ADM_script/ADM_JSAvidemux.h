@@ -35,8 +35,6 @@ public:
 	static JSFunctionSpec avidemux_methods[];
 	enum
 	{
-		videoProcess_prop,
-		audioProcess_prop,
 		markerA_prop,
 		markerB_prop,
 		video_prop,

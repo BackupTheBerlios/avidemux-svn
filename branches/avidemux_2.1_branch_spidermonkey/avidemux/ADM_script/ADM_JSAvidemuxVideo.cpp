@@ -40,6 +40,7 @@ extern int videoCodecConfigure(char *p,uint32_t i, uint8_t  *c);
 
 JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] = 
 { 
+        { "process", videoprocess_prop, JSPROP_ENUMERATE },        // process video when saving
 	{ 0 }
 };
 
@@ -122,7 +123,9 @@ JSBool ADM_JSAvidemuxVideo::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 		ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
-
+                        case videoprocess_prop:
+                                *vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bVideoProcess);
+                                break;
 		}
 	}
 	return JS_TRUE;
@@ -130,15 +133,18 @@ JSBool ADM_JSAvidemuxVideo::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 
 JSBool ADM_JSAvidemuxVideo::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp)
 {
-	if (JSVAL_IS_INT(id)) 
-	{
-		ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
-		switch(JSVAL_TO_INT(id))
-		{
-
-		}
-	}
-	return JS_TRUE;
+        if (JSVAL_IS_INT(id)) 
+        {
+                ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
+                switch(JSVAL_TO_INT(id))
+                {
+                        case videoprocess_prop:
+                                priv->getObject()->m_bVideoProcess = JSVAL_TO_BOOLEAN(*vp);
+                                UI_setVProcessToggleStatus(priv->getObject()->m_bVideoProcess);
+                                break;
+                }
+        }
+        return JS_TRUE;
 }
 
 JSBool ADM_JSAvidemuxVideo::Clear(JSContext *cx, JSObject *obj, uintN argc, 

@@ -11,8 +11,6 @@ public:
 	virtual ~ADM_Avidemux(void);
 
 	// member variables
-	bool m_bVideoProcess;
-	bool m_bAudioProcess;
 	JSObject *m_pAudio;
 	JSObject *m_pVideo;
 	JSString *m_pContainer;

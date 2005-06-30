@@ -35,7 +35,7 @@ public:
 	static JSFunctionSpec avidemuxvideo_methods[];
 	enum
 	{
-
+                videoprocess_prop,
 	};
 	static JSClass m_classAvidemuxVideo;
 

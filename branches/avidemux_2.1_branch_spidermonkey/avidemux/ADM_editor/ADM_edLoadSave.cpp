@@ -148,6 +148,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 ______________________________________________*/
 uint8_t ADM_Composer::saveAsScript (char *name)
 {
+const char *truefalse[]={"false","true"};
 printf("\n **Saving script project **\n");
   char *    tmp;
 
@@ -205,14 +206,15 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 // Filter
 //___________________________
         fprintf(fd,"\n//** Filters **\n");
-        goto _nd;
+#if 0
         filterSaveScriptFD(fd);
+#endif
 // Video codec
 //___________________________
 uint8_t  *extraData ;
 uint32_t extraDataSize;
 
-        fprintf(fd,"\n#** Video Codec conf **\n");
+        fprintf(fd,"\n//** Video Codec conf **\n");
         //videoCodecGetConf(&extraDataSize,&extraData);
         //if(extraDataSize())
         // Fixme
@@ -222,18 +224,18 @@ uint32_t extraDataSize;
         strcat(namevcodec,".vcodec");
         saveVideoCodecConf(namevcodec);
         delete [] namevcodec;
-        fprintf(fd,"videoCodec(%s,\"%s\",%s.vcodec);\n",videoCodecGetName(),videoCodecGetMode(),name);
+        fprintf(fd,"app.video.process=%s;\n",truefalse[videoProcessMode]);
+        fprintf(fd,"app.video.codec(\"%s\",\"%s\",\"%s.vcodec\");\n",videoCodecGetName(),videoCodecGetMode(),name);
 // Audio Source
 //______________________________________________
-
-        
 
 // Audio
 //______________________________________________
 
    uint32_t delay;
-   fprintf(fd,"\n#** Audio **\n");
-   fprintf(fd,"audioreset(1);\n",audioReset());
+   
+   fprintf(fd,"\n//** Audio **\n");
+   fprintf(fd,"app.audio.reset();\n");
 
    // External audio ?
         char *audioName;
@@ -241,18 +243,19 @@ uint32_t extraDataSize;
 
         source=getCurrentAudioSource(&audioName);
         if(!audioName) audioName="";
+#if 0
         if(source!=AudioAvi)
                 fprintf(fd,"audiosource(%s,\"%s\");\n", audioSourceFromEnum(source),audioName); 
-
-   fprintf(fd,"audiocodec(%s,%d);\n", audioCodecGetName(),audioGetBitrate()); 
-   fprintf(fd,"audioprocess(%d);\n",audioProcessMode);
-   fprintf(fd,"audionormalize(%d);\n",audioGetNormalize());         
-   fprintf(fd,"audiodelay(%d);\n",audioGetDelay());
+#endif
+   fprintf(fd,"app.audio.codec(\"%s\",%d);\n", audioCodecGetName(),audioGetBitrate()); 
+   fprintf(fd,"app.audio.process=%s;\n",truefalse[audioProcessMode]);
+   fprintf(fd,"app.audio.normalize=%s;\n",truefalse[audioGetNormalize()]);
+   fprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
    // Change mono2stereo ?
    switch(audioGetChannelConv())
         {
-                case CHANNELCONV_2to1:  fprintf(fd,"audiostereo2mono(1);\n");break;
-                case CHANNELCONV_1to2:  fprintf(fd,"audiomono2stereo(1);\n");break;
+                case CHANNELCONV_2to1:  fprintf(fd,"app.audio.mono2stereo=true;\n");break;
+                case CHANNELCONV_1to2:  fprintf(fd,"app.audio.stereo2mono=true;\n");break;
                 case CHANNELCONV_NONE: ;break;
                 default:ADM_assert(0);
         }     
@@ -260,20 +263,20 @@ uint32_t extraDataSize;
         switch(audioGetFpsConv())
         {
                 case FILMCONV_NONE:      ;break;
-                case FILMCONV_PAL2FILM:  fprintf(fd,"pal2film(1);\n");break;
-                case FILMCONV_FILM2PAL:  fprintf(fd,"film2pal(1);\n");break;
+                case FILMCONV_PAL2FILM:  fprintf(fd,"app.audio.pal2film=true;\n");break;
+                case FILMCONV_FILM2PAL:  fprintf(fd,"app.audio.film2pal=true;\n");break;
                 default:ADM_assert(0);
         }
    // Resampling
         switch(audioGetResampling())
         {
                 case RESAMPLING_NONE:         ;break;
-                case RESAMPLING_DOWNSAMPLING:  fprintf(fd,"audiodownsample(1);\n");break;
-                case RESAMPLING_CUSTOM:        fprintf(fd,"audioresample(%lu);\n",audioGetResample());break;
+                case RESAMPLING_DOWNSAMPLING:  fprintf(fd,"app.audio.downsample=true;\n");break;
+                case RESAMPLING_CUSTOM:        fprintf(fd,"app.audio.resample=%u;\n",audioGetResample());break;
                 default:ADM_assert(0);
         }
         
-_nd:
+  fprintf(fd,"//app.Exit();\n");
   fprintf(fd,"\n//End of script\n");
   // All done
   fclose (fd);
