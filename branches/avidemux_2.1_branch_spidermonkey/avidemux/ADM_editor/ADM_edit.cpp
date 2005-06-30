@@ -295,7 +295,11 @@ UNUSED_ARG(mode);
         case Script_FileType:
                 return parseScript(name);
 	case ECMAScript_FileType:
-		return parseECMAScript(name);
+                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
+                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
+                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
+                return 0;
+		
                 
     default:
       if (type == Unknown_FileType)
