@@ -189,22 +189,27 @@ JSBool ADM_JSAvidemuxVideo::IndexMPEG(JSContext *cx, JSObject *obj, uintN argc,
 JSBool ADM_JSAvidemuxVideo::AddFilter(JSContext *cx, JSObject *obj, uintN argc, 
                                        jsval *argv, jsval *rval)
 {// begin AddFilter
-	ADM_JSAvidemuxVideo *p = (ADM_JSAvidemuxVideo *)JS_GetPrivate(cx, obj);
-	// default return value
-	*rval = BOOLEAN_TO_JSVAL(false);
-	if(argc == 0)
-		return JS_FALSE;
-	VF_FILTERS filter;
-	filter = filterGetTagFromName(JS_GetStringBytes(JSVAL_TO_STRING(argv[0])));
-	printf("Adding Filter \"%d\"... \n",filter);
-	if(filter==VF_DUMMY)
-		*rval = BOOLEAN_TO_JSVAL(false);
-	else
-	{
-		printf("unimplented!\n");
-//		*rval = BOOLEAN_TO_JSVAL(filterAddScript(filter,argc,argv));
-	}
-	return JS_TRUE;
+        VF_FILTERS filter;
+        ADM_JSAvidemuxVideo *p = (ADM_JSAvidemuxVideo *)JS_GetPrivate(cx, obj);
+        // default return value
+        *rval = BOOLEAN_TO_JSVAL(false);
+        if(argc == 0)
+                return JS_FALSE;
+
+        filter = filterGetTagFromName(JS_GetStringBytes(JSVAL_TO_STRING(argv[0])));
+        printf("Adding Filter \"%d\"... \n",filter);
+
+        Arg args[argc];
+        char *v;
+        for(int i=0;i<argc;i++) 
+        {
+                args[i].type=APM_STRING;
+                v=ADM_strdup(JS_GetStringBytes(JSVAL_TO_STRING(argv[i])));
+                args[i].arg.string=v;
+        }
+                *rval= BOOLEAN_TO_JSVAL(filterAddScript(filter,argc,args));
+         for(int i=0;i<argc;i++) ADM_dealloc(args[i].arg.string);
+        return JS_TRUE;
 }// end AddFilter
 
 JSBool ADM_JSAvidemuxVideo::Codec(JSContext *cx, JSObject *obj, uintN argc, 

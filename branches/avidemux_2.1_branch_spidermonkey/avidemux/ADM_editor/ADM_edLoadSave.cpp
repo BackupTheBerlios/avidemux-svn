@@ -206,9 +206,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 // Filter
 //___________________________
         fprintf(fd,"\n//** Filters **\n");
-#if 0
-        filterSaveScriptFD(fd);
-#endif
+        filterSaveScriptJS(fd);
 // Video codec
 //___________________________
 uint8_t  *extraData ;
@@ -243,10 +241,10 @@ uint32_t extraDataSize;
 
         source=getCurrentAudioSource(&audioName);
         if(!audioName) audioName="";
-#if 0
+
         if(source!=AudioAvi)
-                fprintf(fd,"audiosource(%s,\"%s\");\n", audioSourceFromEnum(source),audioName); 
-#endif
+                fprintf(fd,"app.audio.load(%s,\"%s\");\n", audioSourceFromEnum(source),audioName); 
+
    fprintf(fd,"app.audio.codec(\"%s\",%d);\n", audioCodecGetName(),audioGetBitrate()); 
    fprintf(fd,"app.audio.process=%s;\n",truefalse[audioProcessMode]);
    fprintf(fd,"app.audio.normalize=%s;\n",truefalse[audioGetNormalize()]);
