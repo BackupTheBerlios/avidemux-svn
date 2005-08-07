@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<guide link="doc/">
+<title>Spidermonkey, project file</title>
+<author title="mean"><mail link="fixounet@free.fr">
+	Mean</mail>
+</author>
+
+<abstract>
+Powerful language
+ </abstract>
+
+<version>1.0</version>
+<date>30 May 2004</date>
+
+<chapter>
+<title>Foreword</title>
+<section>
+
+	<body>
+	<ul>
+	<p>From the 2.1 branch and on, avidemux uses the spidermonkey ecmascript language to handle scripting. Project files are based on ecmascript. 
+	</p><p>You can use ecmascript to do your custom scripts, this documentation will present avidemux commands.
+	</p>
+	
+	</ul>
+	</body>
+</section>
+</chapter>
+<chapter>
+<title>Script</title>
+<section>
+
+	<body>
+	<ul>
+	<p>This first thing to take care of is that a avidemux-ecmascript project must start with "//AD".
+	For example, like this
+</p>
+	<pre>
+//AD
+//--automatically built--
+//--Project: /tmp/l.js
+var app = new Avidemux();	
+	</pre>	
+	<p>
+	You will probably want to create an instance of the Avidemux class, that will give you access to avidemux internal functions. 
+</p><p>This is done by the new Avidemux() command, you will note that in all examples, the instance is refered to as "app".
+</p>
+<warn>
+	Most non integer parameters must be send double quoted.
+</warn>
+<p>This documentation is split into 4 chapters :
+	<ul>
+		<li>Additionnal functions</li>
+		<li>Avidemux functions</li>
+		<li>Video functions</li>
+		<li>Audio functions</li>
+				
+	</ul>
+</p>
+<p>	It is generally a good idea to save a project file and use it as a starting point for your custom scripts</p>
+	</ul>
+	</body>
+</section>
+
+</chapter>
+<chapter>
+<title>Additionnal functions</title>
+<section>
+
+	<body>
+	<ul>
+	<p>Here is the set of command which are not part of the Avidemux class. They can be accessed directly.</p>
+	<table width="100%" border="1">
+		<tr>
+			<th>Command</th><th>Parameter</th><th>Parameter</th><th>Return</th><th>Description</th>
+		</tr>
+		<tr>
+			<ti>diplayerError</ti><ti>string</ti><ti> </ti><ti> </ti><ti>Display an error popup with the message </ti>
+		</tr>
+		<tr>
+			<ti>diplayerInfo</ti><ti>string</ti><ti> </ti><ti> </ti><ti>Display an info popup with the message </ti>
+		</tr>
+		<tr>
+			<ti>fileReadSelect</ti><ti></ti><ti></ti><ti>filename</ti><ti>Open the file selector (read)</ti>
+		</tr>
+		<tr>
+			<ti>fileWriteSelect</ti><ti></ti><ti></ti><ti>filename</ti><ti>Open the file selector (write)</ti>
+		</tr>
+		<tr>
+			<ti>allFilesFrom</ti><ti>directory</ti><ti></ti><ti>Number of files from that directory</ti><ti>Initiate the directory parsing</ti>
+		</tr>
+		<tr>
+			<ti>nextFile</ti><ti></ti><ti></ti><ti>filename</ti><ti>Returns the next filename</ti>
+		</tr>
+		
+	</table>
+	A small example, that reads all the file from a directory:
+		<uri link="./readall.js">readall.js</uri>.
+	</ul>
+	</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Avidemux functions</title>
+<section>
+
+	<body>
+	<ul>
+		<p><table width="100%" border="1">
+				<tr>
+					<th>Command</th><th>Parameter</th><th>Parameter</th><th>Return</th><th>Description</th>
+				</tr>
+				<tr>
+					<ti>load</ti><ti>"filename"</ti><ti> </ti><ti> </ti><ti>Load the video (erasing all)</ti>
+				</tr>
+				<tr>
+					<ti>append</ti><ti>"filename"</ti><ti> </ti><ti> </ti><ti>Append the video to the existing video(s).</ti>
+				</tr>
+				<tr>
+					<ti>save</ti><ti>"filename"</ti><ti></ti><ti></ti><ti>Save output to given filename</ti>
+				</tr>
+				<tr>
+					<ti>saveDVD</ti><ti>"filename"</ti><ti></ti><ti></ti><ti>Set output format to mpeg PS and save</ti>
+				</tr>
+				<tr>
+					<ti>saveOGM</ti><ti>"filename"</ti><ti></ti><ti></ti><ti>Set output format to OGM and save</ti>
+				</tr>
+				<tr>
+					<ti>clearSegments</ti><ti></ti><ti></ti><ti></ti><ti>Remove all segments, after that command you have 0 frames available !</ti>
+				</tr>
+				<tr>
+					<ti>addSegment</ti><ti>reference</ti><ti>start,len</ti><ti></ti><ti>Add a new sgment from the source reference, starting at frame start with len frames</ti>
+				</tr>
+				<tr>
+					<ti>goToTime</ti><ti>hh</ti><ti>mm,ss</ti><ti></ti><ti>Go to the frame at hh hour, mm minutes and ss seconds</ti>
+				</tr>
+				<tr>
+					<ti>forceUnpack</ti><ti></ti><ti></ti><ti></ti><ti>Set autounpack, you must call it *BEFORE* loading a file, and it will be unpacked</ti>
+				</tr>
+				<tr>
+					<ti>setContainer</ti><ti>"container"</ti><ti></ti><ti></ti><ti>Set the output container (must be between ""). Available choices PS,ES,TS,OGM,AVI,AVI_DUAL,AVI_UNP</ti>
+				</tr>
+
+				
+	</table></p>
+	<p>There is also a couple of variables you may want to change :
+		<ul>
+			<li>markA : set the A marker (ex: app.markA=100; set markerA to the 100th frame)</li>
+			<li>markB : set the B marker</li>
+		</ul>
+	</p>
+
+	</ul>
+	</body>
+</section>
+
+</chapter>
+<chapter>
+	<title>Avidemux video functions</title>
+	<section>
+		
+		<body>
+			<ul>
+				<p><table width="100%" border="1">
+						<tr>
+							<th>Command</th><th>Parameter</th><th>Parameter</th><th>Return</th><th>Description</th>
+						</tr>
+						
+						<tr>
+							<ti>addFilter</ti><ti>"filter name"</ti><ti>"filter param" </ti><ti> </ti><ti>Add the filter</ti>
+						</tr>
+						<tr>
+							<ti>Codec</ti><ti>"codec name"</ti><ti>"codec conf"[,"codec extra"] </ti><ti> </ti><ti>Select the codec, using the conf, which can be "CBR=bitrate", "CQ=qz", "2PASS=size" or "SAME=0"</ti>
+						</tr>
+						<tr>
+							<ti>saveJpeg</ti><ti>"filename"</ti><ti> </ti><ti> </ti><ti>Save the current frame as a jpeg</ti>
+						</tr>
+						<tr>
+							<ti>getWidth</ti><ti></ti><ti> </ti><ti> integer</ti><ti>Returns video width</ti>
+						</tr>
+						<tr>
+							<ti>getHeight</ti><ti></ti><ti> </ti><ti> integer</ti><ti>Returns video height</ti>
+						</tr>
+						<tr>
+							<ti>getFps1000</ti><ti></ti><ti> </ti><ti> integer</ti><ti>Returns the video framerate * 1000</ti>
+						</tr>
+						<tr>
+							<ti>setFps1000</ti><ti>integer</ti><ti> </ti><ti> </ti><ti>set the video framerate * 1000</ti>
+						</tr>
+						<tr>
+							<ti>getFCC</ti><ti></ti><ti> </ti><ti>string </ti><ti>returns video fourCC as a string</ti>
+						</tr>
+						<tr>
+							<ti>isVopPacked</ti><ti></ti><ti> </ti><ti>integer </ti><ti>Returns if video has packed bitstream or not</ti>
+						</tr>
+						<tr>
+							<ti>hasQpel</ti><ti></ti><ti> </ti><ti>integer </ti><ti>Returns if video has Qpl or not</ti>
+						</tr>
+						<tr>
+							<ti>hasGmc</ti><ti></ti><ti> </ti><ti>integer </ti><ti>Returns if video has Gmc or not</ti>
+						</tr>
+						<tr>
+							<ti>setPostProc</ti><ti>type</ti><ti>threshold,strength </ti><ti> </ti><ti>Set post processing</ti>
+						</tr>
+
+					</table></p>
+				
+			</ul>
+		</body>
+	</section>
+	
+</chapter>
+<chapter>
+	<title>Avidemux audio functions</title>
+	<section>
+		
+		<body>
+			<ul>
+				<p><table width="100%" border="1">
+						<tr>
+							<th>Command</th><th>Parameter</th><th>Parameter</th><th>Return</th><th>Description</th>
+						</tr>
+						<tr>
+							<ti>scanVBR</ti><ti></ti><ti> </ti><ti> </ti><ti>Build the time map needed for MP3 VBR</ti>
+						</tr>
+						<tr>
+							<ti>save</ti><ti>"filename"</ti><ti> </ti><ti> </ti><ti>Save the audio track as filename</ti>
+						</tr>
+						<tr>
+							<ti>load</ti><ti>"type"</ti><ti>"filename"</ti><ti> </ti><ti>Load audio as an external track. Type is the file type AC3,MP3,WAV, filename is the name of the file to load</ti>
+						</tr>
+						<tr>
+							<ti>getNbTracks</ti><ti></ti><ti> </ti><ti> integer</ti><ti>Returns the number of audio tracks at frame frame. </ti>
+						</tr>
+						<tr>
+							<ti>setTrack</ti><ti>track</ti><ti> </ti><ti> </ti><ti>Select track "track".</ti>
+						</tr>
+						
+					</table></p>
+				<p>There is also a couple of variables you may want to change, as above if your instance has been created by app=new Avidemux(), you will access them using app.audio.xxx=yyy; :
+					<ul>
+						<li>normalize : 1 normalize activated, 0 not</li>
+						<li>downsample: same for downsample (48kHz to 44.1kHz)</li>
+						<li>resample  : set the new frequency</li>
+						<li>delay     : set the delay in ms </li>
+						<li>film2pal  : 1 film2pal activated, 0 not  </li>
+						<li>mono2stereo: ditto </li>
+						<li>stereo2mono: ditto </li>
+					</ul>
+				</p>
+				
+			</ul>
+		</body>
+	</section>
+	
+</chapter>
+</guide>
