@@ -1,4 +1,4 @@
-ALL_XML=audio.xml  \
+ALL_XML=audio.xml.html  \
 bframe.xml.html \
 capture2SVCD.xml.html \
 command.xml.html \
@@ -6,7 +6,7 @@ cutting.xml.html \
 divx2vcd.xml.html \
 dualaudio.xml.html \
 dvd.xml.html \
-dvd2divx.xml.html \
+dvd2mp4.xml.html \
 edl.xml.html \
 ffv1rec.xml.html \
 guitour.xml.html \
@@ -30,4 +30,4 @@ video6.xml.html
 %.xml.html:%.xml
 	xsltproc /tmp/guide.xsl $< > $<.html
 all:$(ALL_XML)
-	cat ../guide.xsl | sed 's/ENCODINGTAG/iso-8859-15/' | sed 's/PATHTOCSS/.. \/plop.css/' > /tmp/guide.xsl
+	cat ../guide.xsl | sed 's/ENCODINGTAG/iso-8859-15/' | sed 's/PATHTOCSS/..\/plop.css/' > /tmp/guide.xsl
