@@ -59,7 +59,7 @@ Main doc
 	<body>
 	<ul>
 	<p>	<uri link="./standalone.xml.html">Fixing mpeg4 files so they play on standalone</uri> NEW </p>	
-	<p>	<uri link="./dvd2divx.xml.html">DVD to Divx</uri></p>	
+	<p>	<uri link="./dvd2mp4.xml.html">DVD to Mpeg4</uri></p>	
 	<p>	<uri link="./divx2vcd.xml.html">Divx to VCD</uri></p>	
 	<p>	<uri link="./capture2SVCD.xml.html">Capture to SVCD</uri></p>
 	</ul>
