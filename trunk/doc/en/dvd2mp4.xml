@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding="UTF-8"?>
 <guide >
-<title>Mpeg2 to Mpeg4 tutorial</title>
+<title>MPEG-2 to MPEG-4 tutorial</title>
 <author title="mean, Jeremy West"><mail link="fixounet@free.fr">
 Mean, Jeremy West</mail>
 </author>
 
 <abstract>
-Mpeg2 to Mpeg4
+MPEG-2 to MPEG-4
  </abstract>
 <version>1.1</version>
 <date>05 Nov 2004</date>
@@ -14,14 +14,14 @@ Mpeg2 to Mpeg4
 <title>About this tutorial</title>
 <body>
 <p>
-This tutorial has been broken down into 6 chapters which explain the process of converting an MPEG1 or MPEG2 DVD file into a Mpeg4 ( which is sometimes incorrectly called "divx") video wrapped in AVI file.  There are several projects available online which allow you to convert DVD's to DIVX avi, using tools such as the popular <uri link="http://www.mplayerhq.hu">mencoder</uri>.  The difference between Avidemux and these other projects, is that Avidemux allows you to edit the file before encoding it, and to do a visual check of what you are doing.
+This tutorial has been broken down into 6 chapters which explain the process of converting an MPEG-1 or MPEG-2 DVD file into an MPEG-4 video wrapped in AVI file, which is often incorrectly called "DivX" (see the <uri link="divx.xml.html">DivX chapter</uri> for more info). There are several projects available online which allow you to convert DVD's to MPEG-4 AVI, using tools such as the popular <uri link="http://www.mplayerhq.hu">MEncoder</uri>. The difference between Avidemux and these other projects is that Avidemux allows you to edit the file before encoding it, and to do a visual check of what you are doing.
 </p>
 </body>
 <section>
-<title>Understanding Mpeg file types</title>
+<title>Understanding MPEG file types</title>
 <body>
 <p>
-<b>Supported Mpeg Formats</b>
+<b>Supported MPEG Formats</b>
 <table width="40%" border="1">
 		<tr>
 			<th>Video Only</th><th>Video &amp; Audio</th>
@@ -38,31 +38,31 @@ This tutorial has been broken down into 6 chapters which explain the process of 
 </table>
 <ul>
 	<li>m1v means "MPEG-1 Video", i.e. a file which only contains a so called elementary video stream, without any audio.</li>
-	<li>m2v means "MPEG-2 Video"</li>
+	<li>m2v means "MPEG-2 Video".</li>
 	<li>mpg is a program stream containing the multiplexed video and audio streams.</li>
-	<li>vob is a DVD systems stream which contains video, audio and additional information, it is a also a program stream</li>
-	<li>vdr is a transport stream containing video and audio(s). It is supported  but without sync correction.</li>
+	<li>vob is a DVD systems stream which contains video, audio and additional information, it is a also a program stream.</li>
+	<li>vdr is a transport stream containing video and audio(s). It is supported but without sync correction.</li>
 </ul>
 
 </p>
 </body>
 </section>
 <section>
-<title>Getting a usable VOB file using mplayer</title>
+<title>Getting a usable VOB file using MPlayer</title>
 <body>
 <p>
 <pre>mplayer dvd://1 -dumpstream</pre>
 </p>
-<ul><p>This will create a file in your working directory called stream.dump.  This is an avidemux compatible vob file in mpeg format with various audio streams</p>
+<ul><p>This will create a file in your working directory called stream.dump. This is an Avidemux compatible VOB file in MPEG format with various audio streams.</p>
 </ul>
 </body>
 </section>
 <section>
-<title>Loading and Indexing your Mpeg File</title>
+<title>Loading and Indexing your MPEG File</title>
 <body>
 <ul>
-	<p>Load this stream.dump file into Avidemux by either clicking the "Open" folder icon in the toolbar, or going <c>File-&gt;Open Video</c></p>
-	<p>You will now be presented with a dialog box asking if you would like to index the mpeg, say yes.</p>
+	<p>Load this stream.dump file into Avidemux by either clicking the "Open" folder icon in the toolbar, or going <c>File-&gt;Open...</c>.</p>
+	<p>You will now be presented with a dialog box asking if you would like to index the MPEG, say yes.</p>
 
 <img src="../image_tuto/mpegindex.png"></img>
 <p>
@@ -77,7 +77,7 @@ You will be able to change audio track later on if you selected the wrong defaul
 
 
 <p>
-Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpeg stream index.  An mpeg steam index is a plain text file containing a description of the mpeg and the location of frames throughout the stream.  This file allows avidemux to random seek and stay accurate. Said otherwise, without the index, avidemux cannot handle mpeg files.
+Note: Avidemux does not read MPEG streams. It has been designed to read an MPEG stream index. An MPEG stream index is a plain text file containing a description of the MPEG and the location of frames throughout the stream. This file allows Avidemux to random seek and stay accurate. Said otherwise, without the index, Avidemux cannot handle MPEG files.
 </p>
 </ul>
 </body>
@@ -89,14 +89,14 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 	<title>NSTC versus Film</title>
 	<body><ul>
 		<p>
-			Some DVD are coded as 23.976 aka FILM (most movies actually). Some others are coded as 29.96 (NSTC), soap for example. In the first case, the DVD player does a operation to convert it on the fly to NSTC format (telecine). So the mpeg header always says 29.96 as it will always be the final format.	
+			Some DVDs are coded as 23.976 aka FILM (most movies actually). Some others are coded as 29.96 (NSTC), soap for example. In the first case, the DVD player does an operation to convert it on the fly to NSTC format (telecine). So the MPEG header always says 29.96 as it will always be the final format.	
 		</p>
-		<p>Avidemux uses mpeg2dec to decode mpeg streams (with a little patch). Mpeg2dec does not do the telecine on FILM movie (and that's better that way).
+		<p>Avidemux uses mpeg2dec to decode MPEG streams (with a little patch). mpeg2dec does not do the telecine on FILM movies (and that's better that way).
 		</p>
-		<p>It means that avidemux cannot tell the difference between FILM and NSTC.
-		So if the mpeg looks progressive (not interlaced) and obvious desync appears (and gets worse and worse), use <c>Misc->Change fps</c> and set it to 23.976.
+		<p>It means that Avidemux cannot tell the difference between FILM and NSTC.
+		So if the MPEG looks progressive (not interlaced) and obvious desync appears (and gets worse and worse), use <c>Video-&gt;Frame Rate</c> and set it to 23.976.
 		</p>
-		<p>For PAL mpeg, there is no problem, it is always 25 fps.
+		<p>For PAL MPEG, there is no problem, it is always 25 fps.
 		</p>
 		
 	</ul></body>
@@ -105,16 +105,16 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 	<title>Cropping</title>
 	<body><ul>	
 	<p>Cropping is useful in removing the black borders along the top and bottom of the video in a widescreen format.</p>
-	<li>To crop the video, we must apply some video filters.  So be sure video is not set to copy so that the <c>Video Filters</c> is not greyed out.</li>
-	<li>Now press <c>CTRL+ALT+F</c> or the video filter button to popup the video filter list.</li>
+	<li>To crop the video, we must apply some video filters. So be sure video is not set to copy so that the <c>Video Filters</c> is not greyed out.</li>
+	<li>Now press <c>Ctrl+Alt+F</c> or the video filter button to popup the video filter list.</li>
 	<img src="../image_tuto/filters.png"></img>
 	<li>Click "Add" to see all available filters.</li>
 	<img src="../image_tuto/filterx.png"></img>
 	<li>and select the Crop filter.</li>
 	<img src="../image_tuto/crop2.png"></img>
-	<li>Be sure to select a contrasted image using the slider, so that we can use autocrop</li>
-	<li>Now select the <c>"AutoCrop"</c> button.  You'll notice the black areas will now appear in green to show the areas where the video will be cropped.</li>
-	<li>If you like the way it looks click "Ok" and then close the video filters list.</li>
+	<li>Be sure to select a contrasted image using the slider, so that we can use autocrop.</li>
+	<li>Now select the <c>"AutoCrop"</c> button. You'll notice the black areas will now appear in green to show the areas where the video will be cropped.</li>
+	<li>If you like the way it looks click "OK" and then close the video filters list.</li>
 </ul>
 </body>
 </section>
@@ -122,7 +122,7 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 	<title>Resizing</title>
 	<body>
 	<ul>
-	<p>If you'd like to resize the video to something smaller, bring back up the video filter list.  To correctly resize a video, it is very important to take the aspect ratio into account. The aspect ratio is the shape of a pixel. On a PC it is mostly square (1:1), however, on a DVD it could be 4:3 or 16:9. So, select the input aspect ratio (16:9 is the most common for DVD) and target aspect ration (1:1 for Avi, 4:3 or 16:9 for DVD). Then select the resizing method, bilinear is generally good enough for downsizing. You probably will want to check the <span class="code">16 round up</span> to be sure the final width and height are multiples of 16. Then move the slider until you reach the desired width.</p>
+	<p>If you'd like to resize the video to something smaller, bring back up the video filter list. To correctly resize a video, it is very important to take the aspect ratio into account. The aspect ratio is the shape of a pixel. On a PC it is mostly square (1:1), however, on a DVD it could be 4:3 or 16:9. So, select the input aspect ratio (16:9 is the most common for DVD) and target aspect ratio (1:1 for AVI, 4:3 or 16:9 for DVD). Then select the resizing method, bilinear is generally good enough for downsizing. You probably will want to check the <span class="code">16 round up</span> to be sure the final width and height are multiples of 16. Then move the slider until you reach the desired width.</p>
 	<p><img src="../image_tuto/resizedvd.png"></img></p>
 </ul>
 
@@ -133,8 +133,8 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 	<body>
 	
 	<ul>
-	<p>Depending on the source, you may want to add more filters (subtitling, denoiser, deinterlacer...). See <uri link="video.xml.html">video filters</uri> for more information on available filters.  One of the best I've found is the "Mplayer Denoise 3D" filter.  This filters smooths the image a bit.  Default values on it are fine.</p>
-	<p>At this point, the video is ready for any editing you may wish to do.  For information on cutting please see the <uri link="cutting.xml.html">Cutting Guide</uri>.</p>
+	<p>Depending on the source, you may want to add more filters (subtitling, denoiser, deinterlacer...). See <uri link="video.xml.html">video filters</uri> for more information on available filters. One of the best I've found is the "MPlayer denoise3d" filter. This filter smooths the image a bit. Default values on it are fine.</p>
+	<p>At this point, the video is ready for any editing you may wish to do. For information on cutting please see the <uri link="cutting.xml.html">Cutting Guide</uri>.</p>
 </ul>
 
 	</body>
@@ -144,7 +144,7 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 	<title>Configuring the audio encoder</title>
 	<body><ul>
 			<p>
-				First be sure to have selected the right audio track. You ears might be handy for that. In case the wrong one has been selected, use <c>audio/Main audio track</c> to select the right one. You may also choose an external file as audio track.
+				First be sure to have selected the right audio track. Your ears might be handy for that. In case the wrong one has been selected, use <c>Audio-&gt;Main Audio Track</c> to select the right one. You may also choose an external file as audio track.
 			</p></ul></body>	
 	<section>
 		<title>Audio codec</title>
@@ -152,26 +152,26 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 			<ul>
 				<p>You have quite a few choices here for your codec.</p>
 				<ul>
-					<li><b>Copy</b>:You just use the original audio track, unaltered. If size is not an issue, it might be your best choice.</li>
-					<li><b>Lame</b>:This option allows you to create an avi with mp3 audio.  The lame encoder does an excellent job at VBR encoding.</li>
-					<li><b>FAAC</b>:A good AAC encoder, probably the best size/quality choice. It will be probably not compatible with hardware player.</li>
-					<li><b>Vorbis</b>:Very good audio codec, can only be used if output format is Ogm.</li>
+					<li><b>Copy:</b> You just use the original audio track, unaltered. If size is not an issue, it might be your best choice.</li>
+					<li><b>LAME:</b> This option allows you to create an AVI with MP3 audio. The LAME encoder does an excellent job at VBR encoding.</li>
+					<li><b>FAAC:</b> A good AAC encoder, probably the best size/quality choice. It will be probably not compatible with hardware players.</li>
+					<li><b>Vorbis:</b> Very good audio codec, can only be used if output format is OGM.</li>
 					<li><b>FF MP2</b></li>
-					<li><b>FF AC3</b>:Libavcodec mpeg audio and ac3 audio encoder. Not that great. The AC3 has very low volume</li>
-					<li><b>Toolame</b>:It is a very good mpeg1/2 audio encoder, very useful for VCD/SVCD or DVD. A bit useless for avi target</li>	
-					<li><b>Wav PCM</b>:This means PCM audio. Big, but lossless.</li>	
+					<li><b>FF AC3:</b> libavcodec MPEG audio and AC3 audio encoder. Not that great. The AC3 has very low volume.</li>
+					<li><b>tooLAME:</b> It is a very good MPEG-1/2 audio encoder, very useful for VCD/SVCD or DVD. A bit useless for AVI target.</li>	
+					<li><b>WAV PCM:</b> This means PCM audio. Big, but lossless.</li>	
 				</ul>
-				If some audio codecs do not appear, it means your built of avidemux has been compiled without support for it. If you built it yourself, add the package needed and redo configure and make. If you are using a binary package, go nag the packager.
+				If some audio codecs do not appear, it means your build of Avidemux has been compiled without support for it. If you built it yourself, add the package needed and redo configure and make. If you are using a binary package, go nag the packager.
 			</ul>
 		</body>
 	</section>
 	
 	<section>
-		<title>Do i want addionnal processing ?</title>
+		<title>Do i want additional processing?</title>
 		<body>	
 			<ul>
-				<p>In some case, doing some audio processing may be desirable. For example, doing volume normalization or downsampling.</p>
-				<p>Press the configure button to select the audio processing you want</p>
+				<p>In some cases, doing some audio processing may be desirable. For example, doing volume normalization or downsampling.</p>
+				<p>Press the Configure button to select the audio processing you want.</p>
 				
 			</ul></body>
 	</section>
@@ -183,7 +183,7 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 <section>
 	<title>Codec</title>
 	<body><ul>
-		<p>Time to select a codec. My two preferred are Xvid and Lavcodec, with a preference to xvid4. You can use windows based tutorial for Xvid as the options are the same. For lavcodec, have a look in mplayer documentation.
+		<p>Time to select a codec. My two preferred are XviD and libavcodec, with a preference to XviD4. You can use Windows based tutorials for XviD as the options are the same. For libavcodec, have a look in MPlayer documentation.
 		</p>		
 		
 	</ul></body>
@@ -191,15 +191,15 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 
 <title>Calculator</title>
 <section>
-	<title>Do i want to use it ?</title>
+	<title>Do i want to use it?</title>
 	<body><ul>
 			<p>If you are not really concerned with the output size, you know what you are doing and you can skip this chapter.</p>
-			<p>In most cases, you want to reach a specific total size. Click the <c>Calculator</c> button to make that dialog appear :
+			<p>In most cases, you want to reach a specific total size. Click the <c>Calculator</c> button to make that dialog appear:
 			</p>		
 			<img src="../image_tuto/calc.png"></img>
-			<p>Select your final wrapper, in our case avi and the size you want then press apply. The average bitrate for video and average bit per pixel will be updated. The video codec will also be setup to use dual pass and the correct target size for video will be set.
+			<p>Select your final wrapper, in our case AVI and the size you want, then press Apply. The average bitrate for video and average bit per pixel will be updated. The video codec will also be setup to use dual pass and the correct target size for video will be set.
 			</p>
-			<p>When happy with the result, just press apply then close.
+			<p>When happy with the result, just press Apply, then Close.
 			</p>
 			</ul></body>
 	</section>
@@ -207,7 +207,7 @@ Note:  Avidemux does not read mpeg streams.  It has been designed to read an mpe
 </chapter>
 
 <chapter>
-	<title>Saving </title>
+	<title>Saving</title>
 <section>
 	<body><ul>
 		<p>Now select the output format using the pulldown menu. Most probably <c>AVI</c>.
