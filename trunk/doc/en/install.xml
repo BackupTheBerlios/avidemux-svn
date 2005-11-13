@@ -30,7 +30,7 @@ Simple tips and help for installing avidemux
 			<ti>libxml2</ti><ti> Used for filter descriptions and ~/.avidemuxrc</ti>
 		</tr>		
 		<tr>
-			<ti>nasm (for x86)</ti><ti> If you do VCD/SVCD/... on x86 you want it ! (5 x faster)</ti>
+			<ti>Spidermonkey</ti><ti> Need for avidemux scripting</ti>
 		</tr>
 		</table>
 		<p>You will also need automake, autoconf and autotools with recent versions. Of course if you are using a rpm/deb based distro you need the -dev packages also.</p>
@@ -114,7 +114,9 @@ Simple tips and help for installing avidemux
 	<body>
 	<p>It is rather straightforward.</p>
 	<p><c>Make -f Makefile.dist</c></p>
-	<p><c>./configure </c></p>
+	<p><c>./configure --with-jsapi-include=/usr/include/ [--with-newfaad]</c></p>
+	<p>The argument of --with-jsapi-include is the path to jsapi.h. You must provide it</p>
+	<p>The <c>--with-newfaad</c> argument is needed if you have a new style prototype of faad (gentoo, ubuntu breezy for example)</p>
 	<p>Take extra care at the end where a recap of what has been detected appears
 	.For me it looks like this:
 	<pre>nasm found : /usr/bin/nasm
@@ -188,5 +190,30 @@ cpu done
 
 	</body>
 </section>
+<section>
+	<title>Build fails at ADM_codecfaad.cpp</title>
+	<body>
+		<p>
+			You did not provide the <c>--with-newfaad</c> configure switch whereas you needed it, or the other way around.
+		</p>
+	</body>
+</section>
+<section>
+	<title>Trouble detecting jsapi</title>
+	<body>
+		<p>
+			It can either fail at japi.h or locating the library.</p>
+			<p>For the former, you probably did not provide the path to jsapi.h.</p>
+			<p>For the latter, it can be several things 
+				<ul>
+					<li>libjs.so, libsmjs.so ... are not in standard path. Symlink them to /usr/lib</li>
+					<li>You have a clash because you installed older version (you will see ctype_b error in config.log) or inappropriate version (32 bits version on a 64 bits system. Installing a correct version will fix the problem.</li>
+				</ul>
+			In both case, you must read the config.log file. It will tell you what
+			happened.</p>
+		
+	</body>
+</section>
+
 </chapter>
 </guide>
