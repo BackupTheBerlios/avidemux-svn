@@ -307,9 +307,9 @@ UNUSED_ARG(mode);
                 return parseScript(name);
 #endif
 	case ECMAScript_FileType:
-                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
-                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
-                printf("****** This is an ecmascript, run it with avidemux2 --run yourscript *******\n");
+                printf("******************************************************************************\n");
+                printf("****** This is an ECMAScript, run it with \"avidemux2 --run yourscript\" *******\n");
+                printf("******************************************************************************\n");
                 return 0;
 		
                 

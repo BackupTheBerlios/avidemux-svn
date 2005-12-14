@@ -30,7 +30,7 @@
 #undef realloc
 
 #ifdef HAVE_MALLOC_H
-#include <malloc.h>
+#include <stdlib.h>
 #endif
 
 /* you can redefine av_malloc and av_free in your project to use your

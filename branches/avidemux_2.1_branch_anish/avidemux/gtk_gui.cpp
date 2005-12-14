@@ -249,7 +249,7 @@ int nw;
 		return;
     
     case ACT_RunScript:
-    			 GUI_FileSelRead ("Select ecmascript to run ",(SELFILE_CB *) A_parseECMAScript);
+    			 GUI_FileSelRead ("Select ECMAScript to run ",(SELFILE_CB *) A_parseECMAScript);
                         
                         //
     		return;

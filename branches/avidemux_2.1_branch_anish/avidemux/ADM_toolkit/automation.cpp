@@ -649,6 +649,11 @@ uint32_t nbVar=0;
 */
 uint8_t scriptAddVar(char *var,char *value)
 {
+	if(nbVar >= ADM_MAX_VAR-1)
+	{// begin table full
+		printf("Variable table is full.\n");
+		return 0;
+	}// end table full
         if(!var || !strlen(var)) 
         {
                 printf("Script : Var name invalid\n");

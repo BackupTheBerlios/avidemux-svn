@@ -46,8 +46,8 @@
 
 
 extern "C" {
-#include "SDL/SDL.h"
-#include "SDL/SDL_syswm.h"
+#include "SDL11/SDL.h"
+#include "SDL11/SDL_syswm.h"
 
 
 }

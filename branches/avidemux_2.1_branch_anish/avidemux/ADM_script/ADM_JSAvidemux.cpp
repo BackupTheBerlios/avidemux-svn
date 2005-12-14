@@ -198,6 +198,8 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 		switch(JSVAL_TO_INT(id))
 		{
 			case markerA_prop:
+				if(JSVAL_IS_INT(*vp) == false)
+					break;
 				{
 					int f=JSVAL_TO_INT(*vp);
 					if (!avifileinfo)
@@ -212,6 +214,8 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 				}
 				break;
 			case markerB_prop:
+				if(JSVAL_IS_INT(*vp) == false)
+					break;
 				{
 					int f=JSVAL_TO_INT(*vp);
 					if (!avifileinfo)
@@ -232,6 +236,8 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 				return JS_FALSE;
 				break;
 			case container_prop:
+				if(JSVAL_IS_STRING(*vp) == false)
+					break;
 				{
 					priv->getObject()->m_pContainer = JSVAL_TO_STRING(*vp);
 					char *pContainer = JS_GetStringBytes(priv->getObject()->m_pContainer);
@@ -243,6 +249,8 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 				}
 				break;
 			case currentframe_prop:
+				if(JSVAL_IS_INT(*vp) == false)
+					break;
 				{
 					int frameno;
 					if (!avifileinfo)
@@ -265,6 +273,8 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 				}
 				break;
 			case fps_prop:
+				if(JSVAL_IS_DOUBLE(*vp) == false)
+					break;
 				{
 					priv->getObject()->m_dFPS = *JSVAL_TO_DOUBLE(*vp);
 					aviInfo info;
@@ -295,6 +305,8 @@ JSBool ADM_JSAvidemux::Load(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Loading \"%s\"\n",pTempStr);
         // Do a failure instead of returing ko
@@ -311,6 +323,8 @@ JSBool ADM_JSAvidemux::LoadFilters(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Loading Filters \"%s\"\n",pTempStr);
 	*rval = BOOLEAN_TO_JSVAL(filterLoadXml(pTempStr,0));
@@ -326,6 +340,8 @@ JSBool ADM_JSAvidemux::Append(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Appending \"%s\"\n",pTempStr);
 	*rval = BOOLEAN_TO_JSVAL(A_appendAvi(pTempStr));
@@ -338,7 +354,9 @@ JSBool ADM_JSAvidemux::Delete(JSContext *cx, JSObject *obj, uintN argc,
 	ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
 	// default return value
 	*rval = BOOLEAN_TO_JSVAL(false);
-	if(argc != 1)
+	if(argc != 2)
+		return JS_FALSE;
+	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false)
 		return JS_FALSE;
 	int a = JSVAL_TO_INT(argv[0]);
 	int b = JSVAL_TO_INT(argv[1]);
@@ -355,6 +373,8 @@ JSBool ADM_JSAvidemux::Save(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving \"%s\"\n",pTempStr);
 	*rval = BOOLEAN_TO_JSVAL(A_Save(pTempStr));
@@ -369,6 +389,8 @@ JSBool ADM_JSAvidemux::SaveDVD(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving as DVD \"%s\"\n",pTempStr);
 	*rval = BOOLEAN_TO_JSVAL(A_saveDVDPS(pTempStr));
@@ -382,6 +404,8 @@ JSBool ADM_JSAvidemux::SaveOGM(JSContext *cx, JSObject *obj, uintN argc,
 	// default return value
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
+		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving as DVD \"%s\"\n",pTempStr);
@@ -425,6 +449,8 @@ JSBool ADM_JSAvidemux::AddSegment(JSContext *cx, JSObject *obj, uintN argc,
         *rval = BOOLEAN_TO_JSVAL(false);
         if(argc != 3)
                 return JS_FALSE;
+	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false || JSVAL_IS_INT(argv[2]) == false)
+		return JS_FALSE;
         int a = JSVAL_TO_INT(argv[0]);
         int b = JSVAL_TO_INT(argv[1]);
         int c = JSVAL_TO_INT(argv[2]);
@@ -455,6 +481,8 @@ JSBool ADM_JSAvidemux::GoToTime(JSContext *cx, JSObject *obj, uintN argc,
 	// default return value
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 3)
+		return JS_FALSE;
+	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false || JSVAL_IS_INT(argv[2]) == false)
 		return JS_FALSE;
 	*rval = INT_TO_JSVAL(A_jumpToTime(JSVAL_TO_INT(argv[0]),JSVAL_TO_INT(argv[1]),JSVAL_TO_INT(argv[2])));
 	return JS_TRUE;
@@ -492,6 +520,8 @@ ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
         *rval = BOOLEAN_TO_JSVAL(false);
         if(argc != 1)
                 return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
         char *str = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
         if(A_setContainer(str))
                 *rval = BOOLEAN_TO_JSVAL( true);

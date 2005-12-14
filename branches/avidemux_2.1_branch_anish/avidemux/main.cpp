@@ -58,7 +58,7 @@ typedef void *FCT_VOID(void *);
 
 #ifdef USE_SDL
 	extern "C" {
-	#include "SDL/SDL.h"
+	#include "SDL11/SDL.h"
 	}
 #endif
 #include "ADM_toolkit/ADM_cpuCap.h"

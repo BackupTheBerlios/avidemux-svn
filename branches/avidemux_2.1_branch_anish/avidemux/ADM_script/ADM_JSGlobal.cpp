@@ -6,10 +6,13 @@
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemux.h"
+#include "ADM_JSDirectorySearch.h"
 
 extern uint8_t JS_AvidemuxFunction(JSContext *cx,JSObject *global);
 extern void A_Resync(void);
+
 // expose our main javascript context to the entire program
+static bool g_bJSSuccess = 0;
 JSObject *g_pObject;
 JSContext *g_pCx;
 JSRuntime *g_pRt;
@@ -39,7 +42,7 @@ FILE *fd = fopen(report->filename,"rb");
 		              "Not an ECMAScript file. Try open it with 'File' -> 'Open...'");
 	}else{
 		GUI_Error_HIG("Spidermonkey ECMAScript Error", 
-			"file: %s: line %d:\n Msg:%s\n",
+			"%s: line %d:\nMsg: %s\n",
 			report->filename,
 			report->lineno,
 			message);
@@ -79,8 +82,7 @@ bool SpidermonkeyInit()
 			JS_InitStandardClasses(cx, global);
 			// load our custom JS class objects
 			JSObject *obj = ADM_JSAvidemux::JSInit(cx, global);
-			JSObject *objAudio = ADM_JSAvidemuxAudio::JSInit(cx, global);
-//			JSObject *objVideo = ADM_JSAvidemuxVideo::JSInit(cx, global);
+			JSObject *dsObj = ADM_JSDirectorySearch::JSInit(cx, global);
 			// register error handler
 			JS_SetErrorReporter(cx, printJSError);
                         JS_AvidemuxFunction(cx,global);
@@ -95,26 +97,28 @@ void SpidermonkeyDestroy()
 	JS_DestroyContext(g_pCx);
 	JS_DestroyRuntime(g_pRt);
 }// end SpidermonkeyDestroy
-static int jscu=0;
-void JS_setSuccess(int s)
-{
-        jscu=s;
-        printf("[Ecma] success :%d\n",jscu);
-}
+
+void JS_setSuccess(bool bSuccess)
+{// begin JS_setSuccess
+	g_bJSSuccess = bSuccess;
+	printf("[ECMA] success : %d\n", g_bJSSuccess);
+}// end JS_setSuccess
+
 bool parseECMAScript(const char *name)
 {// begin parseECMAScript
 	jsval rval;
 	uintN lineno = 0;
-        jscu=0;
-	printf("Spidermonkey compiling \"%s\"\n",name);
+	g_bJSSuccess = 0;
+	printf("Spidermonkey compiling \"%s\"...",name);
 	JSScript *pJSScript = JS_CompileFile(g_pCx, g_pObject, name);
+	printf("Done.\n");
 	if(pJSScript != NULL)
 	{// begin execute external file
-		printf("Spidermonkey executing \"%s\"\n",name);
+		printf("Spidermonkey executing \"%s\"...",name);
 		JSBool ok = JS_ExecuteScript(g_pCx, g_pObject, pJSScript, &rval);
 		JS_DestroyScript(g_pCx,pJSScript);
+		printf("Done.\n");
 	}// end execute external file
-        A_Resync();
-        return jscu;
-                        
+	A_Resync();
+	return g_bJSSuccess;
 }// end parseECMAScript

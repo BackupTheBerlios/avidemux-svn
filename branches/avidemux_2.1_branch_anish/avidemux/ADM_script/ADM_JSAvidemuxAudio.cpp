@@ -175,39 +175,57 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
 		switch(JSVAL_TO_INT(id))
 		{
                         case audioprocess_prop:
-                                priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
-                                UI_setAProcessToggleStatus(priv->getObject()->m_bAudioProcess);
-                                break;
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
+				priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
+				UI_setAProcessToggleStatus(priv->getObject()->m_bAudioProcess);
+				break;
 			case normalize_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterNormalize(priv->getObject()->m_bNormalize);
 				break;
 			case downsample_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bDownsample = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterDownsample(priv->getObject()->m_bDownsample);
 				break;
 			case resample_prop:
+				if(JSVAL_IS_INT(*vp) == false)
+					break;
 				priv->getObject()->m_nResample = JSVAL_TO_INT(*vp);
 				audioFilterResample(priv->getObject()->m_nResample);
 				break;
 			case delay_prop:
+				if(JSVAL_IS_INT(*vp) == false)
+					break;
 				priv->getObject()->m_nDelay = JSVAL_TO_INT(*vp);
 				//audioFilterDelay(priv->getObject()->m_nDelay);
                                 UI_setTimeShift(1, priv->getObject()->m_nDelay); 
 				break;
 			case film2pal_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bFilm2PAL = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterFilm2Pal(priv->getObject()->m_bFilm2PAL);
 				break;
 			case pal2film_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bPAL2Film = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterFilm2Pal(priv->getObject()->m_bPAL2Film);
 				break;
 			case mono2stereo_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bMono2Stereo = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterMono2Stereo(priv->getObject()->m_bMono2Stereo);
 				break;
 			case stereo2mono_prop:
+				if(JSVAL_IS_BOOLEAN(*vp) == false)
+					break;
 				priv->getObject()->m_bStereo2Mono = JSVAL_TO_BOOLEAN(*vp);
 				audioFilterStereo2Mono(priv->getObject()->m_bStereo2Mono);
 				break;
@@ -238,6 +256,8 @@ JSBool ADM_JSAvidemuxAudio::Save(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 1)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving Audio \"%s\"\n",pTempStr);
 	*rval = INT_TO_JSVAL(A_audioSave(pTempStr));
@@ -251,6 +271,8 @@ JSBool ADM_JSAvidemuxAudio::Load(JSContext *cx, JSObject *obj, uintN argc,
 	// default return value
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 2)
+		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false || JSVAL_IS_STRING(argv[1]) == false)
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[1]));
 	char *pArg0 = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
@@ -317,6 +339,8 @@ JSBool ADM_JSAvidemuxAudio::Codec(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 2)
 		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false)
+		return JS_FALSE;
 	char *name = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	LowerCase(name);
 	// First search the codec by its name
@@ -336,7 +360,8 @@ uint32_t nb=0;
 uint32_t *infos=NULL;
         // default return value
         ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
-
+	if(argc != 0)
+		return JS_FALSE;
         // default return value
        
         video_body->getAudioStreamsInfo(0,&nb, &infos);
@@ -356,6 +381,8 @@ uint32_t *infos=NULL;
         // default return value
        if(argc != 1)
                 return JS_FALSE;
+	if(JSVAL_IS_INT(argv[0]) == false)
+		return JS_FALSE;
         video_body->getAudioStreamsInfo(0,&nb, &infos);
         delete [] infos;
         nw=(JSVAL_TO_INT(argv[0]));
@@ -368,6 +395,8 @@ JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN
         ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
         if(argc != 2)
                 return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false || JSVAL_IS_STRING(argv[1]) == false)
+		return JS_FALSE;
         // First arg is MP3 etc...
         char *name = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
         LowerCase(name);
@@ -394,6 +423,8 @@ uint32_t *infos=NULL;
         // default return value
        if(argc != 1)
                 return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
         char *pArg0 = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
         if(audioLamePreset(pArg0))
                 *rval=BOOLEAN_TO_JSVAL(true);

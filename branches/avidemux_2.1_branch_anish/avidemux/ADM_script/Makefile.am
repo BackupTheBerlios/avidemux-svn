@@ -4,10 +4,10 @@ noinst_LIBRARIES = libADM_script.a
 
 libADM_script_a_METASOURCES = AUTO
 
-libADM_script_a_SOURCES =   \
-		 ADM_JSAvidemux.cpp ADM_JSAvidemux.h ADM_JSGlobal.cpp \
-		ADM_JSGlobal.h ADM_Avidemux.cpp ADM_AvidemuxAudio.cpp ADM_JSAvidemuxAudio.cpp \
-	ADM_AvidemuxVideo.cpp ADM_JSAvidemuxVideo.cpp ADM_JSFunctions.cpp
+libADM_script_a_SOURCES = ADM_JSAvidemux.cpp ADM_JSAvidemux.h ADM_JSGlobal.cpp \
+			ADM_JSGlobal.h ADM_Avidemux.cpp ADM_AvidemuxAudio.cpp ADM_JSAvidemuxAudio.cpp \
+		ADM_AvidemuxVideo.cpp ADM_JSAvidemuxVideo.cpp ADM_JSFunctions.cpp DirectorySearch.cpp \
+	DirectorySearch.h StdFile.cpp StdFile.h ADM_JSDirectorySearch.cpp ADM_JSDirectorySearch.h
 
 
 EXTRA_DIST =  

@@ -30,7 +30,7 @@
 #include <string.h>
 
 #ifdef HAVE_MALLOC_H
-#include <malloc.h>
+#include <stdlib.h>
 #endif
 
 #define INBUF_SIZE 4096
