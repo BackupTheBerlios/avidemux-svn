@@ -14,9 +14,12 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/param.h>
 #include <errno.h>
 #include <dirent.h>
 #include <math.h>
+#include <vector>
+#include <string>
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSGlobal.h"
 #include "ADM_library/default.h"
@@ -39,6 +42,8 @@
 #include "ADM_JSGlobal.h"
 #include "ADM_toolkit/filesel.h"
 
+std::vector <std::string> g_vIncludes;
+
 extern char *script_getVar(char *in, int *r);
 
 JSBool displayError(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
@@ -54,6 +59,7 @@ JSBool setSuccess(JSContext *cx, JSObject *obj, uintN argc,
 JSBool getVar(JSContext *cx, JSObject *obj, uintN argc, 
                                        jsval *argv, jsval *rval);
 JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
+JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 
 
 static JSFunctionSpec adm_functions[] = {
@@ -68,6 +74,7 @@ static JSFunctionSpec adm_functions[] = {
   {"setSuccess",          setSuccess,        1},
   {"getVar",          getVar,        1},
   {"exec",          systemExecute,        3},
+  {"include",          systemInclude,        1},
 
   {0}
 };
@@ -321,3 +328,43 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		*rval = INT_TO_JSVAL(-1);	// failure
 	return JS_TRUE;
 }// end systemExecute
+
+JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
+{// begin systemInclude
+	// default return value
+	*rval = BOOLEAN_TO_JSVAL(false);
+	if(argc != 1)
+		return JS_FALSE;
+	if(JSVAL_IS_STRING(argv[0]) == false)
+		return JS_FALSE;
+
+	const char *pIncludeFile = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
+	// make sure we haven't included this already to avoid a recursive
+	// dependency loop
+	char *pTempStr = new char[PATH_MAX+1];
+	std::string sRealPath = realpath(pIncludeFile,pTempStr);
+	for(int i = 0;i < g_vIncludes.size();i++)
+	{// begin check previous includes
+		if(g_vIncludes[i] == sRealPath)
+		{// begin found
+			printf("Warning: Duplicated include of \"%s\"...ignoring.\n",sRealPath.c_str());
+			return JS_TRUE;
+		}// end found
+	}// end check previous includes
+	g_vIncludes.push_back(sRealPath);
+
+	JSScript *pJSScript = JS_CompileFile(cx, obj, pIncludeFile);
+	jsval lastRval;
+	if(pJSScript != NULL)
+	{// begin execute external file
+		JSBool ok = JS_ExecuteScript(cx, obj, pJSScript, &lastRval);
+		JS_DestroyScript(cx,pJSScript);
+		*rval = BOOLEAN_TO_JSVAL(ok);
+	}// end execute external file
+	else
+	{// begin error including
+		printf("Cannot include file \"%s\".\n",pIncludeFile);
+		return JS_FALSE;
+	}// end error including
+	return JS_TRUE;
+}// end systemInclude
