@@ -1,0 +1,7 @@
+#!/bin/bash
+export CPPFLAGS="-I/sw/include"
+export CFLAGS=$CPPFLAGS
+export CXXFLAGS=$CPPFLAGS
+export LDFLAGS="-L/sw/lib"
+./configure --with-debug --prefix=/sw --with-extra-includes=/sw/include --with-extra-libs=/sw/lib --enable-altivec
+
