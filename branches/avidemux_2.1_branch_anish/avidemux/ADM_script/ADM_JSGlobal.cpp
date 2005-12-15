@@ -2,14 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
 #include "ADM_library/default.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSDirectorySearch.h"
+#include "ADM_assert.h"
 
 extern uint8_t JS_AvidemuxFunction(JSContext *cx,JSObject *global);
 extern void A_Resync(void);
+extern char * actual_workbench_file;
 
 // expose our main javascript context to the entire program
 static bool g_bJSSuccess = 0;
@@ -97,6 +100,22 @@ void SpidermonkeyDestroy()
 	JS_DestroyContext(g_pCx);
 	JS_DestroyRuntime(g_pRt);
 }// end SpidermonkeyDestroy
+
+void *StartThreadSpidermonkey(void *pData)
+{// begin StartThreadSpidermonkey
+	pthread_mutex_lock(&g_pSpiderMonkeyMutex);
+	bool ret = false;
+	const char *pScriptFile = static_cast<const char *>(pData);
+	ret = parseECMAScript(pScriptFile);
+	if(ret == false)
+	{
+		if( actual_workbench_file )
+			ADM_dealloc(actual_workbench_file);
+		actual_workbench_file = ADM_strdup(pScriptFile);
+	}
+	pthread_mutex_unlock(&g_pSpiderMonkeyMutex);
+	return NULL;
+}// end StartThreadSpidermonkey
 
 void JS_setSuccess(bool bSuccess)
 {// begin JS_setSuccess

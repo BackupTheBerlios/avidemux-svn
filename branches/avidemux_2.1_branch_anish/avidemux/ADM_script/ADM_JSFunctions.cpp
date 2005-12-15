@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
 #include <sys/param.h>
 #include <errno.h>
@@ -43,7 +44,7 @@
 #include "ADM_toolkit/filesel.h"
 
 std::vector <std::string> g_vIncludes;
-
+extern char **environ;
 extern char *script_getVar(char *in, int *r);
 
 JSBool displayError(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
@@ -261,6 +262,9 @@ char *n;
 
 JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {// begin systemExecute
+	// default return value
+	*rval = INT_TO_JSVAL(-1);
+
 	if(argc != 3)
 		return JS_FALSE;
 	if(JSVAL_IS_STRING(argv[0]) == false || JSVAL_IS_OBJECT(argv[1]) == false || JSVAL_IS_BOOLEAN(argv[2]) == false)
@@ -272,6 +276,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	int status = 0;
 	jsuint nArgsLength = 0;
 	jsval jsValue;
+	struct stat sbFileInfo;
 
 	if(JS_IsArrayObject(cx, pArgs) == false)
 		return JS_FALSE;
@@ -285,22 +290,33 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	{
 		if(JS_GetElement(cx, pArgs, i, &jsValue) == JS_FALSE)
 		{// begin failure to get item
-			printf("JS_GetElement failed to get an array item.  This shouldn\'t happen!\n");
+			JS_ReportError(cx, "exec() JS_GetElement failed to get an array item.");
 			return JS_FALSE;
 		}// end failure to get item
 		args[JSVAL_TO_INT(i)] = JS_GetStringBytes(JSVAL_TO_STRING(jsValue));
 	}
 	if(getuid() == 0)
 	{// begin running as root
-		printf("exec() disallowed while running as root.\n");
-		*rval = BOOLEAN_TO_JSVAL(false);
+		JS_ReportError(cx, "exec() disallowed while running as root.");
 		return JS_FALSE;
 	}// end running as root
+	if(stat(pExecutable , &sbFileInfo) != 0)
+	{// begin can't stat file
+		JS_ReportError(cx, "exec() Can't stat \"%s\" errno(%i).", pExecutable, errno);
+		return JS_FALSE;
+	}// end can't stat file
+	if((sbFileInfo.st_mode & S_ISUID) == S_ISUID || (sbFileInfo.st_mode & S_ISGID) == S_ISGID)
+	{// begin setuid/setgid files disallowed
+		JS_ReportError(cx, "exec() disallowed execution of \"%s\" since it is a setuid/setgid file.", pExecutable);
+		return JS_FALSE;
+	}// end setuid/setgid files disallowed
+
 	// clear file descriptor table of forked process and fork
 	pid_t pidRtn = rfork(RFPROC|RFCFDG);
 	if(pidRtn == 0)
 	{// begin child process
-		char *pEnv[] = {"DISPLAY=:0.0","XAUTHORITY=/home/amistry/.Xauthority",NULL};
+		char **pEnv = environ;
+		//char *pEnv[] = {NULL};
 		execve(pExecutable,args,pEnv);
 		printf("Error: execve failure errno(%d)\n",errno);
 		_exit(errno);
@@ -338,22 +354,35 @@ JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	if(JSVAL_IS_STRING(argv[0]) == false)
 		return JS_FALSE;
 
+	struct stat sbFileInfo;
 	const char *pIncludeFile = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	// make sure we haven't included this already to avoid a recursive
 	// dependency loop
 	char *pTempStr = new char[PATH_MAX+1];
-	std::string sRealPath = realpath(pIncludeFile,pTempStr);
+	if(realpath(pIncludeFile,pTempStr) == NULL)
+	{// begin can't resolve path
+		JS_ReportError(cx, "include() can't resolve the path of \"%s\".", pIncludeFile);
+		return JS_FALSE;
+	}// end can't resolve path
+
+	std::string sRealPath = pTempStr;
+	if(stat(sRealPath.c_str() , &sbFileInfo) != 0)
+	{// begin can't stat file
+		JS_ReportError(cx, "include() Can't stat \"%s\" errno(%i).", sRealPath.c_str(), errno);
+		return JS_FALSE;
+	}// end can't stat file
+
 	for(int i = 0;i < g_vIncludes.size();i++)
 	{// begin check previous includes
 		if(g_vIncludes[i] == sRealPath)
 		{// begin found
-			printf("Warning: Duplicated include of \"%s\"...ignoring.\n",sRealPath.c_str());
+			printf("include() Warning: Duplicated include of \"%s\"...ignoring.\n",sRealPath.c_str());
 			return JS_TRUE;
 		}// end found
 	}// end check previous includes
 	g_vIncludes.push_back(sRealPath);
 
-	JSScript *pJSScript = JS_CompileFile(cx, obj, pIncludeFile);
+	JSScript *pJSScript = JS_CompileFile(cx, obj, sRealPath.c_str());
 	jsval lastRval;
 	if(pJSScript != NULL)
 	{// begin execute external file
@@ -363,7 +392,7 @@ JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	}// end execute external file
 	else
 	{// begin error including
-		printf("Cannot include file \"%s\".\n",pIncludeFile);
+		JS_ReportError(cx, "include() Cannot compile file \"%s\"", pIncludeFile);
 		return JS_FALSE;
 	}// end error including
 	return JS_TRUE;

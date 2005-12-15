@@ -22,6 +22,7 @@
 #include <glib.h>
 #include <signal.h>
 #include <config.h>
+#include <pthread.h>
 
 #include <gtk/gtk.h>
 
@@ -86,6 +87,7 @@ extern void     VPInitLibrary();
 
 };
 
+#include "ADM_script/ADM_JSGlobal.h"
 
 void sig_segfault_handler(int signo);
 
@@ -202,12 +204,12 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
    	SDL_Init(0); //SDL_INIT_AUDIO+SDL_INIT_VIDEO);
    #endif
     oplug_mpegInit();
+
 	if(SpidermonkeyInit() == true)
 		printf("Spidermonkey initialized.\n");
 
-    gtk_main();
+	gtk_main();
 
-	SpidermonkeyDestroy();
 
     return 0;
 }
@@ -216,6 +218,12 @@ void onexit( void )
 	filterCleanUp();
 	ADMImage_stat();
 	ADM_memStat();
+	// wait for thread to finish executing
+	printf("Waiting for Spidermonkey to finish...\n");
+	pthread_mutex_lock(&g_pSpiderMonkeyMutex);
+	printf("Cleaning up Spidermonkey.\n");
+	SpidermonkeyDestroy();
+	pthread_mutex_unlock(&g_pSpiderMonkeyMutex);
 	printf("\n Goodbye...\n\n");
 }
 void sig_segfault_handler(int signo)

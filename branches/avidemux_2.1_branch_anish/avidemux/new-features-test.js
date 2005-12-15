@@ -51,9 +51,11 @@ else
 /* test out my custom object */
 var myLight = new Light(false,"newLight");
 myLight.display();
-myLight.toggle();
-myLight.display();
-
+for(var n = 0;n < 1000000;n++)
+{
+	myLight.toggle();
+	myLight.display();
+}
 setSuccess(true);
 
 include("non-existant-include.js");

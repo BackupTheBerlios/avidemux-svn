@@ -147,7 +147,7 @@ void ADM_cutWizard (void);
 void computeIT (int size, int nb, int brate, uint32_t * frame,
 		uint32_t * rsize);
 uint8_t  ADM_saveRaw (const char *name);
-static char * actual_workbench_file;
+char * actual_workbench_file;
 void A_saveWorkbench (char *name);
 void updateLoaded (void);
 extern void encoderSetLogFile (char *name);
@@ -186,6 +186,10 @@ static int A_vob2vobsub(void);
 uint8_t DIA_builtin(void);
 renderZoom currentZoom=ZOOM_1_1;
 uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name);
+
+#include "ADM_script/ADM_JSGlobal.h"
+#include <pthread.h>
+
 //___________________________________________
 // serialization of user event throught gui
 //
@@ -2058,17 +2062,23 @@ A_saveWorkbench (char *name)
 }
 
 void A_parseECMAScript(const char *name){
-  bool ret;
+/*  bool ret = false;*/
    if (playing){
       GUI_PlayAvi();
       curframe = 0;
    }
+
+	pthread_mutex_init(&g_pSpiderMonkeyMutex, NULL);
+	pthread_create(&g_pThreadSpidermonkey, NULL, StartThreadSpidermonkey, (void *)name);
+	pthread_detach(g_pThreadSpidermonkey);
+/*
    ret = parseECMAScript(name);
-   if( ret == 0 ){
+   if( ret == false ){
       if( actual_workbench_file )
          ADM_dealloc(actual_workbench_file);
       actual_workbench_file = ADM_strdup(name);
    }
+*/
 }
 //---------------------
 extern int DIA_audioEncoder(int *pmode, int *pbitrate,const char *title);
