@@ -6,7 +6,6 @@
 // Spidermonkey
 #include <jsapi.h>
 #include "ADM_AvidemuxAudio.h"
-#include <config.h>
 
 class ADM_JSAvidemuxAudio
 {

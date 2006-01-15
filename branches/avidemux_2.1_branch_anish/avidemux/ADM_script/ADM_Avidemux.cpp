@@ -1,8 +1,5 @@
 #include "ADM_Avidemux.h"
 
-extern JSContext *g_pCx;
-extern JSObject *g_pObject;
-
 ADM_Avidemux::ADM_Avidemux(void) :  m_pAudio(NULL), m_pVideo(NULL), m_pContainer(NULL), m_nCurrentFrame(0), m_dFPS(0)
 {// begin ADM_Avidemux
 

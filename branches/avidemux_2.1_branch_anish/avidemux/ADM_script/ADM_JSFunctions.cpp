@@ -311,6 +311,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		return JS_FALSE;
 	}// end setuid/setgid files disallowed
 
+//	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	// clear file descriptor table of forked process and fork
 	pid_t pidRtn = rfork(RFPROC|RFCFDG);
 	if(pidRtn == 0)
@@ -335,6 +336,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	{// begin rfork failure
 		printf("Error: execve failure errno(%d)\n",errno);
 	}// end rfork failure
+//	JS_ResumeRequest(g_pCx,nRefCount);
 
 	// cleanup
 	delete []args;

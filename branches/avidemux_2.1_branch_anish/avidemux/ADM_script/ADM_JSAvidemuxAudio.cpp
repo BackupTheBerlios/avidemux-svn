@@ -10,7 +10,9 @@
 //
 //
 
+#include <config.h>
 #include <stdlib.h>
+#include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemuxAudio.h"
 #include "ADM_library/default.h"
 #include "ADM_toolkit/toolkit.hxx"
@@ -171,6 +173,7 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
 {
 	if (JSVAL_IS_INT(id)) 
 	{
+		jsrefcount nRefCount;
 		ADM_JSAvidemuxAudio *priv = (ADM_JSAvidemuxAudio *) JS_GetPrivate(cx, obj);
 		switch(JSVAL_TO_INT(id))
 		{
@@ -178,56 +181,74 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				UI_setAProcessToggleStatus(priv->getObject()->m_bAudioProcess);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case normalize_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bNormalize = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterNormalize(priv->getObject()->m_bNormalize);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case downsample_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bDownsample = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterDownsample(priv->getObject()->m_bDownsample);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case resample_prop:
 				if(JSVAL_IS_INT(*vp) == false)
 					break;
 				priv->getObject()->m_nResample = JSVAL_TO_INT(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterResample(priv->getObject()->m_nResample);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case delay_prop:
 				if(JSVAL_IS_INT(*vp) == false)
 					break;
 				priv->getObject()->m_nDelay = JSVAL_TO_INT(*vp);
 				//audioFilterDelay(priv->getObject()->m_nDelay);
+				nRefCount = JS_SuspendRequest(g_pCx);
                                 UI_setTimeShift(1, priv->getObject()->m_nDelay); 
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case film2pal_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bFilm2PAL = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterFilm2Pal(priv->getObject()->m_bFilm2PAL);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case pal2film_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bPAL2Film = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterFilm2Pal(priv->getObject()->m_bPAL2Film);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case mono2stereo_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bMono2Stereo = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterMono2Stereo(priv->getObject()->m_bMono2Stereo);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 			case stereo2mono_prop:
 				if(JSVAL_IS_BOOLEAN(*vp) == false)
 					break;
 				priv->getObject()->m_bStereo2Mono = JSVAL_TO_BOOLEAN(*vp);
+				nRefCount = JS_SuspendRequest(g_pCx);
 				audioFilterStereo2Mono(priv->getObject()->m_bStereo2Mono);
+				JS_ResumeRequest(g_pCx,nRefCount);
 				break;
 		}
 	}
@@ -243,7 +264,9 @@ JSBool ADM_JSAvidemuxAudio::ScanVBR(JSContext *cx, JSObject *obj, uintN argc,
 	if(argc != 0)
 		return JS_FALSE;
 	printf("Scaning Audio... \n");
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	HandleAction(ACT_AudioMap);
+	JS_ResumeRequest(g_pCx,nRefCount);
 	*rval = BOOLEAN_TO_JSVAL(true);
 	return JS_TRUE;
 }// end ScanVBR
@@ -260,7 +283,9 @@ JSBool ADM_JSAvidemuxAudio::Save(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving Audio \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = INT_TO_JSVAL(A_audioSave(pTempStr));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Save
 
@@ -284,6 +309,7 @@ JSBool ADM_JSAvidemuxAudio::Load(JSContext *cx, JSObject *obj, uintN argc,
 	
 	src=audioSourceFromString(pArg0);
 	if(!src) {printf("[Script]Invalid audiosource type\n");return JS_FALSE;}
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	switch(src)
 	{
 		case AudioAvi:
@@ -305,6 +331,7 @@ JSBool ADM_JSAvidemuxAudio::Load(JSContext *cx, JSObject *obj, uintN argc,
 			ADM_assert(0);
 			break;
 	}
+	JS_ResumeRequest(g_pCx,nRefCount);
 	printf("[script] ");
 	
 	if(!result)
@@ -325,8 +352,9 @@ JSBool ADM_JSAvidemuxAudio::Reset(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 0)
 		return JS_FALSE;
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	audioReset();
-
+	JS_ResumeRequest(g_pCx,nRefCount);
 	*rval = BOOLEAN_TO_JSVAL(true);
 	return JS_TRUE;
 }// end Reset
@@ -343,6 +371,7 @@ JSBool ADM_JSAvidemuxAudio::Codec(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *name = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	LowerCase(name);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	// First search the codec by its name
 	if(!audioCodecSetByName(name))
 		*rval = BOOLEAN_TO_JSVAL(false);
@@ -351,6 +380,7 @@ JSBool ADM_JSAvidemuxAudio::Codec(JSContext *cx, JSObject *obj, uintN argc,
 		audioFilter_SetBitrate(JSVAL_TO_INT(argv[1]));
 		*rval = BOOLEAN_TO_JSVAL(true);
 	}// end set bitrate
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Codec
 JSBool ADM_JSAvidemuxAudio::getNbTracks(JSContext *cx, JSObject *obj, uintN argc, 
@@ -364,7 +394,9 @@ uint32_t *infos=NULL;
 		return JS_FALSE;
         // default return value
        
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         video_body->getAudioStreamsInfo(0,&nb, &infos);
+	JS_ResumeRequest(g_pCx,nRefCount);
         if(infos)
                 delete [] infos;
         *rval = INT_TO_JSVAL(nb);
@@ -387,7 +419,9 @@ uint32_t *infos=NULL;
         delete [] infos;
         nw=(JSVAL_TO_INT(argv[0]));
         if(nw>nb) return JS_FALSE;
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         video_body->changeAudioStream(0,nw);
+	JS_ResumeRequest(g_pCx,nRefCount);
         return JS_TRUE;
 }// end Codec
 JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
@@ -406,10 +440,13 @@ JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN
                 return JS_FALSE;
         // Now get the name
         name = JS_GetStringBytes(JSVAL_TO_STRING(argv[1]));
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         if(A_setSecondAudioTrack(source,name))
         {
+		JS_ResumeRequest(g_pCx,nRefCount);
                 return JS_TRUE;
         }
+	JS_ResumeRequest(g_pCx,nRefCount);
        return JS_FALSE;
 }
 JSBool ADM_JSAvidemuxAudio::lamePreset(JSContext *cx, JSObject *obj, uintN argc, 
@@ -426,11 +463,13 @@ uint32_t *infos=NULL;
 	if(JSVAL_IS_STRING(argv[0]) == false)
 		return JS_FALSE;
         char *pArg0 = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         if(audioLamePreset(pArg0))
                 *rval=BOOLEAN_TO_JSVAL(true);
         else
                 *rval=BOOLEAN_TO_JSVAL(false);
-        return JS_TRUE;
+ 	JS_ResumeRequest(g_pCx,nRefCount);
+       return JS_TRUE;
 #else
         return JS_FALSE;
 #endif

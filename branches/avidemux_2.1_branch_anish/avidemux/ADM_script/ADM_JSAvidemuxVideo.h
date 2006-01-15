@@ -4,7 +4,6 @@
 #pragma once
 
 // Spidermonkey
-#include <config.h>
 #include <jsapi.h>
 #include "ADM_AvidemuxVideo.h"
 

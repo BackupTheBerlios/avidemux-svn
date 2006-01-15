@@ -173,10 +173,12 @@ JSBool ADM_JSAvidemux::JSGetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 
 					if (avifileinfo)
 					{
+						jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 						video_body->getVideoInfo(&info);
 						priv->getObject()->m_dFPS = info.fps1000/1000.0; (uint32_t)floor(priv->getObject()->m_dFPS*1000.f);
 						video_body->updateVideoInfo (&info);
 						video_body->getVideoInfo (avifileinfo);
+						JS_ResumeRequest(g_pCx,nRefCount);
 					} 
 					else 
 					{
@@ -267,8 +269,13 @@ JSBool ADM_JSAvidemux::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
 						
 						frameno = info.nb_frames-frameno;
 					}
+					jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 					if(GUI_GoToFrame( frameno ))
+					{
+						JS_ResumeRequest(g_pCx,nRefCount);
 						return JS_TRUE;
+					}
+					JS_ResumeRequest(g_pCx,nRefCount);
 					return JS_FALSE;
 				}
 				break;
@@ -311,7 +318,9 @@ JSBool ADM_JSAvidemux::Load(JSContext *cx, JSObject *obj, uintN argc,
 	printf("Loading \"%s\"\n",pTempStr);
         // Do a failure instead of returing ko
         *rval = BOOLEAN_TO_JSVAL(JS_TRUE);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         if(!A_openAvi(pTempStr)) return JS_FALSE;	
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Load
 
@@ -327,7 +336,9 @@ JSBool ADM_JSAvidemux::LoadFilters(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Loading Filters \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(filterLoadXml(pTempStr,0));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end LoadFilters
 
@@ -344,7 +355,9 @@ JSBool ADM_JSAvidemux::Append(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Appending \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(A_appendAvi(pTempStr));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Append
 
@@ -361,7 +374,9 @@ JSBool ADM_JSAvidemux::Delete(JSContext *cx, JSObject *obj, uintN argc,
 	int a = JSVAL_TO_INT(argv[0]);
 	int b = JSVAL_TO_INT(argv[1]);
 	aprintf("Deleting %d-%d\n",a,b);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(A_delete(a,b));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Delete
 
@@ -377,7 +392,9 @@ JSBool ADM_JSAvidemux::Save(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(A_Save(pTempStr));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end Save
 
@@ -393,7 +410,9 @@ JSBool ADM_JSAvidemux::SaveDVD(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving as DVD \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(A_saveDVDPS(pTempStr));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end SaveDVD
 
@@ -409,7 +428,9 @@ JSBool ADM_JSAvidemux::SaveOGM(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving as DVD \"%s\"\n",pTempStr);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = BOOLEAN_TO_JSVAL(A_saveDVDPS(pTempStr));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end SaveOGM
 static void updateAll(void)
@@ -434,7 +455,9 @@ JSBool ADM_JSAvidemux::ClearSegments(JSContext *cx, JSObject *obj, uintN argc,
         if(argc != 0)
                 return JS_FALSE;
         printf("clearing segments \n");
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         *rval = BOOLEAN_TO_JSVAL(video_body->deleteAllSegments());
+	JS_ResumeRequest(g_pCx,nRefCount);
         updateAll();
         return JS_TRUE;
 }// end ClearSegments
@@ -455,7 +478,9 @@ JSBool ADM_JSAvidemux::AddSegment(JSContext *cx, JSObject *obj, uintN argc,
         int b = JSVAL_TO_INT(argv[1]);
         int c = JSVAL_TO_INT(argv[2]);
         aprintf("adding segment :%d %d %d\n",a,b,c);
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         *rval = BOOLEAN_TO_JSVAL( video_body->addSegment(a,b,c));
+	JS_ResumeRequest(g_pCx,nRefCount);
         updateAll();
         return JS_TRUE;
 }// end AddSegment
@@ -484,7 +509,9 @@ JSBool ADM_JSAvidemux::GoToTime(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false || JSVAL_IS_INT(argv[2]) == false)
 		return JS_FALSE;
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
 	*rval = INT_TO_JSVAL(A_jumpToTime(JSVAL_TO_INT(argv[0]),JSVAL_TO_INT(argv[1]),JSVAL_TO_INT(argv[2])));
+	JS_ResumeRequest(g_pCx,nRefCount);
 	return JS_TRUE;
 }// end GoToTime
 
@@ -496,7 +523,9 @@ JSBool ADM_JSAvidemux::forceUnpack(JSContext *cx, JSObject *obj, uintN argc,
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 0)
 		return JS_FALSE;
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
     video_body->setEnv(ENV_EDITOR_PVOP);
+	JS_ResumeRequest(g_pCx,nRefCount);
 	*rval = INT_TO_JSVAL(1);
 	return JS_TRUE;
 }// end GoToTime
@@ -508,8 +537,10 @@ JSBool ADM_JSAvidemux::rebuildIndex(JSContext *cx, JSObject *obj, uintN argc,
         *rval = BOOLEAN_TO_JSVAL(false);
         if(argc != 0)
                 return JS_FALSE;
+	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
         video_body->rebuildFrameType();
-        return JS_TRUE;
+ 	JS_ResumeRequest(g_pCx,nRefCount);
+       return JS_TRUE;
 }// end GoToTime
 
 JSBool ADM_JSAvidemux::setContainer(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
@@ -523,8 +554,10 @@ ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
 	if(JSVAL_IS_STRING(argv[0]) == false)
 		return JS_FALSE;
         char *str = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
-        if(A_setContainer(str))
+ 	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+       if(A_setContainer(str))
                 *rval = BOOLEAN_TO_JSVAL( true);
+	JS_ResumeRequest(g_pCx,nRefCount);
         return JS_TRUE;
 }
 uint8_t A_setContainer(const char *cont)
@@ -534,7 +567,9 @@ uint8_t A_setContainer(const char *cont)
                 printf("%s\n",container[i].name);
                 if(!strcasecmp(cont,container[i].name))
                 {
+			jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
                         UI_SetCurrentFormat(container[i].type);
+			JS_ResumeRequest(g_pCx,nRefCount);
                         return 1;
                 }
        }

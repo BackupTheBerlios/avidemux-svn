@@ -98,9 +98,15 @@ bool CDirectorySearch::Init(std::string sDirectory)
 
 bool CDirectorySearch::Close()
 {// begin Close
+	bool bRtn = false;
 	// clean up directory string
 	m_sDirectory.clear();
-	return (bool)_findclose(m_hSearch);
+	if(m_hSearch != NULL)
+	{
+		bRtn = (bool)_findclose(m_hSearch);
+		m_hSearch = NULL;
+	}
+	return bRtn;
 }// end Close
 
 std::string CDirectorySearch::GetFilePath()

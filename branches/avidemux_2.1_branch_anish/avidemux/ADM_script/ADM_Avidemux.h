@@ -1,6 +1,7 @@
 #ifndef _ADM_AVIDEMUX_H
 #define _ADM_AVIDEMUX_H
 
+#include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemuxAudio.h"
 #include "ADM_JSAvidemuxVideo.h"
 

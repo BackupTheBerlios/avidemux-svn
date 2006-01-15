@@ -14,20 +14,6 @@ extern uint8_t JS_AvidemuxFunction(JSContext *cx,JSObject *global);
 extern void A_Resync(void);
 extern char * actual_workbench_file;
 
-// expose our main javascript context to the entire program
-static bool g_bJSSuccess = 0;
-JSObject *g_pObject;
-JSContext *g_pCx;
-JSRuntime *g_pRt;
-JSClass g_globalClass =
-{
-	"Global", 0,
-	JS_PropertyStub,  JS_PropertyStub,
-	JS_PropertyStub, JS_PropertyStub,
-	JS_EnumerateStub, JS_ResolveStub,
-	JS_ConvertStub,  JS_FinalizeStub
-};
-
 void
 printJSError(JSContext *cx, const char *message, JSErrorReport *report)
 {// begin printJSError
@@ -97,6 +83,7 @@ bool SpidermonkeyInit()
 
 void SpidermonkeyDestroy()
 {// begin SpidermonkeyDestroy
+	JS_SetContextThread(g_pCx);
 	JS_DestroyContext(g_pCx);
 	JS_DestroyRuntime(g_pRt);
 }// end SpidermonkeyDestroy
@@ -104,6 +91,15 @@ void SpidermonkeyDestroy()
 void *StartThreadSpidermonkey(void *pData)
 {// begin StartThreadSpidermonkey
 	pthread_mutex_lock(&g_pSpiderMonkeyMutex);
+	/*
+	The following mailling list post describes how to CORRECTLY use
+	the threading API support with Spidermonkey
+	"Thread from SpiderMonkey newsgroup"
+	http://archive.gingerall.cz/archives/public/sablot2004/msg00117.html
+	*/
+	// Notify the Spidermonkey that we'll be processing in a thread
+	JS_BeginRequest(g_pCx);
+	JS_SetContextThread(g_pCx);
 	bool ret = false;
 	const char *pScriptFile = static_cast<const char *>(pData);
 	ret = parseECMAScript(pScriptFile);
@@ -113,6 +109,9 @@ void *StartThreadSpidermonkey(void *pData)
 			ADM_dealloc(actual_workbench_file);
 		actual_workbench_file = ADM_strdup(pScriptFile);
 	}
+	// Notify Spidermonkey that our thread processing has finished
+	JS_ClearContextThread(g_pCx);
+	JS_EndRequest(g_pCx);
 	pthread_mutex_unlock(&g_pSpiderMonkeyMutex);
 	return NULL;
 }// end StartThreadSpidermonkey
