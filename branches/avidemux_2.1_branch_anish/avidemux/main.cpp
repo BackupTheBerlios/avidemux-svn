@@ -124,9 +124,9 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 // thx smurf uk :)
      signal(11, sig_segfault_handler); // show stacktrace on default
 
-    	printf("\n*******************\n");
-    	printf("  Avidemux 2, v  " VERSION "\n");
-    	printf("*******************\n");
+	printf("\n*******************\n");
+	printf("  Avidemux 2, v  " VERSION "\n");
+	printf("*******************\n");
 	printf(" http://fixounet.free.fr/avidemux\n");
 	printf(" Code      : Mean & JSC \n");
 	printf(" GFX       : Nestor Di , nestordi@augcyl.org\n");
@@ -149,7 +149,9 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 
 #ifndef CYG_MANGLING    
     g_thread_init(NULL);
+    gdk_threads_init();
 #endif
+    gdk_threads_enter();
     gtk_set_locale();
     gtk_init(&argc, &argv);
     gdk_rgb_init();
@@ -204,12 +206,10 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
    	SDL_Init(0); //SDL_INIT_AUDIO+SDL_INIT_VIDEO);
    #endif
     oplug_mpegInit();
-
 	if(SpidermonkeyInit() == true)
 		printf("Spidermonkey initialized.\n");
-
 	gtk_main();
-
+	gdk_threads_leave();
 
     return 0;
 }

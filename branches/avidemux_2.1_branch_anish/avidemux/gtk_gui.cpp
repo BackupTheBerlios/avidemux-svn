@@ -2071,6 +2071,7 @@ void A_parseECMAScript(const char *name){
 	pthread_mutex_init(&g_pSpiderMonkeyMutex, NULL);
 	pthread_create(&g_pThreadSpidermonkey, NULL, StartThreadSpidermonkey, (void *)name);
 	pthread_detach(g_pThreadSpidermonkey);
+	printf("Thread Launched...continuing.\n");
 
 /*
    ret = parseECMAScript(name);

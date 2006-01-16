@@ -158,6 +158,7 @@ int ret=0;
                 return 0 ;
         }
 
+	gdk_threads_enter();
         dialog=create_dialogYN();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
         gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
@@ -170,6 +171,8 @@ int ret=0;
         gtk_unregister_dialog(dialog);
         gtk_widget_destroy(dialog);
         UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 
 	return ret;
 }
@@ -188,6 +191,7 @@ void             GUI_Info(const char *alertstring)
                 printf("Info: %s\n",alertstring);
                 return  ;
         }
+	gdk_threads_enter();
         dialog=create_dialogInfo();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
         gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
@@ -196,6 +200,8 @@ void             GUI_Info(const char *alertstring)
         gtk_unregister_dialog(dialog);
         gtk_widget_destroy(dialog);
         UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 
 }
 
@@ -212,6 +218,7 @@ void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *sec
 	GtkWidget *dialog;
 	uint32_t msglvl=2;
 
+	gdk_threads_enter();
         prefs->get(MESSAGE_LEVEL,&msglvl);
 
         if(msglvl<=level)
@@ -258,6 +265,8 @@ void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *sec
 	gtk_unregister_dialog(dialog);
 	gtk_widget_destroy(dialog);
 	UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 }
 
 /**
@@ -275,6 +284,7 @@ void 		GUI_Alert(const char *alertstring)
                 printf("Info: %s\n",alertstring);
                 return  ;
         }
+	gdk_threads_enter();
         dialog=create_dialogWarning();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
         gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
@@ -283,6 +293,8 @@ void 		GUI_Alert(const char *alertstring)
         gtk_unregister_dialog(dialog);
         gtk_widget_destroy(dialog);
 	UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 
 }
 
@@ -299,6 +311,7 @@ void GUI_Error_HIG(const char *primary, const char *secondary_format, ...)
 	GtkWidget *dialog;
 	uint32_t msglvl=2;
 
+	gdk_threads_enter();
         prefs->get(MESSAGE_LEVEL,&msglvl);
         if(msglvl==ADM_LOG_NONE) 
         {
@@ -344,6 +357,9 @@ void GUI_Error_HIG(const char *primary, const char *secondary_format, ...)
 	gtk_unregister_dialog(dialog);
 	gtk_widget_destroy(dialog);
 	UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
+
 }
 
 /**
@@ -364,7 +380,8 @@ int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const 
 {
 	int ret=0;
 	GtkWidget *dialog;
-	
+
+	gdk_threads_enter();
 	va_list ap;
 	va_start(ap, secondary_format);
 
@@ -406,6 +423,8 @@ int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const 
 	gtk_unregister_dialog(dialog);
 	gtk_widget_destroy(dialog);
 	UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 	return ret;
 }
 
@@ -427,7 +446,8 @@ int GUI_YesNo(const char *primary, const char *secondary_format, ...)
 {
 	int ret=0;
 	GtkWidget *dialog;
-	
+
+	gdk_threads_enter();
 	va_list ap;
 	va_start(ap, secondary_format);
 
@@ -469,6 +489,8 @@ int GUI_YesNo(const char *primary, const char *secondary_format, ...)
 	gtk_unregister_dialog(dialog);
 	gtk_widget_destroy(dialog);
 	UI_purge();
+	gdk_flush();
+	gdk_threads_leave();
 	return ret;
 }
 

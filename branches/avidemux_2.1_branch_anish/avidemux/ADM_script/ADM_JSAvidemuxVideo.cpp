@@ -168,9 +168,9 @@ JSBool ADM_JSAvidemuxVideo::Clear(JSContext *cx, JSObject *obj, uintN argc,
 	if(argc != 0)
 		return JS_FALSE;
 	printf("Clearing Video... \n");
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	*rval = BOOLEAN_TO_JSVAL(video_body->deleteAllSegments());
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	return JS_TRUE;
 }// end Clear
 
@@ -185,9 +185,9 @@ JSBool ADM_JSAvidemuxVideo::Add(JSContext *cx, JSObject *obj, uintN argc,
 	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false  || JSVAL_IS_INT(argv[2]) == false)
 		return JS_FALSE;
 	printf("Adding Video... \n");
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	*rval = BOOLEAN_TO_JSVAL(video_body->addSegment(JSVAL_TO_INT(argv[0]),JSVAL_TO_INT(argv[1]),JSVAL_TO_INT(argv[2])));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	return JS_TRUE;
 }// end Add
 
@@ -216,10 +216,10 @@ JSBool ADM_JSAvidemuxVideo::AddFilter(JSContext *cx, JSObject *obj, uintN argc,
                 v=ADM_strdup(JS_GetStringBytes(JSVAL_TO_STRING(argv[i])));
                 args[i].arg.string=v;
         }
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
                 *rval= BOOLEAN_TO_JSVAL(filterAddScript(filter,argc,args));
          for(int i=0;i<argc;i++) ADM_dealloc(args[i].arg.string);
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
         return JS_TRUE;
 }// end AddFilter
 
@@ -241,7 +241,7 @@ JSBool ADM_JSAvidemuxVideo::Codec(JSContext *cx, JSObject *obj, uintN argc,
 		codec = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 		conf = JS_GetStringBytes(JSVAL_TO_STRING(argv[1]));
 		codecConfString = JS_GetStringBytes(JSVAL_TO_STRING(argv[2]));
-		jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+		jsrefcount nRefCount = JS_SuspendRequest(cx);
 		if(!videoCodecSelectByName(codec))
 			*rval = BOOLEAN_TO_JSVAL(false);
 		else
@@ -263,7 +263,7 @@ JSBool ADM_JSAvidemuxVideo::Codec(JSContext *cx, JSObject *obj, uintN argc,
                         }
 
 		}// end conf
-		JS_ResumeRequest(g_pCx,nRefCount);
+		JS_ResumeRequest(cx,nRefCount);
 	}// end valid
 	return JS_TRUE;
 }// end Codec
@@ -280,9 +280,9 @@ JSBool ADM_JSAvidemuxVideo::CodecConf(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Codec Conf Video \"%s\"\n",pTempStr);
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	*rval = INT_TO_JSVAL(loadVideoCodecConf(pTempStr));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	return JS_TRUE;
 }// end CodecConf
 
@@ -298,9 +298,9 @@ JSBool ADM_JSAvidemuxVideo::Save(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving Video \"%s\"\n",pTempStr);
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	*rval = INT_TO_JSVAL(ADM_saveRaw(pTempStr));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	return JS_TRUE;
 }// end Save
 
@@ -316,9 +316,9 @@ JSBool ADM_JSAvidemuxVideo::SaveJPEG(JSContext *cx, JSObject *obj, uintN argc,
 		return JS_FALSE;
 	char *pTempStr = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	printf("Saving JPEG \"%s\"\n",pTempStr);
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	*rval = INT_TO_JSVAL(A_saveJpg(pTempStr));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	return JS_TRUE;
 }// end SaveJPG
 
@@ -332,9 +332,9 @@ JSBool ADM_JSAvidemuxVideo::ListBlackFrames(JSContext *cx, JSObject *obj, uintN 
 		return JS_FALSE;
 	if(JSVAL_IS_STRING(argv[0]) == false)
 		return JS_FALSE;
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	A_ListAllBlackFrames(JS_GetStringBytes(JSVAL_TO_STRING(argv[0])));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	*rval = BOOLEAN_TO_JSVAL(true);
 	return JS_TRUE;
 }// end ListBlackFrames
@@ -349,9 +349,9 @@ JSBool ADM_JSAvidemuxVideo::PostProcess(JSContext *cx, JSObject *obj, uintN argc
 		return JS_FALSE;
 	if(JSVAL_IS_INT(argv[0]) == false || JSVAL_IS_INT(argv[1]) == false || JSVAL_IS_INT(argv[2]) == false)
 		return JS_FALSE;
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	int rtn = video_body->setPostProc(JSVAL_TO_INT(argv[0]),JSVAL_TO_INT(argv[1]),JSVAL_TO_INT(argv[2]));
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	*rval = BOOLEAN_TO_JSVAL(rtn);
 	return JS_TRUE;
 }// end PostProcess
@@ -393,11 +393,11 @@ aviInfo info;
                 printf("Fps too low\n");
                 return JS_FALSE;
         }       
- 	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+ 	jsrefcount nRefCount = JS_SuspendRequest(cx);
        info.fps1000=fps;
         video_body->updateVideoInfo(&info);
         video_body->getVideoInfo (avifileinfo);
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
         return JS_TRUE;
 }// end PostProcess
 
@@ -439,9 +439,9 @@ JSBool ADM_JSAvidemuxVideo::GetFCC(JSContext *cx, JSObject *obj, uintN argc,
 {// begin PostProcess
 aviInfo info;
 
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
         video_body->getVideoInfo(&info);
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
         
         ADM_JSAvidemuxVideo *p = (ADM_JSAvidemuxVideo *)JS_GetPrivate(cx, obj);
         // default return value
@@ -505,9 +505,9 @@ JSBool ADM_JSAvidemuxVideo::RebuildIBFrames(JSContext *cx, JSObject *obj, uintN 
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 0)
 		return JS_FALSE;
-	jsrefcount nRefCount = JS_SuspendRequest(g_pCx);
+	jsrefcount nRefCount = JS_SuspendRequest(cx);
 	rtn = A_rebuildKeyFrame();
-	JS_ResumeRequest(g_pCx,nRefCount);
+	JS_ResumeRequest(cx,nRefCount);
 	*rval = BOOLEAN_TO_JSVAL((bool)rtn);
 	return JS_TRUE;
 }// end RebuildIBFrames
