@@ -37,7 +37,7 @@
 #include "ADM_toolkit/toolkit.hxx"
 #include "faac.h"
 #include "ADM_audiofilter/audioeng_faac.h"
-
+#define FA_BUFFER_SIZE (SIZE_INTERNAL/4)
 static uint16_t remap[4096];
 // Ctor: Duplicate
 //__________
@@ -162,7 +162,7 @@ int wr;
                       (int32_t *)buf,
                       nbSample, // Nb sample for all channels
                       dest,
-                      64*1024
+                      FA_BUFFER_SIZE
 		      );
 		break;
 	case 2:
@@ -171,7 +171,7 @@ int wr;
                       (int32_t *)buf,
                       nbSample*2, // Nb sample for all channels
                       dest,
-                      64*1024
+                      FA_BUFFER_SIZE
 		      );
 		break;
 	}
