@@ -25,9 +25,15 @@ int CDirectorySearch::_findnext(unsigned long int hDir,_finddata_t *pfdData)
 	if(!pEntry)
 		return -1;
 	std::string sFilePath = "";
+#ifdef __linux__
+	strncpy(pfdData->name,pEntry->d_name,pEntry->d_reclen);
+	// append NULL terminator
+	pfdData->name[pEntry->d_reclen] = '\0';
+#elif __FreeBSD__
 	strncpy(pfdData->name,pEntry->d_name,pEntry->d_namlen);
 	// append NULL terminator
 	pfdData->name[pEntry->d_namlen] = '\0';
+#endif
 	sFilePath += m_sDirectory;
 	sFilePath += DIRECTORY_DELIMITOR;
 	sFilePath += pfdData->name;

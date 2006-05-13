@@ -76,7 +76,11 @@ JSBool ADM_SharedLibrary::Call(JSContext *cx, JSObject *obj, uintN argc, jsval *
 	const char *pFunctionName = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
 	std::string sReturnType = JS_GetStringBytes(JSVAL_TO_STRING(argv[1]));
 
+#ifdef __linux__
+	void *SomeFunc = dlsym(m_pLibrary, pFunctionName);
+#elif __FreeBSD__
 	dlfunc_t SomeFunc = dlfunc(m_pLibrary, pFunctionName);
+#endif
 	if(SomeFunc == NULL)
 		return JS_FALSE;
 
