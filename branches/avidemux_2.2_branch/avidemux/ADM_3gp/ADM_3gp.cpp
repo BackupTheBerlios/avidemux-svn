@@ -555,7 +555,7 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
 
 
                                         }
-                    case MKFCCR('Q','D','M','2'): //sowt
+                    case MKFCCR('Q','D','M','2'): // QDM2
                                         {
                                         tom.skipBytes(8);
                                         printf("QDM2 audio\n");
@@ -573,7 +573,12 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
                                         printf("Byterate  :%lu\n",ADIO.byterate);
                                         printf("Frequency :%lu\n",ADIO.frequency);
                                         printf("Bps       :%lu\n",ADIO.bitspersample);
-                                        tom.skipAtom();
+                                        tom.skipBytes(26);
+
+                                        _tracks[nbAudioTrack+1].extraDataSize=tom.getRemainingSize();
+                                        _tracks[nbAudioTrack+1].extraData=new uint8_t [_tracks[nbAudioTrack+1].extraDataSize];
+                                        tom.readPayload(_tracks[nbAudioTrack+1].extraData,_tracks[nbAudioTrack+1].extraDataSize);
+                                        mixDump(_tracks[nbAudioTrack+1].extraData,_tracks[nbAudioTrack+1].extraDataSize);
                                         break;          
 
 
