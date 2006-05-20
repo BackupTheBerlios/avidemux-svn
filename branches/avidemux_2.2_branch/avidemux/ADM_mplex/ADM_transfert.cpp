@@ -115,7 +115,8 @@ Transfert::Transfert(void)
         buffer=new uint8_t[TRANSFERT_BUFFER];
 
         aborted=0;
-        
+        transfered_r=0;
+        transfered_w=0;
         
         head=tail=0;
         
@@ -136,6 +137,16 @@ uint8_t Transfert::dumpStatus(void)
     printf("mutex :%u\n",mutex.isLocked());
     printf("cond :%u\n",cond->iswaiting());
     printf("Clientcond :%u\n",clientCond->iswaiting());
+    printf("Written : %u bytes\n",transfered_w);
+    printf("Read : %u bytes\n",transfered_r);
+
+    printf("cond waiting :%u\n",cond->waiting);
+    printf("cond aborted :%u\n",cond->aborted);
+
+    printf("clientCond waiting :%u\n",clientCond->waiting);
+    printf("clientCond aborted :%u\n",clientCond->aborted);
+
+    
     return 1;
 }
 uint32_t Transfert:: read(uint8_t *buf, uint32_t nb  )
@@ -156,7 +167,7 @@ uint32_t fill=0;
                 memcpy(buf,buffer+head,nb);                
                 head+=nb;
                 r+=nb;
-                
+                transfered_r+=nb;
                 goto endit;                                                    
         }
         
@@ -171,7 +182,7 @@ uint32_t fill=0;
                 
                 goto endit;
          }
-         
+         if(clientCond->iswaiting()) printf("Client : %d\n",clientCond->waiting);
          threadFailure(!clientCond->iswaiting());
          
 #ifdef MPLEX_D      
@@ -198,6 +209,7 @@ endit:
                 }
         }
         mutex.unlock();
+        transfered_w+=r;
         return r;               
 }
 //*********************************
@@ -236,7 +248,8 @@ uint8_t Transfert:: write(uint8_t *buf, uint32_t nb  )
                 threadFailure(0);
         
         }
-        memcpy(buffer+tail,buf,nb);        
+        memcpy(buffer+tail,buf,nb);       
+        transfered_w+=nb;
         tail+=nb;
         
         if(cond->iswaiting())

@@ -31,9 +31,10 @@ class admCond
 private:
         pthread_cond_t  _cond;
         admMutex        *_condtex;
+
+public:        
         uint8_t         waiting;
         uint8_t         aborted;
-public:        
                         admCond( admMutex *tex);
                         ~admCond();        
                 uint8_t wait(void);
@@ -55,6 +56,7 @@ protected:
         uint8_t  *buffer;   
         uint32_t head,tail;     
         uint8_t  dumpStatus(void);
+        uint32_t transfered_r,transfered_w;
 public:        
                 Transfert( void );
                 ~Transfert(  );
