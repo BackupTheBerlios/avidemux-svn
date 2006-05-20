@@ -32,7 +32,7 @@
 // minimum amount of audio buffer we need
 #define MIN_REQUIRED    (1024*1024)
 //#define MPLEX_D
-#define threadFailure(x) if(x){printf("Condition "#x" failed at line %d\n",__LINE__);dumpStatus();ADM_assert(0);}
+#define threadFailure(x) if(!(x)){printf("Condition "#x" failed at line %d\n",__LINE__);dumpStatus();ADM_assert(0);}
 //**************** Mutex *******************
 admMutex::admMutex(void)
 {
