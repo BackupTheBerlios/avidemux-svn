@@ -32,7 +32,7 @@
 // minimum amount of audio buffer we need
 #define MIN_REQUIRED    (1024*1024)
 //#define MPLEX_D
-
+#define threadFailure(x) if(x){printf("Condition "#x" failed at line %d\n",__LINE__);dumpStatus();ADM_assert(0);}
 //**************** Mutex *******************
 admMutex::admMutex(void)
 {
@@ -127,6 +127,17 @@ Transfert::~Transfert()
         delete [] buffer;
         
 }
+uint8_t Transfert::dumpStatus(void)
+{
+    printf("Mplex threading status : \n");
+    printf("Aborted :%d\n",aborted);
+    printf("head :%u\n",head);
+    printf("tail :%u\n",tail);
+    printf("mutex :%u\n",mutex.isLocked());
+    printf("cond :%u\n",cond->iswaiting());
+    printf("Clientcond :%u\n",clientCond->iswaiting());
+    return 1;
+}
 uint32_t Transfert:: read(uint8_t *buf, uint32_t nb  )
 {
 uint32_t r=0;
@@ -161,7 +172,7 @@ uint32_t fill=0;
                 goto endit;
          }
          
-         ADM_assert(!clientCond->iswaiting());
+         threadFailure(!clientCond->iswaiting());
          
 #ifdef MPLEX_D      
          printf("Wanted : %lu , left :%lu\n",nb,fill);   
@@ -222,7 +233,7 @@ uint8_t Transfert:: write(uint8_t *buf, uint32_t nb  )
         if(nb+tail>=TRANSFERT_BUFFER)
         {
                 printf("\n When writting %lu bytes, we overflow the existing %lu bytes\n",nb,tail-head);
-                ADM_assert(0);
+                threadFailure(0);
         
         }
         memcpy(buffer+tail,buf,nb);        
@@ -245,7 +256,7 @@ uint8_t Transfert::needData( void )
   uint8_t r=0;
         mutex.lock(); 
         l=tail-head;
-        ADM_assert(l>=0);
+        threadFailure(l>=0);
         mutex.unlock();
         if(l<MIN_REQUIRED) r=1;
         if(cond->iswaiting()) r=1;

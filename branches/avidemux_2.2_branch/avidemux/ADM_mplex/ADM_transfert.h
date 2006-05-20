@@ -54,6 +54,7 @@ protected:
         uint8_t  aborted;
         uint8_t  *buffer;   
         uint32_t head,tail;     
+        uint8_t  dumpStatus(void);
 public:        
                 Transfert( void );
                 ~Transfert(  );
