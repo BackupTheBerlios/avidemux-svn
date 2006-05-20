@@ -280,6 +280,12 @@ uint8_t Transfert::clientLock( void )
 #endif         
 
         mutex.lock();
+        // Redo check under same mutex lock
+        if((tail-head)<HIGH_LVL)
+        {
+            mutex.unlock();
+            return 1;
+        }
         clientCond->wait();               
         return 1;
 
