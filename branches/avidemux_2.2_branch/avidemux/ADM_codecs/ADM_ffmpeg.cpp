@@ -52,10 +52,31 @@ if(!codec) {GUI_Alert("Internal error opening codec"#x);ADM_assert(0);} \
   res=avcodec_open(_context, codec); \
   if(res<0) {GUI_Alert("Internal error with context for  codec"#x);ADM_assert(0);} \
 }
-
-
-void
-ffmpegEncoder::postAmble (ADMBitstream * out, uint32_t sz)
+/*****************************************/
+uint8_t ffmpegEncoder::stopEncoder(void)
+{
+    if (_init)
+    {
+        _init = 0;
+        avcodec_close (_context);
+        ADM_dealloc (_context);
+        _context = NULL;
+    }
+    return 1;
+}
+/*****************************************/
+ffmpegEncoderCQ::~ffmpegEncoderCQ ()
+  {
+    printf("Deleting ffmpegCQencoder\n");
+    stopEncoder ();
+    if (_statfile)
+      {
+        fflush(_statfile);
+	fclose (_statfile);
+      }
+  }
+/*****************************************/
+void ffmpegEncoder::postAmble (ADMBitstream * out, uint32_t sz)
 {
   out->ptsFrame = _context->coded_frame->display_picture_number; //real_pict_num;;
  //printf("Out : %u\n",out->ptsFrame);
@@ -68,6 +89,7 @@ ffmpegEncoder::postAmble (ADMBitstream * out, uint32_t sz)
 
 }
 //static myENC_RESULT res;
+/*****************************************/
 ffmpegEncoder::ffmpegEncoder (uint32_t width, uint32_t height, FF_CODEC_ID id):encoder (width,
 	 height)
 {
@@ -91,6 +113,7 @@ ffmpegEncoder::ffmpegEncoder (uint32_t width, uint32_t height, FF_CODEC_ID id):e
   _isMT = 0;
 
 };
+/*****************************************/
 uint8_t   ffmpegEncoder::encode(ADMImage *in,ADMBitstream *out)
 {
     int32_t sz = 0;
@@ -101,6 +124,7 @@ uint8_t   ffmpegEncoder::encode(ADMImage *in,ADMBitstream *out)
     postAmble(out,sz);
     return 1;
 }
+/*****************************************/
 ffmpegEncoder::~ffmpegEncoder ()
 {
   printf ("[codec] FF base encoder destroying..\n");
@@ -404,9 +428,7 @@ ffmpegEncoderCQ::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
       _statfile = NULL;
 
     }
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
+  _context->time_base = (AVRational)  {  1000, fps1000};
 /*
   _context->frame_rate_base = 1000;
   _context->frame_rate = fps1000;
@@ -514,9 +536,7 @@ ffmpegEncoderVBR::init (uint32_t val, uint32_t fps1000)
 //   _context->frame_rate_base = 1000;
 //   _context->frame_rate = fps1000;
 
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
+  _context->time_base = (AVRational)  {  1000, fps1000};
 
   /* If internal 2 passes mode is selected ... */
   _context->flags |= CODEC_FLAG_PASS2;
@@ -576,9 +596,7 @@ ffmpegEncoderVBRExternal::init (uint32_t val, uint32_t fps1000)
 
 /*  _context->frame_rate_base = 1000;
   _context->frame_rate = fps1000;*/
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
+  _context->time_base = (AVRational) {  1000, fps1000};
   _context->flags |= CODEC_FLAG_QSCALE;;
   _context->bit_rate = 0;
   _context->bit_rate_tolerance = 1024 * 8 * 1000;

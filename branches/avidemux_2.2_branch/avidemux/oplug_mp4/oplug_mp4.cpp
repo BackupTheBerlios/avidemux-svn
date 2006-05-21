@@ -113,7 +113,7 @@ uint32_t displayFrame=0;
 ADMBitstream    bitstream;
 uint32_t        frameWrite=0;
 ADM_MUXER_TYPE muxerType=MUXER_MP4;
-
+uint8_t dualPass=0;
            if(type==ADM_PSP)
                muxerType=MUXER_PSP;
            else
@@ -143,28 +143,33 @@ ADM_MUXER_TYPE muxerType=MUXER_MP4;
                 }
 
                 // init compressor
-                  if (!_encode->configure (_incoming))
-                {
-                        GUI_Error_HIG ("Filter init failed", NULL);
-                        goto  stopit;
-                };
-                
                 encoding_gui->setContainer("MP4");
                 encoding_gui->setAudioCodec("None");
                 if(!videoProcessMode())
                         encoding_gui->setCodec("Copy");
                 else
                         encoding_gui->setCodec(_encode->getDisplayName());
-                if (_encode->isDualPass ())
+                TwoPassLogFile=new char[strlen(name)+6];
+                strcpy(TwoPassLogFile,name);
+                strcat(TwoPassLogFile,".stat");
+                _encode->setLogFile(TwoPassLogFile,total);
+
+                if (!_encode->configure (_incoming))
                 {
-                        TwoPassLogFile=new char[strlen(name)+6];
-                        strcpy(TwoPassLogFile,name);
-                        strcat(TwoPassLogFile,".stat");
-                        _encode->setLogFile(TwoPassLogFile,total);
+                     GUI_Error_HIG ("Filter init failed", NULL);
+                     goto  stopit;
+                };
+
+                dualPass=_encode->isDualPass();
+                if(dualPass)
+                {
+                       
                         if(!prepareDualPass(videoBuffer,TwoPassLogFile,encoding_gui,_encode,total))
                                 goto stopit;
                 }else
+                {
                         encoding_gui->setPhasis ("Encoding");
+                }
                 
                 info.width=_incoming->getInfo()->width;
                 info.height=_incoming->getInfo()->height;
