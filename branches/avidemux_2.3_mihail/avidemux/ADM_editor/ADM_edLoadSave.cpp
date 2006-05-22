@@ -140,6 +140,12 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 //
         qfprintf(fd,"app.markerA=%d;\n",frameStart);
         qfprintf(fd,"app.markerB=%d;\n",frameEnd);
+// Reordering : Warning works only for video with one source video
+        if(video_body->isReordered(0))
+        {
+            qfprintf(fd,"app.rebuildIndex();\n");
+        }
+        
 // postproc
 //___________________________
 
@@ -215,6 +221,17 @@ char *pth;
    //qfprintf(fd,"app.audio.process=%s;\n",truefalse[audioProcessMode()]);
    qfprintf(fd,"app.audio.normalize=%s;\n",truefalse[audioGetNormalize()]);
    qfprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
+
+
+    // VBR ?
+    if(currentaudiostream)
+    {
+        uint32_t encoding=currentaudiostream->getInfo()->encoding;
+        if(currentaudiostream->isVBR() && (encoding==WAV_MP3 || encoding==WAV_MP2))
+        {
+            qfprintf(fd,"app.audio.scanVBR();\n");
+        }
+    }
 
 
    // Change fps ?

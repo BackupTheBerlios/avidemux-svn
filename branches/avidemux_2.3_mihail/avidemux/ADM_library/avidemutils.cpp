@@ -34,6 +34,7 @@
 char *ADM_escape(const ADM_filename *incoming);
 uint8_t ADM_findMpegStartCode(uint8_t *start, uint8_t *end,uint8_t *outstartcode,uint32_t *offset);
 void memcpyswap(uint8_t *dest, uint8_t *src, uint32_t size);
+uint32_t ADM_computeBitrate(uint32_t fps1000, uint32_t nbFrame, uint32_t sizeInMB);
 //_________________________________________________
 //      Convert a frame number into equivalent in ms
 //_________________________________________________
@@ -247,3 +248,25 @@ int l=0;
     *cur++=0;
     return out;
 }
+/*
+        Return average bitrate in bit/s
+*/
+uint32_t ADM_computeBitrate(uint32_t fps1000, uint32_t nbFrame, uint32_t sizeInMB)
+{
+  double    db,    ti;
+  uint32_t    vbr = 0;
+
+  db = sizeInMB;
+  db = db * 1024. * 1024. * 8.;
+  // now deb is in Bits
+
+  // compute duration
+  ti = nbFrame;
+  ti *= 1000;
+  ti /= fps1000;			// nb sec
+  db = db / ti;
+
+  vbr = (uint32_t) floor (db);
+  return vbr;
+}
+//EOF

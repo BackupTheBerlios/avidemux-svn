@@ -41,9 +41,9 @@ dnl Automake doc recommends to do this only here. (Janos)
 if [[ -f .svn/entries ]]; then
    rev=`awk -F\" '$1 ~ /revision=$/ { print $2 }' .svn/entries | tail -1`
    test -z "$rev" && rev="unknown"
-   AM_INIT_AUTOMAKE(avidemux,"2.2.0 svn rev $rev")
+   AM_INIT_AUTOMAKE(avidemux,"2.3.0 svn rev $rev")
 else
-   AM_INIT_AUTOMAKE(avidemux,"2.2.0")
+   AM_INIT_AUTOMAKE(avidemux,"2.3.0")
 fi
 
 dnl almost the same like KDE_SET_PEFIX but the path is /usr/local
@@ -184,6 +184,7 @@ have_darwin=no
 have_amd64=no
 have_ppc=no
 have_x264=yes
+have_libdca=yes
 dnl ____________________ Cygwin / mingwin ? ___________
 use_cygwin=no
 AC_MSG_CHECKING(win32 host)
@@ -534,6 +535,30 @@ if test "x$with_arts" != "xno"; then
 fi
 AC_SUBST(ARTS_CFLAGS)
 AC_SUBST(ARTS_LIBS)
+dnl ____________________________
+dnl LibDCA
+dnl ____________________________
+AC_ARG_WITH([libdca],
+	AC_HELP_STRING([--without-libdca], [Force compilation without libdca (default: test)]),
+	[with_libdca=${withval}], [with_libdca=test])
+
+AC_MSG_CHECKING([if libdca support is required])
+AC_MSG_RESULT($with_libdca)
+
+have_libdca=no
+
+if test "x$with_libdca" != "xno"; then
+    have_libdca=yes
+    AC_CHECK_HEADERS([dts.h], , have_libdca=no)
+    if test "x$have_libdca" = "xyes"; then
+            AC_CHECK_LIB( dts, dts_init, , have_libdca=no )
+    fi
+    if test "x$have_libdca" = "xyes"; then
+            AC_DEFINE(USE_LIBDCA, 1, "[libDCA]")
+    elif test "x$with_libdca" = "xyes"; then
+            AC_MSG_ERROR([libdca support requested but not found.])
+    fi
+fi
 
 dnl __________________mad______________
 AC_CHECK_HEADERS(mad.h,,have_mad=no)
@@ -1028,6 +1053,7 @@ dnl ___________________lavcodec _________________________
 AC_DEFINE(CONFIG_RISKY,1,[FFMPEG])
 AC_DEFINE(CONFIG_ENCODERS,1,[FFMPEG])
 AC_DEFINE(CONFIG_DECODERS,1,[FFMPEG])
+AC_DEFINE(CONFIG_QDM2_DECODER,1,[FFMPEG])
 AC_DEFINE(CONFIG_MPEGAUDIO_HP,1,[FFMPEG])
 AC_DEFINE(AMR_NB,1,[AMR_NB])
 AC_DEFINE(CONFIG_AMR_NB_DECODER,1,[AMR_NB])
@@ -1101,6 +1127,7 @@ echo " Ogg Vorbis          : $have_vorbis"
 echo " Faad2(decoder)      : $have_faad"
 echo " Faac (encoder)      : $have_faac"
 echo " A52/AC3             : $have_ac3"
+echo " libdca              : $have_libdca"
 echo " FFMPEG              : $have_ff"
 echo " ESD                 : $have_esd"
 echo " aRTs                : $have_arts"

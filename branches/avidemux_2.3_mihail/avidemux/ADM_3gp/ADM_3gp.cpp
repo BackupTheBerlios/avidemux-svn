@@ -555,6 +555,34 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
 
 
                                         }
+                    case MKFCCR('Q','D','M','2'): // QDM2
+                                        {
+                                        tom.skipBytes(8);
+                                        printf("QDM2 audio\n");
+                                        printf("Version : %u\n",tom.read16());
+                                        printf("Revision :%u\n",tom.read16());
+                                        printf("Vendor :%lu\n",tom.read32());
+                                        ADIO.channels=tom.read16();
+                                        ADIO.bitspersample=tom.read16();
+                                        tom.read16();
+                                        ADIO.encoding=WAV_QDM2;
+                                        ADIO.byterate=ADIO.frequency=tom.read32();
+                                        ADIO.byterate*=ADIO.bitspersample/8;
+                                        ADIO.byterate*=ADIO.channels;
+                                        
+                                        printf("Byterate  :%lu\n",ADIO.byterate);
+                                        printf("Frequency :%lu\n",ADIO.frequency);
+                                        printf("Bps       :%lu\n",ADIO.bitspersample);
+                                        tom.skipBytes(26);
+
+                                        _tracks[nbAudioTrack+1].extraDataSize=tom.getRemainingSize();
+                                        _tracks[nbAudioTrack+1].extraData=new uint8_t [_tracks[nbAudioTrack+1].extraDataSize];
+                                        tom.readPayload(_tracks[nbAudioTrack+1].extraData,_tracks[nbAudioTrack+1].extraDataSize);
+                                        mixDump(_tracks[nbAudioTrack+1].extraData,_tracks[nbAudioTrack+1].extraDataSize);
+                                        break;          
+
+
+                                        }
 			case MKFCCR('m','p','4','a'): //'mp4a':
 					
                                         if(tom.getRemainingSize()>15) // skip the real mp4a atom, we only do the one in stds

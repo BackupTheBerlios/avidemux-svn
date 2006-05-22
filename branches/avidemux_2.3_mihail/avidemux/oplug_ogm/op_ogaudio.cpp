@@ -62,26 +62,20 @@ uint8_t		ADM_ogmWrite::initAudio(void)
 {
 uint32_t 	tstart;
 WAVHeader	*info=NULL;
-
+                audioStream=NULL;
 		if(!currentaudiostream)
 		{
-			audioFilter=NULL;
-			audioStream=NULL;
+			audioFilter=NULL;	
 			_audioBuffer=NULL;
 			encoding_gui->setAudioCodec("None");
 			return 1;
 		}
-		if(currentaudiostream->isCompressed() && currentaudiostream->isDecompressable())
+		if(audioProcessMode() && currentaudiostream->isCompressed() 
+                        && !currentaudiostream->isDecompressable())
 		{
-			audioStream=new ogm_page(_fd,2);
+                    return 0;
 		}
-/*
-		else 
-		{			
-			return 0;
-		}
-*/
-		//
+                audioStream=new ogm_page(_fd,2);		//
 		if(audioProcessMode())
 		{
 			uint16_t fcc;

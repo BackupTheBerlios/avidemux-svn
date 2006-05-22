@@ -508,6 +508,7 @@ TryAgain:
 
 		vid= &(_videos[_nb_video-1]);
 		vid->_reorderReady=0;
+                vid->_unpackReady=0;
 		// we only try if we got everything needed...
 		if(!vid->decoder)
 		{
@@ -699,6 +700,7 @@ _VIDEOS *vid;
 						{
 							aviInfo    info;
 							_videos[i]._aviheader->getVideoInfo (&info);
+                                                        
 							printf(" Video %lu has been reordered\n",i);
 						}
 
