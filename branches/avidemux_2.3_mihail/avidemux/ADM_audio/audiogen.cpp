@@ -329,6 +329,36 @@ drop:
 
 }
 
+uint32_t AVDMGenericAudioStream::readDecompress(uint32_t size, float *ptr)
+{
+	uint32_t rd = 0, d = 0, in = 0,samples=0;
+	uint8_t r = 0;
+	// Paranoia check
+	ADM_assert(_wavheader);
+	ADM_assert(_codec);
+	ADM_assert(isDecompressable());
+
+	while(rd<size)
+	{
+		// Read from stream
+		r=getPacket(internalBuffer, &in, &samples);
+		if (!r) {
+drop:
+			printf(" read failed, end of stream ? \n");
+			return rd;
+		}
+		if (!_codec->run(internalBuffer,in,ptr+rd,&d))
+		{
+			printf("\n Codec error !!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+			goto drop;
+		}
+		if (d)
+			rd+=d;
+	}
+
+	return rd;
+}
+
 //________________________________________________________________
 //   Returns 1 if audio is compressed else 0
 //________________________________________________________________

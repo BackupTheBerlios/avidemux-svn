@@ -53,6 +53,7 @@ protected:
 			// uint32_t  	_bufferlen;
 
 			 virtual uint32_t grab(uint8_t *outbuffer)=0;
+			 virtual uint32_t grab(float *outbuffer){return 0;}
 			 uint32_t	_headBuff,_tailBuff;
 public:
 
@@ -62,6 +63,7 @@ public:
 //
 
         virtual uint32_t read(uint32_t len,uint8_t *buffer);
+        virtual uint32_t read(uint32_t len,float *buffer);
         virtual uint8_t  goTo(uint32_t newoffset);
         virtual uint8_t  goToTime(uint32_t newoffset);
 	virtual uint32_t readDecompress(uint32_t len,uint8_t *buffer)
@@ -177,6 +179,7 @@ public:
         			AVDMProcessAudio_Null(AVDMGenericAudioStream *instream
 						,uint32_t time_offset, uint32_t duration);
        		virtual uint32_t 	grab(uint8_t *obuffer);
+       		virtual uint32_t 	grab(float *obuffer);
 		virtual uint8_t  goToTime(uint32_t newoffset);
      		
 };
