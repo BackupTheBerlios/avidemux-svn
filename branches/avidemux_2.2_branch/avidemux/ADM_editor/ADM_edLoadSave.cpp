@@ -223,6 +223,17 @@ char *pth;
    qfprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
 
 
+    // VBR ?
+    if(currentaudiostream)
+    {
+        uint32_t encoding=currentaudiostream->getInfo()->encoding;
+        if(currentaudiostream->isVBR() && (encoding==WAV_MP3 || encoding==WAV_MP2))
+        {
+            qfprintf(fd,"app.audio.scanVBR();\n");
+        }
+    }
+
+
    // Change fps ?
         switch(audioGetFpsConv())
         {
