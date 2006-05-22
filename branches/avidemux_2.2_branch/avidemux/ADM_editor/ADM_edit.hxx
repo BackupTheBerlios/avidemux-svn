@@ -84,6 +84,7 @@ typedef struct
 
 	uint32_t							_nb_video_frames;	
 	uint8_t								_reorderReady;
+        uint8_t                                                         _unpackReady;
 	EditorCache							*_videoCache;
 }_VIDEOS;
 
