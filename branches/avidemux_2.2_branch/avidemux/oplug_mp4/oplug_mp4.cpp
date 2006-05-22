@@ -108,12 +108,13 @@ uint32_t videoExtraDataSize=0;
 uint8_t  *videoExtraData=NULL;
 uint8_t *dummy,err;
 WAVHeader *audioinfo=NULL;
-int prefill=1;
+int prefill=0;
 uint32_t displayFrame=0;
 ADMBitstream    bitstream;
 uint32_t        frameWrite=0;
 ADM_MUXER_TYPE muxerType=MUXER_MP4;
 uint8_t dualPass=0;
+uint8_t r=0;
            if(type==ADM_PSP)
                muxerType=MUXER_PSP;
            else
@@ -188,12 +189,19 @@ uint8_t dualPass=0;
              
              ADM_assert(_encode);
              bitstream.data=videoBuffer;
+             
+preFilling:
              bitstream.cleanup(0);
-             if(!(err=_encode->encode ( 0, &bitstream)))//&len, videoBuffer, &flags,&displayFrame))
+             if(!(err=_encode->encode ( prefill, &bitstream)))//&len, videoBuffer, &flags,&displayFrame))
              {
                         printf("MP4:First frame error\n");
                         GUI_Error_HIG ("Error while encoding", NULL);
                         goto  stopit;
+              }
+              if(!bitstream.len)
+              {
+                prefill++;
+                goto preFilling;
               }
               if(!bitstream.flags & AVI_KEY_FRAME)
               {
@@ -283,15 +291,17 @@ uint8_t dualPass=0;
                }
                ADM_assert(_encode);
                bitstream.cleanup(frameWrite);
-               if(!_encode->encode ( frame, &bitstream))//&len, videoBuffer, &flags,&displayFrame))
+               if(!prefill || frame+prefill<total) r=_encode->encode ( frame, &bitstream);
+                else
+                {
+                    r=_encode->encode ( total-1, &bitstream);
+                }
+               if(!r)
                {
                         printf("MP4:Frame %u error\n",frame);
                         GUI_Error_HIG ("Error while encoding", NULL);
                         goto  stopit;
                 }
-                // If the encoder pops empty frames at the beginning, wait a bit
-                if(bitstream.len) prefill=0;
-                if(!bitstream.len && prefill) continue; // Prefilling encoder if needed
                 frameWrite++;
                 muxer->writeVideoPacket( &bitstream);
 
