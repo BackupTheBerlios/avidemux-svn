@@ -435,6 +435,7 @@ void audioCodecConfigure( void )
 	{
                 case AUDIOENC_LPCM:
 		case AUDIOENC_NONE:
+		case AUDIOENC_COPY:
 								return;
 
 #ifdef USE_FAAC

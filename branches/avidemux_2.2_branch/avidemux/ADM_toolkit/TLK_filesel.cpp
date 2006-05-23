@@ -558,7 +558,12 @@ char *home;
         if(baseDirDone) return basedir;
 // Get the base directory
 #if defined(CYG_MANGLING)
-        home="c:\\";
+        if( ! (home=getenv("USERPROFILE")) )
+        {
+                    GUI_Error_HIG("Oops","can't determine $USERPROFILE.");
+                    home="c:\\";
+        }
+
 #else
         if( ! (home=getenv("HOME")) )
         {
@@ -574,12 +579,19 @@ char *home;
         if((dir=opendir(dirname))==NULL)
         {
                 // Try to create it
+#if defined(CYG_MANGLING)
+                if(mkdir(dirname))
+                {
+                    printf("Oops: mkdir failed on %s\n",dirname);   
+                }
+#else    
                 char *sys=new char[strlen(dirname)+strlen("mkdir ")+2];
                 strcpy(sys,"mkdir ");
                 strcat(sys,dirname);
                 printf("Creating dir :%s\n",sys);
                 system(sys);
                 delete [] sys;
+#endif		
                 if((dir=opendir(dirname))==NULL)
                 {
                         GUI_Error_HIG("Oops","Cannot create the .avidemux directory", NULL);

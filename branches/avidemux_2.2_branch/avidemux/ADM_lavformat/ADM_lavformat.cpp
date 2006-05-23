@@ -35,7 +35,9 @@ extern "C"
 #undef realloc
 #undef free
 #include <ADM_assert.h>
-
+#ifdef CYG_MANGLING
+#define WIN32_CLASH
+#endif
 #include "ADM_library/default.h"
 #include "ADM_toolkit/toolkit.hxx"
 
