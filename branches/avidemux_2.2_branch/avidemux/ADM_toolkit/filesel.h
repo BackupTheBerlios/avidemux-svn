@@ -23,6 +23,7 @@ void GUI_FileSelWrite(const char *label, char * * name);
 
 uint8_t FileSel_SelectRead(const char *title,char *target,uint32_t max, const char *source);
 
-char *getBaseDir(void);
+char *ADM_getBaseDir(void);
+char *ADM_getJobDir(void);
 #endif
 //EOF

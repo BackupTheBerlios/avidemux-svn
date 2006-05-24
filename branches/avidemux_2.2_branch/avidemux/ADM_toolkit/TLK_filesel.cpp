@@ -39,7 +39,7 @@
 #define TH_WRITE 2
 #include "ADM_toolkit/toolkit_gtk_include.h"
 #include "ADM_toolkit/toolkit_gtk.h"
-
+uint8_t ADM_mkdir(const char *name);
 extern char * actual_workbench_file;
 
 static void GUI_FileSel(const char *label, SELFILE_CB * cb, int rw, char **name=NULL);
@@ -541,15 +541,43 @@ uint8_t setFilter( GtkWidget *dialog)
         return 1;
 }
 //*****************************
-static char basedir[1024];
+static char basedir[1024]={0};
+static char jobdir[1024]={0};
 int baseDirDone=0;
+int jobDirDone=0;
 #ifdef CYG_MANGLING
 const char *ADM_DIR_NAME="\\avidemux";
 #else
 const char *ADM_DIR_NAME="/.avidemux";
 #endif
+/*
+      Get the  directory where jobs are stored
+******************************************************/
 
-char *getBaseDir(void)
+char *ADM_getJobDir(void)
+{
+  if(jobDirDone) return jobdir;
+
+  char *rootDir;
+  rootDir=ADM_getBaseDir();
+  strncpy(jobdir,rootDir,1023);
+#if defined(CYG_MANGLING)
+  strcat(jobdir,"\\jobs"); 
+#else
+  strcat(jobdir,"/jobs");
+#endif
+  if(!ADM_mkdir(jobdir))
+  {
+                GUI_Error_HIG("Oops","can't create job directory (%s).",jobdir);
+                return NULL;
+  }
+  jobDirDone=1;
+  return jobdir;
+}
+/*
+      Get the root directory for .avidemux stuff
+******************************************************/
+char *ADM_getBaseDir(void)
 {
 char *dirname=NULL;
 DIR *dir=NULL;
@@ -576,30 +604,12 @@ char *home;
         dirname=new char[strlen(home)+strlen(ADM_DIR_NAME)+2];
         strcpy(dirname,home);
         strcat(dirname,ADM_DIR_NAME);
-        if((dir=opendir(dirname))==NULL)
+        if(!ADM_mkdir(dirname))
         {
-                // Try to create it
-#if defined(CYG_MANGLING)
-                if(mkdir(dirname))
-                {
-                    printf("Oops: mkdir failed on %s\n",dirname);   
-                }
-#else    
-                char *sys=new char[strlen(dirname)+strlen("mkdir ")+2];
-                strcpy(sys,"mkdir ");
-                strcat(sys,dirname);
-                printf("Creating dir :%s\n",sys);
-                system(sys);
-                delete [] sys;
-#endif		
-                if((dir=opendir(dirname))==NULL)
-                {
                         GUI_Error_HIG("Oops","Cannot create the .avidemux directory", NULL);
                         delete [] dirname;
                         return NULL;
-                }                
         }
-        closedir(dir);
         delete [] dirname;
 
         // Now built the filename
@@ -608,4 +618,41 @@ char *home;
         baseDirDone=1;
         printf("Using %s as base directory for prefs/jobs/...\n",basedir);
         return basedir;
+}
+/*----------------------------------------
+      Create a directory
+      If it already exists, do nothing
+------------------------------------------*/
+uint8_t ADM_mkdir(const char *dirname)
+{
+DIR *dir=NULL;
+              // Check it already exists ?
+              dir=opendir(dirname);
+              if(dir)
+              { 
+                  printf("Directory %s exists.Good.\n",dirname);
+                  closedir(dir);
+                  return 1;
+              }
+#if defined(CYG_MANGLING)
+                if(mkdir(dirname))
+                {
+                    printf("Oops: mkdir failed on %s\n",dirname);   
+                    return 0;
+                }
+                
+#else    
+                char *sys=new char[strlen(dirname)+strlen("mkdir ")+2];
+                strcpy(sys,"mkdir ");
+                strcat(sys,dirname);
+                printf("Creating dir :%s\n",sys);
+                system(sys);
+                delete [] sys;
+#endif		
+              if((dir=opendir(dirname))==NULL)
+                {
+                        return 0;
+                }
+              closedir(dir); 
+              return 1;
 }

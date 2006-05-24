@@ -54,7 +54,7 @@ char     *name;
 }
 uint8_t buildJobList(uint32_t *outnb)
 {
-char *base=getBaseDir();
+char *base=ADM_getJobDir();
 DIR *dir;
 struct dirent *direntry;
 int dirmax=0,len;
