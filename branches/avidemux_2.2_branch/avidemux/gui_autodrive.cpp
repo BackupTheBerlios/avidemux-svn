@@ -61,7 +61,7 @@ uint8_t A_autoDrive(Action action)
         {
                 case ACT_AUTO_PSP:
                                 // Resize
-                                setPSP();
+                                if(!setPSP()) return 0;
                                 // Video codec
 #ifdef USE_XVID_4
                     if(!videoCodecSelectByName("XVID4")) 
@@ -97,7 +97,7 @@ uint8_t A_autoDrive(Action action)
                                 return 1;
                 case ACT_AUTO_VCD:
                                 // Check video size
-                                setVCD();
+                                if(!setVCD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("VCD"))  return 0;
                                 // Set audio
@@ -122,7 +122,7 @@ uint8_t A_autoDrive(Action action)
                                 break;
                 case ACT_AUTO_SVCD:
                                 // Check video size
-                                setSVCD();
+                                if(!setSVCD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XSVCD"))  return 0;
                                 if((currentaudiostream->getInfo()->frequency==44100)&&
@@ -150,7 +150,7 @@ uint8_t A_autoDrive(Action action)
 
                 case ACT_AUTO_DVD:
                                 // Check video size
-                                setDVD();
+                                if(!setDVD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XDVD"))  return 0;
                                 // Set audio
