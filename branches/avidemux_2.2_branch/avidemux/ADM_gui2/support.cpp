@@ -43,6 +43,7 @@
 #include "xpm/5.inc"
 #include "xpm/7.inc"
 #include "xpm/systray.inc"
+#include "xpm/systray2.inc"
 #include "xpm/preview.inc"
 #include "xpm/output.inc"
 typedef enum ADM_Icon
@@ -91,7 +92,8 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"6.png",(void *) x6},
         {A_ICON_PNG,"7.png",(void *) x7},
         {A_ICON_PNG,"avidemux_icon_small.png",         (void *) avidemux_icon_small},
-        {A_ICON_PNG,"systray.xpm",                 (void *)systray},
+        {A_ICON_PNG,"systray.png",                 (void *)systray},
+        {A_ICON_PNG,"systray2.png",                 (void *)systray2},
 
 	// DUMMY
 	{A_ICON_PNG,"systray.xpm",                 (void *)systray}
