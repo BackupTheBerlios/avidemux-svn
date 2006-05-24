@@ -245,7 +245,7 @@ void systray_remove_nid(void)
 //*********************************************************
 //*********************************************************
 //*********************************************************
-void *adm_new_systray(GdkPixbuf *pixbuf, char *name)
+void *adm_new_systray(GdkPixbuf *pixbuf,GdkPixbuf *otherpixbuf, char *name)
 {
 void *r;
   systray_init(pixbuf,  name);
@@ -260,5 +260,9 @@ void adm_delete_systray(void *systray)
 void adm_change_tooltip(void *systray, const char *tips)
 {
     systray_modify_tooltip (tips ) ;
+}
+void adm_changeIcon_systray(void)
+{
+  // Do nothing on windows
 }
 #endif

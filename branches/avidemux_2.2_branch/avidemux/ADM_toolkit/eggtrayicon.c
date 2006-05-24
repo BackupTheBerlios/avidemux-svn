@@ -55,6 +55,10 @@ static void egg_tray_icon_unrealize (GtkWidget *widget);
 
 static void egg_tray_icon_update_manager_window (EggTrayIcon *icon);
 
+static GtkWidget   *img=NULL;
+
+static GdkPixbuf *alpha,*beta;
+
 GType egg_tray_icon_get_type (void)
 {
   static GType our_type = 0;
@@ -457,11 +461,15 @@ static GtkWidget   *systray_icon = NULL;
 static GtkWidget   *evbox = NULL;
 static GtkTooltips *systray_icon_tooltips = NULL;
 
-void *adm_new_systray(GdkPixbuf *pixbuf, char *name)
+void *adm_new_systray(GdkPixbuf *pixbufA,GdkPixbuf *pixbufB, char *name)
 {
-GtkWidget   *img;
+
   systray_icon = GTK_WIDGET (egg_tray_icon_new ("Avidemux"));
-  img = gtk_image_new_from_pixbuf (pixbuf);
+  alpha=pixbufA;
+  beta=pixbufB;
+  img = gtk_image_new_from_pixbuf (alpha);
+  
+
   evbox = gtk_event_box_new ();
   gtk_container_add (GTK_CONTAINER (systray_icon), evbox);
   gtk_container_add (GTK_CONTAINER (evbox), img);
@@ -484,6 +492,24 @@ void adm_change_tooltip(void *systray, const char *tips)
 {
  ADM_assert( (void*)systray_icon==systray);
  gtk_tooltips_set_tip (systray_icon_tooltips, systray_icon, tips, "");
+}
+void adm_changeIcon_systray(void)
+{
+GdkPixbuf *cur;
+static int flipflop=0;
+  printf("Flipflop:%d\n",flipflop);
+  if(flipflop) 
+  {
+     cur=alpha;
+     flipflop=0;
+  }
+    else
+  {
+    cur=beta;
+    flipflop=1;
+  }
+  gtk_image_set_from_pixbuf( GTK_IMAGE(img), GDK_PIXBUF(cur));
+
 }
 #endif   /* not defined GUI_DISABLE_SYSTRAY */
 
