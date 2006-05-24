@@ -12,7 +12,8 @@ TGT=../avidemux_icon_small.inc \
 ../preview.inc \
 ../output.inc \
 ../stock_filters-aging.inc \
-../systray.inc
+../systray.inc \
+../systray2.inc
 
 ../%.inc : %.png	
 	echo $<
