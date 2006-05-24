@@ -81,7 +81,11 @@ uint8_t A_autoDrive(Action action)
                                 }
                                 else
                                 {
+#ifdef USE_FAAC
                                     audioCodecSetcodec(AUDIOENC_FAAC);
+#else
+                                    GUI_Error_HIG("Codec Error", "You don't have FAAC!.\nIt is need to create PSP compatible video.");
+#endif
                                     // ? Needed ?
                                     if(currentaudiostream->getInfo()->frequency!=44100)
                                     {
