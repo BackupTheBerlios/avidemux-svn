@@ -326,6 +326,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 	c->codec_type = CODEC_TYPE_AUDIO;
 	
 	c->bit_rate = audioheader->byterate*8;
+        c->rc_buffer_size=(c->bit_rate/(2*8)); // 500 ms worth
 	_audioFq=c->sample_rate = audioheader->frequency;
 	c->channels = audioheader->channels;
         _audioByterate=audioheader->byterate;
