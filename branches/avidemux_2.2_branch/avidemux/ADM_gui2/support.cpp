@@ -42,6 +42,7 @@
 #include "xpm/6.inc"
 #include "xpm/5.inc"
 #include "xpm/7.inc"
+#include "xpm/systray.inc"
 #include "xpm/preview.inc"
 #include "xpm/output.inc"
 typedef enum ADM_Icon
@@ -90,9 +91,10 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"6.png",(void *) x6},
         {A_ICON_PNG,"7.png",(void *) x7},
         {A_ICON_PNG,"avidemux_icon_small.png",         (void *) avidemux_icon_small},
+        {A_ICON_PNG,"systray.xpm",                 (void *)systray},
 
-
-        {A_ICON_XPM,"systray.xpm",                 (void *)systray_xpm},
+	// DUMMY
+	{A_ICON_PNG,"systray.xpm",                 (void *)systray}
 };
 GdkPixbuf	*create_pixbuf                  (const gchar     *filename)
 {
