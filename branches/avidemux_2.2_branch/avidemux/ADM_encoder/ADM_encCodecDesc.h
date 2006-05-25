@@ -508,7 +508,9 @@ xvid4EncParam xvid4Extra = {
   0,				// turbo
   0,				// Packed bitstream - Not Xvid Default
   1,				// closed_gop
-  0				// bframe_threshold
+  0,				// bframe_threshold
+  0,                            // Use inter
+  0                             // Use intra
 };
 extern uint8_t DIA_xvid4 (COMPRES_PARAMS * incoming);
 COMPRES_PARAMS Xvid4Codec = {
