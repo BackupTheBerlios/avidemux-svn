@@ -86,14 +86,11 @@ dnl ___ added to ease install in uncommon place __
 CPPFLAGS="  $USER_INCLUDES  $CPPFLAGS"
 dnl __________gettext_________________
 AM_GNU_GETTEXT( [external])
-GETTEXT_PACKAGE=avidemux2
+GETTEXT_PACKAGE=avidemux
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "$GETTEXT_PACKAGE",
                    [gettext package name])
-
-LOCALEDIR=${datadir}/locale
-AC_SUBST(LOCALEDIR)
-AC_DEFINE_UNQUOTED([LOCALEDIR], "$LOCALEDIR",
-                   [gettext locale dir])
+ADM_LOCALEDIR=${datadir}/locale
+AC_SUBST(ADM_LOCALEDIR)
 
 dnl __________GTK2 Stuff____________
 
@@ -142,7 +139,6 @@ dnl ______________________
 dnl AC_DEFINE(USE_DIV5,0,[Divx 5])
 dnl AC_DEFINE(USE_AC3,0,[A52dec])
 AC_DEFINE(USE_FFMPEG,1,[FFMPEG])
-dnl AC_DEFINE_UNQUOTED(ADM_LOCALEDIR, "$ADM_LOCALEDIR", [where did it go])
 
 dnl yes we are a free country :)
 dnl we force mjpeg as it is now bundled
