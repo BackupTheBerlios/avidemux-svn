@@ -199,7 +199,9 @@ if test -f Makefile.am.in; then
     fi
   done
 fi
-
+#MEANX
+     		echo "AC_OUTPUT([ po/Makefile.in ])" >> configure.in.new
+#MEANX
 echo "AC_CONFIG_FILES([ Makefile ])" >> configure.in.new
 
 if test -f inst-apps; then
@@ -224,6 +226,11 @@ for topleveldir in $topleveldirs; do
   mfs=`find $topleveldir -follow -name Makefile.am -print | fgrep -v "/." | \
        sed -e 's#\./##; s#/Makefile.am$##' | sort | sed -e 's#$#/Makefile#'`
   for i in $mfs; do
+	# MEANX
+	#if test "x$i" = "xpo/Makefile" ; then 
+     		#echo "AC_OUTPUT([ $i.in ])" >> configure.in.new
+	#fi
+	# MEANX
      echo "AC_CONFIG_FILES([ $i ])" >> configure.in.new
   done
 done
