@@ -35,7 +35,7 @@ extern "C" {
 
 #define AC3_HANDLE ((a52_state_t *)ac3_handle)
 
-static const int channel[15]=
+static const uint8_t channel[15]=
 {
     0,1,2,3,
     3,4,4,5,
@@ -120,11 +120,12 @@ uint8_t ADM_AudiocodecAC3::run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr, 
 {
     uint32_t avail;
     uint32_t length;
-    int flags = 0, samprate = 0, bitrate = 0, chan = 2;
+    int flags = 0, samprate = 0, bitrate = 0;
     int16_t *ptrOut = (int16_t *) outptr;
+	uint8_t chan = 2;
     *nbOut=0;
 
-
+//assert(0);
     //  Ready to decode
     while(nbIn)
     {
@@ -210,9 +211,10 @@ uint8_t ADM_AudiocodecAC3::run(uint8_t *inptr, uint32_t nbIn, float *outptr,   u
 {
     uint32_t avail;
     uint32_t length;
-    int flags = 0, samprate = 0, bitrate = 0, chan = 2;
+    int flags = 0, samprate = 0, bitrate = 0;
+	uint8_t chan = 2;
     *nbOut=0;
-
+//assert(0);
 
     //  Ready to decode
     while(nbIn)

@@ -143,7 +143,7 @@ ADM_Audiocodec::ADM_Audiocodec( uint32_t fourcc ) {
 ADM_Audiocodec::~ADM_Audiocodec()
 {}
 
-uint8_t ADM_Audiocodec::run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr,   uint32_t * nbOut,ADM_ChannelMatrix *matrix){
+uint8_t ADM_Audiocodec::run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr,   uint32_t * nbOut,ADM_ChannelMatrix *matrix){//deprecated
     UNUSED_ARG(ptr);
     UNUSED_ARG(nbIn);
     UNUSED_ARG(outptr);

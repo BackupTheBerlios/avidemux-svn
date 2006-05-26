@@ -101,7 +101,7 @@ class ADM_AudiocodecWavSwapped : public     ADM_Audiocodec
                  virtual         void            purge( void ) {};
                  virtual        uint8_t         beginDecompress( void );
                  virtual                        uint8_t endDecompress( void );
-                 virtual    uint8_t run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr,   uint32_t * nbOut, ADM_ChannelMatrix *matrix=NULL);
+                 virtual    uint8_t run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr,   uint32_t * nbOut, ADM_ChannelMatrix *matrix=NULL);//deprecate
                  virtual    uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr,   uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
                  virtual    uint8_t isCompressed( void ){ return 1;};
                  virtual    uint8_t isDecompressable(void ){ return 1;};

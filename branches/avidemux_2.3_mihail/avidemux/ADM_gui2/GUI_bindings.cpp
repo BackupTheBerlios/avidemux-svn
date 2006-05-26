@@ -82,7 +82,9 @@ extern void A_appendAvi (char *name);
 static void on_audio_change(void);
 static void on_video_change(void);
 static int update_ui=0;
+#ifdef HAVE_AUDIO
 extern uint8_t AVDM_setVolume(int volume);
+#endif
 #define AUDIO_WIDGET "comboboxAudio"
 #define VIDEO_WIDGET "comboboxVideo"
 #define FORMAT_WIDGET "comboboxFormat"
@@ -424,6 +426,7 @@ if(_upd_in_progres) return;
 
 void volumeChange( void )
 {
+#ifdef HAVE_AUDIO
 GtkWidget *wid;
 GtkAdjustment *adj;
 int vol;
@@ -437,7 +440,7 @@ if(_upd_in_progres) return;
         vol=(int)floor(adj->value+0.5);
         AVDM_setVolume( vol);
  _upd_in_progres--;
-   
+#endif
 }
 
 

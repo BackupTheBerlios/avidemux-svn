@@ -65,7 +65,9 @@ uint8_t ret=0;
 gint r;
 char *str;
 const char *nullstring="";
+#ifdef HAVE_AUDIO
 AUDIO_DEVICE olddevice,newdevice;
+#endif
 uint32_t	lavcodec_mpeg=0;
 uint32_t        use_odml=0;
 uint32_t	autosplit=0;
@@ -103,7 +105,9 @@ uint32_t downmix;
         //gtk_widget_set_sensitive( (WID(checkAltivec)),0);
         gtk_widget_set_sensitive( (WID(checkbuttonReuseLog)),0);
 //****************************
+#ifdef HAVE_AUDIO
 	olddevice=newdevice=AVDM_getCurrentDevice();
+#endif
 	
 	#define CONNECT(A,B)  gtk_signal_connect (GTK_OBJECT(lookup_widget(dialog,#A)), "clicked", \
 		      GTK_SIGNAL_FUNC (B), (void *) NULL);
@@ -195,6 +199,7 @@ uint32_t downmix;
                 gtk_combo_box_append_text      (combo_box,myVideoDevice[i].name);
         }               
         gtk_combo_box_set_active(combo_box,vd);
+#ifdef HAVE_AUDIO
         // ___________ Downmixing ______________________________________________
         if(prefs->get(DOWNMIXING_PROLOGIC,&downmix)!=RC_OK)
         {       
@@ -214,6 +219,7 @@ uint32_t downmix;
                 gtk_combo_box_append_text      (combo_box,audioDeviceList[i].name);
         }
         gtk_combo_box_set_active(combo_box,k);
+#endif
         //______________________________________________________
         // Callback for button
         gtk_signal_connect(GTK_OBJECT(WID(buttonPostprocLevel)), "clicked",GTK_SIGNAL_FUNC(setpp),   NULL);
@@ -222,6 +228,7 @@ uint32_t downmix;
 	gtk_dialog_run(GTK_DIALOG(dialog));
 	{
 		ret=1;
+#ifdef HAVE_AUDIO
                 // Get downmix
                 k=gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxDownMix)));
                 prefs->set(DOWNMIXING_PROLOGIC,k);
@@ -234,6 +241,11 @@ uint32_t downmix;
 			AVDM_switch(newdevice);
 		}
                 //
+                //alsa device
+                str=gtk_editable_get_chars(GTK_EDITABLE (WID(entryALSADevice)), 0, -1);
+                if(str)
+                        prefs->set(DEVICE_AUDIO_ALSA_DEVICE, str);
+#endif
                 uint32_t s;
                 s=gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxMessageLevel)));
                 prefs->set(MESSAGE_LEVEL,s);
@@ -278,11 +290,6 @@ uint32_t downmix;
 
                 useNuv=gtk_toggle_button_get_active( GTK_TOGGLE_BUTTON(WID(checkbuttonNuvResync)));
                 prefs->set(FEATURE_DISABLE_NUV_RESYNC, useNuv);
-
-                //alsa device
-                str=gtk_editable_get_chars(GTK_EDITABLE (WID(entryALSADevice)), 0, -1);
-                if(str)
-                        prefs->set(DEVICE_AUDIO_ALSA_DEVICE, str);
 		
 	}
         gtk_unregister_dialog(dialog);
@@ -497,6 +504,7 @@ GtkWidget*
     gtk_widget_show (label22);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label22);
 
+#ifdef HAVE_AUDIO
     table1 = gtk_table_new (4, 3, FALSE);
     gtk_widget_show (table1);
     gtk_container_add (GTK_CONTAINER (notebook1), table1);
@@ -531,6 +539,9 @@ GtkWidget*
     gtk_table_attach (GTK_TABLE (table1), entryALSADevice, 1, 3, 1, 2,
                       (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                       (GtkAttachOptions) (0), 0, 0);
+	#ifndef ALSA_SUPPORT
+	gtk_widget_set_sensitive(entryALSADevice, 0);
+	#endif
 
     radiobuttonMaster = gtk_radio_button_new_with_mnemonic (NULL, _("_Master"));
     gtk_widget_show (radiobuttonMaster);
@@ -574,6 +585,7 @@ GtkWidget*
     label25 = gtk_label_new (_("Audio"));
     gtk_widget_show (label25);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label25);
+#endif
 
     table2 = gtk_table_new (2, 2, FALSE);
     gtk_widget_show (table2);
@@ -598,8 +610,11 @@ GtkWidget*
 
     label24 = gtk_label_new (_("Video"));
     gtk_widget_show (label24);
+#ifdef HAVE_AUDIO
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 4), label24);
-
+#else
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label24);
+#endif
     hbox6 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox6);
     gtk_container_add (GTK_CONTAINER (notebook1), hbox6);
@@ -620,7 +635,11 @@ GtkWidget*
 
     label26 = gtk_label_new (_("MultiThread"));
     gtk_widget_show (label26);
+#ifdef HAVE_AUDIO
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label26);
+#else
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 4), label26);
+#endif
 
     dialog_action_area1 = GTK_DIALOG (Preferences)->action_area;
     gtk_widget_show (dialog_action_area1);
@@ -632,8 +651,10 @@ GtkWidget*
     GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
 
     gtk_label_set_mnemonic_widget (GTK_LABEL (label13), spinbuttonMPEGSplit);
+#ifdef HAVE_AUDIO
     gtk_label_set_mnemonic_widget (GTK_LABEL (label19), entryALSADevice);
     gtk_label_set_mnemonic_widget (GTK_LABEL (label20), radiobuttonPCM);
+#endif
 
     /* Store pointers to all widgets, for use by lookup_widget(). */
     GLADE_HOOKUP_OBJECT_NO_REF (Preferences, Preferences, "Preferences");
@@ -660,6 +681,7 @@ GtkWidget*
     GLADE_HOOKUP_OBJECT (Preferences, checkbuttonOpenDML, "checkbuttonOpenDML");
     GLADE_HOOKUP_OBJECT (Preferences, checkbuttonReuseLog, "checkbuttonReuseLog");
     GLADE_HOOKUP_OBJECT (Preferences, label22, "label22");
+#ifdef HAVE_AUDIO
     GLADE_HOOKUP_OBJECT (Preferences, table1, "table1");
     GLADE_HOOKUP_OBJECT (Preferences, label18, "label18");
     GLADE_HOOKUP_OBJECT (Preferences, label19, "label19");
@@ -671,6 +693,7 @@ GtkWidget*
     GLADE_HOOKUP_OBJECT (Preferences, label29, "label29");
     GLADE_HOOKUP_OBJECT (Preferences, comboboxDownMix, "comboboxDownMix");
     GLADE_HOOKUP_OBJECT (Preferences, label25, "label25");
+#endif
     GLADE_HOOKUP_OBJECT (Preferences, table2, "table2");
     GLADE_HOOKUP_OBJECT (Preferences, hbox5, "hbox5");
     GLADE_HOOKUP_OBJECT (Preferences, label16, "label16");
