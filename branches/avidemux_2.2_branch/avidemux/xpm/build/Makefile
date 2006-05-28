@@ -13,7 +13,19 @@ TGT=../avidemux_icon_small.inc \
 ../output.inc \
 ../stock_filters-aging.inc \
 ../systray.inc \
-../systray2.inc
+../systray2.inc \
+../film1.inc \
+../film3.inc \
+../film5.inc \
+../film7.inc \
+../film9.inc \
+../film11.inc \
+../film13.inc \
+../film15.inc \
+../film17.inc \
+../film19.inc \
+../film21.inc \
+../film23.inc \
 
 ../%.inc : %.png	
 	echo $<
