@@ -20,24 +20,10 @@ class ossAudioDevice : public audioDevice
 protected :
                                 int oss_fd;
 public:
-                                        ossAudioDevice(void) { oss_fd=0;}
-                        virtual uint8_t init( uint32_t channel,uint32_t fq ) ;
-                        virtual uint8_t play( uint32_t len, uint8_t *data ) ;
-                        virtual uint8_t stop( void ) ;
-                                uint8_t setVolume(int volume);
+                                        ossAudioDevice(void) {oss_fd=0;}
+                        virtual uint8_t init(uint8_t channels, uint32_t fq);
+                        virtual uint8_t play(uint32_t len, float *data);
+                        virtual uint8_t stop(void);
+			uint8_t setVolume(int volume);
 }     ;
-#endif
-#ifdef CONFIG_DARWIN
-
-class coreAudioDevice : public audioDevice
-{
-protected :
-                                uint8_t _inUse;
-public:
-                                        coreAudioDevice(void) ;
-                        virtual uint8_t init( uint32_t channel,uint32_t fq ) ;
-                        virtual uint8_t play( uint32_t len, uint8_t *data ) ;
-                        virtual uint8_t stop( void ) ;
-};
-
 #endif

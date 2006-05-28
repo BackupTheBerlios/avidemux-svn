@@ -34,8 +34,8 @@ class dummyAudioDevice : public audioDevice
 {
 		  public:
                                         dummyAudioDevice(void) {};
-                        virtual uint8_t init(uint8_t channel, uint32_t fq)
-                                {printf("\n Null audio device"); UNUSED_ARG(fq); UNUSED_ARG(channel); return 1;}
+                        virtual uint8_t init(uint8_t channels, uint32_t fq)
+                                {printf("\n Null audio device"); UNUSED_ARG(fq); UNUSED_ARG(channels); return 1;}
                         virtual uint8_t play(uint32_t len, float *data)
                                 {UNUSED_ARG(len); UNUSED_ARG(data); return 1;}
                         virtual uint8_t stop(void) {return 1;}

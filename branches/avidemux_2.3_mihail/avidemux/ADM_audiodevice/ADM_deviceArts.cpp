@@ -56,14 +56,16 @@ uint8_t  artsAudioDevice::stop(void) {
 //
 //
 //_______________________________________________
-uint8_t artsAudioDevice::init(uint32_t channel, uint32_t fq) 
+uint8_t artsAudioDevice::init(uint8_t channels, uint32_t fq) 
 {
+	_channels = channels;
+
     if(_stream)
     	{
 			printf("\n purging previous instance\n");
 			stop();
 		}
-    printf("\n Arts  : %lu Hz, %lu channels", fq, channel);
+    printf("\n Arts  : %lu Hz, %lu channels", fq, channels);
 	if(!artsInitialized)
 	{
 		if(arts_init()) 
@@ -74,7 +76,7 @@ uint8_t artsAudioDevice::init(uint32_t channel, uint32_t fq)
 		artsInitialized=1;
 	}
 
-	_stream=arts_play_stream(fq, 16,channel, "Avidemux");
+	_stream=arts_play_stream(fq, 16,channels, "Avidemux");
 
 	if(!_stream)
 	 {
@@ -94,11 +96,14 @@ uint8_t artsAudioDevice::init(uint32_t channel, uint32_t fq)
 //
 //
 //_______________________________________________
-uint8_t artsAudioDevice::play(uint32_t nb,uint8_t * ptr)
+uint8_t artsAudioDevice::play(uint32_t len, float *data)
  {
-		if(!_stream) return 0;
-			return arts_write(_stream, ptr, nb);
 
+	if(!_stream) return 0;
+
+	dither16bit(len, data);
+
+	return arts_write(_stream, data, len*2);
 }
 
 /*
