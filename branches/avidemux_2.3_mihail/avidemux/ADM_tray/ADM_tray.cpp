@@ -62,10 +62,11 @@ ADM_tray::ADM_tray(char *name)
 
 
   GtkWidget   *img;
-  GdkPixbuf   *pixbuf;
+  GdkPixbuf   *pixbuf,*other_pixbuf;
 
-  pixbuf=create_pixbuf("systray.xpm");
-  sys=adm_new_systray(pixbuf,name);
+  pixbuf=create_pixbuf("systray.png");
+  other_pixbuf=create_pixbuf("systray2.png");
+  sys=adm_new_systray(pixbuf,other_pixbuf,name);
 
   
 
@@ -83,7 +84,10 @@ uint8_t ADM_tray::setPercent(int percent)
 char percentS[40];
         sprintf(percentS,"%d %%",percent);
         if(sys)
+        {
+                adm_changeIcon_systray();
                 adm_change_tooltip(sys,percentS);
+        }
         return 1;
 }
 uint8_t ADM_tray::setStatus(int working)

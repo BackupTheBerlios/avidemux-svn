@@ -2574,7 +2574,7 @@ void A_addJob(void)
         if(!name || !final) return;
         if(!*name || !*final) return;
 
-        base=getBaseDir();
+        base=ADM_getJobDir();
         fullname=new char[strlen(name)+strlen(base)+2+4];
         
         strcpy(fullname,base);

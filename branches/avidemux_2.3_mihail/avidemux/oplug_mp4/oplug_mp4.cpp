@@ -115,6 +115,7 @@ uint32_t        frameWrite=0;
 ADM_MUXER_TYPE muxerType=MUXER_MP4;
 uint8_t dualPass=0;
 uint8_t r=0;
+uint32_t skipping=1;
            if(type==ADM_PSP)
                muxerType=MUXER_PSP;
            else
@@ -291,7 +292,10 @@ preFilling:
                }
                ADM_assert(_encode);
                bitstream.cleanup(frameWrite);
-               if(!prefill || frame+prefill<total) r=_encode->encode ( frame, &bitstream);
+               if(!prefill || frame+prefill<total) 
+               {
+                  r=_encode->encode ( prefill+frame, &bitstream);
+               }
                 else
                 {
                     r=_encode->encode ( total-1, &bitstream);
@@ -302,6 +306,13 @@ preFilling:
                         GUI_Error_HIG ("Error while encoding", NULL);
                         goto  stopit;
                 }
+                if(!bitstream.len && skipping)
+                {
+                    printf("Frame skipped (xvid ?)\n");
+                    continue;
+                }
+                skipping=0;
+            //    printf("Prefill %u FrameWrite :%u Frame %u PtsFrame :%u\n",prefill,frameWrite,frame,bitstream.ptsFrame);
                 frameWrite++;
                 muxer->writeVideoPacket( &bitstream);
 

@@ -19,7 +19,7 @@
 #include <ADM_assert.h>
 
 #undef free
-extern char *getBaseDir(void);
+extern char *ADM_getBaseDir(void);
 #define CONFIG "config"
 extern char *PathCanonize(const char *tmpname);
 extern int  qxmlSaveFormatFile(const char *filename, xmlDocPtr cur, int format);
@@ -243,7 +243,7 @@ int preferences::load(){
    char buf[1024];
    DIR   *dir;
 
-        dir_adm=getBaseDir();
+        dir_adm=ADM_getBaseDir();
         if(!dir_adm) return RC_FAILED;
 
         rcfile=new char[strlen(dir_adm)+4+strlen(CONFIG)];
@@ -385,7 +385,7 @@ int preferences::save_xml_to_file(){
    char *rcfile;
    char *rcfilenew;
 
-        dir_adm=getBaseDir();
+        dir_adm=ADM_getBaseDir();
         if(!dir_adm) return RC_FAILED;
 
         rcfile=new char[strlen(dir_adm)+4+strlen(CONFIG)];
