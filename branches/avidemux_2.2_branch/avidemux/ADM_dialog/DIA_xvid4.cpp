@@ -111,6 +111,7 @@ _again:
               if(!file)
               {
 _erLoad:
+                  if(name) ADM_dealloc(name);
                   if(file) fclose(file);
                   GUI_Error_HIG("Error Loading","Error loadind the custom matrix file.");
                   goto _again;
@@ -378,22 +379,82 @@ int r;
 uint8_t editMatrix(uint8_t *inter, uint8_t *intra)
 {
 GtkWidget *dialog=NULL;
+GtkWidget *spinbutton1;
+GtkObject *spinbutton1_adj;
+GtkWidget *intraCell[64],*interCell[64];
 uint8_t ret=0;
 int code;
+int col, row;
+
       dialog=create_dialog3();
       gtk_register_dialog(dialog);
+      //
+      for(int i=0;i<64;i++)
+      {  //Intra
+          col=i%8;
+          row=i>>3;
+          spinbutton1_adj = gtk_adjustment_new (intra[i], 0, 255, 1, 10, 10);
+          intraCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
+          gtk_widget_show (spinbutton1);
+          gtk_table_attach (GTK_TABLE (WID(tableIntra)), spinbutton1, col, col+1, row, row+1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+
+
+       }
+      for(int i=0;i<64;i++)
+      {  //Inter
+          col=i%8;
+          row=i>>3;
+          spinbutton1_adj = gtk_adjustment_new (inter[i], 0, 255, 1, 10, 10);
+          interCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
+          gtk_widget_show (spinbutton1);
+          gtk_table_attach (GTK_TABLE (WID(tableInter)), spinbutton1, col, col+1, row, row+1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (0), 0, 0);
+
+
+       }
+
+      //
+
       CALL_Z(button12,SAVE_MATRIX)
 _loop:
       code=gtk_dialog_run(GTK_DIALOG(dialog));
       if(code==XVID4_RESPONSE_SAVE_MATRIX)
       {
         printf("Save\n");
+        char *name;
+        FILE *fd;
+        GUI_FileSelWrite("Select Custom Matrix File to write",&name);
+        if(!name) goto _loop;
+        fd=fopen(name,"wb");
+        if(!fd)
+        {
+            GUI_Error_HIG("Error Writing","Error writing the custom matrix file.");
+            ADM_dealloc(name);
+            goto _loop;
+        }
+        for(int i=0;i<64;i++)
+        {
+          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
+          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
+        }
+        fwrite(intra,1,64,fd);
+        fwrite(inter,1,64,fd);
+        fclose(fd);
+        ADM_dealloc(name);
         goto _loop;
       }
       if(code==GTK_RESPONSE_OK)
       {
         printf("Accept\n");
-          ret=1;
+        ret=1;
+        for(int i=0;i<64;i++)
+        {
+          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
+          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
+        }
       }else
       printf("refused\n");
 /*
