@@ -225,7 +225,7 @@ void systray_modify_icon (GdkPixmap *pm, GdkBitmap *mask)
   Shell_NotifyIcon(NIM_MODIFY,&nid);
 }
 
-void systray_modify_tooltip (char* text) 
+void systray_modify_tooltip (const char* text) 
 {
   char *locenc=NULL;
 
@@ -245,10 +245,10 @@ void systray_remove_nid(void)
 //*********************************************************
 //*********************************************************
 //*********************************************************
-void *adm_new_systray(GdkPixbuf *pixbuf,GdkPixbuf *otherpixbuf, char *name)
+void *adm_new_systray(GdkPixbuf *pixbuf[],int nb, char *name)
 {
 void *r;
-  systray_init(pixbuf,  name);
+  systray_init(pixbuf[0],  name);
   r=(void *)0xdead;
   return r;
 
