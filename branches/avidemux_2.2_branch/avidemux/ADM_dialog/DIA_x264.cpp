@@ -45,7 +45,7 @@ uint8_t DIA_x264(COMPRES_PARAMS *config);
 
 static GtkWidget       *create_dialog1 (void);  
 
-static COMPRES_PARAMS generic={CodecDummy,"dummy","dummy","dummy",COMPRESS_CQ,4,1500,700,0,0,NULL,0};
+static COMPRES_PARAMS generic={CodecDummy,"dummy","dummy","dummy",COMPRESS_CQ,4,1500,700,1000,0,0,NULL,0};
 static GtkWidget *dialog;
 
 static void updateMode( void );
