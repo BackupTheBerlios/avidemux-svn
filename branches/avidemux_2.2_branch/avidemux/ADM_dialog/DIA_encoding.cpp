@@ -241,6 +241,7 @@ void DIA_encoding::setFrame(uint32_t nb,uint32_t total)
 		gtk_progress_set_percentage(GTK_PROGRESS(WID(progressbar1)),(gfloat)f);
 
 		sprintf(string,"Done : %02d%%",(int)(100*f));
+                if(isQuiet()) printf("[Encoding]%s\n",string);
 		   gtk_progress_bar_set_text       (GTK_PROGRESS_BAR(WID(progressbar1)), string);
 		
 
