@@ -31,7 +31,7 @@
 
 
 static xvid4EncParam localParam;
-static uint32_t mQ,mB,mS;
+static uint32_t mQ,mB,mS,mA;
 static GtkWidget *dialog=NULL;
 static COMPRESSION_MODE mMode;
 
@@ -72,6 +72,7 @@ int code;
       mQ=incoming->qz;
       mB=incoming->bitrate; // in kbits
       mS=incoming->finalsize;	
+      mA=incoming->avg_bitrate;
       mMode=incoming->mode;
       updateMode();	
 
@@ -174,6 +175,13 @@ _erLoad:
 						gtk_label_set_text(GTK_LABEL(WID(label11)),"Size (MBytes):");
             					break;
 				case 3:
+		     				incoming->mode = COMPRESS_2PASS_BITRATE;	
+						value = (uint32_t) gtk_read_entry(WID(entryEntry));
+						incoming->avg_bitrate=value;
+						gtk_label_set_text(GTK_LABEL(WID(label11)),"Average bitrate (kb/s):");
+            					break;
+
+				case 4:
 						incoming->mode=COMPRESS_SAME;
 						break;
 		  		default:
@@ -340,6 +348,13 @@ uint32_t b;
 			gtk_widget_set_sensitive(WID(entryEntry),1);
 			gtk_label_set_text(GTK_LABEL(WID(label11)),"Target size (MBytes):");
 			break;
+                case COMPRESS_2PASS_BITRATE:
+			HIST_SET(3);
+			VAL_SET(mA);
+			gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
+			gtk_widget_set_sensitive(WID(entryEntry),1);
+			gtk_label_set_text(GTK_LABEL(WID(label11)),"Average bitrate (kb/s):");
+			break;
 
 	    	case COMPRESS_CQ:
 			HIST_SET(1);
@@ -348,7 +363,7 @@ uint32_t b;
 			gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)),(gfloat)mQ);
 			break;
 		case COMPRESS_SAME:
-			HIST_SET(3);
+			HIST_SET(4);
 			gtk_widget_set_sensitive(WID(entryEntry),0);
 			gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
 			
@@ -367,7 +382,8 @@ int r;
 		case 0: mMode=COMPRESS_CBR ;break;
 		case 1: mMode=COMPRESS_CQ ;break;
 		case 2: mMode=COMPRESS_2PASS ;break;
-		case 3: mMode=COMPRESS_SAME;break;
+                case 3: mMode=COMPRESS_2PASS_BITRATE ;break;
+		case 4: mMode=COMPRESS_SAME;break;
 	
 	}
 	updateMode();
@@ -472,6 +488,7 @@ _loop:
 //-------------------- Glade-2 here----------		
 //_____KK_______
 
+
 GtkWidget*
 create_dialog1 (void)
 {
@@ -492,6 +509,7 @@ create_dialog1 (void)
   GtkWidget *one_pass_cbr1;
   GtkWidget *one_pass_quantizer1;
   GtkWidget *two_pass1;
+  GtkWidget *two_pass__average_bitrate1;
   GtkWidget *same_qz_as_input1;
   GtkWidget *entryEntry;
   GtkObject *spinbuttonQuant_adj;
@@ -701,9 +719,13 @@ create_dialog1 (void)
   gtk_widget_show (one_pass_quantizer1);
   gtk_container_add (GTK_CONTAINER (menu1), one_pass_quantizer1);
 
-  two_pass1 = gtk_menu_item_new_with_mnemonic (_("Two pass"));
+  two_pass1 = gtk_menu_item_new_with_mnemonic (_("Two pass, final size"));
   gtk_widget_show (two_pass1);
   gtk_container_add (GTK_CONTAINER (menu1), two_pass1);
+
+  two_pass__average_bitrate1 = gtk_menu_item_new_with_mnemonic (_("Two pass, average bitrate"));
+  gtk_widget_show (two_pass__average_bitrate1);
+  gtk_container_add (GTK_CONTAINER (menu1), two_pass__average_bitrate1);
 
   same_qz_as_input1 = gtk_menu_item_new_with_mnemonic (_("Same Qz as input"));
   gtk_widget_show (same_qz_as_input1);
@@ -1304,6 +1326,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, one_pass_cbr1, "one_pass_cbr1");
   GLADE_HOOKUP_OBJECT (dialog1, one_pass_quantizer1, "one_pass_quantizer1");
   GLADE_HOOKUP_OBJECT (dialog1, two_pass1, "two_pass1");
+  GLADE_HOOKUP_OBJECT (dialog1, two_pass__average_bitrate1, "two_pass__average_bitrate1");
   GLADE_HOOKUP_OBJECT (dialog1, same_qz_as_input1, "same_qz_as_input1");
   GLADE_HOOKUP_OBJECT (dialog1, entryEntry, "entryEntry");
   GLADE_HOOKUP_OBJECT (dialog1, spinbuttonQuant, "spinbuttonQuant");
@@ -1537,5 +1560,4 @@ create_dialog3 (void)
 
   return dialog3;
 }
-
 #endif
