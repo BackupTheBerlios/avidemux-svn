@@ -367,12 +367,14 @@ xvid4Encoder::preAmble (uint8_t * in)
   /* Custome matrices */
   if(_param.useCustomIntra) 
   {
+  if(!xvid_enc_frame.quant_intra_matrix)  
       printf("[Xvid4]Using custom intra matrix\n");
       xvid_enc_frame.quant_intra_matrix=_param.intraMatrix;
   }
   if(_param.useCustomInter)
   {
-     printf("[Xvid4]Using custom inter matrix\n");
+    if(!xvid_enc_frame.quant_inter_matrix)
+      printf("[Xvid4]Using custom inter matrix\n");
      xvid_enc_frame.quant_inter_matrix=_param.interMatrix;
   }
   return 1;
