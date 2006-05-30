@@ -543,13 +543,42 @@ uint8_t setFilter( GtkWidget *dialog)
 //*****************************
 static char basedir[1024]={0};
 static char jobdir[1024]={0};
+static char customdir[1024]={0};
 int baseDirDone=0;
 int jobDirDone=0;
+int customDirDone=0;
 #ifdef CYG_MANGLING
 const char *ADM_DIR_NAME="\\avidemux";
 #else
 const char *ADM_DIR_NAME="/.avidemux";
 #endif
+/*
+
+*/
+/*
+      Get the  directory where jobs are stored
+******************************************************/
+
+char *ADM_getCustomDir(void)
+{
+  if(customDirDone) return customdir;
+
+  char *rootDir;
+  rootDir=ADM_getBaseDir();
+  strncpy(customdir,rootDir,1023);
+#if defined(CYG_MANGLING)
+  strcat(customdir,"\\custom"); 
+#else
+  strcat(customdir,"/custom");
+#endif
+  if(!ADM_mkdir(customdir))
+  {
+                GUI_Error_HIG("Oops","can't create custom directory (%s).",customdir);
+                return NULL;
+  }
+  customDirDone=1;
+  return customdir;
+}
 /*
       Get the  directory where jobs are stored
 ******************************************************/
@@ -656,3 +685,39 @@ DIR *dir=NULL;
               closedir(dir); 
               return 1;
 }
+uint8_t buildDirectoryContent(uint32_t *outnb,const char *base, char *jobName[],int maxElems)
+{
+
+DIR *dir;
+struct dirent *direntry;
+int dirmax=0,len;
+         dir=opendir(base);
+        if(!dir)
+        {
+                return 0;
+        }
+        while((direntry=readdir(dir)))
+        {
+                len=strlen(direntry->d_name);
+                if(len<4) continue;
+                if(direntry->d_name[len-1]!='s' || direntry->d_name[len-2]!='j' || direntry->d_name[len-3]!='.')
+                {
+                        printf("ignored:%s\n",direntry->d_name);
+                        continue;
+                }
+                jobName[dirmax]=(char *)ADM_alloc(strlen(base)+strlen(direntry->d_name)+2);
+                strcpy(jobName[dirmax],base);
+                strcat(jobName[dirmax],"/");
+                strcat(jobName[dirmax],direntry->d_name);
+                dirmax++;
+                if(dirmax>=maxElems)
+                {
+                        printf("[jobs]: Max # of jobs exceeded\n");
+                         break;
+                }
+        }
+        closedir(dir);
+        *outnb=dirmax;
+        return 1;
+}
+//EOF
