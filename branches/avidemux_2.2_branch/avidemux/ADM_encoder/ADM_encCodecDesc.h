@@ -583,7 +583,7 @@ NULL,//     char      *logfile;
 0,//     uint32_t BidirME;
 1,//     uint32_t Adaptative;
 1,//     uint32_t Weighted;
-1,//     uint32_t DirectMode;
+0,//     uint32_t DirectMode;
 //     //
 4,//     uint32_t PartitionDecision;
 16, //Range
@@ -613,7 +613,7 @@ COMPRES_PARAMS x264Codec = {
   1500,
   700,
   1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS + ADM_ENC_CAP_GLOBAL,
+  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS + ADM_ENC_CAP_GLOBAL+ADM_ENC_CAP_2PASS_BR,
   ADM_EXTRA_PARAM,
   &x264Extra,
   sizeof (x264Extra),
