@@ -392,7 +392,7 @@ int r;
 
 }
 //*****************************************************
-uint8_t editMatrix(uint8_t *inter, uint8_t *intra)
+uint8_t editMatrix(uint8_t *intra, uint8_t *inter)
 {
 GtkWidget *dialog=NULL;
 GtkWidget *spinbutton1;
@@ -455,8 +455,8 @@ _loop:
         }
         for(int i=0;i<64;i++)
         {
-          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
-          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
+          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
+          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
         }
         fwrite(intra,1,64,fd);
         fwrite(inter,1,64,fd);
