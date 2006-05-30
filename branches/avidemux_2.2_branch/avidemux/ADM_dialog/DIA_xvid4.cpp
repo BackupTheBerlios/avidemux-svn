@@ -409,9 +409,9 @@ int col, row;
       {  //Intra
           col=i%8;
           row=i>>3;
-          spinbutton1_adj = gtk_adjustment_new (intra[i], 0, 255, 1, 10, 10);
+          spinbutton1_adj = gtk_adjustment_new (intra[i], 8, 255, 1, 10, 10);
           intraCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-          gtk_widget_show (spinbutton1);
+     //     gtk_widget_show (spinbutton1);
           gtk_table_attach (GTK_TABLE (WID(tableIntra)), spinbutton1, col, col+1, row, row+1,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
@@ -422,16 +422,18 @@ int col, row;
       {  //Inter
           col=i%8;
           row=i>>3;
-          spinbutton1_adj = gtk_adjustment_new (inter[i], 0, 255, 1, 10, 10);
+          spinbutton1_adj = gtk_adjustment_new (inter[i], 1, 255, 1, 10, 10);
           interCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-          gtk_widget_show (spinbutton1);
+      //    gtk_widget_show (spinbutton1);
           gtk_table_attach (GTK_TABLE (WID(tableInter)), spinbutton1, col, col+1, row, row+1,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-
-
        }
-
+      for(int i=0;i<64;i++)
+      {
+        gtk_widget_show (intraCell[i]);
+        gtk_widget_show (interCell[i]);
+      }
       //
 
       CALL_Z(button12,SAVE_MATRIX)
@@ -453,8 +455,8 @@ _loop:
         }
         for(int i=0;i<64;i++)
         {
-          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
-          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
+          inter[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(intraCell[i]));
+          intra[i]=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(interCell[i]));
         }
         fwrite(intra,1,64,fd);
         fwrite(inter,1,64,fd);
