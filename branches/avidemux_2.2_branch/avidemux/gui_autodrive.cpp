@@ -49,13 +49,7 @@ uint8_t A_autoDrive(Action action)
                 return 0;
         }
 
-        // Set output format to mpeg PS
-        // Except for PSP
-      if(action==ACT_AUTO_PSP)
-        UI_SetCurrentFormat(ADM_PSP);
-      else
-        UI_SetCurrentFormat(ADM_PS);
-        
+      
         
         switch(action)
         {
@@ -94,7 +88,6 @@ uint8_t A_autoDrive(Action action)
                                     audioFilter_SetBitrate(160);
                                 }
                                 break;
-                                return 1;
                 case ACT_AUTO_VCD:
                                 // Check video size
                                 if(!setVCD()) return 0;
@@ -169,6 +162,13 @@ uint8_t A_autoDrive(Action action)
                                 break;
 
         }
+        // Set output format to mpeg PS
+        // Except for PSP
+        if(action==ACT_AUTO_PSP)
+          UI_SetCurrentFormat(ADM_PSP);
+        else
+          UI_SetCurrentFormat(ADM_PS);
+        
         return 1;
 }
 //EOF
