@@ -86,6 +86,7 @@ static void on_audio_change(void);
 static void on_video_change(void);
 static int update_ui=0;
 static void GUI_initCustom(void);
+const char * GUI_getCustomScript(uint32_t nb);
 extern uint8_t AVDM_setVolume(int volume);
 #define AUDIO_WIDGET "comboboxAudio"
 #define VIDEO_WIDGET "comboboxVideo"
@@ -218,6 +219,16 @@ uint8_t ret=0;
 
                
 	return ret;
+}
+/**
+    Get the custom entry 
+
+*/
+const char * GUI_getCustomScript(uint32_t nb)
+{
+    ADM_assert(nb<ADM_nbCustom);
+    return customNames[nb];
+
 }
 /** 
 	Set the parameter widget as transient 
