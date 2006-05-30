@@ -55,7 +55,9 @@ static uint8_t lookupSeqEnd(ADMBitstream *bitstream,uint32_t *position);
 	uint32_t fill=0; \
         if(total_got<target_sample) \
 	while(muxer->needAudio()) \
-	{				\
+	{	\
+                if(x)   \
+                    if(total_got>target_sample) break; \
 		if(!audio->getPacket(audiobuffer, &audiolen, &samples))	\
 		{ \
 			printf("passthrough:Could not get audio\n"); \
@@ -67,8 +69,11 @@ static uint8_t lookupSeqEnd(ADMBitstream *bitstream,uint32_t *position);
                         }\
 		total_got+=samples; \
 	} \
+  }
+#if 0
+        printf("Current %u target %u\n",(uint32_t)total_got,(uint32_t)target_sample); \
 }
-
+#endif
 #define WRITE_AND_REMOVE_END_CODE \
 {\
 if(lookupSeqEnd(&bitstream,&position)) \
@@ -284,6 +289,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
   uint8_t *audiobuffer = new uint8_t[4*48000*2]; // 2 sec worth of lpcm
   uint32_t position;
         bitstream.data=buffer;
+        // Prefill buffer
         PACK_AUDIO(0);
 
   for (uint32_t i = frameStart; i < frameEnd; i++)
@@ -322,7 +328,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
         WRITE_AND_REMOVE_END_CODE;   
         
         work->feedFrame(bitstream.len);
-	PACK_AUDIO(0)
+	PACK_AUDIO(1)
 	
 	  
 	  // and the B frames
@@ -334,7 +340,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                 
                 WRITE_AND_REMOVE_END_CODE;   
                 work->feedFrame(bitstream.len);
-		PACK_AUDIO(0)
+		PACK_AUDIO(1)
 		
     	    }
 	  i = found;		// Will be plussed by for
@@ -351,7 +357,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                                 bitstream.ptsFrame=i-frameStart;
 				muxer->writeVideoPacket (&bitstream);
                                 work->feedFrame(bitstream.len);
-				PACK_AUDIO(0)
+				PACK_AUDIO(1)
 				
 				
 			}
@@ -365,7 +371,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                                 bitstream.ptsFrame=i-frameStart;
 				muxer->writeVideoPacket (&bitstream);
                                 work->feedFrame(bitstream.len);
-				PACK_AUDIO(0)
+				PACK_AUDIO(1)
 				
 			}
 		}
@@ -376,7 +382,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                         bitstream.ptsFrame=i-frameStart;
                         WRITE_AND_REMOVE_END_CODE;   
                         work->feedFrame(bitstream.len);
-			PACK_AUDIO(0)
+			PACK_AUDIO(1)
 			
 		}
 	}
@@ -417,5 +423,3 @@ uint8_t lookupSeqEnd(ADMBitstream *bitstream,uint32_t *position)
 
 
 //EOF
-
-        
