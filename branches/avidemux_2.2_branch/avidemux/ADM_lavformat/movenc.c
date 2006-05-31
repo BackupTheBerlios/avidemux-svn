@@ -946,9 +946,11 @@ static int mov_write_edts_tag(ByteIOContext *pb, MOVTrack *track)
 
     put_be32(pb, av_rescale_rnd(track->trackDuration, globalTimescale, track->timescale, AV_ROUND_UP)); /* duration   ... doesn't seem to effect psp */
 
+#if 0 //MEANX : No 
     if (track->hasBframes)
         put_be32(pb, track->sampleDuration); /* first pts is 1 */
     else
+#endif
         put_be32(pb, 0);
     put_be32(pb, 0x00010000);
     return 0x24;
