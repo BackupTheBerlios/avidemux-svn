@@ -292,6 +292,11 @@ videoCodecConfigureAVI (char *cmdString, uint32_t optSize, uint8_t * opt)
 	  compmode = COMPRESS_2PASS;
 	  aprintf ("2pass\n");
 	}
+    if (!strcasecmp (cs, "2passbitrate"))
+	{
+	  compmode = COMPRESS_2PASS_BITRATE;
+	  aprintf ("2pass bitrate\n");
+	}
       if (!strcasecmp (cs, "follow"))
 	{
 	  compmode = COMPRESS_SAME;
@@ -533,6 +538,9 @@ videoCodecGetMode (void)
     case COMPRESS_2PASS:
       sprintf (string, "2PASS=%d", mode->finalsize);
       break;
+    case COMPRESS_2PASS_BITRATE:
+      sprintf (string, "2PASSBITRATE=%d", mode->avg_bitrate);
+      break;
     case COMPRESS_SAME:
       sprintf (string, "FOLLOW=0");
       break;
@@ -640,6 +648,10 @@ setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,
     case COMPRESS_2PASS:
       aprintf ("2pass : %lu q\n", param);
       zparam->finalsize = param;
+      break;
+    case COMPRESS_2PASS_BITRATE:
+      aprintf ("2passbitrate : %lu q\n", param);
+      zparam->avg_bitrate = param;
       break;
     default:
       ADM_assert (0);
