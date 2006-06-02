@@ -41,7 +41,9 @@ static UINT timerID = 3;
 static NOTIFYICONDATA nid;
 static HWND systray_hwnd=0;
 static HICON systray_hicon=0;
-
+static int  win32egg_nb=0;
+static GdkPixbuf **win32egg_pixbuf;
+static int flipflop=0;
 LRESULT msg_handler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
   static UINT taskbarRestartMsg; /* static here means value is kept across multiple calls to this func */
@@ -245,10 +247,13 @@ void systray_remove_nid(void)
 //*********************************************************
 //*********************************************************
 //*********************************************************
-void *adm_new_systray(GdkPixbuf *pixbuf[],int nb, char *name)
+void *adm_new_systray(GdkPixbuf *zpixbuf[],int nb, char *name)
 {
 void *r;
-  systray_init(pixbuf[0],  name);
+	flipflop=0;
+	win32egg_pixbuf=zpixbuf;
+	win32egg_nb=nb;
+  systray_init(win32egg_pixbuf[0],  name);
   r=(void *)0xdead;
   return r;
 
@@ -263,6 +268,20 @@ void adm_change_tooltip(void *systray, const char *tips)
 }
 void adm_changeIcon_systray(void)
 {
-  // Do nothing on windows
+  GdkPixmap *pm;
+  GdkBitmap *mask;
+  GdkPixbuf *icon;
+	flipflop=flipflop%win32egg_nb;
+	icon=win32egg_pixbuf[flipflop];
+	//ADM_assert(icon);
+
+  	gdk_pixbuf_render_pixmap_and_mask(icon, &pm, &mask, 128);
+
+
+	systray_modify_icon (pm, mask) ;
+
+		
+	flipflop++;
+	flipflop=flipflop%win32egg_nb;
 }
 #endif
