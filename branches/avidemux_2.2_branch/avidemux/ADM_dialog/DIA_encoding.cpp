@@ -166,7 +166,7 @@ void DIA_encoding::setFrame(uint32_t nb,uint32_t total)
 {
 	uint32_t tim;
 #define  ETA_SAMPLE_PERIOD 60000 //Use last n millis to calculate ETA
-#define  GUI_UPDATE_RATE 1000  
+#define  GUI_UPDATE_RATE 500  
   static uint32_t _lastnb=0;
 
 	   ADM_assert(dialog);
