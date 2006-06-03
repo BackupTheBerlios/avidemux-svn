@@ -352,7 +352,7 @@ uint8_t  bindGUI( void )
                 for(uint32_t i=0;i<nbVid;i++)
                 {
                         name=encoderGetIndexedName(i);
-                        gtk_combo_box_append_text      (combo_box,name);
+                        gtk_combo_box_append_text      (combo_box,_(name));
                 }
 
         gtk_combo_box_set_active(combo_box,0);
@@ -368,7 +368,7 @@ uint8_t  bindGUI( void )
                 for(uint32_t i=0;i<nbAud;i++)
                 {
                         name=audioFilterGetIndexedName(i);
-                        gtk_combo_box_append_text      (combo_box,name);	
+                        gtk_combo_box_append_text      (combo_box,_(name));	
                 }
         gtk_combo_box_set_active(combo_box,0);
 	on_audio_change();
