@@ -71,7 +71,10 @@ uint32_t useTray=0;
 	gtk_widget_show(dialog);
 //	gtk_window_set_modal(GTK_WINDOW(dialog), 1);
         if(useTray)
+	{
+               gtk_window_iconify(GTK_WINDOW(dialog));
 	       UI_iconify();
+	}
 	_lastTime=0;
 	_lastFrame=0;
 	_fps_average=0;
