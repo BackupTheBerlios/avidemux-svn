@@ -97,7 +97,7 @@ int CpuCaps::myCpuCaps=0;
 int main(int argc, char *argv[])
 {
 // Check for big files
-
+int sdl_version=0;
 #ifdef     __USE_LARGEFILE
 #ifdef   __USE_LARGEFILE64
 printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
@@ -144,6 +144,19 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
    VPInitLibrary();
    register_Encoders( );
     atexit(onexit);
+#ifdef USE_SDL
+    sdl_version=(SDL_Linked_Version()->major*1000)+(SDL_Linked_Version()->minor*100)+
+          (SDL_Linked_Version()->patch);
+    
+    printf("SDL support on Version %d\n",sdl_version);
+#endif
+ #ifdef USE_SDL
+  if(sdl_version>1209)
+  {
+   	printf("Global SDL init...\n");
+   	SDL_Init(SDL_INIT_EVERYTHING); //SDL_INIT_AUDIO+SDL_INIT_VIDEO);
+  }
+   #endif
 
 #ifndef CYG_MANGLING    
     g_thread_init(NULL);
@@ -198,11 +211,14 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 			  gtk_timeout_add( 300, (GtkFunction )automation, NULL );
 				//automation();				
 		}
-   #ifdef USE_SDL
+#ifdef USE_SDL
+  if(sdl_version<=1209)
+  {
    	printf("Global SDL init...\n");
    	SDL_Init(0); //SDL_INIT_AUDIO+SDL_INIT_VIDEO);
-   #endif
-    oplug_mpegInit();
+  }
+#endif
+      oplug_mpegInit();
 	if(SpidermonkeyInit() == true)
 		printf("Spidermonkey initialized.\n");
 
