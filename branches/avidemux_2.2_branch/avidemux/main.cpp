@@ -80,7 +80,8 @@ extern uint8_t  initFileSelector(void);
 
 extern "C"
 {
-extern void     VPInitLibrary();
+extern void VPInitLibrary(void);
+extern void VPDeInitLibrary(void);
 
 
 };
@@ -132,15 +133,19 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 	printf(" FreeBSD   : Anish Mistry, amistry@am-productions.biz\n");
 
 
-#if (defined( ARCH_X86)  || defined(ARCH_X86_64))
-	printf("Arcc X86 X86_64 activated.\n"); 	
+#if defined( ARCH_X86)  
+      printf("Compiled for X86 Arch.\n");
+#endif
+#if defined(ARCH_X86_64)
+      printf("Compiled for X86_64 Arch.\n");
 #endif
    
 
-#ifdef USE_XX_XVID_CVS
-	printf("Probing XvidCVS library....\n");
- 	dloadXvidCVS(  );
-#endif
+    // the one and only global preferences object
+    printf("Initializing prefs\n");
+    initPrefs();
+    
+
    VPInitLibrary();
    register_Encoders( );
     atexit(onexit);
@@ -223,17 +228,22 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 		printf("Spidermonkey initialized.\n");
 
     gtk_main();
-
-	SpidermonkeyDestroy();
-
+    printf("Normal exit\n");
     return 0;
 }
 void onexit( void )
 {
-	filterCleanUp();
-	ADMImage_stat();
-	ADM_memStat();
-	printf("\n Goodbye...\n\n");
+  printf("Cleaning up\n");
+        VPDeInitLibrary();
+        delete video_body;
+  printf("Cleaning up spidermonkey\n");
+        SpidermonkeyDestroy();
+        destroyPrefs();
+        filterCleanUp();
+  printf("End of cleanup\n");
+        ADMImage_stat();
+        ADM_memStat();
+        printf("\n Goodbye...\n\n");
 }
 void sig_segfault_handler(int signo)
 {

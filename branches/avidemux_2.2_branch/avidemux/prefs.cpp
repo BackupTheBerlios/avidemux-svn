@@ -25,6 +25,7 @@ extern char *PathCanonize(const char *tmpname);
 extern int  qxmlSaveFormatFile(const char *filename, xmlDocPtr cur, int format);
 static char *checkDirAccess(char *home);
 extern char *ADM_escape(const ADM_filename *incoming);
+class preferences *prefs;
 // <prefs_gen>
 typedef enum {
 	UINT,
@@ -942,7 +943,16 @@ const char **preferences::get_lastfiles(void){
 #endif
 	return (const char**)internal_lastfiles;
 }
+int initPrefs(  void )
+{
+  prefs = new preferences();
+  return 1;
+}
+int destroyPrefs(  void )
+{
+  delete prefs;
+  prefs=NULL;
+  return 1;
+}
 
-// the one and only global preferences object
-preferences *prefs = new preferences();
 // EOF

@@ -114,5 +114,6 @@ class preferences {
 };
 
 extern preferences *prefs;
-
+int initPrefs(  void );
+int destroyPrefs(  void );
 #endif
