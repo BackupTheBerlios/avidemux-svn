@@ -34,7 +34,7 @@
 #define MODE_PSP 3 // example working PSP command line:
 // ffmpeg -i testinput.avi  -f psp -r 14.985 -s 320x240 -b 768 -ar 24000 -ab 32 M4V00001.MP4
 #define MODE_3G2 4
-
+#define MEANX_PUT_MP3_IN_MP4A
 typedef struct MOVIentry {
     unsigned int flags, size;
     uint64_t     pos;
@@ -112,7 +112,8 @@ static int mov_write_stco_tag(ByteIOContext *pb, MOVTrack* track)
 }
 
 /* Sample size atom */
-static int mov_write_stsz_tag(ByteIOContext *pb, MOVTrack* track)
+//static
+ int mov_write_stsz_tag(ByteIOContext *pb, MOVTrack* track)
 {
     int equalChunks = 1;
     int i, j, entries = 0, tst = -1, oldtst = -1;
