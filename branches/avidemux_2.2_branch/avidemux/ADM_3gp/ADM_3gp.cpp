@@ -271,11 +271,16 @@ uint8_t    _3GPHeader::open(char *name)
         if(check[0]=='m' && check[1]=='d' &&check[2]=='a' && check[3]=='t')
         {
                         uint32_t of;
-                                        atom->read32();
-                                        atom->read32();
-                                        atom->read32();
+                                        printf("Data first, header later...\n");
                                         of=atom->read32();
+                                        if(of==1)
+                                        {
+                                          atom->read32();
+                                          atom->read32();
+                                          of=atom->read32();
+                                        }
                                         fseeko(_fd,of,SEEK_SET);        
+                                        printf("Header starts at %x\n",of);
                                         delete atom;
                                         atom=new adm_atom(_fd);
         }
@@ -758,7 +763,7 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
 
 					buildIndex(&_tracks[0],myScale,
 							nbSz,Sz,SzIndentical,nbCo,Co,nbSc,Sc,nbStts,SttsN,SttsC,
-							Sn,&nbo);
+							Sn,&nbo,0);
 					// Take the last entry in the video index as global time
 					// time in us
                                         nbo=_tracks[0].nbIndex;
@@ -794,7 +799,7 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
 					// audio
                                         buildIndex(&_tracks[1+nbAudioTrack],myScale,
 							nbSz,Sz,SzIndentical,nbCo,Co,nbSc,Sc,nbStts,SttsN,SttsC,
-							Sn,&nbo);
+							Sn,&nbo,1);
                                         nbo=_tracks[1+nbAudioTrack].nbIndex;
                                         // Check for extra
 
@@ -1211,7 +1216,7 @@ uint8_t	_3GPHeader::buildIndex(
 				uint32_t nbCo ,		uint32_t *Co,
 				uint32_t nbSc,		uint32_t *Sc,
 				uint32_t nbStts,	uint32_t *SttsN,uint32_t *SttsC,
-				uint32_t *Sn, 			uint32_t *outNbChunk)
+				uint32_t *Sn, 			uint32_t *outNbChunk,uint32_t isAudio)
 
 {
 
@@ -1288,7 +1293,7 @@ uint32_t i,j,cur;
                         totalDuration+=sampleDuration*samplePerChunk[i];
                         aprintf("Audio chunk : %lu time :%lu\n",i,track->index[i].time);
                 }
-                if(max) // We have some big chunks we need to split them
+                if(max && isAudio) // We have some big chunks we need to split them
                 {
                       // rebuild a new index
                       printf("We have %u chunks that are too big, adjusting..\n",max);
@@ -1301,7 +1306,7 @@ uint32_t i,j,cur;
 
                      _3gpIndex *newindex=new _3gpIndex[newNbCo];
 
-                    int64_t time_increment=(one_go/SzIndentical)*sampleDuration;  // Nb sample*duration of one sample
+                    int64_t time_increment=(int64_t)((one_go/SzIndentical)*sampleDuration);  // Nb sample*duration of one sample
                     for(i=0;i<track->nbIndex;i++)
                     {
                       uint32_t sz;
