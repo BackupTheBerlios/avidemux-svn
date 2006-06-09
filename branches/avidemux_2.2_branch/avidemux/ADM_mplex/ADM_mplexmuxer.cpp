@@ -120,13 +120,22 @@ mplexMuxer::~mplexMuxer()
         close();
 }
 //___________________________________________________________________________
+uint8_t mplexMuxer::audioEof(void)
+{
+        channelaudio->abort();
+}
+
+//___________________________________________________________________________
 uint8_t mplexMuxer::open(const char *filename, uint32_t inbitrate,ADM_MUXER_TYPE type, aviInfo *info, WAVHeader *audioheader)
 {
         printf("Opening mplex muxer (%s)\n",filename);
         _running=1;
-     
-        channelaudio=new Transfert();
-        channelvideo=new Transfert();
+#define MIN_BUFFER (1024*1024)
+        if(audioheader->encoding==WAV_LPCM)
+            channelaudio=new Transfert(2*MIN_BUFFER);
+        else
+            channelaudio=new Transfert(MIN_BUFFER);
+        channelvideo=new Transfert(0);
         
         outputStream=new FileOutputStream ( filename );
         
