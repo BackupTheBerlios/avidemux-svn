@@ -61,12 +61,18 @@ static uint8_t lookupSeqEnd(ADMBitstream *bitstream,uint32_t *position);
 		if(!audio->getPacket(audiobuffer, &audiolen, &samples))	\
 		{ \
 			printf("passthrough:Could not get audio\n"); \
-			break; \
+			audiolen=0; \
 		}\
 		if(audiolen) {\
 			muxer->writeAudioPacket(audiolen,audiobuffer); \
                         work->feedAudioFrame(audiolen);\
-                        }\
+                        }else \
+                { \
+                    printf("[MPEG Audio] Read failed current %u max %u \n",total_got,target_sample); \
+                    total_got=target_sample; \
+                    muxer->audioEof(); \
+                    break; \
+                }\
 		total_got+=samples; \
 	} \
   }
@@ -105,7 +111,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
   ADM_MUXER_TYPE mux;
   
   double total_wanted=0;
-  double total_got=0;
+  uint32_t total_got=0;
   uint8_t ret=0;
  
   ADMMpegMuxer *muxer=NULL;
