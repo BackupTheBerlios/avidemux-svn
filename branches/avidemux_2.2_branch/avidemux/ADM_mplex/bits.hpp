@@ -6,7 +6,7 @@
 
 typedef uint64_t bitcount_t;
 
-
+#include "streamType.h"
 class BitStreamBuffering
 {
 public:
@@ -120,10 +120,12 @@ protected:
 class IBitStream : public IBitStreamUndo 
 {
 public:
- 	IBitStream() :
+        StreamKind      streamKind;
+ 	IBitStream(StreamKind kind) :
 		IBitStreamUndo(),
 		streamname( "unnamed" )
 		{
+                    streamKind=kind;
 		}
 	virtual ~IBitStream() { Release(); }
 

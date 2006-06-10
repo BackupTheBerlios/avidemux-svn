@@ -206,7 +206,8 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                                 if(!prefs->get(FEATURE_MPEG_NO_LIMIT,&valid)) valid=0;
                                  // mpeg2, we do only DVD right now
                                 if(hdr->frequency==48000) valid=1;
-                                if((hdr->encoding != WAV_MP2 && hdr->encoding!=WAV_AC3 && hdr->encoding!=WAV_LPCM))
+                                if((hdr->encoding != WAV_MP2 && hdr->encoding!=WAV_AC3 && hdr->encoding!=WAV_LPCM
+                                && hdr->encoding!=WAV_DTS))
                                 {
                                   valid=0;  
                             
@@ -214,7 +215,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                                 if(!valid)
                                 {
                                        deleteAudioFilter();
-                                       GUI_Error_HIG("Incompatible audio", "For DVD, audio must be 48 kHz MP2, AC3 or LPCM.");
+                                       GUI_Error_HIG("Incompatible audio", "For DVD, audio must be 48 kHz MP2, AC3, DTS or LPCM.");
                                        return 0;
                                 }
                          
