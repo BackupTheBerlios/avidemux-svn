@@ -44,7 +44,7 @@
 
 #include "ADM_video/ADM_vidMcDeint_param.h"
 
-static FILTER_PARAM mcDeintParam={3,{"mode","qp","intial_parity"}};
+static FILTER_PARAM mcDeintParam={3,{"mode","qp","initial_parity"}};
 
 struct vf_priv_s {
     int mode;
@@ -101,6 +101,7 @@ uint8_t AVDMVideoMCDeint::configure(AVDMGenericVideoStream * instream)
 {
     if( DIA_mcDeint(_param))
     {
+      cleanup();
       init();
       return 1;
     }
@@ -138,7 +139,7 @@ AVDMVideoMCDeint::AVDMVideoMCDeint(AVDMGenericVideoStream *in,CONFcouple *couple
         {
                 _param->mode=0;
                 _param->qp=1;
-                _param->initial_parity=-1;
+                _param->initial_parity=0;
                 
         }
         _info.encoding=1;
