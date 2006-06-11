@@ -87,7 +87,7 @@ SCRIPT_CREATE(mcdeint_script,AVDMVideoMCDeint,mcDeintParam);
 BUILD_CREATE(mcdeint_create,AVDMVideoMCDeint);
 
 static void filter(struct vf_priv_s *p, uint8_t *dst[3], uint8_t *src[3], int dst_stride[3], int src_stride[3], int width, int height);
-
+uint8_t DIA_mcDeint(MCDEINT_PARAM *param);
 
 
 char *AVDMVideoMCDeint::printConf( void )
@@ -99,9 +99,12 @@ static char buf[50];
 }
 uint8_t AVDMVideoMCDeint::configure(AVDMGenericVideoStream * instream)
 {
-    cleanup();
-    init();
-    return 1;
+    if( DIA_mcDeint(_param))
+    {
+      init();
+      return 1;
+    }
+    return 0;
 }
 uint8_t AVDMVideoMCDeint::getCoupledConf( CONFcouple **couples)
 {
