@@ -12,4 +12,11 @@ enum StreamKind
       Z_ALPHA
 #endif
   };
+
+typedef struct mplexStreamDescriptor
+{
+  int channel;
+  int frequency;
+  StreamKind kind;
+}mplexStreamDescriptor;
 #endif

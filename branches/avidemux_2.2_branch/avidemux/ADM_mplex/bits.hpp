@@ -120,12 +120,12 @@ protected:
 class IBitStream : public IBitStreamUndo 
 {
 public:
-        StreamKind      streamKind;
- 	IBitStream(StreamKind kind) :
+        mplexStreamDescriptor      streamDesc;
+ 	IBitStream(mplexStreamDescriptor *desc) :
 		IBitStreamUndo(),
 		streamname( "unnamed" )
 		{
-                    streamKind=kind;
+                    streamDesc=*desc;
 		}
 	virtual ~IBitStream() { Release(); }
 

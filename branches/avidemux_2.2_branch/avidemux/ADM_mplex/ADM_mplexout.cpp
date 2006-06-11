@@ -58,9 +58,9 @@ bool IFileBitStream::EndOfStream(void)
 
 }
 
-IFileBitStream::IFileBitStream(Transfert *trans,StreamKind skind,
+IFileBitStream::IFileBitStream(Transfert *trans,mplexStreamDescriptor *desc,
                                 unsigned int buf_size) :
-    IBitStream(skind)
+    IBitStream(desc)
 {
         _transfert=trans;        
         SetBufSize(buf_size);

@@ -148,17 +148,19 @@ void MultiplexJob::SetupInputStreams( std::vector< IBitStream *> &inputs )
         bs = inputs[i];
         // Remember the streams initial state...
         bs->PrepareUndo( undo );
-        switch(bs->streamKind)
+        switch(bs->streamDesc.kind)
         {
             case MPEG_AUDIO:
             case AC3_AUDIO:
             case LPCM_AUDIO:
             case DTS_AUDIO:
-                mjpeg_info ("File %s looks like an %s Audio stream.", bs->StreamName() , kindToString(bs->streamKind));
+                mjpeg_info ("File %s looks like an %s Audio stream (fq %u, channel %u).\n", bs->StreamName() , kindToString(bs->streamDesc.kind),bs->streamDesc.frequency,bs->streamDesc.channel);
                 bs->UndoChanges( undo );
-                streams.push_back( new JobStream( bs, bs->streamKind) );
+                streams.push_back( new JobStream( bs, bs->streamDesc.kind) );
                 ++audio_tracks;
-                if(bs->streamKind==LPCM_AUDIO) ++lpcm_tracks;
+                if(bs->streamDesc.kind==LPCM_AUDIO) 
+                    lpcm_param.push_back(LpcmParams::Checked(  bs->streamDesc.frequency,                                         
+                                                   bs->streamDesc.channel,16));//++lpcm_tracks;
                 continue;
             case MPEG_VIDEO:
                 mjpeg_info ("File %s looks like an Video stream.", bs->StreamName() );
@@ -266,7 +268,7 @@ void MultiplexJob::SetupInputStreams( std::vector< IBitStream *> &inputs )
 	}
 	for( i = lpcm_param.size(); i < lpcm_tracks; ++i )
 	{
-		lpcm_param.push_back(LpcmParams::Default(mux_format));
+		//  lpcm_param.push_back(LpcmParams::Default(mux_format));
 	}
 
 	//
