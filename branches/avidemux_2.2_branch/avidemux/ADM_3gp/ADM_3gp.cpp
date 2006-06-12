@@ -84,7 +84,7 @@ typedef enum MP4_Tag
 	Tag_DecConfigDesc 	=0x04,
 	Tag_DecSpecificInfo 	=0x05
 };
-
+uint32_t ADM_UsecFromFps1000(uint32_t fps1000);
 //****************************************************
 _3gpTrack::_3gpTrack(void)
 {
@@ -370,7 +370,8 @@ uint8_t    _3GPHeader::open(char *name)
             _tracks[0].index[0].intra=AVI_KEY_FRAME;
             
         }
-
+        // Update usec per frame
+        _mainaviheader.dwMicroSecPerFrame=ADM_UsecFromFps1000( _videostream.dwRate);;;   
         printf("3gp/mov file successfully read..\n");
         return 1;
 }
