@@ -113,6 +113,7 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 
 //#define ALOCALES "/usr/local/share/locale"
   bindtextdomain ("avidemux", ADMLOCALE);
+  bind_textdomain_codeset ("avidemux", "UTF-8");
   textdomain ("avidemux");
   printf("Locales for %s appear to be in %s\n","avidemux", ADMLOCALE);
   printf("\nI18N : %s \n",dgettext("avidemux","_File"));
