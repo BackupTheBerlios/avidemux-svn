@@ -520,6 +520,17 @@ TryAgain:
 			printf("\n no  B- frame with that codec \n");
 			return 1;
 		}
+                if(isH264Compatible(info.fcc))
+                {
+                    if(GUI_Confirmation_HIG("Use that mode","H264 detected","If the file is using bframe as reference, it can lead to crash or stutteting.\nAvidemux can use another mode which is safed but <b>YOU WILL LOOSE FRAME ACCURACY</b>.\nDo you want to use that mode ?"))
+                    {
+                              printf("Switching to non low delay codec\n");
+                              _videos[_nb_video-1].decoder = getDecoderH264noLogic (info.fcc,  info.width, info.height, l, d);
+                              return 1;
+                    }
+
+
+                }
 		printf("\n checking for B-Frames...\n");
 		if( vid->_nb_video_frames >12) // 12
 		{
