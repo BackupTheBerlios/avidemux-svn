@@ -105,6 +105,7 @@ uint32_t type,value;
   // Start with a clean base
   memset (_videos, 0, sizeof (_videos));
   memset (_segments, 0, sizeof (_segments));
+  _scratch=NULL;
   
 }
 /**
@@ -222,6 +223,11 @@ ADM_Composer::~ADM_Composer ()
   if(_imageBuffer)
   	delete _imageBuffer;
   _imageBuffer=NULL;
+  if(_scratch)
+    {
+      delete _scratch;
+      _scratch=NULL;
+    }
 
 }
 

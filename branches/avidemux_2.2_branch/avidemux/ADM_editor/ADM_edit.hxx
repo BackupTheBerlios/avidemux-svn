@@ -129,7 +129,7 @@ class ADM_Composer
   					_SEGMENT 		_segments[MAX_SEG];
 					_SEGMENT 		_clipboard[MAX_SEG];
 					_VIDEOS 		_videos[MAX_VIDEO];
-
+                                        ADMImage                *_scratch;
 						uint8_t  	convFrame2Seg(uint32_t framenum,uint32_t *seg,
 																			uint32_t *relframe);
 						uint8_t  	convSeg2Frame(	uint32_t *framenum,
