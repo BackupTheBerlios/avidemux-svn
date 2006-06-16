@@ -1,0 +1,148 @@
+layer3.o layer3.o: layer3.c ../../config.h global.h /usr/include/stdlib.h \
+  /usr/include/gentoo-multilib/amd64/stdlib.h /usr/include/features.h \
+  /usr/include/gentoo-multilib/amd64/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gentoo-multilib/amd64/sys/cdefs.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/gentoo-multilib/amd64/bits/wordsize.h \
+  /usr/include/gnu/stubs.h /usr/include/gentoo-multilib/amd64/gnu/stubs.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/gentoo-multilib/amd64/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/3.4.4/include/stddef.h \
+  /usr/include/sys/types.h /usr/include/gentoo-multilib/amd64/sys/types.h \
+  /usr/include/bits/types.h \
+  /usr/include/gentoo-multilib/amd64/bits/types.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/gentoo-multilib/amd64/bits/typesizes.h /usr/include/time.h \
+  /usr/include/gentoo-multilib/amd64/time.h /usr/include/endian.h \
+  /usr/include/gentoo-multilib/amd64/endian.h /usr/include/bits/endian.h \
+  /usr/include/gentoo-multilib/amd64/bits/endian.h \
+  /usr/include/sys/select.h \
+  /usr/include/gentoo-multilib/amd64/sys/select.h \
+  /usr/include/bits/select.h \
+  /usr/include/gentoo-multilib/amd64/bits/select.h \
+  /usr/include/bits/sigset.h \
+  /usr/include/gentoo-multilib/amd64/bits/sigset.h \
+  /usr/include/bits/time.h /usr/include/gentoo-multilib/amd64/bits/time.h \
+  /usr/include/sys/sysmacros.h \
+  /usr/include/gentoo-multilib/amd64/sys/sysmacros.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/gentoo-multilib/amd64/bits/pthreadtypes.h \
+  /usr/include/alloca.h /usr/include/gentoo-multilib/amd64/alloca.h \
+  /usr/include/string.h /usr/include/gentoo-multilib/amd64/string.h \
+  /usr/include/bits/string.h \
+  /usr/include/gentoo-multilib/amd64/bits/string.h \
+  /usr/include/bits/string2.h \
+  /usr/include/gentoo-multilib/amd64/bits/string2.h fixed.h bit.h \
+  stream.h frame.h timer.h huffman.h layer3.h rq_table.dat imdct_s.dat
+
+../../config.h:
+
+global.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/gentoo-multilib/amd64/stdlib.h:
+
+/usr/include/features.h:
+
+/usr/include/gentoo-multilib/amd64/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gentoo-multilib/amd64/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gentoo-multilib/amd64/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gentoo-multilib/amd64/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/gentoo-multilib/amd64/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/3.4.4/include/stddef.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/gentoo-multilib/amd64/sys/types.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/gentoo-multilib/amd64/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/gentoo-multilib/amd64/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/include/gentoo-multilib/amd64/time.h:
+
+/usr/include/endian.h:
+
+/usr/include/gentoo-multilib/amd64/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/gentoo-multilib/amd64/bits/endian.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/gentoo-multilib/amd64/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/gentoo-multilib/amd64/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/gentoo-multilib/amd64/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/gentoo-multilib/amd64/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/gentoo-multilib/amd64/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/gentoo-multilib/amd64/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/gentoo-multilib/amd64/alloca.h:
+
+/usr/include/string.h:
+
+/usr/include/gentoo-multilib/amd64/string.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/gentoo-multilib/amd64/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/gentoo-multilib/amd64/bits/string2.h:
+
+fixed.h:
+
+bit.h:
+
+stream.h:
+
+frame.h:
+
+timer.h:
+
+huffman.h:
+
+layer3.h:
+
+rq_table.dat:
+
+imdct_s.dat:
