@@ -2535,7 +2535,10 @@ int mad_layer_III(struct mad_stream *stream, struct mad_frame *frame)
   }
 
   if (frame->overlap == 0) {
-    frame->overlap = calloc(2 * 32 * 18, sizeof(mad_fixed_t));
+
+    //MEANX frame->overlap = calloc(2 * 32 * 18, sizeof(mad_fixed_t));
+    frame->overlap = malloc(2 * 32 * 18* sizeof(mad_fixed_t));
+    memset(frame->overlap ,0,2 * 32 * 18* sizeof(mad_fixed_t));
     if (frame->overlap == 0) {
       stream->error = MAD_ERROR_NOMEM;
       return -1;
