@@ -630,7 +630,7 @@ AVDMProcessAudioStream *buildInternalAudioFilter(AVDMGenericAudioStream *current
 
       }
       
-      if( audioMixing!=CHANNEL_INVALID && lastFilter->getInfo()->channels>2)
+      if( (audioMixing!=CHANNEL_INVALID ))
       {
           AVDMProcessAudio_Mixer *mixer;
           mixer=new AVDMProcessAudio_Mixer( lastFilter,audioMixing);
