@@ -43,5 +43,7 @@ unsigned long mad_bit_read(struct mad_bitptr *, unsigned int);
 void mad_bit_write(struct mad_bitptr *, unsigned int, unsigned long);
 
 unsigned short mad_bit_crc(struct mad_bitptr, unsigned int, unsigned short);
-
+//MEANX
+#include "madmem.h"
+//MEANX
 # endif
