@@ -1,7 +1,0 @@
-huffman.o huffman.o: huffman.c ../../config.h global.h huffman.h
-
-../../config.h:
-
-global.h:
-
-huffman.h:

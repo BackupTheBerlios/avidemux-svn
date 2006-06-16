@@ -1,7 +1,0 @@
-bit.o bit.o: bit.c ../../config.h global.h bit.h
-
-../../config.h:
-
-global.h:
-
-bit.h:
