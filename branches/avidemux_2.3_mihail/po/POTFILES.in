@@ -7,7 +7,6 @@
 ./avidemux/ADM_audiocodec/ADM_codecwav.cpp
 ./avidemux/ADM_audiocodec/ADM_codecmp3.cpp
 ./avidemux/ADM_audiocodec/ADM_audiocodec.cpp
-./avidemux/ADM_audiocodec/ADM_ffwma.cpp
 ./avidemux/ADM_audiocodec/ADM_codecac3.cpp
 ./avidemux/ADM_audiocodec/ADM_codeculaw.cpp
 ./avidemux/ADM_audiocodec/ADM_codecimaadpcm.cpp

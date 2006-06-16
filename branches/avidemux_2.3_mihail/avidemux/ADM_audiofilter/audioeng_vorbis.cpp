@@ -228,8 +228,11 @@ while(count--)
 	
 	// Put our samples in incoming buffer
 	for (int i = 0; i < nbSample; i++)
-		for (int j = 0; j < _wavheader->channels; j++)
+		for (int j = 0; j < _wavheader->channels; j++) {
 			float_samples[j][i] = dropBuffer[i * _wavheader->channels + j];
+			if (float_samples[j][i] > 1) float_samples[j][i] = 1;
+			if (float_samples[j][i] < -1) float_samples[j][i] = -1;
+	}
 	// Buffer full, go go go
 	 vorbis_analysis_wrote(&VD, nbSample) ; 
 	 

@@ -71,6 +71,9 @@ void audioDevice::dither16bit(uint32_t len, float *data) {
 	len /= _channels;
 	for (int i = 0; i < len; i++)
 		for (int c = 0; c < _channels; c++) {
+			if (*data > 1) *data = 1;
+			if (*data < -1) *data = -1;
+
 			dp = _dither[c];
 			_dither[c] = rand() / (float)RAND_MAX * 2.0 - 1.0;
 			*data_int = (int16_t)(*data * 32765 + _dither[c] - dp);//32767 - 2 to avoid clipping

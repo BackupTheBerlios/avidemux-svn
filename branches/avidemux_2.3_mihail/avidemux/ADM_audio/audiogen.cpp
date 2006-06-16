@@ -296,7 +296,7 @@ uint8_t AVDMGenericAudioStream::beginDecompress(void)
 //
 //__________________________________________
 uint32_t AVDMGenericAudioStream::readDecompress(uint32_t size,
-						uint8_t * ptr)
+						uint8_t * ptr)//deprecate
 {
     uint32_t rd = 0, d = 0, in = 0,samples=0;
     uint8_t r=0;
@@ -316,7 +316,7 @@ drop:
 			printf(" read failed, end of stream ? \n");
 			return rd;
                	}
-		if(!_codec->run(internalBuffer,in,ptr+rd,&d))
+//		if(!_codec->run(internalBuffer,in,ptr+rd,&d))
 		{
 			printf("\n Codec error !!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 			goto drop;
