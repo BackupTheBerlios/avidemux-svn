@@ -70,7 +70,7 @@ typedef unsigned char ADM_filename ;
 #define ADM_IGN 2
 
 // For win32, useless else
-#if 0
+#ifdef __cplusplus
 uint64_t ftello_adm(FILE *f);
 int fseeko_adm(FILE *f,fpos_t off,int whence);
 #endif
