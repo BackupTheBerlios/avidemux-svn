@@ -111,6 +111,13 @@ uint8_t A_autoDrive(Action action)
                                         }
 #warning use mixer!!
                                         audioFilter_SetBitrate(224);
+                                        if(currentaudiostream->getInfo()->channels!=2)
+                                        {
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
+                                        }
                                 }
                                 break;
                 case ACT_AUTO_SVCD:
@@ -131,10 +138,12 @@ uint8_t A_autoDrive(Action action)
                                         {
                                                 audioFilterResample(44100);
                                         }
-                                        if(currentaudiostream->getInfo()->channels==1)
+                                        if(currentaudiostream->getInfo()->channels!=2)
                                         {
-//                                                 audioFilterMono2Stereo(1);
-#warning USE mixer
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
                                         }
                                         audioFilter_SetBitrate(160);
                                 }
@@ -154,6 +163,13 @@ uint8_t A_autoDrive(Action action)
                                         audioCodecSetcodec(AUDIOENC_2LAME);
                                         audioFilterResample(48000);
                                         audioFilter_SetBitrate(160);
+                                        if(currentaudiostream->getInfo()->channels!=2)
+                                        {
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
+                                        }
                                 }
                                 else
                                 {
