@@ -210,12 +210,12 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
                                 && hdr->encoding!=WAV_DTS))
                                 {
                                   valid=0;  
-                            
-                                }        
+                                }
+                    
                                 if(!valid)
                                 {
                                        deleteAudioFilter();
-                                       GUI_Error_HIG("Incompatible audio", "For DVD, audio must be 48 kHz MP2, AC3, DTS or LPCM.");
+                                       GUI_Error_HIG("Incompatible audio", "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo).");
                                        return 0;
                                 }
                          
