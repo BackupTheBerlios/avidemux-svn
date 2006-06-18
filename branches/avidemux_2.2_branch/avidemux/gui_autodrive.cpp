@@ -39,6 +39,9 @@
 
 #include "ADM_encoder/adm_encConfig.h"
 #include "ADM_filter/vidVCD.h"
+#include "ADM_encoder/ADM_vidEncode.hxx"
+
+extern void setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,     uint32_t extraConf, uint8_t * extraData);
 
 uint8_t A_autoDrive(Action action)
 {
@@ -125,6 +128,7 @@ uint8_t A_autoDrive(Action action)
                                 if(!setSVCD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XSVCD"))  return 0;
+                                setVideoEncoderSettings (COMPRESS_2PASS_BITRATE,2000,0,NULL);
                                 if((currentaudiostream->getInfo()->frequency==44100)&&
                                         (currentaudiostream->getInfo()->channels==2)&&
                                                 (currentaudiostream->getInfo()->encoding==WAV_MP2))
@@ -155,6 +159,8 @@ uint8_t A_autoDrive(Action action)
                                 if(!setDVD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XDVD"))  return 0;
+                                // Set 2 pass, avg bitrate  6 M
+                                setVideoEncoderSettings (COMPRESS_2PASS_BITRATE,6000,0,NULL);
                                 // Set audio
                                 if(currentaudiostream->getInfo()->frequency!=48000
                                         || (currentaudiostream->getInfo()->encoding!=WAV_MP2 &&

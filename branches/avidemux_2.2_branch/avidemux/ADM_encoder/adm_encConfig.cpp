@@ -43,8 +43,7 @@
 
 // Some static stuff
 static COMPRES_PARAMS *videoCodecGetDescriptor (SelectCodecType codec);
-static void setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,
-				     uint32_t extraConf, uint8_t * extraData);
+void setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,     uint32_t extraConf, uint8_t * extraData);
 static void encoderPrint (void);
 static const char *encoderGetName (void);
 
