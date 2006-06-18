@@ -367,9 +367,10 @@ uint8_t    _3GPHeader::open(char *name)
                     _tracks[0].index[i].intra=AVI_B_FRAME;
                 
             }
-            _tracks[0].index[0].intra=AVI_KEY_FRAME;
+            
             
         }
+        _tracks[0].index[0].intra=AVI_KEY_FRAME;
         // Update usec per frame
         _mainaviheader.dwMicroSecPerFrame=ADM_UsecFromFps1000( _videostream.dwRate);;;   
         printf("3gp/mov file successfully read..\n");
