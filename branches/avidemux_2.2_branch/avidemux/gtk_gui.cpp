@@ -1102,7 +1102,8 @@ int A_openAvi2 (char *name, uint8_t mode)
                 }
             }
             if(infos) delete [] infos;
-            
+            // Revert mixer to copy
+            setCurrentMixerFromString("NONE");
         }
 	for(i=strlen(longname);i>=0;i--)
 #ifdef CYG_MANGLING
