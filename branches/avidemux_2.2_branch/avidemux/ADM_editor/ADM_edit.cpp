@@ -26,7 +26,9 @@
 #ifdef CYG_MANGLING
 #include "sys/stat.h"
 #endif
-
+#ifdef ADM_BSD_FAMILY
+#include "sys/stat.h"
+#endif
 #include <ADM_assert.h>
 
 #include "config.h"
