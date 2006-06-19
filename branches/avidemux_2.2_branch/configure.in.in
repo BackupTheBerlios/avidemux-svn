@@ -60,7 +60,9 @@ dnl without this order in this file, automake will be confused!
 dnl
 AM_CONFIG_HEADER(config.h)
 
-
+# needed for make install
+AM_PROG_MKDIR_P
+AC_PROG_INSTALL
 dnl create only shared libtool-libraries
 AC_ENABLE_SHARED(no)
 
