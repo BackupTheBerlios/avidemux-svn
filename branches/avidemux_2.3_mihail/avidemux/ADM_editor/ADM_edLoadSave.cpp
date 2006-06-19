@@ -51,9 +51,6 @@ static uint32_t edFrameStart,edFrameEnd;
 uint8_t loadVideoCodecConf( char *name);
 uint8_t saveVideoCodecConf( char *name);
 const char *getCurrentContainerAsString(void);
-//extern int audioMP3bitrate ;
-extern const char              *audioSourceFromEnum(AudioSource src);
-// Ugly, will have to clean it later
 
 uint8_t ADM_Composer::getMarkers(uint32_t *start, uint32_t *end)
 {
@@ -221,7 +218,7 @@ char *pth;
    //qfprintf(fd,"app.audio.process=%s;\n",truefalse[audioProcessMode()]);
    qfprintf(fd,"app.audio.normalize=%s;\n",truefalse[audioGetNormalize()]);
    qfprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
-
+   qfprintf(fd,"app.audio.mixer(\"%s\");\n",getCurrentMixerString());
 
     // VBR ?
     if(currentaudiostream)
@@ -250,6 +247,8 @@ char *pth;
                 case RESAMPLING_CUSTOM:        qfprintf(fd,"app.audio.resample=%u;\n",audioGetResample());break;
                 default:ADM_assert(0);
         }
+  // Mixer
+
   // container
         
   qfprintf(fd,"app.setContainer(\"%s\");\n",getCurrentContainerAsString());

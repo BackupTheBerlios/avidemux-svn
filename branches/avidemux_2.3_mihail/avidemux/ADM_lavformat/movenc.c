@@ -34,7 +34,7 @@
 #define MODE_PSP 3 // example working PSP command line:
 // ffmpeg -i testinput.avi  -f psp -r 14.985 -s 320x240 -b 768 -ar 24000 -ab 32 M4V00001.MP4
 #define MODE_3G2 4
-
+#define MEANX_PUT_MP3_IN_MP4A
 typedef struct MOVIentry {
     unsigned int flags, size;
     uint64_t     pos;
@@ -112,7 +112,8 @@ static int mov_write_stco_tag(ByteIOContext *pb, MOVTrack* track)
 }
 
 /* Sample size atom */
-static int mov_write_stsz_tag(ByteIOContext *pb, MOVTrack* track)
+//static
+ int mov_write_stsz_tag(ByteIOContext *pb, MOVTrack* track)
 {
     int equalChunks = 1;
     int i, j, entries = 0, tst = -1, oldtst = -1;
@@ -946,9 +947,11 @@ static int mov_write_edts_tag(ByteIOContext *pb, MOVTrack *track)
 
     put_be32(pb, av_rescale_rnd(track->trackDuration, globalTimescale, track->timescale, AV_ROUND_UP)); /* duration   ... doesn't seem to effect psp */
 
+#if 0 //MEANX : No 
     if (track->hasBframes)
         put_be32(pb, track->sampleDuration); /* first pts is 1 */
     else
+#endif
         put_be32(pb, 0);
     put_be32(pb, 0x00010000);
     return 0x24;

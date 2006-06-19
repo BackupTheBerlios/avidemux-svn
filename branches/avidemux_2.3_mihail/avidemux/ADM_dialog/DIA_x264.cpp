@@ -45,7 +45,7 @@ uint8_t DIA_x264(COMPRES_PARAMS *config);
 
 static GtkWidget       *create_dialog1 (void);  
 
-static COMPRES_PARAMS generic={CodecDummy,"dummy","dummy","dummy",COMPRESS_CQ,4,1500,700,0,0,NULL,0};
+static COMPRES_PARAMS generic={CodecDummy,"dummy","dummy","dummy",COMPRESS_CQ,4,1500,700,1000,0,0,NULL,0};
 static GtkWidget *dialog;
 
 static void updateMode( void );
@@ -115,6 +115,9 @@ uint8_t DIA_x264(COMPRES_PARAMS *config)
             case COMPRESS_2PASS:              
               generic.finalsize=b;
               break;
+          case COMPRESS_2PASS_BITRATE:
+              generic.avg_bitrate=b;
+              break;
 
             case COMPRESS_CQ:              
               SPIN_GET(Quantizer,b);
@@ -159,6 +162,14 @@ void updateMode( void )
       DISABLE(spinbuttonQuantizer);
       ENABLE(entryTarget);
       break;
+ case COMPRESS_2PASS_BITRATE:
+      COMBO(3);
+      b=generic.avg_bitrate;
+      ENTRY_SET(Target,b);     
+      gtk_label_set_text(GTK_LABEL(WID(labelTarget)),"Dual pass, avg bitate (kb/s):");
+      DISABLE(spinbuttonQuantizer);
+      ENABLE(entryTarget);
+      break;
 
     case COMPRESS_CQ:
         COMBO(0);                  
@@ -181,6 +192,7 @@ int cb_mod(GtkObject * object, gpointer user_data)
     case 1: generic.mode=COMPRESS_CBR ;break;
     case 0: generic.mode=COMPRESS_CQ ;break;
     case 2: generic.mode=COMPRESS_2PASS ;break;
+    case 3: generic.mode=COMPRESS_2PASS_BITRATE ;break;
     default: ADM_assert(0);
         
   }
@@ -270,7 +282,6 @@ void download(GtkWidget *dialog,ADM_x264Param *param)
 }
 
 /*********************************************/
-
 GtkWidget*
 create_dialog1 (void)
 {
@@ -279,7 +290,6 @@ create_dialog1 (void)
   GtkWidget *notebook1;
   GtkWidget *tableBitrate;
   GtkWidget *labelEncodingMode;
-  GtkWidget *comboboxMode;
   GtkWidget *entryTarget;
   GtkWidget *labelQuantizer;
   GtkObject *spinbuttonQuantizer_adj;
@@ -289,6 +299,7 @@ create_dialog1 (void)
   GtkWidget *buttonSaveDefaults;
   GtkWidget *buttonResetDefaults;
   GtkWidget *labelTarget;
+  GtkWidget *comboboxMode;
   GtkWidget *labelPageBitrate;
   GtkWidget *vbox5;
   GtkWidget *frame6;
@@ -438,15 +449,6 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 5, 1);
   gtk_misc_set_alignment (GTK_MISC (labelEncodingMode), 0, 0.5);
 
-  comboboxMode = gtk_combo_box_new_text ();
-  gtk_widget_show (comboboxMode);
-  gtk_table_attach (GTK_TABLE (tableBitrate), comboboxMode, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (GTK_FILL), 2, 1);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Single Pass - Quality Quantizer (Constant)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Single Pass - Bitrate (Average)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Two Pass - File Size"));
-
   entryTarget = gtk_entry_new ();
   gtk_widget_show (entryTarget);
   gtk_table_attach (GTK_TABLE (tableBitrate), entryTarget, 1, 2, 1, 2,
@@ -501,6 +503,16 @@ create_dialog1 (void)
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 5, 0);
   gtk_misc_set_alignment (GTK_MISC (labelTarget), 0, 0.5);
+
+  comboboxMode = gtk_combo_box_new_text ();
+  gtk_widget_show (comboboxMode);
+  gtk_table_attach (GTK_TABLE (tableBitrate), comboboxMode, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                    (GtkAttachOptions) (GTK_FILL), 0, 0);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Single Pass - Quality Quantizer (Constant)"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Single Pass - Bitrate (Average)"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Two Pass - File Size"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), _("Two Pass - Average bitrate"));
 
   labelPageBitrate = gtk_label_new (_("Bitrate"));
   gtk_widget_show (labelPageBitrate);
@@ -1144,7 +1156,6 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (dialog1, tableBitrate, "tableBitrate");
   GLADE_HOOKUP_OBJECT (dialog1, labelEncodingMode, "labelEncodingMode");
-  GLADE_HOOKUP_OBJECT (dialog1, comboboxMode, "comboboxMode");
   GLADE_HOOKUP_OBJECT (dialog1, entryTarget, "entryTarget");
   GLADE_HOOKUP_OBJECT (dialog1, labelQuantizer, "labelQuantizer");
   GLADE_HOOKUP_OBJECT (dialog1, spinbuttonQuantizer, "spinbuttonQuantizer");
@@ -1153,6 +1164,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, buttonSaveDefaults, "buttonSaveDefaults");
   GLADE_HOOKUP_OBJECT (dialog1, buttonResetDefaults, "buttonResetDefaults");
   GLADE_HOOKUP_OBJECT (dialog1, labelTarget, "labelTarget");
+  GLADE_HOOKUP_OBJECT (dialog1, comboboxMode, "comboboxMode");
   GLADE_HOOKUP_OBJECT (dialog1, labelPageBitrate, "labelPageBitrate");
   GLADE_HOOKUP_OBJECT (dialog1, vbox5, "vbox5");
   GLADE_HOOKUP_OBJECT (dialog1, frame6, "frame6");
@@ -1260,7 +1272,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, okbutton1, "okbutton1");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog1, tooltips, "tooltips");
 
-  gtk_widget_grab_default (comboboxDirectMode);
+//  gtk_widget_grab_default (comboboxDirectMode);
   return dialog1;
 }
 

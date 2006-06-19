@@ -55,6 +55,7 @@ if(!codec) {GUI_Alert("Internal error opening codec"#x);ADM_assert(0);} \
 /*****************************************/
 uint8_t ffmpegEncoder::stopEncoder(void)
 {
+    printf("[lavcodec] stopEncoder (%x)\n",_context);
     if (_init)
     {
         _init = 0;
@@ -68,7 +69,7 @@ uint8_t ffmpegEncoder::stopEncoder(void)
 ffmpegEncoderCQ::~ffmpegEncoderCQ ()
   {
     printf("Deleting ffmpegCQencoder\n");
-    stopEncoder ();
+    //stopEncoder ();
     if (_statfile)
       {
         fflush(_statfile);
@@ -362,7 +363,7 @@ ffmpegEncoder::encoderMT (void)
   uint32_t nbThread = 0;
 
   nbThread = ADM_useNbThreads ();
-  if (nbThread)
+  if (nbThread & 0)
     {
       printf ("[codec]Enabling MT encoder with %u threads\n", nbThread);
       if (0 > avcodec_thread_init (_context, nbThread))

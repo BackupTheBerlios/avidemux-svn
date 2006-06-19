@@ -39,6 +39,9 @@
 
 #include "ADM_encoder/adm_encConfig.h"
 #include "ADM_filter/vidVCD.h"
+#include "ADM_encoder/ADM_vidEncode.hxx"
+
+extern void setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,     uint32_t extraConf, uint8_t * extraData);
 
 uint8_t A_autoDrive(Action action)
 {
@@ -49,13 +52,7 @@ uint8_t A_autoDrive(Action action)
                 return 0;
         }
 
-        // Set output format to mpeg PS
-        // Except for PSP
-      if(action==ACT_AUTO_PSP)
-        UI_SetCurrentFormat(ADM_PSP);
-      else
-        UI_SetCurrentFormat(ADM_PS);
-        
+      
         
         switch(action)
         {
@@ -94,7 +91,6 @@ uint8_t A_autoDrive(Action action)
                                     audioFilter_SetBitrate(160);
                                 }
                                 break;
-                                return 1;
                 case ACT_AUTO_VCD:
                                 // Check video size
                                 if(!setVCD()) return 0;
@@ -118,6 +114,13 @@ uint8_t A_autoDrive(Action action)
                                         }
 #warning use mixer!!
                                         audioFilter_SetBitrate(224);
+                                        if(currentaudiostream->getInfo()->channels!=2)
+                                        {
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
+                                        }
                                 }
                                 break;
                 case ACT_AUTO_SVCD:
@@ -125,6 +128,7 @@ uint8_t A_autoDrive(Action action)
                                 if(!setSVCD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XSVCD"))  return 0;
+                                setVideoEncoderSettings (COMPRESS_2PASS_BITRATE,2000,0,NULL);
                                 if((currentaudiostream->getInfo()->frequency==44100)&&
                                         (currentaudiostream->getInfo()->channels==2)&&
                                                 (currentaudiostream->getInfo()->encoding==WAV_MP2))
@@ -138,10 +142,12 @@ uint8_t A_autoDrive(Action action)
                                         {
                                                 audioFilterResample(44100);
                                         }
-                                        if(currentaudiostream->getInfo()->channels==1)
+                                        if(currentaudiostream->getInfo()->channels!=2)
                                         {
-//                                                 audioFilterMono2Stereo(1);
-#warning USE mixer
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
                                         }
                                         audioFilter_SetBitrate(160);
                                 }
@@ -153,6 +159,8 @@ uint8_t A_autoDrive(Action action)
                                 if(!setDVD()) return 0;
                                 // Set codec
                                 if(!videoCodecSelectByName("XDVD"))  return 0;
+                                // Set 2 pass, avg bitrate  6 M
+                                setVideoEncoderSettings (COMPRESS_2PASS_BITRATE,6000,0,NULL);
                                 // Set audio
                                 if(currentaudiostream->getInfo()->frequency!=48000
                                         || (currentaudiostream->getInfo()->encoding!=WAV_MP2 &&
@@ -161,6 +169,13 @@ uint8_t A_autoDrive(Action action)
                                         audioCodecSetcodec(AUDIOENC_2LAME);
                                         audioFilterResample(48000);
                                         audioFilter_SetBitrate(160);
+                                        if(currentaudiostream->getInfo()->channels!=2)
+                                        {
+                                          setCurrentMixerFromString("DOLBY_PROLOGIC2");
+                                        }else
+                                        {
+                                          setCurrentMixerFromString("NONE");
+                                        }
                                 }
                                 else
                                 {
@@ -169,6 +184,13 @@ uint8_t A_autoDrive(Action action)
                                 break;
 
         }
+        // Set output format to mpeg PS
+        // Except for PSP
+        if(action==ACT_AUTO_PSP)
+          UI_SetCurrentFormat(ADM_PSP);
+        else
+          UI_SetCurrentFormat(ADM_PS);
+        
         return 1;
 }
 //EOF

@@ -108,10 +108,11 @@ uint8_t admCond::abort( void )
 //**************** Transfert *******************
 // *** Lot of race here : FIXME
 
-Transfert::Transfert(void)
+Transfert::Transfert(uint32_t minBuffer)
 {
         cond=new admCond(&mutex);
         clientCond=new admCond(&mutex);
+        _minRequired=minBuffer;
         buffer=new uint8_t[TRANSFERT_BUFFER];
 
         aborted=0;
@@ -271,7 +272,7 @@ uint8_t Transfert::needData( void )
         l=tail-head;
         threadFailure(l>=0);
         mutex.unlock();
-        if(l<MIN_REQUIRED) r=1;
+        if(l<_minRequired) r=1;
         if(cond->iswaiting()) r=1;
 //        return cond->iswaiting();
         return r;
