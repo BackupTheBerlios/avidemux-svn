@@ -1,8 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of cs.po to
+# translation of avidemux.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Jakub Misak <jmisak@centrum.cz>, 2006.
 #: avidemux/ADM_dialog/DIA_builtin.cpp:241
 #: avidemux/ADM_dialog/DIA_builtin.cpp:247
 #: avidemux/ADM_dialog/DIA_builtin.cpp:253
@@ -88,18 +88,18 @@
 #: avidemux/prefs.cpp:98 avidemux/prefs.cpp:99 avidemux/prefs.cpp:100
 #: avidemux/prefs.cpp:887 avidemux/prefs.cpp:890 avidemux/prefs.cpp:893
 #: avidemux/prefs.cpp:896 avidemux/main.cpp:111
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-29 16:27+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2006-06-06 08:12+0200\n"
+"Last-Translator: Jakub Misak <jmisak@centrum.cz>\n"
+"Language-Team:  <cs@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
 
 #: avidemux/ADM_audiocodec/mad.cpp:159
 #: avidemux/ADM_audiocodec/ADM_codecmp3.cpp:127
@@ -484,7 +484,7 @@ msgid "error decoding vorbis %d\n"
 msgstr ""
 
 #: avidemux/ADM_audiocodec/audiocodec_ogg.cpp:203
-#, possible-c-format
+#, c-format
 msgid "This round : in %d bytes, out %d bytes synthetized:%d\n"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgid "Smart Copy"
 msgstr ""
 
 #: avidemux/oplug_avi/op_savesmart.cpp:149
-#, possible-c-format
+#, c-format
 msgid "Frame %lu encoding\n"
 msgstr ""
 
@@ -528,7 +528,7 @@ msgid "Smart: Stopping encoder\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_savesmart.cpp:182
-#, possible-c-format
+#, c-format
 msgid "Frame %lu copying\n"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgid "Smart:There is a broken reference, encoding\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_savesmart.cpp:232
-#, possible-c-format
+#, c-format
 msgid "Smart : using %lu as next\n"
 msgstr ""
 
@@ -558,7 +558,7 @@ msgid "Smart:Next B frame\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_savesmart.cpp:254
-#, possible-c-format
+#, c-format
 msgid "Smart finishing B frame %lu\n"
 msgstr ""
 
@@ -617,28 +617,28 @@ msgstr ""
 #: avidemux/oplug_avi/op_avisavecopy.cpp:144
 #: avidemux/oplug_ogm/op_ogsavecopy.cpp:143
 #: avidemux/ADM_encoder/adm_encCopy.cpp:169
-#, possible-c-format
+#, c-format
 msgid "\tP Frame not sent, sending it :%lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_avisavecopy.cpp:154
 #: avidemux/oplug_ogm/op_ogsavecopy.cpp:153
 #: avidemux/ADM_encoder/adm_encCopy.cpp:178
-#, possible-c-format
+#, c-format
 msgid "\tP Frame already, sending  :%lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_avisavecopy.cpp:166
 #: avidemux/oplug_ogm/op_ogsavecopy.cpp:165
 #: avidemux/ADM_encoder/adm_encCopy.cpp:190
-#, possible-c-format
+#, c-format
 msgid "\tSending Last B-frame :(%lu)\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_avisavecopy.cpp:173
 #: avidemux/oplug_ogm/op_ogsavecopy.cpp:172
 #: avidemux/ADM_encoder/adm_encCopy.cpp:198
-#, possible-c-format
+#, c-format
 msgid "\tJust sending it :(%lu)-(%lu)\n"
 msgstr ""
 
@@ -748,33 +748,33 @@ msgid ""
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:521
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "number of streams: %lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:525
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " old number of frames per index: %lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:528
-#, possible-c-format
+#, c-format
 msgid "Fps1000:%f\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:532
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "number of frames per index: %lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:535
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "number of indexes per stream: %lu\n"
@@ -787,7 +787,7 @@ msgid "movi"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:612
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "can not index video frame %lu\n"
@@ -800,7 +800,7 @@ msgid "00dc"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:625
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "can not index audio frame %lu\n"
@@ -813,7 +813,7 @@ msgid "01wb"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:636
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "can not index audio (dual) frame %lu\n"
@@ -919,7 +919,7 @@ msgid "JUNK"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:874
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "write dummy chunk at file position %Lu with data size %lu\n"
@@ -932,7 +932,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:920
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "writing super index at file pos %Lu\n"
@@ -943,14 +943,14 @@ msgid "indx"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:934
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "stream %lu, index %lu EntriesInUse:%lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:942
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " writing %lu interleaved ODML indexes for %lu frames in stream %s"
@@ -969,14 +969,14 @@ msgid "base:%Lu abs:%Lu rel:%Lu stream:%lu index:%lu entry:%lu"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:985
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "starting new (hidden) RIFF at %Lu\n"
 msgstr ""
 
 #: avidemux/oplug_avi/op_aviwrite.cpp:990
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "starting new RIFF at %Lu\n"
@@ -1058,7 +1058,7 @@ msgstr ""
 #: avidemux/oplug_avi/op_saveprocess.cpp:135
 #: avidemux/oplug_mp4/oplug_mp4.cpp:364
 #: avidemux/oplug_ogm/op_ogsaveprocess.cpp:107
-#, possible-c-format
+#, c-format
 msgid "**Pass 1:%lu\n"
 msgstr ""
 
@@ -1152,7 +1152,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:133
 #: avidemux/oplug_ogm/op_ogaudio.cpp:70 avidemux/callbacks.cpp:162
 msgid "None"
-msgstr ""
+msgstr "Nic"
 
 #: avidemux/oplug_avi/op_avisave.cpp:206
 #, c-format
@@ -1175,7 +1175,7 @@ msgstr ""
 #: avidemux/ADM_encoder/adm_encCopy.cpp:106
 #: avidemux/oplug_mpegFF/oplug_vcdff.cpp:357
 msgid "Copy"
-msgstr ""
+msgstr "Kopie"
 
 #: avidemux/oplug_avi/op_avisave.cpp:343 avidemux/callbacks.cpp:165
 msgid "Avi"
@@ -1318,12 +1318,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audioeng_libtoolame.cpp:199
-#, possible-c-format
+#, c-format
 msgid "in:%d out;%d\n"
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audioeng_libtoolame.cpp:205
-#, possible-c-format
+#, c-format
 msgid "2Lame: in:%d out:%d frame:%d\n"
 msgstr ""
 
@@ -1442,13 +1442,13 @@ msgstr ""
 
 #: avidemux/ADM_audiofilter/audiodeng_buildfilters.cpp:325
 #: avidemux/ADM_encoder/adm_encConfig.cpp:119
-#, possible-c-format
+#, c-format
 msgid "-- %s\n"
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audiodeng_buildfilters.cpp:326
 #: avidemux/ADM_encoder/adm_encConfig.cpp:120
-#, possible-c-format
+#, c-format
 msgid "=%d "
 msgstr ""
 
@@ -1473,7 +1473,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audiodeng_buildfilters.cpp:350
-#, possible-c-format
+#, c-format
 msgid "-Audio filter by name : %s\n"
 msgstr ""
 
@@ -2136,7 +2136,7 @@ msgstr ""
 #: avidemux/ADM_audiofilter/audioeng_sox.cpp:439
 #: avidemux/ADM_audiofilter/audioeng_sox.cpp:450
 #: avidemux/ADM_video/ADM_confCouples.cpp:173
-#, possible-c-format
+#, c-format
 msgid "%lf"
 msgstr ""
 
@@ -2146,17 +2146,17 @@ msgid "Usage: resample [ rolloff [ beta ] ]"
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audioeng_sox.cpp:446
-#, possible-c-format
+#, c-format
 msgid "resample: rolloff factor (%f) no good, should be 0.01<x<1.0"
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audioeng_sox.cpp:457
-#, possible-c-format
+#, c-format
 msgid "resample opts: Nuttall window, cutoff %f\n"
 msgstr ""
 
 #: avidemux/ADM_audiofilter/audioeng_sox.cpp:459
-#, possible-c-format
+#, c-format
 msgid "resample opts: Kaiser window, cutoff %f, beta %f\n"
 msgstr ""
 
@@ -2470,17 +2470,17 @@ msgid " fps     : %f\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:374
-#, possible-c-format
+#, c-format
 msgid "Myth  : %d \n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:375
-#, possible-c-format
+#, c-format
 msgid "Xvid  : %d \n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:376
-#, possible-c-format
+#, c-format
 msgid "PCM  : %d \n"
 msgstr ""
 
@@ -3029,7 +3029,7 @@ msgstr ""
 #: avidemux/ADM_encoder/adm_encConfig.cpp:765
 #: avidemux/ADM_script/ADM_JSAvidemux.cpp:504
 #: avidemux/ADM_video/ADM_vidDecDec.cpp:90 avidemux/ADM_h263/ADM_mp4.cpp:394
-#, possible-c-format
+#, c-format
 msgid "%s\n"
 msgstr ""
 
@@ -3102,27 +3102,27 @@ msgid " video frames\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1347
-#, possible-c-format
+#, c-format
 msgid "fps\t\t\t: %<PRIu32>\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1348
-#, possible-c-format
+#, c-format
 msgid "Lzo Pos\t\t\t:%<PRIu64> Size:%<PRIu64>\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1349
-#, possible-c-format
+#, c-format
 msgid "Myth\t\t\t:%d\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1350
-#, possible-c-format
+#, c-format
 msgid "Xvid\t\t\t:%d\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1351
-#, possible-c-format
+#, c-format
 msgid "FFV1\t\t\t:%d ("
 msgstr ""
 
@@ -3131,12 +3131,12 @@ msgid ")\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1353
-#, possible-c-format
+#, c-format
 msgid "PCM\t\t\t:%d\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1376
-#, possible-c-format
+#, c-format
 msgid "found %<PRIu32> video frames\n"
 msgstr ""
 
@@ -3153,7 +3153,7 @@ msgid " Kf:%"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1399
-#, possible-c-format
+#, c-format
 msgid "Initializing RTjpeg with %<PRIu32> x %<PRIu32> image\n"
 msgstr ""
 
@@ -3185,7 +3185,7 @@ msgid " chunks\n"
 msgstr ""
 
 #: avidemux/ADM_nuv/ADM_nuv.cpp:1460
-#, possible-c-format
+#, c-format
 msgid "%<PRIu32> audio chunk\n"
 msgstr ""
 
@@ -3265,7 +3265,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_mplex/systems.cpp:510
-#, possible-c-format
+#, c-format
 msgid "Substream %02x short %d"
 msgstr ""
 
@@ -3294,37 +3294,37 @@ msgid "Z Alpha channel"
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:139
-#, possible-c-format
+#, c-format
 msgid "File %s looks like an MPEG Audio stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:150
-#, possible-c-format
+#, c-format
 msgid "File %s looks like an AC3 Audio stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:161
-#, possible-c-format
+#, c-format
 msgid "File %s looks like a dts Audio stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:174
-#, possible-c-format
+#, c-format
 msgid "File %s looks like an MPEG Video stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:186
-#, possible-c-format
+#, c-format
 msgid "File %s looks like an Z/Alpha Video stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:198
-#, possible-c-format
+#, c-format
 msgid "File %s looks like an LPCM Audio stream."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:210
-#, possible-c-format
+#, c-format
 msgid "File %s unrecogniseable!"
 msgstr ""
 
@@ -3333,12 +3333,12 @@ msgid "Unrecogniseable file(s)... exiting."
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:241
-#, possible-c-format
+#, c-format
 msgid "Video stream %d: profile %d selected - ignoring non-standard options!"
 msgstr ""
 
 #: avidemux/ADM_mplex/interact.cpp:245
-#, possible-c-format
+#, c-format
 msgid "Found %d audio streams and %d video streams"
 msgstr ""
 
@@ -3368,7 +3368,7 @@ msgid "Selecting generic MPEG1 output profile"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:311
-#, possible-c-format
+#, c-format
 msgid "Multiplexing VCD stills: %d stills streams."
 msgstr ""
 
@@ -3377,7 +3377,7 @@ msgid "VCD stills: no more than two streams (one normal one hi-res) possible"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:341
-#, possible-c-format
+#, c-format
 msgid "Multiplexing SVCD stills: %d stills streams %d audio streams"
 msgstr ""
 
@@ -3412,12 +3412,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:659
-#, possible-c-format
+#, c-format
 msgid "rough-guess multiplexed stream data rate    : %07d"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:661
-#, possible-c-format
+#, c-format
 msgid "target data-rate specified               : %7d"
 msgstr ""
 
@@ -3426,7 +3426,7 @@ msgid "Setting best-guess data rate."
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:669
-#, possible-c-format
+#, c-format
 msgid "Setting specified specified data rate: %7d"
 msgstr ""
 
@@ -3435,7 +3435,7 @@ msgid "Target data rate lower than computed requirement!"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:675
-#, possible-c-format
+#, c-format
 msgid "N.b. a 20%% or so discrepancy in variable bit-rate"
 msgstr ""
 
@@ -3444,32 +3444,32 @@ msgid "streams is common and harmless provided no time-outs will occur"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:729
-#, possible-c-format
+#, c-format
 msgid "Run-in Sectors = %d Video delay = %lld Audio delay = %lld"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:736
-#, possible-c-format
+#, c-format
 msgid "Multiplexed stream will be ended at %lld seconds playback time\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:753
-#, possible-c-format
+#, c-format
 msgid "Video %02x: buf=%7d frame=%06d sector=%08d"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:762
-#, possible-c-format
+#, c-format
 msgid "Audio %02x: buf=%7d frame=%06d sector=%08d"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:771
-#, possible-c-format
+#, c-format
 msgid "Other %02x: buf=%7d sector=%08d"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:781
-#, possible-c-format
+#, c-format
 msgid "Padding : sector=%08d"
 msgstr ""
 
@@ -3490,7 +3490,7 @@ msgid "Starting new output file..."
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1136
-#, possible-c-format
+#, c-format
 msgid "Sequence split detected %d but no following sequence found..."
 msgstr ""
 
@@ -3499,28 +3499,28 @@ msgid "Running out..."
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1141
-#, possible-c-format
+#, c-format
 msgid "Run out PTS limit to %lld SCR=%lld"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1171
-#, possible-c-format
+#, c-format
 msgid "STREAM %02x: SCR=%lld mux=%d reqDTS=%lld"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1198
-#, possible-c-format
+#, c-format
 msgid ""
 "Stream %02x: data will arrive too late sent(SCR)=%lld required(DTS)=%lld"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1279
-#, possible-c-format
+#, c-format
 msgid "STREAM %02x completed @ frame %d."
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1291
-#, possible-c-format
+#, c-format
 msgid "Multiplex completion at SCR=%lld."
 msgstr ""
 
@@ -3529,7 +3529,7 @@ msgid "BUFFERING stream too short for useful statistics"
 msgstr ""
 
 #: avidemux/ADM_mplex/multiplexor.cpp:1299
-#, possible-c-format
+#, c-format
 msgid "BUFFERING min %d Buf max %d"
 msgstr ""
 
@@ -3546,7 +3546,7 @@ msgid "Stills: Video buffer suggestion ignored!"
 msgstr ""
 
 #: avidemux/ADM_mplex/stillsstream.cpp:51
-#, possible-c-format
+#, c-format
 msgid "Stills Stream %02x: high-resolution VCD stills %d KB each"
 msgstr ""
 
@@ -3556,17 +3556,17 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_mplex/stillsstream.cpp:62
-#, possible-c-format
+#, c-format
 msgid "Stills Stream %02x: normal VCD stills"
 msgstr ""
 
 #: avidemux/ADM_mplex/stillsstream.cpp:70
-#, possible-c-format
+#, c-format
 msgid "Stills Stream %02x: high-resolution SVCD stills."
 msgstr ""
 
 #: avidemux/ADM_mplex/stillsstream.cpp:77
-#, possible-c-format
+#, c-format
 msgid "Stills Stream %02x: normal-resolution SVCD stills."
 msgstr ""
 
@@ -3717,12 +3717,12 @@ msgid "dialog normalization parameter = %i\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:134
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: dts Audio stream %02x (%s)"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:159
-#, possible-c-format
+#, c-format
 msgid "dts frame size = %d\n"
 msgstr ""
 
@@ -3731,41 +3731,41 @@ msgid "Invalid dts Audio stream header."
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:192
-#, possible-c-format
+#, c-format
 msgid "Scanning %d dts audio frames to frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:205
-#, possible-c-format
+#, c-format
 msgid "Discarding incomplete final frame dts stream %d!"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:218
-#, possible-c-format
+#, c-format
 msgid "Can't find next dts frame: @ %lld we have %04x - broken bit-stream?"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:248 avidemux/ADM_mplex/ac3strm_in.cpp:334
 #: avidemux/ADM_mplex/mpastrm_in.cpp:260
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:170
-#, possible-c-format
+#, c-format
 msgid "Got %d frame headers."
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:262
-#, possible-c-format
+#, c-format
 msgid "DTS STATISTICS: %02x"
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:263 avidemux/ADM_mplex/ac3strm_in.cpp:349
 #: avidemux/ADM_mplex/mpastrm_in.cpp:278
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:186
-#, possible-c-format
+#, c-format
 msgid "Audio stream length %lld bytes."
 msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:264 avidemux/ADM_mplex/ac3strm_in.cpp:350
-#, possible-c-format
+#, c-format
 msgid "Frames         : %8u"
 msgstr ""
 
@@ -3775,7 +3775,7 @@ msgstr ""
 
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:278 avidemux/ADM_mplex/ac3strm_in.cpp:364
 #: avidemux/ADM_mplex/mpastrm_in.cpp:310
-#, possible-c-format
+#, c-format
 msgid "Bit rate       : %8u bytes/sec (%3u kbit/sec)"
 msgstr ""
 
@@ -3787,7 +3787,7 @@ msgstr ""
 #: avidemux/ADM_mplex/dtsstrm_in.cpp:284 avidemux/ADM_mplex/ac3strm_in.cpp:370
 #: avidemux/ADM_mplex/mpastrm_in.cpp:316
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:205
-#, possible-c-format
+#, c-format
 msgid "Frequency      :     %d Hz"
 msgstr ""
 
@@ -3996,12 +3996,12 @@ msgstr ""
 #: avidemux/ADM_mplex/main_example.cpp:107
 #: avidemux/ADM_mplex/main_example.cpp:145
 #: avidemux/ADM_mplex/ADM_mplexin.cpp:81
-#, possible-c-format
+#, c-format
 msgid "Could not open for writing: %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:140
-#, possible-c-format
+#, c-format
 msgid ""
 "Need to split output but there appears to be no %%d in the filename pattern %"
 "s"
@@ -4010,17 +4010,17 @@ msgstr ""
 #: avidemux/ADM_mplex/main_example.cpp:154
 #: avidemux/ADM_mplex/ADM_mplexin.cpp:149
 #: avidemux/ADM_mplex/ADM_mplexin.cpp:152
-#, possible-c-format
+#, c-format
 msgid "Failed write: %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:201
-#, possible-c-format
+#, c-format
 msgid "Unable to open file %s for reading."
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:213
-#, possible-c-format
+#, c-format
 msgid "Unable to read from %s."
 msgstr ""
 
@@ -4094,12 +4094,12 @@ msgid "help"
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:326
-#, possible-c-format
+#, c-format
 msgid "Illegal video decoder buffer size(s): %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:334
-#, possible-c-format
+#, c-format
 msgid "Illegal LPCM option(s): %s"
 msgstr ""
 
@@ -4108,7 +4108,7 @@ msgid "Time offset units if specified must: ms|s|mpt"
 msgstr ""
 
 #: avidemux/ADM_mplex/main_example.cpp:404
-#, possible-c-format
+#, c-format
 msgid "mplex version %s (%s %s)"
 msgstr ""
 
@@ -4246,33 +4246,33 @@ msgid "INTERNAL ERROR: attempt to flush input beyond buffered amount"
 msgstr ""
 
 #: avidemux/ADM_mplex/bits.cpp:307
-#, possible-c-format
+#, c-format
 msgid ""
 "INTERNAL ERROR: attempt to flush input stream before  first buffered byte %"
 "lld last is %lld"
 msgstr ""
 
 #: avidemux/ADM_mplex/bits.cpp:353
-#, possible-c-format
+#, c-format
 msgid ""
 "INTERNAL ERROR: access to input stream buffer @ %lld: before first buffered "
 "byte (%lld)"
 msgstr ""
 
 #: avidemux/ADM_mplex/bits.cpp:359
-#, possible-c-format
+#, c-format
 msgid ""
 "INTERNAL ERROR: access to input stream buffer beyond last buffered byte @POS="
 "%lld END=%d REQ=%lld + %d bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/bits.cpp:390
-#, possible-c-format
+#, c-format
 msgid "Unable to open file %s for writing; %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/bits.cpp:429
-#, possible-c-format
+#, c-format
 msgid "Write failed: %s"
 msgstr ""
 
@@ -4442,12 +4442,12 @@ msgid "Warning: no parser for rematrixing...\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:218
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: AC3 Audio stream %02x (%s)"
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:242
-#, possible-c-format
+#, c-format
 msgid "AC3 frame size = %d\n"
 msgstr ""
 
@@ -4456,23 +4456,23 @@ msgid "Invalid AC3 Audio stream header."
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:278
-#, possible-c-format
+#, c-format
 msgid "Scanning %d AC3 audio frames to frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:293
-#, possible-c-format
+#, c-format
 msgid "Discarding incomplete final frame AC3 stream %d!"
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:306
-#, possible-c-format
+#, c-format
 msgid "Can't find next AC3 frame: @ %lld we have %04x - broken bit-stream?"
 msgstr ""
 
 #: avidemux/ADM_mplex/ac3strm_in.cpp:348 avidemux/ADM_mplex/mpastrm_in.cpp:277
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:185
-#, possible-c-format
+#, c-format
 msgid "AUDIO_STATISTICS: %02x"
 msgstr ""
 
@@ -4482,7 +4482,7 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:36
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:37
-#, possible-c-format
+#, c-format
 msgid ""
 "Illegal MPEG stream at offset (bits) %lld: supposed marker bit not found."
 msgstr ""
@@ -4493,27 +4493,27 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:78
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:118
-#, possible-c-format
+#, c-format
 msgid "SETTING video buffer to %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:85
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: Video stream %02x (%s) "
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:159
-#, possible-c-format
+#, c-format
 msgid "Scanning %d video frames to start of frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:197
-#, possible-c-format
+#, c-format
 msgid "Found start AU %d @ %lld: DTS=%ud"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:210
-#, possible-c-format
+#, c-format
 msgid "Scanned to end AU %d"
 msgstr ""
 
@@ -4531,85 +4531,85 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:311
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:269
-#, possible-c-format
+#, c-format
 msgid "Got %d picture headers."
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:344
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:364
-#, possible-c-format
+#, c-format
 msgid "VIDEO_STATISTICS: %02x"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:345
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:365
-#, possible-c-format
+#, c-format
 msgid "Video Stream length: %11llu bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:346
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:366
-#, possible-c-format
+#, c-format
 msgid "Sequence headers: %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:347
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:367
-#, possible-c-format
+#, c-format
 msgid "Sequence ends   : %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:348
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:368
-#, possible-c-format
+#, c-format
 msgid "No. Pictures    : %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:349
-#, possible-c-format
+#, c-format
 msgid "No. Groups      : %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:350
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:369
-#, possible-c-format
+#, c-format
 msgid "No. I Frames    : %8u avg. size%6u bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:352
-#, possible-c-format
+#, c-format
 msgid "No. P Frames    : %8u avg. size%6u bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:354
-#, possible-c-format
+#, c-format
 msgid "No. B Frames    : %8u avg. size%6u bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:356
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:371
-#, possible-c-format
+#, c-format
 msgid "Average bit-rate : %8u bits/sec"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:357
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:372
-#, possible-c-format
+#, c-format
 msgid "Peak bit-rate    : %8u  bits/sec"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:372
-#, possible-c-format
+#, c-format
 msgid "VIDEO STREAM: %02x"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:374
-#, possible-c-format
+#, c-format
 msgid "Frame width     : %u"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:375
-#, possible-c-format
+#, c-format
 msgid "Frame height    : %u"
 msgstr ""
 
@@ -4620,7 +4620,7 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:380
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:403
-#, possible-c-format
+#, c-format
 msgid "Aspect ratio    : %s"
 msgstr ""
 
@@ -4631,13 +4631,13 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:386
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:408
-#, possible-c-format
+#, c-format
 msgid "Picture rate    : %2.3f frames/sec"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:389
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:411
-#, possible-c-format
+#, c-format
 msgid "Picture rate    : %x reserved"
 msgstr ""
 
@@ -4653,19 +4653,19 @@ msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:399
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:421
-#, possible-c-format
+#, c-format
 msgid "Bit rate        : %u bits/sec"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:402
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:425
-#, possible-c-format
+#, c-format
 msgid "Vbv buffer size : %u bytes"
 msgstr ""
 
 #: avidemux/ADM_mplex/videostrm_in.cpp:403
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:426
-#, possible-c-format
+#, c-format
 msgid "CSPF            : %u"
 msgstr ""
 
@@ -4732,7 +4732,7 @@ msgid "CCITT J.17"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:123
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: Audio stream %02x (%s)"
 msgstr ""
 
@@ -4741,12 +4741,12 @@ msgid "Invalid MPEG Audio stream header."
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:202
-#, possible-c-format
+#, c-format
 msgid "Scanning %d MPA frames to frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:216
-#, possible-c-format
+#, c-format
 msgid "Discarding incomplete final frame MPEG audio stream %02x!"
 msgstr ""
 
@@ -4755,32 +4755,32 @@ msgid "Data follows end of last recogniseable MPEG audio frame - bad stream?"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:279
-#, possible-c-format
+#, c-format
 msgid "Syncwords      : %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:280
-#, possible-c-format
+#, c-format
 msgid "Frames         : %8u padded"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:281
-#, possible-c-format
+#, c-format
 msgid "Frames         : %8u unpadded"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:298
-#, possible-c-format
+#, c-format
 msgid "MPEG AUDIO STREAM: %02x"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:299
-#, possible-c-format
+#, c-format
 msgid "Audio version  : %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:300
-#, possible-c-format
+#, c-format
 msgid "Layer          : %8u"
 msgstr ""
 
@@ -4801,27 +4801,27 @@ msgid "Bit rate       : reserved"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:319
-#, possible-c-format
+#, c-format
 msgid "Mode           : %8u %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:321
-#, possible-c-format
+#, c-format
 msgid "Mode extension : %8u"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:322
-#, possible-c-format
+#, c-format
 msgid "Copyright bit  : %8u %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:324
-#, possible-c-format
+#, c-format
 msgid "Original/Copy  : %8u %s"
 msgstr ""
 
 #: avidemux/ADM_mplex/mpastrm_in.cpp:326
-#, possible-c-format
+#, c-format
 msgid "Emphasis       : %8u %s"
 msgstr ""
 
@@ -4830,12 +4830,12 @@ msgid "Reading Z/Alpha sequence header ... "
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:51
-#, possible-c-format
+#, c-format
 msgid "Header frame length is %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:54
-#, possible-c-format
+#, c-format
 msgid "Header frame number is %d"
 msgstr ""
 
@@ -4849,22 +4849,22 @@ msgid "Invalid MPEG ZAlpha stream header."
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:125
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: Z/Alpha stream %02x (%s)"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:169
-#, possible-c-format
+#, c-format
 msgid "dmux_rate is %d max_delay %g"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:208
-#, possible-c-format
+#, c-format
 msgid "Scanning %d Z/A video frames to frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:264
-#, possible-c-format
+#, c-format
 msgid "Found Z/Alpha AU %d (real: %d): DTS=%d"
 msgstr ""
 
@@ -4873,47 +4873,47 @@ msgid "Reached end of buffer ..."
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:306
-#, possible-c-format
+#, c-format
 msgid "Adding final AU %d (real: %d): DTS=%d"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:315
-#, possible-c-format
+#, c-format
 msgid "Z/Alpha: Scanned to end AU %d at %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:388
-#, possible-c-format
+#, c-format
 msgid "Z/Alpha STREAM: %02x"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:390
-#, possible-c-format
+#, c-format
 msgid "Frame width     : %u\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:391
-#, possible-c-format
+#, c-format
 msgid "Frame height    : %u\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:393
-#, possible-c-format
+#, c-format
 msgid "Z min    : %f\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:394
-#, possible-c-format
+#, c-format
 msgid "Z max    : %f\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:396
-#, possible-c-format
+#, c-format
 msgid "Z format 0x%x, depth    : %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/zalphastrm_in.cpp:397
-#, possible-c-format
+#, c-format
 msgid "Alpha depth   : %d"
 msgstr ""
 
@@ -4922,27 +4922,27 @@ msgid "lpcm"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:87
-#, possible-c-format
+#, c-format
 msgid "Scanning for header info: LPCM Audio stream %02x (%s)"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:132
-#, possible-c-format
+#, c-format
 msgid "Scanning %d MPEG LPCM audio frames to frame %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:145
-#, possible-c-format
+#, c-format
 msgid "Discarding incomplete final frame LPCM  stream %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:173
-#, possible-c-format
+#, c-format
 msgid "Got frame %d\n"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:187
-#, possible-c-format
+#, c-format
 msgid "Frames         : %8u "
 msgstr ""
 
@@ -4951,17 +4951,17 @@ msgid "LPCM AUDIO STREAM:"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:201
-#, possible-c-format
+#, c-format
 msgid "Bit rate       : %8u bytes/sec (%u) bit/sec)"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:203
-#, possible-c-format
+#, c-format
 msgid "Channels       :     %d"
 msgstr ""
 
 #: avidemux/ADM_mplex/lpcmstrm_in.cpp:204
-#, possible-c-format
+#, c-format
 msgid "Bits per sample:     %d"
 msgstr ""
 
@@ -5097,24 +5097,24 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:120
 msgid "Donal Graft MSharpen"
-msgstr ""
+msgstr "MSharpen Donalda Grafta"
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:129
 msgid "Show Mask"
-msgstr ""
+msgstr "Z_obrazovat masku"
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:135
 msgid "HighQ"
-msgstr ""
+msgstr "_Vysoká kvalita"
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:141
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:138
 msgid "Threshold"
-msgstr ""
+msgstr "Práh"
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:149
 msgid "Strength"
-msgstr ""
+msgstr "Síla:"
 
 #: avidemux/ADM_dialog/DIA_msharpen.cpp:175
 #: avidemux/ADM_dialog/DIA_asharp.cpp:380
@@ -5791,7 +5791,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_preview.cpp:283 avidemux/ADM_gui2/GUI_main2.cpp:968
 #: avidemux/ADM_filter/gui_filtersub.cpp:150
 msgid "Preview"
-msgstr ""
+msgstr "Náhled"
 
 #: avidemux/ADM_dialog/DIA_clean.cpp:198
 msgid "button_preview"
@@ -5868,26 +5868,26 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:293
 msgid "ASharp by MarcFD"
-msgstr ""
+msgstr "ASharp"
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:306
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:141
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:141
 #: avidemux/ADM_dialog/DIA_deblend.cpp:124
 msgid "Threshold :"
-msgstr ""
+msgstr "Práh:"
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:314
 msgid "Strength :"
-msgstr ""
+msgstr "Síla:"
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:322
 msgid "Block Adaptative :"
-msgstr ""
+msgstr "Blokově adaptivní:"
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:330
 msgid "Unknown flag :"
-msgstr ""
+msgstr "Neznámý parametr:"
 
 #: avidemux/ADM_dialog/DIA_asharp.cpp:397
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:443
@@ -5977,27 +5977,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:155
 msgid "ColorYuv (From avisynth)"
-msgstr ""
+msgstr "ColorYUV (z Avisynthu)"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:179
 #: avidemux/ADM_dialog/DIA_contrast.cpp:306
 #: avidemux/ADM_dialog/DIA_contrast.cpp:323
 #: avidemux/ADM_filter/filter_declaration.cpp:100
 msgid "Contrast"
-msgstr ""
+msgstr "Kontrast"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:186
 #: avidemux/ADM_dialog/DIA_contrast.cpp:336
 msgid "Brightness"
-msgstr ""
+msgstr "Jas"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:193
 msgid "Gamma"
-msgstr ""
+msgstr "Gama"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:200
 msgid "Gain"
-msgstr ""
+msgstr "Zvýšení"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:207
 msgid "Luma Y"
@@ -6014,20 +6014,20 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:324
 msgid "<b>Color Correction Matrix</b>"
-msgstr ""
+msgstr "<b>Matice korekce barev</b>"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:347
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:470
 msgid "Matrix"
-msgstr ""
+msgstr "Matice"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:354
 msgid "Opt"
-msgstr ""
+msgstr "Volba"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:361
 msgid "Level"
-msgstr ""
+msgstr "Úroveň"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:374
 msgid "Rec.709"
@@ -6054,22 +6054,24 @@ msgid ""
 "<b>Matrix Warning :</b>\n"
 "all above values are normalized to 256!"
 msgstr ""
+"<b>Varování matice:</b>\n"
+"Všechny hpdnpty nahoře jsou normalizovány na 256!"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:404
 msgid "AutoGain"
-msgstr ""
+msgstr "Automatické zvýšení"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:408
 msgid "Display Stats"
-msgstr ""
+msgstr "Zobrazovat statistiku"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:412
 msgid "AutoWhite"
-msgstr ""
+msgstr "Automatická bílá"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:416
 msgid "<b>frame2</b>"
-msgstr ""
+msgstr "<b>Vlastnosti</b>"
 
 #: avidemux/ADM_dialog/DIA_coloryuv.cpp:439
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1294 avidemux/ADM_dialog/DIA_lame.cpp:266
@@ -6432,15 +6434,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:79
 msgid "Libavcodec Decoder Option"
-msgstr ""
+msgstr "Nastavení dekodéru"
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:88
 msgid "Swap UV"
-msgstr ""
+msgstr "_Prohodit U a V"
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:92
 msgid "Show motion Vectors"
-msgstr ""
+msgstr "Z_obrazovat vektory pohybu"
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:114
 msgid "checkbuttonSwap"
@@ -6505,19 +6507,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:364
 msgid "Encoding in Progress"
-msgstr ""
+msgstr "Průběh kódování"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:374
 msgid "<b><big>Encoding files</big></b>"
-msgstr ""
+msgstr "<b><big>Zápis souborů</big></b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:387
 msgid "<b>Phasis:</b>"
-msgstr ""
+msgstr "<b>Fáze:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:397
 msgid "<b>Frame:</b>"
-msgstr ""
+msgstr "<b>Snímek:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:415
 msgid "00000/00000"
@@ -6525,35 +6527,35 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:423
 msgid "<b>Vid codec:</b>"
-msgstr ""
+msgstr "<b>Video kodek:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:434
 msgid "<b>Aud Codec:</b>"
-msgstr ""
+msgstr "<b>Audio kodek:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:444
 msgid "<b>FPS:</b>"
-msgstr ""
+msgstr "<b>Snímků za sekundu:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:454
 msgid "<b>Vid Bitrate:</b>"
-msgstr ""
+msgstr "<b>Video bitrate:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:464
 msgid "<b>Quantizer:</b>"
-msgstr ""
+msgstr "<b>Kvantizér:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:474
 msgid "<b>Video Size:</b>"
-msgstr ""
+msgstr "<b>Velikost videa:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:485
 msgid "<b>Audio Size:</b>"
-msgstr ""
+msgstr "<b>Velikost audia:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:495
 msgid "<b>Total Size:</b>"
-msgstr ""
+msgstr "<b>Celková velikost:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:537 avidemux/prefs.cpp:51
 #: avidemux/prefs.cpp:61
@@ -6562,7 +6564,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:569
 msgid "<b>ETA:</b>"
-msgstr ""
+msgstr "<b>Zbývající čas:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:579
 msgid "0 h 0 mn 0 s"
@@ -6570,15 +6572,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:589
 msgid "<b>Container:</b>"
-msgstr ""
+msgstr "<b>Kontejner:</b>"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:613
 msgid "00:00:00 Time Left"
-msgstr ""
+msgstr "00:00:00"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:636
 msgid "Pause / Abort"
-msgstr ""
+msgstr "_Pozastavit / Ukončit"
 
 #: avidemux/ADM_dialog/DIA_encoding.cpp:645
 #: avidemux/ADM_dialog/DIA_prefs.cpp:678
@@ -6743,19 +6745,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:90
 msgid "Mplayer PostProc options"
-msgstr ""
+msgstr "Postprocessing"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:99
 msgid "Horizontal Deblocking"
-msgstr ""
+msgstr "_Horizontální deblocking"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:103
 msgid "Vertical Deblocking"
-msgstr ""
+msgstr "_Vertikální deblocking"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:107
 msgid "Deringing"
-msgstr ""
+msgstr "_Deringing"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:127
 msgid "gtk-refresh"
@@ -6764,11 +6766,11 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_postproc.cpp:131
 #: avidemux/ADM_dialog/DIA_mjpeg.cpp:93
 msgid "Swap U & V"
-msgstr ""
+msgstr "_Prohodit U a V"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:136
 msgid "Filter Strength"
-msgstr ""
+msgstr "Síla filtru"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:164
 msgid "Horizontal"
@@ -6808,11 +6810,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:107
 msgid "Save Job"
-msgstr ""
+msgstr "Uložit úlohu"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:126
 msgid "Select the output file"
-msgstr ""
+msgstr "Vyberte výstupní soubor"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:136
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1017 avidemux/ADM_dialog/DIA_srt.cpp:558
@@ -6827,23 +6829,24 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:140
 msgid "_Browse..."
-msgstr ""
+msgstr "_Procházet..."
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:149
 msgid "Job name displayed in the job list and used as the script filename"
 msgstr ""
+"Název úlohy zobrazený v seznamu úloh a použitý jako název souboru se skriptem"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:158
 msgid "Filename of the audio/video output"
-msgstr ""
+msgstr "Název souboru audio/video výstupu"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:161
 msgid "_Job name:"
-msgstr ""
+msgstr "_Název úlohy:"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:168
 msgid "Output _file:"
-msgstr ""
+msgstr "_Výstupní soubor:"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:199
 msgid "SaveJob"
@@ -7005,12 +7008,12 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:636
 msgid "XviD encoding options"
-msgstr ""
+msgstr "Nastavení kodeku XviD"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:670
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:554
 msgid "Encoding type:"
-msgstr ""
+msgstr "Typ kódování:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:675
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:562
@@ -7022,178 +7025,180 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:570
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:368
 msgid "Quantizer:"
-msgstr ""
+msgstr "Kvantizér:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:692
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:583
 msgid "Select 1-pass or 2-pass encoding"
-msgstr ""
+msgstr "Vyberte jedno nebo dvouprůchodové kódování"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:696
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:587
 msgid "Single pass - bitrate"
-msgstr ""
+msgstr "Jeden průchod - bitrate"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:700
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:591
 msgid "Single pass - quantizer"
-msgstr ""
+msgstr "Jeden průchod - kvantizér"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:704
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:595
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:344
 msgid "Two pass"
-msgstr ""
+msgstr "Dva průchody"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:708
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:599
 msgid "Same Qz as input"
-msgstr ""
+msgstr "Stejné kvantizéry jako vstup"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:717
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:618
 msgid "Target video bitrate"
-msgstr ""
+msgstr "Cílový bitrate (datový tok) videa"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:724
 msgid "Constant quantizer - each frame will get the same compression"
-msgstr ""
+msgstr "Konstantní kvantizér - každý snímek se stejnou mírou komprese"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:726
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:621
 msgid "Variable bitrate mode"
-msgstr ""
+msgstr "Režim variabilního bitrate"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:738
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:634
 msgid "_Interlaced"
-msgstr ""
+msgstr "_Prokládaný"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:741
 msgid ""
 "Enables interlaced frame support - use only if your source contains "
 "interlacing artifacts (i.e. fields instead of progressive frames)"
 msgstr ""
+"Aktivuje prokládané kódování - používejte pouze pokud zdroj obsahuje "
+"artefakty proklání (tj. půlsnímky místo progresivních snímků)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:743
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:639
 msgid "_Greyscale"
-msgstr ""
+msgstr "_Odstíny šedi"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:746
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:642
 msgid "Encode in black & white"
-msgstr ""
+msgstr "Kóduje pouze černobílý obraz"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:752
 msgid "Ca_rtoon mode"
-msgstr ""
+msgstr "_Režim kreslených seriálů"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:755
 msgid "Enables special motion estimation features for cartoons/anime"
-msgstr ""
+msgstr "Speciální vlastnosti odhadu pohybu pro animované filmy"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:757
 msgid "C_hroma optimizer"
-msgstr ""
+msgstr "Opti_malizace chrominance"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:760
 msgid "Enables a chroma optimizer prefilter"
-msgstr ""
+msgstr "Aktivuje předfiltr optimalizace chrominance"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:766
 msgid "Turbo Mode"
-msgstr ""
+msgstr "_Turbo režim"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:769
 msgid "Enables fast 1st pass encoding"
-msgstr ""
+msgstr "Rychlé kódování prvního průchodu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:771
 msgid "Packed bitstream"
-msgstr ""
+msgstr "Z_abalený bitstream"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:774
 msgid "Enables Divx like packed vop, DO NOT SET, it is ugly"
-msgstr ""
+msgstr "Použije zabalený VOP jako DivX, NEPOUŽÍVAT, je to ošklivé"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:776
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:668
 msgid "Main"
-msgstr ""
+msgstr "Hlavní"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:795
 msgid "Motion search precision:"
-msgstr ""
+msgstr "Přesnost odhadu pohybu:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:799
 msgid "VHQ mode:"
-msgstr ""
+msgstr "Režim VHQ:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:812
 msgid ""
 "Higher settings give higher quality results, at the cost of slower encoding"
-msgstr ""
+msgstr "Vyšší hodnotyznamenají vyšší kvalitu za cenu pomalejšího kódování"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:816 avidemux/ADM_dialog/DIA_xvid.cpp:357
 msgid "0 - None"
-msgstr ""
+msgstr "0 - nic"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:820
 msgid "1 - Very low"
-msgstr ""
+msgstr "1 - velmi nízká"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:824
 msgid "2 - Low"
-msgstr ""
+msgstr "2 - nízká"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:828
 msgid "3 - Medium"
-msgstr ""
+msgstr "3 - střední"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:832
 msgid "4 - High"
-msgstr ""
+msgstr "4 - vysoká"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:836
 msgid "5 - Very high"
-msgstr ""
+msgstr "5 - velmi vysoká"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:840
 msgid "6 - Ultra high"
-msgstr ""
+msgstr "6 - ultra vysoká"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:849
 msgid "VHQ enables an additional search process to increase quality"
-msgstr ""
+msgstr "VHQ umožní další vyhledávací proces ke zlepšení kvality"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:853
 msgid "0 - Off"
-msgstr ""
+msgstr "0 - vypnuto"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:857
 msgid "1 - Mode decision"
-msgstr ""
+msgstr "1 - rozhodování režimu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:861
 msgid "2 - Limited search"
-msgstr ""
+msgstr "2 - omezené hledání"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:865
 msgid "3 - Medium search"
-msgstr ""
+msgstr "3 - střední hledání"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:869
 msgid "4 - Wide search"
-msgstr ""
+msgstr "4 - široké hledání"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:879
 msgid "C_hroma motion"
-msgstr ""
+msgstr "C_hroma pohyb"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:882
 msgid "Use chroma information to estimate motion"
-msgstr ""
+msgstr "Použije informaci z chrominance k odhadu pohybu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:884
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:708
@@ -7202,7 +7207,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:887
 msgid "Use 4 motion vectors per macroblock, might give better compression"
-msgstr ""
+msgstr "Použije 4 vektory pohybu na makroblok, může zlepšit kompresi"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:889
 msgid "HQ _AC"
@@ -7212,15 +7217,17 @@ msgstr ""
 msgid ""
 "Enable a better prediction of AC component. Turns on Lumi masking - applies "
 "more compression to dark/light areas that the eye cannot notice easily"
-msgstr ""
+msgstr "Lepší predikce AC komponentu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:898
 msgid "I-frame interval - Min:"
-msgstr ""
+msgstr "Interval I snímků - min.:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:906
 msgid "Minimum space between I-frames, 1 will disable forced I-frame spacing"
 msgstr ""
+"Nejmenší vzdálenost mezi klíčovými snímky, 1 vypne vynucené umisťování I "
+"snímků"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:908
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1087
@@ -7228,22 +7235,22 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1097
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1242
 msgid "Max:"
-msgstr ""
+msgstr "max.:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:916
 msgid "Maximum number of frames allowed between I-frames"
-msgstr ""
+msgstr "Maximální povolený počet snímků mezi I snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:931
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:772
 msgid "Number of B-frames:"
-msgstr ""
+msgstr "Počet B snímků:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:939
 msgid ""
 "Maximum number of sequential B-frames (when set to 0, the original I/P "
 "encoder is used)"
-msgstr ""
+msgstr "Nejvyšší počet následných B snímků (0 znamená žádné B snímky)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:945
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:784
@@ -7252,7 +7259,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:948
 msgid "Use Quarter pixel resolution for a more precise motion estimation"
-msgstr ""
+msgstr "Použije rozlišení na čtvrt pixelu pro přesnější odhad pohybu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:950
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:789
@@ -7264,6 +7271,8 @@ msgstr ""
 msgid ""
 "Global Motion Compensation can save bits on camera pans, zooming and rotation"
 msgstr ""
+"Global Motion Compensation (globální kompenzace pohybu) může ušetřit bity na "
+"přejezdech kamery, přiblížení a rotaci"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:955
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:794
@@ -7273,12 +7282,12 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:959
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1145
 msgid "Motion Estimation"
-msgstr ""
+msgstr "Odhad pohybu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:972
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1163
 msgid "Quantization type:"
-msgstr ""
+msgstr "Typ kvantizace:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:976
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1216
@@ -7288,7 +7297,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:979
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1219
 msgid "H.263 quantizers smooth the picture (useful at lower bitrates)"
-msgstr ""
+msgstr "H.263 kvantizéry dávají rozmazanější obraz (dobré při nižším bitrate)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:983
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1223
@@ -7299,170 +7308,182 @@ msgstr ""
 msgid ""
 "MPEG quantizers (slightly slower) produce sharper picture (useful at higher "
 "bitrates)"
-msgstr ""
+msgstr "H.263 kvantizéry dávají ostřejší obraz (dobré při vyšším bitrate)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:990
 msgid "_Custom Matrix"
-msgstr ""
+msgstr "_Vlastní matice"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1000
 msgid "Load Custom Matrix:  "
-msgstr ""
+msgstr "Načíst vlastní matici:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1021
 msgid "Open CQM file"
-msgstr ""
+msgstr "_Otevřít CQM soubor"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1029
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1456
 msgid "Edit Custom Matrix"
-msgstr ""
+msgstr "Upravit vlastní matici"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1046
 msgid "I-frame quantizer - Min:"
-msgstr ""
+msgstr "Kvantizér I snímků - min.:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1051
 msgid "P-frame quantizer - Min:"
-msgstr ""
+msgstr "Kvantizér P snímků - min.:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1056
 msgid "B-frame quantizer - Min:"
-msgstr ""
+msgstr "Kvantizér B snímků - min.:"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1069
 msgid "Minimum quantizer allowed for I-frames"
-msgstr ""
+msgstr "Nejnižší povolený kvantizér pro I snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1075
 msgid "Minimum quantizer allowed for P-frames"
-msgstr ""
+msgstr "Nejnižší povolený kvantizér pro P snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1081
 msgid "Minimum quantizer allowed for B-frames"
-msgstr ""
+msgstr "Nejnižší povolený kvantizér pro B snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1110
 msgid "Maximum quantizer allowed for I-frames"
-msgstr ""
+msgstr "Nejvyšší povolený kvantizér pro I snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1116
 msgid "Maximum quantizer allowed for P-frames"
-msgstr ""
+msgstr "Nejvyšší povolený kvantizér pro P snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1122
 msgid "Maximum quantizer allowed for B-frames"
-msgstr ""
+msgstr "Nejvyšší povolený kvantizér pro B snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1124
 msgid "Quantizer restrictions"
-msgstr ""
+msgstr "Omezení kvantizérů"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1128
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1254
 msgid "_Trellis quantization"
-msgstr ""
+msgstr "_Síťová (trellis) kvantizace"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1131
 msgid "Rate distortion quantization, will find optimal encoding for each block"
-msgstr ""
+msgstr "Nalezne optimální kódování pro každý blok"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1133
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1266
 #: avidemux/ADM_dialog/DIA_xvid.cpp:309
 msgid "Quantization"
-msgstr ""
+msgstr "Kvantizace"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1161
 msgid "I-frame boost (%):"
-msgstr ""
+msgstr "Zlepšení I snímků (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1166
 msgid "I-frames closer than ... frames..."
-msgstr ""
+msgstr "I snímky bližší než ... snímků..."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1171
 msgid "...are reduced by (%):"
-msgstr ""
+msgstr "...jsou redukovány o (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1176
 msgid "Max overflow improvement (%):"
-msgstr ""
+msgstr "Max. zlepšení přetečení (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1181
 msgid "Max overflow degradation (%):"
-msgstr ""
+msgstr "Max. zhoršení přetečení (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1193
-#, possible-c-format
+#, c-format
 msgid "A value of 20 will give 20% more bits to every I-frame"
-msgstr ""
+msgstr "20 přidělí o 20 procent víc bitů každému I snímku"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1199
 msgid ""
 "I-frames appearing in the range below this value will be treated as "
 "consecutive keyframes"
 msgstr ""
+"I snímky v rozsahu pod touto hodnotou budou považovány za po sobě jdoucí "
+"klíčové snímky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1204
 msgid ""
 "Reduction of bitrate for the first consecutive I-frames. The last I-frame "
 "will get treated normally"
 msgstr ""
+"Redukce bitrate pro první po sobě jdoucí I snímky. Poslední I snímek bude "
+"brán normálně"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1209
 msgid ""
 "How much of the overflow the codec can eat into during undersized sections - "
 "larger values will bridge the gap faster"
 msgstr ""
+"Kolik z přetečení si kodek může vzít během podměrečných částí - vyšší "
+"hodnoty překročí mezeru rychleji"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1214
 msgid ""
 "How much of the overflow the codec can eat into during oversized sections - "
 "larger values will bridge the gap faster"
 msgstr ""
+"Kolik z přetečení si kodek může vzít během příliš velkých částí - vyšší "
+"hodnoty překročí mezeru rychleji"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1216
 msgid "Two pass tuning"
-msgstr ""
+msgstr "Vyladění 2. průchodu"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1233
 msgid "High bitrate scenes (%):"
-msgstr ""
+msgstr "Scény s vysokým bitrate (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1238
 msgid "Low bitrate scenes (%):"
-msgstr ""
+msgstr "Scény s nízkým bitrate (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1243
 msgid "Overflow control strength (%):"
-msgstr ""
+msgstr "Síla kontroly přetečení (%):"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1255
 msgid ""
 "The higher this value, the more bits get taken from frames larger than the "
 "average size, and redistributed to others"
 msgstr ""
+"Čím vyšší je tato hodnota, tím víc bitů se vezme ze snímků větších než "
+"průměrná velikost a rozdělí se mezi ostatní"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1260
 msgid ""
 "The higher this value, the more bits get assigned to frames below the "
 "average frame size"
 msgstr ""
+"Čím vyšší je tato hodnota, tím víc bitů se přidělí snímkům pod průměrnou "
+"velikostí snímku"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1265
 msgid ""
 "0 = default from core (let XviD decide), else overflow payback percent per "
 "frame"
-msgstr ""
+msgstr "0 = výchozí z jádra (nechat XviD rozhodnout)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1267
 msgid "Curve compression"
-msgstr ""
+msgstr "Komprese křivky"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1271
 msgid "Second Pass"
-msgstr ""
+msgstr "Druhý průchod"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1292
 #: avidemux/ADM_dialog/DIA_prefs.cpp:641
@@ -8169,7 +8190,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:162
 msgid "Lame settings"
-msgstr ""
+msgstr "Nastavení LAME"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:185 avidemux/ADM_dialog/DIA_audio.cpp:284
 msgid "Mono"
@@ -8188,15 +8209,15 @@ msgstr ""
 msgid ""
 "This entry is ignored \n"
 "if the stream is mono."
-msgstr ""
+msgstr "Ignorováno pokud je stream mono"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:204 avidemux/ADM_dialog/DIA_cnr2.cpp:309
 msgid "<b>Mode</b>"
-msgstr ""
+msgstr "<b>Režim</b>"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:242 avidemux/ADM_dialog/DIA_vorbis.cpp:189
 msgid "<b>Rate</b>"
-msgstr ""
+msgstr "<b>Volby</b>"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:268 avidemux/ADM_dialog/DIA_DVDff.cpp:673
 #: avidemux/ADM_dialog/DIA_vorbis.cpp:217
@@ -8246,11 +8267,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_acodec.cpp:138
 msgid "AudioCodec"
-msgstr ""
+msgstr "Audio kodek"
 
 #: avidemux/ADM_dialog/DIA_acodec.cpp:163
 msgid "Configure codec"
-msgstr ""
+msgstr "_Nastavit"
 
 #: avidemux/ADM_dialog/DIA_acodec.cpp:182
 msgid "dialogAudioCodec"
@@ -8263,7 +8284,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:144
 msgid "Builtin support for"
-msgstr ""
+msgstr "Vestavěná podpora"
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:158
 msgid ""
@@ -8271,6 +8292,9 @@ msgid ""
 "you must RECOMPILE avidemux to have\n"
 "support for it!"
 msgstr ""
+"Pokud volba není zaškrtnutá, znamená to, \n"
+"že musíte překompilovat Avidemux \n"
+"pro její podporu."
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:171
 #: avidemux/ADM_codecs/ADM_codecs.cpp:130
@@ -8404,15 +8428,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_mpdelogo.cpp:388
 msgid "W"
-msgstr ""
+msgstr "Š"
 
 #: avidemux/ADM_dialog/DIA_mpdelogo.cpp:395
 msgid "H"
-msgstr ""
+msgstr "V"
 
 #: avidemux/ADM_dialog/DIA_mpdelogo.cpp:402
 msgid "Band"
-msgstr ""
+msgstr "Tloušťka rozmazaného okraje"
 
 #: avidemux/ADM_dialog/DIA_mpdelogo.cpp:494
 msgid "spinbuttonX"
@@ -8454,15 +8478,15 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_chromaShift.cpp:257
 #: avidemux/ADM_dialog/DIA_chromaShift.cpp:327
 msgid "ChromaShift"
-msgstr ""
+msgstr "Posun chrominance"
 
 #: avidemux/ADM_dialog/DIA_chromaShift.cpp:270
 msgid "U Shift :"
-msgstr ""
+msgstr "Posun U:"
 
 #: avidemux/ADM_dialog/DIA_chromaShift.cpp:278
 msgid "V Shift :"
-msgstr ""
+msgstr "Posun V:"
 
 #: avidemux/ADM_dialog/DIA_chromaShift.cpp:316
 #: avidemux/ADM_dialog/DIA_equalizer.cpp:481
@@ -8509,83 +8533,83 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:390 avidemux/ADM_dialog/DIA_prefs.cpp:639
 msgid "Preferences"
-msgstr ""
+msgstr "Předvolby"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:414
 msgid "_Message level:"
-msgstr ""
+msgstr "Z_obrazovat zprávy:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:421
 msgid "No alerts"
-msgstr ""
+msgstr "Žádné"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:422
 msgid "Display only error alerts"
-msgstr ""
+msgstr "Pouze chybové hlášky"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:423
 msgid "Display all alerts"
-msgstr ""
+msgstr "Všechny"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:425
 msgid "_Swap marks A and B if A > B"
-msgstr ""
+msgstr "_Prohodit značky A a B pokud je A > B"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:429
 msgid "_Go to systray when encoding"
-msgstr ""
+msgstr "Po_hltit do panelu při kódování"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:433
 msgid "S_ave preferences on exit"
-msgstr ""
+msgstr "_Uložit předvolby při _ukončení"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:437
 msgid "User Interface"
-msgstr ""
+msgstr "Uživatelské prostředí"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:448
 msgid "_Automatically index MPEG files"
-msgstr ""
+msgstr "_Automaticky indexovat MPEG soubory"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:452
 msgid "_Disable NuppelVideo resync"
-msgstr ""
+msgstr "_Vypnout resynchronizaci pro NuppelVideo"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:456
 msgid "_Use libavcodec MPEG decoder"
-msgstr ""
+msgstr "_Používat libavcodec MPEG dekodér"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:460
 msgid "_Set Default Postprocessing Level"
-msgstr ""
+msgstr "_Nastavit výchozí postprocessing"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:464
 msgid "Input"
-msgstr ""
+msgstr "Vstup"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:479
 msgid "_MPEG auto split (MB):"
-msgstr ""
+msgstr "_Automatické rozdělení MPEG souborů (MB):"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:488
 msgid "_Use OpenDML (don't split large AVI files)"
-msgstr ""
+msgstr "_Používat OpenDML (nerozdělovat velké AVI soubory)"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:492
 msgid "_Reuse 2-pass log"
-msgstr ""
+msgstr "Z_novupoužít log soubor dvouprůchodového kódování"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:496 avidemux/ADM_gui2/GUI_main2.cpp:977
 msgid "Output"
-msgstr ""
+msgstr "Výstup"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:509
 msgid "_Audio output:"
-msgstr ""
+msgstr "_Audio výstup:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:516
 msgid "ALSA _device:"
-msgstr ""
+msgstr "A_LSA zařízení:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:535
 msgid "_Master"
@@ -8597,15 +8621,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:551
 msgid "_Volume bar controls:"
-msgstr ""
+msgstr "_Ovladač hlasitosti ovládá:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:558
 msgid "Local Playback Downmixing"
-msgstr ""
+msgstr "Lokální smixování přehrávání:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:570
 msgid "No downmixing (multichannel)"
-msgstr ""
+msgstr "Žádné smixování (vícekanálový)"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:571 avidemux/ADM_dialog/DIA_audio.cpp:293
 msgid "Dolby Prologic"
@@ -8621,7 +8645,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:591
 msgid "_Video output:"
-msgstr ""
+msgstr "_Video výstup:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:599
 msgid "Video"
@@ -8629,15 +8653,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:607
 msgid "Enable multithreading : "
-msgstr ""
+msgstr "Počet vláken:"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:617
 msgid "Threads"
-msgstr ""
+msgstr " "
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:621
 msgid "MultiThread"
-msgstr ""
+msgstr "Multithreading"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:643 avidemux/ADM_dialog/DIA_SVCD.cpp:534
 #: avidemux/ADM_dialog/DIA_audio.cpp:323
@@ -8794,20 +8818,20 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:153
 #: avidemux/ADM_openDML/ADM_opendml_reindex.cpp:68
 msgid "Indexing..."
-msgstr ""
+msgstr "Indexace..."
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:174
 #: avidemux/ADM_dialog/DIA_working.cpp:249
 msgid "Time left :"
-msgstr ""
+msgstr "Zbývající čas:"
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:182
 msgid "Timecode :"
-msgstr ""
+msgstr "Časový kód:"
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:190
 msgid "Nb pictures seen :"
-msgstr ""
+msgstr "Počet snímků:"
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:198
 #: avidemux/ADM_dialog/DIA_calculator.cpp:435
@@ -8816,7 +8840,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:214
 msgid "Indexing :"
-msgstr ""
+msgstr "Indexace:"
 
 #: avidemux/ADM_dialog/DIA_idx_pg.cpp:222
 msgid "/dev/null"
@@ -8836,11 +8860,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_exLame.cpp:80
 msgid "Lame command"
-msgstr ""
+msgstr "Příkaz LAME"
 
 #: avidemux/ADM_dialog/DIA_exLame.cpp:89
 msgid "Enter parameters (i.e. -b 192 -m s ...)"
-msgstr ""
+msgstr "Parametry (např. -b 192 -m s ...):"
 
 #: avidemux/ADM_dialog/DIA_exLame.cpp:117 avidemux/ADM_dialog/DIA_enter.cpp:94
 #: avidemux/ADM_dialog/DIA_enter.cpp:101 avidemux/ADM_dialog/DIA_enter.cpp:200
@@ -8850,25 +8874,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:527
 msgid "FFmpeg encoding options"
-msgstr ""
+msgstr "Nastavení FFmpeg kodeku"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:611
 msgid "Set quantizer for a constant quantizer/quality encoding"
-msgstr ""
+msgstr "Kvantizér použitý při kódování s konstantním kvantizérem/kvalitou"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:637
 msgid "Enable interlaced encoding"
-msgstr ""
+msgstr "Aktivovat prokládané kódování"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:648
 msgid "_Aspect ratio"
-msgstr ""
+msgstr "_Poměr stran:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:651
 msgid ""
 "Set MPEG-4 aspect ratio (warning: MPlayer supports it, but most other "
 "players don't)"
 msgstr ""
+"Nastavení poměru stran MPEG-4 (varování: MPlayer to podporuje, ale většina "
+"jiných přehrávačů ne)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:658
 #: avidemux/ADM_dialog/DIA_x264.cpp:652
@@ -8883,15 +8909,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:686
 msgid "ME method:"
-msgstr ""
+msgstr "Metoda odhadu pohybu:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:694
 msgid "Max I-frame interval:"
-msgstr ""
+msgstr "Max. interval klíčových snímků:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:711
 msgid "Allow 4 motion vectors per macroblock (slightly better quality)"
-msgstr ""
+msgstr "Povolit 4 vektory pohybu na makroblok (trochu lepší kvalita)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:714
 msgid "MV0"
@@ -8899,21 +8925,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:717
 msgid "Try  to encode each MB with MV=<0,0> and choose the better one"
-msgstr ""
+msgstr "Zkusí zakódovat každý makroblok s vektorem <0,0>a vybere ten lepší"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:725
 msgid ""
 "Motion estimation method, 0-3 currently ignores the amount of bits spent, so "
 "quality may be low"
 msgstr ""
+"Metoda odhadu pohybu, 0-3 momentálně nebere v potaz množství použitých bitů, "
+"takže kvalita může být špatná"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:729
 msgid "0: None"
-msgstr ""
+msgstr "0: Žádná"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:733
 msgid "1: Full"
-msgstr ""
+msgstr "1: Plná"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:737
 msgid "2: Log"
@@ -8933,15 +8961,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:761
 msgid "Maximum interval between keyframes in frames"
-msgstr ""
+msgstr "Maximální interval mezi klíčovými snímky"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:782
 msgid "Maximum number of B-frames between non B-frames, 0-2 is a sane range"
-msgstr ""
+msgstr "Maximální počet B snímků mezi ne-B snímky, 0-2 je rozumný rozsah"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:787
 msgid "Use quarter pixel motion compensation (useful at higher bitrates)"
-msgstr ""
+msgstr "Použít čtvrtpixelový odhad pohybu (užitečné při vyšším bitrate)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:814
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1062
@@ -9012,7 +9040,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:865
 msgid "Full pixel:"
-msgstr ""
+msgstr "Plný pixel:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:878
 msgid "Comparison function for full pel motion estimation"
@@ -9028,7 +9056,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:967
 msgid "Macroblock:"
-msgstr ""
+msgstr "Makroblok:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:980
 msgid ""
@@ -9053,7 +9081,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1046
 msgid "ME comparison function"
-msgstr ""
+msgstr "Funkce porovnání odhadu pohybu"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1070
 msgid "ME:"
@@ -9098,25 +9126,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1171
 msgid "Macroblock decision:"
-msgstr ""
+msgstr "Rozhodování makrobloků:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1179
 msgid "Quantizer range - Min:"
-msgstr ""
+msgstr "Rozsah kvantizérů - min.:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1192
 msgid ""
 "Macroblock decision algorithm (high quality mode), encode each macroblock in "
 "all modes and choose the best"
 msgstr ""
+"Algoritmus rozhodování u makrobloků (režim vysoké kvality), kóduje každý "
+"makroblok ve všech režimech a vybere nejlepší"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1196
 msgid "0: MB comparison"
-msgstr ""
+msgstr "0: porovnání MB"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1200
 msgid "1: Fewest bits (vhq)"
-msgstr ""
+msgstr "1: Nejméně bitů (vhq)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1204
 msgid "2: Rate distortion"
@@ -9124,23 +9154,25 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1226
 msgid "MPEG quantizers produce sharper picture (useful at higher bitrates)"
-msgstr ""
+msgstr "MPEG kvantizéry produkují ostřejší obraz (dobré při vyšším bitrate)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1240
 msgid ""
 "Minimum quantizer, 1 is not recommended, should be 2 for normal MPEG-4 "
 "encoding"
 msgstr ""
+"Nejnižší kvantizér, 1 se nedoporučuje, měl by být 2 pro normální MPEG-4 "
+"kódování"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1252
 msgid "Maximum quantizer, 10-31 should be a sane range"
-msgstr ""
+msgstr "Nejvyšší kvantizér, 10-31 by měl být rozumný rozsah"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1257
 msgid ""
 "Trellis searched quantization will find the optimal encoding for each 8x8 "
 "block"
-msgstr ""
+msgstr "Mřížově hledaná kvantizace najde optimální kódování pro každý blok 8x8"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1260
 msgid "Rate distorted CBP"
@@ -9156,42 +9188,48 @@ msgid ""
 "Sane range: 0-0.3. Large values might look good on some monitors, but "
 "horrible on others (TV, LCD...)"
 msgstr ""
+"Rozumný rozsah: 0-0.3. Vysoké hodnoty můžou vypadat dobře na některých "
+"monitorech, ale hrozně na jiných (TV, LCD...)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1306
 msgid ""
 "Sane range: 0-0.5. Large values help against blockiness, but may introduce "
 "ringing/mosquito noise artifacts on sharp edges"
 msgstr ""
+"Rozumný rozsah: 0-0.5. Vysoké hodnoty pomáhají proti kostičkování, ale můžou "
+"způsobit artefakty na ostrých hranách"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1315
 msgid "Darkness masking:"
-msgstr ""
+msgstr "Maskování tmavých míst:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1322
 msgid "Spatial complexity masking:"
-msgstr ""
+msgstr "Maskování prostorové složitosti:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1329
 msgid "Temporal complexity masking:"
-msgstr ""
+msgstr "Maskování časové složitosti:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1335
 msgid "Lumi masking:"
-msgstr ""
+msgstr "Maskování světlosti:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1349
 msgid "P block masking:"
-msgstr ""
+msgstr "Maskování P bloku:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1355
 msgid "Normalize adaptive quantization"
-msgstr ""
+msgstr "Normalizovat adaptivní kvantizaci"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1358
 msgid ""
 "Attempt  to adjust the per-MB quantizers to maintain the proper average when "
 "using adaptive quantization (*masking)"
 msgstr ""
+"Zkusí upravit MB kvantizéry tak,aby se zachoval správný průměr když se "
+"používá adaptivní kvantizace (maskování)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1386
 msgid "Luminance:"
@@ -9209,45 +9247,48 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1405
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1413
 msgid "Consider also the dc coefficient"
-msgstr ""
+msgstr "Vzít v pota i DC koeficient"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1415
 msgid "Single coefficient elimination threshold"
-msgstr ""
+msgstr "Eliminační práh"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1420
 msgid "Masking"
-msgstr ""
+msgstr "Maskování"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1434
 msgid "Filesize tolerance (kb):"
-msgstr ""
+msgstr "Tolerance velikosti souboru (kb):"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1442
 msgid "Quantizer compression:"
-msgstr ""
+msgstr "Komprese kvantizérů:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1450
 msgid "Quantizer blur:"
-msgstr ""
+msgstr "Rozmazání kvantizérů:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1458
 msgid "Max quantizer difference:"
-msgstr ""
+msgstr "Max. rozdíl kvantizérů:"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1472
 msgid "Maximum  quantizer difference between I or P frames"
-msgstr ""
+msgstr "Nejvyšší rozdíl kvantizérů mezi I nebo P snímky"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1480
 msgid ""
 "Quantizer  gaussian blur, larger values will average the quantizer more over "
 "time (slower change)"
 msgstr ""
+"Gaussovo rozostření kvantizérů - vyšší hodnoty budou časem víc průměrovat "
+"kvantizéry (pomalejší změna)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1494
 msgid "Filesize tolerance (1 kb = 1000 bits). 1000-100000 is a sane range"
 msgstr ""
+"Tolerance velikosti souboru (1 kb = 1000 bitů). 1000-100000 je rozumný rozsah"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1495
 msgid "8000"
@@ -9255,7 +9296,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1497
 msgid "Ratecontrol"
-msgstr ""
+msgstr "Řízení datového toku"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1522
 msgid "frame10"
@@ -9853,39 +9894,39 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:122
 #: avidemux/ADM_dialog/DIA_dectel.cpp:152
 msgid "Field Order"
-msgstr ""
+msgstr "Pořadí půlsnímků:"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:130
 msgid "Mode"
-msgstr ""
+msgstr "Režim:"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:146
 msgid "Extra check"
-msgstr ""
+msgstr "Extra kontrola:"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:160
 msgid "BFF"
-msgstr ""
+msgstr "Napřed spodní"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:166
 msgid "TFF"
-msgstr ""
+msgstr "Napřed horní"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:180
 msgid "Keep fps and frame #"
-msgstr ""
+msgstr "Zachovat počet a frekvenci snímků"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:184
 msgid "Double fps and frame #"
-msgstr ""
+msgstr "Zdvojnásobit počet a frekvenci snímků"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:188
 msgid "Double frame # (slow mo)"
-msgstr ""
+msgstr "Zdvojnásobit počet snímků (zpomalení)"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:200
 msgid "(avoid using it)"
-msgstr ""
+msgstr "(nepoužívat)"
 
 #: avidemux/ADM_dialog/DIA_dgbob.cpp:229 avidemux/ADM_dialog/DIA_SVCD.cpp:540
 msgid "radiobutton1"
@@ -9954,7 +9995,7 @@ msgid "scrolledwindow1"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_working.cpp:133
-#, possible-c-format
+#, c-format
 msgid "DIA_working::update(%lu) called\n"
 msgstr ""
 
@@ -9964,7 +10005,7 @@ msgid " %d m %d s left"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_working.cpp:161
-#, possible-c-format
+#, c-format
 msgid ""
 "DIA_working::update(%lu): new time left: %s\n"
 "\tf=%f sectogo=%lu\n"
@@ -9976,7 +10017,7 @@ msgid "label_time"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_working.cpp:181
-#, possible-c-format
+#, c-format
 msgid "DIA_working::update(uint32_t %lu,uint32_t %lu) called\n"
 msgstr ""
 
@@ -10002,7 +10043,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:73
 msgid "Go to time"
-msgstr ""
+msgstr "Přejít na čas"
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:88
 #: avidemux/ADM_video/ADM_vidMPLResize.cpp:95
@@ -10013,7 +10054,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:98
 msgid "mn"
-msgstr ""
+msgstr "m"
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:133
 msgid "spinbuttonM"
@@ -10025,154 +10066,154 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:159
 msgid "TDeint param"
-msgstr ""
+msgstr "TDeint"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:173
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:117
 msgid "Field Order :"
-msgstr ""
+msgstr "Pořadí půlsnímků:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:185
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:125
 #: avidemux/ADM_dialog/DIA_dectel.cpp:167
 msgid "Bottom Field First"
-msgstr ""
+msgstr "Nejdřív spodní"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:186
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:131
 #: avidemux/ADM_dialog/DIA_dectel.cpp:171
 msgid "Top Field First"
-msgstr ""
+msgstr "Nejdřív horní"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:188
 msgid "Interpolate :"
-msgstr ""
+msgstr "Interpolovat:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:200
 msgid "Top field (keep bottom)"
-msgstr ""
+msgstr "Horní půlsnímek (spodní nechat)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:201
 msgid "Bottom field (keep top)"
-msgstr ""
+msgstr "Spodní půlsnímek (horní nechat)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:203
 msgid "Type"
-msgstr ""
+msgstr "Typ:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:215
 msgid "Cubic Interpolation"
-msgstr ""
+msgstr "Kubická interpolace"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:216
 msgid "Modified ELA"
-msgstr ""
+msgstr "Modifikovaná ELA"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:217
 msgid "Kernerl interpolation"
-msgstr ""
+msgstr "Jádrová interpolace"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:218
 msgid "Modified ELA-2"
-msgstr ""
+msgstr "Modifikovaná ELA-2"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:220
 msgid "MntMode"
-msgstr ""
+msgstr "Režim pohybu:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:232
 msgid "4 field check"
-msgstr ""
+msgstr "4půlsnímková kontrola"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:233
 msgid "5 field check"
-msgstr ""
+msgstr "5půlsnímková kontrola"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:234
 msgid "4 field check (no average)"
-msgstr ""
+msgstr "4půlsnímková kontrola (bez průměru)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:235
 msgid "5 field check (no average)"
-msgstr ""
+msgstr "5půlsnímková kontrola (bez průměru)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:237
 msgid "Use Chroma to evalute"
-msgstr ""
+msgstr "Požít chrominanci"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:250
 msgid "Try weave "
-msgstr ""
+msgstr "Zkusit spojení"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:263
 #: avidemux/ADM_filter/gui_filterlist.cpp:173
 #: avidemux/ADM_filter/filter_declaration.cpp:126
 msgid "Denoise"
-msgstr ""
+msgstr "Redukce šumu"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:276
 msgid "Link"
-msgstr ""
+msgstr "Vazba:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:288
 msgid "No link"
-msgstr ""
+msgstr "Žádná"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:289
 msgid "Full linking"
-msgstr ""
+msgstr "Plná"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:290
 msgid "Y to UV link"
-msgstr ""
+msgstr "Vazba Y na UV"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:291
 msgid "UV to Y link"
-msgstr ""
+msgstr "Vaba UV na Y"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:293
 msgid "Sharp :"
-msgstr ""
+msgstr "Ostrý"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:306
 msgid "AP type"
-msgstr ""
+msgstr "Typ ochrany před artefakty:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:319
 msgid "Evaluate ALL frames"
-msgstr ""
+msgstr "Vyhodnotit všechny snímky"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:331
 msgid "0 (read manual)"
-msgstr ""
+msgstr "0 (viz manuál)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:332
 msgid "1 (read manual)"
-msgstr ""
+msgstr "1 (viz manuál)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:333
 msgid "2 (read manual)"
-msgstr ""
+msgstr "2 (viz manuál)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:339
 msgid "motion Threshold, Luma"
-msgstr ""
+msgstr "Práh pohybu, luma:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:346
 msgid "motion Threshold, Chroma"
-msgstr ""
+msgstr "Práh pohybu, chroma:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:369
 msgid "Area Combing Threshold"
-msgstr ""
+msgstr "Práh prokladu oblasti:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:383
 msgid "Combed Treshold"
-msgstr ""
+msgstr "Práh prokladu:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:398
 msgid "Artefact Protection threshold "
-msgstr ""
+msgstr "Práh ochrany před artefakty:"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:433
 msgid "comboboxOrder"
@@ -10291,39 +10332,39 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:191
 msgid "Informations"
-msgstr ""
+msgstr "Vlastnosti"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:209
 msgid "Frame Rate"
-msgstr ""
+msgstr "Snímková frekvence:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:216
 msgid "# of frames"
-msgstr ""
+msgstr "Počet snímků:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:223
 msgid "Codec 4CC"
-msgstr ""
+msgstr "FourCC kodeku:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:230
 msgid "Video Duration  "
-msgstr ""
+msgstr "Délka:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:251
 msgid "Image size"
-msgstr ""
+msgstr "Velikost obrazu:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:291
 msgid "Vop packed"
-msgstr ""
+msgstr "Zabalený VOP:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:298
 msgid "Quarter Pixel"
-msgstr ""
+msgstr "Qpel:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:305
 msgid "GMC"
-msgstr ""
+msgstr "GMC:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:330
 #: avidemux/ADM_gui2/GUI_main2.cpp:1006
@@ -10332,28 +10373,28 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:343
 msgid "Codec "
-msgstr ""
+msgstr "Kodek:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:350
 msgid "Channels  "
-msgstr ""
+msgstr "Počet kanálů:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:357
 msgid "Bitrate "
-msgstr ""
+msgstr "Bitrate:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:364
 msgid "Frequency"
-msgstr ""
+msgstr "Frekvence:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:371
 msgid "Audio duration  "
-msgstr ""
+msgstr "Délka:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:413
 #: avidemux/ADM_dialog/DIA_vorbis.cpp:80
 msgid "VBR"
-msgstr ""
+msgstr "VBR:"
 
 #: avidemux/ADM_dialog/DIA_properties.cpp:426
 #: avidemux/ADM_dialog/DIA_dmx.cpp:222 avidemux/ADM_gui2/GUI_main2.cpp:1046
@@ -10484,7 +10525,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:410
 #: avidemux/ADM_filter/gui_filterlist.cpp:123
 msgid "Interlacing"
-msgstr ""
+msgstr "Prokládání"
 
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:426 avidemux/ADM_dialog/DIA_resize.cpp:380
 #: avidemux/ADM_dialog/DIA_resize.cpp:402
@@ -10628,31 +10669,31 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:196
 msgid "VobSub Settings"
-msgstr ""
+msgstr "Nastavení VobSub"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:213
 msgid "Select .idx"
-msgstr ""
+msgstr "_Vybrat .idx"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:227
 msgid "Select Language :"
-msgstr ""
+msgstr "Jazyk:"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:241
 msgid "Select Sub"
-msgstr ""
+msgstr "Výběr titulků"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:254
 msgid "Extra Shrink Factor :"
-msgstr ""
+msgstr "Faktor extra smrštění:"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:269
 msgid "Shift (ms) :"
-msgstr ""
+msgstr "Posun (ms):"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:283
 msgid "Extra Settings"
-msgstr ""
+msgstr "Rozšířené nastavení"
 
 #: avidemux/ADM_dialog/DIA_vobsub.cpp:308
 msgid "buttonSelect"
@@ -10673,7 +10714,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_equalizer.cpp:433
 msgid "Equalizer"
-msgstr ""
+msgstr "Ekvalizér"
 
 #: avidemux/ADM_dialog/DIA_equalizer.cpp:507
 msgid "curve1"
@@ -10713,71 +10754,71 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:162
 msgid "Audio Processing"
-msgstr ""
+msgstr "Audio filtry"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:180
 msgid "Normalize"
-msgstr ""
+msgstr "_Normalizace"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:184
 msgid "DRC"
-msgstr ""
+msgstr "_DRC"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:192
 msgid "Timeshift"
-msgstr ""
+msgstr "Č_asový posun:"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:201
 msgid "<b>Misc</b>"
-msgstr ""
+msgstr "<b>Různé</b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:220
 msgid "48 to 44.1 khz"
-msgstr ""
+msgstr "_48 na 44.1 kHz"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:230
 msgid "Resample to hz"
-msgstr ""
+msgstr "_Převzorkovat na (Hz):"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:240
 msgid "<b>Resampling</b>"
-msgstr ""
+msgstr "<b>Převzorkování</b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:259
 msgid "Film -> PAL"
-msgstr ""
+msgstr "_Film -> PAL"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:265
 msgid "PAL->Film"
-msgstr ""
+msgstr "PA_L -> Film"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:271
 msgid "<b>Fps convert</b>"
-msgstr ""
+msgstr "<b>Změna snímkové frekvence</b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:283
 msgid "No change"
-msgstr ""
+msgstr "Beze změny"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:286
 msgid "Stereo+Surround"
-msgstr ""
+msgstr "Stereo + surround"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:287
 msgid "Stereo+Center"
-msgstr ""
+msgstr "Stereo + střed"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:288
 msgid "Stereo+Center+Surround"
-msgstr ""
+msgstr "Stereo + střed + surround"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:289
 msgid "Stereo Front+Stero Rear"
-msgstr ""
+msgstr "Stereo přední + stereo zadní"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:290
 msgid "5 channels"
-msgstr ""
+msgstr "5 kanálů"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:291
 msgid "5.1"
@@ -10789,7 +10830,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:296
 msgid "<b>Mixer</b>"
-msgstr ""
+msgstr "<b>Mixér</b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:316
 msgid "dialogAudio"
@@ -10848,32 +10889,32 @@ msgid "NTSC\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:172
-#, possible-c-format
+#, c-format
 msgid "drag called : %f \n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:190
-#, possible-c-format
+#, c-format
 msgid "source mul %02.2f , dst mul : %02.2f\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:198
-#, possible-c-format
+#, c-format
 msgid "AR:x,y  : %03f %03f \n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:205
-#, possible-c-format
+#, c-format
 msgid "AR x,y  : %03f %03f \n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:224
-#, possible-c-format
+#, c-format
 msgid "x: %d -> %d : err %f\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:225
-#, possible-c-format
+#, c-format
 msgid "y: %d -> %d : err %f\n"
 msgstr ""
 
@@ -10886,23 +10927,23 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_resize.cpp:312
 #: avidemux/ADM_filter/filter_declaration.cpp:56
 msgid "Resize"
-msgstr ""
+msgstr "Změna velikosti"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:326
 msgid " Width "
-msgstr ""
+msgstr "Šířka:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:333
 msgid " Height "
-msgstr ""
+msgstr "Výška:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:356
 msgid "Source :"
-msgstr ""
+msgstr "Zdroj:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:362
 msgid "Destination"
-msgstr ""
+msgstr "Cíl:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:376
 #: avidemux/ADM_dialog/DIA_resize.cpp:398
@@ -10915,23 +10956,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:412
 msgid " Error X:"
-msgstr ""
+msgstr "Odchylka X:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:426
 msgid " Error Y:"
-msgstr ""
+msgstr "Odchylka Y:"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:440
 msgid "16 round up"
-msgstr ""
+msgstr "_Zaokrouhlení na 16"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:454
 msgid "Bilinear"
-msgstr ""
+msgstr "Bilineární"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:458
 msgid "Bicubic"
-msgstr ""
+msgstr "Bikubická"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:462
 msgid "Lanczos3"
@@ -11004,11 +11045,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:544 avidemux/ADM_video/ADM_guiCrop.cpp:47
 msgid "Crop Settings"
-msgstr ""
+msgstr "Ořez"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:578
 msgid "AutoCrop"
-msgstr ""
+msgstr "_Automaticky"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:596 avidemux/ADM_gui2/GUI_main2.cpp:438
 msgid "gtk-undo"
@@ -11016,23 +11057,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:600
 msgid "Reset"
-msgstr ""
+msgstr "_Vrátit"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:609
 msgid "Crop Left :"
-msgstr ""
+msgstr "Vlevo:"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:617
 msgid "Crop Top:"
-msgstr ""
+msgstr "Nahoře:"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:625
 msgid "Crop Right:"
-msgstr ""
+msgstr "Vpravo:"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:633
 msgid "Crop Bottom:"
-msgstr ""
+msgstr "Dole:"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:690 avidemux/ADM_dialog/DIA_ocr.cpp:372
 #: avidemux/ADM_dialog/DIA_x264.cpp:1151
@@ -11073,7 +11114,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:150
 msgid "VideoCodec"
-msgstr ""
+msgstr "Video kodek"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:169
 msgid "FFmpeg Mpeg4"
@@ -11101,13 +11142,13 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:199
 msgid "Configure Codec"
-msgstr ""
+msgstr "_Nastavit"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:207
 #: avidemux/ADM_dialog/DIA_calculator.cpp:736
 #: avidemux/ADM_gui2/GUI_main2.cpp:957
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulátor"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:226
 msgid "dialogVideoCodec"
@@ -11144,35 +11185,35 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:104
 msgid "Kernel Deinterlacer"
-msgstr ""
+msgstr "KernelDeint"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:149
 msgid "smaller means deinterlace more!"
-msgstr ""
+msgstr "Menší číslo znamenávětší míru odstranění prokladu"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:152
 msgid "Sharp"
-msgstr ""
+msgstr "_Ostrý"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:155
 msgid "Sharper engine"
-msgstr ""
+msgstr "Ostřejší zpracování"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:157
 msgid "Two Way"
-msgstr ""
+msgstr "_Dvojcestný"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:160
 msgid "Extrapolate two ways (better not use it)"
-msgstr ""
+msgstr "Extrapolace z předchozího i následujícího půlsnímku (radši nepoužívat)"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:162
 msgid "Map"
-msgstr ""
+msgstr "_Mapovat"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:165
 msgid "Show the interlaced areas (test only!)"
-msgstr ""
+msgstr "Zobrazovat pouze prokládaná místa (jen pro testování)"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:188
 msgid "radiobuttonBFF"
@@ -11321,24 +11362,24 @@ msgid "Y:%d U:%d V:%d\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:343
-#, possible-c-format
+#, c-format
 msgid "YUV: %d %d %d \n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:345
-#, possible-c-format
+#, c-format
 msgid ""
 "RGB %d %d %d -->\n"
 "\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:350
-#, possible-c-format
+#, c-format
 msgid "RGB %d %d %d -->\n"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:352
-#, possible-c-format
+#, c-format
 msgid "YUV:%d %d %d \n"
 msgstr ""
 
@@ -11352,11 +11393,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:503
 msgid "Subtitle selector"
-msgstr ""
+msgstr "Výběr titulků"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:516
 msgid "Subtitle file "
-msgstr ""
+msgstr "Soubor s titulky"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:523
 msgid "Font (TTF)"
@@ -11364,11 +11405,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:530
 msgid "Encoding "
-msgstr ""
+msgstr "Kódování"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:537
 msgid "Font Size"
-msgstr ""
+msgstr "Velikost písma"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:550
 msgid "sub"
@@ -11380,23 +11421,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:614
 msgid "Select color"
-msgstr ""
+msgstr "Barva"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:627
 msgid "Select"
-msgstr ""
+msgstr "_Vybrat"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:631
 msgid "Auto split"
-msgstr ""
+msgstr "Automatické rozdělování"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:637
 msgid "Delay in ms"
-msgstr ""
+msgstr "Zpoždění (ms)"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:652
 msgid "Force background"
-msgstr ""
+msgstr "Pozadí"
 
 #: avidemux/ADM_dialog/DIA_srt.cpp:700
 msgid "label_sub"
@@ -11450,15 +11491,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_d3d.cpp:102
 msgid "Spatial Luma Thresh"
-msgstr ""
+msgstr "Prostorový práh luminance:"
 
 #: avidemux/ADM_dialog/DIA_d3d.cpp:110
 msgid "Spatial Chroma Thresh"
-msgstr ""
+msgstr "Prostorový práh chrominance:"
 
 #: avidemux/ADM_dialog/DIA_d3d.cpp:118
 msgid "Temporal Thresh"
-msgstr ""
+msgstr "Časový práh:"
 
 #: avidemux/ADM_dialog/DIA_d3d.cpp:159
 msgid "d3doption"
@@ -11475,7 +11516,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:91
 msgid "Paused"
-msgstr ""
+msgstr "Zastaveno"
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:103 avidemux/ADM_dialog/DIA_quota.cpp:102
 #: avidemux/ADM_toolkit/toolkit_dialog.cpp:651
@@ -11489,10 +11530,13 @@ msgid ""
 "\n"
 "You can either resume or Abort it."
 msgstr ""
+"<b>Kódování je pozastaveno</b>\n"
+"\n"
+"Můžete pokračovat nebo jej ukončit."
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:134
 msgid "Abort"
-msgstr ""
+msgstr "_Ukončit"
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:152 avidemux/ADM_dialog/DIA_quota.cpp:151
 msgid "gtk-redo"
@@ -11500,7 +11544,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:156
 msgid "Resume"
-msgstr ""
+msgstr "_Pokračovat"
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:168 avidemux/ADM_dialog/DIA_quota.cpp:167
 msgid "button2"
@@ -11556,19 +11600,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:152
 msgid "Vob to Vobsub"
-msgstr ""
+msgstr "VOB do VobSub"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:162
 msgid "Vob :"
-msgstr ""
+msgstr "VOB:"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:169
 msgid "Ifo :"
-msgstr ""
+msgstr "IFO:"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:176
 msgid "Output vobsub (.idx) :"
-msgstr ""
+msgstr "Výstupní VobSub (.idx):"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:240
 msgid "entryVob"
@@ -11620,15 +11664,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_hue.cpp:246
 msgid "Hue/Saturation"
-msgstr ""
+msgstr "Odstín/sytost"
 
 #: avidemux/ADM_dialog/DIA_hue.cpp:260
 msgid "<b>Hue:</b>"
-msgstr ""
+msgstr "<b>_Odstín:</b>"
 
 #: avidemux/ADM_dialog/DIA_hue.cpp:268
 msgid "<b>Saturation:</b>"
-msgstr ""
+msgstr "<b>_Sytost:</b>"
 
 #: avidemux/ADM_dialog/DIA_hue.cpp:317
 msgid "hscaleHue"
@@ -11735,11 +11779,11 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_animated.cpp:177
 #: avidemux/ADM_filter/filter_declaration.cpp:161
 msgid "Animated Menu"
-msgstr ""
+msgstr "Animované menu"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:201
 msgid "BackGround Image :"
-msgstr ""
+msgstr "Obrázek pozadí:"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:208
 msgid "Standard"
@@ -11747,43 +11791,43 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:215
 msgid "NTSC (default is PAL)"
-msgstr ""
+msgstr "NTSC (výchozí je PAL)"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:235
 msgid "Vignette Width"
-msgstr ""
+msgstr "Šířka miniatury"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:242
 msgid "Vignette Height"
-msgstr ""
+msgstr "Výška miniatury"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:265
 msgid "<b>General</b>"
-msgstr ""
+msgstr "<b>Obecné</b>"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:284
 msgid "Chapter 1"
-msgstr ""
+msgstr "Kapitola 1"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:291
 msgid "Chapter 2"
-msgstr ""
+msgstr "Kapitola 2"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:298
 msgid "Chapter 3"
-msgstr ""
+msgstr "Kapitola 3"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:305
 msgid "Chapter 4"
-msgstr ""
+msgstr "Kapitola 4"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:312
 msgid "Chapter 5"
-msgstr ""
+msgstr "Kapitola 5"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:319
 msgid "Chapter 6"
-msgstr ""
+msgstr "Kapitola 6"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:332
 #: avidemux/ADM_dialog/DIA_animated.cpp:341
@@ -11792,11 +11836,11 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_animated.cpp:368
 #: avidemux/ADM_dialog/DIA_animated.cpp:377
 msgid "Start frame for this vignette."
-msgstr ""
+msgstr "Počáteční snímek pro tuto miniaturu"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:380
 msgid "<b>TimeCode</b>"
-msgstr ""
+msgstr "<b>Časový kód</b>"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:412
 msgid "checkbuttonStd"
@@ -11824,19 +11868,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:118
 msgid "<b>Glyphs</b>"
-msgstr ""
+msgstr "<b>Glyfy</b>"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:132
 msgid "# of Glyphs :"
-msgstr ""
+msgstr "Počet glyfů :"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:140
 msgid "# of lines"
-msgstr ""
+msgstr "Počet řádků:"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:164
 msgid "<b>Stats</b>"
-msgstr ""
+msgstr "<b>Statistika</b>"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:186
 msgid "  "
@@ -11849,19 +11893,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:217
 msgid "Output Srt"
-msgstr ""
+msgstr "Výstupní srt"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:222
 msgid "<b>Files</b>"
-msgstr ""
+msgstr "<b>Soubory</b>"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:228
 msgid "StartOcr"
-msgstr ""
+msgstr "_Spustit OCR"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:249
 msgid "Current Glyph"
-msgstr ""
+msgstr "Současný glyf"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:263
 msgid " Text:"
@@ -11869,27 +11913,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:287
 msgid "Calibrate"
-msgstr ""
+msgstr "_Kalibrace"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:292
 msgid "Skip all"
-msgstr ""
+msgstr "_Přeskočit všechny"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:297
 msgid "Skip Glyph"
-msgstr ""
+msgstr "Přeskočit _glyf"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:302
 msgid "Ignore glyph"
-msgstr ""
+msgstr "_Ignorovat glyf"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:307
 msgid "Ok"
-msgstr ""
+msgstr "_OK"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:316
 msgid "<b>Bitmap</b>"
-msgstr ""
+msgstr "<b>Bitmapa</b>"
 
 #: avidemux/ADM_dialog/DIA_ocr.cpp:337
 msgid "frameGlyph"
@@ -11974,19 +12018,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:116
 msgid "MSmooth settings"
-msgstr ""
+msgstr "Nastavení MSmooth"
 
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:125
 msgid "High Quality :"
-msgstr ""
+msgstr "Vysoká kvalita:"
 
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:133
 msgid "Show Mask :"
-msgstr ""
+msgstr "Zobrazit masku:"
 
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:149
 msgid "Filter Strength :"
-msgstr ""
+msgstr "Síla filtru:"
 
 #: avidemux/ADM_dialog/DIA_Msmooth.cpp:208
 msgid "checkbuttonShowMask"
@@ -12008,39 +12052,39 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:356
 msgid "Brigh_tness:"
-msgstr ""
+msgstr "_Jas:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:364
 msgid "_Saturation:"
-msgstr ""
+msgstr "_Sytost:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:399
 msgid "_Contrast:"
-msgstr ""
+msgstr "_Kontrast:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:425
 msgid "_Initial:"
-msgstr ""
+msgstr "_Výchozí:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:451
 msgid "_Red:"
-msgstr ""
+msgstr "Č_ervená:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:468
 msgid "_Green:"
-msgstr ""
+msgstr "Ze_lená:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:476
 msgid "_Blue:"
-msgstr ""
+msgstr "_Modrá:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:484
 msgid "_Weight:"
-msgstr ""
+msgstr "Síl_a:"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:510
 msgid "<b>Gamma</b>"
-msgstr ""
+msgstr "<b>Gama</b>"
 
 #: avidemux/ADM_dialog/DIA_eq2.cpp:556
 msgid "hscaleBrightness"
@@ -12331,19 +12375,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:103
 msgid "Left:"
-msgstr ""
+msgstr "Vlevo:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:119
 msgid "Right:"
-msgstr ""
+msgstr "Vpravo:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:135
 msgid "Top:"
-msgstr ""
+msgstr "Nahoře:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:151
 msgid "Bottom:"
-msgstr ""
+msgstr "Dole:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:181
 msgid "entryLeft"
@@ -12363,40 +12407,42 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:86
 msgid "Blend removal / Hard pulldown removal"
-msgstr ""
+msgstr "Odstranění prolnutí nebo hard pulldown"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:131
 msgid "Noise threshold :"
-msgstr ""
+msgstr "Práh šumu:"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:138
 msgid "Identical threshold :"
-msgstr ""
+msgstr "Práh identičnosti:"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:145
 msgid "Show metrics"
-msgstr ""
+msgstr "Zobrazovat údaje"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:158
 msgid ""
 "If the image is closer than treshold, is it considered valid, smaller means "
 "more false detection"
 msgstr ""
+"Pokud je obraz blíž než práh, je považován za správný, menší znamená víc "
+"nesprávných detekcí"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:167
 msgid ""
 "If pixels are closer than noise threshold, they are considered identical"
-msgstr ""
+msgstr "Pokud jsou pixely blíž než práh šumu, jsou považovány za identické"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:176
 msgid ""
 "If the picture are less than identical threshold, they are considered "
 "identical"
-msgstr ""
+msgstr "Méně než tento práh znamená, že jsou obrázky považovány za identické"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:184
 msgid "Show metrics in picture (debug only)"
-msgstr ""
+msgstr "Zobrazovat měřící údaje v obrazu (pro testování)"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:212
 msgid "spinbuttonTreshold"
@@ -12444,7 +12490,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_rotate.cpp:225
 #: avidemux/ADM_filter/filter_declaration.cpp:60
 msgid "Rotate"
-msgstr ""
+msgstr "Rotace"
 
 #: avidemux/ADM_dialog/DIA_xvid.cpp:237
 msgid "Xvid Encoder"
@@ -12628,16 +12674,16 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audiocodec.cpp:112
 msgid "Audio settings"
-msgstr ""
+msgstr "Nastavení zvuku"
 
 #: avidemux/ADM_dialog/DIA_audiocodec.cpp:121
 #: avidemux/ADM_dialog/DIA_x264.cpp:505
 msgid "Bitrate"
-msgstr ""
+msgstr "Bitrate:"
 
 #: avidemux/ADM_dialog/DIA_audiocodec.cpp:149
 msgid "Mode (ignored for mono)"
-msgstr ""
+msgstr "Režim (ignorováno s mono zvukem)"
 
 #: avidemux/ADM_dialog/DIA_audiocodec.cpp:164
 msgid "Joint Stereo"
@@ -12656,31 +12702,31 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:125
 msgid "AVI muxer options"
-msgstr ""
+msgstr "Nastavení zápisu AVI"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:138
 msgid "Mux audio every"
-msgstr ""
+msgstr "_Multiplexovat audio každý"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:146
 msgid "Split in packets of"
-msgstr ""
+msgstr "_Rozdělit do paketů po"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:168
 msgid "video frame(s)"
-msgstr ""
+msgstr ". video snímek"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:176
 msgid "bytes"
-msgstr ""
+msgstr "bytech"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:184
 msgid "Autosplit file every"
-msgstr ""
+msgstr "Automaticky rozdělit po každém"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:199
 msgid "megabytes"
-msgstr ""
+msgstr ". megabajtu"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:222
 msgid "dialog"
@@ -13478,11 +13524,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:162
 msgid "<b>Scene change Treshold</b>"
-msgstr ""
+msgstr "<b>Práh změny scény</b>"
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:181
 msgid "Sensibility"
-msgstr ""
+msgstr "Citlivost"
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:189
 msgid "Max"
@@ -13502,15 +13548,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:261
 msgid "Narrow"
-msgstr ""
+msgstr "Úzký"
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:286
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Nastavení</b>"
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:305
 msgid "Use also chroma to detect scene change"
-msgstr ""
+msgstr "Použít i chrominanci k detekci změny scény"
 
 #: avidemux/ADM_dialog/DIA_cnr2.cpp:345
 msgid "entryln"
@@ -13551,23 +13597,23 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:79
 #: avidemux/ADM_filter/filter_declaration.cpp:159
 msgid "Mosaic"
-msgstr ""
+msgstr "Mozaika"
 
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:89
 msgid "Horizontal stacking :"
-msgstr ""
+msgstr "Horizontální počet:"
 
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:96
 msgid "Vertical stacking : "
-msgstr ""
+msgstr "Vertikální počet:"
 
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:103
 msgid "Shrink factor :"
-msgstr ""
+msgstr "Faktor smrštění:"
 
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:110
 msgid "Show frame # :"
-msgstr ""
+msgstr "Zobrazovat čísla snímků:"
 
 #: avidemux/ADM_dialog/DIA_mosaic.cpp:169
 msgid "spinbuttonHz"
@@ -13587,31 +13633,31 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:103
 msgid "Deinterlacing : "
-msgstr ""
+msgstr "Metoda:"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:111
 msgid "AutoLevel :"
-msgstr ""
+msgstr "Automatické úrovně:"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:137
 msgid "Linear Blend"
-msgstr ""
+msgstr "Lineární prolnutí"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:141
 msgid "Linear Interpolation"
-msgstr ""
+msgstr "Lineární interpolace"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:145
 msgid "Cubic interpolation"
-msgstr ""
+msgstr "Kubická interpolace"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:149
 msgid "Median Deinterlacer"
-msgstr ""
+msgstr "Mediánový deinterlacer"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:153
 msgid "FFmpeg Deinterlacer"
-msgstr ""
+msgstr "FFmpeg deinterlacer"
 
 #: avidemux/ADM_dialog/DIA_lavpp_deint.cpp:179
 msgid "checkbuttonAutoLevel"
@@ -13643,7 +13689,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_conv.cpp:114
 msgid "Convolution settings"
-msgstr ""
+msgstr "Nastavení konvoluce"
 
 #: avidemux/ADM_dialog/DIA_conv.cpp:123
 #: avidemux/ADM_dialog/DIA_contrast.cpp:353
@@ -13668,27 +13714,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:86
 msgid "Dynamic Noise Reduction"
-msgstr ""
+msgstr "Dynamická redukce šumu"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:95
 msgid "Luma Lock"
-msgstr ""
+msgstr "Zamčení luminance:"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:103 avidemux/ADM_video/ADM_vidSoften.cpp:69
 msgid "Luma Threshold"
-msgstr ""
+msgstr "Práh luminance:"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:111
 msgid "Chroma Lock"
-msgstr ""
+msgstr "Zamčení chrominance:"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:119 avidemux/ADM_video/ADM_vidSoften.cpp:73
 msgid "Chroma Threshold"
-msgstr ""
+msgstr "Práh chrominance:"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:127
 msgid "Scene change detect"
-msgstr ""
+msgstr "Detekce změny scény:"
 
 #: avidemux/ADM_dialog/DIA_dnr.cpp:198
 msgid "spin_lumalock"
@@ -13716,23 +13762,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:177
 msgid "Try backward field"
-msgstr ""
+msgstr "Zkusit zpětný půlsnímek:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:192
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:196
 msgid "When forward is still combed"
-msgstr ""
+msgstr "Když je následující stále prokládaný"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:200
 msgid "Always try"
-msgstr ""
+msgstr "Vždy"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:214
 msgid "No strategy"
-msgstr ""
+msgstr "Žádná"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:218
 msgid "Telecine 3:2"
@@ -13740,71 +13786,71 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:222
 msgid "Pal/Secam"
-msgstr ""
+msgstr "PAL/SECAM"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:226
 msgid "NTSC converted from Pal"
-msgstr ""
+msgstr "NTSC konvertované z PAL"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:232
 msgid "Decomb strategy"
-msgstr ""
+msgstr "Strategie:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:239
 msgid "Postprocessing"
-msgstr ""
+msgstr "Dodatečné zpracování:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:254
 msgid "No postprocessing"
-msgstr ""
+msgstr "Žádné"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:258
 msgid "No postproc, but compute"
-msgstr ""
+msgstr "Žádné, ale spočítat"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:262
 msgid "Postproc on best match"
-msgstr ""
+msgstr "Při nejlepší shodě"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:283
 msgid "Ignore chroma to decide"
-msgstr ""
+msgstr "Ignorovat chrominanci pro rozhodnutí"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:287
 msgid "Use chroma to decide"
-msgstr ""
+msgstr "Použít chrominanci pro rozhodnutí"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:293
 msgid "Blend or interpolate"
-msgstr ""
+msgstr "Prolnutí nebo interpolace:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:308
 msgid "Interpolate"
-msgstr ""
+msgstr "Interpolace"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:312
 msgid "Blend"
-msgstr ""
+msgstr "Prolnutí"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:318
 msgid "Backward thresh"
-msgstr ""
+msgstr "Zpětný práh:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:331
 msgid "Direct thresh"
-msgstr ""
+msgstr "Přímý práh:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:344
 msgid "Postproc thresh"
-msgstr ""
+msgstr "Práh dodatečného zpracování:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:357
 msgid "Noise Threshold"
-msgstr ""
+msgstr "Práh šumu:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:370
 msgid "Show"
-msgstr ""
+msgstr "Zobrazit:"
 
 #: avidemux/ADM_dialog/DIA_dectel.cpp:404
 msgid "optionmenuField"
@@ -13937,11 +13983,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audioTrack.cpp:133
 msgid "Audio selector"
-msgstr ""
+msgstr "Volba audio stopy"
 
 #: avidemux/ADM_dialog/DIA_audioTrack.cpp:142
 msgid "Select audio track"
-msgstr ""
+msgstr "Audio stopa:"
 
 #: avidemux/ADM_dialog/DIA_vorbis.cpp:52
 #, c-format
@@ -13982,7 +14028,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_vorbis.cpp:151
 msgid "Vorbis settings"
-msgstr ""
+msgstr "Nastavení pro Vorbis"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:129
 #, c-format
@@ -14011,32 +14057,32 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:401
 msgid "Bitrate Calculator"
-msgstr ""
+msgstr "Kalkulátor"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:429
 msgid "Duration:"
-msgstr ""
+msgstr "Délka:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:449
 msgid "_Medium:"
-msgstr ""
+msgstr "_Médium:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:460
 msgid "_Format:"
-msgstr ""
+msgstr "_Formát:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:471
 #: avidemux/ADM_dialog/DIA_calculator.cpp:529
 msgid "Total size (custom)"
-msgstr ""
+msgstr "Celková velikost (vlastní)"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:481
 msgid "_Custom size (MB):"
-msgstr ""
+msgstr "_Vlastní velikost (MB):"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:495
 msgid "Output container format"
-msgstr ""
+msgstr "Výstupní formát kontejneru"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:499
 #: avidemux/ADM_gui2/GUI_main2.cpp:1128
@@ -14056,7 +14102,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:522
 msgid "Total size"
-msgstr ""
+msgstr "Celková velikost"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:526
 msgid "1x 80 min. CD"
@@ -14080,43 +14126,43 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:547
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:553
 msgid "<b>Target</b>"
-msgstr ""
+msgstr "<b>Cíl</b>"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:573
 msgid "Track _1:"
-msgstr ""
+msgstr "_1. stopa:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:581
 msgid "Audio bitrate in kb/s for track 1 (0 for no audio)"
-msgstr ""
+msgstr "Audio bitrate v kb/s pro stopu 1 (0 znamená bez zvuku)"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:589
 msgid "Track _2: "
-msgstr ""
+msgstr "_2. stopa:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:597
 msgid "Audio bitrate in kb/s for track 2 (optional)"
-msgstr ""
+msgstr "Audio bitrate v kb/s pro stopu 2 (volitelně)"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:601
 msgid "<b>Audio Bitrate</b>"
-msgstr ""
+msgstr "<b>Audio bitrate</b>"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:623
 msgid "Audio size (MB):"
-msgstr ""
+msgstr "Velikost audia (MB):"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:639
 msgid "Video size (MB):"
-msgstr ""
+msgstr "Velikost videa (MB):"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:655
 msgid "Total size (MB):"
-msgstr ""
+msgstr "Celková velikost (MB):"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:677
 msgid "Video bitrate:"
@@ -14124,7 +14170,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:685
 msgid "Bits per pixel:"
-msgstr ""
+msgstr "Bitů na pixel:"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:701
 msgid "0.0"
@@ -14132,7 +14178,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:709
 msgid "<b>Result</b>"
-msgstr ""
+msgstr "<b>Výsledek</b>"
 
 #: avidemux/ADM_dialog/DIA_calculator.cpp:742
 msgid "labelDOO"
@@ -14226,19 +14272,19 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:93
 msgid "Resize for VCD/SVCD/...."
-msgstr ""
+msgstr "Změna velikosti pro VCD/SVCD..."
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:103
 msgid "Target type : "
-msgstr ""
+msgstr "Cílový formát:"
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:110
 msgid "Source Aspect Ratio :"
-msgstr ""
+msgstr "Zdrojový poměr stran:"
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:127
 msgid "Destination Aspect Ratio :"
-msgstr ""
+msgstr "Cílový poměr stran:"
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:150
 #: avidemux/oplug_mpeg/op_mpeg.cpp:159 avidemux/gui_autodrive.cpp:102
@@ -14261,7 +14307,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:153
 msgid "DVD, half D1"
-msgstr ""
+msgstr "DVD, poloviční D1"
 
 #: avidemux/ADM_dialog/DIA_resizeWiz.cpp:154
 #: avidemux/ADM_gui2/GUI_main2.cpp:761
@@ -14282,15 +14328,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_pipe.cpp:95
 msgid "Pipe to"
-msgstr ""
+msgstr "Roura do"
 
 #: avidemux/ADM_dialog/DIA_pipe.cpp:104
 msgid "Application path/name (/usr/bin/sox...)"
-msgstr ""
+msgstr "Cesta/název aplikace (/usr/bin/sox...):"
 
 #: avidemux/ADM_dialog/DIA_pipe.cpp:113
 msgid "Full parameter line"
-msgstr ""
+msgstr "Plný seznam parametrů:"
 
 #: avidemux/ADM_dialog/DIA_pipe.cpp:141
 msgid "entryName"
@@ -14302,27 +14348,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:25
 msgid "Ready"
-msgstr ""
+msgstr "Připraven"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:25
 msgid "Succeeded"
-msgstr ""
+msgstr "Dokončen"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:25 avidemux/gtk_gui.cpp:2603
 msgid "Failed"
-msgstr ""
+msgstr "Selhalo"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:25
 msgid "Deleted"
-msgstr ""
+msgstr "Smazáno"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:25
 msgid "Running"
-msgstr ""
+msgstr "Běží"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:90
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:91 avidemux/ADM_dialog/DIA_jobs.cpp:96
 #: avidemux/ADM_filter/gui_filter.cpp:144
@@ -14351,7 +14397,7 @@ msgid "Delete job"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:154
-#, possible-c-format
+#, c-format
 msgid "Are you sure you want to delete %s job ?"
 msgstr ""
 
@@ -14383,23 +14429,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:230
 msgid "Jobs"
-msgstr ""
+msgstr "Úlohy"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:256
 msgid "Delete All Jobs"
-msgstr ""
+msgstr "_Odstranit všechny úlohy"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:261
 msgid "Delete Job"
-msgstr ""
+msgstr "O_dstranit úlohu"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:266
 msgid "Run all jobs"
-msgstr ""
+msgstr "_Spustit všechny úlohy"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:271
 msgid "Run Job"
-msgstr ""
+msgstr "S_pustit úlohu"
 
 #: avidemux/ADM_dialog/DIA_jobs.cpp:296
 msgid "vbuttonbox1"
@@ -14677,17 +14723,17 @@ msgid " %06lu"
 msgstr ""
 
 #: avidemux/ADM_gui2/GUI_bindings.cpp:662
-#, possible-c-format
+#, c-format
 msgid "++ audio toggle : %d(%d)\n"
 msgstr ""
 
 #: avidemux/ADM_gui2/GUI_bindings.cpp:676
-#, possible-c-format
+#, c-format
 msgid "Changing it to %d\n"
 msgstr ""
 
 #: avidemux/ADM_gui2/GUI_bindings.cpp:678
-#, possible-c-format
+#, c-format
 msgid "++ video toggle : %d\n"
 msgstr ""
 
@@ -14756,15 +14802,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:278 avidemux/main.cpp:117
 msgid "_File"
-msgstr ""
+msgstr "_Soubor"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:285
 msgid "_Open..."
-msgstr ""
+msgstr "_Otevřít..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:296
 msgid "_Append..."
-msgstr ""
+msgstr "_Připojit..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:303
 #: avidemux/ADM_filter/gui_filtersub.cpp:90
@@ -14773,35 +14819,35 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:307
 msgid "_Save"
-msgstr ""
+msgstr "_Uložit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:318
 msgid "Save _Video..."
-msgstr ""
+msgstr "_Uložit video..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:330
 msgid "Save _BMP Image..."
-msgstr ""
+msgstr "Uložit _BMP obrázek..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:334
 msgid "Save _JPEG Image..."
-msgstr ""
+msgstr "Uložit _JPEG obrázek..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:338
 msgid "Save _Selection as JPEG images..."
-msgstr ""
+msgstr "Uložit _výběr jako JPEG obrázky..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:347
 msgid "Requantize _MPEG..."
-msgstr ""
+msgstr "Rekvantizovat _MPEG..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:356
 msgid "Save _Project"
-msgstr ""
+msgstr "Uložit p_rojekt"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:364
 msgid "Save P_roject As..."
-msgstr ""
+msgstr "Uložit pro_jekt jako..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:368 avidemux/ADM_gui2/GUI_main2.cpp:675
 #: avidemux/ADM_filter/gui_filtersub.cpp:154
@@ -14810,7 +14856,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:372
 msgid "_Load/Run Project..."
-msgstr ""
+msgstr "_Načíst/spustit projekt..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:376
 msgid "gtk-execute"
@@ -14818,15 +14864,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:380
 msgid "A_dd to Joblist..."
-msgstr ""
+msgstr "Při_dat do seznamu úloh..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:384
 msgid "Show _Joblist"
-msgstr ""
+msgstr "Ukázat _seznam úloh"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:396
 msgid "Proper_ties"
-msgstr ""
+msgstr "Vlas_tnosti"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:403 avidemux/ADM_gui2/GUI_main2.cpp:946
 #: avidemux/ADM_filter/gui_filtersub.cpp:98
@@ -14835,11 +14881,11 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:407
 msgid "AVI _Muxer Options"
-msgstr ""
+msgstr "N_astavení zápisu AVI"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:416
 msgid "_Quit"
-msgstr ""
+msgstr "U_končit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:423
 msgid "gtk-quit"
@@ -14847,15 +14893,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:427
 msgid "_Edit"
-msgstr ""
+msgstr "_Upravit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:434
 msgid "_Reset Edits"
-msgstr ""
+msgstr "V_rátit úpravy"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:447
 msgid "Cu_t"
-msgstr ""
+msgstr "_Vyjmout"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:454
 msgid "gtk-cut"
@@ -14863,7 +14909,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:458
 msgid "_Copy"
-msgstr ""
+msgstr "_Kopírovat"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:465
 msgid "gtk-copy"
@@ -14871,7 +14917,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:469
 msgid "_Paste"
-msgstr ""
+msgstr "V_ložit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:476
 msgid "gtk-paste"
@@ -14879,7 +14925,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:480
 msgid "_Delete"
-msgstr ""
+msgstr "_Odstranit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:487
 #: avidemux/ADM_filter/gui_filtersub.cpp:94
@@ -14888,15 +14934,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:496
 msgid "Set Marker _A"
-msgstr ""
+msgstr "Nastavit značku _A"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:503
 msgid "Set Marker _B"
-msgstr ""
+msgstr "Nastavit značku _B"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:515
 msgid "Pre_ferences"
-msgstr ""
+msgstr "_Předvolby"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:519
 msgid "gtk-preferences"
@@ -14904,43 +14950,43 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:523
 msgid "_View"
-msgstr ""
+msgstr "_Pohled"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:530
 msgid "_Main Toolbar"
-msgstr ""
+msgstr "_Hlavní nástrojová lišta"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:535
 msgid "_A/V Sidebar"
-msgstr ""
+msgstr "_A/V postranní lišta"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:545
 msgid "_Zoom 1:4"
-msgstr ""
+msgstr "_Velikost 1:4"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:552
 msgid "Z_oom 1:2"
-msgstr ""
+msgstr "V_elikost 1:2"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:559
 msgid "Zoom _1:1"
-msgstr ""
+msgstr "Velikost _1:1"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:566
 msgid "Zoom _2:1"
-msgstr ""
+msgstr "Velikost _2:1"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:573
 msgid "Zoom _4:1"
-msgstr ""
+msgstr "Velikost _4:1"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:580
 msgid "Vi_deo"
-msgstr ""
+msgstr "_Video"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:587
 msgid "_Decoder Options"
-msgstr ""
+msgstr "_Nastavení dekodéru"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:594
 msgid "_Postprocessing"
@@ -14948,27 +14994,27 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:597
 msgid "Select postprocessing level"
-msgstr ""
+msgstr "Nastavit úroveň postprocessingu"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:607
 msgid "P_review"
-msgstr ""
+msgstr "Ná_hled"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:614
 msgid "Display _Output"
-msgstr ""
+msgstr "_Zobrazovat výstup"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:626
 msgid "_Frame Rate"
-msgstr ""
+msgstr "_Snímková frekvence"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:630 avidemux/ADM_gui2/GUI_main2.cpp:679
 msgid "_Encoder"
-msgstr ""
+msgstr "_Kodér"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:637
 msgid "Fil_ters"
-msgstr ""
+msgstr "_Filtry"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:644
 msgid "_Audio"
@@ -14976,31 +15022,31 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:651
 msgid "_Main Track"
-msgstr ""
+msgstr "_Hlavní stopa"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:655
 msgid "_Second Track"
-msgstr ""
+msgstr "_Druhá stopa"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:659
 msgid "_Build VBR Time Map"
-msgstr ""
+msgstr "_Sestavit časovou mapu VBR"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:668
 msgid "S_ave..."
-msgstr ""
+msgstr "_Uložit..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:686
 msgid "_Filters"
-msgstr ""
+msgstr "_Filtry"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:690
 msgid "_Tools"
-msgstr ""
+msgstr "_Nástroje"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:697
 msgid "_Calculator"
-msgstr ""
+msgstr "_Kalkulátor"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:704 avidemux/ADM_gui2/support.cpp:98
 msgid "gnome-calculator_small.xpm"
@@ -15008,19 +15054,19 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:713
 msgid "_Rebuild Frames (I & B)"
-msgstr ""
+msgstr "_Sestavit snímky (I a B)"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:717
 msgid "C_heck Frames (slow)"
-msgstr ""
+msgstr "_Zkontrolovat snímky (pomalé)"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:721
 msgid "_Bitrate Histogram"
-msgstr ""
+msgstr "_Histogram bitrate"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:725
 msgid "_Scan for Black Frames..."
-msgstr ""
+msgstr "V_yhledat černé snímky..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:734
 msgid "_VOB -> VobSub"
@@ -15032,7 +15078,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:742
 msgid "A_uto"
-msgstr ""
+msgstr "Au_to"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:749
 msgid "_VCD"
@@ -15048,11 +15094,11 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:766
 msgid "_Go"
-msgstr ""
+msgstr "Pře_jít"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:773
 msgid "_Play/Stop"
-msgstr ""
+msgstr "_Přehrát/Stop"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:780
 msgid "gtk-media-play"
@@ -15060,15 +15106,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:784
 msgid "P_revious Frame"
-msgstr ""
+msgstr "Př_edchozí snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:795
 msgid "_Next Frame"
-msgstr ""
+msgstr "_Následující snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:806
 msgid "Pr_evious Intra Frame"
-msgstr ""
+msgstr "Pře_dchozí klíčový snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:813
 msgid "gtk-media-rewind"
@@ -15076,7 +15122,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:817
 msgid "Next _Intra Frame"
-msgstr ""
+msgstr "Ná_sledující klíčový snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:824
 msgid "gtk-media-forward"
@@ -15084,15 +15130,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:828
 msgid "Previou_s Black Frame"
-msgstr ""
+msgstr "Předch_ozí černý snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:832
 msgid "Ne_xt Black Frame"
-msgstr ""
+msgstr "Násled_ující černý snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:836
 msgid "_First Frame"
-msgstr ""
+msgstr "P_rvní snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:843
 msgid "gtk-goto-first"
@@ -15100,7 +15146,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:847
 msgid "_Last Frame"
-msgstr ""
+msgstr "Pos_lední snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:854
 msgid "gtk-goto-last"
@@ -15108,15 +15154,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:863
 msgid "Go to Marker _A"
-msgstr ""
+msgstr "Přejít na značku _A"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:870
 msgid "Go to Marker _B"
-msgstr ""
+msgstr "Přejít na značku _B"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:882
 msgid "_Jump to Frame..."
-msgstr ""
+msgstr "Přejít na sní_mek..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:889 avidemux/ADM_gui2/GUI_main2.cpp:900
 msgid "gtk-jump-to"
@@ -15124,19 +15170,19 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:893
 msgid "Jump to _Time..."
-msgstr ""
+msgstr "Přejí_t na čas..."
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:904
 msgid "_Help"
-msgstr ""
+msgstr "Náp_ověda"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:911
 msgid "Show builtin support"
-msgstr ""
+msgstr "_Ukázat vestavěnou podporu"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:915
 msgid "_About"
-msgstr ""
+msgstr "_O programu"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:919
 msgid "gtk-about"
@@ -15144,15 +15190,15 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:933
 msgid "Open a file"
-msgstr ""
+msgstr "Otevřít soubor"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:943
 msgid "Save the file"
-msgstr ""
+msgstr "Uložit soubor"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:949
 msgid "Audio/video file information"
-msgstr ""
+msgstr "Audio/video informace o souboru"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:955 avidemux/ADM_gui2/support.cpp:97
 msgid "gnome-calculator.xpm"
@@ -15160,7 +15206,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:960
 msgid "Bitrate/size calculator"
-msgstr ""
+msgstr "Kalkulátor bitrate/velikosti"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:969 avidemux/ADM_gui2/support.cpp:99
 msgid "preview.png"
@@ -15168,7 +15214,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:974
 msgid "Preview filtered video in a new window"
-msgstr ""
+msgstr "Náhled filtrovaného obrazu v novém okně"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:978 avidemux/ADM_gui2/support.cpp:100
 msgid "output.png"
@@ -15176,7 +15222,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:983
 msgid "Display filtered output in the main window"
-msgstr ""
+msgstr "Zobrazovat filtrovaný výstup v hlavním okně"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1026 avidemux/ADM_gui2/GUI_main2.cpp:1066
 msgid "Configure"
@@ -15184,47 +15230,47 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1029
 msgid "Configure video encoder"
-msgstr ""
+msgstr "Nastavení video kodéru"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1034 avidemux/ADM_gui2/GUI_main2.cpp:1090
 msgid "Filters"
-msgstr ""
+msgstr "Filtry"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1037
 msgid "Video filters"
-msgstr ""
+msgstr "Video filtry"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1069
 msgid "Configure audio encoder"
-msgstr ""
+msgstr "Nastavení audio kodéru"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1077
 msgid "Audio filters"
-msgstr ""
+msgstr "Audio filtry"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1098
 msgid "Shift:"
-msgstr ""
+msgstr "Posun:"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1101
 msgid "Enable time shift"
-msgstr ""
+msgstr "Aktivovat časový posun"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1107
 msgid "Audio/video time shift (ms)"
-msgstr ""
+msgstr "Časový posun zvuku proti obrazu (ms)"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1114
 msgid "<b>Format</b>"
-msgstr ""
+msgstr "<b>Formát</b>"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1129
 msgid "AVI, unp. VOP"
-msgstr ""
+msgstr "AVI, rozb. VOP"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1130
 msgid "AVI, dual audio"
-msgstr ""
+msgstr "AVI, duální zvuk"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1133
 msgid "MPEG PS A+V"
@@ -15240,7 +15286,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1155
 msgid "<b>Selection</b>"
-msgstr ""
+msgstr "<b>Výběr</b>"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1172 avidemux/ADM_gui2/GUI_main2.cpp:1180
 msgid " 0000000"
@@ -15252,7 +15298,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1195
 msgid "Go to marker A"
-msgstr ""
+msgstr "Přejít na značku A"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1197
 msgid "B:"
@@ -15260,11 +15306,11 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1204
 msgid "Go to marker B"
-msgstr ""
+msgstr "Přejít na značku B"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1216
 msgid "Play"
-msgstr ""
+msgstr "Přehrát"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1223 avidemux/ADM_gui2/support.cpp:89
 msgid "play.xpm"
@@ -15280,7 +15326,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1242
 msgid "Previous frame"
-msgstr ""
+msgstr "Předchozí snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1249 avidemux/ADM_gui2/support.cpp:84
 msgid "backward.xpm"
@@ -15288,7 +15334,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1257
 msgid "Next frame"
-msgstr ""
+msgstr "Následující snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1264 avidemux/ADM_gui2/support.cpp:85
 msgid "forward.xpm"
@@ -15296,7 +15342,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1272
 msgid "Previous keyframe"
-msgstr ""
+msgstr "Předchozí klíčový snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1279 avidemux/ADM_gui2/support.cpp:81
 #: avidemux/ADM_gui2/support.cpp:82
@@ -15305,7 +15351,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1287
 msgid "Next keyframe"
-msgstr ""
+msgstr "Následující klíčový snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1294 avidemux/ADM_gui2/support.cpp:83
 msgid "Kforward.xpm"
@@ -15313,7 +15359,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1301
 msgid "Selection: start"
-msgstr ""
+msgstr "Výběr: začátek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1305 avidemux/ADM_gui2/support.cpp:91
 msgid "markA.xpm"
@@ -15321,7 +15367,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1312
 msgid "Selection: end"
-msgstr ""
+msgstr "Výběr: konec"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1316 avidemux/ADM_gui2/support.cpp:92
 msgid "markB.xpm"
@@ -15329,7 +15375,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1323
 msgid "Previous black frame"
-msgstr ""
+msgstr "Předchozí černý snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1327 avidemux/ADM_gui2/support.cpp:94
 #: avidemux/ADM_gui2/support.cpp:96
@@ -15338,7 +15384,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1334
 msgid "Next black frame"
-msgstr ""
+msgstr "Následující černý snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1338 avidemux/ADM_gui2/support.cpp:93
 msgid "xpm_nextblack.xpm"
@@ -15346,7 +15392,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1345
 msgid "First frame"
-msgstr ""
+msgstr "První snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1349 avidemux/ADM_gui2/support.cpp:87
 msgid "begin.xpm"
@@ -15354,7 +15400,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1356
 msgid "Last frame"
-msgstr ""
+msgstr "Poslední snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1360 avidemux/ADM_gui2/support.cpp:88
 msgid "end.xpm"
@@ -15362,11 +15408,11 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1387
 msgid "Frame: "
-msgstr ""
+msgstr "Snímek:"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1394
 msgid "Current frame"
-msgstr ""
+msgstr "Současný snímek"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1399
 msgid "/0000000"
@@ -15374,11 +15420,11 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1406
 msgid "Time: "
-msgstr ""
+msgstr "Čas:"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1413
 msgid "Current time"
-msgstr ""
+msgstr "Současný čas"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1414
 msgid "00:00:00.000"
@@ -15390,7 +15436,7 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1424
 msgid "Frame: ?"
-msgstr ""
+msgstr "Snímek: ?"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1431
 msgid "mainWindow"
@@ -16078,17 +16124,17 @@ msgid "GladeParentKey"
 msgstr ""
 
 #: avidemux/ADM_gui2/support.cpp:198
-#, possible-c-format
+#, c-format
 msgid "Widget not found: %s"
 msgstr ""
 
 #: avidemux/ADM_gui2/support.cpp:222
-#, possible-c-format
+#, c-format
 msgid "%s%s%s"
 msgstr ""
 
 #: avidemux/ADM_gui2/support.cpp:249 avidemux/ADM_gui2/support.cpp:273
-#, possible-c-format
+#, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr ""
 
@@ -16354,7 +16400,7 @@ msgstr ""
 #: avidemux/oplug_ogm/op_ogsave.cpp:112
 #: avidemux/oplug_mpegFF/oplug_vcdff.cpp:249 avidemux/gtk_gui.cpp:1414
 #: avidemux/gtk_gui.cpp:1753 avidemux/ADM_requantize.cpp:227
-#, possible-c-format
+#, c-format
 msgid "Cannot open \"%s\" for writing."
 msgstr ""
 
@@ -16396,7 +16442,7 @@ msgid "OGMWR:Could not read packet\n"
 msgstr ""
 
 #: avidemux/oplug_ogm/op_ogaudio.cpp:276
-#, possible-c-format
+#, c-format
 msgid ""
 "OGMW: Found %lu packet sample :%lu len=%lu, curoffset:%lu targetoffset=%lu\n"
 msgstr ""
@@ -16501,7 +16547,7 @@ msgid "Encoding error"
 msgstr ""
 
 #: avidemux/oplug_mpeg/op_mpegwrite.cpp:476
-#, possible-c-format
+#, c-format
 msgid " outquant %02d  size :%d flags %x\n"
 msgstr ""
 
@@ -16536,7 +16582,7 @@ msgid "Error in pass 2"
 msgstr ""
 
 #: avidemux/oplug_mpeg/op_mpegwrite.cpp:744
-#, possible-c-format
+#, c-format
 msgid "inquant  : %02d outquant :%02d Intra %d\n"
 msgstr ""
 
@@ -16545,12 +16591,12 @@ msgid ".qs"
 msgstr ""
 
 #: avidemux/oplug_mpeg/op_mpegwrite.cpp:789
-#, possible-c-format
+#, c-format
 msgid "Quant % 2u: % 7u times\n"
 msgstr ""
 
 #: avidemux/oplug_mpeg/op_mpegwrite.cpp:793
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "Quant over all: %2.2f\n"
@@ -17227,7 +17273,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:355
-#, possible-c-format
+#, c-format
 msgid "param:%d\n"
 msgstr ""
 
@@ -17304,17 +17350,17 @@ msgid "Same as input\n"
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:633
-#, possible-c-format
+#, c-format
 msgid "CBR : %lu kbps\n"
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:637
-#, possible-c-format
+#, c-format
 msgid "CQ : %lu q\n"
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:641
-#, possible-c-format
+#, c-format
 msgid "2pass : %lu q\n"
 msgstr ""
 
@@ -17344,12 +17390,12 @@ msgid "Trouble reading codec conf\n"
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:767
-#, possible-c-format
+#, c-format
 msgid "Video codec : %s\n"
 msgstr ""
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:772
-#, possible-c-format
+#, c-format
 msgid "Video extraConf size : %lu\n"
 msgstr ""
 
@@ -17623,13 +17669,13 @@ msgstr ""
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:389
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:103
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:215
-#, possible-c-format
+#, c-format
 msgid "Type     : %c\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:175
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:390
-#, possible-c-format
+#, c-format
 msgid "File     : %s\n"
 msgstr ""
 
@@ -17637,7 +17683,7 @@ msgstr ""
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:391
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:121
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:235
-#, possible-c-format
+#, c-format
 msgid "Append   : %d\n"
 msgstr ""
 
@@ -17645,35 +17691,35 @@ msgstr ""
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:392
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:124
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:238
-#, possible-c-format
+#, c-format
 msgid "Image    : %c\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:178
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:393
-#, possible-c-format
+#, c-format
 msgid "Picture  : %04lu x %04lu %05lu fps\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:179
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:394
-#, possible-c-format
+#, c-format
 msgid "Nb Gop   : %08lu \n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:180
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:395
-#, possible-c-format
+#, c-format
 msgid "Nb Images: %010lu \n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:181
-#, possible-c-format
+#, c-format
 msgid "Nb Audio : %02lu\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:182
-#, possible-c-format
+#, c-format
 msgid "Main aud : %02lu\n"
 msgstr ""
 
@@ -17682,12 +17728,12 @@ msgid "Streams  : "
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:187
-#, possible-c-format
+#, c-format
 msgid "V%04x:%04x "
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:189
-#, possible-c-format
+#, c-format
 msgid "A%04x:%04x "
 msgstr ""
 
@@ -17701,17 +17747,17 @@ msgid "*********Indexing started (%d audio tracks)***********\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:232
-#, possible-c-format
+#, c-format
 msgid "Seq %d\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:257
-#, possible-c-format
+#, c-format
 msgid "GOP %d\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:261
-#, possible-c-format
+#, c-format
 msgid "# %lu\n"
 msgstr ""
 
@@ -17738,7 +17784,7 @@ msgid "Discontinuity %llu %llu!\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:339
-#, possible-c-format
+#, c-format
 msgid "# Video Aspect Ratio : %s\n"
 msgstr ""
 
@@ -17782,27 +17828,27 @@ msgid "Average fps :%lu /1000 fps\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:442
-#, possible-c-format
+#, c-format
 msgid "# Video 1st PTS : %07u\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:449
-#, possible-c-format
+#, c-format
 msgid "# track %d no pts\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:457
-#, possible-c-format
+#, c-format
 msgid "# track %d PTS : %07u "
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:458
-#, possible-c-format
+#, c-format
 msgid " delta=%04d ms\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:473
-#, possible-c-format
+#, c-format
 msgid "V %03u %06u %02u "
 msgstr ""
 
@@ -17811,12 +17857,12 @@ msgid "%c:%08"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:479
-#, possible-c-format
+#, c-format
 msgid ",%05x"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:483
-#, possible-c-format
+#, c-format
 msgid ",%05x "
 msgstr ""
 
@@ -17830,7 +17876,7 @@ msgid ":%"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_indexer.cpp:507
-#, possible-c-format
+#, c-format
 msgid "# Timestamp %02d:%02d:%02d,%03d\n"
 msgstr ""
 
@@ -17875,29 +17921,29 @@ msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:127
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:241
-#, possible-c-format
+#, c-format
 msgid "Picture  : %u x %u %u fps\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:130
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:244
-#, possible-c-format
+#, c-format
 msgid "Nb Gop   : %u \n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:133
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:247
-#, possible-c-format
+#, c-format
 msgid "Nb Images: %u \n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:136
-#, possible-c-format
+#, c-format
 msgid "Nb Audio : %u\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:139
-#, possible-c-format
+#, c-format
 msgid "Main aud : %u\n"
 msgstr ""
 
@@ -17906,7 +17952,7 @@ msgid " A"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:164
-#, possible-c-format
+#, c-format
 msgid " A%x:%x"
 msgstr ""
 
@@ -17921,7 +17967,7 @@ msgid "Building index with %u sync points\n"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:224
-#, possible-c-format
+#, c-format
 msgid ":%lx"
 msgstr ""
 
@@ -17930,7 +17976,7 @@ msgid "# track "
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_audio.cpp:246
-#, possible-c-format
+#, c-format
 msgid "# track %d PTS : %d  delta=%d ms"
 msgstr ""
 
@@ -18010,7 +18056,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:256
-#, possible-c-format
+#, c-format
 msgid "Streams  : V%X:%X \n"
 msgstr ""
 
@@ -18050,7 +18096,7 @@ msgid "Opening mpeg.."
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:325
-#, possible-c-format
+#, c-format
 msgid "V %u %u %u "
 msgstr ""
 
@@ -18090,7 +18136,7 @@ msgid "%c:%I64x,%I64x,%x"
 msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:357
-#, possible-c-format
+#, c-format
 msgid "%c:%llx,%llx,%x"
 msgstr ""
 
@@ -18648,7 +18694,7 @@ msgid "Offset too short!\n"
 msgstr ""
 
 #: avidemux/ADM_inpics/ADM_pics.cpp:292
-#, possible-c-format
+#, c-format
 msgid "Found tag : %x , jumping %d bytes\n"
 msgstr ""
 
@@ -18725,22 +18771,22 @@ msgid "VBV buffer underflow :frame %lu, underflow : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectlVBV.cpp:139
-#, possible-c-format
+#, c-format
 msgid "Frame %08lu size %d type:%d vbv fullness %u, kbytes :%lu qz used :%d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectlVBV.cpp:148
-#, possible-c-format
+#, c-format
 msgid "br : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectlVBV.cpp:221
-#, possible-c-format
+#, c-format
 msgid "\t Org: %lu projected :%d VBV:%d q:%d ratio:%f alpha:%f  type :%d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectlVBV.cpp:225
-#, possible-c-format
+#, c-format
 msgid "potential underflow at %d + %d , q:%d\n"
 msgstr ""
 
@@ -18781,42 +18827,42 @@ msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:629
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:651
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- ERROR: fopen %s failed\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:633
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- found %d frames %d keyframes\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:673
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Frame rate: %d/%d (%ffps)\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:676
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Number of frames: %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:678
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Target bitrate: %ld\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:679
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Target filesize: %lld\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:683
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Container Frame overhead: %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:685
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- New target filesize after container compensation: %lld\n"
 msgstr ""
 
@@ -18833,32 +18879,32 @@ msgid "[xvid rc] VBV compliant curve scaling impossible.\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:770
-#, possible-c-format
+#, c-format
 msgid ""
 "[xvid rc] -- target_total:%lld desired_total:%.2f (%.2f%%) actual_total:%.2f "
 "(%.2f%%)\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:805
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- stats file too short (now processing frame %d)"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1073
-#, possible-c-format
+#, c-format
 msgid ""
 "[xvid rc] -- frame %d p/b-frame quantizer prevented from rising too steeply\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1079
-#, possible-c-format
+#, c-format
 msgid ""
 "[xvid rc] -- frame:%d p/b-frame quantizer prevented from falling too "
 "steeply\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1156
-#, possible-c-format
+#, c-format
 msgid ""
 "[xvid rc] -- frame:%d type:%c quant:%d stats:%d scaled:%d desired:%d actual:%"
 "d error:%d overflow:%.2f\n"
@@ -18868,57 +18914,57 @@ msgstr ""
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1008 avidemux/ADM_library/avidemutils.cpp:72
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:260
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:307
-#, possible-c-format
+#, c-format
 msgid "%c"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1231
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- WARNING: L%d unknown frame type used (%c).\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1236
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- WARNING: L%d misses some stat fields (%d).\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1286
-#, possible-c-format
+#, c-format
 msgid "%c %d %d %d %d %d %d %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1388
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Min 1st pass IFrame length: %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1389
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Min 1st pass PFrame length: %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1390
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Min 1st pass BFrame length: %d\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1639
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- IFrame boost tax ratio:%.2f\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1712
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] -- Assymetric tax ratio:%.2f\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1802
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] Minimum buffer fill: %f bytes\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1932
-#, possible-c-format
+#, c-format
 msgid "[xvid rc] Scene %d (Frames %d-%d): VBVfactor %f\n"
 msgstr ""
 
@@ -18927,7 +18973,7 @@ msgid "[xvid rc] Everything underflowing.\n"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:1987
-#, possible-c-format
+#, c-format
 msgid ""
 "[xvid rc] Moving %.0f kB to avoid buffer underflow, correction factor: %.5f\n"
 msgstr ""
@@ -18937,7 +18983,7 @@ msgid "w+b"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:2185
-#, possible-c-format
+#, c-format
 msgid "# XviD 2pass stat file (core version %d.%d.%d)\n"
 msgstr ""
 
@@ -18948,12 +18994,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:2202
-#, possible-c-format
+#, c-format
 msgid "Error closing stats file (%s)"
 msgstr ""
 
 #: avidemux/ADM_xvidratectl/ADM_xvidratectl.cpp:2292
-#, possible-c-format
+#, c-format
 msgid "%c %d %d %d %d %d %d\n"
 msgstr ""
 
@@ -18992,7 +19038,7 @@ msgid "Atom :"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_atom.cpp:162
-#, possible-c-format
+#, c-format
 msgid " starting at pos %lu, size %lu\n"
 msgstr ""
 
@@ -19351,7 +19397,7 @@ msgid "Using myscale %lu\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:717
-#, possible-c-format
+#, c-format
 msgid "stts: count:%u size:%u (unscaled)\n"
 msgstr ""
 
@@ -19632,12 +19678,12 @@ msgid "Incomplete support for 64 bits quicktime!!\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1113 avidemux/ADM_3gp/ADM_3gp.cpp:1128
-#, possible-c-format
+#, c-format
 msgid "Chunk offset : %lu / %lu  : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1146
-#, possible-c-format
+#, c-format
 msgid "\t sc  %d : sc start:%lu sc count: %lu\n"
 msgstr ""
 
@@ -19646,7 +19692,7 @@ msgid "+_+_+_+_+_+\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1203
-#, possible-c-format
+#, c-format
 msgid "co : %lu sz: %lu sc: %lu co[0]%lu \n"
 msgstr ""
 
@@ -19666,7 +19712,7 @@ msgid "Using packet size of %lu, %lu packets ..\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1237
-#, possible-c-format
+#, c-format
 msgid "Size : %lu offset : %lu\n"
 msgstr ""
 
@@ -19676,7 +19722,7 @@ msgid "created %u blocks\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1286
-#, possible-c-format
+#, c-format
 msgid "\t size : %d : %lu\n"
 msgstr ""
 
@@ -19686,27 +19732,27 @@ msgid "#of chunk %d max per chunk %d Max # of sample %d\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1309
-#, possible-c-format
+#, c-format
 msgid "(%d) sc: %lu sn:%lu\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1320
-#, possible-c-format
+#, c-format
 msgid "--starting at %lu , %lu to go\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1325
-#, possible-c-format
+#, c-format
 msgid " sample : %d offset : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1326 avidemux/ADM_lvemux/ADM_muxer.cpp:174
-#, possible-c-format
+#, c-format
 msgid "Tail : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:1376
-#, possible-c-format
+#, c-format
 msgid "Audio chunk : %lu time :%lu\n"
 msgstr ""
 
@@ -19843,7 +19889,7 @@ msgid "Pass 2/2"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:111
-#, possible-c-format
+#, c-format
 msgid "Size: %lu\n"
 msgstr ""
 
@@ -19868,7 +19914,7 @@ msgid "Not Avi\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:235
-#, possible-c-format
+#, c-format
 msgid ""
 "Found %d tracks\n"
 ":-----------\n"
@@ -19884,7 +19930,7 @@ msgid " at %I64u (%I64x) size : %I64u (%I64x)\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:258
-#, possible-c-format
+#, c-format
 msgid " at %llu (%llx) size : %llu (%llx)\n"
 msgstr ""
 
@@ -20078,7 +20124,7 @@ msgid "Entry  :"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:666
-#, possible-c-format
+#, c-format
 msgid " Size: %lu (%lx)\n"
 msgstr ""
 
@@ -20117,7 +20163,7 @@ msgid " (%d bytes to go)\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:752
-#, possible-c-format
+#, c-format
 msgid "\tskipping %lu bytes\n"
 msgstr ""
 
@@ -20217,7 +20263,7 @@ msgid "Found a grand total of %lu frames\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_odml_odml.cpp:242
-#, possible-c-format
+#, c-format
 msgid "subindex : %lu size %lu (%lx)"
 msgstr ""
 
@@ -20226,7 +20272,7 @@ msgid "Seeking to %I64x\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_odml_odml.cpp:246
-#, possible-c-format
+#, c-format
 msgid "Seeking to %llx\n"
 msgstr ""
 
@@ -20235,7 +20281,7 @@ msgid "Base : %I64x\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_odml_odml.cpp:258
-#, possible-c-format
+#, c-format
 msgid "Base : %llx\n"
 msgstr ""
 
@@ -20248,7 +20294,7 @@ msgid "Frame.off : %I64x, size %I64x\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_odml_odml.cpp:283
-#, possible-c-format
+#, c-format
 msgid "Frame.off : %llx, size %llx\n"
 msgstr ""
 
@@ -20283,7 +20329,7 @@ msgid "Error could not get frame %lu\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:87
-#, possible-c-format
+#, c-format
 msgid "--Frame:%lu/%lu, len %lu\n"
 msgstr ""
 
@@ -20293,7 +20339,7 @@ msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:96
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:109
-#, possible-c-format
+#, c-format
 msgid "At %u, %d duped!\n"
 msgstr ""
 
@@ -20302,7 +20348,7 @@ msgid "TOO SMALL\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:116
-#, possible-c-format
+#, c-format
 msgid "Frame :%lu"
 msgstr ""
 
@@ -20316,7 +20362,7 @@ msgid "Only one frame found\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:155
-#, possible-c-format
+#, c-format
 msgid "At %u, %d vop!\n"
 msgstr ""
 
@@ -20341,7 +20387,7 @@ msgid "Initial # of images : %lu, now we have %lu \n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_openDMLDepack.cpp:221
-#, possible-c-format
+#, c-format
 msgid "\t at %u %d Img type:%s\n"
 msgstr ""
 
@@ -20355,7 +20401,7 @@ msgid "pos : %I64u / %I64u \n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_riff.cpp:36
-#, possible-c-format
+#, c-format
 msgid "pos : %llu / %llu \n"
 msgstr ""
 
@@ -20369,7 +20415,7 @@ msgid "Cur : %I64u end : %I64u left: %I64u\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_riff.cpp:65
-#, possible-c-format
+#, c-format
 msgid "Cur : %llu end : %llu left: %llu\n"
 msgstr ""
 
@@ -20435,7 +20481,7 @@ msgid "No movi chunk!\n"
 msgstr ""
 
 #: avidemux/ADM_openDML/ADM_opendml_reindex.cpp:86
-#, possible-c-format
+#, c-format
 msgid "%s size:%lu (%llx/%llx)\n"
 msgstr ""
 
@@ -20657,12 +20703,12 @@ msgid "gtk-dialog-error"
 msgstr ""
 
 #: avidemux/ADM_toolkit/TLK_clock.cpp:60
-#, possible-c-format
+#, c-format
 msgid "Clock::getElapsedMS() -> %lu\n"
 msgstr ""
 
 #: avidemux/ADM_toolkit/TLK_clock.cpp:91
-#, possible-c-format
+#, c-format
 msgid "getAbsTime() -> %lu\n"
 msgstr ""
 
@@ -21734,7 +21780,7 @@ msgid "Cannot open directory as a file"
 msgstr ""
 
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:178 avidemux/gtk_gui.cpp:990
-#, possible-c-format
+#, c-format
 msgid "Cannot open \"%s\"."
 msgstr ""
 
@@ -21767,7 +21813,7 @@ msgid "Cannot write the file"
 msgstr ""
 
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:238
-#, possible-c-format
+#, c-format
 msgid "No write access to \"%s\"."
 msgstr ""
 
@@ -21857,7 +21903,7 @@ msgid "Oops"
 msgstr ""
 
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:571
-#, possible-c-format
+#, c-format
 msgid "can't create job directory (%s)."
 msgstr ""
 
@@ -22032,19 +22078,19 @@ msgstr ""
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:112
 msgid "VCD res"
-msgstr ""
+msgstr "VCD rozlišení"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:118
 msgid "SVCD res"
-msgstr ""
+msgstr "SVCD rozlišení"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:124
 msgid "DVD res"
-msgstr ""
+msgstr "DVD rozlišení"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:130
 msgid "Half D1 res"
-msgstr ""
+msgstr "1/2 D1 rozlišení"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:142
 msgid "gtk-dnd-multiple"
@@ -22053,7 +22099,7 @@ msgstr ""
 #: avidemux/ADM_filter/gui_filtersub.cpp:144
 #: avidemux/ADM_filter/filter_declaration.cpp:168
 msgid "Partial"
-msgstr ""
+msgstr "Částečný"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:148
 msgid "gtk-print-preview"
@@ -22061,7 +22107,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:156
 msgid "Save as script"
-msgstr ""
+msgstr "Uložit jako skript"
 
 #: avidemux/ADM_filter/gui_filtersub.cpp:178
 msgid "viewport1"
@@ -22141,14 +22187,14 @@ msgid "\t%s\n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:130 avidemux/ADM_filter/filter.cpp:149
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Registred filter %lu: %s"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:166
-#, possible-c-format
+#, c-format
 msgid "GetLast : -- LasrNB %lu start %lu \n"
 msgstr ""
 
@@ -22157,22 +22203,22 @@ msgid "--preview filter 0\n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:189
-#, possible-c-format
+#, c-format
 msgid "GetLast full : -- LasrNB %lu start %lu \n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:206
-#, possible-c-format
+#, c-format
 msgid "GetFirst full : -- LasrNB %lu start %lu \n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:224
-#, possible-c-format
+#, c-format
 msgid "GetFirst : -- LasrNB %lu start %lu \n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:247 avidemux/ADM_filter/filter.cpp:265
-#, possible-c-format
+#, c-format
 msgid "--preview filter %d\n"
 msgstr ""
 
@@ -22185,7 +22231,7 @@ msgid "--spawning\n"
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:360
-#, possible-c-format
+#, c-format
 msgid "Preview: Ask for frame %lu\n"
 msgstr ""
 
@@ -22219,12 +22265,12 @@ msgid "app.video.addFilter("
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:474
-#, possible-c-format
+#, c-format
 msgid "\"%s\""
 msgstr ""
 
 #: avidemux/ADM_filter/filter.cpp:488
-#, possible-c-format
+#, c-format
 msgid ",\"%s=%s\""
 msgstr ""
 
@@ -22234,27 +22280,27 @@ msgstr ""
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:64
 msgid "Add Video Filter"
-msgstr ""
+msgstr "Přidat video filtr"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:98
 msgid "Transformation"
-msgstr ""
+msgstr "Transformace"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:148
 msgid "Colors"
-msgstr ""
+msgstr "Barvy"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:198
 msgid "Sharpen/Blur"
-msgstr ""
+msgstr "Ostrost/rozmazání"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:223
 msgid "Subtitles"
-msgstr ""
+msgstr "Titulky"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:248
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 #: avidemux/ADM_filter/gui_filterlist.cpp:271
 msgid "treeview11"
@@ -23231,57 +23277,57 @@ msgid "EditorPacket : switching to segment %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:167
-#, possible-c-format
+#, c-format
 msgid "************Editor: audio go to : seg %lu offset %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:221
-#, possible-c-format
+#, c-format
 msgid "Editor: audioFnToOff go to : seg %lu fn %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:250
-#, possible-c-format
+#, c-format
 msgid " Editor audio GOTOtime : %lu ms\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:251
-#, possible-c-format
+#, c-format
 msgid " Editor audio frame eq: %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:259
-#, possible-c-format
+#, c-format
 msgid " Editor audio seg : %lu frame %ld\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:278
-#, possible-c-format
+#, c-format
 msgid " Editor audio time start   : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:279
-#, possible-c-format
+#, c-format
 msgid " Editor audio time masked  : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:280
-#, possible-c-format
+#, c-format
 msgid " Editor audio time jump    : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:281
-#, possible-c-format
+#, c-format
 msgid " Editor audio seg          : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:298
-#, possible-c-format
+#, c-format
 msgid "Editor audio : we are at %llu in seg which has %llu sample\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADMedAVIAUD.cpp:311
-#, possible-c-format
+#, c-format
 msgid "Editor: audioGoToFn go to : seg %lu fn %lu \n"
 msgstr ""
 
@@ -23687,12 +23733,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:595
-#, possible-c-format
+#, c-format
 msgid " we had :%lu"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:599
-#, possible-c-format
+#, c-format
 msgid " we have now  :%lu"
 msgstr ""
 
@@ -23821,22 +23867,22 @@ msgid "End < Start \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:978
-#, possible-c-format
+#, c-format
 msgid "Diff  seg: %lu /%lu from %lu to %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1001
-#, possible-c-format
+#, c-format
 msgid "Full seg: %lu from %lu to %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1007
-#, possible-c-format
+#, c-format
 msgid "Same seg: %lu from %lu to %lu \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1012
-#, possible-c-format
+#, c-format
 msgid "clipboard: %lu \n"
 msgstr ""
 
@@ -23845,7 +23891,7 @@ msgid "Pasting at frame 0\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1040
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " setting at the end of seg %lu\n"
@@ -24011,17 +24057,17 @@ msgid "Frame %d has lost its fw/bw reference frame (%lu/%lu)\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edRender.cpp:114
-#, possible-c-format
+#, c-format
 msgid "Ed: Request for frame %lu seg %lu, old frame:%lu old seg:%lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edRender.cpp:119
-#, possible-c-format
+#, c-format
 msgid ">>frame %lu is cached...\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edRender.cpp:127
-#, possible-c-format
+#, c-format
 msgid "frame %lu is not cached...\n"
 msgstr ""
 
@@ -24056,7 +24102,7 @@ msgid "Editor: Cannot read ip frame %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edRender.cpp:239
-#, possible-c-format
+#, c-format
 msgid "async  frame, wanted : %lu last %lu (%lu - %lu seg)\n"
 msgstr ""
 
@@ -24149,7 +24195,7 @@ msgid "//--automatically built--\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:106
-#, possible-c-format
+#, c-format
 msgid ""
 "//--Project: %s\n"
 "\n"
@@ -24166,22 +24212,22 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:110
-#, possible-c-format
+#, c-format
 msgid "// %02ld videos source \n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:117
-#, possible-c-format
+#, c-format
 msgid "app.load(\"%s\");\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:121
-#, possible-c-format
+#, c-format
 msgid "app.append(\"%s\");\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:126
-#, possible-c-format
+#, c-format
 msgid "//%02ld segments\n"
 msgstr ""
 
@@ -24190,17 +24236,17 @@ msgid "app.clearSegments();\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:137
-#, possible-c-format
+#, c-format
 msgid "app.addSegment(%lu,%lu,%lu);\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:141
-#, possible-c-format
+#, c-format
 msgid "app.markerA=%d;\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:142
-#, possible-c-format
+#, c-format
 msgid "app.markerB=%d;\n"
 msgstr ""
 
@@ -24215,12 +24261,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:155
-#, possible-c-format
+#, c-format
 msgid "app.video.setPostProc(%d,%d,%d);\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:161
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "app.video.setFps1000(%u);\n"
@@ -24239,7 +24285,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:177
-#, possible-c-format
+#, c-format
 msgid "app.video.codec(\"%s\",\"%s\",\""
 msgstr ""
 
@@ -24258,27 +24304,27 @@ msgid "app.audio.reset();\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:210
-#, possible-c-format
+#, c-format
 msgid "app.audio.load(\"%s\",\"%s\");\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:216
-#, possible-c-format
+#, c-format
 msgid "app.audio.setTrack(%d);\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:220
-#, possible-c-format
+#, c-format
 msgid "app.audio.codec(\"%s\",%d);\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:222
-#, possible-c-format
+#, c-format
 msgid "app.audio.normalize=%s;\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:223
-#, possible-c-format
+#, c-format
 msgid "app.audio.delay=%d;\n"
 msgstr ""
 
@@ -24299,22 +24345,22 @@ msgid "app.audio.downsample=true;\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:250
-#, possible-c-format
+#, c-format
 msgid "app.audio.resample=%u;\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:255
-#, possible-c-format
+#, c-format
 msgid "app.setContainer(\"%s\");\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:258
-#, possible-c-format
+#, c-format
 msgid "setSuccess(app.save(\"%s\"));\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edLoadSave.cpp:262
-#, possible-c-format
+#, c-format
 msgid "setSuccess(%d);\n"
 msgstr ""
 
@@ -24348,22 +24394,22 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edAudio.cpp:87
-#, possible-c-format
+#, c-format
 msgid "*****Editor audio : Goto %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edAudio.cpp:114
-#, possible-c-format
+#, c-format
 msgid "Editor audio : Gototime  %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edCache.cpp:57
-#, possible-c-format
+#, c-format
 msgid "EdCache: %lu  in cache %lu\n"
 msgstr ""
 
 #: avidemux/ADM_editor/ADM_edCache.cpp:112
-#, possible-c-format
+#, c-format
 msgid "Edcache content:%d %lu\n"
 msgstr ""
 
@@ -24374,7 +24420,7 @@ msgstr ""
 
 #: avidemux/ADM_lavformat/ADM_muxts.cpp:344
 #: avidemux/ADM_lavformat/ADM_lavformat.cpp:449
-#, possible-c-format
+#, c-format
 msgid ""
 "Need audio  ?: %llu / %llu : %llu\n"
 " "
@@ -24447,7 +24493,7 @@ msgid "lavformat mpeg muxer initialized\n"
 msgstr ""
 
 #: avidemux/ADM_lavformat/ADM_lavformat.cpp:416
-#, possible-c-format
+#, c-format
 msgid "A: sample: %d frame_pts: %d fq: %d\n"
 msgstr ""
 
@@ -24462,7 +24508,7 @@ msgid "LavMuxer:Audio DTS is too low %llu / %llu!\n"
 msgstr ""
 
 #: avidemux/ADM_lavformat/ADM_lavformat.cpp:492
-#, possible-c-format
+#, c-format
 msgid "Lavformat : Pts :%llu dts:%llu"
 msgstr ""
 
@@ -24472,7 +24518,7 @@ msgid "Error writing video packet\n"
 msgstr ""
 
 #: avidemux/ADM_lavformat/ADM_lavformat.cpp:516
-#, possible-c-format
+#, c-format
 msgid "V: frame %lu pts%d\n"
 msgstr ""
 
@@ -24507,7 +24553,7 @@ msgid "Progressive\n"
 msgstr ""
 
 #: avidemux/ADM_codecs/ADM_mpeg.cpp:295
-#, possible-c-format
+#, c-format
 msgid "Mpeg2dec : %d \n"
 msgstr ""
 
@@ -24596,7 +24642,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_codecs/ADM_divx4.cpp:115
-#, possible-c-format
+#, c-format
 msgid "type : %d \n"
 msgstr ""
 
@@ -24655,7 +24701,7 @@ msgid "FF base destroyed\n"
 msgstr ""
 
 #: avidemux/ADM_codecs/ADM_ffmp43.cpp:236
-#, possible-c-format
+#, c-format
 msgid " Frame is %s\n"
 msgstr ""
 
@@ -25849,14 +25895,14 @@ msgid "False header, continuing..(%x %x %x expected %x %x %x\n"
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:260
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " audio suboffset :%lu"
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:261
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " total offset :%lu"
@@ -25875,28 +25921,28 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:369
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Time Offset : %lu"
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:381
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Linear Offset : %lu"
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:409
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " asked : %lu , got : %lu, next :%lu,file:%lu\n"
 msgstr ""
 
 #: avidemux/ADM_audio/audiogen.cpp:416
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Time-> linear Offset : %lu"
@@ -25988,7 +26034,7 @@ msgid "rebuildIndex"
 msgstr ""
 
 #: avidemux/ADM_script/ADM_JSAvidemux.cpp:238
-#, possible-c-format
+#, c-format
 msgid "Setting container format \"%s\"\n"
 msgstr ""
 
@@ -26008,7 +26054,7 @@ msgid "Appending \"%s\"\n"
 msgstr ""
 
 #: avidemux/ADM_script/ADM_JSAvidemux.cpp:345
-#, possible-c-format
+#, c-format
 msgid "Deleting %d-%d\n"
 msgstr ""
 
@@ -26037,7 +26083,7 @@ msgid "clearing segments \n"
 msgstr ""
 
 #: avidemux/ADM_script/ADM_JSAvidemux.cpp:431
-#, possible-c-format
+#, c-format
 msgid "adding segment :%d %d %d\n"
 msgstr ""
 
@@ -26060,7 +26106,7 @@ msgid "Not an ECMAScript file. Try open it with 'File' -> 'Open...'"
 msgstr ""
 
 #: avidemux/ADM_script/ADM_JSGlobal.cpp:42
-#, possible-c-format
+#, c-format
 msgid ""
 "file: %s: line %d:\n"
 " Msg:%s\n"
@@ -26417,14 +26463,14 @@ msgstr ""
 #: avidemux/ADM_library/ADM_imageUtils.cpp:69
 #: avidemux/ADM_library/ADM_imageUtils.cpp:287
 #: avidemux/ADM_video/ADM_vidHardIvtcRemoval.cpp:230
-#, possible-c-format
+#, c-format
 msgid "pxor %mm7,%mm7"
 msgstr ""
 
 #: avidemux/ADM_library/ADM_imageUtils.cpp:74
 #: avidemux/ADM_library/ADM_imageUtils.cpp:292
 #: avidemux/ADM_video/ADM_vidHardIvtcRemoval.cpp:235
-#, possible-c-format
+#, c-format
 msgid "pxor %%mm7,%%mm7"
 msgstr ""
 
@@ -26449,7 +26495,7 @@ msgid "emms\n"
 msgstr ""
 
 #: avidemux/ADM_library/ADM_imageUtils.cpp:157
-#, possible-c-format
+#, c-format
 msgid ""
 "pxor %mm7,%mm7\n"
 "pxor %mm3,%mm3\n"
@@ -26457,12 +26503,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_library/ADM_imageUtils.cpp:159
-#, possible-c-format
+#, c-format
 msgid ", %mm6\n"
 msgstr ""
 
 #: avidemux/ADM_library/ADM_imageUtils.cpp:164
-#, possible-c-format
+#, c-format
 msgid ""
 "pxor %%mm7,%%mm7\n"
 "pxor %%mm3,%%mm3\n"
@@ -26470,7 +26516,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_library/ADM_imageUtils.cpp:166
-#, possible-c-format
+#, c-format
 msgid ", %%mm6\n"
 msgstr ""
 
@@ -26605,14 +26651,14 @@ msgid " Donald Graft Msharpen Strength:%d Threshold:%d"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidMSharpen.cpp:296
-#, possible-c-format
+#, c-format
 msgid ""
 ".align 16\n"
 "pxor  %mm7,%mm7\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidMSharpen.cpp:301
-#, possible-c-format
+#, c-format
 msgid ""
 ".align 16\n"
 "pxor  %%mm7,%%mm7\n"
@@ -26646,7 +26692,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidNull.cpp:67
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Null stream initialized with start frame = %lu, nbframe=%lu \n"
@@ -26772,28 +26818,28 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidBlend.cpp:118
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm0 \n"
 "\tmovd ("
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidBlend.cpp:119
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm1 \n"
 "\tmovd ("
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidBlend.cpp:120
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm2 \n"
 "\tmovd ("
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidBlend.cpp:121
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm3 \n"
 "\tpunpcklbw %%mm6, %%mm0 \n"
@@ -27050,7 +27096,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:208
 #: avidemux/ADM_video/ADM_vidVlad.cpp:314
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm6 \n"
 "\tpxor %%mm7,%%mm7 \n"
@@ -27079,14 +27125,14 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:215
 #: avidemux/ADM_video/ADM_vidVlad.cpp:319
-#, possible-c-format
+#, c-format
 msgid ""
 ",8),%%mm0 \n"
 "\tmovq ("
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:216
-#, possible-c-format
+#, c-format
 msgid ""
 ",8),%%mm1 \n"
 "\tmovq %%mm0,%%mm2 \n"
@@ -27105,7 +27151,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:229
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm4 \n"
 "\tpsrlw $8,%%mm4 \n"
@@ -27113,7 +27159,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:231
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm1 \n"
 "\tpand %%mm1,%%mm4 \n"
@@ -27131,7 +27177,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:237
 #: avidemux/ADM_video/ADM_vidVlad.cpp:335
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm1 \n"
 "\tpand %%mm3,%%mm0 \n"
@@ -27142,7 +27188,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:241
 #: avidemux/ADM_video/ADM_vidVlad.cpp:339
-#, possible-c-format
+#, c-format
 msgid ""
 ",8) \n"
 "\tmovntq %%mm0,("
@@ -27262,7 +27308,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:320
-#, possible-c-format
+#, c-format
 msgid ""
 ",8),%%mm1 \n"
 "\tmovq %%mm0,%%mm2 \n"
@@ -27279,7 +27325,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVlad.cpp:331
-#, possible-c-format
+#, c-format
 msgid ""
 ",8),%%mm4 \n"
 "\tpand %%mm4,%%mm0 \n"
@@ -27343,7 +27389,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidMPLD3D.cpp:164
 #: avidemux/ADM_video/ADM_vidMPLD3Dlow.cpp:147
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Param : %lf %lf %lf \n"
@@ -27403,12 +27449,12 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidPulldown.cpp:114
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:124
-#, possible-c-format
+#, c-format
 msgid "Filter: It is in cache...(cachestart=%lu)\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidPulldown.cpp:116
-#, possible-c-format
+#, c-format
 msgid "getting %lu)\n"
 msgstr ""
 
@@ -27429,12 +27475,12 @@ msgid " Luma only"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_cache.cpp:120
-#, possible-c-format
+#, c-format
 msgid "Cache : Cache hit %d buffer %d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_cache.cpp:133
-#, possible-c-format
+#, c-format
 msgid "Cache : Cache miss %d\n"
 msgstr ""
 
@@ -27867,17 +27913,17 @@ msgid " Telecined 1"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:95
-#, possible-c-format
+#, c-format
 msgid "Sub: cached %lu %lu %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:106
-#, possible-c-format
+#, c-format
 msgid "Sub: Using line %d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:145
-#, possible-c-format
+#, c-format
 msgid "Sub: Rendering string %s\n"
 msgstr ""
 
@@ -27887,7 +27933,7 @@ msgid "Too much lines\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:169
-#, possible-c-format
+#, c-format
 msgid "Sub: %d lines to render\n"
 msgstr ""
 
@@ -27936,7 +27982,7 @@ msgid "/Display\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:400
-#, possible-c-format
+#, c-format
 msgid "Sub DisplayString  line %lu len %lu\n"
 msgstr ""
 
@@ -27965,7 +28011,7 @@ msgid "Line too long!\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTRender.cpp:558
-#, possible-c-format
+#, c-format
 msgid "Sub:Rendering : %d %d %d (yuv)\n"
 msgstr ""
 
@@ -28099,12 +28145,12 @@ msgid "No valid vobsub to process\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobsub.cpp:401
-#, possible-c-format
+#, c-format
 msgid "No matching sub for time %llu frame%lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobsub.cpp:427
-#, possible-c-format
+#, c-format
 msgid "We have %lu %lu to merge\n"
 msgstr ""
 
@@ -28119,7 +28165,7 @@ msgid "top %lu : bottom :%lu Scale :%f ox:%lu oy:%lu fx:%lu \n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobsub.cpp:661
-#, possible-c-format
+#, c-format
 msgid "Matching for time %llu : sub %lu starting at :%lu (shift %lu)\n"
 msgstr ""
 
@@ -28205,7 +28251,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:139
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:197
 #: avidemux/ADM_video/ADM_interlaced.cpp:153
-#, possible-c-format
+#, c-format
 msgid ""
 "),\t%%mm0\n"
 "\tmovd ("
@@ -28214,7 +28260,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:140
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:198
 #: avidemux/ADM_video/ADM_interlaced.cpp:154
-#, possible-c-format
+#, c-format
 msgid ""
 "),\t%%mm1\n"
 "\tmovd ("
@@ -28223,7 +28269,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:141
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:199
 #: avidemux/ADM_video/ADM_interlaced.cpp:155
-#, possible-c-format
+#, c-format
 msgid ""
 "),\t%%mm2\n"
 "\t"
@@ -28235,7 +28281,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:152
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:210
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "\tmovd\t%%mm3,("
@@ -28249,7 +28295,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:155
 #: avidemux/ADM_video/ADM_vidDeintASM.cpp:214
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "\tmovd\t%%mm0,("
@@ -28335,12 +28381,12 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vobsubinfo.cpp:52
-#, possible-c-format
+#, c-format
 msgid "timestamp: %d:%d:%d:%d, filepos: %x\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vobsubinfo.cpp:71
-#, possible-c-format
+#, c-format
 msgid "palette: %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x, %x"
 msgstr ""
 
@@ -28383,7 +28429,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vobsubinfo.cpp:142
 #: avidemux/ADM_video/ADM_vobsubinfo.cpp:196
 #: avidemux/ADM_video/ADM_vobsubinfo.cpp:243
-#, possible-c-format
+#, c-format
 msgid "id: %s index: %d"
 msgstr ""
 
@@ -28447,17 +28493,17 @@ msgid " Mplayer ivtc"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:91
-#, possible-c-format
+#, c-format
 msgid "Frame in : %lu fpsin: %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:95
-#, possible-c-format
+#, c-format
 msgid "Frame out : %lu fpout: %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:189
-#, possible-c-format
+#, c-format
 msgid "Request for %lu frames (last %lu)\n"
 msgstr ""
 
@@ -28471,7 +28517,7 @@ msgid "Skew ignored\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:237
-#, possible-c-format
+#, c-format
 msgid "**** Inframe : %lu / outframe : %lu / Off: %d (in: %lu)\n"
 msgstr ""
 
@@ -28496,22 +28542,22 @@ msgid "MPivtc OK\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:347
-#, possible-c-format
+#, c-format
 msgid "Dropnext : %d lastdrop  : %d off : %d \n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:352
-#, possible-c-format
+#, c-format
 msgid "-->drop! [%d/%d=%g]\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:490
-#, possible-c-format
+#, c-format
 msgid "       pd=%d re=%d ro=%d rp=%d rt=%d rs=%d rd=%d pp=%d pt=%d ps=%d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:581
-#, possible-c-format
+#, c-format
 msgid ""
 "movl $4, %%ecx \n"
 "\tpxor %%mm4, %%mm4 \n"
@@ -28573,7 +28619,7 @@ msgid "a"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_mpdetc.cpp:641
-#, possible-c-format
+#, c-format
 msgid ""
 "movl $4, %%ecx \n"
 "\tpxor %%mm4, %%mm4 \n"
@@ -28852,7 +28898,7 @@ msgid "=r"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidEq2.cpp:327
-#, possible-c-format
+#, c-format
 msgid "%eax"
 msgstr ""
 
@@ -29208,7 +29254,7 @@ msgid ",\t\t"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_interlaced.cpp:183
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 "\tmovd \t%%mm7,\t("
@@ -29228,19 +29274,19 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:126
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:128
-#, possible-c-format
+#, c-format
 msgid " index : %lu skipped : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:168
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " confidence : %lu old1 :%lu old2: %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:175
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " Seems good %d is interlaced !\n"
@@ -29251,7 +29297,7 @@ msgid " Does not seems interlaced enough\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:190
-#, possible-c-format
+#, c-format
 msgid " Frame %d has %lu icing factor\n"
 msgstr ""
 
@@ -29261,7 +29307,7 @@ msgid "  bench : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:222
-#, possible-c-format
+#, c-format
 msgid "Detect max1: %d max2: %d\n"
 msgstr ""
 
@@ -29277,7 +29323,7 @@ msgid "we use hinted...\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:243
-#, possible-c-format
+#, c-format
 msgid "max1: %d max2: %d\n"
 msgstr ""
 
@@ -29286,7 +29332,7 @@ msgid "out of order fields\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidIVTC.cpp:259
-#, possible-c-format
+#, c-format
 msgid " Max1 is %d max2 is %d\n"
 msgstr ""
 
@@ -29330,12 +29376,12 @@ msgid "***ERR: Suspicious line !!!\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTload.cpp:181
-#, possible-c-format
+#, c-format
 msgid "%s start:%d"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTload.cpp:187
-#, possible-c-format
+#, c-format
 msgid " end:%d\n"
 msgstr ""
 
@@ -29345,12 +29391,12 @@ msgid "Empty line\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTload.cpp:206
-#, possible-c-format
+#, c-format
 msgid "%lu -->%lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTload.cpp:332
-#, possible-c-format
+#, c-format
 msgid "%d %d %d %d / %d %d %d %d>%s<\n"
 msgstr ""
 
@@ -29360,7 +29406,7 @@ msgid "sub:Too much lines, ignoring..\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRTload.cpp:376
-#, possible-c-format
+#, c-format
 msgid ">> Sub: %d subs stored and loaded\n"
 msgstr ""
 
@@ -29439,28 +29485,28 @@ msgid "movq "
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidResampleFPS.cpp:165
-#, possible-c-format
+#, c-format
 msgid ""
 ", %mm0\n"
 "movq "
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidResampleFPS.cpp:166
-#, possible-c-format
+#, c-format
 msgid ""
 ",  %mm1\n"
 "pxor %mm7        ,  %mm7\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidResampleFPS.cpp:171
-#, possible-c-format
+#, c-format
 msgid ""
 ", %%mm0\n"
 "movq "
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidResampleFPS.cpp:172
-#, possible-c-format
+#, c-format
 msgid ""
 ",  %%mm1\n"
 "pxor %%mm7        ,  %%mm7\n"
@@ -29884,7 +29930,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidDecDec.cpp:1491
 #: avidemux/ADM_video/ADM_vidDecDec.cpp:1546
 #: avidemux/ADM_video/ADM_vidDecDec.cpp:1592
-#, possible-c-format
+#, c-format
 msgid ""
 ".align 16\n"
 "pxor %%mm6,%%mm6\n"
@@ -29960,7 +30006,7 @@ msgid " Smart Swap fields"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSwapSmart.cpp:129
-#, possible-c-format
+#, c-format
 msgid " %lu straight vs %lu swapped => %s\n"
 msgstr ""
 
@@ -30275,12 +30321,12 @@ msgid "New Rotate %ld %ld %f\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:93
-#, possible-c-format
+#, c-format
 msgid "Current : %lu forwarding : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:167
-#, possible-c-format
+#, c-format
 msgid "Vobsub: Rle at offset :%d datasize:%d (stride:%d)\n"
 msgstr ""
 
@@ -30290,17 +30336,17 @@ msgid "Vobsub:No infos yet RLE data...\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:228
-#, possible-c-format
+#, c-format
 msgid "vobsub End :%d y:%d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:244
-#, possible-c-format
+#, c-format
 msgid "**Cur:A:%llx R:%llx next:%llx\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:248
-#, possible-c-format
+#, c-format
 msgid "**Cur: A:%llx R:%llx next:%llx\n"
 msgstr ""
 
@@ -30310,7 +30356,7 @@ msgid "Vobsub: error reading\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:256
-#, possible-c-format
+#, c-format
 msgid "Vobsub: data len =%d\n"
 msgstr ""
 
@@ -30325,7 +30371,7 @@ msgid "VS: read failed\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:273
-#, possible-c-format
+#, c-format
 msgid "data block=%lu\n"
 msgstr ""
 
@@ -30335,17 +30381,17 @@ msgid "Vobsub: data block too small\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:293
-#, possible-c-format
+#, c-format
 msgid "vobsub:Command : %d date:%d next:%d cur:%lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:311
-#, possible-c-format
+#, c-format
 msgid "****Sub: idx : %lu starts at :%lu end at :%lu\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:351
-#, possible-c-format
+#, c-format
 msgid "vobsuv: x1:%d x2:%d y1:%d y2:%d\n"
 msgstr ""
 
@@ -30365,7 +30411,7 @@ msgid "Background is %d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:557
-#, possible-c-format
+#, c-format
 msgid "Sub Resize : top %lu height %lu -> %lu %lu\n"
 msgstr ""
 
@@ -30375,7 +30421,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:632
 #: avidemux/ADM_video/ADM_vidVobSubRender.cpp:638
-#, possible-c-format
+#, c-format
 msgid "Er:%d\n"
 msgstr ""
 
@@ -30492,17 +30538,17 @@ msgid "Cannot identify subtitle format"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRT.cpp:243
-#, possible-c-format
+#, c-format
 msgid "[debug] DELAY %d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRT.cpp:250
-#, possible-c-format
+#, c-format
 msgid "[debug] BEFORE DELAY (%d) %d %d\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidSRT.cpp:263
-#, possible-c-format
+#, c-format
 msgid "[debug] AFTER DELAY (%d) %d %d\n"
 msgstr ""
 
@@ -30528,7 +30574,7 @@ msgid "FluxSmooth: Spatial :%02lu Temporal:%02lu"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:407
-#, possible-c-format
+#, c-format
 msgid ""
 " movq %%mm0, %%mm2 \n"
 "\tmovq    %%mm1, %%mm3 \n"
@@ -30539,7 +30585,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:412
-#, possible-c-format
+#, c-format
 msgid ""
 ", %%mm2\t\n"
 "\t paddw   %%mm2, %%mm6\t\n"
@@ -30604,7 +30650,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:469
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm0 \n"
 "\t                punpcklbw %%mm7,%%mm0 \n"
@@ -30613,7 +30659,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:472
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm6 \n"
 "\t \n"
@@ -30627,7 +30673,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidFlux.cpp:478
 #: avidemux/ADM_video/ADM_vidFlux.cpp:503
 #: avidemux/ADM_video/ADM_vidFlux.cpp:534
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm2 \n"
 "\t                punpcklbw %%mm7,%%mm2 \n"
@@ -30638,7 +30684,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:484
-#, possible-c-format
+#, c-format
 msgid ""
 " \n"
 "\t                # Middle right \n"
@@ -30651,7 +30697,7 @@ msgstr ""
 #: avidemux/ADM_video/ADM_vidFlux.cpp:489
 #: avidemux/ADM_video/ADM_vidFlux.cpp:520
 #: avidemux/ADM_video/ADM_vidFlux.cpp:551
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm2 \n"
 "\t                punpcklbw %%mm7,%%mm2 \n"
@@ -30686,7 +30732,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:500
 #: avidemux/ADM_video/ADM_vidFlux.cpp:531
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm1 \n"
 "\t                punpcklbw %%mm7,%%mm1 \n"
@@ -30704,7 +30750,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:512
 #: avidemux/ADM_video/ADM_vidFlux.cpp:543
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm1 \n"
 "\t                punpcklbw %%mm7,%%mm1 \n"
@@ -30713,7 +30759,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:516
-#, possible-c-format
+#, c-format
 msgid ""
 " \n"
 "\t                # Top right \n"
@@ -30748,7 +30794,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:547
-#, possible-c-format
+#, c-format
 msgid ""
 " \n"
 "\t                # Bottom right \n"
@@ -30767,7 +30813,7 @@ msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:561
 #: avidemux/ADM_video/ADM_vidFlux.cpp:570
-#, possible-c-format
+#, c-format
 msgid ""
 "),%%mm1 \n"
 "\t                punpcklbw %%mm7,%%mm1 \n"
@@ -30791,7 +30837,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:575
-#, possible-c-format
+#, c-format
 msgid ""
 " \n"
 "\t                # Average \n"
@@ -30805,7 +30851,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:581
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm6                  # Make index into lookup \n"
 "\t                movq %%mm6,%%mm1 \n"
@@ -30814,7 +30860,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:584
-#, possible-c-format
+#, c-format
 msgid ""
 " \n"
 "\t                paddd %%mm6,%%mm1 \n"
@@ -30829,7 +30875,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:588
-#, possible-c-format
+#, c-format
 msgid ""
 ",8),%%mm2          # Do lookup \n"
 "\t            pmulhw %%mm2,%%mm5                                  # mm5 = "
@@ -30842,7 +30888,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:594
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm2 \n"
 "\t                movq %%mm0,%%mm3 \n"
@@ -30850,7 +30896,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidFlux.cpp:596
-#, possible-c-format
+#, c-format
 msgid ""
 ",%%mm4 \n"
 "\t \n"
@@ -31047,12 +31093,12 @@ msgid "MPdelogo : error getting frame\n"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidMPdelogo.cpp:345
-#, possible-c-format
+#, c-format
 msgid "%d:%d:%d:%d:%d"
 msgstr ""
 
 #: avidemux/ADM_video/ADM_vidMPdelogo.cpp:354
-#, possible-c-format
+#, c-format
 msgid "delogo: %d x %d, %d x %d, band = %d\n"
 msgstr ""
 
@@ -31313,7 +31359,7 @@ msgid "Creating Darwin coreAudio device\n"
 msgstr ""
 
 #: avidemux/ADM_audiodevice/ADM_deviceAudioCore.cpp:124
-#, possible-c-format
+#, c-format
 msgid "Audio Core: Fill : rd %lu wr:%lu nb asked:%lu \n"
 msgstr ""
 
@@ -31377,7 +31423,7 @@ msgstr ""
 
 #: avidemux/ADM_audiodevice/ADM_deviceAudioCore.cpp:308
 #: avidemux/ADM_audiodevice/ADM_deviceSDL.cpp:242
-#, possible-c-format
+#, c-format
 msgid "AudioCore: Putting %lu bytes rd:%lu wr:%lu \n"
 msgstr ""
 
@@ -31565,7 +31611,7 @@ msgid "Closing SDL audio\n"
 msgstr ""
 
 #: avidemux/ADM_audiodevice/ADM_deviceSDL.cpp:100
-#, possible-c-format
+#, c-format
 msgid "sdl : Fill : rd %lu wr:%lu nb asked:%lu \n"
 msgstr ""
 
@@ -32236,7 +32282,7 @@ msgid "Taking that track as audio track 2\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:269
-#, possible-c-format
+#, c-format
 msgid "%x"
 msgstr ""
 
@@ -32276,17 +32322,17 @@ msgid "Audio, Temporary index created of 2*%lu megaBytes\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:508
-#, possible-c-format
+#, c-format
 msgid "frame : %lu,"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:509
-#, possible-c-format
+#, c-format
 msgid "Pos:%llu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:526
-#, possible-c-format
+#, c-format
 msgid "Detected frame : %lu,size %lu  page count : %lu\n"
 msgstr ""
 
@@ -32318,7 +32364,7 @@ msgid "Audio track1: %lu bytes seen, Audio Track2 : %lu bytes seen\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:589
-#, possible-c-format
+#, c-format
 msgid ""
 "****************** frame %lu requested findex=%lu type%lu**************\n"
 msgstr ""
@@ -32331,7 +32377,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:610
-#, possible-c-format
+#, c-format
 msgid "\t cont :%lu -> %02d ( %lu to go)\n"
 msgstr ""
 
@@ -32348,12 +32394,12 @@ msgid "The total frame len is %lu, frame number is %lu, findex=%lu,\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:637 avidemux/ADM_ogm/ADM_ogm.cpp:715
-#, possible-c-format
+#, c-format
 msgid " Last frag : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:641
-#, possible-c-format
+#, c-format
 msgid "--short seeking (%d)  \n"
 msgstr ""
 
@@ -32377,24 +32423,24 @@ msgid "For information the frame len is %lu, findex=%lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:667
-#, possible-c-format
+#, c-format
 msgid "last seekable : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:677 avidemux/ADM_ogm/ADM_ogmAudio.cpp:172
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " page : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:693
-#, possible-c-format
+#, c-format
 msgid "__ frags__ : %u \n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:696
-#, possible-c-format
+#, c-format
 msgid "\t %lu -> %02d ( %lu to go)\n"
 msgstr ""
 
@@ -32407,7 +32453,7 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogm.cpp:730
-#, possible-c-format
+#, c-format
 msgid "--seeking (%ld) got : %lu \n"
 msgstr ""
 
@@ -32524,29 +32570,29 @@ msgid "Ogg audio init done\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:141
-#, possible-c-format
+#, c-format
 msgid "Going to offset...%lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:152
-#, possible-c-format
+#, c-format
 msgid "matching frame %lu \n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:178
-#, possible-c-format
+#, c-format
 msgid ""
 "\n"
 " audio in buffer : %lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:208
-#, possible-c-format
+#, c-format
 msgid "Ogg:This round read %lu bytes from buffer (asked) \n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:214
-#, possible-c-format
+#, c-format
 msgid "This round read %lu bytes asked %lu \n"
 msgstr ""
 
@@ -32561,12 +32607,12 @@ msgid "End of ogg stream\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:377
-#, possible-c-format
+#, c-format
 msgid "OGM:Looking for %lu ms\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:378
-#, possible-c-format
+#, c-format
 msgid "Looking for %llu sample\n"
 msgstr ""
 
@@ -32576,17 +32622,17 @@ msgid "Goto :%lu, max :%lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:397
-#, possible-c-format
+#, c-format
 msgid "Gotcha at frame %lu\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:407
-#, possible-c-format
+#, c-format
 msgid "Wanted %llu"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:408 avidemux/ADM_ogm/ADM_ogmAudio.cpp:416
-#, possible-c-format
+#, c-format
 msgid " got %llu\n"
 msgstr ""
 
@@ -32596,7 +32642,7 @@ msgid "Could no sync to a header close enough\n"
 msgstr ""
 
 #: avidemux/ADM_ogm/ADM_ogmAudio.cpp:425
-#, possible-c-format
+#, c-format
 msgid "%lu: Current %llu target %llu\n"
 msgstr ""
 
@@ -32643,7 +32689,7 @@ msgid "Output file error"
 msgstr ""
 
 #: avidemux/ADM_ocr/adm_ocr.cpp:217
-#, possible-c-format
+#, c-format
 msgid "Could not open \"%s\" for writing."
 msgstr ""
 
@@ -33103,7 +33149,7 @@ msgid "Rx Cmd %u failed for frame %u\n"
 msgstr ""
 
 #: avidemux/ADM_avsproxy/ADM_avsproxy_net.cpp:97
-#, possible-c-format
+#, c-format
 msgid "Cmd %u on frame %u succeed\n"
 msgstr ""
 
@@ -33241,7 +33287,7 @@ msgstr ""
 #: avidemux/gtk_gui.cpp:455 avidemux/gtk_gui.cpp:460 avidemux/gtk_gui.cpp:596
 #: avidemux/gtk_gui.cpp:599
 msgid "Select AVI file..."
-msgstr ""
+msgstr "Vyberte AVI soubor..."
 
 #: avidemux/gtk_gui.cpp:459
 #, c-format
@@ -33402,7 +33448,7 @@ msgid "Permission error"
 msgstr ""
 
 #: avidemux/gtk_gui.cpp:993
-#, possible-c-format
+#, c-format
 msgid "\"%s\" does not exist."
 msgstr ""
 
@@ -33523,7 +33569,7 @@ msgid "Done"
 msgstr ""
 
 #: avidemux/gtk_gui.cpp:1488
-#, possible-c-format
+#, c-format
 msgid "Saved %d images."
 msgstr ""
 
@@ -33554,7 +33600,7 @@ msgid "Something bad happened"
 msgstr ""
 
 #: avidemux/gtk_gui.cpp:1594
-#, possible-c-format
+#, c-format
 msgid "Saved \"%s\"."
 msgstr ""
 
@@ -33767,12 +33813,12 @@ msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
 msgstr ""
 
 #: avidemux/gtk_gui.cpp:2599
-#, possible-c-format
+#, c-format
 msgid "File %s has been successfully saved."
 msgstr ""
 
 #: avidemux/gtk_gui.cpp:2603
-#, possible-c-format
+#, c-format
 msgid "File %s was NOT saved correctly."
 msgstr ""
 
@@ -33828,17 +33874,17 @@ msgid "Requantized file to write ?"
 msgstr ""
 
 #: avidemux/ADM_requantize.cpp:159
-#, possible-c-format
+#, c-format
 msgid "%lu in:%03lu out:%03lu\n"
 msgstr ""
 
 #: avidemux/ADM_requantize.cpp:168
-#, possible-c-format
+#, c-format
 msgid "Requant in %x %x %x %x\n"
 msgstr ""
 
 #: avidemux/ADM_requantize.cpp:169
-#, possible-c-format
+#, c-format
 msgid "Requant out %x %x %x %x %x %x\n"
 msgstr ""
 
@@ -33868,7 +33914,7 @@ msgid "1st frame contains the seq header\n"
 msgstr ""
 
 #: avidemux/ADM_requantize.cpp:299 avidemux/ADM_requantize.cpp:322
-#, possible-c-format
+#, c-format
 msgid "in:%03lu out:%03lu\n"
 msgstr ""
 
@@ -33883,7 +33929,7 @@ msgid "Stat : %x %x %x %x\n"
 msgstr ""
 
 #: avidemux/ADM_requantize.cpp:342
-#, possible-c-format
+#, c-format
 msgid "Successfully saved \"%s\"."
 msgstr ""
 
@@ -33921,7 +33967,7 @@ msgid "fq:%d,"
 msgstr ""
 
 #: avidemux/ADM_pp.cpp:89
-#, possible-c-format
+#, c-format
 msgid "Enabled type:%d strength:%d\n"
 msgstr ""
 
@@ -34385,7 +34431,7 @@ msgstr ""
 
 #: avidemux/prefs.cpp:479 avidemux/prefs.cpp:572 avidemux/prefs.cpp:576
 #: avidemux/prefs.cpp:593
-#, possible-c-format
+#, c-format
 msgid "%u"
 msgstr ""
 
@@ -34635,7 +34681,7 @@ msgstr ""
 #: avidemux/main.cpp:116
 #, c-format
 msgid "Locales for %s appear to be in %s\n"
-msgstr ""
+msgstr "Locales pro %s se zdají být v %s\n"
 
 #: avidemux/main.cpp:117
 #, c-format
