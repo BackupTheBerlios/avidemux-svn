@@ -232,7 +232,8 @@ int nw;
                                 name=prefs->get_lastfiles();
                                 rank=(int)action-ACT_RECENT0;
                                 ADM_assert(name[rank]);
-                                A_openAvi2 ((char *)name[rank], 0);
+				gchar *name_utf8 = g_filename_from_utf8(name[rank], -1, NULL, NULL, NULL);
+                                A_openAvi2 (name_utf8, 0);
                                 
                                 
                 return;
@@ -1086,7 +1087,8 @@ int A_openAvi2 (char *name, uint8_t mode)
 	}
 
 	/* remember any video or workbench file to "recent" */
-	prefs->set_lastfile(longname);
+	gchar *name_utf8 = g_filename_to_utf8(longname, -1, NULL, NULL, NULL);
+	prefs->set_lastfile(name_utf8);
         UI_updateRecentMenu();
 	updateLoaded ();
         if(currentaudiostream)
@@ -1105,16 +1107,16 @@ int A_openAvi2 (char *name, uint8_t mode)
             // Revert mixer to copy
             setCurrentMixerFromString("NONE");
         }
-	for(i=strlen(longname);i>=0;i--)
+	for(i=strlen(name_utf8);i>=0;i--)
 #ifdef CYG_MANGLING
-		if( longname[i] == '\\' ){
+		if( name_utf8[i] == '\\' ){
 #else
-		if( longname[i] == '/' ){
+		if( name_utf8[i] == '/' ){
 #endif
 			i++;
 			break;
 		}
-	UI_setTitle(longname+i);
+	UI_setTitle(name_utf8+i);
     }
 	ADM_dealloc(longname);
 	return 1;
