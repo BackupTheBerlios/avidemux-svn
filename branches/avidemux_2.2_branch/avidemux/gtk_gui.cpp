@@ -985,6 +985,7 @@ extern void GUI_PreviewEnd (void);
 int A_openAvi2 (char *name, uint8_t mode)
 {
   uint8_t res;
+  gchar *name_utf8 = NULL;
   char *longname;
   uint32_t magic[4];
   uint32_t id = 0;
@@ -1087,8 +1088,9 @@ int A_openAvi2 (char *name, uint8_t mode)
 	}
 
 	/* remember any video or workbench file to "recent" */
-	gchar *name_utf8 = g_filename_to_utf8(longname, -1, NULL, NULL, NULL);
+	name_utf8 = g_filename_to_utf8(longname, -1, NULL, NULL, NULL);
 	prefs->set_lastfile(name_utf8);
+	// Free name_utf8 ?? FIXME
         UI_updateRecentMenu();
 	updateLoaded ();
         if(currentaudiostream)
