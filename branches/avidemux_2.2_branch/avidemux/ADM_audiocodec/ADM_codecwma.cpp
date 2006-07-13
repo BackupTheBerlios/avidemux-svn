@@ -56,7 +56,8 @@
     // Fills in some values...
     _context->sample_rate = info->frequency;
     _context->channels = info->channels;
-    _context->block_align = info->blockalign;      
+    _context->block_align = info->blockalign;
+    _context->bit_rate = info->byterate*8;
     if(fourcc==WAV_WMA)
         _context->codec_id = CODEC_ID_WMAV2;
     else
@@ -64,21 +65,27 @@
         _context->codec_id = CODEC_ID_QDM2;
             else ADM_assert(0);
 
-    _blockalign=info->blockalign;
+    
     _context->extradata=(void *)d;
     _context->extradata_size=(int)l;
 
     printf(" Using %ld bytes of extra header data\n",l);
     mixDump((uint8_t *)_context->extradata,_context->extradata_size);
-
+    printf("\n");
    AVCodec *codec=avcodec_find_decoder(_context->codec_id);
    if(!codec) {GUI_Error_HIG("Internal error", "Cannot open WMA2 codec.");ADM_assert(0);} 
     if (avcodec_open(_context, codec) < 0)
     {
-        printf("\n WMA decoder init failed !\n");
+        printf("\n lavAudio decoder init failed !\n");
         ADM_assert(0);
     }
-    printf("FFwma init successful (blockalign %d)\n",info->blockalign);
+    printf("[lavAudio] init successful (blockalign %d)\n",info->blockalign);
+    printf("[lavAudio] Output conf : Samplerate %u\n",_context->sample_rate );
+    printf("[lavAudio] Output conf : channels   %u\n",_context->channels );
+    printf("[lavAudio] Output conf : blockalign %u\n",_context->block_align );
+    printf("[lavAudio] Output conf : bitrate %u\n",_context->bit_rate/1000 );
+    info->blockalign=_context->block_align;
+    _blockalign=info->blockalign;
 }
  ADM_AudiocodecWMA::~ADM_AudiocodecWMA()
  {
@@ -93,7 +100,7 @@ uint8_t ADM_AudiocodecWMA::run( uint8_t * ptr, uint32_t nbIn, uint8_t * outptr, 
 {
 int out=0;
 int max=0,pout=0;
-
+        printf("[lavAudio]Incoming %d\n",nbIn);
         *nbOut=0;
         // Shrink
         if(_head && (_tail+nbIn)*3>ADMWA_BUF*2)
@@ -111,12 +118,12 @@ int max=0,pout=0;
                 out=avcodec_decode_audio(_context,(int16_t *)outptr,&pout,_buffer+_head,_tail-_head);
                 if(out<0)
                 {
-                        printf( " *** WMA decoding error ***\n");
-                        _head+=1; // Try skipping some bytes
-                        continue;
+                        printf( " *** [lavAudio] decoding error ***\n");
+                        return 1;
                 }
                 //printf("This round %d Consumed %d produced %d\n",_tail-_head,out,pout);
                 _head+=out; // consumed bytes
+                //_head+=_blockalign;
                 *nbOut+=pout;
                 outptr+=pout;
         }
