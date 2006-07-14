@@ -13,220 +13,166 @@ msgstr ""
 "Last-Translator: Alexandre Prokoudine <avp@altlinux.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=Unicode\n"
+"Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: avidemux/main.cpp:117
 msgid "_File"
-msgstr "_п╓п╟п╧п╩"
+msgstr "_Файл"
 
-#~ msgid "Avidemux2"
-#~ msgstr "Avidemux2"
+msgid "Open video"
+msgstr "Открыть видеофайл"
 
-#~ msgid "about.xpm"
-#~ msgstr "about.xpm"
+msgid "Append video"
+msgstr "Добавить видеофайл"
 
-#~ msgid "Open video"
-#~ msgstr "п·я┌п╨я─я▀я┌я▄ п╡п╦п╢п╣п╬я└п╟п╧п╩"
+msgid "Save Audio"
+msgstr "Сохранить звук"
 
-#~ msgid "Append video"
-#~ msgstr "п■п╬п╠п╟п╡п╦я┌я▄ п╡п╦п╢п╣п╬я└п╟п╧п╩"
+msgid "Save as avi"
+msgstr "Сохранитm как AVI"
 
-#~ msgid "Save Audio"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ п╥п╡я┐п╨"
+msgid "Save as dual audio avi"
+msgstr "Сохранить как AVI с двойной звуковой дорожкой"
 
-#~ msgid "Save as avi"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌m п╨п╟п╨ AVI"
+msgid "Avi Muxer options"
+msgstr "Параметры Avi Muxer"
 
-#~ msgid "Save as dual audio avi"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ п╨п╟п╨ AVI я│ п╢п╡п╬п╧п╫п╬п╧ п╥п╡я┐п╨п╬п╡п╬п╧ п╢п╬я─п╬п╤п╨п╬п╧"
+msgid "Save raw video stream"
+msgstr "Сохранить как беззаголовочный видеопоток"
 
-#~ msgid "Avi Muxer options"
-#~ msgstr "п÷п╟я─п╟п╪п╣я┌я─я▀ Avi Muxer"
+msgid "Export as mpeg video"
+msgstr "Экспортировать как MPEG"
 
-#~ msgid "Save raw video stream"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ п╨п╟п╨ п╠п╣п╥п╥п╟пЁп╬п╩п╬п╡п╬я┤п╫я▀п╧ п╡п╦п╢п╣п╬п©п╬я┌п╬п╨"
+msgid "Video CD"
+msgstr "Video CD"
 
-#~ msgid "Export as mpeg video"
-#~ msgstr "п╜п╨я│п©п╬я─я┌п╦я─п╬п╡п╟я┌я▄ п╨п╟п╨ MPEG"
+msgid "SVCD"
+msgstr "SVCD"
 
-#~ msgid "Video CD"
-#~ msgstr "Video CD"
+msgid "DVD"
+msgstr "DVD"
 
-#~ msgid "SVCD"
-#~ msgstr "SVCD"
+msgid "XVCD (ffmpeg Mpeg1)"
+msgstr "XVCD (ffmpeg Mpeg1)"
 
-#~ msgid "DVD"
-#~ msgstr "DVD"
+msgid "Video Informations"
+msgstr "Информация о видео"
 
-#~ msgid "XVCD (ffmpeg Mpeg1)"
-#~ msgstr "XVCD (ffmpeg Mpeg1)"
+msgid "Save image"
+msgstr "Сохранить изображение"
 
-#~ msgid "Video Informations"
-#~ msgstr "п≤п╫я└п╬я─п╪п╟я├п╦я▐ п╬ п╡п╦п╢п╣п╬"
+msgid "Play "
+msgstr "Воспроизвести "
 
-#~ msgid "Save image"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ п╦п╥п╬п╠я─п╟п╤п╣п╫п╦п╣"
+msgid "Play video"
+msgstr "Воспроизвести видео"
 
-#~ msgid "Play "
-#~ msgstr "п▓п╬я│п©я─п╬п╦п╥п╡п╣я│я┌п╦ "
+msgid "Decoder options"
+msgstr "Параметры декодера"
 
-#~ msgid "Play video"
-#~ msgstr "п▓п╬я│п©я─п╬п╦п╥п╡п╣я│я┌п╦ п╡п╦п╢п╣п╬"
+msgid "Next frame"
+msgstr "Следующий кадр"
 
-#~ msgid "Decoder options"
-#~ msgstr "п÷п╟я─п╟п╪п╣я┌я─я▀ п╢п╣п╨п╬п╢п╣я─п╟"
+msgid "Previous frame"
+msgstr "Предыдущий кадр"
 
-#~ msgid "Next frame"
-#~ msgstr "п║п╩п╣п╢я┐я▌я┴п╦п╧ п╨п╟п╢я─"
+msgid "Jump to frame"
+msgstr "Перейти к кадру..."
 
-#~ msgid "Previous frame"
-#~ msgstr "п÷я─п╣п╢я▀п╢я┐я┴п╦п╧ п╨п╟п╢я─"
+msgid "_Edit"
+msgstr "_Правка"
 
-#~ msgid "Jump to frame"
-#~ msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╨п╟п╢я─я┐..."
+msgid "Go to marker A"
+msgstr "Перейти к маркеру А"
 
-#~ msgid "_Edit"
-#~ msgstr "_п÷я─п╟п╡п╨п╟"
+msgid "Go to marker B"
+msgstr "Перейти к маркеру B"
 
-#~ msgid "Go to marker A"
-#~ msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╪п╟я─п╨п╣я─я┐ п░"
+msgid "Load edit list"
+msgstr "Загрузить список изменений"
 
-#~ msgid "Go to marker B"
-#~ msgstr "п÷п╣я─п╣п╧я┌п╦ п╨ п╪п╟я─п╨п╣я─я┐ B"
+msgid "Save edit list"
+msgstr "Сохранить список изменений"
 
-#~ msgid "Load edit list"
-#~ msgstr "п≈п╟пЁя─я┐п╥п╦я┌я▄ я│п©п╦я│п╬п╨ п╦п╥п╪п╣п╫п╣п╫п╦п╧"
+msgid "Audio source"
+msgstr "Источник звука"
 
-#~ msgid "Save edit list"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ я│п©п╦я│п╬п╨ п╦п╥п╪п╣п╫п╣п╫п╦п╧"
+msgid "Current Video"
+msgstr "Текущее видео"
 
-#~ msgid "Audio source"
-#~ msgstr "п≤я│я┌п╬я┤п╫п╦п╨ п╥п╡я┐п╨п╟"
+msgid "External mpeg (mp2/mp3)"
+msgstr "Внешний mpeg (mp2/mp3)"
 
-#~ msgid "Current Video"
-#~ msgstr "п╒п╣п╨я┐я┴п╣п╣ п╡п╦п╢п╣п╬"
+msgid "External Wav"
+msgstr "Внешний WAV"
 
-#~ msgid "External mpeg (mp2/mp3)"
-#~ msgstr "п▓п╫п╣я┬п╫п╦п╧ mpeg (mp2/mp3)"
+msgid "External AC3"
+msgstr "Внешний AC3"
 
-#~ msgid "External Wav"
-#~ msgstr "п▓п╫п╣я┬п╫п╦п╧ WAV"
+msgid "None"
+msgstr "Ничего"
 
-#~ msgid "External AC3"
-#~ msgstr "п▓п╫п╣я┬п╫п╦п╧ AC3"
+msgid "Build VBR time map"
+msgstr "Создать карту времени VBR"
 
-#~ msgid "None"
-#~ msgstr "п²п╦я┤п╣пЁп╬"
+msgid "Misc"
+msgstr "Другое"
 
-#~ msgid "Build VBR time map"
-#~ msgstr "п║п╬п╥п╢п╟я┌я▄ п╨п╟я─я┌я┐ п╡я─п╣п╪п╣п╫п╦ VBR"
+msgid "Index mpeg"
+msgstr "Индекс MPEG-файла"
 
-#~ msgid "Misc"
-#~ msgstr "п■я─я┐пЁп╬п╣"
+msgid "Cut Wizard"
+msgstr "Хирург"
 
-#~ msgid "Index mpeg"
-#~ msgstr "п≤п╫п╢п╣п╨я│ MPEG-я└п╟п╧п╩п╟"
+msgid "Select Log file"
+msgstr "Выбрать файл журнала"
 
-#~ msgid "Cut Wizard"
-#~ msgstr "п╔п╦я─я┐я─пЁ"
+msgid "Rebuild frames (I&B)"
+msgstr "Перестроить кадры (I&B)"
 
-#~ msgid "Select Log file"
-#~ msgstr "п▓я▀п╠я─п╟я┌я▄ я└п╟п╧п╩ п╤я┐я─п╫п╟п╩п╟"
+msgid "Change fps"
+msgstr "Изменить FPS"
 
-#~ msgid "Rebuild frames (I&B)"
-#~ msgstr "п÷п╣я─п╣я│я┌я─п╬п╦я┌я▄ п╨п╟п╢я─я▀ (I&B)"
+msgid "Save preference"
+msgstr "Сохранить настройки"
 
-#~ msgid "Change fps"
-#~ msgstr "п≤п╥п╪п╣п╫п╦я┌я▄ FPS"
+msgid "Audio Device"
+msgstr "Звуковое устройство"
 
-#~ msgid "Save preference"
-#~ msgstr "п║п╬я┘я─п╟п╫п╦я┌я▄ п╫п╟я│я┌я─п╬п╧п╨п╦"
+msgid "OSS"
+msgstr "OSS"
 
-#~ msgid "Audio Device"
-#~ msgstr "п≈п╡я┐п╨п╬п╡п╬п╣ я┐я│я┌я─п╬п╧я│я┌п╡п╬"
+msgid "Arts"
+msgstr "aRts"
 
-#~ msgid "OSS"
-#~ msgstr "OSS"
+msgid "_About"
+msgstr "_О программе"
 
-#~ msgid "Arts"
-#~ msgstr "aRts"
+msgid "VCodec"
+msgstr "Видеокодек"
 
-#~ msgid "_About"
-#~ msgstr "_п· п©я─п╬пЁя─п╟п╪п╪п╣"
+msgid "ACodec"
+msgstr "Звуковой кодек"
 
-#~ msgid "VCodec"
-#~ msgstr "п▓п╦п╢п╣п╬п╨п╬п╢п╣п╨"
+msgid "Recent files"
+msgstr "Недавно открывавшиеся файлы"
 
-#~ msgid "ACodec"
-#~ msgstr "п≈п╡я┐п╨п╬п╡п╬п╧ п╨п╬п╢п╣п╨"
+msgid "Frames : "
+msgstr "Кадры : "
 
-#~ msgid "Recent files"
-#~ msgstr "п²п╣п╢п╟п╡п╫п╬ п╬я┌п╨я─я▀п╡п╟п╡я┬п╦п╣я│я▐ я└п╟п╧п╩я▀"
+msgid " Time :"
+msgstr " Время :"
 
-#~ msgid "Frames : "
-#~ msgstr "п п╟п╢я─я▀ : "
+msgid "Preview"
+msgstr "Предпросмотр"
 
-#~ msgid "000000"
-#~ msgstr "000000"
+msgid "Output"
+msgstr "Вывод"
 
-#~ msgid " / 000000"
-#~ msgstr " / 000000"
+msgid "V Process"
+msgstr "Видеопроцесс"
 
-#~ msgid " Time :"
-#~ msgstr " п▓я─п╣п╪я▐ :"
-
-#~ msgid "00:00:00,000"
-#~ msgstr "00:00:00,000"
-
-#~ msgid " / 00:00:00,000"
-#~ msgstr " / 00:00:00,000"
-
-#~ msgid " A:0"
-#~ msgstr " A:0"
-
-#~ msgid " B:-1"
-#~ msgstr " B:-1"
-
-#~ msgid "play.xpm"
-#~ msgstr "play.xpm"
-
-#~ msgid "stop.xpm"
-#~ msgstr "stop.xpm"
-
-#~ msgid "backward.xpm"
-#~ msgstr "backward.xpm"
-
-#~ msgid "forward.xpm"
-#~ msgstr "forward.xpm"
-
-#~ msgid "Kbackward.xpm"
-#~ msgstr "Kbackward.xpm"
-
-#~ msgid "Kforward.xpm"
-#~ msgstr "Kforward.xpm"
-
-#~ msgid "markA.xpm"
-#~ msgstr "markA.xpm"
-
-#~ msgid "markB.xpm"
-#~ msgstr "markB.xpm"
-
-#~ msgid "begin.xpm"
-#~ msgstr "begin.xpm"
-
-#~ msgid "end.xpm"
-#~ msgstr "end.xpm"
-
-#~ msgid "Preview"
-#~ msgstr "п÷я─п╣п╢п©я─п╬я│п╪п╬я┌я─"
-
-#~ msgid "Output"
-#~ msgstr "п▓я▀п╡п╬п╢"
-
-#~ msgid "V Process"
-#~ msgstr "п▓п╦п╢п╣п╬п©я─п╬я├п╣я│я│"
-
-#~ msgid "A Process"
-#~ msgstr "п░я┐п╢п╦п╬п©я─п╬я├п╣п╣я│"
+msgid "A Process"
+msgstr "Аудиопроцеес"
