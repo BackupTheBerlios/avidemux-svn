@@ -881,7 +881,7 @@ uint8_t init;
  				else
 				{
 					delete vorbis;
-					GUI_Error_HIG("Vorbis initialization failed", "Not activated.");
+                                        GUI_Error_HIG(_("Vorbis initialization failed"), _("Not activated."));
 				}
 		}
 		break;
@@ -899,7 +899,7 @@ uint8_t init;
  				else
 				{
 					delete faac;
-					GUI_Error_HIG("FAAC initialization failed", "Not activated.");
+                                        GUI_Error_HIG(_("FAAC initialization failed"), _("Not activated."));
 				}
 		}
 		break;
@@ -947,7 +947,7 @@ uint8_t init;
 				  } else
 			    {
 			    		delete mp2enc;
-					GUI_Error_HIG("FFmpeg MP2 initialization failed", "Not activated.");
+                                        GUI_Error_HIG(_("FFmpeg MP2 initialization failed"), _("Not activated."));
 			    }
 			    }
     	  break;
@@ -967,7 +967,7 @@ uint8_t init;
 			} else
 			{
 				delete toolame_enc;
-				GUI_Error_HIG("tooLAME initialization failed", "Not activated.");
+                                GUI_Error_HIG(_("tooLAME initialization failed"), _("Not activated."));
 			}
 		}
     	  break;
@@ -988,7 +988,7 @@ uint8_t init;
 				  } else
 			    {
 			    		delete ac3enc;
-					GUI_Error_HIG("FFmpeg AC3 initialization failed", "Not activated.");
+                                        GUI_Error_HIG(_("FFmpeg AC3 initialization failed"), _("Not activated."));
 			    }
 		  }
     	  break;
