@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-14 11:43+0200\n"
-"PO-Revision-Date: 2006-07-14 15:50+0200\n"
+"PO-Revision-Date: 2006-07-15 11:47+0200\n"
 "Last-Translator: mean <fixounet@free.fr>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,8 +49,7 @@ msgstr "L'initialisation des filtres a echouée"
 #: avidemux/oplug_avi/op_saveprocess.cpp:125
 #: avidemux/oplug_mp4/oplug_mp4.cpp:354
 #: avidemux/oplug_ogm/op_ogsaveprocess.cpp:99
-msgid ""
-" Reuse the existing log-file ?"
+msgid " Reuse the existing log-file ?"
 msgstr "Reutiliser le fichier existant ?"
 
 #: avidemux/oplug_avi/op_saveprocess.cpp:150
@@ -337,7 +336,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_requant.cpp:152
 msgid "Final size (audio+video):"
-msgstr ""
+msgstr "Taille finale (audio+vidéo)"
 
 #: avidemux/ADM_dialog/DIA_requant.cpp:159
 #: avidemux/ADM_dialog/DIA_requant.cpp:166
@@ -362,9 +361,8 @@ msgid "0"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:79
-#, fuzzy
 msgid "Libavcodec Decoder Option"
-msgstr "Options du decodeur"
+msgstr "Options du decodeur Lavcodec"
 
 #: avidemux/ADM_dialog/DIA_lavdecoder.cpp:88
 msgid "Swap UV"
@@ -456,11 +454,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:99
 msgid "Horizontal Deblocking"
-msgstr ""
+msgstr "Deblocking horizontal"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:103
 msgid "Vertical Deblocking"
-msgstr ""
+msgstr "Deblocking vertical"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:107
 msgid "Deringing"
@@ -469,11 +467,11 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_postproc.cpp:131
 #: avidemux/ADM_dialog/DIA_mjpeg.cpp:93
 msgid "Swap U & V"
-msgstr ""
+msgstr "Inverser U & V"
 
 #: avidemux/ADM_dialog/DIA_postproc.cpp:136
 msgid "Filter Strength"
-msgstr ""
+msgstr "Force du filtre"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:47
 msgid "Select video to write"
@@ -620,7 +618,7 @@ msgstr "Mode VBR"
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:762
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:634
 msgid "_Interlaced"
-msgstr ""
+msgstr "Entrelacé"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:765
 msgid ""
@@ -631,7 +629,7 @@ msgstr "Active le mode d'encodage entrelacé - A n'utiliser que si la source est 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:767
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:639
 msgid "_Greyscale"
-msgstr ""
+msgstr "Gris"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:770
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:642
@@ -640,7 +638,7 @@ msgstr "Encoder en noir & blanc"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:776
 msgid "Ca_rtoon mode"
-msgstr ""
+msgstr "Mode dessin animé"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:779
 msgid "Enables special motion estimation features for cartoons/anime"
@@ -648,7 +646,7 @@ msgstr "Active l'estimation de mouvement spéciale dessins animés"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:781
 msgid "C_hroma optimizer"
-msgstr ""
+msgstr "Optimisation de la couleur"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:784
 msgid "Enables a chroma optimizer prefilter"
@@ -677,7 +675,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:819
 msgid "Motion search precision:"
-msgstr ""
+msgstr "Precision de la recherche de mouvement"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:823
 msgid "VHQ mode:"
@@ -979,11 +977,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1257
 msgid "High bitrate scenes (%):"
-msgstr ""
+msgstr "Scènes à haut bitrate (%) :"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1262
 msgid "Low bitrate scenes (%):"
-msgstr ""
+msgstr "Scènes à bas bitrate"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1267
 msgid "Overflow control strength (%):"
@@ -1009,11 +1007,11 @@ msgstr "0 = comportement par defaut (Xvid decidera, sinon le pourcentage prelevé
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1291
 msgid "Curve compression"
-msgstr ""
+msgstr "Compression de la courbe"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1295
 msgid "Second Pass"
-msgstr ""
+msgstr "Seconde Passe"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1504
 msgid "<b>Intra Matrix</b>"
@@ -1034,7 +1032,7 @@ msgstr "Quitter"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:162
 msgid "Lame settings"
-msgstr ""
+msgstr "Réglages pour Lame"
 
 #: avidemux/ADM_dialog/DIA_lame.cpp:185 avidemux/ADM_dialog/DIA_audio.cpp:284
 msgid "Mono"
@@ -1074,7 +1072,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:144
 msgid "Builtin support for"
-msgstr ""
+msgstr "Options de compilation"
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:158
 msgid ""
@@ -1206,7 +1204,7 @@ msgstr "Sauver les preferences en sortant"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:449
 msgid "User Interface"
-msgstr ""
+msgstr "Interface"
 
 #: avidemux/ADM_dialog/DIA_prefs.cpp:460
 msgid "_Automatically index MPEG files"
@@ -1845,11 +1843,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_busy.cpp:102
 msgid "Busy"
-msgstr ""
+msgstr "Occupé"
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:73
 msgid "Go to time"
-msgstr ""
+msgstr "Aller au temps"
 
 #: avidemux/ADM_dialog/DIA_gototime.cpp:88
 msgid "h"
@@ -1886,15 +1884,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:188
 msgid "Interpolate :"
-msgstr ""
+msgstr "Interpoler"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:200
 msgid "Top field (keep bottom)"
-msgstr ""
+msgstr "Champ du haut (garder celui du bas)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:201
 msgid "Bottom field (keep top)"
-msgstr ""
+msgstr "Champ du bas (garder celui du haut)"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:203
 msgid "Type"
@@ -1902,7 +1900,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:215
 msgid "Cubic Interpolation"
-msgstr ""
+msgstr "Interpolation cubique"
 
 #: avidemux/ADM_dialog/DIA_tdeint.cpp:216
 msgid "Modified ELA"
@@ -2165,9 +2163,8 @@ msgid "Aspect Ratio"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:452 avidemux/ADM_dialog/DIA_DVDff.cpp:605
-#, fuzzy
 msgid "Default"
-msgstr "Supprimer"
+msgstr "Défaut"
 
 #: avidemux/ADM_dialog/DIA_SVCD.cpp:456 avidemux/ADM_dialog/DIA_DVDff.cpp:609
 msgid "Tmpgenc"
@@ -2253,11 +2250,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:230
 msgid "Resample to hz"
-msgstr ""
+msgstr "Réechantilloner vers (Hz)"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:240
 msgid "<b>Resampling</b>"
-msgstr ""
+msgstr "<b>Fréquence </b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:259
 msgid "Film -> PAL"
@@ -2269,11 +2266,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:271
 msgid "<b>Fps convert</b>"
-msgstr ""
+msgstr "<b>Conversion image par seconde </b>"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:283
 msgid "No change"
-msgstr ""
+msgstr "Aucun changement"
 
 #: avidemux/ADM_dialog/DIA_audio.cpp:286
 msgid "Stereo+Surround"
@@ -2309,15 +2306,15 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:312
 msgid "Resize"
-msgstr ""
+msgstr "Redimensionner"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:326
 msgid " Width "
-msgstr ""
+msgstr "Largeur"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:333
 msgid " Height "
-msgstr ""
+msgstr "Hauteur"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:356
 #, fuzzy
@@ -2345,7 +2342,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:440
 msgid "16 round up"
-msgstr ""
+msgstr "Arrondir au multiple de 16"
 
 #: avidemux/ADM_dialog/DIA_resize.cpp:454
 msgid "Bilinear"
@@ -2361,35 +2358,35 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:544
 msgid "Crop Settings"
-msgstr ""
+msgstr "Réglage du taillage"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:578
 msgid "AutoCrop"
-msgstr ""
+msgstr "Taille automatique"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:600
 msgid "Reset"
-msgstr ""
+msgstr "RAZ"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:609
 msgid "Crop Left :"
-msgstr ""
+msgstr "Taille à gauche"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:617
 msgid "Crop Top:"
-msgstr ""
+msgstr "Taille en haut"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:625
 msgid "Crop Right:"
-msgstr ""
+msgstr "Taille à droite"
 
 #: avidemux/ADM_dialog/DIA_crop.cpp:633
 msgid "Crop Bottom:"
-msgstr ""
+msgstr "Taille en bas"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:150
 msgid "VideoCodec"
-msgstr ""
+msgstr "Codec Vidéo"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:169
 msgid "FFmpeg Mpeg4"
@@ -2417,11 +2414,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:199
 msgid "Configure Codec"
-msgstr ""
+msgstr "Configurer le codec"
 
 #: avidemux/ADM_dialog/DIA_vcodec.cpp:207 avidemux/ADM_gui2/GUI_main2.cpp:961
 msgid "Calculator"
-msgstr ""
+msgstr "Calculette"
 
 #: avidemux/ADM_dialog/DIA_kerneldeint.cpp:104
 msgid "Kernel Deinterlacer"
@@ -2539,29 +2536,28 @@ msgid ""
 "\n"
 "You can either resume or Abort it."
 msgstr ""
+"<b>L'encodage est en pause.</b>\n"
+"Vous pouvez au choix reprendre ou abandonner."
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:134
-#, fuzzy
 msgid "Abort"
-msgstr "A propos"
+msgstr "Abandon"
 
 #: avidemux/ADM_dialog/DIA_pause.cpp:156
 msgid "Resume"
-msgstr ""
+msgstr "Reprendre"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:56
-#, fuzzy
 msgid "Select Vob file to scan"
-msgstr "Choisir le fichier de log"
+msgstr "Choisir le fichier à parcourir"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:67
-#, fuzzy
 msgid "Select ifo file to use"
-msgstr "Choisir le fichier de log"
+msgstr "Choisir le fichier ifo à utiliser"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:78
 msgid "Select vobsub to write"
-msgstr ""
+msgstr "Choississez le fichier vobsub à écrire"
 
 #: avidemux/ADM_dialog/DIA_v2v.cpp:92
 msgid "Invalid vobname"
@@ -2605,7 +2601,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_color.cpp:71
 msgid "Select Color"
-msgstr ""
+msgstr "Choississez la couleur"
 
 #: avidemux/ADM_dialog/DIA_hue.cpp:246
 msgid "Hue/Saturation"
@@ -2627,20 +2623,19 @@ msgstr "Apercu[F7]"
 
 #: avidemux/ADM_dialog/DIA_preview.cpp:319
 msgid "Stack Field"
-msgstr ""
+msgstr "Empiler les champs"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:92
-#, fuzzy
 msgid "Select background picture"
-msgstr "Seconde piste audio"
+msgstr "Sélectionnez une image de fond"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:177
 msgid "Animated Menu"
-msgstr ""
+msgstr "Menu animé"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:201
 msgid "BackGround Image :"
-msgstr ""
+msgstr "Image de fond"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:208
 msgid "Standard"
@@ -2652,11 +2647,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:235
 msgid "Vignette Width"
-msgstr ""
+msgstr "Largeur des vignette"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:242
 msgid "Vignette Height"
-msgstr ""
+msgstr "Hauteur des vignettes"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:265
 msgid "<b>General</b>"
@@ -2693,7 +2688,7 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_animated.cpp:368
 #: avidemux/ADM_dialog/DIA_animated.cpp:377
 msgid "Start frame for this vignette."
-msgstr ""
+msgstr "Image de départ pour cette vignette"
 
 #: avidemux/ADM_dialog/DIA_animated.cpp:380
 msgid "<b>TimeCode</b>"
@@ -2865,17 +2860,16 @@ msgid "Detected Audio :"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:108 avidemux/ADM_dialog/DIA_DVDff.cpp:112
-#, fuzzy
 msgid "Bitrate out of range"
-msgstr "Histogramme de bitrate"
+msgstr "Bitrate hors borne"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:108
 msgid "choosing maxBitrate instead"
-msgstr ""
+msgstr "Utilisation de maxbitrate à la place"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:112
 msgid "choosing minBitrate instead"
-msgstr ""
+msgstr "Utilisation de minbitrate à la place"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:359
 msgid "DVD FFmpeg codec settings"
@@ -2883,11 +2877,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:376
 msgid "Encoding Type"
-msgstr ""
+msgstr "Type d'encodage"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:384
 msgid "Target Bitrate (kb/s)   "
-msgstr ""
+msgstr "Bitrate désiré (kb/s)"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:392 avidemux/ADM_dialog/DIA_xvid.cpp:480
 msgid "Quantizer"
@@ -2895,39 +2889,39 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:408
 msgid "Single Pass - Bitrate"
-msgstr ""
+msgstr "Simple passe - Bitrate"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:412
 msgid "Single Pass - Quantizer"
-msgstr ""
+msgstr "Simple Passe - Quantizer"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:416
 msgid "Two Pass (filesize) "
-msgstr ""
+msgstr "Double Passe - Taille finale"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:420
 msgid "Two Pass (bitrate) "
-msgstr ""
+msgstr "Double Passe - Bitrate moyen"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:441
 msgid "<b>Encoding mode </b>"
-msgstr ""
+msgstr "<b>Mode d'encodage</b>"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:455
 msgid "Minimum Bitrate (kb/s) "
-msgstr ""
+msgstr "Bitrate MIN (kb/s)"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:463
 msgid "Maximum Bitrate (kb/s)"
-msgstr ""
+msgstr "Bitrate MAX (kb/s)"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:483
 msgid "Use Xvid Ratecontrol"
-msgstr ""
+msgstr "Utiliser Xvid pour la distribution de bitrate"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:497
 msgid "VBV buffer size"
-msgstr ""
+msgstr "Taille du buffer VBV"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:513
 msgid "VCD: 40 kB"
@@ -2947,7 +2941,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:559
 msgid "<b>Interlacing</b>"
-msgstr ""
+msgstr "<b>Entrelacement</b>"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:589
 msgid "<b>Aspect Ratio</b>"
@@ -2963,27 +2957,27 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:654
 msgid "For info, size is : "
-msgstr ""
+msgstr "Pour information, la taille est :"
 
 #: avidemux/ADM_dialog/DIA_DVDff.cpp:664
 msgid "<b>Indicative audio size</b>"
-msgstr ""
+msgstr "<b>Taille audio estimée</b>"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:103
 msgid "Left:"
-msgstr ""
+msgstr "Gauche:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:119
 msgid "Right:"
-msgstr ""
+msgstr "Droite:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:135
 msgid "Top:"
-msgstr ""
+msgstr "Haut:"
 
 #: avidemux/ADM_dialog/DIA_4entries.cpp:151
 msgid "Bottom:"
-msgstr ""
+msgstr "Base:"
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:86
 msgid "Blend removal / Hard pulldown removal"
@@ -3120,9 +3114,8 @@ msgid "Not Yet!"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid.cpp:490
-#, fuzzy
 msgid "B Frames"
-msgstr "Image suivante"
+msgstr "BFrame"
 
 #: avidemux/ADM_dialog/DIA_audiocodec.cpp:112
 msgid "Audio settings"
@@ -3152,23 +3145,23 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:146
 msgid "Split in packets of"
-msgstr ""
+msgstr "Couper en block de"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:168
 msgid "video frame(s)"
-msgstr ""
+msgstr "image(s) vidéo"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:176
 msgid "bytes"
-msgstr ""
+msgstr "Octets"
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:184
 msgid "Autosplit file every"
-msgstr ""
+msgstr "Couper automatiquement tous les "
 
 #: avidemux/ADM_dialog/DIA_muxer.cpp:199
 msgid "megabytes"
-msgstr ""
+msgstr "megaoctets"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:442
 msgid "X264 configuration"
@@ -3176,7 +3169,7 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:457
 msgid "Encoding Mode:"
-msgstr ""
+msgstr "Mode d'encodage"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:469
 msgid "Entry input for target file size or bitrate"
@@ -3194,52 +3187,51 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:494
 msgid "Load Defaults"
-msgstr ""
+msgstr "Valeurs par défaut"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:498
 msgid "Load the stored default settings for the codec"
-msgstr ""
+msgstr "Charger les valeurs par défaut pour ce codec"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:500
 msgid "Save Defaults"
-msgstr ""
+msgstr "Sauver par défaut"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:504
 msgid "Save the current codec configuration as the stored default settings"
-msgstr ""
+msgstr "Sauvegarder comme valeur par défaut pour ce codec"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:506
-#, fuzzy
 msgid "Reset Defaults"
-msgstr "RAZ du job"
+msgstr "RAZ défaut"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:510
 msgid "Reload the initial default codec settings"
-msgstr ""
+msgstr "Remise des valeurs par défaut à la valeur initiale"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:512
 msgid "Target Size:"
-msgstr ""
+msgstr "Taille désirée"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:524
 msgid "Single Pass - Quality Quantizer (Average)"
-msgstr ""
+msgstr "Simple Passe - Mode quantizer moyen"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:525
 msgid "Single Pass - Quality Quantizer (Constant)"
-msgstr ""
+msgstr "Simple Passe - Mode quantizer constant"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:526
 msgid "Single Pass - Bitrate (Average)"
-msgstr ""
+msgstr "Simple Passe - Mode bitrate moyen"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:527
 msgid "Two Pass - File Size"
-msgstr ""
+msgstr "Double Passe - Taille finale"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:528
 msgid "Two Pass - Average bitrate"
-msgstr ""
+msgstr "Double Passe - Bitrate moyen"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:556
 msgid "Partition decision"
@@ -3545,9 +3537,8 @@ msgid "<b>B-Frames</b>"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:939
-#, fuzzy
 msgid "Partitions & Frames"
-msgstr "Image précédente"
+msgstr "Partitions & Frames"
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:967
 msgid "Set how much \"bitrate bonus\" a keyframe can get"
@@ -3876,9 +3867,8 @@ msgid "Audio selector"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_audioTrack.cpp:142
-#, fuzzy
 msgid "Select audio track"
-msgstr "Seconde piste audio"
+msgstr "Sélectionner la piste audio"
 
 #: avidemux/ADM_dialog/DIA_vorbis.cpp:151
 msgid "Vorbis settings"
@@ -4252,11 +4242,11 @@ msgstr "Visualisation"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:531
 msgid "_Main Toolbar"
-msgstr ""
+msgstr "Barre d'icones principale"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:536
 msgid "_A/V Sidebar"
-msgstr ""
+msgstr "Barre d'icone A/V"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:546
 msgid "_Zoom 1:4"
@@ -4306,11 +4296,11 @@ msgstr "Afficher l'image traitée"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:627
 msgid "_Frame Rate"
-msgstr ""
+msgstr "Nb Image par seconde"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:631 avidemux/ADM_gui2/GUI_main2.cpp:680
 msgid "_Encoder"
-msgstr ""
+msgstr "Encodeur"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:638
 msgid "Fil_ters"
@@ -4897,11 +4887,11 @@ msgstr ""
 
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:303
 msgid "Out of memory"
-msgstr ""
+msgstr "Plus de mémoire"
 
 #: avidemux/ADM_mpegdemuxer/dmx_video.cpp:476
 msgid "MPEG renumbering error"
-msgstr ""
+msgstr "Echec de renumérotation mpeg"
 
 #: avidemux/ADM_3gp/ADM_3gp.cpp:486
 msgid "Expect troubles"
