@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-14 11:43+0200\n"
+"POT-Creation-Date: 2006-07-17 11:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4438,6 +4438,10 @@ msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1028 avidemux/ADM_gui2/GUI_main2.cpp:1068
 msgid "Copy"
+msgstr ""
+
+#: avidemux/ADM_gui2/GUI_main2.cpp:1030 avidemux/ADM_gui2/GUI_main2.cpp:1070
+msgid "Configure"
 msgstr ""
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1033
