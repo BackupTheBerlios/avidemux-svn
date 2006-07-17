@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-14 11:43+0200\n"
+"POT-Creation-Date: 2006-07-17 11:46+0300\n"
 "PO-Revision-Date: 2006-07-15 11:47+0200\n"
 "Last-Translator: mean <fixounet@free.fr>\n"
 "Language-Team:  <en@li.org>\n"
@@ -49,7 +49,10 @@ msgstr "L'initialisation des filtres a echouée"
 #: avidemux/oplug_avi/op_saveprocess.cpp:125
 #: avidemux/oplug_mp4/oplug_mp4.cpp:354
 #: avidemux/oplug_ogm/op_ogsaveprocess.cpp:99
-msgid " Reuse the existing log-file ?"
+#, fuzzy
+msgid ""
+"\n"
+" Reuse the existing log-file ?"
 msgstr "Reutiliser le fichier existant ?"
 
 #: avidemux/oplug_avi/op_saveprocess.cpp:150
@@ -141,7 +144,8 @@ msgstr "Erreyr de keyframe"
 msgid ""
 "The beginning frame is not a key frame.\n"
 "Please move the A marker."
-msgstr "La première image n'est pas un keuframe. Veuillez déplacer le marqueur A"
+msgstr ""
+"La première image n'est pas un keuframe. Veuillez déplacer le marqueur A"
 
 #: avidemux/oplug_mp4/oplug_mp4.cpp:236
 msgid "Cannot initialize the audio stream"
@@ -507,7 +511,8 @@ msgstr "Parcourir"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:149
 msgid "Job name displayed in the job list and used as the script filename"
-msgstr "Nom du fichier affiché dans la liste des jobs et utilisé comme nom de fichier"
+msgstr ""
+"Nom du fichier affiché dans la liste des jobs et utilisé comme nom de fichier"
 
 #: avidemux/ADM_dialog/DIA_jobs_save.cpp:158
 msgid "Filename of the audio/video output"
@@ -608,7 +613,9 @@ msgstr "Bitrate video désiré"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:748
 msgid "Constant quantizer - each frame will get the same compression"
-msgstr "Quantizer constant - Toutes les images seront encodées avec le même quantizer."
+msgstr ""
+"Quantizer constant - Toutes les images seront encodées avec le même "
+"quantizer."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:750
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:621
@@ -624,7 +631,9 @@ msgstr "Entrelacé"
 msgid ""
 "Enables interlaced frame support - use only if your source contains "
 "interlacing artifacts (i.e. fields instead of progressive frames)"
-msgstr "Active le mode d'encodage entrelacé - A n'utiliser que si la source est entrelacée (effet de peigne visible)"
+msgstr ""
+"Active le mode d'encodage entrelacé - A n'utiliser que si la source est "
+"entrelacée (effet de peigne visible)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:767
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:639
@@ -682,8 +691,11 @@ msgid "VHQ mode:"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:836
-msgid "Higher settings give higher quality results, at the cost of slower encoding"
-msgstr "Une valeur plus elevée donne de meilleurs resultats, l'encodage est d'autant plus lent"
+msgid ""
+"Higher settings give higher quality results, at the cost of slower encoding"
+msgstr ""
+"Une valeur plus elevée donne de meilleurs resultats, l'encodage est d'autant "
+"plus lent"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:840 avidemux/ADM_dialog/DIA_xvid.cpp:357
 msgid "0 - None"
@@ -752,7 +764,9 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:911
 msgid "Use 4 motion vectors per macroblock, might give better compression"
-msgstr "Utiliser 4 vecteurs de mouvements distincts par macroblock, donne souvent une meilleur compressibilité"
+msgstr ""
+"Utiliser 4 vecteurs de mouvements distincts par macroblock, donne souvent "
+"une meilleur compressibilité"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:913
 msgid "HQ _AC"
@@ -762,7 +776,10 @@ msgstr ""
 msgid ""
 "Enable a better prediction of AC component. Turns on Lumi masking - applies "
 "more compression to dark/light areas that the eye cannot notice easily"
-msgstr "Active un mode plus performant de compression. Active la maskage de lumière qui compresse plus fortement les zones plus sombres/ plus claires sans que ca se voit facilement."
+msgstr ""
+"Active un mode plus performant de compression. Active la maskage de lumière "
+"qui compresse plus fortement les zones plus sombres/ plus claires sans que "
+"ca se voit facilement."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:922
 msgid "I-frame interval - Min:"
@@ -770,7 +787,8 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:930
 msgid "Minimum space between I-frames, 1 will disable forced I-frame spacing"
-msgstr "Nombre d'images minimum entre deux keyframes. 1 signifie pas de minimum."
+msgstr ""
+"Nombre d'images minimum entre deux keyframes. 1 signifie pas de minimum."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:932
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1111
@@ -802,7 +820,9 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:972
 msgid "Use Quarter pixel resolution for a more precise motion estimation"
-msgstr "Utiliser l'interpolation quart de pixel pour une estimation de mouvement plus précise"
+msgstr ""
+"Utiliser l'interpolation quart de pixel pour une estimation de mouvement "
+"plus précise"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:974
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:789
@@ -811,8 +831,11 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:977
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:792
-msgid "Global Motion Compensation can save bits on camera pans, zooming and rotation"
-msgstr "Compensation de mouvement globale  : Peut etre utile lors des travellings, zoom et rotations (NE PAS UTILISER)"
+msgid ""
+"Global Motion Compensation can save bits on camera pans, zooming and rotation"
+msgstr ""
+"Compensation de mouvement globale  : Peut etre utile lors des travellings, "
+"zoom et rotations (NE PAS UTILISER)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:979
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:794
@@ -837,7 +860,9 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1003
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1219
 msgid "H.263 quantizers smooth the picture (useful at lower bitrates)"
-msgstr "Le matrice de quantisation H263 lisse l'image (utile pour les encodages avec de faibles bitrates)"
+msgstr ""
+"Le matrice de quantisation H263 lisse l'image (utile pour les encodages avec "
+"de faibles bitrates)"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1007
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1223
@@ -848,7 +873,10 @@ msgstr ""
 msgid ""
 "MPEG quantizers (slightly slower) produce sharper picture (useful at higher "
 "bitrates)"
-msgstr "Matrice de quantisation MPEG, légèrement plus lent, produit une image plus bette mais plus difficile à encoder. A utiliser pour des encodages à haut bitrate."
+msgstr ""
+"Matrice de quantisation MPEG, légèrement plus lent, produit une image plus "
+"bette mais plus difficile à encoder. A utiliser pour des encodages à haut "
+"bitrate."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1014
 msgid "_Custom Matrix"
@@ -944,6 +972,7 @@ msgid "Max overflow degradation (%):"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1217
+#, fuzzy, c-format
 msgid "A value of 20 will give 20% more bits to every I-frame"
 msgstr "Une valeur de 20% allouera 20% de plus pour les images intra"
 
@@ -951,25 +980,33 @@ msgstr "Une valeur de 20% allouera 20% de plus pour les images intra"
 msgid ""
 "I-frames appearing in the range below this value will be treated as "
 "consecutive keyframes"
-msgstr "Les intra images dans l'intervalle en dessous serontconsidérées comme des keyframes consécutives"
+msgstr ""
+"Les intra images dans l'intervalle en dessous serontconsidérées comme des "
+"keyframes consécutives"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1228
 msgid ""
 "Reduction of bitrate for the first consecutive I-frames. The last I-frame "
 "will get treated normally"
-msgstr "Reduction de bitrate pour la première image intra consécutive. La dernière image intra sera traitée normallement."
+msgstr ""
+"Reduction de bitrate pour la première image intra consécutive. La dernière "
+"image intra sera traitée normallement."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1233
 msgid ""
 "How much of the overflow the codec can eat into during undersized sections - "
 "larger values will bridge the gap faster"
-msgstr "Combien de dépassement le codec peut il absorber lors des sections trop faibles - Une valeur plus grande permettra de compenser plus vite."
+msgstr ""
+"Combien de dépassement le codec peut il absorber lors des sections trop "
+"faibles - Une valeur plus grande permettra de compenser plus vite."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1238
 msgid ""
 "How much of the overflow the codec can eat into during oversized sections - "
 "larger values will bridge the gap faster"
-msgstr "Combien de dépassement le codec peut il absorber lors des sections trop grosses - Une valeur plus grande permettra de compenser plus vite."
+msgstr ""
+"Combien de dépassement le codec peut il absorber lors des sections trop "
+"grosses - Une valeur plus grande permettra de compenser plus vite."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1240
 msgid "Two pass tuning"
@@ -991,19 +1028,25 @@ msgstr ""
 msgid ""
 "The higher this value, the more bits get taken from frames larger than the "
 "average size, and redistributed to others"
-msgstr "Plus la valeur est important et plus de bits peuvent etre pris des images plus grandes que la moyenne, et redistribuer à d'autres."
+msgstr ""
+"Plus la valeur est important et plus de bits peuvent etre pris des images "
+"plus grandes que la moyenne, et redistribuer à d'autres."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1284
 msgid ""
 "The higher this value, the more bits get assigned to frames below the "
 "average frame size"
-msgstr "Plus la valeur est important et plus de bits seront distribués aux images dont la taille est en dessous de lamoyenne."
+msgstr ""
+"Plus la valeur est important et plus de bits seront distribués aux images "
+"dont la taille est en dessous de lamoyenne."
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1289
 msgid ""
 "0 = default from core (let XviD decide), else overflow payback percent per "
 "frame"
-msgstr "0 = comportement par defaut (Xvid decidera, sinon le pourcentage prelevé sur chaque image"
+msgstr ""
+"0 = comportement par defaut (Xvid decidera, sinon le pourcentage prelevé sur "
+"chaque image"
 
 #: avidemux/ADM_dialog/DIA_xvid4.cpp:1291
 msgid "Curve compression"
@@ -1079,7 +1122,9 @@ msgid ""
 "If an option is not checked, it means\n"
 "you must RECOMPILE avidemux to have\n"
 "support for it!"
-msgstr "Si un option n'a pas une croix, cela signifie qu'il faut recompiler avidemux pour l'avoir"
+msgstr ""
+"Si un option n'a pas une croix, cela signifie qu'il faut recompiler avidemux "
+"pour l'avoir"
 
 #: avidemux/ADM_dialog/DIA_builtin.cpp:171
 msgid "X264"
@@ -1370,7 +1415,9 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:611
 msgid "Set quantizer for a constant quantizer/quality encoding"
-msgstr "Selectionner la quantisation à utiliser pour un encodage CQ (Quantisation constante)"
+msgstr ""
+"Selectionner la quantisation à utiliser pour un encodage CQ (Quantisation "
+"constante)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:637
 msgid "Enable interlaced encoding"
@@ -1384,7 +1431,9 @@ msgstr ""
 msgid ""
 "Set MPEG-4 aspect ratio (warning: MPlayer supports it, but most other "
 "players don't)"
-msgstr "Sélectionne le rapport hauteur/largeur (Attention peu de lecteurs s'en servent)"
+msgstr ""
+"Sélectionne le rapport hauteur/largeur (Attention peu de lecteurs s'en "
+"servent)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:658
 #: avidemux/ADM_dialog/DIA_x264.cpp:677
@@ -1452,7 +1501,8 @@ msgstr "Nombre maximum de B frame consecutives (0-2 normallement)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:787
 msgid "Use quarter pixel motion compensation (useful at higher bitrates)"
-msgstr "Active l'interpolation au quart de pixel lors de l'estimation de mouvement"
+msgstr ""
+"Active l'interpolation au quart de pixel lors de l'estimation de mouvement"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:814
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1062
@@ -1463,7 +1513,9 @@ msgstr ""
 msgid ""
 "Comparison function for motion estimation pre pass. Tip: SAD is fast, SATD "
 "is good"
-msgstr "Methode de comparaison lors de la pre-estimation de mouvement (SAD est rapide, SATD est performant)"
+msgstr ""
+"Methode de comparaison lors de la pre-estimation de mouvement (SAD est "
+"rapide, SATD est performant)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:831
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:882
@@ -1527,7 +1579,8 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:878
 msgid "Comparison function for full pel motion estimation"
-msgstr "Méthode de comparaison pour l'estimation de mouvement pour les pixel complets"
+msgstr ""
+"Méthode de comparaison pour l'estimation de mouvement pour les pixel complets"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:916
 msgid "Subpixel:"
@@ -1535,7 +1588,9 @@ msgstr ""
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:929
 msgid "Comparison function for sub pel motion estimation"
-msgstr "Méthode de comparaison pour l'estimation de mouvement pour les fractions de pixels (1/2, 1/4)"
+msgstr ""
+"Méthode de comparaison pour l'estimation de mouvement pour les fractions de "
+"pixels (1/2, 1/4)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:967
 msgid "Macroblock:"
@@ -1545,7 +1600,9 @@ msgstr ""
 msgid ""
 "Comparison  function for the macroblock decision, used only when macroblock "
 "decision is set to 0"
-msgstr "Méthode de comparaison pour le choix du type de macroblock,utilisée uniquement si macroblock décision vaut 0"
+msgstr ""
+"Méthode de comparaison pour le choix du type de macroblock,utilisée "
+"uniquement si macroblock décision vaut 0"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1018
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1025
@@ -1560,7 +1617,9 @@ msgstr ""
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1037
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1044
 msgid "Use chroma, too, currently doesn't work (correctly) with B-frames"
-msgstr "Utilise aussi les informations de couleurs (ne marche pas correctement pour les B frames)"
+msgstr ""
+"Utilise aussi les informations de couleurs (ne marche pas correctement pour "
+"les B frames)"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1046
 msgid "ME comparison function"
@@ -1619,7 +1678,9 @@ msgstr ""
 msgid ""
 "Macroblock decision algorithm (high quality mode), encode each macroblock in "
 "all modes and choose the best"
-msgstr "Méthode de décision pour les macroblocks (haut qualité), encode chaque macroblock dans tous les modes et prend le meilleur"
+msgstr ""
+"Méthode de décision pour les macroblocks (haut qualité), encode chaque "
+"macroblock dans tous les modes et prend le meilleur"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1196
 msgid "0: MB comparison"
@@ -1641,7 +1702,8 @@ msgstr "Quantizer MPEG, image plus nette mais nécessite un bitrate plus elevé"
 msgid ""
 "Minimum quantizer, 1 is not recommended, should be 2 for normal MPEG-4 "
 "encoding"
-msgstr "Quantizer minimum, 1 n'est pas recommandé pour le mpeg4, 2 est conseillé"
+msgstr ""
+"Quantizer minimum, 1 n'est pas recommandé pour le mpeg4, 2 est conseillé"
 
 #: avidemux/ADM_dialog/DIA_lavcodec.cpp:1252
 msgid "Maximum quantizer, 10-31 should be a sane range"
@@ -3008,7 +3070,8 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:167
-msgid "If pixels are closer than noise threshold, they are considered identical"
+msgid ""
+"If pixels are closer than noise threshold, they are considered identical"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_deblend.cpp:176
@@ -3594,7 +3657,8 @@ msgid "Enforce a maximum quantizer level"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:1073
-msgid "Define how much the quantizer rate can change between two consecutive frames"
+msgid ""
+"Define how much the quantizer rate can change between two consecutive frames"
 msgstr ""
 
 #: avidemux/ADM_dialog/DIA_x264.cpp:1076
@@ -4491,6 +4555,11 @@ msgstr "Afficher la vidéo traitée dans la fenêtre principale"
 msgid "Copy"
 msgstr "Copier"
 
+#: avidemux/ADM_gui2/GUI_main2.cpp:1030 avidemux/ADM_gui2/GUI_main2.cpp:1070
+#, fuzzy
+msgid "Configure"
+msgstr "Configurer le codec"
+
 #: avidemux/ADM_gui2/GUI_main2.cpp:1033
 msgid "Configure video encoder"
 msgstr "Configure l'encodeur vidéo"
@@ -4747,7 +4816,9 @@ msgstr "Fréquence audio incompatible"
 msgid ""
 "For VCD PS, samplerate must be 44.1 kHz.\n"
 "Use the resample audio filter."
-msgstr "Pour du VCD, la fréquence doit être 44.1 kHz. Utiliser le filtre resample pour convertir."
+msgstr ""
+"Pour du VCD, la fréquence doit être 44.1 kHz. Utiliser le filtre resample "
+"pour convertir."
 
 #: avidemux/oplug_mpeg/op_mpeg.cpp:148 avidemux/oplug_mpeg/op_mpeg.cpp:234
 #: avidemux/oplug_mpeg/op_mpeg.cpp:327 avidemux/oplug_mpeg/op_mpeg.cpp:403
@@ -4780,7 +4851,8 @@ msgstr "Fichier SVCD à sauver"
 msgid ""
 "For SVCD PS, samplerate must be 44.1 kHz.\n"
 "Use the resample audio filter."
-msgstr "Pour du SVCD, la fréquence doit etre 44.1 kHz, utiliser le filtre resample"
+msgstr ""
+"Pour du SVCD, la fréquence doit etre 44.1 kHz, utiliser le filtre resample"
 
 #: avidemux/oplug_mpeg/op_mpeg.cpp:234
 msgid "For SVCD PS, audio must be MP2."
@@ -4799,7 +4871,9 @@ msgstr "Fichier DVD à sauver"
 msgid ""
 "For DVD PS, audio samplerate must be 48 kHz.\n"
 "Use the resample audio filter."
-msgstr "Pour du DVD, la fréquence doit être 48 kHz, utiliser la filtre resample pour convertir"
+msgstr ""
+"Pour du DVD, la fréquence doit être 48 kHz, utiliser la filtre resample pour "
+"convertir"
 
 #: avidemux/oplug_mpeg/op_mpeg.cpp:327
 msgid "For DVD PS, audio must be MP2,AC3 or LPCM."
@@ -4813,7 +4887,9 @@ msgstr "Choississez DVD comme codec vidéo"
 msgid ""
 "For DVD, samplerate must be 48 kHz.\n"
 "Use the resample audio filter."
-msgstr "Pour du DVD, la fréquence doit être 48 kHz. Utiliser le filtre resample pour convertir."
+msgstr ""
+"Pour du DVD, la fréquence doit être 48 kHz. Utiliser le filtre resample pour "
+"convertir."
 
 #: avidemux/oplug_mpeg/op_mpeg.cpp:403
 msgid "For DVD, audio must be MP2,AC3 or LPCM."
@@ -4855,7 +4931,8 @@ msgstr "Pour du VCD, l'audio doit etre du mpeg audio (MP2) à 44.1 kHz"
 
 #: avidemux/oplug_mpeg/op_mpegpass.cpp:218
 msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
-msgstr "Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, DTS ou LPCM"
+msgstr ""
+"Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, DTS ou LPCM"
 
 #: avidemux/ADM_encoder/adm_encConfig.cpp:193
 msgid "Wrong output format"
@@ -4907,7 +4984,8 @@ msgstr ""
 
 #: avidemux/oplug_mpegFF/oplug_vcdff.cpp:201
 msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
-msgstr "Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, LPCM ou DTS"
+msgstr ""
+"Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, LPCM ou DTS"
 
 #: avidemux/ADM_openDML/ADM_openDML.cpp:282
 #: avidemux/ADM_openDML/ADM_openDML.cpp:367
@@ -4917,7 +4995,8 @@ msgstr ""
 
 #: avidemux/ADM_lvemux/ADM_muxer.cpp:85
 msgid "For DVD, audio must be MP2 or AC3."
-msgstr "Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, LPCM ou DTS"
+msgstr ""
+"Pour du DVD, l'audio doit être à 48 kHz et au format MP2, AC3, LPCM ou DTS"
 
 #: avidemux/ADM_lvemux/ADM_muxer.cpp:92
 msgid "lvemux init failed"
@@ -4944,7 +5023,8 @@ msgstr "Ecraser le fichier ?"
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:213
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:227
 msgid "It could be possible that you try to overwrite an input file!"
-msgstr "Il est possible que vous ayez essayé d'ecrire par dessus un fichier d'entrée"
+msgstr ""
+"Il est possible que vous ayez essayé d'ecrire par dessus un fichier d'entrée"
 
 #: avidemux/ADM_toolkit/TLK_filesel.cpp:238 avidemux/gtk_gui.cpp:1493
 msgid "Cannot write the file"
@@ -5081,7 +5161,8 @@ msgstr "Le fichier à été identifié, mais il n'y pas de support pour ce format"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:371
 msgid "May be related to an old index file."
-msgstr "Peut etre que c'est un fichier d'index d'une veille version d'avidemux ?"
+msgstr ""
+"Peut etre que c'est un fichier d'index d'une veille version d'avidemux ?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:378
 #, c-format
@@ -5095,7 +5176,9 @@ msgid ""
 "1.) \"resize\" / \"add border\" / \"crop\" each stream to the same "
 "resolution\n"
 "2.) concatinate them together"
-msgstr "Vous ne pouvez pas mélanger des fichiers ayant des hauteurs et des largeurs différentes"
+msgstr ""
+"Vous ne pouvez pas mélanger des fichiers ayant des hauteurs et des largeurs "
+"différentes"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:499
 #, fuzzy
@@ -5122,10 +5205,11 @@ msgid ""
 "ACCURACY</b>.\n"
 "Do you want to use that mode ?"
 msgstr ""
-"Si le fichier a été encodé avec l'option utilsant les bframes comme référence, cela peut causer des problèmes.\n"
+"Si le fichier a été encodé avec l'option utilsant les bframes comme "
+"référence, cela peut causer des problèmes.\n"
 "Avidemux peut utiliser un autre mode qui fonctionne dans tous les cas.\n"
-"Cependant ce mode ne permet pas d'être précis à l'image près. "
-"Voulez vous utiliser ce mode ."
+"Cependant ce mode ne permet pas d'être précis à l'image près. Voulez vous "
+"utiliser ce mode ."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:647
 msgid "Packed Bitstream detected"
@@ -5149,7 +5233,8 @@ msgstr "Bizarre"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:673
 msgid "The unpacking succeedeed but the index is still not up to date."
-msgstr "Le mode packed bitstream a été enlevé mais l'index n'est toujours pas à jour"
+msgstr ""
+"Le mode packed bitstream a été enlevé mais l'index n'est toujours pas à jour"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:679
 msgid "Troubles ahead"
@@ -5165,7 +5250,9 @@ msgstr "L'index n'est pas à jour"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:688
 msgid "You should use Tool->Rebuild frame. Do it now ?"
-msgstr "Vous devriez utiliser Outils->Reconstruire l'index pour le mettre à jour. Le faire maintenant ?"
+msgstr ""
+"Vous devriez utiliser Outils->Reconstruire l'index pour le mettre à jour. Le "
+"faire maintenant ?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1415
 msgid ""
@@ -5232,7 +5319,8 @@ msgstr ""
 
 #: avidemux/ADM_script/ADM_JSGlobal.cpp:39
 msgid "Not an ECMAScript file. Try open it with 'File' -> 'Open...'"
-msgstr "Ce n'est pas un script ECMAscript, essayez de l'ouvrir avec fichier->ouvrir "
+msgstr ""
+"Ce n'est pas un script ECMAscript, essayez de l'ouvrir avec fichier->ouvrir "
 
 #: avidemux/ADM_script/ADM_JSGlobal.cpp:42
 #, c-format
@@ -5538,7 +5626,8 @@ msgid "Cannot save the audio in copy mode"
 msgstr "Impossible de sauver l'audio en mode copy"
 
 #: avidemux/gtk_gui.cpp:1308
-msgid "Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
+msgid ""
+"Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
 msgstr "Choisir WAV comme codec audio"
 
 #: avidemux/gtk_gui.cpp:1418
@@ -5678,7 +5767,9 @@ msgstr "Echec de l'écriture"
 
 #: avidemux/gtk_gui.cpp:2600
 msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
-msgstr "La sauvegarde du job a echoué. Peut etre y a t il un problème de permission sur le répertoire ~/.avidemux ?"
+msgstr ""
+"La sauvegarde du job a echoué. Peut etre y a t il un problème de permission "
+"sur le répertoire ~/.avidemux ?"
 
 #: avidemux/gtk_gui.cpp:2612
 #, c-format
@@ -5696,7 +5787,8 @@ msgstr "Le fichier %s n'a PAS été sauvé correctement"
 
 #: avidemux/GUI_jobs.cpp:37
 msgid "Something very wrong happened when buildint joblist"
-msgstr "Quelque chose d'incorrect est arrivé lors de la construction de la joblist"
+msgstr ""
+"Quelque chose d'incorrect est arrivé lors de la construction de la joblist"
 
 #: avidemux/GUI_jobs.cpp:42
 msgid "Nothing to do."
@@ -5743,7 +5835,9 @@ msgstr "Impossibe de sélectionner le codec Mpeg4 SP"
 msgid ""
 "You don't have FAAC!.\n"
 "It is needed to create PSP compatible video."
-msgstr "Vous n'avez pas FAAC!. FAAC est nécessaire pour créer des fichiers compatibles PSP."
+msgstr ""
+"Vous n'avez pas FAAC!. FAAC est nécessaire pour créer des fichiers "
+"compatibles PSP."
 
 #: avidemux/guiplay.cpp:398
 msgid "Trouble initializing audio device"
@@ -5795,4 +5889,3 @@ msgstr "Pas d'encoder."
 #: avidemux/gui_savenew.cpp:346
 msgid "Cannot save in process mode."
 msgstr "Impossible de sauver si le mode n'est pas copy."
-
