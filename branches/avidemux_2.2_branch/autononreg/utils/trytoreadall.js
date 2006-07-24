@@ -1,6 +1,6 @@
 //AD  <- These first 4 characters need to be the first 4 characters to identify the ECMAScript file to Avidemux
 /************************/
-var basedir="/work/samples/";
+var basedir="/work/samples/mov";
 
 var extension="avi";
 /************************/
