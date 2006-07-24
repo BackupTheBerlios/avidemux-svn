@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-14 11:43+0200\n"
+"POT-Creation-Date: 2006-07-17 11:46+0300\n"
 "PO-Revision-Date: 2003-10-04 22:20GMT\n"
 "Last-Translator: Gustavo D. Vranjes <gvranjes@SoftHome.net>\n"
 "Language-Team: Castellano <es@li.org>\n"
@@ -4546,6 +4546,11 @@ msgstr ""
 msgid "Copy"
 msgstr "copy1"
 
+#: avidemux/ADM_gui2/GUI_main2.cpp:1030 avidemux/ADM_gui2/GUI_main2.cpp:1070
+#, fuzzy
+msgid "Configure"
+msgstr "buttonVCodec"
+
 #: avidemux/ADM_gui2/GUI_main2.cpp:1033
 msgid "Configure video encoder"
 msgstr ""
@@ -6471,10 +6476,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "frame2"
 #~ msgstr "Cuadro siguiente"
-
-#, fuzzy
-#~ msgid "buttonConfigure"
-#~ msgstr "buttonVCodec"
 
 #, fuzzy
 #~ msgid "gtk-close"

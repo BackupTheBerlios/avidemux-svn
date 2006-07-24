@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-14 11:43+0200\n"
+"POT-Creation-Date: 2006-07-17 11:46+0300\n"
 "PO-Revision-Date: 2006-06-06 08:12+0200\n"
 "Last-Translator: Jakub Misak <jmisak@centrum.cz>\n"
 "Language-Team:  <cs@li.org>\n"
@@ -4495,6 +4495,11 @@ msgstr "Zobrazovat filtrovaný výstup v hlavním okně"
 #: avidemux/ADM_gui2/GUI_main2.cpp:1028 avidemux/ADM_gui2/GUI_main2.cpp:1068
 msgid "Copy"
 msgstr "Kopie"
+
+#: avidemux/ADM_gui2/GUI_main2.cpp:1030 avidemux/ADM_gui2/GUI_main2.cpp:1070
+#, fuzzy
+msgid "Configure"
+msgstr "_Nastavit"
 
 #: avidemux/ADM_gui2/GUI_main2.cpp:1033
 msgid "Configure video encoder"
