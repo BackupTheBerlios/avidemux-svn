@@ -190,13 +190,13 @@ EncoderSaveMpeg (const char *name)
       raw = 2;
       break;
     default:
-      GUI_Error_HIG ("Wrong output format", "Select MPEG as the output.");
+      GUI_Error_HIG (_("Wrong output format"), _("Select MPEG as the output."));
       return 0;
     }
   if (current_codec != CodecDVD && raw == 2)
     {
-      GUI_Error_HIG ("Wrong video codec",
-		     "Select DVD as the video codec for MPEG TS output.");
+      GUI_Error_HIG (_("Wrong video codec"),
+                     _("Select DVD as the video codec for MPEG TS output."));
       return 0;
     }
   switch (current_codec)
@@ -275,6 +275,11 @@ videoCodecConfigureAVI (char *cmdString, uint32_t optSize, uint8_t * opt)
       iparam = atoi (cs + equal + 1);
       printf ("codec conf is %s\n", cs);
       // search the codec
+      if (!strcasecmp (cs, "aq"))
+	{
+	  compmode = COMPRESS_AQ;
+	  aprintf ("aq Mode\n");
+	}
       if (!strcasecmp (cs, "cq"))
 	{
 	  compmode = COMPRESS_CQ;
@@ -472,26 +477,6 @@ encoderGetName (void)
 
 }
 
-void
-loadEncoderConfig (void)
-{
-  char *name;
-#if 0				//
-  if (!prefs->get (CODECS_PREFERREDCODEC, &name))
-    {
-      printf ("could not get prefered codec!\n");
-      return;
-    }
-  videoCodecSelectByName (name);
-#endif
-  /* change some hardcoded defaults ... */
-#if 0				//def USE_XX_XVID
-  prefs->get (CODECS_XVID_ENCTYPE, (uint *) & (xvidConfig.generic.mode));
-  prefs->get (CODECS_XVID_QUANTIZER, &(xvidConfig.generic.qz));
-  prefs->get (CODECS_XVID_BITRATE, &(xvidConfig.generic.bitrate));
-  prefs->get (CODECS_XVID_FINALSIZE, &(xvidConfig.generic.finalsize));
-#endif
-}
 int
 videoCodecSelectByName (const char *name)
 {
@@ -528,6 +513,9 @@ videoCodecGetMode (void)
   ADM_assert (mode);
   switch (mode->mode)
     {
+    case COMPRESS_AQ:
+      sprintf (string, "AQ=%d", mode->qz);
+      break;
     case COMPRESS_CQ:
       sprintf (string, "CQ=%d", mode->qz);
       break;
@@ -640,6 +628,10 @@ setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,
       aprintf ("CBR : %lu kbps\n", param);
       zparam->bitrate = param;
       break;
+    case COMPRESS_AQ:
+      aprintf ("AQ : %lu q\n", param);
+      zparam->qz = param;
+      break;
     case COMPRESS_CQ:
       aprintf ("CQ : %lu q\n", param);
       zparam->qz = param;
@@ -717,7 +709,7 @@ getVideoEncoder (uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
     case CodecH263:
       if (!((w == 128) && (h == 96)) && !((w == 176) && (h == 144)))
 	{
-	  GUI_Error_HIG ("Only QCIF and subQCIF are allowed for H.263", NULL);
+          GUI_Error_HIG (_("Only QCIF and subQCIF are allowed for H.263"), NULL);
 	  return 0;
 	}
       e = new EncoderFFMPEG (FF_H263, &ffmpegH263Codec);
@@ -829,8 +821,7 @@ loadVideoCodecConfString (char *cmd)
   return 1;
 }
 
-uint8_t
-mk_hex (uint8_t a, uint8_t b)
+uint8_t mk_hex (uint8_t a, uint8_t b)
 {
   int a1, b1;
   a1 = a;
@@ -897,7 +888,7 @@ videoCodecSetConf (char *name, uint32_t extraLen, uint8_t * extraData)
   param = videoCodecGetDescriptor (current_codec);
   if (!param)
     {
-      GUI_Error_HIG ("Fatal error", NULL);
+      GUI_Error_HIG (_("Fatal error"), NULL);
       printf ("Current codec:%d\n", current_codec);
       ADM_assert (0);
     }

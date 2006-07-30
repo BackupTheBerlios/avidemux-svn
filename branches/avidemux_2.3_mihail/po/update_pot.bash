@@ -1,3 +1,3 @@
 #!/bin/bash
-xgettext --debug -a --from-code=en -C -D .. -p . -f POTFILES.in -o avidemux.pot
+xgettext --keyword=_ --debug --from-code=utf-8 -C -D .. -p . -f POTFILES.in -o avidemux.pot
 echo "DONE."

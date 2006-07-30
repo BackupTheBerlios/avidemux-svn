@@ -211,7 +211,7 @@ GUI_handleFilter (void)
 void wrapToolButton(GtkWidget * wid, gpointer user_data)
 {
         gui_act action;
-#ifdef ARCH_X86_64
+#ifdef ARCH_64_BITS
 #define TPE long long int
 	long long int dummy;
 #else	
@@ -320,7 +320,7 @@ on_action (gui_act action)
 	  conf = videofilters[action_parameter].conf;
 	  if (videofilters[action_parameter].tag == VF_PARTIAL)	// cannot recurse
 	    {
-	      GUI_Error_HIG ("The filter is already partial", NULL);
+              GUI_Error_HIG (_("The filter is already partial"), NULL);
 	    }
 	  else
 	    {
@@ -446,22 +446,22 @@ on_action (gui_act action)
       break;
     case A_LOAD:
 #ifdef USE_LIBXML2
-      GUI_FileSelRead ("Load set of filters", filterLoadXml);
+      GUI_FileSelRead (_("Load set of filters"), filterLoadXml);
 #else
-      GUI_FileSelRead ("Load set of filters", filterLoad);
+      GUI_FileSelRead (_("Load set of filters"), filterLoad);
 #endif
       updateFilterList ();
       break;
     case A_SAVE:
       if (nb_active_filter < 2)
 	{
-	  GUI_Error_HIG ("Nothing to save", NULL);
+          GUI_Error_HIG (_("Nothing to save"), NULL);
 	}
       else
 #ifdef USE_LIBXML2
-	GUI_FileSelWrite ("Save set of filters", filterSaveXml);
+            GUI_FileSelWrite (_("Save set of filters"), filterSaveXml);
 #else
-	GUI_FileSelWrite ("Save set of filters", filterSave);
+	GUI_FileSelWrite (_("Save set of filters"), filterSave);
 
 #endif
       break;

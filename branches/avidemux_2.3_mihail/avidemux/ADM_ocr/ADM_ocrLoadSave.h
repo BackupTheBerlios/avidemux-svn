@@ -19,7 +19,7 @@ uint8_t saveGlyph(void)
     
   admGlyph *glyph=head.next;
     
-  GUI_FileSelWrite("Select Glyphfile to save to", &name);
+  GUI_FileSelWrite(_("Select Glyphfile to save to"), &name);
   if(!name)
     return 0;
     
@@ -27,7 +27,7 @@ uint8_t saveGlyph(void)
   ADM_dealloc(name);
   if(!out)
   {
-    GUI_Error_HIG("Could not write the file", NULL);
+    GUI_Error_HIG(_("Could not write the file"), NULL);
     return 0;
   }
 #define WRITE(x) fwrite(&(x),sizeof(x),1,out);
@@ -59,7 +59,7 @@ uint8_t loadGlyph(char *name)
     
   if(head.next)
   {
-    if(!GUI_Question("Erase current glyphs ?"))
+    if(!GUI_Question(_("Erase current glyphs ?")))
       return 0;
     destroyGlyphTree(&head);
     nbGlyphs=0;
@@ -68,7 +68,7 @@ uint8_t loadGlyph(char *name)
   out=fopen(name,"rb");
   if(!out)
   {
-    GUI_Error_HIG("File error", "Could not read \"%s\".", name);
+    GUI_Error_HIG(_("File error"), _("Could not read \"%s\"."), name);
     return 0;
   }
 #define READ(x) fread(&(x),sizeof(x),1,out);

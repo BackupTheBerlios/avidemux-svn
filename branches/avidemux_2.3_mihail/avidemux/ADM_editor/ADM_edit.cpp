@@ -23,6 +23,9 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <unistd.h>
+#include <pthread.h>
+#define WIN32_CLASH
+//#include <unistd.h>
 #ifdef CYG_MANGLING
 #include "sys/stat.h"
 #endif
@@ -51,6 +54,7 @@
 #include "ADM_mpegdemuxer/dmx_video.h"
 #include "ADM_mpegdemuxer/dmx_identify.h"
 #include "ADM_mpegdemuxer/dmx_probe.h"
+#include "ADM_matroska/ADM_mkv.h"
 #include "ADM_assert.h"
 #include "prefs.h"
 
@@ -298,6 +302,7 @@ UNUSED_ARG(mode);
 		break;
 	}
       OPEN_AS (BMP_FileType, picHeader);
+      OPEN_AS (Matroska_FileType, mkvHeader);
       OPEN_AS (AvsProxy_FileType, avsHeader);
       OPEN_AS (_3GPP_FileType, _3GPHeader);
        OPEN_AS (Ogg_FileType, oggHeader);
@@ -367,15 +372,15 @@ UNUSED_ARG(mode);
 	  printf ("\n not identified ...\n");
 	}
       else
-	GUI_Error_HIG("File type identified but no loader support detected...",
-		"May be related to an old index file.");
+        GUI_Error_HIG(_("File type identified but no loader support detected..."),
+                      _("May be related to an old index file."));
       return 0;
     }
 
    // check opening was successful
    if (ret == 0) {
      char str[512+1];
-      snprintf(str,512,"Attempt to open %s failed!", name);
+     snprintf(str,512,_("Attempt to open %s failed!"), name);
       str[512] = '\0';
       GUI_Error_HIG(str,NULL);
       delete _videos[_nb_video]._aviheader;;
@@ -399,7 +404,7 @@ UNUSED_ARG(mode);
                  (strlen(str)?" and ":""),
                  (strlen(str)?" are ":" is ") );
          str[512] = '\0';
-         GUI_Error_HIG(str,"You cannot mix different video dimensions yet. Using the partial video filter later, will not work around this problem. The workaround is:\n1.) \"resize\" / \"add border\" / \"crop\" each stream to the same resolution\n2.) concatinate them together");
+         GUI_Error_HIG(str,_("You cannot mix different video dimensions yet. Using the partial video filter later, will not work around this problem. The workaround is:\n1.) \"resize\" / \"add border\" / \"crop\" each stream to the same resolution\n2.) concatinate them together"));
          delete _videos[_nb_video]._aviheader;;
          return 0;
       }
@@ -496,7 +501,7 @@ float duration;
         if(_wavinfo)
         if(_wavinfo->encoding==WAV_MP3 && _wavinfo->blockalign==1152)
         {
-                if(GUI_Confirmation_HIG("Build Time Map", "Build VBR time map?", VBR_MSG))
+          if(GUI_Confirmation_HIG(_("Build Time Map"),_( "Build VBR time map?"), VBR_MSG))
                 {
                 _videos[_nb_video]._isAudioVbr=_videos[_nb_video]._audiostream->buildAudioTimeLine ();
                 }
@@ -530,7 +535,7 @@ TryAgain:
 		}
                 if(isH264Compatible(info.fcc))
                 {
-                    if(GUI_Confirmation_HIG("Use that mode","H264 detected","If the file is using bframe as reference, it can lead to crash or stutteting.\nAvidemux can use another mode which is safed but <b>YOU WILL LOOSE FRAME ACCURACY</b>.\nDo you want to use that mode ?"))
+                  if(GUI_Confirmation_HIG(_("Use that mode"),_("H264 detected"),_("If the file is using bframe as reference, it can lead to crash or stutteting.\nAvidemux can use another mode which is safed but <b>YOU WILL LOOSE FRAME ACCURACY</b>.\nDo you want to use that mode ?")))
                     {
                               printf("Switching to non low delay codec\n");
                               _videos[_nb_video-1].decoder = getDecoderH264noLogic (info.fcc,  info.width, info.height, l, d);
@@ -644,8 +649,8 @@ TryAgain:
 								if(!count && type==AVI_FileType)
 								{
 									if( forced || GUI_YesNo(
-									"Packed Bitstream detected",
-									"Do you want me to unpack it ?"))
+                                                                                _("Packed Bitstream detected"),
+                                                                        _("Do you want me to unpack it ?")))
 									{
 									OpenDMLHeader *dml=NULL;
 									count++;	
@@ -665,18 +670,18 @@ TryAgain:
                                            info.width, info.height, l, d);
 										goto TryAgain;
 									}
-									GUI_Error_HIG("Could not unpack the video", "Using backup decoder - not frame accurate.");
+                                                                        GUI_Error_HIG(_("Could not unpack the video"),_( "Using backup decoder - not frame accurate."));
 									}
 								}
 #if  1 //def USE_DIVX
                                                                 if(count)
-                                                                        GUI_Info_HIG(ADM_LOG_IMPORTANT,"Weird", "The unpacking succeedeed but the index is still not up to date.");
+                                                                        GUI_Info_HIG(ADM_LOG_IMPORTANT,_("Weird"),_( "The unpacking succeedeed but the index is still not up to date."));
 								printf("\n Switching codec...\n");
 								delete vid->decoder;
 								vid->decoder=getDecoderVopPacked(info.fcc, info.width,info.height,0,NULL);
 								ispacked=1;
 #else
-								GUI_Info_HIG(ADM_LOG_IMPORTANT,"Troubles ahead", "This a VOP packed AVI.");
+								GUI_Info_HIG(ADM_LOG_IMPORTANT,_("Troubles ahead"), _("This a VOP packed AVI."));
 #endif
 
 							}
@@ -685,7 +690,7 @@ TryAgain:
 						// else warn user
 						if(!ispacked)
                                                 {
-                                                        if(GUI_YesNo("Index is not up to date","You should use Tool->Rebuild frame. Do it now ?"))
+                                                  if(GUI_YesNo(_("Index is not up to date"),_("You should use Tool->Rebuild frame. Do it now ?")))
                                                         {
                                                                 rebuildFrameType();
 							}
@@ -1412,7 +1417,7 @@ uint8_t         ADM_Composer::tryIndexing(char *name,char *idxname)
       prefs->get(FEATURE_TRYAUTOIDX,&autoidx);
       if (!autoidx)
         {
-          if (!GUI_Question ("This looks like mpeg\n Do you want to index it?"))
+          if (!GUI_Question (_("This looks like mpeg\n Do you want to index it?")))
             {
                 return 0;
             }
@@ -1464,7 +1469,7 @@ uint8_t         ADM_Composer::tryIndexing(char *name,char *idxname)
                         delete [] tracks;
                 delete [] idx;
 
-                if(!r) GUI_Error_HIG("Indexing failed", NULL); 
+                if(!r) GUI_Error_HIG(_("Indexing failed"), NULL); 
                 return r;
 }
 //

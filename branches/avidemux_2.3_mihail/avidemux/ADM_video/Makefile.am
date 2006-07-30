@@ -99,7 +99,8 @@ libADM_video_a_SOURCES = ADM_vidFields.cpp \
  ADM_vidColorYuv.cpp  \
  ADM_guiResize.cpp \
  ADM_vidAnimated.cpp \
- ADM_vidMcDeint.cpp
+ ADM_vidMcDeint.cpp \
+ ADM_vidReverse.cpp
 
 				
 
@@ -145,7 +146,7 @@ EXTRA_DIST = ADM_genvideo.cpp \
  ADM_vidField.h  ADM_vidHue.cpp \
  ADM_vidEq2.cpp \
  ADM_vidCNR2.cpp \
- ADM_vidYuvColor.cpp \
+ ADM_vidColorYuv.cpp \
  ADM_vidAnimated.cpp \
  ADM_vidMcDeint.cpp
 

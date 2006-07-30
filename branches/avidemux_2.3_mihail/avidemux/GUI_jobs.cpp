@@ -34,12 +34,12 @@ char     *name;
 
         if(!buildDirectoryContent(&nb,ADM_getJobDir(),jobName,MAX_JOBS))
         {
-                GUI_Error_HIG("Oops","Something very wrong happened when buildint joblist");
+          GUI_Error_HIG(_("Oops"),_("Something very wrong happened when buildint joblist"));
                 return 0;
         }
         if(!nb)
         {
-                GUI_Info_HIG(ADM_LOG_IMPORTANT,"Nothing to do.","There is no jobs stored, nothing to do");
+          GUI_Info_HIG(ADM_LOG_IMPORTANT,_("Nothing to do."),_("There is no jobs stored, nothing to do"));
                 return 1;
         }
         DIA_job(nb,jobName);

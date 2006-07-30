@@ -44,7 +44,7 @@ char *tmp=NULL,*tmp2=NULL;
                                         {
                                         
                                         int r;
-                                                GUI_FileSelWrite("Select video to write",&tmp);
+                                                GUI_FileSelWrite(_("Select video to write"),&tmp);
                                                 if(!tmp) continue;
                                                 gtk_editable_delete_text(GTK_EDITABLE(WID(entryOutputFileName)), 0,-1);
                                                 gtk_editable_insert_text(GTK_EDITABLE(WID(entryOutputFileName)), tmp, strlen(tmp), &r);
@@ -56,13 +56,13 @@ char *tmp=NULL,*tmp2=NULL;
                                            tmp=gtk_editable_get_chars(GTK_EDITABLE (WID(entryOutputFileName)), 0, -1);
                                            if(!tmp || !*tmp)
                                            {
-                                                        GUI_Error_HIG("Invalid filename","Please select or enter a valid filename");
+                                             GUI_Error_HIG(_("Invalid filename"),_("Please select or enter a valid filename"));
                                                         continue;
                                             }
                                            tmp2=gtk_editable_get_chars(GTK_EDITABLE (WID(entryJobName)), 0, -1);
                                            if(!tmp2 || !*tmp2)
                                            {
-                                                        GUI_Error_HIG("Invalid jobname","Please select or enter a valid jobname");
+                                             GUI_Error_HIG(_("Invalid jobname"),_("Please select or enter a valid jobname"));
                                                         continue;
                                             }
                                             *jobname=ADM_strdup(tmp2);

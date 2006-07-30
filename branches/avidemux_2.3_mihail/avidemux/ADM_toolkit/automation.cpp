@@ -85,7 +85,6 @@ static void setEnd(char *p)      ;
 //static void saveRawAudio(char *p)      ;
 static void call_normalize(char *p) ;
 static void call_resample(char *p) 	;
-static void call_downsample(char *p) 	;
 static void call_help(char *p) 	;
 static void call_setAudio(char *p) 	;
 //static void call_load(char *p) 	;
@@ -127,8 +126,6 @@ static void setVar(char *in);
 uint8_t trueFalse(char *p);
 //_________________________________________________________________________
 
-extern uint8_t audioShift;
-extern int32_t audioDelay;
 
 extern int global_argc;
 extern char **global_argv;
@@ -151,11 +148,10 @@ typedef struct AUTOMATON
 
 AUTOMATON reaction_table[]=
 {	
-		
+                {"gui",		        0,"don't be in silent mode",		(one_arg_type)GUI_Verbose}   ,
 		{"listfilters",		0,"list all filters by name",		(one_arg_type)filterListAll}   ,
 		{"run",			1,"load and run a script",		(one_arg_type)A_parseECMAScript},
 		{"audio-normalize",	1,"activate normalization",		call_normalize},
-		{"audio-downsample",	1,"activate 48->44 downsampling",	call_downsample},
 		{"audio-resample",	1,"resample to x hz",			call_resample},
 		
 		{"filters",		1,"load a filter preset",		filterLoadXml}   ,
@@ -240,7 +236,8 @@ static two_arg_type two;
 static int index;
 			argv=global_argv;
 			argc=global_argc;
-			usleep(100000); // let gtk start
+			ADM_usleep(100000); // let gtk start
+                        gdk_threads_enter();
 			GUI_Quiet();
 			printf("\n *** Automated : %d entries*************\n",NB_AUTO);
 			// we need to process
@@ -302,7 +299,8 @@ static int index;
 					} // end while
           GUI_Verbose();
           printf("\n ********** Automation ended***********\n");
-          return 0;
+          gdk_threads_leave();
+          return FALSE; // Do not call me anymore
 }
 //_________________________________________________________________________
 
@@ -335,11 +333,9 @@ int call_saveDVD(char *a)
 
 void call_normalize   (char *p)
 {
-        audioFilterNormalize(trueFalse(p));	
-}
-void call_downsample    (char *p)
-{
-	audioFilterDownsample(trueFalse(p));	
+  int32_t i;
+  sscanf(p,"%d",&i);
+        audioFilterNormalizeMode(i);	
 }
 void call_resample    (char *p)
 {
@@ -471,17 +467,13 @@ void call_autosplit(char *p)
 
 void setBegin(char *p) 
 {	
-uint32_t i;
-		sscanf(p,"%lu",&i);
-		frameStart=i;  
-		printf("\n Start %lu\n",frameStart);
+    frameStart=atoi(p);  
+    printf("\n Start %u\n",frameStart);
 }
 void setEnd(char *p) 
 {	
-uint32_t i;
-		sscanf(p,"%lu",&i);
-		frameEnd=i;  
-		printf("\n End %lu\n",frameStart);
+    frameEnd=atoi(p);
+    printf("\n End %u\n",frameStart);
 
 }
 void call_help(char *p)

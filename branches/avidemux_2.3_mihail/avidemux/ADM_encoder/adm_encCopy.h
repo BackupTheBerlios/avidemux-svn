@@ -42,6 +42,7 @@ public:
   virtual const char *getFCCHandler (void);
   virtual const char *getDisplayName (void);
   virtual uint8_t hasExtraHeaderData (uint32_t * l, uint8_t ** data);
+          uint32_t getNbFrame(void) {return _total;} //<Must be called only after configure call !
 };
 
 

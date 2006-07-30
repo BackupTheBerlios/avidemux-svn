@@ -48,9 +48,9 @@ static char LogName[500];
 #define WRAP_Open(x) \
 {\
 AVCodec *codec=avcodec_find_encoder(x);\
-if(!codec) {GUI_Alert("Internal error opening codec"#x);ADM_assert(0);} \
+if(!codec) {GUI_Alert(_("Internal error opening codec"#x));ADM_assert(0);} \
   res=avcodec_open(_context, codec); \
-  if(res<0) {GUI_Alert("Internal error with context for  codec"#x);ADM_assert(0);} \
+  if(res<0) {GUI_Alert(_("Internal error with context for  codec"#x));ADM_assert(0);} \
 }
 /*****************************************/
 uint8_t ffmpegEncoder::stopEncoder(void)
@@ -363,7 +363,7 @@ ffmpegEncoder::encoderMT (void)
   uint32_t nbThread = 0;
 
   nbThread = ADM_useNbThreads ();
-  if (nbThread & 0)
+  if (nbThread )
     {
       printf ("[codec]Enabling MT encoder with %u threads\n", nbThread);
       if (0 > avcodec_thread_init (_context, nbThread))

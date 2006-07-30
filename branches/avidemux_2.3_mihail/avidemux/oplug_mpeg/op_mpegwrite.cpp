@@ -97,8 +97,7 @@
 extern Mpeg2encParam SVCDExtra, DVDExtra;
 extern COMPRES_PARAMS SVCDCodec, DVDCodec;
 
-extern uint8_t audioShift;
-extern int32_t audioDelay;
+
 // IF set do 1st pass with CBR with max bitrate = average bitrate AND disabling padding
 // else do 1st pass with constant Q=6
 //#define ADM_1PASS_CBR 1
@@ -312,8 +311,8 @@ mpegWritter::save_regular (const char *name, ADM_MPEGTYPE mpegtype, int qz, int 
   _fps1000 = incoming->getInfo ()->fps1000;
   if (!_total)
     {
-      GUI_Error_HIG ("No frames to encode",
-		     "Please check markers. Is \"A>\" == \">B\"?");
+      GUI_Error_HIG (_("No frames to encode"),
+                     _("Please check markers. Is \"A>\" == \">B\"?"));
       return 0;
     }
 
@@ -439,7 +438,7 @@ mpegWritter::save_regular (const char *name, ADM_MPEGTYPE mpegtype, int qz, int 
       if (!incoming->getFrameNumberNoAlloc (i, &size, aImage, &flags))
 	{
 	  delete encoding;
-	  GUI_Error_HIG ("Encoding error", NULL);
+          GUI_Error_HIG (_("Encoding error"), NULL);
 	  if (fd)
 	    qfclose (fd);
 	  end ();
@@ -513,7 +512,7 @@ mpegWritter::save_regular (const char *name, ADM_MPEGTYPE mpegtype, int qz, int 
       _muxer->close ();
       delete _muxer;
       _muxer = NULL;
-      deleteAudioFilter ();
+      deleteAudioFilter (_audio);
       _audio = NULL;
     }
   end ();
@@ -563,7 +562,7 @@ mpegWritter::save_dualpass (const char *name, uint32_t final_size, uint32_t bitr
       {
 	fclose (fd);
 	prefs->get (FEATURE_REUSE_2PASS_LOG, (uint32_t *) & reuse);
-	if (!reuse && GUI_Question ("Reuse log file ?"))
+        if (!reuse && GUI_Question (_("Reuse log file ?")))
 	  reuse = 1;
       }
   }
@@ -580,7 +579,7 @@ mpegWritter::save_dualpass (const char *name, uint32_t final_size, uint32_t bitr
       // WLA
       {
 	delete encoding;
-	GUI_Error_HIG ("Error in pass 1", NULL);
+        GUI_Error_HIG (_("Error in pass 1"), NULL);
 	delete[]statname;
 	return 0;
       }
@@ -592,7 +591,7 @@ mpegWritter::save_dualpass (const char *name, uint32_t final_size, uint32_t bitr
     // WLA
     {
       delete encoding;
-      GUI_Error_HIG ("Error in pass 2", NULL);
+      GUI_Error_HIG (_("Error in pass 2"), NULL);
       delete[]statname;
       return 0;
     }
@@ -688,7 +687,7 @@ mpegWritter::dopass1 (const char *name, char *statname, uint32_t final_size, uin
       
       if (!incoming->getFrameNumberNoAlloc (i, &size, aImage, &flags))
 	{
-	  GUI_Error_HIG ("Encoding error", NULL);
+          GUI_Error_HIG (_("Encoding error"), NULL);
 	  end ();
 	  return 0;
 	}
@@ -795,6 +794,7 @@ print_quant_stat (const char *n)
     }
   ADM_dealloc (str);
 }
+//****************************************************************
 uint8_t
 mpegWritter::dopass2 (const char *name, char *statname, uint32_t final_size, uint32_t bitrate, ADM_MPEGTYPE mpegtype, int matrix, uint8_t interlaced, uint8_t bff,	// WLA
 		      uint8_t widescreen)
@@ -885,11 +885,12 @@ mpegWritter::dopass2 (const char *name, char *statname, uint32_t final_size, uin
       sample_time *= _audio->getInfo ()->frequency;
       sample_target = (uint32_t) floor (sample_time);
     }
+  bitstream.data = _buffer_out;
   for (uint32_t i = 0; i < _total; i++)
     {
       if (!incoming->getFrameNumberNoAlloc (i, &size, aImage, &flags))
 	{
-	  GUI_Error_HIG ("Encoding error", NULL);
+          GUI_Error_HIG (_("Encoding error"), NULL);
 	  if (!_audio)
 	    qfclose (fd);
 	  end ();
@@ -1041,7 +1042,7 @@ mpegWritter::init (const char *name, ADM_MPEGTYPE type, uint8_t interlaced, uint
   UNUSED_ARG (type);
   if (!identMovieType (_fps1000))
     {
-      GUI_Error_HIG ("Incompatible frame rate", NULL);
+      GUI_Error_HIG (_("Incompatible frame rate"), NULL);
       return 0;
     }
 
@@ -1139,8 +1140,7 @@ mpegWritter::initLveMux (const char *name, ADM_MUXER_TYPE type)
 }
 
 
-AVDMGenericAudioStream *
-mpt_getAudioStream (void)
+AVDMGenericAudioStream *mpt_getAudioStream (void)
 {
   AVDMGenericAudioStream *audio = NULL;
   if (audioProcessMode ())	// else Raw copy mode
@@ -1152,20 +1152,13 @@ mpt_getAudioStream (void)
 	      return NULL;
 	    }
 	}
-      audio =
-	buildAudioFilter (currentaudiostream,
-			  video_body->getTime (frameStart),
-			  video_body->getTime (frameEnd - frameStart));
+      audio =  buildAudioFilter (currentaudiostream,  video_body->getTime (frameStart));
     }
   else				// copymode
     {
       // else prepare the incoming raw stream
       // audio copy mode here
-      int32_t shift = 0;
-      if (audioDelay && audioShift)
-	shift = audioDelay;
-      audio = buildRawAudioFilter (video_body->getTime (frameStart),
-				   0xffffffff, shift);
+      audio = buildAudioFilter (currentaudiostream,video_body->getTime (frameStart));
     }
   return audio;
 }

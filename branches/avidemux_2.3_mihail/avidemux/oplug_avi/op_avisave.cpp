@@ -58,9 +58,6 @@ extern int muxParam;
 
 #include "ADM_audiofilter/audioeng_buildfilters.h"
 
-extern uint8_t audioShift;
-extern int32_t audioDelay;
-
 const char *getStrFromAudioCodec( uint32_t codec);
 //_________________________
 uint8_t ADM_aviUISetMuxer(  void )
@@ -127,9 +124,9 @@ uint8_t ret=0;
   if (!setupAudio ())
     {
       guiStop();
-      GUI_Error_HIG ("Error initalizing audio filters", NULL);
-	   deleteAudioFilter ();
-		delete writter;
+      GUI_Error_HIG (_("Error initalizing audio filters"), NULL);
+      deleteAudioFilter (audio_filter);
+      delete writter;
       writter = NULL;
      // guiStop();
       return 0;
@@ -138,8 +135,8 @@ uint8_t ret=0;
    if (!setupVideo (_name))
     {
       guiStop();
-      GUI_Error_HIG ("Error initalizing video filters", NULL);
-      deleteAudioFilter ();
+      GUI_Error_HIG (_("Error initalizing video filters"), NULL);
+      deleteAudioFilter (audio_filter);
       delete   	writter;
       
       writter = NULL;
@@ -178,7 +175,7 @@ abortme:
   writter->setEnd ();
   delete       writter;
   writter = NULL;
-  deleteAudioFilter ();
+  deleteAudioFilter (audio_filter);
   // resync GUI
   printf ("\n Saving AVI (v_engine)... done\n");
   return ret;
@@ -207,36 +204,18 @@ GenericAviSave::setupAudio (void)
 
   if (audioProcessMode())	// else Raw copy mode
     {
-      if (currentaudiostream->isCompressed ())
-	{
-	  if (!currentaudiostream->isDecompressable ())
-	    {
-	      GUI_Error_HIG ("Cannot decompress the audio stream", NULL);
-	      return 0;
-	    }
-	}
-
-	
-      	audio_filter = buildAudioFilter (currentaudiostream,video_body->getTime (frameStart),
-				  video_body->getTime (frameEnd-frameStart));
-
-//       if ((audio_filter)->getInfo ()->encoding == WAV_PCM)
-// // 	if (!GUI_Question ("Audio stream is not compressed\n Continue?"))
-// // 	  {
-// // 	    deleteAudioFilter ();
-// // 	    return 0;
-// // 	  }
-	  encoding_gui->setAudioCodec(getStrFromAudioCodec(audio_filter->getInfo()->encoding));
+      
+      audio_filter = buildAudioFilter (currentaudiostream,video_body->getTime (frameStart));
+      if(!audio_filter) return 0;
+      encoding_gui->setAudioCodec(getStrFromAudioCodec(audio_filter->getInfo()->encoding));
     }
   else // copymode
     {
       // else prepare the incoming raw stream
       // audio copy mode here
-      int32_t shift=0;
-      if(audioDelay && audioShift) shift=audioDelay;
       encoding_gui->setAudioCodec("Copy");
-      audio_filter=buildRawAudioFilter( video_body->getTime (frameStart), 
-      		0xffffffff, shift);
+      audio_filter=buildAudioFilter( currentaudiostream,video_body->getTime (frameStart));
+      if(!audio_filter) return 0;
     }
 
    
@@ -417,7 +396,7 @@ uint8_t   GenericAviSave::reigniteChunk( uint32_t dataLen, uint8_t *data )
 			   audio_filter,
 			   audio_filter2))
     {
-      GUI_Error_HIG ("Cannot initiate save", NULL);
+      GUI_Error_HIG (_("Cannot initiate save"), NULL);
 
       return 0;
     }

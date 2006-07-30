@@ -120,14 +120,14 @@ void A_requantize( void )
 		audioSize=0;
 	}
 	//
-	deleteAudioFilter();
+        deleteAudioFilter(audio);
 	printf("Found audio :%lu\n",audioSize);
 	if(! DIA_Requant(&percent,&quality,size,audioSize)) return;
 	
 	printf("Using shrink factor %f, with qual=%lu\n",percent,quality);
 	
 	// now get the name
-	GUI_FileSelWrite("Requantized file to write ?", &out_name);
+        GUI_FileSelWrite(_("Requantized file to write ?"), &out_name);
 	if(!out_name) return;
 	
 	A_requantize2(percent,quality,out_name);
@@ -210,7 +210,7 @@ void A_requantize2( float percent, uint32_t quality, char *out_name )
 		if(!muxer->open(out_name,0,MUXER_DVD,&info,audio->getInfo()))
 		//if(!muxer->open(out_name,0,fps1000,audio->getInfo(),(float)audioInc))
 		{
-			GUI_Error_HIG("Muxer init failed", NULL);
+                  GUI_Error_HIG(_("Muxer init failed"), NULL);
 			goto _abt;
 		}
 		// The requantizer will not alter the gop timestamp
@@ -224,7 +224,7 @@ void A_requantize2( float percent, uint32_t quality, char *out_name )
 		file=fopen(out_name,"wb");
 		if(!file)
 		{
-			GUI_Error_HIG("File error", "Cannot open \"%s\" for writing.", out_name);
+                  GUI_Error_HIG(_("File error"),_( "Cannot open \"%s\" for writing."), out_name);
 			goto _abt;
 		}	
 				
@@ -338,7 +338,7 @@ _abt:
 			muxer=NULL;
 		   }
 	Mrequant_end();
-	deleteAudioFilter();
-	GUI_Info_HIG(ADM_LOG_INFO,"Done", "Successfully saved \"%s\".", GetFileName(out_name));
+        deleteAudioFilter(audio);
+	GUI_Info_HIG(ADM_LOG_INFO,_("Done"),( "Successfully saved \"%s\"."), GetFileName(out_name));
 
 }

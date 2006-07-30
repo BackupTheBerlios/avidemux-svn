@@ -72,7 +72,7 @@ uint8_t ADM_Composer::getMarkers(uint32_t *start, uint32_t *end)
 
 uint8_t ADM_Composer::saveWorbench (char *name)
 {
-        GUI_Error_HIG("Unsupported", NULL);
+        GUI_Error_HIG(_("Unsupported"), NULL);
         return 0;
 }
 /*______________________________________________
@@ -191,7 +191,7 @@ char *pth;
 // Audio
 //______________________________________________
 
-   uint32_t delay;
+   uint32_t delay,bitrate;
    
    qfprintf(fd,"\n//** Audio **\n");
    qfprintf(fd,"app.audio.reset();\n");
@@ -213,10 +213,18 @@ char *pth;
                         qfprintf(fd,"app.audio.setTrack(%d);\n", source); 
                         
         }
-
-   qfprintf(fd,"app.audio.codec(\"%s\",%d);\n", audioCodecGetName(),audioGetBitrate()); 
+   getAudioExtraConf(&bitrate,&extraDataSize,&extraData);
+   qfprintf(fd,"app.audio.codec(\"%s\",%d,%d,\"", audioCodecGetName(),bitrate,extraDataSize); 
+   for(int i=0;i<extraDataSize;i++)
+   {
+     qfprintf(fd,"%02x ",extraData[i]);
+   }
+   qfprintf(fd,"\");\n");
+   
+   
    //qfprintf(fd,"app.audio.process=%s;\n",truefalse[audioProcessMode()]);
-   qfprintf(fd,"app.audio.normalize=%s;\n",truefalse[audioGetNormalize()]);
+   qfprintf(fd,"app.audio.normalizeMode=%d;\n",audioGetNormalizeMode());
+   qfprintf(fd,"app.audio.normalizeValue=%d;\n",audioGetNormalizeValue());
    qfprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
    qfprintf(fd,"app.audio.mixer(\"%s\");\n",getCurrentMixerString());
 
@@ -243,7 +251,6 @@ char *pth;
         switch(audioGetResampling())
         {
                 case RESAMPLING_NONE:         ;break;
-                case RESAMPLING_DOWNSAMPLING:  qfprintf(fd,"app.audio.downsample=true;\n");break;
                 case RESAMPLING_CUSTOM:        qfprintf(fd,"app.audio.resample=%u;\n",audioGetResample());break;
                 default:ADM_assert(0);
         }
@@ -276,7 +283,7 @@ char *pth;
 
 uint8_t ADM_Composer::loadWorbench (char *name)
 {
- GUI_Error_HIG("Old format project file", "No more supported.");
+  GUI_Error_HIG(_("Old format project file"),_( "No more supported."));
  return 0;
 }
 //EOF

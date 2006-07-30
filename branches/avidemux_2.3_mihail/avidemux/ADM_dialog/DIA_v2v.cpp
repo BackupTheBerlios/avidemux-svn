@@ -53,7 +53,7 @@ char *tmp=NULL,*tmp2=NULL,*tmp3=NULL;
                                         {
                                         
                                         int r;
-                                                GUI_FileSelRead("Select Vob file to scan",&tmp);
+                                                GUI_FileSelRead(_("Select Vob file to scan"),&tmp);
                                                 if(!tmp) continue;
                                                 gtk_editable_delete_text(GTK_EDITABLE(WID(entryVob)), 0,-1);
                                                 gtk_editable_insert_text(GTK_EDITABLE(WID(entryVob)), tmp, strlen(tmp), &r);
@@ -64,7 +64,7 @@ char *tmp=NULL,*tmp2=NULL,*tmp3=NULL;
                                         {
                                         
                                         int r;
-                                                GUI_FileSelRead("Select ifo file to use",&tmp);
+                                                GUI_FileSelRead(_("Select ifo file to use"),&tmp);
                                                 if(!tmp) continue;
                                                 gtk_editable_delete_text(GTK_EDITABLE(WID(entryIfo)), 0,-1);
                                                 gtk_editable_insert_text(GTK_EDITABLE(WID(entryIfo)), tmp, strlen(tmp), &r);
@@ -75,7 +75,7 @@ char *tmp=NULL,*tmp2=NULL,*tmp3=NULL;
                                         {
                                         
                                         int r;
-                                                GUI_FileSelWrite("Select vobsub to write",&tmp);
+                                                GUI_FileSelWrite(_("Select vobsub to write"),&tmp);
                                                 if(!tmp) continue;
                                                 gtk_editable_delete_text(GTK_EDITABLE(WID(entryVobSub)), 0,-1);
                                                 gtk_editable_insert_text(GTK_EDITABLE(WID(entryVobSub)), tmp, strlen(tmp), &r);
@@ -89,19 +89,19 @@ char *tmp=NULL,*tmp2=NULL,*tmp3=NULL;
                                            tmp=gtk_editable_get_chars(GTK_EDITABLE (WID(entryVob)), 0, -1);
                                            if(!tmp || !*tmp)
                                            {
-                                                        GUI_Error_HIG("Invalid vobname","Please select or enter a valid vob name");
+                                             GUI_Error_HIG(_("Invalid vobname"),_("Please select or enter a valid vob name"));
                                                         continue;
                                             }
                                            tmp2=gtk_editable_get_chars(GTK_EDITABLE (WID(entryIfo)), 0, -1);
                                            if(!tmp2 || !*tmp2)
                                            {
-                                                        GUI_Error_HIG("Invalid ifo","Please select or enter a valid ifo file");
+                                             GUI_Error_HIG(_("Invalid ifo"),_("Please select or enter a valid ifo file"));
                                                         continue;
                                             }
                                            tmp3=gtk_editable_get_chars(GTK_EDITABLE (WID(entryVobSub)), 0, -1);
                                            if(!tmp3 || !*tmp3 )
                                            {
-                                                        GUI_Error_HIG("Invalid vobsubname","Please select or enter a valid vobsub file");
+                                             GUI_Error_HIG(_("Invalid vobsubname"),_("Please select or enter a valid vobsub file"));
                                                         continue;
                                             }
                                             if(*vobname) ADM_dealloc(*vobname);

@@ -196,6 +196,7 @@ extern const char * GUI_getCustomScript(uint32_t nb);
 
 void HandleAction (Action action)
 {
+  gchar *name_utf8;
   static int recursive = 0;
 
   uint32_t nf = 0;
@@ -231,9 +232,9 @@ int nw;
                                 name=prefs->get_lastfiles();
                                 rank=(int)action-ACT_RECENT0;
                                 ADM_assert(name[rank]);
-                                A_openAvi2 ((char *)name[rank], 0);
-                                
-                                
+				name_utf8 = g_filename_from_utf8(name[rank], -1, NULL, NULL, NULL);
+                                A_openAvi2 (name_utf8, 0);
+				g_free(name_utf8);
                 return;
         case ACT_ViewMain: UI_toogleMain();return;
         case ACT_ViewSide: UI_toogleSide();return;
@@ -257,7 +258,7 @@ int nw;
 		return;
     
     case ACT_RunScript:
-    			 GUI_FileSelRead ("Select ecmascript to run ",(SELFILE_CB *) A_parseECMAScript);
+                GUI_FileSelRead (_("Select ecmascript to run "),(SELFILE_CB *) A_parseECMAScript);
                         
                         //
     		return;
@@ -304,7 +305,7 @@ int nw;
       return;
     case ACT_SetLogFile:
 //      GUI_FileSelWrite ("Select log File to use", encoderSetLogFile);
-	GUI_Error_HIG("Obsolete", NULL);
+      GUI_Error_HIG(_("Obsolete"), NULL);
       return;
       break;
     case ACT_SetMuxParam:
@@ -418,7 +419,7 @@ int nw;
   	  			return;
 						break;*/
     case ACT_SelectEncoder:
-      GUI_Error_HIG ("Obsolete", NULL);
+      GUI_Error_HIG (_("Obsolete"), NULL);
       break;
 
     default:
@@ -446,7 +447,7 @@ int nw;
   // restict disabled uncoded actions
   if ((int) action >= ACT_DUMMY)
     {
-      GUI_Error_HIG ("Not coded in this version", NULL);
+      GUI_Error_HIG (_("Not coded in this version"), NULL);
       return;
 
     }
@@ -459,12 +460,12 @@ int nw;
                 A_TimeShift();
                 break;
 	case ACT_OpenAvi:
-          GUI_FileSelRead ("Select AVI file...", (SELFILE_CB *)A_openAvi);
+          GUI_FileSelRead (_("Select AVI file..."), (SELFILE_CB *)A_openAvi);
 	  break;
 
 	case ACT_BrokenAvi:
 	  printf ("\n Opening in broken mode...\n");
-	  GUI_FileSelRead ("Select AVI file...", A_openBrokenAvi);
+          GUI_FileSelRead (_("Select AVI file..."), A_openBrokenAvi);
 	  break;
 
 
@@ -514,9 +515,9 @@ int nw;
 			}
     			break;
     case ACT_SaveUnpackedMpeg4:
-    			if(GUI_Question("This is to be used to undo packed vop on mpeg4.\nContinue ?"))
+      if(GUI_Question(_("This is to be used to undo packed vop on mpeg4.\nContinue ?")))
 			{ 
-				GUI_FileSelWrite ("Select Avi file to write", (SELFILE_CB *)A_SaveUnpackedVop);
+                          GUI_FileSelWrite (_("Select Avi file to write"), (SELFILE_CB *)A_SaveUnpackedVop);
 				
 			}
     			break;
@@ -534,7 +535,7 @@ int nw;
     			A_saveDVDPS(NULL);
     			break;
     case ACT_SaveOGM:
-    			 GUI_FileSelWrite ("Select OGM file to write", (SELFILE_CB *)ogmSave);
+                        GUI_FileSelWrite (_("Select OGM file to write"), (SELFILE_CB *)ogmSave);
     			break;
 				
     case ACT_FrameChanged:
@@ -555,7 +556,7 @@ case ACT_Pipe2Other:
     	break;
 #endif
     case ACT_SaveWork:
-      GUI_FileSelWrite ("Select workbench to save ", A_saveWorkbench);
+      GUI_FileSelWrite (_("Select workbench to save "), A_saveWorkbench);
       break;
     case ACT_ADD_JOB:
         A_addJob();
@@ -566,7 +567,7 @@ case ACT_Pipe2Other:
          A_saveWorkbench( tmp ); // will write "actual_workbench_file" itself
          ADM_dealloc(tmp);
       }else{
-         GUI_FileSelWrite ("Select workbench to save ", A_saveWorkbench);
+        GUI_FileSelWrite (_("Select workbench to save "), A_saveWorkbench);
       }
       break;
         case ACT_JumpToFrame: 
@@ -590,7 +591,7 @@ case ACT_Pipe2Other:
                 }
                 break;
     case ACT_SaveRaw:
-      GUI_FileSelWrite ("Select raw file to save ", (SELFILE_CB *)ADM_saveRaw);
+      GUI_FileSelWrite (_("Select raw file to save "), (SELFILE_CB *)ADM_saveRaw);
       break;
     case ACT_CutWizard:
       ADM_cutWizard ();
@@ -600,17 +601,17 @@ case ACT_Pipe2Other:
                 break;
 
     case ACT_OpenAvi:
-      GUI_FileSelRead ("Select AVI file...",(SELFILE_CB *) A_openAvi);
+      GUI_FileSelRead (_("Select AVI file..."),(SELFILE_CB *) A_openAvi);
       break;
     case ACT_BrokenAvi:
-      GUI_FileSelRead ("Select AVI file...", A_openBrokenAvi);
+      GUI_FileSelRead (_("Select AVI file..."), A_openBrokenAvi);
       break;
     case ACT_AppendAvi:
-      GUI_FileSelRead ("Select AVI file to append...",(SELFILE_CB *) A_appendAvi);
+      GUI_FileSelRead (_("Select AVI file to append..."),(SELFILE_CB *) A_appendAvi);
       break;
     case ACT_SaveWave:
       	{
-	GUI_FileSelWrite ("Select file to save audio",(SELFILE_CB *)A_audioSave);
+          GUI_FileSelWrite (_("Select file to save audio"),(SELFILE_CB *)A_audioSave);
 	
 	}
       break;
@@ -644,14 +645,14 @@ case ACT_Pipe2Other:
       break;
 
     case ACT_SaveBunchJPG:
-    	GUI_FileSelWrite ("Select Jpeg sequence to save ", A_saveBunchJpg);      
+      GUI_FileSelWrite (_("Select Jpeg sequence to save "), A_saveBunchJpg);      
     	break;
     case ACT_SaveImg:
-      GUI_FileSelWrite ("Select BMP to save ", A_saveImg);
+      GUI_FileSelWrite (_("Select BMP to save "), A_saveImg);
       //GUI_FileSelWrite ("Select Jpg to save ", A_saveJpg);
       break;
     case ACT_SaveJPG :
-    	GUI_FileSelWrite ("Select Jpeg to save ", (SELFILE_CB *)A_saveJpg);
+      GUI_FileSelWrite (_("Select Jpeg to save "), (SELFILE_CB *)A_saveJpg);
       	//GUI_FileSelWrite ("Select Jpg to save ", A_saveJpg);
       	break;
     
@@ -707,7 +708,7 @@ case ACT_Pipe2Other:
       GUI_NextPrevBlackFrame(-1);
       break;
     case ACT_AllBlackFrames:    
-       GUI_FileSelWrite ("Select file to save", (SELFILE_CB *)A_ListAllBlackFrames);
+      GUI_FileSelWrite (_("Select file to save"), (SELFILE_CB *)A_ListAllBlackFrames);
         break;                        
     
     case ACT_PreviousFrame:
@@ -759,13 +760,13 @@ case ACT_Pipe2Other:
       break;
 
     case ACT_AudioSourceMP3:
-      GUI_FileSelRead ("Select MP3 to load ", (SELFILE_CB *)A_loadMP3);
+      GUI_FileSelRead (_("Select MP3 to load "), (SELFILE_CB *)A_loadMP3);
       break;
     case ACT_AudioSourceAC3:
-      GUI_FileSelRead ("Select AC3 to load ", (SELFILE_CB *)A_loadAC3);
+      GUI_FileSelRead (_("Select AC3 to load "), (SELFILE_CB *)A_loadAC3);
       break;
     case ACT_AudioSourceWAV:
-      GUI_FileSelRead ("Select WAV to load ",(SELFILE_CB *) A_loadWave);
+      GUI_FileSelRead (_("Select WAV to load "),(SELFILE_CB *) A_loadWave);
       break;
     case ACT_AudioSourceNone:
       //currentaudiostream=(AVDMGenericAudioStream *)NULL;
@@ -813,18 +814,18 @@ case ACT_Pipe2Other:
 		  GUI_GoToFrame (curframe);
 		}
 	      else
-		GUI_Error_HIG ("Out of bounds", NULL);
+                GUI_Error_HIG (_("Out of bounds"), NULL);
 	    }
 	}
       break;
 //----------------------test-----------------------
     case ACT_SaveAvi:
-      GUI_FileSelWrite ("Select  file to save ",(SELFILE_CB *)A_SaveWrapper); // A_SaveAudioNVideo);
+      GUI_FileSelWrite (_("Select  file to save "),(SELFILE_CB *)A_SaveWrapper); // A_SaveAudioNVideo);
       break;
 //---------------------------------------------------
     case ACT_Copy:
       		if( frameEnd < frameStart ){
-      		   GUI_Error_HIG("Marker A > B", "Cannot copy.");
+                  GUI_Error_HIG(_("Marker A > B"), _("Cannot copy."));
       		}else{
     		   video_body->copyToClipBoard (frameStart,frameEnd);
       		}
@@ -836,7 +837,7 @@ case ACT_Pipe2Other:
       		ReSync ();
 	  	if (!video_body->updateVideoInfo (avifileinfo))
 		{
-	  		GUI_Error_HIG ("Something bad happened (II)", NULL);
+                  GUI_Error_HIG (_("Something bad happened (II))"), NULL);
 		}
      		 rebuild_status_bar ();
       		UI_setMarkers (frameStart, frameEnd);
@@ -850,7 +851,7 @@ case ACT_Pipe2Other:
 		break;
     case ACT_ResetSegments:
        if(avifileinfo)
-	if(GUI_Question("Are you sure ?"))
+         if(GUI_Question(_("Are you sure ?")))
 	{
 		video_body->resetSeg();
   		video_body->getVideoInfo (avifileinfo);
@@ -929,8 +930,8 @@ case ACT_Pipe2Other:
         }
       GUI_handleFilter ();
       if( getLastVideoFilter()->getInfo()->width % 8 ){
-         GUI_Error_HIG("Width is not a multiple of 8",
-                       "This will make trouble for avi files.");
+        GUI_Error_HIG(_("Width is not a multiple of 8"),
+                      _("This will make trouble for avi files."));
       }
       if (mode_preview)
       {
@@ -941,7 +942,7 @@ case ACT_Pipe2Other:
       break;
 
     case ACT_RebuildKF:
-      if (GUI_Question ("Rebuild all Keyframes?"))
+      if (GUI_Question (_("Rebuild all Keyframes?")))
 	{
 	  A_rebuildKeyFrame ();
 	  //GUI_Info_HIG ("Done", "Save your file and restart Avidemux.");
@@ -983,6 +984,7 @@ extern void GUI_PreviewEnd (void);
 int A_openAvi2 (char *name, uint8_t mode)
 {
   uint8_t res;
+  gchar *name_utf8;
   char *longname;
   uint32_t magic[4];
   uint32_t id = 0;
@@ -994,10 +996,10 @@ int A_openAvi2 (char *name, uint8_t mode)
   fd = fopen (name, "rb");
   if (!fd){
     if( errno == EACCES ){
-       GUI_Error_HIG("Permission error", "Cannot open \"%s\".", name);
+      GUI_Error_HIG(_("Permission error"), _("Cannot open \"%s\"."), name);
     }
     if( errno == ENOENT ){
-       GUI_Error_HIG("File error", "\"%s\" does not exist.", name);
+      GUI_Error_HIG(_("File error"), _("\"%s\" does not exist."), name);
     }
     return 0;
   }
@@ -1060,10 +1062,10 @@ int A_openAvi2 (char *name, uint8_t mode)
 	avifileinfo = NULL;
 
 	if( fourCC::check(id,(uint8_t *)"//AD") ){
-		GUI_Error_HIG("Cannot open project using the video loader.",
-		              "Try 'File' -> 'Load/Run Project...'");
+          GUI_Error_HIG(_("Cannot open project using the video loader."),
+                        _(  "Try 'File' -> 'Load/Run Project...'"));
 	}else{
-		GUI_Error_HIG ("Could not open the file", NULL);
+          GUI_Error_HIG (_("Could not open the file"), NULL);
 	}
 	return 0;
     }
@@ -1085,7 +1087,8 @@ int A_openAvi2 (char *name, uint8_t mode)
 	}
 
 	/* remember any video or workbench file to "recent" */
-	prefs->set_lastfile(longname);
+	name_utf8 = g_filename_to_utf8(longname, -1, NULL, NULL, NULL);
+	prefs->set_lastfile(name_utf8);
         UI_updateRecentMenu();
 	updateLoaded ();
         if(currentaudiostream)
@@ -1096,8 +1099,8 @@ int A_openAvi2 (char *name, uint8_t mode)
             {
                 if(nbAudio>1)
                 {   // Multiple track warn user
-                    GUI_Info_HIG(ADM_LOG_INFO,"Multiple Audio Tracks","The file you just loaded contains several audio tracks.\n"
-                            "Go to Audio->MainTrack to select the active one.");
+                  GUI_Info_HIG(ADM_LOG_INFO,_("Multiple Audio Tracks"),_("The file you just loaded contains several audio tracks.\n"
+                      "Go to Audio->MainTrack to select the active one."));
                 }
             }
             if(infos) delete [] infos;
@@ -1115,6 +1118,7 @@ int A_openAvi2 (char *name, uint8_t mode)
 		}
 	UI_setTitle(longname+i);
     }
+	g_free(name_utf8);
 	ADM_dealloc(longname);
 	return 1;
 }
@@ -1186,8 +1190,8 @@ void  updateLoaded ()
       if (aviaudiostream)
 	if (!aviaudiostream->isDecompressable ())
 	  {
-	    GUI_Error_HIG ("No audio decoder found for this file",
-		       "Save (A+V) will generate bad AVI. Save audio will work.");
+            GUI_Error_HIG (_("No audio decoder found for this file"),
+                           _( "Save (A+V) will generate bad AVI. Save audio will work."));
 	  }
 
     }
@@ -1202,7 +1206,7 @@ void  updateLoaded ()
   getFirstVideoFilter(); // Rebuild filter if needed
   if(!GUI_getFrame( curframe, rdr_decomp_buffer,NULL))
   {
-      GUI_Error_HIG ("Could not decode the frame", NULL);
+    GUI_Error_HIG (_("Could not decode the frame"), NULL);
     }
   else
     {
@@ -1228,7 +1232,7 @@ A_appendAvi (char *name)
   if (!video_body->addFile (name))
     {
       DIA_StopBusy ();
-      GUI_Error_HIG ("Something failed", NULL);
+      GUI_Error_HIG (_("Something failed"), NULL);
       return 0;
     }
   DIA_StopBusy ();
@@ -1237,7 +1241,7 @@ A_appendAvi (char *name)
   video_body->dumpSeg ();
   if (!video_body->updateVideoInfo (avifileinfo))
     {
-      GUI_Error_HIG ("Something bad happened (II)", NULL);
+      GUI_Error_HIG (_("Something bad happened (II)"), NULL);
       return 0;
     }
 
@@ -1300,7 +1304,7 @@ A_saveAudio (char *name)
   if (!currentaudiostream->isCompressed ())
     {
       GUI_Error_HIG
-	("Cannot save the audio in copy mode", "Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.");
+          (_("Cannot save the audio in copy mode"), _("Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."));
       return;
     }
 
@@ -1410,7 +1414,7 @@ uint8_t Util_saveJpg (char *name,uint32_t w, uint32_t h,ADMImage *image)
         codec->init( 95,25000);
         if(!codec->encode(image,&bitstream))
         {
-                GUI_Error_HIG("Cannot encode the frame", NULL);
+          GUI_Error_HIG(_("Cannot encode the frame"), NULL);
                 delete [] buffer;
                 delete codec;
                 return 0;
@@ -1419,7 +1423,7 @@ uint8_t Util_saveJpg (char *name,uint32_t w, uint32_t h,ADMImage *image)
         fd=fopen(name,"wb");
         if(!fd)
         {
-                GUI_Error_HIG("File error", "Cannot open \"%s\" for writing.", name);
+          GUI_Error_HIG(_("File error"),_( "Cannot open \"%s\" for writing."), name);
                 delete [] buffer;
                 return 0;
         }
@@ -1446,7 +1450,7 @@ void A_saveBunchJpg(char *name)
   ADMBitstream bitstream;
   	if(frameStart>frameEnd)
 		{
-				GUI_Error_HIG("Mark A > B", "Set your markers correctly.");
+                  GUI_Error_HIG(_("Mark A > B"), _("Set your markers correctly."));
 			return;
 		}
 	// Split name into base + extension
@@ -1471,13 +1475,13 @@ void A_saveBunchJpg(char *name)
                 working->update(curImg-frameStart,frameEnd-frameStart);	
 		if (!GUI_getFrame (curImg, src,NULL))
 		{
-			GUI_Error_HIG("Cannot decode frame", "Aborting.");
+                  GUI_Error_HIG(_("Cannot decode frame"), _("Aborting."));
 			goto _bunch_abort;
 		}
                 if(!working->isAlive()) goto _bunch_abort;
 		if(!codec->encode(src,&bitstream))
 			{
-				GUI_Error_HIG("Cannot encode frame", "Aborting.");
+                          GUI_Error_HIG(_("Cannot encode frame"),_( "Aborting."));
 				goto _bunch_abort;
 				
 			}
@@ -1485,7 +1489,7 @@ void A_saveBunchJpg(char *name)
 		fd=fopen(fullName,"wb");
 		if(!fd)
 		{
-				GUI_Error_HIG("Cannot write the file", "Aborting.");
+                  GUI_Error_HIG(_("Cannot write the file"), _("Aborting."));
 				goto _bunch_abort;
 
 		}
@@ -1493,7 +1497,7 @@ void A_saveBunchJpg(char *name)
     		fclose(fd);
 	}
 	
-	GUI_Info_HIG(ADM_LOG_INFO,"Done", "Saved %d images.", curImg-frameStart);
+        GUI_Info_HIG(ADM_LOG_INFO,_("Done"),_( "Saved %d images."), curImg-frameStart);
 _bunch_abort:
         delete working	;
     	delete [] buffer;
@@ -1551,19 +1555,19 @@ sz = avifileinfo->width* avifileinfo->height * 3;
   	out=(uint8_t *)ADM_alloc(sz);
 	if(!out)
 	{
-		GUI_Error_HIG("Memory error", NULL);
+          GUI_Error_HIG(_("Memory error"), NULL);
 		return;
 	}
 
 	 if(!COL_yv12rgbBMP(bmph.biWidth, bmph.biHeight,rdr_decomp_buffer->data, out))
 	 {
-		GUI_Error_HIG("Error converting to BMP", NULL);
+           GUI_Error_HIG(_("Error converting to BMP"), NULL);
 		return;
  	}
  	fd = fopen (name, "wb");
   	if (!fd)
     	{
-      		GUI_Error_HIG ("Something bad happened", NULL);
+          GUI_Error_HIG (_("Something bad happened"), NULL);
 		ADM_dealloc(out);
       		return;
     	}
@@ -1599,7 +1603,7 @@ sz = avifileinfo->width* avifileinfo->height * 3;
     	ADM_dealloc(out);
 
 
-        GUI_Info_HIG (ADM_LOG_INFO,"Done", "Saved \"%s\".", GetFileName(name));
+        GUI_Info_HIG (ADM_LOG_INFO,_("Done"),_( "Saved \"%s\"."), GetFileName(name));
 
 }
 
@@ -1620,8 +1624,8 @@ A_loadAC3 (char *name)
 
   if (ac3->open (name) == 0)
     {
-      GUI_Error_HIG ("Failed to open the file", "Not a WAV file?");
-      printf ("WAV open file failed...");
+      GUI_Error_HIG (_("Failed to open the file"), _("Not a WAV file?"));
+      printf (_("WAV open file failed..."));
       delete ac3;
       return 0;
     }
@@ -1685,7 +1689,7 @@ A_loadWave (char *name)
 
   if (wav->open (name) == 0)
     {
-      GUI_Error_HIG ("Failed to open the file", "Not a WAV file?");
+      GUI_Error_HIG (_("Failed to open the file"), _("Not a WAV file?"));
       printf ("WAV open file failed...");
       delete wav;
       return 0;
@@ -1751,21 +1755,21 @@ A_saveAudioDecodedTest (char *name)
   if (currentaudiostream->isCompressed ())
     if (!currentaudiostream->isDecompressable ())
       {
-	GUI_Error_HIG ("Cannot decompress audio frame", NULL);
+        GUI_Error_HIG (_("Cannot decompress audio frame"), NULL);
 	return;
       }
 
 
   if (!(out = fopen (name, "wb")))
     {
-      GUI_Error_HIG ("File error", "Cannot open \"%s\" for writing.", name);
+      GUI_Error_HIG (_("File error"), _("Cannot open \"%s\" for writing."), name);
       return;
     }
 
   outbuffer = (uint8_t *) ADM_alloc (2 * OUTCHUNK);	// 1Meg cache;
   if (!outbuffer)
     {
-      GUI_Error_HIG ("Memory Error", NULL);
+      GUI_Error_HIG (_("Memory Error"), NULL);
       return;
     }
 
@@ -1788,8 +1792,7 @@ A_saveAudioDecodedTest (char *name)
 
 
 
-	saveFilter =	buildAudioFilter (currentaudiostream,
-			  video_body->getTime (frameStart),(uint32_t) video_body->getTime (frameEnd-frameStart) );
+        saveFilter =  buildAudioFilter (currentaudiostream,video_body->getTime (frameStart));
    
     	DIA_working *work=new DIA_working("Saving audio");
 
@@ -1812,7 +1815,7 @@ A_saveAudioDecodedTest (char *name)
   
   if( frameStart == frameEnd ){
      /* JSC: we will write some bytes, but nobody should expect useful data */
-     GUI_Error_HIG("No frames to encode","Please check markers. Is \"A>\" == \">B\"?");
+    GUI_Error_HIG(_("No frames to encode"),_("Please check markers. Is \"A>\" == \">B\"?"));
   }
 
   while ((sampleCurrent<sampleTarget))
@@ -1847,7 +1850,7 @@ A_saveAudioDecodedTest (char *name)
   fclose (out);
   ADM_dealloc (outbuffer);
   delete work;
-  deleteAudioFilter ();
+  deleteAudioFilter (saveFilter);
   currentaudiostream->endDecompress ();
   printf ("AudioSave: actually written %u\n", written);
   printf ("Audiosave: target sample:%llu, got :%llu\n",sampleTarget,sampleCurrent);
@@ -2102,94 +2105,7 @@ extern int DIA_audioEncoder(int *pmode, int *pbitrate,const char *title);
 		Pipe to toolame
 -------------------------------------------------------**/
 extern  void audioCodecSetcodec(AUDIOENCODER codec);
-extern uint8_t DIA_lame(char **lame);
-extern uint8_t DIA_pipe(char **cmd, char **param);
 
-extern uint8_t audioPiperLame(char *file, AVDMProcessAudioStream *in,char *extra);
-extern uint8_t audioPipeTo(char *file, AVDMProcessAudioStream *in,char *cmd, char *param);
-
-#if 0
-void A_Pipe(pipID who,char *outfile)
-{
-  AVDMProcessAudioStream *in;
-  uint32_t max=0;
-  char *param=NULL;
-  char *cmd=NULL;
-
-  if (!currentaudiostream)
-    return;
-  if (currentaudiostream->isCompressed ())
-    if (!currentaudiostream->isDecompressable ())
-      {
-	GUI_Error_HIG ("Cannot decompress audio frame", NULL);
-	return;
-      }
-
-      switch(who)
-	{
-		case P_TOOLAME:
-    				// ask audio to set up parameters
-
-				 audioCodecSetcodec(AUDIOENC_MP2);
-				// configure it ..
-				if(!isQuiet())
-					audioCodecConfigure();
-				break;
-		case P_LAME:
-				if(!DIA_lame(&param)) return;
-				break;
-
-		case P_OTHER:
-				if(!DIA_pipe(&cmd,&param)) return;
-				break;
-	}
-
-
-	// ask for filename
-	char *file=NULL;
-		if(!outfile)
-		{
-			if(who!=P_OTHER)
-				GUI_FileSelWrite("Output file for piped", &file);
-		}
-		else
-		{
-			file=ADM_strdup(outfile);
-		}
-
-	if(!file) return;
-
-
-// compute max bytes to read (with little margin)
-  max =getAudioByteCount( frameStart,frameEnd);
-// re-ignite first filter...
-  currentaudiostream->beginDecompress ();
-  in =buildInternalAudioFilter (currentaudiostream, video_body->getTime (frameStart), max);
-
-  printf("\n***%u bytes to feed \n",max);
-	// now we have the incoming stream and the filename
-	// ask piper to do it
-	switch(who)
-	{
-		case P_TOOLAME:
-    				audioPiper2Lame(file, in);
-				break;
-		case P_LAME:
-				audioPiperLame(file,in,param);
-				break;
-
-		case P_OTHER:
-				audioPipeTo(file,in,cmd,param);
-				break;
-	}
-    deleteAudioFilter();
-    if(param) ADM_dealloc(param);
-    if(cmd) ADM_dealloc(cmd);
-    if(file) ADM_dealloc(file);
-    GUI_Info("Done!");
-
-}
-#endif
 /**
 	Return the # of byte to go from start frame to end frame
 
@@ -2243,11 +2159,11 @@ DIA_working *work;
   delete work;
   delete aImage;
   if(error==0)
-  	GUI_Info_HIG(ADM_LOG_IMPORTANT,"No error found", NULL);
+    GUI_Info_HIG(ADM_LOG_IMPORTANT,_("No error found"), NULL);
 else
 	{
 		char str[400];
-		sprintf(str,"Errors found in %u frames",error);
+                sprintf(str,_("Errors found in %u frames"),error);
 		GUI_Info_HIG(ADM_LOG_IMPORTANT,str, NULL);
 
 	}
@@ -2265,7 +2181,7 @@ int A_audioSave(char *name)
 			if (!currentaudiostream->isDecompressable ())
 		  	{
 		    		GUI_Error_HIG
-		      ("Cannot decompress the audio stream", "Switch audio codec to Copy.");
+                                    (_("Cannot decompress the audio stream"),_( "Switch audio codec to Copy."));
 		   		return 0;
 		  	}
 		// if we get here, either not compressed
@@ -2296,12 +2212,12 @@ int A_saveDVDPS(char *name)
 				video_body->sanityCheckRef(frameStart,end,&fatal);
 				if(fatal)
 				{
-					GUI_Error_HIG("Cannot save the file", "There is a lonely B-frame at start/end. Please remove it.");
+                                  GUI_Error_HIG(_("Cannot save the file"), _("There is a lonely B-frame at start/end. Please remove it."));
 					return 0;
 				}
 				printf("Using pass through\n");
 				if(!name)
-					GUI_FileSelWrite ("Select Mpeg file...", (SELFILE_CB *)A_pass);
+                                  GUI_FileSelWrite (_("Select Mpeg file..."), (SELFILE_CB *)A_pass);
 				else
 					mpeg_passthrough(name,ADM_PS);
 			}
@@ -2322,26 +2238,26 @@ uint32_t count;
       count = end - start;
      
       if( end < start ){
-         GUI_Error_HIG("Marker A > B", "Cannot delete the selection.");
+        GUI_Error_HIG(_("Marker A > B"), _("Cannot delete the selection."));
          return 0;
       }
       if (count >= info.nb_frames - 1)
 	{
-	  GUI_Error_HIG ("You can't remove all frames", NULL);
+          GUI_Error_HIG (_("You can't remove all frames"), NULL);
 	  return 0;
 	}
 
       video_body->dumpSeg ();
       if (!video_body->removeFrames (start, end))
 	{
-	  GUI_Error_HIG ("Something bad happened", NULL);
+          GUI_Error_HIG (_("Something bad happened"), NULL);
 	  return 0;
 	}
       video_body->dumpSeg ();
       //resync GUI and video
       if (!video_body->updateVideoInfo (avifileinfo))
 	{
-	  GUI_Error_HIG ("Something bad happened (II)", NULL);
+          GUI_Error_HIG (_("Something bad happened (II)"), NULL);
 	}
       
 
@@ -2397,7 +2313,7 @@ void A_audioTrack( void )
 
         if(!video_body->getAudioStreamsInfo(0,&nb, &infos))
         {
-                GUI_Error_HIG("Could not get tracks info", NULL);
+          GUI_Error_HIG(_("Could not get tracks info"), NULL);
                 return ;
         }
         newtrack=oldtrack=video_body->getCurrentAudioStreamNumber(0);
@@ -2410,13 +2326,13 @@ void A_audioTrack( void )
         switch( nw)
         {
                 case AudioMP3:
-                        GUI_FileSelRead ("Select MP3 to load ", (SELFILE_CB *)A_loadMP3);
+                  GUI_FileSelRead (_("Select MP3 to load "), (SELFILE_CB *)A_loadMP3);
                         break;
                 case AudioAC3:
-                        GUI_FileSelRead ("Select AC3 to load ", (SELFILE_CB *)A_loadAC3);
+                  GUI_FileSelRead (_("Select AC3 to load "), (SELFILE_CB *)A_loadAC3);
                         break;
                 case AudioWav:
-                        GUI_FileSelRead ("Select WAV to load ",(SELFILE_CB *) A_loadWave);
+                  GUI_FileSelRead (_("Select WAV to load "),(SELFILE_CB *) A_loadWave);
                         break;
                 case AudioNone:
                           A_changeAudioStream((AVDMGenericAudioStream *) NULL, AudioNone,NULL);
@@ -2462,7 +2378,7 @@ void A_externalAudioTrack( void )
         char               *name=NULL;
         if(nw==AudioMP3|| nw==AudioAC3 || nw==AudioWav)
         {
-                GUI_FileSelRead("Select 2nd track",&name);
+          GUI_FileSelRead(_("Select 2nd track"),&name);
         }
         A_setSecondAudioTrack(nw,name);
         if(name) ADM_dealloc(name);
@@ -2481,7 +2397,7 @@ uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name)
                         if (!tmp->open (name))
                         {
                                 delete tmp;
-                                GUI_Error_HIG("Error loading the MP3 file", NULL);
+                                GUI_Error_HIG(_("Error loading the MP3 file"), NULL);
                                 
                         }
                         else
@@ -2489,7 +2405,7 @@ uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name)
                                 secondaudiostream = tmp;     
                                 secondAudioSource=AudioMP3;
                                 printf ("\n MP3 loaded\n");
-                                GUI_Info_HIG(ADM_LOG_INFO,"Second track loaded", NULL);
+                                GUI_Info_HIG(ADM_LOG_INFO,_("Second track loaded"), NULL);
                                 return 1;
                         }
                         }
@@ -2503,14 +2419,14 @@ uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name)
                         if (!tmp->open (name))
                         {
                                 delete tmp;
-                                GUI_Error_HIG("Error loading the AC3 file", NULL);
+                                GUI_Error_HIG(_("Error loading the AC3 file"), NULL);
                         }
                         else
                         {
                                 secondaudiostream = tmp;     
                                 secondAudioSource=AudioAC3;
                                 printf ("\n AC3 loaded\n");
-                                GUI_Info_HIG(ADM_LOG_INFO,"Second track loaded", NULL);
+                                GUI_Info_HIG(ADM_LOG_INFO,_("Second track loaded"), NULL);
                                 return 1;
                         }
                         }
@@ -2524,14 +2440,14 @@ uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name)
                         if (!tmp->open (name))
                         {
                                 delete tmp;
-                                GUI_Error_HIG("Error loading the WAV file", NULL);
+                                GUI_Error_HIG(_("Error loading the WAV file"), NULL);
                         }
                         else
                         {
                                 secondaudiostream = tmp;     
                                 secondAudioSource=AudioAC3;
                                 printf ("\n AC3 loaded\n");
-                                GUI_Info_HIG(ADM_LOG_INFO,"Second track loaded", NULL);
+                                GUI_Info_HIG(ADM_LOG_INFO,_("Second track loaded"), NULL);
                                 return 1;
                         }}
                         break;
@@ -2546,8 +2462,6 @@ uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name)
 uint8_t A_TimeShift(void)
 {
 static int update=0;
-// extern int audioShift;
-// extern int audioDelay;
 int onoff;
 int value;
         if(update) return 1;
@@ -2592,7 +2506,7 @@ void A_addJob(void)
 
         if(!video_body->saveAsScript(fullname,final))
         {
-                GUI_Error_HIG("Saving failed","Saving the job failed. Maybe you have permission issue with ~/.avidemux");
+          GUI_Error_HIG(_("Saving failed"),_("Saving the job failed. Maybe you have permission issue with ~/.avidemux"));
         }
 
         delete fullname;
@@ -2604,11 +2518,11 @@ int A_SaveWrapper(char *name)
 
         if(A_Save(name))
         {
-                GUI_Info_HIG (ADM_LOG_INFO,"Done", "File %s has been successfully saved.",GetFileName(name));
+          GUI_Info_HIG (ADM_LOG_INFO,_("Done"),_( "File %s has been successfully saved."),GetFileName(name));
         }
         else
         {
-                GUI_Error_HIG ("Failed", "File %s was NOT saved correctly.",GetFileName(name));
+          GUI_Error_HIG (_("Failed"), _("File %s was NOT saved correctly."),GetFileName(name));
         }
         return 1;
 }

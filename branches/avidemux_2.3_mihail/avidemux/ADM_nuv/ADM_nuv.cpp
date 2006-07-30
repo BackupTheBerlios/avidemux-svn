@@ -564,7 +564,7 @@ uint32_t rcount=0;
 		{
 			if(work->update(  (uint32_t)( next>>8),(uint32_t)(_filesize>>8))) /* 2 Gb * 256 should be enough ... */
 			{
-				if(GUI_Question("Sure you want to abort ?"))
+                              if(GUI_Question(_("Sure you want to abort ?")))
 				{
 						// purge aqueue,vqueue & rqueue
 
@@ -775,7 +775,7 @@ uint32_t rcount=0;
 						_mythData=new mythHeader;
 						if(frame.packetlength!=sizeof(mythHeader))
 							{
-								GUI_Error_HIG("Size mismatch", "Expect a crash.");
+                                                            GUI_Error_HIG(_("Size mismatch"), _("Expect a crash."));
 
 							}
 						uint64_t old;
@@ -1067,7 +1067,7 @@ uint32_t rcount=0;
 				}
 				ADM_dealloc(mname);
 			}
-			if(GUI_Question("Do you want to save an index ?")){
+                        if(GUI_Question(_("Do you want to save an index ?"))){
 				GUI_FileSelWrite("Nuv index to save..",&mname);
 				if(mname){
 					saveIndex( mname,name);

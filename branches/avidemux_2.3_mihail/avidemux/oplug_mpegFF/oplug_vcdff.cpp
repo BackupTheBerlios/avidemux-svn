@@ -24,8 +24,8 @@
 
 #include <string.h>
 #include <math.h>
-
-
+#include <pthread.h>
+#define WIN32_CLASH
 #ifdef USE_FFMPEG
 extern "C" {
 #include "ADM_lavcodec.h"
@@ -59,6 +59,12 @@ extern "C" {
 #include "ADM_encoder/adm_encConfig.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
 
+#include "ADM_toolkit/ADM_threads.h"
+#include "ADM_mplex/ADM_mthread.h"
+#warning REMOVE unistd
+#include "unistd.h"
+
+
 
 static uint8_t *_buffer=NULL,*_outbuffer=NULL;
 static void  end (void);
@@ -76,6 +82,9 @@ extern SelectCodecType  current_codec;
 
 static char *twoPass=NULL;
 static char *twoFake=NULL;
+
+
+
 
 void oplug_mpegff_conf( void )
 {
@@ -145,7 +154,7 @@ ADMBitstream bitstream;
             case ADM_TS:
                     if(!currentaudiostream)
                     {
-                        GUI_Error_HIG("There is no audio track", NULL);
+                      GUI_Error_HIG(_("There is no audio track"), NULL);
                         return 0;
                     }
                     audio=mpt_getAudioStream();
@@ -156,7 +165,7 @@ ADMBitstream bitstream;
             {
                 if(!currentaudiostream)
                 {
-                        GUI_Error_HIG("There is no audio track", NULL);
+                  GUI_Error_HIG(_("There is no audio track"), NULL);
                         return 0;
                 }
                 audio=mpt_getAudioStream();
@@ -166,7 +175,7 @@ ADMBitstream bitstream;
                 // Later check if it is SVCD
                 if(!audio)
                 {
-                        GUI_Error_HIG("Audio track is not suitable", NULL);
+                  GUI_Error_HIG(_("Audio track is not suitable"), NULL);
                         return 0;
                 }
                 // Check
@@ -176,8 +185,8 @@ ADMBitstream bitstream;
                 {
                         if(hdr->frequency!=44100 ||  hdr->encoding != WAV_MP2)
                         {
-                            GUI_Error_HIG("Incompatible audio", "For VCD, audio must be 44.1 kHz MP2.");
-                            deleteAudioFilter();
+                            GUI_Error_HIG(("Incompatible audio"),_( "For VCD, audio must be 44.1 kHz MP2."));
+                            deleteAudioFilter(audio);
                             return 0;
                         }
                         mux=MUXER_VCD;
@@ -197,8 +206,8 @@ ADMBitstream bitstream;
                             if(hdr->frequency!=48000 || 
                                 (hdr->encoding != WAV_MP2 && hdr->encoding!=WAV_AC3 && hdr->encoding!=WAV_LPCM))
                             {
-                                deleteAudioFilter();
-                                GUI_Error_HIG("Incompatible audio", "For DVD, audio must be 48 kHz MP2, AC3 or LPCM.");
+                                deleteAudioFilter(audio);
+                                GUI_Error_HIG(_("Incompatible audio"), _("For DVD, audio must be 48 kHz MP2, AC3 or LPCM."));
                                 return 0 ;
                             }
                             mux=MUXER_DVD;
@@ -229,7 +238,7 @@ ADMBitstream bitstream;
             {
                 delete muxer;
                 muxer=NULL;
-                deleteAudioFilter();
+                deleteAudioFilter(audio);
                 printf("Muxer init failed\n");
                 return 0 ;
             }
@@ -246,7 +255,7 @@ ADMBitstream bitstream;
             file=fopen(name,"wb");
             if(!file)
             {
-                    GUI_Error_HIG("File error", "Cannot open \"%s\" for writing.", name);
+              GUI_Error_HIG(_("File error"), _("Cannot open \"%s\" for writing."), name);
                     return 0 ;
             }
         }
@@ -319,7 +328,7 @@ switch(mux)
 			fd=fopen(twoPass,"rt");
 			if(fd)
 			{
-				if(GUI_Question("Reuse log file ?"))
+                          if(GUI_Question(_("Reuse log file ?")))
 				{
 					reuse=1;
 				}
@@ -336,7 +345,7 @@ switch(mux)
 					encoding->setFrame(i,total);
                                         if(!encoder->encode( i, &bitstream))//&len,(uint8_t *) _buffer,&flags))
 					{
-						GUI_Error_HIG("Error in pass 1", NULL);
+                                          GUI_Error_HIG(_("Error in pass 1"), NULL);
 					}
 					encoding->feedFrame(bitstream.len);
 					encoding->setQuant(bitstream.out_quantizer);
@@ -358,6 +367,59 @@ switch(mux)
             else
                   encoding->setAudioCodec(getStrFromAudioCodec(audio->getInfo()->encoding));
          }
+         //**********************************************************
+         //  In that case we do multithreadedwriting (yes!)
+         //**********************************************************
+
+         if(mux==MUXER_DVD || mux==MUXER_SVCD)
+         {
+           pthread_t audioThread,videoThread,muxerThread;
+           muxerMT context;
+           //
+           bitstream.data=_outbuffer;
+           // 
+           memset(&context,0,sizeof(context));
+           context.videoEncoder=encoder;
+           context.audioEncoder=audio;
+           context.muxer=(mplexMuxer *)muxer;
+           context.nbVideoFrame=total;
+           context.audioTargetSample=sample_target;
+           context.audioBuffer=audioBuffer;
+           context.bitstream=&bitstream;
+
+           // start audio thread
+           ADM_assert(!pthread_create(&audioThread,NULL,(THRINP)defaultAudioSlave,&context)); 
+           ADM_assert(!pthread_create(&videoThread,NULL,(THRINP)defaultVideoSlave,&context)); 
+           while(1)
+           {
+             accessMutex.lock();
+             if(context.audioDone==2 || context.videoDone==2) //ERROR
+             {
+               context.audioAbort=1;
+               context.videoAbort=1;
+             }
+             if(context.audioDone && context.videoDone)
+             {
+               printf("[mpegFF]Both audio & video done\n");
+               if(context.audioDone==1 && context.videoDone==1) ret=1;
+               else ret=0;
+               accessMutex.unlock();
+               goto finishvcdff;
+             }
+             // Update UI
+             
+             encoding->feedAudioFrame(context.feedAudio);
+             encoding->setFrame(context.currentVideoFrame,total);
+             //encoding->setQuant(bitstream.out_quantizer);
+             encoding->feedFrame(context.feedVideo);
+             context.feedAudio=0;
+             context.feedVideo=0;
+             accessMutex.unlock();
+             ADM_usleep(1000*1000);
+             
+           }
+           
+         }
 		// 2nd or Uniq Pass
                 bitstream.data=_outbuffer;
 		for(uint32_t i=0;i<total;i++)
@@ -366,8 +428,8 @@ switch(mux)
                                 bitstream.cleanup(i);
                                 if(!encoder->encode( i,&bitstream))// &len,(uint8_t *) _outbuffer,&flags))
 				{
-					GUI_Error_HIG("Error in pass 2", NULL);
-					goto finish;
+                                  GUI_Error_HIG(_("Error in pass 2"), NULL);
+					goto finishvcdff;
 				}
                                 if(!bitstream.len) continue;
 				
@@ -409,11 +471,12 @@ switch(mux)
 					if(!encoding->isAlive ())
 						{
                                                          ret=0;        
-							 goto finish;
+							 goto finishvcdff;
 						}
 			}
 			ret=1;
-finish:
+finishvcdff:
+                        printf("[MPEGFF] Finishing..\n");
 			delete encoding;
 //			GUI_Info_HIG("Done", "Successfully saved \"%s\".", GetFileName(name));
 		 	end();
@@ -446,7 +509,14 @@ void end (void)
 	
 	twoPass=twoFake=NULL;
 	
-}	
-	
+}
+/*
+typedef struct muxerMT
+{
+  EncoderFFMPEGMpeg1        *videoEncoder;
+  AVDMGenericAudioStream    *audioEncoder;
+  ADMMpegMuxer              *muxer;
+};
+*/
 #endif	
 // EOF

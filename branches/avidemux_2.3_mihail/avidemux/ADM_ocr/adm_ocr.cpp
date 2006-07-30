@@ -208,13 +208,13 @@ _again:
    fileout=(char *)gtk_label_get_text(GTK_LABEL(WID(labelSrt)));
    if(!fileout)
     {
-        GUI_Error_HIG("Incorrect output file", NULL);
+      GUI_Error_HIG(_("Incorrect output file"), NULL);
         goto _again;
     }
     out=fopen(fileout,"wb");
     if(!out)
     {
-        GUI_Error_HIG("Output file error", "Could not open \"%s\" for writing.", fileout);
+      GUI_Error_HIG(_("Output file error"), _("Could not open \"%s\" for writing."), fileout);
         goto _again;
     }
      
@@ -223,7 +223,7 @@ _again:
    
     if(!nbSub)
     {
-        GUI_Error_HIG("Problem loading sub", NULL);
+      GUI_Error_HIG(_("Problem loading sub"), NULL);
         delete vobsub;
         vobsub=NULL;
         goto _again;
@@ -588,7 +588,7 @@ ReplyType glyphToText(admGlyph *glyph)
                     return ReplySkipAll;
                     break;
                 case GTK_RESPONSE_CLOSE:
-                    if(GUI_Question("Sure ?")) return ReplyClose;
+                  if(GUI_Question(_("Sure ?"))) return ReplyClose;
                     break; // Abort
                     
                 }
@@ -751,7 +751,7 @@ char text[1024];
         case actionSaveSub:
                 {
                     char *srt=NULL;
-                    GUI_FileSelWrite("Select SRT to save", &srt);
+                    GUI_FileSelWrite(_("Select SRT to save"), &srt);
                     if(srt)
                     {
                         gtk_label_set_text(GTK_LABEL(WID(labelSrt)),srt);
@@ -763,7 +763,7 @@ char text[1024];
             {
                  char *gly=NULL;
                     
-                    GUI_FileSelRead("Select Glyoh to save", &gly);
+                    GUI_FileSelRead(_("Select Glyoh to save"), &gly);
                     if(gly)
                     {
                             loadGlyph(gly);
@@ -777,7 +777,7 @@ char text[1024];
             
                     if(!nbGlyphs)
                     {
-                        GUI_Error_HIG("No glyphs to save", NULL);
+                      GUI_Error_HIG(_("No glyphs to save"), NULL);
                         break;
                     }                  
                     saveGlyph();                                      
