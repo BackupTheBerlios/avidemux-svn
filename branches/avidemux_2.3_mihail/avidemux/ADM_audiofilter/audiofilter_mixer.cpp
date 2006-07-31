@@ -24,7 +24,10 @@
 #include "audioeng_process.h"
 #include "audiofilter_mixer.h"
 
+
 typedef int *DOWMIXER_f(float *in,float *out,uint32_t nbSample,uint32_t chan);
+
+static CHANNEL_TYPE *ch_type;
 
 static inline float CLIP(float in)
 {
@@ -32,7 +35,8 @@ static inline float CLIP(float in)
   if(in<-1.0) in=-1.0;
   return in;
 }
-
+#include "ADM_editor/ADM_edit.hxx"
+extern ADM_Composer *video_body;//for Mihail HACK
 AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CONF out):AUDMAudioFilter (instream)
 {
     _output=out;
@@ -43,26 +47,54 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
     double d;               // Update duration
     d=_wavHeader.byterate;
     d/=_wavHeader.channels;
-    _wavHeader.channels=ADM_channel_mixer[_output];
+
+//Mihail HACK: should by ch_type = _previous->getInfo()->ch_type; but i can't understand where ch_type[c] should copy
+	ch_type = video_body->getAudioInfo()->ch_type;
+	switch (_output) {
+		case CHANNEL_MONO:
+			_wavHeader.channels = 1;
+			_wavHeader.ch_type[0] = CH_MONO;
+		break;
+		case CHANNEL_STEREO:
+			_wavHeader.channels = 2;
+			_wavHeader.ch_type[0] = CH_FRONT_LEFT;
+			_wavHeader.ch_type[1] = CH_FRONT_RIGHT;
+		break;
+		case CHANNEL_3F_2R_LFE:
+			_wavHeader.channels = 6;
+			_wavHeader.ch_type[0] = CH_FRONT_LEFT;
+			_wavHeader.ch_type[1] = CH_FRONT_RIGHT;
+			_wavHeader.ch_type[2] = CH_REAR_LEFT;
+			_wavHeader.ch_type[3] = CH_REAR_RIGHT;
+			_wavHeader.ch_type[4] = CH_FRONT_CENTER;
+			_wavHeader.ch_type[5] = CH_LFE;
+		break;
+	}
+
     d*=_wavHeader.channels;
     _wavHeader.byterate = (uint32_t)ceil(d);
-    
-    int chan;
-    chan=_previous->getInfo()->channels;
-    switch(chan)
-    {
-        case 6: _input=CHANNEL_3F_2R_LFE;break;
-        case 5: _input=CHANNEL_3F_2R;break;
-        case 1: _input=CHANNEL_MONO;break;
-        case 2: _input=CHANNEL_STEREO;break;
-        default:
-            printf("Invalid channel configuration %u\n",chan);
-            ADM_assert(0);
-    }
-    printf("[mixer]Input channels : %u : %u \n",_previous->getInfo()->channels,ADM_channel_mixer[_input]);
-    printf("[mixer]Out   channels : %u : %u \n",_wavHeader.channels,ADM_channel_mixer[_output]);
+
+
+//    printf("[mixer]Input channels : %u : %u \n",_previous->getInfo()->channels,input_channels);
+//    printf("[mixer]Out   channels : %u : %u \n",_wavHeader.channels,ADM_channel_mixer[_output]);
 
 };
+
+inline bool AUDMAudioFilterMixer::compareChType(WAVHeader *wh1, WAVHeader *wh2)
+{
+	int i = 0;
+	if (wh1->channels == wh2->channels)
+		for (int j = 0; j < wh1->channels; j++)
+			if (wh1->ch_type[i] == wh2->ch_type[j]) {
+				i++;
+				if (i == wh1->channels)
+					return 1;
+				j = -1;
+			}
+
+	return 0;
+}
+
 
 AUDMAudioFilterMixer::~AUDMAudioFilterMixer()
 {
@@ -211,7 +243,7 @@ static int M22_2_DB1(float *in,float *out,uint32_t nbSample,uint32_t chan)
 */
 static int MCOPY(float *in,float *out,uint32_t nbSample,uint32_t chan)
 {
-    memcpy(out,in,nbSample*chan);
+    memcpy(out,in,nbSample*chan*sizeof(float));
     return nbSample*chan;
     
 }
@@ -232,6 +264,7 @@ static int M1to2(float *in,float *out,uint32_t nbSample,uint32_t chan)
         out[0]=out[1]=*in++;
         out+=2;   
     }
+	printf("%i\n", nbSample*2);
     return nbSample*2;
     
 }
@@ -252,9 +285,41 @@ int den=(chan+1)&0xfe;
     
 }
 
+static int MStereo(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 2);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+				case CH_REAR_CENTER:
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+				case CH_REAR_LEFT:
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+				case CH_REAR_RIGHT:
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 2;
+	}
+
+	return nbSample*2;
+}
 
 typedef int MIXER(float *in,float *out,uint32_t nbSample,uint32_t chan)  ;
-
+/*
 static MIXER *matrixCall[CHANNEL_LAST][CHANNEL_LAST] // output / input
 =
 {
@@ -283,6 +348,10 @@ static MIXER *matrixCall[CHANNEL_LAST][CHANNEL_LAST] // output / input
     // PROLOGIC 2
     {NULL,M1to2,NULL,NULL,                          M3_2_DB1,M31_2_DB1,M22_2_DB2,M32_2_DB2,    M32_2_DB2,NULL,NULL,NULL},
 };
+*/
+static MIXER *matrixCall[CHANNEL_LAST] = {
+NULL, MNto1, MStereo
+};
 //_____________________________________________
 uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *status)
 {
@@ -290,19 +359,19 @@ uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *statu
     uint32_t rd = 0;
     uint8_t *in,*out;
     uint32_t window;
-    int nbSampleMax=max/ADM_channel_mixer[_output];;
-
+    int nbSampleMax=max/_wavHeader.channels;
+    uint8_t input_channels = _previous->getInfo()->channels;
 
 // Fill incoming buffer
     shrink();
     fillIncomingBuffer(status);
     // Block not filled ?
-    if((_tail-_head)<ADM_channel_mixer[_input])
+    if((_tail-_head)<input_channels)
     {
       if(*status==AUD_END_OF_STREAM && _head)
       {
-        memset(&_incomingBuffer[_head],0,sizeof(float) * ADM_channel_mixer[_input]);
-        _tail=_head+ADM_channel_mixer[_input];
+        memset(&_incomingBuffer[_head],0,sizeof(float) * input_channels);
+        _tail=_head+input_channels;
         printf("[Mixer] Warning asked %u symbols, a window is %u symbols\n",max,window);
       }
       else
@@ -317,21 +386,26 @@ uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *statu
     int available=0;
     if(!nbSampleMax)
     {
-      printf("[Mixer] Warning max %u, channels %u\n",max,ADM_channel_mixer[_input]);
+      printf("[Mixer] Warning max %u, channels %u\n",max,input_channels);
     }
-    available=(_tail-_head)/ADM_channel_mixer[_input]; // nb Sample
+    available=(_tail-_head)/input_channels; // nb Sample
     ADM_assert(available);
     if(available > nbSampleMax) available=nbSampleMax;
     
     ADM_assert(available);
     
+
     // Now do the downsampling
-    MIXER *call=matrixCall[_output][_input];
-    if(!call)
-        rd= (uint32_t)MCOPY(&_incomingBuffer[_head],output,available,ADM_channel_mixer[_input]);
-    else
-        rd= (uint32_t)call(&_incomingBuffer[_head],output,available,ADM_channel_mixer[_input]);
-    _head+=available*ADM_channel_mixer[_input];
+	if (_output == CHANNEL_INVALID || compareChType(&_wavHeader, video_body->getAudioInfo())) {
+		for (int i = 0; i < _wavHeader.channels; i++)
+			_wavHeader.ch_type[i] = ch_type[i];
+		rd= (uint32_t)MCOPY(&_incomingBuffer[_head],output,available,input_channels);
+	} else {
+		MIXER *call=matrixCall[_output];
+		rd= (uint32_t)call(&_incomingBuffer[_head],output,available,input_channels);
+	}
+
+    _head+=available*input_channels;
     return rd;
     
 }

@@ -22,8 +22,8 @@ class ADM_Audiocodec
 {
 	protected:
 		uint8_t	_init;
+		WAVHeader *_wavHeader;
 		void int2float(float *data, uint32_t nb_sample);
-
 	public:
 		ADM_Audiocodec(uint32_t fourcc);
 		virtual	~ADM_Audiocodec();
@@ -84,7 +84,7 @@ class ADM_AudiocodecAC3 : public     ADM_Audiocodec
 		uint32_t _downmix;
 
 	public:
-		ADM_AudiocodecAC3(uint32_t fourcc);
+		ADM_AudiocodecAC3(uint32_t fourcc, WAVHeader *info);
 		virtual	~ADM_AudiocodecAC3();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
@@ -102,7 +102,7 @@ class ADM_AudiocodecDCA : public     ADM_Audiocodec
 		void *dts_handle;
 
 	public:
-		ADM_AudiocodecDCA(uint32_t fourcc);
+		ADM_AudiocodecDCA(uint32_t fourcc, WAVHeader *info);
 		virtual	~ADM_AudiocodecDCA();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);

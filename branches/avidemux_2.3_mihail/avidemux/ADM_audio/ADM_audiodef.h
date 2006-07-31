@@ -5,14 +5,33 @@
 #ifndef AUDIO_DEF
 #define AUDIO_DEF
 #include <string.h>
+
+#define MAX_CHANNELS 9
+
+typedef enum CHANNEL_TYPE
+{
+	CH_INVALID=0,
+	CH_MONO,
+	CH_FRONT_LEFT,
+	CH_FRONT_RIGHT,
+	CH_FRONT_CENTER,
+	CH_REAR_LEFT,
+	CH_REAR_RIGHT,
+	CH_REAR_CENTER,
+	CH_SIDE_LEFT,
+	CH_SIDE_RIGHT,
+	CH_LFE
+};
+
 typedef struct
 {
     uint16_t	encoding;	
-    uint16_t	channels;					/* 1 = mono, 2 = stereo */
+    uint8_t	channels;					/* 1 = mono, 2 = stereo */
     uint32_t	frequency;				/* One of 11025, 22050, or 44100 48000 Hz */
     uint32_t	byterate;					/* Average bytes per second */
     uint16_t	blockalign;				/* Bytes per sample block */
     uint16_t	bitspersample;		/* One of 8, 12, 16, or 4 for ADPCM */
+    CHANNEL_TYPE ch_type[MAX_CHANNELS];
 } WAVHeader;
 
 typedef enum CHANNEL_CONF
@@ -31,12 +50,14 @@ typedef enum CHANNEL_CONF
     CHANNEL_DOLBY_PROLOGIC2, // 11
     CHANNEL_LAST
 };
+
 const int ADM_channel_mixer[12]=
 {
     0,1,2,3,
     3,4,4,5,
     6,2,2,2
 };
+
 class ADM_ChannelMatrix
 {
     public:

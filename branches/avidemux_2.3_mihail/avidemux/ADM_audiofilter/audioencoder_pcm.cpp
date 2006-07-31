@@ -44,6 +44,13 @@ AUDMEncoder_PCM::AUDMEncoder_PCM(uint32_t reverted,uint32_t fourCC,AUDMAudioFilt
   ADM_assert(fourCC==WAV_PCM || fourCC==WAV_LPCM);
   _wavheader->encoding=fourCC;
   revert=reverted;
+
+  ch_order[0] = CH_FRONT_LEFT;
+  ch_order[1] = CH_FRONT_RIGHT;
+  ch_order[2] = CH_FRONT_CENTER;
+  ch_order[3] = CH_LFE;
+  ch_order[4] = CH_REAR_LEFT;
+  ch_order[5] = CH_REAR_RIGHT;
 };
 
 
@@ -90,7 +97,7 @@ uint8_t	AUDMEncoder_PCM::getPacket(uint8_t *dest, uint32_t *len, uint32_t *sampl
   {
     return 0; 
   }
-        // Do in place replace
+  reorderChannels(&(tmpbuffer[tmphead]),_chunk);
   dither16(&(tmpbuffer[tmphead]),_chunk);
   if(!revert)
     memcpy(dest,&(tmpbuffer[tmphead]),_chunk*2);

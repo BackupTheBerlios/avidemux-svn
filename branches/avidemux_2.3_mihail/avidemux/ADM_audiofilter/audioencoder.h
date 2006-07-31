@@ -55,6 +55,9 @@ class AUDMEncoder : public AVDMGenericAudioStream
  
     uint8_t        dither16(float *start, uint32_t nb); //
 
+    CHANNEL_TYPE ch_order[MAX_CHANNELS];
+    void reorderChannels(float *start, uint32_t nb);
+
     uint32_t       tmphead,tmptail;
   public:
     //

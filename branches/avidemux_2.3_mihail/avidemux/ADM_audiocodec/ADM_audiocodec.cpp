@@ -79,13 +79,13 @@ ADM_Audiocodec *out;
 				case WAV_AC3:
         				printf("\n Audio codec:  AC3\n");
 
-					out= (ADM_Audiocodec *) new ADM_AudiocodecAC3(fourcc);
+					out= (ADM_Audiocodec *) new ADM_AudiocodecAC3(fourcc, info);
                   break;
 #endif
 #ifdef USE_LIBDCA
                                 case WAV_DTS:
                                     printf("\n Audio codec:  DTS\n");
-                                    out= (ADM_Audiocodec *) new ADM_AudiocodecDCA(fourcc);
+                                    out= (ADM_Audiocodec *) new ADM_AudiocodecDCA(fourcc, info);
                                     break;
 #endif
 #ifdef USE_MP3

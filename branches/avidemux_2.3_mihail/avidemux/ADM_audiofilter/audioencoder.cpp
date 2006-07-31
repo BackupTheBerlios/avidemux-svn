@@ -134,6 +134,27 @@ uint8_t AUDMEncoder::dither16(float *start, uint32_t nb)
 	return 1;
 }
 
+void AUDMEncoder::reorderChannels(float *data, uint32_t nb)
+{
+	float tmp [_wavheader->channels];
+	uint8_t reorder[_wavheader->channels];
+	uint32_t len = nb / _wavheader->channels;
+	int j = 0;
+	for (int i = 0; i < MAX_CHANNELS; i++) {
+		for (int c = 0; c < _wavheader->channels; c++) {
+			if (_wavheader->ch_type[c] == ch_order[i])
+				reorder[j++] = c;
+
+		}
+	}
+	for (int i = 0; i < len; i++) {
+		memcpy(tmp, data, sizeof(tmp));
+		for (int c = 0; c < _wavheader->channels; c++)
+			*data++ = tmp[reorder[c]];
+	}
+
+}
+
 uint32_t AUDMEncoder::read(uint32_t len,uint8_t *buffer)
 {
   ADM_assert(0);
