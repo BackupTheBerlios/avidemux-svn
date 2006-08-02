@@ -36,10 +36,15 @@ public:
 	~ChannelRoute() {}
 
 	bool compareChType(WAVHeader *wh1, WAVHeader *wh2);
-	void copyInToOut() { memcpy(output_type, input_type, sizeof(input_type)); }
 
 	CHANNEL_TYPE input_type[MAX_CHANNELS];
 	CHANNEL_TYPE output_type[MAX_CHANNELS];
+
+	/*	-1 get parm from each chunk
+		0 get parm from first chunk
+		1 all ready inited	 */
+	int8_t mode;
+	bool copy;
 };
 
 extern ChannelRoute ch_route;

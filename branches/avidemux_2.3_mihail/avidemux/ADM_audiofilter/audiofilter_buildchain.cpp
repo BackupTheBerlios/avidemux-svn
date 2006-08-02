@@ -154,7 +154,9 @@ AUDMAudioFilter *buildInternalAudioFilter(AVDMGenericAudioStream *currentaudiost
             mixer=new AUDMAudioFilterMixer( lastFilter,audioMixing);
             lastFilter = mixer;
             filtersFloat[filtercount++] = lastFilter;
-          }
+            ch_route.copy = 0;
+          } else
+            ch_route.copy = 1;
 
     if (audioDRC)
           {
@@ -275,7 +277,8 @@ AVDMGenericAudioStream *buildAudioFilter(AVDMGenericAudioStream *currentaudiostr
   AUDMAudioFilter         *lastFilter=NULL;
   AVDMGenericAudioStream  *output=NULL;
   AUDMEncoder             *tmpfilter=NULL;
-  
+  ch_route.mode = 0;
+
 	// if audio is set to copy, we just return the first filter
   if(!audioProcessMode())
   {

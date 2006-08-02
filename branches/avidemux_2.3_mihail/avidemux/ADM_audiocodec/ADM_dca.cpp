@@ -112,27 +112,29 @@ uint8_t ADM_AudiocodecDCA::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uin
             break;
         }
 
-	CHANNEL_TYPE *p_ch_type = ch_route.input_type;
-	switch (flags & DTS_CHANNEL_MASK) {
-		case DTS_MONO:
-			*(p_ch_type++) = CH_MONO;
-		break;
-		case DTS_STEREO:
-			*(p_ch_type++) = CH_FRONT_LEFT;
-			*(p_ch_type++) = CH_FRONT_RIGHT;
-		break;
-		case DTS_3F2R:
-			*(p_ch_type++) = CH_FRONT_CENTER;
-			*(p_ch_type++) = CH_FRONT_LEFT;
-			*(p_ch_type++) = CH_FRONT_RIGHT;
-			*(p_ch_type++) = CH_REAR_LEFT;
-			*(p_ch_type++) = CH_REAR_RIGHT;
-		break;
-		default:
-			ADM_assert(0);
-	}
-	if (flags & DTS_LFE) {
-		*(p_ch_type++) = CH_LFE;
+	if (ch_route.mode < 1) {
+		CHANNEL_TYPE *p_ch_type = ch_route.input_type;
+		switch (flags & DTS_CHANNEL_MASK) {
+			case DTS_MONO:
+				*(p_ch_type++) = CH_MONO;
+			break;
+			case DTS_STEREO:
+				*(p_ch_type++) = CH_FRONT_LEFT;
+				*(p_ch_type++) = CH_FRONT_RIGHT;
+			break;
+			case DTS_3F2R:
+				*(p_ch_type++) = CH_FRONT_CENTER;
+				*(p_ch_type++) = CH_FRONT_LEFT;
+				*(p_ch_type++) = CH_FRONT_RIGHT;
+				*(p_ch_type++) = CH_REAR_LEFT;
+				*(p_ch_type++) = CH_REAR_RIGHT;
+			break;
+			default:
+				ADM_assert(0);
+		}
+		if (flags & DTS_LFE) {
+			*(p_ch_type++) = CH_LFE;
+		}
 	}
 
         sample_t level = 1, bias = 0;

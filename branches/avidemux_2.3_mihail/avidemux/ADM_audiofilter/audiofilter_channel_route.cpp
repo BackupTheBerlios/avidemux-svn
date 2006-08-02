@@ -17,15 +17,20 @@ ChannelRoute ch_route;
 
 bool ChannelRoute::compareChType(WAVHeader *wh1, WAVHeader *wh2)
 {
-	int i = 0;
-	if (wh1->channels == wh2->channels)
-		for (int j = 0; j < wh1->channels; j++)
-			if (input_type[i] == output_type[j]) {
-				i++;
-				if (i == wh1->channels)
-					return 1;
-				j = -1;
-			}
-
-	return 0;
+	static bool ret;
+	if (mode < 1) {
+		int i = 0;
+		if (wh1->channels == wh2->channels)
+			for (int j = 0; j < wh1->channels; j++)
+				if (input_type[i] == output_type[j]) {
+					i++;
+					if (i == wh1->channels) {
+						ret = 1;
+						return ret;
+					}
+					j = -1;
+				}
+		ret = 0;
+	}
+	return ret;
 }

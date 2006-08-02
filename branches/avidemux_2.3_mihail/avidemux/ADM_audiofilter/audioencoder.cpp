@@ -137,21 +137,39 @@ uint8_t AUDMEncoder::dither16(float *start, uint32_t nb)
 void AUDMEncoder::reorderChannels(float *data, uint32_t nb)
 {
 	float tmp [_wavheader->channels];
-	uint8_t reorder[_wavheader->channels];
+	static uint8_t reorder[MAX_CHANNELS];
+	static bool reorder_on;
 	uint32_t len = nb / _wavheader->channels;
-	int j = 0;
-	for (int i = 0; i < MAX_CHANNELS; i++) {
-		for (int c = 0; c < _wavheader->channels; c++) {
-			if (ch_route.output_type[c] == ch_order[i])
-				reorder[j++] = c;
+	
+	if (ch_route.mode < 1) {
+		reorder_on = 0;
+		int j = 0;
 
+		CHANNEL_TYPE *p_ch_type;
+		if (ch_route.copy)
+ 			p_ch_type = ch_route.input_type;
+		else
+ 			p_ch_type = ch_route.output_type;
+
+		for (int i = 0; i < MAX_CHANNELS; i++) {
+			for (int c = 0; c < _wavheader->channels; c++) {
+				if (p_ch_type[c] == ch_order[i]) {
+					if (j != c)
+						reorder_on = 1;
+					reorder[j++] = c;
+				}
+			}
 		}
+		if (ch_route.mode == 0)
+			ch_route.mode = 1;
 	}
-	for (int i = 0; i < len; i++) {
-		memcpy(tmp, data, sizeof(tmp));
-		for (int c = 0; c < _wavheader->channels; c++)
-			*data++ = tmp[reorder[c]];
-	}
+
+	if (reorder_on)
+		for (int i = 0; i < len; i++) {
+			memcpy(tmp, data, sizeof(tmp));
+			for (int c = 0; c < _wavheader->channels; c++)
+				*data++ = tmp[reorder[c]];
+		}
 
 }
 

@@ -9,7 +9,7 @@
 typedef struct
 {
     uint16_t	encoding;	
-    uint8_t	channels;					/* 1 = mono, 2 = stereo */
+    uint16_t	channels;					/* 1 = mono, 2 = stereo */
     uint32_t	frequency;				/* One of 11025, 22050, or 44100 48000 Hz */
     uint32_t	byterate;					/* Average bytes per second */
     uint16_t	blockalign;				/* Bytes per sample block */

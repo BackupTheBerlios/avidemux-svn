@@ -49,7 +49,22 @@
 AUDMEncoder_Lavcodec::AUDMEncoder_Lavcodec(uint32_t fourcc,AUDMAudioFilter * instream)  :AUDMEncoder    (instream)
 {
   _fourcc=fourcc;
-  if(_fourcc!=WAV_MP2 && _fourcc!=WAV_AC3) ADM_assert(0);
+  switch (_fourcc) {
+	case WAV_AC3:
+		ch_order[0] = CH_FRONT_LEFT;
+		ch_order[1] = CH_FRONT_CENTER;
+		ch_order[2] = CH_FRONT_RIGHT;
+		ch_order[3] = CH_REAR_LEFT;
+		ch_order[4] = CH_REAR_RIGHT;
+		ch_order[5] = CH_LFE;
+	break;
+	case WAV_MP2:
+		ch_order[0] = CH_FRONT_LEFT;
+		ch_order[1] = CH_FRONT_RIGHT;
+	break;
+	default:
+		ADM_assert(0);
+  }
   _context=NULL;
   _wavheader->encoding=_fourcc;
   printf("[Lavcodec] Creating Lavcodec\n");
@@ -134,7 +149,7 @@ uint8_t	AUDMEncoder_Lavcodec::getPacket(uint8_t *dest, uint32_t *len, uint32_t *
   {
     return 0; 
   }
-        // Do in place replace
+  reorderChannels(&(tmpbuffer[tmphead]),_chunk);
   dither16(&(tmpbuffer[tmphead]),_chunk);
         
   ADM_assert(tmptail>=tmphead);

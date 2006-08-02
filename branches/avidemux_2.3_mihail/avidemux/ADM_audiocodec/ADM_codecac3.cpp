@@ -114,27 +114,30 @@ uint8_t ADM_AudiocodecAC3::run(uint8_t *inptr, uint32_t nbIn, float *outptr,   u
             // not enough data
             break;
         }
-	CHANNEL_TYPE *p_ch_type = ch_route.input_type;
-	if (flags & A52_LFE) {
-		*(p_ch_type++) = CH_LFE;
-	}
-	switch (flags & A52_CHANNEL_MASK) {
-		case A52_MONO:
-			*(p_ch_type++) = CH_MONO;
-		break;
-		case A52_STEREO:
-			*(p_ch_type++) = CH_FRONT_LEFT;
-			*(p_ch_type++) = CH_FRONT_RIGHT;
-		break;
-		case A52_3F2R:
-			*(p_ch_type++) = CH_FRONT_LEFT;
-			*(p_ch_type++) = CH_FRONT_CENTER;
-			*(p_ch_type++) = CH_FRONT_RIGHT;
-			*(p_ch_type++) = CH_REAR_LEFT;
-			*(p_ch_type++) = CH_REAR_RIGHT;
-		break;
-		default:
-			ADM_assert(0);
+
+	if (ch_route.mode < 1) {
+		CHANNEL_TYPE *p_ch_type = ch_route.input_type;
+		if (flags & A52_LFE) {
+			*(p_ch_type++) = CH_LFE;
+		}
+		switch (flags & A52_CHANNEL_MASK) {
+			case A52_MONO:
+				*(p_ch_type++) = CH_MONO;
+			break;
+			case A52_STEREO:
+				*(p_ch_type++) = CH_FRONT_LEFT;
+				*(p_ch_type++) = CH_FRONT_RIGHT;
+			break;
+			case A52_3F2R:
+				*(p_ch_type++) = CH_FRONT_LEFT;
+				*(p_ch_type++) = CH_FRONT_CENTER;
+				*(p_ch_type++) = CH_FRONT_RIGHT;
+				*(p_ch_type++) = CH_REAR_LEFT;
+				*(p_ch_type++) = CH_REAR_RIGHT;
+			break;
+			default:
+				ADM_assert(0);
+		}
 	}
 
         sample_t level = 1, bias = 0;
