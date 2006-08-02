@@ -23,11 +23,11 @@
 
 #include "audioeng_process.h"
 #include "audiofilter_mixer.h"
+#include "audiofilter_channel_route.h"
 
 
 typedef int *DOWMIXER_f(float *in,float *out,uint32_t nbSample,uint32_t chan);
 
-static CHANNEL_TYPE *ch_type;
 
 static inline float CLIP(float in)
 {
@@ -35,8 +35,7 @@ static inline float CLIP(float in)
   if(in<-1.0) in=-1.0;
   return in;
 }
-#include "ADM_editor/ADM_edit.hxx"
-extern ADM_Composer *video_body;//for Mihail HACK
+
 AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CONF out):AUDMAudioFilter (instream)
 {
     _output=out;
@@ -48,26 +47,24 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
     d=_wavHeader.byterate;
     d/=_wavHeader.channels;
 
-//Mihail HACK: should by ch_type = _previous->getInfo()->ch_type; but i can't understand where ch_type[c] should copy
-	ch_type = video_body->getAudioInfo()->ch_type;
 	switch (_output) {
 		case CHANNEL_MONO:
 			_wavHeader.channels = 1;
-			_wavHeader.ch_type[0] = CH_MONO;
+			ch_route.output_type[0] = CH_MONO;
 		break;
 		case CHANNEL_STEREO:
 			_wavHeader.channels = 2;
-			_wavHeader.ch_type[0] = CH_FRONT_LEFT;
-			_wavHeader.ch_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
 		break;
 		case CHANNEL_3F_2R_LFE:
 			_wavHeader.channels = 6;
-			_wavHeader.ch_type[0] = CH_FRONT_LEFT;
-			_wavHeader.ch_type[1] = CH_FRONT_RIGHT;
-			_wavHeader.ch_type[2] = CH_REAR_LEFT;
-			_wavHeader.ch_type[3] = CH_REAR_RIGHT;
-			_wavHeader.ch_type[4] = CH_FRONT_CENTER;
-			_wavHeader.ch_type[5] = CH_LFE;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_REAR_LEFT;
+			ch_route.output_type[3] = CH_REAR_RIGHT;
+			ch_route.output_type[4] = CH_FRONT_CENTER;
+			ch_route.output_type[5] = CH_LFE;
 		break;
 	}
 
@@ -79,22 +76,6 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
 //    printf("[mixer]Out   channels : %u : %u \n",_wavHeader.channels,ADM_channel_mixer[_output]);
 
 };
-
-inline bool AUDMAudioFilterMixer::compareChType(WAVHeader *wh1, WAVHeader *wh2)
-{
-	int i = 0;
-	if (wh1->channels == wh2->channels)
-		for (int j = 0; j < wh1->channels; j++)
-			if (wh1->ch_type[i] == wh2->ch_type[j]) {
-				i++;
-				if (i == wh1->channels)
-					return 1;
-				j = -1;
-			}
-
-	return 0;
-}
-
 
 AUDMAudioFilterMixer::~AUDMAudioFilterMixer()
 {
@@ -291,7 +272,7 @@ static int MStereo(float *in,float *out,uint32_t nbSample,uint32_t chan)
 
 	for (int i = 0; i < nbSample; i++) {
 		for (int c = 0; c < chan; c++) {
-			switch (ch_type[c]) {
+			switch (ch_route.input_type[c]) {
 				case CH_MONO:
 				case CH_FRONT_CENTER:
 				case CH_REAR_CENTER:
@@ -396,9 +377,8 @@ uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *statu
     
 
     // Now do the downsampling
-	if (_output == CHANNEL_INVALID || compareChType(&_wavHeader, video_body->getAudioInfo())) {
-		for (int i = 0; i < _wavHeader.channels; i++)
-			_wavHeader.ch_type[i] = ch_type[i];
+	if (_output == CHANNEL_INVALID || ch_route.compareChType(&_wavHeader, _previous->getInfo())) {
+		ch_route.copyInToOut();
 		rd= (uint32_t)MCOPY(&_incomingBuffer[_head],output,available,input_channels);
 	} else {
 		MIXER *call=matrixCall[_output];
@@ -409,3 +389,4 @@ uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *statu
     return rd;
     
 }
+

@@ -142,7 +142,7 @@ void AUDMEncoder::reorderChannels(float *data, uint32_t nb)
 	int j = 0;
 	for (int i = 0; i < MAX_CHANNELS; i++) {
 		for (int c = 0; c < _wavheader->channels; c++) {
-			if (_wavheader->ch_type[c] == ch_order[i])
+			if (ch_route.output_type[c] == ch_order[i])
 				reorder[j++] = c;
 
 		}

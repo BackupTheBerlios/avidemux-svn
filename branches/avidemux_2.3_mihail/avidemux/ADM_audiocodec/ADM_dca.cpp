@@ -24,6 +24,7 @@
 #include "fourcc.h"
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_audiocodec/ADM_audiocodec.h"
+#include "ADM_audiofilter/audiofilter_channel_route.h"
 #include "ADM_toolkit/ADM_cpuCap.h"
 #include "prefs.h"
 
@@ -111,7 +112,7 @@ uint8_t ADM_AudiocodecDCA::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uin
             break;
         }
 
-	CHANNEL_TYPE *p_ch_type = _wavHeader->ch_type;
+	CHANNEL_TYPE *p_ch_type = ch_route.input_type;
 	switch (flags & DTS_CHANNEL_MASK) {
 		case DTS_MONO:
 			*(p_ch_type++) = CH_MONO;

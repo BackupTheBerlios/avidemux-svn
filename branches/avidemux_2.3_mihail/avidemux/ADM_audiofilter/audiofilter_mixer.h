@@ -4,7 +4,6 @@ class AUDMAudioFilterMixer : public AUDMAudioFilter
 {
     protected:
         CHANNEL_CONF    _output;
-	inline bool compareChType(WAVHeader *wh1, WAVHeader *wh2);
     public:
 
       ~AUDMAudioFilterMixer();

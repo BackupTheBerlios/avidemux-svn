@@ -6,23 +6,6 @@
 #define AUDIO_DEF
 #include <string.h>
 
-#define MAX_CHANNELS 9
-
-typedef enum CHANNEL_TYPE
-{
-	CH_INVALID=0,
-	CH_MONO,
-	CH_FRONT_LEFT,
-	CH_FRONT_RIGHT,
-	CH_FRONT_CENTER,
-	CH_REAR_LEFT,
-	CH_REAR_RIGHT,
-	CH_REAR_CENTER,
-	CH_SIDE_LEFT,
-	CH_SIDE_RIGHT,
-	CH_LFE
-};
-
 typedef struct
 {
     uint16_t	encoding;	
@@ -31,7 +14,6 @@ typedef struct
     uint32_t	byterate;					/* Average bytes per second */
     uint16_t	blockalign;				/* Bytes per sample block */
     uint16_t	bitspersample;		/* One of 8, 12, 16, or 4 for ADPCM */
-    CHANNEL_TYPE ch_type[MAX_CHANNELS];
 } WAVHeader;
 
 typedef enum CHANNEL_CONF
