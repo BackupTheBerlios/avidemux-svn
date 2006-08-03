@@ -84,7 +84,7 @@ uint8_t AUDMAudioFilterNormalize::preprocess(void)
 
     uint32_t percent=0;
     uint32_t current=0,llength=0;
-    float max[_wavHeader.channels];
+    float max = 0;
     _previous->rewind();
 
     printf("\n Seeking for maximum value, that can take a while\n");
@@ -93,7 +93,6 @@ uint8_t AUDMAudioFilterNormalize::preprocess(void)
     
       DIA_working *windowWorking=new DIA_working(_("Normalize : Scanning"));
 
-      for(int i=0;i<_wavHeader.channels;i++) max[i]=0;
       while (1)
       {
           int ready=_previous->fill(AUD_PROCESS_BUFFER_SIZE>>2,_incomingBuffer,&status);
@@ -114,11 +113,13 @@ uint8_t AUDMAudioFilterNormalize::preprocess(void)
           int index=0;
           float current;
           int sample= ready /_wavHeader.channels;
-          for(int j=0;j<sample;j++)
+          for(int j=0;j<sample;j++) {
+            current = 0;
             for(int chan=0;chan<_wavHeader.channels;chan++)
-          {
-            current=fabs(_incomingBuffer[index++]);
-            if(current>max[chan]) max[chan]=current;
+            {
+              current+=fabs(_incomingBuffer[index++]);
+            }
+            if(current>max) max=current;
           }
 	  if(!windowWorking->isAlive() )
     	  {
@@ -133,15 +134,9 @@ uint8_t AUDMAudioFilterNormalize::preprocess(void)
     delete windowWorking;
 
     _previous->rewind();
-    float mx=0;
-    for(int chan=0;chan<_wavHeader.channels;chan++)
-    {
-        if(max[chan]>mx) mx=max[chan];
-        printf("\n maximum found for channel %d : %f\n", chan,max[chan]);
-    }
     double db_in, db_out;
     db_out =  -3;
-    db_in = mx;
+    db_in = max;
     if (db_in>0.001)
 	db_in = 20 / log(10) * log(db_in);
     else
@@ -151,11 +146,11 @@ uint8_t AUDMAudioFilterNormalize::preprocess(void)
 
     // search ratio
     _ratio=1;
-    if(mx)
+    if(max)
     {
 
     _ratio = expf(db_out * (1.0 / (20.0 / logf(10.0))));
-    _ratio = _ratio / mx;
+    _ratio = _ratio / max;
     printf("\n Using ratio of : %f\n", _ratio);
      }
     _scanned = 1;
