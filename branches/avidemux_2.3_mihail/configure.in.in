@@ -58,7 +58,37 @@ dnl without this order in this file, automake will be confused!
 dnl
 AM_CONFIG_HEADER(config.h)
 
+# needed for make install
+#inlined, AM_PROG_MKDIR_P, it is not present on some system (fedora)
 
+if mkdir -p --version . >/dev/null 2>&1 && test ! -d ./--version; then
+# Keeping the `.' argument allows $(mkdir_p) to be used without
+# argument.  Indeed, we sometimes output rules like
+#   $(mkdir_p) $(somedir)
+# where $(somedir) is conditionally defined.
+# (`test -n '$(somedir)' && $(mkdir_p) $(somedir)' is a more
+# expensive solution, as it forces Make to start a sub-shell.)
+  mkdir_p='mkdir -p -- .'
+else
+# On NextStep and OpenStep, the `mkdir' command does not
+# recognize any option.  It will interpret all options as
+# directories to create, and then abort because `.' already
+# exists.
+  for d in ./-p ./--version;
+  do
+    test -d $d && rmdir $d
+  done
+# $(mkinstalldirs) is defined by Automake if mkinstalldirs exists.
+  if test -f "$ac_aux_dir/mkinstalldirs"; then
+    mkdir_p='$(mkinstalldirs)'
+  else
+    mkdir_p='$(install_sh) -d'
+  fi
+fi
+AC_SUBST([mkdir_p])
+
+# /AM_PROG_MKDIR_P
+AC_PROG_INSTALL
 dnl create only shared libtool-libraries
 AC_ENABLE_SHARED(no)
 
@@ -143,6 +173,7 @@ dnl yes we are a free country :)
 dnl we force mjpeg as it is now bundled
 AC_DEFINE(USE_MJPEG,1,[MJPEG])
 AC_DEFINE(AMR_NB,1,[AMR_NB])
+AC_DEFINE(CONFIG_AMR_NB,1,[AMR_NB])
 dnl AC_DEFINE(USE_MP3,0,[libmad])
 dnl AC_DEFINE(USE_MPEG,0,[libmpeg3])
 dnl AC_DEFINE(OSS_SUPPORT,0,[OSS])
@@ -443,34 +474,47 @@ if test "x$with_oss" != "xno"; then
 fi
 
 dnl __________________ALSA______________
-AC_ARG_WITH([alsa],
-	AC_HELP_STRING([--without-alsa], [Force compilation without ALSA (default: test)]),
-	[with_alsa=${withval}], [with_alsa=test])
-
-AC_MSG_CHECKING([if ALSA support is requested])
-AC_MSG_RESULT($with_alsa)
-
+AC_MSG_CHECKING(for ALSA audio support)
+AC_CHECK_HEADERS(alsa/asoundlib.h,,have_alsa=no)
+dnl check version 0.9.x
+if test "x$have_alsa" = "xyes"; then
 have_alsa=no
-
-if test "x$with_alsa" != "xno"; then
-    AC_MSG_CHECKING(for ALSA audio support)
-    AC_CHECK_HEADERS(alsa/asoundlib.h,,have_alsa=no)
-    AC_TRY_COMPILE([
-	#include <alsa/asoundlib.h>
-	],
-	[
-	#if SND_LIB_MAJOR!=1 || SND_LIB_MINOR!=0
-	#error Not alsa 1.0!
-	#endif
-	int arg = 0;
-	],[
-	have_alsa=yes
-	])
-    if test "x$have_alsa" = "xyes"; then				
-        AC_CHECK_LIB(asound,snd_pcm_hw_params_set_channels,,have_alsa=no,-lm)
-	AC_DEFINE(ALSA_SUPPORT,1,"[Use alsa as possible audio device]")
-    fi
+AC_TRY_COMPILE([
+#include <alsa/asoundlib.h>
+],
+[
+#if SND_LIB_MAJOR!=0 || SND_LIB_MINOR!=9
+#error Not alsa 0.9!
+#endif
+int arg = 0;
+],[
+have_alsa=yes
+have_alsa_1=no
+])
+dnl __ if it fails, try alsa 1.0 ___
+if test "x$have_alsa" = "xno"; then
+AC_TRY_COMPILE([
+#include <alsa/asoundlib.h>
+],
+[
+#if SND_LIB_MAJOR!=1 || SND_LIB_MINOR!=0
+#error Not alsa 1.0!
+#endif
+int arg = 0;
+],[
+have_alsa=yes
+have_alsa_1=yes
+])
 fi
+AC_CHECK_LIB(asound,snd_pcm_hw_params_set_channels,,have_alsa=no,-lm)
+fi
+if test "x$have_alsa" = "xyes"; then				
+	AC_DEFINE(ALSA_SUPPORT,1,"[Use alsa as possible audio device]")
+fi
+if test "x$have_alsa_1" = "xyes"; then				
+	AC_DEFINE(ALSA_1_0_SUPPORT,1,"[Alsa is 1.0]")
+fi
+
 dnl __________________/ALSA______________
 
 
@@ -682,6 +726,8 @@ if test "x$with_freetype2" != "xno"; then
 
 	if test "x$have_freetype" = "xyes"; then
 		AC_DEFINE(USE_FREETYPE,1,"[Use FreeType2 font rendering]")
+		AM_CONDITIONAL(HAVE_FREETYPE, test "x$have_freetype" = "xyes" )
+
 	fi
 fi
 
@@ -1051,6 +1097,8 @@ CFLAGS="$CFLAGS -falign-loops=16"
 CXXFLAGS="$CXXFLAGS -falign-loops=16"
 dnl ___________________lavcodec _________________________
 
+AC_DEFINE(CONFIG_WMV3_DECODER,1,[FFMPEG])
+AC_DEFINE(CONFIG_VC1_DECODER,1,[FFMPEG])
 AC_DEFINE(CONFIG_RISKY,1,[FFMPEG])
 AC_DEFINE(CONFIG_ENCODERS,1,[FFMPEG])
 AC_DEFINE(CONFIG_DECODERS,1,[FFMPEG])
@@ -1094,6 +1142,7 @@ AC_DEFINE(CONFIG_SVQ3_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_WMAV2_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_DVVIDEO_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_WMV2_DECODER,1,[CONFIG_FFV1_ENCODER])
+AC_DEFINE(CONFIG_WMV1_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_MUXERS,1,[CONFIG_MUXERS])
 AC_DEFINE(HAVE_THREADS,1,[HAVE_THREADS])
 

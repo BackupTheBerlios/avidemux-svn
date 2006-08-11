@@ -587,17 +587,7 @@ void OpenDMLHeader::Dump( void )
 	X_DUMP(dwSampleSize);
 	printf("\n");
 	  	  
-#undef X_DUMP
-#define X_DUMP(x) printf(#x":\t\t:%ld\n",(long int)_video_bih.x);
-    	X_DUMP( biSize);
-       	X_DUMP( biWidth);
-       	X_DUMP( biHeight);
-       	X_DUMP( biBitCount);
-       	X_DUMP( biCompression);fourCC::print(_video_bih.biCompression);printf("\n");
-        X_DUMP( biSizeImage);
-       	X_DUMP( biXPelsPerMeter);
-       	X_DUMP( biYPelsPerMeter);
-       	X_DUMP( biClrUsed);
+        printBih(&_video_bih);
 
         /*****************************************************************
                 Dump infos about all audio tracks found
@@ -634,16 +624,9 @@ void OpenDMLHeader::Dump( void )
 	      	
 	  
 #undef X_DUMP
-#define X_DUMP(x) printf("\n "#x":\t\t:%lu",_audioTracks[i].wavHeader->x);
 
-	  X_DUMP(encoding);
-	  X_DUMP(channels);	/* 1 = mono, 2 = stereo */
-	  X_DUMP(frequency);	/* One of 11025, 22050, or 44100 Hz */
-	  X_DUMP(byterate);	/* Average bytes per second */
-	  X_DUMP(blockalign);	/* Bytes per sample block */
-	  X_DUMP(bitspersample);	/* One of 8, 12, 16, or 4 for ADPCM */
-	  
-	  printf(" Extra Data  : %ld\n",_audioTracks[i].extraDataLen);
+        printWavHeader(_audioTracks[i].wavHeader);
+        printf(" Extra Data  : %ld\n",_audioTracks[i].extraDataLen);
 	if(_audioTracks[i].extraDataLen)
 	{
 		mixDump( _audioTracks[i].extraData, _audioTracks[i].extraDataLen);

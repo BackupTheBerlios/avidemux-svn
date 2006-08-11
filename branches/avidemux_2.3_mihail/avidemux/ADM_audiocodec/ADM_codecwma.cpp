@@ -34,6 +34,7 @@
 
 #define _context ((AVCodecContext *)_contextVoid)
 
+uint8_t scratchPad[SCRATCH_PAD_SIZE];
 
    uint8_t ADM_AudiocodecWMA::beginDecompress( void ) 
    {
@@ -56,7 +57,8 @@
     // Fills in some values...
     _context->sample_rate = info->frequency;
     _context->channels = info->channels;
-    _context->block_align = info->blockalign;      
+    _blockalign=_context->block_align = info->blockalign;
+    _context->bit_rate = info->byterate*8;
     if(fourcc==WAV_WMA)
         _context->codec_id = CODEC_ID_WMAV2;
     else
@@ -64,10 +66,8 @@
         _context->codec_id = CODEC_ID_QDM2;
             else ADM_assert(0);
 
-    _blockalign=info->blockalign;
     _context->extradata=(void *)d;
     _context->extradata_size=(int)l;
-
     printf(" Using %ld bytes of extra header data\n",l);
     mixDump((uint8_t *)_context->extradata,_context->extradata_size);
 
@@ -77,6 +77,15 @@
     {
         printf("\n WMA decoder init failed !\n");
         ADM_assert(0);
+    }
+    if(!_blockalign)
+    { 
+      if(_context->block_align) _blockalign=_context->block_align;
+      else
+      {
+        printf("FFWMA : no blockalign taking 378\n");
+        _blockalign=378;   
+      }
     }
     printf("FFwma init successful (blockalign %d)\n",info->blockalign);
 }
@@ -93,6 +102,7 @@ uint8_t ADM_AudiocodecWMA::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uin
 {
 int out=0;
 int max=0,pout=0;
+int16_t *run16;
 
         *nbOut=0;
         // Shrink
@@ -106,23 +116,30 @@ int max=0,pout=0;
         ADM_assert(nbIn+_tail<ADMWA_BUF);
         memcpy(_buffer+_tail,inptr,nbIn);
         _tail+=nbIn;
-        while(_tail-_head>_blockalign)
+        while(_tail-_head>=_blockalign)
         {
-                out=avcodec_decode_audio(_context,(int16_t *)outptr,&pout,_buffer+_head,_tail-_head);
-                if(out<0)
-                {
-                        printf( " *** WMA decoding error ***\n");
-                        _head+=1; // Try skipping some bytes
-                        continue;
-                }
-                //printf("This round %d Consumed %d produced %d\n",_tail-_head,out,pout);
-                _head+=out; // consumed bytes
-                *nbOut+=pout;
-                outptr+=pout;
+          out=avcodec_decode_audio(_context,(int16_t *)scratchPad,
+                                   &pout,_buffer+_head,_tail-_head);
+                
+          if(out<0)
+          {
+            printf( " *** WMA decoding error (%u)***\n",_blockalign);
+            _head+=1; // Try skipping some bytes
+            continue;
+          }
+          ADM_assert(pout<SCRATCH_PAD_SIZE);
+          _head+=out; // consumed bytes
+          pout>>=1;
+          *nbOut+=pout;
+          run16=(int16_t *)scratchPad;
+          for(int i=0;i<pout;i++)
+          {
+            *outptr++=((float)run16[i])/32767.;
+          }
         }
-	*nbOut = *nbOut / 2;
-	int2float(outptr, *nbOut);
-
+        
+        
+        
         return 1;
 }
 ///************************************************
@@ -175,10 +192,12 @@ int max=0,pout=0;
 uint8_t ADM_AudiocodecAMR::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix)
 {
 int out;
-int max=0,pout=0,toread;
-	
-	*nbOut=0;
-	// Shrink
+int pout=0;
+int16_t *run16;
+
+
+        *nbOut=0;
+        // Shrink
         if(_head && (_tail+nbIn)*3>ADM_AMR_BUFFER*2)
         {
             memmove(_buffer,_buffer+_head,_tail-_head);
@@ -191,7 +210,8 @@ int max=0,pout=0,toread;
         _tail+=nbIn;
         while(_tail-_head>AMR_PACKET)
         {
-                out=avcodec_decode_audio(_context,(int16_t *)outptr,&pout,_buffer+_head,_tail-_head);
+          out=avcodec_decode_audio(_context,(int16_t *)scratchPad,
+                                   &pout,_buffer+_head,_tail-_head);
                 
                 if(out<0)
                 {
@@ -201,11 +221,15 @@ int max=0,pout=0,toread;
                 }
             
                 _head+=out; // consumed bytes
+                pout>>=1;
                 *nbOut+=pout;
-                outptr+=pout;
+                run16=(int16_t *)scratchPad;
+                for(int i=0;i<pout;i++)
+                {
+                  *outptr++=((float)run16[i])/32767.;
+                }
         }
-	*nbOut = *nbOut / 2;
-	int2float(outptr, *nbOut);
+        
 
         return 1;
 }

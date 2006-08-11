@@ -282,4 +282,32 @@ float f;
       return (uint32_t) floor(f);
 
 }
+void printBih(BITMAPINFOHEADER *bi)
+{
+#undef X_DUMP
+#define X_DUMP(x) printf(#x":\t\t:%ld\n",(long int)bi->x);
+    	X_DUMP( biSize);
+       	X_DUMP( biWidth);
+        X_DUMP( biHeight);
+        X_DUMP( biBitCount);
+        X_DUMP( biCompression);fourCC::print(bi->biCompression);printf("\n");
+        X_DUMP( biSizeImage);
+        X_DUMP( biXPelsPerMeter);
+        X_DUMP( biYPelsPerMeter);
+        X_DUMP( biClrUsed);
+}
+
+void printWavHeader(WAVHeader *hdr)
+{
+#undef X_DUMP
+#define X_DUMP(x) printf(#x":\t\t:%lu\n",hdr->x);
+
+          X_DUMP(encoding);
+          X_DUMP(channels);	/* 1 = mono, 2 = stereo */
+          X_DUMP(frequency);	/* One of 11025, 22050, or 44100 Hz */
+          X_DUMP(byterate);	/* Average bytes per second */
+          X_DUMP(blockalign);	/* Bytes per sample block */
+          X_DUMP(bitspersample);	/* One of 8, 12, 16, or 4 for ADPCM */
+
+}
 //EOF

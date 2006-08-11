@@ -16,14 +16,14 @@
  ***************************************************************************/
 #ifndef ADMAUDIOCODEC
 #define ADMAUDIOCODEC
-
+#define SCRATCH_PAD_SIZE (48000*2)
+extern uint8_t scratchPad[];
 #define  ADMAC_BUFFER (48000*4)
 class ADM_Audiocodec
 {
 	protected:
 		uint8_t	_init;
 		WAVHeader *_wavHeader;
-		void int2float(float *data, uint32_t nb_sample);
 	public:
 		ADM_Audiocodec(uint32_t fourcc);
 		virtual	~ADM_Audiocodec();
