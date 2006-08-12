@@ -53,9 +53,46 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
 			ch_route.output_type[0] = CH_MONO;
 		break;
 		case CHANNEL_STEREO:
+		case CHANNEL_DOLBY_SURROUND:
+		case CHANNEL_DOLBY_PROLOGIC:
+		case CHANNEL_DOLBY_PROLOGIC2:
 			_wavHeader.channels = 2;
 			ch_route.output_type[0] = CH_FRONT_LEFT;
 			ch_route.output_type[1] = CH_FRONT_RIGHT;
+		break;
+		case CHANNEL_2F_1R:
+			_wavHeader.channels = 3;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_REAR_CENTER;
+		break;
+		case CHANNEL_3F:
+			_wavHeader.channels = 3;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_FRONT_CENTER;
+		break;
+		case CHANNEL_3F_1R:
+			_wavHeader.channels = 4;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_REAR_CENTER;
+			ch_route.output_type[3] = CH_FRONT_CENTER;
+		break;
+		case CHANNEL_2F_2R:
+			_wavHeader.channels = 4;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_REAR_LEFT;
+			ch_route.output_type[3] = CH_REAR_RIGHT;
+		break;
+		case CHANNEL_3F_2R:
+			_wavHeader.channels = 5;
+			ch_route.output_type[0] = CH_FRONT_LEFT;
+			ch_route.output_type[1] = CH_FRONT_RIGHT;
+			ch_route.output_type[2] = CH_REAR_LEFT;
+			ch_route.output_type[3] = CH_REAR_RIGHT;
+			ch_route.output_type[4] = CH_FRONT_CENTER;
 		break;
 		case CHANNEL_3F_2R_LFE:
 			_wavHeader.channels = 6;
@@ -299,6 +336,282 @@ static int MStereo(float *in,float *out,uint32_t nbSample,uint32_t chan)
 	return nbSample*2;
 }
 
+static int M2F1R(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 3);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+					out[0]  += *in;
+					out[1]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_REAR_LEFT:
+				case CH_REAR_RIGHT:
+				case CH_REAR_CENTER:
+					out[2]  += *in;
+				break;
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+					out[2]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 3;
+	}
+
+	return nbSample * 3;
+}
+
+static int M3F(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 3);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+				case CH_REAR_CENTER:
+					out[2]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+				case CH_REAR_LEFT:
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+				case CH_REAR_RIGHT:
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+					out[2]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 3;
+	}
+
+	return nbSample * 3;
+}
+
+static int M3F1R(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 4);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+					out[3]  += *in;
+				break;
+				case CH_REAR_CENTER:
+				case CH_REAR_LEFT:
+				case CH_REAR_RIGHT:
+					out[2]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+					out[2]  += *in;
+					out[3]  += *in;
+				break;
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+					out[2]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 4;
+	}
+
+	return nbSample * 4;
+}
+
+static int M2F2R(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 4);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+					out[0]  += *in;
+					out[1]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_REAR_LEFT:
+					out[2]  += *in;
+				break;
+				case CH_REAR_RIGHT:
+					out[3]  += *in;
+				break;
+				case CH_REAR_CENTER:
+					out[2]  += *in;
+					out[3]  += *in;
+				break;
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+					out[2]  += *in;
+					out[3]  += *in;
+				break;
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+					out[3]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 4;
+	}
+
+	return nbSample * 4;
+}
+
+static int M3F2R(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 5);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+					out[4]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_REAR_LEFT:
+					out[2]  += *in;
+				break;
+				case CH_REAR_RIGHT:
+					out[3]  += *in;
+				break;
+				case CH_REAR_CENTER:
+					out[2]  += *in;
+					out[3]  += *in;
+				break;
+				case CH_LFE:
+					out[0]  += *in;
+					out[1]  += *in;
+					out[2]  += *in;
+					out[3]  += *in;
+					out[4]  += *in;
+				break;
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+					out[3]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 5;
+	}
+
+	return nbSample * 5;
+}
+
+static int M3F2RLFE(float *in,float *out,uint32_t nbSample,uint32_t chan)
+{
+	memset(out, 0, sizeof(float) * nbSample * 6);
+
+	for (int i = 0; i < nbSample; i++) {
+		for (int c = 0; c < chan; c++) {
+			switch (ch_route.input_type[c]) {
+				case CH_MONO:
+				case CH_FRONT_CENTER:
+					out[4]  += *in;
+				break;
+				case CH_FRONT_LEFT:
+					out[0]  += *in;
+				break;
+				case CH_FRONT_RIGHT:
+					out[1]  += *in;
+				break;
+				case CH_REAR_LEFT:
+					out[2]  += *in;
+				break;
+				case CH_REAR_RIGHT:
+					out[3]  += *in;
+				break;
+				case CH_REAR_CENTER:
+					out[2]  += *in;
+					out[3]  += *in;
+				break;
+				case CH_LFE:
+					out[5]  += *in;
+				break;
+				case CH_SIDE_LEFT:
+					out[0]  += *in;
+					out[2]  += *in;
+				break;
+				case CH_SIDE_RIGHT:
+					out[1]  += *in;
+					out[3]  += *in;
+				break;
+			}
+			in++;
+		}
+		out += 6;
+	}
+
+	return nbSample * 6;
+}
+
+
 typedef int MIXER(float *in,float *out,uint32_t nbSample,uint32_t chan)  ;
 /*
 static MIXER *matrixCall[CHANNEL_LAST][CHANNEL_LAST] // output / input
@@ -331,7 +644,7 @@ static MIXER *matrixCall[CHANNEL_LAST][CHANNEL_LAST] // output / input
 };
 */
 static MIXER *matrixCall[CHANNEL_LAST] = {
-NULL, MNto1, MStereo
+NULL, MNto1, MStereo, M2F1R, M3F, M3F1R, M2F2R, M3F2R, M3F2RLFE, MStereo, MStereo, MStereo
 };
 //_____________________________________________
 uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *status)
