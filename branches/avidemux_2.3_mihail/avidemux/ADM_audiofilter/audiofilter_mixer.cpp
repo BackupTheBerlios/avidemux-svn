@@ -314,8 +314,8 @@ static int MStereo(float *in,float *out,uint32_t nbSample,uint32_t chan)
 				case CH_FRONT_CENTER:
 				case CH_REAR_CENTER:
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
+					out[0]  += *in * 0.5;
+					out[1]  += *in * 0.5;
 				break;
 				case CH_FRONT_LEFT:
 				case CH_REAR_LEFT:
@@ -345,8 +345,8 @@ static int M2F1R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 			switch (ch_route.input_type[c]) {
 				case CH_MONO:
 				case CH_FRONT_CENTER:
-					out[0]  += *in;
-					out[1]  += *in;
+					out[0]  += *in * 0.5;
+					out[1]  += *in * 0.5;
 				break;
 				case CH_FRONT_LEFT:
 					out[0]  += *in;
@@ -360,17 +360,17 @@ static int M2F1R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[2]  += *in;
 				break;
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.33;
+					out[1]  += *in * 0.33;
+					out[2]  += *in * 0.33;
 				break;
 				case CH_SIDE_LEFT:
-					out[0]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 				case CH_SIDE_RIGHT:
-					out[1]  += *in;
-					out[2]  += *in;
+					out[1]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 			}
 			in++;
@@ -404,9 +404,9 @@ static int M3F(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[1]  += *in;
 				break;
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.33;
+					out[1]  += *in * 0.33;
+					out[2]  += *in * 0.33;
 				break;
 			}
 			in++;
@@ -440,18 +440,18 @@ static int M3F1R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[1]  += *in;
 				break;
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
-					out[2]  += *in;
-					out[3]  += *in;
+					out[0]  += *in * 0.25;
+					out[1]  += *in * 0.25;
+					out[2]  += *in * 0.25;
+					out[3]  += *in * 0.25;
 				break;
 				case CH_SIDE_LEFT:
-					out[0]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 				case CH_SIDE_RIGHT:
-					out[1]  += *in;
-					out[2]  += *in;
+					out[1]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 			}
 			in++;
@@ -471,8 +471,8 @@ static int M2F2R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 			switch (ch_route.input_type[c]) {
 				case CH_MONO:
 				case CH_FRONT_CENTER:
-					out[0]  += *in;
-					out[1]  += *in;
+					out[0]  += *in * 0.5;
+					out[1]  += *in * 0.5;
 				break;
 				case CH_FRONT_LEFT:
 					out[0]  += *in;
@@ -487,22 +487,22 @@ static int M2F2R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[3]  += *in;
 				break;
 				case CH_REAR_CENTER:
-					out[2]  += *in;
-					out[3]  += *in;
+					out[2]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
-					out[2]  += *in;
-					out[3]  += *in;
+					out[0]  += *in * 0.25;
+					out[1]  += *in * 0.25;
+					out[2]  += *in * 0.25;
+					out[3]  += *in * 0.25;
 				break;
 				case CH_SIDE_LEFT:
-					out[0]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 				case CH_SIDE_RIGHT:
-					out[1]  += *in;
-					out[3]  += *in;
+					out[1]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 			}
 			in++;
@@ -537,23 +537,23 @@ static int M3F2R(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[3]  += *in;
 				break;
 				case CH_REAR_CENTER:
-					out[2]  += *in;
-					out[3]  += *in;
+					out[2]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 				case CH_LFE:
-					out[0]  += *in;
-					out[1]  += *in;
-					out[2]  += *in;
-					out[3]  += *in;
-					out[4]  += *in;
+					out[0]  += *in * 0.2;
+					out[1]  += *in * 0.2;
+					out[2]  += *in * 0.2;
+					out[3]  += *in * 0.2;
+					out[4]  += *in * 0.2;
 				break;
 				case CH_SIDE_LEFT:
-					out[0]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 				case CH_SIDE_RIGHT:
-					out[1]  += *in;
-					out[3]  += *in;
+					out[1]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 			}
 			in++;
@@ -588,19 +588,19 @@ static int M3F2RLFE(float *in,float *out,uint32_t nbSample,uint32_t chan)
 					out[3]  += *in;
 				break;
 				case CH_REAR_CENTER:
-					out[2]  += *in;
-					out[3]  += *in;
+					out[2]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 				case CH_LFE:
 					out[5]  += *in;
 				break;
 				case CH_SIDE_LEFT:
-					out[0]  += *in;
-					out[2]  += *in;
+					out[0]  += *in * 0.5;
+					out[2]  += *in * 0.5;
 				break;
 				case CH_SIDE_RIGHT:
-					out[1]  += *in;
-					out[3]  += *in;
+					out[1]  += *in * 0.5;
+					out[3]  += *in * 0.5;
 				break;
 			}
 			in++;
