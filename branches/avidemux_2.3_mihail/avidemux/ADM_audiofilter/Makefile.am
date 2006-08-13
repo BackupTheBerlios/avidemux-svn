@@ -15,7 +15,8 @@ libADM_audiofilter_a_SOURCES = audiodeng_buildfilters.cpp  \
 		audioencoder_lame.cpp audioencoder_twolame.cpp \
 		audioencoder_faac.cpp audioencoder_lavcodec.cpp \
 		audioencoder_vorbis.cpp audioencoder_pcm.cpp \
-		audio_raw.cpp audiofilter_channel_route.cpp
+		audio_raw.cpp audiofilter_channel_route.cpp \
+		audiofilter_dolby.cpp
 
 
 

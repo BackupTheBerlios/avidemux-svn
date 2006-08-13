@@ -30,7 +30,7 @@ class ADM_Audiocodec
 		virtual	void purge(void) {}
 		virtual	uint8_t beginDecompress(void)=0;
 		virtual	uint8_t endDecompress(void)=0;
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL)=0;
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut)=0;
 		virtual	uint8_t isCompressed(void)=0;
 		virtual	uint8_t isDecompressable(void)=0;
  };
@@ -44,7 +44,7 @@ class ADM_AudiocodecWav : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecWav();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t * nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t * nbOut);
 		virtual	uint8_t isCompressed(void);
 		virtual	uint8_t isDecompressable(void);
 };
@@ -56,7 +56,7 @@ class ADM_AudiocodecWavSwapped : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecWavSwapped();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void);
 		virtual	uint8_t isDecompressable(void);
 
@@ -69,7 +69,7 @@ class ADM_AudiocodecUnknown : public     ADM_Audiocodec
 		~ADM_AudiocodecUnknown() {}
 		uint8_t beginDecompress(void) {return 0;}
 		uint8_t endDecompress(void) {return 0;}
-		uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL) {return 1;}
+		uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut) {return 1;}
 		uint8_t isCompressed(void) {return 1;}
 		uint8_t isDecompressable(void) {return 0;}
 };
@@ -88,7 +88,7 @@ class ADM_AudiocodecAC3 : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecAC3();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 
@@ -106,7 +106,7 @@ class ADM_AudiocodecDCA : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecDCA();
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 
@@ -123,7 +123,7 @@ class ADM_Audiocodec8Bits : public     ADM_Audiocodec
 		virtual	~ADM_Audiocodec8Bits();
 		virtual	uint8_t beginDecompress(void) {return 1;}
 		virtual	uint8_t endDecompress(void) {return 1;}
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
@@ -145,7 +145,7 @@ class ADM_AudiocodecMP3 : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecMP3() ;
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
@@ -160,7 +160,7 @@ class ADM_vorbis : public     ADM_Audiocodec
 	public:
 		ADM_vorbis(uint32_t fourcc, WAVHeader *info, uint32_t l, uint8_t *d);
 		virtual	~ADM_vorbis();
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 		virtual	uint8_t beginDecompress(void) {return 1;}
@@ -182,7 +182,7 @@ class ADM_faad : public     ADM_Audiocodec
 		ADM_faad(uint32_t fourcc, WAVHeader *info, uint32_t l, uint8_t *d);
 		virtual	~ADM_faad();
 		virtual	void purge(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 		virtual	uint8_t beginDecompress(void);
@@ -204,7 +204,7 @@ class ADM_AudiocodecWMA : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecWMA() ;
 		virtual	uint8_t beginDecompress(void);
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
@@ -222,7 +222,7 @@ class ADM_AudiocodecAMR : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecAMR() ;
 		virtual	uint8_t beginDecompress(void) ;
 		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
@@ -234,7 +234,7 @@ class ADM_AudiocodecAMR : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecUlaw() ;
 		virtual	uint8_t beginDecompress(void) {return 1;}
 		virtual	uint8_t endDecompress(void) {return 1;}
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
@@ -254,7 +254,7 @@ class ADM_AudiocodecImaAdpcm : public     ADM_Audiocodec
 		virtual	~ADM_AudiocodecImaAdpcm();
 		virtual	uint8_t beginDecompress(void) {_head=_tail=0;return 1;}
 		virtual	uint8_t endDecompress(void) {_head=_tail=0;return 1;}
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix=NULL);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };

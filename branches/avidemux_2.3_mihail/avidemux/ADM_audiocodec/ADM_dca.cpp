@@ -80,7 +80,7 @@ uint8_t ADM_AudiocodecDCA::endDecompress( void )
     return 1;
 }
 
-uint8_t ADM_AudiocodecDCA::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut, ADM_ChannelMatrix *matrix)
+uint8_t ADM_AudiocodecDCA::run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut)
 {
     uint32_t avail;
     uint32_t length,syncoff;
