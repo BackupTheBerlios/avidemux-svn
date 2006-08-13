@@ -9,6 +9,7 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
+#include <string.h>
 
 #define NZEROS 500
 #define GAIN 1.571116176e+00
@@ -145,28 +146,56 @@ static float xcoeffs[] =
 -0.0000000000,
 };
 
+void DolbyInit()
+{
+	memset(xv_left, 0, sizeof(float) * NZEROS);
+	memset(xv_right, 0, sizeof(float) * NZEROS);
+}
+
 float DolbyShiftLeft(float isamp)
 {
-	for (int i = 0; i < NZEROS; i++)
-		xv_left[i] = xv_left[i+1];
-	xv_left[NZEROS] = isamp / GAIN;
+	float *p_xcoeffs = xcoeffs;
+	static int pos = 0;
+
+	if ((pos - 1) < 0)
+		xv_left[NZEROS] = isamp / GAIN;
+	else
+		xv_left[pos - 1] = isamp / GAIN;
 
 	float sum = 0;
-	for (int i = 0; i <= NZEROS; i++)
-		sum += (xcoeffs[i] * xv_left[i]);
+	for (int i = pos; i <= NZEROS; i++)
+		sum += (*(p_xcoeffs++) * xv_left[i]);
+
+	for (int i = 0; i < pos; i++)
+		sum += (*(p_xcoeffs++) * xv_left[i]);
+
+	pos++;
+	if (pos > NZEROS)
+		pos = 0;
 
 	return sum;
 }
 
 float DolbyShiftRight(float isamp)
 {
-	for (int i = 0; i < NZEROS; i++)
-		xv_right[i] = xv_right[i+1];
-	xv_right[NZEROS] = isamp / GAIN;
+	float *p_xcoeffs = xcoeffs;
+	static int pos = 0;
+
+	if ((pos - 1) < 0)
+		xv_right[NZEROS] = isamp / GAIN;
+	else
+		xv_right[pos - 1] = isamp / GAIN;
 
 	float sum = 0;
-	for (int i = 0; i <= NZEROS; i++)
-		sum += (xcoeffs[i] * xv_right[i]);
+	for (int i = pos; i <= NZEROS; i++)
+		sum += (*(p_xcoeffs++) * xv_right[i]);
+
+	for (int i = 0; i < pos; i++)
+		sum += (*(p_xcoeffs++) * xv_right[i]);
+
+	pos++;
+	if (pos > NZEROS)
+		pos = 0;
 
 	return -sum;
 }
