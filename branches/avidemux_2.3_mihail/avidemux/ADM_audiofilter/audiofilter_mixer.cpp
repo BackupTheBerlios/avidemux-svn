@@ -48,7 +48,6 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
 			ch_route.output_type[0] = CH_FRONT_LEFT;
 			ch_route.output_type[1] = CH_FRONT_RIGHT;
 		break;
-		case CHANNEL_DOLBY_PROLOGIC:
 		case CHANNEL_2F_1R:
 			_wavHeader.channels = 3;
 			ch_route.output_type[0] = CH_FRONT_LEFT;
@@ -92,6 +91,7 @@ AUDMAudioFilterMixer::AUDMAudioFilterMixer(AUDMAudioFilter *instream,CHANNEL_CON
 			ch_route.output_type[4] = CH_FRONT_CENTER;
 			ch_route.output_type[5] = CH_LFE;
 		break;
+		case CHANNEL_DOLBY_PROLOGIC:
 		case CHANNEL_DOLBY_PROLOGIC2:
 			_wavHeader.channels = 2;
 			ch_route.output_type[0] = CH_FRONT_LEFT;
