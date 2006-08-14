@@ -589,8 +589,7 @@ uint32_t AUDMAudioFilterMixer::fill(uint32_t max,float *output,AUD_Status *statu
     
 
     // Now do the downsampling
-//	if (_output == CHANNEL_INVALID || ch_route.compareChType(&_wavHeader, _previous->getInfo())) {
-	if (0) {
+	if (_output == CHANNEL_INVALID || ch_route.compareChType(&_wavHeader, _previous->getInfo())) {
 		ch_route.copy = 1;
 		rd= (uint32_t)MCOPY(&_incomingBuffer[_head],output,available,input_channels);
 	} else {
