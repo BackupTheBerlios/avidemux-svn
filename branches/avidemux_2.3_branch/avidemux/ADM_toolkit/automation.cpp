@@ -50,6 +50,7 @@
 #include "ADM_toolkit/ADM_debug.h"
 
 #include "ADM_filter/vidVCD.h"
+#include "prefs.h"
 
 //#include "ADM_script/adm_command.h"
 
@@ -677,4 +678,17 @@ void call_v2v(char *a,char *b,char *c)
 {
          ADM_vob2vobsub(a,b,c); //char *nameVob, char *nameVobSub, char *nameIfo);
 }
+/*
+        Returns # of threads to use,  0 means multithreading disabled
+
+*/
+uint32_t ADM_useNbThreads( void )
+{
+uint32_t multi;
+        if( prefs->get(FEATURE_MULTI_THREAD,&multi) != RC_OK )
+                return  0;
+        if(multi<2) multi=0; // On thread means no threading...
+        return multi;
+}
+
 //EOF

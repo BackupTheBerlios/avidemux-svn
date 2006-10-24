@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include "ADM_library/default.h"
 #include "ADM_toolkit/ADM_cpuCap.h"
-#include "prefs.h"
 #if defined( ARCH_X86)  || defined(ARCH_X86_64)
 extern "C" 
 {
@@ -37,15 +36,4 @@ int probed=0;
 #endif	
 	printf("End of cpu capabilities check\n");
 }
-/*
-        Returns # of threads to use,  0 means multithreading disabled
 
-*/
-uint32_t ADM_useNbThreads( void )
-{
-uint32_t multi;
-        if( prefs->get(FEATURE_MULTI_THREAD,&multi) != RC_OK )
-                return  0;
-        if(multi<2) multi=0; // On thread means no threading...
-        return multi;
-}
