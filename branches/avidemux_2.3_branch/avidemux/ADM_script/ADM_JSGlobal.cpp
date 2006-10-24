@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-#include "ADM_library/default.h"
-#include "ADM_toolkit/toolkit.hxx"
 #include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSDirectorySearch.h"
 #include "ADM_assert.h"
+#include "ADM_library/default.h"
+#include "ADM_toolkit/toolkit.hxx"
 
 extern uint8_t JS_AvidemuxFunction(JSContext *cx,JSObject *global);
 extern void A_Resync(void);
