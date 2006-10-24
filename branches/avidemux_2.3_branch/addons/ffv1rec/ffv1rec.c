@@ -49,7 +49,7 @@
 
 //adm_fast_memcpy myMemcpy;
 
-#define _VERSION_ "0.2.4 (2.2 branch)"
+#define _VERSION_ "0.2.4 (2.3 branch)"
 
 
 /* Globals */
@@ -492,4 +492,5 @@ void parseRcFile( void )
 fclose(fd);
 }
 
-
+char * ADM_getBaseDir(void){ return NULL;}
+char *PathCanonize(const char *tmpname) { return NULL;}
