@@ -177,7 +177,8 @@ printf("\n LARGE FILE AVAILABLE : %d offset\n",  __USE_FILE_OFFSET64	);
 #ifdef CYG_MANGLING    
     win32_netInit();
 #endif
-    g_thread_init(NULL);
+    if(!g_thread_supported())
+    	g_thread_init(NULL);
     gdk_threads_init();
     gdk_threads_enter();
     gtk_set_locale();

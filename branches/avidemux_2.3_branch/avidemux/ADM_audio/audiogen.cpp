@@ -216,8 +216,10 @@ rebranch2:
 
 		switch (c)
 		  {
+#ifndef FALSE_ALARM
 		  case 0xff:
 		      goto rebranch2;
+#endif
 		  case 0xfa:
 		  case 0xfb:
          	  case 0xfc:
@@ -225,6 +227,9 @@ rebranch2:
    		  case 0xf3:
                   case 0xf4:
 	     	  case 0xf5:
+#ifdef FALSE_ALARM
+                  case 0xff:
+#endif
 		  	// For mpeg1/2 layer 1/2 (svcd/VCD/DVD)
 			// We make some extra check to avoid cutting
 			// on a falsely detected mpeg frame that would

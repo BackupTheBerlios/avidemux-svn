@@ -4610,6 +4610,7 @@ static int decode_slice_header(H264Context *h){
 
     s->pict_type= h->slice_type; // to make a few old func happy, it's wrong though
 
+
     pps_id= get_ue_golomb(&s->gb);
     if(pps_id>255){
         av_log(h->s.avctx, AV_LOG_ERROR, "pps_id out of range\n");
@@ -8175,6 +8176,14 @@ static int decode_frame(AVCodecContext *avctx,
     if(buf_index < 0)
         return -1;
 
+// MEANX
+    if(s->hurry_up>=4)
+    {
+        pict->pict_type=s->current_picture.pict_type;
+        pict->key_frame=s->current_picture.key_frame;
+        return 0;
+    }
+// MEANX
     //FIXME do something with unavailable reference frames
 
 //    if(ret==FRAME_SKIPPED) return get_consumed_bytes(s, buf_index, buf_size);

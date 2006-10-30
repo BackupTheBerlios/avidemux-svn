@@ -60,8 +60,8 @@ uint8_t A_autoDrive(Action action)
                                 // Resize
                                 if(!setPSP()) return 0;
                                 // Video codec
-#ifdef USE_XVID_4
-                    if(!videoCodecSelectByName("XVID4")) 
+#ifdef USE_X264
+                    if(!videoCodecSelectByName("X264")) 
 #else
                     if(!videoCodecSelectByName("FFMpeg4"))            
 #endif

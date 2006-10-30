@@ -675,7 +675,7 @@ uint8_t _3GPHeader::parseAtomTree(adm_atom *atom)
                                     uint32_t n,i,j,k,v;
                                 printf("ctts:%lu\n",tom.read32()); // version & flags
                                 n=tom.read32();
-                                
+                                printf("ctts: %u entries\n",n);
                                     Ctts=new uint32_t[n*4]; // keep a safe margin
                                 
                                     for(i=0;i<n;i++)
