@@ -41,7 +41,7 @@
 
 
 // Some static stuff
-static COMPRES_PARAMS *videoCodecGetDescriptor (SelectCodecType codec);
+COMPRES_PARAMS *videoCodecGetDescriptor (SelectCodecType codec);
 void setVideoEncoderSettings (COMPRESSION_MODE mode, uint32_t param,     uint32_t extraConf, uint8_t * extraData);
 static void encoderPrint (void);
 static const char *encoderGetName (void);
@@ -143,6 +143,7 @@ videoCodecGetDescriptor (SelectCodecType codec)
   printf ("Warning ! codec %d not found\n", codec);
   return NULL;
 }
+
 uint8_t
 videoCodecSetFinalSize (uint32_t size)
 {
@@ -463,6 +464,7 @@ saveEncoderConfig (void)
     }
 
 }
+    
 const char *
 encoderGetName (void)
 {
@@ -848,6 +850,19 @@ uint8_t mk_hex (uint8_t a, uint8_t b)
 
   return (a1 << 4) + b1;
 
+}
+/**
+
+*/
+/**
+    \fn videoCodecGetDescriptorByIndex (int index)
+    \brief Returns codec descriptor by its index (ugly)
+*/
+COMPRES_PARAMS *videoCodecGetDescriptorByIndex (int index)
+{
+  ADM_assert(index<encoderGetNbEncoder());
+  COMPRES_PARAMS *param=AllVideoCodec[index];
+  return param;
 }
 // Old stuff
 uint8_t
