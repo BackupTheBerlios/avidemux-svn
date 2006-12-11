@@ -165,7 +165,7 @@ uint8_t DIA_working::update(uint32_t percent)
    		int  mm,ss;
     			mm=sectogo/60;
       			ss=sectogo%60;
-    			sprintf(b, " %d m %d s left", mm,ss);
+    			sprintf(b, _(" %d m %d s left"), mm,ss);
 			aprintf("DIA_working::update(%lu): new time left: %s\n"
 				"\tf=%f sectogo=%lu\n", percent,b,f,sectogo);
     			gtk_label_set_text(GTK_LABEL(lookup_widget(dialog,"label_time")), b);
