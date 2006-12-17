@@ -26,9 +26,8 @@
 #include <string>
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSGlobal.h"
-#include "ADM_library/default.h"
+#include "default.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include "ADM_gui2/GUI_ui.h"
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"
 #include "adm_scanner.h" 
@@ -39,7 +38,6 @@
 #include "ADM_encoder/adm_encoder.h"
 #include "ADM_encoder/adm_encConfig.h"
 #include "ADM_editor/ADM_outputfmt.h"
-#include "ADM_gui2/GUI_ui.h"
 #include "ADM_filter/video_filters.h"
 #include "ADM_script/ADM_container.h"
 
@@ -441,6 +439,9 @@ JSBool pathOnly(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rv
   char *name=NULL;
   char *orgName = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
   PathStripName(orgName);
+  /* Remove last / or last \ */
+  int l=strlen(orgName);
+  if(l) orgName[l-1]=0;
   *rval=STRING_TO_JSVAL(JS_NewStringCopyZ(cx,orgName));
   return JS_TRUE;
 }// end systemExecute
