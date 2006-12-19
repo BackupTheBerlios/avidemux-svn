@@ -216,6 +216,7 @@ rebranch2:
 
 		switch (c)
 		  {
+#define FALSE_ALARM
 #ifndef FALSE_ALARM
 		  case 0xff:
 		      goto rebranch2;
