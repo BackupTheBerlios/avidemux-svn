@@ -130,8 +130,9 @@ uint32_t audioSum=0;
         strcpy(twoPass,name);
         strcat(twoPass,".stat");
         /* orig: strcat(twoFake,".fake"); */
-	/* JSC v1: */ strcpy(twoFake,".fake");
-	/* JSC v2: */ strcpy(twoPass,name); strcat(twoFake,".fake");
+
+        strcpy(twoFake,name);
+        strcat(twoFake,".fake");
  
         _incoming = getLastVideoFilter (frameStart,frameEnd-frameStart);
         _w=_incoming->getInfo()->width;
