@@ -180,6 +180,7 @@ ssize_t qwrite(int fd, const void *buf, size_t numbytes){
 						errno, strerror(errno))!=-1);
 		fprintf(stderr,"qwrite(): %s",msg);
 		GUI_Error_HIG(msg,NULL);
+		qfile[fd].ignore = 1;  /* the file is broken now, we can ignore further errors and the user was notified above */
 		return -1;
 	}
 }
