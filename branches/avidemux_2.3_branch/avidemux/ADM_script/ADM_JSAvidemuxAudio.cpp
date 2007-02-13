@@ -383,7 +383,9 @@ JSBool ADM_JSAvidemuxAudio::Codec(JSContext *cx, JSObject *obj, uintN argc,
                             }
                         setAudioExtraConf(bitrate,size,data);
                         delete [] data; 
-                }
+                }else{
+			audioFilter_SetBitrate(JSVAL_TO_INT(argv[1]));
+		}
 
                 *rval = BOOLEAN_TO_JSVAL(true);
         }// end set bitrate
