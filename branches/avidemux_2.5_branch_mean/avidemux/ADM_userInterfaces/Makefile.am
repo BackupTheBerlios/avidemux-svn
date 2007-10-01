@@ -1,0 +1,7 @@
+SUBDIRS = ADM_NONE ADM_commonUI
+if ADM_UI_GTK
+ SUBDIRS += ADM_GTK
+endif
+if ADM_UI_QT4
+ SUBDIRS += ADM_QT4
+endif
