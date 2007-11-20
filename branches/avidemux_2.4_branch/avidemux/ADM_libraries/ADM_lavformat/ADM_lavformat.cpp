@@ -647,7 +647,7 @@ double p,d;
         pkt.data= bitstream->data;
         pkt.size= bitstream->len;
 	// Look if it is a gop start or seq start
-        if(_type==MUXER_MP4 || _type==MUXER_PSP || _type==MUXER_FLV)
+        if(_type==MUXER_MP4 || _type==MUXER_PSP || _type==MUXER_FLV || _type==MUXER_MATROSKA)
         {
             if(bitstream->flags & AVI_KEY_FRAME) 
                         pkt.flags |= PKT_FLAG_KEY;
