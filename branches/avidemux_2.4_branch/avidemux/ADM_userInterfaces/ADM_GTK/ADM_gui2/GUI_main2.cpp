@@ -179,6 +179,7 @@ create_mainWindow (void)
   GtkWidget *toolbuttonSave;
   GtkWidget *toolbuttonInfo;
   GtkWidget *separatortoolitem1;
+  GtkWidget *tmp_image;
   GtkWidget *toolbuttonCalc;
   GtkWidget *separatortoolitem2;
   GtkWidget *toolitem12;
@@ -993,7 +994,9 @@ create_mainWindow (void)
   gtk_widget_show (separatortoolitem1);
   gtk_container_add (GTK_CONTAINER (toolbar2), separatortoolitem1);
 
-  toolbuttonCalc = (GtkWidget*) gtk_tool_button_new (NULL, QT_TR_NOOP("Calculator"));
+  tmp_image = create_pixmap (mainWindow, "gnome-calculator.png");
+  gtk_widget_show (tmp_image);
+  toolbuttonCalc = (GtkWidget*) gtk_tool_button_new (tmp_image, QT_TR_NOOP("Calculator"));
   gtk_widget_show (toolbuttonCalc);
   gtk_container_add (GTK_CONTAINER (toolbar2), toolbuttonCalc);
   gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (toolbuttonCalc), tooltips, QT_TR_NOOP("Bitrate/size calculator"), NULL);
@@ -1195,8 +1198,8 @@ create_mainWindow (void)
   jogg = jog_shuttle_new ();gtk_widget_set_size_request (jogg, -1, 16); 
   gtk_widget_show (jogg);
   gtk_table_attach (GTK_TABLE (table2), jogg, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_EXPAND), 0, 0);
+                    (GtkAttachOptions) (0),
+                    (GtkAttachOptions) (0), 0, 0);
   GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_FOCUS);
   GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_DEFAULT);
 
