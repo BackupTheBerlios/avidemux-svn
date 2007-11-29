@@ -12,8 +12,7 @@ conform.cc            idct.cc               mblock_sad_mmxe.cc          mpeg2enc
 cpu_accel.cc          idctdata.cc           mblock_sub44_sads_x86.cc    mpeg2param.cc    predict_x86.cc    quantize_ref.cc  transfrm_ref.cc
 fdctdata.cc           idct_mmx.cc           mpeg2setup.cc               putbits.cc        quantize_x86.cc  transfrm_x86.cc
 fdct_mmx.cc           ioio.c                mblock_sumsq_mmx.cc         mpegconsts.cc    puthdr.cc         quant_mmx2.cc    writepic.cc
-fdctref.cc            macroblock.cc         motion.cc                   predcomp_mmx.cc  putmpg.cc         ratectl.cc       xx.c 
-ADM_mpe2enc.cpp
+fdctref.cc            macroblock.cc         motion.cc                   predcomp_mmx.cc  putmpg.cc         ratectl.cc       ADM_mpe2enc.cpp
 )
 ADD_LIBRARY(${ADM_LIB} STATIC ${${ADM_LIB}_SRCS})
 ADD_ADM_LIB(${ADM_LIB} ADM_libraries)
