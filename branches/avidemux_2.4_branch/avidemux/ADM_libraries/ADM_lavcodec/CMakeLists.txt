@@ -6,7 +6,7 @@ SET(ADM_LIB ADM_lavcodec)
 #
 SET(${ADM_LIB}_SRCS 
 		adpcm.c 	allcodecs.c 	cyuv.c 	dsputil.c 	dv.c 
-		error_resilience.c 		fdctref.c 	fft.c 	h263.c 	h263dec.c 	huffyuv.c 	imgconvert.c 
+		error_resilience.c 		fft.c 	h263.c 	h263dec.c 	huffyuv.c 	imgconvert.c 
 		jfdctfst.c 	jfdctint.c 	jrevdct.c 	mace.c 	mdct.c 	 	mjpeg.c 
 		motion_est.c 	mpeg12.c 	mpegaudio.c 	mpegaudiodec.c 	mpegvideo.c 	msmpeg4.c 	 
 		pcm.c 	ratecontrol.c 	raw.c 	resample.c 	rv10.c 	simple_idct.c 	svq1.c 
