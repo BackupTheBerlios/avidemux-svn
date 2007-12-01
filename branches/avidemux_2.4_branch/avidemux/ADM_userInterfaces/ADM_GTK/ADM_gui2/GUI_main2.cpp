@@ -220,7 +220,6 @@ create_mainWindow (void)
   GtkWidget *comboboxFormat;
   GtkWidget *guiDrawing;
   GtkWidget *table2;
-  GtkWidget *jogg;
   GtkWidget *hbox16;
   GtkWidget *label1;
   GtkWidget *boxCurFrame;
@@ -263,6 +262,7 @@ create_mainWindow (void)
   GtkWidget *buttonGotoA;
   GtkWidget *labelMarkB;
   GtkWidget *labelMarkA;
+  GtkWidget *jogg;
   extern GtkAccelGroup *accel_group;
   GtkTooltips *tooltips;
 
@@ -1195,14 +1195,6 @@ create_mainWindow (void)
   gtk_container_set_border_width (GTK_CONTAINER (table2), 3);
   gtk_table_set_col_spacings (GTK_TABLE (table2), 6);
 
-  jogg = jog_shuttle_new ();gtk_widget_set_size_request (jogg, -1, 16); 
-  gtk_widget_show (jogg);
-  gtk_table_attach (GTK_TABLE (table2), jogg, 1, 2, 0, 1,
-                    (GtkAttachOptions) (0),
-                    (GtkAttachOptions) (0), 0, 0);
-  GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_FOCUS);
-  GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_DEFAULT);
-
   hbox16 = gtk_hbox_new (FALSE, 6);
   gtk_widget_show (hbox16);
   gtk_table_attach (GTK_TABLE (table2), hbox16, 0, 1, 2, 3,
@@ -1475,6 +1467,14 @@ create_mainWindow (void)
   GTK_WIDGET_SET_FLAGS (labelMarkA, GTK_CAN_FOCUS);
   gtk_label_set_selectable (GTK_LABEL (labelMarkA), TRUE);
 
+  jogg = jog_shuttle_new ();gtk_widget_set_size_request (jogg, -1, 16); 
+  gtk_widget_show (jogg);
+  gtk_table_attach (GTK_TABLE (table2), jogg, 1, 2, 0, 1,
+                    (GtkAttachOptions) (GTK_FILL),
+                    (GtkAttachOptions) (GTK_EXPAND), 0, 0);
+  GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_FOCUS);
+  GTK_WIDGET_UNSET_FLAGS (jogg, GTK_CAN_DEFAULT);
+
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (mainWindow, mainWindow, "mainWindow");
   GLADE_HOOKUP_OBJECT (mainWindow, vbox1, "vbox1");
@@ -1663,7 +1663,6 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, comboboxFormat, "comboboxFormat");
   GLADE_HOOKUP_OBJECT (mainWindow, guiDrawing, "guiDrawing");
   GLADE_HOOKUP_OBJECT (mainWindow, table2, "table2");
-  GLADE_HOOKUP_OBJECT (mainWindow, jogg, "jogg");
   GLADE_HOOKUP_OBJECT (mainWindow, hbox16, "hbox16");
   GLADE_HOOKUP_OBJECT (mainWindow, label1, "label1");
   GLADE_HOOKUP_OBJECT (mainWindow, boxCurFrame, "boxCurFrame");
@@ -1706,6 +1705,7 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, buttonGotoA, "buttonGotoA");
   GLADE_HOOKUP_OBJECT (mainWindow, labelMarkB, "labelMarkB");
   GLADE_HOOKUP_OBJECT (mainWindow, labelMarkA, "labelMarkA");
+  GLADE_HOOKUP_OBJECT (mainWindow, jogg, "jogg");
   GLADE_HOOKUP_OBJECT_NO_REF (mainWindow, tooltips, "tooltips");
 
   gtk_window_add_accel_group (GTK_WINDOW (mainWindow), accel_group);

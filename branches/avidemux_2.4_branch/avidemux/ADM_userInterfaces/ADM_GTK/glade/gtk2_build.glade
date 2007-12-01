@@ -1898,24 +1898,6 @@
 	      <property name="column_spacing">6</property>
 
 	      <child>
-		<widget class="Custom" id="jogg">
-		  <property name="visible">True</property>
-		  <property name="creation_function">jog_shuttle_new</property>
-		  <property name="int1">0</property>
-		  <property name="int2">0</property>
-		  <property name="last_modification_time">Sun, 07 Oct 2007 12:58:40 GMT</property>
-		</widget>
-		<packing>
-		  <property name="left_attach">1</property>
-		  <property name="right_attach">2</property>
-		  <property name="top_attach">0</property>
-		  <property name="bottom_attach">1</property>
-		  <property name="x_options"></property>
-		  <property name="y_options"></property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkHBox" id="hbox16">
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
@@ -2610,6 +2592,24 @@
 		  <property name="bottom_attach">3</property>
 		  <property name="x_options"></property>
 		  <property name="y_options"></property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="Custom" id="jogg">
+		  <property name="visible">True</property>
+		  <property name="creation_function">jog_shuttle_new</property>
+		  <property name="int1">0</property>
+		  <property name="int2">0</property>
+		  <property name="last_modification_time">Sun, 07 Oct 2007 12:58:40 GMT</property>
+		</widget>
+		<packing>
+		  <property name="left_attach">1</property>
+		  <property name="right_attach">2</property>
+		  <property name="top_attach">0</property>
+		  <property name="bottom_attach">1</property>
+		  <property name="x_options">fill</property>
+		  <property name="y_options">expand</property>
 		</packing>
 	      </child>
 	    </widget>
