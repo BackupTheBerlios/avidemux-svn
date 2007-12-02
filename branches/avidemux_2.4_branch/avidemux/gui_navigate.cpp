@@ -363,8 +363,15 @@ void GUI_GoToKFrame(uint32_t frame)
 
     if (avifileinfo)
     {
+        if(frame>=avifileinfo->nb_frames)
+        {
+            curframe=avifileinfo->nb_frames-1;
+        }
+        else
+        {
             curframe=frame;
             GUI_PreviousKeyFrame();	
+        }
     }
 }
 
@@ -379,13 +386,14 @@ uint32_t flags;
     if (!avifileinfo)
               return 0;
     
+      if(frame>=avifileinfo->nb_frames) return 0;
 
       if( !GUI_getFrame(frame ,&flags))
       {
         GUI_Error_HIG(QT_TR_NOOP("Decompressing error"),QT_TR_NOOP( "Cannot decode the frame."));
               return 0;
       }
-
+        
       curframe = frame;
       admPreview::update( curframe) ;
       update_status_bar();
