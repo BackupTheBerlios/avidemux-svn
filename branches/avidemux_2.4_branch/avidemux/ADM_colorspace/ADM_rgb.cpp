@@ -262,18 +262,20 @@ uint8_t r,g,b,a;
             }
      }
 #endif
-#if  defined( ADM_BIG_ENDIAN)
-        uint8_t r,g,b,a;
-        uint8_t *ptr=target;
-        int pel=h*w;
-        for(int yy=0;yy<th;yy++)
-                {
-                  *ptr=target+(startx*4)+(starty+yy)*totalW*4;;
-                  invertRGB(ptr,tw);
-                }
-        
+
+#if defined(ADM_BIG_ENDIAN)
+     uint8_t r, g, b, a;
+     uint8_t *ptr = target;
+     int pel = h * w;
+
+     for (int yy = 0; yy < th; yy++)
+     {
+          ptr = target + (startx * 4) + (starty + yy) * totalW * 4;
+          ADM_RGBA2BGRA(ptr, tw);
+     }
 #endif
-  return 1;
+
+     return 1;
  }
 
  
