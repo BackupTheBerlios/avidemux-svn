@@ -58,6 +58,10 @@ ELSEIF (ADM_CPU_PPC)
 			SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -faltivec -force_cpusubtype_ALL")
 			SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -faltivec -force_cpusubtype_ALL")
 		ENDIF (ADM_OS_APPLE)
+
+		IF (ADM_OS_UNIX)
+			SET(HAVE_ALTIVEC_H 1)
+		ENDIF (ADM_OS_UNIX)
 	ENDIF (ALTIVEC)
 ENDIF (ADM_CPU_X86)
 

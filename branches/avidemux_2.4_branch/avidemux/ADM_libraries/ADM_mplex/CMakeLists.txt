@@ -14,6 +14,7 @@ ADD_LIBRARY(${ADM_LIB} STATIC ${${ADM_LIB}_SRCS})
 ADD_ADM_LIB(${ADM_LIB} ADM_libraries)
 ################################
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+add_definitions(-DHAVE_FMAX)
 
 IF (NOT ADM_OS_APPLE)
     add_definitions(-DHAVE_MEMALIGN)
