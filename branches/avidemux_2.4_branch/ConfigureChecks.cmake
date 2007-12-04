@@ -4,6 +4,11 @@
 MESSAGE(STATUS "Checking CPU and OS")
 INCLUDE(CMakeDetermineSystem)
 
+# override detected processor for cross-compilation purposes
+IF (CROSS_SYSTEM_PROCESSOR)
+	SET(CMAKE_SYSTEM_PROCESSOR ${CROSS_SYSTEM_PROCESSOR})
+ENDIF (CROSS_SYSTEM_PROCESSOR)
+
 IF (WIN32)
 	SET(ADM_OS_WINDOWS 1)
 
