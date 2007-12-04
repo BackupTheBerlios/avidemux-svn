@@ -265,6 +265,7 @@
 #cmakedefine ADM_OS_UNIX
 #cmakedefine ADM_OS_WINDOWS
 
+#cmakedefine ADM_CPU_PPC
 #cmakedefine ADM_CPU_X86
 #cmakedefine ADM_CPU_X86_64
 

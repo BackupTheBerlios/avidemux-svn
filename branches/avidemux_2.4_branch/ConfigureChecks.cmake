@@ -39,8 +39,26 @@ ELSEIF (ADM_CPU_X86_64)
 	SET(ARCH_X86_64 1)
 	SET(ARCH_64_BITS 1)
 ELSEIF (ADM_CPU_PPC)
+	OPTION(ALTIVEC "" ON)
+
 	SET(ADM_BIG_ENDIAN 1)
 	SET(WORDS_BIGENDIAN 1)
+
+	IF (ALTIVEC)
+		SET(BUILD_ALTIVEC 1)
+		SET(ARCH_PPC 1)
+		SET(ARCH_POWERPC 1)
+		SET(USE_ALTIVEC 1)
+		SET(HAVE_ALTIVEC 1)
+
+		SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mabi=altivec -maltivec")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mabi=altivec -maltivec")
+
+		IF (ADM_OS_APPLE)
+			SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -faltivec -force_cpusubtype_ALL")
+			SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -faltivec -force_cpusubtype_ALL")
+		ENDIF (ADM_OS_APPLE)
+	ENDIF (ALTIVEC)
 ENDIF (ADM_CPU_X86)
 
 ########################################
