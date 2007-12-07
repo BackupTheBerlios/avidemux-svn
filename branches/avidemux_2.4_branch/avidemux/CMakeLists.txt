@@ -414,6 +414,9 @@ ENDIF (ADM_OS_WINDOWS)
 if (ADM_OS_APPLE)
 	add_libs_all_targets(z)
 	add_libs_all_targets("-framework CoreServices -framework CoreAudio -framework AudioUnit")
+
+	# for Leopard but it doesn't hurt Tiger
+	add_libs_all_targets("-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib")
 endif (ADM_OS_APPLE)
 
 ########################
