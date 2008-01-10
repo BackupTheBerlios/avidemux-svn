@@ -197,6 +197,8 @@ uint8_t r,g,b,a;
         }
 #endif
 #if  defined( ADM_BIG_ENDIAN)
+	if (!_inverted)
+	{
         uint8_t r,g,b,a;
         uint8_t *ptr=target;
         int pel=h*w;
@@ -212,6 +214,7 @@ uint8_t r,g,b,a;
               ptr[3]=r;
               ptr+=4;
         }
+	}
 #endif
      
         return 1;
