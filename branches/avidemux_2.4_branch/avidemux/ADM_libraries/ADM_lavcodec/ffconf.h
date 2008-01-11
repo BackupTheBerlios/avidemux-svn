@@ -303,7 +303,12 @@
 #define ENABLE_MLIB      0
 #define ENABLE_SPARC      0
 #define ENABLE_ALPHA      0
+#include "config.h"
+#ifdef ARCH_POWERPC
+#define ENABLE_POWERPC      1
+#else
 #define ENABLE_POWERPC      0
+#endif
 #define ENABLE_MMI      0
 #define ENABLE_SH4      0
 #define ENABLE_BFIN      0

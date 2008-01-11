@@ -331,7 +331,15 @@ printf("#define ENABLE_ARMV4L      0\n");
 printf("#define ENABLE_MLIB      0\n");
 printf("#define ENABLE_SPARC      0\n");
 printf("#define ENABLE_ALPHA      0\n");
+
+// Hack so CMake and autoconf don't need to be changed
+printf("#include \"config.h\"\n");
+printf("#ifdef ARCH_POWERPC\n");
+printf("#define ENABLE_POWERPC      1\n");
+printf("#else\n");
 printf("#define ENABLE_POWERPC      0\n");
+printf("#endif\n");
+
 printf("#define ENABLE_MMI      0\n");
 printf("#define ENABLE_SH4      0\n");
 printf("#define ENABLE_BFIN      0\n");
