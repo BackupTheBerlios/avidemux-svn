@@ -252,10 +252,15 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                                           c->codec_id = CODEC_ID_DVVIDEO;
                                         }else
                                         {
-                                          c->codec_id = CODEC_ID_MPEG4; // Default value
-                                          printf("Ooops, cant mux that...\n");
-                                          printf("Ooops, cant mux that...\n");
-                                          printf("Ooops, cant mux that...\n");
+                                          if(fourCC::check(info->fcc,(uint8_t *)"H263"))
+                                          {
+                                                    c->codec_id=CODEC_ID_H263;
+                                            }else{
+                                                    c->codec_id = CODEC_ID_MPEG4; // Default value
+                                                    printf("Ooops, cant mux that...\n");
+                                                    printf("Ooops, cant mux that...\n");
+                                                    printf("Ooops, cant mux that...\n");
+                                                }
                                         }
                                 }
                         }
