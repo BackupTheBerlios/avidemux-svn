@@ -139,6 +139,8 @@ static void browse_button_clicked (GtkButton *, gpointer user_data)
 {
     flyParticle * myDialog = static_cast <flyParticle *> (user_data);
 
+    myDialog->getMenuValues();  // so we know the output format
+
     // First, determine a default output file if we don't already have an
     // output file.
 
@@ -147,7 +149,9 @@ static void browse_button_clicked (GtkButton *, gpointer user_data)
     const int MAX_SEL = 2048;
     char buffer [MAX_SEL + 1];
     const char * lastfilename;
-    const char * defaultSuffix = "pts";
+    const char * defaultSuffix
+        = (myDialog->param.output_format
+           == ADMVideoParticle::OUTPUTFMT_FORMAT_AB_ODU) ? "csv" : "pts";
     if ((!filename || !*filename)
         && prefs->get (LASTFILES_FILE1, (ADM_filename **)&lastfilename))
     {
@@ -278,6 +282,10 @@ uint8_t flyParticle::upload (void)
         (GTK_SPIN_BUTTON(WID(topCropSpinButton)), param.top_crop);
     gtk_spin_button_set_value
         (GTK_SPIN_BUTTON(WID(bottomCropSpinButton)), param.bottom_crop);
+    gtk_spin_button_set_value
+        (GTK_SPIN_BUTTON(WID(cameraNumberSpinButton)), param.camera_number);
+    gtk_spin_button_set_value
+        (GTK_SPIN_BUTTON(WID(debugSpinButton)), param.debug);
 
     lock--;
     return 1;

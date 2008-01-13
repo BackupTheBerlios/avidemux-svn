@@ -62,19 +62,14 @@ uint8_t  ADM_flyDialog::display(void)
 uint32_t ADM_flyDialog::sliderGet(void)
 {
 	ADM_assert(_slider);
-	GtkAdjustment *adj=gtk_range_get_adjustment (GTK_RANGE(_slider));
-	return (uint32_t)GTK_ADJUSTMENT(adj)->value;
+	return (uint32_t)gtk_range_get_value (GTK_RANGE(_slider));
 }
 
 uint8_t ADM_flyDialog::sliderSet(uint32_t value)
 {
 	ADM_assert(_slider);
 
-	GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(_slider));
-
-	adj->value = value;
-
-	gtk_range_set_adjustment(GTK_RANGE(_slider), adj);
+        gtk_range_set_value (GTK_RANGE(_slider), value);
 
 	return 1; 
 }
