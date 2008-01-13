@@ -116,6 +116,13 @@ uint8_t DIA_SwissArmyKnife (AVDMGenericVideoStream * in,
                             SWISSARMYKNIFE_PARAM * param,
                             const MenuMapping * menu_mapping,
                             uint32_t menu_mapping_count) { return 255; }
+struct ERASER_PARAM;
+struct ADMVideoEraser;
+uint8_t DIA_eraser (AVDMGenericVideoStream * in,
+                    ADMVideoEraser * eraserp,
+                    ERASER_PARAM * param,
+                    const MenuMapping * menu_mapping,
+                    uint32_t menu_mapping_count) { return 255; }
 struct PARTICLE_PARAM;
 uint8_t DIA_particle (AVDMGenericVideoStream *in,
                       PARTICLE_PARAM * param,
