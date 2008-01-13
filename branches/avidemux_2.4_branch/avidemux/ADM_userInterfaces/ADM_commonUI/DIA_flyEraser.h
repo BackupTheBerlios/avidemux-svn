@@ -1,8 +1,8 @@
 /***************************************************************************
-                          DIA_flyParticle.cpp  -  configuration dialog for
-						   particle filter
+                          DIA_flyEraser.cpp  -  configuration dialog for
+						   Eraser filter
                               -------------------
-                         Chris MacGregor, September 2007
+                         Chris MacGregor, December 2007
                          chris-avidemux@bouncingdog.com
  ***************************************************************************/
 
@@ -15,62 +15,53 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FLY_PARTICLE_H
-#define FLY_PARTICLE_H
+#ifndef FLY_ERASER_H
+#define FLY_ERASER_H
 
-class flyParticle : public ADM_flyDialog
+class flyEraser : public ADM_flyDialog
 {
   
+//  protected:
+  public:
+    ADMVideoEraser * eraserp;
   private:
     const MenuMapping * menu_mapping;
     uint32_t menu_mapping_count;
-    bool input_buffer_valid;
 
   public:
-    PARTICLE_PARAM param;
+    ERASER_PARAM param;
+    Eraser::MaskVec::iterator current_mask;
 
-    uint8_t    process(void);
-    uint8_t    download(void);
-    uint8_t    upload(void);
-    uint8_t    update(void);
+    uint8_t    process();
+    uint8_t    update();
 
-    flyParticle (uint32_t width, uint32_t height,
-                 AVDMGenericVideoStream * in,
-                 void * canvas, void * slider, void * dialog,
-                 const PARTICLE_PARAM * in_param,
-                 const MenuMapping * menu_mapping,
-                 uint32_t menu_mapping_count)
+    flyEraser (uint32_t width, uint32_t height,
+               AVDMGenericVideoStream * in,
+               void * canvas, void * slider, void * dialog,
+               ADMVideoEraser * eraserp, const ERASER_PARAM * in_param,
+               const MenuMapping * menu_mapping, uint32_t menu_mapping_count)
         : ADM_flyDialog (width, height, in, canvas, slider, 1, RESIZE_AUTO),
+          eraserp (eraserp),
+          param (*in_param),
           menu_mapping (menu_mapping),
           menu_mapping_count (menu_mapping_count),
-          input_buffer_valid (false),
-          param (*in_param)
+          current_mask (eraserp->getMasks().begin())
     {
         _cookie = dialog;
         setupMenus (in_param, menu_mapping, menu_mapping_count);
+        // printf ("flyEraser::flyEraser: "
+        //         "in_param %p, &param %p\n", in_param, &param);
     };
 
-    void getParam (PARTICLE_PARAM * outputParam)
+    uint8_t sliderChanged (void);
+
+    void getParam (ERASER_PARAM * outputParam)
     {
         *outputParam = param;
     }
 
     ADMImage * getInputImage ()
     {
-        if (!input_buffer_valid)
-        {
-            uint32_t len, flags;
-            uint32_t frameNum = sliderGet();
-            if (!_in->getFrameNumberNoAlloc(frameNum, &len,
-                                            _yuvBuffer, &flags))
-            {
-                printf ("flyParticle::getInputImage(): Cannot get frame %u\n",
-                        frameNum);
-                return 0;
-            }
-            input_buffer_valid = true;
-        }
-
         return _yuvBuffer;
     }
 
