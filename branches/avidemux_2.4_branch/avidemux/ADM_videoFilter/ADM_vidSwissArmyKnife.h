@@ -151,11 +151,11 @@ protected:
 
         ~PersistentInfo ()
         {
-            delete image_int;
-            delete image_float;
-            delete bg;
-            delete histogram_input_data;
-            delete histogram_output_data;
+            delete [] image_int;
+            delete [] image_float;
+            delete [] bg;
+            delete [] histogram_input_data;
+            delete [] histogram_output_data;
         }
     };
 

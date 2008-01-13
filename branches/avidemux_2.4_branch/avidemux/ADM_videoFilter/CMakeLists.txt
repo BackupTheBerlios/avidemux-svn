@@ -42,6 +42,7 @@ ADM_vidComputeAverage.cpp
 ADM_vidSwissArmyKnife.cpp
 ADM_vidThreshold.cpp
 ADM_vidParticle.cpp
+ADM_vidEraser.cpp
 
 )
 ADD_LIBRARY(ADM_videoFilter STATIC ${ADM_videoFilter_SRCS})

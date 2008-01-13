@@ -93,14 +93,13 @@ SCRIPT_CREATE(swissarmyknife_script,ADMVideoSwissArmyKnife,swissArmyKnifeParam);
 
 BUILD_CREATE(swissarmyknife_create,ADMVideoSwissArmyKnife);
 
-ADMVideoSwissArmyKnife::ADMVideoSwissArmyKnife(AVDMGenericVideoStream *in,CONFcouple *couples)
-			
+ADMVideoSwissArmyKnife::ADMVideoSwissArmyKnife (AVDMGenericVideoStream *in, CONFcouple *couples)
 {
     _in = in;
-    memcpy(&_info, in->getInfo(), sizeof(_info));
+    memcpy (&_info, in->getInfo(), sizeof(_info));
     _info.encoding = 1;
-    _uncompressed = new ADMImage(_in->getInfo()->width, _in->getInfo()->height);
-    ADM_assert(_uncompressed);
+    _uncompressed = new ADMImage (_in->getInfo()->width, _in->getInfo()->height);
+    ADM_assert (_uncompressed);
     _param = new SWISSARMYKNIFE_PARAM;
 
     if (couples)
@@ -206,8 +205,8 @@ ADMVideoSwissArmyKnife::ADMVideoSwissArmyKnife(AVDMGenericVideoStream *in,CONFco
 uint8_t	ADMVideoSwissArmyKnife::getCoupledConf (CONFcouple **couples)
 {
 
-    ADM_assert(_param);
-    *couples = new CONFcouple(swissArmyKnifeParam.nb);
+    ADM_assert (_param);
+    *couples = new CONFcouple (swissArmyKnifeParam.nb);
 
     // This is a hack to work around the fact that the ctor & dtor get called
     // too often.  The right solution would be to arrange for the filter
