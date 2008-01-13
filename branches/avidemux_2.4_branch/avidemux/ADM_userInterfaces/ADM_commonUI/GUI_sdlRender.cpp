@@ -154,7 +154,7 @@ uint8_t sdlAccelRender::init( GUI_WindowInfo * window, uint32_t w, uint32_t h)
 	putenv(origin);
 #endif
 
-    sdl_display= SDL_SetVideoMode( w*2, h*2,  bpp, flags );
+    sdl_display= SDL_SetVideoMode( w, h,  bpp, flags );
 
     if (!sdl_display)
     {
