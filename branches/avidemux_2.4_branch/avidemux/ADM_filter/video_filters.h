@@ -100,6 +100,7 @@ typedef enum
                 VF_DVBSUB,
                 VF_LOGO,
                 VF_COMPUTEAVERAGE,
+                VF_ERASER,
                 VF_SWISSARMYKNIFE,
                 VF_THRESHOLD,
                 VF_PARTICLELIST,
