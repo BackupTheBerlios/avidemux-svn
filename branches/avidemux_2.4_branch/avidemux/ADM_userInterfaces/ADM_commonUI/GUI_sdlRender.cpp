@@ -125,7 +125,20 @@ uint8_t sdlAccelRender::init( GUI_WindowInfo * window, uint32_t w, uint32_t h)
 
         return 0;
     }
+    // Do it twice as tje 1st time does not work
+    // Hack to get SDL to use GTK window, ugly but works
 
+#if !defined(CONFIG_DARWIN) && !defined(ADM_WIN32)
+    putenv(SDL_windowhack);
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
+    if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) 
+    {
+                printf("[SDL] FAILED initialising video subsystem\n");
+                printf("[SDL] ERROR: %s\n", SDL_GetError());
+                return 0;
+    }
+    // / do it twice
+#endif
     sdl_running=1;
     flags = SDL_ANYFORMAT | SDL_HWPALETTE | SDL_HWSURFACE | SDL_NOFRAME;
     bpp= SDL_VideoModeOK( w, h,  32, flags );
