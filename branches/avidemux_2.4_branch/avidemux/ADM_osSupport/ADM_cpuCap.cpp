@@ -14,7 +14,7 @@
 
 #if defined(ADM_WIN32)
 #include <pthread.h>
-#elif !defined(__APPLE__)
+#elif !defined(__APPLE__) && !defined(ADM_BSD_FAMILY)
 #include <string.h>
 #include <sched.h>
 #endif
@@ -195,7 +195,7 @@ int ADM_cpu_num_processors(void)
 {
 #if defined(ADM_WIN32)
     return pthread_num_processors_np();
-#elif !defined(__APPLE__)
+#elif !defined(__APPLE__) && !defined(ADM_BSD_FAMILY)
     unsigned int bit;
     int np;
 

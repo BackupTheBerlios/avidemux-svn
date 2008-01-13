@@ -60,5 +60,5 @@ ADD_ADM_LIB(${ADM_LIB} ADM_libraries)
 
 
 ################################
-add_definitions(-I.. -DHAVE_AV_CONFIG_H  -O3 -I../.. -I../ADM_lavutil -Drestrict=__restrict__ -fomit-frame-pointer -include ffconf.h)
+add_definitions(-I.. -g -DHAVE_AV_CONFIG_H  -O3 -I../.. -I../ADM_lavutil -Drestrict=__restrict__ -fomit-frame-pointer -include ffconf.h)
 
