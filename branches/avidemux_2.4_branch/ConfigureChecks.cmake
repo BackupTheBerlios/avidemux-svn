@@ -26,13 +26,13 @@ ELSEIF (APPLE)
 ELSEIF (UNIX)
 	SET(ADM_OS_UNIX 1)
 
-	IF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i586" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
+	IF    (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i386" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i586" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
 		SET(ADM_CPU_X86 1)
 	ELSEIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "amd64")
 		SET(ADM_CPU_X86_64 1)
 	ELSEIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "ppc")
 		SET(ADM_CPU_PPC 1)
-	ENDIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i586" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
+	ENDIF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i386" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i586" OR ${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
 ENDIF (WIN32)
 
 # Various defines (needs to be removed from Avidemux code one day and be library specific...)
@@ -69,6 +69,9 @@ ELSEIF (ADM_CPU_PPC)
 		ENDIF (ADM_OS_UNIX)
 	ENDIF (ALTIVEC)
 ENDIF (ADM_CPU_X86)
+
+
+
 
 ########################################
 # Include CMake scripts
@@ -114,6 +117,12 @@ ENDIF (ADM_OS_WINDOWS)
 IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
         SET(USE_JOG 1)
 ENDIF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+
+IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+	SET(ADM_BSD_FAMILY 1)
+ENDIF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+
+
 
 ########################################
 # Standard Avidemux defines
@@ -237,6 +246,23 @@ IF (ADM_OS_UNIX)
 		ENDIF (ALSA_FOUND)
 	ENDIF (NO_ALSA)
 ENDIF (ADM_OS_UNIX)
+########################################
+# SSSE3
+########################################
+MESSAGE(STATUS "<Checking SSSE3>")
+MESSAGE(STATUS "<******************************>")
+
+# Try check for supporting of SSSE3 by gcc inline asm
+ADM_COMPILE(ssse3_check.cpp "" "" HAVE_NOT_SSSE3 outputHaveNotSSSE3)
+
+IF (HAVE_NOT_SSSE3)
+	SET(HAVE_SSSE3 1)
+	MESSAGE(STATUS "OK, GCC inline asm supported SSSE3")
+ELSE (HAVE_NOT_SSSE3)
+	SET(HAVE_SSSE3 0)
+	MESSAGE(STATUS "OK, GCC inline asm not supported SSSE3")
+        MESSAGE("Error Message : ${outputHaveNotSSSE3}")
+ENDIF (HAVE_NOT_SSSE3)
 
 ########################################
 # SDL
@@ -441,7 +467,11 @@ SET(CMAKE_REQUIRED_LIBRARIES "-lm")
 IF (USE_LATE_BINDING)
 	CHECK_INCLUDE_FILES(dts.h USE_LIBDCA)
 ELSE (USE_LATE_BINDING)
-	ADM_CHECK_HL(libdca dts.h dts dts_init USE_LIBDCA)
+	IF (ADM_BSD_FAMILY)
+		ADM_CHECK_HL(libdca dts.h dts dca_init USE_LIBDCA)
+	ELSE (ADM_BSD_FAMILY)
+		ADM_CHECK_HL(libdca dts.h dts dts_init USE_LIBDCA)
+	ENDIF (ADM_BSD_FAMILY)
 ENDIF (USE_LATE_BINDING)
 
 SET(CMAKE_REQUIRED_LIBRARIES)
