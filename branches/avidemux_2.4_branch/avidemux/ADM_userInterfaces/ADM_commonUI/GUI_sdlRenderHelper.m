@@ -40,20 +40,24 @@ void initSdlCocoaView(void* parent, int x, int y, int width, int height, bool ca
 
 	NSRect contentRect;
 
-	if (!nsWindow)
+	if (carbonParent)
 	{
-		if (carbonParent)
+		contentRect = NSMakeRect(x, y, width, height);
+
+		if (!nsWindow)
 		{
-			contentRect = NSMakeRect(x, y, width, height);
-		
 			// initWithWindowRef always returns the same result for the same WindowRef
 			nsWindow = [[NSWindow alloc] initWithWindowRef:(WindowRef)parent];
-			
+
 			[nsWindow setContentView:[[[NSView alloc] initWithFrame:contentRect] autorelease]];
 		}
-		else
+	}
+	else
+	{
+		contentRect = NSMakeRect(0, 0, width, height);
+		
+		if (!nsWindow)
 		{
-			contentRect = NSMakeRect(0, 0, width, height);
 			nsWindow = [[SdlCocoaWindow alloc] initWithContentRect:contentRect styleMask:NSDocModalWindowMask backing:NSBackingStoreBuffered defer:NO];
 
 			nsParentWindow = (NSWindow*)parent;
