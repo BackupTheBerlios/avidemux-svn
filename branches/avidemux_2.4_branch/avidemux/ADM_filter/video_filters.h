@@ -70,6 +70,7 @@ typedef enum
                 VF_DECIMATE,
                 VF_MSMOOTH,
                 VF_STACKFIELD,
+                VF_HZSTACKFIELD,
                 VF_WHIRL,
                 VF_EQUALIZER,
                 VF_VOBSUB,

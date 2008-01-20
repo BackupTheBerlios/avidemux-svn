@@ -95,6 +95,10 @@ printf(  "*********************\n");
 	REGISTERX("separatefields",QT_TR_NOOP("Separate fields"),QT_TR_NOOP("Each field becomes full picture, half sized."),VF_SEPARATEFIELDS,1, separatefield_create,separatefield_script);
 	REGISTERX("mergefield",QT_TR_NOOP("Merge fields"),QT_TR_NOOP("Merge two pictures as if they were two fields."),VF_MERGEFIELDS,1,mergefield_create,mergefield_script);
 
+
+        REGISTERX("hzstackfield",QT_TR_NOOP("Hz Stack fields"),QT_TR_NOOP("Put botj fields side by side."),VF_HZSTACKFIELD,1,hzstackfield_create,hzstackfield_script);
+        
+
 	REGISTERX("stackfield",QT_TR_NOOP("Stack fields"),QT_TR_NOOP("Put two fields on top of one another."),VF_STACKFIELD,1,stackfield_create,stackfield_script);
         REGISTERX("unstackfield",QT_TR_NOOP("Unstack fields"),QT_TR_NOOP("Interleave top and bottom part of the picture."),VF_UNSTACK_FIELD,1,unstackfield_create,unstackfield_script);
 	
