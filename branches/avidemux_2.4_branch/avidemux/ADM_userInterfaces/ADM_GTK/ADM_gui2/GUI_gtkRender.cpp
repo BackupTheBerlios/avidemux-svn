@@ -21,6 +21,11 @@
 #ifdef ADM_WIN32
 #define WIN32_CLASH
 #include <gdk/gdkwin32.h>
+#elif defined(__APPLE__)
+extern "C"
+{
+	int getMainNSWindow(void);
+}
 #else
 #include <gdk/gdkx.h>
 #endif
@@ -97,11 +102,25 @@ void UI_getWindowInfo(void *draw, GUI_WindowInfo *xinfo)
         GtkWidget *widget=(GtkWidget *)draw;
           
         win = gtk_widget_get_parent_window(widget);
-#ifndef ADM_WIN32
-        xinfo->window=	GDK_WINDOW_XWINDOW(widget->window);
-        xinfo->display= GDK_WINDOW_XDISPLAY(win);
+
+#ifdef ADM_WIN32
+		xinfo->display = (void*)GDK_WINDOW_HWND(widget->window);
+#elif defined(__APPLE__)
+		int windowWidth, windowHeight;
+		int x, y;
+
+		gdk_drawable_get_size(win, &windowWidth, &windowHeight);
+		gdk_window_get_position(widget->window, &x, &y);
+
+		xinfo->display = 0;
+		xinfo->window = getMainNSWindow();
+		xinfo->x = x;
+		xinfo->y = windowHeight - (y + lastH);
+		xinfo->width = lastW;
+		xinfo->height = lastH;
 #else
-        xinfo->display=	(void*)GDK_WINDOW_HWND(widget->window);
+		xinfo->window = GDK_WINDOW_XWINDOW(widget->window);
+		xinfo->display = GDK_WINDOW_XDISPLAY(win);
 #endif
 }
 

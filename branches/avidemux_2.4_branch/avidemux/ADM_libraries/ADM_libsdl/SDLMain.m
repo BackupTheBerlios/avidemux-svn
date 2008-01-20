@@ -373,6 +373,10 @@ int main (int argc, char **argv)
         gFinderLaunch = NO;
     }
 
+	// Cocoa functions are required for SDL so we need to call NSApplicationLoad
+	if (!NSApplicationLoad())
+		return -1;
+
 #if SDL_USE_NIB_FILE
     [SDLApplication poseAsClass:[NSApplication class]];
     NSApplicationMain (argc, argv);

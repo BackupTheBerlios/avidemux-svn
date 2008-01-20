@@ -12,6 +12,11 @@ DIA_builtin.cpp       DIA_flyChromaShift.cpp  DIA_flyHue.cpp       DIA_lavDecode
 DIA_animated.cpp      DIA_ocr.cpp DIA_tsSub.cpp
 DIA_flyEq2.cpp        DIA_flv1.cpp            DIA_flyThreshold.cpp DIA_flyParticle.cpp DIA_flyEraser.cpp DIA_flySwissArmyKnife.cpp
 )
+
+IF (ADM_OS_APPLE)
+	SET(${ADM_LIB}_SRCS ${${ADM_LIB}_SRCS} GUI_sdlRenderHelper.m)
+ENDIF (ADM_OS_APPLE)
+
 ADD_LIBRARY(${ADM_LIB} STATIC ${${ADM_LIB}_SRCS})
 ADD_ADM_LIB(${ADM_LIB} ADM_userInterfaces)
 
