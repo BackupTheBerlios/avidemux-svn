@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-20 00:27+0000\n"
+"POT-Creation-Date: 2008-01-18 10:12+0000\n"
 "PO-Revision-Date: 2006-10-05 10:42+0300\n"
 "Last-Translator: Sergey Maslennikov <qqq1971@mail.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -190,8 +190,8 @@ msgid ""
 "Either change codec or use the mixer filter to have less channels."
 msgstr ""
 "Количество каналов больше, чем допускает аудиокодек.\n"
-"Используйте другой кодек или используйте звуковой фильтр (миксер)"
-"для уменьшения количества каналов."
+"Используйте другой кодек или используйте звуковой фильтр (миксер)для "
+"уменьшения количества каналов."
 
 #: avidemux/ADM_codecs/ADM_ffmp43.cpp:45
 msgid "Internal error finding codec"
@@ -211,8 +211,8 @@ msgid ""
 " Did you use too low / too high target for 2 pass ?"
 msgstr ""
 ".\n"
-" Вы используете слишком маленькое или большое целевое значение "
-"для 2-го прохода?"
+" Вы используете слишком маленькое или большое целевое значение для 2-го "
+"прохода?"
 
 #: avidemux/ADM_editor/ADM_edFrameType.cpp:58
 msgid "No video loaded"
@@ -280,10 +280,10 @@ msgid ""
 "ACCURACY</b>.\n"
 "Do you want to use that mode ?"
 msgstr ""
-"Если в файле включен режим ссылок на B-кадры, то это может "
-"вызвать треск и заикание звука.\n"
-"Avidemux может использовать режим, который позволит избежать "
-"этого, но <b>YOU WILL LOOSE FRAME ACCURACY</b>.\n"
+"Если в файле включен режим ссылок на B-кадры, то это может вызвать треск и "
+"заикание звука.\n"
+"Avidemux может использовать режим, который позволит избежать этого, но "
+"<b>YOU WILL LOOSE FRAME ACCURACY</b>.\n"
 "Хотите использовать этот режим?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:712
@@ -324,8 +324,9 @@ msgstr "Индекс не обновлён"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:755
 msgid "You should use Tool->Rebuild frame. Do it now ?"
-msgstr "Вы должны использовать 'Инструменты->Переупорядочить кадры'."
-"Сделать это сейчас?"
+msgstr ""
+"Вы должны использовать 'Инструменты->Переупорядочить кадры'. Сделать это "
+"сейчас?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:1510
 msgid ""
@@ -397,7 +398,8 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:56
 msgid "Change image size. Faster than Avisynth's Resize."
-msgstr "Изменение размера картинки. Работает быстрее, чем Avisynth-овский алгоритм."
+msgstr ""
+"Изменение размера картинки. Работает быстрее, чем Avisynth-овский алгоритм."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:57
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_resize.cpp:312
@@ -486,7 +488,6 @@ msgid "Motion compensation deinterlacer. Ported from MPlayer."
 msgstr "Деинтерлейсер компенсации движения. Портирован из MPlayer."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:73
-#, fuzzy
 msgid "Deinterlace"
 msgstr ""
 
@@ -573,7 +574,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:89
 msgid "Drop damaged fields (e.g. from VHS capture)."
-msgstr ""
+msgstr "Удаляет поврежденные кадры (например, после захвата с VHS)."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:90
 msgid "Swap fields"
@@ -692,8 +693,9 @@ msgstr "Цвет U"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:109
 msgid "Shift chroma U/V to fix badly synced luma/chroma."
-msgstr "Смещение chroma U/V для исправления "
-"плохой синхронизации яркости/цвета (luma/chroma)"
+msgstr ""
+"Смещение chroma U/V для исправления плохой синхронизации яркости/цвета (luma/"
+"chroma)."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:111
 msgid "Luma only"
@@ -701,7 +703,8 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:111
 msgid "Convert picture to greyscale (black and white)."
-msgstr "Преобразование картинки в чёрно-белую."
+msgstr ""
+"Преобразование картинки в чёрно-белую. Сохраняется только яркость (luma)."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:112
 #, fuzzy
@@ -710,7 +713,7 @@ msgstr "Цвет U"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:112
 msgid "Convert picture to grey, keeping only chroma U."
-msgstr ""
+msgstr "Преобразование картинки в чёрно-белую. Сохраняется только цвет U."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:113
 #, fuzzy
@@ -719,7 +722,7 @@ msgstr "Цвет V :"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:113
 msgid "Convert picture to grey, keeping only chroma V."
-msgstr ""
+msgstr "Преобразование картинки в чёрно-белую. Сохраняется только цвет V."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:115
 msgid "Luma delta"
@@ -727,7 +730,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:115
 msgid "Difference between current and previous picture."
-msgstr ""
+msgstr "Разница в яркости между текущим и предыдущим кадром."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:116
 msgid "Avisynth ColorYUV"
@@ -736,6 +739,8 @@ msgstr ""
 #: avidemux/ADM_filter/filter_declaration.cpp:116
 msgid "Alter colors (auto white balance etc...). Ported from Avisynth."
 msgstr ""
+"Коррекция цвета (автоматический баланс белого и т.п.). Портировано из "
+"Avisynth."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:126
 #: avidemux/ADM_videoFilter/ADM_vidMPLD3Dlow.cpp:80
@@ -753,8 +758,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:127
 msgid "High quality version of denoise3d. Slower but more precise."
-msgstr ""
-"Улучшенная версия denoise3d. Медленная, но более точная."
+msgstr "Улучшенная версия denoise3d. Медленная, но более точная."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:128
 #: avidemux/ADM_videoFilter/ADM_vidFlux.cpp:138
@@ -800,7 +804,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:135
 msgid "Chroma noise reduction filter by MarcFD/Tritical."
-msgstr ""
+msgstr "Фильтр подавления цветового (chroma) шума от MarcFD/Tritical."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:137
 msgid "MSmooth by Donald Graft"
@@ -946,7 +950,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:175
 msgid "Useless whirlwind effect."
-msgstr ""
+msgstr "Бесполезный эффект вихря"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:176
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:98
@@ -956,7 +960,7 @@ msgstr "Прочие"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:176
 msgid "Split the picture into tiny thumbnails."
-msgstr ""
+msgstr "Разбивает картинку на множество её уменьшенных копий."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:177
 msgid "MPlayer delogo"
@@ -973,7 +977,7 @@ msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:178
 msgid "Add a png as logo."
-msgstr ""
+msgstr "Добавляет в картинку лого из файла."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:179
 msgid "Animated Menu"
@@ -992,38 +996,48 @@ msgid ""
 "Compute average luma value for each pixel throughout all frames, and save to "
 "file"
 msgstr ""
+"Вычисляет среднее значение яркости (luma) каждого пиксела по всем кадрам и "
+"сохраняет его в файл."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:183
+#, fuzzy
+msgid "Eraser"
+msgstr "Мастер"
+
+#: avidemux/ADM_filter/filter_declaration.cpp:183
+msgid "\"Erase\" arbitrary areas of each frame"
+msgstr ""
+
+#: avidemux/ADM_filter/filter_declaration.cpp:184
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:898
 msgid "Swiss Army Knife"
 msgstr ""
 
-#: avidemux/ADM_filter/filter_declaration.cpp:183
+#: avidemux/ADM_filter/filter_declaration.cpp:184
 msgid ""
 "Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling "
 "average, image from file, or constant"
 msgstr ""
 
-#: avidemux/ADM_filter/filter_declaration.cpp:184
+#: avidemux/ADM_filter/filter_declaration.cpp:185
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:272
-#, fuzzy
 msgid "Threshold"
-msgstr "Потоки"
+msgstr "Порог"
 
-#: avidemux/ADM_filter/filter_declaration.cpp:184
+#: avidemux/ADM_filter/filter_declaration.cpp:185
 msgid "Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa"
 msgstr ""
 
-#: avidemux/ADM_filter/filter_declaration.cpp:185
+#: avidemux/ADM_filter/filter_declaration.cpp:186
 #, fuzzy
 msgid "Particle List"
 msgstr "Частично"
 
-#: avidemux/ADM_filter/filter_declaration.cpp:185
+#: avidemux/ADM_filter/filter_declaration.cpp:186
 msgid "Identify 'particles' (groups of pixels)"
 msgstr ""
 
-#: avidemux/ADM_filter/filter_declaration.cpp:190
+#: avidemux/ADM_filter/filter_declaration.cpp:191
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:123
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtersub.cpp:144
 msgid "Partial"
@@ -1124,7 +1138,7 @@ msgstr "Распаковка потока"
 msgid "Indexing"
 msgstr "Индектирование"
 
-#: avidemux/ADM_libraries/ADM_lavformat/ADM_lavformat.cpp:378
+#: avidemux/ADM_libraries/ADM_lavformat/ADM_lavformat.cpp:376
 msgid "Incompatible frame rate"
 msgstr "Несовместимая частота кадров"
 
@@ -1196,31 +1210,31 @@ msgstr "Файловая ошибка"
 msgid "Cannot open \"%s\" for writing."
 msgstr "Невозможно открыть для записи \"%s\""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:324
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:327
 msgid "NTSC 4:3"
 msgstr ""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:325
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:326
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:328
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:329
 msgid "NTSC 16:9"
 msgstr ""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:327
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:330
 msgid "PAL 4:3"
 msgstr ""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:328
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:331
 msgid "PAL 16:9"
 msgstr ""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:329
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:332
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:43
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_resize.cpp:376
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_resize.cpp:398
 msgid "1:1"
 msgstr ""
 
-#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:331
+#: avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp:334
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:598
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:795
 msgid "Unknown"
@@ -1287,8 +1301,8 @@ msgid ""
 msgstr ""
 "Неисправимая ошибка.\n"
 "\n"
-"Нажмите OK для генерации отладочной информации. Это может занять "
-"несколько минут."
+"Нажмите OK для генерации отладочной информации. Это может занять несколько "
+"минут."
 
 #: avidemux/ADM_osSupport/ADM_crashdump.cpp:437
 msgid "Load it"
@@ -1306,8 +1320,8 @@ msgid ""
 msgstr ""
 "Обнаружен крэш-файл. \n"
 "Хотите загрузить его?\n"
-"(Он будет удален в любом случае, поэтому Вам нужно сохранить его, "
-"если он потребуется Вам в дальнейшем)"
+"(Он будет удален в любом случае, поэтому Вам нужно сохранить его, если он "
+"потребуется Вам в дальнейшем)"
 
 #: avidemux/ADM_osSupport/ADM_fileio.cpp:105
 #: avidemux/ADM_osSupport/ADM_fileio.cpp:129
@@ -1523,20 +1537,22 @@ msgstr ""
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:113
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:163
 msgid "Audio track is not suitable"
-msgstr ""
+msgstr "Не подходит звуковая дорожка"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:153
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:173
 msgid "For VCD, audio must be 44.1 kHz MP2."
-msgstr ""
+msgstr "Для VCD звук должен быть в формате 44.1 kHz MP2."
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:182
 msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
 msgstr ""
+"Для DVD звук должен быть в формате 48 kHz MP2(стерео), AC3, DTS или LPCM "
+"(стерео)."
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:193
 msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
-msgstr ""
+msgstr "Для DVD звук должен быть в формате 48 kHz MP2, AC3 or LPCM."
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:305
 msgid "Reuse log file ?"
@@ -1602,15 +1618,15 @@ msgstr "меню"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:36
 msgid "_Background Image:"
-msgstr ""
+msgstr "Изображение:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:36
 msgid "Select background image"
-msgstr ""
+msgstr "Выбор изображения"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:37
 msgid "_NTSC(default is Pal):"
-msgstr ""
+msgstr "_NTSC(по умолчанию PAL):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:38
 msgid "Vignette _Width:"
@@ -1857,7 +1873,7 @@ msgid "FreeType 2"
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:160
-msgid "gettext"
+msgid "Gettext"
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:161
@@ -2198,18 +2214,17 @@ msgstr "Выбор файла"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:94
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:211
 msgid "Output SRT file"
-msgstr ""
+msgstr "Выходной SRT-файл"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:94
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:211
-#, fuzzy
 msgid "Save SRT file"
-msgstr "Сохранить файл"
+msgstr "Выбор файла для сохранения"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:105
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:222
 msgid "Select input and ouput files"
-msgstr ""
+msgstr "Выбор входного и выходного файлов"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:115
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:127
@@ -2270,21 +2285,20 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:40
 #: avidemux/ADM_videoFilter/ADM_vidForcedPP.cpp:60
-#, fuzzy
 msgid "_Filter strength:"
-msgstr "Сила фильтра :"
+msgstr "Уровень фильтрации:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:51
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:344
 #: avidemux/ADM_videoFilter/ADM_vidForcedPP.cpp:72
 msgid "_Horizontal deblocking"
-msgstr ""
+msgstr "Горизонтальный деблокинг"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:52
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:345
 #: avidemux/ADM_videoFilter/ADM_vidForcedPP.cpp:73
 msgid "_Vertical deblocking"
-msgstr ""
+msgstr "Вертикальный деблокинг"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:53
 #: avidemux/ADM_videoFilter/ADM_vidForcedPP.cpp:74
@@ -2527,9 +2541,8 @@ msgstr ""
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:347
 #: avidemux/ADM_videoFilter/ADM_vidMSharpen.cpp:167
 #: avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp:197
-#, fuzzy
 msgid "_Strength:"
-msgstr "Сила фильтра :"
+msgstr "Уровень:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:348
 msgid "Default Postprocessing"
@@ -2632,7 +2645,7 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:54
 msgid "_Target type:"
-msgstr ""
+msgstr "Цель:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:55
 msgid "_Source aspect ratio:"
@@ -2644,7 +2657,7 @@ msgstr "Целевое соотношение сторон (A/R):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:61
 msgid "Auto Wizard"
-msgstr "Предустановка"
+msgstr "Предустановки"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_srt.cpp:88
 msgid "_Subtitle file:"
@@ -2661,7 +2674,7 @@ msgstr "Шрифт (TTF):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_srt.cpp:89
 msgid "Select TTF file"
-msgstr "Выбор TTF файла"
+msgstr "Выбор TTF-файла"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_srt.cpp:104
 msgid "_Encoding:"
@@ -2686,7 +2699,7 @@ msgstr "Сдвиг (ms):"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:45
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:51
 msgid "Auto (might not work)"
-msgstr ""
+msgstr "Авто (может не работать)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:46
 #: avidemux/ADM_videoFilter/ADM_vidYadif.cpp:178
@@ -2788,15 +2801,15 @@ msgstr ""
 #: avidemux/ADM_videoFilter/ADM_vidDGbob.cpp:90
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:92
 msgid "_Field order:"
-msgstr ""
+msgstr "Порядок полей:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:92
 msgid "_Interpolate:"
-msgstr ""
+msgstr "Интерполяция:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:94
 msgid "_Type:"
-msgstr ""
+msgstr "Тип:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:95
 msgid "_MntMode:"
@@ -2808,11 +2821,11 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:97
 msgid "_AP type:"
-msgstr ""
+msgstr "Тип _AP:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:100
 msgid "Use ch_roma to evalute"
-msgstr ""
+msgstr "Использовать цвет (chroma) для определения"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:101
 msgid "Try _weave"
@@ -2820,7 +2833,7 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:102
 msgid "_Denoise"
-msgstr ""
+msgstr "Подавление шума"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:103
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:94
@@ -2834,19 +2847,19 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:107
 msgid "Motion threshold, l_uma:"
-msgstr ""
+msgstr "Порог движения, яркость (l_uma):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:108
 msgid "Motion threshold, c_hroma:"
-msgstr ""
+msgstr "Порог движения, цвет (c_hroma):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:109
 msgid "Area com_bing threshold:"
-msgstr ""
+msgstr "Порог области \"расчески\":"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:110
 msgid "Combe_d threshold:"
-msgstr ""
+msgstr "Порог \"расчески\":"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:111
 msgid "Artefact _protection threshold:"
@@ -2854,34 +2867,31 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:112
 msgid "Debug:"
-msgstr ""
+msgstr "Отладка"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:34
 msgid "_VOB file(s):"
-msgstr ""
+msgstr "_VOB-файл(ы):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:34
-#, fuzzy
 msgid "Select VOB file(s)"
-msgstr "Выбор AVI файла..."
+msgstr "Выбор VOB-файла"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:35
 msgid "_IFO file:"
-msgstr ""
+msgstr "_IFO файл:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:35
-#, fuzzy
 msgid "Select IFO file"
-msgstr "Выбор AVI файла..."
+msgstr "Выбор IFO-файла"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:36
 msgid "VobSub file:"
-msgstr ""
+msgstr "VobSub файл"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:36
-#, fuzzy
 msgid "Select VobSub file"
-msgstr "Выбор AVI файла..."
+msgstr "Выбор VobSub-файла..."
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:41
 msgid "VOB to VobSub"
@@ -2890,11 +2900,11 @@ msgstr ""
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:45
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:50
 msgid "The selected vobfile does not exist"
-msgstr ""
+msgstr "Выбранный VOB-файл не существует"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:55
 msgid "Please select a correct VobSub path/dir"
-msgstr ""
+msgstr "Укажите корректный путь к VobSub файлу"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_about.cpp:66
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:274
@@ -3290,11 +3300,11 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_asharp.cpp:196
 msgid "Threshold :"
-msgstr ""
+msgstr "Порог:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_asharp.cpp:204
 msgid "Strength :"
-msgstr ""
+msgstr "Уровень:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_asharp.cpp:212
 msgid "Block Adaptative :"
@@ -3387,7 +3397,7 @@ msgstr "Вручную"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:571
 msgid "Track _1:"
-msgstr "Дорожка 1:"
+msgstr "Дорожка _1:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:579
 msgid "Audio bitrate in kb/s for track 1 (0 for no audio)"
@@ -3395,7 +3405,7 @@ msgstr "Битрейт (кб/с) для первой звуковой дорож
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:586
 msgid "Track _2: "
-msgstr "Дорожка 2:"
+msgstr "Дорожка _2:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:594
 msgid "Audio bitrate in kb/s for track 2 (optional)"
@@ -3439,16 +3449,15 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_chromaShift.cpp:198
 msgid "U Shift :"
-msgstr ""
+msgstr "Сдвиг U:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_chromaShift.cpp:205
 msgid "V Shift :"
-msgstr ""
+msgstr "Сдвиг V:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_chromaShift.cpp:247
-#, fuzzy
 msgid "<b>Preview</b>"
-msgstr "<b>Видео</b>"
+msgstr "<b>Предпросмотр</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_cnr2.cpp:137
 msgid "Chroma Noise Reduction 2"
@@ -3456,7 +3465,7 @@ msgstr "Понижение цветового шума (CNR2)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_cnr2.cpp:162
 msgid "<b>Scene change Treshold</b>"
-msgstr ""
+msgstr "<b>Порог определения смены сцены</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_cnr2.cpp:181
 msgid "Sensibility"
@@ -3468,7 +3477,7 @@ msgstr "Макс."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_cnr2.cpp:204
 msgid "Luma :"
-msgstr ""
+msgstr "Яркость (luma):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_cnr2.cpp:211
 msgid "Chroma U :"
@@ -3568,7 +3577,7 @@ msgstr "Автоусиление"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:408
 msgid "Display Stats"
-msgstr ""
+msgstr "Показать статистику"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:412
 msgid "AutoWhite"
@@ -3940,7 +3949,7 @@ msgid "Select the output file"
 msgstr "Выбор файла"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_jobs_save.cpp:145
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:545
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:553
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialogFactory/DIA_filesel.cpp:90
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialogFactory/DIA_filesel.cpp:244
 msgid "_Browse..."
@@ -3969,19 +3978,19 @@ msgstr "Убрать логотип (Mplayer)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_mpdelogo.cpp:397
 msgid "X"
-msgstr ""
+msgstr "X:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_mpdelogo.cpp:404
 msgid "Y"
-msgstr ""
+msgstr "Y:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_mpdelogo.cpp:411
 msgid "W"
-msgstr ""
+msgstr "Ширина:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_mpdelogo.cpp:418
 msgid "H"
-msgstr ""
+msgstr "Высота:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_mpdelogo.cpp:425
 msgid "Band"
@@ -4071,71 +4080,71 @@ msgstr "Конечный кадр:"
 msgid "Configure partialized filter"
 msgstr "Настройка фильтра"
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:193
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:197
 msgid "Particle Analysis Configuration"
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:404
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:412
 msgid "Particle Detection"
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:431
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:439
 msgid "Mi_nimum area for a particle to be detected:    "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:445
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:453
 msgid "Ma_ximum area for a particle to be detected:   "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:463
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:471
 msgid "_Left side crop (ignore this many pixels on the left):        "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:477
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:485
 msgid "_Right side crop (ignore this many pixels on the right):     "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:491
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:499
 msgid "_Top crop (ignore this many pixels on the top):                  "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:505
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:513
 msgid "_Bottom crop (ignore this many pixels on the bottom):   "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:523
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:531
 #, fuzzy
 msgid "Output _Format:   "
 msgstr "Контейнер:"
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:535
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:543
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:189
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:174
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:191
 msgid "_Output File:"
-msgstr ""
+msgstr "Выходной файл:"
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:553
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:561
 msgid "_Camera Number for output file:      "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:567
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:575
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1332
 msgid "_Debugging settings (bits):   "
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:600
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:608
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1365
 msgid "Swiss Army Knife output"
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:601
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:609
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1366
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:405
 #, fuzzy
 msgid "Final output"
 msgstr "Вывод звука:"
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:617
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:625
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_preview.cpp:180
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1382
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:418
@@ -4153,8 +4162,8 @@ msgid ""
 "<b>Encoding is paused.</b>\n"
 "\n"
 "You can either resume or Abort it."
-msgstr "<b>Кодирование приостановлено.</b>"
-"\n"
+msgstr ""
+"<b>Кодирование приостановлено.</b>\n"
 "Вы можете продолжить или прервать его."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pause.cpp:136
@@ -4371,7 +4380,7 @@ msgid "Font Size:"
 msgstr "Размер шрифта:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:405
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:381
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:380
 msgid "Swiss Army Knife Configuration"
 msgstr ""
 
@@ -4486,9 +4495,8 @@ msgid "_Histogram every N frames (0 to disable):   "
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1390
-#, fuzzy
 msgid "Enable Preview"
-msgstr "Предпросмотр"
+msgstr "Включить предпросмотр"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:128
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:163
@@ -4536,13 +4544,12 @@ msgid "Configure"
 msgstr "Настройка"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:88
-#, fuzzy
 msgid "none"
-msgstr "Не нужно"
+msgstr "не загружены"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:98
 msgid "Select .idx file"
-msgstr "Выберите idx-файл"
+msgstr "Выберите IDX-файл"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:196
 msgid "VobSub Settings"
@@ -4550,7 +4557,7 @@ msgstr "Установки VobSub"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:213
 msgid "Select .idx"
-msgstr "Выбор .idx"
+msgstr "Просмотр..."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:227
 msgid "Select Language :"
@@ -4601,8 +4608,8 @@ msgid ""
 "Constant Quantizer - Each frame will the same compression. Low numbers equal "
 "higher quality while high numbers equal lower quality"
 msgstr ""
-"Постоянный квантователь - каждый кадр будет иметь одинаковое сжатие. "
-"Чем меньше значение коэффициента, тем лучше качество. И наоборот."
+"Постоянный квантователь - каждый кадр будет иметь одинаковое сжатие. Чем "
+"меньше значение, тем лучше качество. И наоборот."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:612
 msgid "Target Size:"
@@ -4697,8 +4704,8 @@ msgid ""
 "Set how many previous frames can be referenced by a P/B-frame. Numbers above "
 "5 do not seem to improve quality greatly. Numbers are 3 to 5 are recommended"
 msgstr ""
-"На сколько предыдущих кадров могут ссылаться P/B-кадры. Больше 5-ти "
-"имеет смысл для статичного видео (например, анимэ). Для обычного видео "
+"На сколько предыдущих кадров могут ссылаться P/B-кадры. Больше 5-ти имеет "
+"смысл для статичного видео (например, анимэ). Для обычного видео "
 "рекомендуется от 3 до 5."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:708
@@ -4714,8 +4721,8 @@ msgid ""
 "Define how many pixels are analysised. The higher the range the more "
 "accurate the analysis but the slower the encoding time"
 msgstr ""
-"Определяет количество анализируемых пикселов при определении движения. "
-"Чем больше значение, тем точнее анализ, но и больше время кодирования."
+"Определяет количество анализируемых пикселов при определении движения. Чем "
+"больше значение, тем точнее анализ, но и больше время кодирования."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:731
 msgid "Chroma ME"
@@ -4726,8 +4733,8 @@ msgid ""
 "Uses chroma (color) components for motion for compression and helps the "
 "quality"
 msgstr ""
-"Использовать chroma (компонент цвета) при определении движения для "
-"лучшего сжатия и качества"
+"Использовать компоненты цвета (chroma) при определении движения для лучшего "
+"сжатия и качества"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:739
 msgid "Mixed Refs"
@@ -4736,9 +4743,9 @@ msgstr ""
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:744
 msgid "Calculate referencing individually based on each partition"
 msgstr ""
-"Вычисляет кадры, на которые можно ссылаться, на основе разбиений. "
-"Имеет смысл поставить галочку, если максимум кадров, на которые "
-"можно ссылаться, имеет большое значение."
+"Вычисляет кадры, на которые можно ссылаться, на основе разбиений. Имеет "
+"смысл поставить галочку, если максимум кадров, на которые можно ссылаться, "
+"имеет большое значение."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:750
 msgid "Fast P-Skip"
@@ -4747,10 +4754,9 @@ msgstr "No Fast P-Skip"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:753
 msgid "Uncheck to enable fast p-skip"
 msgstr ""
-"Уберите галочку, чтобы включить режим fast p-skip. Этот режим "
-"может ускорить кодирование при совсем небольшой потери качества. "
-"Рекомендуется ставить галочку, если хотите кодировать с максимальным "
-"качеством."
+"Уберите галочку, чтобы включить режим fast p-skip. Этот режим может ускорить "
+"кодирование при совсем небольшой потери качества. Рекомендуется ставить "
+"галочку, если хотите кодировать с максимальным качеством."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:756
 msgid "DCT decimate"
@@ -4774,8 +4780,8 @@ msgid ""
 "Enforce the size of a decoded pixel decoded to a certain value. Leave this "
 "at 1:1 for non-anamorphic video"
 msgstr ""
-"Enforce the size of a decoded pixel decoded to a certain value. Leave this "
-"at 1:1 for non-anamorphic video"
+"Установка размера декодируемых пикселов в заданные значения. Для не "
+"анаморфного видео оставьте значения 1:1"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:796
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1051
@@ -4784,7 +4790,9 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:813
 msgid "Set a custom aspect ratio. Default 1:1 is recommended for most video."
-msgstr "Установка соотношения сторон вручную. 1:1 рекомендуется для большинства видео."
+msgstr ""
+"Установка соотношения сторон вручную. 1:1 рекомендуется для большинства "
+"видео."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:818
 msgid "Predefined Aspect Ratios"
@@ -4817,8 +4825,9 @@ msgid ""
 "Lossless compression method which usually improves the bitrate usage by 15% "
 "(especially on high bitrate). Helps the quality a lot but is slower. "
 msgstr ""
-"Метод сжатия без потерь, который обычно улучшает использование битрейта на 15% "
-"(особенно при высоких битрейтах). Сильно улучшает качество, но медленный. "
+"Метод сжатия без потерь, который обычно улучшает использование битрейта на "
+"15% (особенно при высоких битрейтах). Сильно улучшает качество, но "
+"медленный. "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:884
 msgid "Trellis"
@@ -4830,8 +4839,8 @@ msgid ""
 "Level 0 equals disabled, level 1 equals normal and level 2 equals high"
 msgstr ""
 "Использует rate distortion quantization для поиска оптимального варианта "
-"кодирования каждого блока. 0 - отключить, 1 нормальное качество и "
-"2 - максимальное качество. Рекомендуется 0 для однопроходного, 1 для "
+"кодирования каждого блока. 0 - отключить, 1 нормальное качество и 2 - "
+"максимальное качество. Рекомендуется 0 для однопроходного и 1 для "
 "двухпроходного кодирования."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:900
@@ -4935,8 +4944,7 @@ msgstr "Приоритет использования"
 msgid ""
 "Increase / decrease probability for how often B-frames are used. Will not "
 "violate the maximum consecutive frame limit"
-msgstr ""
-"Увеличивает/уменьшает вероятность использования B-кадров."
+msgstr "Увеличивает/уменьшает вероятность использования B-кадров."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1065
 msgid ""
@@ -4945,8 +4953,8 @@ msgid ""
 "improves the use of bitrate and quality"
 msgstr ""
 "Устанавливает максимальное число последовательных B-кадров. Это определяет "
-"сколько кадров-дубликатов могут быть выброшены, что сильно улучшает "
-"качество и оптимальное использование битрейта. Рекомендуется от 2 до 5. "
+"сколько кадров-дубликатов могут быть выброшены, что сильно улучшает качество "
+"и оптимальное использование битрейта. Рекомендуется от 2 до 5. "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1068
 msgid "Max Consecutive"
@@ -4981,9 +4989,9 @@ msgid ""
 "Use fewer B-frame if needed. This is always recommended. If not enabled, the "
 "codec will always use the maximum number of consecutive B-frames"
 msgstr ""
-"Разрешает кодеку решить о том, сколько требуется B-кадров. Очень рекомендуется. "
-"Если этот режим не включен, кодек всегда будет использовать последовательность "
-"B-кадров максимальной длины"
+"Разрешает кодеку решить о том, сколько требуется B-кадров. Очень "
+"рекомендуется. Если этот режим не включен, кодек всегда будет использовать "
+"последовательность B-кадров максимальной длины"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1102
 msgid "Use as reference"
@@ -5023,7 +5031,9 @@ msgstr "Разбиение и кадры"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1159
 msgid "Set how much \"bitrate bonus\" a keyframe can get"
-msgstr "Какой бонус к битрейту в % можно дать ключевому кадру относительно обычных кадров"
+msgstr ""
+"Какой бонус к битрейту в % можно дать ключевому кадру относительно обычных "
+"кадров"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1162
 msgid "Keyframe boost (%)"
@@ -5081,8 +5091,8 @@ msgstr "Задает максимальное значение квантова�
 msgid ""
 "Define how much the quantizer rate can change between two consecutive frames"
 msgstr ""
-"Задает насколько квантователь может измениться между "
-"двумя последовательными кадрами"
+"Задает насколько квантователь может измениться между двумя последовательными "
+"кадрами"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1268
 msgid "<b>Quantization Limits</b>"
@@ -5119,8 +5129,8 @@ msgid ""
 "frame can be reused and referenced by other frames before a new clean one is "
 "established"
 msgstr ""
-"Задаёт максимальное число кадров между двумя ключевыми. Рекомендуется ставить "
-"минимальный размер GOP, умноженный на 10."
+"Задаёт максимальное число кадров между двумя ключевыми. Рекомендуется "
+"ставить минимальный размер GOP, умноженный на 10."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1328
 msgid "Max IDR frame interval"
@@ -5151,8 +5161,8 @@ msgid ""
 "Allowed variance of average bitrate. Lower values mean less variance. Higher "
 "values mean more variance."
 msgstr ""
-"Разрешённое колебание усреднённого битрейта. Меньшее значение означает меньшее "
-"отклонение. Большее означает большее отклонение."
+"Разрешённое колебание усреднённого битрейта. Меньшее значение означает "
+"меньшее отклонение. Большее означает большее отклонение."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1433
 msgid "Bitrate Variance"
@@ -5165,8 +5175,8 @@ msgid ""
 "quality while 1 means constant fluctuation. Recommended 0.6."
 msgstr ""
 "Разрешённое колебание усредненного квантователя или качества. Меньшее "
-"значение означает меньшее отклонение. Большее означает большее отклонение. "
-"0 означает постоянное качество, 1 - постоянное колебание качества. "
+"значение означает меньшее отклонение. Большее означает большее отклонение. 0 "
+"означает постоянное качество, 1 - постоянное колебание качества. "
 "Рекомендуется 0.6"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1455
@@ -5195,11 +5205,15 @@ msgstr "<b>Прочее</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1512
 msgid "Quantization factors used between I- and P- frames"
-msgstr "Коэффициент квантования, используемый между I- и P-кадрами"
+msgstr ""
+"Во сколько раз квантователь I-кадров будет меньше квантователя P-кадров."
+"(Меньшее значение квантователя - лучше качество)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1521
 msgid "Quantization used between P- and B- frames"
-msgstr "Коэффициент квантования, используемый между P- и B-кадрами"
+msgstr ""
+"Во сколько раз квантователь B-кадров будет больше квантователя P-кадров."
+"(Большее значение квантователя означает хуже качество)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1530
 msgid "Quantization difference between chroma (color) and luma (brightness)"
@@ -5441,11 +5455,11 @@ msgstr "Один проход - квантователь"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:768
 msgid "Two pass, final size"
-msgstr "Два прохода - размер"
+msgstr "Два прохода - размер видео"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:772
 msgid "Two pass, average bitrate"
-msgstr "Два прохода - средний битрейт"
+msgstr "Два прохода - усредненный битрейт"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:776
 msgid "Same Qz as input"
@@ -5457,8 +5471,7 @@ msgstr "Требуемый битрейт видео"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:792
 msgid "Constant quantizer - each frame will get the same compression"
-msgstr "Постоянный квантователь - каждый кадр будет иметь "
-"одинаковое сжатие"
+msgstr "Постоянный квантователь - каждый кадр будет иметь одинаковое сжатие"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:794
 msgid "Variable bitrate mode"
@@ -5473,8 +5486,8 @@ msgid ""
 "Enables interlaced frame support - use only if your source contains "
 "interlacing artifacts (i.e. fields instead of progressive frames)"
 msgstr ""
-"Включает поддержку чрезстрочного кодирования - можно использовать "
-"только если исходное видео является чрезстрочным"
+"Включает поддержку чрезстрочного кодирования - можно использовать только "
+"если исходное видео является чрезстрочным"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:811
 msgid "_Greyscale"
@@ -5490,8 +5503,9 @@ msgstr "Режим мультфильма"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:823
 msgid "Enables special motion estimation features for cartoons/anime"
-msgstr "Включает специальный режим определения движения, подходящий "
-"для мультфильмов или анимэ"
+msgstr ""
+"Включает специальный режим определения движения, подходящий для мультфильмов "
+"или анимэ"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:825
 msgid "C_hroma optimizer"
@@ -5499,7 +5513,7 @@ msgstr "Оптимизация C_hroma"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:828
 msgid "Enables a chroma optimizer prefilter"
-msgstr "Включает префильтр оптимизации сигнала цветности"
+msgstr "Включает префильтр оптимизации компонент цвета (chroma)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:834
 msgid "Turbo Mode"
@@ -5532,8 +5546,7 @@ msgstr "Режим VHQ:"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:880
 msgid ""
 "Higher settings give higher quality results, at the cost of slower encoding"
-msgstr ""
-"Чем больше число, тем лучше качество, но и больше время кодирования"
+msgstr "Чем больше значение, тем лучше качество, но и больше время кодирования"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:888
 msgid "1 - Very low"
@@ -5561,10 +5574,10 @@ msgstr "6 - Отличная"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:917
 msgid "VHQ enables an additional search process to increase quality"
-msgstr "VHQ запускает дополнительный процесс поиска, что улучшает качество"
+msgstr "VHQ запускает процесс дополнительного поиска, что улучшает качество"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:921
-msgid "0 - Отключить"
+msgid "0 - Off"
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:925
@@ -5589,7 +5602,7 @@ msgstr "По цвету"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:950
 msgid "Use chroma information to estimate motion"
-msgstr "Использовать сигналы цвета (chroma) для определения движения"
+msgstr "Использовать компоненты цвета (chroma) для определения движения"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:952
 msgid "_4MV"
@@ -5597,7 +5610,8 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:955
 msgid "Use 4 motion vectors per macroblock, might give better compression"
-msgstr "Использовать 4 вектора движения на макроблок. Может дать лучшее сжатие."
+msgstr ""
+"Использовать 4 вектора движения на макроблок. Может дать лучшее сжатие."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:957
 msgid "HQ _AC"
@@ -5615,7 +5629,9 @@ msgstr "Диапазон I-кадров - Min:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:974
 msgid "Minimum space between I-frames, 1 will disable forced I-frame spacing"
-msgstr "Минимальное число кадров между двумя I-кадрами. 1 запрещает forced I-frame spacing"
+msgstr ""
+"Минимальное число кадров между двумя I-кадрами. 1 запрещает forced I-frame "
+"spacing"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:976
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1194
@@ -5652,6 +5668,8 @@ msgstr "Использовать квадратный пиксел для бол
 msgid ""
 "Global Motion Compensation can save bits on camera pans, zooming and rotation"
 msgstr ""
+"Компенсация общего движения помогает при панорамных съёмках, приближении и "
+"поворотах"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1023
 msgid "_BVHQ"
@@ -5779,16 +5797,16 @@ msgid ""
 "I-frames appearing in the range below this value will be treated as "
 "consecutive keyframes"
 msgstr ""
-"Число кадров между двумя I-кадрами, при значении меньше которого "
-"эти I-кадры будут считаться следующими друг за другом"
+"Число кадров между двумя I-кадрами, при значении меньше которого эти I-кадры "
+"будут считаться следующими друг за другом"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1311
 msgid ""
 "Reduction of bitrate for the first consecutive I-frames. The last I-frame "
 "will get treated normally"
 msgstr ""
-"Первый из такой последовательности I-кадр получит меньше на % битрейта, "
-"чем следующий. Следующий I-кадр получит полный битрейт"
+"Первый из такой последовательности I-кадр получит меньше на % битрейта, чем "
+"следующий. Следующий I-кадр получит полный битрейт"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1316
 msgid ""
@@ -6180,7 +6198,7 @@ msgstr "Показать список заданий"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:404
 msgid "Co_nnect to avsproxy"
-msgstr "Соединиться с Avsproxy"
+msgstr "Соединиться с AvsProxy"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:413
 msgid "Proper_ties"
@@ -6704,9 +6722,8 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/TLK_filesel.cpp:365
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/TLK_filesel.cpp:379
-#, fuzzy
 msgid "It is possible that you are trying to overwrite an input file!"
-msgstr "Возможно, вы пытаетесь перезаписать открытый файл!"
+msgstr "Возможно, вы пытаетесь перезаписать исходный файл!"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/TLK_filesel.cpp:390
 msgid "Cannot write the file"
@@ -6739,21 +6756,21 @@ msgstr "Внимание"
 
 #: avidemux/ADM_video/ADM_vidFieldUnblend.cpp:81
 msgid "Metrics"
-msgstr ""
+msgstr "Метрики"
 
 #: avidemux/ADM_video/ADM_vidFieldUnblend.cpp:81
 msgid "Do you want to print metrics on screen ?"
-msgstr ""
+msgstr "Хотите вывести метрики на экран?"
 
 #: avidemux/ADM_videoFilter/ADM_guiResize.cpp:96
 #: avidemux/ADM_videoFilter/ADM_vidMPLResize.cpp:143
 msgid "Width and height cannot be 0"
-msgstr ""
+msgstr "Ширина и высота не могут быть нулевыми"
 
 #: avidemux/ADM_videoFilter/ADM_guiResize.cpp:98
 #: avidemux/ADM_videoFilter/ADM_vidMPLResize.cpp:145
 msgid "Width and height cannot be odd"
-msgstr ""
+msgstr "Ширина и высота не могут быть нечетными"
 
 #: avidemux/ADM_videoFilter/ADM_lavpp_deint.cpp:106
 msgid "Linear blend"
@@ -6776,13 +6793,12 @@ msgid "FFmpeg deint"
 msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_lavpp_deint.cpp:114
-#, fuzzy
 msgid "_Deinterlacing:"
-msgstr "Черезстрочность"
+msgstr "Алгоритм:"
 
 #: avidemux/ADM_videoFilter/ADM_lavpp_deint.cpp:115
 msgid "_Autolevel"
-msgstr ""
+msgstr "Автоматический уровень"
 
 #: avidemux/ADM_videoFilter/ADM_vidAddBorder.cpp:224
 #: avidemux/ADM_videoFilter/ADM_vidBSmear.cpp:200
@@ -6816,7 +6832,7 @@ msgstr "Неверные параметры"
 #: avidemux/ADM_videoFilter/ADM_vidAddBorder.cpp:234
 #: avidemux/ADM_videoFilter/ADM_vidBSmear.cpp:211
 msgid "All parameters must be even and within range."
-msgstr ""
+msgstr "Все параметры должны быть четными и укладываться в границы"
 
 #: avidemux/ADM_videoFilter/ADM_vidASS.cpp:87
 msgid "_Subtitle file (ASS/SSA):"
@@ -6845,19 +6861,20 @@ msgstr "Нижняя граница:"
 #: avidemux/ADM_videoFilter/ADM_vidMSharpen.cpp:166
 #: avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp:196
 msgid "_Threshold:"
-msgstr ""
+msgstr "Порог:"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:83
 msgid ""
 "If value is smaller than threshold it is considered valid.Smaller value "
 "might mean more false positive."
 msgstr ""
+"Если значение меньше порогового, то картинка считается правильной. Меньшее "
+"пороговое значение увеличивает вероятность неправильности."
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:85
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:90
-#, fuzzy
 msgid "_Noise:"
-msgstr "Уменьшение шума"
+msgstr "Шум:"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:85
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:90
@@ -6866,23 +6883,22 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:86
 msgid "I_dentical:"
-msgstr ""
+msgstr "Идентичность:"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:86
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:91
 msgid "If metric is less than identical, images are considered identical"
-msgstr ""
+msgstr "Если метрика меньше этого значения, картинки считаются идентичными"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:87
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:92
-#, fuzzy
 msgid "_Show metrics"
-msgstr "Показать движение векторов"
+msgstr "Показать метрики"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:87
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:92
 msgid "Show metric in image (debug)"
-msgstr ""
+msgstr "Показать метрики в картинке (для отладки)"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:91
 msgid "Blend Removal"
@@ -6894,37 +6910,37 @@ msgstr "Заполнение границ"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:181
 msgid "_Start Frame (first frame # to include in average):"
-msgstr ""
+msgstr "Начальный кадр:"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:185
 msgid "_End Frame (last frame # to include), -1 = last:"
-msgstr ""
+msgstr "Конечный кадр:"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:189
-#, fuzzy
 msgid "Select output file"
-msgstr "Выбор файла"
+msgstr "Укажите файл для сохранения"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:192
 msgid ""
 "_Bias (only for display; use 0 for average, 128 for frame minus average):"
 msgstr ""
+"_Bias (только для предпросмотра; 0 - среднее, 128 - кадр минус среднее):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:196
 msgid "Current frame minus average so far"
-msgstr ""
+msgstr "Текущий кадр минус среднее значение"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:197
 msgid "Average so far"
-msgstr ""
+msgstr "Среднее значение"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:199
 msgid "Display nothing (fast for batch processing)"
-msgstr ""
+msgstr "Ничего не показывать (для пакетной обработки)"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:203
 msgid "Display _Mode:"
-msgstr ""
+msgstr "Режим предпросмотра:"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:208
 msgid "ComputeAverage"
@@ -6964,20 +6980,19 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidDecDec.cpp:205
 msgid "_Threshold 1:"
-msgstr ""
+msgstr "Порог 1:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecDec.cpp:206
 msgid "T_hreshold 2:"
-msgstr ""
+msgstr "Порог 2:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecDec.cpp:207
-#, fuzzy
 msgid "C_ycle:"
-msgstr "Синий:"
+msgstr "Цикл:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:83
 msgid "No strategy"
-msgstr ""
+msgstr "Без стратегии"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:84
 msgid "3:2 pulldown"
@@ -6996,16 +7011,15 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:95
 msgid "Never"
-msgstr ""
+msgstr "Никогда"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:96
 msgid "If still combed"
-msgstr ""
+msgstr "Если \"расческа\" осталась"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:97
-#, fuzzy
 msgid "Always"
-msgstr "Воспроизвести"
+msgstr "Всегда"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:102
 msgid "None but compute"
@@ -7029,43 +7043,43 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:110
 msgid "_Strategy:"
-msgstr ""
+msgstr "Стратегия:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:112
 msgid "_Postprocessing:"
-msgstr ""
+msgstr "Постобработка:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:113
 msgid "_Try backward:"
-msgstr ""
+msgstr "В обратном направлении:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:115
 msgid "_Direct threshold:"
-msgstr ""
+msgstr "Порог прямого направления:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:116
 msgid "_Backward threshold:"
-msgstr ""
+msgstr "Порог для обратного направления:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:117
 msgid "_Noise threshold:"
-msgstr ""
+msgstr "Порог шума:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:118
 msgid "Postp_rocessing threshold:"
-msgstr ""
+msgstr "Порог постобработки:"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:120
 msgid "_Use chroma to decide"
-msgstr ""
+msgstr "Использовать цвет (chroma) для определения"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:121
 msgid "Sho_w info"
-msgstr ""
+msgstr "Показать информацию"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:122
 msgid "Debu_g"
-msgstr ""
+msgstr "Отладка"
 
 #: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:123
 msgid "Bl_end"
@@ -7107,11 +7121,11 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidDGbob.cpp:93
 msgid "_Extra"
-msgstr ""
+msgstr "Экстра"
 
 #: avidemux/ADM_videoFilter/ADM_vidDGbob.cpp:93
 msgid "Extra check, avoid using it"
-msgstr ""
+msgstr "Экстра, избегайте использовать"
 
 #: avidemux/ADM_videoFilter/ADM_vidDGbob.cpp:96
 msgid "DGBob"
@@ -7119,11 +7133,85 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidDropOut.cpp:63
 msgid "DropOut Threshold"
-msgstr ""
+msgstr "Порог определения повреждённых кадров"
 
 #: avidemux/ADM_videoFilter/ADM_vidDropOut.cpp:66
 msgid "Drop Out"
 msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:191
+msgid "Erase"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:192
+msgid "Un-Erase"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:196
+msgid "1x1"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:197
+msgid "3x3"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:198
+msgid "5x5"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:199
+msgid "7x7"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:200
+msgid "9x9"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:201
+msgid "11x11"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:202
+msgid "15x15"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:203
+msgid "21x21"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:207
+#, fuzzy
+msgid "Brush _Mode:"
+msgstr "_Режим:"
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:211
+msgid "Brush _Size:"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:244
+msgid "Output \"_Color\" for all masked pixels:"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:250
+msgid "Eraser _Data File:"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:250
+#, fuzzy
+msgid "Select data file"
+msgstr "Выбор AVI файла..."
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:255
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:196
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:371
+#: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:159
+msgid "_Debugging settings (bits):"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:261
+#, fuzzy
+msgid "Eraser Configuration"
+msgstr "Настройка Vorbis"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:65
 #, fuzzy
@@ -7159,13 +7247,14 @@ msgid "Fade to _black"
 msgstr "Затемнить до черного"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:83
-#, fuzzy
 msgid "Parameter Error"
-msgstr "Ошибка"
+msgstr "Ошибка параметров"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:83
 msgid "Start must be before end, and both within video # of frames."
 msgstr ""
+"Начальный кадр должен быть меньше конечного и они не должны превышать общего "
+"количества кадров"
 
 #: avidemux/ADM_videoFilter/ADM_vidFastConvolution.cpp:467
 #: avidemux/ADM_videoFilter/ADM_vidLargeMedian.cpp:304
@@ -7188,7 +7277,7 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidFields.cpp:229
 msgid "Motion Threshold"
-msgstr ""
+msgstr "Порог движения"
 
 #: avidemux/ADM_videoFilter/ADM_vidFields.cpp:231
 msgid "Blend Threshold"
@@ -7212,10 +7301,12 @@ msgid ""
 "If value is smaller than threshold it is considered valid. Smaller value "
 "might mean more false positive"
 msgstr ""
+"Если значение меньше порогового, то картинка считается правильной. Меньшее "
+"пороговое значение увеличивает вероятность неправильности."
 
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:91
 msgid "_Identical:"
-msgstr ""
+msgstr "Идентичность:"
 
 #: avidemux/ADM_videoFilter/ADM_vidHardIvtcRemoval.cpp:96
 msgid "Hard IVTC Removal"
@@ -7223,12 +7314,11 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:93
 msgid "Smaller means more deinterlacing"
-msgstr ""
+msgstr "Чем меньше значение, тем сильнее деинтерлейсинг"
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:94
-#, fuzzy
 msgid "_Sharper engine:"
-msgstr "Резкость :"
+msgstr "Включить механизм усиления резкости"
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:95
 msgid "T_woway"
@@ -7236,15 +7326,15 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:95
 msgid "Extrapolate better (better not to use it)"
-msgstr ""
+msgstr "Улучшенная экстраполяция (лучше не использовать)"
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:96
 msgid "_Map"
-msgstr ""
+msgstr "Карта"
 
 #: avidemux/ADM_videoFilter/ADM_vidKernelDeint.cpp:96
 msgid "Show interlaced areas (for test!)"
-msgstr ""
+msgstr "Показать области чрезстрочности (для тестирования!)"
 
 #: avidemux/ADM_videoFilter/ADM_vidLargeMedian.cpp:309
 msgid "Large Median 5x5"
@@ -7252,46 +7342,43 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidLogo.cpp:88
 msgid "_Logo (jpg file):"
-msgstr ""
+msgstr "Лого (JPG-файл)"
 
 #: avidemux/ADM_videoFilter/ADM_vidLogo.cpp:88
-#, fuzzy
 msgid "Select JPEG file"
-msgstr "Выбор AVI файла..."
+msgstr "Выбор JPEG-файла"
 
 #: avidemux/ADM_videoFilter/ADM_vidLogo.cpp:89
 msgid "_X Position:"
-msgstr ""
+msgstr "Позиция X:"
 
 #: avidemux/ADM_videoFilter/ADM_vidLogo.cpp:90
 msgid "_Y Position:"
-msgstr ""
+msgstr "Позиция Y:"
 
 #: avidemux/ADM_videoFilter/ADM_vidLogo.cpp:91
 msgid "_Alpha:"
-msgstr ""
+msgstr "Прозрачность (alpha):"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:104
-#, fuzzy
 msgid "Fast"
-msgstr "Вставить"
+msgstr "Быстро"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:105
-#, fuzzy
 msgid "Medium"
-msgstr "Носитель:"
+msgstr "Средне"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:106
 msgid "Slow iterative motion search"
-msgstr ""
+msgstr "Медленно (последовательный поиск движения)"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:107
 msgid "Extra slow (same as 3+multiple reference frames)"
-msgstr ""
+msgstr "Очень медленно (то же, что и 3 + multiple reference frames)"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:114
 msgid "_Field dominance:"
-msgstr ""
+msgstr "Главное поле:"
 
 #: avidemux/ADM_videoFilter/ADM_vidMcDeint.cpp:115
 msgid "_Qp:"
@@ -7299,20 +7386,19 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:90
 msgid "_Horizontal stacking:"
-msgstr ""
+msgstr "Картинок по горизонтали:"
 
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:91
 msgid "_Vertical stacking:"
-msgstr ""
+msgstr "Картинок по вертикали:"
 
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:92
 msgid "_Shrink factor:"
-msgstr ""
+msgstr "Коэффициент уменьшения размера:"
 
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:93
-#, fuzzy
 msgid "Show _frame"
-msgstr "# кадров"
+msgstr "Показать номера кадров"
 
 #: avidemux/ADM_videoFilter/ADM_vidMPLD3D.cpp:74
 #: avidemux/ADM_videoFilter/ADM_vidMPLD3Dlow.cpp:74
@@ -7331,22 +7417,20 @@ msgid "_Temporal strength:"
 msgstr "Сила фильтра :"
 
 #: avidemux/ADM_videoFilter/ADM_vidMSharpen.cpp:163
-#, fuzzy
 msgid "_Mask"
-msgstr "Мастер"
+msgstr "Маска"
 
 #: avidemux/ADM_videoFilter/ADM_vidMSharpen.cpp:164
 msgid "_High Q"
-msgstr ""
+msgstr "Высокое качество"
 
 #: avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp:194
 msgid "_High quality"
-msgstr ""
+msgstr "Высокое качество"
 
 #: avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp:195
-#, fuzzy
 msgid "Show _mask"
-msgstr "# кадров"
+msgstr "Показать маску"
 
 #: avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp:201
 msgid "MSmooth"
@@ -7361,58 +7445,60 @@ msgstr ""
 msgid "Pal Field Shift"
 msgstr "Включить сдвиг"
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:122
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:135
 msgid "New format, preferred, good for Tracker3D"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:124
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:137
+msgid "DG@UWA format (includes shape info & bounding box)"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:139
+msgid "AB@ODU format (includes shape info)"
+msgstr ""
+
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:141
 msgid "Old format that Tracker3D can't read directly"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:128
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:145
 #, fuzzy
 msgid "Output _Format:"
 msgstr "Контейнер:"
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:153
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:170
 msgid "Mi_nimum area for a particle to be detected:"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:156
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:173
 msgid "Ma_ximum area for a particle to be detected:"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:160
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:177
 msgid "_Left side crop (ignore particles in):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:163
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:180
 msgid "_Right side crop (ignore particles in):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:166
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:183
 msgid "_Top crop (ignore particles in):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:169
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:186
 msgid "_Bottom crop (ignore particles in):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:174
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:322
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:191
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:321
 #: avidemux/gtk_gui.cpp:2016 avidemux/gtk_gui.cpp:2113
 #, fuzzy
 msgid "Select file"
 msgstr "Выбор AVI файла..."
 
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:177
+#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:194
 msgid "_Camera number:"
-msgstr ""
-
-#: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:179
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:372
-#: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:159
-msgid "_Debugging settings (bits):"
 msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidResampleFPS.cpp:85
@@ -7453,16 +7539,15 @@ msgstr "Угол:"
 
 #: avidemux/ADM_videoFilter/ADM_vidSoften.cpp:68
 msgid "_Luma threshold:"
-msgstr ""
+msgstr "Порог по яркости (luma):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSoften.cpp:69
 msgid "C_hroma threshold:"
-msgstr ""
+msgstr "Порог по цвету (chroma):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSoften.cpp:70
-#, fuzzy
 msgid "_Radius:"
-msgstr "Носитель:"
+msgstr "Радиус:"
 
 #: avidemux/ADM_videoFilter/ADM_vidSRT.cpp:210
 msgid "Could not open subtitle file"
@@ -7476,129 +7561,129 @@ msgstr "Неопознанный формат субтитров."
 msgid "Stabilize Threshold"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:259
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:258
 msgid "P' = A"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:260
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:259
 msgid "P' = P"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:261
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:260
 msgid "P' = P - A"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:262
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:261
 msgid "P' = A - P"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:263
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:262
 msgid "P' = P + A"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:264
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:263
 msgid "P' = P * A"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:265
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:264
 msgid "P' = P / A"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:266
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:265
 msgid "P' = A / P"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:267
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:266
 msgid "P' = min (P, A)"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:268
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:267
 msgid "P' = max (P, A)"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:273
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:272
 msgid "A = convolve(P); Load convolution kernel from file"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:275
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:274
 msgid "A = pixel from image file as float; Load image from file"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:277
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:276
 msgid "A = pixel from image file as integer; Load image from file"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:279
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:278
 msgid "A = floating point constant value"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:281
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:280
 msgid "A = rolling average of pixel: A = A*(1-alpha)+(P*alpha)"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:286
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:285
 msgid "Select _Operation on each pixel P and input A:"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:291
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:290
 msgid "Input _Type:"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:322
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:321
 msgid "Input _File (image or convolution kernel):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:325
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:324
 msgid ""
 "_Load Bias (added to each pixel\n"
 "in file image when loaded):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:330
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:329
 msgid ""
 "Load _Multiplier (each pixel in\n"
 "file image mult. by this when loaded):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:336
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:335
 msgid "Input _Constant:"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:340
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:339
 msgid ""
 "Memory constant _alpha\n"
 "(where A = (1-alpha)*A + alpha*curr_frame):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:345
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:344
 msgid "Init _Start Frame (first frame # to use for head start):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:349
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:348
 msgid "Init _End Frame (last frame # to use for head start):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:353
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:352
 msgid ""
 "Init By _Rolling (compute head start using a rolling average rather than a "
 "straight average)"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:358
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:357
 msgid "_Bias (will be added to result):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:361
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:360
 msgid "_Result Bias (added to each result pixel):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:365
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:364
 msgid ""
 "Result _Multiplier (each result pixel\n"
 "multiplied by this):"
 msgstr ""
 
-#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:370
+#: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:369
 msgid "_Histogram every N frames (0 to disable):"
 msgstr ""
 
@@ -7767,7 +7852,7 @@ msgstr "Ширина не кратна 8"
 
 #: avidemux/gtk_gui.cpp:832
 msgid "This will make trouble for AVI files."
-msgstr ""
+msgstr "Это создаст проблемы для AVI-файлов."
 
 #: avidemux/gtk_gui.cpp:842
 msgid "Rebuild all Keyframes?"
@@ -7775,7 +7860,7 @@ msgstr "Перестроить все ключевые кадры?"
 
 #: avidemux/gtk_gui.cpp:900
 msgid "Permission error"
-msgstr "Неверные права доступа"
+msgstr "Ошибка прав доступа"
 
 #: avidemux/gtk_gui.cpp:903
 #, c-format
@@ -7788,7 +7873,7 @@ msgstr "Невозможно открыть проект, используя з�
 
 #: avidemux/gtk_gui.cpp:946
 msgid "Try 'File' -> 'Load/Run Project...'"
-msgstr "Попробуйте 'Файл' -> 'Загрузить/Запустить проект...'"
+msgstr "Попробуйте \"Файл->Загрузить/Запустить проект...\""
 
 #: avidemux/gtk_gui.cpp:948
 msgid "Could not open the file"
@@ -7796,7 +7881,7 @@ msgstr "Невозможно открыть файл"
 
 #: avidemux/gtk_gui.cpp:983
 msgid "Multiple Audio Tracks"
-msgstr "Несколько аудио дорожек"
+msgstr "Несколько звуковых дорожек"
 
 #: avidemux/gtk_gui.cpp:983
 msgid ""
@@ -7804,7 +7889,7 @@ msgid ""
 "Go to Audio->MainTrack to select the active one."
 msgstr ""
 "Файл содержит несколько звуковых дорожек.\n"
-"Вы можете выбрать любую, через меню 'Аудио->Главная дорожка'."
+"Выберите главную через меню \"Аудио->Главная дорожка\"."
 
 #: avidemux/gtk_gui.cpp:1046
 msgid "No audio decoder found for this file"
@@ -7814,7 +7899,7 @@ msgstr "Не найден декодер звука для этого файла
 msgid "Save (A+V) will generate bad AVI. Save audio will work."
 msgstr ""
 "Сохранение (Аудио+Видео) создаст плохой AVI файл. Сохранение только "
-"аудиопотока, будет работать."
+"аудиопотока будет работать."
 
 #: avidemux/gtk_gui.cpp:1106
 #, fuzzy
@@ -7827,7 +7912,7 @@ msgstr "Ошибка при обновлении видео"
 
 #: avidemux/gtk_gui.cpp:1179
 msgid "Cannot save the audio in copy mode"
-msgstr "Невозможно сохранить аудио в режиме 'Копировать'"
+msgstr "Невозможно сохранить аудио в режиме \"Копировать\""
 
 #: avidemux/gtk_gui.cpp:1179
 msgid ""
@@ -7876,7 +7961,7 @@ msgstr "Выполнено"
 #: avidemux/gtk_gui.cpp:1327
 #, c-format
 msgid "Saved %d images."
-msgstr "Сохранено изображения: %d "
+msgstr "Сохранено изображений: %d "
 
 #: avidemux/gtk_gui.cpp:1329
 #, fuzzy
@@ -7884,14 +7969,13 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: avidemux/gtk_gui.cpp:1329
-#, fuzzy
 msgid "Could not save all images."
-msgstr "Невозможно найти фильтр"
+msgstr "Невозможно сохранить все изображения."
 
 #: avidemux/gtk_gui.cpp:1346
 #, c-format
 msgid "Saved \"%s\"."
-msgstr "Сохранено \"%s\"."
+msgstr "\"%s\" cохранён."
 
 #: avidemux/gtk_gui.cpp:1348
 msgid "BMP op failed"
@@ -7900,7 +7984,7 @@ msgstr ""
 #: avidemux/gtk_gui.cpp:1348
 #, c-format
 msgid "Saving %s as a BMP file failed."
-msgstr "Ошибка сохранения %s как BMP."
+msgstr "Ошибка сохранения \"%s\" как BMP."
 
 #: avidemux/gtk_gui.cpp:1368 avidemux/gtk_gui.cpp:1434
 msgid "Failed to open the file"
@@ -7912,7 +7996,7 @@ msgstr "Файл не является WAV?"
 
 #: avidemux/gtk_gui.cpp:1369
 msgid "WAV open file failed..."
-msgstr "Ошибка при открытии WAV файла..."
+msgstr "Ошибка при открытии WAV-файла..."
 
 #: avidemux/gtk_gui.cpp:1498
 msgid "Cannot decompress audio frame"
@@ -7953,7 +8037,7 @@ msgstr "Ошибка при распаковке аудиопотока"
 
 #: avidemux/gtk_gui.cpp:1888
 msgid "Switch audio codec to Copy."
-msgstr "Смените аудиокодек на 'Копировать'"
+msgstr "Смените аудиокодек на \"Копировать\"."
 
 #: avidemux/gtk_gui.cpp:1915
 msgid "Cannot delete the selection."
@@ -8030,7 +8114,7 @@ msgstr "Вторая звуковая дорожка"
 
 #: avidemux/gtk_gui.cpp:2154
 msgid "Error loading the MP3 file"
-msgstr "Ошибка при загрузке MP3 файла"
+msgstr "Ошибка при загрузке MP3-файла"
 
 #: avidemux/gtk_gui.cpp:2163 avidemux/gtk_gui.cpp:2185
 #: avidemux/gtk_gui.cpp:2207
@@ -8039,11 +8123,11 @@ msgstr "Вторая звуковая дорожка загружена"
 
 #: avidemux/gtk_gui.cpp:2177
 msgid "Error loading the AC3 file"
-msgstr "Ошибка при загрузке AC3 файла"
+msgstr "Ошибка при загрузке AC3-файла"
 
 #: avidemux/gtk_gui.cpp:2199
 msgid "Error loading the WAV file"
-msgstr "Ошибка при загрузке WAV файла"
+msgstr "Ошибка при загрузке WAV-файла"
 
 #: avidemux/gtk_gui.cpp:2266
 msgid "Saving failed"
@@ -8052,17 +8136,18 @@ msgstr "Ошибка при сохранении"
 #: avidemux/gtk_gui.cpp:2266
 msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
 msgstr ""
-"Ошибка при сохранении задания. Возможно, у вас нет прав доступа к ~/.avidemux."
+"Ошибка при сохранении задания. Возможно, у вас нет прав доступа к ~/."
+"avidemux."
 
 #: avidemux/gtk_gui.cpp:2278
 #, c-format
 msgid "File %s has been successfully saved."
-msgstr "Файл %s успешно сохранен."
+msgstr "Файл \"%s\" успешно сохранен."
 
 #: avidemux/gtk_gui.cpp:2282
 #, c-format
 msgid "File %s was NOT saved correctly."
-msgstr "Файл %s сохранен не корректно."
+msgstr "Файл \"%s\" сохранен не корректно."
 
 #: avidemux/gtk_gui.cpp:2445
 msgid "AvsProxy"
@@ -8073,7 +8158,7 @@ msgid ""
 "Failed to connect to avsproxy.\n"
 "Is it running ?"
 msgstr ""
-"Невозможно соединиться с avsproxy.\n"
+"Невозможно соединиться с AvsProxy.\n"
 "Он запущен?"
 
 #: avidemux/gtk_gui.cpp:2450
@@ -8082,11 +8167,11 @@ msgstr ""
 
 #: avidemux/gtk_gui.cpp:2478
 msgid "Frame type:"
-msgstr "Тип кадра"
+msgstr "Тип кадра:"
 
 #: avidemux/gtk_gui.cpp:2479
 msgid "Frame size:"
-msgstr "Размер кадра"
+msgstr "Размер кадра:"
 
 #: avidemux/gtk_gui.cpp:2481
 msgid "Frame Hex Dump"
@@ -8106,7 +8191,9 @@ msgstr "Она необходима для создания такого фай�
 
 #: avidemux/gui_autodrive.cpp:63
 msgid "You need Xvid4 and either LAME or FAAC support for the iPod profile"
-msgstr "Вам нужны Xvid4 и LAME или FAAC для iPod профиля"
+msgstr ""
+"Для iPod профиля Вам нужна поддержка Xvid4 (для видео) и LAME или FAAC (для "
+"звука)"
 
 #: avidemux/gui_autodrive.cpp:74
 #, fuzzy
@@ -8118,24 +8205,24 @@ msgid ""
 "You don't have LAME!.\n"
 "It is needed to create FLV  video."
 msgstr ""
-"У вас нет LAME!\n"
-"Он требуется для создания FLV видео."
+"У вас нет поддержки LAME!\n"
+"Она требуется для создания FLV видео."
 
 #: avidemux/gui_autodrive.cpp:135
 msgid "Cannot select FLV1  codec."
-msgstr ""
+msgstr "Невозможно выбрать кодек FLV1."
 
 #: avidemux/gui_autodrive.cpp:162
 msgid "Cannot select mpeg4 sp codec."
-msgstr "Невозможно выбрать mpeg4 sp кодек."
+msgstr "Невозможно выбрать кодек mpeg4 sp."
 
 #: avidemux/gui_autodrive.cpp:197
 msgid ""
 "You don't have FAAC!.\n"
 "It is needed to create PSP compatible video."
 msgstr ""
-"У вас нет FAAC!.\n"
-"Он требуется для создания PSP-совместимого видео."
+"У вас нет поддержки FAAC!.\n"
+"Она требуется для создания PSP-совместимого видео."
 
 #: avidemux/GUI_jobs.cpp:37
 msgid "Something very wrong happened when building joblist."
@@ -8177,7 +8264,7 @@ msgstr ""
 
 #: avidemux/gui_savenew.cpp:89
 msgid "Select Copy as the video codec."
-msgstr "Выберите 'Копировать' вместо видеокодека."
+msgstr "Выберите \"Копировать\" в качестве видеокодека."
 
 #: avidemux/gui_savenew.cpp:207 avidemux/gui_savenew.cpp:223
 #: avidemux/gui_savenew.cpp:236
@@ -8198,7 +8285,7 @@ msgstr "Сохранение AVI файла с двумя звуковыми д�
 
 #: avidemux/gui_savenew.cpp:280 avidemux/gui_savenew.cpp:298
 msgid "This cannot have packed VOP"
-msgstr "Невозможно добавить запакованный VOP"
+msgstr "Файл не может иметь VOP упаковку"
 
 #: avidemux/gui_savenew.cpp:280 avidemux/gui_savenew.cpp:298
 msgid "It is not MPEG-4 video. File will not be saved."
