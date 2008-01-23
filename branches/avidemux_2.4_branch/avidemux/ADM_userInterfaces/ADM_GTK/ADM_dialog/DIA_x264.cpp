@@ -194,7 +194,7 @@ void updateMode( void )
         COMBO(3);
       b=generic.finalsize;
       ENTRY_SET(Target,b);     
-      gtk_label_set_text(GTK_LABEL(WID(labelTarget)),"Target FinalSize (MB)");
+      gtk_label_set_text(GTK_LABEL(WID(labelTarget)),"Target video size (MB)");
       DISABLE(spinbuttonQuantizer);
       ENABLE(entryTarget);
       break;
@@ -202,7 +202,7 @@ void updateMode( void )
       COMBO(4);
       b=generic.avg_bitrate;
       ENTRY_SET(Target,b);     
-      gtk_label_set_text(GTK_LABEL(WID(labelTarget)),"Dual pass, avg bitate (kb/s)");
+      gtk_label_set_text(GTK_LABEL(WID(labelTarget)),"Average bitrate (kb/s)");
       DISABLE(spinbuttonQuantizer);
       ENABLE(entryTarget);
       break;
@@ -595,7 +595,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 5, 2);
   gtk_tooltips_set_tip (tooltips, entryTarget, QT_TR_NOOP("Target bitrate or file size"), NULL);
 
-  labelQuantizer = gtk_label_new (QT_TR_NOOP("Quantizer (0-51)"));
+  labelQuantizer = gtk_label_new (QT_TR_NOOP("Quantizer"));
   gtk_widget_show (labelQuantizer);
   gtk_table_attach (GTK_TABLE (tableBitrate), labelQuantizer, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
@@ -633,8 +633,8 @@ create_dialog1 (void)
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Single Pass - Quality Quantizer (Average)"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Single Pass - Quality Quantizer (Constant)"));
   gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Single Pass - Bitrate (Average)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Two Pass - File Size"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Two Pass - Average bitrate"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Two Pass - Video Size"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxMode), QT_TR_NOOP("Two Pass - Average Bitrate"));
 
   labelPageBitrate = gtk_label_new (QT_TR_NOOP("Bitrate"));
   gtk_widget_show (labelPageBitrate);
@@ -1592,7 +1592,7 @@ create_dialog1 (void)
   alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_show (alignment9);
   gtk_container_add (GTK_CONTAINER (frame9), alignment9);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 0, 4, 12, 0);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 0, 4, 12, 6);
 
   table14 = gtk_table_new (3, 4, FALSE);
   gtk_widget_show (table14);
@@ -1611,7 +1611,7 @@ create_dialog1 (void)
   gtk_widget_show (filechooserbuttonOpenCQMFile);
   gtk_table_attach (GTK_TABLE (table14), filechooserbuttonOpenCQMFile, 1, 2, 2, 3,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (GTK_FILL), 0, 0);
+                    (GtkAttachOptions) (GTK_FILL), 5, 2);
 
   radiobuttonJVTmatrix = gtk_radio_button_new_with_mnemonic (NULL, QT_TR_NOOP("JVT matrix"));
   gtk_widget_show (radiobuttonJVTmatrix);
@@ -1634,7 +1634,7 @@ create_dialog1 (void)
   gtk_widget_show (buttonEditCustomMatrix);
   gtk_table_attach (GTK_TABLE (table14), buttonEditCustomMatrix, 3, 4, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (GTK_FILL), 11, 2);
+                    (GtkAttachOptions) (GTK_FILL), 5, 2);
   gtk_tooltips_set_tip (tooltips, buttonEditCustomMatrix, QT_TR_NOOP("Edit loaded custom quantization matrix file"), NULL);
 
   vseparator1 = gtk_vseparator_new ();
