@@ -246,6 +246,7 @@ IF (ADM_OS_UNIX)
 		ENDIF (ALSA_FOUND)
 	ENDIF (NO_ALSA)
 ENDIF (ADM_OS_UNIX)
+
 ########################################
 # SSSE3
 ########################################
@@ -467,11 +468,7 @@ SET(CMAKE_REQUIRED_LIBRARIES "-lm")
 IF (USE_LATE_BINDING)
 	CHECK_INCLUDE_FILES(dts.h USE_LIBDCA)
 ELSE (USE_LATE_BINDING)
-	IF (ADM_BSD_FAMILY)
-		ADM_CHECK_HL(libdca dts.h dts dca_init USE_LIBDCA)
-	ELSE (ADM_BSD_FAMILY)
-		ADM_CHECK_HL(libdca dts.h dts dts_init USE_LIBDCA)
-	ENDIF (ADM_BSD_FAMILY)
+	ADM_CHECK_HL(libdca dts.h dts dts_init USE_LIBDCA)
 ENDIF (USE_LATE_BINDING)
 
 SET(CMAKE_REQUIRED_LIBRARIES)
