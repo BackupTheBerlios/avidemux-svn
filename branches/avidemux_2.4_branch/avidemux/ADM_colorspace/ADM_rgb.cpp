@@ -509,8 +509,9 @@ int c=0;
                 case ADM_COLOR_BGR32A:c=PIX_FMT_BGRA;break;
                 case ADM_COLOR_RGB32A:c=TARGET_COLORSPACE;break;
                 case ADM_COLOR_RGB16:c=PIX_FMT_RGB565;break;
-                case ADM_COLOR_YUV422:c=PIX_FMT_YUV422P;break;
                 case ADM_COLOR_YUV411:c=PIX_FMT_YUV411P;break;
+				case ADM_COLOR_YUV422:c=PIX_FMT_YUV422P;break;
+				case ADM_COLOR_YUV444:c=PIX_FMT_YUV444P;break;
                 default: ADM_assert(0);
     }
          _context=(void *)sws_getContext(

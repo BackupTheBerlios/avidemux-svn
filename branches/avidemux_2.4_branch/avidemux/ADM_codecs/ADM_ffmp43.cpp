@@ -405,6 +405,11 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       out->_colorspace = ADM_COLOR_YUV422;
       break;
 
+    case PIX_FMT_YUV444P:
+    case PIX_FMT_YUVJ444P:
+      out->_colorspace = ADM_COLOR_YUV444;
+      break;
+
     case PIX_FMT_YUV420P:
     case PIX_FMT_YUVJ420P:
       // Default is YV12 or I420
@@ -412,7 +417,7 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       // we do it or not
       out->_colorspace = ADM_COLOR_YV12;
       break;
-      break;
+
     case PIX_FMT_RGBA32:
       out->_colorspace = ADM_COLOR_RGB32A;
       break;
@@ -420,7 +425,7 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       out->_colorspace = ADM_COLOR_BGR555;
       break;
     default:
-      printf ("\n[lavc] Unhandled colorspace: %d\n", _context->pix_fmt);
+      printf ("[lavc] Unhandled colorspace: %d\n", _context->pix_fmt);
       return 0;
     }
     clonePic (&_frame, out);
