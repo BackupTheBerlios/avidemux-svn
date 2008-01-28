@@ -884,8 +884,11 @@ uint8_t aviWrite::setStreamInfo (ADMFile * fo,
   if(junklen>len)
   	memcpy(junk,"Avidemux",len);	
 
-  odml_indexes[odml_stream_nbr].fpos=_file->tell();
-  odml_indexes[odml_stream_nbr].pad=junklen;
+  if(doODML!=NO)
+  {
+    odml_indexes[odml_stream_nbr].fpos=_file->tell();
+    odml_indexes[odml_stream_nbr].pad=junklen;
+  }
   alist->WriteChunk ((uint8_t *) "JUNK", junklen, junk);
   ADM_dealloc (junk);
 
