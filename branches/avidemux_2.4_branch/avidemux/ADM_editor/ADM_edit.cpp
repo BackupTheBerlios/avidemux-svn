@@ -865,6 +865,13 @@ uint8_t ADM_Composer::cleanup (void)
   _nb_segment = 0;
   _nb_video = 0;
   _total_frames = 0;
+
+	if(_scratch)
+	{
+		delete _scratch;
+		_scratch=NULL;
+	}
+
   return 1;
 }
 /*
