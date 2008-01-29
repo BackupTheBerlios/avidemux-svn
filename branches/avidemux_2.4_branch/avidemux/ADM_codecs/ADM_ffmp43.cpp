@@ -595,6 +595,15 @@ decoderFFWMV3::decoderFFWMV3 (uint32_t w, uint32_t h, uint32_t l, uint8_t * d):d
   WRAP_Open (CODEC_ID_WMV3);
 
 }
+
+decoderFFVC1::decoderFFVC1(uint32_t w, uint32_t h, uint32_t l, uint8_t * d) : decoderFF(w, h)
+{
+  _context->extradata = (uint8_t *) d;
+  _context->extradata_size = (int) l;
+
+  WRAP_Open (CODEC_ID_VC1);
+}
+
 decoderFFcyuv::decoderFFcyuv (uint32_t w, uint32_t h, uint32_t l, uint8_t * d):decoderFF (w,
 	   h)
 {
