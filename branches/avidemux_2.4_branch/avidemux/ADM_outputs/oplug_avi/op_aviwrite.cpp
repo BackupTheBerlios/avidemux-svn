@@ -213,7 +213,7 @@ uint8_t aviWrite::writeVideoHeader( uint8_t *extra, uint32_t extraLen )
   	setStreamInfo (_file, (uint8_t *) &as,
 		  (uint8_t *)&b,sizeof(BITMAPINFOHEADER),
 		// MOD Feb 2005 by GMV: ODML support
-		odml_super_idx_size,0,
+		odml_video_super_idx_size,0,
 		// END MOD Feb 2005 by GMV
 		  extra,extraLen, 	 
 		 0x1000);
@@ -278,7 +278,6 @@ uint32_t extraLen=0;
 	if(!stream) return 1;
         if(doODML!=NORMAL)
         {
-            
             odml_audio_super_idx_size=24+odml_default_nbrof_index*16;
         }else
         {
@@ -440,7 +439,7 @@ uint32_t extraLen=0;
 		(uint8_t *) &as,
 		  (uint8_t *)&w,sizeof(WAVHeader),
 		// MOD Feb 2005 by GMV: ODML support
-		odml_super_idx_size,odml_stream_nbr,
+		odml_audio_super_idx_size,odml_stream_nbr,
 		// END MOD Feb 2005 by GMV
 		  extra,extraLen, 	 
 		 0x1000);
@@ -603,6 +602,10 @@ uint32_t is;
 			odml_indexes[a].index_count=0;
 		}
 	}
+            else
+        {
+            odml_default_nbrof_index=16;
+        }
 	// END MOD Feb 2005 by GMV
 	
   //___________________
