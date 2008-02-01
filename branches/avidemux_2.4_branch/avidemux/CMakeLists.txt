@@ -401,7 +401,17 @@ IF (ADM_OS_WINDOWS)
 	add_libs_all_targets(wsock32)
 	add_libs_all_targets(imagehlp)
 
-	add_ldflags_all_targets("-mms-bitfield -mno-cygwin -mwinmm -mwindows ${CMAKE_SOURCE_DIR}/avidemux/xpm/adm.o -Wl,--export-all-symbols")
+	add_libs_all_targets("-mms-bitfield -mno-cygwin ${CMAKE_SOURCE_DIR}/avidemux/xpm/adm.o -Wl,--export-all-symbols")
+
+	TARGET_LINK_LIBRARIES(avidemux2_cli "-Wl,-subsystem,console")
+	
+	if (GTK_FOUND)
+		TARGET_LINK_LIBRARIES(avidemux2_gtk "-mwindows")
+	endif(GTK_FOUND)
+	
+	if (QT4_FOUND)
+		TARGET_LINK_LIBRARIES(avidemux2_qt4 "-mwindows")
+	endif(QT4_FOUND)
 
 	if(CMAKE_BUILD_TYPE STREQUAL "Release")
 		add_ldflags_all_targets("-Wl,-s")
