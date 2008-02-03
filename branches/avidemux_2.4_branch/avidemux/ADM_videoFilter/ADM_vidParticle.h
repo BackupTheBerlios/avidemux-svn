@@ -87,7 +87,8 @@ class ADMVideoParticle : public AVDMGenericVideoStream
      static uint8_t doParticle (ADMImage * image, ADMImage * data,
                                 AVDMGenericVideoStream * in,
                                 uint32_t real_frame,
-                                FILE * do_outfp, PARTICLE_PARAM * param,
+                                FILE * do_outfp,
+                                PARTICLE_PARAM * param,
                                 uint32_t width, uint32_t height);
 };
 
@@ -843,6 +844,7 @@ public:
 
 struct MenuMapping;
 uint8_t DIA_particle (AVDMGenericVideoStream *in,
+                      ADMVideoParticle * particlep,
                       PARTICLE_PARAM * param,
                       const MenuMapping * menu_mapping,
                       uint32_t menu_mapping_count);

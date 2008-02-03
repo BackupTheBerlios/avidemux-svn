@@ -175,6 +175,11 @@ public:
         return myInfo->masks;
     }
 
+    void masksIsValid (bool valid)
+    {
+        myInfo->mask_data_invalid = !valid;
+    }
+
 protected:
 
     uint8_t readDataFile (uint32_t width);

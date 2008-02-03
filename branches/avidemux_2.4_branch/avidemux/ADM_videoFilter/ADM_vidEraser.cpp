@@ -371,11 +371,16 @@ uint8_t ADMVideoEraser::readDataFile (uint32_t width)
 //    uint32_t & mask_w = myInfo->mask_w;
 //    uint32_t & mask_h = myInfo->mask_h;
 
-    masks.clear();
+    const char * filename = _param->data_file.c_str();
+    if (filename[0] == '\0')
+    {
+        fprintf (stderr, "Eraser: no input file selected!\n");
+        return 0;
+    }
+
 //    mask_w = 0;
 //    mask_h = 0;
 
-    const char * filename = _param->data_file.c_str();
     ifstream inputStream (filename);
     if (!inputStream)
     {
@@ -385,6 +390,7 @@ uint8_t ADMVideoEraser::readDataFile (uint32_t width)
         return 0;
     }
 
+    masks.clear();
     string buffer;
 
     while (inputStream)

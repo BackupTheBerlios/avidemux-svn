@@ -128,7 +128,7 @@ uint8_t	ADMVideoParticle::getCoupledConf (CONFcouple **couples)
 
 }
 
-uint8_t ADMVideoParticle::configure(AVDMGenericVideoStream *in)
+uint8_t ADMVideoParticle::configure (AVDMGenericVideoStream *in)
 {
     diaMenuEntry tOutputFmt [] = {
         { OUTPUTFMT_FORMAT_NEW,
@@ -150,7 +150,7 @@ uint8_t ADMVideoParticle::configure(AVDMGenericVideoStream *in)
           sizeof (tOutputFmt) / sizeof (diaMenuEntry), tOutputFmt },
     };
 
-    uint8_t ret = DIA_particle (_in, _param, menu_mapping,
+    uint8_t ret = DIA_particle (_in, this, _param, menu_mapping,
                                 sizeof (menu_mapping) / sizeof (MenuMapping));
     if (ret == 1)
     {
@@ -399,7 +399,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
                 if (debug & (0x02 << ImageTool::SHIFT_PAST_SHOW_FLAGS))
                     printf ("frame %d, particle %d (%d total), "
                             "%d pixels centered at (%.6f,%.6f)\n",
-                            real_frame + 1, frameParticleNum,
+                            real_frame, frameParticleNum,
                             totalParticleNum, area, centroid_x, centroid_y);
 
                 if (!do_outfp)
@@ -437,7 +437,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
                                  "%.5f %.5f %.5f  " // minang,maxang,max/min
                                  "%.5f %.5f " // len, len_angle
                                  "%.5f %.5f %.5f\n", // wid, wid_ang, len/wid
-                                 real_frame + 1, camera_number,
+                                 real_frame, camera_number,
                                  centroid_x, centroid_y,
                                  area, totalParticleNum,
                                  particle.maxx - particle.minx + 1,
@@ -452,7 +452,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
 #ifdef OLD_PARTICLE_WEDGE_SCHEME
                         fprintf (do_outfp,
                                  "%d,%d,%d,%.6f,%.6f,%d,%d,%.5f,%.5f,%.5f\n",
-                                 real_frame + 1, frameParticleNum, area,
+                                 real_frame, frameParticleNum, area,
                                  centroid_x, centroid_y, mindim, maxdim,
                                  mindimangle, maxdimangle, minmaxratio);
 #else // ! OLD_PARTICLE_WEDGE_SCHEME
@@ -462,7 +462,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
                                  "%.5f,%.5f, %.5f,  " // minang,maxang,max/min
                                  "%.5f,%.5f, " // len, len_angle
                                  "%.5f,%.5f, %.5f\n", // wid, wid_ang, len/wid
-                                 real_frame + 1, frameParticleNum, area,
+                                 real_frame, frameParticleNum, area,
                                  centroid_x, centroid_y, mindist, maxdist,
                                  mindistangle, maxdistangle, maxminratio,
                                  bf.length, bf.length_angle,
@@ -479,7 +479,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
                     if (outfmt == OUTPUTFMT_FORMAT_NEW)
                     {
                         fprintf (do_outfp, "%d %d %.6f %.6f %d %d\n",
-                                 real_frame + 1, camera_number,
+                                 real_frame, camera_number,
                                  centroid_x, centroid_y,
                                  area, totalParticleNum);
                     }
@@ -487,7 +487,7 @@ ADMVideoParticle::doParticle (ADMImage * image, ADMImage * data,
                     {
                         fprintf (do_outfp, "%d %d %.6f %.6f %d\n",
                                  totalParticleNum, area,
-                                 centroid_x, centroid_y, real_frame + 1);
+                                 centroid_x, centroid_y, real_frame);
                     }
                 }
             }

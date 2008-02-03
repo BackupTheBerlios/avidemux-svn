@@ -42,6 +42,7 @@
 #include "DIA_flyDialog.h"
 #include "DIA_flyEraser.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_factory.h" // for diaElemMenu etc.
+#include "ADM_filter/video_filters.h"
 
 using namespace std;
 
@@ -73,6 +74,7 @@ protected:
     GtkTreeView * tree_view;
 public:
     GtkTreeSelection * tree_sel;
+    bool warned_about_scaling;
 
 public:
     uint8_t    download();
@@ -83,7 +85,7 @@ public:
     flyEraserGtk (uint32_t width, uint32_t height,
                   AVDMGenericVideoStream * in,
                   void * canvas, void * slider, GtkWidget * dialog,
-                  ADMVideoEraser * eraserp, const ERASER_PARAM * in_param,
+                  ADMVideoEraser * eraserp, ERASER_PARAM * in_param,
                   const MenuMapping * menu_mapping,
                   uint32_t menu_mapping_count)
         : flyEraser (width, height, in, canvas, slider, dialog,
@@ -93,7 +95,8 @@ public:
           tree_model (GTK_TREE_MODEL (list_store)),
           tree_view_widget (WID (rangeListTreeview)),
           tree_view (GTK_TREE_VIEW (tree_view_widget)),
-          tree_sel (gtk_tree_view_get_selection (tree_view))
+          tree_sel (gtk_tree_view_get_selection (tree_view)),
+          warned_about_scaling (false)
     {
         // printf ("flyEraserGtk::flyEraserGtk: "
         //         "in_param %p, &param %p\n", in_param, &param);
@@ -112,10 +115,34 @@ public:
 };
 
 static gboolean previewSomeEvent (GtkWidget * widget,
-                                  uint8_t button, uint16_t x, uint16_t y,
+                                  uint8_t button, float fx, float fy,
                                   guint state, gpointer data)
 {
     flyEraserGtk * myFly = static_cast <flyEraserGtk *> (data);
+
+    uint32_t x, y;
+
+    float zoom = myFly->getZoom();
+    if (zoom == 1.0)
+    {
+        x = static_cast <uint32_t> (fx);
+        y = static_cast <uint32_t> (fy);
+    }
+    else
+    {
+        if (!myFly->warned_about_scaling)
+        {
+            fprintf (stderr, "******* WARNING: you are erasing in a "
+                     "scaled-down window (%.5f) - all pixel positions are "
+                     "therefore APPROXIMATE!!!\n", zoom);
+            myFly->warned_about_scaling = true;
+        }
+
+        zoom = 1 / zoom;
+        x = static_cast <uint32_t> (fx * zoom + .5);
+        y = static_cast <uint32_t> (fy * zoom + .5);
+    }
+
     bool erasing = (button == 1) ? myFly->param.brush_mode
                    : !myFly->param.brush_mode;
     ADMImage * image = myFly->getOutputImage();
@@ -355,11 +382,8 @@ static gboolean previewButtonEvent (GtkWidget * widget,
     if (event->type != GDK_BUTTON_PRESS)
         return FALSE;
 
-    uint16_t x = static_cast <uint16_t> (event->x);
-    uint16_t y = static_cast <uint16_t> (event->y);
-
-    return previewSomeEvent (widget, event->button, x, y,
-                             event->state, data);
+    return previewSomeEvent (widget, event->button,
+                             event->x, event->y, event->state, data);
 }
 
 /********************************************************************/
@@ -371,9 +395,6 @@ static gboolean previewMotionEvent (GtkWidget * widget,
     if (event->type != GDK_MOTION_NOTIFY)
         return FALSE;
 
-    uint16_t x = static_cast <uint16_t> (event->x);
-    uint16_t y = static_cast <uint16_t> (event->y);
-
     uint8_t button;
     if (event->state & GDK_BUTTON1_MASK)
         button = 1;
@@ -384,7 +405,8 @@ static gboolean previewMotionEvent (GtkWidget * widget,
     else
         return FALSE;
 
-    return previewSomeEvent (widget, button, x, y, event->state, data);
+    return previewSomeEvent (widget, button, event->x, event->y,
+                             event->state, data);
 }
 
 /********************************************************************/
@@ -483,11 +505,10 @@ void flyEraserGtk::selection_changed ()
 
     uint32_t middle_frame = (current_mask->first_frame
                              + current_mask->last_frame) / 2;
-    // HERE: a better test might be "if (middle_frame > last_actual_frame)"...
-    if (current_mask->last_frame >= MAX_FRAME_NUM)
+    if (middle_frame >= _in->getInfo()->nb_frames)
         middle_frame = current_mask->first_frame;
 
-    if (middle_frame != sliderGet())
+    if (sliderGet() != middle_frame)
     {
         sliderSet (middle_frame);
         sliderChanged();
@@ -685,6 +706,58 @@ static void delete_button_clicked (GtkButton * button, gpointer user_data)
 
 /********************************************************************/
 
+static void previewOutputMenuChange (GtkComboBox * combo, gpointer user_data)
+{
+    flyEraserGtk * myFly = static_cast <flyEraserGtk *> (user_data);
+    uint32_t index = gtk_combo_box_get_active (combo);
+    uint32_t filter_count;
+    FILTER * filters = getCurrentVideoFilterList (&filter_count);
+    FILTER * filter = filters + index;
+    VF_FILTERS tag = filter->tag;
+
+    gchar * activestr = gtk_combo_box_get_active_text (combo);
+
+    printf ("user selected preview of #%d = %s (%d) @%p (was %p)\n",
+            index, activestr, tag, filter->filter, myFly->getSource());
+
+    if (strncmp (activestr, "XX ", 3) == 0)
+    {
+        printf ("selected preview source has different dimensions - "
+                "forcing selection to current filter\n");
+        gtk_combo_box_set_active (combo, myFly->this_filter_index);
+    }
+    else
+    {
+        flyEraserGtk::PreviewMode mode;
+        if (index == myFly->this_filter_index)
+            mode = flyEraserGtk::PREVIEWMODE_THIS_FILTER;
+        else if (index > myFly->this_filter_index)
+            mode = flyEraserGtk::PREVIEWMODE_LATER_FILTER;
+        else // if (index < myFly->this_filter_index)
+            mode = flyEraserGtk::PREVIEWMODE_EARLIER_FILTER;
+
+        myFly->changeSource (filter->filter, mode);
+    }
+
+    g_free (activestr);
+}
+
+/********************************************************************/
+
+gboolean preview_video_configured (GtkWidget * widget, GdkEventConfigure * event,
+                                   gpointer user_data)
+{
+    fprintf (stderr, "preview_configured: now %dx%d @ +%d+%d\n",
+             event->width, event->height, event->x, event->y);
+
+    flyEraserGtk * myFly = static_cast <flyEraserGtk *> (user_data);
+    myFly->recomputeSize();
+
+    return FALSE;
+}
+
+/********************************************************************/
+
 uint8_t DIA_eraser (AVDMGenericVideoStream * in, ADMVideoEraser * eraserp,
                     ERASER_PARAM * param, const MenuMapping * menu_mapping,
                     uint32_t menu_mapping_count)
@@ -729,6 +802,11 @@ uint8_t DIA_eraser (AVDMGenericVideoStream * in, ADMVideoEraser * eraserp,
                             WID(previewVideo), WID(previewSlider),
                             dialog, eraserp, param,
                             menu_mapping, menu_mapping_count);
+
+    g_signal_connect (GTK_OBJECT (WID(previewVideo)), "configure-event",
+                      GTK_SIGNAL_FUNC (preview_video_configured),
+                      gpointer (myDialog));
+
     myDialog->upload();
     myDialog->sliderChanged();
 
@@ -809,6 +887,56 @@ uint8_t DIA_eraser (AVDMGenericVideoStream * in, ADMVideoEraser * eraserp,
                       GTK_SIGNAL_FUNC(jump_last_button_clicked),
                       gpointer(myDialog));
 
+    GtkWidget * previewOutputMenu = WID(previewOutputMenu);
+    uint32_t filter_count;
+    FILTER * filters = getCurrentVideoFilterList (&filter_count);
+    int32_t active = -1;
+
+    // The " + (active < 0)" below is a bit of a hack.  We know that in
+    // on_action() in gui_filtermanager.cpp, case A_ADD, the new filter-to-be
+    // is added to the filter list without incrementing nb_active_filter yet.
+    // So if we get to the end of the list and haven't yet found the filter
+    // that we're configuring, we know it's a new one and therefore that it is
+    // one past the apparent end of the list.  It's not a clean solution, but
+    // it seems like the cleanEST solution.
+
+    for (uint32_t i = 0; i < filter_count + (active < 0); i++)
+    {
+        const char * name
+            = (i == 0) ? "(input)" : filterGetNameFromTag (filters [i].tag);
+        bool free_name = false;
+                                   
+        FILTER * filter = filters + i;
+        AVDMGenericVideoStream * source = filter->filter;
+        uint32_t w = source->getInfo()->width;
+        uint32_t h = source->getInfo()->height;
+        if (w != width || h != height)
+        {
+            name = g_strconcat ("XX ", name, " XX", NULL);
+            free_name = true;
+        }
+
+        printf ("filter [%d] = %s (%d) @ %p; %dx%d\n",
+                i, name, filter->tag, source, w, h);
+        gtk_combo_box_append_text (GTK_COMBO_BOX (previewOutputMenu), name);
+        if (filter->filter == myDialog->getSource())
+        {
+            gtk_combo_box_set_active (GTK_COMBO_BOX (previewOutputMenu), i);
+            printf ("\tfilter [%d] is being configured now\n", i);
+            active = i;
+        }
+
+        if (free_name)
+            g_free (const_cast <char *> (name));
+    }
+
+    ADM_assert (active >= 0);
+    myDialog->this_filter_index = active;
+
+    g_signal_connect (GTK_OBJECT(previewOutputMenu), "changed",
+                      GTK_SIGNAL_FUNC(previewOutputMenuChange),
+                      gpointer(myDialog));
+
     uint8_t ret = 0;
     int response = gtk_dialog_run(GTK_DIALOG(dialog));
 
@@ -823,9 +951,11 @@ uint8_t DIA_eraser (AVDMGenericVideoStream * in, ADMVideoEraser * eraserp,
             browse_button_clicked (NULL, gpointer (myDialog));
 
         myDialog->download();
-        myDialog->getParam (param);
+        myDialog->pushParam();
         ret = 1;
     }
+    else
+        myDialog->restoreParam();
 
     gtk_unregister_dialog(dialog);
     gtk_widget_destroy(dialog);
@@ -922,6 +1052,8 @@ uint8_t flyEraserGtk::upload_masklist (bool set_preview_frame)
     {
         uint32_t middle_frame = (current_mask->first_frame
                                  + current_mask->last_frame) / 2;
+        if (middle_frame >= _in->getInfo()->nb_frames)
+            middle_frame = current_mask->first_frame;
         sliderSet (middle_frame);
         sliderChanged();
     }
@@ -1051,7 +1183,7 @@ create_eraser_dialog (void)
   tooltips = gtk_tooltips_new ();
 
   eraser_dialog = gtk_dialog_new ();
-  //                                                NO NEED TO "FIX" THAT _()!!
+  //                                                NO NEED TO "FIX" THAT _("...")!!
   //                                                see handy macros near top of file.
   gtk_window_set_title (GTK_WINDOW (eraser_dialog), _("Eraser Configuration"));
   gtk_window_set_type_hint (GTK_WINDOW (eraser_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
@@ -1276,9 +1408,8 @@ create_eraser_dialog (void)
   gtk_box_pack_start (GTK_BOX (previewVbox), previewControlHbox, TRUE, TRUE, 0);
 
   previewOutputMenu = gtk_combo_box_new_text ();
+  gtk_widget_show (previewOutputMenu);
   gtk_box_pack_start (GTK_BOX (previewControlHbox), previewOutputMenu, FALSE, TRUE, 0);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (previewOutputMenu), _("Eraser output"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (previewOutputMenu), _("Final output"));
 
   previewSlider = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 99, 1, 1, 0)));
   gtk_widget_show (previewSlider);
@@ -1288,7 +1419,7 @@ create_eraser_dialog (void)
   previewVideo = gtk_drawing_area_new ();
   gtk_widget_show (previewVideo);
   gtk_box_pack_start (GTK_BOX (previewVbox), previewVideo, TRUE, TRUE, 0);
-  gtk_widget_set_size_request (previewVideo, -1, 300);
+  gtk_widget_set_size_request (previewVideo, 30, 30);
   gtk_widget_set_events (previewVideo, GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK);
 
   previewLabel = gtk_label_new (_("Preview"));

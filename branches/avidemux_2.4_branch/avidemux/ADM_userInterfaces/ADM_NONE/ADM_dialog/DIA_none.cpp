@@ -106,7 +106,9 @@ int DIA_srtPos(AVDMGenericVideoStream *source,uint32_t *size,uint32_t *position)
 int DIA_colorSel(uint8_t *r, uint8_t *g, uint8_t *b) {return 0;}			
 uint8_t DIA_glyphEdit(void) {return 0;}
 struct THRESHOLD_PARAM;
+struct ADMVideoThreshold;
 uint8_t DIA_threshold(AVDMGenericVideoStream *in,
+                      ADMVideoThreshold * thresholdp,
                       THRESHOLD_PARAM * param) { return 255; }
 struct SWISSARMYKNIFE_PARAM;
 struct ADMVideoSwissArmyKnife;
@@ -124,7 +126,9 @@ uint8_t DIA_eraser (AVDMGenericVideoStream * in,
                     const MenuMapping * menu_mapping,
                     uint32_t menu_mapping_count) { return 255; }
 struct PARTICLE_PARAM;
+struct ADMVideoParticle;
 uint8_t DIA_particle (AVDMGenericVideoStream *in,
+                      ADMVideoParticle * particlep,
                       PARTICLE_PARAM * param,
                       const MenuMapping * menu_mapping,
                       uint32_t menu_mapping_count) { return 255; }
