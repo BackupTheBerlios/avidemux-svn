@@ -5788,7 +5788,6 @@ msgid "Max overflow degradation (%):"
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1300
-#, c-format
 msgid "A value of 20 will give 20% more bits to every I-frame"
 msgstr "Значение 20 даст каждому I-кадру на 20% битрейта больше"
 
