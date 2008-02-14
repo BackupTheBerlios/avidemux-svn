@@ -127,8 +127,8 @@ ENDIF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 ########################################
 # Standard Avidemux defines
 ########################################
-SET(VERSION 2.4)
-SET(PACKAGE_VERSION 2.4)
+SET(VERSION 2.4.1)
+SET(PACKAGE_VERSION 2.4.1)
 
 SET(HAVE_BUILTIN_VECTOR 1)
 SET(HAVE_AUDIO 1)
