@@ -1,0 +1,12 @@
+SET(ADM_LIB ADM_UI_GTK)
+SET(${ADM_LIB}_SRCS ui_support.cpp)
+ADD_LIBRARY(${ADM_LIB} STATIC ${${ADM_LIB}_SRCS})
+ADD_definitions(${GTK_CFLAGS})
+
+add_subdirectory(ADM_dialog)
+add_subdirectory(ADM_dialogFactory)
+add_subdirectory(ADM_filters)
+add_subdirectory(ADM_gui2)
+add_subdirectory(ADM_toolkit_gtk)
+add_subdirectory(ADM_ocr)
+include_directories(../ADM_commonUI)
