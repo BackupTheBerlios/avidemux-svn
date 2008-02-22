@@ -45,7 +45,6 @@
 
 
 #include "fourcc.h"
-#include "avio.hxx"
 
 #include "avi_vars.h"
 

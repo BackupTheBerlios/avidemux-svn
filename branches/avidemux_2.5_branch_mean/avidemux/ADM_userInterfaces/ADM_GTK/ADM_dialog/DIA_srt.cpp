@@ -28,7 +28,6 @@
 
 
 #include "fourcc.h"
-#include "avio.hxx"
 
 #ifdef USE_FREETYPE
 

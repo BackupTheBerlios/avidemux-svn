@@ -23,7 +23,6 @@
 #include "../../ADM_assert.h"
 
 #include "fourcc.h"
-#include "avio.hxx"
 #include "ADM_utilities/default.h"
 
 #if (defined( ARCH_X86)  || defined(ARCH_X86_64))

@@ -52,7 +52,6 @@
 
 #include "config.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "avi_vars.h"
 #include "math.h"
 

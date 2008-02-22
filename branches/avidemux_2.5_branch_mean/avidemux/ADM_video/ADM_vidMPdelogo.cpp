@@ -15,7 +15,7 @@
 #include <ADM_assert.h>
 
 #include "fourcc.h"
-#include "avio.hxx"
+
 #include "avi_vars.h"
 
 #include "ADM_toolkit/toolkit.hxx"

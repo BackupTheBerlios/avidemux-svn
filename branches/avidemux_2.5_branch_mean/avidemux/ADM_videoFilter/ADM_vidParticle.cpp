@@ -27,7 +27,6 @@ using namespace std;
 #include "ADM_assert.h"
 #undef memcpy   // avoid compile errors due to macro
 #include "fourcc.h"
-#include "avio.hxx"
 #include "avi_vars.h"
 
 #include "ADM_toolkit/toolkit.hxx"

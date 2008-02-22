@@ -24,7 +24,6 @@
 #include <gtk/gtk.h>
 
 #include "fourcc.h"
-#include "avio.hxx"
 
 
 #include "default.h"

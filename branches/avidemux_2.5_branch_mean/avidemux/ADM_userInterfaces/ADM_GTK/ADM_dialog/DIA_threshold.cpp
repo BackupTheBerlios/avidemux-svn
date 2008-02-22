@@ -20,7 +20,7 @@
 #include <gtk/gtk.h>
 
 #include "fourcc.h"
-#include "avio.hxx"
+
 
 #include "avi_vars.h"
 

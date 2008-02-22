@@ -39,7 +39,6 @@
 
 #include "config.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "default.h"
 #include "math.h"
 

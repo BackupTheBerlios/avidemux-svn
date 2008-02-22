@@ -167,7 +167,6 @@ class AVDMGenericAudioStream
 ;
 
 
-#include "indexer.hxx"
 uint8_t mpegAudioIdentify(uint8_t *ptr, uint32_t maxLookUp, WAVHeader *header, uint8_t *tokens=NULL);
 
 #endif

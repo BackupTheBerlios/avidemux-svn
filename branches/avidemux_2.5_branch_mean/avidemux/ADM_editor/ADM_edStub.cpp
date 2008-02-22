@@ -22,7 +22,6 @@
 
 #include "config.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "ADM_editor/ADM_edit.hxx"
 
 #define STUBB _videos[0]._aviheader

@@ -24,7 +24,6 @@
 
 
 #include "fourcc.h"
-#include "avio.hxx"
 #ifdef USE_LIBXML2
 	#include <libxml/tree.h>
 	#include <libxml/parser.h>

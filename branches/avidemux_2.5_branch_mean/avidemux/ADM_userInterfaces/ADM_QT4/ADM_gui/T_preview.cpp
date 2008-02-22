@@ -40,7 +40,6 @@
 #elif !defined(ADM_WIN32)
 #include <QX11Info>
 #endif
-#include "avio.hxx"
 
 #include "ADM_colorspace/ADM_rgb.h"
 #include "GUI_render.h"

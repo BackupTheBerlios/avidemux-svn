@@ -29,7 +29,6 @@
 
 #include "config.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "avi_vars.h"
 
 #ifdef HAVE_ENCODER

@@ -27,7 +27,6 @@
 
 #include "default.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "config.h"
 
 

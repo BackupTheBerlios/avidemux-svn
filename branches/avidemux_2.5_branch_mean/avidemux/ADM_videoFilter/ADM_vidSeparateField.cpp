@@ -27,7 +27,6 @@ Same idea as for avisynth separatefield
 
 #include "config.h"
 #include "fourcc.h"
-#include "avio.hxx"
 #include "config.h"
 #include "avi_vars.h"
 

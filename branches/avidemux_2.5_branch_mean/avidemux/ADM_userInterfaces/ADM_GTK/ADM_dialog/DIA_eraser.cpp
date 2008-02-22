@@ -21,7 +21,7 @@
 #include <cmath>
 
 #include "fourcc.h"
-#include "avio.hxx"
+
 #include "prefs.h"
 
 #include "avi_vars.h"

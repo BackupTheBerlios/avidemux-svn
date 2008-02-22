@@ -31,7 +31,6 @@
 #include "ADM_toolkit/toolkit.hxx"
 #include <ADM_assert.h>
 
-#include "subchunk.h"
 
 #include "ADM_encoder/ADM_vidEncode.hxx"
 
@@ -45,7 +44,7 @@
 #include "fourcc.h"
 #include "avi_vars.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include "subchunk.h"
+
 
 
 #include "ADM_audiofilter/audioprocess.hxx"

@@ -26,7 +26,7 @@
 #include "avi_vars.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_assert.h"
-#include "subchunk.h"
+
 //#include "avilist.h"
 
 #include "ADM_video/ADM_genvideo.hxx"

@@ -35,7 +35,6 @@
 #include <ADM_assert.h>
 
 #include "fourcc.h"
-#include "avio.hxx"
 
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_toolkit/filesel.h"
