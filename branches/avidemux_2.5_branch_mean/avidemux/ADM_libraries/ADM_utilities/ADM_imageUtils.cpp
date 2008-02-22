@@ -347,8 +347,8 @@ uint32_t r1,r2;
 #endif
         return tinySubstract(YPLANE(this),YPLANE(src1),YPLANE(src2),src1->_width*src1->_height);
 }
- BITMAPFILEHEADER bmfh;
-  BITMAPINFOHEADER bmph;
+ ADM_BITMAPFILEHEADER bmfh;
+ ADM_BITMAPINFOHEADER bmph;
   FILE *fd;
   uint32_t sz;
   uint16_t s16;
@@ -361,8 +361,8 @@ uint32_t r1,r2;
 */
 uint8_t  ADMImage::saveAsBmp(const char *filename)
 {
-  BITMAPFILEHEADER bmfh;
-  BITMAPINFOHEADER bmph;
+  ADM_BITMAPFILEHEADER bmfh;
+  ADM_BITMAPINFOHEADER bmph;
   FILE *fd;
   uint32_t sz;
   uint16_t s16;

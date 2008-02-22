@@ -369,8 +369,7 @@ ADM_Composer::getMainHeader (void)
   return STUBB->getMainHeader ();
 }
 
-BITMAPINFOHEADER *
-ADM_Composer::getBIH (void)
+ADM_BITMAPINFOHEADER *ADM_Composer::getBIH (void)
 {
   return STUBB->getBIH ();
 };

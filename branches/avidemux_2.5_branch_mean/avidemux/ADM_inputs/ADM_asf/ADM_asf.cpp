@@ -560,8 +560,8 @@ uint8_t asfHeader::loadVideo(asfChunk *s)
             _video_bih.biHeight=h;
             printf("Pic Width  %04d\n",w);
             printf("Pic Height %04d\n",h);
-            printf(" BMP size  %04d (%04d)\n",x,sizeof(BITMAPINFOHEADER));
-            s->read((uint8_t *)&_video_bih,sizeof(BITMAPINFOHEADER));
+            printf(" BMP size  %04d (%04d)\n",x,sizeof(ADM_BITMAPINFOHEADER));
+            s->read((uint8_t *)&_video_bih,sizeof(ADM_BITMAPINFOHEADER));
 
 		#ifdef ADM_BIG_ENDIAN
 			Endian_BitMapInfo(&_video_bih);
@@ -581,9 +581,9 @@ uint8_t asfHeader::loadVideo(asfChunk *s)
               return 0; 
             }
             printBih(&_video_bih);
-            if(x>sizeof(BITMAPINFOHEADER))
+            if(x>sizeof(ADM_BITMAPINFOHEADER))
             {
-              _extraDataLen=x-sizeof(BITMAPINFOHEADER);
+              _extraDataLen=x-sizeof(ADM_BITMAPINFOHEADER);
               _extraData=new uint8_t[_extraDataLen];
               s->read(_extraData,_extraDataLen);
             }

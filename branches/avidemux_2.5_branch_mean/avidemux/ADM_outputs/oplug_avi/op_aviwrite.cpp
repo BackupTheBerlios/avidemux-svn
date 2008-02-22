@@ -219,7 +219,7 @@ uint8_t aviWrite::writeVideoHeader( uint8_t *extra, uint32_t extraLen )
 		 0x1000);
 #else
   	setStreamInfo (_file, (uint8_t *) &_videostream,
-		  (uint8_t *)&_bih,sizeof(BITMAPINFOHEADER),
+		  (uint8_t *)&_bih,sizeof(ADM_BITMAPINFOHEADER),
 		// MOD Feb 2005 by GMV: ODML support
 		odml_video_super_idx_size,0,
 		// END MOD Feb 2005 by GMV
@@ -467,7 +467,7 @@ uint8_t aviWrite::saveBegin (char 	*name,
 		     MainAVIHeader 	*inmainheader, 
 		     uint32_t 		nb_frame,
 		     AVIStreamHeader * invideostream,
-		     BITMAPINFOHEADER	*bih,
+		     ADM_BITMAPINFOHEADER	*bih,
 		     uint8_t 		*videoextra,
 		     uint32_t  		videoextraLen,
 		     AVDMGenericAudioStream * inaudiostream,

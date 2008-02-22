@@ -72,7 +72,7 @@
 
 						//
 						AVIStreamHeader 	_videostreamheader;
-						BITMAPINFOHEADER  _bih;
+						ADM_BITMAPINFOHEADER  _bih;
 						MainAVIHeader			_mainaviheader;
      public:
      						GenericAviSave( void );

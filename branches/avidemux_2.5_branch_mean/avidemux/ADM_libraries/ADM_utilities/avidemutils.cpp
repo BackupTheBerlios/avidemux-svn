@@ -141,7 +141,7 @@ void Endian_AviMainHeader(MainAVIHeader *m)
 
 }
 
-void Endian_BitMapInfo( BITMAPINFOHEADER *b)
+void Endian_BitMapInfo( ADM_BITMAPINFOHEADER *b)
 {
 #ifdef ADM_BIG_ENDIAN
 	#define SWAP32(x) b->x=R32(b->x)
@@ -286,7 +286,7 @@ float f;
       return (uint32_t) floor(f);
 
 }
-void printBih(BITMAPINFOHEADER *bi)
+void printBih(ADM_BITMAPINFOHEADER *bi)
 {
 #undef X_DUMP
 #define X_DUMP(x) printf(#x":\t\t:%ld\n",(long int)bi->x);
