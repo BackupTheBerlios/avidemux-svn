@@ -48,8 +48,9 @@ void ADM_flyDialog::postInit(uint8_t reInit)
 	UI_centreCanvasWindow(window, (GtkWidget*)_canvas, _zoomW, _zoomH);
 	gtk_widget_set_size_request((GtkWidget*)_canvas, _zoomW, _zoomH);
 #ifdef USE_JOG
-	physical_jog_shuttle->registerCBs (this, PhysicalJogShuttle::NoButtonCB,
-                                           jogDial, jogRing);
+         if (!reInit)
+             physical_jog_shuttle->registerCBs (this, PhysicalJogShuttle::NoButtonCB,
+                                               jogDial, jogRing);
 #endif
 }
 
