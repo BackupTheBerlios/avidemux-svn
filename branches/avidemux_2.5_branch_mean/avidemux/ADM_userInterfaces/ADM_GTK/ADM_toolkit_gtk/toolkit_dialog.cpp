@@ -18,23 +18,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include <unistd.h>
-#include <sys/time.h>
-#include <gtk/gtk.h>
-
-#include "config.h"
-
-#include "avi_vars.h"
-#include "ADM_misc.h"
-
-# include <config.h>
-#include "ADM_toolkit_gtk/ADM_gladeSupport.h"
+#include "ADM_toolkit_gtk/toolkit_gtk.h"
 #include "toolkit_gtk.h"
-#include "ADM_assert.h"
 #include "prefs.h"
 
 #define GLADE_HOOKUP_OBJECT(component,widget,name) \

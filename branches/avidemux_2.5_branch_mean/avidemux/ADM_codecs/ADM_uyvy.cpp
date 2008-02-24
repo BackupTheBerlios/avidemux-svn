@@ -22,7 +22,7 @@
 
 #include <string.h>
 //#include <math.h>
-#include "ADM_utilities/default.h"
+#include "ADM_default.h"
 #include "avifmt.h"
 #include "avifmt2.h"
 #include "ADM_utilities/fourcc.h"

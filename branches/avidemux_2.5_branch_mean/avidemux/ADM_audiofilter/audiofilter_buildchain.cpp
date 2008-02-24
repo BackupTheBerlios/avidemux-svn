@@ -22,7 +22,7 @@
 #include <math.h>
 
 #include <ADM_assert.h>
-#include "ADM_utilities/default.h"
+#include "ADM_default.h"
 #include "ADM_toolkit/toolkit.hxx"
 
 #include "ADM_audio/audiomode.hxx"

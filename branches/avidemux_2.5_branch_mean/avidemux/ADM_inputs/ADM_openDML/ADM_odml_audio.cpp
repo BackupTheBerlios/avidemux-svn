@@ -32,7 +32,7 @@ It is an fopen/fwrite lookalike interface to chunks
 #include <io.h>
 #endif
 
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_editor/ADM_Video.h"
 #include "fourcc.h"
 #include "ADM_openDML/ADM_openDML.h"

@@ -18,8 +18,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ADM_assert.h>
-#include "default.h"
-#include "ADM_osSupport/ADM_threads.h"
+#include "ADM_default.h"
+
 
 
 #define THR_CHECK(x) {int r=(x);if(r) {printf("Threading error :%d %s\n", \

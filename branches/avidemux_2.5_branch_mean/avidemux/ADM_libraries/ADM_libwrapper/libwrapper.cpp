@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "default.h"
+#include "ADM_default.h"
 #ifdef ADM_WIN32
 #include <windows.h>
 #else

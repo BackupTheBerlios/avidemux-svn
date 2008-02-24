@@ -17,18 +17,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "default.h"
-
 #ifdef ADM_WIN32
 #define WIN32_CLASH
 #include <windows.h>
 #include <wingdi.h>
 #include <excpt.h>
 #endif
+
+#include "ADM_default.h"
+
 
 #define __DECLARE__
 #include "avi_vars.h"
@@ -59,8 +56,6 @@ extern "C" {
 #include "ADM_userInterfaces/ADM_commonUI/GUI_sdlRender.h"
 #endif
 
-#include "ADM_osSupport/ADM_cpuCap.h"
-#include "ADM_osSupport/ADM_threads.h"
 
 void onexit( void );
 //extern void automation(int argc, char **argv);

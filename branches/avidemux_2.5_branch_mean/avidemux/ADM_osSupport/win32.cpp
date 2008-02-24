@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "default.h" 
-#include "ADM_misc.h"
+#include "ADM_default.h"
+
 #include "windows.h"
 #include "io.h"
 #include "winsock2.h"

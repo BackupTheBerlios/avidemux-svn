@@ -13,7 +13,8 @@
 
 #include "ADM_toolkit_gtk/ADM_gladeSupport.h"
 
-#include "default.h"
+#include "ADM_default.h"
+
 #include <ADM_assert.h>
 #include "xpm/play.xpm"
 #include "xpm/stop.xpm"

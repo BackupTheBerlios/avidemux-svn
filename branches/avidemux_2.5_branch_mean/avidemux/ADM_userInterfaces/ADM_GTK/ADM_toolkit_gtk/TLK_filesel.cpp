@@ -17,26 +17,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "default.h"
-
-#include <gtk/gtk.h>
-
+#include "ADM_toolkit_gtk/toolkit_gtk.h"
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
 
 #include "avi_vars.h"
-#include "ADM_misc.h"
-#include "ADM_assert.h"
+
 
 #include "ADM_toolkit/filesel.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "prefs.h"
 #define TH_READ 1
 #define TH_WRITE 2
-#include "ADM_toolkit_gtk/toolkit_gtk_include.h"
-#include "ADM_toolkit_gtk/toolkit_gtk.h"
 
 extern char * actual_workbench_file;
 

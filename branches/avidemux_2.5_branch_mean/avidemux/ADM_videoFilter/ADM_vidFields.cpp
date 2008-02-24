@@ -14,17 +14,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ADM_assert.h>
-
-#include "config.h"
-#include "fourcc.h"
-#include "config.h"
-#include "avi_vars.h"
-#ifdef HAVE_ENCODER
-
+#include "ADM_default.h"
 
 
 #include "ADM_toolkit/toolkit.hxx"
@@ -32,7 +22,7 @@
 #include "ADM_video/ADM_genvideo.hxx"
 
 #include"ADM_vidField.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+
 //_______________________________________________________________
 
 ADMVideoFields::ADMVideoFields(
@@ -239,4 +229,4 @@ int i,j;
 }      
 
 
-#endif
+

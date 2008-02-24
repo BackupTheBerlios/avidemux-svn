@@ -25,8 +25,8 @@
 #include <string.h>
 #include <math.h>
 
-#include "ADM_utilities/default.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+#include "ADM_default.h"
+
 #if (defined( ARCH_X86)  || defined(ARCH_X86_64))
 extern "C" {
 #include "ADM_lavcodec/avcodec.h"

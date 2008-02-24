@@ -19,18 +19,8 @@ http://savannah.nongnu.org/cvs/?group=mldonkey
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
-
-#include <string.h>
-#include <stdio.h>
-
-
-
-#include "default.h"
-#include "ADM_toolkit_gtk/toolkit_gtk_include.h"
-#include <ADM_assert.h>
+#include "ADM_toolkit_gtk/toolkit_gtk.h"
 #include "ADM_tray.h"
-#include "ADM_toolkit_gtk/ADM_gladeSupport.h"
 extern "C"
 {
 #include "systray.h"

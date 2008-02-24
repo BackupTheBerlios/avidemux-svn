@@ -14,19 +14,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ADM_assert.h>
-#include <math.h>
-
-#include "config.h"
-#include "fourcc.h"
-#include "config.h"
-#include "avi_vars.h"
-#ifdef HAVE_ENCODER
-
-
+#include "ADM_default.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_editor/ADM_edit.hxx"
 #include "ADM_video/ADM_genvideo.hxx"
@@ -222,4 +210,4 @@ return 1;
 }
 
 
-#endif
+

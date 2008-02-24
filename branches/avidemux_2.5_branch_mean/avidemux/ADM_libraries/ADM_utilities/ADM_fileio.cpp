@@ -21,7 +21,7 @@
 #include <string.h>
 #include <ADM_assert.h>
 #include <math.h>
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_fileio.h"
 #include "ADM_osSupport/ADM_quota.h"
 

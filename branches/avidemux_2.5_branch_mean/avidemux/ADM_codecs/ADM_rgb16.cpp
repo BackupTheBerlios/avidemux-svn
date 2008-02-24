@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ADM_utilities/default.h"
+#include "ADM_default.h"
 #include "ADM_assert.h"
 #include "ADM_colorspace/colorspace.h"
 

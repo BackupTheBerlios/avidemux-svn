@@ -14,24 +14,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <math.h>
-#include <gtk/gtk.h>
-
-#include "fourcc.h"
-
-
-#include "default.h"
 #include "ADM_toolkit_gtk/toolkit_gtk.h"
-#include "ADM_toolkit_gtk/toolkit_gtk_include.h"
+
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_toolkit/filesel.h"
-#include "ADM_assert.h"
+
 
 
 
@@ -44,7 +31,8 @@
 
 
 #include "ADM_filter/video_filters.h"
-
+#include "ADM_video/ADM_vidMisc.h"
+#include "avi_vars.h"
 void DIA_Calculator(uint32_t *sizeInMeg, uint32_t *avgBitrate );
 static GtkWidget	*create_Calculator (void);  
 static GtkWidget *dialog;  

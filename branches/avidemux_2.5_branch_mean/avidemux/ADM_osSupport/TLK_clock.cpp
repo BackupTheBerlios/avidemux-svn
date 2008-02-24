@@ -40,9 +40,9 @@
 #include "ADM_osSupport/ADM_debug.h"
 
 #include "avi_vars.h"
-//#include "toolkit.hxx"
-#include "ADM_misc.h"
-#include "TLK_clock.h"
+
+
+
 static uint8_t inited=0;
 static struct timeval _itimev;
 static uint32_t getAbsTime( void );

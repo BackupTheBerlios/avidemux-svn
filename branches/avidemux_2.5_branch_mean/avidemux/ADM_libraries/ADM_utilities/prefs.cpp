@@ -12,18 +12,8 @@
  ***************************************************************************/
 
 
-#include "config.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <strings.h>
-#include <unistd.h>	/* access(), R_OK */
-#include <errno.h>	/* errno, ENOENT */
-#include <dirent.h>
 
-#include "default.h"
-#include "ADM_toolkit/toolkit.hxx"
-#include "ADM_osSupport/ADM_quota.h"
+
 
 #include "config.h"
 
@@ -31,7 +21,14 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 #endif
-#include <ADM_assert.h>
+#include "ADM_default.h"
+#include "ADM_toolkit/toolkit.hxx"
+#include "ADM_osSupport/ADM_quota.h"
+#include <string.h>
+#include <strings.h>
+#include <unistd.h>	/* access(), R_OK */
+#include <errno.h>	/* errno, ENOENT */
+#include <dirent.h>
 
 #undef free
 extern char *ADM_getBaseDir(void);

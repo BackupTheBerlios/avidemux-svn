@@ -24,11 +24,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ADM_utilities/default.h"
+#include "ADM_default.h"
 #include "ADM_assert.h"
 
 #include "colorspace.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+
 #if (defined( ARCH_X86)  || defined(ARCH_X86_64))
 extern "C" {
 #include "ADM_lavcodec/avcodec.h"

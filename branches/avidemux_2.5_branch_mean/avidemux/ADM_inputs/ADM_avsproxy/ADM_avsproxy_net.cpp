@@ -20,7 +20,7 @@
 #include "math.h"
 #include <errno.h>
 #include <ADM_assert.h>
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_avsproxy_internal.h"
 #include "ADM_avsproxy.h"
 

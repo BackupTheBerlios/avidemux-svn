@@ -6,7 +6,7 @@
 
 #include "config.h"
 #include "fourcc.h"
-#include "default.h"
+#include "ADM_default.h"
 #include "math.h"
 
 #include "ADM_toolkit/toolkit.hxx"

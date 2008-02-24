@@ -15,7 +15,7 @@
 #include <errno.h>
 
 #include <ADM_assert.h>
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_editor/ADM_Video.h"
 
 
@@ -28,7 +28,7 @@
 #define MODULE_NAME MODULE_3GP
 #include "ADM_osSupport/ADM_debug.h"
 
-#include "ADM_osSupport/TLK_clock.h"
+
 
 
 avsHeader::avsHeader()

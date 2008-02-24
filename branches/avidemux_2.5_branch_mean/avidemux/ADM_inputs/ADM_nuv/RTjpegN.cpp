@@ -45,7 +45,7 @@ static mmx_t RTjpeg_zero;
 //#define SHOWBLOCK 1
 #define BETTERCOMPRESSION 1
 /// MEANX
-#include "../../ADM_assert.h"
+#include "ADM_assert.h"
 /// /MEANX
     
 static const unsigned char RTjpeg_ZZ[64]={

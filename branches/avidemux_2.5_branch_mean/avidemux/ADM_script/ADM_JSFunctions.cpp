@@ -26,7 +26,7 @@
 #include <string>
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSGlobal.h"
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"

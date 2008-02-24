@@ -27,7 +27,7 @@
 
 #include <math.h>
 #include <ADM_assert.h>
-#include "default.h"
+#include "ADM_default.h"
 #include "avifmt.h"
 #include "avifmt2.h"
 #include "oplug_ogm/op_ogpage.h"

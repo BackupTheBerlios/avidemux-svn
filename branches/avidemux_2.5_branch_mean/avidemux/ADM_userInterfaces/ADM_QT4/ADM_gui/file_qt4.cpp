@@ -9,18 +9,16 @@
 //
 //
 
-#include <config.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <dirent.h>
-#include "default.h"
+
 #include <QtCore/QVariant>
 #include <QtGui/qfiledialog.h>
+#include "ADM_default.h"
 
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_toolkit/filesel.h"
 #include "prefs.h"
-#include "ADM_assert.h"
+
     
 static void GUI_FileSelSelect(const char *label, char **name, uint32_t access) ;
 

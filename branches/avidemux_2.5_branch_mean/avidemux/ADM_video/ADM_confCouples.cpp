@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "default.h"
+#include "ADM_default.h"
 
 #include "fourcc.h"
 #include "ADM_assert.h"

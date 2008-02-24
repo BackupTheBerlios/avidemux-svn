@@ -16,13 +16,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
+#define ADM_LEGACY_PROGGY
+#include "ADM_default.h"
 #include "fourcc.h"
 #ifdef USE_LIBXML2
 	#include <libxml/tree.h>

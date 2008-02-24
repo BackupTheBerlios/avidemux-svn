@@ -26,7 +26,7 @@
 	//#define ODML_INDEX_VERBOSE
 #endif
 
-#include "default.h"
+#include "ADM_default.h"
 #include "ADM_editor/ADM_Video.h"
 
 

@@ -27,8 +27,8 @@
 #include <glib.h>
 #endif
 
-#include "default.h"
-#include "ADM_misc.h"
+#include "ADM_default.h"
+
 
 
 #include "ADM_toolkit/filesel.h"

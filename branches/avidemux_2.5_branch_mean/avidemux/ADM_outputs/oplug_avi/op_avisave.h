@@ -17,7 +17,7 @@
  #ifndef __AVI_SAVE__
  #define   __AVI_SAVE__
 
- #include "default.h"
+#include "ADM_default.h"
  #include "DIA_working.h"
  #include "DIA_encoding.h"
  #include "ADM_image.h"

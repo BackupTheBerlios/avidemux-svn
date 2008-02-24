@@ -2,24 +2,12 @@
     Jobs dialog
     (c) Mean 2007
 */
-#include "config.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <math.h>
-
-
 #include "ui_jobs.h"
 
+#include "ADM_default.h"
 
-#include "default.h"
-#include "avidemutils.h"
-#include "avi_vars.h"
-#include "ADM_osSupport/ADM_misc.h"
 
 #include "ADM_toolkit/toolkit.hxx"
-#include "ADM_assert.h"
 
 static void             updateStatus(void);
 extern bool parseECMAScript(const char *name);

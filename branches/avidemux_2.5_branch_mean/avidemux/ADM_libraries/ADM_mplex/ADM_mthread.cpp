@@ -20,7 +20,7 @@
 #include <math.h>
 #include <pthread.h>
 #define WIN32_CLASH
-#include "default.h"
+#include "ADM_default.h"
 
 #include "ADM_toolkit/toolkit.hxx"
 #include <ADM_assert.h>
@@ -37,7 +37,6 @@
 
 #include "ADM_encoder/ADM_vidEncode.hxx"
 
-#include "ADM_osSupport/ADM_threads.h"
 #include "ADM_lavformat/ADM_lavformat.h"
 #include "ADM_mthread.h"
 

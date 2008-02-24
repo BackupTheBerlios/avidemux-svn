@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "default.h"
+#include "ADM_default.h"
 
 #ifndef ADM_WIN32 
 #ifdef USE_ARTS

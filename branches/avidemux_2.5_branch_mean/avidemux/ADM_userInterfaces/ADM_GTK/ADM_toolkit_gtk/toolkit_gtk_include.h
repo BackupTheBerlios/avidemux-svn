@@ -7,7 +7,7 @@
 #include <gtk/gtk.h>
 
 
-#include "avi_vars.h"
+
 #include "ADM_toolkit_gtk/ADM_gladeSupport.h"
 # include <config.h>
 

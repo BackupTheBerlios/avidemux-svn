@@ -67,7 +67,7 @@
 #include "ADM_libmpeg2enc/ADM_mpeg2enc.h"
 
 #include "ADM_userInterfaces/ADM_commonUI/DIA_factory.h"
-
+#include "ADM_video/ADM_vidMisc.h"
 void A_handleSecondTrack (int tracktype);
 int A_delete(uint32_t start, uint32_t end);
 void A_saveImg (char *name);

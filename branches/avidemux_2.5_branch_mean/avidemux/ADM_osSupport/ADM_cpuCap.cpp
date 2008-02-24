@@ -19,9 +19,9 @@
 #include <sched.h>
 #endif
 
-#include "default.h"
-#include "admmangle.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+#include "ADM_default.h"
+
+
 #include "prefs.h"
 
 /* Cpu caps interface to other libs */

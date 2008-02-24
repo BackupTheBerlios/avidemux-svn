@@ -34,7 +34,7 @@
 #include "mmx.h"
 #endif
 /// MEANX
-#include "../../ADM_assert.h"
+#include "ADM_assert.h"
 /// /MEANX
     
 void RTjpeg_color_init(void);

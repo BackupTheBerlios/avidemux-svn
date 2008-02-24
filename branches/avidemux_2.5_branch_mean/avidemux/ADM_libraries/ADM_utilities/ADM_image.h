@@ -22,7 +22,7 @@
 //
 #ifndef ADM_IMAGE
 #define ADM_IMAGE
-#include "../ADM_assert.h"
+#include "ADM_assert.h"
 #include "../ADM_colorspace/ADM_rgb.h"
 
 typedef enum 

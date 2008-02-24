@@ -18,14 +18,14 @@
 #include <stdio.h>
 #include <string.h>
 #include "ADM_assert.h"
-#include "default.h"
+#include "ADM_default.h"
 
 #include "ADM_image.h"
 #include "ADM_toolkit/bitmap.h"
 #include "avifmt.h"
 #include "ADM_utilities/avifmt2.h"
 #include "ADM_utilities/ADM_bitstream.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_colorspace/colorspace.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
@@ -33,7 +33,7 @@
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_lavcodec.h"
 #include "ADM_codecs/ADM_ffmpeg.h"
-#include "admmangle.h"
+
 static uint8_t tinyAverage(uint8_t *dst, uint8_t *src1, uint8_t *src2,uint32_t l)
 {
 

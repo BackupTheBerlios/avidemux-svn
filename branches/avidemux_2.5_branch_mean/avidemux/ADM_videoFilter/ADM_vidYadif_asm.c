@@ -6,8 +6,8 @@
 #include <inttypes.h>
 #include <math.h>
 
-#include "default.h"
-#include "admmangle.h"
+#include "ADM_default.h"
+
 
 #if (defined( ARCH_X86)  || defined(ARCH_X86_64))
 

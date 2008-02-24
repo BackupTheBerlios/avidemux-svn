@@ -17,20 +17,7 @@ GUI part of resize.
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <time.h>
-#include <sys/time.h>
-#include "config.h"
-#include "fourcc.h"
-
-#include "avi_vars.h"
-#ifdef HAVE_ENCODER
-
+#include "ADM_default.h"
 
 #include "ADM_editor/ADM_edit.hxx"
 #include "ADM_video/ADM_genvideo.hxx"
@@ -105,4 +92,4 @@ uint32_t ww,hh;
 }
 
 
-#endif
+

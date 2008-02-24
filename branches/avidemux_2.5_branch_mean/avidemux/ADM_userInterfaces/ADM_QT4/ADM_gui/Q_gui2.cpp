@@ -30,14 +30,15 @@
 #include <QtGui/QValidator>
 
 #include "ADM_qslider.h"
-#include "default.h"
-#include "ADM_osSupport/ADM_misc.h"
+#include "ADM_default.h"
+
 #include "ADM_codecs/ADM_codec.h"
 #include "gui_action.hxx"
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_toolkit/filesel.h"
+#include "ADM_video/ADM_vidMisc.h"
 #include "prefs.h"
-
+#include "ADM_video/ADM_vidMisc.h"
 extern int global_argc;
 extern char **global_argv;
 

@@ -21,10 +21,10 @@
 #include <errno.h>
 
 
-#include "default.h"
+#include "ADM_default.h"
 
 
-#include "ADM_osSupport/ADM_threads.h"
+
 #define WIN32_CLASH
 #include "avi_vars.h"
 #include <ADM_assert.h>

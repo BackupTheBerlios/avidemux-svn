@@ -33,7 +33,8 @@
 #include <gtk/gtk.h>
 
 #include "math.h"
-#include "default.h"
+#include "ADM_default.h"
+
 
 #include "../gui_action.hxx"
 extern void HandleAction(Action act);  

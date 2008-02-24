@@ -41,8 +41,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "default.h"
-#include "ADM_osSupport/ADM_cpuCap.h"
+#include "ADM_default.h"
+
 extern "C"
 {
         #include "ADM_lavcodec/dsputil_cpu.h"
