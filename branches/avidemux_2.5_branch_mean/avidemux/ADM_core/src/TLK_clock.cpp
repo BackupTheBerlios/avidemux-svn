@@ -66,7 +66,7 @@ Clock::~Clock(  )
 uint32_t Clock::getElapsedMS(void )
 {
    uint32_t ret = getAbsTime()-_startTime;
-	aprintf("Clock::getElapsedMS() -> %lu\n", ret);
+	//aprintf("Clock::getElapsedMS() -> %lu\n", ret);
 	return ret;
 }
 
@@ -97,7 +97,7 @@ uint32_t getAbsTime( void )
     tt = timev.tv_usec;
     tt /= 1000;
     tt += 1000 * (timev.tv_sec-_itimev.tv_sec);
-    aprintf("getAbsTime() -> %lu\n", tt&0x7Fffffff);
+    //aprintf("getAbsTime() -> %lu\n", tt&0x7Fffffff);
     return (tt&0x7Fffffff);
 
 }

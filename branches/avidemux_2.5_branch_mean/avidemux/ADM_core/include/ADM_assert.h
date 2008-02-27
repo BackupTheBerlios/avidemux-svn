@@ -13,6 +13,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+typedef void *ADM_saveFunction(void);
+typedef void *ADM_fatalFunction(const char *title, const char *info);
+
+void ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal);
+
 void   ADM_backTrack(int lineno,const char *file);
 size_t ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream);
 size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream);

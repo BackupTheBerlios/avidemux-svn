@@ -96,8 +96,6 @@ bool SpidermonkeyInit(void);
 void SpidermonkeyDestroy(void);
 
 extern pthread_mutex_t g_pSpiderMonkeyMutex;
-uint32_t CpuCaps::myCpuCaps=0;
-uint32_t CpuCaps::myCpuMask=0xffffffff;
 
 #if defined(ADM_DEBUG) && defined(FIND_LEAKS)
 extern const char* new_progname;

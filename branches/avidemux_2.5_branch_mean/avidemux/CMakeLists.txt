@@ -99,6 +99,7 @@ ENDFOREACH(_current ${ADM_SUBDIR})
 ###########################################
 # Build Regular Subdirs
 ###########################################
+ADD_SUBDIRECTORY(ADM_core)
 ADD_SUBDIRECTORY(ADM_osSupport)
 ADD_SUBDIRECTORY(ADM_encoder)
 ADD_SUBDIRECTORY(ADM_toolkit)
@@ -152,6 +153,7 @@ ENDFOREACH(_current ${ADM_inputs})
 #########################################
 # Tails
 #########################################
+add_libs_all_targets(ADM_core)
 add_libs_all_targets(ADM_toolkit)
 add_libs_all_targets(ADM_osSupport)
 add_libs_all_targets(ADM_encoder)
@@ -199,7 +201,6 @@ endif (ADM_OS_APPLE AND USE_SDL)
 FOREACH(_current ${ADM_LIBRARIES})
 	add_libs_all_targets(${_current})
 ENDFOREACH(_current ${ADM_SUBDIR})
-
 ###########################################
 # Construct ADM_userInterface
 ###########################################
@@ -395,6 +396,7 @@ endif(QT4_FOUND)
 ########################
 IF (ADM_OS_WINDOWS)
 	add_libs_all_targets(z)
+	add_libs_all_targets(ADM_core)
 	add_libs_all_targets(ADM_osSupport)
 	add_libs_all_targets(pthreadGC2)
 	add_libs_all_targets(winmm)
@@ -434,6 +436,7 @@ endif (ADM_OS_APPLE)
 ########################
 SDLify(main.cpp)
 add_compile_flags(main.cpp "-DADM_SUBVERSION=${ADM_SUBVERSION}")
+add_libs_all_targets(ADM_core)
 
 ###############
 # INSTALL

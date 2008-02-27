@@ -22,8 +22,10 @@
 #include "ADM_default.h"
 
 
-#include "prefs.h"
+//#include "prefs.h"
 
+uint32_t CpuCaps::myCpuCaps=0;
+uint32_t CpuCaps::myCpuMask=0xffffffff;
 /* Cpu caps interface to other libs */
 extern "C"{ 
 	int ADM_lavcodec_mm_support(void);
@@ -58,7 +60,7 @@ extern "C"
 	printf("[cpuCaps]Checking CPU capabilities\n");
 	myCpuCaps=0;
 	myCpuMask=0xffffffff;
-	prefs->get(FEATURE_CPU_CAPS,&myCpuMask);
+	// FIXME prefs->get(FEATURE_CPU_CAPS,&myCpuMask);
 
 #if defined(ARCH_X86) || defined(ARCH_X86_64)
 int rval = 0;
