@@ -294,3 +294,9 @@ void onexit( void )
 	check_leaks();
 #endif
 }
+extern void checkCrashFile(void);
+void dummyXref(void)
+{
+    checkCrashFile();
+}
+//EOF
