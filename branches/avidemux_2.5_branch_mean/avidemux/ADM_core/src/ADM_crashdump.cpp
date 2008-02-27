@@ -54,11 +54,11 @@ void ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal)
 #ifdef __APPLE__
 void installSigHandler() {}
 
-void ADM_backTrack(int lineno,const char *file)
+void ADM_backTrack(const char *info,int lineno,const char *file)
 {
 	char bfr[1024];
 	if(mysaveFunction) mysaveFunction();
-	snprintf(bfr,1024,"Assert Failed at file %s, line %d\n",file,lineno);
+	snprintf(bfr,1024,"%s\n file %s, line %d\n",infofile,lineno);
         if(myFatalFunction) myFatalFunction("Crash",bfr);
         exit(-1);
 }
@@ -207,7 +207,7 @@ void dumpBackTrace(void* processId)
 }
 }
 
-void ADM_backTrack(int lineno, const char *file)
+void ADM_backTrack(const char *info,int lineno,const char *file)
 {	
 	fflush(stderr);
 	fflush(stdout);
@@ -364,27 +364,30 @@ void sig_segfault_handler(int signo)
         exit(1);
       }
       running=0; 
-      ADM_backTrack(0,"");
+      ADM_backTrack("Segfault",0,"??");
 }
-void ADM_backTrack(int lineno,const char *file)
+void ADM_backTrack(const char *info,int lineno,const char *file)
 {
+    char wholeStuff[2048];
      void *stack[20];
      char **functions;
      int count, i;
-      
+    wholeStuff[0]=0;
+
 	if(mysaveFunction) mysaveFunction();
       printf("\n*********** BACKTRACK **************\n");
       count = backtrace(stack, 20);
       functions = backtrace_symbols(stack, count);
-      
+         sprintf(wholeStuff,"%s\n at line %d, file %s",info,lineno,file);
          for (i=0; i < count; i++) 
          {
             printf("Frame %2d: %s \n", i, functions[i]);
             demangle(i,(uint8_t *)functions[i]);
-            
+            strcat(wholeStuff,functions[i]);
+            strcat(wholeStuff,"\n");
          }
       printf("*********** BACKTRACK **************\n");
-      if(myFatalFunction) myFatalFunction("Crash",""); // FIXME
+      if(myFatalFunction) myFatalFunction("Crash",wholeStuff); // FIXME
       exit(-1); // _exit(1) ???
 }
 #endif

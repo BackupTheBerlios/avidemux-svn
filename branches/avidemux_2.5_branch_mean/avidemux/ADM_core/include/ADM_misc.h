@@ -39,15 +39,7 @@ char            *PathCanonize(const char *tmpname);
 void            LowerCase(char *string);
 uint32_t        getTime( int called );;
 uint32_t 	getTimeOfTheDay(void);
-uint64_t 	ADM_swap64(uint64_t in);
-uint32_t 	ADM_swap32(uint32_t in);
-uint16_t 	ADM_swap16(uint16_t in);
-inline uint32_t dontswap(uint32_t in) {return in;};
-char 		*ADM_rindex(const char *s, int c);
-char 		*ADM_index(const char *s, int c);
-void 		ADM_usleep(unsigned long us);
-uint8_t         ADM_fileExist(char *name);
-
+extern char *slashToBackSlash(char *in);
 #ifdef HAVE_GETTIMEOFDAY
 	#define TIMZ struct timezone
 #else

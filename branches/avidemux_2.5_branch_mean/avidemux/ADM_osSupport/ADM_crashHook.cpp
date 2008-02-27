@@ -41,7 +41,7 @@ extern ADM_Composer *video_body;
 
 #define CRASH_FILE "crash.js"
 
-static void saveCrashProject(void);
+void saveCrashProject(void);
 extern char *ADM_getBaseDir(void);
 extern void A_parseECMAScript(const char *name);
 

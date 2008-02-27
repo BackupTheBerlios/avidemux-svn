@@ -34,6 +34,7 @@
 #include "../ADM_toolkit_gtk/jogshuttle.h"
 #include "../ADM_toolkit_gtk/ADM_jogshuttle.h"
 #include "gtkgui.h"
+#include "ADM_toolkit/toolkit.hxx"
 
 uint8_t UI_getPhysicalScreenSize(uint32_t *w,uint32_t *h);
 
@@ -1298,17 +1299,26 @@ int UI_Init(int argc, char **argv)
     
 }
 static void trampoline(void);
+static void gtk_fatalFunction(const char *title, const char *info)
+{
+    GUI_Info_HIG(ADM_LOG_IMPORTANT,title,info);
+}
+extern void saveCrashProject(void);
 int UI_RunApp(void)
 {
     if (global_argc >= 2)
     {
       g_timeout_add(200,(GCALL *)trampoline,NULL);
     }
+    // Install our crash handler
+    ADM_setCrashHook(&saveCrashProject, &gtk_fatalFunction);
     checkCrashFile();
     gtk_main();
     gdk_threads_leave();
 
 }
+
+
 void trampoline(void)
 {
     ADM_usleep(100000); // let gtk start

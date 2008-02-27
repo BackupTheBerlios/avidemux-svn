@@ -1,36 +1,64 @@
-/*
-	Replacement for assert etc...
-*/
+/** *************************************************************************
+    \fn ADM_assert.h
+    \brief Replacement for assert etc ... (low level funcs)  
+                      
+    copyright            : (C) 2008 by mean
+    
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ ***************************************************************************/
 #ifndef ADM_ASSERT_H
 #define ADM_ASSERT_H
-
+#include "ADM_inttype.h"
 #include <assert.h>
 
-#define ADM_assert(x) { if(!(x)) {ADM_backTrack(__LINE__,__FILE__);  }}
+#define ADM_assert(x) { if(!(x)) {ADM_backTrack("Assert failed :"#x,__LINE__,__FILE__);  }}
 
 /* Functions we want to override to have better os support / debug / error control */
     
 #ifdef __cplusplus
 extern "C" {
 #endif
+/* Our crash  / assert functions */
+typedef void ADM_saveFunction(void);
+typedef void ADM_fatalFunction(const char *title, const char *info);
 
-typedef void *ADM_saveFunction(void);
-typedef void *ADM_fatalFunction(const char *title, const char *info);
+void            ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal);
+void            ADM_backTrack(const char *info,int lineno,const char *file);
+/* Our crash  / assert functions */
 
-void ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal);
+/* Replacement for fread & friends */
+size_t          ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream);
+size_t          ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream);
+FILE            *ADM_fopen (const char *file, const char *mode);
+int             ADM_fclose (FILE *file);
+uint8_t         ADM_fileExist(char *name);
+uint8_t         ADM_mkdir(const char *name);
+char            *ADM_rindex(const char *s, int c);
+char            *ADM_index(const char *s, int c);
 
-void   ADM_backTrack(int lineno,const char *file);
-size_t ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream);
-size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream);
-FILE  *ADM_fopen (const char *file, const char *mode);
-int    ADM_fclose (FILE *file);
+/* Replacements for memory allocation functions */
+extern void     *ADM_alloc(size_t size);
+extern void     *ADM_calloc(size_t nbElm,size_t elSize);
+extern void     *ADM_realloc(void *in,size_t size);
+extern void     ADM_dezalloc(void *ptr);
+extern char     *ADM_strdup( const char *in);
+/* Endianness stuff */
+uint64_t 	ADM_swap64(uint64_t in);
+uint32_t 	ADM_swap32(uint32_t in);
+uint16_t 	ADM_swap16(uint16_t in);
+//static inline uint32_t dontswap(uint32_t in) {return in;};
 
-extern void *ADM_alloc(size_t size);
-extern void *ADM_calloc(size_t nbElm,size_t elSize);
-extern void *ADM_realloc(void *in,size_t size);
-extern void ADM_dezalloc(void *ptr);
-extern char *ADM_strdup( const char *in);
-extern char *slashToBackSlash(char *in);
+/* */
+void            ADM_usleep(unsigned long us);
+
+
 typedef void *(* adm_fast_memcpy)(void *to, const void *from, size_t len);
 extern adm_fast_memcpy myAdmMemcpy;
 
@@ -81,3 +109,4 @@ extern adm_fast_memcpy myAdmMemcpy;
 
 
 #endif
+// EOF 
