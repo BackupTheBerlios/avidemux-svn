@@ -1,0 +1,37 @@
+/***************************************************************************
+                          ADM_default.h  -  description
+                             -------------------
+                Includes all core headers (var types, string, mutex, file,...)
+    copyright            : (C) 2008 by mean
+    email                : fixounet@free.fr
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+#ifndef ADM_DEFAULT_H
+#define ADM_DEFAULT_H
+
+#include "config.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "ADM_inttype.h"              
+#include "ADM_assert.h"
+
+#ifdef __cplusplus
+#include "ADM_cpuCap.h"
+#include "ADM_clock.h"
+#include "ADM_threads.h"
+#include "ADM_misc.h"
+#endif
+
+#include "ADM_mangle.h"                                                        
+#endif
