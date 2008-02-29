@@ -21,7 +21,7 @@
  #include "DIA_working.h"
  #include "DIA_encoding.h"
  #include "ADM_image.h"
- #include "ADM_fileio.h"
+ #include "ADM_osSupport/ADM_fileio.h"
 #include "ADM_toolkit/ADM_audioQueue.h"
 
  class GenericAviSave

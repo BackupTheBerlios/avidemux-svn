@@ -1,6 +1,10 @@
-// Symbol mangling for asm
-// is different on win32
-// Shamelessly borrowed from lavcodec
+/** *************************************************************************
+    \fn ADM_mangle.h
+    \brief Handle symbol mangling & register name for inline asm
+                      
+    copyright            : (C) 2008 by mean
+    
+ ***************************************************************************/
 
 #ifdef CYG_MANGLING // CYGWIN
 	#define Mangle(x) "_" #x

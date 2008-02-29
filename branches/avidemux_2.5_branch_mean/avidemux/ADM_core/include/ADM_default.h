@@ -1,10 +1,12 @@
-/***************************************************************************
-                          ADM_default.h  -  description
-                             -------------------
-                Includes all core headers (var types, string, mutex, file,...)
+/** *************************************************************************
+             
+    \fn ADM_default.h
+    \brief include that file to get most of the basic types & functions
+                      
     copyright            : (C) 2008 by mean
-    email                : fixounet@free.fr
+    
  ***************************************************************************/
+
 
 /***************************************************************************
  *                                                                         *

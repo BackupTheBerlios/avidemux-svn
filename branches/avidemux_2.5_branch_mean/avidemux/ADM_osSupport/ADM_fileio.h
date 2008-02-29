@@ -1,6 +1,6 @@
 /** *************************************************************************
-    \fn ADM_clock.h
-    \brief Handle time class
+    \fn ADM_fileio.h
+    \brief Handle file access through a class
                       
     copyright            : (C) 2008 by mean
     
@@ -14,18 +14,29 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#ifndef __CLK__
-#define __CLK__
-class Clock
-{
-	private: uint32_t _startTime;
+#ifndef ADM_FILE_IO
+#define ADM_FILE_IO
 
-	public:
-			Clock(void );
-			~Clock( );
-			uint32_t getElapsedMS( void );
-			uint8_t reset( void );
+
+
+class ADMFile
+{
+protected:
+        FILE            *_out;
+        uint32_t        _fill;
+        uint8_t         *_buffer;	  
+        uint64_t        _curPos;
+public:
+                        ADMFile();
+                        ~ADMFile();
+        uint8_t         open(FILE *in);
+        uint8_t         write(uint8_t *in, uint32_t size);
+        uint8_t         flush(void);
+        uint8_t         seek(uint64_t where);
+        uint64_t        tell(void);
+	  
 
 
 };
+
 #endif
