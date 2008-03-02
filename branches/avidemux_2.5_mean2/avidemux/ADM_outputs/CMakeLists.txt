@@ -1,0 +1,8 @@
+ADD_SUBDIRECTORY(oplug_avi)
+ADD_SUBDIRECTORY(oplug_mp4)
+ADD_SUBDIRECTORY(oplug_mpeg)
+ADD_SUBDIRECTORY(oplug_mpegFF)
+ADD_SUBDIRECTORY(oplug_ogm)
+ADD_SUBDIRECTORY(oplug_flv)
+ADD_SUBDIRECTORY(oplug_dummy)
+

@@ -1,0 +1,6 @@
+SET(ADM_LIB ADM_liba52)
+
+SET(${ADM_LIB}_SRCS 
+	bit_allocate.c  bitstream.c  downmix.c  imdct.c  parse.c)
+
+ADD_ADM_LIB_ALL_TARGETS(${ADM_LIB} ${${ADM_LIB}_SRCS})

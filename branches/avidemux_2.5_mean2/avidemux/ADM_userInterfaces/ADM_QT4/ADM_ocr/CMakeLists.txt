@@ -1,0 +1,6 @@
+SET(ADM_LIB ADM_ocrQt4)
+SET(${ADM_LIB}_Q ocr)
+SET(${ADM_LIB}_T)
+SET(${ADM_LIB}_SRCS)
+
+INCLUDE(adm_qt4)
