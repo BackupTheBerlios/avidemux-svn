@@ -205,8 +205,11 @@ uint8_t ms2time(uint32_t ms, uint32_t *h,uint32_t *m, uint32_t *s)
 }
 
 
-// Convert everything to lowercase
-void  LowerCase(char *string)
+/**
+        \fn ADM_LowerCase
+        \brief change to lower case in place the string
+*/
+void  ADM_LowerCase(char *string)
 {
   int l=strlen(string)-1;
         for(int i=l;i>=0;i--)
@@ -233,7 +236,7 @@ FILE *file;
     This function convert the later to the former
 
 */
-extern char *slashToBackSlash(char *in)
+extern char *ADM_slashToBackSlash(char *in)
 {
     char *out,*cout;
     int n;

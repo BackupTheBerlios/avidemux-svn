@@ -35,8 +35,8 @@
 extern char * actual_workbench_file;
 
 static void GUI_FileSel(const char *label, SELFILE_CB * cb, int rw, char **name=NULL);
-char            *PathCanonize(const char *tmpname);
-void            PathStripName(char *str);
+char            *ADM_PathCanonize(const char *tmpname);
+void            ADM_PathStripName(char *str);
 uint8_t         initFileSelector(void);
 
 static GtkFileFilter   *filter_avi=NULL,*filter_mpeg=NULL,*filter_image=NULL,*filter_all=NULL;
@@ -159,8 +159,8 @@ DIR *dir=NULL;
                 else // new file
 #endif
                 {
-                    dupe=PathCanonize(source);
-                    PathStripName(dupe);
+                    dupe=ADM_PathCanonize(source);
+                    ADM_PathStripName(dupe);
                     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),(gchar *)dupe);
                     gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog),
                                                       (gchar *)(source + strlen(dupe)));
@@ -174,7 +174,7 @@ DIR *dir=NULL;
 		if( prefs->get(LASTDIR_WRITE,(ADM_filename **)&tmpname))
 		{
 			
-			dupe=PathCanonize(tmpname);
+			dupe=ADM_PathCanonize(tmpname);
 
 			if( (dir=opendir(dupe)) )
 			{
@@ -238,8 +238,8 @@ DIR *dir=NULL;
         /* Set default dir if provided ..*/
         if(source)
         {
-                dupe=PathCanonize(source);
-                PathStripName(dupe);
+                dupe=ADM_PathCanonize(source);
+                ADM_PathStripName(dupe);
                 if( (dir=opendir(dupe)) )
                         {
                                 closedir(dir);
@@ -254,8 +254,8 @@ DIR *dir=NULL;
                 {
                         
         
-                        dupe=PathCanonize(tmpname);
-                        PathStripName(dupe);
+                        dupe=ADM_PathCanonize(tmpname);
+                        ADM_PathStripName(dupe);
   
                         if( (dir=opendir(dupe)) )
                         {
@@ -329,7 +329,7 @@ void fileReadWrite(SELFILE_CB *cb, int rw, char *name)
 
 					char msg[300];
 
-					snprintf(msg, 300, QT_TR_NOOP("%s already exists.\n\nDo you want to replace it?"), GetFileName(name));
+					snprintf(msg, 300, QT_TR_NOOP("%s already exists.\n\nDo you want to replace it?"), ADM_GetFileName(name));
 
                                         if(!GUI_Question(msg))
 						return;
@@ -439,8 +439,8 @@ void GUI_FileSel(const char *label, SELFILE_CB * cb, int rw,char **rname)
         if(res)
 	{
                 DIR *dir;
-                char *str=PathCanonize(tmpname);
-                PathStripName(str);
+                char *str=ADM_PathCanonize(tmpname);
+                ADM_PathStripName(str);
 
                 /* LASTDIR may have gone; then do nothing and use current dir instead (implied) */
                 if( (dir=opendir(str)) )
@@ -466,8 +466,8 @@ void GUI_FileSel(const char *label, SELFILE_CB * cb, int rw,char **rname)
                 {
                         name=ADM_strdup(selected_filename);
 
-                        char *str=PathCanonize(name);
-                        PathStripName(str);
+                        char *str=ADM_PathCanonize(name);
+                        ADM_PathStripName(str);
                         if(rw)
                                 prefs->set(LASTDIR_WRITE,(ADM_filename *)str);			
                         else

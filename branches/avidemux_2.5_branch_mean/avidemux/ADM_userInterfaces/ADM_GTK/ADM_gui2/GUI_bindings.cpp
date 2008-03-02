@@ -625,7 +625,7 @@ void GUI_initCustom(void )
 
   for(int i=0;i<ADM_nbCustom;i++)
   {
-    go = gtk_menu_item_new_with_mnemonic (GetFileName(customNames[i]));
+    go = gtk_menu_item_new_with_mnemonic (ADM_GetFileName(customNames[i]));
     gtk_widget_show (go);
     gtk_container_add (GTK_CONTAINER (menu), go);
     rank=ACT_CUSTOM_BASE+i;

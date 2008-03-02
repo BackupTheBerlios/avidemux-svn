@@ -172,10 +172,11 @@ void simplify_path(char **buf){
 	}
 }
 
-//
-//	Make it absolute
-//
-char *PathCanonize(const char *tmpname)
+/**
+        \fn ADM_PathCanonize
+        \brief Canonize the path, returns a copy of the absolute path given as parameter
+*/
+char *ADM_PathCanonize(const char *tmpname)
 {
 	char path[300];
 	char *out ;
@@ -218,11 +219,12 @@ char *PathCanonize(const char *tmpname)
 	simplify_path(&out);
 	return out;
 }
-/*
-	Strip the path and only keep the name
+/**
+        \fn ADM_PathStripName
+	\brief Returns path only /foo/bar.avi -> /foo INPLACE, no copy done
 
 */
-void		PathStripName(char *str)
+void		ADM_PathStripName(char *str)
 {
 		int len=strlen(str);
 		if(len<=1) return;
@@ -238,11 +240,12 @@ void		PathStripName(char *str)
 		}
 }
 
-/*
-	Get the filename without path
+/**
+    \fn ADM_GetFileName
+    \brief Get the filename without path. /foo/bar.avi -> bar.avi INPLACE, NO COPY
 
 */
-const char *GetFileName(const char *str)
+const char *ADM_GetFileName(const char *str)
 {
 	char *filename;
         char *filename2;
@@ -263,16 +266,17 @@ const char *GetFileName(const char *str)
 		return str;
 }
 
-/*
-	Split patch into absolute path+name and extention
+/**
+    \fn ADM_PathSplit
+    \brief Split path into absolute path+name and extention i.e. /foo/bar/zee.avi -> /foo/bar/zee,avi.             Copy are returned
 
 */
-void PathSplit(char *str, char **root, char **ext)
+void ADM_PathSplit(char *str, char **root, char **ext)
 {
 	char *full;
 	uint32_t l;
 
-		full=PathCanonize(str);
+		full=ADM_PathCanonize(str);
 		// Search the last .
 		l=strlen(full);
 		l--;

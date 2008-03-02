@@ -528,7 +528,7 @@ void MainWindow::buildCustomMenu(void)
 
 		for(int i=0; i < ADM_nbCustom; i++)
 		{
-			customActions[i] = new QAction(GetFileName(customNames[i]), NULL);
+			customActions[i] = new QAction(ADM_GetFileName(customNames[i]), NULL);
 			ui.menuCustom->addAction(customActions[i]);
 			connect(customActions[i], SIGNAL(triggered()), this, SLOT(custom()));
 		}

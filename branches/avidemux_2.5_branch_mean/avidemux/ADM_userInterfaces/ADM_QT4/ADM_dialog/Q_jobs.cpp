@@ -144,7 +144,7 @@ uint8_t jobsWindow::updateRows(void)
    for(int i=0;i<_nbJobs;i++)
    {
       j=&(desc[i]);
-      ADM_setText(GetFileName(_jobsName[i]),0,i,WIDGET(tableWidget));
+      ADM_setText(ADM_GetFileName(_jobsName[i]),0,i,WIDGET(tableWidget));
       ADM_setText(StringStatus[j->status],1,i,WIDGET(tableWidget));
       
       sprintf(str,"%02u:%02u:%02u",j->startDate.hours,j->startDate.minutes,j->startDate.seconds);
@@ -168,7 +168,7 @@ int jobsWindow::DeleteOne(bool b)
 {
   int sel=WIDGET(tableWidget)->currentRow();
         if(sel<=0 || sel>=_nbJobs) return 0;
-        if(GUI_Confirmation_HIG(QT_TR_NOOP("Sure!"),QT_TR_NOOP("Delete job"),QT_TR_NOOP("Are you sure you want to delete %s job ?"),GetFileName(_jobsName[sel])))
+        if(GUI_Confirmation_HIG(QT_TR_NOOP("Sure!"),QT_TR_NOOP("Delete job"),QT_TR_NOOP("Are you sure you want to delete %s job ?"),ADM_GetFileName(_jobsName[sel])))
         {
                 desc[sel].status=STATUS_DELETED;
         }

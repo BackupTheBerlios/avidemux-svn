@@ -96,15 +96,16 @@ extern adm_fast_memcpy myAdmMemcpy;
 }
 #endif
 // Compatibility with fprintf etc.. with long long & win32
+// ADM_cleanupPath returns a cleaned up copy of the parameter
 #ifdef ADM_WIN32
         #define LLX "I64x"
         #define LLU "I64u"
         
-        #define cleanupPath(x) slashToBackSlash(x)
+        #define ADM_cleanupPath(x) ADM_slashToBackSlash(x)
 #else
         #define LLX "llx"
         #define LLU "llu"
-        #define cleanupPath(x) ADM_strdup(x)
+        #define ADM_cleanupPath(x) ADM_strdup(x)
 #endif
 
 

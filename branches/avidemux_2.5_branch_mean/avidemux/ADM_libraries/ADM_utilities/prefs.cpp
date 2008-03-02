@@ -33,7 +33,6 @@
 #undef free
 extern char *ADM_getBaseDir(void);
 #define CONFIG "config"
-extern char *PathCanonize(const char *tmpname);
 extern int  qxmlSaveFormatFile(const char *filename, xmlDocPtr cur, int format);
 static char *checkDirAccess(char *home);
 extern char *ADM_escape(const ADM_filename *incoming);
@@ -839,7 +838,7 @@ int preferences::set_lastfile(const char* file){
 		fprintf(stderr,"Prefs: set_lastfile(NULL) called\n");
 		return RC_FAILED;
 	}
-	internal_file = PathCanonize(file);
+	internal_file = ADM_PathCanonize(file);
 	if( !internal_file ){
 		fprintf(stderr,"Prefs: set_lastfile(): PathCanonize() returns NULL\n");
 		return RC_FAILED;

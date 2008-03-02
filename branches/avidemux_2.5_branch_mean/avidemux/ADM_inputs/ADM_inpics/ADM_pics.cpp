@@ -161,7 +161,7 @@ uint8_t picHeader::open(char *inname)
     // Then spit the name in name and extension
     char *name;
     char *extension;
-    PathSplit(inname, &name, &extension);
+    ADM_PathSplit(inname, &name, &extension);
 
 
     nnum = 1;

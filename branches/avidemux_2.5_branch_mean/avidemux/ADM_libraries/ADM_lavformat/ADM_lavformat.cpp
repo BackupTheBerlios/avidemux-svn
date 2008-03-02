@@ -227,7 +227,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                         // probably a memeleak here
                         char *foo=ADM_strdup(filename);
                         
-                        strcpy(oc->title,GetFileName(foo));
+                        strcpy(oc->title,ADM_GetFileName(foo));
                         strcpy(oc->author,"Avidemux");
                         c->sample_aspect_ratio.num=1;
                         c->sample_aspect_ratio.den=1;

@@ -109,7 +109,7 @@ printf("\n **Saving script project **\n");
 
   for (uint32_t i = 0; i < _nb_video; i++)
     {
-        nm=cleanupPath(_videos[i]._aviheader->getMyName() );
+        nm=ADM_cleanupPath(_videos[i]._aviheader->getMyName() );
         if(vop)
         {
           qfprintf(fd,"app.forceUnpack();\n");
@@ -175,7 +175,7 @@ char *pth;
         qfprintf(fd,"\n//** Video Codec conf **\n");
         videoCodecGetConf(&extraDataSize,&extraData);
         
-        pth= cleanupPath(name );
+        pth= ADM_cleanupPath(name );
         qfprintf(fd,"app.video.codec(\"%s\",\"%s\",\"",videoCodecGetName(),videoCodecGetMode());
         ADM_dealloc(pth);
         // Now deal with extra data
@@ -210,7 +210,7 @@ char *pth;
 
         if(source!=AudioAvi)
         {
-                char *nm=cleanupPath(audioName);
+                char *nm=ADM_cleanupPath(audioName);
                 qfprintf(fd,"app.audio.load(\"%s\",\"%s\");\n", audioSourceFromEnum(source),nm); 
                 ADM_dealloc(nm);
         }
@@ -273,7 +273,7 @@ char *pth;
   qfprintf(fd,"app.setContainer(\"%s\");\n",getCurrentContainerAsString());
   if(outputname)
   {
-        char *o=cleanupPath(outputname);
+        char *o=ADM_cleanupPath(outputname);
         qfprintf(fd,"setSuccess(app.save(\"%s\"));\n",o);
         ADM_dealloc(o);
   }

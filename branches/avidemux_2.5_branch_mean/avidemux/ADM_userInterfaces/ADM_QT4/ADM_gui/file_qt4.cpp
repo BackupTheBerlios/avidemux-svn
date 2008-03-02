@@ -72,8 +72,8 @@ void GUI_FileSelSelect(const char *label, char **name, uint32_t access)
   if(prefs->get(pref_entry,(ADM_filename **)&tmpname))
   {
      DIR *dir;
-        str=PathCanonize(tmpname);
-        PathStripName(str);
+        str=ADM_PathCanonize(tmpname);
+        ADM_PathStripName(str);
         /* LASTDIR may have gone; then do nothing and use current dir instead (implied) */
         if( (dir=opendir(str)) )
         {

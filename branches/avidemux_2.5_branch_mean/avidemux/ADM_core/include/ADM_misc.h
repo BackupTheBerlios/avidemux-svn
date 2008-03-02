@@ -26,14 +26,20 @@ typedef struct
 } ADM_date;
 
 void            TLK_getDate(ADM_date *date);
-void            PathSplit(char *str, char **root, char **ext);
-void	        PathStripName(char *str);
-const char      *GetFileName(const char *str);
-char            *PathCanonize(const char *tmpname);
-void            LowerCase(char *string);
+// /dir/file.ext -> /dir/file and ext returned values are copies
+void            ADM_PathSplit(char *str, char **root, char **ext);
+// Returns path only /foo/bar.avi -> /foo INPLACE, no copy done
+void	        ADM_PathStripName(char *str);
+// Get the filename without path. /foo/bar.avi -> bar.avi INPLACE, NO COPY
+const char      *ADM_GetFileName(const char *str);
+//  Canonize the path, returns a copy of the absolute path given as parameter
+char            *ADM_PathCanonize(const char *tmpname);
+// change to lower case in place the string
+void            ADM_LowerCase(char *string);
+
 uint32_t        getTime( int called );;
 uint32_t 	getTimeOfTheDay(void);
-extern char *slashToBackSlash(char *in);
+//extern char *slashToBackSlash(char *in);
 #ifdef HAVE_GETTIMEOFDAY
 	#define TIMZ struct timezone
 #else
