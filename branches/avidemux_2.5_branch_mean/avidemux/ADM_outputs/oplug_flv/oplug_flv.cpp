@@ -15,15 +15,16 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <string.h>
 #include <math.h>
-#include <pthread.h>
-#define WIN32_CLASH
 
+#include "ADM_default.h"
+#include "ADM_threads.h"
+
+#define WIN32_CLASH
 
 extern "C" {
 #include "ADM_lavcodec.h"
@@ -32,7 +33,6 @@ extern "C" {
 #include "ADM_editor/ADM_Video.h"
 #include "ADM_colorspace/colorspace.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include <ADM_assert.h>
 #include "ADM_video/ADM_genvideo.hxx"
 #include "ADM_filter/video_filters.h"
 

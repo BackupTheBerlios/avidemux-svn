@@ -21,23 +21,22 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <sys/stat.h>
-#include <pthread.h>
+
+#include "ADM_default.h"
+#include "ADM_threads.h"
+
 #define WIN32_CLASH
 #include "interact.hpp"
 
 #undef malloc
 #undef realloc
 #undef free
-#include <ADM_assert.h>
 
-#include "ADM_default.h"
 #include "ADM_toolkit/toolkit.hxx"
 
 #include "ADM_audiofilter/audioprocess.hxx"
@@ -49,7 +48,6 @@
 #include "ADM_editor/ADM_Video.h"
 
 #include "ADM_lavformat/ADM_lavformat.h"
-
 
 #include "ADM_osSupport/ADM_debugID.h"
 #define MODULE_NAME MODULE_LAVFORMAT

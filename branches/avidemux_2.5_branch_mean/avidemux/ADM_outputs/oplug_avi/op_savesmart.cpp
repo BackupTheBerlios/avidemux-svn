@@ -14,16 +14,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <unistd.h>
-
 #include <time.h>
 #include <sys/time.h>
-#include <pthread.h>
+
+#include "ADM_default.h"
+#include "ADM_threads.h"
+
 #define WIN32_CLASH
 #ifdef USE_FFMPEG
 extern "C" {
@@ -44,9 +45,6 @@ extern "C" {
 #include "ADM_filter/video_filters.h"
 //#include "ADM_codecs/ADM_divxEncode.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
-
-#include "ADM_assert.h" 
-
 
 #include "oplug_avi/op_aviwrite.hxx"
 #include "oplug_avi/op_avisave.h"

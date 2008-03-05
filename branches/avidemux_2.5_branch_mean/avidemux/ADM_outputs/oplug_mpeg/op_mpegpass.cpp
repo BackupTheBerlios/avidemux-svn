@@ -11,8 +11,6 @@
 //
 //
 
-#include "config.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -20,14 +18,11 @@
 #include <sys/time.h>
 #include <errno.h>
 
-
 #include "ADM_default.h"
-
-
+#include "ADM_threads.h"
 
 #define WIN32_CLASH
 #include "avi_vars.h"
-#include <ADM_assert.h>
 #include "ADM_audiofilter/audioprocess.hxx"
 
 #include "DIA_encoding.h"

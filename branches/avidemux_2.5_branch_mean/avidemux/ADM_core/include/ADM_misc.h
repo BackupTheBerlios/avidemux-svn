@@ -37,9 +37,9 @@ char            *ADM_PathCanonize(const char *tmpname);
 // change to lower case in place the string
 void            ADM_LowerCase(char *string);
 
-uint32_t        getTime( int called );;
+uint32_t        getTime( int called );
 uint32_t 	getTimeOfTheDay(void);
-//extern char *slashToBackSlash(char *in);
+
 #ifdef HAVE_GETTIMEOFDAY
 	#define TIMZ struct timezone
 #else

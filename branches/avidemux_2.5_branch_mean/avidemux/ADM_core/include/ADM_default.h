@@ -25,15 +25,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ADM_inttype.h"              
+#include "ADM_inttype.h"
 #include "ADM_assert.h"
 
 #ifdef __cplusplus
 #include "ADM_cpuCap.h"
 #include "ADM_clock.h"
-#include "ADM_threads.h"
 #include "ADM_misc.h"
 #endif
 
-#include "ADM_mangle.h"                                                        
+#include "ADM_mangle.h"
 #endif

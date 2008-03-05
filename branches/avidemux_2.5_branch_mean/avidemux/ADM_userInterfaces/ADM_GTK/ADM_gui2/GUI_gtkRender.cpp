@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "config.h"
 #include <gtk/gtk.h>
 #ifdef ADM_WIN32
 #define WIN32_CLASH

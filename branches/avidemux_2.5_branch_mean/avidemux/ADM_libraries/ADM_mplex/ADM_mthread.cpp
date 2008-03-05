@@ -12,19 +12,18 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <string.h>
 #include <math.h>
-#include <pthread.h>
-#define WIN32_CLASH
+
 #include "ADM_default.h"
+#include "ADM_threads.h"
+
+#define WIN32_CLASH
 
 #include "ADM_toolkit/toolkit.hxx"
-#include <ADM_assert.h>
-
 #include "ADM_editor/ADM_edit.hxx"
 #include "ADM_video/ADM_genvideo.hxx"
 

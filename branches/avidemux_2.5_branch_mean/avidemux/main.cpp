@@ -16,17 +16,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include "ADM_default.h"
 
 #ifdef ADM_WIN32
 #define WIN32_CLASH
 #include <windows.h>
-#include <wingdi.h>
 #include <excpt.h>
 #endif
 
-#include "ADM_default.h"
-
-
+#include "ADM_threads.h"
 #define __DECLARE__
 #include "avi_vars.h"
 
