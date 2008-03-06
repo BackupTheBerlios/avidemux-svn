@@ -46,7 +46,7 @@
 #include "../ADM_toolkit_gtk/ADM_jogshuttle.h"
 #include "gtkgui.h"
 
-uint8_t UI_getPhysicalScreenSize(uint32_t *w,uint32_t *h);
+extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w,uint32_t *h);
 
 
 #define WOD(x) lookup_widget (guiRootWindow,#x)
@@ -54,7 +54,7 @@ uint8_t UI_getPhysicalScreenSize(uint32_t *w,uint32_t *h);
 void frame2time(uint32_t frame, uint32_t fps, uint16_t * hh, uint16_t * mm,
 	   uint16_t * ss, uint16_t * ms);
 
-static GtkWidget *guiRootWindow=NULL;
+GtkWidget *guiRootWindow=NULL;
 static GtkWidget *guiDrawingArea=NULL;
 static GtkWidget *guiSlider=NULL;
 
@@ -329,7 +329,7 @@ uint32_t w,h;
 		GUI_initCursor(  );
     
                 
-                UI_getPhysicalScreenSize(&w,&h); //gtk_widget_get_parent_window (guiRootWindow));
+                UI_getPhysicalScreenSize(guiRootWindow, &w, &h);
                 printf("The screen seems to be %u x %u px\n",w,h);
  
                 GUI_gtk_grow_off(1);
@@ -1287,7 +1287,6 @@ extern int global_argc;
 extern char **global_argv;
 typedef gboolean GCALL       (void *);
 extern int automation(void );
-extern uint8_t UI_getPhysicalScreenSize(uint32_t *w,uint32_t *h);
 extern void initTranslator(void);
 
 int UI_Init(int argc, char **argv)

@@ -149,7 +149,7 @@ uint8_t A_TimeShift(void);
 PARAM_MUX muxMode = MUX_REGULAR;
 int muxParam = 0;
 
-extern uint8_t UI_getPhysicalScreenSize(uint32_t *w,uint32_t *h);
+extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w,uint32_t *h);
 extern uint8_t GUI_jobs(void);
 extern bool parseECMAScript(const char *name);
 void A_parseECMAScript(const char *name);
@@ -1063,7 +1063,7 @@ void  updateLoaded ()
   
   /* Zoom out if needed */
   uint32_t phyW,phyH;
-  UI_getPhysicalScreenSize(&phyW,&phyH);
+  UI_getPhysicalScreenSize(NULL, &phyW,&phyH);
   if(phyW<avifileinfo->width || phyH<avifileinfo->height)
   {
       if(phyW<avifileinfo->width/2 || phyH<avifileinfo->height/2)
