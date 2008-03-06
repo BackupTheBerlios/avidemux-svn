@@ -107,6 +107,7 @@ ADM_Audiocodec *out = NULL;
 
 					break;
 #endif
+#if 0
 #ifdef USE_MP3
 				case WAV_MP3:
 				case WAV_MP2:
@@ -114,6 +115,7 @@ ADM_Audiocodec *out = NULL;
 
 					out= (ADM_Audiocodec *) new ADM_AudiocodecMP3(fourcc);
                   break;
+#endif
 #endif
 #ifdef USE_VORBIS
 				case WAV_OGG:

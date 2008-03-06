@@ -57,7 +57,7 @@ const char* audioFilterGetIndexedName(uint32_t i);
 typedef struct externalSource
 {
  AudioSource type;
- char *name;       
+ const char *name;       
 }externalSource;
 
 static const externalSource Sources[]=
@@ -70,7 +70,7 @@ static const externalSource Sources[]=
 };
 typedef struct Mixer_String
 {
-  char         *name;
+  const char   *name;
   CHANNEL_CONF conf;
 };
 

@@ -31,6 +31,27 @@
 #define Frame ((mad_frame *)_frame)
 #define Synth ((mad_synth *)_synth)
 
+#define ADM_MP3_BUFFER (48*1024)
+class ADM_AudiocodecMP3 : public     ADM_Audiocodec
+{
+	protected:
+		uint32_t _head;
+		uint32_t _tail;
+		uint8_t _buffer[ADM_MP3_BUFFER];
+		void *_stream;
+		void *_frame;
+		void *_synth;
+
+	public:
+		ADM_AudiocodecMP3(uint32_t fourcc);
+		virtual	~ADM_AudiocodecMP3() ;
+		virtual	uint8_t beginDecompress(void);
+		virtual	uint8_t endDecompress(void);
+		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
+		virtual	uint8_t isCompressed(void) {return 1;}
+		virtual	uint8_t isDecompressable(void) {return 1;}
+};
+
 ADM_AudiocodecMP3::ADM_AudiocodecMP3( uint32_t fourcc) :   ADM_Audiocodec(fourcc)
 {
         if((fourcc!=WAV_MP3) && (fourcc!=WAV_MP2))

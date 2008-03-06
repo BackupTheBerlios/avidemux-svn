@@ -1,3 +1,19 @@
+/** *************************************************************************
+    \fn 	ADM_dynamicLoading.cpp
+    \brief 	Wrapper for dlopen & friends  
+                      
+    copyright            : (C) 2008 by Gruntster
+    
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ ***************************************************************************/
+
 #include "config.h"
 
 #include <stdlib.h>
@@ -9,7 +25,7 @@
 #include <dlfcn.h>
 #endif
 
-#include "libwrapper.h"
+#include "ADM_dynamicLoading.h"
 
 ADM_LibWrapper::ADM_LibWrapper()
 {
