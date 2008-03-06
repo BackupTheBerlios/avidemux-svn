@@ -73,6 +73,7 @@ extern void ADM_memStat( void );
 extern void ADM_memStatInit( void );
 extern void ADM_memStatEnd( void );
 extern void getUIDescription(char*);
+extern uint8_t ADM_ad_loadPlugins(void);
 
 #ifdef ADM_WIN32
 extern EXCEPTION_DISPOSITION exceptionHandler(struct _EXCEPTION_RECORD* pExceptionRec, void* pEstablisherFrame, struct _CONTEXT* pContextRecord, void* pDispatcherContext);
@@ -229,8 +230,10 @@ int main(int argc, char *argv[])
 	{
 		filterDynLoad(dynloadPath);
 	}
+	
 	ADM_dealloc(dynloadPath);
-
+	// Load audio codec plugin
+	ADM_ad_loadPlugins();
     ADM_lavInit();
 #ifdef HAVE_AUDIO
     AVDM_audioInit();

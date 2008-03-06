@@ -7,6 +7,7 @@ subdirs(PREORDER ADM_libMad)
 
 
 include_directories(../../)
+include_directories(../../../ADM_audiocodec)
 include_directories(ADM_libMad)
 
 SET(ADM_ad_Mad_SRCS         ADM_ad_mad.cpp )

@@ -28,6 +28,8 @@
 #include "ADM_audiofilter/audiofilter_channel_route.h"
 #include "ADM_libraries/ADM_libwrapper/libwrapper_global.h"
 
+extern ADM_Audiocodec *ADM_ad_searchCodec(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData);
+
 ADM_Audiocodec	*getAudioCodec(uint32_t fourcc,WAVHeader *info,uint32_t extra,uint8_t *extraData)
 {
 ADM_Audiocodec *out = NULL;
@@ -156,6 +158,8 @@ ADM_Audiocodec *out = NULL;
                 printf("\n Audio codec:  ffQDM2\n");
                 out= (ADM_Audiocodec *) new ADM_AudiocodecWMA(fourcc,info,extra,extraData);
                 break;
+            default:
+            	out= ADM_ad_searchCodec(fourcc,info,extra,extraData);
         	}
 
 	if (out == NULL)

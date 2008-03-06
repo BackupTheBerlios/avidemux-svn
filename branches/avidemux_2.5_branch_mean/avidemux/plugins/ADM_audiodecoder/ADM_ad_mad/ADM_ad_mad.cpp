@@ -14,16 +14,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ADM_assert.h>
-#include <math.h>
+#include "ADM_default.h"
+#include "ADM_ad_plugin.h"
 
-#include "config.h"
-#include "fourcc.h"
-#include "ADM_audio/aviaudio.hxx"
-#include "ADM_audiocodec/ADM_audiocodec.h"
+#define OurClass ADM_AudiocodecMP3
 
 #ifdef USE_MP3
 #include "../ADM_libMad/mad.h"
@@ -51,6 +45,44 @@ class ADM_AudiocodecMP3 : public     ADM_Audiocodec
 		virtual	uint8_t isCompressed(void) {return 1;}
 		virtual	uint8_t isDecompressable(void) {return 1;}
 };
+//********************************************************
+extern "C" { 
+ADM_Audiocodec *create(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData) 
+{ 
+	return new ADM_AudiocodecMP3(fourcc);
+}
+ADM_Audiocodec *destroy(ADM_Audiocodec *codec) 
+{ 
+	ADM_AudiocodecMP3 *a=(ADM_AudiocodecMP3 *)codec;
+	delete a;
+}
+bool supportedFormat(uint32_t audioFourcc) 
+{ 
+	switch(audioFourcc)
+	{
+	case WAV_MP2:
+	case WAV_MP3: return true;
+	default:
+		return false;
+	}
+}
+uint32_t getApiVersion(void)
+{
+		return AD_API_VERSION;
+}
+
+bool getDecoderVersion(uint32_t *major,uint32_t *minor, uint32_t *patch)
+{
+	*major=*minor=0;
+	*patch=1;
+	return true;
+}
+const char *getInfo(void)
+{
+	return "LibMad decoder plugin for avidemux (c) Mean\n";
+}
+}
+//********************************************************
 
 ADM_AudiocodecMP3::ADM_AudiocodecMP3( uint32_t fourcc) :   ADM_Audiocodec(fourcc)
 {
