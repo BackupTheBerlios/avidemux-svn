@@ -102,28 +102,6 @@ ADM_Audiocodec *out = NULL;
 
 					break;
 #endif
-#ifdef USE_VORBIS
-				case WAV_OGG:
-						printf("\n Ogg/Vorbis \n");
-						out= (ADM_Audiocodec *) new ADM_vorbis(fourcc,info,
-								extra,extraData);
-						break;
-#endif		
-#ifdef USE_FAAD
-                                case WAV_AAC_HE:
-						printf("\n MP4 audio (HE)\n");
-						out= (ADM_Audiocodec *) new ADM_faad(fourcc,1,info,
-								extra,extraData);
-						break;
-
-				case WAV_AAC:
-				case WAV_MP4:
-                                case 0x706D:  // Weird fourcc/id code used by mencoder
-						printf("\n MP4 audio \n");
-						out= (ADM_Audiocodec *) new ADM_faad(fourcc,0,info,
-								extra,extraData);
-						break;
-#endif
 				case WAV_ULAW:
 						printf("\n ULAW codec\n");
 						out=(ADM_Audiocodec *) new ADM_AudiocodecUlaw(fourcc,info);
