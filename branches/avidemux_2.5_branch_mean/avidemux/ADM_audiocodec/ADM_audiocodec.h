@@ -74,26 +74,6 @@ class ADM_AudiocodecUnknown : public     ADM_Audiocodec
 		uint8_t isDecompressable(void) {return 0;}
 };
 
-#ifdef USE_AC3
-#define ADM_AC3_BUFFER (50000*2)
-class ADM_AudiocodecAC3 : public     ADM_Audiocodec
-{
-	protected:
-		void *ac3_handle;
-		void *ac3_sample;
-		uint32_t _downmix;
-
-	public:
-		ADM_AudiocodecAC3(uint32_t fourcc, WAVHeader *info);
-		virtual	~ADM_AudiocodecAC3();
-		virtual	uint8_t beginDecompress(void);
-		virtual	uint8_t endDecompress(void);
-		virtual	uint8_t run(uint8_t *inptr, uint32_t nbIn, float *outptr, uint32_t *nbOut);
-		virtual	uint8_t isCompressed(void) {return 1;}
-		virtual	uint8_t isDecompressable(void) {return 1;}
-
-   };
-#endif
 
 #ifdef USE_LIBDCA
 class ADM_AudiocodecDCA : public     ADM_Audiocodec

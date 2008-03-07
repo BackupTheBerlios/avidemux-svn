@@ -92,13 +92,6 @@ ADM_Audiocodec *out = NULL;
 					out= (ADM_Audiocodec *)new ADM_AudiocodecWav(fourcc);
 #endif					
                   		break;
-#ifdef USE_AC3
-				case WAV_AC3:
-        				printf("\n Audio codec:  AC3\n");
-
-					out= (ADM_Audiocodec *) new ADM_AudiocodecAC3(fourcc, info);
-                  break;
-#endif
 #ifdef USE_LIBDCA
                 case WAV_DTS:
 					if (dca->isAvailable())
@@ -108,16 +101,6 @@ ADM_Audiocodec *out = NULL;
 					}
 
 					break;
-#endif
-#if 0
-#ifdef USE_MP3
-				case WAV_MP3:
-				case WAV_MP2:
-        				printf("\n Audio codec:  MP2-3\n");
-
-					out= (ADM_Audiocodec *) new ADM_AudiocodecMP3(fourcc);
-                  break;
-#endif
 #endif
 #ifdef USE_VORBIS
 				case WAV_OGG:

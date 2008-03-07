@@ -1,6 +1,11 @@
 /**
         \file ADM_pluginLoad.cpp
         \brief Interface for dynamically loaded audio decoder
+        
+        There are 2 known problem here
+        1: The destructor is called instead of calling destroy in the class factory
+        2: Memory leak, ADM_audioPlugins is not destroyed as of today
+        
 */
 
 
@@ -28,6 +33,7 @@ public:
 	ADM_ad_GetApiVersion		*getApiVersion;
 	ADM_ad_GetDecoderVersion	*getDecoderVersion;
 	ADM_ADM_ad_GetInfo			*getInfo;
+	ADM_LibWrapper				*wrapper;
 };
 
 std::vector<ADM_ad_plugin *> ADM_audioPlugins;
@@ -64,6 +70,7 @@ static uint8_t tryLoadingAudioPlugin(const char *file)
 	 uint32_t major,minor,patch;
 	 const char *desc;
 	 blank.getDecoderVersion(&major,&minor,&patch);
+	 blank.wrapper=wrapper;
 	 desc=blank.getInfo();
 	 // Print out stuff
 	 printf("[ADM_ad_plugin] Plugin loaded version %d.%d.%d, desc : %s\n",major,minor,patch,desc);
@@ -87,7 +94,7 @@ Err_ad:
 uint8_t ADM_ad_loadPlugins(void)
 {
 #define MAX_EXTERNAL_FILTER 50
-	  char *path="/home/fx/workspace/avidemux_git/avidemux_2.5_branch_mean/Build/avidemux/plugins/ADM_audiodecoder/ADM_ad_mad";
+	  char *path="/home/fx/ADM_plugins";
 	  char *files[MAX_EXTERNAL_FILTER];
 	  uint32_t nbFile;
 	  

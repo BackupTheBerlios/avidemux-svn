@@ -1,5 +1,5 @@
 
-SET(ADM_audiocodec_SRCS ADM_8bits.cpp       ADM_codecac3.cpp   
+SET(ADM_audiocodec_SRCS ADM_8bits.cpp          
 ADM_codecimaadpcm.cpp  
 ADM_codecmsadpcm.cpp  
 ADM_codeculaw.cpp  ADM_codecwma.cpp  ADM_lpcm.cpp
