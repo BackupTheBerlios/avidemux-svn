@@ -39,13 +39,13 @@ static uint8_t tryLoadingAudioPlugin(const char *file)
 {
 	ADM_ad_plugin blank;
 	printf("[ADM_ad_plugin] Scanning %s\n",ADM_GetFileName(file));
-	ADM_LibWrapper wrapper;
-	 if(true!=wrapper.loadLibrary(file))
+	ADM_LibWrapper *wrapper=new ADM_LibWrapper;
+	 if(true!=wrapper->loadLibrary(file))
 	 {
 		 printf("Load failed\n");
-		 return 0;
+		 goto Err_ad;
 	 }
-#define FUNCKY(a,b,c)	 blank.a=(b *)wrapper.getSymbol(#c); if(!blank.a) { printf("[ADM_ad_plugin]"#c" failed\n");return 0;}
+#define FUNCKY(a,b,c)	 blank.a=(b *)wrapper->getSymbol(#c); if(!blank.a) { printf("[ADM_ad_plugin]"#c" failed\n"); goto Err_ad;;}
 	 FUNCKY(create,ADM_ad_CreateFunction,create);
 	 FUNCKY(destroy,ADM_ad_DeleteFunction,destroy);
 	 FUNCKY(supportedFormat,ADM_ad_SupportedFormat,supportedFormat);
@@ -58,7 +58,7 @@ static uint8_t tryLoadingAudioPlugin(const char *file)
 	 {
 		 	printf("[ADM_ad_plugin] File %s has API version too old (%d vs %d)\n",
 		 			ADM_GetFileName(file),ADM_GetFileName(file),AD_API_VERSION);
-		 	return 0;
+		 	 goto Err_ad;
 	 }
 	 // Get infos
 	 uint32_t major,minor,patch;
@@ -67,11 +67,17 @@ static uint8_t tryLoadingAudioPlugin(const char *file)
 	 desc=blank.getInfo();
 	 // Print out stuff
 	 printf("[ADM_ad_plugin] Plugin loaded version %d.%d.%d, desc : %s\n",major,minor,patch,desc);
+	 
 	 //
-	 ADM_ad_plugin *p=new ADM_ad_plugin;
-	 *p=blank;
-	 ADM_audioPlugins.push_back(p);
-	
+	 {
+		 ADM_ad_plugin *p=new ADM_ad_plugin;
+		 *p=blank;
+		 ADM_audioPlugins.push_back(p);
+	 }
+	 return 1;
+Err_ad:
+	delete wrapper;
+	return 0;
 	
 }
 /**
@@ -112,6 +118,7 @@ ADM_Audiocodec *ADM_ad_searchCodec(uint32_t fourcc,	WAVHeader *info,uint32_t ext
 		ADM_ad_plugin *a=ADM_audioPlugins[i];
 		ADM_assert(a);
 		ADM_assert(a->supportedFormat);
+		
 		if(a->supportedFormat(fourcc)==true)
 		{
 			ADM_assert(a->create);

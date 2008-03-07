@@ -26,7 +26,12 @@
 #endif
 
 #include "ADM_dynamicLoading.h"
-
+// By default the library is silent, being part of ADM_core cannot use the debug_id funcs
+#if 1
+#define aprintf(...) {}
+#else
+#define aprintf printf
+#endif
 ADM_LibWrapper::ADM_LibWrapper()
 {
 	initialised = false;
@@ -37,7 +42,7 @@ ADM_LibWrapper::~ADM_LibWrapper()
 {
 	if (hinstLib != NULL)
 	{
-		printf("Unloading library 0x%08x\n", hinstLib);
+		aprintf("Unloading library 0x%08x\n", hinstLib);
 
 	#ifdef ADM_WIN32
 		FreeLibrary((HINSTANCE) hinstLib);
@@ -72,14 +77,14 @@ bool ADM_LibWrapper::loadLibrary(const char* path)
 	{
 		char* lpMsg = formatMessage(GetLastError());
 
-		printf("Unable to load [%s]: %s\n", path, lpMsg);
+		aprintf("Unable to load [%s]: %s\n", path, lpMsg);
 		LocalFree(lpMsg);
 
 		return false;
 	}
 	else
 	{
-		printf("Loaded library %s, handle = 0x%08x\n", path, hinstLib);
+		aprintf("Loaded library %s, handle = 0x%08x\n", path, hinstLib);
 
 		return true;
 	}
@@ -88,13 +93,13 @@ bool ADM_LibWrapper::loadLibrary(const char* path)
 	
 	if (hinstLib == NULL)
 	{
-		printf("Unable to load [%s]: %s\n", path, dlerror());
+		aprintf("Unable to load [%s]: %s\n", path, dlerror());
 
 		return false;
 	}
 	else
 	{
-		printf("Loaded library %s, handle = 0x%08x\n", path, hinstLib);
+		aprintf("Loaded library %s, handle = 0x%08x\n", path, hinstLib);
 
 		return true;
 	}
@@ -110,7 +115,7 @@ void* ADM_LibWrapper::getSymbol(const char* name)
 	{
 		char* lpMsg = formatMessage(GetLastError());
 
-		printf("Unable to find symbol [%s]: %s\n", name, lpMsg);
+		aprintf("Unable to find symbol [%s]: %s\n", name, lpMsg);
 		LocalFree(lpMsg);
 	}
 
@@ -120,7 +125,7 @@ void* ADM_LibWrapper::getSymbol(const char* name)
 
 	if (procAddr == NULL)
 	{
-		printf("Unable to find symbol [%s]: %s\n", name, dlerror());
+		aprintf("Unable to find symbol [%s]: %s\n", name, dlerror());
 	}
 
 	return procAddr;
