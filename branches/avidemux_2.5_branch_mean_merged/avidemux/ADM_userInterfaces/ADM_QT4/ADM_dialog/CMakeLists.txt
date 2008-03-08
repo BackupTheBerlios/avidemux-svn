@@ -1,0 +1,35 @@
+SET(ADM_LIB ADM_dialogQt4)
+
+SET(${ADM_LIB}_Q
+	asharp
+	chromashift
+	contrast
+	eq2
+	crop
+	encoding
+	hue
+	props
+	resizing
+	jobs
+	working
+	vobsub)
+
+SET(${ADM_LIB}_T
+	flyDialog
+	index_pg
+	QCanvas)
+
+SET(${ADM_LIB}_SRCS
+	alert_qt4.cpp
+	DIA_busy.cpp
+	DIA_none.cpp
+	DIA_x264.cpp
+	DIA_xvid4.cpp
+	OCR_none.cpp)
+
+IF(USE_FREETYPE)
+	SET(${ADM_LIB}_SRCS ${${ADM_LIB}_SRCS} DIA_srt.cpp)
+	SET(${ADM_LIB}_Q ${${ADM_LIB}_Q} srt)
+ENDIF(USE_FREETYPE)
+
+INCLUDE(adm_qt4)

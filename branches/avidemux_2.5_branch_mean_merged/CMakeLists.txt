@@ -1,0 +1,164 @@
+MESSAGE("#####################################")
+MESSAGE("Configure Started")
+MESSAGE("#####################################")
+MESSAGE("")
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.4.7 FATAL_ERROR)
+SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" "${CMAKE_MODULE_PATH}")
+
+PROJECT(Avidemux)
+
+IF (${Avidemux_SOURCE_DIR} MATCHES ${Avidemux_BINARY_DIR})
+	MESSAGE("Please do an out-of-tree build:")
+	MESSAGE("rm CMakeCache.txt; mkdir build; cd build; cmake ..; make")
+	MESSAGE(FATAL_ERROR "in-tree-build detected")
+ENDIF (${Avidemux_SOURCE_DIR} MATCHES ${Avidemux_BINARY_DIR})
+
+INCLUDE(CheckCXXCompilerFlag)
+INCLUDE(admConfigHelper)
+
+MESSAGE("")
+
+########################################
+# Global options
+########################################
+OPTION(VERBOSE "" OFF)
+OPTION(LATE_BINDING "" OFF)
+
+IF (LATE_BINDING)
+	SET(USE_LATE_BINDING 1)
+ENDIF (LATE_BINDING)
+
+########################################
+# Avidemux system specific tweaks
+########################################
+INCLUDE(admDetermineSystem)
+
+IF (CYGWIN)
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mwin32")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwin32")
+ENDIF (CYGWIN)
+
+IF (ADM_CPU_ALTIVEC)
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${ADM_ALTIVEC_FLAGS}")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ADM_ALTIVEC_FLAGS}")
+ENDIF (ADM_CPU_ALTIVEC)
+
+IF (UNIX AND NOT APPLE)
+	# jog shuttle is only available on Linux due to its interface
+	SET(USE_JOG 1)
+ENDIF (UNIX AND NOT APPLE)
+
+########################################
+# Standard Avidemux defines
+########################################
+SET(VERSION 2.5)
+
+# Define internal flags for GTK+ and Qt4 builds.  These are turned off
+# if a showstopper is found.  CLI is automatically assumed as possible
+# since it uses the minimum set of required libraries and CMake will 
+# fail if these aren't met.
+SET(ADM_UI_GTK 1)
+SET(ADM_UI_QT4 1)
+
+SET(HAVE_AUDIO 1)
+SET(USE_MP3 1)
+SET(USE_AC3 1)
+SET(USE_FFMPEG 1)
+SET(USE_MJPEG 1)
+
+IF (NOT CMAKE_BUILD_TYPE)
+	SET(CMAKE_BUILD_TYPE "Release")
+ELSEIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	SET(ADM_DEBUG 1)
+ENDIF (NOT CMAKE_BUILD_TYPE)
+
+########################################
+# Subversion
+########################################
+OPTION(SVN "" ON)
+
+IF (SVN AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${CMAKE_SOURCE_DIR}/.svn")
+	MESSAGE(STATUS "Checking for Subversion")
+	MESSAGE(STATUS "***********************")
+
+	SET(Subversion_FIND_REQUIRED OFF)
+	FIND_PACKAGE(Subversion)
+
+	IF (Subversion_FOUND)
+		Subversion_WC_INFO(${PROJECT_SOURCE_DIR} Project)
+		MESSAGE(STATUS "  revision: ${Project_WC_REVISION}")
+		SET(ADM_SUBVERSION ${Project_WC_REVISION})
+	ELSE (Subversion_FOUND)
+		MESSAGE(STATUS "Could not find Subversion")
+	ENDIF (Subversion_FOUND)
+	
+	MESSAGE("")
+ENDIF (SVN AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${CMAKE_SOURCE_DIR}/.svn")
+
+IF (NOT Subversion_FOUND)
+	SET(ADM_SUBVERSION 0)
+ENDIF (NOT Subversion_FOUND)
+
+########################################
+# Check for libraries
+########################################
+SET(MSG_DISABLE_OPTION "Disabled per request")
+
+INCLUDE(admCheckRequiredLibs)
+INCLUDE(admCheckUserInterfaceLibs)
+INCLUDE(admCheckVideoCodecLibs)
+INCLUDE(admCheckAudioCodecLibs)
+INCLUDE(admCheckAudioDeviceLibs)
+INCLUDE(admCheckMiscLibs)
+
+########################################
+# Check functions and includes
+########################################
+MESSAGE(STATUS "Checking system headers")
+MESSAGE(STATUS "***********************")
+
+INCLUDE(CheckIncludeFiles)
+INCLUDE(CheckFunctionExists)
+
+CHECK_FUNCTION_EXISTS(gettimeofday HAVE_GETTIMEOFDAY)
+
+CHECK_INCLUDE_FILES(inttypes.h   HAVE_INTTYPES_H)	# internal use, mpeg2enc, mplex
+CHECK_INCLUDE_FILES(stdint.h     HAVE_STDINT_H)		# internal use, mpeg2enc, mplex
+CHECK_INCLUDE_FILES(sys/types.h  HAVE_SYS_TYPES_H)	# mad, mpeg2enc
+CHECK_INCLUDE_FILES(unistd.h     HAVE_UNISTD_H)		# internal use, ass, mad
+CHECK_INCLUDE_FILES(malloc.h     HAVE_MALLOC_H)		# libavcodec, libavutil, libpostproc, libswscale, mplex
+
+MESSAGE("")
+
+########################################
+# Print Summary
+########################################
+IF (VERBOSE)
+	INCLUDE(adm_log)
+	MESSAGE("")
+ENDIF (VERBOSE)
+
+INCLUDE(admConfigSummary)
+MESSAGE("")
+
+########################################
+# Generate config.h
+########################################
+SET(CONFIG_HEADER_TYPE ADM_BUILD_CLI)
+CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/cmake/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config/cli/config.h")
+MESSAGE(STATUS "CLI config.h generated")
+
+SET(CONFIG_HEADER_TYPE ADM_BUILD_GTK)
+CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/cmake/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config/gtk/config.h")
+MESSAGE(STATUS "GTK config.h generated")
+
+SET(CONFIG_HEADER_TYPE ADM_BUILD_QT4)
+CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/cmake/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config/qt4/config.h")
+MESSAGE(STATUS "Qt4 config.h generated")
+
+########################################
+# Directories to build
+########################################
+ADD_SUBDIRECTORY(avidemux)
+ADD_SUBDIRECTORY(po)
