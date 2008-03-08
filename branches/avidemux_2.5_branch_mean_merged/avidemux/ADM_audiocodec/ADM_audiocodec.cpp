@@ -14,22 +14,18 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "ADM_assert.h"
-#include <math.h>
 
-#include "config.h"
-
-#include "fourcc.h"
+#include "ADM_default.h"
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_audiocodec/ADM_audiocodec.h"
 #include "ADM_audiofilter/audiofilter_channel_route.h"
 #include "ADM_libraries/ADM_libwrapper/libwrapper_global.h"
 
 extern ADM_Audiocodec *ADM_ad_searchCodec(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData);
-
+/**
+ * 	\fn getAudioCodec
+ *  \brief instantiate an audio decoder using the parameters as type/parameters..
+ */
 ADM_Audiocodec	*getAudioCodec(uint32_t fourcc,WAVHeader *info,uint32_t extra,uint8_t *extraData)
 {
 ADM_Audiocodec *out = NULL;
@@ -139,12 +135,4 @@ ADM_Audiocodec *out = NULL;
 
 	return out;
 }
-
-ADM_Audiocodec::ADM_Audiocodec( uint32_t fourcc ) {
-    UNUSED_ARG(fourcc);
-	_init=0;
-}
-
-ADM_Audiocodec::~ADM_Audiocodec()
-{}
 

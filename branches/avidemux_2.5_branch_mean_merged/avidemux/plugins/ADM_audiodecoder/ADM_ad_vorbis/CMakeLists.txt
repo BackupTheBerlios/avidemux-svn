@@ -1,3 +1,5 @@
+IF (USE_VORBIS)
+	
 SET(ADM_ad_vorbis_SRCS ADM_ad_vorbis.cpp )
 
 ADD_LIBRARY(ADM_ad_vorbis SHARED ${ADM_ad_vorbis_SRCS})
@@ -5,3 +7,6 @@ ADD_LIBRARY(ADM_ad_vorbis SHARED ${ADM_ad_vorbis_SRCS})
 # FIXME
 ADD_TARGET_CFLAGS(ADM_ad_vorbis "-I${CMAKE_BINARY_DIR}/config/cli")
 ADD_TARGET_CFLAGS(ADM_ad_vorbis "-I${CMAKE_SOURCE_DIR}/avidemux/ADM_audiocodec")
+TARGET_LINK_LIBRARIES(ADM_ad_vorbis  ${VORBIS_LIBRARY_DIR})
+TARGET_LINK_LIBRARIES(ADM_ad_vorbis  ${VORBISENC_LIBRARY_DIR})
+ENDIF (USE_VORBIS)
