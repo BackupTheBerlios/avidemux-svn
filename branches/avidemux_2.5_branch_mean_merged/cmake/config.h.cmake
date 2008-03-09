@@ -23,6 +23,7 @@
 
 #define PACKAGE   "avidemux"
 #define ADMLOCALE "${ADM_LOCALE}"
+#define ADM_INSTALL_DIR "${ADM_INSTALL_DIR}"
 
 #cmakedefine HAVE_AUDIO
 
