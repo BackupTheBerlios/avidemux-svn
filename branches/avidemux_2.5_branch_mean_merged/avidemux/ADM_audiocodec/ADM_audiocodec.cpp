@@ -124,15 +124,20 @@ ADM_Audiocodec *out = NULL;
 		printf("\n Unknown codec : %lu",fourcc);
 		out = (ADM_Audiocodec *) new ADM_AudiocodecUnknown(fourcc);
 	}
-        if(info->channels==1)
-        {
-            ch_route.input_type[0] = CH_MONO;
-        }else
-        {
-	   ch_route.input_type[0] = CH_FRONT_LEFT;
-	   ch_route.input_type[1] = CH_FRONT_RIGHT;
-        }
-
+	// For channel mapping, simple case we do it here so that the decoder does not have
+	// to worry.
+	// For more complicated case (channel >2) , it is up to the decoder to do it...
+	switch(info->channels)
+	{
+			case 1: out->channelMapping[0] = CH_MONO;
+					break;
+			case 2: out->channelMapping[0] = CH_FRONT_LEFT;
+					out->channelMapping[1] = CH_FRONT_RIGHT;
+					break;
+			default:break;
+	
+	
+	}
 	return out;
 }
 
