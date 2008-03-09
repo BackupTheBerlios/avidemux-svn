@@ -16,7 +16,6 @@
   \param param : An opaque structure that contains the codec specific configuration datas
 */
 #include "audioeng_buildfilters.h"
-#include "audiofilter_channel_route.h"
 
 typedef struct ADM_audioEncoderDescriptor
 {

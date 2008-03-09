@@ -18,7 +18,6 @@
 #include "ADM_default.h"
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_audiocodec/ADM_audiocodec.h"
-#include "ADM_audiofilter/audiofilter_channel_route.h"
 #include "ADM_libraries/ADM_libwrapper/libwrapper_global.h"
 
 extern ADM_Audiocodec *ADM_ad_searchCodec(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData);

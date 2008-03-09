@@ -16,7 +16,6 @@
 
 #include "audioeng_process.h"
 #include "audiofilter_mixer.h"
-#include "audiofilter_channel_route.h"
 #include "audiofilter_dolby.h"
 #include <math.h>
 

@@ -17,7 +17,7 @@
 //
 #include "ADM_default.h"
 #include "ADM_ad_plugin.h"
-#include "ADM_audiofilter/audiofilter_channel_route.h"
+
 #include "faad.h"
 
 #define FAAD_BUFFER 2048
