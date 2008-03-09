@@ -20,6 +20,7 @@
 
 #define AUD_PROCESS_BUFFER_SIZE 48000*2*4 // should be enougth 4 seconds of stereo
 #include "ADM_audio/ADM_audiodef.h"
+#include "audiofilter_channel_route.h"
 /**
   This enumerate is used to give a more accurate error when no audio is output from
   an audio filter.
@@ -61,7 +62,8 @@ class AUDMAudioFilter
     //! \param status Status of the fill operation
     virtual uint8_t fillIncomingBuffer(AUD_Status *status);
     //! length in float
-    uint32_t        _length; 
+    uint32_t        _length;
+    
   public:
 /** Constructor
     \param previous : Pointer to previous in chain filter 
@@ -86,5 +88,8 @@ class AUDMAudioFilter
 //! Rewind the stream to the beginning. Used mainly by the normalize filter 
         virtual   uint8_t    rewind(void)  ;
                   uint32_t   getLength(void) {return _length;};
+// Returns the channel mapping, by default it is the on from the previous
+// The value returned is an array up to MAX_CHANNELS                  
+        virtual   CHANNEL_TYPE    *getChannelMapping(void ) {return _previous->getChannelMapping();}
 };
 #endif
