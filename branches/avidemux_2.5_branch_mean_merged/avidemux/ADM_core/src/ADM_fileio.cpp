@@ -21,6 +21,10 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+#ifdef __WIN32
+#include <windows.h>
+#endif
+
 #ifdef __MINGW32__
 #include <glib.h>
 #endif
