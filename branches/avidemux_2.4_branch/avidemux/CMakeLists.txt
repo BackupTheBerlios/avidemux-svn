@@ -244,9 +244,9 @@ add_libs_all_targets(ADM_utilities)
 # Add external libs
 ###########################################
 #iconv
-if(NEEED_LIBICONV)
+if(NEED_LIBICONV)
 	add_libs_all_targets(iconv)
-endif(NEEED_LIBICONV)
+endif(NEED_LIBICONV)
 
 #gettext
 if(ADM_GETTEXT_LIB)
