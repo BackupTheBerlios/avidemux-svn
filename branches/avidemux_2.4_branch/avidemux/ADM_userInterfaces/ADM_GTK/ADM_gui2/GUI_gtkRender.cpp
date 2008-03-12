@@ -43,6 +43,7 @@ extern "C"
 
 void GUI_gtk_grow_off(int onff);
 
+extern GtkWidget *guiRootWindow;
 extern GtkWidget *getDrawWidget(void);
 extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
 
@@ -227,8 +228,15 @@ void UI_centreCanvasWindow(GtkWindow *window, GtkWidget *canvas, int newCanvasWi
 {
 	int winWidth, winHeight, widgetWidth, widgetHeight;
 	GdkScreen *screen = gdk_screen_get_default();
-	int monitorNo = gdk_screen_get_monitor_at_window(screen, GTK_WIDGET(window->transient_parent)->window);
 	GdkRectangle rect;
+	GtkWidget *referenceWidget;
+
+	if (window->transient_parent == NULL)
+		referenceWidget = guiRootWindow;
+	else
+		referenceWidget = GTK_WIDGET(window->transient_parent);
+
+	int monitorNo = gdk_screen_get_monitor_at_window(screen, referenceWidget->window);
 
 	gdk_screen_get_monitor_geometry(screen, monitorNo, &rect);
 	gtk_widget_get_size_request((GtkWidget*)canvas, &widgetWidth, &widgetHeight);
