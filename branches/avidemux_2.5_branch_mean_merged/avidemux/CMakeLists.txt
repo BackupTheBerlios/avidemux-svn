@@ -216,7 +216,6 @@ ADD_ADMLIB_ALL_TARGETS(${ADM_INPUTS})
 # Tails
 #########################################
 SET(ADM_TAILS
-	ADM_core
 	ADM_osSupport
 	ADM_encoder
 	ADM_toolkit
@@ -307,7 +306,7 @@ IF (ADM_UI_QT4)
 		ADM_commonUI_qt4)
 ENDIF (ADM_UI_QT4)
 
-ADD_ADMLIB_ALL_TARGETS(ADM_utilities ADM_core)
+ADD_ADMLIB_ALL_TARGETS(ADM_utilities)
 
 ###########################################
 # External libs
@@ -512,6 +511,8 @@ IF (APPLE)
 	ADD_LIB_ALL_TARGETS("-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib")
 ENDIF (APPLE)
 
+ADD_LIB_ALL_TARGETS(-L${CMAKE_CURRENT_BINARY_DIR}/ADM_core/src -lADM_core)
+
 ###########################################
 # Install
 ###########################################
@@ -525,6 +526,6 @@ IF (ADM_UI_QT4)
 	SET(ADM_EXES ${ADM_EXES} avidemux2_qt4)
 ENDIF (ADM_UI_QT4)
 
-INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
+INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} LIBRARY DESTINATION lib)
 
 # EOF

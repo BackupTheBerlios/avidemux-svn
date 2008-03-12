@@ -260,4 +260,3 @@ uint8_t Mpeg2encDVD::init( uint32_t qz, uint32_t maxbr ,uint32_t fps1000
 		return commonMpeg2Init(qz,maxbr,fps1000,interlaced,bff,wide,fast);
 }
 
-

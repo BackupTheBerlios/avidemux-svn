@@ -30,9 +30,10 @@
 #include "mpeg2_internal.h"
 
 typedef void (*sighandler_t)(int); // MEANX RETSIGTYPE
- 
+extern int ADM_mpeg2dec_mm_support(void);
 
-extern int ADM_mpeg2dec_mm_support(void); // MEANX
+/************************************************************************/
+
 
 #ifdef ACCEL_DETECT
 #ifdef ARCH_X86
