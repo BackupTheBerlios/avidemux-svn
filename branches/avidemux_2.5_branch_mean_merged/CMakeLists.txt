@@ -138,8 +138,6 @@ IF (VERBOSE)
 	MESSAGE("")
 ENDIF (VERBOSE)
 
-INCLUDE(admConfigSummary)
-MESSAGE("")
 
 ########################################
 # Generate config.h
@@ -159,8 +157,16 @@ SET(CONFIG_HEADER_TYPE ADM_BUILD_QT4)
 CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/cmake/config.h.cmake" "${CMAKE_BINARY_DIR}/config/qt4/config.h")
 MESSAGE(STATUS "Qt4 config.h generated")
 
+MESSAGE("")
 ########################################
 # Directories to build
 ########################################
 ADD_SUBDIRECTORY(avidemux)
 ADD_SUBDIRECTORY(po)
+
+########################################
+# Config Summary
+########################################
+INCLUDE(admConfigSummary)
+MESSAGE("")
+

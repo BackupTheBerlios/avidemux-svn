@@ -5,7 +5,10 @@ ADD_LIBRARY(ADM_ad_faad SHARED ${ADM_ad_faad_SRCS})
 
 # FIXME
 
-TARGET_LINK_LIBRARIES(ADM_ad_faad  ${FAAD_LIBRARY_DIR})
-INCLUDE(ad_plugin)
-ADM_audio_plugin(ADM_ad_faad)
+        TARGET_LINK_LIBRARIES(ADM_ad_faad  ${FAAD_LIBRARY_DIR})
+        INCLUDE(ad_plugin)
+        ADM_audio_plugin(ADM_ad_faad)
+	ADD_TARGET_CFLAGS(ADM_ad_faad "-I${FAAD_INCLUDE_DIR}")
+	ADD_TARGET_DEFINITIONS(ADM_ad_faad FAAD_OLD_PROTOTYPE)
+
 ENDIF (USE_FAAD)

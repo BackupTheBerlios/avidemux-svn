@@ -445,11 +445,6 @@ IF (USE_AFTEN)
 	ADD_LIB_ALL_TARGETS("${AFTEN_LIBRARY_DIR}")
 ENDIF (USE_AFTEN)
 
-# FAAD
-#IF (USE_FAAD)
-#	ADD_LIB_ALL_TARGETS("${FAAD_LIBRARY_DIR}")
-#ENDIF (USE_FAAD)
-
 # Secret Rabbit Code
 IF (USE_SRC)
 	ADD_LIB_ALL_TARGETS("${SRC_LIBRARY_DIR}")
@@ -467,8 +462,8 @@ ENDIF (USE_X264)
 ###########################################
 # Plugins
 ###########################################
-
 ADD_SUBDIRECTORY(plugins)
+
 ###########################################
 # UI Specific
 ###########################################
