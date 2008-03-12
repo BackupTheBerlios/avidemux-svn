@@ -172,14 +172,14 @@ char *home;
 #if defined(__WIN32)
         if( ! (home=getenv("USERPROFILE")) )
         {
-          GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("can't determine $USERPROFILE."));
+          GUI_Error_HIG("Oops","can't determine $USERPROFILE.");
                     home="c:\\";
         }
 
 #else
         if( ! (home=getenv("HOME")) )
         {
-          GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("can't determine $HOME."));
+          GUI_Error_HIG("Oops","can't determine $HOME.");
                 return NULL;
         }
 #endif
@@ -190,7 +190,7 @@ char *home;
         strcat(dirname,ADM_DIR_NAME);
         if(!ADM_mkdir(dirname))
         {
-          GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("Cannot create the .avidemux directory"), NULL);
+          GUI_Error_HIG("Oops","Cannot create the .avidemux directory", NULL);
                         delete [] dirname;
                         return NULL;
         }

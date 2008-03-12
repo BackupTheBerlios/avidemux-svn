@@ -19,6 +19,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include <math.h>
 
 #include "../ADM_toolkit_gtk/toolkit_gtk.h"
 #include "ADM_toolkit/toolkit.hxx"

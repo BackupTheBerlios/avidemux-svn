@@ -14,17 +14,13 @@
 //  The pitch stride has to be changed as there could be some padding depending on the OS
 //
 //
-
-#include "ADM_default.h"
+#include "config.h"
 
 #if defined(USE_SDL)
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <string.h>
-#include <time.h>
-#include <sys/time.h>
 
 extern "C" {
 // get rid of warnings due to different definitions
