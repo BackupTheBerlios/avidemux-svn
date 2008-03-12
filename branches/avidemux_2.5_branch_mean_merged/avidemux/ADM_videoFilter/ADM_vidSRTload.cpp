@@ -44,7 +44,7 @@
 #include "ADM_osSupport/ADM_debugID.h"
 #define MODULE_NAME MODULE_FILTER
 #include "ADM_osSupport/ADM_debug.h"
-
+#include <errno.h>
 #define ADM_RAW 1024
 
 static iconv_t myConv=(iconv_t)-1;;
