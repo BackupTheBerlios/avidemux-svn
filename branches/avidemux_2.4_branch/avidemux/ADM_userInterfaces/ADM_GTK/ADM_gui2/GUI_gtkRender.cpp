@@ -111,22 +111,23 @@ void UI_getWindowInfo(void *draw, GUI_WindowInfo *xinfo)
 #ifdef ADM_WIN32
 		xinfo->display = (void*)GDK_WINDOW_HWND(widget->window);
 #elif defined(__APPLE__)
+		xinfo->display = 0;
+		xinfo->window = getMainNSWindow();
+#else
+		xinfo->window = GDK_WINDOW_XWINDOW(widget->window);
+		xinfo->display = GDK_WINDOW_XDISPLAY(win);
+#endif
+
 		int windowWidth, windowHeight;
 		int x, y;
 
 		gdk_drawable_get_size(win, &windowWidth, &windowHeight);
 		gdk_window_get_position(widget->window, &x, &y);
 
-		xinfo->display = 0;
-		xinfo->window = getMainNSWindow();
 		xinfo->x = x;
 		xinfo->y = windowHeight - (y + lastH);
 		xinfo->width = lastW;
 		xinfo->height = lastH;
-#else
-		xinfo->window = GDK_WINDOW_XWINDOW(widget->window);
-		xinfo->display = GDK_WINDOW_XDISPLAY(win);
-#endif
 }
 
 #ifdef ENABLE_WINDOW_SIZING_HACK
