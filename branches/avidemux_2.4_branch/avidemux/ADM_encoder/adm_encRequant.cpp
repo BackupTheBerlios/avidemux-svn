@@ -95,7 +95,7 @@ EncoderRequant::startPass1 (void)
 const char *
 EncoderRequant::getDisplayName (void)
 {
-  return "Requant";
+  return QT_TR_NOOP("Requant");
 }
 
 
