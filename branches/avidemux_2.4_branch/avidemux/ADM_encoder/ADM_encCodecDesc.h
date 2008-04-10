@@ -536,7 +536,7 @@ Mpeg2encParam DVDExtra = {
 
 COMPRES_PARAMS DVDCodec = {
   CodecDVD,
-  QT_TR_NOOP("(DVD) mpeg2enc"),
+  QT_TR_NOOP("DVD (mpeg2enc)"),
   "DVD",
   "Mpeg2enc (DVD)",
   COMPRESS_CQ,
