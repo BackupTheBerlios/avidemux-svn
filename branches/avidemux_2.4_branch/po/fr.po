@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-29 14:51+0000\n"
-"PO-Revision-Date: 2008-04-08 00:04+0100\n"
+"POT-Creation-Date: 2008-04-10 19:53+0100\n"
+"PO-Revision-Date: 2008-04-24 17:18+0100\n"
 "Last-Translator: NSV <xxNSVxx@gmail.com>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 "X-Poedit-Basepath: C:\\Users\\NSV\\Documents\\Projet\\C++\\Avidemux\\\n"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:42
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:369
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:511
 msgid "AVI"
 msgstr "AVI"
@@ -47,23 +48,30 @@ msgid "MPEG video"
 msgstr "Vidéo MPEG"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:49
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:493
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:131
 msgid "MP4"
 msgstr "MP4"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:50
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:119
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:515
 msgid "OGM"
 msgstr "OGM"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:51
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:130
 msgid "PSP"
 msgstr "PSP"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:52
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:194
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:283
 msgid "FLV"
 msgstr "FLV"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:53
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:132
 msgid "MKV"
 msgstr "MKV"
 
@@ -71,6 +79,149 @@ msgstr "MKV"
 #, fuzzy
 msgid "DUMMY"
 msgstr "EXEMPLE"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:13
+msgid "YV12 (raw)"
+msgstr "YV12 (brut)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:111
+msgid "H.263 (lavc)"
+msgstr "H.263 (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:127
+msgid "H.263+ (lavc)"
+msgstr "H.263+ (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:143
+msgid "MPEG-4 ASP (lavc)"
+msgstr "MPEG-4 ASP (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:159
+msgid "DV (lavc)"
+msgstr "DV (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:175
+msgid "FLV1 (lavc)"
+msgstr "FLV1 (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:191
+msgid "Snow (lavc)"
+msgstr "Snow (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:207
+msgid "FF Huffyuv (lavc)"
+msgstr "FF Huffyuv (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:223
+msgid "Huffyuv (lavc)"
+msgstr "Huffyuv (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:239
+msgid "FFV1 (lavc)"
+msgstr "FFV1 (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:257
+msgid "MJPEG (lavc)"
+msgstr "MJPEG (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:314
+msgid "VCD (lavc)"
+msgstr "VCD (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:374
+msgid "DVD (lavc)"
+msgstr "DVD (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:434
+msgid "SVCD (lavc)"
+msgstr "SVCD (lavc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:461
+msgid "VCD (mpeg2enc)"
+msgstr "VCD (mpeg2enc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:493
+msgid "SVCD (mpeg2enc)"
+msgstr "SVCD (mpeg2enc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:512
+msgid "MPEG-2 requant"
+msgstr ""
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:539
+msgid "DVD (mpeg2enc)"
+msgstr "DVD (mpeg2enc)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:671
+msgid "MPEG-4 ASP (Xvid4)"
+msgstr "MPEG-4 ASP (Xvid4)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:812
+msgid "MPEG-4 AVC (x264)"
+msgstr "MPEG-4 AVC (x264)"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:829
+#, fuzzy
+msgid "dummy"
+msgstr "exemple"
+
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:832
+#: avidemux/ADM_encoder/adm_encCopy.cpp:91
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:271
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:367
+#: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:143
+#: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:195
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:197
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:265
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:286
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:166
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:264
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:285
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:221
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:225
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:379
+#: avidemux/ADM_outputs/oplug_ogm/op_ogaudio.cpp:90
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsavecopy.cpp:69
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1081
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1121
+msgid "Copy"
+msgstr "Copie"
+
+#: avidemux/ADM_encoder/adm_encdivx.h:52
+msgid "DivX"
+msgstr "DivX"
+
+#: avidemux/ADM_encoder/adm_encffmpeg.h:47
+msgid "LavCodec"
+msgstr "LavCodec"
+
+#: avidemux/ADM_encoder/adm_encmjpeg.h:60
+msgid "MJPEG"
+msgstr "MJPEG"
+
+#: avidemux/ADM_encoder/adm_encmpeg2enc.h:57
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:61
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:519
+msgid "MPEG"
+msgstr "MPEG"
+
+#: avidemux/ADM_encoder/adm_encx264.h:65
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:130
+msgid "x264"
+msgstr "x264"
+
+#: avidemux/ADM_encoder/adm_encxvid.h:61
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:129
+msgid "Xvid"
+msgstr "XviD"
+
+#: avidemux/ADM_encoder/adm_encXvid4.h:62
+msgid "Xvid4"
+msgstr ""
+
+#: avidemux/ADM_encoder/adm_encyv12.h:69
+msgid "YV12"
+msgstr "YV12"
 
 #: avidemux/ADM_audio/audiotimeline.cpp:85
 #: avidemux/ADM_audio/audiotimeline.cpp:96
@@ -193,6 +344,15 @@ msgid ""
 msgstr ""
 "Le nombre de canaux est plus grand que ce que le codec audio peut accepter.\n"
 "Changez de codec ou utilisez le filtre mixer pour avoir moins de canaux."
+
+#: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:417
+#, fuzzy
+msgid "Encoder initialization failed"
+msgstr "Echec de l'initialisation de l'encodeur"
+
+#: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:417
+msgid "Not activated."
+msgstr "Non activé."
 
 #: avidemux/ADM_codecs/ADM_ffmp43.cpp:45
 msgid "Internal error finding codec"
@@ -370,6 +530,10 @@ msgstr "Réglages incompatibles"
 #: avidemux/ADM_encoder/adm_encffmpeg.cpp:261
 msgid "At the moment, the DV codec only accepts 720*576@25"
 msgstr "Pour le moment, le codec DV accepte seulement le 720*576@25fps"
+
+#: avidemux/ADM_encoder/adm_encRequant.cpp:98
+msgid "Requant"
+msgstr ""
 
 #: avidemux/ADM_filter/filter_declaration.cpp:55
 msgid "Crop"
@@ -916,7 +1080,6 @@ msgid "Blend remover"
 msgstr "Blend remover"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:177
-#, fuzzy
 msgid "Remove blend between previous and next picture."
 msgstr "Supprime le lien entre l'image précédente et l'image suivante."
 
@@ -934,7 +1097,7 @@ msgstr "Whirl"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:179
 msgid "Useless whirlwind effect."
-msgstr "Effect de tourbillon inutile."
+msgstr "Effet de tourbillon inutile."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:180
 #: avidemux/ADM_videoFilter/ADM_vidMosaic.cpp:98
@@ -967,7 +1130,6 @@ msgid "Animated Menu"
 msgstr "Animated Menu"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:184
-#, fuzzy
 msgid "Create a video made of 6 mini windows, very useful to do DVD menus."
 msgstr "Crée une vidéo faîte de 6 petites fenêtres, très utile pour faire des menus DVD."
 
@@ -1045,7 +1207,7 @@ msgstr "Nœud non trouvé"
 msgid "Size is not (s)QCIF"
 msgstr "La taille n'est pas (s)QCIF"
 
-#: avidemux/ADM_inputs/ADM_mp4/ADM_mp4Analyzer.cpp:589
+#: avidemux/ADM_inputs/ADM_mp4/ADM_mp4Analyzer.cpp:594
 msgid "Problem reading SVQ3 headers"
 msgstr "Problème de lecture des en-têtes SVQ3"
 
@@ -1077,7 +1239,7 @@ msgstr "Echec de la renumérotation MPEG"
 #: avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp:571
 #, fuzzy
 msgid "Opening Nuppel video"
-msgstr "Ouverture du nuppel video"
+msgstr "Ouverture d'une vidéo Nuppel "
 
 #: avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp:547
 msgid "Sure you want to abort ?"
@@ -1395,12 +1557,111 @@ msgstr "Erreur d'initialisation des filtres audio"
 msgid "Error initalizing video filters"
 msgstr "Erreur d'initialisation des filtres vidéo"
 
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:256
+#: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:141
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:195
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:269
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:164
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:268
+#: avidemux/ADM_outputs/oplug_ogm/op_ogaudio.cpp:70
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:80
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:89
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:51
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:327
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:373
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:381
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:389
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:553
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:568
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:583
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:219
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1185
+#: avidemux/ADM_videoFilter/ADM_lavpp_deint.cpp:105
+#: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:101
+#: avidemux/ADM_videoFilter/ADM_vidRotate.cpp:264
+#: avidemux/gtk_gui.cpp:2005
+#: avidemux/gtk_gui.cpp:2104
+msgid "None"
+msgstr "Aucun"
+
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:446
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:96
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:121
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:98
 msgid "Cannot initiate save"
 msgstr "Ne peut pas amorcer l'enregistrement"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:485
+msgid "DTS"
+msgstr "DTS"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:486
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:287
+msgid "PCM"
+msgstr "PCM"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:487
+msgid "MP2"
+msgstr "MP2"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:488
+msgid "MP3"
+msgstr "MP3"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:489
+msgid "WMA"
+msgstr "WMA"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:490
+msgid "LPCM"
+msgstr "LPCM"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:491
+msgid "AC3"
+msgstr "AC3"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:492
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:494
+msgid "AAC"
+msgstr "AAC"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:495
+msgid "QDM2"
+msgstr ""
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:496
+msgid "AMR-NB"
+msgstr "AMR-NB"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:497
+msgid "MSADPCM"
+msgstr "MSADPCM"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:498
+msgid "ULAW"
+msgstr "ULAW"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:499
+msgid "IMA ADPCM"
+msgstr "IMA ADPCM"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:500
+msgid "8-bit PCM"
+msgstr ""
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:502
+msgid "Unknown codec"
+msgstr "Codec inconnu"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:109
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:134
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:111
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:223
+msgid "Saving"
+msgstr "Enregistrement"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:73
 msgid ""
@@ -1428,16 +1689,43 @@ msgstr ""
 "\n"
 " Réutiliser le fichier journal ?"
 
+#: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:136
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:410
+msgid "1st Pass"
+msgstr "Première passe"
+
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:152
 #: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:437
 msgid "Aborting"
 msgstr "Annulation"
+
+#: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:246
+#: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:153
+#: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:207
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:188
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:373
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:143
+msgid "Encoding"
+msgstr "Encodage"
+
+#: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:250
+msgid "Encoding, 2nd pass"
+msgstr "Seconde passe"
+
+#: avidemux/ADM_outputs/oplug_avi/op_savesmart.cpp:107
+msgid "Smart Copy"
+msgstr "Copie intelligente"
 
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:135
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:189
 #: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:156
 msgid "Cannot initialize the video stream"
 msgstr "Ne peut pas initialiser le flux vidéo"
+
+#: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:140
+#, fuzzy
+msgid "Dummy"
+msgstr "Exemple"
 
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:179
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:215
@@ -1492,6 +1780,10 @@ msgstr "La fréquence doit être 44100, 22050 ou 11025 Hz"
 msgid "Cannot initialize the audio stream"
 msgstr "Ne peut pas initialiser le flux audio"
 
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:467
+msgid "2nd Pass"
+msgstr "Seconde passe"
+
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:89
 msgid "This is not MPEG compatible"
 msgstr "Ce n'est pas compatible avec le MPEG"
@@ -1528,17 +1820,81 @@ msgstr "Pour les VCD, l'audio doit être du MP2 à 44.1 kHz."
 msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
 msgstr "Pour les DVD, l'audio doit être MP2 (stéréo), AC3, DTS ou LPCM (stéréo) à 48 kHz."
 
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:222
+msgid "---"
+msgstr "---"
+
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:230
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:287
+msgid "MPEG TS"
+msgstr "MPEG TS"
+
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:231
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:288
+msgid "MPEG VCD"
+msgstr "MPEG VCD"
+
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:232
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:289
+msgid "MPEG SVCD"
+msgstr "MPEG SVCD"
+
+#: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:233
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:290
+msgid "MPEG DVD"
+msgstr "MPEG DVD"
+
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:193
 msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
 msgstr "Pour les DVD, l'audio doit être MP2, AC3 ou LPCM à 48 kHz."
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:260
+msgid "libmpeg2enc VCD"
+msgstr "libmpeg2enc VCD"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:263
+msgid "libmpeg2enc SVCD"
+msgstr "libmpeg2enc SVCD"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:266
+msgid "libmpeg2enc DVD"
+msgstr "libmpeg2enc DVD"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:269
+msgid "FFmpeg MPEG-1 VBR"
+msgstr "FFmpeg MPEG-1 VBR"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:272
+msgid "FFmpeg MPEG-2 SVCD VBR"
+msgstr "FFmpeg MPEG-2 SVCD VBR"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:275
+msgid "FFmpeg MPEG-2 DVD VBR"
+msgstr "FFmpeg MPEG-2 DVD VBR"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:278
+msgid "MPEG Requantizer"
+msgstr ""
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:286
+msgid "MPEG ES"
+msgstr "MPEG ES"
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:305
 msgid "Reuse log file ?"
 msgstr "Réutiliser le fichier journal ?"
 
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:311
+msgid "Pass 1/2"
+msgstr "Passe 1/2"
+
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:320
 msgid "Error in pass 1"
 msgstr "Erreur pendant la 1° passe"
+
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:371
+msgid "Pass 2/2"
+msgstr "Passe 2/2"
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:463
 msgid "Error in pass 2"
@@ -1552,23 +1908,33 @@ msgstr "Impossible d'initialiser la vidéo"
 msgid "Could not initialize audio"
 msgstr "Impossible d'initialiser l'audio"
 
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsavecopy.cpp:70
+msgid "Saving..."
+msgstr "Enregistrement..."
+
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:111
+msgid "Pass one"
+msgstr "Première passe"
+
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:139
+msgid "Pass 2"
+msgstr "Seconde passe"
+
 #: avidemux/ADM_script/ADM_JSFunctions.cpp:238
 msgid "Select a directory"
 msgstr "Sélectionner un dossier"
 
 #: avidemux/ADM_script/ADM_JSFunctions.cpp:504
-#, fuzzy
 msgid "Uinteger"
-msgstr "Uinteger"
+msgstr ""
 
 #: avidemux/ADM_script/ADM_JSFunctions.cpp:507
 msgid "Test uinteger"
 msgstr ""
 
 #: avidemux/ADM_script/ADM_JSFunctions.cpp:519
-#, fuzzy
 msgid "Float"
-msgstr "Float"
+msgstr ""
 
 #: avidemux/ADM_script/ADM_JSFunctions.cpp:537
 msgid "Toggle"
@@ -1651,26 +2017,6 @@ msgstr "Rééchantillonnag_e (Hz) :"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:72
 msgid "Resampling frequency (Hz)"
 msgstr "Fréquence de rééchantillonnage (Hz)"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:80
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:89
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:51
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:327
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:373
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:381
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_coloryuv.cpp:389
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:553
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:568
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:583
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:219
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1185
-#: avidemux/ADM_videoFilter/ADM_lavpp_deint.cpp:105
-#: avidemux/ADM_videoFilter/ADM_vidDecTelecide.cpp:101
-#: avidemux/ADM_videoFilter/ADM_vidRotate.cpp:264
-#: avidemux/gtk_gui.cpp:2005
-#: avidemux/gtk_gui.cpp:2104
-msgid "None"
-msgstr "Aucun"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:81
 msgid "Film to PAL"
@@ -1785,14 +2131,6 @@ msgstr "Histogramme du débit"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:128
 msgid "Video Codecs"
 msgstr "Codecs vidéo"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:129
-msgid "Xvid"
-msgstr "XviD"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:130
-msgid "x264"
-msgstr "x264"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:135
 msgid "Audio Codecs"
@@ -2032,33 +2370,24 @@ msgid "Full"
 msgstr "Complet"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:53
-#, fuzzy
 msgid "Log"
-msgstr "Log"
+msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:54
-#, fuzzy
 msgid "Phods"
-msgstr "Phods"
+msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:55
-#, fuzzy
 msgid "EPZS"
-msgstr "EPZS"
+msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:56
-#, fuzzy
 msgid "X1"
-msgstr "X1"
+msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:60
 msgid "H.263"
 msgstr "H.263"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:61
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:519
-msgid "MPEG"
-msgstr "MPEG"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:65
 #, fuzzy
@@ -2092,7 +2421,6 @@ msgid "Max. quantizer _difference:"
 msgstr "_Différence quantificateur max :"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:78
-#, fuzzy
 msgid "4_MV"
 msgstr "4_MV"
 
@@ -2179,12 +2507,12 @@ msgid "Decoder Options"
 msgstr "Option du décodeur"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_mjpeg.cpp:37
-msgid "_Swap U&V:"
-msgstr "_Inverser U & V :"
+msgid "_Swap U&V"
+msgstr "_Inverser U & V"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_mjpeg.cpp:39
-msgid "Mjpeg Configuration"
-msgstr "Configuration MJPEG"
+msgid "MJPEG Configuration"
+msgstr "Configuration de MJPEG"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:92
 msgid "Select idx file:"
@@ -2469,10 +2797,6 @@ msgstr "Afficher toutes les alertes"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:282
 msgid "_Message level:"
 msgstr "Niveau de _messages :"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:287
-msgid "PCM"
-msgstr "PCM"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:288
 #, fuzzy
@@ -3703,7 +4027,7 @@ msgstr "<b>Restant :</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:780
 msgid "<b>Frames/sec:</b>"
-msgstr "<b>Image/sec :</b>"
+msgstr "<b>Images/sec :</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:826
 msgid "Shut down computer when finished"
@@ -3723,7 +4047,7 @@ msgstr "En-dessous de normal"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:884
 msgid "Pause / Abort"
-msgstr "Pause/Annulation"
+msgstr "Pause / Annulation"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eq2.cpp:231
 msgid "Brigh_tness:"
@@ -4079,7 +4403,7 @@ msgid ""
 msgstr ""
 "<b>Encodage en pause.</b>\n"
 "\n"
-"Vous pouvez le relancer ou l'annuler."
+"Vous pouvez le reprendre ou l'annuler."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pause.cpp:136
 msgid "Abort"
@@ -4087,7 +4411,7 @@ msgstr "Annuler"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pause.cpp:158
 msgid "Resume"
-msgstr "Relancer"
+msgstr "Reprendre"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pipe.cpp:95
 msgid "Pipe to"
@@ -4594,6 +4918,7 @@ msgid "Set a common predefined aspect ratio"
 msgstr "Défini un rapport H/L commun prédéfini"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:874
+#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1040
 msgid "As Input"
 msgstr "Comme en entrée"
 
@@ -5373,10 +5698,6 @@ msgstr "_BVHQ"
 msgid "Produces nicer-looking B-frames"
 msgstr "Produit des images-B plus jolies"
 
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1040
-msgid "As input"
-msgstr "Comme en entrée"
-
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_xvid4.cpp:1043
 msgid "Get PAR from input video file"
 msgstr "Récupère le rapport H/L de la vidéo d'entrée"
@@ -5897,7 +6218,7 @@ msgstr "_Quitter"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:444
 msgid "_Edit"
-msgstr "_Editer"
+msgstr "_Edition"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:451
 msgid "_Reset Edits"
@@ -6183,11 +6504,6 @@ msgstr "Informations fichier audio/vidéo"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1002
 msgid "Bitrate/size calculator"
 msgstr "Calculatrice débit/taille"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1081
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1121
-msgid "Copy"
-msgstr "Copie"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1086
 msgid "Configure video encoder"
@@ -6535,7 +6851,7 @@ msgstr "Marge _supérieure :"
 
 #: avidemux/ADM_videoFilter/ADM_vidASS.cpp:91
 msgid "Botto_m margin"
-msgstr "Marge _inférieur"
+msgstr "Marge _inférieure"
 
 #: avidemux/ADM_videoFilter/ADM_vidBlendRemoval.cpp:82
 #: avidemux/ADM_videoFilter/ADM_vidDGbob.cpp:92
@@ -7880,8 +8196,9 @@ msgid "An audio track is necessary to create such file"
 msgstr "Une piste est nécessaire pour créer un fichier"
 
 #: avidemux/gui_autodrive.cpp:63
+#, fuzzy
 msgid "You need Xvid4 and either LAME or FAAC support for the iPod profile"
-msgstr ""
+msgstr "Vous avez besoin de XviD 4 et de LAME ou FAAC pour supporter le profil iPod"
 
 #: avidemux/gui_autodrive.cpp:74
 msgid "Cannot select the MPEG-4 SP codec."
@@ -7991,6 +8308,10 @@ msgstr ""
 "Vous pouvez avoir besoin de la copie intelligente.\n"
 "La permettez-vous ?"
 
+#~ msgid "Mjpeg Configuration"
+#~ msgstr "Configuration MJPEG"
+#~ msgid "As input"
+#~ msgstr "Comme en entrée"
 #~ msgid ""
 #~ ".\n"
 #~ " Did you use too low / too high target for 2 pass ?"
