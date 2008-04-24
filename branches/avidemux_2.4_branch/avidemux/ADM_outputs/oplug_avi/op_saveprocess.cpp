@@ -247,7 +247,7 @@ GenericAviSaveProcess::writeVideoChunk (uint32_t frame)
         }
   else
           {
-                          guiSetPhasis (QT_TR_NOOP("Encoding, 2nd pass"));
+                          guiSetPhasis (QT_TR_NOOP("2nd Pass"));
         }
   }
   // first read
