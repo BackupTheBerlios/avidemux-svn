@@ -11,9 +11,9 @@ SET(${ADM_LIB}_Q
 mainfilter
 )
 
-################################
+SET_SOURCE_FILES_PROPERTIES(filter_rsc.cpp PROPERTIES GENERATED TRUE)
+
 include(adm_qt4)
-################################
 Q_RCC(filter)
 
 include_directories(.. ../../../ADM_osSupport ../../../ADM_inputs)
