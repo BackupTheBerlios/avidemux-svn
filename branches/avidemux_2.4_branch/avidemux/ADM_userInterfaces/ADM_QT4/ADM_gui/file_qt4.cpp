@@ -131,9 +131,11 @@ uint8_t FileSel_SelectWrite(const char *title,char *target,uint32_t max, const c
   {
     const char *s=fileName.toUtf8().constData();
     strncpy(target,s,max);
+
+	return 1;
   }
   
-  
+  return 0;
 }
 /**
       \fn FileSel_SelectRead
