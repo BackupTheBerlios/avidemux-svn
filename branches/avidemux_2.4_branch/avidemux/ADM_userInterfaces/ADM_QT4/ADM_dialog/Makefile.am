@@ -10,6 +10,9 @@ AQ_srt.cpp \
 AT_index_pg.cpp DIA_x264.cpp \
 AQ_vobsub.cpp \
 AQ_eq2.cpp \
+about_rsc.cpp \
+AQ_about.cpp \
+AQ_license.cpp \
 DIA_srt.cpp
 
 INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@ADM_SUBVERSION@ \
@@ -21,6 +24,8 @@ libADM_dialog_a_METASOURCES = AUTO
 
 
 include ../Makefile.adm
+about_rsc.cpp : about.qrc
+	$(RCC) $< -o $@ -name about
 
 
 EXTRA_DIST =  
