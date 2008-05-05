@@ -18,7 +18,7 @@ libADM_dialogGtk_a_SOURCES =  DIA_vcodec.cpp DIA_acodec.cpp \
 	DIA_calculator.cpp DIA_equalizer.cpp \
 	DIA_vobsub.cpp DIA_x264.cpp DIA_ocr.cpp  DIA_hue.cpp DIA_eq2.cpp \
 	DIA_asharp.cpp  DIA_idx_pg.cpp  \
-	DIA_cnr2.cpp DIA_jobs.cpp DIA_jobs_save.cpp  \
+	DIA_cnr2.cpp DIA_jobs.cpp \
 	DIA_mpdelogo.cpp \
         DIA_chromaShift.cpp \
         \

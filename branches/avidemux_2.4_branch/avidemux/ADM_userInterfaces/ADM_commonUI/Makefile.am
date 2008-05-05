@@ -19,7 +19,8 @@ DIA_flyThreshold.cpp \
 DIA_flySwissArmyKnife.cpp \
 DIA_flyParticle.cpp \
 DIA_flyEraser.cpp \
-DIA_flv1.cpp
+DIA_flv1.cpp \
+DIA_jobs_save.cpp
 
 commonObjs:=$(subst .cpp,.o,$(libADM_CommonUI_a_SOURCES))
 
