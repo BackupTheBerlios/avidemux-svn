@@ -150,7 +150,7 @@ uint32_t ww,hh;
         return df;
 }
 #if defined( ARCH_X86 ) || defined (ARCH_X86_64)
-static uint64_t noise64;
+static uint64_t noise64 asm(MANGLE(noise64));
 static uint32_t computeDiffMMX(uint8_t  *s1,uint8_t *s2,uint32_t noise,uint32_t l)
 {
 uint32_t df=0;
