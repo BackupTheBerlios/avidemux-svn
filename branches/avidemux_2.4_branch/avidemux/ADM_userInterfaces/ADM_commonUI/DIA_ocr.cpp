@@ -1,9 +1,7 @@
-/**/
 /***************************************************************************
-                          DIA_hue
+                          DIA_ocr
                              -------------------
-
-                           Ui for hue & sat
+                        Ui for OCR
 
     begin                : 08 Apr 2005
     copyright            : (C) 2004/5 by mean
@@ -19,10 +17,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
 #include <config.h>
-
 
 #include <string.h>
 #include <stdio.h>
@@ -30,7 +25,6 @@
 #include <math.h>
 
 #include "default.h"
-
 
 #include "ADM_userInterfaces/ADM_commonUI/DIA_factory.h"
 #include "ADM_editor/ADM_edit.hxx"
@@ -71,7 +65,6 @@ uint8_t DIA_ocrGen(void)
   source.type=ADM_OCR_TYPE_VOBSUB;
   source.subparam=&subparam;
   
-  
   prefs->get(FEATURE_GLOBAL_GLYPH_ACTIVE,&globalGlyphOn);
   if(globalGlyphOn)
   {
@@ -95,14 +88,13 @@ _again:
   
   diaElem *elems[]={&selectIdx,&selectSrt,&selectGlyph};
   
-  
    uint32_t n=3;
    if(globalGlyph)
    {
      n--; // Remove glyph from dialog
    }
   
-        if( !diaFactoryRun(QT_TR_NOOP("Select input and ouput files"),n,elems))
+    if(!diaFactoryRun(QT_TR_NOOP("Select input and ouput files"),n,elems))
         {
           cleanupSub(&source);
           if(srtFileName )ADM_dezalloc(srtFileName);
@@ -140,27 +132,27 @@ _again:
          }
         // We have our SRT and our idx/sub files : Go go go
          
-         
-         
-        ADM_ocr_engine(source,srtFileName,&head);
-        
+    if(ADM_ocr_engine(source,srtFileName,&head))
+    {
         // Save glyph set 
         if(globalGlyph)
         {
           uint32_t nb=1;
            saveGlyph(globalGlyph,&head,nb);
-        }else
+        }
+        else
         {
             char *save=NULL;
             uint32_t nb=1;
               diaElemFile     selectSave(1,&save,QT_TR_NOOP("GlyphSet filename"), NULL, QT_TR_NOOP("Save GlyphSet file"));
               diaElem *elems2[]={&selectSave};
-            if( diaFactoryRun(QT_TR_NOOP("Save Glyph"),1,elems2))
+            if(diaFactoryRun(QT_TR_NOOP("Save Glyph"),1,elems2))
             {
               saveGlyph(save,&head,nb);
             }
             if(save) ADM_dezalloc(save);
         }
+    }
 
   cleanupSub(&source);
   if(srtFileName )ADM_dezalloc(srtFileName);
@@ -322,11 +314,6 @@ void cleanupSub(ADM_OCR_SOURCE *p)
 void cb_idx(void *foo)
 {
    vobSubParam *bar=(vobSubParam *)foo;
-   if(bar->subname)
-   	  {
-   		  ADM_dezalloc(bar->subname);
-   		  bar->subname=NULL;
-   	  }
     DIA_vobsub(bar);
 }
 //EOF
