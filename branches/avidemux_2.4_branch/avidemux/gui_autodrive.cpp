@@ -82,6 +82,9 @@ uint8_t A_autoDrive(Action action)
 					{
 						audioCodecSetcodec(AUDIOENC_FAAC);
 						audioFilter_SetBitrate(128);
+
+						if (currentaudiostream->getInfo()->channels != 2)
+							setCurrentMixerFromString("STEREO");
 					}
 #endif
                       break;
