@@ -1,10 +1,10 @@
 /***************************************************************************
                           oplug_flv.cpp  -  I/f to lavformat flash encoder
                              -------------------
-    
+
     copyright            : (C) 2007 by mean
     email                : fixounet@free.fr
-        
+
  ***************************************************************************/
 
 /***************************************************************************
@@ -71,12 +71,12 @@ extern AVDMGenericAudioStream 	*currentaudiostream;;
 extern SelectCodecType  		current_codec;
 
 
-
+extern uint8_t isVP6Compatible (uint32_t fourcc);
 static 				uint8_t *_buffer=NULL,*_outbuffer=NULL;
 
 /*
  * 		\fn    Oplug_flv
-		\brief Main function to save in flv format. 
+		\brief Main function to save in flv format.
 		It is very close to oplug_mp4 but somehow simplified as the following assumptions are made :
 				* No b frame
 				* No 2 pass encoding
@@ -121,7 +121,7 @@ uint32_t    totalAudioSize=0;
 uint32_t sent=0;
 
         // Setup video
-        
+
         if(videoProcessMode())
         {
              _incoming = getLastVideoFilter (frameStart,frameEnd-frameStart);
@@ -137,15 +137,9 @@ uint32_t sent=0;
 
            info.fcc=*(uint32_t *)_encode->getCodecName(); //FIXME
            //
-           char *supportedVideo[3]={"FLV1","VP6F","VP6 "};
            int supported=0;
-           for(int i=0;i<3;i++)
-           {
-        	   if(fourCC::check(info.fcc,(uint8_t *)supportedVideo[i]))
-        	   {
-        		   	supported=1;
-        	   }
-           }
+           if(isVP6Compatible(info.fcc)) supported=1;
+           if(fourCC::check(info.fcc,(const uint8_t *)"FLV1")) supported=1;
            if(!supported)
            {
         	   GUI_Error_HIG(QT_TR_NOOP("Unsupported video"),QT_TR_NOOP("Only FLV1 and VP6 video are supported"));
@@ -158,12 +152,12 @@ uint32_t sent=0;
            {
         	   uint32_t audioCodec=0;
         	   uint32_t fq=currentaudiostream->getInfo()->frequency;
-        	   
+
         	   	if(audioProcessMode())
         	   	{
         	   		audioCodec=audioFilter_getOuputCodec();
         	   		fq=audioFilter_getOuputFrequency(fq);
-        	   		
+
         	   	}else
         	   	{	// copy
         	   		audioCodec=currentaudiostream->getInfo()->encoding;
@@ -177,11 +171,11 @@ uint32_t sent=0;
         	   	{
     	   			GUI_Error_HIG(QT_TR_NOOP("Unsupported audio"),QT_TR_NOOP("Frequency must be 44100, 22050 or 11025 Hz."));
     	   			goto stopit;
-        	   		
+
         	   	}
            }
-           
-           
+
+
            encoding_gui=new DIA_encoding(_incoming->getInfo()->fps1000);
            bitstream.bufferSize=_incoming->getInfo()->width*_incoming->getInfo()->height*3;
            if (!_encode)
@@ -197,7 +191,7 @@ uint32_t sent=0;
                         encoding_gui->setCodec(QT_TR_NOOP("Copy"));
                 else
                         encoding_gui->setCodec(_encode->getDisplayName());
-                
+
                 if (!_encode->configure (_incoming))
                 {
                       GUI_Error_HIG (QT_TR_NOOP("Filter init failed"), NULL);
@@ -205,13 +199,13 @@ uint32_t sent=0;
                 };
 
                 encoding_gui->setPhasis (QT_TR_NOOP("Encoding"));
-                
-                
+
+
                 info.width=_incoming->getInfo()->width;
                 info.height=_incoming->getInfo()->height;
                 info.nb_frames=_incoming->getInfo()->nb_frames;
                 info.fps1000=_incoming->getInfo()->fps1000;
-                
+
                 _encode->hasExtraHeaderData( &videoExtraDataSize,&dummy);
                 if(videoExtraDataSize)
                 {
@@ -221,10 +215,10 @@ uint32_t sent=0;
                 }
         // _________________Setup video (cont) _______________
         // ___________ Read 1st frame _________________
-             
+
              ADM_assert(_encode);
              bitstream.data=videoBuffer;
-             
+
 preFilling:
              bitstream.cleanup(0);
              if(!(err=_encode->encode ( prefill, &bitstream)))// FIXME: We should never execute it more than once
@@ -242,9 +236,9 @@ preFilling:
               if(!bitstream.flags & AVI_KEY_FRAME)
               {
                 GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"),QT_TR_NOOP( "The beginning frame is not a key frame.\nPlease move the A marker."));
-                  goto  stopit; 
+                  goto  stopit;
               }
-          
+
 // ____________Setup audio__________________
           if(currentaudiostream)
           {
@@ -254,7 +248,7 @@ preFilling:
                         GUI_Error_HIG ("[FLV]",QT_TR_NOOP("Cannot initialize the audio stream"));
                         goto  stopit;
                 }
-          } 
+          }
           if(audio)
           {
                 audioinfo=audio->getInfo();
@@ -270,7 +264,7 @@ preFilling:
            }
 // ____________Setup Muxer _____________________
            muxer= new lavMuxer;
-           
+
            if(!muxer->open(
                 name,
                 2000000, // Muxrate
@@ -279,9 +273,9 @@ preFilling:
                 audioinfo,extraDataSize,extraData))
                          goto stopit;
 //_____________ Loop _____________________
-          
+
           encoding_gui->setContainer(QT_TR_NOOP("FLV"));
-         
+
           if(!videoProcessMode())
                 encoding_gui->setCodec(QT_TR_NOOP("Copy"));
           else
@@ -295,14 +289,14 @@ preFilling:
           }
 //_____________ Start Audio thread _____________________
           if(audio)
-          {          
+          {
             pq=new PacketQueue("[FLV] audioQ",5000,2*1024*1024);
             memset(&context,0,sizeof(context));
             context.audioEncoder=audio;
             context.audioTargetSample=0xFFFF0000; ; //FIXME
             context.packetQueue=pq;
             // start audio thread
-            ADM_assert(!pthread_create(&audioThread,NULL,(THRINP)defaultAudioQueueSlave,&context)); 
+            ADM_assert(!pthread_create(&audioThread,NULL,(THRINP)defaultAudioQueueSlave,&context));
             ADM_usleep(4000);
           }
 //_____________GO !___________________
@@ -323,9 +317,9 @@ preFilling:
                }
                ADM_assert(_encode);
                bitstream.cleanup(frameWrite);
-              
+
                r=_encode->encode ( prefill+frame, &bitstream);
-              
+
                if(!r && frame<total-2)
                {
                         printf("[FLV]:Frame %u error\n",frame);
@@ -345,15 +339,15 @@ preFilling:
                 encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,total);
                if(!encoding_gui->isAlive())
                 {
-                    
+
                     goto stopit;
                 }
-               
+
            }
            ret=1;
-           
+
 stopit:
-    
+
     // Flush slave Q
     if(audio&& pq)
     {
@@ -363,7 +357,7 @@ stopit:
         while(!context.audioDone)
         {
           printf("[FLV]Waiting Audio thread\n");
-          ADM_usleep(500000); 
+          ADM_usleep(500000);
         }
         delete pq;
     }
@@ -372,12 +366,12 @@ stopit:
            if(encoding_gui) delete encoding_gui;
            if(videoBuffer) delete [] videoBuffer;
            if(muxer) delete muxer;
-           if(_encode) delete _encode;	
+           if(_encode) delete _encode;
            if(videoExtraData) delete [] videoExtraData;
            // Cleanup
            deleteAudioFilter (audio);
            return ret;
 }
 
-	
+
 // EOF
