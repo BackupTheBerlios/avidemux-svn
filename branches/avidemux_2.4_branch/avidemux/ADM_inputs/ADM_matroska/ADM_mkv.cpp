@@ -124,6 +124,7 @@ uint8_t mkvHeader::open(char *name)
 */
 uint8_t mkvHeader::rescaleTrack(mkvTrak *track,uint32_t durationMs)
 {
+        if(track->_defaultFrameDuration) return 1; // No need to change
         float samples=1000.;
         samples*=durationMs;
         samples/=track->nbPackets;  // 1000 * sample per packet
