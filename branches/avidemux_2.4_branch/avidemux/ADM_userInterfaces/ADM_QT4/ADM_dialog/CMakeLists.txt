@@ -6,6 +6,7 @@ SET(ADM_LIB ADM_dialogQt4)
 SET(${ADM_LIB}_Q
 about
 asharp
+calculator
 chromashift
 contrast
 eq2
