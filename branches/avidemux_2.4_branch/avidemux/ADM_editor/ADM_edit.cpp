@@ -592,23 +592,26 @@ TryAgain:
 
                 }
 		printf("\n checking for B-Frames...\n");
-		if( vid->_nb_video_frames >12) // 12
+		if( vid->_nb_video_frames > 12)
 		{
 				uint8_t 		*bufferin;
 				uint32_t 		len,flags;
 				uint8_t 		bframe=0, bconsistency=1;
-				uint32_t		scanned=12;
+				uint32_t		scanned;
                                 ADMImage                *buffer=NULL;
-				//buffer=new uint8_t [info.width* info.height*2];
-				if(vid->_nb_video_frames>50) scanned=50;
+
+				if(vid->_nb_video_frames > (info.fps1000 * 5) / 1000)
+					scanned = (info.fps1000 * 5) / 1000;
 				else				scanned=vid->_nb_video_frames;
+
+				printf(" scanning %lu frames\n", scanned);
 				
 				bufferin=new uint8_t [info.width* info.height*2];
                                 if(vid->decoder->dontcopy())
                                         buffer=new ADMImage(info.width,info.height,1);
                                 else
 				        buffer=new ADMImage(info.width,info.height);
-				// we decode 5 frames..should be enough to get an opinion
+
                                 ADMCompressedImage img;
                                 img.data=bufferin;
 				for(uint32_t i=0;i<scanned;i++)  //10
