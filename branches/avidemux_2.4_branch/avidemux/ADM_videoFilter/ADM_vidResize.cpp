@@ -48,9 +48,10 @@ BUILD_CREATE(resize_create,AVDMVideoStreamResize);
 
 char *AVDMVideoStreamResize::printConf( void )
 {
- 	static char buf[50];
- 	
- 	sprintf((char *)buf," Resize %lu x %lu --> %lu x %lu",
+    #define STRING_BUF 100
+ 	static char buf[STRING_BUF+1];
+
+ 	snprintf((char *)buf,STRING_BUF," Resize %u x %u --> %u x %u ",
  				_in->getInfo()->width,
  				_in->getInfo()->height,
  				_info.width,
@@ -82,8 +83,8 @@ AVDMVideoStreamResize::AVDMVideoStreamResize(
 				_param->w=_info.width;
 				_param->h = _info.height;
 				_param->algo = 0;
-			}			
-			_intermediate_buffer=new uint8_t [3*_info.width*_in->getInfo()->height];	
+			}
+			_intermediate_buffer=new uint8_t [3*_info.width*_in->getInfo()->height];
 
   _info.encoding=1;
   _init=0;
@@ -92,7 +93,7 @@ AVDMVideoStreamResize::AVDMVideoStreamResize(
 	Hpattern_luma=NULL;
     Hpattern_chroma=NULL;
 }
-#if !defined(MPLAYER_RESIZE_PREFFERED) 
+#if !defined(MPLAYER_RESIZE_PREFFERED)
 AVDMGenericVideoStream *createResizeFromParam(AVDMGenericVideoStream *in,uint32_t x,uint32_t y)
 {
 
@@ -157,15 +158,15 @@ uint8_t AVDMVideoStreamResize::getFrameNumberNoAlloc(uint32_t frame,
 				uint32_t *flags)
 {
 static Image in,out;
-	if(frame>=_info.nb_frames) 
+	if(frame>=_info.nb_frames)
 	{
 		printf("Filter : out of bound!\n");
 		return 0;
 	}
-	
-	ADM_assert(_param);	
+
+	ADM_assert(_param);
 	if(!_in->getFrameNumberNoAlloc(frame, len,_uncompressed,flags)) return 0;
-       		
+
 	// do the resize in 3 passes, Y, U then V
 	in.width=_in->getInfo()->width;
 	in.height=_in->getInfo()->height;
@@ -173,7 +174,7 @@ static Image in,out;
 
 	out.width=_info.width;
 	out.height=_info.height;
-	out.data=data->data;	
+	out.data=data->data;
 	if(!_init)
 	{
 		_init=1;
@@ -185,11 +186,11 @@ static Image in,out;
 		}
 		precompute(&out,&in, _param->algo );
 	}
-       	zoom(&out,&in)         ;       
+       	zoom(&out,&in)         ;
        data->flags=*flags=_uncompressed->flags;
 
        *len= _info.width*_info.height+(_info.width*_info.height>>1);
-       data->copyInfo(_uncompressed);	
+       data->copyInfo(_uncompressed);
       return 1;
 }
 

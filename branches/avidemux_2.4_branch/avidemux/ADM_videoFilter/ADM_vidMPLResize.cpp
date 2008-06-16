@@ -129,7 +129,7 @@ uint8_t AVDMVideoStreamMPResize::configure(AVDMGenericVideoStream * instream)
 }
 
 //
-//  
+//
 //
 
 int getResizeParams(uint32_t * w, uint32_t * h, uint32_t * algo,uint32_t ow,uint32_t oh,uint32_t fps)
@@ -187,12 +187,12 @@ uint8_t AVDMVideoStreamMPResize::reset(uint32_t nw, uint32_t old,uint32_t algo)
 
 					}
 #if (defined( ARCH_X86)  || defined(ARCH_X86_64))
-		
+
 		#define ADD(x,y) if( CpuCaps::has##x()) flags|=SWS_CPU_CAPS_##y;
-		ADD(MMX,MMX);		
+		ADD(MMX,MMX);
 		ADD(3DNOW,3DNOW);
 		ADD(MMXEXT,MMX2);
-#endif	
+#endif
 #ifdef USE_ALTIVEC
 		flags|=SWS_CPU_CAPS_ALTIVEC;
 #endif
@@ -210,9 +210,11 @@ uint8_t AVDMVideoStreamMPResize::reset(uint32_t nw, uint32_t old,uint32_t algo)
 }
 char *AVDMVideoStreamMPResize::printConf( void )
 {
- 	static char buf[50];
+ 	 #define STRING_BUF 100
+ 	static char buf[STRING_BUF+1];
 
- 	sprintf((char *)buf," MPL Resize %lu x %lu --> %lu x %lu (%s)",
+
+ 	snprintf((char *)buf,STRING_BUF," MPL Resize %u x %u --> %u x %u (%s)",
  				_in->getInfo()->width,
  				_in->getInfo()->height,
  				_info.width,
@@ -314,12 +316,12 @@ uint8_t AVDMVideoStreamMPResize::getFrameNumberNoAlloc(uint32_t frame,
    				ADMImage *data,
 				uint32_t *flags)
 {
-			if(frame>=_info.nb_frames) 
+			if(frame>=_info.nb_frames)
 			{
 				printf("Filter : out of bound!\n");
 				return 0;
 			}
-	
+
 			ADM_assert(_param);
 
        			if(!_in->getFrameNumberNoAlloc(frame, len,_uncompressed,flags)) return 0;
