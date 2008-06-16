@@ -583,7 +583,7 @@ fi
 
 if test "x$have_libamrnb" = "xyes"; then
 	AC_DEFINE(AMR_NB,1,[AMR_NB])
-	AC_DEFINE(CONFIG_AMR_NB,1,[AMR_NB])
+	AC_DEFINE(CONFIG_LIBAMR_NB,1,[AMR_NB])
 	AC_DEFINE(USE_AMR_NB,1,[Tell avidemux to use libamrnb])
 else
 	AC_MSG_WARN(libamr not found, you can download it there : ftp://ftp.penguin.cz/pub/users/utx/amr/)

@@ -18,7 +18,7 @@
 
 #include "ui_calculator.h"
 #include "default.h"
-#include "ADM_misc.h"
+#include "ADM_toolkit/toolkit.hxx"
 
 #include "avi_vars.h"
 #include "ADM_editor/ADM_edit.hxx"

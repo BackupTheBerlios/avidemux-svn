@@ -13,7 +13,8 @@ AQ_eq2.cpp \
 about_rsc.cpp \
 AQ_about.cpp \
 AQ_license.cpp \
-DIA_srt.cpp
+DIA_srt.cpp \
+AQ_calculator.cpp
 
 INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@ADM_SUBVERSION@ \
 		-I../../../ADM_libraries/ADM_utilities \
