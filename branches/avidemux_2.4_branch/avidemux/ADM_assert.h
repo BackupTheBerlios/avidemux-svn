@@ -24,7 +24,7 @@ extern void *ADM_calloc(size_t nbElm,size_t elSize);
 extern void *ADM_realloc(void *in,size_t size);
 extern void ADM_dezalloc(void *ptr);
 extern char *ADM_strdup( const char *in);
-extern char *slashToBackSlash(char *in);
+extern char *slashToBackSlash(const char *in);
 typedef void *(* adm_fast_memcpy)(void *to, const void *from, size_t len);
 extern adm_fast_memcpy myAdmMemcpy;
 

@@ -30,13 +30,12 @@
 
 #include "ADM_script/ADM_container.h"
 
-extern VF_FILTERS filterGetTagFromName(char *inname);
 //extern uint8_t indexMpeg(char *mpeg,char *file,uint8_t aid);
 extern uint8_t A_ListAllBlackFrames( char *file );
-extern uint8_t loadVideoCodecConfString( char *name);
+extern uint8_t loadVideoCodecConfString( const char *name);
 extern uint8_t ADM_saveRaw (const char *name);
 extern int A_saveJpg (char *name);
-extern uint8_t loadVideoCodecConf( char *name);
+extern uint8_t loadVideoCodecConf( const char *name);
 extern int videoCodecConfigure(char *p,uint32_t i, uint8_t  *c);
 
 extern void filterCleanUp( void );

@@ -406,7 +406,7 @@ void ADM_backTrack(int lineno,const char *file)
 void saveCrashProject(void)
 {
   char *baseDir=ADM_getBaseDir();
-  char *name=CRASH_FILE;
+  const char *name=CRASH_FILE;
   static int crashCount=0;
   if(crashCount) return ; // avoid endless looping
   crashCount++;
@@ -426,7 +426,7 @@ void saveCrashProject(void)
 void checkCrashFile(void)
 {
   char *baseDir=ADM_getBaseDir();
-  char *name=CRASH_FILE;
+  const char *name=CRASH_FILE;
   static int crashCount=0;
   char *where=new char[strlen(baseDir)+strlen(name)+2];
   strcpy(where,baseDir);

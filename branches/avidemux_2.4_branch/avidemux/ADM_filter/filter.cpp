@@ -80,11 +80,10 @@ void filterCleanUp( void )
 }
 void filterListAll( void )
 {
-char *name;
 	printf("\nVideo filters\n");
 	for(uint32_t i=0;i<allfilters.size();i++)
 	{
-		name=allfilters[ i].filtername;
+		const char *name = allfilters[ i].filtername;
 		if(allfilters[ i].viewable)
 		{
 			if(name)
@@ -93,13 +92,12 @@ char *name;
 	}
 
 }
-VF_FILTERS filterGetTagFromName(char *inname)
+VF_FILTERS filterGetTagFromName(const char *inname)
 {
-char *name;
 	VF_FILTERS filter=VF_DUMMY;
 	for(uint32_t i=0;i<allfilters.size();i++)
 	{
-		name=allfilters[ i].filtername;
+		const char *name=allfilters[ i].filtername;
 		if(allfilters[ i].viewable || allfilters[i].tag==VF_PARTIAL)
 		{
 			if(name)
@@ -128,7 +126,7 @@ void registerFilter(const char *name,VF_FILTERS tag,uint8_t viewable
 }
 void registerFilterEx(const char *name,VF_FILTERS tag,uint8_t viewable
 		,AVDMGenericVideoStream *(*create) (AVDMGenericVideoStream *in, CONFcouple *)
-		,char *filtername,AVDMGenericVideoStream *(*create_from_script) (AVDMGenericVideoStream *in, int n,Arg *args),char *desc)
+		,const char *filtername,AVDMGenericVideoStream *(*create_from_script) (AVDMGenericVideoStream *in, int n,Arg *args), const char *desc)
 {
 //    printf ("nb_video_filter = %d, max %d, name = %s\n", nb_video_filter, (MAX_FILTER-1), name);
         allfilters.push_back (FILTER_ENTRY (name, create, tag, viewable,

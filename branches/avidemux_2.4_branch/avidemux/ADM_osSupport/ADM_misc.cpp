@@ -263,7 +263,7 @@ FILE *file;
     This function convert the later to the former
 
 */
-extern char *slashToBackSlash(char *in)
+extern char *slashToBackSlash(const char *in)
 {
     char *out,*cout;
     int n;

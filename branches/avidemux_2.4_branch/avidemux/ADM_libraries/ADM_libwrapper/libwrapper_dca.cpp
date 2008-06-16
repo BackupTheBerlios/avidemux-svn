@@ -9,9 +9,9 @@ ADM_LibWrapperDca::ADM_LibWrapperDca() : ADM_LibWrapper()
 {
 #ifdef USE_LATE_BINDING
 #ifdef ADM_WIN32
-	char* libname = "libdts.dll";
+	const char* libname = "libdts.dll";
 #else
-	char* libname = "libdts.so";	// ???
+	const char* libname = "libdts.so";	// ???
 #endif
 
 	initialised = (loadLibrary(libname) && getSymbols(7, 

@@ -30,7 +30,7 @@ typedef struct
   uint32_t hours,minutes,seconds; 
 } ADM_date;
 void            TLK_getDate(ADM_date *date);
-void            PathSplit(char *str, char **root, char **ext);
+void            PathSplit(const char *str, char **root, char **ext);
 void	        PathStripName(char *str);
 const char      *GetFileName(const char *str);
 char            *PathCanonize(const char *tmpname);

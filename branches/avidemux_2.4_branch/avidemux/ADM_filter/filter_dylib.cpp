@@ -79,7 +79,7 @@
 #endif
 
 
-typedef char *(ADM_getStringT)(void);
+typedef const char *(ADM_getStringT)(void);
 
 static void tryLoading(TYPEOFHANDLE handle);
 static uint32_t dynTag=0xF0000000;
@@ -133,10 +133,8 @@ void tryLoading(TYPEOFHANDLE handle)
     
     
     
-    char *name,*desc;
-    
-    name=nameP();
-    desc=descP();
+    const char *name = nameP();
+    const char *desc = descP();
     
     ADM_assert(name);
     ADM_assert(desc);

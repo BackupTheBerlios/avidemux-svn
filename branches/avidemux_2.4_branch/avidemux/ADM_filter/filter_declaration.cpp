@@ -21,8 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ADM_assert.h>
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 #include "config.h"
 #include "fourcc.h"
@@ -41,7 +40,7 @@
 #define REGISTER(e,a,g,b,c,d) {FILTERDEC(d);registerFilterEx(a,b,c,d,e,NULL,NULL);}
 #define REGISTERX(e,a,g,b,c,d,f) {\
 FILTERDECX(f);\
-FILTERDEC(d);registerFilterEx((char*)a,b,c,d,e,f,(char*)g);\
+FILTERDEC(d);registerFilterEx(a,b,c,d,e,f,g);\
 }
 
 void registerVideoFilters( void )

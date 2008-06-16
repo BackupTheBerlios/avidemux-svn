@@ -19,11 +19,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "math.h"
+#include <math.h>
 
 #include "default.h"
 #include "ADM_editor/ADM_Video.h"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 
 #include "fourcc.h"
@@ -127,7 +127,7 @@ bitsReader::~bitsReader()
 
 			}
 }
-uint8_t bitsReader::open(char *name)
+uint8_t bitsReader::open(const char *name)
 {
 	_fd=fopen(name,"rb");
 	if(!_fd) return 0;

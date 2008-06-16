@@ -18,12 +18,11 @@
  #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 #include "config.h"
 #include "fourcc.h"
 #include "avio.hxx"
-#include "config.h"
 #include "avi_vars.h"
 
 
@@ -44,12 +43,12 @@ extern "C"
 {
 SCRIPT_CREATE(FILTER_create_fromscript,ADMVideoFlipV,flipParam);
 BUILD_CREATE(FILTER_create,ADMVideoFlipV);
-char *FILTER_getName(void)
+const char *FILTER_getName(void)
 {
 	return "DynFLIPPER";
 }
 
-char *FILTER_getDesc(void)
+const char *FILTER_getDesc(void)
 {
 	return "Vertical flip, demo for dynamically loaded filters";
 }

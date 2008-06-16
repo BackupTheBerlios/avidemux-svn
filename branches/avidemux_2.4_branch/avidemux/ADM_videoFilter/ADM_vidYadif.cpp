@@ -99,11 +99,11 @@ extern "C"
 {
 SCRIPT_CREATE(FILTER_create_fromscript,ADMVideoYadif,yadifParam);
 BUILD_CREATE(FILTER_create,ADMVideoYadif);
-char *FILTER_getName(void)
+const char *FILTER_getName(void)
 {
 	return "DynYadif";
 }
-char *FILTER_getDesc(void)
+const char *FILTER_getDesc(void)
 {
 	return "YADIF";
 }

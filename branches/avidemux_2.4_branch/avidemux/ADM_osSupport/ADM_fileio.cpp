@@ -375,7 +375,7 @@ const char *GetFileName(const char *str)
 	Split patch into absolute path+name and extention
 
 */
-void PathSplit(char *str, char **root, char **ext)
+void PathSplit(const char *str, char **root, char **ext)
 {
 	char *full;
 	uint32_t l;

@@ -90,8 +90,7 @@ SelectCodecType current_codec = CodecCopy;
 
 
 
-uint8_t loadVideoCodecConf (char *name);
-uint8_t saveVideoCodecConf (char *name);
+uint8_t loadVideoCodecConf (const char *name);
 uint8_t mk_hex (uint8_t a, uint8_t b);
 //*********************************************
 CodecFamilty
@@ -754,7 +753,7 @@ getVideoEncoder (uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 
 */
 uint8_t
-loadVideoCodecConf (char *name)
+loadVideoCodecConf (const char *name)
 {
   FILE *fd = NULL;
   char str[4000];
@@ -799,7 +798,7 @@ loadVideoCodecConf (char *name)
 }
 /***********************/
 uint8_t
-loadVideoCodecConfString (char *cmd)
+loadVideoCodecConfString (const char *cmd)
 {
 #define MAX_STRING 4000
   char str[MAX_STRING * 3];

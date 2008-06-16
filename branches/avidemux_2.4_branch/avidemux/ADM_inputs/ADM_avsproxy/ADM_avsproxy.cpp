@@ -41,7 +41,7 @@ avsHeader::avsHeader()
 }
 
 
-uint8_t avsHeader::open(char *name)
+uint8_t avsHeader::open(const char *name)
 {
     mySocket=0;
     if(!bindMe(9999))

@@ -186,13 +186,13 @@ uint8_t	AVDMVideoStreamCrop::getCoupledConf( CONFcouple **couples)
 			return 1;
 
 }
-extern int DIA_getCropParams(	char *name,CROP_PARAMS *param,AVDMGenericVideoStream *in);
+extern int DIA_getCropParams(const char *name,CROP_PARAMS *param,AVDMGenericVideoStream *in);
 uint8_t AVDMVideoStreamCrop::configure( AVDMGenericVideoStream *instream)
 
 {
 		uint8_t r;
 		uint32_t w,h;
-    	if(r = (DIA_getCropParams("Crop Settings",_param,instream )))
+    	if(r = (DIA_getCropParams(QT_TR_NOOP("Crop Settings"),_param,instream )))
     	{
 			w=_param->left+_param->right;
 			h=_param->top+_param->bottom;
