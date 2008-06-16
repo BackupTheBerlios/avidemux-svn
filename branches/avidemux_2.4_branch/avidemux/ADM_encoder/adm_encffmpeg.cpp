@@ -403,9 +403,13 @@ uint8_t EncoderFFMPEG::configure (AVDMGenericVideoStream * instream)
       _codec->init (_param.bitrate, _fps, flag1);
       break;
     case COMPRESS_2PASS:
-      ffmpegEncoderCQ * cdec;
+    case COMPRESS_2PASS_BITRATE:
 
-      printf ("\n ffmpeg dual size: %lu", _param.finalsize);
+      ffmpegEncoderCQ * cdec;
+      if(_param.mode==COMPRESS_2PASS)
+        printf ("\n ffmpeg dual size: %lu", _param.finalsize);
+      else
+        printf ("\n ffmpeg dual bitrate: %lu", _param.avg_bitrate);
       _state = enc_Pass1;
       cdec = new ffmpegEncoderCQ (_w, _h, _id);	// Pass1
       cdec->setConfig (&_settings);
@@ -562,8 +566,19 @@ uint8_t EncoderFFMPEG::startPass2 (void)
 
   // compute average bitrate
   uint32_t    vbr = 0;
+ switch(_param.mode)
+  {
+    case COMPRESS_2PASS:          
+          // compute average bitrate
+            vbr= ADM_computeBitrate(_fps, _frametogo,_param.finalsize);
+            break;
+    case COMPRESS_2PASS_BITRATE:
+            vbr=_param.avg_bitrate*1000; // in b/s
+            break;
+    default:
+          ADM_assert(0);
+  }
 
-    vbr= ADM_computeBitrate(_fps, _frametogo,_param.finalsize);
 
   _codec->setLogFile (_logname);
   if(!_codec->init (vbr, _fps))
