@@ -235,6 +235,7 @@ int16_t *run16;
         _tail+=nbIn;
         while(_tail-_head>AMR_PACKET)
         {
+          pout=SCRATCH_PAD_SIZE;
           out=avcodec_decode_audio2(_context,(int16_t *)scratchPad,
                                    &pout,_buffer+_head,_tail-_head);
                 

@@ -15,7 +15,7 @@ SET(${ADM_LIB}_SRCS
 		roqvideo.c 	xan.c 	rpza.c 	msrle.c 	msvideo1.c 	cinepak.c 	vqavideo.c 
 		idcinvideo.c 	smc.c 	flicvideo.c 	interplayvideo.c 	dpcm.c 	8bps.c vmdav.c 
 		truemotion1.c flac.c g726.c 	qtrle.c lcl.c 	snow.c  
-		rangecoder.c bitstream.c h264idct.c h261.c amr.c tscc.c 
+		rangecoder.c bitstream.c h264idct.c h261.c libamr.c tscc.c 
 		resample2.c pthread.c qdm2.c bitstream_filter.c eval.c 
 		vc1.c vc1dsp.c vp56.c  vp6.c vp5.c indeo2.c smacker.c  opt.c
                 fraps.c dnxhddata.h  dnxhddec.c

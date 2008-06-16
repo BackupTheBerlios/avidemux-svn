@@ -6,6 +6,8 @@
 #include <stdio.h>
 int main(void)
 {
+	printf("#include \"config.h\"\n\n");
+
 #define DECLARE_DECODER(a,b); printf("#define ENABLE_"#a"_DECODER 1\n"); 
   
     DECLARE_DECODER(NELLYMOSER,nellymoser);
@@ -144,7 +146,6 @@ int main(void)
     DECLARE_DECODER (ZLIB, zlib);
     DECLARE_DECODER (ZMBV, zmbv);
     DECLARE_DECODER (FLAC, flac);
-    DECLARE_DECODER (LIBAMR_NB, libamr_nb);
     DECLARE_DECODER (LIBAMR_WB, libamr_wb);
     DECLARE_DECODER (LIBGSM, libgsm);
     DECLARE_DECODER (LIBGSM_MS, libgsm_ms);
@@ -189,6 +190,12 @@ int main(void)
     DECLARE_DECODER (ADPCM_XA, adpcm_xa);
     DECLARE_DECODER (ADPCM_YAMAHA, adpcm_yamaha);
     DECLARE_DECODER (DVDSUB, dvdsub);
+
+	printf("#ifdef USE_AMR_NB\n");
+	printf("#define ENABLE_LIBAMR_NB_DECODER 1\n");
+	printf("#else\n");
+	printf("#define ENABLE_LIBAMR_NB_DECODER 0\n");
+	printf("#endif\n");
 
 #define DECLARE_PARSER(a,b); printf("#define ENABLE_"#a"_PARSER 1\n"); 
     DECLARE_PARSER (H263, h263);
@@ -333,7 +340,6 @@ printf("#define ENABLE_SPARC      0\n");
 printf("#define ENABLE_ALPHA      0\n");
 
 // Hack so CMake and autoconf don't need to be changed
-printf("#include \"config.h\"\n");
 printf("#ifdef ARCH_POWERPC\n");
 printf("#define ENABLE_POWERPC      1\n");
 printf("#else\n");

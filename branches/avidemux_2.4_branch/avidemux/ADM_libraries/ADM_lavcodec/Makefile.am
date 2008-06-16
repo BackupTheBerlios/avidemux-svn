@@ -54,7 +54,7 @@ libavcodec_a_SOURCES = $(EXTEND_PPC) $(EXTEND_MMX) ac3enc.c  \
 		roqvideo.c 	xan.c 	rpza.c 	msrle.c 	msvideo1.c 	cinepak.c 	vqavideo.c \
 		idcinvideo.c 	smc.c 	flicvideo.c 	interplayvideo.c 	dpcm.c 	8bps.c vmdav.c \
 		truemotion1.c flac.c g726.c 	qtrle.c lcl.c 	snow.c  \
-		rangecoder.c bitstream.c h264idct.c h261.c amr.c tscc.c \
+		rangecoder.c bitstream.c h264idct.c h261.c libamr.c tscc.c \
 		resample2.c pthread.c qdm2.c bitstream_filter.c eval.c \
 		vc1.c vc1dsp.c vp56.c vp56data.c vp6.c vp5.c indeo2.c indeo3.c  smacker.c  opt.c \
 		 fraps.c dnxhddata.h  dnxhddec.c	\
@@ -93,7 +93,7 @@ adpcm.c     error_resilience.c  jrevdct.c      png.c    ulti.c \
 adx.c     eval.c      kmvc.c       pnm.c    utils.c \
 alac.c      faac.c      lcl.c      pthread.c  vc1.c \
 allcodecs.c   faad.c      libgsm.c     qdm2.c   vcr1.c \
-amr.c     faandct.c     loco.c       qdrw.c   vmdav.c \
+libamr.c     faandct.c     loco.c       qdrw.c   vmdav.c \
 apiexample.c    fdctref.c     lzo.c      qpeg.c   vorbis.c \
 asv1.c      fft-test.c    mace.c       qtrle.c    vp3.c \
 avcodec.c     fft.c     mdct.c       ra144.c    vp3dsp.c \

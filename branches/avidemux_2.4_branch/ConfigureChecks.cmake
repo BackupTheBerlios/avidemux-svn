@@ -456,7 +456,7 @@ ELSE (USE_LATE_BINDING)
 ENDIF (USE_LATE_BINDING)
 
 IF (USE_AMR_NB)
-	SET(CONFIG_AMR_NB 1)
+	SET(CONFIG_LIBAMR_NB 1)
 ENDIF (USE_AMR_NB)
 
 ########################################

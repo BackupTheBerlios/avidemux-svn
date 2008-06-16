@@ -29,9 +29,6 @@
 /* use ALSA as possible audio device */
 #cmakedefine ALSA_SUPPORT
 
-/* AMR_NB */
-#cmakedefine AMR_NB
-
 /* X86_64 AMD64 assembly */
 #cmakedefine ARCH_64_BITS
 
@@ -54,6 +51,7 @@
 #cmakedefine CONFIG_ENCODERS
 #cmakedefine CONFIG_DVVIDEO_ENCODER
 
+#cmakedefine CONFIG_LIBAMR_NB
 #cmakedefine CONFIG_DECODERS
 #cmakedefine CONFIG_DVVIDEO_DECODER
 #cmakedefine CONFIG_H263_DECODER
