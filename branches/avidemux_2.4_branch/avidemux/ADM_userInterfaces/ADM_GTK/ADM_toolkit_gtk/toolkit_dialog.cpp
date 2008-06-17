@@ -161,7 +161,6 @@ int ret=0;
 
         dialog=create_dialogYN();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
-        gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
         gtk_register_dialog(dialog);
         if(gtk_dialog_run(GTK_DIALOG(dialog))==GTK_RESPONSE_YES)
         {
@@ -191,7 +190,6 @@ void             GUI_Info(const char *alertstring)
         }
         dialog=create_dialogInfo();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
-        gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
         gtk_register_dialog(dialog);
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_unregister_dialog(dialog);
@@ -235,7 +233,7 @@ void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *sec
 			g_free(secondary);
 			return;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>\n\n", secondary, NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s", primary, secondary);
 		g_free(secondary);
 	}
 	else
@@ -245,7 +243,7 @@ void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *sec
 			printf("Info: %s\n", primary);
 			return;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>", NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>", primary);
 	}
 	
 	va_end(ap);
@@ -278,7 +276,6 @@ void 		GUI_Alert(const char *alertstring)
         }
         dialog=create_dialogWarning();
         gtk_label_set_text(GTK_LABEL(WID(label1)),alertstring);
-        gtk_label_set_use_markup(GTK_LABEL(WID(label1)), TRUE);
         gtk_register_dialog(dialog);
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_unregister_dialog(dialog);
@@ -321,7 +318,7 @@ void GUI_Error_HIG(const char *primary, const char *secondary_format, ...)
 			g_free(secondary);
 			return;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>\n\n", secondary, NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s", primary, secondary);
 		g_free(secondary);
 	}
 	else
@@ -331,7 +328,7 @@ void GUI_Error_HIG(const char *primary, const char *secondary_format, ...)
 			printf("Info: %s\n", primary);
 			return;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>", NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>", primary);
 	}
 	
 	va_end(ap);
@@ -380,7 +377,7 @@ int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const 
 			g_free(secondary);
 			return 0;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>\n\n", secondary, NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s", primary, secondary);
 		g_free(secondary);
 	}
 	else
@@ -390,7 +387,7 @@ int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const 
 			printf("Info: %s\n", primary);
 			return 0;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>", NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>", primary);
 	}
 	
 	va_end(ap);
@@ -443,7 +440,7 @@ int GUI_YesNo(const char *primary, const char *secondary_format, ...)
 			g_free(secondary);
 			return 0;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>\n\n", secondary, NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>\n\n%s", primary, secondary);
 		g_free(secondary);
 	}
 	else
@@ -453,7 +450,7 @@ int GUI_YesNo(const char *primary, const char *secondary_format, ...)
 			printf("Info: %s\n", primary);
 			return 0;
 		}
-		alertstring = g_strconcat("<span size=\"larger\" weight=\"bold\">", primary, "</span>", NULL);
+		alertstring = g_markup_printf_escaped("<span size=\"larger\" weight=\"bold\">%s</span>", primary);
 	}
 	
 	va_end(ap);
