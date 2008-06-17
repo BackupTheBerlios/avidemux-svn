@@ -57,13 +57,13 @@ int code;
          diaMenuEntry partitionM[] = {
                   {0,   QT_TR_NOOP("1  - Extremely Low (Fastest)")}
                 ,{1,    QT_TR_NOOP("2  - Very Low")}
-                ,{3,    QT_TR_NOOP("3  - Low")}
-                ,{4,    QT_TR_NOOP("4  - Medium")}
-                ,{5,    QT_TR_NOOP("5  - High (Default)")}
-                ,{6,    QT_TR_NOOP("6  - Very High")}
-                ,{7,    QT_TR_NOOP("6B - Very High (RDO on Bframes)")}
-                ,{8,    QT_TR_NOOP("7  - Ultra High")}
-                ,{9,    QT_TR_NOOP("7B - Ultra High (RDO on Bframes)")}};
+                ,{2,    QT_TR_NOOP("3  - Low")}
+                ,{3,    QT_TR_NOOP("4  - Medium")}
+                ,{4,    QT_TR_NOOP("5  - High (Default)")}
+                ,{5,    QT_TR_NOOP("6  - Very High")}
+                ,{6,    QT_TR_NOOP("6B - Very High (RDO on Bframes)")}
+                ,{7,    QT_TR_NOOP("7  - Ultra High")}
+                ,{8,    QT_TR_NOOP("7B - Ultra High (RDO on Bframes)")}};
 
                             
         diaElemMenu parition(PX(PartitionDecision),QT_TR_NOOP("Partition Decision"),10,partitionM);
