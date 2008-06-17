@@ -421,13 +421,18 @@ uint32_t extraLen=0;
 			header->dwSampleSize 	= wav.blockalign;
 			header->dwInitialFrames =1;				
 			header->dwSuggestedBufferSize=10*wav.blockalign;				
-			
 			extra=(uint8_t *)&wmaheader;
 			extraLen=12;
 			break;
+    case WAV_PCM:
+    case WAV_LPCM:
+            header->dwScale=header->dwSampleSize=wav.blockalign=2*wav.channels; // Realign
+            header->dwLength/=header->dwScale;
+            break;
           case WAV_8BITS_UNSIGNED:
                         wav.encoding=WAV_PCM;
-			header->dwScale 	= 1;
+			header->dwScale=header->dwSampleSize=wav.blockalign=wav.channels;
+			header->dwLength/=header->dwScale;
                         wav.bitspersample=8;
                         break;
                         

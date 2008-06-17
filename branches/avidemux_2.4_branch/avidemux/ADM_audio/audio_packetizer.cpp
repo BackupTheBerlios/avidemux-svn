@@ -156,27 +156,28 @@ uint8_t		AVDMGenericAudioStream::getPacketWMA(uint8_t *dest, uint32_t *len,
 	return 0;
 
 }
-//*************
-// The packet is 1024 bytes long BUT the 4/8 bytes (mono/stereo) are used for predictor initialization
-//
-// See Mike Melanson nice doc http://www.multimedia.cx/simpleaudio.html
-//___________________________
+/**
+        \fn getPacketPCM
+        \brief
+*/
 uint8_t		AVDMGenericAudioStream::getPacketPCM(uint8_t *dest, uint32_t *len, 
 								uint32_t *samples)
 {
-// Take ~ 10 m packets
+// Take ~ 32 samples packet
 //
 	uint32_t count,sample;
-			sample=_wavheader->frequency/100;			
-			count=sample*_wavheader->channels;
+    uint32_t sampleSizeInBytes=1;
                         if(_wavheader->encoding!=WAV_ULAW && _wavheader->encoding!=WAV_8BITS_UNSIGNED)
 			{
-				count*=2;			
+				sampleSizeInBytes=2;
 			}
+			count=32*_wavheader->channels;
+            count*=sampleSizeInBytes;
+
 			if(packetTail-packetHead<count)
 			{
 				count=packetTail-packetHead;
-				count&=0xffffffC;
+				count&=~(sampleSizeInBytes*_wavheader->channels);
 			}
 			memcpy(dest,&packetBuffer[packetHead],count);			
 			packetHead+=count;
@@ -189,15 +190,7 @@ uint8_t		AVDMGenericAudioStream::getPacketPCM(uint8_t *dest, uint32_t *len,
 				printf("Wav Packetizer: running empty, last packet sent\n");
 				return 0;
 			}
-                        if(_wavheader->encoding!=WAV_ULAW && _wavheader->encoding!=WAV_8BITS_UNSIGNED&&
-                                        _wavheader->encoding!=WAV_IMAADPCM  )
-			{
-				*samples=sample/2;
-			}
-			else
-			{
-				*samples=sample;
-			}
+			*samples=sample/sampleSizeInBytes;
 			*len=count;
 			return 1;
 }
