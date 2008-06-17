@@ -105,7 +105,11 @@ extern uint8_t A_rebuildKeyFrame (void);
 extern uint8_t A_setContainer(const char *cont);
 uint8_t scriptAddVar(char *var,char *value);
 extern uint8_t ADM_vob2vobsub(char *nameVob, char *nameVobSub, char *nameIfo);
-//
+
+#ifdef __WIN32
+	extern int ansiStringToUtf8(const char *ansiString, int ansiStringLength, char *utf8String);
+#endif
+
 static int call_bframe(void);
 static int call_x264(void);
 static int call_packedvop(void);
@@ -238,7 +242,17 @@ static int index;
                       {
                             if(cur==1) 
                             {
-                                A_openAvi(argv[cur]);
+#ifdef __WIN32
+								int utf8StringLength = ansiStringToUtf8(argv[cur], -1, NULL);
+								char utf8FileName[utf8StringLength];
+
+								ansiStringToUtf8(argv[cur], -1, utf8FileName);
+
+								A_openAvi(utf8FileName);
+#else
+								A_openAvi(argv[cur]);
+#endif
+	
                             }
                             else
                                 printf("\n Found garbage %s\n",argv[cur]);
