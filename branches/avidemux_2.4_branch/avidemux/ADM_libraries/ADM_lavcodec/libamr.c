@@ -430,7 +430,7 @@ static int amr_nb_decode_close(AVCodecContext * avctx)
 {
     AMRContext *s = avctx->priv_data;
 
-    Decoder_Interface_exit(s->decState);
+    Decoder_Interface_exit_(getAmrnbWrapper(), s->decState);
     return 0;
 }
 
@@ -438,7 +438,7 @@ static int amr_nb_encode_close(AVCodecContext * avctx)
 {
     AMRContext *s = avctx->priv_data;
 
-    Encoder_Interface_exit(s->enstate);
+    Encoder_Interface_exit_(getAmrnbWrapper(), s->enstate);
     av_freep(&avctx->coded_frame);
     return 0;
 }
