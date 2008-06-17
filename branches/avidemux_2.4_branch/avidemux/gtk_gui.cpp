@@ -175,7 +175,6 @@ extern void DIA_glyphEdit(void);
 
 void HandleAction (Action action)
 {
-  gchar *name_utf8;
   static int recursive = 0;
 
   uint32_t nf = 0;
@@ -217,9 +216,8 @@ int nw;
                                 name=prefs->get_lastfiles();
                                 rank=(int)action-ACT_RECENT0;
                                 ADM_assert(name[rank]);
-				name_utf8 = g_filename_from_utf8(name[rank], -1, NULL, NULL, NULL);
-                                A_openAvi2 (name_utf8, 0);
-				g_free(name_utf8);
+                                A_openAvi2 (name[rank], 0);
+
                 return;
         case ACT_ViewMain: UI_toogleMain();return;
         case ACT_ViewSide: UI_toogleSide();return;
@@ -886,7 +884,6 @@ extern void GUI_PreviewEnd (void);
 int A_openAvi2 (const char *name, uint8_t mode)
 {
   uint8_t res;
-  gchar *name_utf8;
   char *longname;
   uint32_t magic[4];
   uint32_t id = 0;
@@ -969,8 +966,7 @@ int A_openAvi2 (const char *name, uint8_t mode)
 	}
 
 	/* remember any video or workbench file to "recent" */
-	name_utf8 = g_filename_to_utf8(longname, -1, NULL, NULL, NULL);
-	prefs->set_lastfile(name_utf8);
+	prefs->set_lastfile(longname);
         UI_updateRecentMenu();
 	updateLoaded ();
         if(currentaudiostream)
@@ -1000,7 +996,7 @@ int A_openAvi2 (const char *name, uint8_t mode)
 		}
 	UI_setTitle(longname+i);
     }
-	g_free(name_utf8);
+
 	delete[] longname;
 	return 1;
 }

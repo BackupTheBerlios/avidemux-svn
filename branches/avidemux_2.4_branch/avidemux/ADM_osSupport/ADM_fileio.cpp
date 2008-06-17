@@ -20,11 +20,10 @@
 #include <dirent.h>
 #include <errno.h>
 #include <sys/stat.h>
-
 #include <unistd.h>
 
-#ifdef WIN32
-#include <glib.h>
+#ifdef __WIN32
+#include <windows.h>
 #endif
 
 #include "default.h"
@@ -55,15 +54,18 @@ size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream)
 }
 FILE  *ADM_fopen (const char *file, const char *mode)
 {
-  FILE *f;
+#ifdef __MINGW32__
+	int nFileLen = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, file, -1, NULL, 0);
+	int nModeLen = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, mode, -1, NULL, 0);
+	wchar_t wFile[nFileLen + 1];
+	wchar_t wMode[nModeLen + 1];
 
-#ifndef ADM_WIN32
-  return fopen(file,mode); 
+	MultiByteToWideChar(CP_UTF8, 0, mode, -1, wMode, nModeLen + 1);
+	MultiByteToWideChar(CP_UTF8, 0, file, -1, wFile, nFileLen + 1);
+
+	return _wfopen(wFile, wMode);
 #else
-  gchar *retval = g_locale_from_utf8 (file, -1, NULL, NULL, NULL);
-  f=fopen(retval,mode);
-  g_free (retval);
-  return f;  
+	return fopen(file, mode);
 #endif
 }
 
@@ -420,7 +422,7 @@ void fileReadWrite(SELFILE_CB *cb, int rw, const char *name)
 		if(cb)
 		{
 			FILE *fd;
-			fd=fopen(name,"rb");
+			fd=ADM_fopen(name,"rb");
 			if(rw==0) // read
 			{
 				// try to open it..
@@ -435,7 +437,7 @@ void fileReadWrite(SELFILE_CB *cb, int rw, const char *name)
 				if(fd){
 				  struct stat buf;
 				  int fdino;
-					fclose(fd);
+					ADM_fclose(fd);
 
 					char msg[300];
 
@@ -488,14 +490,14 @@ void fileReadWrite(SELFILE_CB *cb, int rw, const char *name)
 				}
 
 				// check we have right access to it
-				fd=fopen(name,"wb");
+				fd=ADM_fopen(name,"wb");
 				if(!fd)
 				{
                                   GUI_Error_HIG(QT_TR_NOOP("Cannot write the file"),QT_TR_NOOP( "No write access to \"%s\"."), name);
 					return;
 				}
 			}
-			fclose(fd);
+			ADM_fclose(fd);
 			cb(name);
 		} // no callback -> return value
 	}
