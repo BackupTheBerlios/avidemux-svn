@@ -1031,7 +1031,7 @@ uint8_t UI_getTimeShift(int *onoff,int *value)
 
 uint8_t UI_setTimeShift(int onoff,int value)
 {
-	if(onoff)
+	if (onoff && value)
 		WIDGET(checkBox_TimeShift)->setCheckState(Qt::Checked);
 	else
 		WIDGET(checkBox_TimeShift)->setCheckState(Qt::Unchecked);

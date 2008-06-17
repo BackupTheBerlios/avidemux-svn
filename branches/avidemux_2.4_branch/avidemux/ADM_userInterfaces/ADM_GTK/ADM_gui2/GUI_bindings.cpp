@@ -1226,6 +1226,8 @@ uint8_t UI_getTimeShift(int *onoff,int *value)
 }
 uint8_t UI_setTimeShift(int onoff,int value)
 {
+	if (!value)
+		onoff = 0;
 
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (lookup_widget(guiRootWindow,"CheckButtonTimeshift")),onoff);
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(lookup_widget(guiRootWindow,"spinbuttonTimeShift")),value) ;
