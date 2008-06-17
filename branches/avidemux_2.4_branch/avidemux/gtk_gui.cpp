@@ -70,8 +70,8 @@
 
 void A_handleSecondTrack (int tracktype);
 int A_delete(uint32_t start, uint32_t end);
-void A_saveImg (char *name);
-void A_saveBunchJpg( char *name);
+void A_saveImg (const char *name);
+void A_saveBunchJpg( const char *name);
 void A_requantize(void);
 int A_saveJpg (char *name);
 int A_loadWave (char *name);
@@ -79,9 +79,9 @@ int A_loadAC3 (char *name);
 int A_loadMP3 (char *name);
 int A_loadNone( void );
 void A_saveAudioDecodedTest (char *name);
-void A_openBrokenAvi (char *name);
-int A_openAvi2 (char *name, uint8_t mode);
-int A_appendAvi (char *name);
+void A_openBrokenAvi (const char *name);
+int A_openAvi2 (const char *name, uint8_t mode);
+int A_appendAvi (const char *name);
 void A_externalAudioTrack( void );
 
 void HandleAction (Action action);
@@ -117,7 +117,7 @@ extern uint8_t indexMpeg (char *mpeg, char *file, uint8_t aid);
 void ADM_cutWizard (void);
 uint8_t  ADM_saveRaw (const char *name);
 char * actual_workbench_file;
-void A_saveWorkbench (char *name);
+void A_saveWorkbench (const char *name);
 void updateLoaded (void);
 extern void encoderSetLogFile (char *name);
 extern void videoCodecSelect (void);
@@ -872,18 +872,18 @@ int nw;
 //_____________________________________________________________
 
 void
-A_openBrokenAvi (char *name)
+A_openBrokenAvi (const char *name)
 {
   A_openAvi2 (name, 1);
 }
 
 int
-A_openAvi (char *name)
+A_openAvi (const char *name)
 {
   return A_openAvi2 (name, 0);
 }
 extern void GUI_PreviewEnd (void);
-int A_openAvi2 (char *name, uint8_t mode)
+int A_openAvi2 (const char *name, uint8_t mode)
 {
   uint8_t res;
   gchar *name_utf8;
@@ -1094,7 +1094,7 @@ void  updateLoaded ()
 //  Append an AVI to the existing one
 //___________________________________________
 int
-A_appendAvi (char *name)
+A_appendAvi (const char *name)
 {
 
 
@@ -1289,11 +1289,12 @@ static int b=1;
       \brief Save the selection  as a bunch of jpeg 95% qual
 
 */
-void A_saveBunchJpg(char *name)
+void A_saveBunchJpg(const char *name)
 {
   ADMImage *src=NULL;
   uint32_t curImg;
   char	 fullName[2048],*ext;
+  char *baseName;
   DIA_working *working;
   uint8_t success=0;
 
@@ -1303,7 +1304,7 @@ void A_saveBunchJpg(char *name)
                         return;
                 }
         // Split name into base + extension
-        PathSplit(name,&name,&ext);
+        PathSplit(name,&baseName,&ext);
 
         src=new ADMImage(avifileinfo->width,avifileinfo->height);
         ADM_assert(src);
@@ -1318,7 +1319,7 @@ void A_saveBunchJpg(char *name)
                         goto _bunch_abort;
                 }
                 if(!working->isAlive()) goto _bunch_abort;
-                sprintf(fullName,"%s%04d.jpg",name,curImg-frameStart);
+                sprintf(fullName,"%s%04d.jpg",baseName,curImg-frameStart);
                 if(!src->saveAsJpg(fullName)) goto _bunch_abort;
         }
         success=1;
@@ -1338,7 +1339,7 @@ _bunch_abort:
       \fn A_saveImg
       \brief Save current displayed image as a BMP file
 */
-void A_saveImg (char *name)
+void A_saveImg (const char *name)
 {
 
   ADMImage image(avifileinfo->width,avifileinfo->height);
@@ -1779,7 +1780,7 @@ _abt:
 }
 
 void
-A_saveWorkbench (char *name)
+A_saveWorkbench (const char *name)
 {
 #if 0
   video_body->saveWorbench (name);

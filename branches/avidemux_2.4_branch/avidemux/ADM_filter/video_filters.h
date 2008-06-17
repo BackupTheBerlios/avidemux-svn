@@ -179,15 +179,15 @@ const char * filterGetNameFromTag(VF_FILTERS tag);
   void	filterSetPostProc( void );
   
 #ifdef USE_LIBXML2
-void filterSaveXml(char *name);
-void filterSaveXml(char *name,uint8_t silent);
-void filterLoadXml(char *name);
-int  filterLoadXml(char *name,uint8_t silent);
+void filterSaveXml(const char *name);
+void filterSaveXml(const char *name,uint8_t silent);
+void filterLoadXml(const char *name);
+int  filterLoadXml(const char *name,uint8_t silent);
 #endif
- void filterSave(char *name);
- void filterLoad(char *name);
- int filterLoad(char *name,uint8_t silent);
- void filterSave(char *name,uint8_t silent);
+ void filterSave(const char *name);
+ void filterLoad(const char *name);
+ int filterLoad(const char *name,uint8_t silent);
+ void filterSave(const char *name,uint8_t silent);
 CONFcouple *filterBuildCouple(FILTER_PARAM *param,uint32_t n,Arg *args);
 void filterSaveScriptJS(FILE *f);
 

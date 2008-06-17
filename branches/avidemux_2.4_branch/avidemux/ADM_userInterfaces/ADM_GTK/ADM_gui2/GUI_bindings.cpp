@@ -81,7 +81,7 @@ static char     *customNames[ADM_MAC_CUSTOM_SCRIPT];
 static uint32_t ADM_nbCustom=0;
 // Needed for DND
 // extern int A_openAvi (char *name);
-extern void A_appendAvi (char *name);
+extern int A_appendAvi (const char *name);
 
 
 static void on_audio_change(void);
@@ -129,7 +129,7 @@ extern GtkWidget	*create_mainWindow (void);
 extern void guiCallback(GtkMenuItem * menuitem, gpointer user_data);
 extern void HandleAction(Action act);
 extern gboolean UI_on_key_press(GtkWidget *widget, GdkEventKey* event, gpointer user_data);
-extern void fileReadWrite(SELFILE_CB cb, int rw, char *name);
+extern void fileReadWrite(SELFILE_CB *cb, int rw, const char *name);
 
 // To build vcodec
 extern uint32_t encoderGetNbEncoder(void);
@@ -1120,21 +1120,25 @@ uint8_t UI_SetCurrentFormat( ADM_OUT_FORMAT fmt )
     \fn DNDmerge
     \brief Extract the actual filename from the DNDstring file://abcd and store it into where
 */
-static void DNDmerge(char **where, char *start,char *end)
+static void DNDmerge(char **where, char *start, char *end)
 {
-  int len=end-start;
-  ADM_assert(len>7); // file:// = 7 bytes
-  len-=7;
-  *where=(char *)ADM_alloc(end-start+1);  // 7 more but who cares ?
-  memcpy(*where,start+7,len);
-  
-  // chomp it
-  char *tail=(*where)+len;
-  do
-  { 
-      *tail=0;
-      tail--;
-  }while(*tail==0xA || *tail==0xd);
+	char urlFile[end - start + 1];
+	char *tail = urlFile + (end - start);
+
+	memcpy(urlFile, start, end - start);
+
+	do
+	{
+		*tail = 0;
+		tail--;
+	} while (*tail == '\r' || *tail == '\n');
+
+	gchar *filename = g_filename_from_uri(urlFile, NULL, NULL);
+
+	*where = new char[strlen(filename) + 1];
+	strcpy(*where, filename);
+
+	g_free(filename);
 }
 // DND CYB
 #define MAX_DND_FILES 20
@@ -1150,7 +1154,7 @@ void DNDDataReceived( GtkWidget *widget, GdkDragContext *dc,
    char *names[MAX_DND_FILES];
    
     memset(names,0,sizeof(char *)*MAX_DND_FILES);
-    if (info != TARGET_URI_LIST)
+    if (info != TARGET_STRING && info != TARGET_URL)
     {
       gtk_drag_finish(dc,TRUE,FALSE,t);
       return;
@@ -1184,15 +1188,13 @@ void DNDDataReceived( GtkWidget *widget, GdkDragContext *dc,
     for(int i=0;i<current-1;i++)
     {
       printf("DND : %d %s\n",i,names[i]);
-      char *filename=names[i];
-      if (avifileinfo) 
-              {
-                    fileReadWrite(A_appendAvi, 0, (char*)filename);
-               }
-               else
-               {
-                    fileReadWrite(reinterpret_cast <void (*)(char *)> (A_openAvi), 0, (char*)filename);
-               }
+      const char *filename = names[i];
+
+	  if (avifileinfo)
+		  fileReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, filename);
+	  else
+		  fileReadWrite(reinterpret_cast <void (*)(const char *)> (A_openAvi), 0, filename);
+
       ADM_dealloc(names[i]); 
     }
     gtk_drag_finish(dc,TRUE,FALSE,t);

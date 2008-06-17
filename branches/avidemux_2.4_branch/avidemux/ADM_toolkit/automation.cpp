@@ -29,7 +29,7 @@
 #include <ctype.h>
 
 #include "avi_vars.h"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 #include "gui_action.hxx"
 #include "ADM_encoder/ADM_vidEncode.hxx"
@@ -50,9 +50,8 @@ extern void filterListAll(void );
 
 extern uint8_t loadVideoCodecConf( const char *name);
 extern int A_saveJpg (char *name);
-extern void filterLoadXml(char *n);
-extern int A_openAvi(char *name);
-extern int A_appendAvi (char *name);
+extern void filterLoadXml(const char *n);
+extern int A_appendAvi (const char *name);
 extern void A_saveAudio(char *name);
 extern int A_loadNone( void );
 extern void A_saveAudioDecodedTest(char *name);
@@ -101,7 +100,7 @@ static void set_autoindex(char *p);
 extern int A_SaveUnpackedVop(const char *name);
 extern int A_SavePackedVop(const char *name);
 extern int A_saveDVDPS(char *name);
-extern void A_saveWorkbench (char *name);
+extern void A_saveWorkbench (const char *name);
 extern uint8_t A_rebuildKeyFrame (void);
 extern uint8_t A_setContainer(const char *cont);
 uint8_t scriptAddVar(char *var,char *value);
@@ -146,7 +145,7 @@ AUTOMATON reaction_table[]=
         {"run",			1,"load and run a script",		(one_arg_type)A_parseECMAScript},
         {"audio-normalize",	1,"activate normalization",		call_normalize},
         {"audio-resample",	1,"resample to x hz",			call_resample},
-        {"filters",		1,"load a filter preset",		filterLoadXml}   ,
+        {"filters",		1,"load a filter preset",		(one_arg_type)filterLoadXml}   ,
         {"codec-conf",		1,"load a codec configuration",		(one_arg_type )loadVideoCodecConf}   ,
         {"vcd-res",		0,"set VCD resolution",			(one_arg_type)setVCD}              ,
         {"svcd-res",		0,"set SVCD resolution",		(one_arg_type)setSVCD}              ,
@@ -161,8 +160,8 @@ AUTOMATON reaction_table[]=
         {"save-raw-audio",	1,"save audio as-is ",			A_saveAudio},
         {"save-raw-video",	1,"save raw video stream (mpeg/... ) ",	(one_arg_type)ADM_saveRaw},
         {"save-uncompressed-audio",1,"save uncompressed audio",A_saveAudioDecodedTest},
-        {"load",		1,"load video or workbench",		(one_arg_type )A_openAvi},
-        {"load-workbench",	1,"load workbench file",		(one_arg_type)A_openAvi},
+        {"load",		1,"load video or workbench", (one_arg_type)A_openAvi},
+        {"load-workbench",	1,"load workbench file", (one_arg_type)A_openAvi},
         {"append",		1,"append video",			(one_arg_type)A_appendAvi},
         {"save",		1,"save avi",				save},		
         {"save-workbench",	1,"save workbench file",		(one_arg_type)A_saveWorkbench},

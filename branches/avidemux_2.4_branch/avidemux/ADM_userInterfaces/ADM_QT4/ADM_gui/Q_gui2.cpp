@@ -39,6 +39,7 @@
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_toolkit/filesel.h"
 #include "prefs.h"
+#include "avi_vars.h"
 
 extern int global_argc;
 extern char **global_argv;
@@ -55,7 +56,9 @@ extern void UI_QT4VideoWidget(QFrame *frame);
 extern void loadTranslator(void);
 extern void initTranslator(void);
 extern void destroyTranslator(void);
-extern int A_openAvi2(char *name, uint8_t mode);
+extern int A_openAvi(const char *name);
+extern int A_appendAvi(const char *name);
+extern void fileReadWrite(SELFILE_CB *cb, int rw, const char *name);
 
 int SliderIsShifted=0;
 static void setupMenus(void);
@@ -330,6 +333,8 @@ MainWindow::MainWindow() : QMainWindow()
 	ui.lineEdit_2->installEventFilter(this);
 
 	this->setFocus(Qt::OtherFocusReason);
+
+	setAcceptDrops(true);
 }
 /**
 \fn     custom
@@ -486,13 +491,18 @@ void MainWindow::dropEvent(QDropEvent *event)
 	{
 		urlList = event->mimeData()->urls();
 
-		if (urlList.size() > 0)
+		for (int fileIndex = 0; fileIndex < urlList.size(); fileIndex++)
 		{
-			fileName = urlList[0].toLocalFile();
+			fileName = urlList[fileIndex].toLocalFile();
 			info.setFile(fileName);
 
 			if (info.isFile())
-				A_openAvi2(fileName.toUtf8().data(), 0);
+			{
+				if (avifileinfo)
+					fileReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data());
+				else
+					fileReadWrite(reinterpret_cast <void (*)(const char *)> (A_openAvi), 0, fileName.toUtf8().data());
+			}
 		}
 	}
 

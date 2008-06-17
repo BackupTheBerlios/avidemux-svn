@@ -25,7 +25,7 @@
 static void GUI_FileSelSelect(const char *label, char **name, uint32_t access) ;
 
 //****************************************************************************************************
-void GUI_FileSelRead(const char *label,SELFILE_CB cb) 
+void GUI_FileSelRead(const char *label,SELFILE_CB *cb) 
 {
   char *name;
   GUI_FileSelRead(label,&name);
@@ -36,7 +36,7 @@ void GUI_FileSelRead(const char *label,SELFILE_CB cb)
   }
 }
 //****************************************************************************************************
-void GUI_FileSelWrite(const char *label,SELFILE_CB cb) 
+void GUI_FileSelWrite(const char *label,SELFILE_CB *cb) 
 {
   char *name;
   GUI_FileSelWrite(label,&name);
