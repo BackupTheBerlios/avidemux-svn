@@ -5,12 +5,27 @@
 #include <libintl.h>
 #include <locale.h>
 
+#ifdef __WIN32
+#include <windows.h>
+#endif
+
 void initGetText(void)
 {
 	char *local = setlocale(LC_ALL, "");
 
 #ifdef ADM_WIN32
-	bindtextdomain("avidemux", "./share/locale");
+	char moduleName[MAX_PATH];
+
+	GetModuleFileName(0, moduleName, sizeof(moduleName) / sizeof(char));
+
+	char *slash = strrchr(moduleName, '\\');
+
+	if (slash)
+		*slash = '\0';
+
+	strncat(moduleName, "\\share\\locale", MAX_PATH - 1);
+
+	bindtextdomain("avidemux", moduleName);
 #else
 	bindtextdomain("avidemux", ADMLOCALE);
 #endif
