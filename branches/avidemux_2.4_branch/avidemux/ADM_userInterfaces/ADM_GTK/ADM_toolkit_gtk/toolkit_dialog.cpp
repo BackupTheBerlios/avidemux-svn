@@ -612,6 +612,12 @@ create_dialogYN (void)
   GLADE_HOOKUP_OBJECT (dialog1, buttonNo, "buttonNo");
 
   gtk_widget_grab_default (buttonYes);
+
+  gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog1),
+										GTK_RESPONSE_YES,
+										GTK_RESPONSE_NO,
+										-1);
+
   return dialog1;
 }
 
@@ -684,6 +690,12 @@ create_dialogConfirmation (const char *confirm_text)
   GLADE_HOOKUP_OBJECT (dialog1, buttonYes, "buttonYes");
 
   gtk_widget_grab_default (buttonYes);
+
+  gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog1),
+										GTK_RESPONSE_YES,
+										GTK_RESPONSE_NO,
+										-1);
+
   return dialog1;
 }
 

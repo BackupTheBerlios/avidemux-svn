@@ -65,6 +65,11 @@ int code;
       ADM_assert(incoming->extraSettingsLen==sizeof(localParam));
       memcpy(&localParam,incoming->extraSettings,sizeof(localParam));
       dialog=create_dialog1();
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_OK,
+										GTK_RESPONSE_CANCEL,
+										-1);
       gtk_register_dialog(dialog);
 
 #define HIST_SET(x) gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuType)), x)
@@ -435,6 +440,11 @@ int code;
 int col, row;
 
       dialog=create_dialog3();
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_OK,
+										GTK_RESPONSE_CANCEL,
+										-1);
       gtk_register_dialog(dialog);
       //
       for(int i=0;i<64;i++)

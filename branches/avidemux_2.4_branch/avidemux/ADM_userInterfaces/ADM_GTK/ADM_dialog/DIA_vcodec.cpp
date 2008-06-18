@@ -45,6 +45,11 @@ uint8_t DIA_videoCodec( SelectCodecType *codec )
         nb=encoderGetNbEncoder();
         
         dialog=create_dialog1();
+
+		gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+											GTK_RESPONSE_OK,
+											GTK_RESPONSE_CANCEL,
+											-1);
         	
         gtk_register_dialog(dialog);
         COMPRES_PARAMS *desc=videoCodecGetDescriptor (*codec);

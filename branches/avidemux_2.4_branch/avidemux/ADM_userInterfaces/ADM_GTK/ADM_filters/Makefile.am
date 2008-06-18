@@ -7,7 +7,7 @@ INCLUDES = $(all_includes) $(GTK_CFLAGS) $(XML_CFLAGS)   \
 
 libADM_filtersGtk_a_METASOURCES = AUTO
 
-libADM_filtersGtk_a_SOURCES = gui_filterlist.cpp  gui_filtermanager.cpp  gui_filtermanager_dialog.cpp  gui_filtersub.cpp
+libADM_filtersGtk_a_SOURCES = gui_filtermanager.cpp  gui_filtermanager_dialog.cpp
 
 
 

@@ -73,6 +73,12 @@ DIR *dir=NULL;
                                       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                       GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
                                       NULL);
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_ACCEPT,
+										GTK_RESPONSE_CANCEL,
+										-1);
+
 	gtk_window_set_title (GTK_WINDOW (dialog),title);
         initFileSelector();
         setFilter(dialog);
@@ -145,6 +151,12 @@ DIR *dir=NULL;
                                       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                       GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
                                       NULL);
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_ACCEPT,
+										GTK_RESPONSE_CANCEL,
+										-1);
+
 	gtk_window_set_title (GTK_WINDOW (dialog),title);
         initFileSelector();
         setFilter(dialog);
@@ -239,6 +251,12 @@ DIR *dir=NULL;
                                       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                       GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
                                       NULL);
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_ACCEPT,
+										GTK_RESPONSE_CANCEL,
+										-1);
+
         gtk_window_set_title (GTK_WINDOW (dialog),title);
         gtk_register_dialog(dialog);
         /* Set default dir if provided ..*/
@@ -339,6 +357,11 @@ void GUI_FileSel(const char *label, SELFILE_CB * cb, int rw,char **rname)
                                       GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
                                       NULL);
         }
+
+		gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+											GTK_RESPONSE_ACCEPT,
+											GTK_RESPONSE_CANCEL,
+											-1);
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
         /**********/
         initFileSelector();
