@@ -428,6 +428,7 @@ aviInfo info;
  	
        info.fps1000=fps;
         video_body->updateVideoInfo(&info);
+        video_body->getVideoInfo (avifileinfo);
         
 	leaveLock();
         return JS_TRUE;
