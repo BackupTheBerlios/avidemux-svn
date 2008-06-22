@@ -153,17 +153,20 @@ decoderMpeg::decoderMpeg (uint32_t w, uint32_t h, uint32_t extraLen, uint8_t * e
 	// store for future use
 	_seqFound = 0;
 	par_width=par_height=1;
-
-	printf ("\nInitializing MPEG2 decoder %lu x %lu\n", _w, _h);
+    uint32_t roundWidth,roundHeight;
+    roundWidth=(_w+15)&~15;
+    roundHeight=(_h+31)&~31; // depending on interlaced/Progressive the height must be a multiple of 32
+	printf ("[Mpeg2dec]Initializing MPEG2 decoder %lu x %lu\n", _w, _h);
+    printf ("[Mpeg2dec]Initializing MPEG2 decoder using %lu x %lu\n", roundWidth, roundHeight);
 	output = yv12_open ();
 	inst = (yv12_instance_t *) output;
-	unpackBuffer = new uint8_t[(w * h * 9) >> 1];
+	unpackBuffer = new uint8_t[(roundWidth * roundHeight * 9) >> 1];
 	inst->buffer = unpackBuffer;
 	_decoder = mpeg2_init();
 	dec = &((MPEG2DEC)->decoder);
 
-	wmb = (_w + 15) >> 4;;
-	hmb = (_h + 15) >> 4;;
+	wmb = (roundWidth) >> 4;;
+	hmb = (roundWidth) >> 4;;
 
 	dec->quant_stride = wmb;
 	dec->quant = (int8_t *)ADM_alloc ((wmb * hmb) * sizeof (int8_t));
@@ -225,7 +228,7 @@ uint8_t
     }
   if (dontcopy ())
     {
-      uint32_t plane = _w * _h;
+      uint32_t plane = _w * ((_h+31)&~31);
 
       out->_planes[0] = t;
       out->_planes[1] = t + plane;
@@ -236,7 +239,10 @@ uint8_t
     }
   else
     {
-      memcpy (out->data, t, (_w * _h * 3) >> 1);
+    uint32_t plane = _w * ((_h+31)&~31);
+      memcpy (YPLANE(out), t, _w * _h );
+      memcpy (UPLANE(out), t+plane, (_w * _h)>>2 );
+      memcpy (VPLANE(out), t+(plane*5)/4, (_w * _h)>>2 );
     }
 
   switch (MPEG2DEC->decoder.coding_type)
@@ -324,6 +330,7 @@ decoderMpeg::decode_mpeg2 (uint8_t * current, uint8_t * end)
 		  fprintf (stderr, "display setup failed\n");
 		  exit (1);
 		}
+          printf("[Mpeg2dec] Found info %u x %u\n", info->sequence->width, info->sequence->height);
 	      uint8_t *buf[3];
 	      void *id;
 	      //mpeg2_custom_fbuf(MPEG2DEC,1);
@@ -414,7 +421,8 @@ yv12_close (vo_instance_t * _instance)
 }
 
 /**
-	yv12_setup_fbuf : Allocate some buffers
+	\fn yv12_setup_fbuf 
+    \brief : Allocate some buffers
 */
 static void
 yv12_setup_fbuf (vo_instance_t * _instance, uint8_t ** buf, void **id)
