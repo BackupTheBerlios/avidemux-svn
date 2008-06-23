@@ -46,12 +46,9 @@ BUILD_CREATE (contrast_create, ADMVideoContrast);
 char *
 ADMVideoContrast::printConf (void)
 {
-  static char buf[50];
-
-  ADM_assert (_param);
-  sprintf ((char *) buf, " contrast : %1.2f %d", _param->coef,
+ ADM_FILTER_DECLARE_CONF( " contrast : %1.2f %d", _param->coef,
 	   _param->offset);
-  return buf;
+  
 }
 
 //_______________________________________________________________

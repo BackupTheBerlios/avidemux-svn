@@ -94,12 +94,7 @@ while(1)
 
 char *AVDM_Fade::printConf( void )
 {
-  static char buf[50];
-
-        //ADM_assert(_param);
-  sprintf((char *)buf," Fade : Start %u End %u",_param->startFade,_param->endFade);
-  if(_param->inOut) strcat(buf," In"); else strcat(buf," Out");
-  return buf;
+ ADM_FILTER_DECLARE_CONF(" Fade : Start %u End %u",_param->startFade,_param->endFade);
 }
 
 

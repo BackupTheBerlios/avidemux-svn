@@ -76,9 +76,8 @@ BUILD_CREATE(logo_create,ADMVideoLogo);
 //***********************************
 char *ADMVideoLogo::printConf() 
 {
-      static char buf[50];
-      snprintf((char *)buf,50,"Logo at %u %u, alpha %u",_param->x,_param->y);;
-      return buf;
+    ADM_FILTER_DECLARE_CONF("Logo at %u %u, alpha %u",_param->x,_param->y);;
+      
 }
 
 

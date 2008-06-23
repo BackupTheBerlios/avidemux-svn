@@ -110,6 +110,10 @@ typedef enum
                 MAX_FILTER = VF_COUNT - 1,
                 VF_EXTERNAL_START=0xF0000000
           }VF_FILTERS;
+#define ADM_CONF_STRING_SIZE 256
+#define ADM_FILTER_DECLARE_CONF(fmt,...) {static char confString[ADM_CONF_STRING_SIZE];\
+                                    snprintf(confString,ADM_CONF_STRING_SIZE-1,fmt,## __VA_ARGS__);\
+                                    return confString;} 
 
 typedef AVDMGenericVideoStream *(ADM_createT) (AVDMGenericVideoStream *in, CONFcouple *);
 typedef AVDMGenericVideoStream *(ADM_create_from_scriptT) (AVDMGenericVideoStream *in, int n,Arg *args);

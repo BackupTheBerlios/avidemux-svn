@@ -49,10 +49,8 @@ BUILD_CREATE(stabilize_create,ADMVideoStabilize);
 
 char 	*ADMVideoStabilize::printConf(void)
 {
-  static char buf[50];
-
- 	sprintf((char *)buf," Stabilize :%ld",*_param);
-        return buf;
+  ADM_FILTER_DECLARE_CONF(" Stabilize :%ld",*_param);
+        
 }
 uint8_t  GUI_getIntegerValue(int *valye, int min, int max, char *title);
 uint8_t ADMVideoStabilize::configure(AVDMGenericVideoStream *instream)

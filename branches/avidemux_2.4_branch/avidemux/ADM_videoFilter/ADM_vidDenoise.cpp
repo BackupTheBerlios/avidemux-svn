@@ -58,15 +58,13 @@ uint32_t fixMul[16];
 BUILD_CREATE(denoise_create,ADMVideoDenoise);
 char *ADMVideoDenoise::printConf( void )
 {
- 	static char buf[50];
-
-  ADM_assert(_param); 	
- 	sprintf((char *)buf," Denoise : Lum :%02ld/:%02ld / Chm :%02ld/%02ld",
+ 	
+ADM_FILTER_DECLARE_CONF(" Denoise : Lum :%02ld/:%02ld / Chm :%02ld/%02ld",
   								_param->lumaLock,
           				_param->lumaThreshold,
               		_param->chromaLock,
                 	_param->chromaThreshold);
-        return buf;
+    
 }
 void buildDistMatrix( void );
 void buildDistMatrix( void )

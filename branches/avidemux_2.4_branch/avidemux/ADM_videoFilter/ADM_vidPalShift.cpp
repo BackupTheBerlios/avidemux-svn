@@ -44,10 +44,8 @@ BUILD_CREATE(addPALShift_create,ADMVideoPalShift);
 
 char *ADMVideoPalShift::printConf( void )
 {
- 	static char buf[50];
- 	
- 	sprintf((char *)buf," PAL field shift");
-        return buf;
+ 	ADM_FILTER_DECLARE_CONF(" PAL field shift");
+        
 }
 
 ADMVideoPalShift::ADMVideoPalShift(  AVDMGenericVideoStream *in,CONFcouple *setup)

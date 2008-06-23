@@ -82,10 +82,8 @@ uint8_t ADMVideoVobSub::configure(AVDMGenericVideoStream *in)
 //*************************************************************
 char *ADMVideoVobSub::printConf( void )
 {
-        static char buf[50];
+    ADM_FILTER_DECLARE_CONF(" VobSub");
         
-        sprintf((char *)buf," VobSub");
-        return buf;
 }
 //*************************************************************
 ADMVideoVobSub::ADMVideoVobSub(  AVDMGenericVideoStream *in,CONFcouple *couples)

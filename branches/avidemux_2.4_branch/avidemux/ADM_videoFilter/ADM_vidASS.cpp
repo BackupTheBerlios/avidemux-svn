@@ -55,7 +55,7 @@ BUILD_CREATE(ass_create,ADMVideoSubASS);
 
 char *ADMVideoSubASS::printConf() 
 {
-      static char buf[50];
+      static char buf[500];
       sprintf((char *)buf," ASS/SSA Subtitles: ");
       
       char *filename = (char*)_params->subfile;

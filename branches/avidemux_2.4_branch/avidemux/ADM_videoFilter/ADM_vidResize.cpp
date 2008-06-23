@@ -48,15 +48,12 @@ BUILD_CREATE(resize_create,AVDMVideoStreamResize);
 
 char *AVDMVideoStreamResize::printConf( void )
 {
-    #define STRING_BUF 100
- 	static char buf[STRING_BUF+1];
-
- 	snprintf((char *)buf,STRING_BUF," Resize %u x %u --> %u x %u ",
+  ADM_FILTER_DECLARE_CONF(" Resize %u x %u --> %u x %u ",
  				_in->getInfo()->width,
  				_in->getInfo()->height,
  				_info.width,
  				_info.height);
-        return buf;
+        
 }
 //_______________________________________________________________
 AVDMVideoStreamResize::AVDMVideoStreamResize(

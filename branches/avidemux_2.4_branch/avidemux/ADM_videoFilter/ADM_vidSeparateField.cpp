@@ -56,10 +56,8 @@ BUILD_CREATE(unstackfield_create,AVDMVideoUnStackField);
 
 char *AVDMVideoSeparateField::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Separate Fields");
-        return buf;
+ 	ADM_FILTER_DECLARE_CONF(" Separate Fields");
+        
 }
 
 //_______________________________________________________________
@@ -119,10 +117,8 @@ ADMImage *ptr;
 
 char *AVDMVideoMergeField::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Merge fields");
-        return buf;
+ 	ADM_FILTER_DECLARE_CONF(" Merge fields");
+        
 }
 
 //_______________________________________________________________
@@ -181,10 +177,8 @@ ADMImage *ptr1,*ptr2;
 
 char *AVDMVideoStackField::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Stack fields");
-        return buf;
+ ADM_FILTER_DECLARE_CONF(" Stack fields");
+        
 }
 
 //_______________________________________________________________
@@ -230,9 +224,8 @@ ADMImage *ptr1,*ptr2;
 
 char *AVDMVideoHzStackField::printConf( void )
 {
-        static char buf[50];
-        sprintf((char *)buf," Hz Stack fields");
-        return buf;
+       ADM_FILTER_DECLARE_CONF(" Hz Stack fields");
+        
 }
 
 //_______________________________________________________________
@@ -285,10 +278,8 @@ ADMImage *ptr1,*ptr2;
 
 char *AVDMVideoUnStackField::printConf( void )
 {
-        static char buf[50];
-
-        sprintf((char *)buf," UnStack fields");
-        return buf;
+       ADM_FILTER_DECLARE_CONF(" UnStack fields");
+        
 }
 
 //______________________Unstack Fields_________________________________________

@@ -73,10 +73,8 @@ BUILD_CREATE(whirl_create,AVDMVideoWhirl);
 
 char *AVDMVideoWhirl::printConf(void)
 {
-	static char buf[50];
- 	
-	sprintf((char *)buf," Whril");
-        return buf;
+	ADM_FILTER_DECLARE_CONF(" Whril");
+        
 }
 
 

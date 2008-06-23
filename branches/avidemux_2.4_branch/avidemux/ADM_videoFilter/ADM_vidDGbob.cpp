@@ -104,11 +104,7 @@ uint8_t DGbob::configure(AVDMGenericVideoStream *in)
 
 char *DGbob::printConf( void )
 {
-        static char buf[50];
-
-        //ADM_assert(_param);
-        sprintf((char *)buf," DGBob mode:%d order:%d thresh:%d\n",_param->mode,_param->order,_param->thresh);
-        return buf;
+    ADM_FILTER_DECLARE_CONF("DGBob mode:%d order:%d thresh:%d\n",_param->mode,_param->order,_param->thresh);
 }
 
 

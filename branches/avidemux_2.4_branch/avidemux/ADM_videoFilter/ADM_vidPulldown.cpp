@@ -51,10 +51,8 @@ BUILD_CREATE(pulldown_create,ADMVideoPullDown);
 
 char *ADMVideoPullDown::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Pulldown");
-        return buf;
+    ADM_FILTER_DECLARE_CONF(" Pulldown");
+    
 }
 //_______________________________________________________________
 ADMVideoPullDown::ADMVideoPullDown(

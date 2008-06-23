@@ -54,23 +54,18 @@ SCRIPT_CREATE(keepodd_script,AVDMVideoKeepOdd,swapParam);
 
 char *AVDMVideoSwapField::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Swap fields");
-        return buf;
+ ADM_FILTER_DECLARE_CONF(" Swap fields");
+        
 }
 char *AVDMVideoKeepEven::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Keep Even Fields");
-        return buf;
-}char *AVDMVideoKeepOdd::printConf( void )
+ ADM_FILTER_DECLARE_CONF(" Keep Even Fields");
+        
+}
+char *AVDMVideoKeepOdd::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," Keep Odd Fields");
-        return buf;
+ 	ADM_FILTER_DECLARE_CONF(" Keep Odd Fields");
+        
 }
 //_______________________________________________________________
 AVDMVideoSwapField::AVDMVideoSwapField(

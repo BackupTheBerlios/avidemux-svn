@@ -46,10 +46,8 @@ BUILD_CREATE(chromaV_create,ADMVideoChromaV);
 
 char *ADMVideoChromaU::printConf( void )
 {
- 	static char buf[50];
- 	
- 	sprintf((char *)buf," chroma u only");
-        return buf;
+ ADM_FILTER_DECLARE_CONF(" chroma u only");
+        
 }
 
 //_______________________________________________________________
@@ -130,10 +128,8 @@ uint32_t page;
 
 char *ADMVideoChromaV::printConf( void )
 {
- 	static char buf[50];
-
- 	sprintf((char *)buf," chroma v only");
-        return buf;
+ 	ADM_FILTER_DECLARE_CONF(" chroma v only");
+        
 }
 
 //_______________________________________________________________

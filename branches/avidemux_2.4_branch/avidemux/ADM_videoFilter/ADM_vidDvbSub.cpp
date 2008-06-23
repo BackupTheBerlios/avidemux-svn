@@ -59,10 +59,9 @@ BUILD_CREATE(dvbsub_create,ADMVideoSubDVB);
 
 char *ADMVideoSubDVB::printConf() 
 {
-      static char buf[50];
-      sprintf((char *)buf," DVB Subtitle ");
+    ADM_FILTER_DECLARE_CONF(" DVB Subtitle ");
       
-      return buf;
+      
 }
 
 
