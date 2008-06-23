@@ -128,6 +128,7 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
   gtk_widget_show (okbutton1);
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), okbutton1, GTK_RESPONSE_OK);
   GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
+  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
   
   gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
 										GTK_RESPONSE_OK,
@@ -215,6 +216,7 @@ uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
   gtk_widget_show (okbutton1);
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), okbutton1, GTK_RESPONSE_OK);
   GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
+  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
   gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
 										GTK_RESPONSE_OK,
