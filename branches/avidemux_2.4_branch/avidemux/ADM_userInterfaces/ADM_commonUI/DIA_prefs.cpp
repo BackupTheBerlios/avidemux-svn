@@ -318,7 +318,7 @@ char     *globalGlyphName=NULL;
 		#ifdef OSS_SUPPORT
 			{DEVICE_OSS, QT_TR_NOOP("OSS")},
 		#endif
-		#if	defined(USE_SDL)
+		#if	defined(USE_SDL) && !defined(ADM_WIN32)
 			{DEVICE_SDL, QT_TR_NOOP("SDL")},
 		#endif
 		#ifdef ADM_WIN32
