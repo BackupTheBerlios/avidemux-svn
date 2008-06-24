@@ -22,9 +22,7 @@
 
 #include <time.h>
 #include <sys/time.h>
-#include <fcntl.h>	/* O_RDONLY */
 #include <errno.h>
-#include <glib.h>
 
 #include "ADM_lavcodec.h"
 
@@ -158,7 +156,7 @@ uint8_t DIA_builtin(void);
 renderZoom currentZoom=ZOOM_1_1;
 uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name);
 extern const char * GUI_getCustomScript(uint32_t nb);
-extern gboolean SliderIsShifted;
+extern bool SliderIsShifted;
 
 void GUI_showCurrentFrameHex(void);
 void GUI_avsProxy(void);
@@ -2416,6 +2414,7 @@ uint8_t GUI_close(void)
   if (avifileinfo)		// already opened ?
     {				// delete everything
       // if preview is on
+      admPreview::setMainDimension(0, 0);
       if(getPreviewMode()!=ADM_PREVIEW_NONE)
       {
 	admPreview::stop();
@@ -2439,6 +2438,8 @@ uint8_t GUI_close(void)
 	  secondaudiostream=NULL;
 
       filterCleanUp ();
+	  UI_setTitle(NULL);
+
       return 1;
     }
     return 0;
