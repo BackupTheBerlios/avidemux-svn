@@ -22,6 +22,10 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+#ifdef __WIN32__
+#include <shlobj.h>
+#endif
+
 #include "default.h"
 #include "ADM_misc.h"
 #include "ADM_toolkit/filesel.h"
@@ -142,18 +146,20 @@ char *ADM_getBaseDir(void)
 {
 char *dirname=NULL;
 DIR *dir=NULL;
-char *home;
-//
+
         if(baseDirDone) return basedir;
 // Get the base directory
 #if defined(ADM_WIN32)
-        if( ! (home=getenv("USERPROFILE")) )
-        {
-          GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("can't determine $USERPROFILE."));
-                    home="c:\\";
-        }
+	char home[MAX_PATH];
 
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, home) != S_OK)
+	{
+		GUI_Error_HIG(QT_TR_NOOP("Oops"), QT_TR_NOOP("Can't determine the Application Data folder."));
+		strcpy(home, "c:\\");
+	}
 #else
+		char *home;
+
         if( ! (home=getenv("HOME")) )
         {
           GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("can't determine $HOME."));
