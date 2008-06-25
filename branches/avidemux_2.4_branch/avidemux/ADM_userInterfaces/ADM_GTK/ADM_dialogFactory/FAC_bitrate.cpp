@@ -64,8 +64,15 @@ static COMPRESSION_MODE readPulldown(COMPRES_PARAMS *copy,int rank)
   paramTitle=toggleTitle;
   this->tip=tip;
   setSize(2);
+  minQ=2;
   maxQ=31;
 }
+
+void diaElemBitrate::setMinQz(uint32_t qz)
+{
+  minQ=qz;
+}
+
 void diaElemBitrate::setMaxQz(uint32_t qz)
 {
   maxQ=qz; 
@@ -271,7 +278,7 @@ void diaElemBitrate::updateMe(void)
           break; 
     case COMPRESS_CQ:// CQ
           gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Quantizer:"));
-          M(2,maxQ);
+          M(minQ,maxQ);
           S(copy.qz);
           break;
     case COMPRESS_AQ:// CQ

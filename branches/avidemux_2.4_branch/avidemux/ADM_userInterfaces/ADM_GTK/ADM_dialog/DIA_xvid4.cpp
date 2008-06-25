@@ -167,11 +167,8 @@ _erLoad:
 					incoming->mode = COMPRESS_CQ;		      			
 					value = (uint32_t) gtk_spin_button_get_value_as_int(
 								GTK_SPIN_BUTTON(WID(spinbuttonQuant)));
-		      			if (value >= 2 && value <= 32)
-						{
-			    			incoming->qz = value;
-		      				}
-		      			break;
+					incoming->qz = value;
+					break;
 
 				case 2:
 		     				incoming->mode = COMPRESS_2PASS;		       				
@@ -795,8 +792,8 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, entryEntry, QT_TR_NOOP("Target video bitrate"), NULL);
   gtk_entry_set_width_chars (GTK_ENTRY (entryEntry), 10);
 
-  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 0.1, 10, 10);
-  spinbuttonQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuant_adj), 1, 1);
+  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 1, 10, 10);
+  spinbuttonQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuant_adj), 1, 0);
   gtk_widget_show (spinbuttonQuant);
   gtk_box_pack_start (GTK_BOX (vbox22), spinbuttonQuant, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonQuant, QT_TR_NOOP("Constant quantizer - each frame will get the same compression"), NULL);
