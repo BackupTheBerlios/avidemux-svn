@@ -165,8 +165,8 @@ decoderMpeg::decoderMpeg (uint32_t w, uint32_t h, uint32_t extraLen, uint8_t * e
 	_decoder = mpeg2_init();
 	dec = &((MPEG2DEC)->decoder);
 
-	wmb = (roundWidth) >> 4;;
-	hmb = (roundWidth) >> 4;;
+	wmb = (roundWidth) >> 4;
+	hmb = (roundHeight) >> 4;
 
 	dec->quant_stride = wmb;
 	dec->quant = (int8_t *)ADM_alloc ((wmb * hmb) * sizeof (int8_t));
