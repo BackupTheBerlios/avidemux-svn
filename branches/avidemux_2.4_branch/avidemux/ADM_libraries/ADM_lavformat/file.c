@@ -24,6 +24,12 @@
 #include <unistd.h>
 #include <sys/time.h>
 
+// GRUNTSTER start
+#ifdef __WIN32
+extern int ADM_open(const char *path, int oflag, ...);
+#define open ADM_open
+#endif
+// GRUNTSTER end
 
 /* standard file protocol */
 

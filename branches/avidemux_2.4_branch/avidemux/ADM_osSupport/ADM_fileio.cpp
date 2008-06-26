@@ -24,6 +24,7 @@
 
 #ifdef __WIN32__
 #include <shlobj.h>
+#include <fcntl.h>
 #endif
 
 #include "default.h"
@@ -92,6 +93,49 @@ FILE  *ADM_fopen (const char *file, const char *mode)
 	return fopen(file, mode);
 #endif
 }
+
+#if __WIN32
+extern "C"
+{
+	// libavformat uses open (in the file_open function) so we need to override that too
+	int ADM_open(const char *path, int oflag, ...)
+	{
+		int fileNameLength = utf8StringToWideChar(path, -1, NULL);
+		wchar_t wcFile[fileNameLength];
+
+		utf8StringToWideChar(path, -1, wcFile);
+
+		if ((oflag & O_WRONLY || oflag & O_RDWR) && (oflag & O_TRUNC))
+		{
+			// open file exclusively for writing (and reading if need be)
+			int access = GENERIC_WRITE;
+
+			if (oflag & O_RDWR == O_RDWR)
+				access |= GENERIC_READ;
+
+			HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
+
+			printf("CreateFile %s\n", path);
+
+			if (hFile == INVALID_HANDLE_VALUE)
+				return -1;
+			else
+				return _open_osfhandle((intptr_t)hFile, 0);
+		}
+		else
+		{
+			va_list mode;
+			va_start(mode, oflag);
+
+			int file = open(path, oflag, mode);
+
+			va_end(mode);
+
+			return file;
+		}
+	}
+}
+#endif
 
 int    ADM_fclose (FILE *file)
 {
