@@ -54,19 +54,40 @@ size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream)
   return fwrite(ptr,size,n,sstream); 
   
 }
+
 FILE  *ADM_fopen (const char *file, const char *mode)
 {
 #ifdef __MINGW32__
 	int fileNameLength = utf8StringToWideChar(file, -1, NULL);
-	int modeLength = utf8StringToWideChar(mode, -1, NULL);
-
 	wchar_t wcFile[fileNameLength];
-	wchar_t wcMode[modeLength];
 
 	utf8StringToWideChar(file, -1, wcFile);
-	utf8StringToWideChar(mode, -1, wcMode);
 
-	return _wfopen(wcFile, wcMode);
+	if (strchr(mode, 'w') == NULL)
+	{
+		// open file normally for reading or appending
+		int modeLength = utf8StringToWideChar(mode, -1, NULL);
+		wchar_t wcMode[modeLength];
+
+		utf8StringToWideChar(mode, -1, wcMode);
+
+		return _wfopen(wcFile, wcMode);
+	}
+	else
+	{
+		// open file exclusively for writing (and reading if need be)
+		int access = GENERIC_WRITE;
+
+		if (strstr(mode, "w+") != NULL)
+			access |= GENERIC_READ;
+
+		HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+			return NULL;
+		else
+			return _fdopen(_open_osfhandle((intptr_t)hFile, 0), mode);
+	}
 #else
 	return fopen(file, mode);
 #endif
