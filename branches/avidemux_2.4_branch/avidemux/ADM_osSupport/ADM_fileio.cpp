@@ -110,7 +110,7 @@ extern "C"
 			// open file exclusively for writing (and reading if need be)
 			int access = GENERIC_WRITE;
 
-			if (oflag & O_RDWR == O_RDWR)
+			if (oflag & O_RDWR)
 				access |= GENERIC_READ;
 
 			HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
