@@ -107,10 +107,6 @@ enum
         TARGET_ROOTWIN,
         TARGET_URL
 };
-enum 
-{
-   TARGET_URI_LIST
-};
  
 static GtkTargetEntry target_table[] = 
 {
@@ -822,6 +818,8 @@ int UI_grabFocus( void)
 	RM(buttonPrevKFrame, GDK_KP_2);
 
 	RM(delete1, GDK_Delete);
+	RM(set_marker_a1,GDK_bracketleft);
+	RM(set_marker_b1,GDK_bracketright);
 
 	RMCTRL(paste1,GDK_V);
 	RMCTRL(copy1,GDK_C);
@@ -845,13 +843,16 @@ int UI_loseFocus( void)
 	ADD_ACT(previous_frame1, GDK_KP_4);
 	ADD_ACT(next_intra_frame1, GDK_KP_8);
 	ADD_ACT(previous_intra_frame1, GDK_KP_2);
-	ADD_ACT(delete1, GDK_Delete);
 
 	ADD(buttonNextFrame, GDK_KP_6);
 	ADD(buttonPrevFrame, GDK_KP_4);
 	ADD(buttonNextKFrame, GDK_KP_8);
 	ADD(buttonPrevKFrame, GDK_KP_2);
-	
+
+	ADD_ACT(delete1, GDK_Delete);
+	ADD_ACT(set_marker_a1,GDK_bracketleft);
+	ADD_ACT(set_marker_b1,GDK_bracketright);
+
 	ADDCTRL(paste1,GDK_V);
 	ADDCTRL(copy1,GDK_C);
 	ADDCTRL(cut1,GDK_X);
@@ -1289,6 +1290,8 @@ uint8_t UI_arrow_disabled(void)
 
 gboolean UI_SliderPressed(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 {
+	gtk_widget_grab_focus(lookup_widget(guiRootWindow, "menuBar"));
+
 	if(event->state&GDK_SHIFT_MASK) SliderIsShifted=TRUE;
 	return FALSE;
 
