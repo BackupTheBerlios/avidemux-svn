@@ -23,6 +23,7 @@
 #include <unistd.h>
 
 #ifdef __WIN32__
+#include <direct.h>
 #include <shlobj.h>
 #include <fcntl.h>
 #endif
@@ -42,6 +43,7 @@ extern char * actual_workbench_file;
 
 #ifdef __WIN32
 extern int utf8StringToWideChar(const char *utf8String, int utf8StringLength, wchar_t *wideCharString);
+extern int wideCharStringToUtf8(const wchar_t *wideCharString, int wideCharStringLength, char *utf8String);
 #endif
 
 size_t ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream)
@@ -114,8 +116,6 @@ extern "C"
 				access |= GENERIC_READ;
 
 			HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
-
-			printf("CreateFile %s\n", path);
 
 			if (hFile == INVALID_HANDLE_VALUE)
 				return -1;
@@ -209,31 +209,43 @@ char *ADM_getJobDir(void)
 ******************************************************/
 char *ADM_getBaseDir(void)
 {
-char *dirname=NULL;
-DIR *dir=NULL;
+	char *home;
 
-        if(baseDirDone) return basedir;
-// Get the base directory
+	if(baseDirDone)
+		return basedir;
+
+	// Get the base directory
 #if defined(ADM_WIN32)
-	char home[MAX_PATH];
+	wchar_t wcHome[MAX_PATH];
 
-	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, 0, home) != S_OK)
+	if (SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, wcHome) == S_OK)
+	{
+		int len = wideCharStringToUtf8(wcHome, -1, NULL);
+		home = new char[len];
+
+		wideCharStringToUtf8(wcHome, -1, home);
+	}
+	else
 	{
 		GUI_Error_HIG(QT_TR_NOOP("Oops"), QT_TR_NOOP("Can't determine the Application Data folder."));
-		strcpy(home, "c:\\");
+		home = ADM_strdup("c:\\");
 	}
 #else
-		char *home;
+	const char* homeEnv = getenv("HOME");
 
-        if( ! (home=getenv("HOME")) )
-        {
-          GUI_Error_HIG(QT_TR_NOOP("Oops"),QT_TR_NOOP("can't determine $HOME."));
-                return NULL;
-        }
+	if (homeEnv)
+		home = ADM_strdup(homeEnv);
+	else
+	{
+		GUI_Error_HIG(QT_TR_NOOP("Oops"), QT_TR_NOOP("can't determine $HOME."));
+
+		return NULL;
+	}
 #endif
 
  // Try to open the .avidemux directory
-        dirname=new char[strlen(home)+strlen(ADM_DIR_NAME)+2];
+		char *dirname = new char[strlen(home)+strlen(ADM_DIR_NAME)+2];
+
         strcpy(dirname,home);
         strcat(dirname,ADM_DIR_NAME);
         if(!ADM_mkdir(dirname))
@@ -248,9 +260,21 @@ DIR *dir=NULL;
         strncpy(basedir,home,1023);
         strncat(basedir,ADM_DIR_NAME,1023-strlen(basedir));
         baseDirDone=1;
+		delete [] home;
+
         printf("Using %s as base directory for prefs/jobs/...\n",basedir);
+
         return basedir;
 }
+
+#ifdef __WIN32
+#define DIR _WDIR
+#define dirent _wdirent
+#define opendir _wopendir
+#define readdir _wreaddir
+#define closedir _wclosedir
+#endif
+
 /*----------------------------------------
       Create a directory
       If it already exists, do nothing
@@ -258,8 +282,18 @@ DIR *dir=NULL;
 uint8_t ADM_mkdir(const char *dirname)
 {
 DIR *dir=NULL;
+
+#ifdef __WIN32
+	int dirNameLength = utf8StringToWideChar(dirname, -1, NULL);
+	wchar_t dirname2[dirNameLength];
+
+	utf8StringToWideChar(dirname, -1, dirname2);
+#else
+	const char* dirname2 = dirname;
+#endif
+
               // Check it already exists ?
-              dir=opendir(dirname);
+              dir=opendir(dirname2);
               if(dir)
               { 
                   printf("Directory %s exists.Good.\n",dirname);
@@ -267,27 +301,28 @@ DIR *dir=NULL;
                   return 1;
               }
 #if defined(ADM_WIN32)
-                if(mkdir(dirname))
+                if(_wmkdir(dirname2))
                 {
                     printf("Oops: mkdir failed on %s\n",dirname);   
                     return 0;
                 }
                 
 #else    
-                char *sys=new char[strlen(dirname)+strlen("mkdir ")+2];
+                char *sys=new char[strlen(dirname2)+strlen("mkdir ")+2];
                 strcpy(sys,"mkdir ");
-                strcat(sys,dirname);
+                strcat(sys,dirname2);
                 printf("Creating dir :%s\n",sys);
                 system(sys);
                 delete [] sys;
 #endif		
-              if((dir=opendir(dirname))==NULL)
+              if((dir=opendir(dirname2))==NULL)
                 {
                         return 0;
                 }
               closedir(dir); 
               return 1;
 }
+
 uint8_t buildDirectoryContent(uint32_t *outnb,const char *base, char *jobName[],int maxElems,const char *ext)
 {
 
@@ -296,27 +331,44 @@ struct dirent *direntry;
 int dirmax=0,len;
 int extlen=strlen(ext);
     ADM_assert(extlen);
-    
-         dir=opendir(base);
+
+#ifdef __WIN32
+	int dirNameLength = utf8StringToWideChar(base, -1, NULL);
+	wchar_t base2[dirNameLength];
+
+	utf8StringToWideChar(base, -1, base2);
+#else
+	const char *base2 = base;
+#endif
+
+         dir=opendir(base2);
         if(!dir)
-        {
                 return 0;
-        }
+
         while((direntry=readdir(dir)))
         {
-                len=strlen(direntry->d_name);
+#ifdef __WIN32
+		int dirLength = wideCharStringToUtf8(direntry->d_name, -1, NULL);
+		char d_name[dirLength];
+
+		wideCharStringToUtf8(direntry->d_name, -1, d_name);
+#else
+		const char *d_name = direntry->d_name;
+#endif
+
+                len=strlen(d_name);
                 if(len<(extlen+1)) continue;
                 int xbase=len-extlen;
-                if(memcmp(direntry->d_name+xbase,ext,extlen))
+                if(memcmp(d_name+xbase,ext,extlen))
                 //if(direntry->d_name[len-1]!='s' || direntry->d_name[len-2]!='j' || direntry->d_name[len-3]!='.')
                 {
-                        printf("ignored:%s\n",direntry->d_name);
+                        printf("ignored:%s\n",d_name);
                         continue;
                 }
-                jobName[dirmax]=(char *)ADM_alloc(strlen(base)+strlen(direntry->d_name)+2);
+                jobName[dirmax]=(char *)ADM_alloc(strlen(base)+strlen(d_name)+2);
                 strcpy(jobName[dirmax],base);
                 strcat(jobName[dirmax],"/");
-                strcat(jobName[dirmax],direntry->d_name);
+                strcat(jobName[dirmax],d_name);
                 dirmax++;
                 if(dirmax>=maxElems)
                 {

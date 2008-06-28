@@ -24,3 +24,4 @@ add_definitions(-DNDEBUG -DTRIMMED -DEXPORT_JS_API  -DJS_USE_SAFE_ARENA -D_IEEE_
 	add_definitions(-Drealloc=ADM_realloc)
 	add_definitions(-Dfree=ADM_dezalloc)
 	add_definitions(-Dcalloc=ADM_calloc -I/usr/include/nspr)
+    add_definitions(-Dfopen=ADM_fopen)
