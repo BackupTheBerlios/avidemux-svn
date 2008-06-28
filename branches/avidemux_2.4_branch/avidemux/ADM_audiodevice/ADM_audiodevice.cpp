@@ -26,6 +26,8 @@
 
 #include "avi_vars.h"
 #include "prefs.h"
+
+
 #ifdef HAVE_AUDIO
 #include "ADM_assert.h"
 #include "ADM_audiodevice.h"
@@ -56,9 +58,15 @@
 #include "ADM_deviceJack.h"
 #endif
 
+#ifdef USE_PULSE_SIMPLE
+#include "ADM_devicePulseSimple.h"
+#endif
+
 #ifdef __APPLE__
 #include "ADM_audiodevice/ADM_deviceAudioCore.h"
 #endif
+
+
 
 #include "gui_action.hxx"
 #include "audio_out.h"
@@ -144,6 +152,7 @@ AUDIO_DEVICE id;
 			case DEVICE_WIN32:
 			case DEVICE_ESD:
 			case DEVICE_JACK:
+            case DEVICE_PULSE_SIMPLE:
 			
 						printf("Using real audio device\n");
 						AVDM_switch(id);
@@ -205,6 +214,13 @@ void AVDM_switch(AUDIO_DEVICE action)
 								device=new 	 coreAudioDevice;
 								currentDevice=DEVICE_COREAUDIO;;
 								printf("Using Darwin coreaudio i/f\n");
+								break;
+
+#endif
+#ifdef USE_PULSE_SIMPLE
+		  case  DEVICE_PULSE_SIMPLE :
+								device=new 	 pulseSimpleAudioDevice;
+								currentDevice=DEVICE_PULSE_SIMPLE;;
 								break;
 
 #endif

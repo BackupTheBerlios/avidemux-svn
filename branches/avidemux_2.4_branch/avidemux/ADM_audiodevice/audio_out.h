@@ -14,7 +14,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 #ifndef AUDIOOUPUT_H
 #define AUDIOOUPUT_H
 //#include "avi_vars.h"
@@ -29,7 +28,9 @@ typedef enum
 	DEVICE_SDL,
 	DEVICE_WIN32,
 	DEVICE_ESD,
-	DEVICE_JACK
+	DEVICE_JACK,
+    DEVICE_PULSE_SIMPLE,
+    DEVICE_LIMIT
 }AUDIO_DEVICE;
 
 typedef struct 
@@ -64,6 +65,9 @@ static const DEVICELIST audioDeviceList[]=
 #endif	
 #ifdef USE_JACK	
 	MKADID(JACK),
+#endif	
+#ifdef USE_PULSE_SIMPLE	
+	MKADID(PULSE_SIMPLE),
 #endif	
 
 	MKADID(DUMMY)

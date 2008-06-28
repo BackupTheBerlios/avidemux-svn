@@ -343,6 +343,13 @@ ENDIF (NOT ADM_OS_WINDOWS)
 IF (NOT ADM_OS_WINDOWS)
 	INCLUDE(FindArts)
 ENDIF (NOT ADM_OS_WINDOWS)
+########################################
+# PulseAudioSimple
+########################################
+IF (NOT ADM_OS_WINDOWS)
+	INCLUDE(FindPulseAudioSimple)
+ENDIF (NOT ADM_OS_WINDOWS)
+
 
 ########################################
 # ESD

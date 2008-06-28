@@ -190,6 +190,9 @@
 /* aRts detected */
 #cmakedefine USE_ARTS
 
+/* PulseAudioSimple detected */
+#cmakedefine USE_PULSE_SIMPLE
+
 /* ESD detected */
 #cmakedefine USE_ESD
 

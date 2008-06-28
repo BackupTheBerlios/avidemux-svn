@@ -38,6 +38,8 @@
 extern void 		AVDM_audioPref( void );
 
 
+// FIXME
+
 
 uint8_t DIA_Preferences(void);
 
@@ -318,6 +320,10 @@ char     *globalGlyphName=NULL;
 		#ifdef OSS_SUPPORT
 			{DEVICE_OSS, QT_TR_NOOP("OSS")},
 		#endif
+		#ifdef USE_PULSE_SIMPLE
+			{DEVICE_PULSE_SIMPLE, QT_TR_NOOP("Pulse Audio")},
+		#endif
+
 		#if	defined(USE_SDL) && !defined(ADM_WIN32)
 			{DEVICE_SDL, QT_TR_NOOP("SDL")},
 		#endif
