@@ -61,34 +61,50 @@ size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream)
 FILE  *ADM_fopen (const char *file, const char *mode)
 {
 #ifdef __MINGW32__
-	// Open everything read/write since _open_osfhandle will restrict I/O calls
-	// to the mode that's passed in anyway.
-	// Always allow shared reading.  Only allow shared writing when in reading
-	// mode so write locks will be denied.
-
+	// Override fopen to handle Unicode filenames and to ensure exclusive access when initially writing to a file.
 	int fileNameLength = utf8StringToWideChar(file, -1, NULL);
 	wchar_t wcFile[fileNameLength];
-	int creation = 0, share = 0;
+	int creation = 0, access = 0;
+	HANDLE hFile;
 
 	utf8StringToWideChar(file, -1, wcFile);
 
 	if (strchr(mode, 'w'))
 	{
 		creation = CREATE_ALWAYS;
-		share = FILE_SHARE_READ;
+		access = GENERIC_WRITE;
+
+		if (strchr(mode, '+'))
+			access |= GENERIC_READ;
 	}
 	else if (strchr(mode, 'r'))
 	{
 		creation = OPEN_EXISTING;
-		share = FILE_SHARE_READ | FILE_SHARE_WRITE;
+		access = GENERIC_READ;
+
+		if (strchr(mode, '+'))
+			access = GENERIC_WRITE;
 	}
 	else if (strchr(mode, 'a'))
 	{
 		creation = OPEN_ALWAYS;
-		share = FILE_SHARE_READ;
+		access = GENERIC_WRITE;
+
+		if (strchr(mode, '+'))
+			access |= GENERIC_READ;
 	}
 
-	HANDLE hFile = CreateFileW(wcFile, GENERIC_READ | GENERIC_WRITE, share, NULL, creation, 0, NULL);
+	if (creation & GENERIC_WRITE)
+	{
+		hFile = CreateFileW(wcFile, access, 0, NULL, creation, 0, NULL);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+			return NULL;
+		else
+			CloseHandle(hFile);
+	}
+
+	hFile = CreateFileW(wcFile, access, FILE_SHARE_READ, NULL, creation, 0, NULL);
 
 	if (hFile == INVALID_HANDLE_VALUE)
 		return NULL;
@@ -108,12 +124,18 @@ extern "C"
 	{
 		int fileNameLength = utf8StringToWideChar(path, -1, NULL);
 		wchar_t wcFile[fileNameLength];
-		int creation = 0, share = 0;
+		int creation = 0, access = 0;
+		HANDLE hFile;
 
 		utf8StringToWideChar(path, -1, wcFile);
 
 		if (oflag & O_WRONLY || oflag & O_RDWR)
 		{
+			access = GENERIC_WRITE;
+
+			if (oflag & O_RDWR)
+				access |= GENERIC_READ;
+
 			if (oflag & O_CREAT)
 			{
 				if (oflag & O_EXCL)
@@ -125,16 +147,21 @@ extern "C"
 			}
 			else if (oflag & O_TRUNC)
 				creation = TRUNCATE_EXISTING;
-
-			share = FILE_SHARE_READ;
 		}
 		else if (oflag & O_RDONLY)
-		{
 			creation = OPEN_EXISTING;
-			share = FILE_SHARE_READ | FILE_SHARE_WRITE;
+
+		if (creation & GENERIC_WRITE)
+		{
+			hFile = CreateFileW(wcFile, access, 0, NULL, creation, 0, NULL);
+
+			if (hFile == INVALID_HANDLE_VALUE)
+				return -1;
+			else
+				CloseHandle(hFile);
 		}
 
-		HANDLE hFile = CreateFileW(wcFile, GENERIC_READ | GENERIC_WRITE, share, NULL, creation, 0, NULL);
+		hFile = CreateFileW(wcFile, access, FILE_SHARE_READ, NULL, creation, 0, NULL);
 
 		if (hFile == INVALID_HANDLE_VALUE)
 			return -1;
@@ -241,7 +268,10 @@ char *ADM_getBaseDir(void)
 	const char* homeEnv = getenv("HOME");
 
 	if (homeEnv)
-		home = ADM_strdup(homeEnv);
+	{
+		home = new char[strlen(homeEnv) + 1];
+		strcpy(home, homeEnv);
+	}
 	else
 	{
 		GUI_Error_HIG(QT_TR_NOOP("Oops"), QT_TR_NOOP("can't determine $HOME."));
