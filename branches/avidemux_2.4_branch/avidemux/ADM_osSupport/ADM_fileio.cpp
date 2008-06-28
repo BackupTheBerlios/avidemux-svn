@@ -61,36 +61,39 @@ size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream)
 FILE  *ADM_fopen (const char *file, const char *mode)
 {
 #ifdef __MINGW32__
+	// Open everything read/write since _open_osfhandle will restrict I/O calls
+	// to the mode that's passed in anyway.
+	// Always allow shared reading.  Only allow shared writing when in reading
+	// mode so write locks will be denied.
+
 	int fileNameLength = utf8StringToWideChar(file, -1, NULL);
 	wchar_t wcFile[fileNameLength];
+	int creation = 0, share = 0;
 
 	utf8StringToWideChar(file, -1, wcFile);
 
-	if (strchr(mode, 'w') == NULL)
+	if (strchr(mode, 'w'))
 	{
-		// open file normally for reading or appending
-		int modeLength = utf8StringToWideChar(mode, -1, NULL);
-		wchar_t wcMode[modeLength];
-
-		utf8StringToWideChar(mode, -1, wcMode);
-
-		return _wfopen(wcFile, wcMode);
+		creation = CREATE_ALWAYS;
+		share = FILE_SHARE_READ;
 	}
+	else if (strchr(mode, 'r'))
+	{
+		creation = OPEN_EXISTING;
+		share = FILE_SHARE_READ | FILE_SHARE_WRITE;
+	}
+	else if (strchr(mode, 'a'))
+	{
+		creation = OPEN_ALWAYS;
+		share = FILE_SHARE_READ;
+	}
+
+	HANDLE hFile = CreateFileW(wcFile, GENERIC_READ | GENERIC_WRITE, share, NULL, creation, 0, NULL);
+
+	if (hFile == INVALID_HANDLE_VALUE)
+		return NULL;
 	else
-	{
-		// open file exclusively for writing (and reading if need be)
-		int access = GENERIC_WRITE;
-
-		if (strstr(mode, "w+") != NULL)
-			access |= GENERIC_READ;
-
-		HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
-
-		if (hFile == INVALID_HANDLE_VALUE)
-			return NULL;
-		else
-			return _fdopen(_open_osfhandle((intptr_t)hFile, 0), mode);
-	}
+		return _fdopen(_open_osfhandle((intptr_t)hFile, 0), mode);
 #else
 	return fopen(file, mode);
 #endif
@@ -99,40 +102,44 @@ FILE  *ADM_fopen (const char *file, const char *mode)
 #if __WIN32
 extern "C"
 {
-	// libavformat uses open (in the file_open function) so we need to override that too
+	// libavformat uses open (in the file_open function) so we need to override that too.
+	// Following the same rules as ADM_fopen.
 	int ADM_open(const char *path, int oflag, ...)
 	{
 		int fileNameLength = utf8StringToWideChar(path, -1, NULL);
 		wchar_t wcFile[fileNameLength];
+		int creation = 0, share = 0;
 
 		utf8StringToWideChar(path, -1, wcFile);
 
-		if ((oflag & O_WRONLY || oflag & O_RDWR) && (oflag & O_TRUNC))
+		if (oflag & O_WRONLY || oflag & O_RDWR)
 		{
-			// open file exclusively for writing (and reading if need be)
-			int access = GENERIC_WRITE;
+			if (oflag & O_CREAT)
+			{
+				if (oflag & O_EXCL)
+					creation = CREATE_NEW;
+				else if (oflag & O_TRUNC)
+					creation = CREATE_ALWAYS;
+				else
+					creation = OPEN_ALWAYS;
+			}
+			else if (oflag & O_TRUNC)
+				creation = TRUNCATE_EXISTING;
 
-			if (oflag & O_RDWR)
-				access |= GENERIC_READ;
-
-			HANDLE hFile = CreateFileW(wcFile, access, 0, NULL, CREATE_ALWAYS, 0, NULL);
-
-			if (hFile == INVALID_HANDLE_VALUE)
-				return -1;
-			else
-				return _open_osfhandle((intptr_t)hFile, 0);
+			share = FILE_SHARE_READ;
 		}
+		else if (oflag & O_RDONLY)
+		{
+			creation = OPEN_EXISTING;
+			share = FILE_SHARE_READ | FILE_SHARE_WRITE;
+		}
+
+		HANDLE hFile = CreateFileW(wcFile, GENERIC_READ | GENERIC_WRITE, share, NULL, creation, 0, NULL);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+			return -1;
 		else
-		{
-			va_list mode;
-			va_start(mode, oflag);
-
-			int file = open(path, oflag, mode);
-
-			va_end(mode);
-
-			return file;
-		}
+			return _open_osfhandle((intptr_t)hFile, oflag);
 	}
 }
 #endif
