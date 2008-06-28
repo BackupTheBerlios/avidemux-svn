@@ -247,8 +247,12 @@ add_libs_all_targets(ADM_utilities)
 if(NEED_LIBICONV)
 	add_libs_all_targets(iconv)
 endif(NEED_LIBICONV)
+
 # Pulse audio
+if(USE_PULSE_SIMPLE)
 	add_libs_all_targets(pulse-simple)
+endif(USE_PULSE_SIMPLE)
+
 #gettext
 if(ADM_GETTEXT_LIB)
 	INCLUDE_DIRECTORIES(${ADM_GETTEXT_INCLUDE})
