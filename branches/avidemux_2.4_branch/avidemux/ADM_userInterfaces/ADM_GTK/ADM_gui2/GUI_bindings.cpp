@@ -953,13 +953,14 @@ void UI_JumpDone(void )
 
 
 }
-uint32_t UI_readCurFrame( void )
+int UI_readCurFrame( void )
 {
-int i;
-	i=gtk_read_entry(guiCurFrame);
-	if(i<0) i=0;
-	return  (uint32_t)i;
-	 
+	int i = gtk_read_entry(guiCurFrame);
+
+	if(i < 0)
+		i = 0;
+
+	return i;
 }
 
 int UI_readCurTime(uint16_t &hh, uint16_t &mm, uint16_t &ss, uint16_t &ms)

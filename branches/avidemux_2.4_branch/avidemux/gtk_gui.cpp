@@ -469,10 +469,8 @@ int nw;
         case ACT_JumpToFrame:
                 // read value
                 nf=UI_readCurFrame();
-                if(nf>0 && nf< avifileinfo->nb_frames)
-                {
-                        GUI_GoToFrame(nf);
-                }
+				if(nf< avifileinfo->nb_frames)
+					GUI_GoToFrame(nf);
                 UI_JumpDone();
                 break;
 	case ACT_JumpToTime:
@@ -706,16 +704,10 @@ int nw;
       fn=curframe;
       if (DIA_GetIntegerValue ((int *)&fn,0,avifileinfo->nb_frames,QT_TR_NOOP("Go to Frame"),QT_TR_NOOP("_Go to frame:")))
 	{
-	  if (fn)
-	    {			// 0 probably means garbage
-	      if (fn < avifileinfo->nb_frames)
-		{
-		  curframe = fn;
-		  GUI_GoToFrame (curframe);
-		}
-	      else
-                GUI_Error_HIG (QT_TR_NOOP("Out of bounds"), NULL);
-	    }
+		if (fn < avifileinfo->nb_frames)
+			GUI_GoToFrame (curframe);
+		else
+			GUI_Error_HIG (QT_TR_NOOP("Out of bounds"), NULL);
 	}
       break;
 //----------------------test-----------------------

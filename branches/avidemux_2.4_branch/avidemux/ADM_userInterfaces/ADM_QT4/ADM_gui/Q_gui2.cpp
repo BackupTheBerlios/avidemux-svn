@@ -788,11 +788,11 @@ void UI_setScale( double val )
 	_upd_in_progres--;
 }
 
-uint32_t UI_readCurFrame(void)
+int UI_readCurFrame(void)
 {
 	bool ok;
 	
-	return WIDGET(lineEdit)->text().toUInt(&ok);
+	return WIDGET(lineEdit)->text().toInt(&ok);
 }
 
 int UI_readCurTime(uint16_t &hh, uint16_t &mm, uint16_t &ss, uint16_t &ms)
