@@ -81,7 +81,8 @@ ADM_guiResize.cpp \
  ADM_vidSwissArmyKnife.cpp \
  ADM_vidThreshold.cpp \
  ADM_vidParticle.cpp       \
- ADM_vidEraser.cpp
+ ADM_vidEraser.cpp \
+ ADM_vidNumber.cpp
 
 
 INCLUDES = $(all_includes) -I../ADM_libraries -I../ADM_libraries/ADM_utilities -I../ADM_libraries/ADM_lavutil \

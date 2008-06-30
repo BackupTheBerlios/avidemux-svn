@@ -105,6 +105,7 @@ typedef enum
                 VF_SWISSARMYKNIFE,
                 VF_THRESHOLD,
                 VF_PARTICLELIST,
+                VF_FRAMENUM,
                 VF_DUMMY,
                 VF_COUNT,
                 MAX_FILTER = VF_COUNT - 1,
