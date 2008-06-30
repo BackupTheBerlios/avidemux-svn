@@ -246,12 +246,21 @@ uint8_t X264Encoder::encode (ADMImage * in, ADMBitstream * out)
   PICS->img.i_stride[2] = _w >> 1;
 
   PICS->i_type = X264_TYPE_AUTO;
-  PICS->i_pts = curFrame++;
+  PICS->i_pts = curFrame;
+
   if (x264_encoder_encode (HANDLE, &nal, &nbNal, PICS, &pic_out) < 0)
-    {
-      printf ("[x264] Error encoding\n");
-      return 0;
-    }
+  {
+	  printf ("[x264] Error encoding\n");
+	  return 0;
+  }
+  curFrame++;
+
+  if (nbNal == 0)
+  {
+      printf("[X264] No Nal for frame %u (delay ?)\n",curFrame);
+      out->len=0;
+	  return 1;
+  }
 
   // Write
 

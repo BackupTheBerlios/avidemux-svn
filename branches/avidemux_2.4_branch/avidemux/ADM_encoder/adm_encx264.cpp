@@ -92,6 +92,9 @@ EncoderX264::configure (AVDMGenericVideoStream * instream)
   ADM_assert (_vbuffer);
   _in = instream;
   _fps1000 = info->fps1000;
+  _availableFrames = instream->getInfo()->nb_frames;
+  _delayed = 0;
+
   switch (_param.mode)
     {
 
@@ -193,38 +196,58 @@ EncoderX264::setLogFile (const char *lofile, uint32_t nbframe)
 uint8_t
         EncoderX264::encode (uint32_t frame, ADMBitstream *out)
 {
-  uint32_t l, f, q;
-  uint8_t r = 0;
-  //ENC_RESULT enc;
+	ADM_assert (_codec);
+	ADM_assert (_in);
 
-  ADM_assert (_codec);
-  ADM_assert (_in);
+	uint32_t l, f;
+	bool firstFrame = !frame;
+	bool success = false;
+	int maxDelay = _codecParam.MaxRefFrames + _codecParam.MaxBFrame;
 
-  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
-    {
-      printf ("\n[x264] Error: Cannot read incoming frame!");
-      return 0;
-    }
+	if (maxDelay < 7)
+		maxDelay = 7;
 
-  //   return _codec->encode (_vbuffer, out, len, flags);
-  switch (_state)
-    {
+	frame += _delayed;
 
+	while (!success)
+	{
+		if (frame >= _availableFrames)
+		{
+			frame = _availableFrames - 1;
+			printf("[x264] Repeating last frame %u (delay=%u)\n",frame,_delayed);
+		}
+		//printf("[x264] Getting frame :%u delay :%u\n",frame,_delayed);
+		if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
+		{
+			printf ("\n[x264] Error: Cannot read incoming frame!");
+			return 0;
+		}
 
-    case enc_CBR:
-    case enc_CQ:
-    case enc_Pass1:
-    case enc_Pass2:
-      r = _codec->encode (_vbuffer, out );
-      return r;
-      break;
+		switch (_state)
+		{
+			case enc_CBR:
+			case enc_CQ:
+			case enc_Pass1:
+			case enc_Pass2:
+				if (_codec->encode(_vbuffer, out))
+				{
+					if (out->len == 0 && _delayed < maxDelay && firstFrame)
+					{
+						_delayed++;
+						frame++;
+						printf("[x264] Delay so far :%u\n",_delayed);
+					}
+					else
+						success = true;
+				}
 
-    default:
-      ADM_assert (0);
-    }
-  return 1;
+				break;
+			default:
+				ADM_assert(0);
+		}
+	}
 
-
+	return 1;
 }
 
 //_______________________________
