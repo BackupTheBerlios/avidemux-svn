@@ -48,13 +48,17 @@ typedef struct unicd
 
   static unicd  names[]=
 {
+	{QT_TR_NOOP("Arabic"), "ISO-8859-6"}, 
+	{QT_TR_NOOP("Baltic"), "ISO-8859-4"}, // 
 	{QT_TR_NOOP("Chinese Simplified (GB2312)"), "CP936"},		// UTF8
 	{QT_TR_NOOP("Chinese Traditional (Big5)"), "CP950"}	,	// UTF8
-	{QT_TR_NOOP("Cyrillic"), "WINDOWS-1251"}, // ru
-	{QT_TR_NOOP("Czech"), "ISO-8859-2"},	// cz
-	{QT_TR_NOOP("German"), "ISO-8859-9"},		// german ?
-	{QT_TR_NOOP("Latin-1"), "ISO-8859-1"},
+	{QT_TR_NOOP("Cyrillic"), "ISO-8859-5"}, // ru
+	{QT_TR_NOOP("Latin-1 (Western European)"), "ISO-8859-1"}, // german
+	{QT_TR_NOOP("Latin-2 (Central European)"), "ISO-8859-2"},       // cz
+	{QT_TR_NOOP("Greek"), "ISO-8859-7"}, // greek
+	{QT_TR_NOOP("Hebrew"), "ISO-8859-8"},           // Hebrew
 	{QT_TR_NOOP("Slovene"), "CP1250"},		// UTF8
+	{QT_TR_NOOP("Turkish"), "ISO-8859-9"},          // Turkish
 	{QT_TR_NOOP("UTF-8"), "UTF-8"},		// UTF8
 	{QT_TR_NOOP("UTF-16"), "UTF-16"}		// UTF16
 };
