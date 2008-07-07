@@ -86,7 +86,12 @@ diaMenuEntry encoding[]={
   Mitem(5),
   Mitem(6),
   Mitem(7),
-  Mitem(8)
+  Mitem(8),
+  Mitem(9),
+  Mitem(10),
+  Mitem(11),
+  Mitem(12),
+  Mitem(13)
 };       
 
 #define PX(x) &(param->x)
@@ -106,7 +111,7 @@ diaMenuEntry encoding[]={
       {
           if(!strcmp(param->_charset,names[i].name)) myEncoding=i;
       }
-      diaElemMenu      encodingM(&myEncoding,QT_TR_NOOP("_Encoding:"),9,encoding);
+      diaElemMenu      encodingM(&myEncoding,QT_TR_NOOP("_Encoding:"),13,encoding);
     //  diaElemUInteger  fontSize(PX(_fontsize),QT_TR_NOOP("Font Si_Ze:"),8,120);
       diaElemButton    color(QT_TR_NOOP("S_elect C_olor"), colorCallBack,&(colors[0]));
       diaElemButton    setBase(QT_TR_NOOP("Set Size and _Position"), sizePositionCallback,&sizePos);
