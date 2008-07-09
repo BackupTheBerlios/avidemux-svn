@@ -271,6 +271,7 @@ uint8_t EncoderX264::startPass2 (void)
 {
   uint32_t    bitrate;
 
+  _delayed = 0;
   ADM_assert (_state == enc_Pass1);
   printf ("\n[x264] Starting pass 2 (%d x %d)\n", _w, _h);
 
