@@ -1,6 +1,15 @@
 External Libraries
 (This is for 10.4 or above)
 
+**************************************************************************
+* 9 July 2008, Harry van der wolf
+* This is very much a "work in progress" thing and far from stable.
+* It can be considered in pre-alpha stage.
+* Scripts up to and including 0215 "should" work
+**************************************************************************
+
+
+
 CREDITS
 This way of building libraries for OSX has been developed (AFAIK) by Ippei Ukai for the
 Open Source project Hugin. I simply copied the way of working and developed the scripts
@@ -53,6 +62,20 @@ Now you can create a scripts directory inside your External_libs directory or cr
 link (recommended) to the scripts directory in your avidemux tree, thereby automatically synchronizing
 scripts in that tree via SVN. I create a symbolic link.
 $ ln -s /Users/<username>/development/avidemux_2.4_branch/platforms/mac/External_libs/scripts /Users/<username>/development/External_libs/scripts
+
+
+WARNING
+The configure scripts of the libraries you want to compile, also check for libraries and headers
+inside /usr/local, /opt/local (Maccports) and /sw (Fink).
+This means that we need to get them "out of the way" as we do not want the libraries to link to 
+these headers and libraries, but only to the headers and libraries inside out External_libs build tree.
+So, before starting to build, you need to disable them by renaming them (not entirely without risk).
+$ sudo mv /usr/local /usr/local.org   (Linux way of building)
+$ sudo mv /opt/local /opt/local.org   (MacPorts)
+$ sudo mc /sw /sw.org                 (Fink)
+
+Note: You can off course give them any name you like.
+Note 2: Do not a "sudo mv /usr /usr.org" as your system won't function anymore 
 
 
 HOWTO:
