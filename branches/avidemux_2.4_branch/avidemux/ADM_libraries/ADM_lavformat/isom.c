@@ -156,6 +156,7 @@ const AVCodecTag codec_movaudio_tags[] = {
      { CODEC_ID_MP3, MKTAG( 'm', 'p', '4','a') },
 
     // /MEANX
+	{ CODEC_ID_MP2, MKTAG( 'm', 'p', '4', 'a') },
     { CODEC_ID_MP3, 0x6D730055 }, /* MPEG layer 3 */
     { CODEC_ID_MP3, MKTAG('m', 's', 0x00, 0x55) }, /* MPEG layer 3 *//* XXX: check endianness */
 

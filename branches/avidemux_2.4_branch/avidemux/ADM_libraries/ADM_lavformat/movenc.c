@@ -385,7 +385,8 @@ static int mov_write_audio_tag(ByteIOContext *pb, MOVTrack* track)
         track->enc->codec_id == CODEC_ID_PCM_S32LE))
         mov_write_wave_tag(pb, track);
     else if(track->enc->codec_id == CODEC_ID_AAC // MEANX)
-       || track->enc->codec_id == CODEC_ID_MP3) // MEANX
+       || track->enc->codec_id == CODEC_ID_MP3
+	   || track->enc->codec_id == CODEC_ID_MP2) // MEANX
         mov_write_esds_tag(pb, track);
     else if(track->enc->codec_id == CODEC_ID_AMR_NB)
         mov_write_amr_tag(pb, track);
