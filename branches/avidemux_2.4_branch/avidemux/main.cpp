@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
     installSigHandler();
 #endif
 
-    printf("*************************\n");
+    printf("***************************\n");
     printf("  Avidemux v" VERSION);
 
   	if(ADM_SUBVERSION)
@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
 		printf(" (r%04u)", ADM_SUBVERSION);
 	}
 
-    printf("\n*************************\n");
+    printf("\n***************************\n");
     printf(" http://www.avidemux.org\n");
     printf(" Code      : Mean, JSC, Gruntster \n");
     printf(" GFX       : Nestor Di , nestordi@augcyl.org\n");

@@ -24,7 +24,7 @@ which can be set by adding the following flag to the cmake command:
 
 By default a release build is created.  To perform a debug build, add the 
 following flag to the cmake command:
-    –DCMAKE_BUILD_TYPE=Debug
+    -DCMAKE_BUILD_TYPE=Debug
 
 The default makefile generator may need to be overridden on some systems.  To 
 do so, add one of the following flags to the cmake command:
@@ -35,15 +35,15 @@ do so, add one of the following flags to the cmake command:
         -G"MinGW Makefiles"
 
     For Code::Blocks (requires CMake 2.6 or later):
-        -G"CodeBlocks – Unix Makefiles"   or
+        -G"CodeBlocks - Unix Makefiles"   or
         -G"CodeBlocks - MinGW Makefiles"
 
     For Eclipse (requires CMake 2.6 or later):
-        -G"Eclipse CDT4 – Unix Makefiles"   or
-        -G"Eclipse CDT4 – MinGW Makefiles"
+        -G"Eclipse CDT4 - Unix Makefiles"   or
+        -G"Eclipse CDT4 - MinGW Makefiles"
 
 An example cmake command:
-    cmake –G"CodeBlocks – Unix Makefiles" –DCMAKE_INSTALL_PREFIX=/usr/local ..
+    cmake -G"CodeBlocks - Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local ..
 
 In order to force CMake to perform every test again during the configuration 
 process, delete CMakeCache.txt.
