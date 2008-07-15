@@ -17,12 +17,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <string.h>
+#include <math.h>
 
-#include "math.h"
-
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 #include "default.h"
 #include "ADM_editor/ADM_Video.h"
 
@@ -56,7 +54,7 @@ uint32_t i,j,cur;
         printf("Build Track index\n");
 	*outNbChunk=0;
 	aprintf("+_+_+_+_+_+\n");
-	aprintf("co : %lu sz: %lu sc: %lu co[0]%lu \n",info->nbCo,info->nbSz,info->nbSc,info->Co[0]);
+	aprintf("co : %lu sz: %lu sc: %lu co[0] %"LLU"\n",info->nbCo,info->nbSz,info->nbSc,info->Co[0]);
 	aprintf("+_+_+_+_+_+\n");
 
 	ADM_assert(info->Sc);
@@ -74,7 +72,7 @@ uint32_t i,j,cur;
           
           
           uint32_t totalBytes=info->SzIndentical*info->nbSz;
-          printf("All the same size : %u (total size %u bytes)\n",info->SzIndentical,totalBytes);
+          printf("All the same size: %u (total size %u bytes)\n",info->SzIndentical,totalBytes);
               //
               // Each chunk contains N samples=N bytes
               int samplePerChunk[info->nbCo];
@@ -85,8 +83,7 @@ uint32_t i,j,cur;
 
                   for(int j=info->Sc[i]-1;j<info->nbCo;j++)
                   {
-                    uint32_t mx;
-                        adm_printf(ADM_PRINT_VERY_VERBOSE,"For chunk %lu , %lu samples\n",j,info->Sn[i]);
+                        adm_printf(ADM_PRINT_VERY_VERBOSE,"For chunk %lu, %lu samples\n",j,info->Sn[i]);
                         samplePerChunk[j]=info->Sn[i];
                   }
               }
@@ -247,7 +244,7 @@ uint32_t i,j,cur;
           }
 	// if no sample to chunk we map directly
 	// first build the # of sample per chunk table
-        uint32_t totalchunk=0,max=0;
+        uint32_t totalchunk=0;
 
         // Search the maximum
         for(i=0;i<info->nbSc-1;i++)
@@ -256,9 +253,9 @@ uint32_t i,j,cur;
         }
         totalchunk+=(info->nbCo-info->Sc[info->nbSc-1]+1)*info->Sn[info->nbSc-1];
 
-        adm_printf(ADM_PRINT_VERY_VERBOSE,"#of chunk %d max per chunk %d Max # of sample %d\n",info->nbCo,max,totalchunk);
+        adm_printf(ADM_PRINT_VERY_VERBOSE,"# of chunks %d, max # of samples %d\n",info->nbCo, totalchunk);
 
-        uint32_t chunkCount[totalchunk+1];
+        uint32_t *chunkCount = new uint32_t[totalchunk+1];
 	for(i=0;i<info->nbSc;i++)
 	{
 		for(j=info->Sc[i]-1;j<info->nbCo;j++)
@@ -289,6 +286,8 @@ uint32_t i,j,cur;
 
 
 	}
+
+	delete [] chunkCount;
         
         
         track->nbIndex=cur;;
