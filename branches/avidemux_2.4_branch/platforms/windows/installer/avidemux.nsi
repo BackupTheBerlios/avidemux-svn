@@ -5,6 +5,7 @@
 !include MUI.nsh
 !include WinMessages.nsh
 !include revision.nsh
+!include builddir.nsh
 
 Name "Avidemux 2.4.2 r${REVISION}"
 
@@ -36,7 +37,7 @@ SetCompressorDictSize 96
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER Avidemux
 !define MUI_STARTMENUPAGE_NODISABLE
 !define MUI_WELCOMEFINISHPAGE_BITMAP "WelcomeFinishStrip.bmp"
-!define MUI_UNICON "..\xpm\adm.ico"
+!define MUI_UNICON "..\..\..\avidemux\xpm\adm.ico"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 !define MUI_COMPONENTSPAGE_NODESC
 
@@ -115,8 +116,8 @@ InstType Full
 
 installGtk${LANG_CODE}:
     SetOutPath $INSTDIR\share\locale\${LANG_CODE}\LC_MESSAGES
-    File ..\..\..\avidemux_2.4_build\share\locale\${LANG_CODE}\LC_MESSAGES\avidemux.mo
-    File ..\..\..\avidemux_2.4_build\share\locale\${LANG_CODE}\LC_MESSAGES\gtk20.mo
+    File ${BUILDDIR}\share\locale\${LANG_CODE}\LC_MESSAGES\avidemux.mo
+    File ${BUILDDIR}\share\locale\${LANG_CODE}\LC_MESSAGES\gtk20.mo
 
     WriteRegStr HKLM "${REGKEY}\Components" ${LANG_NAME} 1
 endGtk${LANG_CODE}:
@@ -129,8 +130,8 @@ endGtk${LANG_CODE}:
 
 installQt4${LANG_CODE}:	
 	SetOutPath $INSTDIR\i18n
-    File ..\..\..\avidemux_2.4_build\i18n\avidemux_${LANG_CODE}.qm
-    File ..\..\..\avidemux_2.4_build\i18n\qt_${LANG_CODE}.qm
+    File ${BUILDDIR}\i18n\avidemux_${LANG_CODE}.qm
+    File ${BUILDDIR}\i18n\qt_${LANG_CODE}.qm
     
     WriteRegStr HKLM "${REGKEY}\Components" ${LANG_NAME} 1
 endQt4${LANG_CODE}:    
@@ -164,31 +165,31 @@ Section "Core files (required)" SecCore
     SectionIn 1 2 RO
     SetOutPath $INSTDIR
     SetOverwrite on
-    File "..\..\..\avidemux_2.4_build\Build Info.txt"
-    File "..\..\..\avidemux_2.4_build\Change Log.html"
-    File ..\..\..\avidemux_2.4_build\zlib1.dll
-    File ..\..\..\avidemux_2.4_build\freetype6.dll
-    File ..\..\..\avidemux_2.4_build\iconv.dll
-    File ..\..\..\avidemux_2.4_build\intl.dll
-    File ..\..\..\avidemux_2.4_build\libaften.dll
-    File ..\..\..\avidemux_2.4_build\libexpat.dll
-    File ..\..\..\avidemux_2.4_build\libfaac.dll
-    File ..\..\..\avidemux_2.4_build\libfaad2.dll
-    File ..\..\..\avidemux_2.4_build\libfontconfig-1.dll
-    File ..\..\..\avidemux_2.4_build\libglib-2.0-0.dll
-    File ..\..\..\avidemux_2.4_build\libmp3lame-0.dll
-    File ..\..\..\avidemux_2.4_build\libpng12-0.dll
-    File ..\..\..\avidemux_2.4_build\libx264.dll
-    File ..\..\..\avidemux_2.4_build\libxml2.dll
-    File ..\..\..\avidemux_2.4_build\ogg.dll
-    File ..\..\..\avidemux_2.4_build\pthreadGC2.dll
-    File ..\..\..\avidemux_2.4_build\SDL.dll
-    File ..\..\..\avidemux_2.4_build\vorbis.dll
-    File ..\..\..\avidemux_2.4_build\vorbisenc.dll
-    File ..\..\..\avidemux_2.4_build\xmltok.dll
-    File ..\..\..\avidemux_2.4_build\xvidcore.dll
+    File "${BUILDDIR}\Build Info.txt"
+    File "${BUILDDIR}\Change Log.html"
+    File ${BUILDDIR}\zlib1.dll
+    File ${BUILDDIR}\freetype6.dll
+    File ${BUILDDIR}\iconv.dll
+    File ${BUILDDIR}\intl.dll
+    File ${BUILDDIR}\libaften.dll
+    File ${BUILDDIR}\libexpat.dll
+    File ${BUILDDIR}\libfaac.dll
+    File ${BUILDDIR}\libfaad2.dll
+    File ${BUILDDIR}\libfontconfig-1.dll
+    File ${BUILDDIR}\libglib-2.0-0.dll
+    File ${BUILDDIR}\libmp3lame-0.dll
+    File ${BUILDDIR}\libpng12-0.dll
+    File ${BUILDDIR}\libx264.dll
+    File ${BUILDDIR}\libxml2.dll
+    File ${BUILDDIR}\ogg.dll
+    File ${BUILDDIR}\pthreadGC2.dll
+    File ${BUILDDIR}\SDL.dll
+    File ${BUILDDIR}\vorbis.dll
+    File ${BUILDDIR}\vorbisenc.dll
+    File ${BUILDDIR}\xmltok.dll
+    File ${BUILDDIR}\xvidcore.dll
     SetOutPath $INSTDIR\etc\fonts
-    File /r ..\..\..\avidemux_2.4_build\etc\fonts\*
+    File /r ${BUILDDIR}\etc\fonts\*
 
     # if $PROFILE\avidemux exists and $APPDATA\avidemux doesn't, then move it
     IfFileExists "$PROFILE\avidemux" 0 end
@@ -205,7 +206,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         SectionIn 1 2
         SetOutPath $INSTDIR
         SetOverwrite on
-        File ..\..\..\avidemux_2.4_build\avidemux2_cli.exe
+        File ${BUILDDIR}\avidemux2_cli.exe
         WriteRegStr HKLM "${REGKEY}\Components" "Command line" 1
     SectionEnd
 
@@ -213,27 +214,27 @@ SectionGroup /e "User interfaces" SecGrpUI
         SectionIn 1 2
         SetOverwrite on
         SetOutPath $INSTDIR\etc\gtk-2.0
-        File /r ..\..\..\avidemux_2.4_build\etc\gtk-2.0\*
+        File /r ${BUILDDIR}\etc\gtk-2.0\*
         SetOutPath $INSTDIR\etc\pango
-        File /r ..\..\..\avidemux_2.4_build\etc\pango\*
+        File /r ${BUILDDIR}\etc\pango\*
         SetOutPath $INSTDIR\lib\gtk-2.0
-        File /r ..\..\..\avidemux_2.4_build\lib\gtk-2.0\*
+        File /r ${BUILDDIR}\lib\gtk-2.0\*
         SetOutPath $INSTDIR\share\themes
-        File /r ..\..\..\avidemux_2.4_build\share\themes\*
+        File /r ${BUILDDIR}\share\themes\*
         SetOutPath $INSTDIR
-        File ..\..\..\avidemux_2.4_build\avidemux2_gtk.exe
-        File ..\..\..\avidemux_2.4_build\gtk2_prefs.exe
-        File ..\..\..\avidemux_2.4_build\libatk-1.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libcairo-2.dll
-        File ..\..\..\avidemux_2.4_build\libgdk_pixbuf-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libgdk-win32-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libgmodule-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libgobject-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libgthread-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libgtk-win32-2.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libpango-1.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libpangocairo-1.0-0.dll
-        File ..\..\..\avidemux_2.4_build\libpangowin32-1.0-0.dll
+        File ${BUILDDIR}\avidemux2_gtk.exe
+        File ${BUILDDIR}\gtk2_prefs.exe
+        File ${BUILDDIR}\libatk-1.0-0.dll
+        File ${BUILDDIR}\libcairo-2.dll
+        File ${BUILDDIR}\libgdk_pixbuf-2.0-0.dll
+        File ${BUILDDIR}\libgdk-win32-2.0-0.dll
+        File ${BUILDDIR}\libgmodule-2.0-0.dll
+        File ${BUILDDIR}\libgobject-2.0-0.dll
+        File ${BUILDDIR}\libgthread-2.0-0.dll
+        File ${BUILDDIR}\libgtk-win32-2.0-0.dll
+        File ${BUILDDIR}\libpango-1.0-0.dll
+        File ${BUILDDIR}\libpangocairo-1.0-0.dll
+        File ${BUILDDIR}\libpangowin32-1.0-0.dll
         WriteRegStr HKLM "${REGKEY}\Components" GTK+ 1
     SectionEnd
     
@@ -241,10 +242,10 @@ SectionGroup /e "User interfaces" SecGrpUI
         SectionIn 2
         SetOutPath $INSTDIR
         SetOverwrite on
-        File ..\..\..\avidemux_2.4_build\QtGui4.dll
-        File ..\..\..\avidemux_2.4_build\avidemux2_qt4.exe
-        File ..\..\..\avidemux_2.4_build\mingwm10.dll
-        File ..\..\..\avidemux_2.4_build\QtCore4.dll
+        File ${BUILDDIR}\QtGui4.dll
+        File ${BUILDDIR}\avidemux2_qt4.exe
+        File ${BUILDDIR}\mingwm10.dll
+        File ${BUILDDIR}\QtCore4.dll
         WriteRegStr HKLM "${REGKEY}\Components" Qt4 1
     SectionEnd    
 SectionGroupEnd
@@ -317,8 +318,8 @@ Section AvsProxy SecAvsProxy
     SectionIn 2
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /r ..\..\..\avidemux_2.4_build\avsproxy.exe
-    File /r ..\..\..\avidemux_2.4_build\avsproxy_gui.exe
+    File /r ${BUILDDIR}\avsproxy.exe
+    File /r ${BUILDDIR}\avsproxy_gui.exe
     WriteRegStr HKLM "${REGKEY}\Components" "AvsProxy" 1
 SectionEnd
 
@@ -326,7 +327,7 @@ Section "Sample external filter" SecFilter
     SectionIn 2
     SetOutPath $INSTDIR\plugin
     SetOverwrite on
-    File /r ..\..\..\avidemux_2.4_build\plugin\*
+    File /r ${BUILDDIR}\plugin\*
     WriteRegStr HKLM "${REGKEY}\Components" "Sample external filter" 1
 SectionEnd
 

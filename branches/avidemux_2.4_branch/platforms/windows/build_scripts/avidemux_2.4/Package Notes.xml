@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<log>
+  <buildentry revision="4211" date="2008-07-13">
+    <comment>Updated GLib to version 2.16.4.</comment>
+    <comment>Updated GTK+ to version 2.12.11.</comment>
+    <comment>Updated Pango to version 1.20.5.</comment>
+    <comment>Updated x264 to r912 (patched).</comment>
+  </buildentry>  
+  <buildentry revision="4195 [2.4.2 Final]" date="2008-07-06">
+    <comment>Updated LAME to version 3.98.</comment>
+    <comment>Updated x264 to r899 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4182" date="2008-06-30">
+  </buildentry>
+  <buildentry revision="4170" date="2008-06-27">
+  </buildentry>
+  <buildentry revision="4160" date="2008-06-25">
+    <comment>Updated x264 to r891 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4145" date="2008-06-22">
+    <comment>Updated x264 to r889 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4123" date="2008-06-18">
+  </buildentry>
+  <buildentry revision="4114" date="2008-06-17">
+    <comment>Updated Freetype to version 2.3.6.</comment>
+    <comment>Updated x264 to r886 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4090" date="2008-06-12">
+    <comment>Updated GTK+ to version 2.12.10.</comment>
+    <comment>Updated x264 to r881, patched and compiled with MinGW GCC 4.2.1-sjlj-2.</comment>
+  </buildentry>
+  <buildentry revision="4081" date="2008-06-01">
+    <comment>Updated Cairo to version 1.6.4-2.</comment>
+    <comment>Updated libpng to version 1.2.29.</comment>
+    <comment>Updated Pango to version 1.20.3.</comment>
+  </buildentry>
+  <buildentry revision="4028" date="2008-05-14">
+    <comment>Updated Libxml2 to version 2.6.32+.</comment>
+    <comment>Updated Qt to version 4.4.0.</comment>
+    <comment>Updated x264 to r845.</comment>
+  </buildentry>
+  <buildentry revision="4017" date="2008-05-03">
+    <comment>Updated x264 to r839.</comment>
+  </buildentry>
+  <buildentry revision="3982" date="2008-04-24">
+    <comment>Updated Cairo to version 1.6.4-1.</comment>
+    <comment>Updated GLib to version 2.16.3.</comment>
+    <comment>Updated Pango to version 1.20.2.</comment>
+    <comment>Updated x264 to r828.</comment>
+  </buildentry>
+  <buildentry revision="3974" date="2008-04-10">
+    <comment>Updated GLib to version 2.16.2.</comment>
+    <comment>Updated x264 to r816.</comment>
+  </buildentry>
+  <buildentry revision="3947" date="2008-04-01">
+    <comment>Updated x264 to r808, compiled with Microsoft Visual C++ 6 SP5.</comment>
+  </buildentry>
+  <buildentry revision="3945" date="2008-03-30">
+    <comment>Updated win_iconv to version 20080320.</comment>
+    <comment>Updated x264 to r798, compiled with Microsoft Visual C++ 9.</comment>
+  </buildentry>
+  <buildentry revision="3908" date="2008-03-19">
+    <comment>Updated GTK+ to version 2.12.9.</comment>
+    <comment>Recompiled Aften 0.0.8 with Microsoft Visual C++ 9 (to enable SSE3).</comment>
+    <comment>Recompiled Avidemux and LAME with MinGW's GCC 4.2.1-sjlj-2.</comment>
+    <comment>Replaced libiconv with win_iconv (20080317).</comment>
+    <comment>Reverted x264 back to SVN revision 741.</comment>
+  </buildentry>
+  <buildentry revision="3872" date="2008-03-13">
+    <comment>Updated ATK to version 1.22.0.</comment>
+    <comment>Updated Avisynth Proxy GUI to version 2.04.</comment>
+    <comment>Updated Fontconfig to version 2.4.2 (20071015).</comment>
+    <comment>Updated GLib to version 2.16.1.</comment>
+    <comment>Updated Qt to version 4.3.4.</comment>
+    <comment>Updated Pango to version 1.20.0.</comment>
+    <comment>Updated x264 to SVN revision 745.</comment>
+  </buildentry>
+  <buildentry revision="3791 [2.4.1 Final]" date="2008-02-15">
+  </buildentry>
+  <buildentry revision="3789" date="2008-02-08">
+    <comment>Updated GLib to version 2.14.6-1.</comment>
+  </buildentry>
+  <buildentry revision="3784" date="2008-02-02">
+    <comment>Compiled CLI without SDL so output is directed to the console instead of log files.</comment>
+  </buildentry>
+  <buildentry revision="3779" date="2008-01-29">
+    <comment>Updated x264 to SVN revision 736.</comment>
+  </buildentry>
+  <buildentry revision="3775" date="2008-01-28">
+    <comment>Updated gettext to version 0.17-1.</comment>
+    <comment>Updated Libxml2 to version 2.6.30+.</comment>
+    <comment>Updated x264 to SVN revision 735.</comment>
+  </buildentry>
+  <buildentry revision="3764" date="2008-01-22">
+    <comment>Updated gettext to version 0.17.</comment>
+  </buildentry>
+  <buildentry revision="3756" date="2008-01-18">
+    <comment>Updated Cairo to version 1.4.14.</comment>
+    <comment>Updated GLib to version 2.14.5.</comment>
+    <comment>Updated Pango to version 1.18.4.</comment>
+    <comment>Updated SDL to version 1.2.13.</comment>
+    <comment>Updated x264 to SVN revision 721.</comment>
+  </buildentry>
+  <buildentry revision="3731 [2.4.0 Final]" date="2007-12-24">
+    <comment>Updated x264 to SVN revision 712.</comment>
+  </buildentry>
+  <buildentry revision="3728" date="2007-12-13">
+    <comment>Updated Qt to version 4.3.3.</comment>
+    <comment>Updated x264 to SVN revision 711.</comment>
+  </buildentry>
+  <buildentry revision="3718" date="2007-12-03">
+    <comment>Updated x264 to SVN revision 708.</comment>
+  </buildentry>
+  <buildentry revision="3707" date="2007-11-29">
+    <comment>Updated GLib to version 2.14.4.</comment>
+    <comment>Updated x264 to SVN revision 702.</comment>
+  </buildentry>
+  <buildentry revision="3699" date="2007-11-22">
+    <comment>Updated GLib to version 2.14.3.</comment>
+    <comment>Updated FAAD2 to version 2.6.1.</comment>
+    <comment>Updated x264 to SVN revision 700.</comment>
+  </buildentry>
+  <buildentry revision="3688 [2.4.0 Preview 3.1]" date="2007-11-12">
+    <comment>FAAC support was missing from the earlier preview 3 build.</comment>
+  </buildentry>
+  <buildentry revision="3688 [2.4.0 Preview 3]" date="2007-11-11">
+  </buildentry>
+  <buildentry revision="3676" date="2007-10-31">
+    <comment>Updated FAAC to version 1.26.</comment>
+    <comment>Updated FAAD2 to version 2.6.</comment>
+    <comment>Updated x264 to SVN revision 681.</comment>
+  </buildentry>
+  <buildentry revision="3665" date="2007-10-23">
+    <comment>Updated GLib to version 2.14.2.</comment>
+    <comment>Updated Pango to version 1.18.3.</comment>
+  </buildentry>
+  <buildentry revision="3658" date="2007-10-17">
+  </buildentry>
+  <buildentry revision="3639" date="2007-10-10">
+    <comment>Reverted GTK+ back to version 2.10.14 (due to reports of instability).</comment>
+  </buildentry>
+  <buildentry revision="3625" date="2007-10-07">
+    <comment>Updated Qt to version 4.3.2.</comment>
+  </buildentry>
+  <buildentry revision="3600" date="2007-09-26">
+    <comment>Updated Aften to version 0.0.8</comment>
+    <comment>Updated ATK to version 1.20.0.</comment>
+    <comment>Updated Cairo to version 1.4.10.</comment>
+    <comment>Updated GLib to version 2.14.1.</comment>
+    <comment>Updated GTK+ to version 2.12.0.</comment>
+    <comment>Updated Libxml2 to 2.6.30.</comment>
+    <comment>Updated Pango to version 1.18.2.</comment>
+    <comment>Updated SDL to version 1.2.12.</comment>
+    <comment>Updated x264 to SVN revision 680.</comment>
+  </buildentry>
+  <buildentry revision="3591" date="2007-09-22">
+    <comment>Updated x264 to SVN revision 677.</comment>
+  </buildentry>
+  <buildentry revision="3587" date="2007-09-11">
+    <comment>Updated x264 to SVN revision 674.</comment>
+  </buildentry>
+  <buildentry revision="3579" date="2007-09-05">
+  </buildentry>
+  <buildentry revision="3570" date="2007-08-31">
+  </buildentry>
+  <buildentry revision="3563" date="2007-08-26">
+  </buildentry>
+  <buildentry revision="3553" date="2007-08-23">
+  </buildentry>
+  <buildentry revision="3535" date="2007-08-19">
+  </buildentry>
+  <buildentry revision="3516" date="2007-08-16">
+    <comment>Updated Freetype to version 2.3.5.</comment>
+    <comment>Updated GLib to version 2.14.0.</comment>
+  </buildentry>
+  <buildentry revision="3500" date="2007-08-13">
+    <comment>Updated Qt to version 4.3.1.</comment>
+  </buildentry>
+  <buildentry revision="3488" date="2007-08-08">
+  </buildentry>
+  <buildentry revision="3475" date="2007-08-05">
+    <comment>Updated GTK+ to version 2.10.14.</comment>
+  </buildentry>
+  <buildentry revision="3465" date="2007-08-01">
+    <comment>Packaged using NSIS 2.29.</comment>
+  </buildentry>
+  <buildentry revision="3451" date="2007-07-28">
+    <comment>Updated GLib to version 2.12.13.</comment>
+    <comment>Updated Xvid to CVS HEAD 2007-07-26.</comment>
+    <comment>Updated Vorbis to version 1.2.0.</comment>
+  </buildentry>
+  <buildentry revision="3441" date="2007-07-24">
+    <comment>Updated GCC to version 4.2.1.</comment>
+  </buildentry>
+  <buildentry revision="3412" date="2007-07-18">
+    <comment>Updated x264 to SVN revision 667.</comment>
+  </buildentry>
+  <buildentry revision="3374" date="2007-07-16">
+  </buildentry>
+  <buildentry revision="3364" date="2007-07-14">
+  </buildentry>
+  <buildentry revision="3353" date="2007-07-10">
+    <comment>Updated GCC to version 4.2.0 again.</comment>
+  </buildentry>
+  <buildentry revision="3342" date="2007-07-08">
+  </buildentry>
+  <buildentry revision="3332" date="2007-07-06">
+    <comment>Updated x264 to SVN revision 663.</comment>
+    <comment>Updated Xvid to CVS HEAD 2007-06-28.</comment>
+  </buildentry>
+  <buildentry revision="3322 [2.4.0 Preview 2]" date="2007-06-30">
+    <comment>Reverted GCC back to version 4.1.2 (due to video issues).</comment>
+  </buildentry>
+  <buildentry revision="3317" date="2007-06-28">
+    <comment>Updated Xvid to CVS HEAD 2007-06-27.</comment>
+    <comment>Reverted GTK+ back to version 2.10.9 (due to reports of instability).</comment>
+  </buildentry>
+  <buildentry revision="3310" date="2007-06-26">
+  </buildentry>
+  <buildentry revision="3294" date="2007-06-24">
+    <comment>Updated Freetype to version 2.3.4.</comment>
+    <comment>Updated Libxml2 to version 2.6.28.</comment>
+    <comment>Updated x264 to SVN revision 662.</comment>
+    <comment>Recompiled Aften 0.07 with Microsoft Visual C++ 8 (to fix SSE2 threading issue).</comment>
+  </buildentry>
+  <buildentry revision="3283" date="2007-06-21">
+    <comment>Updated x264 to SVN revision 661.</comment>
+  </buildentry>
+  <buildentry revision="3273" date="2007-06-18">
+  </buildentry>
+  <buildentry revision="3253" date="2007-06-15">
+    <comment>Updated GCC to version 4.2.0 (also recompiled LAME).</comment>
+    <comment>Updated Aften to version 0.07 (R522 to fix GCC alignment issue).</comment>
+    <comment>Updated Cairo to version 1.4.8.</comment>
+    <comment>Updated Fontconfig to version 2.4.2.</comment>
+    <comment>Updated GLib to version 2.12.12.</comment>
+    <comment>Updated GTK+ to version 2.10.13.</comment>
+    <comment>Updated Pango to version 1.16.4.</comment>
+    <comment>Updated Qt to version 4.3.0.</comment>
+    <comment>Updated x264 to SVN revision 659.</comment>
+    <comment>Updated Xvid to CVS HEAD 2007-06-03.</comment>
+    <comment>Avidemux was built using new CMake scripts.</comment>
+    <comment>Packaged using NSIS 2.28.</comment>
+  </buildentry>
+  <buildentry revision="3140" date="2007-05-25">
+  </buildentry>
+  <buildentry revision="3124" date="2007-05-22">
+  </buildentry>
+  <buildentry revision="3110" date="2007-05-18">
+  </buildentry>
+  <buildentry revision="3099" date="2007-05-16">
+  </buildentry>
+  <buildentry revision="3086" date="2007-05-14">
+  </buildentry>
+  <buildentry revision="3070" date="2007-05-13">
+  </buildentry>
+  <buildentry revision="3059" date="2007-05-10">
+  </buildentry>
+  <buildentry revision="3048" date="2007-05-09">
+  </buildentry>
+  <buildentry revision="3040" date="2007-05-07">
+    <comment>Updated Avisynth Proxy GUI to 2007-05-04.</comment>
+    <comment>Removed ADM Tools.</comment>
+    <comment>Installer now prompts to remove previous version before installing.</comment>
+  </buildentry>
+  <buildentry revision="3015" date="2007-05-04">
+    <comment>Updated x264 to SVN revision 655.</comment>
+    <comment>Updated Avisynth Proxy GUI to 2007-05-02.</comment>
+    <comment>Installer now adds Avisynth Proxy GUI to Start Menu.</comment>
+  </buildentry>
+  <buildentry revision="3003" date="2007-05-02">
+    <comment>Added Avisynth Proxy GUI to Installer.</comment>
+  </buildentry>
+  <buildentry revision="2994" date="2007-04-30">
+    <comment>Updated Xvid to CVS HEAD 2007-04-29.</comment>
+    <comment>Added Avisynth Proxy to Installer.</comment>
+  </buildentry>
+  <buildentry revision="2975" date="2007-04-27">
+  </buildentry>
+  <buildentry revision="2960" date="2007-04-24">
+    <comment>Updated x264 to SVN revision 654.</comment>
+    <comment>Added GTK translations to installer.  Standard GTK windows (e.g. Open and Save) are now correctly translated.</comment>
+    <comment>The Installer now prohibits ADM Tools from being installed if the GTK+ user interface isn't also chosen.</comment>
+  </buildentry>
+  <buildentry revision="2955" date="2007-04-23">
+    <comment>Updated x264 to SVN revision 652.</comment>
+    <comment>Updated ADM Tools to 2007-04-20.</comment>
+    <comment>Installer now remembers previous installation folder (thanks LoRd_MuldeR).</comment>
+    <comment>Translations now work when starting Avidemux via the shortcuts created by the Installer (thanks Tetsuro).</comment>
+  </buildentry>
+  <buildentry revision="2953" date="2007-04-19">
+  </buildentry>
+  <buildentry revision="2951" date="2007-04-20">
+    <comment>Updated Xvid to CVS HEAD 2007-04-17.</comment>
+    <comment>Updated ADM Tools to 2007-04-18.</comment>
+  </buildentry>
+  <buildentry revision="2948" date="2007-04-17">
+  </buildentry>
+  <buildentry revision="2945" date="2007-04-15">
+    <comment>A bug in the Avidemux configure script prevented full compiler optimisations from being enabled. This has now been rectified, which means the main Avidemux executables are larger but hopefully faster in certain areas.</comment>
+    <comment>The installer now uses improved compression so the file size is smaller than the last release.</comment>
+    <comment>Included ADM Tools.</comment>
+  </buildentry>
+  <buildentry revision="2934" date="2007-04-13">
+    <comment>Updated x264 to SVN revision 650.</comment>
+    <comment>Introduced a new installer.</comment>
+  </buildentry>
+  <buildentry revision="2926 [Release 2]" date="2007-04-11">
+    <comment>Updated x264 to SVN revision 649.</comment>
+    <comment>
+      FAAC and FAAD2 have been rebuilt. Prior builds incorrectly included DRM versions
+      of both libraries, which aren't appropriate for Avidemux.
+    </comment>
+  </buildentry>
+  <buildentry revision="2926" date="2007-04-07">
+    <comment>Updated Aften to version 0.06</comment>
+    <comment>Updated x264 to SVN revision 648.</comment>
+  </buildentry>
+  <buildentry revision="2922" date="2007-04-05">
+    <comment>Updated x264 to SVN revision 641.</comment>
+  </buildentry>
+  <buildentry revision="2916" date="2007-04-02">
+    <comment>Updated x264 to SVN revision 636.</comment>
+  </buildentry>
+  <buildentry revision="2910" date="2007-03-29">
+  </buildentry>
+</log>
