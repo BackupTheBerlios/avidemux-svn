@@ -3,6 +3,7 @@
 call "Set Avidemux 2.4 Environment Variables"
 if errorlevel 1 goto error
 
+set PATH=%msysDir%\bin;%PATH%
 set curDir=%CD%
 
 echo -- Generating Change Log.html --

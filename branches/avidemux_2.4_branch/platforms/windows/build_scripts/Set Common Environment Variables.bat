@@ -68,7 +68,7 @@ if not exist "%nsisDir%" (
 	goto error
 )
 
-set PATH=%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%msysDir%\bin;%qtDir%\bin;%PATH%
+set PATH=%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%qtDir%\bin;%PATH%
 
 goto end
 
