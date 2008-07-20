@@ -70,7 +70,7 @@ do
   ARCHARGs="$x64ONLYARG"
  fi
 
-export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
+export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
 
 
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2 -dead_strip" \
@@ -78,12 +78,13 @@ export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
   CPPFLAGS="-I$REPOSITORYDIR/include -I/usr/include -no-cpp-precomp" \
   LDFLAGS="-L$REPOSITORYDIR/lib -L/usr/lib -dead_strip" \
   NEXT_ROOT="$MACSDKDIR" \
-  PKG_CONFIG_PATH=$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig:/usr/lib/pkgconfig \
-  ./configure --prefix="$REPOSITORYDIR" --disable-dependency-tracking --enable-libxml2 \
+  PKG_CONFIG_PATH=$REPOSITORYDIR/lib/pkgconfig \
+  ./configure --prefix="$REPOSITORYDIR" --disable-dependency-tracking \
   --host="$TARGET" --target="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
   --with-add-fonts=/Library/Fonts,/Network/Library/Fonts,/System/Library/Fonts,${prefix}/share/fonts \
   --enable-shared  --disable-docs --with-freetype-config=$REPOSITORYDIR/arch/$ARCH/bin/freetype-config \
 ;
+#   ./configure --prefix="$REPOSITORYDIR" --disable-dependency-tracking --enable-libxml2 \
 
 
  make clean;
@@ -123,4 +124,40 @@ then
  ln -sfn $REPOSITORYDIR/lib/libfontconfig.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libfontconfig.$MAIN_LIB_VER.dylib
  ln -sfn $REPOSITORYDIR/lib/libfontconfig.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libfontconfig.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/fontconfig.pc" > "$REPOSITORYDIR/lib/pkgconfig/fontconfig.pc.tmp";
+ # fontconfig needs an extra step
+ sed 's+arch/ppc/++' "$REPOSITORYDIR/lib/pkgconfig/fontconfig.pc.tmp" > "$REPOSITORYDIR/lib/pkgconfig/fontconfig.pc";
+ rm "$REPOSITORYDIR/lib/pkgconfig/fontconfig.pc.tmp"
+break;
+done
+
+# merge execs
+for program in bin/fc-cache bin/fc-cat bin/fc-list bin/fc-match
+do
+
+ if [ $NUMARCH -eq 1 ]
+ then
+  mv "$REPOSITORYDIR/arch/$ARCHS/$program" "$REPOSITORYDIR/$program";
+  strip "$REPOSITORYDIR/$program";
+  continue
+ fi
+
+ LIPOARGs=""
+
+ for ARCH in $ARCHS
+ do
+  LIPOARGs="$LIPOARGs $REPOSITORYDIR/arch/$ARCH/$program"
+ done
+
+ lipo $LIPOARGs -create -output "$REPOSITORYDIR/$program";
+
+ strip "$REPOSITORYDIR/$program";
+
+done
+
 

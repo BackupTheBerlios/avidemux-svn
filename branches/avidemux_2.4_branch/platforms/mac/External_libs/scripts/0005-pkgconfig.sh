@@ -116,3 +116,6 @@ do
  strip "$REPOSITORYDIR/$program";
 
 done
+
+# create pkgconfig directory
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";

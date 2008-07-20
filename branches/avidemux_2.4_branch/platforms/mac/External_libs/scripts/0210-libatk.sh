@@ -74,16 +74,17 @@ do
   ARCHARGs="$x64ONLYARG"
  fi
 
- export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
+ export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
 
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
   CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
   CPPFLAGS="-I$REPOSITORYDIR/arch/$ARCH/include -I$REPOSITORYDIR/include -I/usr/include" \
   LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -L/usr/lib -dead_strip" \
   NEXT_ROOT="$MACSDKDIR" \
-  PKG_CONFIG_PATH="$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig:/usr/lib/pkgconfig" \
+  PKG_CONFIG_PATH="$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig" \
   ./configure --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
   --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
+  --enable-shared --enable-static \
  ;
 
 
@@ -96,7 +97,7 @@ done
 
 # merge libatk
 
-for liba in lib/libatk.a lib/libatk-$FULL_LIB_VER.dylib 
+for liba in lib/libatk-1.0.a lib/libatk-$FULL_LIB_VER.dylib 
 do
 
  if [ $NUMARCH -eq 1 ]
@@ -132,3 +133,13 @@ then
  ln -sfn libatk-$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libatk-$MAIN_LIB_VER.dylib;
  #ln -sfn libatk-$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libatk.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/atk.pc" > "$REPOSITORYDIR/lib/pkgconfig/atk.pc";
+ break;
+done
+
+

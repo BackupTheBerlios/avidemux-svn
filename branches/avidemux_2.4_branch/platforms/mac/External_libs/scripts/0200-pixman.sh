@@ -79,7 +79,7 @@ export PATH=/usr/bin:$PATH
   CPPFLAGS="-I$REPOSITORYDIR/include" \
   LDFLAGS="-L$REPOSITORYDIR/lib -dead_strip" \
   NEXT_ROOT="$MACSDKDIR" \
-  PKG_CONFIG_PATH=$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig \
+  PKG_CONFIG_PATH=$REPOSITORYDIR/lib/pkgconfig \
  ./configure --prefix="$REPOSITORYDIR" --disable-dependency-tracking \
   --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH CC="gcc -arch $ARCH" \
   --enable-static --enable-shared ;
@@ -93,7 +93,7 @@ done
 
 # merge libpixman
 
-for liba in lib/libpixman-a lib/libpixman-$FULL_LIB_VER.dylib 
+for liba in lib/libpixman-1.a lib/libpixman-$FULL_LIB_VER.dylib 
 do
 
  if [ $NUMARCH -eq 1 ]
@@ -128,6 +128,14 @@ then
  ln -sfn libpixman-$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libpixman-$MAIN_LIB_VER.dylib;
  ln -sfn libpixman-$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libpixman.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/pixman-1.pc" > "$REPOSITORYDIR/lib/pkgconfig/pixman-1.pc";
+ break;
+done
 
 
 

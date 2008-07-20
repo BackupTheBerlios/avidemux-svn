@@ -75,12 +75,12 @@ do
   ARCHARGs="$x64ONLYARG"
  fi
 
- export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
+ export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
 
 # The separated build trees should guarantee that the right endian value is used
 # but just to make sure that the right endian is compiled we copy the glibconfig.h
 # into $REPOSITORYDIR/lib/glib-2.0/include
-# cp $REPOSITORYDIR/arch/$ARCH/lib/glib-2.0/include/glibconfig.h $REPOSITORYDIR/lib/glib-2.0/include
+ cp $REPOSITORYDIR/arch/$ARCH/lib/glib-2.0/include/glibconfig.h $REPOSITORYDIR/lib/glib-2.0/include
 
 # env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
 #  CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
@@ -92,12 +92,12 @@ do
 
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
   CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
-  CPPFLAGS="-I$REPOSITORYDIR/include -I$REPOSITORYDIR/arch/$ARCH/include -I/usr/include" \
-  LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -L/usr/lib -dead_strip -arch $ARCH" \
+  CPPFLAGS="-I$REPOSITORYDIR/include -no-cpp-precomp" \
+  LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -dead_strip -arch $ARCH -no-undefined -bind_at_load" \
   NEXT_ROOT="$MACSDKDIR" \
-  PKG_CONFIG_PATH="$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig:/usr/lib/pkgconfig" \
+  PKG_CONFIG_PATH="$REPOSITORYDIR/lib/pkgconfig" \
   ./configure --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
-  --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
+  --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH --enable-cairo \
   --without-x --disable-gtk-doc --enable-static --enable-shared \
  ;
 
@@ -107,8 +107,8 @@ do
 
 # Hack to get all modules copied to an intermediate place. This hack is based on a 2 architecture (i386 and ppc)
 # build only
-mkdir -p ~/tmp ~/tmp/modules
-for f in $(find modules -name '*.so'); do cp $f ~/tmp/pango-modules; done
+mkdir -p ~/tmp ~/tmp/$ARCH-pango-modules
+for f in $(find modules -name '*.so'); do cp $f ~/tmp/$ARCH-pango-modules; done
 
 # Remove glibconfig.h again from $REPOSITORYDIR/lib/glib-2.0/include
  rm $REPOSITORYDIR/lib/glib-2.0/include/glibconfig.h
@@ -171,7 +171,18 @@ then
 fi
 
 # Now we copy pango modules into place using the hack from before and doing it by an even dirtier hack
-for f in $(find ~/tmp/i386-modules/modules -name '*.so'); do sofile=`basename $f`; sudo lipo -create $f ~/tmp/pango-modules/$sofile -output $REPOSITORYDIR/lib/pango/1.6.0/modules/$sofile; done
+for f in $(find ~/tmp/i386-pango-modules/modules -name '*.so'); do sofile=`basename $f`; sudo lipo -create $f ~/tmp/ppc-pango-modules/$sofile -output $REPOSITORYDIR/lib/pango/1.6.0/modules/$sofile; done
 # Remove intermediate modules from first hack
 # rm -rf ~/tmp/pango-modules
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/pango.pc" > "$REPOSITORYDIR/lib/pkgconfig/pango.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/pangoft2.pc" > "$REPOSITORYDIR/lib/pkgconfig/pangoft2.pc";
+ break;
+done
+
+
 

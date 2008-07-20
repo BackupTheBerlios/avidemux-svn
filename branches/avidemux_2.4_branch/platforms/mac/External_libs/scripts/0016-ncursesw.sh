@@ -149,4 +149,11 @@ then
  ln -sfn libformw.$MAIN_LIB_VER.dylib $REPOSITORYDIR/lib/libformw.dylib;
 fi
 
+#Copy shell script
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/bin";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/bin/ncursesw5-config" > "$REPOSITORYDIR/bin/ncursesw5-config";
+ break;
+done
 

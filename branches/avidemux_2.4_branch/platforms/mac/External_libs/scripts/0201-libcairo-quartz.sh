@@ -72,7 +72,7 @@ do
   ARCHARGs="$x64ONLYARG"
  fi
 
-export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
+export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
 
  make clean;
 
@@ -82,6 +82,7 @@ export PATH=/usr/bin:$REPOSITORYDIR/arch/$ARCH/bin:$PATH
   CPPFLAGS="-I$REPOSITORYDIR/include -I/usr/include" \
   LDFLAGS="-L$REPOSITORYDIR/lib -L/usr/lib" \
   NEXT_ROOT="$MACSDKDIR" \
+  PKG_CONFIG_PATH="$REPOSITORYDIR/lib/pkgconfig" \
   ./configure --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
   --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH CC="gcc -arch $ARCH"\
   --enable-quartz --enable-atsui --without-x \
@@ -131,6 +132,19 @@ then
  ln -sfn libcairo.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libcairo.$MAIN_LIB_VER.dylib;
  ln -sfn libcairo.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libcairo.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo-pdf.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo-pdf.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo-png.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo-png.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo-ps.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo-ps.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo-quartz.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo-quartz.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo-svg.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo-svg.pc";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/cairo.pc" > "$REPOSITORYDIR/lib/pkgconfig/cairo.pc";
+ break;
+done
 
 
 

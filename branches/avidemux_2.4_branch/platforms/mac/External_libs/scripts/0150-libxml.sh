@@ -78,6 +78,7 @@ do
   CPPFLAGS="-I$REPOSITORYDIR/include -no-cpp-precomp" \
   LDFLAGS="-L$REPOSITORYDIR/lib -dead_strip" \
   NEXT_ROOT="$MACSDKDIR" \
+  PKG_CONFIG_PATH=$REPOSITORYDIR/lib/pkgconfig \
   ./configure --prefix="$REPOSITORYDIR" \
   --host="$TARGET" --target="$TARGET" --without-python --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
   --enable-shared \
@@ -121,3 +122,12 @@ then
  ln -sfn libxml2.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libxml2.$MAIN_LIB_VER.dylib;
  ln -sfn libxml2.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libxml2.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/libxml-2.0.pc" > "$REPOSITORYDIR/lib/pkgconfig/libxml-2.0.pc";
+ break;
+done
+

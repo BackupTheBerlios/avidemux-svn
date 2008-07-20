@@ -137,3 +137,14 @@ then
  ln -sfn libpng.3.$PNGVER.dylib $REPOSITORYDIR/lib/libpng.3.dylib;
  ln -sfn libpng.3.$PNGVER.dylib $REPOSITORYDIR/lib/libpng.dylib;
 fi
+
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ #sed 's+arch/$ARCH/++' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/libpng12.pc" > "$REPOSITORYDIR/lib/pkgconfig/libpng12.pc";
+ sed 's/^libdir.*$/libdir=\$\{prefix\}\/lib/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/libpng12.pc" > "$REPOSITORYDIR/lib/pkgconfig/libpng12.pc";
+ break;
+done
+ln -sfn $REPOSITORYDIR/lib/pkgconfig/libpng12.pc $REPOSITORYDIR/lib/pkgconfig/libpng.pc
+

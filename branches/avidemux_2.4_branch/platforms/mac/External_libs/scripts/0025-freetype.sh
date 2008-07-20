@@ -122,3 +122,18 @@ then
  ln -sfn $REPOSITORYDIR/lib/libfreetype.dylib;
 fi
 
+#pkgconfig
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/lib/pkgconfig";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig/freetype2.pc" > "$REPOSITORYDIR/lib/pkgconfig/freetype2.pc";
+ break;
+done
+
+#Copy shell script
+for ARCH in $ARCHS
+do
+ mkdir -p "$REPOSITORYDIR/bin";
+ sed 's/^exec_prefix.*$/exec_prefix=\$\{prefix\}/' "$REPOSITORYDIR/arch/$ARCH/bin/freetype-config" > "$REPOSITORYDIR/bin/freetype-config";
+ break;
+done
