@@ -42,7 +42,7 @@ extern int ADM_cpu_num_processors(void);
 #define WRAP_Open(x) \
 {\
 AVCodec *codec=avcodec_find_decoder(x);\
-if(!codec) {GUI_Alert(QT_TR_NOOP("Internal error finding codec"#x));ADM_assert(0);} \
+if(!codec) {GUI_Alert(QT_TR_NOOP("Internal error finding codec '"#x"'"));ADM_assert(0);} \
   codecId=x; \
   _context->workaround_bugs=1*FF_BUG_AUTODETECT +0*FF_BUG_NO_PADDING;/**/ \
   _context->error_concealment=3; \
@@ -424,6 +424,10 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
     case PIX_FMT_RGB555:
       out->_colorspace = ADM_COLOR_RGB555;
       break;
+    case PIX_FMT_GRAY8:
+//      out->_colorspace = ADM_COLOR_RGB555;
+      out->_colorspace = ADM_COLOR_GRAY8;
+      break;
     default:
       printf ("[lavc] Unhandled colorspace: %d\n", _context->pix_fmt);
       return 0;
@@ -543,6 +547,13 @@ decoderFFV1::decoderFFV1 (uint32_t w, uint32_t h):decoderFF (w, h)
   _refCopy = 1;			// YUV420 only
   WRAP_Open (CODEC_ID_FFV1);
 }
+
+decoderFFY800::decoderFFY800 (uint32_t w, uint32_t h):decoderFF (w, h)
+{
+  WRAP_Open (CODEC_ID_RAWVIDEO);
+  _context->pix_fmt = PIX_FMT_GRAY8;
+}
+
 decoderFF_ffhuff::decoderFF_ffhuff (uint32_t w, uint32_t h, uint32_t l, uint8_t * d,uint32_t bpp):decoderFF (w,
 	   h)
 {

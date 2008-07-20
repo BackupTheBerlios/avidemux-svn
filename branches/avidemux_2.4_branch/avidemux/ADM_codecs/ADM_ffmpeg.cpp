@@ -356,7 +356,9 @@ ffmpegEncoder::initContext (void)
     case FF_SNOW:
       WRAP_Open (CODEC_ID_SNOW);
       break;
-      
+    case FF_Y800:
+      WRAP_Open (CODEC_ID_RAWVIDEO);
+      break;
     case FF_DV:
       if(_context->width!=720 || _context->height!=576) 
             return 0; // should be caught by upper layers before going here...
@@ -955,6 +957,31 @@ uint8_t
 ffmpegEncoderFFMjpeg::encode (ADMImage * in, ADMBitstream * out)
 {
   _frame.quality = (int) floor (FF_QP2LAMBDA * _qual + 0.5);
+  return ffmpegEncoder::encode(in,out);
+}
+
+/*---
+*/
+uint8_t
+  ffmpegEncoderFFY800::init (uint32_t fps1000, uint8_t vbr)
+{
+  UNUSED_ARG (vbr);
+  mplayer_init ();
+
+  _context->time_base = (AVRational) { 1000, fps1000};
+  _context->flags = 0;
+  _context->bit_rate = 0;
+  _context->bit_rate_tolerance = 1024 * 8 * 1000;
+  _context->gop_size = 250;
+  printf ("[LAVCODEC]FF Mjpeg codec initializing...\n");
+  return initContext ();
+}
+
+
+
+uint8_t
+ffmpegEncoderFFY800::encode (ADMImage * in, ADMBitstream * out)
+{
   return ffmpegEncoder::encode(in,out);
 }
 

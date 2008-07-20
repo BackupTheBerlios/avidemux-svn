@@ -252,6 +252,15 @@ public:
   decoderFFV1 (uint32_t w, uint32_t h);
 
 };
+class decoderFFY800:public decoderFF
+{
+protected:
+
+
+public:
+  decoderFFY800 (uint32_t w, uint32_t h);
+};
+
 class decoderFFMJPEG:public decoderFF
 {
 protected:

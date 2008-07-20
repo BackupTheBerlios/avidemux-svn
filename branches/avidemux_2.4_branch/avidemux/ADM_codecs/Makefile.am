@@ -20,7 +20,8 @@ ADM_ffmpeg.cpp      ADM_png.cpp          ADM_xvid4param.h \
 ADM_ffmpeg.h        ADM_png.h            ADM_xvidcvs.cpp \
 ADM_ffmpegConfig.h  ADM_rgb16.cpp        ADM_x264.cpp      ADM_xvideco.cpp \
 ADM_mjpeg.cpp       ADM_rgb16.h          ADM_x264.h        ADM_xvideco.h \
-ADM_mjpeg.h         ADM_theora_dec.cpp   ADM_x264param.h
+ADM_mjpeg.h         ADM_theora_dec.cpp   ADM_x264param.h \
+ADM_y800.h
 
 
 ####### kdevelop will overwrite this part!!! (end)############

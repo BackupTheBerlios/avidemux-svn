@@ -37,6 +37,7 @@ typedef enum
   FF_FFHUFF = 11,
   FF_DV=12,
   FF_FLV1=13,
+  FF_Y800=14,
 } FF_CODEC_ID;
 
 /*
@@ -220,7 +221,24 @@ public:ffmpegEncoderFFMjpeg (uint32_t width, uint32_t height,FF_CODEC_ID id)
   }
 };
 
+class ffmpegEncoderFFY800:public ffmpegEncoder
+{
+protected:uint32_t _qual;
 
+public:ffmpegEncoderFFY800 (uint32_t width, uint32_t height,FF_CODEC_ID id)
+    :ffmpegEncoder (width, height,id)
+  {
+    _qual = 4;
+  };
+
+  virtual uint8_t init (uint32_t fps1000, uint8_t vbr = 0);
+  virtual uint8_t encode (ADMImage * in, ADMBitstream * out);
+  virtual ~ ffmpegEncoderFFY800 ()
+  {
+    stopEncoder ();
+
+  }
+};
 
 
 #endif

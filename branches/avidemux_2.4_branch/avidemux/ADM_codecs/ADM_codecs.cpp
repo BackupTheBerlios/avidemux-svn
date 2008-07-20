@@ -251,6 +251,11 @@ getDecoder (uint32_t fcc, uint32_t w, uint32_t h, uint32_t extraLen,
 
 
 #ifdef USE_FFMPEG
+  if (fourCC::check (fcc, (uint8_t *) "Y800"))
+    {
+
+      return (decoders *) (new decoderFFY800 (w, h));
+    }
   if (fourCC::check (fcc, (uint8_t *) "H263"))
     {
 
