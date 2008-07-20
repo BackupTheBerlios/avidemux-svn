@@ -76,6 +76,7 @@ const char *encoderGetIndexedName (uint32_t i);
 #include "adm_encmjpeg.h"
 #include "adm_encCopy.h"
 #include "adm_encyv12.h"
+#include "adm_ency800.h"
 
 #define FF_TRELLIS 0		// use treillis for mpeg1 encoding
 /*
@@ -688,8 +689,9 @@ getVideoEncoder (uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
     case CodecMjpeg:
       e = new EncoderMjpeg (&MjpegCodec);
       break;
-
-
+    case CodecY800:
+      e = new EncoderY800 (&Y800Codec);
+      break;
     case CodecFFhuff:
       e = new EncoderFFMPEGFFHuff (&ffmpegFFHUFF);
       break;

@@ -266,6 +266,24 @@ COMPRES_PARAMS MjpegCodec = {
   &DIA_mjpegCodecSetting
 };
 
+//*********************** FFMpeg raw video ********************
+COMPRES_PARAMS Y800Codec = {
+  CodecY800,
+  QT_TR_NOOP("Y800 (lavc)"),
+  "Y800",
+  "Y800 (lavcodec)",
+  COMPRESS_SAME,
+  1,
+  1500,
+  700,
+  1000,
+  ADM_ENC_CAP_SAME,
+  0,
+  NULL,
+  0,
+  NULL
+};
+
 //************************* FFMpeg mpeg1 **********************
 FFcodecSetting ffmpeg1Extra = {
   ME_EPZS,			//     ME
@@ -856,6 +874,7 @@ COMPRES_PARAMS *AllVideoCodec[] = {
   &ffmpegH263Codec,
   &MjpegCodec,
   &ffmpegFLV1,
+  &Y800Codec,
   &DUMMYONE
 };
 #endif
