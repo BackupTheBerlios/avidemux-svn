@@ -49,6 +49,7 @@ libavcodec_a_SOURCES = $(EXTEND_PPC) $(EXTEND_MMX) ac3enc.c  \
 		jfdctfst.c 	jfdctint.c 	jrevdct.c 	mace.c 	mdct.c 	 	mjpeg.c \
 		motion_est.c 	mpeg12.c 	mpegaudio.c 	mpegaudiodec.c 	mpegvideo.c 	msmpeg4.c 	 \
 		pcm.c 	ratecontrol.c 	raw.c 	resample.c 	rv10.c 	simple_idct.c 	svq1.c \
+		rawdec.c rawenc.c \
 		utils.c 	wmadec.c 	indeo3.c 	vp3.c 	vp3dsp.c 	h264.c 	ffv1.c 	ra144.c 	ra288.c \
 		golomb.c 	4xm.c 	cabac.c 	asv1.c vcr1.c cljr.c 	faandct.c 	 	parser.c \
 		roqvideo.c 	xan.c 	rpza.c 	msrle.c 	msvideo1.c 	cinepak.c 	vqavideo.c \
@@ -101,6 +102,7 @@ avs.c     ffv1.c      mdec.c       ra288.c    vqavideo.c \
 beosthread.c    flac.c      mem.c      rangecoder.c w32thread.c \
 bitstream.c   flacenc.c     mjpeg.c      ratecontrol.c  wmadec.c \
 bitstream_filter.c  flashsv.c     mmvideo.c      raw.c    wmv2.c \
+rawdec.c rawenc.c \
 bmp.c     flicvideo.c   motion_est.c     resample.c   wnv1.c \
 cabac.c     fraps.c     motion_est_template.c  resample2.c  ws-snd1.c \
 cavs.c      g726.c      motion_test.c    roqvideo.c   x264.c \

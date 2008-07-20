@@ -54,6 +54,7 @@ int main(void)
     DECLARE_DECODER (FLV, flv);
     DECLARE_DECODER (SNOW, snow);
     DECLARE_DECODER (AMV, amv);
+    DECLARE_DECODER (RAWVIDEO, rawvideo);
 #undef DECLARE_DECODER
 #define DECLARE_DECODER(a,b); printf("#define ENABLE_"#a"_DECODER 0\n"); 
 
@@ -137,7 +138,6 @@ int main(void)
     DECLARE_DECODER (JPEGLS, jpegls);
     DECLARE_DECODER (PNG, png);
     DECLARE_DECODER (QTRLE, qtrle);
-    DECLARE_DECODER (RAWVIDEO, rawvideo);
     DECLARE_DECODER (ROQ, roq);
     DECLARE_DECODER (SGI, sgi);
     DECLARE_DECODER (SVQ1, svq1);
@@ -235,6 +235,7 @@ int main(void)
     DECLARE_ENCODER (HUFFYUV, huffyuv);
     DECLARE_ENCODER (DVBSUB, dvbsub);
     DECLARE_ENCODER (SNOW, snow);
+    DECLARE_ENCODER (RAWVIDEO, rawvideo);
 
 #undef DECLARE_ENCODER
 #define DECLARE_ENCODER(a,b); printf("#define ENABLE_"#a"_ENCODER 0\n"); 
@@ -263,7 +264,6 @@ int main(void)
     DECLARE_ENCODER (MSMPEG4V2, msmpeg4v2);
     DECLARE_ENCODER (PNG, png);
     DECLARE_ENCODER (QTRLE, qtrle);
-    DECLARE_ENCODER (RAWVIDEO, rawvideo);
     DECLARE_ENCODER (ROQ, roq);
     DECLARE_ENCODER (RV10, rv10);
     DECLARE_ENCODER (RV20, rv20);
