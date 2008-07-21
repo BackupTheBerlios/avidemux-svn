@@ -8,6 +8,7 @@ MESSAGE("#####################################")
 PROJECT(Avidemux2)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.4.4)
 SET(CMAKE_COLOR_MAKEFILE ON)
+enable_testing()
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")

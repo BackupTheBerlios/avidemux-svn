@@ -455,4 +455,9 @@ endif(QT4_FOUND)
 
 INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
 
+###############
+# Testing
+###############
+add_subdirectory(testing)
+
 # EOF
