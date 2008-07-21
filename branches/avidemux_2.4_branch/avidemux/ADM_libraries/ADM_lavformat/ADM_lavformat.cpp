@@ -58,9 +58,6 @@ static    AVFormatContext *oc;
 static    AVStream *audio_st, *video_st;
 static    double audio_pts, video_pts;
 
-static uint32_t one;
-uint64_t  _curDTS;
-
 static uint8_t ADM_4cc_to_lavcodec(const char *fcc, CodecID *outlavid);
 static uint8_t ADM_WaveTag_to_lavcodec(uint32_t tag, CodecID *outlavid);
 
