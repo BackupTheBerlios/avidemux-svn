@@ -42,6 +42,8 @@ protected:
                 ADM_MUXER_TYPE _type;
                 uint8_t  _restamp;
                 ADM_MUXER_TYPE _muxerType;
+                uint64_t  _curDTS;  // Current decoder time stamp in us (for video)
+                uint32_t one;       // Duration of one video frame in us
 
 public:
         virtual uint8_t open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE type, 

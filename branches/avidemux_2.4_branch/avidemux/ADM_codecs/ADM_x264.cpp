@@ -290,7 +290,7 @@ uint8_t X264Encoder::encode (ADMImage * in, ADMBitstream * out)
     if(admParam.BasReference)
     {
     //  printf("%u +=%u\n",out->ptsFrame,admParam.MaxBFrame);
-      out->ptsFrame+=admParam.MaxBFrame;
+    //  out->ptsFrame+=1;
     }
   //printf("Frame :%lld \n",pic_out.i_pts);
   switch (pic_out.i_type)
