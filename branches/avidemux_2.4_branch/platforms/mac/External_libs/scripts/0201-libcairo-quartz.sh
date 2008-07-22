@@ -74,8 +74,6 @@ do
 
 export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
 
- make clean;
-
 
  env CFLAGS="-isysroot $MACSDKDIR -O2" \
   CXXFLAGS="-isysroot $MACSDKDIR -O2" \
@@ -86,11 +84,11 @@ export PATH=/usr/bin:$REPOSITORYDIR/bin:$PATH
   ./configure --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
   --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH CC="gcc -arch $ARCH"\
   --enable-quartz --enable-atsui --without-x \
- ;
+;
 
-
+ make clean;
  make $OTHERMAKEARGs;
- make $OTHERMAKEARGs install ;
+ make $OTHERMAKEARGs install;
 
 done
 

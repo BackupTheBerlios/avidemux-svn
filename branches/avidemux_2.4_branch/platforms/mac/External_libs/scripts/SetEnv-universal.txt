@@ -19,7 +19,7 @@ export \
  \
  ppcTARGET="powerpc-apple-darwin7" \
  ppcMACSDKDIR="/Developer/SDKs/MacOSX10.4u.sdk" \
- ppcONLYARG="-mcpu=G3 -mtune=G4 -mmacosx-version-min=10.3.9" \
+ ppcONLYARG="-mcpu=G3 -mtune=G4 -mmacosx-version-min=10.3" \
  \
  i386TARGET="i386-apple-darwin8" \
  i386MACSDKDIR="/Developer/SDKs/MacOSX10.4u.sdk" \

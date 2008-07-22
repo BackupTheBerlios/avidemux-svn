@@ -87,11 +87,12 @@ cmake  \
   -DCMAKE_INSTALL_PREFIX="$REPOSITORYDIR" \
   -DCMAKE_OSX_ARCHITECTURES="$TARGET" \
   -DCMAKE_OSX_SYSROOT="$MACSDKDIR"\
-  -DSHARED=ON \
+   -DSHARED=OFF \
   -DCMAKE_C_FLAGS="-arch $ARCH -fno-common -O2 -dead_strip" \
   -DCMAKE_CXX_FLAGS="-arch $ARCH -fno-common -O2 -dead_strip" \
   ..;
 
+#   -DSHARED=ON \
 
 
  make;

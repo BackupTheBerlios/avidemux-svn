@@ -2,18 +2,19 @@ External Libraries
 (This is for 10.4 or above)
 
 **************************************************************************
-* 9 July 2008, Harry van der wolf
+* 22 July 2008, Harry van der wolf
 * This is very much a "work in progress" thing and far from stable.
 * It can be considered in pre-alpha stage.
 * Scripts up to and including 0215 "should" work
+* Some 300 scripts should work too (xvid), others "are in the make"
 **************************************************************************
 
 
 
 CREDITS
 This way of building libraries for OSX has been developed (AFAIK) by Ippei Ukai for the
-Open Source project Hugin. I simply copied the way of working and developed the scripts
-necessary for Avidemux (unfortunately only a few libraries are the same) 
+Open Source project Hugin. I simply copied the way of working and developed and created
+the scripts necessary for Avidemux (unfortunately only a few libraries are the same) 
 
 INTRODUCTION
 The scripts in the scripts directory can be used to build the necessary libraries for Avidemux.
@@ -80,7 +81,7 @@ Note 2: Do not a "sudo mv /usr /usr.org" as your system won't function anymore
 
 HOWTO:
 0. Modify your External_libs/scripts/SetEnv-universal.txt. The path in the myREPOSITORYDIR variable 
-needs to exactly match the path you use. So, if you are Spiderman and you build inside your HOME 
+needs to match exactly the path you use. So, if you are Spiderman and you build inside your HOME 
 directory you need to specify:
 myREPOSITORYDIR="/Users/Spiderman/development/External_libs/repository";
 
@@ -99,7 +100,7 @@ from the systems you are currently using (e.g /usr, /usr/local, /opt, /sw).
 
 
 TIPS:
-When compiling programs from source specifying the above directory as prefix. You probably have to 
+When compiling programs from source you need to specify the above directory as prefix. You probably have to 
 specify the correct SDK (-isysroot) and MacOS target version (-mmacosx-version-min) as well.
 You can make multiple 'repositories' as well. For example, you can make one for statically and 
 one for dynamically linked product, or ones with different target architecture/OS versions. 
@@ -117,4 +118,3 @@ LICENSE:
 The scripts for compiling universal builds are originally copyrighted by Ippei Ukai (2007-2008), and distributed under the modified BSD license.
 
 
-$Id: howto.txt 1902 2007-02-04 22:27:47Z ippei $

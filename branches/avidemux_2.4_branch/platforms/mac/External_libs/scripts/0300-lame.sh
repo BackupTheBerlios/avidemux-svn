@@ -1,9 +1,8 @@
 # ------------------
 #    mp3lame 
 # ------------------
-# $Id: $
-# Copyright (c) 2008, Ippei Ukai
-# Modified for mp3lame by Harry van der Wolf, 2008 06 14
+# Based on the works of (c) 2007, Ippei Ukai
+# Created for avidemux by Harry van der Wolf
 
 # download location http://lame.sourceforge.net/
 
@@ -76,12 +75,12 @@ do
 
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2 -dead_strip" \
   CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2 -dead_strip" \
-  CPPFLAGS="-I$REPOSITORYDIR/include -no-cpp-precomp" \
+  CPPFLAGS="-I$REPOSITORYDIR/include" \
   LDFLAGS="-L$REPOSITORYDIR/lib -dead_strip" \
   NEXT_ROOT="$MACSDKDIR" \
   ./configure --prefix="$REPOSITORYDIR" \
   --host="$TARGET" --target="$TARGET" CC="gcc -arch $ARCH" --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
-  --enable-shared \
+  --enable-shared --enable-static \
 ;
 
 
@@ -123,3 +122,26 @@ then
  ln -sfn $REPOSITORYDIR/lib/libmp3lame.$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libmp3lame.dylib;
 fi
 
+# merge execs
+for program in bin/lame
+do
+
+ if [ $NUMARCH -eq 1 ]
+ then
+  mv "$REPOSITORYDIR/arch/$ARCHS/$program" "$REPOSITORYDIR/$program";
+  strip "$REPOSITORYDIR/$program";
+  continue
+ fi
+
+ LIPOARGs=""
+
+ for ARCH in $ARCHS
+ do
+  LIPOARGs="$LIPOARGs $REPOSITORYDIR/arch/$ARCH/$program"
+ done
+
+ lipo $LIPOARGs -create -output "$REPOSITORYDIR/$program";
+
+ strip "$REPOSITORYDIR/$program";
+
+done

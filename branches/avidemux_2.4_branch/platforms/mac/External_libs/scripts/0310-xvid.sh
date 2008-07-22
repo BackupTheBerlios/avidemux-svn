@@ -2,7 +2,7 @@
 #    libvxid 
 # ------------------
 # Based on the works of (c) 2007, Ippei Ukai
-# Modified for avidemux by Harry van der Wolf
+# Created for avidemux by Harry van der Wolf
 
 # download location daily build http://downloads.xvid.org/downloads/xvid_latest.tar.gz
 # or download latest source from CVS
@@ -64,7 +64,7 @@ do
   TARGET=$i386TARGET
   MACSDKDIR=$i386MACSDKDIR
   ARCHARGs="$i386ONLYARG"
-   ExtraARG=""
+   ExtraARG="--disable-assembly"
  elif [ $ARCH = "ppc" -o $ARCH = "ppc750" -o $ARCH = "ppc7400" ]
  then
   TARGET=$ppcTARGET
@@ -87,11 +87,11 @@ do
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2 -dead_strip" \
   CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2 -dead_strip" \
   CPPFLAGS="-I$REPOSITORYDIR/include" \
-  LDFLAGS="-L$REPOSITORYDIR/lib -dead_strip -read_only_relocs suppress" \
+  LDFLAGS="-L$REPOSITORYDIR/lib -isysroot $MACSDKDIR" \
   NEXT_ROOT="$MACSDKDIR" \
   ./configure --prefix="$REPOSITORYDIR" \
   --host="$TARGET" --target="$TARGET" CC="gcc -arch $ARCH $ExtraARG" --exec-prefix=$REPOSITORYDIR/arch/$ARCH \
-  --enable-shared \
+  --enable-shared --enable-static \
 ;
 
 

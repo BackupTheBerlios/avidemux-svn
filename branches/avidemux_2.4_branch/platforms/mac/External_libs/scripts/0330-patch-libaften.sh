@@ -1,7 +1,7 @@
 # ------------------
 #    patch aften 
 # ------------------
-# Harry van der Wolf, 2008 06 14
+# Harry van der Wolf, 2008
 
 # This script will patch aften for OSX to make the PPC side compile correctly.
 # It needs to be run once

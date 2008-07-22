@@ -2,7 +2,7 @@
 #     libpango
 # ------------------
 # Based on the works of (c) 2007, Ippei Ukai
-# Modified for avidemux by Harry van der Wolf
+# Created for avidemux by Harry van der Wolf
 
 # download location http://ftp.gnome.org/pub/GNOME/sources/pango
 
@@ -82,22 +82,15 @@ do
 # into $REPOSITORYDIR/lib/glib-2.0/include
  cp $REPOSITORYDIR/arch/$ARCH/lib/glib-2.0/include/glibconfig.h $REPOSITORYDIR/lib/glib-2.0/include
 
-# env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
-#  CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
-#  CPPFLAGS="-I$REPOSITORYDIR/include -I$REPOSITORYDIR/arch/$ARCH/include -I/usr/include" \
-#  LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -L/usr/lib -dead_strip -arch $ARCH -no-undefined -bind_at_load" \
-#  NEXT_ROOT="$MACSDKDIR" \
-#  PKG_CONFIG_PATH="$REPOSITORYDIR/arch/$ARCH/lib/pkgconfig:/usr/lib/pkgconfig" \
-
 
  env CFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
   CXXFLAGS="-isysroot $MACSDKDIR -arch $ARCH $ARCHARGs $OTHERARGs -O2" \
   CPPFLAGS="-I$REPOSITORYDIR/include -no-cpp-precomp" \
-  LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -dead_strip -arch $ARCH -no-undefined -bind_at_load" \
+  LDFLAGS="-L$REPOSITORYDIR/lib -L$REPOSITORYDIR/arch/$ARCH/lib -lexpat -dead_strip -arch $ARCH -no-undefined -bind_at_load" \
   NEXT_ROOT="$MACSDKDIR" \
   PKG_CONFIG_PATH="$REPOSITORYDIR/lib/pkgconfig" \
-  ./configure --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
-  --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH --enable-cairo \
+  ./configure --enable-cairo --prefix="$REPOSITORYDIR"  --disable-dependency-tracking \
+  --host="$TARGET" --exec-prefix=$REPOSITORYDIR/arch/$ARCH  \
   --without-x --disable-gtk-doc --enable-static --enable-shared \
  ;
 
@@ -105,10 +98,6 @@ do
  make $OTHERMAKEARGs;
  make $OTHERMAKEARGs install;
 
-# Hack to get all modules copied to an intermediate place. This hack is based on a 2 architecture (i386 and ppc)
-# build only
-mkdir -p ~/tmp ~/tmp/$ARCH-pango-modules
-for f in $(find modules -name '*.so'); do cp $f ~/tmp/$ARCH-pango-modules; done
 
 # Remove glibconfig.h again from $REPOSITORYDIR/lib/glib-2.0/include
  rm $REPOSITORYDIR/lib/glib-2.0/include/glibconfig.h
@@ -116,8 +105,7 @@ done
 
 
 # merge libpango
-
-for liba in lib/libpango.a lib/libpango-$FULL_LIB_VER.dylib lib/libpangocairo-$FULL_LIB_VER.dylib lib/libpangoft2-$FULL_LIB_VER.dylib
+for liba in lib/libpango-$MAIN_LIB_VER.a lib/libpango-$FULL_LIB_VER.dylib lib/libpangocairo-$FULL_LIB_VER.dylib lib/libpangoft2-$FULL_LIB_VER.dylib lib/libpangoft2-$MAIN_LIB_VER.a
 do
 
  if [ $NUMARCH -eq 1 ]
@@ -170,10 +158,32 @@ then
  ln -sfn libpangoft2-$FULL_LIB_VER.dylib $REPOSITORYDIR/lib/libpangoft2-dylib;
 fi
 
-# Now we copy pango modules into place using the hack from before and doing it by an even dirtier hack
-for f in $(find ~/tmp/i386-pango-modules/modules -name '*.so'); do sofile=`basename $f`; sudo lipo -create $f ~/tmp/ppc-pango-modules/$sofile -output $REPOSITORYDIR/lib/pango/1.6.0/modules/$sofile; done
-# Remove intermediate modules from first hack
-# rm -rf ~/tmp/pango-modules
+
+# Merge modules
+mkdir -p $REPOSITORYDIR/lib/pango $REPOSITORYDIR/lib/pango/1.6.0 $REPOSITORYDIR/lib/pango/1.6.0/modules
+
+MODS_DIR="lib/pango/1.6.0/modules/"
+
+for mods in $MODS_DIR/pango-arabic-fc.so $MODS_DIR/pango-basic-fc.so $MODS_DIR/pango-hebrew-fc.so $MODS_DIR/pango-indic-lang.so $MODS_DIR/pango-syriac-fc.so $MODS_DIR/pango-tibetan-fc.so $MODS_DIR/pango-arabic-lang.so $MODS_DIR/pango-hangul-fc.so $MODS_DIR/pango-indic-fc.so $MODS_DIR/pango-khmer-fc.so $MODS_DIR/pango-thai-fc.so
+do
+
+ if [ $NUMARCH -eq 1 ]
+ then
+  mv "$REPOSITORYDIR/arch/$ARCHS/$mods" "$REPOSITORYDIR/$mods";
+ fi
+
+ LIPOARGs=""
+
+ for ARCH in $ARCHS
+ do
+   LIPOARGs="$LIPOARGs $REPOSITORYDIR/arch/$ARCH/$mods"
+ done
+
+ lipo $LIPOARGs -create -output "$REPOSITORYDIR/$mods";
+
+done
+
+
 
 #pkgconfig
 for ARCH in $ARCHS
