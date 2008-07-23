@@ -418,7 +418,7 @@ if (fourCC::check (fcc, (uint8_t *) "MJPG")
     {
       uint32_t lavcodec_mpeg = 0;
       printf ("\n using Mpeg1/2 codec (libmpeg2)\n");
-      if (!prefs->get (FEATURE_USE_LAVCODEC_MPEG, &lavcodec_mpeg))
+      if (!prefs->get (FEATURE_USE_LAVCODEC_MPEG2, &lavcodec_mpeg))
 	{
 	  lavcodec_mpeg = 0;
 	}

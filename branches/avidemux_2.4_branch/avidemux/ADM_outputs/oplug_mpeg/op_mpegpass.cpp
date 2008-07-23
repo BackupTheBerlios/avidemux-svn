@@ -117,7 +117,7 @@ uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format )
 	WAVHeader *hdr=audio->getInfo();
 	uint32_t isMpeg1;
 	uint32_t isLav;
-	if(!prefs->get(FEATURE_USE_LAVCODEC_MPEG, &isLav))
+	if(!prefs->get(FEATURE_USE_LAVCODEC_MPEG2, &isLav))
 		{
 		 isLav=0;
 		}

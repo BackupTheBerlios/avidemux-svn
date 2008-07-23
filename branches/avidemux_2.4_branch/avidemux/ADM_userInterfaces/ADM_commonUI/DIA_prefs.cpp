@@ -154,7 +154,7 @@ char     *globalGlyphName=NULL;
         if(!prefs->get(SETTINGS_MPEGSPLIT, &autosplit))
                 autosplit=690;		
                         
-        if(!prefs->get(FEATURE_USE_LAVCODEC_MPEG, &lavcodec_mpeg))
+        if(!prefs->get(FEATURE_USE_LAVCODEC_MPEG2, &lavcodec_mpeg))
                 lavcodec_mpeg=0;
         // Open DML (Gmv)
         if(!prefs->get(FEATURE_USE_ODML, &use_odml))
@@ -490,7 +490,7 @@ char     *globalGlyphName=NULL;
                 // Video render
                 prefs->set(DEVICE_VIDEODEVICE,render);
                 // Mpeg /lavcodec
-                prefs->set(FEATURE_USE_LAVCODEC_MPEG, lavcodec_mpeg);
+                prefs->set(FEATURE_USE_LAVCODEC_MPEG2, lavcodec_mpeg);
                 // Odml
                 prefs->set(FEATURE_USE_ODML, use_odml);
 				// Split
