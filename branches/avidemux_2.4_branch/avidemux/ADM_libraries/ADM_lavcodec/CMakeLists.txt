@@ -10,7 +10,7 @@ SET(${ADM_LIB}_SRCS
 		jfdctfst.c 	jfdctint.c 	jrevdct.c 	mace.c 	mdct.c 	 	mjpeg.c 
 		motion_est.c 	mpeg12.c 	mpegaudio.c 	mpegaudiodec.c 	mpegvideo.c 	msmpeg4.c 	 
 		pcm.c 	ratecontrol.c 	raw.c 	resample.c 	rv10.c 	simple_idct.c 	svq1.c 
-		utils.c 	wmadec.c 	indeo3.c 	vp3.c 	vp3dsp.c 	h264.c 	ffv1.c 	ra144.c 	ra288.c 
+		utils.c 	wmadec.c 	indeo3.c 	vp3.c 	vp3dsp.c 	h264.c 	h264pred.c  ffv1.c 	ra144.c 	ra288.c 
 		golomb.c 	4xm.c 	cabac.c 	asv1.c vcr1.c cljr.c 	faandct.c 	 	parser.c 
 		roqvideo.c 	xan.c 	rpza.c 	msrle.c 	msvideo1.c 	cinepak.c 	vqavideo.c 
 		idcinvideo.c 	smc.c 	flicvideo.c 	interplayvideo.c 	dpcm.c 	8bps.c vmdav.c 
