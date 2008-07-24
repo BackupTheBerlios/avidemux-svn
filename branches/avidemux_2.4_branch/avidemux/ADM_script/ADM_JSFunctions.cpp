@@ -313,13 +313,7 @@ char *n;
         *rval=STRING_TO_JSVAL(JS_NewStringCopyZ(cx,n));
         return JS_TRUE;
 }
-#ifdef ADM_WIN32
 
-JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
-{
-		return JS_FALSE;
-}
-#else
 JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {// begin systemExecute
 	// default return value
@@ -355,6 +349,8 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		}// end failure to get item
 		args[JSVAL_TO_INT(i)] = JS_GetStringBytes(JSVAL_TO_STRING(jsValue));
 	}
+
+#ifndef __MINGW32__
 	if(getuid() == 0)
 	{// begin running as root
 		JS_ReportError(cx, "exec() disallowed while running as root.");
@@ -370,6 +366,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		JS_ReportError(cx, "exec() disallowed execution of \"%s\" since it is a setuid/setgid file.", pExecutable);
 		return JS_FALSE;
 	}// end setuid/setgid files disallowed
+#endif
 
         enterLock();
 	// clear file descriptor table of forked process and fork
@@ -378,6 +375,11 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 #elif defined(__FreeBSD__) || defined(__OpenBSD__)
 	pid_t pidRtn = rfork(RFPROC|RFCFDG);
 #endif
+
+#ifdef __MINGW32__
+	intptr_t pidRtn = spawnvpe(bWait ? P_WAIT : P_NOWAIT, pExecutable, args, environ);
+	#define WEXITSTATUS
+#else
 	if(pidRtn == 0)
 	{// begin child process
 #if defined( __linux__) || defined(__macosx__) || defined(__APPLE__)
@@ -405,6 +407,8 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	{// begin rfork failure
 		printf("Error: execve failure errno(%d)\n",errno);
 	}// end rfork failure
+#endif
+
         leaveLock();
 
 	// cleanup
@@ -415,7 +419,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		*rval = INT_TO_JSVAL(-1);	// failure
 	return JS_TRUE;
 }// end systemExecute
-#endif
+
 #ifdef ADM_WIN32
 
 JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
