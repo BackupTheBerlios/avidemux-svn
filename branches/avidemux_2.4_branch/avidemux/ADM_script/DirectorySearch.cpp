@@ -113,11 +113,9 @@ char *s;
 		printf("Find first failed\n");
 		return false;
 	}
-#ifdef ADM_WIN32   //ndef __unix__
-	m_sDirectory = GetFileDirectory(sDirectory);
-#else
+
 	m_sDirectory = sDirectory;
-#endif
+
 	return true;
 }// end Init
 
