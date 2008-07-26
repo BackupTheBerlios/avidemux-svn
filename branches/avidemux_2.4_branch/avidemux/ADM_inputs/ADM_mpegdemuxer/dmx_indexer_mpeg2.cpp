@@ -22,7 +22,7 @@
 #include <math.h>
 
 #include "default.h"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 
 #include "ADM_toolkit/toolkit.hxx"
@@ -107,7 +107,7 @@ uint64_t syncAbs,syncRel;
 uint8_t streamid;   
 uint32_t temporal_ref,ftype,val;
 uint64_t pts,dts;
-
+uint32_t imageAR;
       
 
       while(1)
@@ -147,7 +147,29 @@ uint64_t pts,dts;
                               _run->imageW=val>>20;
                               _run->imageW=((_run->imageW+15)&~15);
                               _run->imageH= (((val>>8) & 0xfff)+15)& ~15;
-                              _run->imageAR=(val>>4)&0xf;
+
+							  imageAR = (val >> 4) & 0xf;
+
+							  switch (imageAR)
+							  {
+								  case 1:
+									  _run->imageDarNum = 1;
+									  _run->imageDarDen = 1;
+									  break;
+								  case 2:
+									  _run->imageDarNum = 4;
+									  _run->imageDarDen = 3;
+									  break;
+								  case 3:
+									  _run->imageDarNum = 16;
+									  _run->imageDarDen = 9;
+									  break;
+								  default:
+									  _run->imageDarNum = 0;
+									  _run->imageDarDen = 0;
+									  printf("imageAR = %u\n", imageAR);
+							  }
+
                               _run->imageFPS= FPS[val & 0xf];
                               demuxer->forward(4);
                               break;

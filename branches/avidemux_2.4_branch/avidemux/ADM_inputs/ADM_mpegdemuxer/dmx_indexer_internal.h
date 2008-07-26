@@ -47,7 +47,7 @@ typedef struct dmx_runData
       uint32_t nbImage;
       uint32_t nbPushed,nbGop;      
       uint32_t nbTrack;
-      uint32_t imageW,imageH,imageFPS,imageAR;
+      uint32_t imageW,imageH,imageFPS, imageDarNum, imageDarDen;
       TimeStamp firstStamp,lastStamp; /* Time code hh:mm:ss */
       
 }dmx_runData;

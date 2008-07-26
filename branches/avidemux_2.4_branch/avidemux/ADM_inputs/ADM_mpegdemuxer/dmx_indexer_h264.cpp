@@ -22,7 +22,7 @@
 #include <math.h>
 
 #include "default.h"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 
 #include "ADM_toolkit/toolkit.hxx"
@@ -54,7 +54,7 @@
 static const char Type[5]={'X','I','P','B','P'};
 
 
-extern uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hheight, uint32_t *fps1000);
+extern uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hheight, uint32_t *fps1000, uint32_t *darNum, uint32_t *darDen);
 
 dmx_videoIndexerH264::dmx_videoIndexerH264(dmx_runData *run) : dmx_videoIndexer(run)
 {
@@ -150,13 +150,11 @@ uint8_t pic_started=0;
               {
                     // Our firt frame is here
                     // Important to initialize the mpeg decoder !
-                    _run->imageAR = 1;	// 1:1 to suppress warning
-
                       uint8_t buffer[60] ; // should be enough
                       uint64_t xA,xR;
                       _run->demuxer->getPos(&xA,&xR);
                       _run->demuxer->read(buffer,60);
-                      if(extractSPSInfo(buffer,60,&( _run->imageW),&( _run->imageH),&(_run->imageFPS)))
+                      if(extractSPSInfo(buffer,60,&( _run->imageW),&( _run->imageH),&(_run->imageFPS),&(_run->imageDarNum),&(_run->imageDarDen)))
                       {
                             seq_found=1;
                             startFrame(1,syncAbs,syncRel);
