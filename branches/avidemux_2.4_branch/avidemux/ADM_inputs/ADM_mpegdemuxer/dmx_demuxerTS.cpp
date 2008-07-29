@@ -552,8 +552,12 @@ _again:
         pid=parser->read16i();
         if((pid>>8) & TS_UNIT_START) payloadunit=1;
         pid&=0x1fff; // remove flags
+
+#ifdef TS_VERBOSE
         if(discarded)
                 printf("Ts: Discontinuity of %lu at %"LLX" pid:%lx\n",discarded,abs,pid);
+#endif
+
         // Start of packet..
         left=TS_PacketSize-3;
         if(_probeSize)
