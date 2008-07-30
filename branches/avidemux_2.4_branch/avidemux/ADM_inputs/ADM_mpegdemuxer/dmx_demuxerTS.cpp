@@ -782,15 +782,12 @@ uint8_t dmx_demuxerTS::getInfoPSI(uint32_t *oconsumed,uint32_t *olen)
 */
 uint8_t         dmx_demuxerTS::syncH264( uint8_t *stream,uint64_t *abs,uint64_t *r,uint64_t *pts,uint64_t *dts)
 {
-uint32_t val,hnt;
+uint32_t hnt;
 retry:
          *r=0;
 
-                val=0;
-                hnt=0;
+				hnt = read8i();
 
-                // preload
-                hnt=(read8i()<<24) + (read8i()<<16) +(read8i()<<8)+(read8i());
                 if(_lastErr)
                 {
                         _lastErr=0;
@@ -798,12 +795,9 @@ retry:
                         return 0;       
                 }
 
-                while((hnt!=1))
+                while (hnt >> 8 != 1)
                 {
-
-                        hnt<<=8;
-                        val=read8i();
-                        hnt+=val;
+					hnt = (hnt << 8) | read8i();
  
                         if(_lastErr)
                         {
@@ -811,10 +805,10 @@ retry:
                             printf("\n io error , aborting sync\n");
                             return 0;
                          }
-
                 }
 
-                *stream=read8i();
+				*stream = hnt;
+
                 // Case 1 : assume we are still in the same packet
                 if(_pesBufferIndex>=5)
                 {
@@ -831,7 +825,7 @@ retry:
                                  { // previous Packet which len is very shoty
                                    // Ignore
                                    _pesBufferIndex=0;
-                                   printf("Ignoring too short packet");
+                                   printf("Ignoring too short packet\n");
                                    goto retry;
                                  }
                                  left=_oldPesLen-left;
