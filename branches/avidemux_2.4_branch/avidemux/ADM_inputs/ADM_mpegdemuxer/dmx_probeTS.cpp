@@ -66,7 +66,7 @@ static uint8_t dmx_probeTSBruteForce(const char *file,  uint32_t *nbTracks,MPEG_
 static uint8_t dmx_probeTsPatPmt(const char *file, uint32_t *nbTracks, MPEG_TRACK **tracks, DMX_TYPE type);
 static int dmx_parsePat(dmx_demuxerTS *demuxer, int *nbPmt, MPEG_PMT *pmts, int maxPmt);
 static int dmx_parsePmt(dmx_demuxerTS *demuxer, int pid, MPEG_TRACK *pmts, int *cur, int max);
-
+static int parseProgramDescriptors(uint8_t *progDescBuffer, int progDescLength, int *esType);
 static const char *dmx_streamType(uint32_t type,ADM_STREAM_TYPE *streamType);
 static const char *dmx_streamTypeAsString(ADM_STREAM_TYPE st);
  
@@ -510,7 +510,6 @@ int dmx_parsePmt(dmx_demuxerTS *demuxer, int pid, MPEG_TRACK *pmts, int *cur, in
 		esType = parser->read8i();
 		esPid = ((parser->read8i() & 0x1f) << 8) | parser->read8i();
 		esDescLength = ((parser->read8i() & 0xf) << 8) | parser->read8i();
-		idString = dmx_streamType(esType, &streamType);
 
 		if (esDescLength > sectionBytes - 5)
 		{
@@ -527,6 +526,16 @@ int dmx_parsePmt(dmx_demuxerTS *demuxer, int pid, MPEG_TRACK *pmts, int *cur, in
 			}
 		}
 
+		if (esDescLength)
+		{
+			uint8_t esProgDesc[esDescLength];
+
+			parser->read32(esDescLength, esProgDesc);
+			parseProgramDescriptors(esProgDesc, esDescLength, &esType);
+		}
+
+		idString = dmx_streamType(esType, &streamType);
+
 		if (!streamFound && *cur < max)
 		{
 			pmts[*cur].pid = esPid;
@@ -542,15 +551,56 @@ int dmx_parsePmt(dmx_demuxerTS *demuxer, int pid, MPEG_TRACK *pmts, int *cur, in
 			(*cur)++;
 		}
 
-		if (esDescLength)
-			parser->forward(esDescLength);
-
 		sectionBytes -= 5 + esDescLength;
 
 		aprintf("[TS] parsePmt: esPid: %d, esType: 0x%x (%s), esDescLength: %d, bytes left: %d\n", esPid, esType, idString, esDescLength, sectionBytes);
 	}
 
 	parser->setpos(startPos);
+
+	return 1;
+}
+
+int parseProgramDescriptors(uint8_t *progDescBuffer, int progDescLength, int *esType)
+{
+	int i, descLen, len;
+
+	i = 0;
+	len = progDescLength;
+
+	while (len > 2)
+	{
+		descLen = progDescBuffer[i + 1];
+		aprintf("[TS]\tdescriptor id: 0x%x, len = %d (bytes left: %d)\n", progDescBuffer[i], descLen, len);
+
+		if (descLen > len)
+		{
+			printf("[TS] Invalid descriptor length for id %02x: %d (bytes left: %d)\n", progDescBuffer[i], descLen, len);
+			return 0;
+		}
+
+		if ((progDescBuffer[i] == 0x6a || progDescBuffer[i] == 0x7a) && *esType == 0x6)	// AC3
+			*esType = 0x81;
+		//else if (progDescBuffer[i] == 0x7b && *esType == 0x6)	// DTS
+		else if (progDescBuffer[i] == 0x5)
+		{
+			if (descLen < 4)
+				printf("[TS] Registration descriptor too short: %d\n", descLen);
+			else
+			{
+				uint8_t *d = &progDescBuffer[i + 2];
+
+				if (d[0] == 'A' && d[1] == 'C' && d[2] == '-' && d[3] == '3')	// AC3
+					*esType = 0x81;
+				//else if (d[0] == 'D' && d[1] == 'T' && d[2] == 'S' && d[3] == '1')	// DTS
+				//else if (d[0] == 'D' && d[1] == 'T' && d[2] == 'S' && d[3] == '2')	// DTS
+				//else if (d[0] == 'V' && d[1] == 'C' && d[2] == '-' && d[3] == '1')	// VC-1
+			}
+		}
+
+		len -= 2 + descLen;
+		i += 2 + descLen;
+	}
 
 	return 1;
 }
