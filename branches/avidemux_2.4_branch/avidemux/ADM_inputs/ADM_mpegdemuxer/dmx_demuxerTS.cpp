@@ -35,7 +35,7 @@
 #include <math.h>
 
 #include "default.h"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 //#define TS_VERBOSE 1
 
@@ -786,14 +786,7 @@ uint32_t hnt;
 retry:
          *r=0;
 
-				hnt = read8i();
-
-                if(_lastErr)
-                {
-                        _lastErr=0;
-                        printf("\n io error , aborting sync\n");
-                        return 0;       
-                }
+		 hnt = (read8i() << 16) | (read8i() << 8) | read8i();
 
                 while (hnt >> 8 != 1)
                 {
