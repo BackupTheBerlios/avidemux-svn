@@ -12,6 +12,7 @@ IF (UNIX)
   SET(CMAKE_FIND_FRAMEWORK NEVER)
   SET(X11_INC_SEARCH_PATH
     /usr/X11R6/include 
+    /usr/X11/include
     /usr/local/include 
     /usr/include/X11
     /usr/openwin/include 
@@ -22,6 +23,7 @@ IF (UNIX)
 
   SET(X11_LIB_SEARCH_PATH
     /usr/X11R6/lib
+    /usr/X11/lib
     /usr/local/lib 
     /usr/openwin/lib 
     /usr/lib 
