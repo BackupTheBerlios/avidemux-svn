@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#ifndef ADM_WIN32
+#ifndef __WIN32
 #include <sys/wait.h>
 #include <sys/param.h>
 #endif
@@ -354,7 +354,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		args[i + 1] = JS_GetStringBytes(JSVAL_TO_STRING(jsValue));
 	}
 
-#ifndef ADM_WIN32
+#ifndef __WIN32
 	if(getuid() == 0)
 	{// begin running as root
 		JS_ReportError(cx, "exec() disallowed while running as root.");
@@ -380,7 +380,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	pid_t pidRtn = rfork(RFPROC|RFCFDG);
 #endif
 
-#ifdef ADM_WIN32
+#ifdef __WIN32
 	intptr_t pidRtn = spawnvpe(bWait ? P_WAIT : P_NOWAIT, pExecutable, args, environ);
 	#define WEXITSTATUS
 #else
