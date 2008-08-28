@@ -114,9 +114,3 @@ uint8_t artsAudioDevice::setVolume(int volume){
         return 1;
 }
 
-#else
-void dummy_art_func( void);
-void dummy_art_func( void)
- {
-}
-#endif
