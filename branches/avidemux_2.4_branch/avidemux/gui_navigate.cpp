@@ -238,7 +238,7 @@ void GUI_NextPrevBlackFrame(int dir)
    orgFrame=curframe;
    int total;
     // Avoid it being 0
-    if(dir=1) total=avifileinfo->nb_frames-curframe+1;
+    if(dir==1) total=avifileinfo->nb_frames-curframe+1;
         else total=curframe+1;
    while(1)
    {
