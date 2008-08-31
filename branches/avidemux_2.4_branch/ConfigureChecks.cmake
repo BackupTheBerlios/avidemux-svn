@@ -222,7 +222,9 @@ ENDIF (NO_NLS)
 ########################################
 # Locale
 ########################################
-SET(ADM_LOCALE "${CMAKE_INSTALL_PREFIX}/share/locale")
+IF (NOT ADM_LOCALE) 
+   SET(ADM_LOCALE "${CMAKE_INSTALL_PREFIX}/share/locale")
+ENDIF (NOT ADM_LOCALE)
 
 ########################################
 # ALSA
