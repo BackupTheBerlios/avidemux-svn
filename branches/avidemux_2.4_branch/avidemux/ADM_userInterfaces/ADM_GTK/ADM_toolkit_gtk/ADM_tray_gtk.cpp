@@ -24,7 +24,7 @@
 
 #include "default.h"
 #include "ADM_toolkit_gtk/toolkit_gtk_include.h"
-#include "ADM_tray.h"
+#include "ADM_toolkit_gtk/ADM_tray_gtk.h"
 #include "ADM_toolkit_gtk/ADM_gladeSupport.h"
 
 extern void UI_deiconify(void);
@@ -33,9 +33,9 @@ static GdkPixbuf **pixbuf = NULL;
 static int lastIcon;
 
 static const char *animated[] = {
-	"film1.png","film3.png","film5.png","film7.png","film9.png",
-	"film11.png","film13.png","film15.png","film17.png","film19.png",
-	"film21.png","film23.png"};
+	"film1.xpm","film3.xpm","film5.xpm","film7.xpm","film9.xpm",
+	"film11.xpm","film13.xpm","film15.xpm","film17.xpm","film19.xpm",
+	"film21.xpm","film23.xpm"};
 
 void tray_icon_on_click(GtkStatusIcon *status_icon, gpointer user_data)
 {
@@ -61,7 +61,7 @@ static void tray_icon_popup_menu(GtkStatusIcon *status_icon, guint button, guint
 	gtk_menu_popup(GTK_MENU(popupMenu), NULL, NULL, gtk_status_icon_position_menu, status_icon, button, activate_time);
 }
 
-ADM_tray::ADM_tray(void* parent)
+ADM_gtktray::ADM_gtktray(void* parent) : ADM_tray(parent)
 {
 	_parent = parent;
 	lastIcon = 0;
@@ -91,7 +91,7 @@ ADM_tray::ADM_tray(void* parent)
 	gtk_status_icon_set_visible((GtkStatusIcon*)sys, TRUE);
 }
 
-ADM_tray::~ADM_tray()
+ADM_gtktray::~ADM_gtktray()
 {
 	if (sys)
 		gtk_status_icon_set_visible((GtkStatusIcon*)sys, FALSE);
@@ -99,7 +99,7 @@ ADM_tray::~ADM_tray()
 	sys = NULL;
 }
 
-uint8_t ADM_tray::setPercent(int percent)
+uint8_t ADM_gtktray::setPercent(int percent)
 {
 	char percentS[40];
 
@@ -120,7 +120,7 @@ uint8_t ADM_tray::setPercent(int percent)
 	return 1;
 }
 
-uint8_t ADM_tray::setStatus(int working)
+uint8_t ADM_gtktray::setStatus(int working)
 {
 	return 1;
 }

@@ -47,18 +47,18 @@
 #include "xpm/preview.inc"
 #include "xpm/output.inc"
 
-#include "xpm/film1.inc"
-#include "xpm/film3.inc"
-#include "xpm/film5.inc"
-#include "xpm/film7.inc"
-#include "xpm/film9.inc"
-#include "xpm/film11.inc"
-#include "xpm/film13.inc"
-#include "xpm/film15.inc"
-#include "xpm/film17.inc"
-#include "xpm/film19.inc"
-#include "xpm/film21.inc"
-#include "xpm/film23.inc"
+#include "xpm/film1.xpm"
+#include "xpm/film3.xpm"
+#include "xpm/film5.xpm"
+#include "xpm/film7.xpm"
+#include "xpm/film9.xpm"
+#include "xpm/film11.xpm"
+#include "xpm/film13.xpm"
+#include "xpm/film15.xpm"
+#include "xpm/film17.xpm"
+#include "xpm/film19.xpm"
+#include "xpm/film21.xpm"
+#include "xpm/film23.xpm"
 #include "xpm/audio-volume-medium.inc"
 #include "xpm/preview-button.inc"
 
@@ -112,7 +112,7 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"audio-volume-medium.png",                 (void *)audio_volume_medium},
         {A_ICON_PNG,"preview-button.png",                 (void *)preview_button},
 	// Jakub nice animation
-#define MKFILM(x) 	{A_ICON_PNG,"film"#x".png",                 (void *)film##x},
+#define MKFILM(x) 	{A_ICON_XPM,"film"#x".xpm",                 (void *)xpm_film##x},
 	MKFILM(1)
 	MKFILM(3)
 	MKFILM(5)

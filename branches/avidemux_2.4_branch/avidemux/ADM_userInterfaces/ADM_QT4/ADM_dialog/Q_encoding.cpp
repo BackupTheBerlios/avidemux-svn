@@ -28,7 +28,9 @@
 #include "DIA_encoding.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
+#include "ADM_gui/ADM_qtray.h"
 
+extern void UI_iconify(void);
 extern void UI_purge(void);
 static int stopReq=0;
 class encodingWindow : public QDialog
@@ -120,8 +122,10 @@ static char string[80];
 static encodingWindow *window=NULL;
 DIA_encoding::DIA_encoding( uint32_t fps1000 )
 {
-uint32_t useTray=0;
+	uint32_t useTray = 0;
 
+	if (!prefs->get(FEATURE_USE_SYSTRAY, &useTray))
+		useTray = 0;
 
         ADM_assert(window==NULL);
         stopReq=0;
@@ -139,8 +143,18 @@ uint32_t useTray=0;
         _total=1000;
 
          window->setModal(TRUE);
-         window->show();
 
+		 if (useTray)
+		 {
+			 window->showMinimized();
+			 UI_iconify();
+			 tray = new ADM_qtray(window);
+		 }
+		 else
+		 {
+			 window->show();
+			 tray = NULL;
+		 }
 }
 /**
     \fn setFps(uint32_t fps)
@@ -388,6 +402,9 @@ uint32_t tim;
             float f=_lastnb*100;
             f=f/_total;
             WIDGET(progressBar)->setValue((int)f);
+
+			if(tray)
+				tray->setPercent((int)(f*100.));
           
         _totalSize=_audioSize+_videoSize;
         setSize(_totalSize>>20);

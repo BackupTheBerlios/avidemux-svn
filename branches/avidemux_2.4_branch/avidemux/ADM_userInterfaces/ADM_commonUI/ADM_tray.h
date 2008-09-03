@@ -24,10 +24,10 @@ protected:
         void    *sys;
 		void *_parent;
 public:
-                ADM_tray(void *parent);
-                ~ADM_tray();
-        uint8_t setPercent(int percent);
-        uint8_t setStatus(int working);
+	ADM_tray(void *parent) {};
+	~ADM_tray() {};
+	virtual uint8_t setPercent(int percent) = 0;
+	virtual uint8_t setStatus(int working) = 0;
 
 };
 

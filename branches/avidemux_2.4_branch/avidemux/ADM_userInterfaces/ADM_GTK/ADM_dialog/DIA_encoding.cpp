@@ -28,6 +28,7 @@
 #include "ADM_toolkit_gtk/toolkit_gtk_include.h"
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_working.h"
+#include "ADM_toolkit_gtk/ADM_tray_gtk.h"
 
 #include "ADM_assert.h" 
 
@@ -111,7 +112,7 @@ uint32_t useTray=0;
 		{
 			gtk_window_iconify(GTK_WINDOW(dialog));
 			UI_iconify();
-			tray = new ADM_tray(dialog);
+			tray = new ADM_gtktray(dialog);
 		}
 		else
 			tray = NULL;
