@@ -162,6 +162,7 @@ MESSAGE(STATUS "<******************************>")
 if(NO_QT4)
 message(status "<disabled per request>")
 else(NO_QT4)
+SET(QT_MIN_VERSION 4.2.0)
 include(FindQt4)
 if(QT4_FOUND AND MINGW)
 if(XMINGW) # Cross compile ?
