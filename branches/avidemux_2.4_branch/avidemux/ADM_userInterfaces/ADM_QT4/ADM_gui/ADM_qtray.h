@@ -21,6 +21,7 @@
 
 #include <QtGui/QAction>
 #include <QtGui/QIcon>
+#include <QtGui/QSystemTrayIcon>
 
 #include "ADM_tray.h"
 
@@ -30,12 +31,10 @@ class ADM_qtray_signalReceiver : public QObject
 
 public:
 	QDialog *parent;
-/*
-public:
-	void setParent(QDialog *parent);
-*/
+
 public slots:
 	void restore(void);
+	void iconActivated(QSystemTrayIcon::ActivationReason reason);
 };
 
 class ADM_qtray : public ADM_tray

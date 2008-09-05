@@ -822,7 +822,7 @@ int UI_readCurTime(uint16_t &hh, uint16_t &mm, uint16_t &ss, uint16_t &ms)
 
 void UI_iconify( void )
 {
-	QuiMainWindows->showMinimized();
+	QuiMainWindows->hide();
 }
 void UI_deiconify( void )
 {

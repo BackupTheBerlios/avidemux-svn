@@ -26,7 +26,6 @@
 #include "default.h"
 #include "ADM_qtray.h"
 
-#define guint8 char
 #include "xpm/film1.xpm"
 #include "xpm/film3.xpm"
 #include "xpm/film5.xpm"
@@ -70,6 +69,7 @@ ADM_qtray::ADM_qtray(void* parent) : ADM_tray(parent)
 
 	openAction = new QAction(QT_TR_NOOP("Open Avidemux"), (QObject*)parent);
 	QObject::connect(openAction, SIGNAL(triggered()), signalReceiver, SLOT(restore()));
+	QObject::connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), signalReceiver, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 
 	trayIconMenu = new QMenu((QWidget*)parent);
 	trayIconMenu->addAction(openAction);

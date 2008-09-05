@@ -1,4 +1,5 @@
 #include <QtGui/QDialog>
+#include <QtGui/QSystemTrayIcon>
 
 extern void UI_deiconify(void);
 
@@ -14,5 +15,11 @@ public slots:
 	{
 		UI_deiconify();
 		parent->showNormal();
+	};
+
+	void iconActivated(QSystemTrayIcon::ActivationReason reason)
+	{
+		if (reason == QSystemTrayIcon::DoubleClick)
+			restore();
 	};
 };
