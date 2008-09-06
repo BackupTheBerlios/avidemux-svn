@@ -29,12 +29,12 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <vector>
+#include <QtGui>
 
 #define Ui_Dialog Ui_mainFilterDialog
 #include "ui_mainfilter.h"
 #undef Ui_Dialog
-#include "QStringListModel" 
-#include "QColor" 
+
 #include "default.h"
 #include "ADM_toolkit/filesel.h"
 
@@ -71,6 +71,76 @@ extern ADM_Composer *video_body;
 extern AVDMGenericVideoStream *filterCreateFromTag(VF_FILTERS tag,CONFcouple *conf, AVDMGenericVideoStream *in) ;
 extern uint32_t curframe;
 /*******************************************************/
+
+class FilterItemEventFilter : public QObject
+{
+	Q_OBJECT
+
+protected:
+	bool eventFilter(QObject *object, QEvent *event) 
+	{
+		QAbstractItemView *view = qobject_cast<QAbstractItemView*>(parent());
+
+		if (event->type() == QEvent::KeyPress || event->type() == QEvent::MouseButtonPress)
+		{
+			QCoreApplication::sendEvent(view, event);
+
+			return true;
+		}
+		else if (event->type() == QEvent::FocusIn)
+		{
+			view->setFocus();
+
+			return true;
+		}
+		else
+			return QObject::eventFilter(object, event);
+	};
+
+public:
+	FilterItemEventFilter(QWidget *parent = 0) : QObject(parent) {};
+};
+
+class FilterItemDelegate : public QItemDelegate
+{
+	Q_OBJECT
+
+private:
+	FilterItemEventFilter *filter;
+
+public:
+	FilterItemDelegate(QWidget *parent = 0) : QItemDelegate(parent)
+	{
+		filter = new FilterItemEventFilter(parent);
+	};
+
+	void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+	{
+		QAbstractItemView *view = qobject_cast<QAbstractItemView*>(parent());
+		QLabel *label;
+
+		if (view->indexWidget(index) == 0)
+		{
+			label = new QLabel();
+
+			label->installEventFilter(filter);
+			label->setAutoFillBackground(true);
+			label->setFocusPolicy(Qt::TabFocus);
+			view->setIndexWidget(index, label);
+		}
+
+		label = (QLabel*)view->indexWidget(index);
+
+		if (option.state & QStyle::State_Selected)
+			if (option.state & QStyle::State_HasFocus)
+				label->setBackgroundRole(QPalette::Highlight);
+			else
+				label->setBackgroundRole(QPalette::Window);
+		else
+			label->setBackgroundRole(QPalette::Base);
+	};
+};
+
 class filtermainWindow : public QDialog
 {
      Q_OBJECT
@@ -272,7 +342,7 @@ void filtermainWindow::configure( bool b)
         videofilters[itag].conf = couple;
         getFirstVideoFilter ();
         buildActiveFilterList ();
-		setSelected(nb_active_filter - 1);
+		setSelected(itag);
 }
 /**
         \fn     up( bool b)
@@ -359,9 +429,6 @@ void filtermainWindow::displayFamily(uint32_t family)
   printf("Family :%u\n",family);
   
   availableList->clear();
-  QColor colorgrey;
-  colorgrey.setRgb(myBg,myBg,myBg);
-  QBrush brush(colorgrey);
   QSize sz;
   
   for (uint32_t i = 0; i < filterSize[family]; i++)
@@ -370,8 +437,7 @@ void filtermainWindow::displayFamily(uint32_t family)
 
       if (allfilters[r].viewable==1)
         {
-          QString str; //="<b>";
-          str+=allfilters[r].name;
+          QString str = QString("<b>") + allfilters[r].name + QString("</b><br>\n<small>") + allfilters[r].description + QString("</small>");
          
           QListWidgetItem *item;
           if(family==NB_TREE-1)
@@ -379,12 +445,12 @@ void filtermainWindow::displayFamily(uint32_t family)
           else
                 item=new QListWidgetItem(str,availableList,ALL_FILTER_BASE+r);
           item->setToolTip(allfilters[r].description);
-          if(i&1) item->setBackground(brush);
           availableList->addItem(item);
-          
         }
      }
-   
+
+  if (filterSize[family])
+	  availableList->setCurrentRow(0);
 }
 
 /**
@@ -448,7 +514,7 @@ void filtermainWindow::partial( bool b)
             videofilters[itag].tag = VF_PARTIAL;
             getFirstVideoFilter ();
             buildActiveFilterList ();
-			setSelected(nb_active_filter - 1);
+			setSelected(itag);
         }
         else delete replace;
 }
@@ -494,30 +560,28 @@ void filtermainWindow::setupFilters(void)
 */
 void filtermainWindow::buildActiveFilterList(void)
 {
-  VF_FILTERS fil;
-  
-  
-  activeList->clear();
-  QColor colorGrey,colorWhite;
-  colorGrey.setRgb(myBg,myBg,myBg);
-  colorWhite.setRgb(myFg,myFg,myFg);
-  QBrush brush(colorGrey);
-  QBrush brushW(colorWhite);
+	activeList->clear();
 
-  for (uint32_t i = 1; i < nb_active_filter; i++)
-    {
-                QString str;
-                fil=videofilters[i].tag;
+	for (uint32_t i = 1; i < nb_active_filter; i++)
+	{
+		const char *name = filterGetNameFromTag(videofilters[i].tag);
+		const char *conf = videofilters[i].filter->printConf ();
+		int namelen = strlen (name);
 
-                 str =filterGetNameFromTag(fil);
-                 str+= videofilters[i].filter->printConf ();
-                 QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
-                 if(i&1) item->setBackground(brush);
-                        else item->setBackground(brushW);
-                 activeList->addItem(item);
-    }
-    
+		while (*conf == ' ')
+			++conf;
 
+		if (strncasecmp (name, conf, namelen) == 0)
+		{
+			conf += namelen;
+			while (*conf == ' ' || *conf == ':')
+				++conf;
+		}
+
+		QString str = QString("<b>") + name + QString("</b><br>\n<small>") + conf + QString("</small>");
+		QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
+		activeList->addItem(item);
+	}
 }
   /**
   */
@@ -551,6 +615,9 @@ filtermainWindow::filtermainWindow()     : QDialog()
     connect(ui.pushButtonSVCD, SIGNAL(clicked(bool)), this, SLOT(SVCD(bool)));
     connect(ui.pushButtonHalfDVD, SIGNAL(clicked(bool)), this, SLOT(halfD1(bool)));
 	connect(ui.pushButtonPreview, SIGNAL(clicked(bool)), this, SLOT(preview(bool)));
+
+	activeList->setItemDelegate(new FilterItemDelegate(activeList));
+	availableList->setItemDelegate(new FilterItemDelegate(availableList));
 
     displayFamily(0);
     buildActiveFilterList();

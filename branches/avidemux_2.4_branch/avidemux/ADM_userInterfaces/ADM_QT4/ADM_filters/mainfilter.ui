@@ -155,11 +155,8 @@
          <height>0</height>
         </size>
        </property>
-       <property name="cursor" >
-        <cursor>13</cursor>
-       </property>
-       <property name="alternatingRowColors" >
-        <bool>true</bool>
+       <property name="spacing" >
+        <number>2</number>
        </property>
       </widget>
      </item>
@@ -179,24 +176,6 @@
          <height>340</height>
         </size>
        </property>
-       <property name="cursor" >
-        <cursor>13</cursor>
-       </property>
-       <property name="mouseTracking" >
-        <bool>false</bool>
-       </property>
-       <property name="autoFillBackground" >
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet" >
-        <string/>
-       </property>
-       <property name="alternatingRowColors" >
-        <bool>false</bool>
-       </property>
-       <property name="selectionMode" >
-        <enum>QAbstractItemView::SingleSelection</enum>
-       </property>
        <property name="selectionBehavior" >
         <enum>QAbstractItemView::SelectRows</enum>
        </property>
@@ -206,38 +185,14 @@
          <height>24</height>
         </size>
        </property>
-       <property name="textElideMode" >
-        <enum>Qt::ElideRight</enum>
-       </property>
-       <property name="movement" >
-        <enum>QListView::Static</enum>
-       </property>
-       <property name="flow" >
-        <enum>QListView::TopToBottom</enum>
-       </property>
-       <property name="isWrapping" stdset="0" >
-        <bool>false</bool>
-       </property>
        <property name="resizeMode" >
         <enum>QListView::Adjust</enum>
-       </property>
-       <property name="layoutMode" >
-        <enum>QListView::SinglePass</enum>
        </property>
        <property name="spacing" >
         <number>3</number>
        </property>
-       <property name="viewMode" >
-        <enum>QListView::ListMode</enum>
-       </property>
-       <property name="modelColumn" >
+       <property name="currentRow" >
         <number>0</number>
-       </property>
-       <property name="uniformItemSizes" >
-        <bool>false</bool>
-       </property>
-       <property name="batchSize" >
-        <number>100</number>
        </property>
        <item>
         <property name="text" >
@@ -352,11 +307,8 @@
          <height>0</height>
         </size>
        </property>
-       <property name="cursor" >
-        <cursor>13</cursor>
-       </property>
-       <property name="alternatingRowColors" >
-        <bool>true</bool>
+       <property name="spacing" >
+        <number>2</number>
        </property>
       </widget>
      </item>
@@ -593,6 +545,26 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>listFilterCategory</tabstop>
+  <tabstop>listWidgetAvailable</tabstop>
+  <tabstop>listWidgetActive</tabstop>
+  <tabstop>pushButtonDVD</tabstop>
+  <tabstop>pushButtonSVCD</tabstop>
+  <tabstop>pushButtonHalfDVD</tabstop>
+  <tabstop>pushButtonVCD</tabstop>
+  <tabstop>toolButtonAdd</tabstop>
+  <tabstop>toolButtonConfigure</tabstop>
+  <tabstop>toolButtonPartial</tabstop>
+  <tabstop>toolButtonLoad</tabstop>
+  <tabstop>toolButtonSave</tabstop>
+  <tabstop>toolButtonSaveScript</tabstop>
+  <tabstop>toolButtonDown</tabstop>
+  <tabstop>toolButtonUp</tabstop>
+  <tabstop>pushButtonRemove</tabstop>
+  <tabstop>pushButtonPreview</tabstop>
+  <tabstop>buttonClose</tabstop>
+ </tabstops>
  <resources>
   <include location="filter.qrc" />
  </resources>
