@@ -126,6 +126,7 @@ public:
 			label->installEventFilter(filter);
 			label->setAutoFillBackground(true);
 			label->setFocusPolicy(Qt::TabFocus);
+			label->setText(index.data().toString());
 			view->setIndexWidget(index, label);
 		}
 
