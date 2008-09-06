@@ -40,16 +40,13 @@
 #elif !defined(ADM_WIN32)
 #include <QX11Info>
 #endif
-#include "avio.hxx"
 
-#include "ADM_colorspace/ADM_rgb.h"
+#include "default.h"
 #include "GUI_render.h"
 #include "GUI_accelRender.h"
-#include "prefs.h"
-#include "ADM_assert.h"
-#include "ui_gui2.h"
-    
-void UI_QT4VideoWidget(QFrame *host);
+#include "ADM_video/ADM_genvideo.hxx"
+#include "Q_seekablePreview.h"
+
 static QFrame *hostFrame=NULL;
 static AccelRender *accelRender=NULL;
 static uint8_t *lastImage=NULL;
@@ -61,7 +58,16 @@ void DIA_previewInit(uint32_t width, uint32_t height) {}
 uint8_t DIA_previewUpdate(uint8_t *data) {return 1;}
 void DIA_previewEnd(void) {}
 uint8_t DIA_previewStillAlive(void) {return 1;}
-uint8_t	DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *videoStream, uint32_t frame) {}
+
+uint8_t	DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *videoStream, uint32_t frame)
+{
+	ADM_assert(frame <= videoStream->getInfo()->nb_frames);
+
+	printf("** DIA_filterPreview %i **\n", frame);
+	Ui_seekablePreviewWindow previewDialog(videoStream, frame);
+
+	previewDialog.exec();
+}
 
 //****************************************************************************************************
 /*
@@ -72,6 +78,7 @@ uint8_t	DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *video
 */
 static uint8_t *rgbDataBuffer=NULL;
 static uint32_t displayW=0,displayH=0;
+
 //****************************************************************************************************
 /*
   This is the class that will display the video images.
@@ -80,43 +87,38 @@ static uint32_t displayW=0,displayH=0;
 */
 class  ADM_Qvideo : public QWidget
 {
-     Q_OBJECT
+	Q_OBJECT
     
-  signals:
-        
-        
-   public slots:
-        
-  public:
-        ADM_Qvideo(QWidget *z) : QWidget(z) 
-        {
-          
-        }
-        ~ADM_Qvideo() {};
-        /**
-            \fn paintEvent( QPaintEvent *ev))
-            \brief Repaint our "video" widget, ignore when accelRender is on
-        */
-        void paintEvent(QPaintEvent *ev)
-        {
-          if(!displayW || !displayH || !rgbDataBuffer || accelRender)
-            return ;
+public:
+	ADM_Qvideo(QWidget *z) : QWidget(z) {};
+	~ADM_Qvideo() {};
 
-          if(accelRender) 
-          {
-            if(lastImage)
-            {
-              accelRender->display(lastImage,displayW,displayH);
-            }
-          }else
-          {
-            QImage image(rgbDataBuffer,displayW,displayH,QImage::Format_RGB32);
-              QPainter painter(this);
-              painter.drawImage(QPoint(0,0),image);
-              painter.end();
-          }
-        }
+	/**
+		\fn paintEvent( QPaintEvent *ev))
+		\brief Repaint our "video" widget, ignore when accelRender is on
+	*/
+	void paintEvent(QPaintEvent *ev)
+	{
+		if(!displayW || !displayH || !rgbDataBuffer || accelRender)
+			return ;
+
+		if(accelRender) 
+		{
+			if(lastImage)
+			{
+				accelRender->display(lastImage,displayW,displayH);
+			}
+		}
+		else
+		{
+			QImage image(rgbDataBuffer,displayW,displayH,QImage::Format_RGB32);
+			QPainter painter(this);
+			painter.drawImage(QPoint(0,0),image);
+			painter.end();
+		}
+	}
 };
+
 ADM_Qvideo *videoWindow=NULL;
 //****************************************************************************************************
 void UI_QT4VideoWidget(QFrame *host)

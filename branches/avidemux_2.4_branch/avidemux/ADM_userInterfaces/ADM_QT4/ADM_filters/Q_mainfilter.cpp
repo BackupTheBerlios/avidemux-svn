@@ -69,6 +69,7 @@ extern std::vector <FILTER_ENTRY> allfilters;
 extern const char  *filterGetNameFromTag(VF_FILTERS tag);
 extern ADM_Composer *video_body;
 extern AVDMGenericVideoStream *filterCreateFromTag(VF_FILTERS tag,CONFcouple *conf, AVDMGenericVideoStream *in) ;
+extern uint32_t curframe;
 /*******************************************************/
 class filtermainWindow : public QDialog
 {
@@ -102,7 +103,7 @@ class filtermainWindow : public QDialog
         void allDoubleClick( QListWidgetItem  *item);
 	void filterFamilyClick(QListWidgetItem *item);
 	void filterFamilyClick(int  item);
- private slots:
+		void preview(bool b);
  private:
         int startFilter[NB_TREE];
         int filterSize[NB_TREE];
@@ -110,6 +111,24 @@ class filtermainWindow : public QDialog
         void displayFamily(uint32_t family);
         void setupFilters(void);
 };
+
+void filtermainWindow::preview(bool b)
+{
+	QListWidgetItem *item = activeList->currentItem();
+
+	if (!item)
+	{
+		printf("No selection\n");
+		return;
+	}
+
+	int itag = item->type();
+	ADM_assert(itag > ACTIVE_FILTER_BASE);
+	itag -= ACTIVE_FILTER_BASE;
+
+	DIA_filterPreview(QT_TR_NOOP("Preview"), videofilters[itag].filter, curframe);
+}
+
 /**
         \fn     void setSelected(int sel)
         \brief  Set the sel line as selected in the active filter window
@@ -155,8 +174,8 @@ void filtermainWindow::add( bool b)
         videofilters[nb_active_filter].tag = tag;
         videofilters[nb_active_filter].conf = coup;
         nb_active_filter++;
-        setSelected(nb_active_filter);
-        buildActiveFilterList();
+		buildActiveFilterList();
+        setSelected(nb_active_filter - 1);
    }
 
 }
@@ -217,6 +236,7 @@ void filtermainWindow::button( bool b) \
     call(); \
     getFirstVideoFilter (); \
     buildActiveFilterList ();  \
+	setSelected(nb_active_filter - 1); \
 }
 MAKE_BUTTON(DVD,setDVD)
 MAKE_BUTTON(VCD,setVCD)
@@ -252,6 +272,7 @@ void filtermainWindow::configure( bool b)
         videofilters[itag].conf = couple;
         getFirstVideoFilter ();
         buildActiveFilterList ();
+		setSelected(nb_active_filter - 1);
 }
 /**
         \fn     up( bool b)
@@ -426,7 +447,8 @@ void filtermainWindow::partial( bool b)
             videofilters[itag].conf = conf;
             videofilters[itag].tag = VF_PARTIAL;
             getFirstVideoFilter ();
-            buildActiveFilterList ();   
+            buildActiveFilterList ();
+			setSelected(nb_active_filter - 1);
         }
         else delete replace;
 }
@@ -528,9 +550,11 @@ filtermainWindow::filtermainWindow()     : QDialog()
     connect(ui.pushButtonVCD, SIGNAL(clicked(bool)), this, SLOT(VCD(bool)));
     connect(ui.pushButtonSVCD, SIGNAL(clicked(bool)), this, SLOT(SVCD(bool)));
     connect(ui.pushButtonHalfDVD, SIGNAL(clicked(bool)), this, SLOT(halfD1(bool)));
-   
+	connect(ui.pushButtonPreview, SIGNAL(clicked(bool)), this, SLOT(preview(bool)));
+
     displayFamily(0);
-    buildActiveFilterList(); 
+    buildActiveFilterList();
+	setSelected(nb_active_filter - 1);
  }
 /*******************************************************/
 
