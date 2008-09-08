@@ -24,16 +24,8 @@
 #include <time.h>
 #include <sys/time.h>
 
-#include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QFrame>
-#include <QtGui/QGraphicsView>
-#include <QtGui/QSlider>
-#include <QMessageBox>
-#include <QPainter>
-#include <QImage>
+#include <QtGui>
+
 /* Probably on unix/X11 ..*/
 #ifdef __APPLE__
 #include <Carbon/Carbon.h>
@@ -45,7 +37,6 @@
 #include "GUI_render.h"
 #include "GUI_accelRender.h"
 #include "ADM_video/ADM_genvideo.hxx"
-#include "Q_seekablePreview.h"
 
 static QFrame *hostFrame=NULL;
 static AccelRender *accelRender=NULL;
@@ -58,16 +49,6 @@ void DIA_previewInit(uint32_t width, uint32_t height) {}
 uint8_t DIA_previewUpdate(uint8_t *data) {return 1;}
 void DIA_previewEnd(void) {}
 uint8_t DIA_previewStillAlive(void) {return 1;}
-
-uint8_t	DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *videoStream, uint32_t frame)
-{
-	ADM_assert(frame <= videoStream->getInfo()->nb_frames);
-
-	printf("** DIA_filterPreview %i **\n", frame);
-	Ui_seekablePreviewWindow previewDialog(videoStream, frame);
-
-	previewDialog.exec();
-}
 
 //****************************************************************************************************
 /*

@@ -52,6 +52,7 @@ extern AVDMGenericVideoStream *filterCreateFromTag (VF_FILTERS tag,
 						    AVDMGenericVideoStream *
 						    in);
 extern const char  *filterGetNameFromTag(VF_FILTERS tag);
+extern uint8_t DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *videoStream, uint32_t frame);
 //___________________________________________
 extern FILTER videofilters[MAX_FILTER];
 extern uint32_t nb_active_filter;

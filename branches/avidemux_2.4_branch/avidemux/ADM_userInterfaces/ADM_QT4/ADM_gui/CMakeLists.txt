@@ -14,7 +14,6 @@ preview
 )
 
 SET(${ADM_LIB}_Q
-seekablePreview
 gui2
 )
 

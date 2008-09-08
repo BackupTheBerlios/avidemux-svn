@@ -35,6 +35,8 @@
 #include "ui_mainfilter.h"
 #undef Ui_Dialog
 
+#include "Q_seekablePreview.h"
+
 #include "default.h"
 #include "ADM_toolkit/filesel.h"
 
@@ -148,7 +150,7 @@ class filtermainWindow : public QDialog
 
  public:
      filtermainWindow();
- //    virtual ~filtermainWindow();
+	 ~filtermainWindow();
      void             buildActiveFilterList(void);
      Ui_mainFilterDialog ui;
      
@@ -171,16 +173,22 @@ class filtermainWindow : public QDialog
         void configure(bool b);
         void partial(bool b);
         void activeDoubleClick( QListWidgetItem  *item);
+		void activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
         void allDoubleClick( QListWidgetItem  *item);
 	void filterFamilyClick(QListWidgetItem *item);
 	void filterFamilyClick(int  item);
 		void preview(bool b);
  private:
+		uint32_t previewFrameIndex;
+		int previewDialogX, previewDialogY;
+		Ui_seekablePreviewWindow *previewDialog;
+
         int startFilter[NB_TREE];
         int filterSize[NB_TREE];
         void setSelected(int sel);
         void displayFamily(uint32_t family);
         void setupFilters(void);
+		void closePreview();
 };
 
 void filtermainWindow::preview(bool b)
@@ -197,7 +205,30 @@ void filtermainWindow::preview(bool b)
 	ADM_assert(itag > ACTIVE_FILTER_BASE);
 	itag -= ACTIVE_FILTER_BASE;
 
-	DIA_filterPreview(QT_TR_NOOP("Preview"), videofilters[itag].filter, curframe);
+	if (previewDialog)
+		previewDialog->resetVideoStream(videofilters[itag].filter);
+	else
+	{
+		previewDialog = new Ui_seekablePreviewWindow(this, videofilters[itag].filter, previewFrameIndex);
+
+		if (previewDialogX != INT_MIN)
+			previewDialog->move(previewDialogX, previewDialogY);
+	}
+
+	previewDialog->show();
+}
+
+void filtermainWindow::closePreview()
+{
+	if (previewDialog)
+	{
+		previewFrameIndex = previewDialog->frameIndex();
+		previewDialogX = previewDialog->x();
+		previewDialogY = previewDialog->y();
+
+		delete previewDialog;
+		previewDialog = NULL;
+	}
 }
 
 /**
@@ -241,12 +272,19 @@ void filtermainWindow::add( bool b)
             delete videofilters[nb_active_filter].filter;
             return;
         }
+
+		bool previewDialogOpen = (previewDialog != NULL);
+
+		closePreview();
         videofilters[nb_active_filter].filter->getCoupledConf (&coup);
         videofilters[nb_active_filter].tag = tag;
         videofilters[nb_active_filter].conf = coup;
         nb_active_filter++;
 		buildActiveFilterList();
         setSelected(nb_active_filter - 1);
+
+		if (previewDialogOpen)
+			preview(true);
    }
 
 }
@@ -264,7 +302,11 @@ void filtermainWindow::remove( bool b)
       printf("No selection\n");
       return;
    }
-    
+
+   bool previewDialogOpen = (previewDialog != NULL);
+
+   closePreview();
+
      int itag=item->type();
      ADM_assert(itag>ACTIVE_FILTER_BASE);
      itag-=ACTIVE_FILTER_BASE;
@@ -299,15 +341,25 @@ void filtermainWindow::remove( bool b)
               else
                   setSelected(nb_active_filter-1);
             }
-  
+
+			if (previewDialogOpen)
+				preview(true);
 }
 #define MAKE_BUTTON(button,call) \
 void filtermainWindow::button( bool b) \
 { \
-    call(); \
-    getFirstVideoFilter (); \
-    buildActiveFilterList ();  \
-	setSelected(nb_active_filter - 1); \
+    if (call()) \
+	{ \
+		bool previewDialogOpen = (previewDialog != NULL); \
+\
+		closePreview(); \
+		getFirstVideoFilter (); \
+		buildActiveFilterList ();  \
+		setSelected(nb_active_filter - 1); \
+\
+		if (previewDialogOpen) \
+			preview(true); \
+	} \
 }
 MAKE_BUTTON(DVD,setDVD)
 MAKE_BUTTON(VCD,setVCD)
@@ -337,6 +389,11 @@ void filtermainWindow::configure( bool b)
      /**/
      
         if(!videofilters[itag].filter->configure (videofilters[itag - 1].filter)) return;
+
+		bool previewDialogOpen = (previewDialog != NULL);
+
+		closePreview();
+
         /* Recreate chain if needed , config has changed */
         CONFcouple *couple;
         videofilters[itag].filter->getCoupledConf (&couple);
@@ -344,6 +401,9 @@ void filtermainWindow::configure( bool b)
         getFirstVideoFilter ();
         buildActiveFilterList ();
 		setSelected(itag);
+
+		if (previewDialogOpen)
+			preview(true);
 }
 /**
         \fn     up( bool b)
@@ -366,6 +426,11 @@ void filtermainWindow::up( bool b)
      ADM_assert(itag);
      
      if (itag < 2) return;
+
+	 bool previewDialogOpen = (previewDialog != NULL);
+
+	 closePreview();
+
         // swap action parameter & action parameter -1
         FILTER tmp;
         memcpy (&tmp, &videofilters[itag - 1], sizeof (FILTER));
@@ -375,6 +440,9 @@ void filtermainWindow::up( bool b)
         getFirstVideoFilter ();
         buildActiveFilterList ();
         setSelected(itag-1);
+
+		if (previewDialogOpen)
+			preview(true);
 }
 /**
         \fn     down( bool b)
@@ -398,6 +466,10 @@ void filtermainWindow::down( bool b)
      
     if (((int) itag < (int) (nb_active_filter - 1)) && (itag))
         {
+			bool previewDialogOpen = (previewDialog != NULL);
+
+			closePreview();
+
             // swap action parameter & action parameter -1
             FILTER tmp;
             memcpy (&tmp, &videofilters[itag + 1], sizeof (FILTER));
@@ -407,6 +479,9 @@ void filtermainWindow::down( bool b)
             getFirstVideoFilter ();
             buildActiveFilterList ();
             setSelected(itag+1);
+
+			if (previewDialogOpen)
+				preview(true);
         }
 }
 /**
@@ -452,6 +527,19 @@ void filtermainWindow::displayFamily(uint32_t family)
 
   if (filterSize[family])
 	  availableList->setCurrentRow(0);
+}
+
+void filtermainWindow::activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+	if (previewDialog && previewDialog->isVisible())
+	{
+		int itag = current->type();
+
+		ADM_assert(itag > ACTIVE_FILTER_BASE);
+		itag -= ACTIVE_FILTER_BASE;
+
+		previewDialog->resetVideoStream(videofilters[itag].filter);
+	}
 }
 
 /**
@@ -507,6 +595,10 @@ void filtermainWindow::partial( bool b)
                                       conf);
         if(replace->configure (videofilters[itag - 1].filter))
         {
+			bool previewDialogOpen = (previewDialog != NULL);
+
+			closePreview();
+
             delete videofilters[itag].filter;
             if (conf) delete conf;
             videofilters[itag].filter = replace;
@@ -516,6 +608,9 @@ void filtermainWindow::partial( bool b)
             getFirstVideoFilter ();
             buildActiveFilterList ();
 			setSelected(itag);
+
+			if (previewDialogOpen)
+				preview(true);
         }
         else delete replace;
 }
@@ -592,8 +687,13 @@ filtermainWindow::filtermainWindow()     : QDialog()
         memset( filterSize,0,sizeof(int)*NB_TREE);
  
     ui.setupUi(this);
-    setupFilters();  
-      
+    setupFilters();
+
+	previewDialog = NULL;
+	previewDialogX = INT_MIN;
+	previewDialogY = INT_MIN;
+	previewFrameIndex = curframe;
+
     availableList=ui.listWidgetAvailable;
     activeList=ui.listWidgetActive;
     connect(ui.listFilterCategory,SIGNAL(itemDoubleClicked(QListWidgetItem *)),
@@ -602,8 +702,9 @@ filtermainWindow::filtermainWindow()     : QDialog()
                 this,SLOT(filterFamilyClick(QListWidgetItem *)));
 
     connect(activeList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(activeDoubleClick(QListWidgetItem *)));
+	connect(activeList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(activeItemChanged(QListWidgetItem*, QListWidgetItem*)));
     connect(availableList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(allDoubleClick(QListWidgetItem *)));
-    
+
     connect((ui.toolButtonConfigure),SIGNAL(clicked(bool)),this,SLOT(configure(bool)));
     connect((ui.toolButtonAdd),SIGNAL(clicked(bool)),this,SLOT(add(bool)));
     connect((ui.pushButtonRemove),SIGNAL(clicked(bool)),this,SLOT(remove(bool)));
@@ -624,6 +725,12 @@ filtermainWindow::filtermainWindow()     : QDialog()
     buildActiveFilterList();
 	setSelected(nb_active_filter - 1);
  }
+
+filtermainWindow::~filtermainWindow()
+{
+	if (previewDialog)
+		delete previewDialog;
+}
 /*******************************************************/
 
 int GUI_handleVFilter(void);

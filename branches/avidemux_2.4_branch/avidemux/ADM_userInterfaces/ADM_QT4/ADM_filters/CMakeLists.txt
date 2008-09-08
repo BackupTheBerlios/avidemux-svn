@@ -9,6 +9,7 @@ filter_none.cpp  filter_rsc.cpp
 )
 SET(${ADM_LIB}_Q
 mainfilter
+seekablePreview
 )
 
 SET_SOURCE_FILES_PROPERTIES(filter_rsc.cpp PROPERTIES GENERATED TRUE)
