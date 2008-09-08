@@ -15,6 +15,7 @@ preview
 
 SET(${ADM_LIB}_Q
 gui2
+preview
 )
 
 Q_RCC(avidemux)
