@@ -58,7 +58,7 @@
           </size>
          </property>
          <property name="text" >
-          <string>&amp;SVCD res</string>
+          <string>&amp;SVCD Res</string>
          </property>
          <property name="icon" >
           <iconset resource="filter.qrc" >:/new/prefix1/icons/cd.png</iconset>
@@ -67,6 +67,30 @@
        </item>
        <item row="1" column="1" >
         <widget class="QPushButton" name="pushButtonVCD" >
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>5</hsizetype>
+           <vsizetype>5</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize" >
+          <size>
+           <width>72</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text" >
+          <string>&amp;VCD Res</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="filter.qrc" >:/new/prefix1/icons/cd.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <widget class="QPushButton" name="pushButtonHalfDVD" >
          <property name="sizePolicy" >
           <sizepolicy>
            <hsizetype>5</hsizetype>
@@ -82,31 +106,7 @@
           </size>
          </property>
          <property name="text" >
-          <string>&amp;VCD res</string>
-         </property>
-         <property name="icon" >
-          <iconset resource="filter.qrc" >:/new/prefix1/icons/cd.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" >
-        <widget class="QPushButton" name="pushButtonHalfDVD" >
-         <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>7</hsizetype>
-           <vsizetype>5</vsizetype>
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize" >
-          <size>
-           <width>72</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text" >
-          <string>&amp;Half D1 res</string>
+          <string>&amp;Half D1 Res</string>
          </property>
          <property name="icon" >
           <iconset resource="filter.qrc" >:/new/prefix1/icons/cd.png</iconset>
@@ -130,7 +130,7 @@
           </size>
          </property>
          <property name="text" >
-          <string>&amp;DVD res</string>
+          <string>&amp;DVD Res</string>
          </property>
          <property name="icon" >
           <iconset resource="filter.qrc" >:/new/prefix1/icons/cd.png</iconset>
@@ -524,20 +524,25 @@
         <string>&amp;Preview</string>
        </property>
        <property name="icon" >
-        <iconset resource="filter.qrc" >:/new/prefix1/icons/thumbnail.png</iconset>
+        <iconset/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonClose" >
-       <property name="text" >
-        <string>&amp;Close</string>
+      <widget class="QDialogButtonBox" name="buttonBox" >
+       <property name="sizePolicy" >
+        <sizepolicy>
+         <hsizetype>0</hsizetype>
+         <vsizetype>0</vsizetype>
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="icon" >
-        <iconset resource="filter.qrc" >:/new/prefix1/icons/close.png</iconset>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="default" >
-        <bool>true</bool>
+       <property name="standardButtons" >
+        <set>QDialogButtonBox::Close</set>
        </property>
       </widget>
      </item>
@@ -563,10 +568,26 @@
   <tabstop>toolButtonUp</tabstop>
   <tabstop>pushButtonRemove</tabstop>
   <tabstop>pushButtonPreview</tabstop>
-  <tabstop>buttonClose</tabstop>
  </tabstops>
  <resources>
   <include location="filter.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>872</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>464</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
