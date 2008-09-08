@@ -64,6 +64,7 @@ static int max=0;
 #define EXTERNAL_FILTER_BASE  2000
 #define ACTIVE_FILTER_BASE    3000
 /******************************************************/
+extern QWidget *QuiMainWindows;
 extern FILTER videofilters[MAX_FILTER];
 extern uint32_t nb_active_filter;
 extern std::vector <FILTER_ENTRY> allfilters;
@@ -149,7 +150,7 @@ class filtermainWindow : public QDialog
      Q_OBJECT
 
  public:
-     filtermainWindow();
+     filtermainWindow(QWidget *parent);
 	 ~filtermainWindow();
      void             buildActiveFilterList(void);
      Ui_mainFilterDialog ui;
@@ -175,8 +176,7 @@ class filtermainWindow : public QDialog
         void activeDoubleClick( QListWidgetItem  *item);
 		void activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
         void allDoubleClick( QListWidgetItem  *item);
-	void filterFamilyClick(QListWidgetItem *item);
-	void filterFamilyClick(int  item);
+		void filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 		void preview(bool b);
  private:
 		uint32_t previewFrameIndex;
@@ -489,17 +489,14 @@ void filtermainWindow::down( bool b)
         \brief  Select family among color etc... 
 */
 
-void filtermainWindow::filterFamilyClick(QListWidgetItem *item)
+void filtermainWindow::filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
-    int family= ui.listFilterCategory->currentRow();
-    if(family>=0)
-        displayFamily(family);
+	int family = ui.listFilterCategory->currentRow();
+
+	if(family >= 0)
+		displayFamily(family);
 }
-void filtermainWindow::filterFamilyClick(int  m)
-{
-        if(m>=0)
-                displayFamily(m);
-}
+
 void filtermainWindow::displayFamily(uint32_t family)
 {
   printf("Family :%u\n",family);
@@ -681,7 +678,7 @@ void filtermainWindow::buildActiveFilterList(void)
 }
   /**
   */
-filtermainWindow::filtermainWindow()     : QDialog()
+filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
  {
         memset( startFilter,0,sizeof(int)*NB_TREE);
         memset( filterSize,0,sizeof(int)*NB_TREE);
@@ -696,10 +693,8 @@ filtermainWindow::filtermainWindow()     : QDialog()
 
     availableList=ui.listWidgetAvailable;
     activeList=ui.listWidgetActive;
-    connect(ui.listFilterCategory,SIGNAL(itemDoubleClicked(QListWidgetItem *)),
-                this,SLOT(filterFamilyClick(QListWidgetItem *)));
-    connect(ui.listFilterCategory,SIGNAL(itemClicked(QListWidgetItem *)),
-                this,SLOT(filterFamilyClick(QListWidgetItem *)));
+
+	connect(ui.listFilterCategory, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(filterFamilyItemChanged(QListWidgetItem*, QListWidgetItem *)));
 
     connect(activeList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(activeDoubleClick(QListWidgetItem *)));
 	connect(activeList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(activeItemChanged(QListWidgetItem*, QListWidgetItem*)));
@@ -744,10 +739,10 @@ static void updateFilterList (filtermainWindow *dialog);
 */
 int GUI_handleVFilter(void)
 {
-        filtermainWindow dialog;
-        if(QDialog::Accepted==dialog.exec())
-        {
-        }
+	filtermainWindow dialog(QuiMainWindows);
+
+	dialog.exec();
+
 	return 0;
 }
 /** 
