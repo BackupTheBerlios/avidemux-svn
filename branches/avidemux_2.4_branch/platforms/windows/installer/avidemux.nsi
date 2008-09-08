@@ -7,7 +7,7 @@
 !include revision.nsh
 !include builddir.nsh
 
-Name "Avidemux 2.4.2 r${REVISION}"
+Name "Avidemux 2.4.3 r${REVISION}"
 
 SetCompressor /SOLID lzma
 SetCompressorDictSize 96
@@ -18,7 +18,7 @@ SetCompressorDictSize 96
 !define INTERNALNAME "Avidemux 2.4"
 !define REGKEY "SOFTWARE\${INTERNALNAME}"
 !define UNINST_REGKEY "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${INTERNALNAME}"
-!define VERSION 2.4.2.${REVISION}
+!define VERSION 2.4.3.${REVISION}
 !define COMPANY "Free Software Foundation"
 !define URL "http://www.avidemux.org"
 
@@ -94,7 +94,7 @@ InstallDir "$PROGRAMFILES\Avidemux 2.4"
 CRCCheck on
 XPStyle on
 ShowInstDetails nevershow
-VIProductVersion 2.4.2.${REVISION}
+VIProductVersion 2.4.3.${REVISION}
 VIAddVersionKey ProductName Avidemux
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey FileVersion ""
@@ -176,10 +176,9 @@ Section "Core files (required)" SecCore
     File ${BUILDDIR}\libfaac.dll
     File ${BUILDDIR}\libfaad2.dll
     File ${BUILDDIR}\libfontconfig-1.dll
-    File ${BUILDDIR}\libglib-2.0-0.dll
     File ${BUILDDIR}\libmp3lame-0.dll
     File ${BUILDDIR}\libpng12-0.dll
-    File ${BUILDDIR}\libx264.dll
+    File ${BUILDDIR}\libx264-*.dll
     File ${BUILDDIR}\libxml2.dll
     File ${BUILDDIR}\ogg.dll
     File ${BUILDDIR}\pthreadGC2.dll
@@ -228,6 +227,8 @@ SectionGroup /e "User interfaces" SecGrpUI
         File ${BUILDDIR}\libcairo-2.dll
         File ${BUILDDIR}\libgdk_pixbuf-2.0-0.dll
         File ${BUILDDIR}\libgdk-win32-2.0-0.dll
+        File ${BUILDDIR}\libgio-2.0-0.dll
+        File ${BUILDDIR}\libglib-2.0-0.dll
         File ${BUILDDIR}\libgmodule-2.0-0.dll
         File ${BUILDDIR}\libgobject-2.0-0.dll
         File ${BUILDDIR}\libgthread-2.0-0.dll
@@ -470,6 +471,8 @@ Section /o un.GTK+ UnSecUiGtk
     Delete /REBOOTOK $INSTDIR\libpangowin32-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpangocairo-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpango-1.0-0.dll
+    Delete /REBOOTOK $INSTDIR\libgio-2.0-0.dll
+    Delete /REBOOTOK $INSTDIR\libglib-2.0-0.dll
     Delete /REBOOTOK $INSTDIR\libgtk-win32-2.0-0.dll
     Delete /REBOOTOK $INSTDIR\libgthread-2.0-0.dll
     Delete /REBOOTOK $INSTDIR\libgobject-2.0-0.dll
@@ -509,10 +512,9 @@ Section /o "un.Core files (required)" UnSecCore
     Delete /REBOOTOK $INSTDIR\pthreadGC2.dll
     Delete /REBOOTOK $INSTDIR\ogg.dll
     Delete /REBOOTOK $INSTDIR\libxml2.dll
-    Delete /REBOOTOK $INSTDIR\libx264.dll
+    Delete /REBOOTOK $INSTDIR\libx264-*.dll
     Delete /REBOOTOK $INSTDIR\libpng12-0.dll
     Delete /REBOOTOK $INSTDIR\libmp3lame-0.dll
-    Delete /REBOOTOK $INSTDIR\libglib-2.0-0.dll
     Delete /REBOOTOK $INSTDIR\libfontconfig-1.dll
     Delete /REBOOTOK $INSTDIR\libfaad2.dll
     Delete /REBOOTOK $INSTDIR\libfaac.dll

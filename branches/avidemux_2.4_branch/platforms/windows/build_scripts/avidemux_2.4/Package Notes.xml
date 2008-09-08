@@ -1,11 +1,29 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4304" date="2008-09-02">
+    <comment>Updated Qt to version 4.4.1.</comment>
+    <comment>Updated x264 to r956 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4297" date="2008-07-31">
+    <comment>Updated x264 to r927 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4281" date="2008-07-25">
+    <comment>Updated x264 to r918 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4276 [2.4.3 Final]" date="2008-07-24">
+  </buildentry>
+  <buildentry revision="4269" date="2008-07-21">
+    <comment>Updated GLib to version 2.16.5.</comment>
+    <comment>Updated x264 to r915 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4219" date="2008-07-16">
+  </buildentry>
   <buildentry revision="4211" date="2008-07-13">
     <comment>Updated GLib to version 2.16.4.</comment>
     <comment>Updated GTK+ to version 2.12.11.</comment>
     <comment>Updated Pango to version 1.20.5.</comment>
     <comment>Updated x264 to r912 (patched).</comment>
-  </buildentry>  
+  </buildentry>
   <buildentry revision="4195 [2.4.2 Final]" date="2008-07-06">
     <comment>Updated LAME to version 3.98.</comment>
     <comment>Updated x264 to r899 (patched).</comment>
