@@ -173,6 +173,8 @@ class filtermainWindow : public QDialog
         void remove(bool b);
         void configure(bool b);
         void partial(bool b);
+		void loadScript(bool b);
+		void saveScript(bool b);
         void activeDoubleClick( QListWidgetItem  *item);
 		void activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
         void allDoubleClick( QListWidgetItem  *item);
@@ -611,6 +613,41 @@ void filtermainWindow::partial( bool b)
         }
         else delete replace;
 }
+
+void filtermainWindow::loadScript(bool)
+{
+	bool previewDialogOpen = (previewDialog != NULL);
+
+	closePreview();
+
+#ifdef USE_LIBXML2
+	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoadXml);
+#else
+	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoad);
+#endif
+
+	getFirstVideoFilter ();
+	buildActiveFilterList ();
+	setSelected(nb_active_filter - 1);
+
+	if (previewDialogOpen)
+		preview(true);
+}
+
+void filtermainWindow::saveScript(bool)
+{
+	if (nb_active_filter < 2)
+	{
+		GUI_Error_HIG (QT_TR_NOOP("Nothing to save"), NULL);
+	}
+	else
+#ifdef USE_LIBXML2
+		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSaveXml);
+#else
+		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSave);
+#endif
+}
+
 /**
         \fn setup
         \brief Prepare 
@@ -694,6 +731,9 @@ filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
     availableList=ui.listWidgetAvailable;
     activeList=ui.listWidgetActive;
 
+	ui.buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+	ui.buttonBox->addButton(ui.pushButtonPreview, QDialogButtonBox::ActionRole);
+
 	connect(ui.listFilterCategory, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(filterFamilyItemChanged(QListWidgetItem*, QListWidgetItem *)));
 
     connect(activeList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(activeDoubleClick(QListWidgetItem *)));
@@ -706,6 +746,10 @@ filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
     connect((ui.toolButtonUp),SIGNAL(clicked(bool)),this,SLOT(up(bool)));
     connect((ui.toolButtonDown),SIGNAL(clicked(bool)),this,SLOT(down(bool)));
     connect((ui.toolButtonPartial),SIGNAL(clicked(bool)),this,SLOT(partial(bool)));
+
+	connect(ui.toolButtonLoad, SIGNAL(clicked(bool)), this, SLOT(loadScript(bool)));
+	connect(ui.toolButtonSaveScript, SIGNAL(clicked(bool)), this, SLOT(saveScript(bool)));
+
     connect(ui.pushButtonDVD, SIGNAL(clicked(bool)), this, SLOT(DVD(bool)));
     connect(ui.pushButtonVCD, SIGNAL(clicked(bool)), this, SLOT(VCD(bool)));
     connect(ui.pushButtonSVCD, SIGNAL(clicked(bool)), this, SLOT(SVCD(bool)));

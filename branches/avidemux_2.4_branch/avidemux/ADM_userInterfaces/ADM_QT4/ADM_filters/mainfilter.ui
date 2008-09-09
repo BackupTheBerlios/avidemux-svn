@@ -365,6 +365,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="toolButtonLoad" >
+         <property name="toolTip" >
+          <string>Open Script</string>
+         </property>
          <property name="text" >
           <string>Load</string>
          </property>
@@ -374,17 +377,10 @@
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButtonSave" >
-         <property name="text" >
-          <string>Save</string>
-         </property>
-         <property name="icon" >
-          <iconset resource="filter.qrc" >:/new/prefix1/icons/filesave.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QToolButton" name="toolButtonSaveScript" >
+         <property name="toolTip" >
+          <string>Save Script As</string>
+         </property>
          <property name="text" >
           <string>Save Script</string>
          </property>
@@ -395,6 +391,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="toolButtonDown" >
+         <property name="toolTip" >
+          <string>Move Filter Down</string>
+         </property>
          <property name="text" >
           <string>Down</string>
          </property>
@@ -405,6 +404,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="toolButtonUp" >
+         <property name="toolTip" >
+          <string>Move Filter Up</string>
+         </property>
          <property name="text" >
           <string>Up</string>
          </property>
@@ -415,6 +417,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="pushButtonRemove" >
+         <property name="toolTip" >
+          <string>Remove Filter</string>
+         </property>
          <property name="text" >
           <string>Remove</string>
          </property>
@@ -448,6 +453,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="toolButtonAdd" >
+         <property name="toolTip" >
+          <string>Add Filter</string>
+         </property>
          <property name="text" >
           <string>Add</string>
          </property>
@@ -562,7 +570,6 @@
   <tabstop>toolButtonConfigure</tabstop>
   <tabstop>toolButtonPartial</tabstop>
   <tabstop>toolButtonLoad</tabstop>
-  <tabstop>toolButtonSave</tabstop>
   <tabstop>toolButtonSaveScript</tabstop>
   <tabstop>toolButtonDown</tabstop>
   <tabstop>toolButtonUp</tabstop>
