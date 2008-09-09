@@ -32,24 +32,7 @@
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
 
-class factoryWindow : public QDialog
-{
-     Q_OBJECT
-
- public:
-     factoryWindow();
- public slots:
- private slots:
- private:
-};
-
 static void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab);
-factoryWindow::factoryWindow()     : QDialog()
- {
-//     ui.setupUi(this);
-     //connect( (ui.pushButton),SIGNAL(pressed()),this,SLOT(buttonPressed()));
- }
-
 
 /**
     \fn diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
@@ -59,7 +42,7 @@ factoryWindow::factoryWindow()     : QDialog()
 
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 {
-  factoryWindow dialog;
+  QDialog dialog;
   
   ADM_assert(title);
   ADM_assert(nb);
@@ -67,16 +50,11 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
   
   dialog.setWindowTitle(QString::fromUtf8(title));
   
-  QGridLayout layout(&dialog);
+  QVBoxLayout vboxLayout;
+  QGridLayout layout;
   
-  /* First compute the size of our window */
-  int vsize=0;
-  for(int i=0;i<nb;i++)
-  {
-    ADM_assert(elems[i]);
-     vsize+=elems[i]->getSize(); 
-  }
-
+  vboxLayout.addLayout(&layout);
+  
  int  v=0;
   for(int i=0;i<nb;i++)
   {
@@ -90,15 +68,17 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
     ADM_assert(elems[i]);
      elems[i]->finalize(); 
   }
+
   // Add buttons
-   QDialogButtonBox buttonBox((QWidget *)&dialog);
-    buttonBox.setStandardButtons(QDialogButtonBox::Ok
-                            | QDialogButtonBox::Cancel);
+   QDialogButtonBox buttonBox(&dialog);
+    buttonBox.setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
      QObject::connect(&buttonBox, SIGNAL(accepted()), &dialog, SLOT(accept()));
      QObject::connect(&buttonBox, SIGNAL(rejected()), &dialog, SLOT(reject()));
-     layout.addWidget(&buttonBox,vsize,0);
+     vboxLayout.addWidget(&buttonBox);
+	 //layout.addWidget(&buttonBox);
   // run
-  dialog.setLayout(&layout);
+	 dialog.setLayout(&vboxLayout);
+	 //dialog.setLayout(&layout);
   if(dialog.exec()==QDialog::Accepted)
   {
      for(int i=0;i<nb;i++)
@@ -127,7 +107,7 @@ const char *shortkey(const char *in)
 }
 uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 {
-    factoryWindow dialog;
+    QDialog dialog;
   
   ADM_assert(title);
   ADM_assert(nb);
