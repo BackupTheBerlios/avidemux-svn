@@ -19,6 +19,7 @@ size_t ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream);
 FILE  *ADM_fopen (const char *file, const char *mode);
 int    ADM_fclose (FILE *file);
 int    ADM_unlink(const char *filename);
+int ADM_access(const char *path, int mode);
 
 extern void *ADM_alloc(size_t size);
 extern void *ADM_calloc(size_t nbElm,size_t elSize);
@@ -40,6 +41,7 @@ extern adm_fast_memcpy myAdmMemcpy;
 #define fopen   ADM_fopen
 #define fclose  ADM_fclose
 #define unlink  ADM_unlink
+#define access  ADM_access
 
 #ifndef __APPLE__
 #ifndef ADM_LEGACY_PROGGY
