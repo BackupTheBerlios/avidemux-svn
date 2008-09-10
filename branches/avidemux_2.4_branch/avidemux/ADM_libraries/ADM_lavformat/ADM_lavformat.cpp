@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "config.h"
+#include "default.h"
 #define WIN32_CLASH
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,7 +36,7 @@ extern "C"
 #undef realloc
 #undef free
 #include <ADM_assert.h>
-#include "default.h"
+
 #include "ADM_toolkit/toolkit.hxx"
 
 #include "ADM_audiofilter/audioprocess.hxx"
