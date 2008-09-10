@@ -40,8 +40,10 @@ extern adm_fast_memcpy myAdmMemcpy;
 #define fwrite  ADM_fwrite
 #define fopen   ADM_fopen
 #define fclose  ADM_fclose
+#ifdef __WIN32
 #define unlink  ADM_unlink
 #define access  ADM_access
+#endif
 
 #ifndef __APPLE__
 #ifndef ADM_LEGACY_PROGGY
