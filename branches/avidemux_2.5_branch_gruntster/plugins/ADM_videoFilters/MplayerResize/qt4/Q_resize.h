@@ -16,16 +16,30 @@ class resizeWindow : public QDialog
 {
 	Q_OBJECT
 
-protected: 
+private:
+	int lastPercentage;
+	void updateWidthHeightSpinners(bool useHeightAsRef = false);
+	void updateSlider();
+	void connectDimensionControls();
+	void disconnectDimensionControls();
+	void roundUp(int xx, int yy);
+
+protected:
 	resParam *_param;
 
 public:
 	resizeWindow(resParam *param);
-	~resizeWindow();
 	Ui_resizeDialog ui;
 
 public slots:
 	void gather(void);
-	void update(int i);
+	void okButtonClicked();
+	void sliderChanged(int value);
+	void percentageSpinBoxChanged(int value);
+	void widthSpinBoxChanged(int value);
+	void heightSpinBoxChanged(int value);
+	void lockArToggled(bool toggled);
+	void roundupToggled(bool toggled);
+	void aspectRatioChanged(int index);
 };
 #endif	// Q_resizing_h
