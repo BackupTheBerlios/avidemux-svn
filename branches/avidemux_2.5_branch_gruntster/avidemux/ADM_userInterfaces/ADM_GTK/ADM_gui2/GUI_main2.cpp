@@ -1034,7 +1034,7 @@ create_mainWindow (void)
   gtk_widget_show (toolitem14);
   gtk_container_add (GTK_CONTAINER (toolbar2), toolitem14);
 
-  hscalVolume = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (99, 0, 100, 1, 1, 1)));
+  hscalVolume = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (99, 0, 100, 1, 1, 0)));
   gtk_widget_show (hscalVolume);
   gtk_container_add (GTK_CONTAINER (toolitem14), hscalVolume);
   gtk_widget_set_size_request (hscalVolume, 100, -1);
@@ -1159,7 +1159,7 @@ create_mainWindow (void)
   gtk_box_pack_start (GTK_BOX (hbox19), CheckButtonTimeshift, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, CheckButtonTimeshift, QT_TR_NOOP("Enable time shift"), NULL);
 
-  spinbuttonTimeShift_adj = gtk_adjustment_new (0, -99999, 99999, 1, 10, 10);
+  spinbuttonTimeShift_adj = gtk_adjustment_new (0, -99999, 99999, 1, 10, 0);
   spinbuttonTimeShift = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonTimeShift_adj), 1, 0);
   gtk_widget_show (spinbuttonTimeShift);
   gtk_box_pack_start (GTK_BOX (hbox19), spinbuttonTimeShift, TRUE, TRUE, 0);

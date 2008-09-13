@@ -208,7 +208,7 @@ GtkWidget*
                       (GtkAttachOptions) (0), 0, 0);
     gtk_misc_set_alignment (GTK_MISC (label8), 0, 0.5);
 
-    spinbuttonUC_adj = gtk_adjustment_new (0, -10000, 10000, 1, 1, 1);
+    spinbuttonUC_adj = gtk_adjustment_new (0, -10000, 10000, 1, 1, 0);
     spinbuttonUC = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonUC_adj), 1, 0);
     gtk_widget_show (spinbuttonUC);
     gtk_table_attach (GTK_TABLE (table1), spinbuttonUC, 1, 2, 2, 3,

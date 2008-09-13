@@ -437,7 +437,7 @@ create_threshold_dialog (void)
   gtk_scale_set_digits (GTK_SCALE (minValueSlider), 0);
 
 #ifdef ORIGINAL_CODE_GENERATED_BY_GLADE
-  minValueSpinner_adj = gtk_adjustment_new (0, 0, 255, 1, 10, 10);
+  minValueSpinner_adj = gtk_adjustment_new (0, 0, 255, 1, 10, 0);
 #endif
   minValueSpinner = gtk_spin_button_new (GTK_ADJUSTMENT (minValueSpinner_adj), 1, 0);
   gtk_widget_show (minValueSpinner);
@@ -468,7 +468,7 @@ create_threshold_dialog (void)
   gtk_scale_set_digits (GTK_SCALE (maxValueSlider), 0);
 
 #ifdef ORIGINAL_CODE_GENERATED_BY_GLADE
-  maxValueSpinner_adj = gtk_adjustment_new (255, 0, 255, 1, 10, 10);
+  maxValueSpinner_adj = gtk_adjustment_new (255, 0, 255, 1, 10, 0);
 #endif
   maxValueSpinner = gtk_spin_button_new (GTK_ADJUSTMENT (maxValueSpinner_adj), 1, 0);
   gtk_widget_show (maxValueSpinner);
@@ -496,7 +496,7 @@ create_threshold_dialog (void)
   gtk_widget_show (debugLabel);
   gtk_box_pack_start (GTK_BOX (debugHbox), debugLabel, FALSE, FALSE, 0);
 
-  debugSpinButton_adj = gtk_adjustment_new (0, 0, 16777215, 1, 10, 10);
+  debugSpinButton_adj = gtk_adjustment_new (0, 0, 16777215, 1, 10, 0);
   debugSpinButton = gtk_spin_button_new (GTK_ADJUSTMENT (debugSpinButton_adj), 1, 0);
   gtk_widget_show (debugSpinButton);
   gtk_box_pack_start (GTK_BOX (debugHbox), debugSpinButton, TRUE, TRUE, 0);
@@ -522,7 +522,7 @@ create_threshold_dialog (void)
   gtk_widget_show (previewOutputMenu);
   gtk_box_pack_start (GTK_BOX (previewControlHbox), previewOutputMenu, FALSE, TRUE, 0);
 
-  previewSlider = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 99, 1, 1, 1)));
+  previewSlider = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 99, 1, 1, 0)));
   gtk_widget_show (previewSlider);
   gtk_box_pack_start (GTK_BOX (previewControlHbox), previewSlider, TRUE, TRUE, 0);
   gtk_scale_set_digits (GTK_SCALE (previewSlider), 0);

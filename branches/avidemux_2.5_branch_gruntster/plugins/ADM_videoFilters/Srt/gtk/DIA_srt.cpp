@@ -211,13 +211,13 @@ create_dialog1 (void)
   gtk_widget_show (label1);
   gtk_box_pack_start (GTK_BOX (hbox1), label1, FALSE, FALSE, 0);
 
-  spinbutton1_adj = gtk_adjustment_new (1, 6, 99, 1, 10, 10);
+  spinbutton1_adj = gtk_adjustment_new (1, 6, 99, 1, 10, 0);
   spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 2);
   gtk_widget_show (spinbutton1);
   gtk_box_pack_start (GTK_BOX (hbox1), spinbutton1, FALSE, FALSE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton1), TRUE);
 
-  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 99, 1, 1, 1)));
+  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 99, 1, 1, 0)));
   gtk_widget_show (hscale1);
   gtk_box_pack_start (GTK_BOX (vbox1), hscale1, FALSE, FALSE, 0);
 
@@ -229,7 +229,7 @@ create_dialog1 (void)
   gtk_widget_show (drawingarea1);
   gtk_box_pack_start (GTK_BOX (hbox2), drawingarea1, TRUE, TRUE, 0);
 
-  vscale1 = gtk_vscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 100, 1, 1, 1, 1)));
+  vscale1 = gtk_vscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 100, 1, 1, 1, 0)));
   gtk_widget_show (vscale1);
   gtk_box_pack_start (GTK_BOX (hbox2), vscale1, FALSE, FALSE, 0);
   gtk_scale_set_digits (GTK_SCALE (vscale1), 0);

@@ -423,28 +423,28 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
 
-  spinbuttonX_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 10);
+  spinbuttonX_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 0);
   spinbuttonX = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonX_adj), 1, 0);
   gtk_widget_show (spinbuttonX);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonX, 1, 2, 0, 1,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  spinbuttonY_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 10);
+  spinbuttonY_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 0);
   spinbuttonY = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonY_adj), 1, 0);
   gtk_widget_show (spinbuttonY);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonY, 1, 2, 1, 2,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  spinbuttonW_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 10);
+  spinbuttonW_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 0);
   spinbuttonW = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonW_adj), 1, 0);
   gtk_widget_show (spinbuttonW);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonW, 3, 4, 0, 1,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  spinbuttonH_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 10);
+  spinbuttonH_adj = gtk_adjustment_new (1, 0, 2000, 1, 10, 0);
   spinbuttonH = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonH_adj), 1, 0);
   gtk_widget_show (spinbuttonH);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonH, 3, 4, 1, 2,
@@ -463,7 +463,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (GTK_FILL), 0, 0);
 
-  spinbuttonBand_adj = gtk_adjustment_new (1, 0, 100, 1, 10, 10);
+  spinbuttonBand_adj = gtk_adjustment_new (1, 0, 100, 1, 10, 0);
   spinbuttonBand = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBand_adj), 1, 0);
   gtk_widget_show (spinbuttonBand);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonBand, 1, 2, 2, 3,

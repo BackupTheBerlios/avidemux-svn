@@ -135,7 +135,7 @@ GtkWidget*
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  spinbuttonStart_adj = gtk_adjustment_new (1, 0, 1000000, 1, 10, 10);
+  spinbuttonStart_adj = gtk_adjustment_new (1, 0, 1000000, 1, 10, 0);
   spinbuttonStart = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonStart_adj), 1, 0);
   gtk_widget_show (spinbuttonStart);
   gtk_table_attach (GTK_TABLE (table1), spinbuttonStart, 1, 2, 0, 1,
@@ -143,7 +143,7 @@ GtkWidget*
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonStart), TRUE);
 
-  spinbuttonSize_adj = gtk_adjustment_new (1, 0, 1000000, 1, 10, 10);
+  spinbuttonSize_adj = gtk_adjustment_new (1, 0, 1000000, 1, 10, 0);
   spinbuttonSize = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonSize_adj), 1, 0);
   gtk_widget_show (spinbuttonSize);
   gtk_table_attach (GTK_TABLE (table1), spinbuttonSize, 1, 2, 1, 2,

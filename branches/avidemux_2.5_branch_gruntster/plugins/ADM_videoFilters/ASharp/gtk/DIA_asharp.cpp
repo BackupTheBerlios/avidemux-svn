@@ -219,7 +219,7 @@ create_dialog1 (void)
   gtk_label_set_justify (GTK_LABEL (label4), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label4), 0, 0.5);
 
-  spinbuttonT_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0.1);
+  spinbuttonT_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0);
   spinbuttonT = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonT_adj), 1, 1);
   gtk_widget_show (spinbuttonT);
   gtk_table_attach (GTK_TABLE (table1), spinbuttonT, 1, 2, 0, 1,
@@ -227,7 +227,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonT), TRUE);
 
-  spinbuttonD_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0.1);
+  spinbuttonD_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0);
   spinbuttonD = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonD_adj), 1, 1);
   gtk_widget_show (spinbuttonD);
   gtk_table_attach (GTK_TABLE (table1), spinbuttonD, 1, 2, 1, 2,
@@ -235,7 +235,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonD), TRUE);
 
-  spinbuttonB_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0.1);
+  spinbuttonB_adj = gtk_adjustment_new (1, -1, 100, 0.5, 0.1, 0);
   spinbuttonB = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonB_adj), 1, 1);
   gtk_widget_show (spinbuttonB);
   gtk_table_attach (GTK_TABLE (table1), spinbuttonB, 1, 2, 2, 3,
@@ -249,7 +249,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 1)));
+  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 0)));
   gtk_widget_show (hscale1);
   gtk_box_pack_start (GTK_BOX (vbox1), hscale1, TRUE, TRUE, 0);
 

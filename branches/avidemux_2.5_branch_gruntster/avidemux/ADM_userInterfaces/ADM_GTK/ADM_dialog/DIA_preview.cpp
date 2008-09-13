@@ -45,7 +45,7 @@ uint8_t DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *video
 
 	dialog = create_dialog1();
 	
-	scale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 110, 1, 10, 10)));
+	scale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 110, 1, 10, 0)));
 	gtk_widget_show (scale);
 	gtk_box_pack_start (GTK_BOX(WID(vbox1)), scale, FALSE, TRUE, 0);
 

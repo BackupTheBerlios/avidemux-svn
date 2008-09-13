@@ -148,7 +148,7 @@
 			      <property name="update_policy">GTK_UPDATE_ALWAYS</property>
 			      <property name="snap_to_ticks">False</property>
 			      <property name="wrap">False</property>
-			      <property name="adjustment">0 0 255 1 10 10</property>
+			      <property name="adjustment">0 0 255 1 10 0</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>
@@ -236,7 +236,7 @@
 			      <property name="update_policy">GTK_UPDATE_ALWAYS</property>
 			      <property name="snap_to_ticks">False</property>
 			      <property name="wrap">False</property>
-			      <property name="adjustment">255 0 255 1 10 10</property>
+			      <property name="adjustment">255 0 255 1 10 0</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>
@@ -353,7 +353,7 @@ In-range values go white, out-of-range values go black</property>
 			  <property name="update_policy">GTK_UPDATE_ALWAYS</property>
 			  <property name="snap_to_ticks">False</property>
 			  <property name="wrap">False</property>
-			  <property name="adjustment">0 0 16777215 1 10 10</property>
+			  <property name="adjustment">0 0 16777215 1 10 0</property>
 			</widget>
 			<packing>
 			  <property name="padding">0</property>
@@ -436,7 +436,7 @@ In-range values go white, out-of-range values go black</property>
 			      <property name="digits">0</property>
 			      <property name="update_policy">GTK_UPDATE_CONTINUOUS</property>
 			      <property name="inverted">False</property>
-			      <property name="adjustment">0 0 99 1 1 1</property>
+			      <property name="adjustment">0 0 99 1 1 0</property>
 			    </widget>
 			    <packing>
 			      <property name="padding">0</property>

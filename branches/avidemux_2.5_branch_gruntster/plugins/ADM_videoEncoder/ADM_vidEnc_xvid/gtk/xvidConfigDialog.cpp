@@ -445,7 +445,7 @@ uint8_t editMatrix(uint8_t *intra, uint8_t *inter, GtkWindow *parent)
 	{  //Intra
 		col=i%8;
 		row=i>>3;
-		spinbutton1_adj = gtk_adjustment_new (intra[i], 8, 255, 1, 10, 10);
+		spinbutton1_adj = gtk_adjustment_new (intra[i], 8, 255, 1, 10, 0);
 		intraCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
 		//     gtk_widget_show (spinbutton1);
 		gtk_table_attach (GTK_TABLE (WID(tableIntra)), spinbutton1, col, col+1, row, row+1,
@@ -459,7 +459,7 @@ uint8_t editMatrix(uint8_t *intra, uint8_t *inter, GtkWindow *parent)
 	{  //Inter
 		col=i%8;
 		row=i>>3;
-		spinbutton1_adj = gtk_adjustment_new (inter[i], 1, 255, 1, 10, 10);
+		spinbutton1_adj = gtk_adjustment_new (inter[i], 1, 255, 1, 10, 0);
 		interCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
 		//    gtk_widget_show (spinbutton1);
 		gtk_table_attach (GTK_TABLE (WID(tableInter)), spinbutton1, col, col+1, row, row+1,
@@ -786,7 +786,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, entryEntry, _("Target video bitrate"), NULL);
   gtk_entry_set_width_chars (GTK_ENTRY (entryEntry), 10);
 
-  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 0.1, 10, 10);
+  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 0.1, 10, 0);
   spinbuttonQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuant_adj), 1, 1);
   gtk_widget_show (spinbuttonQuant);
   gtk_box_pack_start (GTK_BOX (vbox22), spinbuttonQuant, FALSE, FALSE, 0);
@@ -968,7 +968,7 @@ create_dialog1 (void)
   gtk_widget_show (labelIFrameIntervalMin);
   gtk_box_pack_start (GTK_BOX (hbox9), labelIFrameIntervalMin, FALSE, FALSE, 0);
 
-  spinbuttonIMinPeriod_adj = gtk_adjustment_new (1, 1, 9, 1, 10, 10);
+  spinbuttonIMinPeriod_adj = gtk_adjustment_new (1, 1, 9, 1, 10, 0);
   spinbuttonIMinPeriod = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMinPeriod_adj), 1, 0);
   gtk_widget_show (spinbuttonIMinPeriod);
   gtk_box_pack_start (GTK_BOX (hbox9), spinbuttonIMinPeriod, FALSE, FALSE, 0);
@@ -978,7 +978,7 @@ create_dialog1 (void)
   gtk_widget_show (labelIFrameIntervalMax);
   gtk_box_pack_start (GTK_BOX (hbox9), labelIFrameIntervalMax, FALSE, FALSE, 0);
 
-  spinbuttonIMaxPeriod_adj = gtk_adjustment_new (250, 1, 500, 1, 10, 10);
+  spinbuttonIMaxPeriod_adj = gtk_adjustment_new (250, 1, 500, 1, 10, 0);
   spinbuttonIMaxPeriod = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMaxPeriod_adj), 1, 0);
   gtk_widget_show (spinbuttonIMaxPeriod);
   gtk_box_pack_start (GTK_BOX (hbox9), spinbuttonIMaxPeriod, FALSE, FALSE, 0);
@@ -1001,7 +1001,7 @@ create_dialog1 (void)
   gtk_widget_show (labelNumberOfBFrames);
   gtk_box_pack_start (GTK_BOX (hbox11), labelNumberOfBFrames, FALSE, FALSE, 0);
 
-  spinbuttonBFrame_adj = gtk_adjustment_new (1, 0, 3, 1, 1, 1);
+  spinbuttonBFrame_adj = gtk_adjustment_new (1, 0, 3, 1, 1, 0);
   spinbuttonBFrame = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBFrame_adj), 1, 0);
   gtk_widget_show (spinbuttonBFrame);
   gtk_box_pack_start (GTK_BOX (hbox11), spinbuttonBFrame, FALSE, FALSE, 0);
@@ -1043,7 +1043,7 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox_par1), checkbutton_par_asinput, FALSE, FALSE, 10);
   gtk_tooltips_set_tip (tooltips, checkbutton_par_asinput, _("Get PAR from input video file"), NULL);
 
-  spinbutton_par_width_adj = gtk_adjustment_new (1, 1, 255, 1, 1, 1);
+  spinbutton_par_width_adj = gtk_adjustment_new (1, 1, 255, 1, 1, 0);
   spinbutton_par_width = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_par_width_adj), 1, 0);
   gtk_widget_show (spinbutton_par_width);
   gtk_box_pack_start (GTK_BOX (hbox_par1), spinbutton_par_width, FALSE, FALSE, 0);
@@ -1054,7 +1054,7 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox_par1), label_par1, FALSE, FALSE, 2);
   gtk_label_set_justify (GTK_LABEL (label_par1), GTK_JUSTIFY_CENTER);
 
-  spinbutton_par_height_adj = gtk_adjustment_new (1, 1, 255, 1, 1, 1);
+  spinbutton_par_height_adj = gtk_adjustment_new (1, 1, 255, 1, 1, 0);
   spinbutton_par_height = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_par_height_adj), 1, 0);
   gtk_widget_show (spinbutton_par_height);
   gtk_box_pack_start (GTK_BOX (hbox_par1), spinbutton_par_height, FALSE, FALSE, 0);
@@ -1170,19 +1170,19 @@ create_dialog1 (void)
   gtk_widget_show (vbox12);
   gtk_box_pack_start (GTK_BOX (hbox14), vbox12, FALSE, FALSE, 0);
 
-  spinbuttonIMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 10);
+  spinbuttonIMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 0);
   spinbuttonIMin = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMin_adj), 1, 0);
   gtk_widget_show (spinbuttonIMin);
   gtk_box_pack_start (GTK_BOX (vbox12), spinbuttonIMin, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonIMin, _("Minimum quantizer allowed for I-frames"), NULL);
 
-  spinbuttonPMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 10);
+  spinbuttonPMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 0);
   spinbuttonPMin = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonPMin_adj), 1, 0);
   gtk_widget_show (spinbuttonPMin);
   gtk_box_pack_start (GTK_BOX (vbox12), spinbuttonPMin, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonPMin, _("Minimum quantizer allowed for P-frames"), NULL);
 
-  spinbuttonBMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 10);
+  spinbuttonBMin_adj = gtk_adjustment_new (2, 1, 31, 1, 10, 0);
   spinbuttonBMin = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBMin_adj), 1, 0);
   gtk_widget_show (spinbuttonBMin);
   gtk_box_pack_start (GTK_BOX (vbox12), spinbuttonBMin, FALSE, FALSE, 0);
@@ -1211,19 +1211,19 @@ create_dialog1 (void)
   gtk_widget_show (vbox14);
   gtk_box_pack_start (GTK_BOX (hbox14), vbox14, FALSE, FALSE, 0);
 
-  spinbuttonIMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 10);
+  spinbuttonIMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 0);
   spinbuttonIMax = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMax_adj), 1, 0);
   gtk_widget_show (spinbuttonIMax);
   gtk_box_pack_start (GTK_BOX (vbox14), spinbuttonIMax, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonIMax, _("Maximum quantizer allowed for I-frames"), NULL);
 
-  spinbuttonPMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 10);
+  spinbuttonPMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 0);
   spinbuttonPMax = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonPMax_adj), 1, 0);
   gtk_widget_show (spinbuttonPMax);
   gtk_box_pack_start (GTK_BOX (vbox14), spinbuttonPMax, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonPMax, _("Maximum quantizer allowed for P-frames"), NULL);
 
-  spinbuttonBMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 10);
+  spinbuttonBMax_adj = gtk_adjustment_new (31, 1, 31, 1, 10, 0);
   spinbuttonBMax = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBMax_adj), 1, 0);
   gtk_widget_show (spinbuttonBMax);
   gtk_box_pack_start (GTK_BOX (vbox14), spinbuttonBMax, FALSE, FALSE, 0);

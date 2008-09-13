@@ -685,7 +685,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (labelTarget), 0, 0.5);
 
-  spinbuttonQuantizer_adj = gtk_adjustment_new (4, 0, 51, 1, 10, 10);
+  spinbuttonQuantizer_adj = gtk_adjustment_new (4, 0, 51, 1, 10, 0);
   spinbuttonQuantizer = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuantizer_adj), 1, 0);
   gtk_widget_show (spinbuttonQuantizer);
   gtk_table_attach (GTK_TABLE (tableBitrate), spinbuttonQuantizer, 1, 2, 2, 3,
@@ -805,7 +805,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (labelRange), 0, 0.5);
 
-  spinbuttonRange_adj = gtk_adjustment_new (17, 0, 64, 1, 10, 10);
+  spinbuttonRange_adj = gtk_adjustment_new (17, 0, 64, 1, 10, 0);
   spinbuttonRange = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonRange_adj), 1, 0);
   gtk_widget_show (spinbuttonRange);
   gtk_table_attach (GTK_TABLE (table11), spinbuttonRange, 1, 2, 0, 1,
@@ -814,7 +814,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonRange, _("Define how many pixels are analysed for motion estimation. The higher the range the more accurate the analysis but the slower the encoding time."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonRange), TRUE);
 
-  spinbuttonMaxRefFrames_adj = gtk_adjustment_new (1, 1, 16, 1, 10, 10);
+  spinbuttonMaxRefFrames_adj = gtk_adjustment_new (1, 1, 16, 1, 10, 0);
   spinbuttonMaxRefFrames = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMaxRefFrames_adj), 1, 0);
   gtk_widget_show (spinbuttonMaxRefFrames);
   gtk_table_attach (GTK_TABLE (table11), spinbuttonMaxRefFrames, 1, 2, 1, 2,
@@ -984,7 +984,7 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox7), labelTrellis, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (labelTrellis), 0, 0.5);
 
-  spinbuttonTrellis_adj = gtk_adjustment_new (0, 0, 2, 1, 10, 10);
+  spinbuttonTrellis_adj = gtk_adjustment_new (0, 0, 2, 1, 10, 0);
   spinbuttonTrellis = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonTrellis_adj), 1, 0);
   gtk_widget_show (spinbuttonTrellis);
   gtk_box_pack_start (GTK_BOX (hbox7), spinbuttonTrellis, FALSE, FALSE, 0);
@@ -1000,7 +1000,7 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox11), labelNoiseReduction, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (labelNoiseReduction), 0, 0.5);
 
-  spinbuttonNoiseReduction_adj = gtk_adjustment_new (0, 0, 1000000000, 1, 10, 10);
+  spinbuttonNoiseReduction_adj = gtk_adjustment_new (0, 0, 1000000000, 1, 10, 0);
   spinbuttonNoiseReduction = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonNoiseReduction_adj), 1, 0);
   gtk_widget_show (spinbuttonNoiseReduction);
   gtk_box_pack_start (GTK_BOX (hbox11), spinbuttonNoiseReduction, FALSE, FALSE, 0);
@@ -1039,7 +1039,7 @@ create_dialog1 (void)
   gtk_label_set_use_markup (GTK_LABEL (labelStrength), TRUE);
   gtk_misc_set_alignment (GTK_MISC (labelStrength), 0, 0.5);
 
-  spinbuttonThreshold_adj = gtk_adjustment_new (0, -6, 6, 1, 10, 10);
+  spinbuttonThreshold_adj = gtk_adjustment_new (0, -6, 6, 1, 10, 0);
   spinbuttonThreshold = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonThreshold_adj), 1, 0);
   gtk_widget_show (spinbuttonThreshold);
   gtk_table_attach (GTK_TABLE (table8), spinbuttonThreshold, 1, 2, 1, 2,
@@ -1048,7 +1048,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonThreshold, _("Threshold for block detection. Positive values will detect more blocks, negative values will detect less."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonThreshold), TRUE);
 
-  spinbuttonStrength_adj = gtk_adjustment_new (0, -6, 6, 1, 10, 10);
+  spinbuttonStrength_adj = gtk_adjustment_new (0, -6, 6, 1, 10, 0);
   spinbuttonStrength = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonStrength_adj), 1, 0);
   gtk_widget_show (spinbuttonStrength);
   gtk_table_attach (GTK_TABLE (table8), spinbuttonStrength, 1, 2, 0, 1,
@@ -1161,7 +1161,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (labelMaxConsecutive), 0, 0.5);
 
-  spinbuttonBias_adj = gtk_adjustment_new (0, -100, 100, 1, 10, 10);
+  spinbuttonBias_adj = gtk_adjustment_new (0, -100, 100, 1, 10, 0);
   spinbuttonBias = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBias_adj), 1, 0);
   gtk_widget_show (spinbuttonBias);
   gtk_table_attach (GTK_TABLE (table5), spinbuttonBias, 1, 2, 1, 2,
@@ -1170,7 +1170,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonBias, _("Increase / decrease probability for how often B-frames are used. It will not violate the maximum consecutive frame limit."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonBias), TRUE);
 
-  spinbuttonMaxBFrame_adj = gtk_adjustment_new (3, 0, 16, 1, 10, 10);
+  spinbuttonMaxBFrame_adj = gtk_adjustment_new (3, 0, 16, 1, 10, 0);
   spinbuttonMaxBFrame = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMaxBFrame_adj), 1, 0);
   gtk_widget_show (spinbuttonMaxBFrame);
   gtk_table_attach (GTK_TABLE (table5), spinbuttonMaxBFrame, 1, 2, 0, 1,
@@ -1270,7 +1270,7 @@ create_dialog1 (void)
   gtk_table_set_row_spacings (GTK_TABLE (table2), 3);
   gtk_table_set_col_spacings (GTK_TABLE (table2), 10);
 
-  spinbuttonKeyframeBoost_adj = gtk_adjustment_new (40, 0, 100, 1, 10, 10);
+  spinbuttonKeyframeBoost_adj = gtk_adjustment_new (40, 0, 100, 1, 10, 0);
   spinbuttonKeyframeBoost = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonKeyframeBoost_adj), 1, 0);
   gtk_widget_show (spinbuttonKeyframeBoost);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonKeyframeBoost, 1, 2, 0, 1,
@@ -1280,7 +1280,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonKeyframeBoost, _("Set how much \"bitrate bonus\" a keyframe can get"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonKeyframeBoost), TRUE);
 
-  spinbuttonBframeReduction_adj = gtk_adjustment_new (30, 0, 100, 1, 10, 10);
+  spinbuttonBframeReduction_adj = gtk_adjustment_new (30, 0, 100, 1, 10, 0);
   spinbuttonBframeReduction = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBframeReduction_adj), 1, 0);
   gtk_widget_show (spinbuttonBframeReduction);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonBframeReduction, 1, 2, 1, 2,
@@ -1289,7 +1289,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonBframeReduction, _("Set how much bitrate is deducted from a B-frame as compared to the previous P-frame"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonBframeReduction), TRUE);
 
-  spinbuttonBitrateVariability_adj = gtk_adjustment_new (60, 0, 100, 1, 10, 10);
+  spinbuttonBitrateVariability_adj = gtk_adjustment_new (60, 0, 100, 1, 10, 0);
   spinbuttonBitrateVariability = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBitrateVariability_adj), 1, 0);
   gtk_widget_show (spinbuttonBitrateVariability);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonBitrateVariability, 1, 2, 2, 3,
@@ -1360,7 +1360,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
 
-  spinbuttonMinQp_adj = gtk_adjustment_new (10, 10, 51, 1, 10, 10);
+  spinbuttonMinQp_adj = gtk_adjustment_new (10, 10, 51, 1, 10, 0);
   spinbuttonMinQp = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMinQp_adj), 1, 0);
   gtk_widget_show (spinbuttonMinQp);
   gtk_table_attach (GTK_TABLE (table3), spinbuttonMinQp, 1, 2, 0, 1,
@@ -1370,7 +1370,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonMinQp, _("Enforce a minimum quantizer level"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonMinQp), TRUE);
 
-  spinbuttonMaxQp_adj = gtk_adjustment_new (51, 10, 51, 1, 10, 10);
+  spinbuttonMaxQp_adj = gtk_adjustment_new (51, 10, 51, 1, 10, 0);
   spinbuttonMaxQp = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMaxQp_adj), 1, 0);
   gtk_widget_show (spinbuttonMaxQp);
   gtk_table_attach (GTK_TABLE (table3), spinbuttonMaxQp, 1, 2, 1, 2,
@@ -1379,7 +1379,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonMaxQp, _("Enforce a maximum quantizer level"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonMaxQp), TRUE);
 
-  spinbuttonQpStep_adj = gtk_adjustment_new (4, 0, 10, 1, 10, 10);
+  spinbuttonQpStep_adj = gtk_adjustment_new (4, 0, 10, 1, 10, 0);
   spinbuttonQpStep = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQpStep_adj), 1, 0);
   gtk_widget_show (spinbuttonQpStep);
   gtk_table_attach (GTK_TABLE (table3), spinbuttonQpStep, 1, 2, 2, 3,
@@ -1408,7 +1408,7 @@ create_dialog1 (void)
   gtk_table_set_row_spacings (GTK_TABLE (table4), 3);
   gtk_table_set_col_spacings (GTK_TABLE (table4), 10);
 
-  spinbuttonSceneCut_adj = gtk_adjustment_new (40, 0, 100, 1, 10, 10);
+  spinbuttonSceneCut_adj = gtk_adjustment_new (40, 0, 100, 1, 10, 0);
   spinbuttonSceneCut = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonSceneCut_adj), 1, 0);
   gtk_widget_show (spinbuttonSceneCut);
   gtk_table_attach (GTK_TABLE (table4), spinbuttonSceneCut, 1, 2, 0, 1,
@@ -1432,7 +1432,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label17), 0, 0.5);
 
-  spinbuttonMinIdr_adj = gtk_adjustment_new (25, 0, 100, 1, 10, 10);
+  spinbuttonMinIdr_adj = gtk_adjustment_new (25, 0, 100, 1, 10, 0);
   spinbuttonMinIdr = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMinIdr_adj), 1, 0);
   gtk_widget_show (spinbuttonMinIdr);
   gtk_table_attach (GTK_TABLE (table4), spinbuttonMinIdr, 1, 2, 1, 2,
@@ -1441,7 +1441,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonMinIdr, _("Set minimum frame interval between IDR frames. Defines the minimum amount a frame can be reused and referenced by other frames before a new IDR frame is established."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonMinIdr), TRUE);
 
-  spinbuttonMaxIdr_adj = gtk_adjustment_new (250, 1, 1000, 1, 10, 10);
+  spinbuttonMaxIdr_adj = gtk_adjustment_new (250, 1, 1000, 1, 10, 0);
   spinbuttonMaxIdr = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMaxIdr_adj), 1, 0);
   gtk_widget_show (spinbuttonMaxIdr);
   gtk_table_attach (GTK_TABLE (table4), spinbuttonMaxIdr, 1, 2, 2, 3,
@@ -1498,7 +1498,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (labelVBVMaximumBitrate), 0, 0.5);
 
-  spinbuttonvbv_max_bitrate_adj = gtk_adjustment_new (0, 0, 99999, 1, 10, 10);
+  spinbuttonvbv_max_bitrate_adj = gtk_adjustment_new (0, 0, 99999, 1, 10, 0);
   spinbuttonvbv_max_bitrate = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonvbv_max_bitrate_adj), 1, 0);
   gtk_widget_show (spinbuttonvbv_max_bitrate);
   gtk_table_attach (GTK_TABLE (table12), spinbuttonvbv_max_bitrate, 1, 2, 0, 1,
@@ -1506,7 +1506,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonvbv_max_bitrate), TRUE);
 
-  spinbuttonvbv_buffer_size_adj = gtk_adjustment_new (0, 0, 99999, 1, 10, 10);
+  spinbuttonvbv_buffer_size_adj = gtk_adjustment_new (0, 0, 99999, 1, 10, 0);
   spinbuttonvbv_buffer_size = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonvbv_buffer_size_adj), 1, 0);
   gtk_widget_show (spinbuttonvbv_buffer_size);
   gtk_table_attach (GTK_TABLE (table12), spinbuttonvbv_buffer_size, 1, 2, 1, 2,
@@ -1514,7 +1514,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonvbv_buffer_size), TRUE);
 
-  spinbuttonvbv_buffer_init_adj = gtk_adjustment_new (90, 0, 100, 1, 10, 10);
+  spinbuttonvbv_buffer_init_adj = gtk_adjustment_new (90, 0, 100, 1, 10, 0);
   spinbuttonvbv_buffer_init = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonvbv_buffer_init_adj), 1, 0);
   gtk_widget_show (spinbuttonvbv_buffer_init);
   gtk_table_attach (GTK_TABLE (table12), spinbuttonvbv_buffer_init, 1, 2, 2, 3,
@@ -1562,7 +1562,7 @@ create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (labelBitrateVariance), 0, 0.5);
 
-  spinbuttonBitrateVariance_adj = gtk_adjustment_new (1, 0, 1, 0.10000000149, 10, 10);
+  spinbuttonBitrateVariance_adj = gtk_adjustment_new (1, 0, 1, 0.10000000149, 10, 0);
   spinbuttonBitrateVariance = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonBitrateVariance_adj), 0.10000000149, 1);
   gtk_widget_show (spinbuttonBitrateVariance);
   gtk_table_attach (GTK_TABLE (table15), spinbuttonBitrateVariance, 1, 2, 0, 1,
@@ -1571,7 +1571,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonBitrateVariance, _("Allowed variance of average bitrate. Lower values mean less variance. Higher values mean more variance."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonBitrateVariance), TRUE);
 
-  spinbuttonQuantizerCompression_adj = gtk_adjustment_new (0.600000023842, 0, 1, 0.10000000149, 10, 10);
+  spinbuttonQuantizerCompression_adj = gtk_adjustment_new (0.600000023842, 0, 1, 0.10000000149, 10, 0);
   spinbuttonQuantizerCompression = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuantizerCompression_adj), 0.10000000149, 1);
   gtk_widget_show (spinbuttonQuantizerCompression);
   gtk_table_attach (GTK_TABLE (table15), spinbuttonQuantizerCompression, 1, 2, 1, 2,
@@ -1580,7 +1580,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonQuantizerCompression, _("Allowed variance of average quantizer or quality. Lower values mean less variance. Higher values mean more variance. Note that 0 means constant quality while 1 means constant fluctuation. Recommended 0.6."), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonQuantizerCompression), TRUE);
 
-  spinbuttonTempBlurFrame_adj = gtk_adjustment_new (20, 0, 999, 1, 10, 10);
+  spinbuttonTempBlurFrame_adj = gtk_adjustment_new (20, 0, 999, 1, 10, 0);
   spinbuttonTempBlurFrame = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonTempBlurFrame_adj), 1, 0);
   gtk_widget_show (spinbuttonTempBlurFrame);
   gtk_table_attach (GTK_TABLE (table15), spinbuttonTempBlurFrame, 1, 2, 2, 3,
@@ -1589,7 +1589,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonTempBlurFrame, _("Reduced fluctuations in Quantizer (before curve compression)"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonTempBlurFrame), TRUE);
 
-  spinbuttonTempBlurQuant_adj = gtk_adjustment_new (0.5, 0, 1, 0.5, 10, 10);
+  spinbuttonTempBlurQuant_adj = gtk_adjustment_new (0.5, 0, 1, 0.5, 10, 0);
   spinbuttonTempBlurQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonTempBlurQuant_adj), 0.5, 1);
   gtk_widget_show (spinbuttonTempBlurQuant);
   gtk_table_attach (GTK_TABLE (table15), spinbuttonTempBlurQuant, 1, 2, 3, 4,
@@ -1638,7 +1638,7 @@ create_dialog1 (void)
   gtk_table_set_row_spacings (GTK_TABLE (table16), 3);
   gtk_table_set_col_spacings (GTK_TABLE (table16), 10);
 
-  spinbutton8_adj = gtk_adjustment_new (1.39999997616, 1, 10, 0.10000000149, 10, 10);
+  spinbutton8_adj = gtk_adjustment_new (1.39999997616, 1, 10, 0.10000000149, 10, 0);
   spinbutton8 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton8_adj), 0.10000000149, 1);
   gtk_widget_show (spinbutton8);
   gtk_table_attach (GTK_TABLE (table16), spinbutton8, 1, 2, 0, 1,
@@ -1647,7 +1647,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbutton8, _("Quantization factors used between I and P-frames"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton8), TRUE);
 
-  spinbutton9_adj = gtk_adjustment_new (1.29999995232, 1, 10, 0.10000000149, 10, 10);
+  spinbutton9_adj = gtk_adjustment_new (1.29999995232, 1, 10, 0.10000000149, 10, 0);
   spinbutton9 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton9_adj), 0.10000000149, 1);
   gtk_widget_show (spinbutton9);
   gtk_table_attach (GTK_TABLE (table16), spinbutton9, 1, 2, 1, 2,
@@ -1656,7 +1656,7 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, spinbutton9, _("Quantization used between P and B-frames"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton9), TRUE);
 
-  spinbuttonChromaQPOffset_adj = gtk_adjustment_new (0, -12, 12, 1, 10, 10);
+  spinbuttonChromaQPOffset_adj = gtk_adjustment_new (0, -12, 12, 1, 10, 0);
   spinbuttonChromaQPOffset = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonChromaQPOffset_adj), 1, 0);
   gtk_widget_show (spinbuttonChromaQPOffset);
   gtk_table_attach (GTK_TABLE (table16), spinbuttonChromaQPOffset, 1, 2, 2, 3,
