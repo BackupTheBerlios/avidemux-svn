@@ -265,7 +265,7 @@ GtkWidget*
   gtk_label_set_justify (GTK_LABEL (label6), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label6), 0, 0.5);
 
-  spinbutton1_adj = gtk_adjustment_new (1, 1, 2, 0.1, 0.2, 0.2);
+  spinbutton1_adj = gtk_adjustment_new (1, 1, 2, 0.1, 0.2, 0);
   spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
   gtk_widget_show (spinbutton1);
   gtk_table_attach (GTK_TABLE (table2), spinbutton1, 1, 2, 0, 1,

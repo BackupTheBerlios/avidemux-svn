@@ -326,7 +326,7 @@ GtkWidget *create_dialog1 (void)
   gtk_label_set_justify (GTK_LABEL (label7), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
 
-  spinbuttonMaxIFrame_adj = gtk_adjustment_new (300, 0, 600, 1, 10, 10);
+  spinbuttonMaxIFrame_adj = gtk_adjustment_new (300, 0, 600, 1, 10, 0);
   spinbuttonMaxIFrame = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMaxIFrame_adj), 1, 0);
   gtk_widget_show (spinbuttonMaxIFrame);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonMaxIFrame, 1, 2, 2, 3,
@@ -342,7 +342,7 @@ GtkWidget *create_dialog1 (void)
   gtk_label_set_justify (GTK_LABEL (label8), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label8), 0, 0.5);
 
-  spinbuttonMinIFrame_adj = gtk_adjustment_new (1, 0, 600, 1, 10, 10);
+  spinbuttonMinIFrame_adj = gtk_adjustment_new (1, 0, 600, 1, 10, 0);
   spinbuttonMinIFrame = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonMinIFrame_adj), 1, 0);
   gtk_widget_show (spinbuttonMinIFrame);
   gtk_table_attach (GTK_TABLE (table2), spinbuttonMinIFrame, 1, 2, 3, 4,
@@ -449,7 +449,7 @@ GtkWidget *create_dialog1 (void)
   gtk_label_set_justify (GTK_LABEL (label12), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label12), 0, 0.5);
 
-  spinImin_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 10);
+  spinImin_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 0);
   spinImin = gtk_spin_button_new (GTK_ADJUSTMENT (spinImin_adj), 1, 0);
   gtk_widget_show (spinImin);
   gtk_table_attach (GTK_TABLE (table3), spinImin, 1, 2, 0, 1,
@@ -457,7 +457,7 @@ GtkWidget *create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinImin), TRUE);
 
-  spinImax_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 10);
+  spinImax_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 0);
   spinImax = gtk_spin_button_new (GTK_ADJUSTMENT (spinImax_adj), 1, 0);
   gtk_widget_show (spinImax);
   gtk_table_attach (GTK_TABLE (table3), spinImax, 1, 2, 1, 2,
@@ -465,7 +465,7 @@ GtkWidget *create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinImax), TRUE);
 
-  spinPmin_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 10);
+  spinPmin_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 0);
   spinPmin = gtk_spin_button_new (GTK_ADJUSTMENT (spinPmin_adj), 1, 0);
   gtk_widget_show (spinPmin);
   gtk_table_attach (GTK_TABLE (table3), spinPmin, 1, 2, 2, 3,
@@ -473,7 +473,7 @@ GtkWidget *create_dialog1 (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinPmin), TRUE);
 
-  spinPmax_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 10);
+  spinPmax_adj = gtk_adjustment_new (2, 2, 31, 1, 10, 0);
   spinPmax = gtk_spin_button_new (GTK_ADJUSTMENT (spinPmax_adj), 1, 0);
   gtk_widget_show (spinPmax);
   gtk_table_attach (GTK_TABLE (table3), spinPmax, 1, 2, 3, 4,

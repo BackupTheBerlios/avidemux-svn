@@ -214,7 +214,7 @@ create_ChromaShift (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  spinbutton_U_adj = gtk_adjustment_new (0, -32, 32, 1, 10, 10);
+  spinbutton_U_adj = gtk_adjustment_new (0, -32, 32, 1, 10, 0);
   spinbutton_U = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_U_adj), 1, 0);
   gtk_widget_show (spinbutton_U);
   gtk_table_attach (GTK_TABLE (table1), spinbutton_U, 1, 2, 0, 1,
@@ -222,7 +222,7 @@ create_ChromaShift (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton_U), TRUE);
 
-  spinbutton_V_adj = gtk_adjustment_new (0, -32, 32, 1, 10, 10);
+  spinbutton_V_adj = gtk_adjustment_new (0, -32, 32, 1, 10, 0);
   spinbutton_V = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_V_adj), 1, 0);
   gtk_widget_show (spinbutton_V);
   gtk_table_attach (GTK_TABLE (table1), spinbutton_V, 1, 2, 1, 2,
@@ -230,7 +230,7 @@ create_ChromaShift (void)
                     (GtkAttachOptions) (0), 0, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbutton_V), TRUE);
 
-  hscale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 1)));
+  hscale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 0)));
   gtk_widget_show (hscale);
   gtk_box_pack_start (GTK_BOX (vbox1), hscale, FALSE, FALSE, 0);
   gtk_scale_set_digits (GTK_SCALE (hscale), 0);

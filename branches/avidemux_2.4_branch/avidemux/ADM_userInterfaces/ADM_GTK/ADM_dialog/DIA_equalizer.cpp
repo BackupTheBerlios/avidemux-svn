@@ -461,7 +461,7 @@ create_dialog1 (void)
   gtk_widget_show (drawingarea1);
   gtk_box_pack_start (GTK_BOX (vbox1), drawingarea1, TRUE, TRUE, 0);
 
-  gui_scale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 10, 10)));
+  gui_scale = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 10, 0)));
   gtk_widget_show (gui_scale);
   gtk_box_pack_start (GTK_BOX (vbox1), gui_scale, TRUE, TRUE, 0);
 

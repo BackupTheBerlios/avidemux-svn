@@ -202,19 +202,19 @@ GtkWidget   *create_dialog1 (void)
   gtk_label_set_use_markup (GTK_LABEL (label2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0.5);
 
-  hscaleHue = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, -90, 90, 1, 1, 1)));
+  hscaleHue = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, -90, 90, 1, 1, 0)));
   gtk_widget_show (hscaleHue);
   gtk_table_attach (GTK_TABLE (table1), hscaleHue, 1, 2, 0, 1,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (GTK_FILL), 0, 0);
 
-  hscaleSaturation = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, -10, 10, 1, 1, 1)));
+  hscaleSaturation = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, -10, 10, 1, 1, 0)));
   gtk_widget_show (hscaleSaturation);
   gtk_table_attach (GTK_TABLE (table1), hscaleSaturation, 1, 2, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (GTK_FILL), 0, 0);
 
-  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 1)));
+  hscale1 = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 100, 1, 1, 0)));
   gtk_widget_show (hscale1);
   gtk_box_pack_start (GTK_BOX (vbox1), hscale1, TRUE, TRUE, 0);
 
