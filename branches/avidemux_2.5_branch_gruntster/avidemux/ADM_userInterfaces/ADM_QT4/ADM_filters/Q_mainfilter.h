@@ -3,6 +3,7 @@
 
 #include <QtGui/QItemDelegate>
 #include "ui_mainfilter.h"
+#include "Q_seekablePreview.h"
 
 class FilterItemEventFilter : public QObject
 {
@@ -32,7 +33,8 @@ class filtermainWindow : public QDialog
 	Q_OBJECT
 
 public:
-	filtermainWindow();
+	filtermainWindow(QWidget *parent);
+	~filtermainWindow();
 	void buildActiveFilterList(void);
 
 	Ui_mainFilterDialog ui;
@@ -50,15 +52,22 @@ public slots:
 	void remove(bool b);
 	void configure(bool b);
 	void partial(bool b);
+	void loadScript(bool b);
+	void saveScript(bool b);
 	void activeDoubleClick( QListWidgetItem  *item);
+	void activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 	void allDoubleClick( QListWidgetItem  *item);
-	void filterFamilyClick(QListWidgetItem *item);
-	void filterFamilyClick(int  item);
+	void filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 	void preview(bool b);
 
 private:
+	uint32_t previewFrameIndex;
+	int previewDialogX, previewDialogY;
+	Ui_seekablePreviewWindow *previewDialog;
+
 	void setSelected(int sel);
 	void displayFamily(uint32_t family);
 	void setupFilters(void);
+	void closePreview();
 };
 #endif	// Q_mainfilter_h

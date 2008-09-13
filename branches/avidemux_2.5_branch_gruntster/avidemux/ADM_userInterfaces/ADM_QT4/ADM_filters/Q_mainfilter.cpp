@@ -52,6 +52,7 @@ static int max=0;
 #define EXTERNAL_FILTER_BASE  2000
 #define ACTIVE_FILTER_BASE    3000
 /******************************************************/
+extern QWidget *QuiMainWindows;
 extern FILTER videofilters[VF_MAX_FILTER];
 extern uint32_t nb_active_filter;
 extern std::vector <FilterDescriptor *> allfilters;
@@ -132,7 +133,30 @@ void filtermainWindow::preview(bool b)
 	ADM_assert(itag > ACTIVE_FILTER_BASE);
 	itag -= ACTIVE_FILTER_BASE;
 
-	DIA_filterPreview(QT_TR_NOOP("Preview"), videofilters[itag].filter, curframe);
+	if (previewDialog)
+		previewDialog->resetVideoStream(videofilters[itag].filter);
+	else
+	{
+		previewDialog = new Ui_seekablePreviewWindow(this, videofilters[itag].filter, previewFrameIndex);
+
+		if (previewDialogX != INT_MIN)
+			previewDialog->move(previewDialogX, previewDialogY);
+	}
+
+	previewDialog->show();
+}
+
+void filtermainWindow::closePreview()
+{
+	if (previewDialog)
+	{
+		previewFrameIndex = previewDialog->frameIndex();
+		previewDialogX = previewDialog->x();
+		previewDialogY = previewDialog->y();
+
+		delete previewDialog;
+		previewDialog = NULL;
+	}
 }
 
 /**
@@ -181,12 +205,19 @@ void filtermainWindow::add( bool b)
             delete videofilters[nb_active_filter].filter;
             return;
         }
+
+		bool previewDialogOpen = (previewDialog != NULL);
+
+		closePreview();
         videofilters[nb_active_filter].filter->getCoupledConf (&coup);
         videofilters[nb_active_filter].tag = tag;
         videofilters[nb_active_filter].conf = coup;
         nb_active_filter++;
 		buildActiveFilterList();
         setSelected(nb_active_filter - 1);
+
+		if (previewDialogOpen)
+			preview(true);
    }
 
 }
@@ -204,7 +235,11 @@ void filtermainWindow::remove( bool b)
       printf("No selection\n");
       return;
    }
-    
+
+   bool previewDialogOpen = (previewDialog != NULL);
+
+   closePreview();
+
      int itag=item->type();
      ADM_assert(itag>ACTIVE_FILTER_BASE);
      itag-=ACTIVE_FILTER_BASE;
@@ -241,15 +276,25 @@ void filtermainWindow::remove( bool b)
               else
                   setSelected(nb_active_filter-1);
             }
-  
+
+			if (previewDialogOpen)
+				preview(true);
 }
 #define MAKE_BUTTON(button,call) \
 void filtermainWindow::button( bool b) \
 { \
-    call(); \
-    getFirstVideoFilter (); \
-    buildActiveFilterList ();  \
-	setSelected(nb_active_filter - 1); \
+    if (call()) \
+	{ \
+		bool previewDialogOpen = (previewDialog != NULL); \
+\
+		closePreview(); \
+		getFirstVideoFilter (); \
+		buildActiveFilterList ();  \
+		setSelected(nb_active_filter - 1); \
+\
+		if (previewDialogOpen) \
+			preview(true); \
+	} \
 }
 MAKE_BUTTON(DVD,setDVD)
 MAKE_BUTTON(VCD,setVCD)
@@ -279,6 +324,11 @@ void filtermainWindow::configure( bool b)
      /**/
      
         if(!videofilters[itag].filter->configure (videofilters[itag - 1].filter)) return;
+
+		bool previewDialogOpen = (previewDialog != NULL);
+
+		closePreview();
+
         /* Recreate chain if needed , config has changed */
         CONFcouple *couple;
         videofilters[itag].filter->getCoupledConf (&couple);
@@ -286,6 +336,9 @@ void filtermainWindow::configure( bool b)
         getFirstVideoFilter ();
         buildActiveFilterList ();
 		setSelected(itag);
+
+		if (previewDialogOpen)
+			preview(true);
 }
 /**
         \fn     up( bool b)
@@ -308,6 +361,11 @@ void filtermainWindow::up( bool b)
      ADM_assert(itag);
      
      if (itag < 2) return;
+
+	 bool previewDialogOpen = (previewDialog != NULL);
+
+	 closePreview();
+
         // swap action parameter & action parameter -1
         FILTER tmp;
         memcpy (&tmp, &videofilters[itag - 1], sizeof (FILTER));
@@ -317,6 +375,9 @@ void filtermainWindow::up( bool b)
         getFirstVideoFilter ();
         buildActiveFilterList ();
         setSelected(itag-1);
+
+		if (previewDialogOpen)
+			preview(true);
 }
 /**
         \fn     down( bool b)
@@ -340,6 +401,10 @@ void filtermainWindow::down( bool b)
      
     if (((int) itag < (int) (nb_active_filter - 1)) && (itag))
         {
+			bool previewDialogOpen = (previewDialog != NULL);
+
+			closePreview();
+
             // swap action parameter & action parameter -1
             FILTER tmp;
             memcpy (&tmp, &videofilters[itag + 1], sizeof (FILTER));
@@ -349,6 +414,9 @@ void filtermainWindow::down( bool b)
             getFirstVideoFilter ();
             buildActiveFilterList ();
             setSelected(itag+1);
+
+			if (previewDialogOpen)
+				preview(true);
         }
 }
 /**
@@ -356,17 +424,14 @@ void filtermainWindow::down( bool b)
         \brief  Select family among color etc... 
 */
 
-void filtermainWindow::filterFamilyClick(QListWidgetItem *item)
+void filtermainWindow::filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
-    int family= ui.listFilterCategory->currentRow();
-    if(family>=0)
-        displayFamily(family);
+	int family = ui.listFilterCategory->currentRow();
+
+	if(family >= 0)
+		displayFamily(family);
 }
-void filtermainWindow::filterFamilyClick(int  m)
-{
-        if(m>=0)
-                displayFamily(m);
-}
+
 void filtermainWindow::displayFamily(uint32_t family)
 {
   printf("Family :%u\n",family);
@@ -387,6 +452,19 @@ void filtermainWindow::displayFamily(uint32_t family)
 
   if (vec.size())
 	  availableList->setCurrentRow(0);
+}
+
+void filtermainWindow::activeItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+	if (previewDialog && previewDialog->isVisible())
+	{
+		int itag = current->type();
+
+		ADM_assert(itag > ACTIVE_FILTER_BASE);
+		itag -= ACTIVE_FILTER_BASE;
+
+		previewDialog->resetVideoStream(videofilters[itag].filter);
+	}
 }
 
 /**
@@ -444,6 +522,10 @@ void filtermainWindow::partial( bool b)
         
         if(replace->configure (videofilters[itag - 1].filter))
         {
+			bool previewDialogOpen = (previewDialog != NULL);
+
+			closePreview();
+
             delete videofilters[itag].filter;
             if (conf) delete conf;
             videofilters[itag].filter = replace;
@@ -453,9 +535,47 @@ void filtermainWindow::partial( bool b)
             getFirstVideoFilter ();
             buildActiveFilterList ();
 			setSelected(itag);
+
+			if (previewDialogOpen)
+				preview(true);
         }
         else delete replace;
 }
+
+void filtermainWindow::loadScript(bool)
+{
+	bool previewDialogOpen = (previewDialog != NULL);
+
+	closePreview();
+
+#ifdef USE_LIBXML2
+	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoadXml);
+#else
+	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoad);
+#endif
+
+	getFirstVideoFilter ();
+	buildActiveFilterList ();
+	setSelected(nb_active_filter - 1);
+
+	if (previewDialogOpen)
+		preview(true);
+}
+
+void filtermainWindow::saveScript(bool)
+{
+	if (nb_active_filter < 2)
+	{
+		GUI_Error_HIG (QT_TR_NOOP("Nothing to save"), NULL);
+	}
+	else
+#ifdef USE_LIBXML2
+		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSaveXml);
+#else
+		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSave);
+#endif
+}
+
 /**
         \fn setup
         \brief Prepare 
@@ -496,29 +616,39 @@ void filtermainWindow::buildActiveFilterList(void)
 }
   /**
   */
-filtermainWindow::filtermainWindow()     : QDialog()
+filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
  {
         
     ui.setupUi(this);
-    setupFilters();  
-      
+    setupFilters();
+
+	previewDialog = NULL;
+	previewDialogX = INT_MIN;
+	previewDialogY = INT_MIN;
+	previewFrameIndex = curframe;
+
     availableList=ui.listWidgetAvailable;
     activeList=ui.listWidgetActive;
-    connect(ui.listFilterCategory,SIGNAL(itemDoubleClicked(QListWidgetItem *)),
-                this,SLOT(filterFamilyClick(QListWidgetItem *)));
-    connect(ui.listFilterCategory,SIGNAL(itemClicked(QListWidgetItem *)),
-                this,SLOT(filterFamilyClick(QListWidgetItem *)));
+
+	ui.buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+	ui.buttonBox->addButton(ui.pushButtonPreview, QDialogButtonBox::ActionRole);
+
+	connect(ui.listFilterCategory, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(filterFamilyItemChanged(QListWidgetItem*, QListWidgetItem *)));
 
     connect(activeList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(activeDoubleClick(QListWidgetItem *)));
+	connect(activeList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)), this, SLOT(activeItemChanged(QListWidgetItem*, QListWidgetItem*)));
     connect(availableList,SIGNAL(itemDoubleClicked(QListWidgetItem *)),this,SLOT(allDoubleClick(QListWidgetItem *)));
-    
+
     connect((ui.toolButtonConfigure),SIGNAL(clicked(bool)),this,SLOT(configure(bool)));
     connect((ui.toolButtonAdd),SIGNAL(clicked(bool)),this,SLOT(add(bool)));
     connect((ui.pushButtonRemove),SIGNAL(clicked(bool)),this,SLOT(remove(bool)));
     connect((ui.toolButtonUp),SIGNAL(clicked(bool)),this,SLOT(up(bool)));
     connect((ui.toolButtonDown),SIGNAL(clicked(bool)),this,SLOT(down(bool)));
     connect((ui.toolButtonPartial),SIGNAL(clicked(bool)),this,SLOT(partial(bool)));
-    connect(ui.buttonClose, SIGNAL(clicked(bool)), this, SLOT(accept()));
+
+	connect(ui.toolButtonLoad, SIGNAL(clicked(bool)), this, SLOT(loadScript(bool)));
+	connect(ui.toolButtonSaveScript, SIGNAL(clicked(bool)), this, SLOT(saveScript(bool)));
+
     connect(ui.pushButtonDVD, SIGNAL(clicked(bool)), this, SLOT(DVD(bool)));
     connect(ui.pushButtonVCD, SIGNAL(clicked(bool)), this, SLOT(VCD(bool)));
     connect(ui.pushButtonSVCD, SIGNAL(clicked(bool)), this, SLOT(SVCD(bool)));
@@ -532,6 +662,12 @@ filtermainWindow::filtermainWindow()     : QDialog()
     buildActiveFilterList();
 	setSelected(nb_active_filter - 1);
  }
+
+filtermainWindow::~filtermainWindow()
+{
+	if (previewDialog)
+		delete previewDialog;
+}
 /*******************************************************/
 
 int GUI_handleVFilter(void);
@@ -545,10 +681,10 @@ static void updateFilterList (filtermainWindow *dialog);
 */
 int GUI_handleVFilter(void)
 {
-        filtermainWindow dialog;
-        if(QDialog::Accepted==dialog.exec())
-        {
-        }
+	filtermainWindow dialog(QuiMainWindows);
+
+	dialog.exec();
+
 	return 0;
 }
 /** 

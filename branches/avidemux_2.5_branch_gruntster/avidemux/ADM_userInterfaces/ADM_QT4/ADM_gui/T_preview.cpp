@@ -15,8 +15,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QtGui/QFrame>
-#include <QtGui/QImage>
 #include <QtGui/QPainter>
 
 /* Probably on unix/X11 ..*/
@@ -27,7 +25,7 @@
 #endif
 
 #include "T_preview.h"
-#include "Q_seekablePreview.h"
+#include "Q_preview.h"
 #include "../ADM_render/GUI_render.h"
 #include "../ADM_render/GUI_accelRender.h"
     
@@ -39,20 +37,40 @@ extern QWidget *QuiMainWindows;
  
 extern void UI_purge( void );
 
-void DIA_previewInit(uint32_t width, uint32_t height) {}
-uint8_t DIA_previewUpdate(uint8_t *data) {return 1;}
-void DIA_previewEnd(void) {}
-uint8_t DIA_previewStillAlive(void) {return 1;}
+static Ui_previewWindow *previewWindow = NULL;
 
-uint8_t	DIA_filterPreview(const char *captionText, AVDMGenericVideoStream *videoStream, uint32_t frame)
+void DIA_previewInit(uint32_t width, uint32_t height)
 {
-	ADM_assert(frame <= videoStream->getInfo()->nb_frames);
-
-	printf("** DIA_filterPreview %i **\n", frame);
-	Ui_seekablePreviewWindow previewDialog(videoStream, frame);
-
-	previewDialog.exec();
+	previewWindow = new Ui_previewWindow(QuiMainWindows, width, height);
+	previewWindow->show();
 }
+
+uint8_t DIA_previewStillAlive(void)
+{
+	return (previewWindow != NULL);
+}
+
+uint8_t DIA_previewUpdate(uint8_t *buffer)
+{
+	if (previewWindow)
+	{
+		previewWindow->update(buffer);
+
+		return 1;
+	}
+
+	return 0;
+}
+
+void DIA_previewEnd(void)
+{
+	if (previewWindow)
+	{
+		delete previewWindow;
+		previewWindow = NULL;
+	}
+}
+
 
 //****************************************************************************************************
 /*

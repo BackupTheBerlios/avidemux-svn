@@ -1,8 +1,8 @@
 /***************************************************************************
-                            Q_seekablePreview.h
-                            -------------------
+                                Q_preview.h
+                                -----------
 
-    begin                : Fri Sep 5 2008
+    begin                : Mon Sep 8 2008
     copyright            : (C) 2008 by gruntster
  ***************************************************************************/
 
@@ -15,25 +15,20 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "ui_seekablePreview.h"
+#include "ui_preview.h"
 
-#include "ADM_assert.h"
-#include "ADM_videoFilter.h"
 #include "DIA_flyDialog.h"
 #include "../ADM_dialog/DIA_flyPreview.h"
 
-class Ui_seekablePreviewWindow : public QDialog
+class Ui_previewWindow : public QDialog
 {
 	Q_OBJECT
 
 public:
 	ADM_QCanvas *canvas;
-	flySeekablePreview *seekablePreview;
-	Ui_seekablePreviewDialog ui;
-	Ui_seekablePreviewWindow(AVDMGenericVideoStream *videoStream, uint32_t defaultFrame = 0);
-	~Ui_seekablePreviewWindow();
-
-public slots:
-	void closeWindow();
-	void sliderChanged(int value);
+	flyPreview *preview;
+	Ui_previewDialog ui;
+	Ui_previewWindow(QWidget *parent, int width, int height);
+	~Ui_previewWindow();
+	void update(uint8_t *buffer);
 };
