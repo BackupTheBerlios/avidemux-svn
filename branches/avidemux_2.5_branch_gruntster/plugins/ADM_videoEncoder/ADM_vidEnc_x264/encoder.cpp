@@ -41,6 +41,8 @@ extern "C"
 	void x264Encoder_close(void) { encoder.close(); }
 }
 
+extern void convertPathToAnsi(const char *path, char **ansiPath);
+
 x264Encoder::x264Encoder(void)
 {
 	_loader = NULL;
@@ -190,8 +192,12 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 	if (_logFileName)
 		delete [] _logFileName;
 
+#ifdef __WIN32
+	convertPathToAnsi(properties->logFileName, &_logFileName);
+#else
 	_logFileName = new char[strlen(properties->logFileName) + 1];
 	strcpy(_logFileName, properties->logFileName);
+#endif
 
 	updateEncodeParameters(&_properties);
 

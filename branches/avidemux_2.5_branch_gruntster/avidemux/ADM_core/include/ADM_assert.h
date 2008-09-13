@@ -38,6 +38,9 @@ size_t          ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream);
 size_t          ADM_fwrite (void *ptr, size_t size, size_t n, FILE *sstream);
 FILE            *ADM_fopen (const char *file, const char *mode);
 int             ADM_fclose (FILE *file);
+int				ADM_unlink(const char *filename);
+int				ADM_access(const char *path, int mode);
+
 uint8_t         ADM_fileExist(char *name);
 uint8_t         ADM_mkdir(const char *name);
 
@@ -70,6 +73,10 @@ extern adm_fast_memcpy myAdmMemcpy;
 #define fwrite  ADM_fwrite
 #define fopen   ADM_fopen
 #define fclose  ADM_fclose
+#ifdef __WIN32
+#define unlink	ADM_unlink
+#define access	ADM_access
+#endif
 
 #ifndef __APPLE__
 #ifndef ADM_LEGACY_PROGGY

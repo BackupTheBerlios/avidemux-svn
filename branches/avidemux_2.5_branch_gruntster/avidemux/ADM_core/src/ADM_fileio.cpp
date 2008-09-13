@@ -184,6 +184,34 @@ int ADM_fclose(FILE *file)
 	return fclose(file); 
 }
 
+int ADM_unlink(const char *filename)
+{
+#ifdef __WIN32
+	int filenameLength = utf8StringToWideChar(filename, -1, NULL);
+	wchar_t wcFilename[filenameLength];
+
+	utf8StringToWideChar(filename, -1, wcFilename);
+
+	return _wunlink(wcFilename);
+#else
+	return unlink(filename);
+#endif
+}
+
+int ADM_access(const char *path, int mode)
+{
+#ifdef __WIN32
+	int pathLength = utf8StringToWideChar(path, -1, NULL);
+	wchar_t wcPath[pathLength];
+
+	utf8StringToWideChar(path, -1, wcPath);
+
+	return _waccess(wcPath, mode);
+#else
+	return access(path, mode);
+#endif
+}
+
 /*
       Get the  directory where jobs are stored
 ******************************************************/
