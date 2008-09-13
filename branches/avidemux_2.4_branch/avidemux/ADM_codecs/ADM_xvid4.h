@@ -112,6 +112,7 @@ protected: public:xvid4EncoderPass1 (uint32_t width,
 
   virtual uint8_t init (uint32_t val, uint32_t fps1000,
 			xvid4EncParam * param);
+  ~xvid4EncoderPass1();
   
 };
 class xvid4EncoderPass2:public xvid4Encoder
@@ -126,7 +127,7 @@ public:xvid4EncoderPass2 (uint32_t width,
 
   virtual uint8_t init (uint32_t val, uint32_t fps1000,
 			xvid4EncParam * param);
-  
+  ~xvid4EncoderPass2();
 };
 
 

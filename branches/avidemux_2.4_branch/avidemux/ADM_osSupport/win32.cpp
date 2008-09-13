@@ -2,12 +2,17 @@
 
 #ifdef ADM_WIN32
 #define WIN32_CLASH
+#define WINVER 0x500
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
+#include <algorithm>
+#include <string>
 
 #include "default.h" 
 #include "ADM_misc.h"
-#include "windows.h"
+
 #include "io.h"
 #include "winsock2.h"
 #include "ADM_assert.h" 
@@ -498,5 +503,102 @@ int ansiStringToUtf8(const char *ansiString, int ansiStringLength, char *utf8Str
 		wideCharStringToUtf8(wideCharString, wideCharStringLen, utf8String);
 
 	return multiByteStringLen;
+}
+
+// Convert string from Wide Char to ANSI code page
+int wideCharStringToAnsi(const wchar_t *wideCharString, int wideCharStringLength, char *ansiString, const char *filler)
+{
+	int flags = WC_COMPOSITECHECK;
+
+	if (filler)
+		flags |= WC_NO_BEST_FIT_CHARS | WC_DEFAULTCHAR;
+
+	int ansiStringLen = WideCharToMultiByte(CP_ACP, flags, wideCharString, wideCharStringLength, NULL, 0, filler, NULL);
+
+	if (ansiString)
+		WideCharToMultiByte(CP_ACP, flags, wideCharString, wideCharStringLength, ansiString, ansiStringLen, filler, NULL);
+
+	return ansiStringLen;
+}
+
+// Convert UTF-8 file path to an ANSI path with short 8.3 directories
+void convertPathToAnsi(const char *path, char **ansiPath)
+{
+	const char *filename = GetFileName(path);
+	bool statFile = false;
+	int filenameLength = strlen(filename);
+	int directoryLength = filename - path;
+
+	// Clip off .stat extension and tack it on later
+	if (filenameLength >= 5 && strcmp(filename + filenameLength - 5, ".stat") == 0)
+	{
+		statFile = true;
+		filenameLength -= 5;
+	}
+
+	// Convert directory to wide char
+	int wcDirLength = utf8StringToWideChar(path, directoryLength, NULL) + 1;
+	int wcFileLength = utf8StringToWideChar(filename, filenameLength, NULL) + 1;
+	wchar_t *wcDirectory = new wchar_t[wcDirLength];
+
+	memset(wcDirectory, 0, wcDirLength * sizeof(wchar_t));
+	utf8StringToWideChar(path, directoryLength, wcDirectory);
+
+	// Get short directory
+	int shortDirLength = GetShortPathNameW(wcDirectory, NULL, 0);
+	wchar_t *wcShortDir = new wchar_t[shortDirLength + wcFileLength];
+
+	memset(wcShortDir, 0, (shortDirLength + wcFileLength) * sizeof(wchar_t));
+	GetShortPathNameW(wcDirectory, wcShortDir, shortDirLength);
+	delete [] wcDirectory;
+
+	// Append filename to directory
+	utf8StringToWideChar(filename, filenameLength, wcShortDir + (shortDirLength - 1));
+
+	// Convert path to ANSI
+	int dirtyAnsiPathLength = wideCharStringToAnsi(wcShortDir, -1, NULL, "?");
+	char *dirtyAnsiPath = new char[dirtyAnsiPathLength];
+
+	wideCharStringToAnsi(wcShortDir, -1, dirtyAnsiPath, "?");
+
+	// Clean converted path
+	std::string cleanPath = std::string(dirtyAnsiPath);
+	std::string::iterator lastPos = std::remove(cleanPath.begin(), cleanPath.end(), '?');
+
+	cleanPath.erase(lastPos, cleanPath.end());
+	delete [] dirtyAnsiPath;
+
+	// Make sure we have a filename, otherwise use "avidemux" as default
+	if (filenameLength || statFile)
+	{
+		filename = GetFileName(cleanPath.c_str());
+
+		int filenameStart = filename - cleanPath.c_str();
+
+		if (filenameStart)
+		{
+			int filenameEnd = cleanPath.length();
+
+			// Ignore extension if it exists
+			int extensionIndex = cleanPath.rfind(".", filenameEnd);
+
+			if (extensionIndex != std::string::npos)
+				filenameEnd = extensionIndex;
+
+			// Create a filename if one doesn't exist
+			if (filenameEnd - filenameStart == 0)
+				cleanPath.insert(filenameStart, "avidemux");
+		}
+		else
+			cleanPath.append("avidemux");
+
+		if (statFile)
+			cleanPath.append(".stat");
+	}
+
+	*ansiPath = new char[cleanPath.length() + 1];
+	strcpy(*ansiPath, cleanPath.c_str());
+
+	delete [] wcShortDir;
 }
 #endif

@@ -36,6 +36,9 @@ extern "C"
 #define HANDLE ((x264_t *)_handle)
 #define PICS ((x264_picture_t *)_pic)
 
+#ifdef __WIN32
+extern void convertPathToAnsi(const char *path, char **ansiPath);
+#endif
 
 typedef struct avcc		// for avcc atom
 {
@@ -436,14 +439,26 @@ uint8_t
   param.rc.b_stat_write = 1;
   param.rc.b_stat_read = 0;
   if (!zparam->logfile)
-    param.rc.psz_stat_out = "/tmp/x264_log.tmp";
+    param.rc.psz_stat_out = ADM_strdup("/tmp/x264_log.tmp");
   else
-    param.rc.psz_stat_out = zparam->logfile;
+  {
+#ifdef __WIN32
+	char *logFile;
+
+	convertPathToAnsi(zparam->logfile, &logFile);
+	param.rc.psz_stat_out = logFile;
+#else
+	param.rc.psz_stat_out = ADM_strdup(zparam->logfile);
+#endif
+  }
+
   printf ("[x264] codec using %s as statfile\n", param.rc.psz_stat_out);
   return preamble (fps1000, &admParam);
 }
 X264EncoderPass1::~X264EncoderPass1 ()
 {
+	delete param.rc.psz_stat_out;
+	param.rc.psz_stat_out = NULL;
   stopEncoder ();
 }
 //*********************Pass1***************
@@ -470,17 +485,28 @@ uint8_t
   param.rc.b_stat_write = 0;
   param.rc.b_stat_read = 1;
 
-
   if (!zparam->logfile)
-    param.rc.psz_stat_in = "/tmp/x264_log.tmp";
+    param.rc.psz_stat_in = ADM_strdup("/tmp/x264_log.tmp");
   else
-    param.rc.psz_stat_in = zparam->logfile;
+  {
+#ifdef __WIN32
+	char *logFile;
+
+	convertPathToAnsi(zparam->logfile, &logFile);
+	param.rc.psz_stat_in = logFile;
+#else
+	param.rc.psz_stat_in = ADM_strdup(zparam->logfile);
+#endif
+  }
+
   printf ("[x264] using %s as statfile\n", param.rc.psz_stat_in);
 
   return preamble (fps1000, &admParam);
 }
 X264EncoderPass2::~X264EncoderPass2 ()
 {
+	delete param.rc.psz_stat_in;
+	param.rc.psz_stat_in = NULL;
   stopEncoder ();
 }
   // Create avcc atom as extradata

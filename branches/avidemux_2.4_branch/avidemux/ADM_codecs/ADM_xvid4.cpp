@@ -37,6 +37,10 @@
 #include "ADM_editor/ADM_edit.hxx"
 extern ADM_Composer *video_body;
 
+#ifdef __WIN32
+extern void convertPathToAnsi(const char *path, char **ansiPath);
+#endif
+
 static const int motion_presets[] = {
   0,
   0,
@@ -655,7 +659,15 @@ uint8_t
 
 
   pass1.version = XVID_VERSION;
-  pass1.filename = (char *) _param.logName;
+
+#ifdef __WIN32
+	char *logFile;
+
+	convertPathToAnsi(_param.logName, &logFile);
+	pass1.filename = logFile;
+#else
+	pass1.filename = ADM_strdup(_param.logName);
+#endif
 
   xvid_enc_create.plugins = plugins;
   xvid_enc_create.num_plugins = 1;
@@ -682,7 +694,11 @@ uint8_t
   return 1;
 }
 
-
+xvid4EncoderPass1::~xvid4EncoderPass1()
+{
+	delete pass1.filename;
+	pass1.filename = NULL;
+}
 
 // *************************************************
 // *************************************************
@@ -717,7 +733,15 @@ uint8_t
   plugins[1].param = NULL;
 
   pass2.version = XVID_VERSION;
-  pass2.filename = (char *) _param.logName;
+
+#ifdef __WIN32
+	char *logFile;
+
+	convertPathToAnsi(_param.logName, &logFile);
+	pass2.filename = logFile;
+#else
+	pass2.filename = ADM_strdup(_param.logName);
+#endif
 
   pass2.bitrate = br;		// Average bitrate
 #define CPY(x) pass2.x=_param.x;printf("[xvid] "#x"=%d\n",pass2.x);
@@ -758,5 +782,9 @@ uint8_t
   return 1;
 }
 
-
+xvid4EncoderPass2::~xvid4EncoderPass2()
+{
+	delete pass2.filename;
+	pass2.filename = NULL;
+}
 #endif
