@@ -5,7 +5,9 @@ INCLUDE(admCheckGettext)
 
 checkGettext()
 
-SET(ADM_LOCALE "${CMAKE_INSTALL_PREFIX}/share/locale")
+IF (NOT ADMLOCALE)
+	SET(ADM_LOCALE "${CMAKE_INSTALL_PREFIX}/share/locale")
+ENDIF (NOT ADMLOCALE)
 
 ########################################
 # SDL

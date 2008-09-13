@@ -793,6 +793,15 @@ int UI_readCurTime(uint16_t &hh, uint16_t &mm, uint16_t &ss, uint16_t &ms)
 	return success;
 }
 
+void UI_iconify( void )
+{
+	QuiMainWindows->hide();
+}
+void UI_deiconify( void )
+{
+	QuiMainWindows->showNormal();
+}
+
 void UI_purge( void )
 {
 	QCoreApplication::processEvents ();

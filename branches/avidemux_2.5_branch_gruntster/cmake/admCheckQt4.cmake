@@ -6,6 +6,7 @@ MACRO(checkQt4)
 		MESSAGE(STATUS "*****************")
 
 		IF (QT4)
+			SET(QT_MIN_VERSION 4.2.0)
 			FIND_PACKAGE(Qt4)	
 			STRING(REGEX REPLACE "[\\]" "/" QT_INCLUDES "${QT_INCLUDES}")	# backslashes aren't taken care of properly on Windows
 			PRINT_LIBRARY_INFO("Qt 4" QT4_FOUND "${QT_INCLUDES} ${QT_DEFINITIONS}" "${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY}")

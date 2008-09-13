@@ -17,6 +17,7 @@
 #include "ADM_userInterfaces/ADM_commonUI/DIA_working.h"
 #include "DIA_encoding.h"
 #include "ADM_video/ADM_vidMisc.h"
+#include "../ADM_toolkit_gtk/ADM_tray_gtk.h"
 
 static GtkWidget *dialog=NULL;
 static GtkWidget	*create_dialog1 (void);
@@ -96,7 +97,7 @@ uint32_t useTray=0;
 		{
 			gtk_window_iconify(GTK_WINDOW(dialog));
 			UI_iconify();
-			tray = new ADM_tray(dialog);
+			tray = new ADM_gtktray(dialog);
 		}
 		else
 			tray = NULL;

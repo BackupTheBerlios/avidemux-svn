@@ -7,8 +7,14 @@ class encodingWindow : public QDialog
 {
      Q_OBJECT
 
+ private:
+	 bool useTray;
+
+ protected:
+	void changeEvent(QEvent *event);
+
  public:
-     encodingWindow();
+     encodingWindow(QDialog *parent, bool useTray);
      Ui_encodingDialog ui;
 
  public slots:

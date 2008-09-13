@@ -20,12 +20,16 @@
 #include "DIA_coreToolkit.h"
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
 #include "ADM_video/ADM_vidMisc.h"
+#include "../ADM_gui/ADM_qtray.h"
 
+extern void UI_iconify(void);
+extern void UI_deiconify(void);
 extern void UI_purge(void);
 static int stopReq=0;
 
-encodingWindow::encodingWindow() : QDialog()
+encodingWindow::encodingWindow(QDialog *parent, bool useTray) : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint)
  {
+	this->useTray = useTray;
 	ui.setupUi(this);
 
 #ifndef __WIN32
@@ -56,6 +60,30 @@ encodingWindow::encodingWindow() : QDialog()
 	ui.comboBoxPriority->setCurrentIndex(priority);
 #endif
  }
+
+void encodingWindow::changeEvent(QEvent *event)
+{
+	if (event->type() == QEvent::WindowStateChange)
+	{
+		QDialog *parent = (QDialog*)this->parent();
+
+		if (isMinimized())
+		{
+			if (useTray)
+			{
+				hide();
+				UI_iconify();
+			}
+			else
+				parent->showMinimized();
+		}
+		else
+		{
+			showNormal();
+			parent->showNormal();
+		}
+	}
+}
 
 void encodingWindow::buttonPressed(void)
 {
@@ -102,10 +130,13 @@ void encodingWindow::shutdownChanged(int state)
 /*************************************/
 static char string[80];
 static encodingWindow *window=NULL;
+extern QDialog *QuiMainWindows;
 DIA_encoding::DIA_encoding( uint32_t fps1000 )
 {
-uint32_t useTray=0;
+	uint32_t useTray = 0;
 
+	if (!prefs->get(FEATURE_USE_SYSTRAY, &useTray))
+		useTray = 0;
 
         ADM_assert(window==NULL);
         stopReq=0;
@@ -114,7 +145,7 @@ uint32_t useTray=0;
         _audioSize=0;
         _videoSize=0;
         _current=0;
-        window=new encodingWindow();
+        window=new encodingWindow(QuiMainWindows, useTray);
         setFps(fps1000);
 		_originalPriority=getpriority(PRIO_PROCESS, 0);
         _lastTime=0;
@@ -123,8 +154,16 @@ uint32_t useTray=0;
         _total=1000;
 
          window->setModal(TRUE);
-         window->show();
+		 window->show();
 
+		 if (useTray)
+		 {
+			 window->hide();
+			 UI_iconify();
+			 tray = new ADM_qtray(window);
+		 }
+		 else
+			 tray = NULL;
 }
 /**
     \fn setFps(uint32_t fps)
@@ -155,6 +194,7 @@ DIA_encoding::~DIA_encoding( )
 
 	if(window) delete window;
 	window=NULL;
+	UI_deiconify();
 
 	if (shutdownRequired && !stopReq)
 	{
@@ -372,6 +412,9 @@ uint32_t tim;
             float f=_lastnb*100;
             f=f/_total;
             WIDGET(progressBar)->setValue((int)f);
+
+			if(tray)
+				tray->setPercent((int)f);
           
         _totalSize=_audioSize+_videoSize;
         setSize(_totalSize>>20);
