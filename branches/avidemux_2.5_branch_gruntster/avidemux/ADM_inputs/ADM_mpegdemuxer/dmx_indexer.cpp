@@ -235,15 +235,10 @@ uint8_t dmx_indexer(const char *mpeg,const char *file,uint32_t preferedAudio,uin
               
         printf("*********Indexing Ended (%d audio tracks)***********\n",nbTracks);
 
-         switch(run.imageAR)
-         {
-           case 1: 	qfprintf(out,"# Video Aspect Ratio : %s\n", "1:1" );break;
-           case 2: 	qfprintf(out,"# Video Aspect Ratio : %s\n", "4:3" );break;
-           case 3: 	qfprintf(out,"# Video Aspect Ratio : %s\n", "16:9" );break;
-           default:
-              printf("imageAR=%u\n",run.imageAR);
-              GUI_Error_HIG(QT_TR_NOOP("Can't determine aspect ratio"),NULL);
-	}
+		if (run.imageDarNum == 0 || run.imageDarDen == 0)
+			GUI_Error_HIG(QT_TR_NOOP("Can't determine aspect ratio"),NULL);
+		else
+			qfprintf(out,"# Video Aspect Ratio : %d:%d\n", run.imageDarNum, run.imageDarDen);
 
         /* Now update......... */
           fseeko(out,0,SEEK_SET);
