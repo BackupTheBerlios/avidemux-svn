@@ -58,11 +58,9 @@ diaElemFrame::~diaElemFrame()
 }
 void diaElemFrame::setMe(void *dialog, void *opaque,uint32_t line)
 {
-  
    QGridLayout *layout=(QGridLayout*) opaque;  
-   QGridLayout *layout2;
-   
-   layout2=new QGridLayout((QWidget *)dialog);
+   QGridLayout *layout2 = new QGridLayout();
+
    myWidget=(void *)layout2; 
 
     QLabel *text=new QLabel( (QWidget *)dialog);
@@ -78,7 +76,6 @@ void diaElemFrame::setMe(void *dialog, void *opaque,uint32_t line)
     elems[i]->setMe(dialog,layout2,v); 
     v+=elems[i]->getSize();
   }
-  myWidget=(void *)layout2;
 }
 //*****************************
 void diaElemFrame::getMe(void)
