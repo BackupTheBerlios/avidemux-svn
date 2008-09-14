@@ -33,8 +33,8 @@ void ADM_flyDialogQt4::postInit(uint8_t reInit)
 	QWidget *graphicsView = ((ADM_QCanvas*)_canvas)->parentWidget();
 	QSlider  *slider=(QSlider *)_slider;
 
-	graphicsView->setMinimumSize(_w, _h);
-	graphicsView->resize(_w, _h);
+	graphicsView->setMinimumSize(_zoomW, _zoomH);
+	graphicsView->resize(_zoomW, _zoomH);
 
 	if (slider)
 		slider->setMaximum(_in->getInfo()->nb_frames);
