@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4324" date="2008-09-11">
+    <comment>Patched GTK+ 2.14.1 to fix incorrect spin button ranges.</comment>
+  </buildentry>
+  <buildentry revision="4316" date="2008-09-08">
+    <comment>Updated GLib to version 2.18.0-2.</comment>
+    <comment>Updated GTK+ to version 2.14.1-1.</comment>
+    <comment>Updated x264 to r965 (patched).</comment>
+  </buildentry>
   <buildentry revision="4304" date="2008-09-02">
     <comment>Updated Qt to version 4.4.1.</comment>
     <comment>Updated x264 to r956 (patched).</comment>

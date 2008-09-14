@@ -7,7 +7,7 @@
 !include revision.nsh
 !include builddir.nsh
 
-Name "Avidemux 2.4.3 r${REVISION}"
+Name "Avidemux 2.4.3 beta r${REVISION}"
 
 SetCompressor /SOLID lzma
 SetCompressorDictSize 96
@@ -96,7 +96,7 @@ XPStyle on
 ShowInstDetails nevershow
 VIProductVersion 2.4.3.${REVISION}
 VIAddVersionKey ProductName Avidemux
-VIAddVersionKey ProductVersion "${VERSION}"
+VIAddVersionKey ProductVersion "${VERSION} (beta)"
 VIAddVersionKey FileVersion ""
 VIAddVersionKey FileDescription ""
 VIAddVersionKey LegalCopyright ""
@@ -240,7 +240,7 @@ SectionGroup /e "User interfaces" SecGrpUI
     SectionEnd
     
     Section Qt4 SecUiQt4
-        SectionIn 2
+        SectionIn 1 2
         SetOutPath $INSTDIR
         SetOverwrite on
         File ${BUILDDIR}\QtGui4.dll
