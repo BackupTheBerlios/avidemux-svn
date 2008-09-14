@@ -406,6 +406,9 @@
                 </item>
                 <item>
                  <widget class="QSpinBox" name="spinBox_TimeValue" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="sizePolicy" >
                    <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
                     <horstretch>0</horstretch>
@@ -422,6 +425,9 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="label_9" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="text" >
                    <string>ms</string>
                   </property>
@@ -2522,5 +2528,38 @@
  <resources>
   <include location="avidemux.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_TimeShift</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox_TimeValue</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>59</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>119</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_TimeShift</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>59</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>160</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
