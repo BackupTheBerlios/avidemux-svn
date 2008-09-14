@@ -61,6 +61,7 @@ class Ui_asharpWindow : public QDialog
  private slots:
    void sliderUpdate(int foo);
    void valueChanged(int foo);
+   void valueChanged(double foo);
 
  private:
      
@@ -84,7 +85,7 @@ class Ui_asharpWindow : public QDialog
 
 
         connect( ui.horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(sliderUpdate(int)));
-#define SPINNER(x) connect( ui.doubleSpinBox##x,SIGNAL(valueChanged(int)),this,SLOT(valueChanged(int))); 
+#define SPINNER(x) connect( ui.doubleSpinBox##x,SIGNAL(valueChanged(double)),this,SLOT(valueChanged(double))); 
           SPINNER(Treshold);
           SPINNER(Strength);
           SPINNER(Block);
@@ -109,6 +110,14 @@ Ui_asharpWindow::~Ui_asharpWindow()
   canvas=NULL;
 }
 void Ui_asharpWindow::valueChanged( int f )
+{
+  if(lock) return;
+  lock++;
+  myCrop->update();
+  lock--;
+}
+
+void Ui_asharpWindow::valueChanged( double f )
 {
   if(lock) return;
   lock++;
