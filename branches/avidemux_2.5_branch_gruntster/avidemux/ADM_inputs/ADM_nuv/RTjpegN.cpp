@@ -2740,12 +2740,12 @@ int RTjpeg::SetSize(int *w, int *h)
 
     if (key_rate > 0)
     {
-        unsigned long tmp;
+        uintptr_t tmp;
         if (old)
             delete [] old_start;
         old_start = new int16_t[((4*width*height)+32)];
 
-	tmp = (unsigned long)old_start;
+	tmp = (uintptr_t)old_start;
         tmp += 32;
         tmp = tmp>>5;
 	
@@ -2762,7 +2762,7 @@ int RTjpeg::SetSize(int *w, int *h)
 
 int RTjpeg::SetIntra(int *key, int *lm, int *cm)
 {
-    unsigned long tmp;
+    uintptr_t tmp;
  
     if (*key < 0) 
         *key = 0;
@@ -2790,7 +2790,7 @@ int RTjpeg::SetIntra(int *key, int *lm, int *cm)
     if (old) 
         delete [] old_start;
     old_start = new int16_t[((4*width*height)+32)];
-    tmp = (unsigned long)old_start;
+    tmp = (uintptr_t)old_start;
     tmp += 32;
     tmp = tmp >> 5;
     old = (int16_t *)(tmp << 5);

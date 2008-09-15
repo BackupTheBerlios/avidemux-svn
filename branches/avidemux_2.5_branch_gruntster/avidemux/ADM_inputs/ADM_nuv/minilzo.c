@@ -34,6 +34,8 @@
  *   http://wildsau.idv.uni-linz.ac.at/mfx/lzo.html
  */
 
+#include "ADM_inttype.h"
+
 #define __LZO_IN_MINILZO
 #include "config.h"
 #ifdef MINILZO_HAVE_CONFIG_H
@@ -354,40 +356,9 @@ extern "C" {
 #  endif
 #endif
 #if !defined(__LZO_HAVE_PTR_T)
-#  if defined(SIZEOF_CHAR_P) && defined(SIZEOF_UNSIGNED_LONG)
-#    if (SIZEOF_CHAR_P == SIZEOF_UNSIGNED_LONG)
-       typedef unsigned long    lzo_ptr_t;
-       typedef long             lzo_sptr_t;
-#      define __LZO_HAVE_PTR_T
-#    endif
-#  endif
-#endif
-#if !defined(__LZO_HAVE_PTR_T)
-#  if defined(SIZEOF_CHAR_P) && defined(SIZEOF_UNSIGNED)
-#    if (SIZEOF_CHAR_P == SIZEOF_UNSIGNED)
-       typedef unsigned int     lzo_ptr_t;
-       typedef int              lzo_sptr_t;
-#      define __LZO_HAVE_PTR_T
-#    endif
-#  endif
-#endif
-#if !defined(__LZO_HAVE_PTR_T)
-#  if defined(SIZEOF_CHAR_P) && defined(SIZEOF_UNSIGNED_SHORT)
-#    if (SIZEOF_CHAR_P == SIZEOF_UNSIGNED_SHORT)
-       typedef unsigned short   lzo_ptr_t;
-       typedef short            lzo_sptr_t;
-#      define __LZO_HAVE_PTR_T
-#    endif
-#  endif
-#endif
-#if !defined(__LZO_HAVE_PTR_T)
-#  if defined(LZO_HAVE_CONFIG_H) || defined(SIZEOF_CHAR_P)
-#    error "no suitable type for lzo_ptr_t"
-#  else
-     typedef unsigned long      lzo_ptr_t;
-     typedef long               lzo_sptr_t;
+     typedef uintptr_t    lzo_ptr_t;
+     typedef intptr_t     lzo_sptr_t;
 #    define __LZO_HAVE_PTR_T
-#  endif
 #endif
 
 #if defined(__LZO_DOS16) || defined(__LZO_WIN16)
