@@ -108,14 +108,14 @@ static int testsseill()
 
 static int x86_accel (void)
 {
-    long eax, ebx, ecx, edx;
+    intptr_t eax, ebx, ecx, edx;
     int32_t AMD;
     int32_t caps;
 
 	/* Slightly weirdified cpuid that preserves the ebx and edi required
 	   by gcc for PIC offset table and frame pointer */
 
-#ifdef __LP64__
+#ifdef HAVE_X86_64CPU
 #  define REG_b "rbx"
 #  define REG_S "rsi"
 #else
