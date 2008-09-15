@@ -66,7 +66,7 @@ extern "C"
 int rval = 0;
  int eax, ebx, ecx, edx;
  int max_std_level, max_ext_level, std_caps=0, ext_caps=0;
- long a, c;
+ intptr_t a, c;
 
  __asm__ __volatile__ (
                        /* See if CPUID instruction is supported ... */

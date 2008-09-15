@@ -140,7 +140,7 @@ int d0, d1, d2;
     "movsb\n"
     "2:"
     : "=&c" (d0), "=&D" (d1), "=&S" (d2)
-    :"0" (n/4), "q" (n),"1" ((long) to),"2" ((long) from)
+    :"0" (n/4), "q" (n),"1" ((intptr_t) to),"2" ((intptr_t) from)
     : "memory");
 
   return (to);
@@ -181,7 +181,7 @@ static void * sse_memcpy(void * to, const void * from, size_t len)
   {
     register unsigned long int delta;
     /* Align destinition to MMREG_SIZE -boundary */
-    delta = ((unsigned long int)uto)&(SSE_MMREG_SIZE-1);
+    delta = ((intptr_t)uto)&(SSE_MMREG_SIZE-1);
     if(delta)
     {
       delta=SSE_MMREG_SIZE-delta;
@@ -190,7 +190,7 @@ static void * sse_memcpy(void * to, const void * from, size_t len)
     }
     i = len >> 6; /* len/64 */
     len&=63;
-    if(((unsigned long)ufrom) & 15)
+    if(((intptr_t)ufrom) & 15)
       /* if SRC is misaligned */
       for(; i>0; i--)
       {
@@ -257,7 +257,7 @@ static void * mmx_memcpy(void * to, const void * from, size_t len)
   {
     register unsigned long int delta;
     /* Align destinition to MMREG_SIZE -boundary */
-    delta = ((unsigned long int)uto)&(MMX_MMREG_SIZE-1);
+    delta = ((intptr_t)uto)&(MMX_MMREG_SIZE-1);
     if(delta)
     {
       delta=MMX_MMREG_SIZE-delta;
@@ -324,7 +324,7 @@ static void * mmx2_memcpy(void * to, const void * from, size_t len)
   {
     register unsigned long int delta;
     /* Align destinition to MMREG_SIZE -boundary */
-    delta = ((unsigned long int)uto)&(MMX_MMREG_SIZE-1);
+    delta = ((intptr_t)uto)&(MMX_MMREG_SIZE-1);
     if(delta)
     {
       delta=MMX_MMREG_SIZE-delta;
