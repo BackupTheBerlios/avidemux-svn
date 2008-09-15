@@ -128,15 +128,10 @@ int luminance_mean_C(uint8_t *frame, int w, int h )
 static int pix_sum16_mmx(uint8_t * pix, int line_size)
 {
     const int h=16;
-#ifdef HAVE_X86_64_CPU
-    long int rline_size=line_size;
-    long int sum;
-    long int index= -line_size*h;
-#else    
-    int rline_size=line_size;
-    int sum;
-    int index= -line_size*h;
-#endif
+
+    intptr_t rline_size=line_size;
+    intptr_t sum;
+    intptr_t index= -line_size*h;
 
     __asm __volatile(
                 "pxor %%mm7, %%mm7		\n\t"
