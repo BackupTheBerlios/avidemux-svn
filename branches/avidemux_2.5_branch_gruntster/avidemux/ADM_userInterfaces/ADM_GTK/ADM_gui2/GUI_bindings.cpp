@@ -862,10 +862,10 @@ void UI_focusAfterActivate(GtkMenuItem * menuitem, gpointer user_data)
 	// return focus to window once Enter has been pressed
 	UNUSED_ARG(menuitem);
     Action act;
-    uint32_t aint;
+    intptr_t aint;
     if(update_ui) return; // no event sent
 
-    aint = (long int) user_data;
+    aint = (intptr_t) user_data;
     act = (Action) aint;
 
 	HandleAction(act);
@@ -928,10 +928,10 @@ void guiCallback(GtkMenuItem * menuitem, gpointer user_data)
 {
     UNUSED_ARG(menuitem);
     Action act;
-    uint32_t aint;
+    intptr_t aint;
     if(update_ui) return; // no event sent
 
-    aint = (long int) user_data;
+    aint = (intptr_t) user_data;
     act = (Action) aint;
     if(act==ACT_Scale)
     {

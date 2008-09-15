@@ -73,13 +73,13 @@ ADM_UI_TYPE UI_GetCurrentUI(void)
   return ADM_UI_QT4;
 }
 
-void getMainWindowHandles(long int *handle, long int *nativeHandle)
+void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle)
 {
-	*handle = (long int)QuiMainWindows;
+	*handle = (intptr_t)QuiMainWindows;
 
 #if defined(__APPLE__)
-	*nativeHandle = (long int)HIViewGetWindow(HIViewRef(QuiMainWindows->winId()));
+	*nativeHandle = (intptr_t)HIViewGetWindow(HIViewRef(QuiMainWindows->winId()));
 #else
-	*nativeHandle = (long int)QuiMainWindows->winId();
+	*nativeHandle = (intptr_t)QuiMainWindows->winId();
 #endif
 }

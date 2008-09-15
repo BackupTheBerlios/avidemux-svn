@@ -38,7 +38,7 @@ extern struct COMPRES_PARAMS *AllVideoCodec;
 extern int AllVideoCodecCount;
 extern uint8_t DIA_videoCodec(int *codecIndex);
 extern void UI_setVideoCodec(int i);
-extern void getMainWindowHandles(long int *handle, long int *nativeHandle);
+extern void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle);
 
 // Some static stuff
 void setVideoEncoderSettings(COMPRESSION_MODE mode, uint32_t param, uint32_t extraConf, uint8_t *extraData);

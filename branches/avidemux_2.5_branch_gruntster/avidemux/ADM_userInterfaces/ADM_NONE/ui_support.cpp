@@ -39,7 +39,7 @@ ADM_UI_TYPE UI_GetCurrentUI(void)
   return ADM_UI_CLI;
 }
 
-void getMainWindowHandles(long int *handle, long int *nativeHandle)
+void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle)
 {
 	*handle = 0;
 	*nativeHandle = 0;

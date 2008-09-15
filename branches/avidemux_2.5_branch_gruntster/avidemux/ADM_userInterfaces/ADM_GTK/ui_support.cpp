@@ -49,15 +49,15 @@ ADM_UI_TYPE UI_GetCurrentUI(void)
   return ADM_UI_GTK;
 }
 
-void getMainWindowHandles(long int *handle,long int *nativeHandle)
+void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle)
 {
-	*handle = (long int)guiRootWindow;
+	*handle = (intptr_t)guiRootWindow;
 
 #ifdef __WIN32
-	*nativeHandle = (long int)guiRootWindow->window;
+	*nativeHandle = (intptr_t)guiRootWindow->window;
 #elif defined(__APPLE__)
-	*nativeHandle = (long int)getMainNSWindow();
+	*nativeHandle = (intptr_t)getMainNSWindow();
 #else
-	*nativeHandle = (long int)guiRootWindow->window;
+	*nativeHandle = (intptr_t)guiRootWindow->window;
 #endif
 }
