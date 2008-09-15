@@ -301,7 +301,7 @@ static void cavs_idct8_add_mmx(uint8_t *dst, int16_t *block, int stride)
         VOP(%%mm1, %%mm2, %%mm3, %%mm4, %%mm5, %%mm0, OP)\
         \
         : "+a"(src), "+c"(dst)\
-        : "S"((long)srcStride), "D"((long)dstStride), "m"(ADD), "m"(MUL1), "m"(MUL2)\
+        : "S"((intptr_t)srcStride), "D"((intptr_t)dstStride), "m"(ADD), "m"(MUL1), "m"(MUL2)\
         : "memory"\
      );\
      if(h==16){\
@@ -316,7 +316,7 @@ static void cavs_idct8_add_mmx(uint8_t *dst, int16_t *block, int stride)
             VOP(%%mm3, %%mm4, %%mm5, %%mm0, %%mm1, %%mm2, OP)\
             \
            : "+a"(src), "+c"(dst)\
-           : "S"((long)srcStride), "D"((long)dstStride), "m"(ADD),  "m"(MUL1), "m"(MUL2)\
+           : "S"((intptr_t)srcStride), "D"((intptr_t)dstStride), "m"(ADD),  "m"(MUL1), "m"(MUL2)\
            : "memory"\
         );\
      }\
@@ -367,7 +367,7 @@ static void OPNAME ## cavs_qpel8_h_ ## MMX(uint8_t *dst, uint8_t *src, int dstSt
         "decl %2                    \n\t"\
         " jnz 1b                    \n\t"\
         : "+a"(src), "+c"(dst), "+m"(h)\
-        : "d"((long)srcStride), "S"((long)dstStride), "m"(ff_pw_5), "m"(ff_pw_4)\
+        : "d"((intptr_t)srcStride), "S"((intptr_t)dstStride), "m"(ff_pw_5), "m"(ff_pw_4)\
         : "memory"\
     );\
 }\

@@ -30,8 +30,8 @@ static const int m1p1[2] __attribute__((aligned(8))) =
 void ff_fft_calc_3dn(FFTContext *s, FFTComplex *z)
 {
     int ln = s->nbits;
-    long i, j;
-    long nblocks, nloops;
+    intptr_t i, j;
+    intptr_t nblocks, nloops;
     FFTComplex *p, *cptr;
 
     asm volatile(

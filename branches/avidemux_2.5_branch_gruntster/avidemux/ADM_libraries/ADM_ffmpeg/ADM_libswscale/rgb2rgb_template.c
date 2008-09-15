@@ -82,7 +82,7 @@
 #define SFENCE " # nop"
 #endif
 
-static inline void RENAME(rgb24to32)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24to32)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     uint8_t *dest = dst;
     const uint8_t *s = src;
@@ -142,7 +142,7 @@ static inline void RENAME(rgb24to32)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb32to24)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32to24)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     uint8_t *dest = dst;
     const uint8_t *s = src;
@@ -234,7 +234,7 @@ static inline void RENAME(rgb32to24)(const uint8_t *src, uint8_t *dst, long src_
  MMX2, 3DNOW optimization by Nick Kurshev
  32 bit C version, and and&add trick by Michael Niedermayer
 */
-static inline void RENAME(rgb15to16)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb15to16)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     register const uint8_t* s=src;
     register uint8_t* d=dst;
@@ -283,7 +283,7 @@ static inline void RENAME(rgb15to16)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb16to15)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb16to15)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     register const uint8_t* s=src;
     register uint8_t* d=dst;
@@ -339,7 +339,7 @@ static inline void RENAME(rgb16to15)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb32to16)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32to16)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -437,7 +437,7 @@ static inline void RENAME(rgb32to16)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb32tobgr16)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32tobgr16)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -498,7 +498,7 @@ static inline void RENAME(rgb32tobgr16)(const uint8_t *src, uint8_t *dst, long s
     }
 }
 
-static inline void RENAME(rgb32to15)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32to15)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -596,7 +596,7 @@ static inline void RENAME(rgb32to15)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb32tobgr15)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32tobgr15)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -657,7 +657,7 @@ static inline void RENAME(rgb32tobgr15)(const uint8_t *src, uint8_t *dst, long s
     }
 }
 
-static inline void RENAME(rgb24to16)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24to16)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -720,7 +720,7 @@ static inline void RENAME(rgb24to16)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb24tobgr16)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24tobgr16)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -783,7 +783,7 @@ static inline void RENAME(rgb24tobgr16)(const uint8_t *src, uint8_t *dst, long s
     }
 }
 
-static inline void RENAME(rgb24to15)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24to15)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -846,7 +846,7 @@ static inline void RENAME(rgb24to15)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb24tobgr15)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24tobgr15)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint8_t *s = src;
     const uint8_t *end;
@@ -930,7 +930,7 @@ static inline void RENAME(rgb24tobgr15)(const uint8_t *src, uint8_t *dst, long s
        |
    Original Bits
 */
-static inline void RENAME(rgb15to24)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb15to24)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint16_t *end;
 #ifdef HAVE_MMX
@@ -1072,7 +1072,7 @@ static inline void RENAME(rgb15to24)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb16to24)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb16to24)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint16_t *end;
 #ifdef HAVE_MMX
@@ -1213,7 +1213,7 @@ static inline void RENAME(rgb16to24)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb15to32)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb15to32)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint16_t *end;
 #ifdef HAVE_MMX
@@ -1291,7 +1291,7 @@ static inline void RENAME(rgb15to32)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb16to32)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb16to32)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     const uint16_t *end;
 #ifdef HAVE_MMX
@@ -1363,9 +1363,9 @@ static inline void RENAME(rgb16to32)(const uint8_t *src, uint8_t *dst, long src_
     }
 }
 
-static inline void RENAME(rgb32tobgr32)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb32tobgr32)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
-    long idx = 15 - src_size;
+    intptr_t idx = 15 - src_size;
     uint8_t *s = (uint8_t *) src-idx, *d = dst-idx;
 #ifdef HAVE_MMX
     asm volatile(
@@ -1426,11 +1426,11 @@ static inline void RENAME(rgb32tobgr32)(const uint8_t *src, uint8_t *dst, long s
     }
 }
 
-static inline void RENAME(rgb24tobgr24)(const uint8_t *src, uint8_t *dst, long src_size)
+static inline void RENAME(rgb24tobgr24)(const uint8_t *src, uint8_t *dst, intptr_t src_size)
 {
     unsigned i;
 #ifdef HAVE_MMX
-    long mmx_size= 23 - src_size;
+    intptr_t mmx_size= 23 - src_size;
     asm volatile (
     "test             %%"REG_a", %%"REG_a"          \n\t"
     "jns                     2f                     \n\t"
@@ -1497,11 +1497,11 @@ static inline void RENAME(rgb24tobgr24)(const uint8_t *src, uint8_t *dst, long s
 }
 
 static inline void RENAME(yuvPlanartoyuy2)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc, uint8_t *dst,
-                                           long width, long height,
-                                           long lumStride, long chromStride, long dstStride, long vertLumPerChroma)
+                                           intptr_t width, intptr_t height,
+                                           intptr_t lumStride, intptr_t chromStride, intptr_t dstStride, intptr_t vertLumPerChroma)
 {
-    long y;
-    const long chromWidth= width>>1;
+    intptr_t y;
+    const intptr_t chromWidth= width>>1;
     for (y=0; y<height; y++)
     {
 #ifdef HAVE_MMX
@@ -1641,19 +1641,19 @@ asm(    EMMS"       \n\t"
  * this is a problem for anyone then tell me, and I will fix it).
  */
 static inline void RENAME(yv12toyuy2)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc, uint8_t *dst,
-                                      long width, long height,
-                                      long lumStride, long chromStride, long dstStride)
+                                      intptr_t width, intptr_t height,
+                                      intptr_t lumStride, intptr_t chromStride, intptr_t dstStride)
 {
     //FIXME interpolate chroma
     RENAME(yuvPlanartoyuy2)(ysrc, usrc, vsrc, dst, width, height, lumStride, chromStride, dstStride, 2);
 }
 
 static inline void RENAME(yuvPlanartouyvy)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc, uint8_t *dst,
-                                           long width, long height,
-                                           long lumStride, long chromStride, long dstStride, long vertLumPerChroma)
+                                           intptr_t width, intptr_t height,
+                                           intptr_t lumStride, intptr_t chromStride, intptr_t dstStride, intptr_t vertLumPerChroma)
 {
-    long y;
-    const long chromWidth= width>>1;
+    intptr_t y;
+    const intptr_t chromWidth= width>>1;
     for (y=0; y<height; y++)
     {
 #ifdef HAVE_MMX
@@ -1747,8 +1747,8 @@ asm(    EMMS"       \n\t"
  * this is a problem for anyone then tell me, and I will fix it).
  */
 static inline void RENAME(yv12touyvy)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc, uint8_t *dst,
-                                      long width, long height,
-                                      long lumStride, long chromStride, long dstStride)
+                                      intptr_t width, intptr_t height,
+                                      intptr_t lumStride, intptr_t chromStride, intptr_t dstStride)
 {
     //FIXME interpolate chroma
     RENAME(yuvPlanartouyvy)(ysrc, usrc, vsrc, dst, width, height, lumStride, chromStride, dstStride, 2);
@@ -1758,8 +1758,8 @@ static inline void RENAME(yv12touyvy)(const uint8_t *ysrc, const uint8_t *usrc, 
  * Width should be a multiple of 16.
  */
 static inline void RENAME(yuv422ptoyuy2)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc, uint8_t *dst,
-                                         long width, long height,
-                                         long lumStride, long chromStride, long dstStride)
+                                         intptr_t width, intptr_t height,
+                                         intptr_t lumStride, intptr_t chromStride, intptr_t dstStride)
 {
     RENAME(yuvPlanartoyuy2)(ysrc, usrc, vsrc, dst, width, height, lumStride, chromStride, dstStride, 1);
 }
@@ -1769,11 +1769,11 @@ static inline void RENAME(yuv422ptoyuy2)(const uint8_t *ysrc, const uint8_t *usr
  * this is a problem for anyone then tell me, and I will fix it).
  */
 static inline void RENAME(yuy2toyv12)(const uint8_t *src, uint8_t *ydst, uint8_t *udst, uint8_t *vdst,
-                                      long width, long height,
-                                      long lumStride, long chromStride, long srcStride)
+                                      intptr_t width, intptr_t height,
+                                      intptr_t lumStride, intptr_t chromStride, intptr_t srcStride)
 {
-    long y;
-    const long chromWidth= width>>1;
+    intptr_t y;
+    const intptr_t chromWidth= width>>1;
     for (y=0; y<height; y+=2)
     {
 #ifdef HAVE_MMX
@@ -1859,7 +1859,7 @@ static inline void RENAME(yuy2toyv12)(const uint8_t *src, uint8_t *ydst, uint8_t
         : "memory", "%"REG_a
         );
 #else
-        long i;
+        intptr_t i;
         for (i=0; i<chromWidth; i++)
         {
             ydst[2*i+0]     = src[4*i+0];
@@ -1890,7 +1890,7 @@ asm volatile(   EMMS"       \n\t"
 
 static inline void RENAME(yvu9toyv12)(const uint8_t *ysrc, const uint8_t *usrc, const uint8_t *vsrc,
                                       uint8_t *ydst, uint8_t *udst, uint8_t *vdst,
-                                      long width, long height, long lumStride, long chromStride)
+                                      intptr_t width, intptr_t height, intptr_t lumStride, intptr_t chromStride)
 {
     /* Y Plane */
     memcpy(ydst, ysrc, width*height);
@@ -1898,9 +1898,9 @@ static inline void RENAME(yvu9toyv12)(const uint8_t *ysrc, const uint8_t *usrc, 
     /* XXX: implement upscaling for U,V */
 }
 
-static inline void RENAME(planar2x)(const uint8_t *src, uint8_t *dst, long srcWidth, long srcHeight, long srcStride, long dstStride)
+static inline void RENAME(planar2x)(const uint8_t *src, uint8_t *dst, intptr_t srcWidth, intptr_t srcHeight, intptr_t srcStride, intptr_t dstStride)
 {
-    long x,y;
+    intptr_t x,y;
 
     dst[0]= src[0];
 
@@ -1915,7 +1915,7 @@ static inline void RENAME(planar2x)(const uint8_t *src, uint8_t *dst, long srcWi
 
     for (y=1; y<srcHeight; y++){
 #if defined (HAVE_MMX2) || defined (HAVE_3DNOW)
-        const long mmxSize= srcWidth&~15;
+        const intptr_t mmxSize= srcWidth&~15;
         asm volatile(
         "mov           %4, %%"REG_a"            \n\t"
         "1:                                     \n\t"
@@ -1959,7 +1959,7 @@ static inline void RENAME(planar2x)(const uint8_t *src, uint8_t *dst, long srcWi
 
         );
 #else
-        const long mmxSize=1;
+        const intptr_t mmxSize=1;
 #endif
         dst[0        ]= (3*src[0] +   src[srcStride])>>2;
         dst[dstStride]= (  src[0] + 3*src[srcStride])>>2;
@@ -2007,11 +2007,11 @@ asm volatile(   EMMS"       \n\t"
  * FIXME: Write HQ version.
  */
 static inline void RENAME(uyvytoyv12)(const uint8_t *src, uint8_t *ydst, uint8_t *udst, uint8_t *vdst,
-                                      long width, long height,
-                                      long lumStride, long chromStride, long srcStride)
+                                      intptr_t width, intptr_t height,
+                                      intptr_t lumStride, intptr_t chromStride, intptr_t srcStride)
 {
-    long y;
-    const long chromWidth= width>>1;
+    intptr_t y;
+    const intptr_t chromWidth= width>>1;
     for (y=0; y<height; y+=2)
     {
 #ifdef HAVE_MMX
@@ -2097,7 +2097,7 @@ static inline void RENAME(uyvytoyv12)(const uint8_t *src, uint8_t *ydst, uint8_t
         : "memory", "%eax"
         );
 #else
-        long i;
+        intptr_t i;
         for (i=0; i<chromWidth; i++)
         {
             udst[i]     = src[4*i+0];
@@ -2134,15 +2134,15 @@ asm volatile(   EMMS"       \n\t"
  * FIXME: Write HQ version.
  */
 static inline void RENAME(rgb24toyv12)(const uint8_t *src, uint8_t *ydst, uint8_t *udst, uint8_t *vdst,
-                                       long width, long height,
-                                       long lumStride, long chromStride, long srcStride)
+                                       intptr_t width, intptr_t height,
+                                       intptr_t lumStride, intptr_t chromStride, intptr_t srcStride)
 {
-    long y;
-    const long chromWidth= width>>1;
+    intptr_t y;
+    const intptr_t chromWidth= width>>1;
 #ifdef HAVE_MMX
     for (y=0; y<height-2; y+=2)
     {
-        long i;
+        intptr_t i;
         for (i=0; i<2; i++)
         {
             asm volatile(
@@ -2380,7 +2380,7 @@ static inline void RENAME(rgb24toyv12)(const uint8_t *src, uint8_t *ydst, uint8_
 #endif
     for (; y<height; y+=2)
     {
-        long i;
+        intptr_t i;
         for (i=0; i<chromWidth; i++)
         {
             unsigned int b = src[6*i+0];
@@ -2430,13 +2430,13 @@ static inline void RENAME(rgb24toyv12)(const uint8_t *src, uint8_t *ydst, uint8_
 }
 
 void RENAME(interleaveBytes)(uint8_t *src1, uint8_t *src2, uint8_t *dest,
-                             long width, long height, long src1Stride,
-                             long src2Stride, long dstStride){
-    long h;
+                             intptr_t width, intptr_t height, intptr_t src1Stride,
+                             intptr_t src2Stride, intptr_t dstStride){
+    intptr_t h;
 
     for (h=0; h < height; h++)
     {
-        long w;
+        intptr_t w;
 
 #ifdef HAVE_MMX
 #ifdef HAVE_SSE2
@@ -2512,11 +2512,11 @@ void RENAME(interleaveBytes)(uint8_t *src1, uint8_t *src2, uint8_t *dest,
 
 static inline void RENAME(vu9_to_vu12)(const uint8_t *src1, const uint8_t *src2,
                                        uint8_t *dst1, uint8_t *dst2,
-                                       long width, long height,
-                                       long srcStride1, long srcStride2,
-                                       long dstStride1, long dstStride2)
+                                       intptr_t width, intptr_t height,
+                                       intptr_t srcStride1, intptr_t srcStride2,
+                                       intptr_t dstStride1, intptr_t dstStride2)
 {
-    long y,x,w,h;
+    intptr_t y,x,w,h;
     w=width/2; h=height/2;
 #ifdef HAVE_MMX
     asm volatile(
@@ -2615,11 +2615,11 @@ static inline void RENAME(vu9_to_vu12)(const uint8_t *src1, const uint8_t *src2,
 
 static inline void RENAME(yvu9_to_yuy2)(const uint8_t *src1, const uint8_t *src2, const uint8_t *src3,
                                         uint8_t *dst,
-                                        long width, long height,
-                                        long srcStride1, long srcStride2,
-                                        long srcStride3, long dstStride)
+                                        intptr_t width, intptr_t height,
+                                        intptr_t srcStride1, intptr_t srcStride2,
+                                        intptr_t srcStride3, intptr_t dstStride)
 {
-    long y,x,w,h;
+    intptr_t y,x,w,h;
     w=width/2; h=height;
     for (y=0;y<h;y++){
     const uint8_t* yp=src1+srcStride1*y;
@@ -2684,7 +2684,7 @@ static inline void RENAME(yvu9_to_yuy2)(const uint8_t *src1, const uint8_t *src2
 #endif
     for (; x<w; x++)
     {
-        const long x2 = x<<2;
+        const intptr_t x2 = x<<2;
         d[8*x+0] = yp[x2];
         d[8*x+1] = up[x];
         d[8*x+2] = yp[x2+1];

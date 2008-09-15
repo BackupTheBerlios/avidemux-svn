@@ -30,8 +30,8 @@ static const int m1p1[2] __attribute__((aligned(8))) =
 void ff_fft_calc_3dn2(FFTContext *s, FFTComplex *z)
 {
     int ln = s->nbits;
-    long i, j;
-    long nblocks, nloops;
+    intptr_t i, j;
+    intptr_t nblocks, nloops;
     FFTComplex *p, *cptr;
 
     asm volatile(
@@ -124,7 +124,7 @@ void ff_fft_calc_3dn2(FFTContext *s, FFTComplex *z)
 void ff_imdct_calc_3dn2(MDCTContext *s, FFTSample *output,
                         const FFTSample *input, FFTSample *tmp)
 {
-    long k, n8, n4, n2, n;
+    intptr_t k, n8, n4, n2, n;
     const uint16_t *revtab = s->fft.revtab;
     const FFTSample *tcos = s->tcos;
     const FFTSample *tsin = s->tsin;

@@ -141,7 +141,7 @@ static inline int RENAME(yuv420_rgb16)(SwsContext *c, uint8_t* src[], int srcStr
         uint8_t *py = src[0] + y*srcStride[0];
         uint8_t *pu = src[1] + (y>>1)*srcStride[1];
         uint8_t *pv = src[2] + (y>>1)*srcStride[2];
-        long index= -h_size/2;
+        intptr_t index= -h_size/2;
 
         b5Dither= ff_dither8[y&1];
         g6Dither= ff_dither4[y&1];
@@ -236,7 +236,7 @@ static inline int RENAME(yuv420_rgb15)(SwsContext *c, uint8_t* src[], int srcStr
         uint8_t *py = src[0] + y*srcStride[0];
         uint8_t *pu = src[1] + (y>>1)*srcStride[1];
         uint8_t *pv = src[2] + (y>>1)*srcStride[2];
-        long index= -h_size/2;
+        intptr_t index= -h_size/2;
 
         b5Dither= ff_dither8[y&1];
         g6Dither= ff_dither4[y&1];
@@ -324,7 +324,7 @@ static inline int RENAME(yuv420_rgb24)(SwsContext *c, uint8_t* src[], int srcStr
         uint8_t *py = src[0] + y*srcStride[0];
         uint8_t *pu = src[1] + (y>>1)*srcStride[1];
         uint8_t *pv = src[2] + (y>>1)*srcStride[2];
-        long index= -h_size/2;
+        intptr_t index= -h_size/2;
 
         /* this mmx assembly code deals with SINGLE scan line at a time, it convert 8
            pixels in each iteration */
@@ -470,7 +470,7 @@ static inline int RENAME(yuv420_rgb32)(SwsContext *c, uint8_t* src[], int srcStr
         uint8_t *py = src[0] + y*srcStride[0];
         uint8_t *pu = src[1] + (y>>1)*srcStride[1];
         uint8_t *pv = src[2] + (y>>1)*srcStride[2];
-        long index= -h_size/2;
+        intptr_t index= -h_size/2;
 
         /* this mmx assembly code deals with SINGLE scan line at a time, it convert 8
            pixels in each iteration */

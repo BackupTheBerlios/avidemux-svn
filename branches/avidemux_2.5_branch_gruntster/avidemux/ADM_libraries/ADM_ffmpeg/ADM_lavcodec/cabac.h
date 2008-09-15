@@ -741,7 +741,7 @@ static int decode_significance_x86(CABACContext *c, int max_coeff, uint8_t *sign
 static int decode_significance_8x8_x86(CABACContext *c, uint8_t *significant_coeff_ctx_base, int *index, const uint8_t *sig_off){
     int minusindex= 4-(int)index;
     int coeff_count;
-    long last=0;
+    intptr_t last=0;
     asm volatile(
         "movl "RANGE    "(%3), %%esi            \n\t"
         "movl "LOW      "(%3), %%ebx            \n\t"

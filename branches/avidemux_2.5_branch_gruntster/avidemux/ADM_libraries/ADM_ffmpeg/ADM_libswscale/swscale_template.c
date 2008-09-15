@@ -929,7 +929,7 @@
 
 static inline void RENAME(yuv2yuvX)(SwsContext *c, int16_t *lumFilter, int16_t **lumSrc, int lumFilterSize,
                                     int16_t *chrFilter, int16_t **chrSrc, int chrFilterSize,
-                                    uint8_t *dest, uint8_t *uDest, uint8_t *vDest, long dstW, long chrDstW)
+                                    uint8_t *dest, uint8_t *uDest, uint8_t *vDest, intptr_t dstW, intptr_t chrDstW)
 {
 #ifdef HAVE_MMX
     if (c->flags & SWS_ACCURATE_RND){
@@ -970,7 +970,7 @@ yuv2nv12XinC(lumFilter, lumSrc, lumFilterSize,
 }
 
 static inline void RENAME(yuv2yuv1)(int16_t *lumSrc, int16_t *chrSrc,
-                                    uint8_t *dest, uint8_t *uDest, uint8_t *vDest, long dstW, long chrDstW)
+                                    uint8_t *dest, uint8_t *uDest, uint8_t *vDest, intptr_t dstW, intptr_t chrDstW)
 {
 #ifdef HAVE_MMX
     if (uDest)
@@ -1035,10 +1035,10 @@ static inline void RENAME(yuv2yuv1)(int16_t *lumSrc, int16_t *chrSrc,
  */
 static inline void RENAME(yuv2packedX)(SwsContext *c, int16_t *lumFilter, int16_t **lumSrc, int lumFilterSize,
                                        int16_t *chrFilter, int16_t **chrSrc, int chrFilterSize,
-                                       uint8_t *dest, long dstW, long dstY)
+                                       uint8_t *dest, intptr_t dstW, intptr_t dstY)
 {
 #ifdef HAVE_MMX
-    long dummy=0;
+    intptr_t dummy=0;
     if (c->flags & SWS_ACCURATE_RND){
         switch(c->dstFormat){
         case PIX_FMT_RGB32:
@@ -1213,7 +1213,7 @@ FULL_YSCALEYUV2RGB
             "cmp %5, %%"REG_a"  \n\t"
             " jb 1b             \n\t"
 
-            :: "r" (buf0), "r" (buf1), "r" (uvbuf0), "r" (uvbuf1), "r" (dest), "m" ((long)dstW),
+            :: "r" (buf0), "r" (buf1), "r" (uvbuf0), "r" (uvbuf1), "r" (dest), "m" ((intptr_t)dstW),
             "m" (yalpha1), "m" (uvalpha1)
             : "%"REG_a
             );
@@ -1702,7 +1702,7 @@ static inline void RENAME(yuv2packed1)(SwsContext *c, uint16_t *buf0, uint16_t *
 
 //FIXME yuy2* can read upto 7 samples to much
 
-static inline void RENAME(yuy2ToY)(uint8_t *dst, uint8_t *src, long width)
+static inline void RENAME(yuy2ToY)(uint8_t *dst, uint8_t *src, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -1727,7 +1727,7 @@ static inline void RENAME(yuy2ToY)(uint8_t *dst, uint8_t *src, long width)
 #endif
 }
 
-static inline void RENAME(yuy2ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, long width)
+static inline void RENAME(yuy2ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -1763,7 +1763,7 @@ static inline void RENAME(yuy2ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1,
 }
 
 //this is allmost identical to the previous, end exists only cuz yuy2ToY/UV)(dst, src+1, ...) would have 100% unaligned accesses
-static inline void RENAME(uyvyToY)(uint8_t *dst, uint8_t *src, long width)
+static inline void RENAME(uyvyToY)(uint8_t *dst, uint8_t *src, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -1787,7 +1787,7 @@ static inline void RENAME(uyvyToY)(uint8_t *dst, uint8_t *src, long width)
 #endif
 }
 
-static inline void RENAME(uyvyToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, long width)
+static inline void RENAME(uyvyToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -1854,7 +1854,7 @@ static inline void RENAME(bgr32ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1
     }
 }
 
-static inline void RENAME(bgr24ToY)(uint8_t *dst, uint8_t *src, long width)
+static inline void RENAME(bgr24ToY)(uint8_t *dst, uint8_t *src, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -1939,7 +1939,7 @@ static inline void RENAME(bgr24ToY)(uint8_t *dst, uint8_t *src, long width)
 #endif /* HAVE_MMX */
 }
 
-static inline void RENAME(bgr24ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, long width)
+static inline void RENAME(bgr24ToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, uint8_t *src2, intptr_t width)
 {
 #ifdef HAVE_MMX
     asm volatile(
@@ -2298,13 +2298,13 @@ static inline void RENAME(palToUV)(uint8_t *dstU, uint8_t *dstV, uint8_t *src1, 
 
 // Bilinear / Bicubic scaling
 static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW, int xInc,
-                                  int16_t *filter, int16_t *filterPos, long filterSize)
+                                  int16_t *filter, int16_t *filterPos, intptr_t filterSize)
 {
 #ifdef HAVE_MMX
     assert(filterSize % 4 == 0 && filterSize>0);
     if (filterSize==4) // Always true for upscaling, sometimes for down, too.
     {
-        long counter= -2*dstW;
+        intptr_t counter= -2*dstW;
         filter-= counter*2;
         filterPos-= counter/2;
         dst-= counter/2;
@@ -2350,7 +2350,7 @@ static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW
     }
     else if (filterSize==8)
     {
-        long counter= -2*dstW;
+        intptr_t counter= -2*dstW;
         filter-= counter*4;
         filterPos-= counter/2;
         dst-= counter/2;
@@ -2409,7 +2409,7 @@ static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW
     else
     {
         uint8_t *offset = src+filterSize;
-        long counter= -2*dstW;
+        intptr_t counter= -2*dstW;
         //filter-= counter*filterSize/2;
         filterPos-= counter/2;
         dst-= counter/2;
@@ -2480,7 +2480,7 @@ static inline void RENAME(hScale)(int16_t *dst, int dstW, uint8_t *src, int srcW
 #endif /* HAVE_MMX */
 }
       // *** horizontal scale Y line to temp buffer
-static inline void RENAME(hyscale)(uint16_t *dst, long dstWidth, uint8_t *src, int srcW, int xInc,
+static inline void RENAME(hyscale)(uint16_t *dst, intptr_t dstWidth, uint8_t *src, int srcW, int xInc,
                                    int flags, int canMMX2BeUsed, int16_t *hLumFilter,
                                    int16_t *hLumFilterPos, int hLumFilterSize, void *funnyYCode,
                                    int srcFormat, uint8_t *formatConvBuffer, int16_t *mmx2Filter,
@@ -2623,7 +2623,7 @@ FUNNY_Y_CODE
         else
         {
 #endif /* HAVE_MMX2 */
-        long xInc_shr16 = xInc >> 16;
+        intptr_t xInc_shr16 = xInc >> 16;
         uint16_t xInc_mask = xInc & 0xffff;
         //NO MMX just normal asm ...
         asm volatile(
@@ -2682,7 +2682,7 @@ FUNNY_Y_CODE
     }
 }
 
-inline static void RENAME(hcscale)(uint16_t *dst, long dstWidth, uint8_t *src1, uint8_t *src2,
+inline static void RENAME(hcscale)(uint16_t *dst, intptr_t dstWidth, uint8_t *src1, uint8_t *src2,
                                    int srcW, int xInc, int flags, int canMMX2BeUsed, int16_t *hChrFilter,
                                    int16_t *hChrFilterPos, int hChrFilterSize, void *funnyUVCode,
                                    int srcFormat, uint8_t *formatConvBuffer, int16_t *mmx2Filter,
@@ -2854,7 +2854,7 @@ FUNNY_UV_CODE
         else
         {
 #endif /* HAVE_MMX2 */
-            long xInc_shr16 = (long) (xInc >> 16);
+            intptr_t xInc_shr16 = (intptr_t) (xInc >> 16);
             uint16_t xInc_mask = xInc & 0xffff;
             asm volatile(
             "xor %%"REG_a", %%"REG_a"               \n\t" // i
@@ -2892,9 +2892,9 @@ FUNNY_UV_CODE
 /* GCC-3.3 makes MPlayer crash on IA-32 machines when using "g" operand here,
    which is needed to support GCC-4.0 */
 #if defined(ARCH_X86_64) && ((__GNUC__ > 3) || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4))
-            :: "m" (src1), "m" (dst), "g" ((long)dstWidth), "m" (xInc_shr16), "m" (xInc_mask),
+            :: "m" (src1), "m" (dst), "g" ((intptr_t)dstWidth), "m" (xInc_shr16), "m" (xInc_mask),
 #else
-            :: "m" (src1), "m" (dst), "m" ((long)dstWidth), "m" (xInc_shr16), "m" (xInc_mask),
+            :: "m" (src1), "m" (dst), "m" ((intptr_t)dstWidth), "m" (xInc_shr16), "m" (xInc_mask),
 #endif
             "r" (src2)
             : "%"REG_a, "%"REG_d, "%ecx", "%"REG_D, "%esi"

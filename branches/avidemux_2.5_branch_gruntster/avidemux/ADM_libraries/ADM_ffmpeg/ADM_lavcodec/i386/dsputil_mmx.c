@@ -241,7 +241,7 @@ void put_pixels_clamped_mmx(const DCTELEM *block, uint8_t *pixels, int line_size
                 "movq   %%mm2, (%0, %1)         \n\t"
                 "movq   %%mm4, (%0, %1, 2)      \n\t"
                 "movq   %%mm6, (%0, %2)         \n\t"
-                ::"r" (pix), "r" ((long)line_size), "r" ((long)line_size*3), "m"(*p)
+                ::"r" (pix), "r" ((intptr_t)line_size), "r" ((intptr_t)line_size*3), "m"(*p)
                 :"memory");
         pix += line_size*4;
         p += 32;
@@ -266,7 +266,7 @@ void put_pixels_clamped_mmx(const DCTELEM *block, uint8_t *pixels, int line_size
             "movq       %%mm2, (%0, %1)         \n\t"
             "movq       %%mm4, (%0, %1, 2)      \n\t"
             "movq       %%mm6, (%0, %2)         \n\t"
-            ::"r" (pix), "r" ((long)line_size), "r" ((long)line_size*3), "r"(p)
+            ::"r" (pix), "r" ((intptr_t)line_size), "r" ((intptr_t)line_size*3), "r"(p)
             :"memory");
 }
 
@@ -350,7 +350,7 @@ static void put_pixels4_mmx(uint8_t *block, const uint8_t *pixels, int line_size
          "subl $4, %0                   \n\t"
          "jnz 1b                        \n\t"
          : "+g"(h), "+r" (pixels),  "+r" (block)
-         : "r"((long)line_size)
+         : "r"((intptr_t)line_size)
          : "%"REG_a, "memory"
         );
 }
@@ -376,7 +376,7 @@ static void put_pixels8_mmx(uint8_t *block, const uint8_t *pixels, int line_size
          "subl $4, %0                   \n\t"
          "jnz 1b                        \n\t"
          : "+g"(h), "+r" (pixels),  "+r" (block)
-         : "r"((long)line_size)
+         : "r"((intptr_t)line_size)
          : "%"REG_a, "memory"
         );
 }
@@ -410,7 +410,7 @@ static void put_pixels16_mmx(uint8_t *block, const uint8_t *pixels, int line_siz
          "subl $4, %0                   \n\t"
          "jnz 1b                        \n\t"
          : "+g"(h), "+r" (pixels),  "+r" (block)
-         : "r"((long)line_size)
+         : "r"((intptr_t)line_size)
          : "%"REG_a, "memory"
         );
 }
@@ -432,7 +432,7 @@ static void put_pixels16_sse2(uint8_t *block, const uint8_t *pixels, int line_si
          "lea (%2,%3,4), %2             \n\t"
          "jnz 1b                        \n\t"
          : "+g"(h), "+r" (pixels),  "+r" (block)
-         : "r"((long)line_size), "r"(3L*line_size)
+         : "r"((intptr_t)line_size), "r"(3*(intptr_t)line_size)
          : "memory"
         );
 }
@@ -458,7 +458,7 @@ static void avg_pixels16_sse2(uint8_t *block, const uint8_t *pixels, int line_si
          "lea (%2,%3,4), %2             \n\t"
          "jnz 1b                        \n\t"
          : "+g"(h), "+r" (pixels),  "+r" (block)
-         : "r"((long)line_size), "r"(3L*line_size)
+         : "r"((intptr_t)line_size), "r"(3*(intptr_t)line_size)
          : "memory"
         );
 }
@@ -481,7 +481,7 @@ static void clear_blocks_mmx(DCTELEM *blocks)
 }
 
 static void add_bytes_mmx(uint8_t *dst, uint8_t *src, int w){
-    long i=0;
+    intptr_t i=0;
     asm volatile(
         "1:                             \n\t"
         "movq  (%1, %0), %%mm0          \n\t"
@@ -496,14 +496,14 @@ static void add_bytes_mmx(uint8_t *dst, uint8_t *src, int w){
         "cmp %3, %0                     \n\t"
         " jb 1b                         \n\t"
         : "+r" (i)
-        : "r"(src), "r"(dst), "r"((long)w-15)
+        : "r"(src), "r"(dst), "r"((intptr_t)w-15)
     );
     for(; i<w; i++)
         dst[i+0] += src[i+0];
 }
 
 static void add_bytes_l2_mmx(uint8_t *dst, uint8_t *src1, uint8_t *src2, int w){
-    long i=0;
+    intptr_t i=0;
     asm volatile(
         "1:                             \n\t"
         "movq   (%2, %0), %%mm0         \n\t"
@@ -516,7 +516,7 @@ static void add_bytes_l2_mmx(uint8_t *dst, uint8_t *src1, uint8_t *src2, int w){
         "cmp %4, %0                     \n\t"
         " jb 1b                         \n\t"
         : "+r" (i)
-        : "r"(dst), "r"(src1), "r"(src2), "r"((long)w-15)
+        : "r"(dst), "r"(src1), "r"(src2), "r"((intptr_t)w-15)
     );
     for(; i<w; i++)
         dst[i] = src1[i] + src2[i];
@@ -690,8 +690,8 @@ static void h263_h_loop_filter_mmx(uint8_t *src, int stride, int qscale){
         "movd %%mm6, (%1,%3)            \n\t"
         :: "r" (src),
            "r" (src + 4*stride),
-           "r" ((long)   stride ),
-           "r" ((long)(3*stride))
+           "r" ((intptr_t)   stride ),
+           "r" ((intptr_t)(3*stride))
     );
     }
 }
@@ -724,7 +724,7 @@ static void draw_edges_mmx(uint8_t *buf, int wrap, int width, int height, int w)
                 "cmp %3, %0                     \n\t"
                 " jb 1b                         \n\t"
                 : "+r" (ptr)
-                : "r" ((long)wrap), "r" ((long)width), "r" (ptr + wrap*height)
+                : "r" ((intptr_t)wrap), "r" ((intptr_t)width), "r" (ptr + wrap*height)
         );
     }
     else
@@ -747,7 +747,7 @@ static void draw_edges_mmx(uint8_t *buf, int wrap, int width, int height, int w)
                 "cmp %3, %0                     \n\t"
                 " jb 1b                         \n\t"
                 : "+r" (ptr)
-                : "r" ((long)wrap), "r" ((long)width), "r" (ptr + wrap*height)
+                : "r" ((intptr_t)wrap), "r" ((intptr_t)width), "r" (ptr + wrap*height)
         );
     }
 
@@ -765,7 +765,7 @@ static void draw_edges_mmx(uint8_t *buf, int wrap, int width, int height, int w)
                 "cmp %4, %0                     \n\t"
                 " jb 1b                         \n\t"
                 : "+r" (ptr)
-                : "r" ((long)buf - (long)ptr - w), "r" ((long)-wrap), "r" ((long)-wrap*3), "r" (ptr+width+2*w)
+                : "r" ((intptr_t)buf - (intptr_t)ptr - w), "r" ((intptr_t)-wrap), "r" ((intptr_t)-wrap*3), "r" (ptr+width+2*w)
         );
         ptr= last_line + (i + 1) * wrap - w;
         asm volatile(
@@ -779,7 +779,7 @@ static void draw_edges_mmx(uint8_t *buf, int wrap, int width, int height, int w)
                 "cmp %4, %0                     \n\t"
                 " jb 1b                         \n\t"
                 : "+r" (ptr)
-                : "r" ((long)last_line - (long)ptr - w), "r" ((long)wrap), "r" ((long)wrap*3), "r" (ptr+width+2*w)
+                : "r" ((intptr_t)last_line - (intptr_t)ptr - w), "r" ((intptr_t)wrap), "r" ((intptr_t)wrap*3), "r" (ptr+width+2*w)
         );
     }
 }
@@ -787,8 +787,8 @@ static void draw_edges_mmx(uint8_t *buf, int wrap, int width, int height, int w)
 #define PAETH(cpu, abs3)\
 void add_png_paeth_prediction_##cpu(uint8_t *dst, uint8_t *src, uint8_t *top, int w, int bpp)\
 {\
-    long i = -bpp;\
-    long end = w-3;\
+    intptr_t i = -bpp;\
+    intptr_t end = w-3;\
     asm volatile(\
         "pxor      %%mm7, %%mm7 \n"\
         "movd    (%1,%0), %%mm0 \n"\
@@ -831,7 +831,7 @@ void add_png_paeth_prediction_##cpu(uint8_t *dst, uint8_t *src, uint8_t *top, in
         "cmp       %5, %0 \n"\
         "jle 1b \n"\
         :"+r"(i)\
-        :"r"(dst), "r"(top), "r"(src), "r"((long)bpp), "g"(end),\
+        :"r"(dst), "r"(top), "r"(src), "r"((intptr_t)bpp), "g"(end),\
          "m"(ff_pw_255)\
         :"memory"\
     );\
@@ -995,7 +995,7 @@ static void OPNAME ## mpeg4_qpel16_h_lowpass_mmx2(uint8_t *dst, uint8_t *src, in
         "decl %2                          \n\t"\
         " jnz 1b                          \n\t"\
         : "+a"(src), "+c"(dst), "+g"(h)\
-        : "d"((long)srcStride), "S"((long)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(temp), "m"(ROUNDER)\
+        : "d"((intptr_t)srcStride), "S"((intptr_t)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(temp), "m"(ROUNDER)\
         : "memory"\
     );\
 }\
@@ -1108,7 +1108,7 @@ static void OPNAME ## mpeg4_qpel8_h_lowpass_mmx2(uint8_t *dst, uint8_t *src, int
         "decl %2                          \n\t"\
         " jnz 1b                          \n\t"\
         : "+a"(src), "+c"(dst), "+g"(h)\
-        : "S"((long)srcStride), "D"((long)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(temp), "m"(ROUNDER)\
+        : "S"((intptr_t)srcStride), "D"((intptr_t)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(temp), "m"(ROUNDER)\
         : "memory"\
     );\
 }\
@@ -1172,7 +1172,7 @@ static void OPNAME ## mpeg4_qpel16_v_lowpass_ ## MMX(uint8_t *dst, uint8_t *src,
         "decl %2                        \n\t"\
         " jnz 1b                        \n\t"\
         : "+r" (src), "+r" (temp_ptr), "+r"(count)\
-        : "r" ((long)srcStride)\
+        : "r" ((intptr_t)srcStride)\
         : "memory"\
     );\
     \
@@ -1219,7 +1219,7 @@ static void OPNAME ## mpeg4_qpel16_v_lowpass_ ## MMX(uint8_t *dst, uint8_t *src,
         " jnz 1b                        \n\t"\
         \
         : "+r"(temp_ptr), "+r"(dst), "+g"(count)\
-        : "r"((long)dstStride), "r"(2*(long)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(ROUNDER), "g"(4-14*(long)dstStride)\
+        : "r"((intptr_t)dstStride), "r"(2*(intptr_t)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(ROUNDER), "g"(4-14*(intptr_t)dstStride)\
         :"memory"\
     );\
 }\
@@ -1244,7 +1244,7 @@ static void OPNAME ## mpeg4_qpel8_v_lowpass_ ## MMX(uint8_t *dst, uint8_t *src, 
         "decl %2                        \n\t"\
         " jnz 1b                        \n\t"\
         : "+r" (src), "+r" (temp_ptr), "+r"(count)\
-        : "r" ((long)srcStride)\
+        : "r" ((intptr_t)srcStride)\
         : "memory"\
     );\
     \
@@ -1279,7 +1279,7 @@ static void OPNAME ## mpeg4_qpel8_v_lowpass_ ## MMX(uint8_t *dst, uint8_t *src, 
         " jnz 1b                        \n\t"\
          \
         : "+r"(temp_ptr), "+r"(dst), "+g"(count)\
-        : "r"((long)dstStride), "r"(2*(long)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(ROUNDER), "g"(4-6*(long)dstStride)\
+        : "r"((intptr_t)dstStride), "r"(2*(intptr_t)dstStride), /*"m"(ff_pw_20), "m"(ff_pw_3),*/ "m"(ROUNDER), "g"(4-6*(intptr_t)dstStride)\
         : "memory"\
    );\
 }\
@@ -1841,7 +1841,7 @@ static void vorbis_inverse_coupling_sse(float *mag, float *ang, int blocksize)
 }
 
 static void vector_fmul_3dnow(float *dst, const float *src, int len){
-    long i = (len-4)*4;
+    intptr_t i = (len-4)*4;
     asm volatile(
         "1: \n\t"
         "movq    (%1,%0), %%mm0 \n\t"
@@ -1859,7 +1859,7 @@ static void vector_fmul_3dnow(float *dst, const float *src, int len){
     );
 }
 static void vector_fmul_sse(float *dst, const float *src, int len){
-    long i = (len-8)*4;
+    intptr_t i = (len-8)*4;
     asm volatile(
         "1: \n\t"
         "movaps    (%1,%0), %%xmm0 \n\t"
@@ -1877,7 +1877,7 @@ static void vector_fmul_sse(float *dst, const float *src, int len){
 }
 
 static void vector_fmul_reverse_3dnow2(float *dst, const float *src0, const float *src1, int len){
-    long i = len*4-16;
+    intptr_t i = len*4-16;
     asm volatile(
         "1: \n\t"
         "pswapd   8(%1), %%mm0 \n\t"
@@ -1895,7 +1895,7 @@ static void vector_fmul_reverse_3dnow2(float *dst, const float *src0, const floa
     asm volatile("femms");
 }
 static void vector_fmul_reverse_sse(float *dst, const float *src0, const float *src1, int len){
-    long i = len*4-32;
+    intptr_t i = len*4-32;
     asm volatile(
         "1: \n\t"
         "movaps        16(%1), %%xmm0 \n\t"
@@ -1916,7 +1916,7 @@ static void vector_fmul_reverse_sse(float *dst, const float *src0, const float *
 
 static void vector_fmul_add_add_3dnow(float *dst, const float *src0, const float *src1,
                                       const float *src2, int src3, int len, int step){
-    long i = (len-4)*4;
+    intptr_t i = (len-4)*4;
     if(step == 2 && src3 == 0){
         dst += (len-4)*2;
         asm volatile(
@@ -1965,7 +1965,7 @@ static void vector_fmul_add_add_3dnow(float *dst, const float *src0, const float
 }
 static void vector_fmul_add_add_sse(float *dst, const float *src0, const float *src1,
                                     const float *src2, int src3, int len, int step){
-    long i = (len-8)*4;
+    intptr_t i = (len-8)*4;
     if(step == 2 && src3 == 0){
         dst += (len-8)*2;
         asm volatile(
