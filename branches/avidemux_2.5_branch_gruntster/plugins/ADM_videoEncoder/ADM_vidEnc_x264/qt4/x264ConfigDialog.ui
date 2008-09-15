@@ -101,7 +101,7 @@
      <property name="sizeHint" >
       <size>
        <width>491</width>
-       <height>10</height>
+       <height>16</height>
       </size>
      </property>
     </spacer>
@@ -1532,6 +1532,9 @@
                 </property>
                 <item>
                  <widget class="QLabel" name="alphaC0Label" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="text" >
                    <string>Strength:</string>
                   </property>
@@ -1539,6 +1542,9 @@
                 </item>
                 <item>
                  <widget class="QSpinBox" name="alphaC0SpinBox" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="maximum" >
                    <number>6</number>
                   </property>
@@ -1565,6 +1571,9 @@
                 </item>
                 <item>
                  <widget class="QLabel" name="betaLabel" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="text" >
                    <string>Threshold:</string>
                   </property>
@@ -1572,6 +1581,9 @@
                 </item>
                 <item>
                  <widget class="QSpinBox" name="betaSpinBox" >
+                  <property name="enabled" >
+                   <bool>false</bool>
+                  </property>
                   <property name="maximum" >
                    <number>6</number>
                   </property>
@@ -2907,14 +2919,14 @@
          <property name="title" >
           <string>Adaptive Quantisation</string>
          </property>
-         <layout class="QGridLayout" >
+         <layout class="QVBoxLayout" >
           <property name="margin" >
            <number>9</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item row="1" column="1" >
+          <item>
            <layout class="QHBoxLayout" >
             <property name="margin" >
              <number>0</number>
@@ -2923,7 +2935,43 @@
              <number>6</number>
             </property>
             <item>
+             <widget class="QCheckBox" name="aqVarianceCheckBox" >
+              <property name="text" >
+               <string>Variance AQ</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType" >
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="aqStrengthLabel" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
+              <property name="text" >
+               <string>Strength:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QDoubleSpinBox" name="aqStrengthSpinBox" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
               <property name="decimals" >
                <number>1</number>
               </property>
@@ -2952,65 +3000,6 @@
              </spacer>
             </item>
            </layout>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QLabel" name="aqStrengthLabel" >
-            <property name="text" >
-             <string>AQ Strength:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QComboBox" name="aqModeComboBox" >
-              <property name="currentIndex" >
-               <number>2</number>
-              </property>
-              <item>
-               <property name="text" >
-                <string>Disabled</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Avoid Moving Bits Between Frames</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Move Bits Between Frames</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="0" >
-           <widget class="QLabel" name="aqModeLabel" >
-            <property name="text" >
-             <string>AQ Mode:</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </widget>
@@ -4502,6 +4491,38 @@
     <hint type="destinationlabel" >
      <x>131</x>
      <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aqVarianceCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>aqStrengthLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>79</x>
+     <y>471</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>175</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aqVarianceCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>aqStrengthSpinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>79</x>
+     <y>471</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>226</x>
+     <y>471</y>
     </hint>
    </hints>
   </connection>

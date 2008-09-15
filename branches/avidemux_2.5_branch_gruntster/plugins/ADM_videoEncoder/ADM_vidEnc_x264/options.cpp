@@ -862,7 +862,7 @@ void x264Options::setPbFrameQuantiser(float pbFrameQuantiser)
 		_param.rc.f_pb_factor = pbFrameQuantiser;
 }
 
-#if X264_BUILD >= 59
+#if X264_BUILD >= 62
 unsigned int x264Options::getAdaptiveQuantiserMode(void)
 {
 	return _param.rc.i_aq_mode;
@@ -870,7 +870,7 @@ unsigned int x264Options::getAdaptiveQuantiserMode(void)
 
 void x264Options::setAdaptiveQuantiserMode(unsigned int adaptiveQuantiserMode)
 {
-	if (adaptiveQuantiserMode <= 2)
+	if (adaptiveQuantiserMode <= 1)
 		_param.rc.i_aq_mode = adaptiveQuantiserMode;
 }
 
@@ -1374,17 +1374,14 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"ipFrameQuantiser", number2String(xmlBuffer, bufferSize, getIpFrameQuantiser()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"pbFrameQuantiser", number2String(xmlBuffer, bufferSize, getPbFrameQuantiser()));
 
-#if X264_BUILD >= 59
+#if X264_BUILD >= 62
 	switch (getAdaptiveQuantiserMode())
 	{
 		case X264_AQ_NONE:
 			strcpy((char*)xmlBuffer, "none");
 			break;
-		case X264_AQ_LOCAL:
-			strcpy((char*)xmlBuffer, "local");
-			break;
-		case X264_AQ_GLOBAL:
-			strcpy((char*)xmlBuffer, "global");
+		case X264_AQ_VARIANCE:
+			strcpy((char*)xmlBuffer, "variance");
 			break;
 	}
 
@@ -1919,17 +1916,15 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 				setIpFrameQuantiser(atof(content));
 			else if (strcmp((char*)xmlChild->name, "pbFrameQuantiser") == 0)
 				setPbFrameQuantiser(atof(content));
-#if X264_BUILD >= 59
+#if X264_BUILD >= 62
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserMode") == 0)
 			{
-				int adaptiveQuantiserMode = 0;
+				int adaptiveQuantiserMode = X264_AQ_VARIANCE;
 
 				if (strcmp(content, "none") == 0)
 					adaptiveQuantiserMode = X264_AQ_NONE;
-				else if (strcmp(content, "local") == 0)
-					adaptiveQuantiserMode = X264_AQ_LOCAL;
-				else if (strcmp(content, "global") == 0)
-					adaptiveQuantiserMode = X264_AQ_GLOBAL;
+				else if (strcmp(content, "variance") == 0)
+					adaptiveQuantiserMode = X264_AQ_VARIANCE;
 
 				setAdaptiveQuantiserMode(adaptiveQuantiserMode);
 			}

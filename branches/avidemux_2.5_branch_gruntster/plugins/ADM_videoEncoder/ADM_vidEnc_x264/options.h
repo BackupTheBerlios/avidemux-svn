@@ -291,7 +291,7 @@ public:
 	float getPbFrameQuantiser(void);
 	void setPbFrameQuantiser(float pbFrameQuantiser);
 
-#if X264_BUILD >= 59
+#if X264_BUILD >= 62
 	unsigned int getAdaptiveQuantiserMode(void);
 	void setAdaptiveQuantiserMode(unsigned int adaptiveQuantiserMode);
 

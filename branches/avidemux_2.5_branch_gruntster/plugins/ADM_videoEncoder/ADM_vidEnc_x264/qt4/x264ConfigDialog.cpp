@@ -688,22 +688,10 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.quantiserBeforeCompressSpinBox->setValue(options->getReduceFluxBeforeCurveCompression());
 	ui.quantiserAfterCompressSpinBox->setValue(options->getReduceFluxAfterCurveCompression());
 
-#if X264_BUILD >= 59
-	switch (options->getAdaptiveQuantiserMode())
-	{
-		case X264_AQ_NONE:
-			ui.aqModeComboBox->setCurrentIndex(0);
-			break;
-		case X264_AQ_LOCAL:
-			ui.aqModeComboBox->setCurrentIndex(1);
-			break;
-		case X264_AQ_GLOBAL:
-			ui.aqModeComboBox->setCurrentIndex(2);
-			break;
-	}
-
+#if X264_BUILD >= 62
+	ui.aqVarianceCheckBox->setChecked(options->getAdaptiveQuantiserMode() == X264_AQ_VARIANCE);
 	ui.aqStrengthSpinBox->setValue(options->getAdaptiveQuantiserStrength());
-#endif	// X264_BUILD >= 59
+#endif	// X264_BUILD >= 62
 
 	// Advanced tab
 	ui.vbvMaxBitrateSpinBox->setValue(options->getVbvMaximumBitrate());
@@ -895,22 +883,14 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setReduceFluxBeforeCurveCompression(ui.quantiserBeforeCompressSpinBox->value());
 	options->setReduceFluxAfterCurveCompression(ui.quantiserAfterCompressSpinBox->value());
 
-#if X264_BUILD >= 59
-	switch (ui.aqModeComboBox->currentIndex())
-	{
-		case 0:
-			options->setAdaptiveQuantiserMode(X264_AQ_NONE);
-			break;
-		case 1:
-			options->setAdaptiveQuantiserMode(X264_AQ_LOCAL);
-			break;
-		case 2:
-			options->setAdaptiveQuantiserMode(X264_AQ_GLOBAL);
-			break;
-	}
+#if X264_BUILD >= 62
+	if (ui.aqVarianceCheckBox->isChecked())
+		options->setAdaptiveQuantiserMode(X264_AQ_VARIANCE);
+	else
+		options->setAdaptiveQuantiserMode(X264_AQ_NONE);
 
 	options->setAdaptiveQuantiserStrength(ui.aqStrengthSpinBox->value());
-#endif	// X264_BUILD >= 59
+#endif	// X264_BUILD >= 62
 
 	// Advanced tab
 	options->setVbvMaximumBitrate(ui.vbvMaxBitrateSpinBox->value());
