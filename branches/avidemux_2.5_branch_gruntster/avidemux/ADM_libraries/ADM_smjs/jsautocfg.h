@@ -23,13 +23,22 @@
 #define JS_BYTES_PER_DWORD  8L
 
 #ifdef ADM_CPU_64BIT
+#ifdef __WIN32
+#define JS_BYTES_PER_LONG   4L
+#define JS_BITS_PER_LONG    32L
+#define JS_BITS_PER_LONG_LOG2   5L
+#define JS_ALIGN_OF_LONG    4L
+#else
 #define JS_BYTES_PER_LONG   8L
-#define JS_BYTES_PER_WORD   8L
 #define JS_BITS_PER_LONG    64L
-#define JS_BITS_PER_WORD    64L
 #define JS_BITS_PER_LONG_LOG2   6L
-#define JS_BITS_PER_WORD_LOG2   6L
 #define JS_ALIGN_OF_LONG    8L
+#endif	// __WIN32
+
+#define JS_BYTES_PER_WORD   8L
+#define JS_BITS_PER_WORD    64L
+#define JS_BITS_PER_WORD_LOG2   6L
+
 #define JS_ALIGN_OF_INT64   8L
 #define JS_ALIGN_OF_DOUBLE  8L
 #define JS_ALIGN_OF_POINTER 8L
@@ -70,9 +79,15 @@
 #define JS_ALIGN_OF_INT     4L
 #define JS_ALIGN_OF_FLOAT   4L
 
+#if defined(ADM_CPU_64BIT) && defined(__WIN32)
+#define JS_BYTES_PER_WORD_LOG2   3L
+#define JS_BYTES_PER_DWORD_LOG2  3L
+#define JS_WORDS_PER_DWORD_LOG2  0L
+#else
 #define JS_BYTES_PER_WORD_LOG2   2L
 #define JS_BYTES_PER_DWORD_LOG2  3L
 #define JS_WORDS_PER_DWORD_LOG2  1L
+#endif
 
 #define JS_STACK_GROWTH_DIRECTION (-1)
 

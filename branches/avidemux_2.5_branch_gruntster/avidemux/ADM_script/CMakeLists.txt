@@ -3,4 +3,9 @@ SET(ADM_script_SRCS
 	ADM_Avidemux.cpp       ADM_JSAvidemuxAudio.cpp  ADM_JSAvidemuxVideo.cpp  ADM_JSFunctions.cpp        DirectorySearch.cpp)
 
 ADD_ADM_LIB_ALL_TARGETS(ADM_script ${ADM_script_SRCS})
-ADD_CFLAGS_ALL_TARGETS(ADM_script "-DJS_THREADSAFE -DXP_UNIX")
+
+IF (WIN32)
+	ADD_CFLAGS_ALL_TARGETS(ADM_script "-DJS_THREADSAFE -DXP_WIN")
+ELSE (WIN32)
+	ADD_CFLAGS_ALL_TARGETS(ADM_script "-DJS_THREADSAFE -DXP_UNIX")
+ENDIF (WIN32)
