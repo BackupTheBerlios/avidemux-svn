@@ -113,7 +113,12 @@ uint8_t X264Encoder::preamble (uint32_t fps1000, ADM_x264Param * zparam)
   MKPARAM(i_bframe_bias,Bias);
   MKPARAM( b_bframe_pyramid,BasReference );
   MKPARAM(analyse. b_bidir_me,BidirME );
+
+#if X264_BUILD >= 63
+  MKPARAM( i_bframe_adaptive, Adaptative);
+#else
   MKPARAM( b_bframe_adaptive, Adaptative);
+#endif
   MKPARAM( analyse.b_weighted_bipred, Weighted);
   MKPARAM( b_cabac , CABAC);
   MKPARAM( analyse.i_trellis, Trellis);
