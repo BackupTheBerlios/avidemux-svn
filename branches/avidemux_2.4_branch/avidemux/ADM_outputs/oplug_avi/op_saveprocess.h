@@ -26,6 +26,7 @@
 					    
 			Encoder 	*_encode;
 			uint8_t		_notnull;
+			int _prefill;
                        	char 		*TwoPassLogFile;
                         ADMBitstream    bitstream;
 

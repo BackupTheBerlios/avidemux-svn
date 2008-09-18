@@ -58,6 +58,7 @@ GenericAviSaveProcess::GenericAviSaveProcess( void )
 	_incoming=NULL;
 	_encode=NULL;
 	_videoProcess=1;
+	_prefill=0;
 };
 
 uint8_t
@@ -116,6 +117,7 @@ _mainaviheader.dwMicroSecPerFrame=0;
       uint32_t len, flag;
       FILE *tmp;
 	uint8_t reuse=0;
+	int prefill = 0, r;
 
  	aprintf("\n** Dual pass encoding**\n");
 
@@ -139,12 +141,32 @@ _mainaviheader.dwMicroSecPerFrame=0;
 		    _incoming->getInfo ()->height * 3];
 
       	_encode->startPass1 ();
+
+        bitstream.bufferSize = _incoming->getInfo()->width * _incoming->getInfo()->height * 3;
+        bitstream.data=buffer;
+
+preFilling:
+		bitstream.cleanup(0);
+
+		if(!_encode->encode(prefill, &bitstream))
+		{
+			printf("AVI: First frame error\n");
+			GUI_Error_HIG(QT_TR_NOOP("Error while encoding"), NULL);
+			return 0;
+		}
+
+		if (!bitstream.len)
+		{
+			prefill++;
+			goto preFilling;
+		}
+
+		printf("Prefill: %u\n", prefill);
+
       //__________________________________
       //   now go to main loop.....
       //__________________________________
-        bitstream.bufferSize=_incoming->getInfo ()->width *   _incoming->getInfo ()->height * 3;
-        bitstream.data=buffer;
-        for (uint32_t cf = 0; cf < frametogo; cf++)
+        for (uint32_t cf = 1; cf < frametogo; cf++)
         {
           if (guiUpdate (cf, frametogo))
             {
@@ -155,11 +177,18 @@ _mainaviheader.dwMicroSecPerFrame=0;
             }
             
             bitstream.cleanup(cf);
-            if (!_encode->encode (cf, &bitstream))
-                {
-                        printf("\n Encoding of frame %lu failed !\n",cf);
-                        goto abt;
-                }
+
+			if (!prefill || cf + prefill < frametogo)
+				r = _encode->encode(prefill + cf, &bitstream);
+			else
+				r = _encode->encode(frametogo - 1, &bitstream);
+
+			if (!r)
+			{
+				printf("Encoding of frame %lu failed!\n", cf);
+				goto abt;
+			}
+
            encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,frametogo);
     
         }
@@ -236,7 +265,7 @@ GenericAviSaveProcess::~GenericAviSaveProcess ()
 uint8_t
 GenericAviSaveProcess::writeVideoChunk (uint32_t frame)
 {
-  uint8_t    	ret1;
+  uint8_t    	r;
   // CBR or CQ
   if (frame == 0)
   {
@@ -251,11 +280,28 @@ GenericAviSaveProcess::writeVideoChunk (uint32_t frame)
         }
   }
   // first read
-  bitstream.cleanup(frame);
-  ret1 = _encode->encode ( frame,&bitstream);// &len1, vbuffer, &_videoFlag);
+
+preFilling:
+  bitstream.cleanup(0);
+
+  if (!_prefill || frame + _prefill < frametogo) 
+	  r = _encode->encode(_prefill + frame, &bitstream);
+  else
+	  r = _encode->encode(frametogo - 1, &bitstream);
+
+  if (!r)
+	  return 0;
+
+  if (!bitstream.len && frame == 0)
+  {
+	  _prefill++;
+	  goto preFilling;
+  }
+  else if (frame == 0)
+	  printf("Prefill: %u\n", _prefill);
+
   _videoFlag=bitstream.flags;
-  if (!ret1)
-    return 0;
+
   // check for split
      // check for auto split
       // if so, we re-write the last I frame
