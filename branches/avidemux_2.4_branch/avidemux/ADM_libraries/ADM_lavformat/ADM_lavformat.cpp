@@ -165,6 +165,10 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 	}
 
 	c = video_st->codec;
+	c->gop_size=15;
+	c->max_b_frames=2;
+	c->has_b_frames=1;
+
 	switch(_type)
 	{
 				case MUXER_FLV:
@@ -195,12 +199,11 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
-                                c->has_b_frames=1; // in doubt...
                         }else
                         {
                                 if(isH264Compatible(info->fcc))
                                 {
-                                        c->has_b_frames=1; // in doubt...
+                                        c->has_b_frames=2; // let muxer know we may have bpyramid
                                         c->codec_id = CODEC_ID_H264;
                                         c->codec=new AVCodec;
                                         memset(c->codec,0,sizeof(AVCodec));
@@ -235,12 +238,11 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
-                                c->has_b_frames=1; // in doubt...
                         }else
                         {
                                 if(isH264Compatible(info->fcc))
                                 {
-                                        c->has_b_frames=1; // in doubt...
+                                        c->has_b_frames=2; // let muxer know we may have bpyramid
                                         c->codec_id = CODEC_ID_H264;
                                         c->codec=new AVCodec;
                                         memset(c->codec,0,sizeof(AVCodec));
@@ -380,11 +382,6 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                             }
                         break;
 	}
-
-
-	c->gop_size=15;
-	c->max_b_frames=2;
-	c->has_b_frames=1;
 
 
 	// Audio
@@ -639,10 +636,7 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 	pkt.pts = av_rescale_q(ptsFrame, video_st->codec->time_base, fps);
 
 	if (calculateDts)
-	{
-		printf("setting dts\n");
 		pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
-	}
 
 	pkt.stream_index = 0;
 
