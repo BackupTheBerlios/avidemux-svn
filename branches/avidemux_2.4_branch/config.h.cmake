@@ -64,6 +64,7 @@
 #cmakedefine CONFIG_ZLIB
 
 #cmakedefine CONFIG_MUXERS
+#cmakedefine CONFIG_IPOD_MUXER
 #cmakedefine CONFIG_MOV_MUXER
 #cmakedefine CONFIG_MP4_MUXER
 #cmakedefine CONFIG_PSP_MUXER
