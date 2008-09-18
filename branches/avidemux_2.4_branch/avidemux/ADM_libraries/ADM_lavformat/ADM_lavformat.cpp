@@ -18,6 +18,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS
+#endif
+
 #include "config.h"
 #include "default.h"
 #define WIN32_CLASH
@@ -35,7 +39,7 @@ extern "C"
 #undef malloc
 #undef realloc
 #undef free
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 
 #include "ADM_toolkit/toolkit.hxx"
 
@@ -606,11 +610,10 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 	AVPacket pkt;
 	AVRational fps = {1, 1000000};
 	uint32_t ptsFrame = bitstream->ptsFrame + 1;
-	bool calculateDts = true;
 
 	av_init_packet(&pkt);
 
-	_curDTS = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
+	_curDTS = av_rescale_q(bitstream->frameNumber, video_st->codec->time_base, fps);
 
 	switch (_type)
 	{
@@ -623,7 +626,6 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 		case MUXER_MP4:
 		{
 			ptsFrame = bitstream->ptsFrame;
-			calculateDts = false;
 			// break is missing on purpose!
 		}
 		default:
@@ -635,7 +637,7 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 
 	pkt.pts = av_rescale_q(ptsFrame, video_st->codec->time_base, fps);
 
-	if (calculateDts)
+	if (bitstream->dtsFrame != UINT32_MAX)
 		pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
 
 	pkt.stream_index = 0;

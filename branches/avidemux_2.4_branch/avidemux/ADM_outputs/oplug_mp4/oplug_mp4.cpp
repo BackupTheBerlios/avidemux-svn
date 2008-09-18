@@ -18,6 +18,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS
+#endif
+
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -208,6 +212,8 @@ const char *containerTitle;
              
 preFilling:
              bitstream.cleanup(0);
+			 bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
              if(!(err=_encode->encode ( prefill, &bitstream)))//&len, videoBuffer, &flags,&displayFrame))
              {
                         printf("MP4:First frame error\n");
@@ -338,6 +344,8 @@ preFilling:
                }
                ADM_assert(_encode);
                bitstream.cleanup(frameWrite);
+			   bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
                if(!prefill || frame+prefill<total) 
                {
                   
