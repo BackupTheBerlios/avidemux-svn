@@ -605,53 +605,32 @@ uint8_t lavMuxer::needAudio( void )
 //___________________________________________________________________________
 uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 {
-int ret;
+	int ret;
+	AVPacket pkt;
+	AVRational fps = {1, 1000000};
 
-double p,d;
-  	AVPacket pkt;
-            av_init_packet(&pkt);
+	av_init_packet(&pkt);
 
-        p=bitstream->ptsFrame+1;      // Pts           // Time p/fps1000=out/den  out=p*den*1000/fps1000
-        p=(p*1000*1000*1000);
-        p=p/_fps1000;                  // in us
+	_curDTS = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
 
-        d=bitstream->dtsFrame;		// dts
-	d=(d*1000*1000*1000);
-	d=d/_fps1000;
+	switch (_type)
+	{
+		case MUXER_FLV:
+		case MUXER_MATROSKA:
+		{
+			fps.den = 1000;
+			break;
+		}
+		default:
+		{
+			fps.den = video_st->codec->time_base.den;
+			break;
+		}
+	}
 
-
-	_curDTS=(int64_t)floor(d);
-    aprintf("Adm video unscaled dts=:%u\n",(uint32_t)d);
-        // Rescale
-#define RESCALE(x) x=x*1000.;\
-                   x=x/_fps1000;
-
-        p=bitstream->ptsFrame+1;
-        RESCALE(p);
-// MP4/ TS
-        d=bitstream->dtsFrame;  // p & d are now in seconds
-        RESCALE(d);
-        switch(_type)  // video_st->codec->time_base.den
-        {
-        case MUXER_FLV :
-        case MUXER_MATROSKA:
-                    {
-                        p=p*1000;
-                        d=d*1000; // in milliseconds
-                        break;
-                    }
-        
-        default:
-                    p=p*video_st->codec->time_base.den;
-                    d=d*video_st->codec->time_base.den;
-                    break;
-        }
-    	pkt.dts=(int64_t)floor(d);
-    	pkt.pts=(int64_t)floor(p);
-
-       // printf("Lavformat : Pts :%u dts:%u",displayframe,frameno);
-	aprintf("Lavformat : Pts :%llu dts:%llu",pkt.pts,pkt.dts);
-	pkt.stream_index=0;
+	pkt.pts = av_rescale_q(bitstream->ptsFrame + 1, video_st->codec->time_base, fps);
+	pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
+	pkt.stream_index = 0;
 
         pkt.data= bitstream->data;
         pkt.size= bitstream->len;
