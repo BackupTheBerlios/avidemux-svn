@@ -93,7 +93,6 @@ EncoderX264::configure (AVDMGenericVideoStream * instream)
   _in = instream;
   _fps1000 = info->fps1000;
   _availableFrames = instream->getInfo()->nb_frames;
-  _delayed = 0;
 
   switch (_param.mode)
     {
@@ -200,54 +199,27 @@ uint8_t
 	ADM_assert (_in);
 
 	uint32_t l, f;
-	bool firstFrame = !frame;
-	bool success = false;
-	int maxDelay = _codecParam.MaxRefFrames + _codecParam.MaxBFrame;
 
-	if (maxDelay < 7)
-		maxDelay = 7;
-
-	frame += _delayed;
-
-	while (!success)
+	if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
 	{
-		if (frame >= _availableFrames)
-		{
-			frame = _availableFrames - 1;
-			printf("[x264] Repeating last frame %u (delay=%u)\n",frame,_delayed);
-		}
-		//printf("[x264] Getting frame :%u delay :%u\n",frame,_delayed);
-		if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
-		{
-			printf ("\n[x264] Error: Cannot read incoming frame!");
-			return 0;
-		}
-
-		switch (_state)
-		{
-			case enc_CBR:
-			case enc_CQ:
-			case enc_Pass1:
-			case enc_Pass2:
-				if (_codec->encode(_vbuffer, out))
-				{
-					if (out->len == 0 && _delayed < maxDelay && firstFrame)
-					{
-						_delayed++;
-						frame++;
-						printf("[x264] Delay so far :%u\n",_delayed);
-					}
-					else
-						success = true;
-				}
-
-				break;
-			default:
-				ADM_assert(0);
-		}
+		printf ("\n[x264] Error: Cannot read incoming frame!");
+		return 0;
 	}
 
-	return 1;
+	switch (_state)
+	{
+		case enc_CBR:
+		case enc_CQ:
+		case enc_Pass1:
+		case enc_Pass2:
+			return _codec->encode(_vbuffer, out);
+
+			break;
+		default:
+			ADM_assert(0);
+	}
+
+	return 0;
 }
 
 //_______________________________
@@ -271,7 +243,6 @@ uint8_t EncoderX264::startPass2 (void)
 {
   uint32_t    bitrate;
 
-  _delayed = 0;
   ADM_assert (_state == enc_Pass1);
   printf ("\n[x264] Starting pass 2 (%d x %d)\n", _w, _h);
 

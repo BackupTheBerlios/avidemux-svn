@@ -36,7 +36,6 @@ protected:
 
   X264Encoder * _codec;
   char *_logfile;
-  uint32_t _delayed;
   uint32_t _availableFrames;
   uint32_t _q;
   uint32_t _pass1Done;
