@@ -608,6 +608,8 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 	int ret;
 	AVPacket pkt;
 	AVRational fps = {1, 1000000};
+	uint32_t ptsFrame = bitstream->ptsFrame + 1;
+	bool calculateDts = true;
 
 	av_init_packet(&pkt);
 
@@ -621,6 +623,12 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 			fps.den = 1000;
 			break;
 		}
+		case MUXER_MP4:
+		{
+			ptsFrame = bitstream->ptsFrame;
+			calculateDts = false;
+			// break is missing on purpose!
+		}
 		default:
 		{
 			fps.den = video_st->codec->time_base.den;
@@ -628,8 +636,14 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 		}
 	}
 
-	pkt.pts = av_rescale_q(bitstream->ptsFrame + 1, video_st->codec->time_base, fps);
-	pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
+	pkt.pts = av_rescale_q(ptsFrame, video_st->codec->time_base, fps);
+
+	if (calculateDts)
+	{
+		printf("setting dts\n");
+		pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
+	}
+
 	pkt.stream_index = 0;
 
         pkt.data= bitstream->data;
