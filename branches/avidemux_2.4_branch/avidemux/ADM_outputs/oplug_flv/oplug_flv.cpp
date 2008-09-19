@@ -15,6 +15,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#define __STDC_LIMIT_MACROS
+
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,7 +34,7 @@ extern "C" {
 #include "ADM_editor/ADM_Video.h"
 #include "ADM_colorspace/colorspace.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 #include "ADM_video/ADM_genvideo.hxx"
 #include "ADM_filter/video_filters.h"
 
@@ -93,8 +95,6 @@ uint8_t         *videoBuffer=NULL;
 uint32_t alen;//,flags;
 uint32_t size;
 
-uint8_t   ret=0;
-
 uint32_t  sample_got=0,sample;
 uint32_t  extraDataSize=0;
 uint8_t   *extraData=NULL;
@@ -111,14 +111,13 @@ WAVHeader *audioinfo=NULL;
 int prefill=0;
 uint32_t displayFrame=0;
 ADMBitstream    bitstream(0);
-uint32_t        frameWrite=0;
 uint8_t r=0;
-uint32_t skipping=1;
 pthread_t     audioThread;
 audioQueueMT context;
 PacketQueue   *pq=NULL;//("MP4 audioQ",50,2*1024*1024);
 uint32_t    totalAudioSize=0;
-uint32_t sent=0;
+int frameDelay = 0;
+bool receivedFrame = false;
 
         // Setup video
 
@@ -213,31 +212,9 @@ uint32_t sent=0;
                         videoExtraData=new uint8_t[videoExtraDataSize];
                         memcpy(videoExtraData,dummy,videoExtraDataSize);
                 }
-        // _________________Setup video (cont) _______________
-        // ___________ Read 1st frame _________________
 
              ADM_assert(_encode);
              bitstream.data=videoBuffer;
-
-preFilling:
-             bitstream.cleanup(0);
-             if(!(err=_encode->encode ( prefill, &bitstream)))// FIXME: We should never execute it more than once
-             {
-                        printf("[FLV]:First frame error\n");
-                        GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
-                        goto  stopit;
-              }
-              sent++;
-              if(!bitstream.len)
-              {
-                prefill++;
-                goto preFilling;
-              }
-              if(!bitstream.flags & AVI_KEY_FRAME)
-              {
-                GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"),QT_TR_NOOP( "The beginning frame is not a key frame.\nPlease move the A marker."));
-                  goto  stopit;
-              }
 
 // ____________Setup audio__________________
           if(currentaudiostream)
@@ -282,11 +259,7 @@ preFilling:
                 encoding_gui->setCodec(_encode->getDisplayName());
            //
           UI_purge();
-          if(bitstream.len)
-          {
-            muxer->writeVideoPacket( &bitstream);
-            frameWrite++;
-          }
+
 //_____________ Start Audio thread _____________________
           if(audio)
           {
@@ -300,51 +273,81 @@ preFilling:
             ADM_usleep(4000);
           }
 //_____________GO !___________________
-           for(int frame=1;frame<total;frame++)
-           {
-               while(muxer->needAudio())
-               {
-                    if(pq->Pop(audioBuffer,&alen,&sample))
-                    {
-                     if(alen)
-                     {
-                        muxer->writeAudioPacket(alen,audioBuffer,sample_got);
-                        totalAudioSize+=alen;
-                        encoding_gui->setAudioSize(totalAudioSize);
-                        sample_got+=sample;
-                     }
-                    }else break;
-               }
-               ADM_assert(_encode);
-               bitstream.cleanup(frameWrite);
 
-               r=_encode->encode ( prefill+frame, &bitstream);
+			 for (uint32_t frame = 0; frame < total; frame++)
+			 {
+				 if (!encoding_gui->isAlive())
+				 {
+					 r = 0;
+					 break;
+				 }
 
-               if(!r && frame<total-2)
-               {
-                        printf("[FLV]:Frame %u error\n",frame);
-                        GUI_Error_HIG ("FLV",QT_TR_NOOP("Error while encoding"));
-                        goto  stopit;
-                }
-                if(!bitstream.len && skipping)
-                {
-                    printf("[FLV]Frame skipped (xvid ?)\n");
-                    continue;
-                }
-                sent++;
-                skipping=0;
-            //    printf("Prefill %u FrameWrite :%u Frame %u PtsFrame :%u\n",prefill,frameWrite,frame,bitstream.ptsFrame);
-                frameWrite++;
-                muxer->writeVideoPacket( &bitstream);
-                encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,total);
-               if(!encoding_gui->isAlive())
-                {
+				 while(muxer->needAudio())
+				 {
+					 if(pq->Pop(audioBuffer,&alen,&sample))
+					 {
+						 if(alen)
+						 {
+							 muxer->writeAudioPacket(alen,audioBuffer,sample_got);
+							 totalAudioSize+=alen;
+							 encoding_gui->setAudioSize(totalAudioSize);
+							 sample_got+=sample;
+						 }
+					 }
+					 else
+					 {
+						 r = 0;
+						 break;
+					 }
+				 }
 
-                    goto stopit;
-                }
+				 for (;;)
+				 {
+					 bitstream.cleanup(frame);
 
-           }
-           ret=1;
+					 if (frame + frameDelay >= total)
+					 {
+						 if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+							 r = _encode->encode(UINT32_MAX, &bitstream);
+						 else
+							 r = 0;
+					 }
+					 else
+						 r = _encode->encode(frame + frameDelay, &bitstream);
+
+					 if (!r)
+					 {
+						 printf("Encoding of frame %lu failed!\n", frame);
+						 GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
+						 break;
+					 }
+					 else if (!receivedFrame && bitstream.len > 0)
+					 {
+						 if (!(bitstream.flags & AVI_KEY_FRAME))
+						 {
+							 GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"), QT_TR_NOOP("The beginning frame is not a key frame.\nPlease move the A marker."));
+							 r = 0;
+							 break;
+						 }
+						 else
+							 receivedFrame = true;
+					 }
+
+					 if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+					 {
+						 printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+						 frameDelay++;
+					 }
+					 else
+						 break;
+				 }
+
+				 if (!r)
+					 break;
+
+				 muxer->writeVideoPacket(&bitstream);
+				 encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
+			 }
 
 stopit:
 
@@ -370,7 +373,7 @@ stopit:
            if(videoExtraData) delete [] videoExtraData;
            // Cleanup
            deleteAudioFilter (audio);
-           return ret;
+           return r;
 }
 
 
