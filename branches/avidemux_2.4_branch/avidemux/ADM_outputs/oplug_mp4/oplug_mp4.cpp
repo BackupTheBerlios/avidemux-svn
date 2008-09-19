@@ -18,9 +18,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS
-#endif
 
 #include "config.h"
 #include <stdio.h>
@@ -99,8 +97,6 @@ uint8_t         *videoBuffer=NULL;
 uint32_t alen;//,flags;
 uint32_t size;
 
-uint8_t   ret=0;
-
 uint32_t  sample_got=0,sample;
 uint32_t  extraDataSize=0;
 uint8_t   *extraData=NULL;
@@ -115,20 +111,19 @@ uint32_t videoExtraDataSize=0;
 uint8_t  *videoExtraData=NULL;
 uint8_t *dummy,err;
 WAVHeader *audioinfo=NULL;
-int prefill=0;
-uint32_t displayFrame=0;
 ADMBitstream    bitstream(0);
-uint32_t        frameWrite=0;
 ADM_MUXER_TYPE muxerType=MUXER_MP4;
 uint8_t dualPass=0;
 uint8_t r=0;
-uint32_t skipping=1;
 pthread_t     audioThread;
 audioQueueMT context;
 PacketQueue   *pq = NULL;//("MP4 audioQ",50,2*1024*1024);
 uint32_t    totalAudioSize=0;
 uint32_t sent=0;
 const char *containerTitle;
+int frameDelay = 0;
+bool receivedFrame = false;
+
            switch(type)
            {
              case ADM_PSP:muxerType=MUXER_PSP;containerTitle=QT_TR_NOOP("PSP");break;
@@ -205,34 +200,10 @@ const char *containerTitle;
                         memcpy(videoExtraData,dummy,videoExtraDataSize);
                 }
         // _________________Setup video (cont) _______________
-        // ___________ Read 1st frame _________________
              
              ADM_assert(_encode);
              bitstream.data=videoBuffer;
-             
-preFilling:
-             bitstream.cleanup(0);
-			 bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
 
-             if(!(err=_encode->encode ( prefill, &bitstream)))//&len, videoBuffer, &flags,&displayFrame))
-             {
-                        printf("MP4:First frame error\n");
-                        GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
-                        goto  stopit;
-              }
-              sent++;
-              if(!bitstream.len)
-              {
-                prefill++;
-                goto preFilling;
-              }
-              printf("Pass 2 prefill : %u\n",prefill);
-              if(!bitstream.flags & AVI_KEY_FRAME)
-              {
-                GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"),QT_TR_NOOP( "The beginning frame is not a key frame.\nPlease move the A marker."));
-                  goto  stopit; 
-              }
-           //len=bitstream.len;
            // If needed get VOL header
            if(isMpeg4Compatible(info.fcc) && !videoExtraDataSize && bitstream.len)
            {
@@ -309,11 +280,7 @@ preFilling:
                 encoding_gui->setCodec(_encode->getDisplayName());
            //
           UI_purge();
-          if(bitstream.len)
-          {
-            muxer->writeVideoPacket( &bitstream);
-            frameWrite++;
-          }
+
 //_____________ Start Audio thread _____________________
           if(audio)
           {          
@@ -327,62 +294,84 @@ preFilling:
             ADM_usleep(4000);
           }
 //_____________GO !___________________
-           for(int frame=1;frame<total;frame++)
-           {
-               while(muxer->needAudio())
-               {
-                    if(pq->Pop(audioBuffer,&alen,&sample))
-                    {
-                     if(alen)
-                     {
-                        muxer->writeAudioPacket(alen,audioBuffer,sample_got);
-                        totalAudioSize+=alen;
-                        encoding_gui->setAudioSize(totalAudioSize);
-                        sample_got+=sample;
-                     }
-                    }else break;
-               }
-               ADM_assert(_encode);
-               bitstream.cleanup(frameWrite);
-			   bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+		  for (uint32_t frame = 0; frame < total; frame++)
+		  {
+			  if (!encoding_gui->isAlive())
+			  {
+				  r = 0;
+				  break;
+			  }
 
-               if(!prefill || frame+prefill<total) 
-               {
-                  
-                  r=_encode->encode ( prefill+frame, &bitstream);
-               }
-                else
-                {
-                    r=_encode->encode ( total-1, &bitstream);
-                }
-               if(!r && frame<total-2)
-               {
-                        printf("MP4:Frame %u error\n",frame);
-                        GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
-                        goto  stopit;
-                }
-                if(!bitstream.len && skipping)
-                {
-                    printf("Frame skipped (xvid ?)\n");
-                    continue;
-                }
-                sent++;
-                skipping=0;
-            //    printf("Prefill %u FrameWrite :%u Frame %u PtsFrame :%u\n",prefill,frameWrite,frame,bitstream.ptsFrame);
-                frameWrite++;
-                muxer->writeVideoPacket( &bitstream);
-                encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,total);
-               if(!encoding_gui->isAlive())
-                {
-                    
-                    goto stopit;
-                }
-               
-           }
-           ret=1;
-           
+			  while (muxer->needAudio())
+			  {
+				  if (pq->Pop(audioBuffer, &alen, &sample))
+				  {
+					  if (alen)
+					  {
+						  muxer->writeAudioPacket(alen, audioBuffer, sample_got);
+						  totalAudioSize += alen;
+						  encoding_gui->setAudioSize(totalAudioSize);
+						  sample_got += sample;
+					  }
+				  }
+				  else
+				  {
+					  r = 0;
+					  break;
+				  }
+			  }
+
+			  for (;;)
+			  {
+				  bitstream.cleanup(frame);
+				  bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+				  if (frame + frameDelay >= total)
+				  {
+					  if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+						  r = _encode->encode(UINT32_MAX, &bitstream);
+					  else
+						  r = 0;
+				  }
+				  else
+					  r = _encode->encode(frame + frameDelay, &bitstream);
+
+				  if (!r)
+				  {
+					  printf("Encoding of frame %lu failed!\n", frame);
+					  GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
+					  break;
+				  }
+				  else if (!receivedFrame && bitstream.len > 0)
+				  {
+					  if (!(bitstream.flags & AVI_KEY_FRAME))
+					  {
+						  GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"), QT_TR_NOOP("The beginning frame is not a key frame.\nPlease move the A marker."));
+						  r = 0;
+						  break;
+					  }
+					  else
+						  receivedFrame = true;
+				  }
+
+				  if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+				  {
+					  printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+					  frameDelay++;
+				  }
+				  else
+					  break;
+			  }
+
+			  if (!r)
+				  break;
+
+			  muxer->writeVideoPacket(&bitstream);
+			  encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
+		  }
+		  
 stopit:
-    printf("2nd pass, sent %u frames\n",sent);
+    printf("2nd pass, sent %u frames\n", bitstream.frameNumber + frameDelay);
     // Flush slave Q
     if(pq)
     {
@@ -406,7 +395,7 @@ stopit:
            if(videoExtraData) delete [] videoExtraData;
            // Cleanup
            deleteAudioFilter (audio);
-           return ret;
+           return r;
 }
 uint8_t prepareDualPass(uint32_t bufferSize,uint8_t *buffer,char *TwoPassLogFile,DIA_encoding *encoding_gui,Encoder *_encode,uint32_t total)
 {
@@ -414,8 +403,8 @@ uint8_t prepareDualPass(uint32_t bufferSize,uint8_t *buffer,char *TwoPassLogFile
       FILE *tmp;
       uint8_t reuse=0,r;
       ADMBitstream bitstream(0);
-      uint32_t prefill=0;
-      uint32_t sent=0;
+	  int frameDelay = 0;
+	  bool receivedFrame = false;
       
         aprintf("\n** Dual pass encoding**\n");
 
@@ -430,56 +419,69 @@ uint8_t prepareDualPass(uint32_t bufferSize,uint8_t *buffer,char *TwoPassLogFile
         
         if(!reuse)
         {
-        
                 encoding_gui->setPhasis (QT_TR_NOOP("1st Pass"));
                 aprintf("**Pass 1:%lu\n",total);
                 _encode->startPass1 ();
                 bitstream.data=buffer;
                 bitstream.bufferSize=bufferSize;
-                
-preFilling2:
-             bitstream.cleanup(0);
-             if(!_encode->encode ( prefill, &bitstream))//&len, videoBuffer, &flags,&displayFrame))
-             {
-                        printf("MP4:First frame error\n");
-                        GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
-                        return 0;
-              }
-              sent++;
-              if(!bitstream.len)
-              {
-                prefill++;
-                goto preFilling2;
-              }
 
-                printf("Pass 1 prefill : %u\n",prefill);
-                for (uint32_t cf = 1; cf < total; cf++)
-                {
-                        if (!encoding_gui->isAlive())
-                        {
-                                abt:
-                                    GUI_Error_HIG (QT_TR_NOOP("Aborting"), NULL);
-                                return 0;
-                        }
-                        bitstream.cleanup(cf);
-                        if(!prefill || cf+prefill<total) 
-                        {
-                            r=_encode->encode ( prefill+cf, &bitstream);
-                        }
-                          else
-                          {
-                              r=_encode->encode ( total-1, &bitstream);
-                          }
-                        if (!r)
-                        {
-                                printf("\n Encoding of frame %lu failed !\n",cf);
-                                return 0;
-                        }
-                        sent++;
-                        encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,total);
-                }
-                encoding_gui->reset();
-                aprintf("**Pass 1:done\n");
+				for (uint32_t frame = 0; frame < total; frame++)
+				{
+					if (!encoding_gui->isAlive())
+					{
+						r = 0;
+						break;
+					}
+
+					for (;;)
+					{
+						bitstream.cleanup(frame);
+						bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+						if (frame + frameDelay >= total)
+						{
+							if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+								r = _encode->encode(UINT32_MAX, &bitstream);
+							else
+								r = 0;
+						}
+						else
+							r = _encode->encode(frame + frameDelay, &bitstream);
+
+						if (!r)
+						{
+							printf("Encoding of frame %lu failed!\n", frame);
+							GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
+							break;
+						}
+						else if (!receivedFrame && bitstream.len > 0)
+						{
+							if (!(bitstream.flags & AVI_KEY_FRAME))
+							{
+								GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"), QT_TR_NOOP("The beginning frame is not a key frame.\nPlease move the A marker."));
+								r = 0;
+								break;
+							}
+							else
+								receivedFrame = true;
+						}
+
+						if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+						{
+							printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+							frameDelay++;
+						}
+						else
+							break;
+					}
+
+					if (!r)
+						return 0;
+
+					encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
+				}
+
+				encoding_gui->reset();
         }// End of reuse
 
         if(!_encode->startPass2 ())
@@ -487,7 +489,7 @@ preFilling2:
                 printf("Pass2 ignition failed\n");
                 return 0;
         }
-        printf("First pass : send %u frames\n",sent);
+        printf("First pass : send %u frames\n", bitstream.frameNumber + frameDelay);
         encoding_gui->setPhasis (QT_TR_NOOP("2nd Pass"));
         return 1;
 }
