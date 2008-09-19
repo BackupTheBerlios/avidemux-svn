@@ -16,6 +16,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#define __STDC_LIMIT_MACROS
+
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,7 +35,7 @@ extern "C" {
 #include "ADM_editor/ADM_Video.h"
 #include "ADM_colorspace/colorspace.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 #include "ADM_video/ADM_genvideo.hxx"
 #include "ADM_filter/video_filters.h"
 
@@ -88,8 +90,6 @@ uint8_t         *videoBuffer=NULL;
 uint32_t alen;//,flags;
 uint32_t size;
 
-uint8_t   ret=0;
-
 uint32_t  sample_got=0,sample;
 uint32_t  extraDataSize=0;
 uint8_t   *extraData=NULL;
@@ -106,10 +106,10 @@ uint32_t displayFrame=0;
 ADMBitstream    bitstream(0);
 uint32_t        frameWrite=0;
 uint8_t r=0;
-uint32_t skipping=1;
+int frameDelay = 0;
+bool receivedFrame = false;
 
 uint32_t    totalAudioSize=0;
-uint32_t sent=0;
 
         // Setup video
         
@@ -161,7 +161,7 @@ uint32_t sent=0;
                 _encode->hasExtraHeaderData( &videoExtraDataSize,&dummy);
                 if(videoExtraDataSize)
                 {
-                        printf("[FLV]We have extradata for video in copy mode (%d)\n",videoExtraDataSize);
+                        printf("We have extradata for video in copy mode (%d)\n",videoExtraDataSize);
                         videoExtraData=new uint8_t[videoExtraDataSize];
                         memcpy(videoExtraData,dummy,videoExtraDataSize);
                 }
@@ -170,76 +170,78 @@ uint32_t sent=0;
              
              ADM_assert(_encode);
              bitstream.data=videoBuffer;
-             
-preFilling:
-             bitstream.cleanup(0);
-             if(!(err=_encode->encode ( prefill, &bitstream)))// FIXME: We should never execute it more than once
-             {
-                        printf("[FLV]:First frame error\n");
-                        GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
-                        goto  stopit;
-              }
-              sent++;
-              if(!bitstream.len)
-              {
-                prefill++;
-                goto preFilling;
-              }
-              if(!bitstream.flags & AVI_KEY_FRAME)
-              {
-                GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"),QT_TR_NOOP( "The beginning frame is not a key frame.\nPlease move the A marker."));
-                  goto  stopit; 
-              }
-         
-          if(!videoProcessMode())
-                encoding_gui->setCodec(QT_TR_NOOP("Copy"));
-          else
-                encoding_gui->setCodec(_encode->getDisplayName());
-           //
-          UI_purge();
-          if(bitstream.len)
-          {
-            frameWrite++;
-          }
-           for(int frame=1;frame<total;frame++)
-           {
-               
-               ADM_assert(_encode);
-               bitstream.cleanup(frameWrite);
-              
-               r=_encode->encode ( prefill+frame, &bitstream);
-              
-               if(!r && frame<total-2)
-               {
-                        printf("[FLV]:Frame %u error\n",frame);
-                        GUI_Error_HIG ("FLV",QT_TR_NOOP("Error while encoding"));
-                        goto  stopit;
-                }
-                if(!bitstream.len && skipping)
-                {
-                    printf("[FLV]Frame skipped (xvid ?)\n");
-                    continue;
-                }
-                sent++;
-                skipping=0;
-                frameWrite++;
-                encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,total);
-               if(!encoding_gui->isAlive())
-                {
-                    
-                    goto stopit;
-                }
-               
-           }
-           ret=1;
-           
+
+			 if(!videoProcessMode())
+				 encoding_gui->setCodec(QT_TR_NOOP("Copy"));
+			 else
+				 encoding_gui->setCodec(_encode->getDisplayName());
+
+			 UI_purge();
+
+			 for (uint32_t frame = 0; frame < total; frame++)
+			 {
+				 if (!encoding_gui->isAlive())
+				 {
+					 r = 0;
+					 break;
+				 }
+
+				 for (;;)
+				 {
+					 bitstream.cleanup(frame);
+
+					 if (frame + frameDelay >= total)
+					 {
+						 if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+							 r = _encode->encode(UINT32_MAX, &bitstream);
+						 else
+							 r = 0;
+					 }
+					 else
+						 r = _encode->encode(frame + frameDelay, &bitstream);
+
+					 if (!r)
+					 {
+						 printf("Encoding of frame %lu failed!\n", frame);
+						 GUI_Error_HIG (QT_TR_NOOP("Error while encoding"), NULL);
+						 break;
+					 }
+					 else if (!receivedFrame && bitstream.len > 0)
+					 {
+						 if (!(bitstream.flags & AVI_KEY_FRAME))
+						 {
+							 GUI_Error_HIG (QT_TR_NOOP("KeyFrame error"), QT_TR_NOOP("The beginning frame is not a key frame.\nPlease move the A marker."));
+							 r = 0;
+							 break;
+						 }
+						 else
+							 receivedFrame = true;
+					 }
+
+					 if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+					 {
+						 printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+						 frameDelay++;
+					 }
+					 else
+						 break;
+				 }
+
+				 if (!r)
+					 break;
+
+				 encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
+			 }
+
+			 encoding_gui->reset();
+
 stopit:
     
            if(encoding_gui) delete encoding_gui;
            if(videoBuffer) delete [] videoBuffer;
            if(_encode) delete _encode;	
            if(videoExtraData) delete [] videoExtraData;
-           return ret;
+           return r;
 }
 
 	
