@@ -166,7 +166,7 @@ EncoderX264::startPass1 (void)
   return 1;
 }
 
-
+int EncoderX264::getRequirements (void) { return 0; }
 
 uint8_t
 EncoderX264::isDualPass (void)

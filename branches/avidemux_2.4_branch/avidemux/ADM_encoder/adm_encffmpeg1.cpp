@@ -327,6 +327,7 @@ EncoderFFMPEGMpeg1::startPass1 (void)
   return 1;
 }
 
+int EncoderFFMPEGMpeg1::getRequirements (void) { return 0; }
 
 uint8_t
 EncoderFFMPEGMpeg1::isDualPass (void)

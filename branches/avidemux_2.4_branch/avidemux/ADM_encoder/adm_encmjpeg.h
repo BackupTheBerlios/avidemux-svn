@@ -31,6 +31,7 @@ protected:
   uint8_t _swapped;
 public:
     EncoderMjpeg (COMPRES_PARAMS * conf);
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;

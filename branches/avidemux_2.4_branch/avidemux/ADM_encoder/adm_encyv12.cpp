@@ -70,6 +70,8 @@ EncoderYV12::configure (AVDMGenericVideoStream * instream)
   return 1;
 }
 
+int EncoderYV12::getRequirements (void) { return 0; }
+
 //______________________________
 uint8_t
         EncoderYV12::encode (uint32_t frame, ADMBitstream *out)

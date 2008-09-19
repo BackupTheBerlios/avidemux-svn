@@ -35,6 +35,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream);
   virtual uint8_t encode (uint32_t frame,ADMBitstream *out);
@@ -67,6 +68,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
@@ -109,6 +111,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
@@ -152,6 +155,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
@@ -201,6 +205,7 @@ public:
 public:
     EncoderFFMPEGMpeg1 (FF_CODEC_ID id, COMPRES_PARAMS * config);
     virtual ~ EncoderFFMPEGMpeg1 ();	// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream);
   virtual uint8_t encode (uint32_t frame, ADMBitstream *out);
@@ -223,6 +228,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
@@ -268,6 +274,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
@@ -310,6 +317,7 @@ public:
   {
     stop ();
   };				// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;

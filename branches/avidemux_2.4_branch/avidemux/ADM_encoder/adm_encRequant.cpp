@@ -67,6 +67,9 @@ EncoderRequant::~EncoderRequant ()
   _buffer=NULL;
   Mrequant_end();
 }
+
+int EncoderRequant::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderRequant::isDualPass (void)
 {

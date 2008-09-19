@@ -32,6 +32,7 @@ protected:
 public:
     EncoderCopy (COMPRES_PARAMS * codecconfig);
    ~EncoderCopy ();		// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream);
   virtual uint8_t encode (uint32_t frame, ADMBitstream *out);

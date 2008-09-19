@@ -83,7 +83,7 @@ EncoderY800::configure (AVDMGenericVideoStream * instream)
 }
 
 
-
+int EncoderY800::getRequirements (void) { return 0; }
 
 
 //______________________________

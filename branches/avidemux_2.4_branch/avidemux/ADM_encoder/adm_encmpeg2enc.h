@@ -45,6 +45,7 @@ class EncoderMpeg2enc:public Encoder
   public:
     EncoderMpeg2enc (MPEG2ENC_ID id, COMPRES_PARAMS * config);
     virtual ~ EncoderMpeg2enc ();	// can be called twice if needed ..
+	virtual int getRequirements (void);
     virtual uint8_t isDualPass (void);
     virtual uint8_t configure (AVDMGenericVideoStream * instream);
     virtual uint8_t encode (uint32_t frame, ADMBitstream *out);

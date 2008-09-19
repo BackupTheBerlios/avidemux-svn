@@ -60,6 +60,9 @@ EncoderCopy::~EncoderCopy ()
 {
 
 }
+
+int EncoderCopy::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderCopy::isDualPass (void)
 {

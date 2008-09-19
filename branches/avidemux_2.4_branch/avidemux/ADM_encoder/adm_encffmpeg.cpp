@@ -65,6 +65,9 @@ EncoderFFMPEG (FF_HUFF, config)
   _state=enc_CQ;
 
 }
+
+int EncoderFFMPEGHuff::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderFFMPEGHuff::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -106,6 +109,9 @@ EncoderFFMPEG (FF_FFHUFF, config)
   _id = FF_FFHUFF;
   _frametogo = 0;
 }
+
+int EncoderFFMPEGFFHuff::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderFFMPEGFFHuff::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -150,6 +156,9 @@ EncoderFFMPEG (FF_HUFF, config)
 
 
 }
+
+int EncoderFFMPEGFFV1::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderFFMPEGFFV1::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -189,6 +198,9 @@ EncoderFFMPEG (FF_HUFF, config)
 
 
 }
+
+int EncodeFFMPEGSNow::getRequirements (void) { return 0; }
+
 uint8_t
 EncodeFFMPEGSNow::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -231,6 +243,9 @@ EncoderFFMPEG (FF_DV, config)
 
 
 }
+
+int EncoderFFMPEGDV::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderFFMPEGDV::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -278,6 +293,9 @@ EncoderFFMPEG (FF_FLV1, config)
 
 
 }
+
+int EncoderFFMPEGFLV1::getRequirements (void) { return 0; }
+
 uint8_t
 EncoderFFMPEGFLV1::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -448,6 +466,7 @@ uint8_t EncoderFFMPEG::startPass1 (void)
   return 1;
 }
 
+int EncoderFFMPEG::getRequirements (void) { return 0; }
 
 uint8_t EncoderFFMPEG::isDualPass (void)
 {

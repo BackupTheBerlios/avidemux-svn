@@ -28,6 +28,7 @@ protected:
   ffmpegEncoderFFY800 * _codec;
 public:
     EncoderY800 (COMPRES_PARAMS * conf);
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;
