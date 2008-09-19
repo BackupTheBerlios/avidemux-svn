@@ -14,7 +14,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include <config.h>
+#define __STDC_LIMIT_MACROS
+
+#include "config.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,7 +35,7 @@
 #include "fourcc.h"
 #include "avi_vars.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include <ADM_assert.h>
+#include "ADM_assert.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
 
 #include "ADM_video/ADM_genvideo.hxx"
@@ -495,31 +497,42 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
   ADM_assert (_codec);
   ADM_assert (_in);
 
-  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
-    {
-      printf ("\n Error : Cannot read incoming frame !");
-      return 0;
-    }
+  if (frame != UINT32_MAX)
+  {
+	  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
+	  {
+		  printf ("\n Error : Cannot read incoming frame !");
+		  return 0;
+	  }
+  }
 
   switch (_state)
     {
     case enc_CBR:
     case enc_CQ:
-      return _codec->encode (_vbuffer, out );
+      return _codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out );
       break;
     case enc_Same:
       {
-	uint32_t inq;
-        if (_vbuffer->flags & AVI_KEY_FRAME)
-            out->flags = AVI_KEY_FRAME;
-	else
-	   out->flags = 0;
-	inq = _vbuffer->_Qp;
-        if(inq>31) inq=31;
-        if(inq<2) inq=2;
-        out->in_quantizer =inq;
+		  if (frame != UINT32_MAX)
+		  {
+			  if (_vbuffer->flags & AVI_KEY_FRAME)
+				  out->flags = AVI_KEY_FRAME;
+			  else
+				  out->flags = 0;
 
-	if (!_codec->encode (_vbuffer, out ))
+			  int inq = _vbuffer->_Qp;
+
+			  if (inq > 31)
+				  inq = 31;
+
+			  if (inq < 2)
+				  inq = 2;
+
+			  out->in_quantizer = inq;
+		  }
+
+	if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
 	  {
 	    printf ("\n codec error on 1st pass !");
 	    return 0;
@@ -532,7 +545,7 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
     case enc_Pass1:
 
       //              ADM_assert(fd);
-      if (!_codec->encode (_vbuffer, out ))
+      if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
 	{
 	  printf ("\n codec error on 1st pass !");
 	  return 0;
@@ -542,7 +555,7 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
       break;
     case enc_Pass2:
       // Encode it !
-      if (!_codec->encode (_vbuffer, out ))
+      if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
             return 0;
       return 1;
       break;

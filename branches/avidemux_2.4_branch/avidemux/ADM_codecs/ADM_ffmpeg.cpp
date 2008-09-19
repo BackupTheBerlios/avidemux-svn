@@ -116,7 +116,7 @@ uint8_t   ffmpegEncoder::encode(ADMImage *in,ADMBitstream *out)
 {
     int32_t sz = 0;
     ADM_assert(out->bufferSize);
-    encodePreamble (in->data);
+	encodePreamble (in ? in->data : NULL);
     if ((sz = avcodec_encode_video (_context, out->data, out->bufferSize, &_frame)) < 0)
         return 0;
     postAmble(out,sz);
@@ -146,28 +146,32 @@ ffmpegEncoder::encodePreamble (uint8_t * in)
   _frame.key_frame = 0;
   _frame.pict_type = 0;
 
-  switch(_targetColorSpace)
+  if (in)
   {
-    case PIX_FMT_YUV420P:
-        _frame.linesize[0] = _w;
-        _frame.linesize[1] = _w >> 1;
-        _frame.linesize[2] = _w >> 1;
-        _frame.data[0] = in;
-        _frame.data[2] = in + _w * _h;
-        _frame.data[1] = in + _w * _h + ((_w * _h) >> 2);
-        break;
- case PIX_FMT_YUV422P:
-        _frame.linesize[0] = _w;
-        _frame.linesize[1] = _w >> 1;
-        _frame.linesize[2] = _w >> 1;
-        _frame.data[0] = in;
-        _frame.data[2] = in + _w * _h;
-        _frame.data[1] = in + _w * _h + ((_w * _h) >> 1);
-      
-        break;
-    default:
-      ADM_assert(0);
+	  switch(_targetColorSpace)
+	  {
+		case PIX_FMT_YUV420P:
+			_frame.linesize[0] = _w;
+			_frame.linesize[1] = _w >> 1;
+			_frame.linesize[2] = _w >> 1;
+			_frame.data[0] = in;
+			_frame.data[2] = in + _w * _h;
+			_frame.data[1] = in + _w * _h + ((_w * _h) >> 2);
+			break;
+	 case PIX_FMT_YUV422P:
+			_frame.linesize[0] = _w;
+			_frame.linesize[1] = _w >> 1;
+			_frame.linesize[2] = _w >> 1;
+			_frame.data[0] = in;
+			_frame.data[2] = in + _w * _h;
+			_frame.data[1] = in + _w * _h + ((_w * _h) >> 1);
+	      
+			break;
+		default:
+		  ADM_assert(0);
+	  }
   }
+
   return 1;
 }
 
