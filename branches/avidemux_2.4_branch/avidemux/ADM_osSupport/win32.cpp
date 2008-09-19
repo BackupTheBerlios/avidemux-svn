@@ -449,8 +449,8 @@ void redirectStdoutToFile(void)
 	}
 
 	// Line buffering
-	setvbuf(stdout, NULL, _IOLBF, BUFSIZ); 
-	setvbuf(stderr, NULL, _IOLBF, BUFSIZ);
+	setvbuf(stdout, NULL, _IONBF, BUFSIZ); 
+	setvbuf(stderr, NULL, _IONBF, BUFSIZ);
 
 	delete[] logPath;
 #endif
