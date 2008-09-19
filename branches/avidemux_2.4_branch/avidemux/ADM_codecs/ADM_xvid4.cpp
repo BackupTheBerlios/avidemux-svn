@@ -86,29 +86,26 @@ adm_hook (void *handle, int opt, void *param1, void *param2)
 
   return 0;
 }
+
 uint8_t xvid4Encoder::encode(ADMImage * in,ADMBitstream * out)
 {
-    int  ret=0;
     /* Encode the frame */
     xvid_enc_frame.bitstream = out->data;
-    preAmble (in->data);
-    ret = xvid_encore (_handle, XVID_ENC_ENCODE, &xvid_enc_frame,
-                       &xvid_enc_stats);
+	preAmble (in ? in->data : NULL);
+
+    int ret = xvid_encore (_handle, XVID_ENC_ENCODE, &xvid_enc_frame, &xvid_enc_stats);
+
     if (ret < 0)
     {
         printf ("[xvid] Error calling xvid4 %d\n", ret);
         return 0;
-
     }
+
     postAmble (out);
-
     out->len = ret;
-    if (!ret)
-        printf ("[xvid] Skipped\n");
+
     return 1;
-
 }
-
 
 void xvid4_init (void);
 /*
@@ -287,9 +284,6 @@ xvid4Encoder::preAmble (uint8_t * in)
   xvid_enc_frame.version = XVID_VERSION;
   xvid_enc_stats.version = XVID_VERSION;
 
-  /* Bind output buffer */
-
-  xvid_enc_frame.length = 0;
   if (_param.mpegQuantizer || _param.useCustomIntra || _param.useCustomInter)
     xvid_enc_frame.vol_flags |= XVID_VOL_MPEGQUANT;
   if (_param.interlaced)
@@ -368,26 +362,36 @@ xvid4Encoder::preAmble (uint8_t * in)
     }
 
   xvid_enc_frame.bframe_threshold = _param.bframe_threshold;
-
-  xvid_enc_frame.input.csp = XVID_CSP_YV12;
-  xvid_enc_frame.input.stride[0] = _w;
-  xvid_enc_frame.input.stride[1] = _w >> 1;
-  xvid_enc_frame.input.stride[2] = _w >> 1;
   xvid_enc_frame.type = XVID_TYPE_AUTO;
 
+  if (in)
+  {
+	  xvid_enc_frame.length = 0;
+	  xvid_enc_frame.input.csp = XVID_CSP_YV12;
+	  xvid_enc_frame.input.stride[0] = _w;
+	  xvid_enc_frame.input.stride[1] = _w >> 1;
+	  xvid_enc_frame.input.stride[2] = _w >> 1;
 
-  /* Set up motion estimation flags */
-  xvid_enc_frame.input.plane[0] = in;
-  xvid_enc_frame.input.plane[1] = in + (_w * _h);
-  xvid_enc_frame.input.plane[2] = in + ((_w * _h * 5) >> 2);
+	  /* Set up motion estimation flags */
+	  xvid_enc_frame.input.plane[0] = in;
+	  xvid_enc_frame.input.plane[1] = in + (_w * _h);
+	  xvid_enc_frame.input.plane[2] = in + ((_w * _h * 5) >> 2);
 
-  xvid_enc_frame.par_width = _param.par_width;
-  xvid_enc_frame.par_height = _param.par_height;
-  //printf("Using AR : %u x %u\n",xvid_enc_frame.par_width,xvid_enc_frame.par_height );
-  if (xvid_enc_frame.par_width != xvid_enc_frame.par_height)
-      xvid_enc_frame.par = XVID_PAR_EXT;
+	  xvid_enc_frame.par_width = _param.par_width;
+	  xvid_enc_frame.par_height = _param.par_height;
+
+	  if (xvid_enc_frame.par_width != xvid_enc_frame.par_height)
+		  xvid_enc_frame.par = XVID_PAR_EXT;
+	  else
+		  xvid_enc_frame.par = XVID_PAR_11_VGA;
+  }
   else
-      xvid_enc_frame.par = XVID_PAR_11_VGA;
+  {
+	  xvid_enc_frame.length = -1;
+	  xvid_enc_frame.input.csp = XVID_CSP_NULL;
+  }
+
+  //printf("Using AR : %u x %u\n",xvid_enc_frame.par_width,xvid_enc_frame.par_height );
 
   /* Custome matrices */
   if(_param.useCustomIntra)
