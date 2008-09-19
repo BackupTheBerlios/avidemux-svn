@@ -23,11 +23,13 @@
  #include "ADM_image.h"
  #include "ADM_fileio.h"
 #include "ADM_toolkit/ADM_audioQueue.h"
+#include "ADM_encoder/adm_encoder.h"
 
  class GenericAviSave
  {
      protected :
                 ADMFile                 *_file;
+				Encoder 	*_encode;
                 
      		uint32_t		_audioTarget;
 		uint32_t		_audioCurrent;
@@ -61,7 +63,7 @@
                     virtual uint8_t setupAudio( void);
                     virtual uint8_t setupVideo( char *name )=0;
                     virtual uint8_t writeAudioChunk(uint32_t  f);
-                    virtual uint8_t writeVideoChunk(uint32_t frame )=0;
+                    virtual int writeVideoChunk(uint32_t frame )=0;
                     virtual void guiStart(void);
                     virtual void guiStop(void);
                     	    void guiSetPhasis(const char *str);

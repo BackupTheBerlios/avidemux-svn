@@ -22,7 +22,7 @@
      protected :
 		                                EncoderCopy          *copy;	
 		          virtual uint8_t 	setupVideo( char *name  );
-                          virtual uint8_t 	writeVideoChunk(uint32_t frame );
+                          virtual int 	writeVideoChunk(uint32_t frame );
                                   uint8_t       newFile(void);
 
      public:
@@ -54,7 +54,7 @@ class GenericAviSaveCopyUnpack : public   GenericAviSaveCopy
  {
      protected :
                           virtual uint8_t 	setupVideo( char *name  );
-                          virtual uint8_t 	writeVideoChunk(uint32_t frame );
+                          virtual int 	writeVideoChunk(uint32_t frame );
      public:
   
  };
@@ -66,7 +66,7 @@ class GenericAviSaveCopyPack : public   GenericAviSaveCopy
                           uint32_t              curToggle;
                           uint32_t              time_inc;
                           virtual uint8_t 	setupVideo( char *name  );
-                          virtual uint8_t 	writeVideoChunk(uint32_t frame );
+                          virtual int 	writeVideoChunk(uint32_t frame );
                                   uint8_t       prefetch(uint32_t buffer,uint32_t frame);
      public:
                           virtual	~GenericAviSaveCopyPack();	
