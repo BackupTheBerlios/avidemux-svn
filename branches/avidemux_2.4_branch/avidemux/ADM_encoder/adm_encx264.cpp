@@ -17,6 +17,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#define __STDC_LIMIT_MACROS
+
 #include "config.h"
 #ifdef USE_X264
 
@@ -200,10 +203,13 @@ uint8_t
 
 	uint32_t l, f;
 
-	if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
+	if (frame != UINT32_MAX)
 	{
-		printf ("\n[x264] Error: Cannot read incoming frame!");
-		return 0;
+		if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
+		{
+			printf ("\n[x264] Error: Cannot read incoming frame!");
+			return 0;
+		}
 	}
 
 	switch (_state)
@@ -212,7 +218,7 @@ uint8_t
 		case enc_CQ:
 		case enc_Pass1:
 		case enc_Pass2:
-			return _codec->encode(_vbuffer, out);
+			return _codec->encode(frame == UINT32_MAX ? NULL : _vbuffer, out);
 
 			break;
 		default:

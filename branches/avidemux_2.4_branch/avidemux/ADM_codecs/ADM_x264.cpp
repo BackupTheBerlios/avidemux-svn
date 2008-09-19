@@ -246,17 +246,20 @@ uint8_t X264Encoder::encode (ADMImage * in, ADMBitstream * out)
   PICS->img.i_csp = X264_CSP_I420;
   PICS->img.i_plane = 3;
 
-  PICS->img.plane[0] = in->data;	// Y
-  PICS->img.plane[2] = in->data + _w * _h;	// u
-  PICS->img.plane[1] = in->data + ((_w * _h * 5) >> 2);	// v
-  PICS->img.i_stride[0] = _w;
-  PICS->img.i_stride[1] = _w >> 1;
-  PICS->img.i_stride[2] = _w >> 1;
+  if (in)
+  {
+	  PICS->img.plane[0] = in->data;	// Y
+	  PICS->img.plane[2] = in->data + _w * _h;	// u
+	  PICS->img.plane[1] = in->data + ((_w * _h * 5) >> 2);	// v
+	  PICS->img.i_stride[0] = _w;
+	  PICS->img.i_stride[1] = _w >> 1;
+	  PICS->img.i_stride[2] = _w >> 1;
 
-  PICS->i_type = X264_TYPE_AUTO;
-  PICS->i_pts = curFrame;
+	  PICS->i_type = X264_TYPE_AUTO;
+	  PICS->i_pts = curFrame;
+  }
 
-  if (x264_encoder_encode (HANDLE, &nal, &nbNal, PICS, &pic_out) < 0)
+  if (x264_encoder_encode (HANDLE, &nal, &nbNal, in ? PICS : NULL, &pic_out) < 0)
   {
 	  printf ("[x264] Error encoding\n");
 	  return 0;
@@ -265,7 +268,6 @@ uint8_t X264Encoder::encode (ADMImage * in, ADMBitstream * out)
 
   if (nbNal == 0)
   {
-      printf("[X264] No Nal for frame %u (delay ?)\n",curFrame);
       out->len=0;
 	  return 1;
   }
