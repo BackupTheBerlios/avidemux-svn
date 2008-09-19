@@ -151,7 +151,7 @@ _mainaviheader.dwMicroSecPerFrame=0;
 abt:
 				GUI_Error_HIG (QT_TR_NOOP("Aborting"), NULL);
 				delete[] buffer;
-				return -1;
+				return 0;
 			}
 
 			for (;;)

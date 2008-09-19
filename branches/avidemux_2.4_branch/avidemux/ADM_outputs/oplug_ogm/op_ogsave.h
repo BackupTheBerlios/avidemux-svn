@@ -40,6 +40,7 @@ class ADM_ogmWrite
 			DIA_encoding		*encoding_gui;
 			ogm_page 		*videoStream;
 			ogm_page		*audioStream;
+			Encoder 		*_encode;
 			
 				uint8_t		initAudio(void);
 				uint8_t		writeAudio(uint32_t j);
@@ -50,7 +51,7 @@ class ADM_ogmWrite
 				AVDMGenericAudioStream	*audioFilter;
 				
 			virtual uint8_t		initVideo(const char *name);
-			virtual uint8_t		writeVideo(uint32_t frame);
+			virtual int		writeVideo(uint32_t frame);
 					
 	public:
 					ADM_ogmWrite(void);				
@@ -63,7 +64,7 @@ class ADM_ogmWriteCopy : public ADM_ogmWrite
 protected:
 			
 			virtual uint8_t		initVideo(const char *name);			
-			virtual uint8_t		writeVideo(uint32_t frame);
+			virtual int		writeVideo(uint32_t frame);
 			uint32_t 		searchForward(uint32_t startframe);
 			uint32_t		_lastIPFrameSent;	
 public:
@@ -75,11 +76,10 @@ class ADM_ogmWriteProcess : public ADM_ogmWrite
 {
 protected:
 			AVDMGenericVideoStream  *_incoming;
-			Encoder 		*_encode;
                         uint32_t                _prestore;
                         uint32_t                _prestoring;
 			virtual uint8_t	initVideo(const char *name);			
-			virtual uint8_t	writeVideo(uint32_t frame);	
+			virtual int	writeVideo(uint32_t frame);	
 public:
 			ADM_ogmWriteProcess(void);
 			~ADM_ogmWriteProcess(void);

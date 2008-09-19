@@ -113,7 +113,7 @@ uint16_t dur16;
 
 }
 //___________________________________________________
-uint8_t	ADM_ogmWriteCopy::writeVideo(uint32_t frame)
+int	ADM_ogmWriteCopy::writeVideo(uint32_t frame)
 {
 uint32_t len,flags;
 uint32_t forward;
@@ -127,9 +127,13 @@ ADMCompressedImage img;
 		{
 
 			if(!  video_body->getFrameNoAlloc (frameStart+frame,&img))// _videoBuffer, &len,     &flags)) 
-				return 0;		
+				return -1;		
 			encoding_gui->setFrame(frame,img.dataLength,0,_togo);
-			return videoStream->write(img.dataLength,img.data,img.flags,frame);
+
+			if (videoStream->write(img.dataLength,img.data,img.flags,frame))
+				return img.dataLength;
+			else
+				return -1;
 		}
 		
 		// we DO have b frame
@@ -175,9 +179,10 @@ ADMCompressedImage img;
 				}
 			}
                 encoding_gui->setFrame(frame,img.dataLength,0,_togo);
-		return videoStream->write(img.dataLength,img.data,img.flags,frame);
-		return ret1;
-
+		if (videoStream->write(img.dataLength,img.data,img.flags,frame))
+			return img.dataLength;
+		else
+			return -1;
 }
 // Return the next non B frame
 // 0 if not found

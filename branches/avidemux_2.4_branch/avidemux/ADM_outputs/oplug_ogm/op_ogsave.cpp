@@ -74,6 +74,7 @@ _fd=NULL;
 _togo=0;
 _packet=0;
 TwoPassLogFile=NULL;
+_encode = NULL;
 }
 
 //_______________________________________________
@@ -138,18 +139,42 @@ uint8_t error=0;
 
 		encoding_gui->setFps(_fps1000);
 		encoding_gui->reset();
-		// ___________________Then body_______________________
-                uint32_t j=0;
-		for( j=0;j<_togo && !error;j++)
+
+		uint32_t j=0;
+		int frameDelay = 0;
+		int videoSize;
+
+		for (j = 0; j < _togo; j++)
 		{
-			if(!encoding_gui->isAlive())
+			if (!encoding_gui->isAlive())
 			{
-				error=1;
-				continue;
+				error = 1;
+				break;
 			}
-			if(!writeVideo(j)) error=1;
-			if(!writeAudio(j)) error=1;
+
+			for (;;)
+			{
+				videoSize = writeVideo(j + frameDelay);
+
+				if (videoSize == 0 && _encode && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+				{
+					printf("skipping frame: %u size: %i\n", j + frameDelay, videoSize);
+					frameDelay++;
+				}
+				else
+				{
+					error = 1;
+					break;
+				}
+			}
+
+			if (!writeAudio(j))
+			{
+				error = 1;
+				break;
+			}
 		}
+
                 if(abs(j-_togo)<3 && error) error=0; // might be caused by late B frame
 		delete encoding_gui;
 		encoding_gui=NULL;
@@ -171,7 +196,7 @@ uint8_t	ADM_ogmWrite::initVideo(const char *name)
 
 }
 //___________________________________________________
-uint8_t	ADM_ogmWrite::writeVideo(uint32_t frame)
+int	ADM_ogmWrite::writeVideo(uint32_t frame)
 {
 		ADM_assert(0);
 		return 0;
