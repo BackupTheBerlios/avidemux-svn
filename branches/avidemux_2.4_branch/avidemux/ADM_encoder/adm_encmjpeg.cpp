@@ -88,7 +88,7 @@ EncoderMjpeg::configure (AVDMGenericVideoStream * instream)
   return 1;
 }
 
-int EncoderMjpeg::getRequirements (void) { return 0; }
+int EncoderMjpeg::getRequirements (void) { return _codec->capabilities; }
 
 
 

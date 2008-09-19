@@ -26,6 +26,8 @@
 #define ADM_GMC_ON	2
 #define ADM_VOP_ON	4
 
+#define ADM_ENC_REQ_NULL_FLUSH	1
+
 /*
         Bitrate in configuration will always be in **kBITS**
 

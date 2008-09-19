@@ -47,6 +47,7 @@ static char LogName[500];
 {\
 AVCodec *codec=avcodec_find_encoder(x);\
 if(!codec) {GUI_Alert(QT_TR_NOOP("Internal error opening codec"#x));ADM_assert(0);} \
+  capabilities = codec->capabilities & CODEC_CAP_DELAY ? ADM_ENC_REQ_NULL_FLUSH : 0; \
   res=avcodec_open(_context, codec); \
   if(res<0) {GUI_Alert(QT_TR_NOOP("Internal error with context for  codec"#x".\n Did you use too low / too high target for 2 pass ?"));return 0;} \
 }

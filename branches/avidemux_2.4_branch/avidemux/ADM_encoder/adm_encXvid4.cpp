@@ -162,7 +162,7 @@ uint8_t EncoderXvid4::startPass1 (void)
   return 1;
 }
 
-int EncoderXvid4::getRequirements (void) { return 0; }
+int EncoderXvid4::getRequirements (void) { return ADM_ENC_REQ_NULL_FLUSH; }
 
 uint8_t EncoderXvid4::isDualPass (void)
 {
