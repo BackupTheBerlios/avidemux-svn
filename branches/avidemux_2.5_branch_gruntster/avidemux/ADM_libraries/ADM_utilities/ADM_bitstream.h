@@ -19,6 +19,7 @@ class ADMBitstream
         uint32_t out_quantizer;         // Quantizer of the image, in case of encoding the real Q
         uint32_t ptsFrame;              // Frame number in display order
         uint32_t dtsFrame;              // Frame number in container order (decoding order)
+		uint32_t frameNumber;
         uint64_t pts;			// in ms
         uint64_t dts;			// in ms
 

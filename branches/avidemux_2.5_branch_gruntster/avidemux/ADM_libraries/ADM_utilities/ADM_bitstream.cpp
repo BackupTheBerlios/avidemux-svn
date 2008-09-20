@@ -38,5 +38,6 @@ void ADMBitstream::cleanup (uint32_t framenum)
     flags=0;
     len=0;
     dtsFrame=framenum;
+	frameNumber=framenum;
 }
 

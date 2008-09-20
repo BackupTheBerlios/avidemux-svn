@@ -18,8 +18,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
+#define __STDC_LIMIT_MACROS
 
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -166,6 +167,10 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 	}
 
 	c = video_st->codec;
+	c->gop_size=15;
+	c->max_b_frames=2;
+	c->has_b_frames=1;
+
 	switch(_type)
 	{
 				case MUXER_FLV:
@@ -196,12 +201,11 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
-                                c->has_b_frames=1; // in doubt...
                         }else
                         {
                                 if(isH264Compatible(info->fcc))
                                 {
-                                        c->has_b_frames=1; // in doubt...
+                                        c->has_b_frames=2; // let muxer know we may have bpyramid
                                         c->codec_id = CODEC_ID_H264;
                                         c->codec=new AVCodec;
                                         memset(c->codec,0,sizeof(AVCodec));
@@ -228,7 +232,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                 {
                         // probably a memeleak here
                         char *foo=ADM_strdup(filename);
-                        
+
                         strcpy(oc->title,ADM_GetFileName(foo));
                         strcpy(oc->author,"Avidemux");
                         c->sample_aspect_ratio.num=1;
@@ -236,12 +240,11 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
-                                c->has_b_frames=1; // in doubt...
                         }else
                         {
                                 if(isH264Compatible(info->fcc))
                                 {
-                                        c->has_b_frames=1; // in doubt...
+                                        c->has_b_frames=2; // let muxer know we may have bpyramid
                                         c->codec_id = CODEC_ID_H264;
                                         c->codec=new AVCodec;
                                         memset(c->codec,0,sizeof(AVCodec));
@@ -381,11 +384,6 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                             }
                         break;
 	}
-
-
-	c->gop_size=15;
-	c->max_b_frames=2;
-	c->has_b_frames=1;
 
 
 	// Audio
@@ -605,53 +603,41 @@ uint8_t lavMuxer::needAudio( void )
 //___________________________________________________________________________
 uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 {
-int ret;
+	int ret;
+	AVPacket pkt;
+	AVRational fps = {1, 1000000};
+	uint32_t ptsFrame = bitstream->ptsFrame + 1;
 
-double p,d;
-  	AVPacket pkt;
-            av_init_packet(&pkt);
+	av_init_packet(&pkt);
 
-        p=bitstream->ptsFrame+1;      // Pts           // Time p/fps1000=out/den  out=p*den*1000/fps1000
-        p=(p*1000*1000*1000);
-        p=p/_fps1000;                  // in us
+	_curDTS = av_rescale_q(bitstream->frameNumber, video_st->codec->time_base, fps);
 
-        d=bitstream->dtsFrame;		// dts
-	d=(d*1000*1000*1000);
-	d=d/_fps1000;
+	switch (_type)
+	{
+		case MUXER_FLV:
+		case MUXER_MATROSKA:
+		{
+			fps.den = 1000;
+			break;
+		}
+		case MUXER_MP4:
+		{
+			ptsFrame = bitstream->ptsFrame;
+			// break is missing on purpose!
+		}
+		default:
+		{
+			fps.den = video_st->codec->time_base.den;
+			break;
+		}
+	}
 
+	pkt.pts = av_rescale_q(ptsFrame, video_st->codec->time_base, fps);
 
-	_curDTS=(int64_t)floor(d);
-    aprintf("Adm video unscaled dts=:%u\n",(uint32_t)d);
-        // Rescale
-#define RESCALE(x) x=x*1000.;\
-                   x=x/_fps1000;
+	if (bitstream->dtsFrame != UINT32_MAX)
+		pkt.dts = av_rescale_q(bitstream->dtsFrame, video_st->codec->time_base, fps);
 
-        p=bitstream->ptsFrame+1;
-        RESCALE(p);
-// MP4/ TS
-        d=bitstream->dtsFrame;  // p & d are now in seconds
-        RESCALE(d);
-        switch(_type)  // video_st->codec->time_base.den
-        {
-        case MUXER_FLV :
-        case MUXER_MATROSKA:
-                    {
-                        p=p*1000;
-                        d=d*1000; // in milliseconds
-                        break;
-                    }
-        
-        default:
-                    p=p*video_st->codec->time_base.den;
-                    d=d*video_st->codec->time_base.den;
-                    break;
-        }
-    	pkt.dts=(int64_t)floor(d);
-    	pkt.pts=(int64_t)floor(p);
-
-       // printf("Lavformat : Pts :%u dts:%u",displayframe,frameno);
-	aprintf("Lavformat : Pts :%llu dts:%llu",pkt.pts,pkt.dts);
-	pkt.stream_index=0;
+	pkt.stream_index = 0;
 
         pkt.data= bitstream->data;
         pkt.size= bitstream->len;

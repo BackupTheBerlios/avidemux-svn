@@ -177,6 +177,7 @@ enum CodecID {
     CODEC_ID_SUNRAST,
     CODEC_ID_INDEO4,
     CODEC_ID_INDEO5,
+    CODEC_ID_DIRAC,
 
     /* various PCM "codecs" */
     CODEC_ID_PCM_S16LE= 0x10000,
