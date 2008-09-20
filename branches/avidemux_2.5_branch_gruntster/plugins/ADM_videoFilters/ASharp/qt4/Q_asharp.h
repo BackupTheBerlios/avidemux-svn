@@ -29,5 +29,6 @@ public slots:
 private slots:
 	void sliderUpdate(int foo);
 	void valueChanged(int foo);
+	void valueChanged(double foo);
 };
 #endif	// Q_asharp_h

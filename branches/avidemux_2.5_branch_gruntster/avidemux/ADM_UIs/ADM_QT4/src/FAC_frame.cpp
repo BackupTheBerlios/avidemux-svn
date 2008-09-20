@@ -1,6 +1,6 @@
 /***************************************************************************
-  FAC_toggle.cpp
-  Handle dialog factory element : Toggle
+  FAC_frame.cpp
+  Handle dialog factory element : Frame
   (C) 2006 Mean Fixounet@free.fr 
 ***************************************************************************/
 
@@ -16,6 +16,7 @@
 
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
+#include <QtGui/QGroupBox>
 
 #include "ADM_default.h"
 #include "DIA_factory.h"
@@ -62,30 +63,23 @@ diaElemFrame::~diaElemFrame()
   if(paramTitle)
     delete paramTitle;
 }
+
 void diaElemFrame::setMe(void *dialog, void *opaque,uint32_t line)
 {
-  
-   QGridLayout *layout=(QGridLayout*) opaque;  
-   QGridLayout *layout2;
-   
-   layout2=new QGridLayout((QWidget *)dialog);
-   myWidget=(void *)layout2; 
+	QGridLayout *layout = (QGridLayout*)opaque;
+	QGroupBox *groupBox = new QGroupBox(QString::fromUtf8(paramTitle));
+	QGridLayout *layout2 = new QGridLayout(groupBox);
+	int v = 0;
 
-    QLabel *text=new QLabel( (QWidget *)dialog);
-    QString string = QString::fromUtf8(paramTitle);
-    
-    string="<b>"+string+"</b>";
-    text->setText(string);
- layout->addWidget(text,line,0);
- layout->addLayout(layout2,line+1,0);
- int  v=0;
-  for(int i=0;i<nbElems;i++)
-  {
-    elems[i]->setMe(dialog,layout2,v); 
-    v+=elems[i]->getSize();
-  }
-  myWidget=(void *)layout2;
+	for (int i = 0; i < nbElems; i++)
+	{
+		elems[i]->setMe(groupBox, layout2, v); 
+		v += elems[i]->getSize();
+	}
+
+	layout->addWidget(groupBox, line, 0);
 }
+
 //*****************************
 void diaElemFrame::getMe(void)
 {

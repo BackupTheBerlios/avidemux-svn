@@ -185,7 +185,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="adaptiveBframeDecision" type="xs:boolean"/>
+              <xs:element name="adaptiveBframeDecision">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="bFrameBias">
                 <xs:simpleType>
                   <xs:restriction base="xs:integer">

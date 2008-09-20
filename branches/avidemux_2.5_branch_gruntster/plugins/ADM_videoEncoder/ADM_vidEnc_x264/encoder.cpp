@@ -580,7 +580,11 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] i_bframe_bias = %d\n", x264Param->i_bframe_bias);
 	printf("[x264] i_frame_reference = %d\n", x264Param->i_frame_reference);
 	printf("[x264] b_bframe_pyramid = %d\n", x264Param->b_bframe_pyramid);
+#if X264_BUILD >= 63
+	printf("[x264] i_bframe_adaptive = %d\n", x264Param->i_bframe_adaptive);
+#else
 	printf("[x264] b_bframe_adaptive = %d\n", x264Param->b_bframe_adaptive);
+#endif
 	printf("[x264] i_keyint_max = %d\n", x264Param->i_keyint_max);
 	printf("[x264] i_keyint_min = %d\n", x264Param->i_keyint_min);
 	printf("[x264] i_scenecut_threshold = %d\n", x264Param->i_scenecut_threshold);

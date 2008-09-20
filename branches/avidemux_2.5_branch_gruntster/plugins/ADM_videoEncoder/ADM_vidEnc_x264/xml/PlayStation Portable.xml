@@ -26,7 +26,7 @@
     <scenecutThreshold>0</scenecutThreshold>
     <preScenecutDetection>false</preScenecutDetection>
     <bFrames>3</bFrames>
-    <adaptiveBframeDecision>true</adaptiveBframeDecision>
+    <adaptiveBframeDecision>1</adaptiveBframeDecision>
     <bFrameBias>0</bFrameBias>
     <bFrameReferences>0</bFrameReferences>
     <loopFilter>false</loopFilter>

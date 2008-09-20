@@ -212,6 +212,7 @@ create_mainWindow (void)
   GtkWidget *CheckButtonTimeshift;
   GtkObject *spinbuttonTimeShift_adj;
   GtkWidget *spinbuttonTimeShift;
+  GtkWidget *label23;
   GtkWidget *vbox13;
   GtkWidget *label20;
   GtkWidget *alignment14;
@@ -1166,6 +1167,10 @@ create_mainWindow (void)
   gtk_tooltips_set_tip (tooltips, spinbuttonTimeShift, QT_TR_NOOP("Audio/video time shift (ms)"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbuttonTimeShift), TRUE);
 
+  label23 = gtk_label_new (QT_TR_NOOP("ms"));
+  gtk_widget_show (label23);
+  gtk_box_pack_start (GTK_BOX (hbox19), label23, FALSE, FALSE, 0);
+
   vbox13 = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (vbox13);
   gtk_box_pack_start (GTK_BOX (vbox9), vbox13, FALSE, FALSE, 0);
@@ -1661,6 +1666,7 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, hbox19, "hbox19");
   GLADE_HOOKUP_OBJECT (mainWindow, CheckButtonTimeshift, "CheckButtonTimeshift");
   GLADE_HOOKUP_OBJECT (mainWindow, spinbuttonTimeShift, "spinbuttonTimeShift");
+  GLADE_HOOKUP_OBJECT (mainWindow, label23, "label23");
   GLADE_HOOKUP_OBJECT (mainWindow, vbox13, "vbox13");
   GLADE_HOOKUP_OBJECT (mainWindow, label20, "label20");
   GLADE_HOOKUP_OBJECT (mainWindow, alignment14, "alignment14");
@@ -1716,4 +1722,3 @@ create_mainWindow (void)
 
   return mainWindow;
 }
-

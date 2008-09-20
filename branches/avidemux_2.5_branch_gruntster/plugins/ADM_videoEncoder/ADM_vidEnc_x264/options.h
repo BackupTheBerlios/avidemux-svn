@@ -138,8 +138,8 @@ public:
 	unsigned int getBFrames(void);
 	void setBFrames(unsigned int bFrames);
 
-	bool getAdaptiveBFrameDecision(void);
-	void setAdaptiveBFrameDecision(bool adaptiveBframeDecision);
+	unsigned int getAdaptiveBFrameDecision(void);
+	void setAdaptiveBFrameDecision(unsigned int adaptiveBframeDecision);
 
 	int getBFrameBias(void);
 	void setBFrameBias(int bFrameBias);

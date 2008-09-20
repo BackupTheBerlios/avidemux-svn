@@ -333,14 +333,23 @@ void x264Options::setBFrames(unsigned int bFrames)
 		_param.i_bframe = bFrames;
 }
 
-bool x264Options::getAdaptiveBFrameDecision(void)
+unsigned int x264Options::getAdaptiveBFrameDecision(void)
 {
+#if X264_BUILD >= 63
+	return _param.i_bframe_adaptive;
+#else
 	return _param.b_bframe_adaptive;
+#endif
 }
 
-void x264Options::setAdaptiveBFrameDecision(bool adaptiveBframeDecision)
+void x264Options::setAdaptiveBFrameDecision(unsigned int adaptiveBframeDecision)
 {
-	_param.b_bframe_adaptive = adaptiveBframeDecision;
+	if (adaptiveBframeDecision <= 2)
+#if X264_BUILD >= 63
+		_param.i_bframe_adaptive = adaptiveBframeDecision;
+#else
+		_param.b_bframe_adaptive = adaptiveBframeDecision;
+#endif
 }
 
 int x264Options::getBFrameBias(void)
@@ -1207,7 +1216,7 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"scenecutThreshold", number2String(xmlBuffer, bufferSize, getScenecutThreshold()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"preScenecutDetection", boolean2String(xmlBuffer, bufferSize, getPreScenecutDetection()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrames", number2String(xmlBuffer, bufferSize, getBFrames()));
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", boolean2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", number2String(xmlBuffer, bufferSize, getBFrameReferences()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilter", boolean2String(xmlBuffer, bufferSize, getLoopFilter()));
@@ -1547,7 +1556,7 @@ void x264Options::parseX264Options(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "bFrames") == 0)
 				setBFrames(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "adaptiveBframeDecision") == 0)
-				setAdaptiveBFrameDecision(string2Boolean(content));
+				setAdaptiveBFrameDecision(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "bFrameBias") == 0)
 				setBFrameBias(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "bFrameReferences") == 0)
