@@ -14,7 +14,7 @@
    <string>Avidemux</string>
   </property>
   <property name="windowIcon" >
-   <iconset/>
+   <iconset resource="avidemux.qrc" >:/new/prefix1/pics/avidemux_icon.png</iconset>
   </property>
   <property name="iconSize" >
    <size>
