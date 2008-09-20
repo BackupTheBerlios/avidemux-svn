@@ -61,7 +61,7 @@ libavcodec_a_SOURCES = $(EXTEND_PPC) $(EXTEND_MMX) ac3enc.c  \
 		 fraps.c dnxhddata.h  dnxhddec.c	\
                 mpeg12data.c  mpegaudiodata.c  msmpeg4data.c   vc1data.c   vp56data.c mjpegbdec.c \
                 h263_parser.c \
-                h264_parser.c \
+                h264_parser.c h264pred.c \
                 mpeg4video_parser.c \
                 mpegvideo_enc.c \
                 mpeg12enc.c mpegaudioenc.c \

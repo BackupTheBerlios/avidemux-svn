@@ -1,6 +1,6 @@
 
 noinst_LIBRARIES = libADM_filters.a 
-libADM_filters_a_SOURCES =  filter_none.cpp AQ_mainfilter.cpp filter_rsc.cpp
+libADM_filters_a_SOURCES =  filter_none.cpp AQ_seekablePreview.cpp AQ_mainfilter.cpp filter_rsc.cpp
 
 INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@ADM_SUBVERSION@ \
 		-I../../../ADM_libraries/ADM_utilities \

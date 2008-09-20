@@ -10,7 +10,7 @@ INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@
 libADM_gui2_a_METASOURCES = AUTO
 
 libADM_gui2_a_SOURCES = gui_none.cpp file_qt4.cpp avidemux_rsc.cpp \
-			AQ_gui2.cpp   AT_preview.cpp ADM_qslider.cpp
+			AQ_gui2.cpp   AQ_preview.cpp AT_preview.cpp ADM_qslider.cpp AT_tray.cpp ADM_qtray.cpp
 
 include ../Makefile.adm
 
