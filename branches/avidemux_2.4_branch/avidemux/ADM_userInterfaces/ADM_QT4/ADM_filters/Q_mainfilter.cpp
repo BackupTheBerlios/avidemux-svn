@@ -180,6 +180,8 @@ class filtermainWindow : public QDialog
         void allDoubleClick( QListWidgetItem  *item);
 		void filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 		void preview(bool b);
+		void closePreview();
+
  private:
 		uint32_t previewFrameIndex;
 		int previewDialogX, previewDialogY;
@@ -190,7 +192,6 @@ class filtermainWindow : public QDialog
         void setSelected(int sel);
         void displayFamily(uint32_t family);
         void setupFilters(void);
-		void closePreview();
 };
 
 void filtermainWindow::preview(bool b)
@@ -212,6 +213,7 @@ void filtermainWindow::preview(bool b)
 	else
 	{
 		previewDialog = new Ui_seekablePreviewWindow(this, videofilters[itag].filter, previewFrameIndex);
+		connect(previewDialog, SIGNAL(accepted()), this, SLOT(closePreview()));
 
 		if (previewDialogX != INT_MIN)
 			previewDialog->move(previewDialogX, previewDialogY);
