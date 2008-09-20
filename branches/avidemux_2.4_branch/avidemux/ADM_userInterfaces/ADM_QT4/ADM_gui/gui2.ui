@@ -1498,47 +1498,6 @@
     <addaction name="actionSave_2" />
     <addaction name="actionFilters_2" />
    </widget>
-   <widget class="QMenu" name="menuFile" >
-    <property name="title" >
-     <string>&amp;File</string>
-    </property>
-    <widget class="QMenu" name="menuRecent_Files" >
-     <property name="title" >
-      <string>&amp;Recent Files</string>
-     </property>
-     <addaction name="actionRecent0" />
-     <addaction name="actionRecent1" />
-     <addaction name="actionRecent2" />
-     <addaction name="actionRecent3" />
-    </widget>
-    <widget class="QMenu" name="menuSave" >
-     <property name="title" >
-      <string>&amp;Save</string>
-     </property>
-     <addaction name="actionSave_video" />
-     <addaction name="separator" />
-     <addaction name="actionSave_BMP" />
-     <addaction name="actionSave_jpeg" />
-    </widget>
-    <addaction name="actionOpen" />
-    <addaction name="menuRecent_Files" />
-    <addaction name="actionAppend" />
-    <addaction name="menuSave" />
-    <addaction name="actionClose" />
-    <addaction name="separator" />
-    <addaction name="actionProperties" />
-    <addaction name="separator" />
-    <addaction name="actionLoad_run_project" />
-    <addaction name="actionSave_project" />
-    <addaction name="actionSave_project_as" />
-    <addaction name="separator" />
-    <addaction name="actionAdd_to_joblist" />
-    <addaction name="actionShow_Joblist" />
-    <addaction name="separator" />
-    <addaction name="actionConnect_to_AvsProxy" />
-    <addaction name="separator" />
-    <addaction name="actionQuit" />
-   </widget>
    <widget class="QMenu" name="menuTools" >
     <property name="title" >
      <string>&amp;Tools</string>
@@ -1627,6 +1586,48 @@
     <addaction name="actionPSP_H264" />
     <addaction name="actionFLV" />
     <addaction name="actionIPOD" />
+   </widget>
+   <widget class="QMenu" name="menuFile" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menuRecent_Files" >
+     <property name="title" >
+      <string>&amp;Recent Files</string>
+     </property>
+     <addaction name="actionRecent0" />
+     <addaction name="actionRecent1" />
+     <addaction name="actionRecent2" />
+     <addaction name="actionRecent3" />
+    </widget>
+    <widget class="QMenu" name="menuSave" >
+     <property name="title" >
+      <string>&amp;Save</string>
+     </property>
+     <addaction name="actionSave_video" />
+     <addaction name="separator" />
+     <addaction name="actionSave_BMP" />
+     <addaction name="actionSave_jpeg" />
+     <addaction name="actionSave_Selection" />
+    </widget>
+    <addaction name="actionOpen" />
+    <addaction name="menuRecent_Files" />
+    <addaction name="actionAppend" />
+    <addaction name="menuSave" />
+    <addaction name="actionClose" />
+    <addaction name="separator" />
+    <addaction name="actionProperties" />
+    <addaction name="separator" />
+    <addaction name="actionLoad_run_project" />
+    <addaction name="actionSave_project" />
+    <addaction name="actionSave_project_as" />
+    <addaction name="separator" />
+    <addaction name="actionAdd_to_joblist" />
+    <addaction name="actionShow_Joblist" />
+    <addaction name="separator" />
+    <addaction name="actionConnect_to_AvsProxy" />
+    <addaction name="separator" />
+    <addaction name="actionQuit" />
    </widget>
    <addaction name="menuFile" />
    <addaction name="menuEdit" />
@@ -2515,6 +2516,11 @@
    </property>
    <property name="shortcut" >
     <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionSave_Selection" >
+   <property name="text" >
+    <string>Save Selection as JPEG Images...</string>
    </property>
   </action>
  </widget>
