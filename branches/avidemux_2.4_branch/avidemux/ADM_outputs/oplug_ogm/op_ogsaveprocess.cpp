@@ -240,7 +240,7 @@ int	ADM_ogmWriteProcess::writeVideo(uint32_t frame)
 
 	if (bitstream.len > 0)
 	{
-		encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, _togo);
+		encoding_gui->setFrame(frame >= _togo ? _togo - 1 : frame, bitstream.len, bitstream.out_quantizer, _togo);
 
 		if (!videoStream->write(bitstream.len, _videoBuffer, bitstream.flags, bitstream.dtsFrame))
 			return -1;

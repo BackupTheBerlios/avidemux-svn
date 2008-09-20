@@ -305,7 +305,7 @@ int GenericAviSaveProcess::writeVideoChunk(uint32_t frame)
 			}
 		}
 
-		encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,frametogo);	
+		encoding_gui->setFrame(frame >= frametogo ? frametogo - 1 : frame, bitstream.len, bitstream.out_quantizer, frametogo);	
 
 		if (!writter->saveVideoFrame (bitstream.len, _videoFlag, vbuffer))
 			return -1;
