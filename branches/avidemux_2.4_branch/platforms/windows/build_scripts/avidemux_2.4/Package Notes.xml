@@ -1,5 +1,18 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4376" date="2008-09-20">
+    <comment>Updated ATK to version 1.22.0-2.</comment>
+    <comment>Updated GLib to version 2.18.1-1.</comment>
+    <comment>Updated GTK+ to version 2.14.2-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.1.</comment>
+    <comment>Updated Pango to version 1.20.5-2.</comment>
+    <comment>Updated Qt to version 4.4.2.</comment>
+    <comment>Updated x264 to r979 (patched).</comment>
+  </buildentry>  
+  <buildentry revision="4346" date="2008-09-14">
+    <comment>Reverted GTK+ back to original 2.14.1 (Avidemux has now been fixed).</comment>
+    <comment>Updated x264 to r968 (patched).</comment>
+  </buildentry>
   <buildentry revision="4324" date="2008-09-11">
     <comment>Patched GTK+ 2.14.1 to fix incorrect spin button ranges.</comment>
   </buildentry>

@@ -223,6 +223,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         SetOutPath $INSTDIR
         File ${BUILDDIR}\avidemux2_gtk.exe
         File ${BUILDDIR}\gtk2_prefs.exe
+        File ${BUILDDIR}\jpeg62.dll
         File ${BUILDDIR}\libatk-1.0-0.dll
         File ${BUILDDIR}\libcairo-2.dll
         File ${BUILDDIR}\libgdk_pixbuf-2.0-0.dll
@@ -236,6 +237,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         File ${BUILDDIR}\libpango-1.0-0.dll
         File ${BUILDDIR}\libpangocairo-1.0-0.dll
         File ${BUILDDIR}\libpangowin32-1.0-0.dll
+        File ${BUILDDIR}\libtiff3.dll
         WriteRegStr HKLM "${REGKEY}\Components" GTK+ 1
     SectionEnd
     
@@ -468,6 +470,7 @@ Section /o un.Turkish UnSecLangTurkish
 SectionEnd
 
 Section /o un.GTK+ UnSecUiGtk
+	Delete /REBOOTOK $INSTDIR\libtiff3.dll
     Delete /REBOOTOK $INSTDIR\libpangowin32-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpangocairo-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpango-1.0-0.dll
@@ -481,6 +484,7 @@ Section /o un.GTK+ UnSecUiGtk
     Delete /REBOOTOK $INSTDIR\libgdk_pixbuf-2.0-0.dll
     Delete /REBOOTOK $INSTDIR\libcairo-2.dll
     Delete /REBOOTOK $INSTDIR\libatk-1.0-0.dll
+    Delete /REBOOTOK $INSTDIR\jpeg62.dll
     Delete /REBOOTOK $INSTDIR\gtk2_prefs.exe
     Delete /REBOOTOK $INSTDIR\avidemux2_gtk.exe
     RmDir /r /REBOOTOK $INSTDIR\share\themes
