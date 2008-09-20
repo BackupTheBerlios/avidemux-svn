@@ -41,6 +41,7 @@ protected:
 public:
     EncoderXvid4 (COMPRES_PARAMS * codecconfig);
    ~EncoderXvid4 ();		// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream, int useExistingLogFile);
  

@@ -59,6 +59,7 @@ public slots:
 	void allDoubleClick( QListWidgetItem  *item);
 	void filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 	void preview(bool b);
+	void closePreview();
 
 private:
 	uint32_t previewFrameIndex;
@@ -68,6 +69,5 @@ private:
 	void setSelected(int sel);
 	void displayFamily(uint32_t family);
 	void setupFilters(void);
-	void closePreview();
 };
 #endif	// Q_mainfilter_h

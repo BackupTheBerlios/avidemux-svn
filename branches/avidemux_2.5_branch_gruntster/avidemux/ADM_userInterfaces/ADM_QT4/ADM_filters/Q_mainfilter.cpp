@@ -138,6 +138,7 @@ void filtermainWindow::preview(bool b)
 	else
 	{
 		previewDialog = new Ui_seekablePreviewWindow(this, videofilters[itag].filter, previewFrameIndex);
+		connect(previewDialog, SIGNAL(accepted()), this, SLOT(closePreview()));
 
 		if (previewDialogX != INT_MIN)
 			previewDialog->move(previewDialogX, previewDialogY);

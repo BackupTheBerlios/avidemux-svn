@@ -23,15 +23,11 @@
  class GenericAviSaveProcess : public   GenericAviSave
  {
      protected :
-					    
-			Encoder 	*_encode;
-			uint8_t		_notnull;
-			int _prefill;
-                       	char 		*TwoPassLogFile;
+			           	char 		*TwoPassLogFile;
                         ADMBitstream    bitstream;
 
 			virtual uint8_t	setupVideo( char *name  );
-			virtual uint8_t	writeVideoChunk(uint32_t frame );
+			virtual int	writeVideoChunk(uint32_t frame );
                          
      public:
      					GenericAviSaveProcess( void ) ;

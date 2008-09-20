@@ -29,6 +29,7 @@ protected:
 public:
           EncoderRequant (COMPRES_PARAMS * codecconfig);
           ~EncoderRequant ();		// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream, int useExistingLogFile);
   virtual uint8_t encode (uint32_t frame, ADMBitstream *out);

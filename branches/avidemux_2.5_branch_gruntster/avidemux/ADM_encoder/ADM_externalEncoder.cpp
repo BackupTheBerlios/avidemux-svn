@@ -140,6 +140,12 @@ const char* externalEncoder::getFCCHandler(void)
 	return _plugin->getFourCC(_plugin->encoderId);
 }
 
+int externalEncoder::getRequirements(void)
+{
+	// FIXME
+	return 0;
+}
+
 uint8_t externalEncoder::isDualPass(void)
 {
 	return _plugin->getPassCount(_plugin->encoderId) == 2;

@@ -80,6 +80,7 @@ public:
     entries = NULL;
   };
   virtual ~ Encoder (void);
+  virtual int getRequirements (void) = 0;
   virtual uint8_t isDualPass (void) = 0;
   virtual uint8_t configure (AVDMGenericVideoStream * instream, int useExistingLogFile) = 0;
   virtual uint8_t encode (uint32_t frame, ADMBitstream * out) = 0;

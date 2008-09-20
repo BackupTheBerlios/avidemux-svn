@@ -20,6 +20,8 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
+#define __STDC_LIMIT_MACROS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -98,6 +100,7 @@ uint32_t w,h,fps1000,fcc;
 	{
 		uint8_t *buffer;
 		uint32_t len, flag;
+		int frameDelay = 0, r;
 
 		aprintf("\n** Dual pass encoding**\n");
 	
@@ -109,23 +112,44 @@ uint32_t w,h,fps1000,fcc;
 			encoding_gui->setPhasis(QT_TR_NOOP("Pass one"));
                         ADMBitstream bitstream(w*h*3);
                         bitstream.data=_videoBuffer;
-      			//__________________________________
-      			//   now go to main loop.....
-      			//__________________________________
-      			for (uint32_t cf = 0; cf < _togo; cf++)
+
+			for (uint32_t cf = 0; cf < _togo; cf++)
 			{	
-                                bitstream.cleanup(cf); 
-	  			if (!_encode->encode (cf, &bitstream))
-				{
-					printf("\n Encoding of frame %lu failed !\n",cf);
-	    				return 0;
-				}
-                                encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,_togo);
-				if(!encoding_gui->isAlive())
-				{
+				if (!encoding_gui->isAlive())
 					return 0;
+
+				for (;;)
+				{
+					bitstream.cleanup(cf); 
+
+					if (cf + frameDelay >= _togo)
+					{
+						if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+							r = _encode->encode(UINT32_MAX, &bitstream);
+						else
+							r = 0;
+					}
+					else
+						r = _encode->encode(cf + frameDelay, &bitstream);
+
+					if (!r)
+					{
+						printf("Encoding of frame %lu failed!\n", cf);
+						return 0;
+					}
+
+					if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+					{
+						printf("skipping frame: %u size: %i\n", cf + frameDelay, bitstream.len);
+						frameDelay++;
+					}
+					else
+						break;
 				}
+
+				encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,_togo);
 			}
+
 		     	aprintf("**Pass 1:done\n");
     		}// End of reuse
 
@@ -189,36 +213,43 @@ uint32_t w,h,fps1000,fcc;
 
 }
 //___________________________________________________
-uint8_t	ADM_ogmWriteProcess::writeVideo(uint32_t frame)
+int	ADM_ogmWriteProcess::writeVideo(uint32_t frame)
 {
-uint32_t len,flags;
-uint8_t ret;
-uint32_t page=_incoming->getInfo ()->width*_incoming->getInfo ()->height;
-ADMBitstream bitstream(page*3);
-                 bitstream.data=_videoBuffer;
-                 
-                 ret= _encode->encode ( frame, &bitstream);
-                 if(!bitstream.len && _prestoring) 
-                 {
-                   printf("Frame skipped\n");
-                   _prestore++;
-                   return 1;
-                 }
-                 _prestoring=0;
-                 bitstream.dtsFrame=frame-_prestore;
-		 if(!ret)
-                 {
-                        printf("OgmWrite: Error encoding frame %d\n",frame);
-                        return 0;
-                 }
-                encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,_togo);
-                return videoStream->write(bitstream.len,_videoBuffer,bitstream.flags,bitstream.dtsFrame);
+	uint32_t len, flags;
+	uint8_t ret;
+	ADMBitstream bitstream(_incoming->getInfo()->width * _incoming->getInfo()->height * 3);
+
+	bitstream.data = _videoBuffer;
+	bitstream.cleanup(frame);
+
+	if (frame >= _togo)
+	{
+		if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+			ret = _encode->encode(UINT32_MAX, &bitstream);
+	}
+	else
+		ret = _encode->encode(frame, &bitstream);
+
+	if (!ret)
+	{
+		printf("OgmWrite: Error encoding frame %d\n",frame);
+		return -1;
+	}
+
+	if (bitstream.len > 0)
+	{
+		encoding_gui->setFrame(frame >= _togo ? _togo - 1 : frame, bitstream.len, bitstream.out_quantizer, _togo);
+
+		if (!videoStream->write(bitstream.len, _videoBuffer, bitstream.flags, bitstream.dtsFrame))
+			return -1;
+	}
+
+	return bitstream.len;
 }
 //___________________________________________________
 ADM_ogmWriteProcess::ADM_ogmWriteProcess( void)
 {
 	_incoming=NULL;
-	_encode=NULL;
 }
 //___________________________________________________
 ADM_ogmWriteProcess::~ADM_ogmWriteProcess()

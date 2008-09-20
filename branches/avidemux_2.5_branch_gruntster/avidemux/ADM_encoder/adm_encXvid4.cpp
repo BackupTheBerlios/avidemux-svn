@@ -17,6 +17,7 @@
  ***************************************************************************/
 #include "config.h"
 
+#define __STDC_LIMIT_MACROS
 
 #ifdef USE_XVID_4
 #include "xvid.h"
@@ -155,7 +156,7 @@ uint8_t EncoderXvid4::startPass1 (void)
   return 1;
 }
 
-
+int EncoderXvid4::getRequirements (void) { return ADM_ENC_REQ_NULL_FLUSH; }
 
 uint8_t EncoderXvid4::isDualPass (void)
 {
@@ -180,53 +181,61 @@ uint8_t EncoderXvid4::setLogFile (const char *lofile, uint32_t nbframe)
 uint8_t
   EncoderXvid4::encode (uint32_t frame, ADMBitstream *out)
 {
-  uint32_t l, f, q;
-  uint8_t r;
-  //ENC_RESULT enc;
+  uint32_t l, f;
 
   ADM_assert (_codec);
   ADM_assert (_in);
-  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
-    {
-      printf ("[xvid] Error: Cannot read incoming frame!\n");
-      return 0;
-    }
+
+  if (frame != UINT32_MAX)
+  {
+	  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
+	  {
+		  printf ("[xvid] Error: Cannot read incoming frame!\n");
+		  return 0;
+	  }
+  }
 
   switch (_state)
     {
     case enc_Same:
-      
-      out->flags=0;
-      if (frame < (encparam.bframes + 1))
 	{
-	  out->flags = AVI_KEY_FRAME;
-	  printf ("[xvid] Forcing keyframe for B frame\n");
-	}
-      q = _vbuffer->_Qp;
-      if (q < 2 || q > 31)
-	{
-	  printf ("[xvid] Out of bound incoming q: %d\n", q);
-	  if (q < 2)
-	    q = 2;
-	  if (q > 31)
-	    q = 31;
-	}
-        out->in_quantizer =q;
+		if (frame != UINT32_MAX)
+		{
+			out->flags = 0;
 
+			if (frame < (encparam.bframes + 1))
+			{
+				out->flags = AVI_KEY_FRAME;
+				printf ("[xvid] Forcing keyframe for B frame\n");
+			}
+
+			int q = _vbuffer->_Qp;
+
+			if (q < 2 || q > 31)
+			{
+				printf ("[xvid] Out of bound incoming q: %d\n", q);
+
+				if (q < 2)
+					q = 2;
+				if (q > 31)
+					q = 31;
+			}
+
+			out->in_quantizer = q;
+		}
+	}
     case enc_CBR:
     case enc_CQ:
     case enc_Pass1:
     case enc_Pass2:
-      r = _codec->encode (_vbuffer, out);
-      return r;
+		return _codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out);
       break;
 
     default:
       ADM_assert (0);
     }
 
-  return 1;
-
+  return 0;
 }
 
 //_______________________________

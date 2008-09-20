@@ -67,6 +67,8 @@ protected:
   PixelFormat _targetColorSpace;
 
 public:
+	int capabilities;
+
     uint8_t setConfig (FFcodecSetting * set);
   uint8_t setLogFile (const char *name);
   void encoderMT (void);

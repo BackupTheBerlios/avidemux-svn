@@ -189,7 +189,7 @@ uint8_t GenericAviSaveCopyPack::prefetch(uint32_t buffer,uint32_t frame)
       \brief init for unpacker code
 
 */
-uint8_t GenericAviSaveCopyPack::writeVideoChunk (uint32_t frame)
+int GenericAviSaveCopyPack::writeVideoChunk (uint32_t frame)
 {
 
   uint8_t    ret1;
@@ -233,7 +233,7 @@ uint8_t GenericAviSaveCopyPack::writeVideoChunk (uint32_t frame)
 
                 if( !prefetch(curToggle^1,frame+1))
                     {
-                        return 0;
+                        return -1; 
                     }
                 // Curtoggle holds the current frame, curToggle ^1 hold the next frame
                 if(current->flags!=1 && current->flags!=AVI_B_FRAME && next->flags==AVI_B_FRAME)
@@ -274,15 +274,18 @@ uint8_t GenericAviSaveCopyPack::writeVideoChunk (uint32_t frame)
       }
 
   if (!ret1)
-    return 0;
+    return -1;
 
      if(_videoFlag==AVI_KEY_FRAME)
           newFile();
 
   aprintf("Writting frame %u size %u flags %x\n",frame,img.dataLength,_videoFlag);
   encoding_gui->setFrame(frame,img.dataLength,0,frametogo);
-  return writter->saveVideoFrame (img.dataLength, img.flags, img.data);
-
+  
+  if (writter->saveVideoFrame (img.dataLength, img.flags, img.data))
+	  return img.dataLength;
+  else
+	  return -1;
 }
 
 //_____________________________________________________

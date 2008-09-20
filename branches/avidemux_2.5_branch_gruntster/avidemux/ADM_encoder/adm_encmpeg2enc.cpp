@@ -293,6 +293,7 @@ uint8_t    EncoderMpeg2enc::startPass1 (void)
   return 1;
 }
 
+int EncoderMpeg2enc::getRequirements (void) { return 0; }
 
 uint8_t   EncoderMpeg2enc::isDualPass (void)
 {

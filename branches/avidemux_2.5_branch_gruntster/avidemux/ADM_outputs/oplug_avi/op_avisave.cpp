@@ -125,6 +125,7 @@ GenericAviSave::GenericAviSave ()
  _pq=NULL;
  memset(&_context,0,sizeof(_context));
  _context.audioDone=1;
+ _encode=NULL;
 }
 
 GenericAviSave::~GenericAviSave ()
@@ -199,20 +200,30 @@ uint8_t ret=0;
   //__________________________________
   //   now go to main loop.....
   //__________________________________
+  int frameDelay = 0;
+  int videoSize;
+
   for (uint32_t cf = 0; cf < frametogo; cf++) 
-    {
-			
-			
-			
-      			if (guiUpdate (cf, frametogo))
-					goto abortme;
-      			//   printf("\n %lu / %lu",cf,frametogo);
-      			writeVideoChunk (cf);
-      			writeAudioChunk (cf);
-			//writter->sync();
-     
-     
-    };				// end for
+  {
+	  if (guiUpdate(cf, frametogo))
+		  goto abortme;
+
+	  for (;;)
+	  {
+		  videoSize = writeVideoChunk(cf + frameDelay);
+
+		  if (videoSize == 0 && _encode && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+		  {
+			  printf("skipping frame: %u size: %i\n", cf + frameDelay, videoSize);
+			  frameDelay++;
+		  }
+		  else
+			  break;
+	  }
+
+	  writeAudioChunk(cf);
+  }
+
     ret=1;
 abortme:
   guiStop ();

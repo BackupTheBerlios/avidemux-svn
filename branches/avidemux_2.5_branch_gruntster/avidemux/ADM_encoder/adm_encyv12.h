@@ -29,6 +29,7 @@ protected:
 public:
   EncoderYV12 (void);
    ~EncoderYV12 ();		// can be called twice if needed ..
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void)
   {
     return 0;

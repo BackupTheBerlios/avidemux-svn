@@ -116,8 +116,7 @@ uint8_t GenericAviSaveCopy::setupVideo (char *name)
 // Basically ask a video frame and send it to writter
 // If it contains b frame and frames have been re-ordered
 // reorder them back ...
-uint8_t
-GenericAviSaveCopy::writeVideoChunk (uint32_t frame)
+int GenericAviSaveCopy::writeVideoChunk (uint32_t frame)
 {
   
   uint8_t    ret1;
@@ -142,7 +141,7 @@ GenericAviSaveCopy::writeVideoChunk (uint32_t frame)
       }
 
   if (!ret1)
-    return 0;
+    return -1;
 
     // check for split
      // check for auto split
@@ -165,9 +164,11 @@ GenericAviSaveCopy::writeVideoChunk (uint32_t frame)
   if(_videoFlag==AVI_KEY_FRAME)
           newFile();
   encoding_gui->setFrame(frame,img.dataLength,0,frametogo);
-  return writter->saveVideoFrame (img.dataLength, img.flags, img.data);
 
-
+  if (writter->saveVideoFrame (img.dataLength, img.flags, img.data))
+	  return img.dataLength;
+  else
+	  return -1;
 }
 /**
       \fn newFile

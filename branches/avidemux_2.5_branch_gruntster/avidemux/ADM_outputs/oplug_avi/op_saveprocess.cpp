@@ -18,6 +18,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#define __STDC_LIMIT_MACROS
 #include "config.h"
 #include "ADM_default.h"
 #include "ADM_threads.h"
@@ -51,15 +52,12 @@ GenericAviSaveProcess::GenericAviSaveProcess( void )
 {
 	TwoPassLogFile=NULL;
 	_incoming=NULL;
-	_encode=NULL;
 	_videoProcess=1;
-	_prefill=0;
 };
 
 uint8_t
 GenericAviSaveProcess::setupVideo (char *name)
 {
-	_notnull=0;
 	_incoming = getLastVideoFilter (frameStart,frameEnd-frameStart);
  	frametogo=_incoming->getInfo()->nb_frames;
 	encoding_gui->setFps(_incoming->getInfo()->fps1000);
@@ -124,7 +122,7 @@ _mainaviheader.dwMicroSecPerFrame=0;
     {
       uint8_t *buffer;
       uint32_t len, flag;
-	int prefill = 0, r;
+	int r, frameDelay = 0;
 
  	aprintf("\n** Dual pass encoding**\n");
 
@@ -141,53 +139,47 @@ _mainaviheader.dwMicroSecPerFrame=0;
         bitstream.bufferSize = _incoming->getInfo()->width * _incoming->getInfo()->height * 3;
         bitstream.data=buffer;
 
-preFilling:
-		bitstream.cleanup(0);
-
-		if(!_encode->encode(prefill, &bitstream))
+		for (uint32_t cf = 0; cf < frametogo; cf++)
 		{
-			printf("AVI: First frame error\n");
-			GUI_Error_HIG(QT_TR_NOOP("Error while encoding"), NULL);
-			return 0;
-		}
-
-		if (!bitstream.len)
-		{
-			prefill++;
-			goto preFilling;
-		}
-
-		printf("Prefill: %u\n", prefill);
-
-      //__________________________________
-      //   now go to main loop.....
-      //__________________________________
-        for (uint32_t cf = 1; cf < frametogo; cf++)
-        {
-          if (guiUpdate (cf, frametogo))
-            {
-            abt:
-                GUI_Error_HIG (QT_TR_NOOP("Aborting"), NULL);
-              delete[]buffer;
-              return 0;
-            }
-            
-            bitstream.cleanup(cf);
-
-			if (!prefill || cf + prefill < frametogo)
-				r = _encode->encode(prefill + cf, &bitstream);
-			else
-				r = _encode->encode(frametogo - 1, &bitstream);
-
-			if (!r)
+			if (guiUpdate (cf, frametogo))
 			{
-				printf("Encoding of frame %lu failed!\n", cf);
-				goto abt;
+abt:
+				GUI_Error_HIG (QT_TR_NOOP("Aborting"), NULL);
+				delete[] buffer;
+				return 0;
 			}
 
-           encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,frametogo);
-    
-        }
+			for (;;)
+			{
+				bitstream.cleanup(cf);
+
+				if (cf + frameDelay >= frametogo)
+				{
+					if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+						r = _encode->encode(UINT32_MAX, &bitstream);
+					else
+						r = 0;
+				}
+				else
+					r = _encode->encode(cf + frameDelay, &bitstream);
+
+				if (!r)
+				{
+					printf("Encoding of frame %lu failed!\n", cf);
+					goto abt;
+				}
+
+				if (bitstream.len == 0 && (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+				{
+					printf("skipping frame: %u size: %i\n", cf + frameDelay, bitstream.len);
+					frameDelay++;
+				}
+				else
+					break;
+			}
+
+			encoding_gui->setFrame(cf,bitstream.len,bitstream.out_quantizer,frametogo);
+		}
 
 	encoding_gui->reset();
       	delete[]buffer;	
@@ -257,74 +249,62 @@ GenericAviSaveProcess::~GenericAviSaveProcess ()
 }
 
 // copy mode
-// Basically ask a video frame and send it to writter
-uint8_t
-GenericAviSaveProcess::writeVideoChunk (uint32_t frame)
+// Basically ask a video frame and send it to writer
+int GenericAviSaveProcess::writeVideoChunk(uint32_t frame)
 {
-  uint8_t    	r;
-  // CBR or CQ
-  if (frame == 0)
-  {
-    encoding_gui->setCodec(_encode->getDisplayName())  ;
-  if (!_encode->isDualPass ())
-  {
-                          guiSetPhasis (QT_TR_NOOP("Encoding"));
-        }
-  else
-          {
-                          guiSetPhasis (QT_TR_NOOP("2nd Pass"));
-        }
-  }
-  // first read
-
-preFilling:
-  bitstream.cleanup(0);
-
-  if (!_prefill || frame + _prefill < frametogo) 
-	  r = _encode->encode(_prefill + frame, &bitstream);
-  else
-	  r = _encode->encode(frametogo - 1, &bitstream);
-
-  if (!r)
-	  return 0;
-
-  if (!bitstream.len && frame == 0)
-  {
-	  _prefill++;
-	  goto preFilling;
-  }
-  else if (frame == 0)
-	  printf("Prefill: %u\n", _prefill);
-
-  _videoFlag=bitstream.flags;
-
-  // check for split
-     // check for auto split
-      // if so, we re-write the last I frame
-      if(muxSize)
-      {
-              // we overshot the limit and it is a key frame
-              // start a new chunk
-              if(handleMuxSize() && (_videoFlag & AVI_KEY_FRAME))
-              {		
-                      uint8_t *data;
-                      uint32_t dataLen=0;
-
-                      _encode->hasExtraHeaderData( &dataLen,&data);	   
-                      if(!reigniteChunk(dataLen,data)) return 0;
-              }
-        }
-        encoding_gui->setFrame(frame,bitstream.len,bitstream.out_quantizer,frametogo);	
-        // If we have several null B frames dont write them
-        if(bitstream.len) _notnull=1;
-	else	if( !_notnull)
+	uint8_t r = 0;
+	// CBR or CQ
+	if (frame == 0)
 	{
-		printf("Frame : %lu dropped\n",frame);
-	 	return 1;			 
-	 }
-         return writter->saveVideoFrame (bitstream.len, _videoFlag, vbuffer);
+		encoding_gui->setCodec(_encode->getDisplayName());
 
+		if (!_encode->isDualPass())
+			guiSetPhasis (QT_TR_NOOP("Encoding"));
+		else
+			guiSetPhasis (QT_TR_NOOP("2nd Pass"));
+	}
+
+	bitstream.cleanup(frame);
+
+	if (frame >= frametogo)
+	{
+		if (_encode->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+			r = _encode->encode(UINT32_MAX, &bitstream);
+	}
+	else
+		r = _encode->encode(frame, &bitstream);
+
+	if (!r)
+		return -1;
+
+	if (bitstream.len > 0)
+	{
+		_videoFlag=bitstream.flags;
+
+		// check for split
+		// check for auto split
+		// if so, we re-write the last I frame
+		if (muxSize)
+		{
+			// we overshot the limit and it is a key frame
+			// start a new chunk
+			if (handleMuxSize() && (_videoFlag & AVI_KEY_FRAME))
+			{
+				uint8_t *data;
+				uint32_t dataLen = 0;
+
+				_encode->hasExtraHeaderData(&dataLen,&data);
+
+				if (!reigniteChunk(dataLen, data))
+					return -1;
+			}
+		}
+
+		encoding_gui->setFrame(frame >= frametogo ? frametogo - 1 : frame, bitstream.len, bitstream.out_quantizer, frametogo);	
+
+		if (!writter->saveVideoFrame (bitstream.len, _videoFlag, vbuffer))
+			return -1;
+	}
+
+	return bitstream.len;
 }
-
-
-// EOF

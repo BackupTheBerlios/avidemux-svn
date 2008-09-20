@@ -124,7 +124,7 @@ uint8_t GenericAviSaveCopyUnpack::setupVideo (char *name)
       \brief init for unpacker code
 
 */
-uint8_t GenericAviSaveCopyUnpack::writeVideoChunk (uint32_t frame)
+int GenericAviSaveCopyUnpack::writeVideoChunk (uint32_t frame)
 {
   
   uint8_t    ret1;
@@ -153,14 +153,18 @@ uint8_t GenericAviSaveCopyUnpack::writeVideoChunk (uint32_t frame)
       }
 
   if (!ret1)
-    return 0;
+    return -1;
 
       if(_videoFlag==AVI_KEY_FRAME)
           newFile();
 
   
   encoding_gui->setFrame(frame,img.dataLength,0,frametogo);
-  return writter->saveVideoFrame (img.dataLength, img.flags, img.data);
+
+  if (writter->saveVideoFrame (img.dataLength, img.flags, img.data))
+	  return img.dataLength;
+  else
+	  return -1;
 
 }
 

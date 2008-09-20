@@ -14,8 +14,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
+#define __STDC_LIMIT_MACROS
 
+#include "config.h"
 #include "ADM_lavcodec.h"
 
 
@@ -54,6 +55,9 @@ EncoderFFMPEG (FF_HUFF, config)
   _state=enc_CQ;
 
 }
+
+int EncoderFFMPEGHuff::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncoderFFMPEGHuff::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -95,6 +99,9 @@ EncoderFFMPEG (FF_FFHUFF, config)
   _id = FF_FFHUFF;
   _frametogo = 0;
 }
+
+int EncoderFFMPEGFFHuff::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncoderFFMPEGFFHuff::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -139,6 +146,9 @@ EncoderFFMPEG (FF_HUFF, config)
 
 
 }
+
+int EncoderFFMPEGFFV1::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncoderFFMPEGFFV1::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -178,6 +188,9 @@ EncoderFFMPEG (FF_HUFF, config)
 
 
 }
+
+int EncodeFFMPEGSNow::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncodeFFMPEGSNow::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -220,6 +233,9 @@ EncoderFFMPEG (FF_DV, config)
 
 
 }
+
+int EncoderFFMPEGDV::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncoderFFMPEGDV::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -267,6 +283,9 @@ EncoderFFMPEG (FF_FLV1, config)
 
 
 }
+
+int EncoderFFMPEGFLV1::getRequirements (void) { return _codec->capabilities; }
+
 uint8_t
 EncoderFFMPEGFLV1::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
 {
@@ -436,6 +455,7 @@ uint8_t EncoderFFMPEG::startPass1 (void)
   return 1;
 }
 
+int EncoderFFMPEG::getRequirements (void) { return _codec->capabilities; }
 
 uint8_t EncoderFFMPEG::isDualPass (void)
 {
@@ -464,31 +484,42 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
   ADM_assert (_codec);
   ADM_assert (_in);
 
-  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
-    {
-      printf ("\n Error : Cannot read incoming frame !");
-      return 0;
-    }
+  if (frame != UINT32_MAX)
+  {
+	  if (!_in->getFrameNumberNoAlloc (frame, &l, _vbuffer, &f))
+	  {
+		  printf ("\n Error : Cannot read incoming frame !");
+		  return 0;
+	  }
+  }
 
   switch (_state)
     {
     case enc_CBR:
     case enc_CQ:
-      return _codec->encode (_vbuffer, out );
+      return _codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out );
       break;
     case enc_Same:
       {
-	uint32_t inq;
-        if (_vbuffer->flags & AVI_KEY_FRAME)
-            out->flags = AVI_KEY_FRAME;
-	else
-	   out->flags = 0;
-	inq = _vbuffer->_Qp;
-        if(inq>31) inq=31;
-        if(inq<2) inq=2;
-        out->in_quantizer =inq;
+		  if (frame != UINT32_MAX)
+		  {
+			  if (_vbuffer->flags & AVI_KEY_FRAME)
+				  out->flags = AVI_KEY_FRAME;
+			  else
+				  out->flags = 0;
 
-	if (!_codec->encode (_vbuffer, out ))
+			  int inq = _vbuffer->_Qp;
+
+			  if (inq > 31)
+				  inq = 31;
+
+			  if (inq < 2)
+				  inq = 2;
+
+			  out->in_quantizer = inq;
+		  }
+
+	if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
 	  {
 	    printf ("\n codec error on 1st pass !");
 	    return 0;
@@ -501,7 +532,7 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
     case enc_Pass1:
 
       //              ADM_assert(fd);
-      if (!_codec->encode (_vbuffer, out ))
+      if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
 	{
 	  printf ("\n codec error on 1st pass !");
 	  return 0;
@@ -511,7 +542,7 @@ uint8_t EncoderFFMPEG::encode (uint32_t frame, ADMBitstream *out)
       break;
     case enc_Pass2:
       // Encode it !
-      if (!_codec->encode (_vbuffer, out ))
+      if (!_codec->encode (frame == UINT32_MAX ? NULL : _vbuffer, out ))
             return 0;
       return 1;
       break;

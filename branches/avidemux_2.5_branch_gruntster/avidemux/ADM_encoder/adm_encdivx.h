@@ -31,6 +31,7 @@ protected:
   divxEncoder * _codec;
 public:
   EncoderDivx (DIVXConfig * conf);
+  virtual int getRequirements (void);
   virtual uint8_t isDualPass (void);
   virtual uint8_t configure (AVDMGenericVideoStream * instream, int useExistingLogFile);
   virtual uint8_t encode (uint32_t frame, uint32_t * len, uint8_t * out,

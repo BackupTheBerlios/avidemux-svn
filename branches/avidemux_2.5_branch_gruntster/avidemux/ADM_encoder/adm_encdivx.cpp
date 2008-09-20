@@ -113,6 +113,7 @@ EncoderDivx::startPass1 (void)
   return 1;
 }
 
+int EncoderDivx::getRequirements (void) { return 0; }
 
 uint8_t
 EncoderDivx::isDualPass (void)
