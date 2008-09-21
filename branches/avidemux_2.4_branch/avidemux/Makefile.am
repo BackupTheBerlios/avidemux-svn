@@ -57,6 +57,7 @@ user_interface_qt4 = \
 			./ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/libADM_dialogFactory.a	\
 			./ADM_userInterfaces/ADM_QT4/ADM_gui/libADM_gui2.a	\
 			./ADM_userInterfaces/ADM_QT4/ADM_filters/libADM_filters.a \
+			./ADM_userInterfaces/ADM_QT4/ADM_toolkit/libADM_toolkitQt4.a \
 			./ADM_toolkit/libADM_toolkit.a
 
 adm_src =   guiplay.cpp  \
