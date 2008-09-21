@@ -26,6 +26,7 @@
 #include "ADM_audiofilter/audioeng_buildfilters.h"
 #include "ADM_filter/video_filters.h"
 #include "ADM_encoder/adm_encConfig.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 class calculatorDialog : public QDialog
 {
@@ -40,7 +41,7 @@ private:
 	unsigned int getPictureSize(void);
 
 public:
-	calculatorDialog();
+	calculatorDialog(QWidget *parent);
 	~calculatorDialog();
 
 	unsigned int videoSize(void);
@@ -52,7 +53,7 @@ private slots:
 	void spinBox_valueChanged(int value);
 };
 
-calculatorDialog::calculatorDialog()
+calculatorDialog::calculatorDialog(QWidget *parent) : QDialog(parent)
 {
 	ui.setupUi(this);
 
@@ -276,10 +277,13 @@ void DIA_Calculator(uint32_t *sizeInMeg, uint32_t *avgBitrate)
 	if (!avifileinfo)
 		return;
 
-	calculatorDialog dialog;
+	calculatorDialog dialog(qtLastRegisteredDialog());
+	qtRegisterDialog(&dialog);
 
 	if (dialog.exec() == QDialog::Accepted)
 		videoCodecSetFinalSize(dialog.videoSize());
+
+	qtUnregisterDialog(&dialog);
 
 	*sizeInMeg = dialog.videoSize();
 	*avgBitrate = dialog.videoBitrate();

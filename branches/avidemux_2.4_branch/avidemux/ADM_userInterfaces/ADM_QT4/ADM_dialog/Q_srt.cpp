@@ -33,6 +33,7 @@
 #include "ADM_assert.h"
 #include "DIA_flyDialog.h"
 #include "DIA_flyDialogQt4.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 //#include "ADM_video/ADM_vidFont.h"
 class ADMfont;
@@ -52,7 +53,7 @@ class Ui_srtWindow : public QDialog
  public:
      flySrtPos *myCrop;
      ADM_QCanvas *canvas;
-     Ui_srtWindow(SRT_POS_PARAM *param,AVDMGenericVideoStream *in);
+     Ui_srtWindow(QWidget *parent, SRT_POS_PARAM *param,AVDMGenericVideoStream *in);
      ~Ui_srtWindow();
      Ui_srtDialog ui;
  public slots:
@@ -65,7 +66,7 @@ class Ui_srtWindow : public QDialog
  private:
      
  };
-  Ui_srtWindow::Ui_srtWindow(SRT_POS_PARAM *param,AVDMGenericVideoStream *in)
+Ui_srtWindow::Ui_srtWindow(QWidget *parent, SRT_POS_PARAM *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -165,7 +166,10 @@ int DIA_srtPos(AVDMGenericVideoStream *in,uint32_t *size,uint32_t *position)
         SRT_POS_PARAM param;
         param.fontSize=*size;
         param.position=*position;
-        Ui_srtWindow dialog(&param,in);        
+        Ui_srtWindow dialog(qtLastRegisteredDialog(), &param,in);
+
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(&param);
@@ -173,6 +177,9 @@ int DIA_srtPos(AVDMGenericVideoStream *in,uint32_t *size,uint32_t *position)
             *position=param.position;
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 //____________________________________

@@ -4,7 +4,7 @@ libADM_UI_QT4_a_METASOURCES = AUTO
 libADM_UI_QT4_a_SOURCES = ui_support.cpp
 
 INCLUDES = @ADM_QTINCLUDES@
-SUBDIRS = ADM_dialog  ADM_gui  ADM_filters ADM_dialogFactory ADM_ocr
+SUBDIRS = ADM_dialog  ADM_gui  ADM_filters ADM_dialogFactory ADM_ocr ADM_toolkit
 
 
 

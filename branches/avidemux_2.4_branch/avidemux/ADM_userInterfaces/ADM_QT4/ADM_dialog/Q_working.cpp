@@ -24,6 +24,7 @@
 #include "ADM_assert.h"
 #include "ADM_osSupport/ADM_misc.h"
 #include "DIA_working.h"
+#include "../ADM_toolkit/qtToolkit.h"
     
 extern void UI_purge(void);
 
@@ -32,7 +33,7 @@ class workWindow : public QDialog
      Q_OBJECT
 
  public:
-     workWindow();
+     workWindow(QWidget *parent);
      Ui_workDialog ui;
  public slots:
  private slots:
@@ -40,7 +41,7 @@ class workWindow : public QDialog
 };
 
 
-workWindow::workWindow()     : QDialog()
+workWindow::workWindow(QWidget *parent) : QDialog(parent)
  {
      ui.setupUi(this);
  }
@@ -49,14 +50,16 @@ workWindow::workWindow()     : QDialog()
 DIA_working::DIA_working( void )
 {
   workWindow *wind;
-  wind=new workWindow();
+  wind=new workWindow(qtLastRegisteredDialog());
+  qtRegisterDialog(wind);
   _priv=(void *)wind;
   postCtor();
 }
 DIA_working::DIA_working( const char *title )
 {
   workWindow *wind;
-  wind=new workWindow();
+  wind=new workWindow(qtLastRegisteredDialog());
+  qtRegisterDialog(wind);
   _priv=(void *)wind;
   wind->setWindowTitle(title);
   postCtor();
@@ -139,7 +142,8 @@ DIA_working::~DIA_working()
 void DIA_working::closeDialog( void )
 {
   workWindow *wind=(workWindow *)_priv; ADM_assert(wind);
-    if(wind) delete wind;
+  qtUnregisterDialog(wind);
+    delete wind;
     wind=NULL;
 }
 

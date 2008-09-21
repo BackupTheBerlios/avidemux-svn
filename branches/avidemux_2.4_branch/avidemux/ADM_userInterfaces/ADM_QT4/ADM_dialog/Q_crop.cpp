@@ -38,6 +38,7 @@
 #include "DIA_flyDialog.h"
 #include "DIA_flyDialogQt4.h"
 #include "DIA_flyCrop.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 //
 //	Video is in YV12 Colorspace
@@ -51,7 +52,7 @@ class Ui_cropWindow : public QDialog
  public:
      flyCrop *myCrop;
      ADM_QCanvas *canvas;
-     Ui_cropWindow(CROP_PARAMS *param,AVDMGenericVideoStream *in);
+     Ui_cropWindow(QWidget* parent, CROP_PARAMS *param,AVDMGenericVideoStream *in);
      ~Ui_cropWindow();
      Ui_cropDialog ui;
  public slots:
@@ -66,7 +67,7 @@ class Ui_cropWindow : public QDialog
  private:
      
  };
-  Ui_cropWindow::Ui_cropWindow(CROP_PARAMS *param,AVDMGenericVideoStream *in)
+Ui_cropWindow::Ui_cropWindow(QWidget* parent, CROP_PARAMS *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -197,12 +198,17 @@ int DIA_getCropParams(const char *name,CROP_PARAMS *param,AVDMGenericVideoStream
 {
         uint8_t ret=0;
         
-        Ui_cropWindow dialog(param,in);        
+        Ui_cropWindow dialog(qtLastRegisteredDialog(), param,in);
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(param); 
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 //____________________________________

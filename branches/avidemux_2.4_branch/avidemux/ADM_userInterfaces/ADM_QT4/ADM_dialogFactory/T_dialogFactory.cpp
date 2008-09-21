@@ -31,6 +31,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 static void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab);
 
@@ -42,7 +43,8 @@ static void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab);
 
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 {
-  QDialog dialog;
+  QDialog dialog(qtLastRegisteredDialog());
+  qtRegisterDialog(&dialog);
   
   ADM_assert(title);
   ADM_assert(nb);
@@ -89,8 +91,14 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
         elems[i]->getMe(); 
     
       }
+
+	 qtUnregisterDialog(&dialog);
+
     return 1;
   }
+
+  qtUnregisterDialog(&dialog);
+
   return 0;
   
 }
@@ -109,7 +117,9 @@ const char *shortkey(const char *in)
 }
 uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 {
-    QDialog dialog;
+    QDialog dialog(qtLastRegisteredDialog());
+
+	qtRegisterDialog(&dialog);
   
   ADM_assert(title);
   ADM_assert(nb);
@@ -154,8 +164,13 @@ uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
         }
     
       }
+	   qtUnregisterDialog(&dialog);
+
       return 1;
   }
+
+  qtUnregisterDialog(&dialog);
+
   return 0;
   
 }

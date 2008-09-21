@@ -54,6 +54,8 @@
 #include "ADM_video/ADM_vidPartial.h"
 #include "ADM_filter/vidVCD.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_factory.h"
+#include "../ADM_toolkit/qtToolkit.h"
+
 /*******************************************************/
 #define NB_TREE 8
 #define myFg 0xFF
@@ -784,9 +786,12 @@ static void updateFilterList (filtermainWindow *dialog);
 */
 int GUI_handleVFilter(void)
 {
-	filtermainWindow dialog(QuiMainWindows);
+	filtermainWindow dialog(qtLastRegisteredDialog());
+	qtRegisterDialog(&dialog);
 
 	dialog.exec();
+
+	qtUnregisterDialog(&dialog);
 
 	return 0;
 }

@@ -33,6 +33,7 @@
 #include "DIA_flyDialogQt4.h"
 #include "ADM_videoFilter/ADM_vidEq2.h"
 #include "DIA_flyEq2.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 //
 //	Video is in YV12 Colorspace
@@ -46,7 +47,7 @@ class Ui_eq2Window : public QDialog
  public:
      flyEq2 *myCrop;
      ADM_QCanvas *canvas;
-     Ui_eq2Window(Eq2_Param *param,AVDMGenericVideoStream *in);
+     Ui_eq2Window(QWidget *parent, Eq2_Param *param,AVDMGenericVideoStream *in);
      ~Ui_eq2Window();
      Ui_DialogEq2 ui;
  public slots:
@@ -59,7 +60,7 @@ class Ui_eq2Window : public QDialog
  private:
      
  };
-  Ui_eq2Window::Ui_eq2Window(Eq2_Param *param,AVDMGenericVideoStream *in)
+Ui_eq2Window::Ui_eq2Window(QWidget *parent, Eq2_Param *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -162,12 +163,18 @@ uint8_t DIA_getEQ2Param(Eq2_Param *param, AVDMGenericVideoStream *in)
 {
         uint8_t ret=0;
         
-        Ui_eq2Window dialog(param,in);        
+        Ui_eq2Window dialog(qtLastRegisteredDialog(), param,in);
+
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(param); 
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 //____________________________________

@@ -34,7 +34,7 @@
 #include "ADM_videoFilter/ADM_vidVobSub.h"
 
 #include "ADM_assert.h"
-
+#include "../ADM_toolkit/qtToolkit.h"
 
 
 //
@@ -48,7 +48,7 @@ class Ui_vobsubWindow : public QDialog
 	 vobSubParam *param;
 	 void  		 fillLanguage(const char *file);
  public:
-     Ui_vobsubWindow(vobSubParam *param);
+     Ui_vobsubWindow(QWidget *parent, vobSubParam *param);
      ~Ui_vobsubWindow();
      Ui_DialogVobSub ui;
      
@@ -59,7 +59,7 @@ class Ui_vobsubWindow : public QDialog
  private:
      
  };
-  Ui_vobsubWindow::Ui_vobsubWindow(vobSubParam *parm)
+Ui_vobsubWindow::Ui_vobsubWindow(QWidget *parent, vobSubParam *parm) : QDialog(parent)
   {
     uint32_t width,height;
     	this->param=parm;
@@ -136,12 +136,18 @@ void Ui_vobsubWindow::idxSel(bool i)
 uint8_t DIA_vobsub(vobSubParam *param)
 {
         uint8_t ret=0;
-        Ui_vobsubWindow dialog(param);        
+        Ui_vobsubWindow dialog(qtLastRegisteredDialog(), param);
+
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
         	dialog.gather();
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 //____________________________________

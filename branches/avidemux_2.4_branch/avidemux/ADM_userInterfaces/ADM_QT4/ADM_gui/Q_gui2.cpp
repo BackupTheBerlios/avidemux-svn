@@ -31,6 +31,7 @@
 #include <QtGui/QKeyEvent>
 #include <QtGui/QValidator>
 
+#include "../ADM_toolkit/qtToolkit.h"
 #include "ADM_qslider.h"
 #include "default.h"
 #include "ADM_osSupport/ADM_misc.h"
@@ -237,6 +238,7 @@ protected:
 
 MainWindow::MainWindow() : QMainWindow()
 {
+	qtRegisterDialog(this);
 	ui.setupUi(this);
 
 	this->setStatusBar(0);

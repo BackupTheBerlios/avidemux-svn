@@ -26,6 +26,7 @@
 #include "avi_vars.h"
 #include "ADM_osSupport/ADM_misc.h"
 #include "ADM_toolkit/toolkit.hxx"
+#include "../ADM_toolkit/qtToolkit.h"
 
 static double aspectRatio[2][3]={
                               {1.,0.888888,1.19}, // NTSC 1:1 4:3 16:9
@@ -59,7 +60,7 @@ protected:
 	resParam *_param;
 
 public:
-	resizeWindow(resParam *param);
+	resizeWindow(QWidget *parent, resParam *param);
 	Ui_resizeDialog ui;
 
 public slots:
@@ -74,7 +75,7 @@ public slots:
 	void aspectRatioChanged(int index);
 };
 
-resizeWindow::resizeWindow(resParam *param) : QDialog()
+resizeWindow::resizeWindow(QWidget *parent, resParam *param) : QDialog(parent)
  {
      ui.setupUi(this);
 	 lastPercentage = 100;
@@ -313,8 +314,10 @@ uint8_t r=0;
        
 
      // Fetch info
-     resizeWindow resizewindow(&param) ;
-     ;
+     resizeWindow resizewindow(qtLastRegisteredDialog(), &param);
+
+     qtRegisterDialog(&resizewindow);
+
      if(resizewindow.exec()==QDialog::Accepted)
      {
        resizewindow.gather();
@@ -323,6 +326,9 @@ uint8_t r=0;
        *alg=param.algo;
        r=1;
      }
+
+	 qtUnregisterDialog(&resizewindow);
+
      return r;
 }  
 //********************************************

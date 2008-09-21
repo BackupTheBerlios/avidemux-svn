@@ -23,6 +23,8 @@
 #include "avidemutils.h"
 #include "avi_vars.h"
 #include "ADM_osSupport/ADM_misc.h"
+#include "../ADM_toolkit/qtToolkit.h"
+
 static const char *yesno[2]={QT_TR_NOOP("No"),QT_TR_NOOP("Yes")};
 extern const char *getStrFromAudioCodec( uint32_t codec);
  class propWindow : public QDialog
@@ -30,7 +32,7 @@ extern const char *getStrFromAudioCodec( uint32_t codec);
      Q_OBJECT
 
  public:
-     propWindow();
+     propWindow(QWidget *parent);
      Ui_Dialog ui;
  public slots:
   
@@ -42,7 +44,7 @@ extern const char *getStrFromAudioCodec( uint32_t codec);
  };
 
 
-propWindow::propWindow()     : QDialog()
+propWindow::propWindow(QWidget *parent)     : QDialog(parent)
  {
      ui.setupUi(this);
      uint8_t gmc, qpel,vop;
@@ -147,9 +149,10 @@ void DIA_properties( void )
       if (!avifileinfo)
         return;
      // Fetch info
-     propWindow *propwindow=new propWindow ;
-     propwindow->exec();
-     delete propwindow;
+     propWindow propwindow(qtLastRegisteredDialog());
+	 qtRegisterDialog(&propwindow);
+     propwindow.exec();
+	 qtUnregisterDialog(&propwindow);
 }  
 //********************************************
 //EOF

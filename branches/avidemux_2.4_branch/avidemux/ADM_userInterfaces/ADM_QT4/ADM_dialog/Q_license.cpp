@@ -17,6 +17,7 @@
 
 #include "ui_license.h"
 #include "default.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 class Ui_licenseWindow : public QDialog
 {
@@ -26,10 +27,10 @@ private:
 	Ui_licenseDialog ui;
 
 public:
-	Ui_licenseWindow();
+	Ui_licenseWindow(QWidget *parent);
 };
 
-Ui_licenseWindow::Ui_licenseWindow()
+Ui_licenseWindow::Ui_licenseWindow(QWidget *parent) : QDialog(parent)
 {
 	ui.setupUi(this);
 
@@ -709,9 +710,11 @@ Ui_licenseWindow::Ui_licenseWindow()
 
 uint8_t DIA_license(void)
 {
-	Ui_licenseWindow dialog;
+	Ui_licenseWindow dialog(qtLastRegisteredDialog());
 
+	qtRegisterDialog(&dialog);
 	dialog.exec();
+	qtUnregisterDialog(&dialog);
 
 	return 1;
 }

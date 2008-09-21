@@ -39,6 +39,7 @@
 #include "DIA_flyDialogQt4.h"
 #include "ADM_videoFilter/ADM_vidContrast.h"
 #include "DIA_flyContrast.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 //
 //	Video is in YV12 Colorspace
@@ -52,7 +53,7 @@ class Ui_contrastWindow : public QDialog
  public:
      flyContrast *myCrop;
      ADM_QCanvas *canvas;
-     Ui_contrastWindow(CONTRAST_PARAM *param,AVDMGenericVideoStream *in);
+     Ui_contrastWindow(QWidget* parent, CONTRAST_PARAM *param,AVDMGenericVideoStream *in);
      ~Ui_contrastWindow();
      Ui_contrastDialog ui;
  public slots:
@@ -65,7 +66,7 @@ class Ui_contrastWindow : public QDialog
  private:
      
  };
-  Ui_contrastWindow::Ui_contrastWindow(CONTRAST_PARAM *param,AVDMGenericVideoStream *in)
+Ui_contrastWindow::Ui_contrastWindow(QWidget* parent, CONTRAST_PARAM *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -155,12 +156,17 @@ uint8_t DIA_contrast(AVDMGenericVideoStream *in,CONTRAST_PARAM *param)
 {
         uint8_t ret=0;
         
-        Ui_contrastWindow dialog(param,in);        
+        Ui_contrastWindow dialog(qtLastRegisteredDialog(), param,in);
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(param); 
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 //____________________________________

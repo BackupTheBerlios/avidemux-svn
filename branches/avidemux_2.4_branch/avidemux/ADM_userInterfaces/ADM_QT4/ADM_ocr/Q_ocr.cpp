@@ -38,6 +38,8 @@
 #include "ADM_ocr/ADM_ocrInternal.h"
 #include "ui_ocr.h"
 #include "../ADM_dialog/DIA_flyDialogQt4.h"
+#include "../ADM_toolkit/qtToolkit.h"
+
 extern void UI_purge(void);
 
 //*********************************************
@@ -47,7 +49,7 @@ class Ui_ocrWindow : public QDialog
  protected :
 	 
  public:
-     Ui_ocrWindow(void);
+     Ui_ocrWindow(QWidget *parent);
      ~Ui_ocrWindow();
      Ui_DialogOcr ui;
      
@@ -96,7 +98,7 @@ class Ui_ocrWindow : public QDialog
  private:
      
  };
-  Ui_ocrWindow::Ui_ocrWindow(void)
+Ui_ocrWindow::Ui_ocrWindow(QWidget *parent) : QDialog(parent)
   {
         ui.setupUi(this);
         ui.textEdit->setReadOnly(TRUE);
@@ -314,6 +316,7 @@ uint8_t ADM_ocrUiEnd(void *d)
 	   Ui_ocrWindow *dialog=( Ui_ocrWindow *)d;
 	   ADM_assert(dialog==gDialog);
 		
+	   qtUnregisterDialog(dialog);
 		
 	   gDialog=NULL;
 	   delete dialog;
@@ -327,7 +330,8 @@ uint8_t ADM_ocrUiEnd(void *d)
 void 	*ADM_ocrUiSetup(void)
 {
 	
-	   Ui_ocrWindow *dialog=new Ui_ocrWindow;
+	   Ui_ocrWindow *dialog=new Ui_ocrWindow(qtLastRegisteredDialog());
+	   qtRegisterDialog(dialog);
 	   dialog->setModal(TRUE);
 	   dialog->show();
 	   gDialog=dialog;

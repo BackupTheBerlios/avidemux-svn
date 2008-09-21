@@ -21,6 +21,7 @@
 #include "ADM_toolkit/filesel.h"
 #include "prefs.h"
 #include "ADM_assert.h"
+#include "../ADM_toolkit/qtToolkit.h"
     
 static void GUI_FileSelSelect(const char *label, char **name, uint32_t access) ;
 
@@ -93,8 +94,8 @@ void GUI_FileSelSelect(const char *label, char **name, uint32_t access)
    options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-   if(access)  fileName=QFileDialog::getSaveFileName(NULL, label, str, NULL, NULL, options);
-       else    fileName=QFileDialog::getOpenFileName(NULL, label, str, NULL, NULL, options);
+   if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
+       else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
 
   if(!fileName.isNull() )
   {
@@ -125,7 +126,7 @@ uint8_t FileSel_SelectWrite(const char *title,char *target,uint32_t max, const c
   options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-  fileName=QFileDialog::getSaveFileName(NULL, title, source, NULL, NULL, options);
+  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
 
   if(!fileName.isNull() )
   {
@@ -157,7 +158,7 @@ uint8_t FileSel_SelectRead(const char *title,char *target,uint32_t max, const ch
   options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-  fileName = QFileDialog::getOpenFileName(NULL, title, source, NULL, NULL, options);
+  fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
 
   if(!fileName.isNull() )
   {
@@ -191,7 +192,7 @@ uint8_t FileSel_SelectDir(const char *title,char *target,uint32_t max, const cha
    options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-   fileName=QFileDialog::getExistingDirectory(NULL, title, source, options);
+   fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), title, source, options);
 
   if(!fileName.isNull() )
   {

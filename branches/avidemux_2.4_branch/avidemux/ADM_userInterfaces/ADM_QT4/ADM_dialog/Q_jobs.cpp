@@ -20,6 +20,7 @@
 
 #include "ADM_toolkit/toolkit.hxx"
 #include "ADM_assert.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 static void             updateStatus(void);
 extern bool parseECMAScript(const char *name);
@@ -72,7 +73,7 @@ class jobsWindow : public QDialog
         ADM_Job_Descriptor  *desc;
         void             updateRows(void);
  public:
-                    jobsWindow(uint32_t n,char **j);
+                    jobsWindow(QWidget *parent, uint32_t n,char **j);
                     ~jobsWindow();
      Ui_Jobs        ui;
  public slots:
@@ -85,7 +86,7 @@ class jobsWindow : public QDialog
  /**
           \fn jobsWindow
  */
-jobsWindow::jobsWindow(uint32_t n,char **j)     : QDialog()
+jobsWindow::jobsWindow(QWidget *parent, uint32_t n,char **j)     : QDialog(parent)
  {
      ui.setupUi(this);
      _nbJobs=n;
@@ -252,12 +253,17 @@ void jobsWindow::RunAll(bool b)
 uint8_t  DIA_job(uint32_t nb, char **name)
 {
   uint8_t r=0;
-  jobsWindow jobswindow(nb,name) ;
+  jobsWindow jobswindow(qtLastRegisteredDialog(), nb,name);
+
+  qtRegisterDialog(&jobswindow);
      
      if(jobswindow.exec()==QDialog::Accepted)
      {
        r=1;
      }
+
+	 qtUnregisterDialog(&jobswindow);
+
      return r;
 }
 

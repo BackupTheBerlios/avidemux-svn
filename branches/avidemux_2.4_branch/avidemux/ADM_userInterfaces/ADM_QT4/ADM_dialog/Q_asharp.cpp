@@ -39,6 +39,7 @@
 #include "DIA_flyDialogQt4.h"
 #include "ADM_videoFilter/ADM_vidASharp_param.h"
 #include "DIA_flyAsharp.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 //
 //	Video is in YV12 Colorspace
@@ -52,7 +53,7 @@ class Ui_asharpWindow : public QDialog
  public:
      flyASharp *myCrop;
      ADM_QCanvas *canvas;
-     Ui_asharpWindow(ASHARP_PARAM *param,AVDMGenericVideoStream *in);
+     Ui_asharpWindow(QWidget *parent, ASHARP_PARAM *param,AVDMGenericVideoStream *in);
      ~Ui_asharpWindow();
      Ui_asharpDialog ui;
  public slots:
@@ -66,7 +67,7 @@ class Ui_asharpWindow : public QDialog
  private:
      
  };
-  Ui_asharpWindow::Ui_asharpWindow(ASHARP_PARAM *param,AVDMGenericVideoStream *in)
+Ui_asharpWindow::Ui_asharpWindow(QWidget *parent, ASHARP_PARAM *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -159,12 +160,16 @@ uint8_t DIA_getASharp(ASHARP_PARAM *param, AVDMGenericVideoStream *in)
 {
         uint8_t ret=0;
         
-        Ui_asharpWindow dialog(param,in);        
+        Ui_asharpWindow dialog(qtLastRegisteredDialog(), param,in);
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(param); 
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
         return ret;
 }
 //____________________________________

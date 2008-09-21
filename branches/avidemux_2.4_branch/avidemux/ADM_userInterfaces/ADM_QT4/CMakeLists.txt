@@ -3,6 +3,7 @@ SET(${ADM_LIB}_SRCS ui_support.cpp)
 ADD_LIBRARY(${ADM_LIB} STATIC ${${ADM_LIB}_SRCS})
 include_directories(${QT_INCLUDES})
 
+add_subdirectory(ADM_toolkit)
 add_subdirectory(ADM_dialog)
 add_subdirectory(ADM_dialogFactory)
 add_subdirectory(ADM_filters)

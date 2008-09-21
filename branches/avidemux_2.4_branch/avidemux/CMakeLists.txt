@@ -236,6 +236,7 @@ if(QT4_FOUND)
 	TARGET_LINK_LIBRARIES(avidemux2_qt4 ADM_guiQt4)
 	TARGET_LINK_LIBRARIES(avidemux2_qt4 ADM_filtersQt4)
 	TARGET_LINK_LIBRARIES(avidemux2_qt4 ADM_commonUI)
+	TARGET_LINK_LIBRARIES(avidemux2_qt4 ADM_toolkitQt4)
 endif(QT4_FOUND)
 
 add_libs_all_targets(ADM_utilities)

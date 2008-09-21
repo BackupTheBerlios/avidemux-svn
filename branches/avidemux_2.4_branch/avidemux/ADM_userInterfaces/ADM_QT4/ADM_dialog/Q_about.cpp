@@ -17,6 +17,7 @@
 
 #include "ui_about.h"
 #include "default.h"
+#include "../ADM_toolkit/qtToolkit.h"
 
 extern uint8_t DIA_license(void);
 
@@ -28,13 +29,13 @@ private:
 	Ui_aboutDialog ui;
 
 public:
-	Ui_aboutWindow();
+	Ui_aboutWindow(QWidget* parent);
 
 private slots:
 	void licenseButton_clicked(bool);
 };
 
-Ui_aboutWindow::Ui_aboutWindow()
+Ui_aboutWindow::Ui_aboutWindow(QWidget* parent) : QDialog(parent)
 {
 	Q_INIT_RESOURCE(about);
 
@@ -58,10 +59,13 @@ void Ui_aboutWindow::licenseButton_clicked(bool)
 }
 
 uint8_t DIA_about(void)
-{
-	Ui_aboutWindow dialog;
+{	
+	Ui_aboutWindow dialog(qtLastRegisteredDialog());
+	qtRegisterDialog(&dialog);
 
 	dialog.exec();
+
+	qtUnregisterDialog(&dialog);
 
 	return 1;
 }
