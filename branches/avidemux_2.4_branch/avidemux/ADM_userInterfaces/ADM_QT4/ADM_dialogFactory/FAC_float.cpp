@@ -59,6 +59,8 @@ void diaElemFloat::setMe(void *dialog, void *opaque,uint32_t line)
    
  box->setMinimum(min);
  box->setMaximum(max);
+ box->setDecimals(2);
+ box->setSingleStep(0.1);
  box->setValue(*(ELEM_TYPE_FLOAT *)param);
  
  QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
