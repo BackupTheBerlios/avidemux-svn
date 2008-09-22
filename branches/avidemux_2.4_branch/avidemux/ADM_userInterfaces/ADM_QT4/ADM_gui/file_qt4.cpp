@@ -97,8 +97,9 @@ void GUI_FileSelSelect(const char *label, char **name, uint32_t access)
    if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
        else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
 
-  if(!fileName.isNull() )
+  if(!fileName.isNull())
   {
+	fileName = QDir::toNativeSeparators(fileName);
     const char *s=fileName.toUtf8().constData();
     *name=ADM_strdup(s);
     prefs->set(pref_entry,(ADM_filename *)*name);
@@ -130,6 +131,7 @@ uint8_t FileSel_SelectWrite(const char *title,char *target,uint32_t max, const c
 
   if(!fileName.isNull() )
   {
+	fileName = QDir::toNativeSeparators(fileName);
     const char *s=fileName.toUtf8().constData();
     strncpy(target,s,max);
 
@@ -162,6 +164,7 @@ uint8_t FileSel_SelectRead(const char *title,char *target,uint32_t max, const ch
 
   if(!fileName.isNull() )
   {
+	fileName = QDir::toNativeSeparators(fileName);
     const char *s=fileName.toUtf8().constData();
     strncpy(target,s,max);
 
@@ -196,6 +199,7 @@ uint8_t FileSel_SelectDir(const char *title,char *target,uint32_t max, const cha
 
   if(!fileName.isNull() )
   {
+	fileName = QDir::toNativeSeparators(fileName);
     const char *s=fileName.toUtf8().constData();
     strncpy(target,s,max);
 	return 1;

@@ -122,7 +122,6 @@ uint8_t  ADM_saveRaw (const char *name);
 char * actual_workbench_file;
 void A_saveWorkbench (const char *name);
 void updateLoaded (void);
-extern void encoderSetLogFile (char *name);
 extern void videoCodecSelect (void);
 extern uint8_t DIA_about( void );
 extern uint8_t DIA_RecentFiles( char **name );
@@ -292,11 +291,6 @@ int nw;
  #endif
       prefs->save ();
       return;
-    case ACT_SetLogFile:
-//      GUI_FileSelWrite ("Select log File to use", encoderSetLogFile);
-      GUI_Error_HIG(QT_TR_NOOP("Obsolete"), NULL);
-      return;
-      break;
     case ACT_SetMuxParam:
       ADM_aviUISetMuxer();
       return;
