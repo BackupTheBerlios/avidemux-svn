@@ -263,7 +263,7 @@ FILE *file;
     This function convert the later to the former
 
 */
-extern char *slashToBackSlash(const char *in)
+char *backSlashToForward(const char *in)
 {
     char *out,*cout;
     int n;
@@ -272,6 +272,22 @@ extern char *slashToBackSlash(const char *in)
     for(int i=0;i<n+1;i++)
     {
         if(   in[i]=='\\') out[i]='/';
+        else    out[i]=in[i];
+        
+    }
+    return cout;
+    
+}
+
+char *forwardSlashToBack(const char *in)
+{
+    char *out,*cout;
+    int n;
+    n=strlen(in);
+    cout=out=(char *)ADM_alloc(n+1);   
+    for(int i=0;i<n+1;i++)
+    {
+        if(   in[i]=='/') out[i]='\\';
         else    out[i]=in[i];
         
     }

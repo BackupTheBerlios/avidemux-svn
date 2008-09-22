@@ -171,13 +171,11 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 //___________________________
 uint8_t  *extraData ;
 uint32_t extraDataSize;
-char *pth;
+
         qfprintf(fd,"\n//** Video Codec conf **\n");
         videoCodecGetConf(&extraDataSize,&extraData);
-        
-        pth= cleanupPath(name );
         qfprintf(fd,"app.video.codec(\"%s\",\"%s\",\"",videoCodecGetName(),videoCodecGetMode());
-        ADM_dealloc(pth);
+
         // Now deal with extra data
         qfprintf(fd,"%d ",extraDataSize);
         if(extraDataSize)

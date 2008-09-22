@@ -26,7 +26,8 @@ extern void *ADM_calloc(size_t nbElm,size_t elSize);
 extern void *ADM_realloc(void *in,size_t size);
 extern void ADM_dezalloc(void *ptr);
 extern char *ADM_strdup( const char *in);
-extern char *slashToBackSlash(const char *in);
+extern char *backSlashToForward(const char *in);
+extern char *forwardSlashToBack(const char *in);
 typedef void *(* adm_fast_memcpy)(void *to, const void *from, size_t len);
 extern adm_fast_memcpy myAdmMemcpy;
 
@@ -72,11 +73,13 @@ extern adm_fast_memcpy myAdmMemcpy;
         #define LLX "I64x"
         #define LLU "I64u"
         
-        #define cleanupPath(x) slashToBackSlash(x)
+        #define cleanupPath(x) backSlashToForward(x)
+		#define fixupPath(x) forwardSlashToBack(x)
 #else
         #define LLX "llx"
         #define LLU "llu"
         #define cleanupPath(x) ADM_strdup(x)
+		#define fixupPath(x) ADM_strdup(x)
 #endif
 
 
