@@ -474,6 +474,21 @@ public:
   void getMe(void);
   int getRequiredLayout(void);
 };
+/**********************************************/
+class diaElemAspectRatio : public diaElem
+{
+public:
+	uint32_t *den;
+	void *denControl, *label;
+
+	diaElemAspectRatio(uint32_t *num, uint32_t *den, const char *title, const char *tip = NULL);
+	virtual ~diaElemAspectRatio();
+	void setMe(void *dialog, void *opaque, uint32_t line);
+	void getMe(void);
+	void enable(uint32_t onoff);
+	int getRequiredLayout(void);
+};
+
 /*********************************************/
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems);
 uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs);
