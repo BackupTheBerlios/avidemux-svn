@@ -51,7 +51,7 @@ extern const char *shortkey(const char *);
   protected:
         diaElemMenuDynamic *_menu;
   public:
-  ADM_QComboBox(QWidget *root,diaElemMenuDynamic *menu) : QComboBox(root)
+  ADM_QComboBox(diaElemMenuDynamic *menu)
   {
     _menu=menu;
   }
@@ -148,11 +148,12 @@ diaElemMenuDynamic::~diaElemMenuDynamic()
 }
 void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
 {
-  ADM_QComboBox *combo=new ADM_QComboBox( (QWidget *)dialog,this);
+  ADM_QComboBox *combo=new ADM_QComboBox(this);
+
   QGridLayout *layout=(QGridLayout*) opaque;
      myWidget=(void *)combo; 
 
-	 QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
+	 QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle));
 	 text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
 	 QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);

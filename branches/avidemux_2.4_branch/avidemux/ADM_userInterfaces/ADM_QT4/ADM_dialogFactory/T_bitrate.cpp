@@ -52,11 +52,11 @@ class  ADM_Qbitrate : public QWidget
         COMPRES_PARAMS  *compress;
 		uint32_t		_minQ;
         uint32_t        maxQ;
-        ADM_Qbitrate(QWidget *z,COMPRES_PARAMS *p,uint32_t minQ, uint32_t mq,QGridLayout *layout,int line) : QWidget(z) 
+        ADM_Qbitrate(COMPRES_PARAMS *p,uint32_t minQ, uint32_t mq,QGridLayout *layout,int line)
         {
           
            compress=p;
-           combo=new QComboBox(z);
+           combo=new QComboBox();
            
 		   _minQ=minQ;
            maxQ=mq;
@@ -72,34 +72,39 @@ class  ADM_Qbitrate : public QWidget
   add(2PASS,2PASS,QT_TR_NOOP("Two Pass - Video Size"));
   add(2PASS_BR,2PASS_BITRATE,QT_TR_NOOP("Two Pass - Average Bitrate"));
   
-           combo->show();
-           
-           text1=new QLabel( QString::fromUtf8(QT_TR_NOOP("Encoding mode")),z);
+           text1=new QLabel( QString::fromUtf8(QT_TR_NOOP("Encoding mode")));
           text1->setBuddy(combo);
-          text1->show();
-          
-           box=new QSpinBox(z);
-           box->show();
-           
-           text2=new QLabel( QString::fromUtf8(QT_TR_NOOP("Bitrate")),z);
+
+           box=new QSpinBox();
+
+           text2=new QLabel( QString::fromUtf8(QT_TR_NOOP("Bitrate")));
            text2->setBuddy(combo);
-          
-          
+
+		   QHBoxLayout *hboxLayout = new QHBoxLayout();
+		   QHBoxLayout *hboxLayout2 = new QHBoxLayout();
+		   QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+		   QSpacerItem *spacer2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+		   hboxLayout->addWidget(combo);
+		   hboxLayout->addItem(spacer);
+
           layout->addWidget(text1,line,0);
-          layout->addWidget(combo,line,1);
-          
+		  layout->addItem(hboxLayout,line,1);
+
+		  hboxLayout2->addWidget(box);
+		  hboxLayout2->addItem(spacer2);
+
           layout->addWidget(text2,line+1,0);
-          layout->addWidget(box,line+1,1);
-       
-       
+          layout->addItem(hboxLayout2,line+1,1);
+
           if(set!=-1) 
           {
         	  	combo->setCurrentIndex(set);
         	  	comboChanged(set);
           }
-          QObject::connect(combo, SIGNAL(currentIndexChanged(int )), this, SLOT(comboChanged(int )));
-          
-          
+          connect(combo, SIGNAL(currentIndexChanged(int )), this, SLOT(comboChanged(int )));
+
+
         }
         virtual ~ADM_Qbitrate() ;
         void readBack(void);
@@ -226,22 +231,13 @@ void diaElemBitrate::setMaxQz(uint32_t qz)
   maxQ=qz; 
 }
 
-diaElemBitrate::~diaElemBitrate()
-{
-  ADM_assert(myWidget);
-#if 0 // Automatically deleted as it is a child of main dialog
-  ADM_Qbitrate *z=(ADM_Qbitrate *)myWidget;
-  
-  if(z) delete z;
+diaElemBitrate::~diaElemBitrate() {};
 
-  myWidget=NULL;
-#endif
-}
 void diaElemBitrate::setMe(void *dialog, void *opaque,uint32_t line)
 {
   QGridLayout *layout=(QGridLayout*) opaque;
   
-  ADM_Qbitrate *b=new ADM_Qbitrate( (QWidget *)dialog,(COMPRES_PARAMS *)&copy,minQ,maxQ,layout,line);
+  ADM_Qbitrate *b=new ADM_Qbitrate((COMPRES_PARAMS *)&copy,minQ,maxQ,layout,line);
   myWidget=(void *)b;
   
 }

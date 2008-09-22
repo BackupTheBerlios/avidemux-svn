@@ -109,9 +109,8 @@ class  ADM_Qfilesel : public QWidget
 		const char* selectDesc;
 		QHBoxLayout *hboxLayout;
 
-        ADM_Qfilesel(QWidget *z,const char *title,const char *entry,QGridLayout *layout,int line, ADM_fileMode mode, const char * defaultSuffix, const char* selectDesc)
-            : QWidget(z),
-              defaultSuffix (defaultSuffix),
+        ADM_Qfilesel(const char *title,const char *entry,QGridLayout *layout,int line, ADM_fileMode mode, const char * defaultSuffix, const char* selectDesc)
+            : defaultSuffix (defaultSuffix),
 			  selectDesc (selectDesc)
         {          
           fileMode=mode;
@@ -165,9 +164,9 @@ void diaElemFile::setMe(void *dialog, void *opaque,uint32_t line)
  QGridLayout *layout=(QGridLayout*) opaque;
  ADM_Qfilesel *fs;
   if(_write)
-      fs=new ADM_Qfilesel((QWidget *)dialog,paramTitle, *(const char**)param, layout, line,ADM_FILEMODE_WRITE, defaultSuffix, tip);
+      fs=new ADM_Qfilesel(paramTitle, *(const char**)param, layout, line,ADM_FILEMODE_WRITE, defaultSuffix, tip);
   else
-      fs=new ADM_Qfilesel((QWidget *)dialog,paramTitle, *(const char**)param, layout, line,ADM_FILEMODE_READ, 0, tip);
+      fs=new ADM_Qfilesel(paramTitle, *(const char**)param, layout, line,ADM_FILEMODE_READ, 0, tip);
   myWidget=(void *)fs; 
 }
 
@@ -183,8 +182,13 @@ void diaElemFile::getMe(void)
 
 void diaElemFile::enable(uint32_t onoff)
 {
-  ADM_Qfilesel *fs=(ADM_Qfilesel *)myWidget;
-  fs->setEnabled(onoff);
+	ADM_Qfilesel *fs = (ADM_Qfilesel*)myWidget;
+
+	ADM_assert(fs);
+
+	fs->text->setEnabled(onoff);
+	fs->edit->setEnabled(onoff);
+	fs->button->setEnabled(onoff);
 }
 
 int diaElemFile::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
@@ -211,7 +215,7 @@ void diaElemDirSelect::setMe(void *dialog, void *opaque,uint32_t line)
 {
  QGridLayout *layout=(QGridLayout*) opaque;
   
-  ADM_Qfilesel *fs=new ADM_Qfilesel((QWidget *)dialog, paramTitle, *(char **)param, layout, line, ADM_FILEMODE_DIR, 0, tip);
+  ADM_Qfilesel *fs=new ADM_Qfilesel(paramTitle, *(char **)param, layout, line, ADM_FILEMODE_DIR, 0, tip);
   myWidget=(void *)fs; 
 }
 
@@ -225,7 +229,17 @@ void diaElemDirSelect::getMe(void)
   *n=ADM_strdup(s.toUtf8().constData());
 }
 
-void diaElemDirSelect::enable(uint32_t onoff) {}
+void diaElemDirSelect::enable(uint32_t onoff)
+{
+	ADM_Qfilesel *fs = (ADM_Qfilesel*)myWidget;
+
+	ADM_assert(fs);
+
+	fs->text->setEnabled(onoff);
+	fs->edit->setEnabled(onoff);
+	fs->button->setEnabled(onoff);
+}
+
 void diaElemDirSelect::changeFile(void) {}
 int diaElemDirSelect::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
