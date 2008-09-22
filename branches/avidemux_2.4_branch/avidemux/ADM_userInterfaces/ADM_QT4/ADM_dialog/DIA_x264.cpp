@@ -48,7 +48,7 @@ int code;
            diaElemBitrate bitrate(config,NULL);
            bitrate.setMaxQz(51);
            diaElem *main[]={&bitrate};
-           diaElemTabs tabMain(QT_TR_NOOP("Main"),1,main);
+           diaElemTabs tabMain(QT_TR_NOOP("Bitrate"),1,main);
 
            
         /* Tab 2 Motion */
@@ -138,12 +138,12 @@ int code;
         /* Tab 4 Partition & frame*/
          
              diaElemToggle    _8x8(PX(_8x8),QT_TR_NOOP("8x8 Transform"));
-             diaElemToggle    _8x8P(PX(_8x8P),QT_TR_NOOP("8x8P Transform"));
-             diaElemToggle    _8x8B(PX(_8x8B),QT_TR_NOOP("8x8B Transform"));
-             diaElemToggle    _4x4(PX(_4x4),QT_TR_NOOP("_4x4 Transform"));
-             diaElemToggle    _8x8I(PX(_8x8I),QT_TR_NOOP("_8x8I Transform"));
-             diaElemToggle    _4x4I(PX(_4x4I),QT_TR_NOOP("_4x4I Transform"));
-          diaElemFrame  frameTransform(QT_TR_NOOP("Transform"));
+             diaElemToggle    _8x8P(PX(_8x8P),QT_TR_NOOP("8x8, 8x16 and 16x8 P-frame search"));
+             diaElemToggle    _8x8B(PX(_8x8B),QT_TR_NOOP("8x8, 8x16 and 16x8 B-frame search"));
+             diaElemToggle    _4x4(PX(_4x4),QT_TR_NOOP("4x4, 4x8 and 8x4 P-frame search"));
+             diaElemToggle    _8x8I(PX(_8x8I),QT_TR_NOOP("8x8 Intra search"));
+             diaElemToggle    _4x4I(PX(_4x4I),QT_TR_NOOP("4x4 Intra search"));
+          diaElemFrame  frameTransform(QT_TR_NOOP("Partition Macroblocks"));
            frameTransform.swallow(&_8x8);
            frameTransform.swallow(&_8x8P);
            frameTransform.swallow(&_8x8B);
@@ -152,15 +152,76 @@ int code;
            frameTransform.swallow(&_4x4I);
           
            diaElemUInteger  bframe(PX(MaxBFrame),QT_TR_NOOP("Max. Consecutive"),0, 16);
-           diaElemFrame frameB(QT_TR_NOOP("B Frames"));
-           frameB.swallow(&bframe);
+		   diaElemInteger  bias(PX(Bias),QT_TR_NOOP("Bias"), -100, 100);
+		   diaElemToggle    reference(PX(BasReference),QT_TR_NOOP("Use as Reference"));
+		   diaElemToggle    bidirMe(PX(BidirME),QT_TR_NOOP("Bidirectional ME"));
+		   diaElemToggle    adaptativeDct(PX(Adaptative),QT_TR_NOOP("Adaptative DCT"));
+		   diaElemToggle    weighted(PX(Weighted),QT_TR_NOOP("Weighted Biprediction"));
+           diaMenuEntry directModeOptions[] = {
+                  {0,   QT_TR_NOOP("None")}
+                ,{1,    QT_TR_NOOP("Spatial")}
+                ,{2,    QT_TR_NOOP("Temporal")}
+				,{3,    QT_TR_NOOP("Auto")}};
            
-            diaElem *bfr[]={&frameTransform,&frameB};
-          diaElemTabs tabTransform(QT_TR_NOOP("Transform"),2,bfr);
+		   diaElemMenu directMode(PX(DirectMode),QT_TR_NOOP("Direct Mode"),4,directModeOptions);
+           diaElemFrame frameB(QT_TR_NOOP("B-Frames"));
+           frameB.swallow(&bframe);
+		   frameB.swallow(&bias);
+		   frameB.swallow(&reference);
+		   frameB.swallow(&bidirMe);
+		   frameB.swallow(&adaptativeDct);
+		   frameB.swallow(&weighted);
+		   frameB.swallow(&directMode);
+           
+		   diaElem *bfr[]={&frameTransform,&frameB};
+		   diaElemTabs tabTransform(QT_TR_NOOP("Partitions && Frames"),2,bfr);
+
+		  // Rate control tab
+		  diaElemUInteger  keyframeBoost(PX(KeyframeBoost),QT_TR_NOOP("Keyframe Boost (%)"), 0, 100);
+		  diaElemUInteger  bframeReduction(PX(BframeReduction),QT_TR_NOOP("B-frame Reduction (%)"), 0, 100);
+		  diaElemUInteger  bitrateVar(PX(BitrateVariability),QT_TR_NOOP("Bitrate Variability (%)"), 0, 100);
+		  diaElemFrame frameBitrate(QT_TR_NOOP("Bitrate"));
+
+		  frameBitrate.swallow(&keyframeBoost);
+		  frameBitrate.swallow(&bframeReduction);
+		  frameBitrate.swallow(&bitrateVar);
+
+		  diaElemUInteger  minQp(PX(MinQp),QT_TR_NOOP("Min QP"), 10, 51);
+		  diaElemUInteger  maxQp(PX(MaxQp),QT_TR_NOOP("Max QP"), 10, 51);
+		  diaElemUInteger  maxQpStep(PX(QpStep),QT_TR_NOOP("Max QP Step"), 0, 10);
+		  diaElemFrame frameQuantLimits(QT_TR_NOOP("Quantisation Limits"));
+
+		  frameQuantLimits.swallow(&minQp);
+		  frameQuantLimits.swallow(&maxQp);
+		  frameQuantLimits.swallow(&maxQpStep);
+
+		  diaElemUInteger  sceneCut(PX(SceneCut),QT_TR_NOOP("Scene Cut Threshold"), 0, 100);
+		  diaElemUInteger  minIdr(PX(MinIdr),QT_TR_NOOP("Min IDR Frame Interval"), 0, 100);
+		  diaElemUInteger  maxIdr(PX(MaxIdr),QT_TR_NOOP("Max IDR Frame Interval"), 1, 1000);
+		  diaElemFrame frameMoreRate(QT_TR_NOOP("More Rate Settings"));
+
+		  frameMoreRate.swallow(&sceneCut);
+		  frameMoreRate.swallow(&minIdr);
+		  frameMoreRate.swallow(&maxIdr);
+
+		  diaElem *rateControl[]={&frameBitrate,&frameQuantLimits,&frameMoreRate};
+		  diaElemTabs tabRateControl(QT_TR_NOOP("Rate Control"),3,rateControl);
+
+		  diaElemUInteger  maxLocalBitrate(PX(vbv_max_bitrate),QT_TR_NOOP("Maximum Local Bitrate"), 0, 99999);
+		  diaElemUInteger  vbvBuffer(PX(vbv_buffer_size),QT_TR_NOOP("VBV Buffer Size"), 0, 99999);
+		  diaElemUInteger  initVbvBuffer(PX(vbv_buffer_init),QT_TR_NOOP("Initial VBV Buffer (%)"), 0, 100);
+		  diaElemFrame frameVbv(QT_TR_NOOP("Video Buffer Verifier"));
+
+		  frameVbv.swallow(&maxLocalBitrate);
+		  frameVbv.swallow(&vbvBuffer);
+		  frameVbv.swallow(&initVbvBuffer);
+
+		  diaElem *vbv[]={&frameVbv};
+		  diaElemTabs tabVbv(QT_TR_NOOP("VBV"),1,vbv);
            
           /* End of tabs */
-        diaElemTabs *tabs[4]={&tabMain,&tabMotion,&tabMisc,&tabTransform};
-        if( diaFactoryRunTabs(QT_TR_NOOP("x264 Configuration"),4,tabs))
+        diaElemTabs *tabs[6]={&tabMain,&tabMotion,&tabMisc,&tabTransform,&tabRateControl,&tabVbv};
+        if( diaFactoryRunTabs(QT_TR_NOOP("x264 Configuration"),6,tabs))
 	{
            memcpy(config->extraSettings,&localParam,sizeof(localParam));
            return 1;
