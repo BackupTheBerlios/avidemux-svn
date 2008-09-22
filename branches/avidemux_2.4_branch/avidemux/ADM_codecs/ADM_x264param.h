@@ -71,6 +71,8 @@ typedef struct ADM_x264Param
   uint32_t vbv_buffer_size;
   uint32_t vbv_buffer_init; /* In % to be translated to float between 0 and 1 */
 
+  uint32_t AqMode;
+  uint32_t AqStrength;
 } ADM_x264Param;
 
 #endif

@@ -144,6 +144,11 @@ uint8_t X264Encoder::preamble (uint32_t fps1000, ADM_x264Param * zparam)
   MKPARAM(analyse.b_transform_8x8,_8x8);
   MKPARAM(analyse.b_mixed_references,MixedRefs);
   MKPARAM(analyse.i_noise_reduction,NoiseReduction);
+
+#if X264_BUILD >= 62
+  MKPARAM(rc.i_aq_mode, AqMode);
+  MKPARAMF(rc.f_aq_strength, AqStrength);
+#endif
   
 #define MES(x,y) if(zparam->x) {param.analyse.inter |=X264_ANALYSE_##y;printf("[x264] "#x" is on\n");}
   param.analyse.inter=0;

@@ -762,8 +762,9 @@ NULL,//     char      *logfile;
 0,   //interlaced;
 0,    // vbv_max_bitrate;
 0,  // vbv_buffer_size;
-90  // vbv_buffer_init;
-
+90,  // vbv_buffer_init;
+1,	// AqMode
+100 // AqStrength
 };
 /**************************************/
 ADM_x264Param x264ExtraPSP = {
@@ -820,7 +821,9 @@ NULL,//     char      *logfile;
 0,   //interlaced;
 0,    // vbv_max_bitrate;
 0,  // vbv_buffer_size;
-90  // vbv_buffer_init;
+90,  // vbv_buffer_init;
+1,	// AqMode
+100 // AqStrength
 };
 /**************************************/
 ADM_x264Param x264ExtraDefault=x264Extra;

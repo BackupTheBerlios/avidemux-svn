@@ -249,7 +249,7 @@ int DIA_getLameSettings(ADM_audioEncoderDescriptor *descriptor)
     
     
     diaElemUInteger quality(PX(quality),QT_TR_NOOP("_Quality:"),0,9);
-    diaElemToggle reservoir(PX(disableReservoir),QT_TR_NOOP("_Disable reservoir:"));
+    diaElemToggle reservoir(PX(disableReservoir),QT_TR_NOOP("_Disable reservoir"));
   
       diaElem *elems[]={&menuMode,&Mode,&quality,&bitrate,&reservoir};
     

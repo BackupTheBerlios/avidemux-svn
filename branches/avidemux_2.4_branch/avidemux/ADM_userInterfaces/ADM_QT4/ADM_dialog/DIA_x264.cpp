@@ -37,11 +37,15 @@ uint8_t DIA_x264(COMPRES_PARAMS *config)
 int b;
 int ret=0;
 int code;
+float AqStrength;
+
       ADM_x264Param localParam;
       ADM_assert(config->extraSettingsLen==sizeof(localParam));
       memcpy(&localParam,config->extraSettings,sizeof(localParam));
 #define PX(x) &(localParam.x)
-         
+
+	  AqStrength = localParam.AqStrength;
+	  AqStrength /= 100;
       
       // Our tabs
          /* Tab 1 main */
@@ -132,9 +136,31 @@ int code;
           frameMisc.swallow(&deblock);
           frameMisc.swallow(&deblockStrength);
           frameMisc.swallow(&deblockThreshold);
-            
-           diaElem *misc[]={&frameMisc};
-          diaElemTabs tabMisc(QT_TR_NOOP("Misc"),1,misc);
+
+#if X264_BUILD >= 62
+		  diaElemFrame  frameAq(QT_TR_NOOP("Adaptive Quantisation"));
+
+		  diaElemToggle    aq(PX(AqMode),QT_TR_NOOP("Variance AQ"));
+		  diaElemFloat  aqStrength(&AqStrength,QT_TR_NOOP("Strength"),0.5,1.5);
+		  aq.link(1, &aqStrength);
+
+		  frameAq.swallow(&aq);
+		  frameAq.swallow(&aqStrength);
+#endif
+
+		  diaElem *misc[]={&frameMisc
+#if X264_BUILD >= 62
+			  , &frameAq
+#endif
+		  };
+
+          diaElemTabs tabMisc(QT_TR_NOOP("Misc"),
+#if X264_BUILD >= 62
+			  2
+#else
+			  1
+#endif
+			  ,misc);
         /* Tab 4 Partition & frame*/
          
              diaElemToggle    _8x8(PX(_8x8),QT_TR_NOOP("8x8 Transform"));
@@ -155,8 +181,23 @@ int code;
 		   diaElemInteger  bias(PX(Bias),QT_TR_NOOP("Bias"), -100, 100);
 		   diaElemToggle    reference(PX(BasReference),QT_TR_NOOP("Use as Reference"));
 		   diaElemToggle    bidirMe(PX(BidirME),QT_TR_NOOP("Bidirectional ME"));
-		   diaElemToggle    adaptativeDct(PX(Adaptative),QT_TR_NOOP("Adaptative DCT"));
 		   diaElemToggle    weighted(PX(Weighted),QT_TR_NOOP("Weighted Biprediction"));
+
+         diaMenuEntry bframeAdapt[] = {
+                             {0,    QT_TR_NOOP("Disabled")},
+                             {1,    QT_TR_NOOP("Fast")}
+#if X264_BUILD >= 63
+							 ,{2,    QT_TR_NOOP("Optimal")}
+#endif
+							 };
+		 diaElemMenu      adaptativeDct(PX(Adaptative),QT_TR_NOOP("Adaptive DCT"),
+#if X264_BUILD >= 63
+			 3
+#else
+			 2
+#endif
+			 , bframeAdapt);
+
            diaMenuEntry directModeOptions[] = {
                   {0,   QT_TR_NOOP("None")}
                 ,{1,    QT_TR_NOOP("Spatial")}
@@ -169,8 +210,8 @@ int code;
 		   frameB.swallow(&bias);
 		   frameB.swallow(&reference);
 		   frameB.swallow(&bidirMe);
-		   frameB.swallow(&adaptativeDct);
 		   frameB.swallow(&weighted);
+		   frameB.swallow(&adaptativeDct);
 		   frameB.swallow(&directMode);
            
 		   diaElem *bfr[]={&frameTransform,&frameB};
@@ -223,6 +264,8 @@ int code;
         diaElemTabs *tabs[6]={&tabMain,&tabMotion,&tabMisc,&tabTransform,&tabRateControl,&tabVbv};
         if( diaFactoryRunTabs(QT_TR_NOOP("x264 Configuration"),6,tabs))
 	{
+		localParam.AqStrength = floor((AqStrength * 100) + 0.49);
+
            memcpy(config->extraSettings,&localParam,sizeof(localParam));
            return 1;
         }
