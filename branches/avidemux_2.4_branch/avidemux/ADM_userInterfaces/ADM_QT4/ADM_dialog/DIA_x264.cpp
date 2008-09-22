@@ -87,7 +87,7 @@ int code;
 			 ,meM);
 
          diaElemUInteger  rframe(PX(MaxRefFrames),QT_TR_NOOP("Max Ref Frames"),0,15);
-         diaElemUInteger  range(PX(Range),QT_TR_NOOP("Max B Frames"),0,64);
+         diaElemUInteger  range(PX(Range),QT_TR_NOOP("Range"),0,64);
          diaElemToggle    chromaMe(PX(ChromaME),QT_TR_NOOP("Chroma ME"));
          diaElemToggle    mixedRef(PX(MixedRefs),QT_TR_NOOP("Mixed Refs"));
          diaElemToggle    fastPSkip(PX(fastPSkip),QT_TR_NOOP("Fast P Skip"));
@@ -151,7 +151,7 @@ int code;
            frameTransform.swallow(&_8x8I);
            frameTransform.swallow(&_4x4I);
           
-           diaElemUInteger  bframe(PX(MaxBFrame),QT_TR_NOOP("Max B Frames"),0,3);
+           diaElemUInteger  bframe(PX(MaxBFrame),QT_TR_NOOP("Max. Consecutive"),0, 16);
            diaElemFrame frameB(QT_TR_NOOP("B Frames"));
            frameB.swallow(&bframe);
            
