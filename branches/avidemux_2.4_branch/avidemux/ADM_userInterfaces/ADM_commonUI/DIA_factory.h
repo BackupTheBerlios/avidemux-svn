@@ -71,6 +71,7 @@ public:
           
   virtual void enable(uint32_t onoff) {printf("Enabling %d\n",onoff);}
   virtual void finalize(void) {} // in case some widget needs some stuff just before using them
+  virtual int getRequiredLayout(void)=0;
 };
 /*********************************************/
 #define MENU_MAX_lINK 10
@@ -93,6 +94,7 @@ class diaElemButton : public diaElem
   void      setMe(void *dialog, void *opaque,uint32_t line);
   void      getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 
 /*********************************************/
@@ -108,6 +110,7 @@ class diaElemMatrix : public diaElem
   void      setMe(void *dialog, void *opaque,uint32_t line);
   void      getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 /************************************/
 template <typename T>
@@ -124,6 +127,7 @@ public:
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   void      setDigits(uint32_t digits) { this->digits = digits; }
+  int getRequiredLayout(void);
 };
 typedef diaElemGenericSlider <int32_t> diaElemSlider;
 /* Same but unsigned */
@@ -147,6 +151,7 @@ public:
   void      finalize(void);
   void      updateMe();
   uint8_t   link(uint32_t onoff,diaElem *w);
+  int getRequiredLayout(void);
 };
 /*********************************************/
 class diaElemToggleUint : public diaElem
@@ -164,6 +169,7 @@ public:
   void      enable(uint32_t onoff) ;
   void      finalize(void);
   void      updateMe();
+  int getRequiredLayout(void);
 };
 class diaElemToggleInt : public diaElemToggleUint
 {
@@ -175,6 +181,7 @@ public:
   virtual   ~diaElemToggleInt() ;
   void      setMe(void *dialog, void *opaque,uint32_t line);
   void      getMe(void);
+  int getRequiredLayout(void);
 };
 /*********************************************/
 class diaElemInteger : public diaElem
@@ -187,6 +194,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 /* Same but unsigned */
 class diaElemUInteger : public diaElem
@@ -199,7 +207,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void      enable(uint32_t onoff) ;
-  
+  int getRequiredLayout(void);
 };
 /*************************************************/
 class diaElemBar : public diaElem
@@ -212,6 +220,7 @@ public:
   virtual ~diaElemBar() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
+  int getRequiredLayout(void);
 };
 
 /*********************************************/
@@ -226,6 +235,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 /*************************************************/
 typedef struct diaMenuEntry
@@ -281,6 +291,7 @@ public:
   void      updateMe(void);
   void      enable(uint32_t onoff) ;
   void      finalize(void);
+  int getRequiredLayout(void);
 };
 
 class diaElemMenu : public diaElem
@@ -302,7 +313,8 @@ public:
   uint8_t   link(diaMenuEntry *entry,uint32_t onoff,diaElem *w);
   void      updateMe(void);
   void      enable(uint32_t onoff) ;
-  void      finalize(void);;
+  void      finalize(void);
+  int getRequiredLayout(void);
 };
 
 /*************************************************/
@@ -321,8 +333,8 @@ public:
   void getMe(void);
   void setMaxQz(uint32_t qz);
   void setMinQz(uint32_t qz);
-  
   void updateMe(void);
+  int getRequiredLayout(void);
 };
 
 /*************************************************/
@@ -341,6 +353,7 @@ public:
   uint32_t _write;
   void   changeFile(void);
   void   enable(uint32_t onoff);
+  int getRequiredLayout(void);
 };
 /*************************************************/
 class diaElemDirSelect : public diaElem
@@ -355,6 +368,7 @@ public:
   
   void changeFile(void);
   void   enable(uint32_t onoff);
+  int getRequiredLayout(void);
 };
 /*************************************************/
 /* The text MUST be copied internally ! */
@@ -367,7 +381,7 @@ public:
   virtual ~diaElemReadOnlyText() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
-  
+  int getRequiredLayout(void);
 };
 /*************************************************/
 /* The text MUST be copied internally ! */
@@ -381,6 +395,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void enable(uint32_t onoff);
+  int getRequiredLayout(void);
 };
 
 /*********************************************/
@@ -393,6 +408,7 @@ public:
   virtual ~diaElemNotch() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) {};
+  int getRequiredLayout(void);
 };
 /*********************************************/
 class diaElemTabs 
@@ -429,6 +445,7 @@ public:
   void swallow(diaElem *widget);
   void enable(uint32_t onoff);
   void finalize(void);
+  int getRequiredLayout(void);
 };
 /**********************************************/
 class diaElemHex : public diaElem
@@ -443,6 +460,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) ;
   void finalize(void);
+  int getRequiredLayout(void);
 };
 /**********************************************/
 class diaElemThreadCount : public diaElem
@@ -454,6 +472,7 @@ public:
   virtual ~diaElemThreadCount() ;
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
+  int getRequiredLayout(void);
 };
 /*********************************************/
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems);

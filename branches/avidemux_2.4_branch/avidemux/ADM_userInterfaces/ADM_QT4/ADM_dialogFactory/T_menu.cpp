@@ -31,7 +31,7 @@
 #include "ADM_assert.h"
 
 #include <QCheckBox>
-
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 /**/
@@ -122,6 +122,9 @@ void   diaElemMenu::finalize(void)
 {
   dyna->finalize();
 }
+
+int diaElemMenu::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //*********************************
 //* DYNAMIC                       *
 //*********************************
@@ -150,6 +153,9 @@ void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
      myWidget=(void *)combo; 
 
 	 QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
+	 text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+	 QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
   
   // Fill in combobox
   int mem=0;
@@ -163,6 +169,7 @@ void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
    text->setBuddy(combo);
    layout->addWidget(text,line,0);
    layout->addWidget(combo,line,1);
+   layout->addItem(spacer,line,2);
    
    combo->connectMe();
 }
@@ -241,4 +248,7 @@ void   diaElemMenuDynamic::updateMe(void)
 {
   finalize();
 }
+
+int diaElemMenuDynamic::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //EOF

@@ -96,4 +96,5 @@ void diaElemFloat::enable(uint32_t onoff)
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
 
+int diaElemFloat::getRequiredLayout(void) { return 0; }
 //EOF

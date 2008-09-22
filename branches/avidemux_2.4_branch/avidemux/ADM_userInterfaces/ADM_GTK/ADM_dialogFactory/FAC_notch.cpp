@@ -70,4 +70,6 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
   
 }
 
+int diaElemNotch::getRequiredLayout(void) { return 0; }
+
 //EOF

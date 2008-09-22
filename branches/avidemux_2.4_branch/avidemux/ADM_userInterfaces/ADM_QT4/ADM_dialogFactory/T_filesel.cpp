@@ -33,6 +33,8 @@
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
 #include "ADM_toolkit/filesel.h"
+#include "dialogFactoryQt4.h"
+
 extern const char *shortkey(const char *);
 void GUI_FileSelRead(const char *label, char * * name);
 #define MAX_SEL 2040
@@ -105,6 +107,7 @@ class  ADM_Qfilesel : public QWidget
         ADM_fileMode fileMode;
         const char * defaultSuffix;
 		const char* selectDesc;
+		QHBoxLayout *hboxLayout;
 
         ADM_Qfilesel(QWidget *z,const char *title,const char *entry,QGridLayout *layout,int line, ADM_fileMode mode, const char * defaultSuffix, const char* selectDesc)
             : QWidget(z),
@@ -112,29 +115,26 @@ class  ADM_Qfilesel : public QWidget
 			  selectDesc (selectDesc)
         {          
           fileMode=mode;
-		  edit=new QLineEdit(QString::fromUtf8(entry),z);
-          
-          edit->show();
-          
-          button=new QDialogButtonBox(QDialogButtonBox::Open,Qt::Horizontal,z);
-          button->show();
 
-		  text=new QLabel(QString::fromUtf8(title),z);
+		  edit=new QLineEdit(QString::fromUtf8(entry));
+          
+          button=new QDialogButtonBox(QDialogButtonBox::Open,Qt::Horizontal);
+		  button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+		  text=new QLabel(QString::fromUtf8(title));
           text->setBuddy(edit);
+
+		  hboxLayout = new QHBoxLayout();
+		  hboxLayout->addWidget(edit);
+		  hboxLayout->addWidget(button);
+
           layout->addWidget(text,line,0);
-          layout->addWidget(edit,line,1);
-          layout->addWidget(button,line,2);
-          //QObject::connect(&button, SIGNAL(accepted()), NULL, SLOT(accept())); 
+		  layout->addLayout(hboxLayout, line, 1);
+
           connect( button,SIGNAL(clicked(QAbstractButton  *)),this,SLOT(buttonPressed(QAbstractButton  *)));
         }
-        ~ADM_Qfilesel() 
-            {
-#if 1 //Memleak or autoclean ?
-                if(edit) delete edit;
-                if(button) delete button;
-                if(text) delete text;
-#endif
-            };
+
+		~ADM_Qfilesel() {};
 };
 
 
@@ -187,6 +187,8 @@ void diaElemFile::enable(uint32_t onoff)
   fs->setEnabled(onoff);
 }
 
+int diaElemFile::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //****************************
 diaElemDirSelect::diaElemDirSelect(char **filename,const char *toggleTitle,const char *selectDirDesc) : diaElem(ELEM_DIR_SELECT)
 {
@@ -224,7 +226,7 @@ void diaElemDirSelect::getMe(void)
 }
 
 void diaElemDirSelect::enable(uint32_t onoff) {}
-  
 void diaElemDirSelect::changeFile(void) {}
+int diaElemDirSelect::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
 //EOF

@@ -31,6 +31,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -249,6 +250,8 @@ void diaElemBitrate::getMe(void)
   ((ADM_Qbitrate *)myWidget)->readBack();
   memcpy(param,&copy,sizeof(copy));
 }
+
+int diaElemBitrate::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
 //EOF
 

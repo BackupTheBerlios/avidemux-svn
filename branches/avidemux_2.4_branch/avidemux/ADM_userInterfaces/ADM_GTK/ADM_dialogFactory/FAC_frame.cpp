@@ -113,4 +113,6 @@ void diaElemFrame::enable(uint32_t onoff)
    GtkWidget *widget=(GtkWidget *)myWidget;
    gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
+
+int diaElemFrame::getRequiredLayout(void) { return 0; }
 //EOF

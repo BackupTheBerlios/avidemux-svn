@@ -29,6 +29,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -56,6 +57,7 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
  box->show();
  layout->addWidget(box,line,0);
 }
-//******************************************************
+
+int diaElemNotch::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
 //EOF

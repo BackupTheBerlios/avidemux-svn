@@ -126,6 +126,8 @@ void diaElemThreadCount::setMe(void *dialog, void *opaque, uint32_t line)
 	}
 }
 
+int diaElemThreadCount::getRequiredLayout(void) { return 0; }
+
 void customToggled(void *widget, void *userData)
 {
 	diaElemThreadCount *elem = (diaElemThreadCount*)userData;

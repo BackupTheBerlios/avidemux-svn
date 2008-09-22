@@ -30,7 +30,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
-
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -154,6 +154,9 @@ void diaElemGenericSlider<T>::enable(uint32_t onoff)
   else
     box->setDisabled(1);
 }
+
+template <typename T>
+int diaElemGenericSlider<T>::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
 template class diaElemGenericSlider <int32_t>;
 template class diaElemGenericSlider <uint32_t>;

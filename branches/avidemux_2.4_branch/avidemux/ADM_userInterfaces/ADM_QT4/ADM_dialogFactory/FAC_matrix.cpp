@@ -29,6 +29,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -115,3 +116,4 @@ void diaElemMatrix::enable(uint32_t onoff)
 			  }
 }
 
+int diaElemMatrix::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }

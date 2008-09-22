@@ -176,6 +176,8 @@ GtkWidget **wid=(GtkWidget **)myWidget;
      gtk_widget_set_sensitive(GTK_WIDGET(wid[1]),onoff);  
 }
 
+int diaElemFile::getRequiredLayout(void) { return 0; }
+
 void fileRead(void *w,void *p)
 {
   diaElemFile *me=(diaElemFile *)p;
@@ -304,6 +306,8 @@ void   diaElemDirSelect::enable(uint32_t onoff)
      gtk_widget_set_sensitive(GTK_WIDGET(wid[1]),onoff);  
 
 }
+
+int diaElemDirSelect::getRequiredLayout(void) { return 0; }
 
 void dirSel(void *w,void *p)
 {

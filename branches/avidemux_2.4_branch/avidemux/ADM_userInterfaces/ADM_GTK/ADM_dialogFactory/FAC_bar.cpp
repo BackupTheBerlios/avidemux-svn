@@ -73,4 +73,6 @@ void diaElemBar::getMe(void)
   
 }
 
+int diaElemBar::getRequiredLayout(void) { return 0; }
+
 //EOF

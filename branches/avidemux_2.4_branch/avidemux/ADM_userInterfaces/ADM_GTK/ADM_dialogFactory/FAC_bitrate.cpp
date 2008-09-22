@@ -253,6 +253,9 @@ void diaElemBitrate::getMe(void)
   }
   memcpy(param,&copy,sizeof(copy));
 }
+
+int diaElemBitrate::getRequiredLayout(void) { return 0; }
+
 void diaElemBitrate::updateMe(void)
 {
   // Read current value

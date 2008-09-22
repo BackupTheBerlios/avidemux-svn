@@ -88,6 +88,9 @@ void   diaElemMenu::finalize(void)
 {
   dyna->finalize();
 }
+
+int diaElemMenu::getRequiredLayout(void) { return 0; }
+
 //*******************************
 diaElemMenuDynamic::diaElemMenuDynamic(uint32_t *intValue,const char *itle, uint32_t nb, 
                 diaMenuEntryDynamic **menu,const char *tip)
@@ -221,6 +224,9 @@ void   diaElemMenuDynamic::enable(uint32_t onoff)
 {
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);  
 }
+
+int diaElemMenuDynamic::getRequiredLayout(void) { return 0; }
+
 //** C callback **
 void cb_menu(void *w,void *p)
 {

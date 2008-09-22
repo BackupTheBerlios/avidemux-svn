@@ -30,7 +30,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
-
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -56,19 +56,24 @@ void diaElemInteger::setMe(void *dialog, void *opaque,uint32_t line)
 {
   QSpinBox *box=new QSpinBox((QWidget *)dialog);
   QGridLayout *layout=(QGridLayout*) opaque;
+  QHBoxLayout *hboxLayout = new QHBoxLayout();
  myWidget=(void *)box; 
    
  box->setMinimum(min);
  box->setMaximum(max);
  box->setValue(*(int32_t *)param);
  
- box->show();
- 
  QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
+ text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
  text->setBuddy(box);
+
+ QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+ hboxLayout->addWidget(box);
+ hboxLayout->addItem(spacer);
+
  layout->addWidget(text,line,0);
- layout->addWidget(box,line,1);
- 
+ layout->addLayout(hboxLayout,line,1);
 }
 void diaElemInteger::getMe(void)
 {
@@ -89,6 +94,9 @@ void diaElemInteger::enable(uint32_t onoff)
   else
     box->setDisabled(1);
 }
+
+int diaElemInteger::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //******************************************************
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
   : diaElem(ELEM_TOGGLE)
@@ -110,18 +118,24 @@ void diaElemUInteger::setMe(void *dialog, void *opaque,uint32_t line)
 {
   QSpinBox *box=new QSpinBox((QWidget *)dialog);
   QGridLayout *layout=(QGridLayout*) opaque;
+  QHBoxLayout *hboxLayout = new QHBoxLayout();
  myWidget=(void *)box; 
    
  box->setMinimum(min);
  box->setMaximum(max);
  box->setValue(*(uint32_t *)param);
  
- box->show();
- 
  QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
+ text->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
  text->setBuddy(box);
+
+ QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+ hboxLayout->addWidget(box);
+ hboxLayout->addItem(spacer);
+
  layout->addWidget(text,line,0);
- layout->addWidget(box,line,1);
+ layout->addLayout(hboxLayout,line,1);
 }
 void diaElemUInteger::getMe(void)
 {
@@ -143,6 +157,9 @@ void diaElemUInteger::enable(uint32_t onoff)
   else
     box->setDisabled(1);
 }
+
+int diaElemUInteger::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //********************************************
 
 //EOF

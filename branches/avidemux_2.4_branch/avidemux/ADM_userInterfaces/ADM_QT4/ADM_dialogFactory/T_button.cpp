@@ -31,6 +31,7 @@
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -105,5 +106,8 @@ void   diaElemButton::enable(uint32_t onoff)
 {
 
 }
+
+int diaElemButton::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //EOF
 

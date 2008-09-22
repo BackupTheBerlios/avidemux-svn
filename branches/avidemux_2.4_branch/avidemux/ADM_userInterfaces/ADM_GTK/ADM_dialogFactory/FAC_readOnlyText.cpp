@@ -76,6 +76,9 @@ void diaElemReadOnlyText::getMe(void)
  
   
 }
+
+int diaElemReadOnlyText::getRequiredLayout(void) { return 0; }
+
 /***************************************************************/
 diaElemText::diaElemText(char **text,const char *toggleTitle,const char *tip)
   : diaElem(ELEM_ROTEXT)
@@ -133,5 +136,7 @@ void diaElemText::enable(uint32_t onoff)
   GtkWidget *widget=(GtkWidget *)myWidget;
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
+
+int diaElemText::getRequiredLayout(void) { return 0; }
 
 //EOF

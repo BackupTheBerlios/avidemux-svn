@@ -99,6 +99,8 @@ void diaElemInteger::enable(uint32_t onoff)
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
 
+int diaElemInteger::getRequiredLayout(void) { return 0; }
+
 //**********************************************************************************
 
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
@@ -170,6 +172,8 @@ void diaElemUInteger::enable(uint32_t onoff)
   GtkWidget *widget=(GtkWidget *)myWidget;
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
+
+int diaElemUInteger::getRequiredLayout(void) { return 0; }
 
 //****************************************************
 
@@ -284,6 +288,9 @@ void diaElemGenericSlider<T>::enable(uint32_t onoff)
   GtkWidget *widget=(GtkWidget *)myWidget;
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
+
+template <typename T>
+int diaElemGenericSlider<T>::getRequiredLayout(void) { return 0; }
 
 template class diaElemGenericSlider <int32_t>;
 template class diaElemGenericSlider <uint32_t>;

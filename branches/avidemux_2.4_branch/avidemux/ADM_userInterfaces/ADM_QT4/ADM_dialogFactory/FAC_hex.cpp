@@ -13,22 +13,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <config.h>
-
-
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-#include <QDialog>
-#include <QMessageBox>
-#include <QGridLayout>
-#include <QCheckBox>
-
+#include "config.h"
 #include "default.h"
 #include "ADM_commonUI/DIA_factory.h"
 #include "ADM_assert.h"
+#include "dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
   diaElemHex::diaElemHex(const char *toggleTitle, uint32_t dataSize,uint8_t *data) :diaElem(ELEM_HEXDUMP){};
@@ -36,6 +25,7 @@ extern const char *shortkey(const char *);
   void diaElemHex::setMe(void *dialog, void *opaque,uint32_t line) {};
   void diaElemHex::getMe(void) {} ;
   void diaElemHex::finalize(void) {};
+  int diaElemHex::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 //******************************************************
 
 //EOF

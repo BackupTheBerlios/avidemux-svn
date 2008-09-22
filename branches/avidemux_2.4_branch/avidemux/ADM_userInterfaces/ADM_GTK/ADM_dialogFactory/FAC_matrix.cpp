@@ -129,4 +129,5 @@ void diaElemMatrix::enable(uint32_t onoff)
 		  }
 }
 
+int diaElemMatrix::getRequiredLayout(void) { return 0; }
 //EOF

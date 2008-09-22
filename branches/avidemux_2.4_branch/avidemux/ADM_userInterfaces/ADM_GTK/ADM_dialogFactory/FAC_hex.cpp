@@ -222,6 +222,8 @@ void diaElemHex::getMe(void)
 void diaElemHex::finalize(void) 
 {
 
-};
+}
+
+int diaElemHex::getRequiredLayout(void) { return 0; }
 
 //EOF
