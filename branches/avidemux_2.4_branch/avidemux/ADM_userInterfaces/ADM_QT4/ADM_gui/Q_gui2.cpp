@@ -767,7 +767,7 @@ void setupMenus(void)
 	printf("Found %d format(s)\n",nbFormat);
 	for(uint32_t i=0;i<nbFormat;i++)
 	{
-		WIDGET(comboBoxFormat)->addItem(QT_TR_NOOP(ADM_allOutputFormat[i].text));	
+		WIDGET(comboBoxFormat)->addItem(QString::fromUtf8(QT_TR_NOOP(ADM_allOutputFormat[i].text)));	
 	}
 
 }
@@ -885,7 +885,7 @@ void UI_setFrameType( uint32_t frametype,uint32_t qp)
 
 	}
 	sprintf(string,QT_TR_NOOP("%c (%02d)"),c,qp);
-	WIDGET(label_8)->setText(string);	
+	WIDGET(label_8)->setText(QString::fromUtf8(string));
 
 }
 

@@ -516,14 +516,14 @@ void filtermainWindow::displayFamily(uint32_t family)
 
       if (allfilters[r].viewable==1)
         {
-          QString str = QString("<b>") + allfilters[r].name + QString("</b><br>\n<small>") + allfilters[r].description + QString("</small>");
+			QString str = QString("<b>") + QString::fromUtf8(allfilters[r].name) + QString("</b><br>\n<small>") + QString::fromUtf8(allfilters[r].description) + QString("</small>");
          
           QListWidgetItem *item;
           if(family==NB_TREE-1)
                 item=new QListWidgetItem(str,availableList,EXTERNAL_FILTER_BASE+i);
           else
                 item=new QListWidgetItem(str,availableList,ALL_FILTER_BASE+r);
-          item->setToolTip(allfilters[r].description);
+		  item->setToolTip(QString::fromUtf8(allfilters[r].description));
           availableList->addItem(item);
         }
      }
@@ -712,7 +712,7 @@ void filtermainWindow::buildActiveFilterList(void)
 				++conf;
 		}
 
-		QString str = QString("<b>") + name + QString("</b><br>\n<small>") + conf + QString("</small>");
+		QString str = QString("<b>") + QString::fromUtf8(name) + QString("</b><br>\n<small>") + QString::fromUtf8(conf) + QString("</small>");
 		QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
 		activeList->addItem(item);
 	}
