@@ -65,12 +65,12 @@ float AqStrength;
                 ,{3,    QT_TR_NOOP("4  - Medium")}
                 ,{4,    QT_TR_NOOP("5  - High (Default)")}
                 ,{5,    QT_TR_NOOP("6  - Very High")}
-                ,{6,    QT_TR_NOOP("6B - Very High (RDO on Bframes)")}
+                ,{6,    QT_TR_NOOP("6B - Very High (RDO on B-frames)")}
                 ,{7,    QT_TR_NOOP("7  - Ultra High")}
-                ,{8,    QT_TR_NOOP("7B - Ultra High (RDO on Bframes)")}};
+                ,{8,    QT_TR_NOOP("7B - Ultra High (RDO on B-frames)")}};
 
                             
-        diaElemMenu parition(PX(PartitionDecision),QT_TR_NOOP("Partition Decision"),10,partitionM);
+        diaElemMenu parition(PX(PartitionDecision),QT_TR_NOOP("Partition Decision"),9,partitionM);
         
          diaMenuEntry meM[] = {
                              {0,    QT_TR_NOOP("Diamond Search")},
@@ -131,8 +131,8 @@ float AqStrength;
           
           diaElemFrame  frameMisc(QT_TR_NOOP("Misc"));
           frameMisc.swallow(&trellis);
+		  frameMisc.swallow(&noise);
           frameMisc.swallow(&cabac);
-          frameMisc.swallow(&noise);
           frameMisc.swallow(&deblock);
           frameMisc.swallow(&deblockStrength);
           frameMisc.swallow(&deblockThreshold);
