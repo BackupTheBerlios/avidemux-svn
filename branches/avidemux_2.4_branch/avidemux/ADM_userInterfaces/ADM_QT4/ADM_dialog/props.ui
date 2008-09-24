@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>245</width>
-    <height>465</height>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -295,23 +295,28 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton" >
-     <property name="sizePolicy" >
-      <sizepolicy>
-       <hsizetype>0</hsizetype>
-       <vsizetype>0</vsizetype>
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="layoutDirection" >
-      <enum>Qt::RightToLeft</enum>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Fixed</enum>
      </property>
-     <property name="text" >
-      <string>OK</string>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
      </property>
-     <property name="default" >
-      <bool>true</bool>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -320,18 +325,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
    <receiver>Dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>284</x>
-     <y>424</y>
+     <x>130</x>
+     <y>486</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>167</x>
-     <y>252</y>
+     <x>130</x>
+     <y>267</y>
     </hint>
    </hints>
   </connection>
