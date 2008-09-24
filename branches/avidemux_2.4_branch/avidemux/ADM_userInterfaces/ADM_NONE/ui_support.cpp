@@ -28,3 +28,8 @@ void getUIDescription(char* desc)
 {
 	sprintf(desc, "CLI");
 }
+
+const char* getNativeRendererDesc(void)
+{
+	return "";
+}

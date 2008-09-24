@@ -97,6 +97,8 @@ static uint32_t displayW=0,displayH=0;
   It is a base QWidget where the image will be put by painter.
 
 */
+int paintEngineType = -1;
+
 class  ADM_Qvideo : public QWidget
 {
 	Q_OBJECT
@@ -111,6 +113,16 @@ public:
 	*/
 	void paintEvent(QPaintEvent *ev)
 	{
+		if (paintEngineType == -1)
+		{
+			QPainter painter(this);
+
+			if (painter.isActive())
+				paintEngineType = painter.paintEngine()->type();
+
+			painter.end();
+		}
+
 		if(!displayW || !displayH || !rgbDataBuffer || accelRender)
 			return ;
 

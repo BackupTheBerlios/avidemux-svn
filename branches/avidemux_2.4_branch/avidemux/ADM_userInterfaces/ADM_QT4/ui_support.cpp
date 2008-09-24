@@ -2,6 +2,9 @@
 
 #include <QApplication>
 #include <QtCore>
+#include <QtGui>
+
+#include "default.h"
 
 #define MAX_UNLOADED_MSG_LENGTH 400
 static QTranslator qtTranslator;
@@ -105,4 +108,27 @@ void destroyTranslator(void)
 void getUIDescription(char* desc)
 {
 	sprintf(desc, "Qt (%s)", qVersion());
+}
+
+extern int paintEngineType;
+
+const char* getNativeRendererDesc(void)
+{
+	switch (paintEngineType)
+	{
+	case QPaintEngine::X11:
+		return QT_TR_NOOP("Qt (X11)");
+	case QPaintEngine::Windows:
+		return QT_TR_NOOP("Qt (MS Windows GDI)");
+	case QPaintEngine::CoreGraphics:
+		return QT_TR_NOOP("Qt (Mac OS X Quartz 2D)");
+	case QPaintEngine::QuickDraw:
+		return QT_TR_NOOP("Qt (Mac OS X QuickDraw)");
+	case QPaintEngine::OpenGL:
+		return QT_TR_NOOP("Qt (OpenGL)");
+	case QPaintEngine::Raster:
+		return QT_TR_NOOP("Qt (Default Raster)");
+	}
+
+	return "Qt";
 }
