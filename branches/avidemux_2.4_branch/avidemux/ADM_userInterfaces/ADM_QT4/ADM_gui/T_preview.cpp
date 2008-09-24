@@ -38,6 +38,7 @@
 #include "GUI_accelRender.h"
 #include "ADM_video/ADM_genvideo.hxx"
 #include "Q_preview.h"
+#include "gui_action.hxx"
 
 static QFrame *hostFrame=NULL;
 static AccelRender *accelRender=NULL;
@@ -45,12 +46,29 @@ static uint8_t *lastImage=NULL;
 extern QWidget *QuiMainWindows;
  ColYuvRgb rgbConverter(640,480,1);
 extern void UI_purge( void );
+extern void UI_setCurrentPreview(int ne);
 
 static Ui_previewWindow *previewWindow = NULL;
 
+class PreviewEventReceiver : public QObject
+{
+	Q_OBJECT
+
+public slots:
+	void previewClose()
+	{
+		UI_setCurrentPreview(0);
+		HandleAction(ACT_PreviewChanged);
+	};
+};
+
+static PreviewEventReceiver *eventReceiver = NULL;
+
 void DIA_previewInit(uint32_t width, uint32_t height)
 {
+	eventReceiver = new PreviewEventReceiver;
 	previewWindow = new Ui_previewWindow(QuiMainWindows, width, height);
+	QObject::connect(previewWindow, SIGNAL(rejected()), eventReceiver, SLOT(previewClose()));
 	previewWindow->show();
 }
 
@@ -75,6 +93,7 @@ void DIA_previewEnd(void)
 {
 	if (previewWindow)
 	{
+		delete eventReceiver;
 		delete previewWindow;
 		previewWindow = NULL;
 	}
