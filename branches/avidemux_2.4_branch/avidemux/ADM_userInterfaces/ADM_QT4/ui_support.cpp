@@ -126,6 +126,10 @@ const char* getNativeRendererDesc(void)
 		return QT_TR_NOOP("Qt (Mac OS X QuickDraw)");
 	case QPaintEngine::OpenGL:
 		return QT_TR_NOOP("Qt (OpenGL)");
+#if QT_VERSION >= 0x040400
+	case QPaintEngine::Direct3D:
+		return QT_TR_NOOP("Qt (MS Windows Direct3D)");
+#endif
 	case QPaintEngine::Raster:
 		return QT_TR_NOOP("Qt (Default Raster)");
 	}

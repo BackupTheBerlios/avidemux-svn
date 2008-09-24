@@ -104,7 +104,13 @@ class  ADM_Qvideo : public QWidget
 	Q_OBJECT
     
 public:
-	ADM_Qvideo(QWidget *z) : QWidget(z) {};
+	ADM_Qvideo(QWidget *z) : QWidget(z)
+	{
+#if QT_VERSION >= 0x040400
+		setAttribute(Qt::WA_MSWindowsUseDirect3D, true);
+#endif
+	};
+
 	~ADM_Qvideo() {};
 
 	/**
