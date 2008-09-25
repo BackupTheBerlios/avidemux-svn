@@ -36,6 +36,7 @@ DIA_x264.cpp
 DIA_xvid4.cpp
 OCR_none.cpp
 about_rsc.cpp
+DIA_color.cpp
 )
 
 IF(USE_FREETYPE)
