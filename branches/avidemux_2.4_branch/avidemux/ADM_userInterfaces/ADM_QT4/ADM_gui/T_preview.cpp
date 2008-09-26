@@ -47,6 +47,7 @@ extern QWidget *QuiMainWindows;
  ColYuvRgb rgbConverter(640,480,1);
 extern void UI_purge( void );
 extern void UI_setCurrentPreview(int ne);
+extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
 
 static Ui_previewWindow *previewWindow = NULL;
 
@@ -93,9 +94,9 @@ void DIA_previewEnd(void)
 {
 	if (previewWindow)
 	{
-		delete eventReceiver;
 		delete previewWindow;
 		previewWindow = NULL;
+		delete eventReceiver;
 	}
 }
 
@@ -258,6 +259,37 @@ void UI_getWindowInfo(void *draw, GUI_WindowInfo *xinfo)
 	xinfo->height = displayH;
 }
 
+// Calculate the zoom ratio required to fit the whole image on the screen.
+float UI_calcZoomToFitScreen(QWidget* window, QWidget* canvas, uint32_t imageWidth, uint32_t imageHeight)
+{
+	int windowWidth, windowHeight;
+	int drawingWidth, drawingHeight;
+	uint32_t screenWidth, screenHeight;
 
-//****************************************************************************************************
-//EOF 
+	windowWidth = window->frameSize().width();
+	windowHeight = window->frameSize().height();
+
+	drawingWidth = canvas->frameSize().width();
+	drawingHeight = canvas->frameSize().height();
+
+	UI_getPhysicalScreenSize(window, &screenWidth, &screenHeight);
+
+	// Take drawing area out of the equation, how much extra do we need for additional controls?
+	windowWidth -= drawingWidth;
+	windowHeight -= drawingHeight;
+
+	// This is the true amount of screen real estate we can work with
+	screenWidth -= windowWidth;
+	screenHeight -= windowHeight;
+
+	// Calculate zoom ratio
+	if (imageWidth > screenWidth || imageHeight > screenHeight)
+	{
+		float widthRatio = (float)screenWidth / (float)imageWidth;
+		float heightRatio = (float)screenHeight / (float)imageHeight;
+
+		return (widthRatio < heightRatio ? widthRatio : heightRatio);
+	}
+	else
+		return 1;
+}

@@ -14,8 +14,7 @@
 
 #include "config.h"
 
-#include <QtGui/QGraphicsView>
-#include <QtGui/QSlider>
+#include <QtGui>
 
 #include "default.h"
 #include "ADM_assert.h"
@@ -23,19 +22,61 @@
 #include "DIA_flyDialog.h"
 #include "DIA_flyDialogQt4.h"
 
+extern float UI_calcZoomToFitScreen(QWidget* window, QWidget* canvas, uint32_t imageWidth, uint32_t imageHeight);
+extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
+
+class FlyDialogEventFilter : public QObject
+{
+	Q_OBJECT
+
+	ADM_flyDialog *flyDialog;
+
+public:
+	FlyDialogEventFilter(ADM_flyDialog *flyDialog)
+	{
+		this->flyDialog = flyDialog;
+	};
+
+protected:
+	bool eventFilter(QObject *obj, QEvent *event)
+	{
+		if (event->type() == QEvent::Show)
+		{
+			QWidget* parent = (QWidget*)obj;
+			uint32_t screenWidth, screenHeight;
+
+			UI_getPhysicalScreenSize(parent, &screenWidth, &screenHeight);
+			flyDialog->recomputeSize();
+			QCoreApplication::processEvents();
+			parent->move((screenWidth - parent->frameSize().width()) / 2, (screenHeight - parent->frameSize().height()) / 2);
+		}
+	};
+};
+
 void ADM_flyDialog::postInit(uint8_t reInit)
 {
 	QWidget *graphicsView = ((ADM_QCanvas*)_canvas)->parentWidget();
 	QSlider  *slider=(QSlider *)_slider;
 
-	graphicsView->setMinimumSize(_w, _h);
-	graphicsView->resize(_w, _h);
+	if (!reInit)
+	{
+		FlyDialogEventFilter *eventFilter = new FlyDialogEventFilter(this);
 
-	if (slider)
-		slider->setMaximum(_in->getInfo()->nb_frames);
+		if (slider)
+			slider->setMaximum(_in->getInfo()->nb_frames);
+
+		graphicsView->parentWidget()->installEventFilter(eventFilter);
+	}
+
+	((ADM_QCanvas*)_canvas)->changeSize(_zoomW, _zoomH);
+	graphicsView->setMinimumSize(_zoomW, _zoomH);
+	graphicsView->resize(_zoomW, _zoomH);
 }
 
-float ADM_flyDialog::calcZoomFactor(void) {return 1;}
+float ADM_flyDialog::calcZoomFactor(void)
+{
+	return UI_calcZoomToFitScreen(((ADM_QCanvas*)_canvas)->parentWidget()->parentWidget(), ((ADM_QCanvas*)_canvas)->parentWidget(), _w, _h);
+}
 
 uint8_t  ADM_flyDialog::display(void)
 {
