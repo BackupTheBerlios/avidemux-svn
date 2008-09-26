@@ -918,7 +918,7 @@ videoCodecSetConf (char *name, uint32_t extraLen, uint8_t * extraData)
 	{
 	  printf ("Codec:%s\n", param->descriptor);
 	  printf ("Expected :%d got:%d\n", param->extraSettingsLen, extraLen);
-	  ADM_assert (0);
+	  //ADM_assert (0);
 	}
       memcpy (param->extraSettings, extraData, param->extraSettingsLen);
     }
