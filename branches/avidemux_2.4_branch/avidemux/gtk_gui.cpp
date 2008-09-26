@@ -693,7 +693,11 @@ int nw;
       break;
 //----------------------test-----------------------
     case ACT_SaveAvi:
-      GUI_FileSelWrite (QT_TR_NOOP("Select File to Save"),(SELFILE_CB *)A_SaveWrapper); // A_SaveAudioNVideo);
+		if(frameEnd < frameStart)
+			GUI_Error_HIG(QT_TR_NOOP("Marker A > B"), QT_TR_NOOP("An invalid frame range has been selected.  Make sure marker A is placed before marker B."));
+		else
+			GUI_FileSelWrite(QT_TR_NOOP("Select File to Save"),(SELFILE_CB *)A_SaveWrapper);
+
       break;
 //---------------------------------------------------
     case ACT_Copy:

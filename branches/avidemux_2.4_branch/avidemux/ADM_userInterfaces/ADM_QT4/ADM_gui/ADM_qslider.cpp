@@ -30,11 +30,13 @@ void ADM_QSlider::paintEvent(QPaintEvent *event)
 	QSlider::paintEvent(event);	
 
 	int a = markerA, b = markerB;
+	QColor color = Qt::blue;
 
 	if (markerA > markerB)
 	{
 		b = markerA;
-		a = markerB; 
+		a = markerB;
+		color = Qt::red;
 	}
 
 	if (frameCount > 0 && (a != 0 || b != frameCount))
@@ -44,7 +46,7 @@ void ADM_QSlider::paintEvent(QPaintEvent *event)
 
 		QPainter painter(this);
 
-		painter.setPen(Qt::blue);
+		painter.setPen(color);
 		painter.drawRect(left, 1, right - left, height() - 3);
 		painter.end();
 	}
