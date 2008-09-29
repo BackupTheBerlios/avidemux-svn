@@ -30,18 +30,21 @@ class FlyDialogEventFilter : public QObject
 	Q_OBJECT
 
 	ADM_flyDialog *flyDialog;
+	bool recomputed;
 
 public:
 	FlyDialogEventFilter(ADM_flyDialog *flyDialog)
 	{
+		recomputed = false;
 		this->flyDialog = flyDialog;
 	};
 
 protected:
 	bool eventFilter(QObject *obj, QEvent *event)
 	{
-		if (event->type() == QEvent::Show)
+		if (event->type() == QEvent::Show && !recomputed)
 		{
+			recomputed = true;
 			QWidget* parent = (QWidget*)obj;
 			uint32_t screenWidth, screenHeight;
 
@@ -50,6 +53,8 @@ protected:
 			QCoreApplication::processEvents();
 			parent->move((screenWidth - parent->frameSize().width()) / 2, (screenHeight - parent->frameSize().height()) / 2);
 		}
+		
+		return QObject::eventFilter(obj, event);
 	};
 };
 
