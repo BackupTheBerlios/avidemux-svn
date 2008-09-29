@@ -50,6 +50,7 @@ float AqStrength;
       // Our tabs
          /* Tab 1 main */
            diaElemBitrate bitrate(config,NULL);
+		   bitrate.setMinQz(0);
            bitrate.setMaxQz(51);
            diaElem *main[]={&bitrate};
            diaElemTabs tabMain(QT_TR_NOOP("Bitrate"),1,main);
