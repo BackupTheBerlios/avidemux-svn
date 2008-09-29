@@ -51,7 +51,7 @@ protected:
 			UI_getPhysicalScreenSize(parent, &screenWidth, &screenHeight);
 			flyDialog->recomputeSize();
 			QCoreApplication::processEvents();
-			parent->move((screenWidth - parent->frameSize().width()) / 2, (screenHeight - parent->frameSize().height()) / 2);
+			parent->move((((int)screenWidth) - parent->frameSize().width()) / 2, (((int)screenHeight) - parent->frameSize().height()) / 2);
 		}
 		
 		return QObject::eventFilter(obj, event);

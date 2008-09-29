@@ -76,7 +76,7 @@ ADM_flyDialog::ADM_flyDialog(uint32_t width,uint32_t height,AVDMGenericVideoStre
 			_zoomH = uint32_t (_h * _zoom);
 		}
 	}
-        else
+	else
 		_zoom = 1;
 
 	if (_resizeMethod == RESIZE_AUTO || _resizeMethod == RESIZE_LAST)
@@ -105,24 +105,33 @@ ADM_flyDialog::ADM_flyDialog(uint32_t width,uint32_t height,AVDMGenericVideoStre
 
 void ADM_flyDialog::recomputeSize(void)
 {
-    float new_zoom = calcZoomFactor();
-
+    float new_zoom;
     ResizeMethod new_resizeMethod;
     uint32_t new_zoomW;
     uint32_t new_zoomH;
 
-    if (new_zoom == 1)
-    {
-        new_resizeMethod = RESIZE_NONE;
-        new_zoomW = _w;
-        new_zoomH = _h;
-    }
-    else
-    {
-        new_resizeMethod = RESIZE_AUTO;
-        new_zoomW = uint32_t (_w * new_zoom);
-        new_zoomH = uint32_t (_h * new_zoom);
-    }
+	if (_resizeMethod == RESIZE_AUTO || _resizeMethod == RESIZE_LAST)
+	{
+		new_zoom = calcZoomFactor();
+
+		if (new_zoom == 1)
+			new_resizeMethod = RESIZE_NONE;
+		else
+		{
+			new_resizeMethod = _resizeMethod;
+			new_zoomW = uint32_t (_w * new_zoom);
+			new_zoomH = uint32_t (_h * new_zoom);
+		}
+	}
+	else
+		new_resizeMethod = RESIZE_NONE;
+
+	if (new_resizeMethod == RESIZE_NONE)
+	{
+		new_zoom = 1;
+		new_zoomW = _w;
+		new_zoomH = _h;
+	}
 
     if (new_resizeMethod == _resizeMethod && new_zoom == _zoom
         && new_zoomW == _zoomW && new_zoomH == _zoomH)
@@ -165,7 +174,9 @@ void ADM_flyDialog::recomputeSize(void)
     }
 
     postInit (true);
-    sliderChanged();
+
+	if (_slider)
+		sliderChanged();
 }
 
 /**
