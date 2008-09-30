@@ -1,6 +1,6 @@
 
 noinst_LIBRARIES = libADM_dialog.a 
-libADM_dialog_a_SOURCES = DIA_busy.cpp  alert_qt4.cpp DIA_none.cpp OCR_none.cpp  \
+libADM_dialog_a_SOURCES = DIA_busy.cpp  alert_qt4.cpp DIA_color.cpp DIA_none.cpp OCR_none.cpp  \
 AQ_props.cpp AQ_working.cpp AQ_encoding.cpp  DIA_xvid4.cpp AQ_resizing.cpp AT_flyDialog.cpp \
 AQ_jobs.cpp \
 AQ_crop.cpp AT_QCanvas.cpp \
@@ -15,7 +15,8 @@ AQ_about.cpp \
 AQ_license.cpp \
 DIA_srt.cpp \
 AQ_calculator.cpp \
-AQ_resizing.cpp
+AQ_resizing.cpp \
+AQ_mpdelogo.cpp
 
 INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@ADM_SUBVERSION@ \
 		-I../../../ADM_libraries/ADM_utilities \

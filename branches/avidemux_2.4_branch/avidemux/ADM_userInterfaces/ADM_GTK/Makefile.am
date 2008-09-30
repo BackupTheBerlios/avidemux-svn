@@ -4,4 +4,4 @@ noinst_LIBRARIES = libADM_UI_GTK.a
 libADM_UI_GTK_a_METASOURCES = AUTO
 libADM_UI_GTK_a_SOURCES = ui_support.cpp
 
-INCLUDES = $(all_includes) $(GTK_CFLAGS)
+INCLUDES = $(all_includes) -I../../ADM_libraries/ADM_utilities $(GTK_CFLAGS)

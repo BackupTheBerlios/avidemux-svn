@@ -50,6 +50,7 @@ user_interface_qt4 = \
 			./ADM_userInterfaces/ADM_QT4/ADM_gui/libADM_gui2.a	\
 			./ADM_userInterfaces/ADM_QT4/ADM_dialog/libADM_dialog.a	\
 			./ADM_userInterfaces/ADM_QT4/ADM_dialog/AQ_srt.o	\
+			./ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_color.o	\
 			./ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/libADM_dialogFactory.a	\
 			./ADM_userInterfaces/ADM_commonUI/libADM_CommonUI.a	\
 			./ADM_ocr/libADM_ocr.a	\
