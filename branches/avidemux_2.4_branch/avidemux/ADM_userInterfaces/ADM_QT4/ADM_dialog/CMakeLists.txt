@@ -14,6 +14,7 @@ crop
 encoding
 hue
 license
+mpdelogo
 props
 resizing
 jobs
