@@ -41,6 +41,7 @@
 #include "ADM_toolkit/filesel.h"
 #include "prefs.h"
 #include "avi_vars.h"
+#include "../ADM_commonUI/GUI_render.h"
 
 extern int global_argc;
 extern char **global_argv;
@@ -1064,6 +1065,25 @@ uint8_t UI_setTimeShift(int onoff,int value)
 		WIDGET(checkBox_TimeShift)->setCheckState(Qt::Unchecked);
 	WIDGET(spinBox_TimeValue)->setValue(value);
 	return 1;
+}
+
+void UI_setZoomMode(renderZoom zoom)
+{
+	switch (zoom)
+	{
+		case ZOOM_1_4:
+			WIDGET(actionZoom_1_4)->setChecked(true);
+			break;
+		case ZOOM_1_2:
+			WIDGET(actionZoom_1_2)->setChecked(true);
+			break;
+		case ZOOM_1_1:
+			WIDGET(actionZoom_1_1)->setChecked(true);
+			break;
+		case ZOOM_2:
+			WIDGET(actionZoom_2_1)->setChecked(true);
+			break;
+	}
 }
 
 //********************************************

@@ -48,6 +48,7 @@ extern QWidget *QuiMainWindows;
 extern void UI_purge( void );
 extern void UI_setCurrentPreview(int ne);
 extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
+extern void UI_setZoomMode(renderZoom zoom);
 
 static Ui_previewWindow *previewWindow = NULL;
 
@@ -207,6 +208,15 @@ void  UI_updateDrawWindowSize(void *win,uint32_t w,uint32_t h)
 
 	if(rgbDataBuffer)
 		delete[] rgbDataBuffer;
+
+	if (displayW / 4 == w && displayH / 4 == h)
+		UI_setZoomMode(ZOOM_1_4);
+	else if (displayW / 2 == w && displayH / 2 == h)
+		UI_setZoomMode(ZOOM_1_2);
+	else if ((displayW == w && displayH == h) || displayW == 0)
+		UI_setZoomMode(ZOOM_1_1);
+	else if (displayW * 2 == w && displayH * 2 == h)
+		UI_setZoomMode(ZOOM_2);
 
 	rgbDataBuffer = new uint8_t[w * h * 4]; // 32 bits / color
 	displayW = w;
