@@ -40,7 +40,6 @@ int     DIA_coloryuv(COLOR_YUV_PARAM *param){return 0;}
 uint8_t DIA_cnr2(CNR2Param *param){return 0;}
 uint8_t DIA_getEqualizer(EqualizerParam *param, ADMImage *image){return 0;}
 uint8_t DIA_getEqualizer(EqualizerParam *param, AVDMGenericVideoStream *in){return 0;}
-uint8_t DIA_getMPdelogo(MPDELOGO_PARAM *param,AVDMGenericVideoStream *in){return 0;}
 uint8_t DIA_videoCodec (SelectCodecType * codec){return 0;}
 uint8_t DIA_audioCodec( AUDIOENCODER *codec ) {return 0;}
 uint8_t DIA_quota(char *) {return 0;}

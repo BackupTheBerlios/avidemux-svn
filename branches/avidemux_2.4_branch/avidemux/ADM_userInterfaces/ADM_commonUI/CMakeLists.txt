@@ -11,6 +11,7 @@ DIA_bitrateHisto.cpp  DIA_flyAsharp.cpp       DIA_flyDialog.cpp    DIA_lavcodec.
 DIA_builtin.cpp       DIA_flyChromaShift.cpp  DIA_flyHue.cpp       DIA_lavDecoder.cpp  DIA_requant.cpp   DIA_tdeint.cpp     GUI_xvRender.cpp
 DIA_animated.cpp      DIA_ocr.cpp             DIA_tsSub.cpp        DIA_jobs_save.cpp
 DIA_flyEq2.cpp        DIA_flv1.cpp            DIA_flyThreshold.cpp DIA_flyParticle.cpp DIA_flyEraser.cpp DIA_flySwissArmyKnife.cpp
+DIA_flyMpDelogo.cpp
 )
 
 IF (ADM_OS_APPLE)
