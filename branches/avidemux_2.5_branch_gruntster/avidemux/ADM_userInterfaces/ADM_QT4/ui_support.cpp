@@ -8,6 +8,7 @@
 #ifdef __APPLE__
 #include <Carbon/Carbon.h>
 #endif
+#include <QtGui/QPaintEngine>
 
 #include "ADM_inttype.h"
 #include "ADM_files.h"
@@ -136,4 +137,31 @@ void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle)
 #else
 	*nativeHandle = (intptr_t)QuiMainWindows->winId();
 #endif
+}
+
+extern int paintEngineType;
+
+const char* getNativeRendererDesc(void)
+{
+	switch (paintEngineType)
+	{
+		case QPaintEngine::X11:
+			return QT_TR_NOOP("Qt (X11)");
+		case QPaintEngine::Windows:
+			return QT_TR_NOOP("Qt (MS Windows GDI)");
+		case QPaintEngine::CoreGraphics:
+			return QT_TR_NOOP("Qt (Mac OS X Quartz 2D)");
+		case QPaintEngine::QuickDraw:
+			return QT_TR_NOOP("Qt (Mac OS X QuickDraw)");
+		case QPaintEngine::OpenGL:
+			return QT_TR_NOOP("Qt (OpenGL)");
+#if QT_VERSION >= 0x040400
+		case QPaintEngine::Direct3D:
+			return QT_TR_NOOP("Qt (MS Windows Direct3D)");
+#endif
+		case QPaintEngine::Raster:
+			return QT_TR_NOOP("Qt (Default Raster)");
+	}
+
+	return "Qt";
 }

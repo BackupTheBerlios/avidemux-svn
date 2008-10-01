@@ -28,6 +28,7 @@
 #endif
 
 extern void 		AVDM_audioPref( void );
+extern const char* getNativeRendererDesc();
 
 
 
@@ -243,16 +244,15 @@ char     *globalGlyphName=NULL;
         diaElemUInteger autoSplit(&autosplit,QT_TR_NOOP("_Split MPEG files every (MB):"),10,4096);
         
         diaElemToggle   togTagMp3(&alternate_mp3_tag,QT_TR_NOOP("_Use alternative tag for MP3 in .mp4"));
-        
         diaMenuEntry videoMode[]={
-                             {RENDER_GTK,      QT_TR_NOOP("GTK+ (slow)"),NULL}
+                             {RENDER_GTK, getNativeRendererDesc(), NULL}
 #ifdef USE_XV
                              ,{RENDER_XV,   QT_TR_NOOP("XVideo (best)"),NULL}
 #endif
 #ifdef USE_SDL
 #ifdef __WIN32
-                             ,{RENDER_SDL,      QT_TR_NOOP("SDL (GDI)"),NULL}
-							 ,{RENDER_DIRECTX,      QT_TR_NOOP("SDL (DirectX)"),NULL}
+                             ,{RENDER_SDL,      QT_TR_NOOP("SDL (MS Windows GDI)"),NULL}
+							 ,{RENDER_DIRECTX,      QT_TR_NOOP("SDL (MS Windows DirectX)"),NULL}
 #else
 							 ,{RENDER_SDL,      QT_TR_NOOP("SDL (good)"),NULL}
 #endif

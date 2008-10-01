@@ -48,9 +48,9 @@ ADM_Qbitrate::ADM_Qbitrate(COMPRES_PARAMS *p,uint32_t minQ, uint32_t mq,QGridLay
 	index++;}
 
 	add(CBR,CBR,QT_TR_NOOP("Constant Bitrate"));
-	add(CQ,CQ,QT_TR_NOOP("Constant Quality"));
-	add(SAME,SAME,QT_TR_NOOP("Same Quantizer as Input"));
-	add(AQ,AQ,QT_TR_NOOP("Average Quantizer"));
+	add(CQ,CQ,QT_TR_NOOP("Constant Quantiser"));
+	add(SAME,SAME,QT_TR_NOOP("Same Quantiser as Input"));
+	add(AQ,AQ,QT_TR_NOOP("Constant Rate Factor"));
 	add(2PASS,2PASS,QT_TR_NOOP("Two Pass - Video Size"));
 	add(2PASS_BR,2PASS_BITRATE,QT_TR_NOOP("Two Pass - Average Bitrate"));
 
@@ -129,7 +129,7 @@ void ADM_Qbitrate::readBack(void)
     case COMPRESS_2PASS: Mx(COMPRESS_2PASS);Vx(finalsize);break;
     case COMPRESS_2PASS_BITRATE: Mx(COMPRESS_2PASS_BITRATE);Vx(avg_bitrate);break;
     case COMPRESS_SAME: Mx(COMPRESS_SAME);break;
-    case COMPRESS_AQ: Mx(COMPRESS_AQ);break;
+    case COMPRESS_AQ: Mx(COMPRESS_AQ);Vx(qz);break;
     default :
           ADM_assert(0);
   }

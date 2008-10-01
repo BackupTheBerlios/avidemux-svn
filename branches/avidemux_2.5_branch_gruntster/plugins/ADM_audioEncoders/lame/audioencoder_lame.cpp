@@ -316,7 +316,7 @@ uint8_t configure (void)
 		       bitrateM);
   diaElemUInteger quality (PX (quality), QT_TR_NOOP ("_Quality:"), 0, 9);
   diaElemToggle reservoir (PX (disableReservoir),
-			   QT_TR_NOOP ("_Disable reservoir:"));
+			   QT_TR_NOOP ("_Disable reservoir"));
 
   diaElem *elems[] = { &menuMode, &Mode, &quality, &bitrate, &reservoir };
 

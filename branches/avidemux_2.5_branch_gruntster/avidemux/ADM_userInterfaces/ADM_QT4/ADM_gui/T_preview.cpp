@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include <QtGui/QPainter>
+#include <QtGui/QPaintEngine>
 
 /* Probably on unix/X11 ..*/
 #ifdef __APPLE__
@@ -88,12 +89,29 @@ static uint32_t displayW=0,displayH=0;
   It is a base QWidget where the image will be put by painter.
 
 */
+int paintEngineType = -1;
 
-ADM_Qvideo::ADM_Qvideo(QWidget *z) : QWidget(z) {}
-ADM_Qvideo::~ADM_Qvideo() {}
+ADM_Qvideo::ADM_Qvideo(QWidget *z) : QWidget(z)
+{
+#if QT_VERSION >= 0x040400
+	setAttribute(Qt::WA_MSWindowsUseDirect3D, true);
+#endif
+};
+
+ADM_Qvideo::~ADM_Qvideo() {};
 
 void ADM_Qvideo::paintEvent(QPaintEvent *ev)
 {
+	if (paintEngineType == -1)
+	{
+		QPainter painter(this);
+
+		if (painter.isActive())
+			paintEngineType = painter.paintEngine()->type();
+
+		painter.end();
+	}
+
 	if(!displayW || !displayH || !rgbDataBuffer || accelRender)
 		return ;
 
@@ -103,7 +121,8 @@ void ADM_Qvideo::paintEvent(QPaintEvent *ev)
 		{
 			accelRender->display(lastImage,displayW,displayH);
 		}
-	}else
+	}
+	else
 	{
 		QImage image(rgbDataBuffer,displayW,displayH,QImage::Format_RGB32);
 		QPainter painter(this);

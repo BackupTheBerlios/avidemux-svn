@@ -11,7 +11,7 @@ SET(${ADM_LIB}_T
 )
 
 SET(${ADM_LIB}_SRCS
-	FAC_bar.cpp    FAC_frame.cpp  FAC_integer.cpp  FAC_notch.cpp
+	FAC_bar.cpp    FAC_frame.cpp  FAC_integer.cpp  FAC_notch.cpp  FAC_aspectRatio.cpp
 	FAC_float.cpp  FAC_hex.cpp    FAC_readOnlyText.cpp  toolkit.cpp
 	FAC_matrix.cpp  DIA_none.cpp  ${${ADM_LIB}_source}  ${${ADM_LIB}_T})
 

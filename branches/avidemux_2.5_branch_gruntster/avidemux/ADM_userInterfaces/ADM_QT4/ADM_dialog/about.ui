@@ -1,7 +1,4 @@
 <ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>aboutDialog</class>
  <widget class="QDialog" name="aboutDialog" >
   <property name="geometry" >
@@ -161,7 +158,7 @@
      <property name="sizeHint" >
       <size>
        <width>20</width>
-       <height>5</height>
+       <height>16</height>
       </size>
      </property>
     </spacer>
@@ -195,12 +192,12 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="okButton" >
-       <property name="text" >
-        <string>OK</string>
+      <widget class="QDialogButtonBox" name="buttonBox" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="default" >
-        <bool>true</bool>
+       <property name="standardButtons" >
+        <set>QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
@@ -208,9 +205,8 @@
    </item>
   </layout>
  </widget>
- <pixmapfunction></pixmapfunction>
  <tabstops>
-  <tabstop>okButton</tabstop>
+  <tabstop>buttonBox</tabstop>
   <tabstop>licenseButton</tabstop>
  </tabstops>
  <resources>
@@ -218,18 +214,18 @@
  </resources>
  <connections>
   <connection>
-   <sender>okButton</sender>
-   <signal>clicked()</signal>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
    <receiver>aboutDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>278</x>
-     <y>253</y>
+     <x>304</x>
+     <y>237</y>
     </hint>
     <hint type="destinationlabel" >
-     <x>96</x>
-     <y>254</y>
+     <x>193</x>
+     <y>145</y>
     </hint>
    </hints>
   </connection>

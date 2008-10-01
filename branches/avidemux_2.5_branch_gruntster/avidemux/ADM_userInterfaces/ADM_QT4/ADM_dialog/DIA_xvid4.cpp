@@ -36,8 +36,17 @@ int code;
         MKTOGGLE(QT_TR_NOOP("_Greyscale"),         greyscale);
         MKTOGGLE(QT_TR_NOOP("Turbo mode"),      turbo);
         MKTOGGLE(QT_TR_NOOP("C_hroma optimizer"),         chroma_opt);
-        diaElem *main[]={&bitrate,&t_interlaced,&t_cartoon,&t_greyscale,&t_turbo,&t_chroma_opt};
-        diaElemTabs tabMain(QT_TR_NOOP("Main"),6,main);
+
+		diaElemToggle    parAsInput(PX(par_as_input), QT_TR_NOOP("As Input"));
+		diaElemAspectRatio  par(PX(par_width), PX(par_height), QT_TR_NOOP("Aspect Ratio:"));
+		diaElemFrame  framePar(QT_TR_NOOP("Pixel Aspect Ratio"));
+		
+		parAsInput.link(0, &par);
+		framePar.swallow(&parAsInput);
+		framePar.swallow(&par);
+
+        diaElem *main[]={&bitrate,&t_interlaced,&t_cartoon,&t_greyscale,&t_turbo,&t_chroma_opt,&framePar};
+        diaElemTabs tabMain(QT_TR_NOOP("Main"),7,main);
          /* Tab 2 motion */
          diaMenuEntry motionMenu[] = {
                              {0,       QT_TR_NOOP("None"),NULL}
