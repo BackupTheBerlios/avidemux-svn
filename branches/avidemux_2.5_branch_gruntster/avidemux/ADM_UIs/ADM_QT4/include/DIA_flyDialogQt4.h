@@ -19,6 +19,18 @@
 #include "ADM_image.h"
 #include "ADM_videoFilter.h"
 #include "DIA_flyDialog.h"
+
+class FlyDialogEventFilter : public QObject
+{
+	ADM_flyDialog *flyDialog;
+
+public:
+	FlyDialogEventFilter(ADM_flyDialog *flyDialog);
+
+protected:
+	bool eventFilter(QObject *obj, QEvent *event);
+};
+
 class ADM_flyDialogQt4 : public ADM_flyDialog
 {
 public:

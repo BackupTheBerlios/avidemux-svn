@@ -4,6 +4,14 @@
 #include <QtGui/QPaintEvent>
 #include <QtGui/QWidget>
 
+class PreviewEventReceiver : public QObject
+{
+	Q_OBJECT
+
+public slots:
+	void previewClose();
+};
+
 class  ADM_Qvideo : public QWidget
 {
 	Q_OBJECT

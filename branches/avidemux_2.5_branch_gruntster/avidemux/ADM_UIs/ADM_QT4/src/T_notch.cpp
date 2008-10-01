@@ -13,10 +13,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include <QtGui/QGridLayout>
-#include <QtGui/QCheckBox>
-
+#include "T_notch.h"
 #include "ADM_default.h"
 #include "DIA_factory.h"
 #include "ADM_dialogFactoryQt4.h"
@@ -26,6 +23,16 @@ extern const char *shortkey(const char *);
 namespace ADM_qt4Factory
 {
 
+QCheckBoxReadOnly::QCheckBoxReadOnly(QCheckBox *box, bool state)
+{
+	this->box = box;
+	this->state = state;
+}
+
+void QCheckBoxReadOnly::stateChanged(int state)
+{
+	box->setCheckState(this->state ? Qt::Checked : Qt::Unchecked);
+}
 
 class diaElemNotch : public diaElem
 {
@@ -38,6 +45,7 @@ public:
   void getMe(void) {};
   int getRequiredLayout(void);
 };
+
 diaElemNotch::diaElemNotch(uint32_t yes,const char *toggleTitle, const char *tip)
   : diaElem(ELEM_NOTCH)
 {
@@ -53,13 +61,15 @@ diaElemNotch::~diaElemNotch()
 void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
 {
   QCheckBox *box=new QCheckBox(QString::fromUtf8(paramTitle),(QWidget *)dialog);
+  QCheckBoxReadOnly *readOnlyReceiver = new QCheckBoxReadOnly(box, yesno);
  QGridLayout *layout=(QGridLayout*) opaque;
  myWidget=(void *)box; 
  if( yesno)
  {
     box->setCheckState(Qt::Checked); 
  }
- box->show();
+
+ QObject::connect(box, SIGNAL(stateChanged(int)), readOnlyReceiver, SLOT(stateChanged(int)));
  layout->addWidget(box,line,0);
 }
 

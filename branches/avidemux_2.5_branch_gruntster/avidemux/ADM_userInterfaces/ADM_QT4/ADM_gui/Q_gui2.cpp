@@ -251,6 +251,7 @@ MainWindow::MainWindow() : QMainWindow()
 	slider=ui.horizontalSlider;
 	slider->setMinimum(0);
 	slider->setMaximum(1000000000);
+	slider->setPageStep(10000000);
 	connect( slider,SIGNAL(valueChanged(int)),this,SLOT(sliderValueChanged(int)));
 	connect( slider,SIGNAL(sliderMoved(int)),this,SLOT(sliderMoved(int)));
 	connect( slider,SIGNAL(sliderReleased()),this,SLOT(sliderReleased()));

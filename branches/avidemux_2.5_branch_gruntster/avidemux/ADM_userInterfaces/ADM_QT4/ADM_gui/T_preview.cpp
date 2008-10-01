@@ -29,6 +29,7 @@
 #include "Q_preview.h"
 #include "../ADM_render/GUI_render.h"
 #include "../ADM_render/GUI_accelRender.h"
+#include "gui_action.hxx"
     
 void UI_QT4VideoWidget(QFrame *host);
 static QFrame *hostFrame=NULL;
@@ -37,12 +38,24 @@ static uint8_t *lastImage=NULL;
 extern QWidget *QuiMainWindows;
  
 extern void UI_purge( void );
+extern void UI_setCurrentPreview(int ne);
+extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
 
 static Ui_previewWindow *previewWindow = NULL;
 
+void PreviewEventReceiver::previewClose()
+{
+	UI_setCurrentPreview(0);
+	HandleAction(ACT_PreviewChanged);
+}
+
+static PreviewEventReceiver *eventReceiver = NULL;
+
 void DIA_previewInit(uint32_t width, uint32_t height)
 {
+	eventReceiver = new PreviewEventReceiver;
 	previewWindow = new Ui_previewWindow(QuiMainWindows, width, height);
+	QObject::connect(previewWindow, SIGNAL(rejected()), eventReceiver, SLOT(previewClose()));
 	previewWindow->show();
 }
 
@@ -69,6 +82,7 @@ void DIA_previewEnd(void)
 	{
 		delete previewWindow;
 		previewWindow = NULL;
+		delete eventReceiver;
 	}
 }
 
@@ -220,7 +234,3 @@ void UI_getWindowInfo(void *draw, GUI_WindowInfo *xinfo)
 	xinfo->width = displayW;
 	xinfo->height = displayH;
 }
-
-
-//****************************************************************************************************
-//EOF 

@@ -17,7 +17,7 @@
 
 #include "Q_preview.h"
 
-Ui_previewWindow::Ui_previewWindow(QWidget *parent, int width, int height) : QDialog(parent, Qt::WindowTitleHint)
+Ui_previewWindow::Ui_previewWindow(QWidget *parent, int width, int height) : QDialog(parent)
 {
 	ui.setupUi(this);
 

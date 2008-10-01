@@ -32,6 +32,7 @@ resizeWindow::resizeWindow(QWidget *parent, resParam *param) : QDialog(parent)
      ui.spinBoxWidth->setValue(_param->width);
      ui.spinBoxHeight->setValue(_param->height);
      ui.horizontalSlider->setValue(100);
+	 ui.comboBoxAlgo->setCurrentIndex(_param->algo);
      updateWidthHeightSpinners();
 
 	 connect(ui.comboBoxSource, SIGNAL(currentIndexChanged(int)), this, SLOT(aspectRatioChanged(int)));

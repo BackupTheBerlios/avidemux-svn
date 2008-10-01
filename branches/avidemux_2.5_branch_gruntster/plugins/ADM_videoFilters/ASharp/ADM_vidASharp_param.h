@@ -2,7 +2,6 @@
 #ifndef _ASHARP_PARAM
 #define _ASHARP_PARAM
 #define uc uint8_t
-#define bool uint8_t
 
  void asharp_run_c(      uc* planeptr, int pitch,
                                         int height, int width, 
