@@ -29,6 +29,7 @@ public:
   virtual ~diaElemThreadCount() ;
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
+  int getRequiredLayout(void);
 };
 
 static void customToggled(void *widget, void *userData);
@@ -136,6 +137,8 @@ void diaElemThreadCount::setMe(void *dialog, void *opaque, uint32_t line)
 		gtk_spin_button_set_value (GTK_SPIN_BUTTON(spinbutton1), val);
 	}
 }
+
+int diaElemThreadCount::getRequiredLayout(void) { return 0; }
 
 void customToggled(void *widget, void *userData)
 {

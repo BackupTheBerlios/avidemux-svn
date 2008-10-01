@@ -69,9 +69,10 @@ namespace ADM_QT4_fileSel
 
 		if (!fileName.isNull() )
 		{
-			const char *s = fileName.toUtf8().constData();
-			*name = ADM_strdup(s);
-			prefs->set(pref_entry, (ADM_filename*)*name);
+			fileName = QDir::toNativeSeparators(fileName);
+			const char *s=fileName.toUtf8().constData();
+			*name=ADM_strdup(s);
+			prefs->set(pref_entry,(ADM_filename *)*name);
 		}
 
 		if (str)
@@ -136,8 +137,9 @@ namespace ADM_QT4_fileSel
 
 		if (!fileName.isNull())
 		{
-			const char *s = fileName.toUtf8().constData();
-			strncpy(target, s, max);
+			fileName = QDir::toNativeSeparators(fileName);
+			const char *s=fileName.toUtf8().constData();
+			strncpy(target,s,max);
 
 			return 1;
 		}
@@ -167,8 +169,9 @@ namespace ADM_QT4_fileSel
 
 		if (!fileName.isNull())
 		{
-			const char *s = fileName.toUtf8().constData();
-			strncpy(target, s, max);
+			fileName = QDir::toNativeSeparators(fileName);
+			const char *s=fileName.toUtf8().constData();
+			strncpy(target,s,max);
 
 			return 1;
 		}
@@ -198,9 +201,9 @@ namespace ADM_QT4_fileSel
 
 		if (!fileName.isNull())
 		{
-			const char *s = fileName.toUtf8().constData();
-			strncpy(target, s, max);
-
+			fileName = QDir::toNativeSeparators(fileName);
+			const char *s=fileName.toUtf8().constData();
+			strncpy(target,s,max);
 			return 1;
 		}
 

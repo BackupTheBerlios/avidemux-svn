@@ -77,7 +77,6 @@ int A_loadAC3 (char *name);
 int A_loadMP3 (char *name);
 int A_loadNone( void );
 void A_saveAudioDecodedTest (char *name);
-void A_openBrokenAvi (const char *name);
 int A_openAvi2 (const char *name, uint8_t mode);
 int A_appendAvi (const char *name);
 void A_externalAudioTrack( void );
@@ -117,7 +116,6 @@ uint8_t  ADM_saveRaw (const char *name);
 char * actual_workbench_file;
 void A_saveWorkbench (const char *name);
 void updateLoaded (void);
-extern void encoderSetLogFile (char *name);
 extern void videoCodecSelect (void);
 extern uint8_t DIA_about( void );
 extern uint8_t DIA_RecentFiles( char **name );
@@ -290,11 +288,6 @@ int nw;
  #endif     
       prefs->save ();
       return;
-    case ACT_SetLogFile:
-//      GUI_FileSelWrite ("Select log File to use", encoderSetLogFile);
-      GUI_Error_HIG(QT_TR_NOOP("Obsolete"), NULL);
-      return;
-      break;
     case ACT_SetMuxParam:
       ADM_aviUISetMuxer();
       return;
@@ -362,15 +355,6 @@ int nw;
 	case ACT_OpenAvi:
           GUI_FileSelRead (QT_TR_NOOP("Select AVI File..."), (SELFILE_CB *)A_openAvi);
 	  break;
-
-	case ACT_BrokenAvi:
-	  printf ("\n Opening in broken mode...\n");
-          GUI_FileSelRead (QT_TR_NOOP("Select AVI File..."), A_openBrokenAvi);
-	  break;
-
-
-	default:
-	  ;
 	}
       return;
     }
@@ -487,9 +471,6 @@ int nw;
 
     case ACT_OpenAvi:
       GUI_FileSelRead (QT_TR_NOOP("Select AVI File..."),(SELFILE_CB *) A_openAvi);
-      break;
-    case ACT_BrokenAvi:
-      GUI_FileSelRead (QT_TR_NOOP("Select AVI File..."), A_openBrokenAvi);
       break;
     case ACT_AppendAvi:
       GUI_FileSelRead (QT_TR_NOOP("Select AVI File to Append..."),(SELFILE_CB *) A_appendAvi);
@@ -873,12 +854,6 @@ int nw;
 //    mode 1: Suspicious
 //_____________________________________________________________
 
-void
-A_openBrokenAvi (const char *name)
-{
-  A_openAvi2 (name, 1);
-}
-
 int
 A_openAvi (const char *name)
 {
@@ -887,6 +862,7 @@ A_openAvi (const char *name)
 extern void GUI_PreviewEnd (void);
 int A_openAvi2 (const char *name, uint8_t mode)
 {
+	char *path = ADM_fixupPath(name);
   uint8_t res;
   char *longname;
   uint32_t magic[4];
@@ -896,16 +872,26 @@ int A_openAvi2 (const char *name, uint8_t mode)
     return 0;
   /// check if name exists
   FILE *fd;
-  fd = fopen (name, "rb");
-  if (!fd){
-    if( errno == EACCES ){
-      GUI_Error_HIG(QT_TR_NOOP("Permission error"), QT_TR_NOOP("Cannot open \"%s\"."), name);
-    }
-    if( errno == ENOENT ){
-      GUI_Error_HIG(QT_TR_NOOP("File error"), QT_TR_NOOP("\"%s\" does not exist."), name);
-    }
-    return 0;
+  fd = fopen (path, "rb");
+
+  if (!fd)
+  {
+	  switch (errno)
+	  {
+		  case EACCES:
+			  GUI_Error_HIG(QT_TR_NOOP("Permission error"), QT_TR_NOOP("Cannot open \"%s\"."), path);
+			  break;
+		  case ENOENT:
+			  GUI_Error_HIG(QT_TR_NOOP("File error"), QT_TR_NOOP("\"%s\" does not exist."), path);
+			  break;
+		  default:
+			  GUI_Error_HIG(QT_TR_NOOP("Error opening file"), QT_TR_NOOP("Error opening \"%s\"."), path);
+	  }
+
+	  delete [] path;
+	  return 0;
   }
+
   if( 4 == fread(magic,4,4,fd) )
      id=R32(magic[0]);
   fclose (fd);
@@ -918,6 +904,8 @@ int A_openAvi2 (const char *name, uint8_t mode)
   ** we may get a relative path by cmdline
   */
   longname = ADM_PathCanonize(name);
+  delete [] path;
+
   if (mode)
     res = video_body->addFile (longname, 1);
   else
@@ -1084,17 +1072,19 @@ void  updateLoaded ()
 int
 A_appendAvi (const char *name)
 {
-
+	char *path = ADM_fixupPath(name);
 
   if (playing)
     return 0;
   DIA_StartBusy ();
-  if (!video_body->addFile (name))
+  if (!video_body->addFile (path))
     {
       DIA_StopBusy ();
       GUI_Error_HIG (QT_TR_NOOP("Something failed when appending"), NULL);
+	  delete [] path;
       return 0;
     }
+  delete [] path;
   DIA_StopBusy ();
 
 
@@ -1347,22 +1337,26 @@ void A_saveImg (const char *name)
 int
 A_loadAC3 (char *name)
 {
+	char *path = ADM_fixupPath(name);
+
   if (!avifileinfo)
     return 0;
 
 
   AVDMAC3AudioStream *ac3 = new AVDMAC3AudioStream ();
 
-  if (ac3->open (name) == 0)
+  if (ac3->open (path) == 0)
     {
       GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not a WAV file?"));
       printf (QT_TR_NOOP("WAV open file failed..."));
       delete ac3;
+	  delete [] path;
       return 0;
     }
   //currentaudiostream=wav;
-  A_changeAudioStream (ac3, AudioAC3,name);
+  A_changeAudioStream (ac3, AudioAC3,path);
   wavinfo = currentaudiostream->getInfo ();
+  delete [] path;
   return 1;
 }
 int A_loadNone( void )
@@ -1378,19 +1372,24 @@ int A_loadNone( void )
 //_____________________________________________________________
 int A_loadMP3(char *name)
 {
+	char *path = ADM_fixupPath(name);
+
     if (!avifileinfo)
         return 0;
     AVDMMP3AudioStream *mp3 = new AVDMMP3AudioStream();
 
-    if (mp3->open(name) == 0)
+    if (mp3->open(path) == 0)
       {
           printf("MP3 open file failed...");
           delete mp3;
+		  delete [] path;
           return 0;
       }
+
     //currentaudiostream=mp3;
-    A_changeAudioStream(mp3, AudioMP3,name);
+    A_changeAudioStream(mp3, AudioMP3,path);
     wavinfo = currentaudiostream->getInfo();
+	delete [] path;
     return 1;
 }
 //_____________________________________________________________
@@ -1403,6 +1402,8 @@ int A_loadMP3(char *name)
 int
 A_loadWave (char *name)
 {
+	char *path = ADM_fixupPath(name);
+
   if (!avifileinfo)
   {
         printf("No video loaded\n");
@@ -1410,16 +1411,18 @@ A_loadWave (char *name)
    }
   AVDMWavAudioStream *wav = new AVDMWavAudioStream ();
 
-  if (wav->open (name) == 0)
+  if (wav->open (path) == 0)
     {
       GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not a WAV file?"));
       printf ("WAV open file failed...");
       delete wav;
+	  delete [] path;
       return 0;
     }
   //currentaudiostream=wav;
-  A_changeAudioStream (wav, AudioWav,name);
+  A_changeAudioStream (wav, AudioWav,path);
   wavinfo = currentaudiostream->getInfo ();
+  delete [] path;
   return 1;
 }
 AudioSource getCurrentAudioSource(char **name)

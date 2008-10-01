@@ -155,6 +155,8 @@ int ret=0;
 		
 	}
         printf("Output format:%d\n",UI_GetCurrentFormat());
+		char *path = ADM_fixupPath(name);
+
 	switch(family)
 	{
 		case CodecFamilyAVI:
@@ -162,35 +164,35 @@ int ret=0;
 					switch(UI_GetCurrentFormat())
 					{
 						case ADM_DUMMY:
-					                            			ret=oplug_dummy(name);
+					                            			ret=oplug_dummy(path);
 					                            			break;
 						case ADM_FLV:
-                            			ret=oplug_flv(name);
+                            			ret=oplug_flv(path);
                             			break;
                         case ADM_MP4:
                         case ADM_PSP:
                         case ADM_MATROSKA:
                         
-                                                    ret=oplug_mp4(name,UI_GetCurrentFormat());
+                                                    ret=oplug_mp4(path,UI_GetCurrentFormat());
                                                     break;
 						case ADM_AVI:
-								ret=A_SaveAudioNVideo(name);
+								ret=A_SaveAudioNVideo(path);
 								break;
 						case ADM_OGM:
-								ret=ogmSave(name);
+								ret=ogmSave(path);
 								break;
 						case ADM_ES:
-								ret=ADM_saveRaw(name);
+								ret=ADM_saveRaw(path);
 								break;
 						case ADM_AVI_DUAL:
-								ret=A_SaveAudioDualAudio(name);
+								ret=A_SaveAudioDualAudio(path);
 								break;
                                                 case ADM_AVI_PAK:
-								ret=A_SavePackedVop(name);
+								ret=A_SavePackedVop(path);
 								break;
 
 						case ADM_AVI_UNP:
-								ret=A_SaveUnpackedVop(name);
+								ret=A_SaveUnpackedVop(path);
 								break;
 						default:
                                                   GUI_Error_HIG(QT_TR_NOOP("Incompatible output format"), NULL);
@@ -206,7 +208,7 @@ int ret=0;
                                                 {
                                                   case ADM_PS:
                                                   case ADM_TS:
-						          ret=mpeg_passthrough(name,UI_GetCurrentFormat());
+						          ret=mpeg_passthrough(path,UI_GetCurrentFormat());
                                                           break;
                                                   default:
                                                     GUI_Error_HIG(QT_TR_NOOP("Incompatible output format"), NULL);
@@ -219,7 +221,7 @@ int ret=0;
                         case ADM_TS:
                         case ADM_PS:
                         case ADM_ES:
-                                ret=oplug_mpegff(name,UI_GetCurrentFormat());;
+                                ret=oplug_mpegff(path,UI_GetCurrentFormat());;
                                 break;
                         default:
                           GUI_Error_HIG(QT_TR_NOOP("Incompatible output format"), NULL);
@@ -227,9 +229,12 @@ int ret=0;
                     break;
                 default:
                             ADM_assert(0);
-                            return 0;
+							delete [] path;
+							return 0;
         }
         getFirstVideoFilter(0,avifileinfo->nb_frames);
+		delete [] path;
+
         return ret;
 }
 uint8_t  A_SaveAudioDualAudio(const char *inname)

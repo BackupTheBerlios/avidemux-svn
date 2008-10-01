@@ -43,9 +43,9 @@ propWindow::propWindow(QWidget *parent) : QDialog(parent)
         qpel=!!(info & ADM_QPEL_ON);
         gmc=!!(info & ADM_GMC_ON);
 
-#define FILLTEXT(a,b,c) {snprintf(text,79,b,c);ui.a->setText(text);}
-#define FILLTEXT4(a,b,c,d) {snprintf(text,79,b,c,d);ui.a->setText(text);}
-#define FILLTEXT5(a,b,c,d,e) {snprintf(text,79,b,c,d,e);ui.a->setText(text);}
+#define FILLTEXT(a,b,c) {snprintf(text,79,b,c);ui.a->setText(QString::fromUtf8(text));}
+#define FILLTEXT4(a,b,c,d) {snprintf(text,79,b,c,d);ui.a->setText(QString::fromUtf8(text));}
+#define FILLTEXT5(a,b,c,d,e) {snprintf(text,79,b,c,d,e);ui.a->setText(QString::fromUtf8(text));}
         
         FILLTEXT4(labeImageSize,QT_TR_NOOP("%lu x %lu"), avifileinfo->width,avifileinfo->height);
         FILLTEXT(labelFrameRate, QT_TR_NOOP("%2.3f fps"), (float) avifileinfo->fps1000 / 1000.F);
@@ -56,14 +56,14 @@ propWindow::propWindow(QWidget *parent) : QDialog(parent)
                 frame2time(avifileinfo->nb_frames, avifileinfo->fps1000,
                           &hh, &mm, &ss, &ms);
                 snprintf(text,79, QT_TR_NOOP("%02d:%02d:%02d.%03d"), hh, mm, ss, ms);
-                ui.labelVideoDuration->setText(text);
+                ui.labelVideoDuration->setText(QString::fromUtf8(text));
           }
         war=video_body->getPARWidth();
         har=video_body->getPARHeight();
         getAspectRatioFromAR(war,har, &s);
-        FILLTEXT5(LabelAspectRatio,QT_TR_NOOP("%s (%u:%u)"), s,war,har);
+		FILLTEXT5(LabelAspectRatio,QT_TR_NOOP("%s (%u:%u)"), s,war,har);
 #define SET_YES(a,b) ui.a->setText(yesno[b])
-#define FILLQT_TR_NOOP(q) ui.q->setText(text);
+#define FILLQT_TR_NOOP(q) ui.q->setText(QString::fromUtf8(text));
         SET_YES(LabelPackedBitstream,vop);
         SET_YES(LabelQuarterPixel,qpel);
         SET_YES(LabelGMC,gmc);

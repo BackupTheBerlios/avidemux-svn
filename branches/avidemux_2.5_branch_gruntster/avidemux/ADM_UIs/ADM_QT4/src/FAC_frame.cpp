@@ -20,6 +20,7 @@
 
 #include "ADM_default.h"
 #include "DIA_factory.h"
+#include "ADM_dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -38,6 +39,7 @@ public:
   void swallow(diaElem *widget);
   void enable(uint32_t onoff);
   void finalize(void);
+  int getRequiredLayout(void);
 };
 
 diaElemFrame::diaElemFrame(const char *toggleTitle, const char *tip)
@@ -66,18 +68,42 @@ diaElemFrame::~diaElemFrame()
 
 void diaElemFrame::setMe(void *dialog, void *opaque,uint32_t line)
 {
-	QGridLayout *layout = (QGridLayout*)opaque;
+	QVBoxLayout *layout = (QVBoxLayout*)opaque;
 	QGroupBox *groupBox = new QGroupBox(QString::fromUtf8(paramTitle));
-	QGridLayout *layout2 = new QGridLayout(groupBox);
-	int v = 0;
+	QVBoxLayout *vboxlayout = new QVBoxLayout(groupBox);
+	QLayout *layout2 = NULL;
+	int currentLayout = 0;
+	int v;
 
 	for (int i = 0; i < nbElems; i++)
 	{
+		if (elems[i]->getRequiredLayout() != currentLayout)
+		{
+			if (layout2)
+				vboxlayout->addLayout(layout2);
+
+			switch (elems[i]->getRequiredLayout())
+			{
+				case FAC_QT_GRIDLAYOUT:
+					layout2 = new QGridLayout();
+					break;
+				case FAC_QT_VBOXLAYOUT:
+					layout2 = new QVBoxLayout();
+					break;
+			}
+
+			currentLayout = elems[i]->getRequiredLayout();
+			v = 0;
+		}
+
 		elems[i]->setMe(groupBox, layout2, v); 
 		v += elems[i]->getSize();
 	}
 
-	layout->addWidget(groupBox, line, 0);
+	if (layout2)
+		vboxlayout->addLayout(layout2);
+
+	layout->addWidget(groupBox);
 }
 
 //*****************************
@@ -99,6 +125,8 @@ void diaElemFrame::enable(uint32_t onoff)
 {
   
 }
+
+int diaElemFrame::getRequiredLayout(void) { return FAC_QT_VBOXLAYOUT; }
 } // End of namespace
 //****************************Hoook*****************
 

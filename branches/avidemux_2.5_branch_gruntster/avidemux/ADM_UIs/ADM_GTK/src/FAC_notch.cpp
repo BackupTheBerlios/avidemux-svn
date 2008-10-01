@@ -29,6 +29,7 @@ public:
   virtual ~diaElemNotch() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) {};
+  int getRequiredLayout(void);
 };
 
 
@@ -71,7 +72,8 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
                     (GtkAttachOptions) (0), 0, 0);
   
 }
-//****************************************************
+
+int diaElemNotch::getRequiredLayout(void) { return 0; }
 } // End of namespace
 //****************************Hoook*****************
 

@@ -47,9 +47,9 @@ const char* translate(const char *__domainname, const char *__msgid)
 	{
 		QByteArray translatedMessage = QApplication::translate("", __msgid).toUtf8();
 		int copyLength = translatedMessage.length() + 1;
-		char* buffer = new char[translatorLoaded ? translatedMessage.length() + 1 : MAX_UNLOADED_MSG_LENGTH + 1];
+		char* buffer = new char[translatorLoaded ? copyLength : MAX_UNLOADED_MSG_LENGTH + 1];
 
-		if (copyLength > MAX_UNLOADED_MSG_LENGTH + 1)
+		if (!translatorLoaded && copyLength > MAX_UNLOADED_MSG_LENGTH + 1)
 		{
 			copyLength = MAX_UNLOADED_MSG_LENGTH;
 			buffer[MAX_UNLOADED_MSG_LENGTH] = '\0';

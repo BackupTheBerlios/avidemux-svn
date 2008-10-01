@@ -445,11 +445,11 @@ void filtermainWindow::displayFamily(uint32_t family)
   
   for (uint32_t i = 0; i < vec.size(); i++)
     {
-          QString str = QString("<b>") + vec[i]->name + QString("</b><br>\n<small>") + vec[i]->description + QString("</small>");
+		QString str = QString("<b>") + QString::fromUtf8(vec[i]->name) + QString("</b><br>\n<small>") + QString::fromUtf8(vec[i]->description) + QString("</small>");
          
           QListWidgetItem *item;
           item=new QListWidgetItem(str,availableList,ALL_FILTER_BASE+i+family*100);
-          item->setToolTip(vec[i]->description);
+          item->setToolTip(QString::fromUtf8(vec[i]->description));
           availableList->addItem(item);
      }
 
@@ -612,7 +612,7 @@ void filtermainWindow::buildActiveFilterList(void)
 				++conf;
 		}
 
-		QString str = QString("<b>") + name + QString("</b><br>\n<small>") + conf + QString("</small>");
+		QString str = QString("<b>") + QString::fromUtf8(name) + QString("</b><br>\n<small>") + QString::fromUtf8(conf) + QString("</small>");
 		QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
 		activeList->addItem(item);
 	}
@@ -727,4 +727,3 @@ uint8_t DIA_getPartial(PARTIAL_CONFIG *param,AVDMGenericVideoStream *son,AVDMGen
         return diaFactoryRun(QT_TR_NOOP("Partial Video Filter"),3,tabs);
 }
 //EOF
-

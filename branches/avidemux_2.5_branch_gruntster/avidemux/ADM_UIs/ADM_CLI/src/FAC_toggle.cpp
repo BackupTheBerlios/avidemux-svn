@@ -52,6 +52,8 @@ void   diaElemToggle::updateMe(void)
 
 }
 
+int diaElemToggle::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 diaElemInteger::diaElemInteger(int32_t *intValue,const char *toggleTitle, int32_t min, int32_t max,const char *tip)
   : diaElem(ELEM_TOGGLE)
@@ -75,6 +77,8 @@ uint8_t   diaElemToggle::link(uint32_t onoff,diaElem *w)
   
 }
 void diaElemInteger::enable(uint32_t onoff) {}
+int diaElemInteger::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
   : diaElem(ELEM_TOGGLE)
@@ -94,6 +98,8 @@ void diaElemUInteger::getMe(void)
  
 }
 void diaElemUInteger::enable(uint32_t onoff) {}
+int diaElemUInteger::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 
 diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, 
@@ -115,6 +121,8 @@ void diaElemFloat::getMe(void)
  
 }
 void diaElemFloat::enable(uint32_t onoff) {}
+int diaElemFloat::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 
 diaElemBar::diaElemBar(uint32_t percent,const char *toggleTitle)
@@ -134,6 +142,8 @@ void diaElemBar::getMe(void)
 {
  
 }
+
+int diaElemBar::getRequiredLayout(void) { return 0; }
 
 //******************************************************
 
@@ -163,6 +173,9 @@ void   diaElemMenu::enable(uint32_t onoff)
 void diaElemMenu::finalize(void)
 { 
 }
+
+int diaElemMenu::getRequiredLayout(void) { return 0; }
+
 void   diaElemMenu::updateMe(void)
 {
 }
@@ -195,6 +208,9 @@ void   diaElemFile::enable(uint32_t onoff)
 {
   
 }
+
+int diaElemFile::getRequiredLayout(void) { return 0; }
+
 diaElemBitrate::~diaElemBitrate()
 {
   
@@ -208,6 +224,9 @@ void diaElemBitrate::getMe(void)
 {
  
 }
+
+int diaElemBitrate::getRequiredLayout(void) { return 0; }
+
 void diaElemFile::changeFile(void)
 {
 }
@@ -234,6 +253,8 @@ void diaElemReadOnlyText::getMe(void)
  
 }
 
+int diaElemReadOnlyText::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 diaElemNotch::diaElemNotch(uint32_t yes,const char *toggleTitle, const char *tip)
   : diaElem(ELEM_NOTCH)
@@ -251,6 +272,8 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
 }
  void diaElemNotch::getMe(void) {};
 
+int diaElemNotch::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 diaElemDirSelect::diaElemDirSelect(char **filename,const char *toggleTitle,const char *tip)  : diaElemDirSelectBase() {}
 diaElemDirSelect::~diaElemDirSelect() {}
@@ -259,6 +282,7 @@ void diaElemDirSelect::getMe(void) {}
   
 void diaElemDirSelect::changeFile(void) {}
 void   diaElemDirSelect::enable(uint32_t onoff){}
+int diaElemDirSelect::getRequiredLayout(void) { return 0; }
 //******************************************************
 diaElemText::diaElemText(char **text,const char *toggleTitle,const char *tip)
     : diaElem(ELEM_NOTCH) {}
@@ -266,7 +290,7 @@ diaElemText::~diaElemText() {}
 void diaElemText::setMe(void *dialog, void *opaque,uint32_t line) {}
 void diaElemText::getMe(void) {}  
 void diaElemText::enable(uint32_t onoff) {};
-            
+int diaElemText::getRequiredLayout(void) { return 0; }
 //******************************************************
 diaElemMenuDynamic::diaElemMenuDynamic(uint32_t *intValue,const char *itle, uint32_t nb, 
                 diaMenuEntryDynamic **menu,const char *tip)
@@ -296,6 +320,8 @@ void   diaElemMenuDynamic::enable(uint32_t onoff)
 void diaElemMenuDynamic::finalize(void)
 { 
 }
+int diaElemMenuDynamic::getRequiredLayout(void) { return 0; }
+
 //******************************************************
 diaElemFrame::diaElemFrame(const char *toggleTitle, const char *tip)
   : diaElemFrameBase()
@@ -325,6 +351,8 @@ void diaElemFrame::enable(uint32_t onoff)
 void diaElemFrame::finalize(void)
 {
 }
+
+int diaElemFrame::getRequiredLayout(void) { return 0; }
 //**************************
 
   
@@ -333,6 +361,7 @@ void diaElemFrame::finalize(void)
   void diaElemHex::setMe(void *dialog, void *opaque,uint32_t line) {};
   void diaElemHex::getMe(void) {} ;
   void diaElemHex::finalize(void) {};
+  int diaElemHex::getRequiredLayout(void) { return 0; }
 //**************************
 diaElemToggleUint::diaElemToggleUint(uint32_t *toggleValue,const char *toggleTitle, uint32_t *uintval, const char *name,uint32_t min,uint32_t max,const char *tip)
   : diaElem(ELEM_TOGGLE_UINT)
@@ -365,6 +394,9 @@ void   diaElemToggleUint::enable(uint32_t onoff)
 {
    
 }
+
+int diaElemToggleUint::getRequiredLayout(void) { return 0; }
+
 //**************************
 diaElemToggleInt::diaElemToggleInt(uint32_t *toggleValue,const char *toggleTitle, int32_t *uintval, const char *name,int32_t min,int32_t max,const char *tip)
   :diaElem(ELEM_TOGGLE_INT)
@@ -384,6 +416,9 @@ void diaElemToggleInt::getMe(void)
 {
   
 }
+
+int diaElemToggleInt::getRequiredLayout(void) { return 0; }
+
 void   diaElemToggleInt::finalize(void)
 {
 }
@@ -413,6 +448,9 @@ void   diaElemButton::enable(uint32_t onoff)
 {
 
 }
+
+int diaElemButton::getRequiredLayout(void) { return 0; }
+
 //***
 #if 0
  template <typename T>
@@ -441,6 +479,9 @@ void   diaElemButton::enable(uint32_t onoff)
   {
   }
   
+template <typename T>
+int diaElemGenericSlider<T>::getRequiredLayout(void) { return 0; }
+
  template class diaElemGenericSlider <int32_t>;
  template class diaElemGenericSlider <uint32_t>;
  template class diaElemGenericSlider <ELEM_TYPE_FLOAT>;
@@ -468,6 +509,7 @@ void   diaElemButton::enable(uint32_t onoff)
  {
  }
 
+int diaElemMatrix::getRequiredLayout(void) { return 0; }
 
 
 //***
@@ -475,5 +517,6 @@ diaElemThreadCount::diaElemThreadCount(uint32_t *value, const char *title, const
 diaElemThreadCount::~diaElemThreadCount() {}
 void diaElemThreadCount::setMe(void *dialog, void *opaque, uint32_t line) {}
 void diaElemThreadCount::getMe(void) {}
+int diaElemThreadCount::getRequiredLayout(void) { return 0; }
 
 //EOF

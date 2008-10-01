@@ -19,6 +19,7 @@
 
 #include "ADM_default.h"
 #include "DIA_factory.h"
+#include "ADM_dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -35,6 +36,7 @@ public:
   virtual ~diaElemNotch() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) {};
+  int getRequiredLayout(void);
 };
 diaElemNotch::diaElemNotch(uint32_t yes,const char *toggleTitle, const char *tip)
   : diaElem(ELEM_NOTCH)
@@ -60,8 +62,8 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
  box->show();
  layout->addWidget(box,line,0);
 }
-//******************************************************
-//****************************************************
+
+int diaElemNotch::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 } // End of namespace
 //****************************Hoook*****************
 
@@ -74,6 +76,4 @@ void qt4DestroyNotch(diaElem *e)
 	ADM_qt4Factory::diaElemNotch *a=(ADM_qt4Factory::diaElemNotch *)e;
 	delete a;
 }
-//EOF
-
 //EOF

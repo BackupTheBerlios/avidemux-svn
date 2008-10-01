@@ -16,6 +16,7 @@ Handle dialog factory element : Thread Count
 #include "T_threadCount.h"
 #include "ADM_default.h"
 #include "DIA_factory.h"
+#include "ADM_dialogFactoryQt4.h"
 
 extern const char* shortkey(const char*);
 
@@ -31,6 +32,7 @@ public:
   virtual ~diaElemThreadCount() ;
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
+  int getRequiredLayout(void);
 };
 
 void ADM_QthreadCount::radioGroupChanged(QAbstractButton *s)
@@ -130,6 +132,9 @@ void diaElemThreadCount::getMe(void)
 	else
 		*val = (threadCount->spinBox)->value();
 }
+
+int diaElemThreadCount::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
 //**********************
 } // End of namesapce
 //**********************

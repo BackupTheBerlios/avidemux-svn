@@ -31,6 +31,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 
 diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, 
@@ -98,6 +99,8 @@ void diaElemFloat::enable(uint32_t onoff)
   GtkWidget *widget=(GtkWidget *)myWidget;
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);
 }
+
+int diaElemFloat::getRequiredLayout(void) { return 0; }
 } // End of namespace
 //****************************Hoook*****************
 

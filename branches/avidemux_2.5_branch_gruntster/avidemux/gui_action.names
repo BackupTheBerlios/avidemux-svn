@@ -1,6 +1,5 @@
 ACT(OpenAvi)
 ACT(AppendAvi)
-ACT(BrokenAvi)
 ACT(AviInfo)
 ACT(CLOSE)
 ACT(Exit)

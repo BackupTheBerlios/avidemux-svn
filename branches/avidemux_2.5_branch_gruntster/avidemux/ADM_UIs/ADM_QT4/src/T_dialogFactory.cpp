@@ -23,6 +23,7 @@
 #include "DIA_coreToolkit.h"
 #include "DIA_coreUI_internal.h"
 #include "ADM_toolkitQt.h"
+#include "ADM_dialogFactoryQt4.h"
 
 static void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab);
 
@@ -46,16 +47,38 @@ uint8_t qt4DiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
   QSpacerItem *spacer = new QSpacerItem(20, 16, QSizePolicy::Minimum, QSizePolicy::Fixed);
   QDialogButtonBox *buttonBox = new QDialogButtonBox();
   QVBoxLayout *vboxLayout = new QVBoxLayout();
-  QGridLayout *layout = new QGridLayout();
+  QLayout *layout = NULL;
+  int currentLayout = 0;
 
  int  v=0;
-  for(int i=0;i<nb;i++)
-  {
-    ADM_assert(elems[i]);
-     elems[i]->setMe( (void *)&dialog,layout,v); 
-     v+=elems[i]->getSize();
-    
-  }
+
+ for(int i=0;i<nb;i++)
+ {
+	 ADM_assert(elems[i]);
+
+	 if (elems[i]->getRequiredLayout() != currentLayout)
+	 {
+		 if (layout)
+			 vboxLayout->addLayout(layout);
+
+		 switch (elems[i]->getRequiredLayout())
+		 {
+			 case FAC_QT_GRIDLAYOUT:
+				 layout = new QGridLayout();
+				 break;
+			 case FAC_QT_VBOXLAYOUT:
+				 layout = new QVBoxLayout();
+				 break;
+		 }
+
+		 currentLayout = elems[i]->getRequiredLayout();
+		 v = 0;
+	 }
+
+	 elems[i]->setMe( (void *)&dialog,layout,v);
+	 v+=elems[i]->getSize();
+ }
+
    for(int i=0;i<nb;i++)
   {
     ADM_assert(elems[i]);
@@ -68,7 +91,9 @@ uint8_t qt4DiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
    QObject::connect(buttonBox, SIGNAL(accepted()), &dialog, SLOT(accept()));
    QObject::connect(buttonBox, SIGNAL(rejected()), &dialog, SLOT(reject()));
 
-   vboxLayout->addLayout(layout);
+   if (layout)
+	   vboxLayout->addLayout(layout);
+
    vboxLayout->addItem(spacer);
    vboxLayout->addWidget(buttonBox);
 
@@ -145,6 +170,11 @@ uint8_t qt4DiaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 
 	 dialog.setLayout(vboxLayout);
 
+	 // Expand to see all tabs but still allow the window to be resized smaller
+	 wtabs->setUsesScrollButtons(false);
+	 dialog.adjustSize();
+	 wtabs->setUsesScrollButtons(true);
+
   if(dialog.exec()==QDialog::Accepted)
   {
       // Read tabs
@@ -172,9 +202,11 @@ uint8_t qt4DiaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab)
 {
 
-  QWidget *wid=new QWidget;
-  QGridLayout *layout=new QGridLayout(wid);
+  QWidget *wid=new QWidget;  
   QSpacerItem *spacerItem = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+  int currentLayout = 0;
+  QVBoxLayout *vboxLayout = new QVBoxLayout(wid);
+  QLayout *layout = NULL;
   
   /* First compute the size of our window */
   int vsize=0;
@@ -184,14 +216,34 @@ void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab)
      vsize+=tab->dias[i]->getSize(); 
   }
 
- int  v=0;
-  for(int i=0;i<tab->nbElems;i++)
-  {
-     ADM_assert(tab->dias[i]);
-     tab->dias[i]->setMe( wid,layout,v); 
-     v+=tab->dias[i]->getSize();
-    
-  }
+	int  v=0;
+
+	for(int i=0;i<tab->nbElems;i++)
+	{
+		ADM_assert(tab->dias[i]);
+
+		if (tab->dias[i]->getRequiredLayout() != currentLayout)
+		{
+			if (layout)
+				vboxLayout->addLayout(layout);
+
+			switch (tab->dias[i]->getRequiredLayout())
+			{
+				case FAC_QT_GRIDLAYOUT:
+					layout = new QGridLayout();
+					break;
+				case FAC_QT_VBOXLAYOUT:
+					layout = new QVBoxLayout();
+					break;
+			}
+
+			currentLayout = tab->dias[i]->getRequiredLayout();
+			v = 0;
+		}
+
+		tab->dias[i]->setMe( wid,layout,v); 
+		v+=tab->dias[i]->getSize();
+	}
   
   wtab->addTab(wid,QString::fromUtf8(tab->title));
   for(int i=0;i<tab->nbElems;i++)
@@ -199,7 +251,10 @@ void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab)
     tab->dias[i]->finalize(); 
   }
 
-  layout->addItem(spacerItem, v, 0);
+  if (layout)
+	  vboxLayout->addLayout(layout);
+
+  vboxLayout->addItem(spacerItem);
 }
 
 /**

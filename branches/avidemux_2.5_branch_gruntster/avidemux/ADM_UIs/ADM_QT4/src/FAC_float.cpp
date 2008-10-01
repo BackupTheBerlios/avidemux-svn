@@ -20,6 +20,7 @@
 
 #include "ADM_default.h"
 #include "DIA_factory.h"
+#include "ADM_dialogFactoryQt4.h"
 
 extern const char *shortkey(const char *);
 
@@ -38,6 +39,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   void      enable(uint32_t onoff) ;
+  int getRequiredLayout(void);
 };
 
 
@@ -61,18 +63,23 @@ void diaElemFloat::setMe(void *dialog, void *opaque,uint32_t line)
 {
   QDoubleSpinBox *box=new QDoubleSpinBox((QWidget *)dialog);
   QGridLayout *layout=(QGridLayout*) opaque;
+  QHBoxLayout *hboxLayout = new QHBoxLayout();
  myWidget=(void *)box; 
    
  box->setMinimum(min);
  box->setMaximum(max);
  box->setValue(*(ELEM_TYPE_FLOAT *)param);
  
- box->show();
- 
  QLabel *text=new QLabel( QString::fromUtf8(this->paramTitle),(QWidget *)dialog);
  text->setBuddy(box);
+
+ QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+ hboxLayout->addWidget(box);
+ hboxLayout->addItem(spacer);
+
  layout->addWidget(text,line,0);
- layout->addWidget(box,line,1);
+ layout->addLayout(hboxLayout,line,1);
  
 }
 void diaElemFloat::getMe(void)
@@ -94,6 +101,8 @@ void diaElemFloat::enable(uint32_t onoff)
   else
     box->setDisabled(1);
 }
+
+int diaElemFloat::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 } // End of namespace
 //****************************Hoook*****************
 
