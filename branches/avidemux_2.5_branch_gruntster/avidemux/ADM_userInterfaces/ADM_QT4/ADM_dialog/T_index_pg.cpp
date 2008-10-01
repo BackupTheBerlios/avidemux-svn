@@ -26,6 +26,7 @@ Indexer progress dialog
 #include "ADM_encoder/adm_encoder.h"
 #include "DIA_idx_pg.h"
 #include "ADM_video/ADM_vidMisc.h"
+#include "ADM_toolkitQt.h"
 
 extern void UI_purge( void );
 
@@ -72,29 +73,10 @@ void Ui_iDialog::retranslateUi(QDialog *Dialog)
 
 static Ui_indexingDialog *dialog=NULL; 
 
-#if 0
-static gint on_destroy_abort(GtkObject * object, gpointer user_data)
-{
-DIA_progressIndexing *pf;
-
-        UNUSED_ARG(object);
-        UNUSED_ARG(user_data);
-
-        pf=(Ui_indexingDialog *)user_data;
-        if(!GUI_Confirmation_HIG(QT_TR_NOOP("Continue indexing"),QT_TR_NOOP("Abort Requested"),QT_TR_NOOP("Do you want to abort indexing ?")))
-        {
-         //       pf->abortRequest();
-                abted=1;
-        }
-
-        return TRUE;
-
-};
-#endif
-
 DIA_progressIndexing::DIA_progressIndexing(const char *name)
 {
-        dialog=new Ui_indexingDialog(name);
+        dialog=new Ui_indexingDialog(qtLastRegisteredDialog(), name);
+		qtRegisterDialog(dialog);
         clock.reset();
         aborted=0;
 	_nextUpdate=0;
@@ -105,6 +87,7 @@ DIA_progressIndexing::DIA_progressIndexing(const char *name)
 DIA_progressIndexing::~DIA_progressIndexing()
 {
         ADM_assert(dialog);
+		qtUnregisterDialog(dialog);
         delete dialog;
         dialog=NULL;
 }
@@ -162,7 +145,7 @@ uint8_t       DIA_progressIndexing::update(uint32_t done,uint32_t total, uint32_
         return 1;
 }
 //****************************** CLASS ***********************
-Ui_indexingDialog::Ui_indexingDialog(const char *name)
+Ui_indexingDialog::Ui_indexingDialog(QWidget *parent, const char *name) : QDialog(parent)
 {
       abted=0;
       ui.setupUi(this);

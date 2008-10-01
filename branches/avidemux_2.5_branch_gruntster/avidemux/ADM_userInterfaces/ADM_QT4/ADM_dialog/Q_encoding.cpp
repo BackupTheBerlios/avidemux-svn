@@ -21,13 +21,14 @@
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
 #include "ADM_video/ADM_vidMisc.h"
 #include "../ADM_gui/ADM_qtray.h"
+#include "ADM_toolkitQt.h"
 
 extern void UI_iconify(void);
 extern void UI_deiconify(void);
 extern void UI_purge(void);
 static int stopReq=0;
 
-encodingWindow::encodingWindow(QDialog *parent, bool useTray) : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint)
+encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint)
  {
 	this->useTray = useTray;
 	ui.setupUi(this);
@@ -145,7 +146,9 @@ DIA_encoding::DIA_encoding( uint32_t fps1000 )
         _audioSize=0;
         _videoSize=0;
         _current=0;
-        window=new encodingWindow(QuiMainWindows, useTray);
+        window=new encodingWindow(qtLastRegisteredDialog(), useTray);
+		qtRegisterDialog(window);
+
         setFps(fps1000);
 		_originalPriority=getpriority(PRIO_PROCESS, 0);
         _lastTime=0;
@@ -192,7 +195,8 @@ DIA_encoding::~DIA_encoding( )
 
 	setpriority(PRIO_PROCESS, 0, _originalPriority);
 
-	if(window) delete window;
+	qtUnregisterDialog(window);
+	delete window;
 	window=NULL;
 	UI_deiconify();
 

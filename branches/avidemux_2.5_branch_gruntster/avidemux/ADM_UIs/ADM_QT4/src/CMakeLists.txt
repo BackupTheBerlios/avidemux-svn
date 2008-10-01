@@ -7,12 +7,12 @@ QT4_WRAP_CPP(${ADM_LIB}_source
 SET(${ADM_LIB}_T
 	T_bitrate.cpp  T_button.cpp  T_dialogFactory.cpp  T_filesel.cpp  T_menu.cpp
 	T_slider.cpp  T_threadCount.cpp  T_toggle.cpp
-        T_flyDialogQt4.cpp T_QCanvas.cpp
+    T_flyDialogQt4.cpp T_QCanvas.cpp
 )
 
 SET(${ADM_LIB}_SRCS
 	FAC_bar.cpp    FAC_frame.cpp  FAC_integer.cpp  FAC_notch.cpp
-	FAC_float.cpp  FAC_hex.cpp    FAC_readOnlyText.cpp
+	FAC_float.cpp  FAC_hex.cpp    FAC_readOnlyText.cpp  toolkit.cpp
 	FAC_matrix.cpp  DIA_none.cpp  ${${ADM_LIB}_source}  ${${ADM_LIB}_T})
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${QT_INCLUDE_DIR})

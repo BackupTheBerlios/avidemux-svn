@@ -2,6 +2,7 @@
     <qresource prefix="/new/prefix1" >
         <file>pics/add_sub_task.png</file>
         <file>pics/arts.png</file>
+        <file>pics/avidemux_icon.png</file>
         <file>pics/avidemux_icon_small.png</file>
         <file>pics/back.png</file>
         <file>pics/calc.png</file>

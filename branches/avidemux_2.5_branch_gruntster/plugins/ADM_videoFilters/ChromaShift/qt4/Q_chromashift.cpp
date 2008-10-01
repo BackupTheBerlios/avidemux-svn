@@ -22,7 +22,9 @@
 
 #include "Q_chromashift.h"
 #include <math.h>
-Ui_chromaShiftWindow::Ui_chromaShiftWindow(CHROMASHIFT_PARAM *param,AVDMGenericVideoStream *in)
+#include "ADM_toolkitQt.h"
+
+Ui_chromaShiftWindow::Ui_chromaShiftWindow(QWidget* parent, CHROMASHIFT_PARAM *param,AVDMGenericVideoStream *in) : QDialog(parent)
   {
     uint32_t width,height;
         ui.setupUi(this);
@@ -104,12 +106,17 @@ uint8_t DIA_getChromaShift( AVDMGenericVideoStream *in,CHROMASHIFT_PARAM    *par
 {
         uint8_t ret=0;
         
-        Ui_chromaShiftWindow dialog(param,in);        
+        Ui_chromaShiftWindow dialog(qtLastRegisteredDialog(), param,in);
+		qtRegisterDialog(&dialog);
+
         if(dialog.exec()==QDialog::Accepted)
         {
             dialog.gather(param); 
             ret=1;
         }
+
+		qtUnregisterDialog(&dialog);
+
         return ret;
 }
 

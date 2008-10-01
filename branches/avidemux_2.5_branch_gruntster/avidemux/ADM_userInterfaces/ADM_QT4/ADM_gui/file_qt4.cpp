@@ -15,11 +15,10 @@
 #include <QtGui/qfiledialog.h>
 
 #include "ADM_default.h"
-
-
 #include "DIA_fileSel.h"
 #include "DIA_coreToolkit.h"
 #include "DIA_coreUI_internal.h"
+#include "ADM_toolkitQt.h"
 
 #include "prefs.h"
 
@@ -64,9 +63,9 @@ namespace ADM_QT4_fileSel
 #endif
 
 		if (access)
-			fileName = QFileDialog::getSaveFileName(NULL, label, str, NULL, NULL, options);
+			fileName = QFileDialog::getSaveFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
 		else
-			fileName = QFileDialog::getOpenFileName(NULL, label, str, NULL, NULL, options);
+			fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
 
 		if (!fileName.isNull() )
 		{
@@ -133,7 +132,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName=QFileDialog::getSaveFileName(NULL, title, source, NULL, NULL, options);
+		fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
 
 		if (!fileName.isNull())
 		{
@@ -164,7 +163,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName = QFileDialog::getOpenFileName(NULL, title, source, NULL, NULL, options);
+		fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
 
 		if (!fileName.isNull())
 		{
@@ -195,7 +194,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName = QFileDialog::getExistingDirectory(NULL, title, source, options);
+		fileName = QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), title, source, options);
 
 		if (!fileName.isNull())
 		{

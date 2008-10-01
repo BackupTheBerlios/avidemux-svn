@@ -8,7 +8,7 @@ class workWindow : public QDialog
 	Q_OBJECT
 
 public:
-	workWindow();
+	workWindow(QWidget *parent);
 	Ui_workingDialog ui;
 };
 #endif	// Q_working_h

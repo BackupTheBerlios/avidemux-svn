@@ -35,7 +35,7 @@ protected:
 	void updateRows(void);
 
 public:
-	jobsWindow(uint32_t n, char **j);
+	jobsWindow(QWidget *parent, uint32_t n, char **j);
 	~jobsWindow();
 	Ui_jobsDialog ui;
 

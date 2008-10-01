@@ -5,6 +5,7 @@
 
 #include "Q_jobs.h"
 #include "DIA_coreToolkit.h"
+#include "ADM_toolkitQt.h"
 
 static void updateStatus(void);
 extern bool parseECMAScript(const char *name);
@@ -20,7 +21,7 @@ ADM_Job_Descriptor::ADM_Job_Descriptor(void)
  /**
           \fn jobsWindow
  */
-jobsWindow::jobsWindow(uint32_t n,char **j)     : QDialog()
+jobsWindow::jobsWindow(QWidget *parent, uint32_t n,char **j)     : QDialog(parent)
  {
      ui.setupUi(this);
      _nbJobs=n;
@@ -187,12 +188,17 @@ void jobsWindow::RunAll(bool b)
 uint8_t  DIA_job(uint32_t nb, char **name)
 {
   uint8_t r=0;
-  jobsWindow jobswindow(nb,name) ;
+  jobsWindow jobswindow(qtLastRegisteredDialog(), nb,name);
+
+  qtRegisterDialog(&jobswindow);
      
      if(jobswindow.exec()==QDialog::Accepted)
      {
        r=1;
      }
+
+	 qtUnregisterDialog(&jobswindow);
+
      return r;
 }
 

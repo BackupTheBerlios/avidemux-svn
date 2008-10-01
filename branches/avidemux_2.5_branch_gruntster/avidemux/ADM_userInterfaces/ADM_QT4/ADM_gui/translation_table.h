@@ -14,6 +14,7 @@ PROCESS(actionProperties,ACT_AviInfo) \
 PROCESS(actionSave_video,ACT_SaveAvi) \
 PROCESS(actionSave_BMP,ACT_SaveImg) \
 PROCESS(actionSave_jpeg,ACT_SaveJPG) \
+PROCESS(actionSave_Selection, ACT_SaveBunchJPG) \
 PROCESS(actionLoad_run_project,ACT_RunScript) \
 PROCESS(actionSave_project,ACT_SaveCurrentWork) \
 PROCESS(actionSave_project_as,ACT_SaveWork) \

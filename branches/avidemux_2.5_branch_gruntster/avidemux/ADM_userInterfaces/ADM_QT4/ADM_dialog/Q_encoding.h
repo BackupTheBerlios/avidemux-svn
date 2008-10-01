@@ -14,7 +14,7 @@ class encodingWindow : public QDialog
 	void changeEvent(QEvent *event);
 
  public:
-     encodingWindow(QDialog *parent, bool useTray);
+     encodingWindow(QWidget *parent, bool useTray);
      Ui_encodingDialog ui;
 
  public slots:

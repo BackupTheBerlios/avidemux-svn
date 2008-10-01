@@ -17,6 +17,7 @@
  ***************************************************************************/
 
 #include "Q_ocr.h"
+#include "ADM_toolkitQt.h"
 
 extern void UI_purge(void);
 
@@ -46,7 +47,7 @@ void Ui_ocrWindow::resizeSmall(uint32_t w,uint32_t h,uint8_t *smallData)
 	smallCanvas->resize(w*2, h*2); 
 }
 
-Ui_ocrWindow::Ui_ocrWindow(void)
+Ui_ocrWindow::Ui_ocrWindow(QWidget *parent) : QDialog(parent)
 {
 	ui.setupUi(this);
 	ui.textEdit->setReadOnly(TRUE);
@@ -261,6 +262,7 @@ uint8_t ADM_ocrUiEnd(void *d)
 	   Ui_ocrWindow *dialog=( Ui_ocrWindow *)d;
 	   ADM_assert(dialog==gDialog);
 		
+	   qtUnregisterDialog(dialog);
 		
 	   gDialog=NULL;
 	   delete dialog;
@@ -274,7 +276,8 @@ uint8_t ADM_ocrUiEnd(void *d)
 void 	*ADM_ocrUiSetup(void)
 {
 	
-	   Ui_ocrWindow *dialog=new Ui_ocrWindow;
+	   Ui_ocrWindow *dialog=new Ui_ocrWindow(qtLastRegisteredDialog());
+	   qtRegisterDialog(dialog);
 	   dialog->setModal(TRUE);
 	   dialog->show();
 	   gDialog=dialog;

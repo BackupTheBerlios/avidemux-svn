@@ -28,7 +28,7 @@ protected:
 	resParam *_param;
 
 public:
-	resizeWindow(resParam *param);
+	resizeWindow(QWidget *parent, resParam *param);
 	Ui_resizeDialog ui;
 
 public slots:

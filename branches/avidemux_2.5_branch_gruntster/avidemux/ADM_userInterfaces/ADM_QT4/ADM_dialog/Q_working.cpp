@@ -17,10 +17,11 @@
 #include "ADM_default.h"
 #include "ADM_video/ADM_vidMisc.h"
 #include "DIA_working.h"
+#include "ADM_toolkitQt.h"
 
 extern void UI_purge(void);
 
-workWindow::workWindow()     : QDialog()
+workWindow::workWindow(QWidget *parent) : QDialog(parent)
  {
      ui.setupUi(this);
  }
@@ -29,14 +30,16 @@ workWindow::workWindow()     : QDialog()
 DIA_working::DIA_working( void )
 {
   workWindow *wind;
-  wind=new workWindow();
+  wind=new workWindow(qtLastRegisteredDialog());
+  qtRegisterDialog(wind);
   _priv=(void *)wind;
   postCtor();
 }
 DIA_working::DIA_working( const char *title )
 {
   workWindow *wind;
-  wind=new workWindow();
+  wind=new workWindow(qtLastRegisteredDialog());
+  qtRegisterDialog(wind);
   _priv=(void *)wind;
   wind->setWindowTitle(title);
   postCtor();
@@ -119,7 +122,8 @@ DIA_working::~DIA_working()
 void DIA_working::closeDialog( void )
 {
   workWindow *wind=(workWindow *)_priv; ADM_assert(wind);
-    if(wind) delete wind;
+  qtUnregisterDialog(wind);
+    delete wind;
     wind=NULL;
 }
 

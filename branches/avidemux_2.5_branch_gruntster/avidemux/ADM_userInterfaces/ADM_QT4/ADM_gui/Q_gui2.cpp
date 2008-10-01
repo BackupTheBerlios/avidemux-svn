@@ -20,7 +20,8 @@
 
 #include "Q_gui2.h"
 #include "ADM_default.h"
-
+#include "ADM_toolkitQt.h"
+#include "ADM_qslider.h"
 #include "ADM_codecs/ADM_codec.h"
 #include "gui_action.hxx"
 #include "ADM_editor/ADM_outputfmt.h"
@@ -199,6 +200,7 @@ void MainWindow::currentTimeChanged(void)
 
 MainWindow::MainWindow() : QMainWindow()
 {
+	qtRegisterDialog(this);
 	ui.setupUi(this);
 
 	this->setStatusBar(0);
