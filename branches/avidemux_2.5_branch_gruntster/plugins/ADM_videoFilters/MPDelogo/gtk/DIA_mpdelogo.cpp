@@ -1,10 +1,8 @@
 /***************************************************************************
-                          DIA_crop.cpp  -  description
-                             -------------------
+                              DIA_mpdelogo.cpp
+                              ----------------
 
-			    GUI for cropping including autocrop
-			    +Revisted the Gtk2 way
-			     +Autocrop now in RGB space (more accurate)
+                        GUI for MPlayer Delogo filter
 
     begin                : Fri May 3 2002
     copyright            : (C) 2002 by mean
@@ -23,320 +21,152 @@
 #include <math.h>
 
 #include "ADM_toolkitGtk.h"
-
-
 #include "ADM_image.h"
 #include "ADM_videoFilter.h"
 #include "ADM_colorspace.h"
 #include "ADM_vidMPdelogo.h"
+#include "DIA_flyDialog.h"
+#include "DIA_flyMpDelogo.h"
 
-extern "C" {
-#include "ADM_libraries/ADM_ffmpeg/ADM_lavcodec/avcodec.h"
-}
+static GtkWidget *create_dialog1(void);
+static void gui_draw(void);
+static void ui_changed(void);
+static void frame_changed(void);
 
-static GtkWidget	*create_dialog1 (void);
-static void  		ui_read ( void);
-static void  		ui_update ( void);
-static void 		draw (GtkWidget *dialog,uint32_t w,uint32_t h );
-static gboolean 	gui_draw( void );
-static void 		autocrop (void );
-static void 		reset( void );
-static void 		ui_upload(void);
-static gboolean		ui_changed(void);
+static GtkWidget *dialog = NULL;
+static uint32_t band;
+static int lock = 0;
+static flyMpDelogo *myDelogo = NULL;
 
-
-static void		prepare(uint32_t img);
-static void 		frame_changed( void );
-
-extern void GUI_RGBDisplay(uint8_t * dis, uint32_t w, uint32_t h, void *widg);
-
-static ColYuvRgb    *rgbConv=NULL;
-static uint8_t *working=NULL;
-static uint8_t *rgbBufferDisplay=NULL;
-static uint8_t *original=NULL;
-static GtkWidget *dialog=NULL;
-static uint32_t x,y,w,h,zoomW,zoomH,band;
-
-static AVDMGenericVideoStream *incoming=NULL;
-static ADMImage *imgsrc=NULL;
-static ADMImageResizer *resizer=NULL;
-
-static int lock=0,width,height;
-
-
-//
-//	Video is in YV12 Colorspace
-//
-//
-uint8_t DIA_getMPdelogo(MPDELOGO_PARAM *param,AVDMGenericVideoStream *in)
-
+uint8_t DIA_getMPdelogo(MPDELOGO_PARAM *param, AVDMGenericVideoStream *in)
 {
-	// Allocate space for green-ised video
-	width=in->getInfo()->width;
-	height=in->getInfo()->height;
-		
-	working=new uint8_t [width*height*4];	
-	original=NULL;
-
-	uint8_t ret=0;
-
-	dialog=create_dialog1();
-
-	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
-										GTK_RESPONSE_OK,
-										GTK_RESPONSE_CANCEL,
-										-1);
-
-	gtk_register_dialog(dialog);
-	
-	x=param->xoff;
-	y=param->yoff;
-	w=param->lw;
-	h=param->lh;
-	band=param->band;
-
-	imgsrc=new ADMImage(width,height);
-	incoming=in;
-	
-	rgbConv=new ColYuvRgb(width,height);
-        rgbConv->reset(width,height);
-
-	float zoom = UI_calcZoomToFitScreen(GTK_WINDOW(dialog), WID(drawingarea1), width, height);
-
-	zoomW = width * zoom;
-	zoomH = height * zoom;
-	rgbBufferDisplay=new uint8_t[zoomW*zoomH*4];
-
-	gtk_widget_set_usize(WID(drawingarea1), zoomW, zoomH);
-
-	if (zoom < 1)
-	{
-		UI_centreCanvasWindow((GtkWindow*)dialog, WID(drawingarea1), zoomW, zoomH);
-		resizer = new ADMImageResizer(width, height, zoomW, zoomH, PIX_FMT_RGB32, PIX_FMT_RGB32);
-	}
-
-	prepare(0);
-	gtk_widget_show(dialog);
-	
-	ui_upload();
-	ui_update();
-	
-#define CONNECT(x,y,z) 	gtk_signal_connect(GTK_OBJECT(WID(x)), #y,GTK_SIGNAL_FUNC(z),   NULL);
-
-        CONNECT(drawingarea1,expose_event,gui_draw);
-        CONNECT(hscale1,value_changed,frame_changed);	  
-		      
-#define CONNECT_SPIN(x) CONNECT(spinbutton##x, value_changed,ui_changed)
-      	  
-        CONNECT_SPIN(X);
-        CONNECT_SPIN(Y);
-        CONNECT_SPIN(W);
-        CONNECT_SPIN(H);
-        CONNECT_SPIN(Band);
-	  
-	draw(dialog,width,height);
-
-	ret=0;
+	uint8_t ret = 0;
 	int response;
-	while( (response=gtk_dialog_run(GTK_DIALOG(dialog)))==GTK_RESPONSE_APPLY)
-	{
+
+	dialog = create_dialog1();
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+	gtk_register_dialog(dialog);
+
+	band = param->band;
+
+	gtk_widget_show(dialog);
+
+#define CONNECT(x, y, z) gtk_signal_connect(GTK_OBJECT(WID(x)), #y, GTK_SIGNAL_FUNC(z), NULL);
+
+	CONNECT(drawingarea1, expose_event, gui_draw);
+	CONNECT(hscale1, value_changed, frame_changed);	  
+
+#define CONNECT_SPIN(x) CONNECT(spinbutton##x, value_changed, ui_changed)
+
+	CONNECT_SPIN(X);
+	CONNECT_SPIN(Y);
+	CONNECT_SPIN(W);
+	CONNECT_SPIN(H);
+	CONNECT_SPIN(Band);
+
+	myDelogo = new flyMpDelogo(in->getInfo()->width, in->getInfo()->height, in, WID(drawingarea1), WID(hscale1));
+	myDelogo->x = param->xoff;
+	myDelogo->y = param->yoff;
+	myDelogo->width = param->lw;
+	myDelogo->height = param->lh;
+	myDelogo->upload();	
+	myDelogo->sliderChanged();
+
+	while ((response = gtk_dialog_run(GTK_DIALOG(dialog))) == GTK_RESPONSE_APPLY)
 		ui_changed();
-		
-	}
-	if(response==GTK_RESPONSE_OK)
-        {
-		ui_read( );
-		param->xoff=x;
-                param->yoff=y;
-                param->lw=w;
-                param->lh=h;
-                param->band=band;
-		ret=1;
-	}
-        gtk_unregister_dialog(dialog);
-	gtk_widget_destroy(dialog);
-	delete working;	
-	delete imgsrc;
-	delete rgbConv;
 
-	if (resizer)
+	if (response == GTK_RESPONSE_OK)
 	{
-		delete resizer;
-		delete[] rgbBufferDisplay;
-
-		resizer=NULL;
-		rgbBufferDisplay=NULL;
+		myDelogo->download();
+		param->xoff = myDelogo->x;
+		param->yoff = myDelogo->y;
+		param->lw = myDelogo->width;
+		param->lh = myDelogo->height;
+		param->band = band;
+		ret = 1;
 	}
 
-	working=NULL;
-	dialog=NULL;
-	original=NULL;
-	imgsrc=NULL;
+	gtk_unregister_dialog(dialog);
+	gtk_widget_destroy(dialog);
+
 	return ret;
 }
-void frame_changed( void )
+
+void frame_changed(void)
 {
-uint32_t new_frame,max,l,f;
-double   percent;
-GtkWidget *wid;	
-GtkAdjustment *adj;
-
-        max=incoming->getInfo()->nb_frames;
-        wid=WID(hscale1);
-        adj=gtk_range_get_adjustment (GTK_RANGE(wid));
-        new_frame=0;
-        
-        percent=(double)GTK_ADJUSTMENT(adj)->value;
-        percent*=max;
-        percent/=100.;
-        new_frame=(uint32_t)floor(percent);
-        
-        if(new_frame>=max) new_frame=max-1;
-        
-        prepare(new_frame);
-        ui_update();
-        gui_draw();
-
-
+	myDelogo->sliderChanged();
 }
-void prepare(uint32_t img)
-{
-	uint32_t l,f;
-	
-	ADM_assert(incoming->getFrameNumberNoAlloc(img,&l,imgsrc,&f));
-	original=imgsrc->data;
-	
 
-}
-gboolean ui_changed(void)
+void ui_changed(void)
 {
-	if(!lock)
+	if (!lock)
 	{
-		ui_read();
-		memcpy(working,original,(width*height*3)>>1);
-		ui_update();
-		draw(dialog,width,height);
+		myDelogo->download();
+		myDelogo->process();
+		myDelogo->display();
 	}
-		return true;
 }
 
-
-/*---------------------------------------------------------------------------
-	Actually draw the working frame on screen
-*/
-gboolean gui_draw( void )
+void gui_draw(void)
 {
-	draw(dialog,width,height);
-	return true;
+	myDelogo->display();
 }
-void draw (GtkWidget *dialog,uint32_t w,uint32_t h )
-{
-	GtkWidget *draw=WID(drawingarea1);
 
-	if (resizer)
+uint8_t flyMpDelogo::download(void)
+{
+#define SPIN_GET(x, y) { x = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton##y))); }
+
+	int reject = 0;
+
+	SPIN_GET(x, X);
+	SPIN_GET(y, Y);
+	SPIN_GET(height, H);
+	SPIN_GET(width, W);
+	SPIN_GET(band, Band);
+
+	x &= 0xffffe;
+	y &= 0xffffe;
+	height &= 0xffffe;
+	width &= 0xffffe;
+
+	if ((x + width) > _w)
 	{
-		resizer->resize(working, rgbBufferDisplay);
-		GUI_RGBDisplay(rgbBufferDisplay, zoomW, zoomH, (void*)draw);
+		if(width >= _w)
+			width = _w;
+
+		x = _w - width;
+		reject = 1;
 	}
-	else
-		GUI_RGBDisplay(working, w, h, (void*)draw);
-}
-/*---------------------------------------------------------------------------
-	Read entried from dialog box
-*/
 
-#define SPIN_GET(x,y) {x= gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton##y))) ;}
-#define SPIN_SET(x,y)  {gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton##y)),(gfloat)x) ;}
+	if ((y + height) > _h)
+	{
+		if(height >= _h)
+			height = _h;
 
+		y = _h - height;
+		reject = 1;
+	}
 
-void ui_read (void )
-{
-	int reject=0;
-	
-			SPIN_GET(x,X);
-			SPIN_GET(y,Y);
-			SPIN_GET(h,H);
-			SPIN_GET(w,W);
-                        SPIN_GET(band,Band);
-			
-			//printf("%d %d %d %d\n",x,y,w,h);
-			
-			x&=0xffffe;
-			y&=0xffffe;
-			h&=0xffffe;
-			w&=0xffffe;
-			
-			if((x+w)>width)
-				{
-                                        if(w>=width) w=width;
-                                        x=width-w;
-                                        reject=1;
-				}
-			if((y+h)>height)
-				{
-                                        if(h>=height) h=height;
-                                        y=height-h;
-                                        reject=1;
-				}
-			if(reject)
-				ui_upload();
+	if (reject)
+		upload();
 }
 
-void ui_upload(void)
+uint8_t flyMpDelogo::upload(void)
 {
+#define SPIN_SET(x, y) { gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton##y)), (gfloat)x); }
+
 	lock++;
-	SPIN_SET(x,X);
-	SPIN_SET(y,Y);
-	SPIN_SET(w,W);
-	SPIN_SET(h,H);
-        SPIN_SET(band,Band);
+	SPIN_SET(x, X);
+	SPIN_SET(y, Y);
+	SPIN_SET(width, W);
+	SPIN_SET(height, H);
+	SPIN_SET(band, Band);
 	lock--;
-}
-//____________________________________
-void reset( void )
-{
-	
-	x=y=w=h=0;
-	ui_upload();
-	ui_update();
-	gui_draw();
-	
 
-}
-/*---------------------------------------------------------------------------
-	Green-ify the displayed frame on cropped parts
-*/
-void ui_update( )
-{
-
-        uint8_t  *in,*in2;
-        uint8_t *buffer=working;
-
-        rgbConv->scale(original,buffer);
-        // Buffer is in RGB space
-        in=buffer+x*4+y*width*4;
-        in2=buffer+(x+w)*4+y*width*4;
-        
-        for(int yy=0;yy<h;yy++)
-        {
-          in[0]=in[2]=0;in[1]=0xff;
-          in2[0]=in2[2]=0;in2[1]=0xff;
-          in+=width*4;
-          in2+=width*4;
-        }
-        in=buffer+(y*width+x)*4;
-        in2=buffer+((y+h)*width+x)*4;
-        for(int yy=0;yy<w;yy++)
-        {
-          in[0]=in[2]=0;in[1]=0xff;
-          in2[0]=in2[2]=0;in2[1]=0xff;
-          in+=4;
-          in2+=4;
-        }
-
+	return 1;
 }
 
-//--------------------------------------------
 GtkWidget*
 create_dialog1 (void)
 {
@@ -524,5 +354,3 @@ create_dialog1 (void)
 
   return dialog1;
 }
-
-

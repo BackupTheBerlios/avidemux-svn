@@ -23,6 +23,7 @@
 class FlyDialogEventFilter : public QObject
 {
 	ADM_flyDialog *flyDialog;
+	bool recomputed;
 
 public:
 	FlyDialogEventFilter(ADM_flyDialog *flyDialog);

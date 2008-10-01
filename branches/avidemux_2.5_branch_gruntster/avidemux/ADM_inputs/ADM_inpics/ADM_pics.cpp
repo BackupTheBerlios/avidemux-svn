@@ -274,16 +274,17 @@ char realstring[250];
 	//_______________________
     case PIC_JPEG:
 	{
-	    uint16_t tag = 0, count = 0, off;
+	    uint16_t tag = 0, off;
 
 	    _offset = 0;
 	    fseek(fd, 0, SEEK_SET);
 	    read16(fd);	// skip jpeg ffd8
-	    while (count < 10 && tag != 0xFFC0) {
+	    while (!feof(fd) && tag != 0xFFC0) {
 
 		tag = read16(fd);
 		if ((tag >> 8) != 0xff) {
 		    printf("invalid jpeg tag found (%x)\n", tag);
+			continue;
 		}
 		if (tag == 0xFFC0) {
 		    read16(fd);	// size
@@ -292,6 +293,7 @@ char realstring[250];
 		    w = read16(fd);
                     if(w&1) w++;
                     if(h&1) h++;
+					break;
 		} else {
 
 		    off = read16(fd);
@@ -304,10 +306,9 @@ char realstring[250];
 			    off);
 		    fseek(fd, off - 2, SEEK_CUR);
 		}
-		count++;
 	    }
 	    if (tag != 0xffc0) {
-		printf("Cannot fint start of frame\n");
+		printf("Cannot find start of frame\n");
 		fclose(fd);
 		return 0;
 	    }

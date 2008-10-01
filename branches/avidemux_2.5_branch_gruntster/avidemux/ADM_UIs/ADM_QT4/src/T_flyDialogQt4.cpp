@@ -29,13 +29,15 @@ extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w, uint32_t *h);
 
 FlyDialogEventFilter::FlyDialogEventFilter(ADM_flyDialog *flyDialog)
 {
+	recomputed = false;
 	this->flyDialog = flyDialog;
 }
 
 bool FlyDialogEventFilter::eventFilter(QObject *obj, QEvent *event)
 {
-	if (event->type() == QEvent::Show)
+	if (event->type() == QEvent::Show && !recomputed)
 	{
+		recomputed = true;
 		QWidget* parent = (QWidget*)obj;
 		uint32_t screenWidth, screenHeight;
 
@@ -44,6 +46,8 @@ bool FlyDialogEventFilter::eventFilter(QObject *obj, QEvent *event)
 		QCoreApplication::processEvents();
 		parent->move((((int)screenWidth) - parent->frameSize().width()) / 2, (((int)screenHeight) - parent->frameSize().height()) / 2);
 	}
+
+	return QObject::eventFilter(obj, event);
 }
 
   ADM_flyDialogQt4::ADM_flyDialogQt4(uint32_t width, uint32_t height, AVDMGenericVideoStream *in,

@@ -104,18 +104,19 @@ ADMImage *createImageFromFile_jpeg(const char *filename)
 
 		//Retrieve width & height
 		//_______________________
-		    uint16_t tag = 0, count = 0, off;
+		    uint16_t tag = 0, off;
 
 		    
 		    fseek(fd, 0, SEEK_SET);
 		    read16(fd);	// skip jpeg ffd8
-		    while (count < 10 && tag != 0xFFC0) 
+		    while (!feof(fd) && tag != 0xFFC0) 
 		    {
 
 		    	tag = read16(fd);
 		    	if ((tag >> 8) != 0xff) 
 		    	{
 		    		printf("[imageLoader]invalid jpeg tag found (%x)\n", tag);
+					continue;
 		    	}
 		    	if (tag == 0xFFC0) 
 		    	{
@@ -125,6 +126,7 @@ ADMImage *createImageFromFile_jpeg(const char *filename)
 		    		w = read16(fd);
 	                if(w&1) w++;
 	                if(h&1) h++;
+					break;
 		    	} 
 		    	else 
 		    	{
@@ -137,11 +139,10 @@ ADMImage *createImageFromFile_jpeg(const char *filename)
 		    		}
 		    		fseek(fd, off - 2, SEEK_CUR);
 		    	}
-			count++;
 		    }
 		    if (tag != 0xffc0) 
 		    {
-		    	printf("[imageLoader]Cannot fint start of frame\n");
+		    	printf("[imageLoader]Cannot find start of frame\n");
 				fclose(fd);
 				return NULL;
 		    }
