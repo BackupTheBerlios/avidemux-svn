@@ -112,7 +112,10 @@ uint8_t X264Encoder::preamble (uint32_t fps1000, ADM_x264Param * zparam)
   MKPARAM(i_bframe,MaxBFrame);
   MKPARAM(i_bframe_bias,Bias);
   MKPARAM( b_bframe_pyramid,BasReference );
+
+#if X264_BUILD < 65
   MKPARAM(analyse. b_bidir_me,BidirME );
+#endif
 
 #if X264_BUILD >= 63
   MKPARAM( i_bframe_adaptive, Adaptative);
@@ -126,12 +129,16 @@ uint8_t X264Encoder::preamble (uint32_t fps1000, ADM_x264Param * zparam)
 #define MIN_RDO 6
   if(zparam->PartitionDecision+1>=MIN_RDO)
   {
+#if X264_BUILD >= 65
+	  param.analyse.i_subpel_refine = zparam->PartitionDecision + 1;
+#else
       int rank,parity;
       rank=((zparam->PartitionDecision+1-MIN_RDO)>>1)+MIN_RDO;
       parity=(zparam->PartitionDecision+1-MIN_RDO)&1;
       
       param.analyse.i_subpel_refine=rank;
       param.analyse.b_bframe_rdo=parity;
+#endif
   }
   MKPARAM(analyse.b_chroma_me,ChromaME);
   MKPARAM(b_deblocking_filter,DeblockingFilter);

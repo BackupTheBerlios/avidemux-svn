@@ -58,18 +58,29 @@ float AqStrength;
            
         /* Tab 2 Motion */
 
-
+#if X264_BUILD >= 65
+         diaMenuEntry partitionM[] = {
+                 {0,    QT_TR_NOOP("1 - QPel SAD (Fastest)")}
+                ,{1,    QT_TR_NOOP("2 - QPel SATD")}
+                ,{2,    QT_TR_NOOP("3 - HPel on MB then QPel")}
+                ,{3,    QT_TR_NOOP("4 - Always QPel")}
+                ,{4,    QT_TR_NOOP("5 - QPel + Bidirectional ME")}
+                ,{5,    QT_TR_NOOP("6 - RD on I/P frames (Default)")}
+                ,{6,    QT_TR_NOOP("7 - RD on all frames")}
+                ,{7,    QT_TR_NOOP("8 - RD refinement on I/P frames")}
+				,{8,    QT_TR_NOOP("9 - RD refinement on all frames")}};
+#else
          diaMenuEntry partitionM[] = {
                   {0,   QT_TR_NOOP("1  - Extremely Low (Fastest)")}
                 ,{1,    QT_TR_NOOP("2  - Very Low")}
                 ,{2,    QT_TR_NOOP("3  - Low")}
                 ,{3,    QT_TR_NOOP("4  - Medium")}
-                ,{4,    QT_TR_NOOP("5  - High (Default)")}
-                ,{5,    QT_TR_NOOP("6  - Very High")}
+                ,{4,    QT_TR_NOOP("5  - High")}
+                ,{5,    QT_TR_NOOP("6  - High (Default)")}
                 ,{6,    QT_TR_NOOP("6B - Very High (RDO on B-frames)")}
                 ,{7,    QT_TR_NOOP("7  - Ultra High")}
                 ,{8,    QT_TR_NOOP("7B - Ultra High (RDO on B-frames)")}};
-
+#endif
                             
         diaElemMenu parition(PX(PartitionDecision),QT_TR_NOOP("Partition Decision"),9,partitionM);
         
@@ -181,7 +192,9 @@ float AqStrength;
            diaElemUInteger  bframe(PX(MaxBFrame),QT_TR_NOOP("Max. Consecutive"),0, 16);
 		   diaElemInteger  bias(PX(Bias),QT_TR_NOOP("Bias"), -100, 100);
 		   diaElemToggle    reference(PX(BasReference),QT_TR_NOOP("Use as Reference"));
+#if X264_BUILD < 65
 		   diaElemToggle    bidirMe(PX(BidirME),QT_TR_NOOP("Bidirectional ME"));
+#endif
 		   diaElemToggle    weighted(PX(Weighted),QT_TR_NOOP("Weighted Biprediction"));
 
          diaMenuEntry bframeAdapt[] = {
@@ -210,7 +223,9 @@ float AqStrength;
            frameB.swallow(&bframe);
 		   frameB.swallow(&bias);
 		   frameB.swallow(&reference);
+#if X264_BUILD < 65
 		   frameB.swallow(&bidirMe);
+#endif
 		   frameB.swallow(&weighted);
 		   frameB.swallow(&adaptativeDct);
 		   frameB.swallow(&directMode);

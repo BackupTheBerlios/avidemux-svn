@@ -742,7 +742,7 @@ NULL,//     char      *logfile;
 1,//     uint32_t Weighted;
 1,//     uint32_t DirectMode;
 //     //
-4,//     uint32_t PartitionDecision;
+5,//     uint32_t PartitionDecision;
 16, //Range
 1,//     uint32_t Method;
 1,//     uint32_t AR_Num;
