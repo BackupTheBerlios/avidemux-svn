@@ -16,7 +16,8 @@ AQ_license.cpp \
 DIA_srt.cpp \
 AQ_calculator.cpp \
 AQ_resizing.cpp \
-AQ_mpdelogo.cpp
+AQ_mpdelogo.cpp \
+AQ_coloryuv.cpp
 
 INCLUDES = $(all_includes)  $(XML_CFLAGS)  $(FREETYPE_CFLAGS) -DADM_SUBVERSION=@ADM_SUBVERSION@ \
 		-I../../../ADM_libraries/ADM_utilities \

@@ -8,6 +8,7 @@ about
 asharp
 calculator
 chromashift
+coloryuv
 contrast
 eq2
 crop
