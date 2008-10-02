@@ -771,21 +771,21 @@ FunctionEnd
 Function RunAvidemux
     SetOutPath $INSTDIR
 
-#GTK:
-    SectionGetFlags ${SecUiGtk} $0
-    IntOp $0 $0 & ${SF_SELECTED}
-    
-    StrCmp $0 ${SF_SELECTED} 0 Qt4
-        Exec "$INSTDIR\avidemux2_gtk.exe"
-
-    Goto end
-    
-Qt4:
+#Qt4:
     SectionGetFlags ${SecUiQt4} $0
     IntOp $0 $0 & ${SF_SELECTED}
     
+    StrCmp $0 ${SF_SELECTED} 0 GTK
+        Exec "$INSTDIR\avidemux2_qt4.exe"
+
+    Goto end
+    
+GTK:
+    SectionGetFlags ${SecUiGtk} $0
+    IntOp $0 $0 & ${SF_SELECTED}
+    
     StrCmp $0 ${SF_SELECTED} 0 End
-        Exec "$INSTDIR\avidemux2_qt4.exe"    
+        Exec "$INSTDIR\avidemux2_gtk.exe"    
     
 end:
 FunctionEnd

@@ -1,5 +1,25 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4421" date="2008-09-30">
+    <comment>Updated x264 to r995 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4413" date="2008-09-26">
+    <comment>Updated Cairo to version 1.8.0-1.</comment>
+    <comment>Updated LAME to version 3.98.2.</comment>
+    <comment>Updated libpng to version 1.2.32.</comment>
+    <comment>Updated Pango to version 1.22.0-1.</comment>
+  </buildentry>
+  <buildentry revision="4407" date="2008-09-25">
+    <comment>Updated ATK to version 1.24.0-1.</comment>
+    <comment>Updated GLib to version 2.18.1-2.</comment>
+    <comment>Updated GTK+ to version 2.14.3-2.</comment>
+  </buildentry>
+  <buildentry revision="4402" date="2008-09-23">
+    <comment>Updated x264 to r987 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4392" date="2008-09-22">
+    <comment>Updated x264 to r986 (patched).</comment>
+  </buildentry>
   <buildentry revision="4376" date="2008-09-20">
     <comment>Updated ATK to version 1.22.0-2.</comment>
     <comment>Updated GLib to version 2.18.1-1.</comment>
