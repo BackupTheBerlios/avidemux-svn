@@ -502,11 +502,6 @@ SET(CMAKE_REQUIRED_FLAGS)
 SET(CMAKE_REQUIRED_LIBRARIES)
 
 ########################################
-# PNG
-########################################
-ADM_CHECK_HL(libPNG png.h png png_malloc USE_PNG)
-
-########################################
 # FAAD
 ########################################
 ADM_CHECK_HL(FAAD faad.h faad faacDecInit USE_FAAD_P)

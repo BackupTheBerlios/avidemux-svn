@@ -136,7 +136,6 @@ int main(void)
     DECLARE_DECODER (H261, h261);
 	DECLARE_DECODER (H263I, h263i);
     DECLARE_DECODER (JPEGLS, jpegls);
-    DECLARE_DECODER (PNG, png);
     DECLARE_DECODER (QTRLE, qtrle);
     DECLARE_DECODER (ROQ, roq);
     DECLARE_DECODER (SGI, sgi);
@@ -351,4 +350,6 @@ printf("#define ENABLE_SH4      0\n");
 printf("#define ENABLE_BFIN      0\n");
 printf("#define ENABLE_SMALL      0\n");
 printf("#define CONFIG_SNOW_ENCODER      1\n");
+printf("#define ENABLE_PNG_DECODER      1\n");
+printf("#define CONFIG_PNG_DECODER      1\n");
 }

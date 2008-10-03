@@ -65,7 +65,6 @@ extern "C"
 #include "ADM_codecs/ADM_theora_dec.h"
 #endif
 #include "ADM_codecs/ADM_mpeg.h"
-#include "ADM_codecs/ADM_png.h"
 #include "ADM_toolkit/toolkit.hxx"
 #include <ADM_assert.h>
 #include "prefs.h"
@@ -266,13 +265,11 @@ getDecoder (uint32_t fcc, uint32_t w, uint32_t h, uint32_t extraLen,
 
       return (decoders *) (new decoderFFhuff (w, h, extraLen, extraData,bpp));
     }
-#ifdef USE_PNG
   if (fourCC::check (fcc, (uint8_t *) "PNG "))
     {
 
-      return (decoders *) (new decoderPng (w, h));
+      return (decoders *) (new decoderFFPng (w, h));
     }
-#endif
  if (fourCC::check (fcc, (uint8_t *) "cvid"))
     {
 

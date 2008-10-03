@@ -651,16 +651,6 @@ if test "x$have_xvid4" = "xyes"; then
 	fi
 fi
 
-dnl __________________ libpng _________________
-AC_MSG_CHECKING(for libpng)
-have_png=yes
-AC_CHECK_HEADER(png.h,,have_png=no)
-AC_CHECK_LIB(png,png_malloc,,have_png=no)
- 
-if test "x$have_png" = "xyes"; then
-	AC_DEFINE(USE_PNG,1,[libpng is available])
-fi
-
 dnl _______________ OS dep stuff ______________
 
 dnl ------- lrintf --------
@@ -1408,6 +1398,8 @@ AC_DEFINE(CONFIG_WMAV2_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_DVVIDEO_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_WMV2_DECODER,1,[CONFIG_FFV1_ENCODER])
 AC_DEFINE(CONFIG_WMV1_DECODER,1,[CONFIG_FFV1_ENCODER])
+AC_DEFINE(CONFIG_PNG_DECODER,1,[CONFIG_PNG_DECODER])
+AC_DEFINE(ENABLE_PNG_DECODER,1,[ENABLE_PNG_DECODER])
 AC_DEFINE(CONFIG_MUXERS,1,[CONFIG_MUXERS])
 AC_DEFINE(CONFIG_TG2_MUXER,1,[CONFIG_MUXERS])
 AC_DEFINE(CONFIG_TGP_MUXER,1,[CONFIG_MUXERS])

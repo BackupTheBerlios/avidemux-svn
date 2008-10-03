@@ -274,23 +274,6 @@ if(USE_FONTCONFIG)
 	add_libs_all_targets(fontconfig)
 endif(USE_FONTCONFIG)
 
-# png
-if(USE_PNG)
-	TARGET_LINK_LIBRARIES(avidemux2_cli png)
-	
-	if(GTK_FOUND)
-		TARGET_LINK_LIBRARIES(avidemux2_gtk png)
-	endif(GTK_FOUND)
-	
-	if (QT4_FOUND)
-		if (ADM_OS_APPLE AND NOT QT_USE_FRAMEWORKS)
-			TARGET_LINK_LIBRARIES(avidemux2_qt4 png)
-		elseif (NOT ADM_OS_APPLE)
-			TARGET_LINK_LIBRARIES(avidemux2_qt4 png)
-		endif (ADM_OS_APPLE AND NOT QT_USE_FRAMEWORKS)
-	endif (QT4_FOUND)
-endif(USE_PNG)
-
 # Xml2
 add_libs_all_targets(xml2)
 

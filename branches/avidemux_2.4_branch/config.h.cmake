@@ -230,9 +230,6 @@
 /* use libmad */
 #cmakedefine USE_MP3
 
-/* libpng is available */
-#cmakedefine USE_PNG
-
 /* use libsamplerate */
 #cmakedefine USE_SRC
 

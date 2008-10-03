@@ -417,7 +417,9 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       // we do it or not
       out->_colorspace = ADM_COLOR_YV12;
       break;
-
+	case PIX_FMT_RGB24:
+	  out->_colorspace = ADM_COLOR_RGB24;
+	  break;
     case PIX_FMT_RGBA32:
       out->_colorspace = ADM_COLOR_RGB32A;
       break;
@@ -425,8 +427,10 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       out->_colorspace = ADM_COLOR_RGB555;
       break;
     case PIX_FMT_GRAY8:
-//      out->_colorspace = ADM_COLOR_RGB555;
       out->_colorspace = ADM_COLOR_GRAY8;
+      break;
+    case PIX_FMT_PAL8:
+      out->_colorspace = ADM_COLOR_PAL8;
       break;
     default:
       printf ("[lavc] Unhandled colorspace: %d\n", _context->pix_fmt);
@@ -552,6 +556,11 @@ decoderFFY800::decoderFFY800 (uint32_t w, uint32_t h):decoderFF (w, h)
 {
   WRAP_Open (CODEC_ID_RAWVIDEO);
   _context->pix_fmt = PIX_FMT_GRAY8;
+}
+
+decoderFFPng::decoderFFPng (uint32_t w, uint32_t h):decoderFF (w, h)
+{
+  WRAP_Open (CODEC_ID_PNG);
 }
 
 decoderFF_ffhuff::decoderFF_ffhuff (uint32_t w, uint32_t h, uint32_t l, uint8_t * d,uint32_t bpp):decoderFF (w,

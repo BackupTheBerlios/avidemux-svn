@@ -57,7 +57,7 @@ libavcodec_a_SOURCES = $(EXTEND_PPC) $(EXTEND_MMX) ac3enc.c  \
 		truemotion1.c flac.c g726.c 	qtrle.c lcl.c 	snow.c  \
 		rangecoder.c bitstream.c h264idct.c h261.c libamr.c tscc.c \
 		resample2.c pthread.c qdm2.c bitstream_filter.c eval.c \
-		vc1.c vc1dsp.c vp56.c vp56data.c vp6.c vp5.c indeo2.c indeo3.c  smacker.c  opt.c \
+		vc1.c vc1dsp.c vp56.c vp56data.c vp6.c vp5.c indeo2.c indeo3.c  smacker.c  opt.c  png.c \
 		 fraps.c dnxhddata.h  dnxhddec.c	\
                 mpeg12data.c  mpegaudiodata.c  msmpeg4data.c   vc1data.c   vp56data.c mjpegbdec.c \
                 h263_parser.c \
