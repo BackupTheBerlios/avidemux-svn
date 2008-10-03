@@ -177,7 +177,6 @@ Section "Core files (required)" SecCore
     File ${BUILDDIR}\libfaad2.dll
     File ${BUILDDIR}\libfontconfig-1.dll
     File ${BUILDDIR}\libmp3lame-0.dll
-    File ${BUILDDIR}\libpng12-0.dll
     File ${BUILDDIR}\libx264-*.dll
     File ${BUILDDIR}\libxml2.dll
     File ${BUILDDIR}\ogg.dll
@@ -237,6 +236,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         File ${BUILDDIR}\libpango-1.0-0.dll
         File ${BUILDDIR}\libpangocairo-1.0-0.dll
         File ${BUILDDIR}\libpangowin32-1.0-0.dll
+        File ${BUILDDIR}\libpng12-0.dll
         File ${BUILDDIR}\libtiff3.dll
         WriteRegStr HKLM "${REGKEY}\Components" GTK+ 1
     SectionEnd
@@ -471,6 +471,7 @@ SectionEnd
 
 Section /o un.GTK+ UnSecUiGtk
 	Delete /REBOOTOK $INSTDIR\libtiff3.dll
+	Delete /REBOOTOK $INSTDIR\libpng12-0.dll
     Delete /REBOOTOK $INSTDIR\libpangowin32-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpangocairo-1.0-0.dll
     Delete /REBOOTOK $INSTDIR\libpango-1.0-0.dll
@@ -517,7 +518,6 @@ Section /o "un.Core files (required)" UnSecCore
     Delete /REBOOTOK $INSTDIR\ogg.dll
     Delete /REBOOTOK $INSTDIR\libxml2.dll
     Delete /REBOOTOK $INSTDIR\libx264-*.dll
-    Delete /REBOOTOK $INSTDIR\libpng12-0.dll
     Delete /REBOOTOK $INSTDIR\libmp3lame-0.dll
     Delete /REBOOTOK $INSTDIR\libfontconfig-1.dll
     Delete /REBOOTOK $INSTDIR\libfaad2.dll
