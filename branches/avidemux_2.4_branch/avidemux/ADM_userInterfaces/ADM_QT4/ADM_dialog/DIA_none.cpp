@@ -23,11 +23,7 @@
 #include "ADM_assert.h"
 
 #include "ADM_video/ADM_genvideo.hxx"
-#include "ADM_video/ADM_vidCNR2_param.h"
-#include "ADM_video/ADM_vidColorYuv_param.h"
 #include "ADM_video/ADM_vidEqualizer.h"
-#include "ADM_video/ADM_vidMPdelogo.h"
-    
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_audiofilter/audioencoder.h"
 

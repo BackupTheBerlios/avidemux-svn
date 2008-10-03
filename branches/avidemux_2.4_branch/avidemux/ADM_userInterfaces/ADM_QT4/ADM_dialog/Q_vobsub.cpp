@@ -53,18 +53,16 @@ class Ui_vobsubWindow : public QDialog
      Ui_DialogVobSub ui;
      
      void  gather(void);
- public slots:
- private slots:
- 		void idxSel(bool i);
- private:
-     
+ 
+private slots:
+	void idxSel();
  };
 Ui_vobsubWindow::Ui_vobsubWindow(QWidget *parent, vobSubParam *parm) : QDialog(parent)
   {
     uint32_t width,height;
     	this->param=parm;
         ui.setupUi(this);
-        connect( ui.pushButtonIdx,SIGNAL(clicked(bool)),this,SLOT(idxSel(bool)));
+        connect( ui.buttonBox2,SIGNAL(accepted()),this,SLOT(idxSel()));
         // Set what was there...
         if(param->subname)
         {
@@ -116,7 +114,7 @@ Ui_vobsubWindow::~Ui_vobsubWindow()
 {
 }
 
-void Ui_vobsubWindow::idxSel(bool i)
+void Ui_vobsubWindow::idxSel()
 {
 	char fileIdx[1024];
 	
