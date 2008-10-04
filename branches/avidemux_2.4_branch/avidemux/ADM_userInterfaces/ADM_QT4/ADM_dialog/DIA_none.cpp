@@ -41,7 +41,6 @@ uint8_t DIA_RecentFiles( char **name ){return 0;}
 uint8_t initFileSelector(void){return 0;}
 uint8_t initGUI( void ) {return 1;}
 void destroyGUI(void) {}
-uint8_t DIA_glyphEdit(void){ return 0;};
 int32_t UI_readJog(void) {return 0;}
 struct THRESHOLD_PARAM;
 struct ADMVideoThreshold;
