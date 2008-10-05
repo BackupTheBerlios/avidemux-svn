@@ -184,15 +184,21 @@ int frameType;
               switch(streamid)
                       {
                       case NAL_AU_DELIMITER:
-                              if(pic_started)
-                                  pic_started=0;
-                              grabbing=0;
+							  pic_started = 0;
+
                               break;
-                      case NAL_SPS: // 
-                              pic_started=0;
-                              grabbing=1;
+                      case NAL_SPS:
+                              pic_started = 0;
                               aprintf("Sps %d\n",_run->nbGop);
-                              gopDump(syncAbs,syncRel);
+
+							  if (grabbing)
+								  _run->nbPushed--;
+							  else
+								  gopDump(syncAbs,syncRel);
+
+							  grabbing = 1;
+							  startFrame(2, syncAbs, syncRel);
+
                               break;
                       case NAL_IDR:
 					  case NAL_NON_IDR:
@@ -210,12 +216,9 @@ int frameType;
 						  _run->totalFrame++;
 
 						  if (streamid == NAL_IDR || (streamid == NAL_NON_IDR && _run->nbPushed > MAX_PUSHED / 2))
-						  {
 							  gopDump(syncAbs, syncRel);
-							  updateFrameType(frameType);
-						  }
-						  else
-							  startFrame(frameType, syncAbs, syncRel);
+
+						  startFrame(frameType, syncAbs, syncRel);
 
 						  if (streamid == NAL_IDR && firstPicPTS == ADM_NO_PTS && pts != ADM_NO_PTS)
 							  firstPicPTS = pts;
@@ -361,7 +364,7 @@ uint64_t stats[_run->nbTrack];
         _run->nbGop++;
         _run->nbImage+=_run->nbPushed;
         _run->nbPushed=0;
-        startFrame(2,abs,rel);
+
         return 1;
         
 }
