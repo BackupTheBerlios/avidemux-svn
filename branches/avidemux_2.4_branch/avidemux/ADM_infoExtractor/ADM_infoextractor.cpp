@@ -41,6 +41,7 @@ extern "C"
 }
 
 #include "ADM_infoExtractor/ADM_h264_tag.h"
+#include "ADM_codecs/ADM_codec.h"
 
 static void refineH264FrameType(uint8_t *head,uint8_t *tail,uint32_t *flags);
 /*
@@ -332,7 +333,7 @@ static uint32_t unescapeH264(uint32_t len,uint8_t *in, uint8_t *out)
     
 }
 
-static uint8_t extractVUIInfo(GetBitContext *s, uint32_t *fps1000, uint32_t *darNum, uint32_t *darDen)
+static uint8_t extractVUIInfo(GetBitContext *s, int *fps1000, int *darNum, int *darDen)
 {
 	*fps1000 = *darNum = *darDen = 0;
 
@@ -394,11 +395,11 @@ static uint8_t extractVUIInfo(GetBitContext *s, uint32_t *fps1000, uint32_t *dar
     \brief Extract info from H264 SPS
     See 7.3.2.1 of 14496-10
 */
-uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hheight, uint32_t *fps1000, uint32_t *darNum, uint32_t *darDen)
+uint8_t extractSPSInfo(uint8_t *data, uint32_t len, h264SpsInfo *info)
 {
    GetBitContext s;
    
-   uint32_t profile,constraint,level,pic_order_cnt_type,w,h, mbh, frame_mbs_only;
+   uint32_t profile,constraint,level,pic_order_cnt_type,w,h, mbh;
    uint8_t buf[len];
    uint32_t outlen;
    uint32_t id,dum;
@@ -424,8 +425,8 @@ uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hh
            }
            
 
-           dum=get_ue_golomb(&s); // log2_max_frame_num_minus4
-           printf("[H264]Log2maxFrame-4:%u\n",dum);
+           info->log2MaxFrameNumber = get_ue_golomb(&s); // log2_max_frame_num_minus4
+           printf("[H264]Log2maxFrame-4:%u\n",info->log2MaxFrameNumber);
            pic_order_cnt_type=get_ue_golomb(&s);
            printf("[H264]Pic Order Cnt Type:%u\n",pic_order_cnt_type);
            if(!pic_order_cnt_type) // pic_order_cnt_type
@@ -457,16 +458,16 @@ uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hh
 		   w = get_ue_golomb(&s) + 1;   //pic_width_in_mbs_minus1
 
 		   mbh = get_ue_golomb(&s) + 1;
-		   frame_mbs_only = get_bits1(&s);
-		   h = (2 - frame_mbs_only) * mbh;   //pic_height_in_mbs_minus1
+		   info->frameMbsOnlyFlag = get_bits1(&s);
+		   h = (2 - info->frameMbsOnlyFlag) * mbh;   //pic_height_in_mbs_minus1
 
            printf("[H264] Width in mb -1  :%d\n",w); 
            printf("[H264] Height in mb -1 :%d\n", h);
 
-		   *wwidth = w * 16;
-		   *hheight= h * 16;
+		   info->width = w * 16;
+		   info->height = h * 16;
            
-		   if (!frame_mbs_only)
+		   if (!info->frameMbsOnlyFlag)
 			   get_bits1(&s);
 
 		   get_bits1(&s);
@@ -480,7 +481,7 @@ uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hh
 		   }
 
 		   if(get_bits1(&s))
-			   extractVUIInfo(&s, fps1000, darNum, darDen);
+			   extractVUIInfo(&s, &(info->fps1000), &(info->darNum), &(info->darDen));
 
            return 1;
 }
@@ -541,13 +542,7 @@ uint8_t extractH264FrameType_startCode(uint32_t nalSize,uint8_t *buffer,uint32_t
 {
   uint8_t *head=buffer, *tail=buffer+len;
   uint8_t stream;
-#define NAL_NON_IDR       1
-#define NAL_IDR           5
-#define NAL_SEI           6
-
-  uint32_t val,hnt;  
-  
-// FIXME :  no startcode only !
+  uint32_t val,hnt;
   
   while(head+4<tail)
   {
@@ -604,4 +599,48 @@ uint32_t sliceType;
                 sliceType -= 5;
             if(sliceType==3) *flags=AVI_B_FRAME;  
 }
-//EOF
+
+int getH264SliceHeader(uint8_t *buffer, int length, h264SpsInfo *spsInfo, h264SliceHeader *sliceHeader)
+{
+	int sliceType;
+	GetBitContext bc;
+
+	init_get_bits(&bc, buffer, length * 8);
+	get_ue_golomb(&bc);	// pps_id
+
+	sliceType = get_ue_golomb(&bc);
+
+	if (sliceType > 9) 
+	{
+		printf("Slice type too large: %d\n", sliceType);
+		return -1;
+	}
+	else
+	{
+		if (sliceType == 0 || sliceType == 3 || sliceType == 5 || sliceType == 8)
+			sliceHeader->sliceType = AVI_P_FRAME;
+		else if (sliceType == 1 || sliceType == 6)
+			sliceHeader->sliceType = AVI_B_FRAME;
+		else
+			sliceHeader->sliceType = AVI_KEY_FRAME;
+	}
+
+	sliceHeader->frameNumber = get_bits(&bc, spsInfo->log2MaxFrameNumber);
+
+	if (spsInfo->frameMbsOnlyFlag)
+		sliceHeader->pictureType = FRAME;
+	else
+	{
+		if(get_bits1(&bc))	// field_pic_flag
+		{
+			if (get_bits1(&bc))
+				sliceHeader->pictureType = TOP_FIELD;
+			else
+				sliceHeader->pictureType = BOTTOM_FIELD;
+		}
+		else
+			sliceHeader->pictureType = FRAME;
+	}
+
+	return 1;
+}
