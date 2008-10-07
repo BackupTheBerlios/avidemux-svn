@@ -21,7 +21,8 @@ DIA_flyParticle.cpp \
 DIA_flyEraser.cpp \
 DIA_flv1.cpp \
 DIA_jobs_save.cpp \
-DIA_flyMpDelogo.cpp
+DIA_flyMpDelogo.cpp \
+DIA_flyEqualiser.cpp
 
 commonObjs:=$(subst .cpp,.o,$(libADM_CommonUI_a_SOURCES))
 

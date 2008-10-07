@@ -32,8 +32,6 @@
 int  DIA_getXvidCompressParams(COMPRESSION_MODE * mode, uint32_t * qz,
 		      uint32_t * br,uint32_t *fsize,xvidEncParam *param){return 0;}
 #endif
-uint8_t DIA_getEqualizer(EqualizerParam *param, ADMImage *image){return 0;}
-uint8_t DIA_getEqualizer(EqualizerParam *param, AVDMGenericVideoStream *in){return 0;}
 uint8_t DIA_videoCodec (SelectCodecType * codec){return 0;}
 uint8_t DIA_audioCodec( AUDIOENCODER *codec ) {return 0;}
 uint8_t DIA_quota(char *) {return 0;}

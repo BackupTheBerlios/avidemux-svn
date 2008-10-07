@@ -12,6 +12,7 @@ cnr2
 coloryuv
 contrast
 eq2
+equaliser
 crop
 encoding
 hue
@@ -28,6 +29,7 @@ SET(${ADM_LIB}_T
 flyDialog
 index_pg
 QCanvas
+EqualiserPath
 )
 
 SET(${ADM_LIB}_SRCS

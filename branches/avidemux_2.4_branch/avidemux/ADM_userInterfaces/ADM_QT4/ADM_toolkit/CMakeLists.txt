@@ -1,5 +1,5 @@
 SET(ADM_LIB ADM_toolkitQt4)
-SET(${ADM_LIB}_SRCS qtToolkit.cpp)
+SET(${ADM_LIB}_SRCS qtToolkit.cpp T_gridFrame.cpp)
 
 include(adm_qt4)
 
