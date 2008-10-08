@@ -94,8 +94,8 @@ void GUI_FileSelSelect(const char *label, char **name, uint32_t access)
    options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-   if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
-       else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
+   if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
+       else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
 
   if(!fileName.isNull())
   {
@@ -127,7 +127,7 @@ uint8_t FileSel_SelectWrite(const char *title,char *target,uint32_t max, const c
   options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
+  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
 
   if(!fileName.isNull() )
   {
@@ -160,7 +160,7 @@ uint8_t FileSel_SelectRead(const char *title,char *target,uint32_t max, const ch
   options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-  fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
+  fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
 
   if(!fileName.isNull() )
   {
@@ -195,7 +195,7 @@ uint8_t FileSel_SelectDir(const char *title,char *target,uint32_t max, const cha
    options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-   fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), title, source, options);
+   fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), options);
 
   if(!fileName.isNull() )
   {
