@@ -121,10 +121,7 @@ Ui_equaliserWindow::Ui_equaliserWindow(QWidget* parent, EqualizerParam *param, A
 	flyDialog->_cookie = this;
 
 	for (int i = 0; i < 8; i++)
-	{
-		printf("param->_scaler[flyDialog->crossSettings[i] %d, %d\n", param->_scaler[flyDialog->crossSettings[i]], flyDialog->crossSettings[i]);
 		pointChanged(i, param->_scaler[flyDialog->crossSettings[i]]);
-	}
 
 	flyDialog->sliderChanged();
 }
@@ -265,9 +262,6 @@ void Ui_equaliserWindow::gather(EqualizerParam *param)
 {
 	flyDialog->download();
 	memcpy(param->_scaler, flyDialog->scaler, 256 * sizeof(int));
-
-	for (int i = 0; i < 8; i++)
-		printf("saved: param->_scaler[flyDialog->crossSettings[i] %d, %d\n", param->_scaler[flyDialog->crossSettings[i]], flyDialog->crossSettings[i]);
 }
 
 uint8_t flyEqualiser::upload(void)

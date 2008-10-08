@@ -20,7 +20,7 @@
 
 #define ZOOM_FACTOR 5
 
-flyEqualiser::flyEqualiser(uint32_t width, uint32_t height, AVDMGenericVideoStream *in, void *canvas, void *slider) : ADM_flyDialog(width, height, in, canvas, slider, 1, RESIZE_LAST)
+flyEqualiser::flyEqualiser(uint32_t width, uint32_t height, AVDMGenericVideoStream *in, void *canvas, void *slider) : ADM_flyDialog(width, height, in, canvas, slider, 1, RESIZE_AUTO)
 {
 	int crossSettings[] = {0, 36, 73, 109, 146, 182, 219, 255, -1};
 
@@ -43,9 +43,9 @@ uint8_t flyEqualiser::process(void)
 	uint8_t *dst = _scratchImage->data;
 	uint8_t *disp = _yuvBufferOut->data;
 
-	for (int y = 0; y < _zoomH; y++)
+	for (int y = 0; y < _h; y++)
 	{
-		for (int x = 0; x < _zoomW; x++)
+		for (int x = 0; x < _w; x++)
 		{
 			*dst = scaler[*src];
 			dst++;
@@ -53,14 +53,14 @@ uint8_t flyEqualiser::process(void)
 		}		
 	}
 
-	uint32_t half = _zoomW >> 1;
+	uint32_t half = _w >> 1;
 
 	src = _yuvBuffer->data;
 	dst = _scratchImage->data;
 
-	for (int y = 0; y < _zoomH; y++)
+	for (int y = 0; y < _h; y++)
 	{
-		if (y > _zoomH)
+		if (y > _h)
 		{
 			memcpy(disp, dst, half);
 			memcpy(disp + half, src + half, half);
@@ -71,12 +71,12 @@ uint8_t flyEqualiser::process(void)
 			memcpy(disp + half, dst + half, half);
 		}
 
-		src += _zoomW;
-		dst += _zoomW;
-		disp += _zoomW;
+		src += _w;
+		dst += _w;
+		disp += _w;
 	}
 
-	memcpy(_yuvBufferOut->data + _zoomW * _zoomH, _yuvBuffer->data + _zoomW * _zoomH, (_zoomW * _zoomH) >> 1);
+	memcpy(_yuvBufferOut->data + _w * _h, _yuvBuffer->data + _w * _h, (_w * _h) >> 1);
 	computeHistogram();
 	copyYuvFinalToRgb();
 }
@@ -140,7 +140,7 @@ void flyEqualiser::computeHistogram(void)
 	memset(valueOut, 0, 256 * sizeof(uint32_t));
 
 	// In
-	for (int index = 0; index < _zoomW * _zoomH; index++)
+	for (int index = 0; index < _w * _h; index++)
 	{
 		value = _yuvBuffer->data[index];
 		valueIn[value]++;	
@@ -148,7 +148,7 @@ void flyEqualiser::computeHistogram(void)
 	}
 
 	// normalize
-	double d, a = _zoomW * _zoomH;
+	double d, a = _w * _h;
 
 	for (int i = 0; i < 256; i++)
 	{
