@@ -133,13 +133,14 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 */
 const char *shortkey(const char *in)
 {
- char *t=ADM_strdup(in);
- for(int i=0;i<strlen(t);i++)
- {
-    if(t[i]=='_') t[i]='&'; 
- }
-  return t;
+	QString escaped = QString(in);
+
+	escaped.replace("&", "&&");
+	escaped.replace("_", "&");
+
+	return ADM_strdup(escaped.toUtf8().constData());
 }
+
 uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 {
     QDialog dialog(qtLastRegisteredDialog());
