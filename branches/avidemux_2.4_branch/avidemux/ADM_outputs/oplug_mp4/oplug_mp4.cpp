@@ -324,7 +324,9 @@ bool receivedFrame = false;
 			  for (;;)
 			  {
 				  bitstream.cleanup(frame);
-				  bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+				  if (current_codec == CodecX264)
+					  bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
 
 				  if (frame + frameDelay >= total)
 				  {
@@ -436,7 +438,9 @@ uint8_t prepareDualPass(uint32_t bufferSize,uint8_t *buffer,char *TwoPassLogFile
 					for (;;)
 					{
 						bitstream.cleanup(frame);
-						bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+						if (current_codec == CodecX264)
+							bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
 
 						if (frame + frameDelay >= total)
 						{
