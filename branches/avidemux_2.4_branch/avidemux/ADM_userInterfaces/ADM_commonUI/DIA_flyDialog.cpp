@@ -81,14 +81,19 @@ ADM_flyDialog::ADM_flyDialog(uint32_t width,uint32_t height,AVDMGenericVideoStre
 
 	if (_resizeMethod == RESIZE_AUTO || _resizeMethod == RESIZE_LAST)
 	{
-		PixelFormat sourceColour;
+		PixelFormat sourceColour, outputColour;
 
 		if (_resizeMethod == RESIZE_AUTO || _isYuvProcessing)
 			sourceColour = PIX_FMT_YUV420P;
 		else
 			sourceColour = PIX_FMT_RGB32;
 
-		_resizer = new ADMImageResizer(_w, _h, _zoomW, _zoomH, sourceColour, PIX_FMT_RGB32);
+		if (_isYuvProcessing && isRgbInverted())
+			outputColour = PIX_FMT_BGR32;
+		else
+			outputColour = PIX_FMT_RGB32;
+
+		_resizer = new ADMImageResizer(_w, _h, _zoomW, _zoomH, sourceColour, outputColour);
 		_rgbBufferDisplay = new uint8_t[_w * _h * 4];
 	}
 	else
@@ -155,14 +160,20 @@ void ADM_flyDialog::recomputeSize(void)
     delete _resizer;
     if (_resizeMethod == RESIZE_AUTO || _resizeMethod == RESIZE_LAST)
     {
-        PixelFormat sourceColour;
+        PixelFormat sourceColour, outputColour;
 
         if (_resizeMethod == RESIZE_AUTO || _isYuvProcessing)
             sourceColour = PIX_FMT_YUV420P;
         else
             sourceColour = PIX_FMT_RGB32;
 
-        _resizer = new ADMImageResizer(_w, _h, _zoomW, _zoomH, sourceColour, PIX_FMT_RGB32);
+		if (_isYuvProcessing && isRgbInverted())
+			outputColour = PIX_FMT_BGR32;
+		else
+			outputColour = PIX_FMT_RGB32;
+
+		_resizer = new ADMImageResizer(_w, _h, _zoomW, _zoomH, sourceColour, outputColour);
+
         if (!_rgbBufferDisplay)
             _rgbBufferDisplay = new uint8_t[_w * _h * 4];
     }
