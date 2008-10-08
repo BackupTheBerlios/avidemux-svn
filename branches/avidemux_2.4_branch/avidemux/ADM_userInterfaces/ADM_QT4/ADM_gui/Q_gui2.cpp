@@ -777,7 +777,7 @@ void setupMenus(void)
 	printf("Found %d format(s)\n",nbFormat);
 	for(uint32_t i=0;i<nbFormat;i++)
 	{
-		WIDGET(comboBoxFormat)->addItem(QString::fromUtf8(QT_TR_NOOP(ADM_allOutputFormat[i].text)));	
+		WIDGET(comboBoxFormat)->addItem(QString::fromUtf8(ADM_allOutputFormat[i].text));	
 	}
 
 }
