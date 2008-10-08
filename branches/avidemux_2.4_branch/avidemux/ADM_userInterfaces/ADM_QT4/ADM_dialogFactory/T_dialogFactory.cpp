@@ -133,7 +133,7 @@ uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 */
 const char *shortkey(const char *in)
 {
-	QString escaped = QString(in);
+	QString escaped = QString::fromUtf8(in);
 
 	escaped.replace("&", "&&");
 	escaped.replace("_", "&");
