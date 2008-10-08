@@ -74,7 +74,7 @@ extern renderZoom currentZoom;
 //AVDMGenericVideoStream *getFirstVideoFilter( void)
 //
 //_____________________________________________________________
-void GUI_PlayAvi(void)
+void GUI_PlayAvi(bool forceStop)
 {
     uint32_t  time_e, time_a = 0;
     uint32_t err = 0, acc = 0;
@@ -94,7 +94,7 @@ void GUI_PlayAvi(void)
    }
     if (avifileinfo->fps1000 == 0)
         return;
-    if (playing)
+    if (playing || forceStop)
       {
         stop_req = 1;
         return;

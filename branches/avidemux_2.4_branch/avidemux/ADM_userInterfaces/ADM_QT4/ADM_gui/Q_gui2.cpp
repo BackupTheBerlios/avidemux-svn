@@ -42,6 +42,7 @@
 #include "prefs.h"
 #include "avi_vars.h"
 #include "../ADM_commonUI/GUI_render.h"
+#include "gtkgui.h"
 
 extern int global_argc;
 extern char **global_argv;
@@ -234,6 +235,7 @@ protected:
 	void mousePressEvent(QMouseEvent* event);
 	void dragEnterEvent(QDragEnterEvent *event);
 	void dropEvent(QDropEvent *event);
+	void closeEvent(QCloseEvent *event);
 };
 
 
@@ -581,9 +583,15 @@ void MainWindow::buildCustomMenu(void)
 	printf("Custom menu built\n");
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+	GUI_PlayAvi(true);
+}
+
 MainWindow::~MainWindow()
 {
 	clearCustomMenu();
+	renderDestroy();
 }
 
 int UI_Init(int nargc,char **nargv)
