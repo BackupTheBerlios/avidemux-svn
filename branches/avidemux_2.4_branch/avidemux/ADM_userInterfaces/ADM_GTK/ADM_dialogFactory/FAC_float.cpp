@@ -31,7 +31,7 @@
 
 
 diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, 
-                            ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip)
+                            ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip, int decimals)
   : diaElem(ELEM_FLOAT)
 {
   param=(void *)intValue;
@@ -39,6 +39,7 @@ diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle,
   this->min=min;
   this->max=max;
   this->tip=tip;
+  this->decimals = decimals;
 }
 
 diaElemFloat::~diaElemFloat()

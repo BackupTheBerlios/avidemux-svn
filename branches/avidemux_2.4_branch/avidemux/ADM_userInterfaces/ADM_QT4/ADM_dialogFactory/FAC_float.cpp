@@ -35,7 +35,7 @@ extern const char *shortkey(const char *);
 
 
 //********************************************************************
-diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip)
+diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip, int decimals)
   : diaElem(ELEM_TOGGLE)
 {
   param=(void *)intValue;
@@ -43,6 +43,7 @@ diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, EL
   this->min=min;
   this->max=max;
   this->tip=tip;
+  this->decimals = decimals;
  }
 
 diaElemFloat::~diaElemFloat()
@@ -59,7 +60,7 @@ void diaElemFloat::setMe(void *dialog, void *opaque,uint32_t line)
    
  box->setMinimum(min);
  box->setMaximum(max);
- box->setDecimals(2);
+ box->setDecimals(decimals);
  box->setSingleStep(0.1);
  box->setValue(*(ELEM_TYPE_FLOAT *)param);
  
