@@ -57,7 +57,7 @@ class dmx_demuxerTS: public dmx_demuxer
                   uint32_t      maxPid;
 
                   uint64_t      seen[256];                                  
-                  uint8_t       allPid[0x2000];    
+                  int       allPid[0x2000];    
                   uint8_t       *tracked   ;
                   uint32_t      nbTracked;
                 
