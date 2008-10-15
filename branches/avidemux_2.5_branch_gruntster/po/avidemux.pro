@@ -18,6 +18,7 @@ HEADERS = \
 ../avidemux/ADM_audiodevice/ADM_deviceEsd.h \ 
 ../avidemux/ADM_audiodevice/ADM_deviceJack.h \ 
 ../avidemux/ADM_audiodevice/ADM_deviceoss.h \ 
+../avidemux/ADM_audiodevice/ADM_devicePulseSimple.h \ 
 ../avidemux/ADM_audiodevice/ADM_deviceSDL.h \ 
 ../avidemux/ADM_audiodevice/ADM_deviceWin32.h \ 
 ../avidemux/ADM_audiodevice/audio_out.h \ 
@@ -58,7 +59,6 @@ HEADERS = \
 ../avidemux/ADM_codecs/ADM_mjpeg.h \ 
 ../avidemux/ADM_codecs/ADM_mjpegEncode.h \ 
 ../avidemux/ADM_codecs/ADM_mpeg.h \ 
-../avidemux/ADM_codecs/ADM_png.h \ 
 ../avidemux/ADM_codecs/ADM_rgb16.h \ 
 ../avidemux/ADM_codecs/ADM_theora_dec.h \ 
 ../avidemux/ADM_codecs/ADM_theora_enc.h \ 
@@ -69,6 +69,7 @@ HEADERS = \
 ../avidemux/ADM_codecs/ADM_xvid4.h \ 
 ../avidemux/ADM_codecs/ADM_xvid4param.h \ 
 ../avidemux/ADM_codecs/ADM_xvideco.h \ 
+../avidemux/ADM_codecs/ADM_y800.h \ 
 ../avidemux/ADM_colorspace/ADM_colorspace.h \ 
 ../avidemux/ADM_colorspace/ADM_rgb.h \ 
 ../avidemux/ADM_colorspace/colorspace.h \ 
@@ -89,6 +90,8 @@ HEADERS = \
 ../avidemux/ADM_encoder/adm_encx264.h \ 
 ../avidemux/ADM_encoder/adm_encxvid.h \ 
 ../avidemux/ADM_encoder/adm_encXvid4.h \ 
+../avidemux/ADM_encoder/adm_ency800.h \ 
+../avidemux/ADM_encoder/adm_ency800_param.h \ 
 ../avidemux/ADM_encoder/adm_encyv12.h \ 
 ../avidemux/ADM_encoder/ADM_videocodeclist.h \ 
 ../avidemux/ADM_encoder/xvid_vbr.h \ 
@@ -165,6 +168,7 @@ HEADERS = \
 ../avidemux/ADM_libraries/ADM_lavcodec/h263_parser.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/h264.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/h264data.h \ 
+../avidemux/ADM_libraries/ADM_lavcodec/h264pred.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/h264_parser.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/i386/dsputil_mmx_avg.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/i386/dsputil_mmx_qns.h \ 
@@ -211,6 +215,7 @@ HEADERS = \
 ../avidemux/ADM_libraries/ADM_lavcodec/rangecoder.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/ratecontrol.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/raw.h \ 
+../avidemux/ADM_libraries/ADM_lavcodec/rectangle.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/rl.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/roqvideo.h \ 
 ../avidemux/ADM_libraries/ADM_lavcodec/simple_idct.h \ 
@@ -234,6 +239,7 @@ HEADERS = \
 ../avidemux/ADM_libraries/ADM_lavformat/ADM_lavformat.h \ 
 ../avidemux/ADM_libraries/ADM_lavformat/ADM_tscrc.h \ 
 ../avidemux/ADM_libraries/ADM_lavformat/allformats.h \ 
+../avidemux/ADM_libraries/ADM_lavformat/avc.h \ 
 ../avidemux/ADM_libraries/ADM_lavformat/avformat.h \ 
 ../avidemux/ADM_libraries/ADM_lavformat/avi.h \ 
 ../avidemux/ADM_libraries/ADM_lavformat/avio.h \ 
@@ -524,6 +530,7 @@ HEADERS = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEq2.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEraser.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyHue.h \ 
+../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyMpDelogo.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyParticle.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyPreview.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flySrtPos.h \ 
@@ -540,8 +547,16 @@ HEADERS = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/systray.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/ADM_flyTemplate.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_flyDialogQt4.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/dialogFactoryQt4.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_seekablePreview.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qslider.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qtray.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_preview.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/translation_table.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/curvePath.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/gridFrame.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/qtToolkit.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/ui_curvePath.h \ 
 ../avidemux/ADM_video/ADM_cache.h \ 
 ../avidemux/ADM_video/ADM_confCouple.h \ 
 ../avidemux/ADM_video/ADM_interlaced.h \ 
@@ -656,6 +671,7 @@ SOURCES = \
 ../avidemux/ADM_audiodevice/ADM_deviceEsd.cpp \ 
 ../avidemux/ADM_audiodevice/ADM_deviceJack.cpp \ 
 ../avidemux/ADM_audiodevice/ADM_deviceoss.cpp \ 
+../avidemux/ADM_audiodevice/ADM_devicePulseSimple.cpp \ 
 ../avidemux/ADM_audiodevice/ADM_deviceSDL.cpp \ 
 ../avidemux/ADM_audiodevice/ADM_deviceWin32.cpp \ 
 ../avidemux/ADM_audiodevice/oss_out.cpp \ 
@@ -687,7 +703,6 @@ SOURCES = \
 ../avidemux/ADM_codecs/ADM_mjpeg.cpp \ 
 ../avidemux/ADM_codecs/ADM_mjpegEncode.cpp \ 
 ../avidemux/ADM_codecs/ADM_mpeg.cpp \ 
-../avidemux/ADM_codecs/ADM_png.cpp \ 
 ../avidemux/ADM_codecs/ADM_rgb16.cpp \ 
 ../avidemux/ADM_codecs/ADM_theora_dec.cpp \ 
 ../avidemux/ADM_codecs/ADM_uyvy.cpp \ 
@@ -724,6 +739,7 @@ SOURCES = \
 ../avidemux/ADM_encoder/adm_encx264.cpp \ 
 ../avidemux/ADM_encoder/adm_encxvid.cpp \ 
 ../avidemux/ADM_encoder/adm_encXvid4.cpp \ 
+../avidemux/ADM_encoder/adm_ency800.cpp \ 
 ../avidemux/ADM_encoder/adm_encyv12.cpp \ 
 ../avidemux/ADM_filter/ADM_vidDummyFilter.cpp \ 
 ../avidemux/ADM_filter/filter.cpp \ 
@@ -911,6 +927,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEq2.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEraser.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyHue.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyMpDelogo.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyParticle.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flySrtPos.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flySwissArmyKnife.cpp \ 
@@ -935,6 +952,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/GUI_xvRender.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_busy.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_color.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_none.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_srt.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_x264.cpp \ 
@@ -944,6 +962,8 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_asharp.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_calculator.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_chromashift.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_cnr2.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_coloryuv.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_contrast.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_crop.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp \ 
@@ -951,6 +971,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_hue.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_license.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_mpdelogo.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_resizing.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_srt.cpp \ 
@@ -959,30 +980,40 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_flyDialog.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_QCanvas.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_aspectRatio.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_bar.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_float.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_frame.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_hex.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_integer.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_matrix.cpp \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_notch.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/FAC_readOnlyText.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_bitrate.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_button.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_dialogFactory.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_filesel.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_menu.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_notch.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_slider.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_threadCount.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/T_toggle.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/filter_none.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_seekablePreview.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qslider.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qtray.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/file_qt4.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui_none.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_preview.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_preview.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_tray.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_ocr.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/curvePath.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/gridFrame.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/main.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/qtToolkit.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp \ 
 ../avidemux/ADM_video/ADM_cache.cpp \ 
 ../avidemux/ADM_video/ADM_confCouples.cpp \ 
@@ -1048,6 +1079,7 @@ SOURCES = \
 ../avidemux/ADM_videoFilter/ADM_vidMPLResize.cpp \ 
 ../avidemux/ADM_videoFilter/ADM_vidMSharpen.cpp \ 
 ../avidemux/ADM_videoFilter/ADM_vidMsmooth.cpp \ 
+../avidemux/ADM_videoFilter/ADM_vidNumber.cpp \ 
 ../avidemux/ADM_videoFilter/ADM_vidPalShift.cpp \ 
 ../avidemux/ADM_videoFilter/ADM_vidPalSmart.cpp \ 
 ../avidemux/ADM_videoFilter/ADM_vidParticle.cpp \ 
@@ -1084,26 +1116,35 @@ SOURCES = \
 ../avidemux/gui_navigate.cpp \ 
 ../avidemux/gui_savenew.cpp \ 
 ../avidemux/main.cpp \ 
+../avidemux/testing/tester.cpp \ 
 
 FORMS = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/about.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/asharp.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/chromashift.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/cnr2.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/coloryuv.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/contrast.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/crop.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/eq2.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/glypheditor.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/hue.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/license.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/mpdelogo.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/resizing.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/srt.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/vobsub.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/working.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilternew.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/seekablePreview.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/preview.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/glypheditor.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui \ 
 
 TRANSLATIONS = \
