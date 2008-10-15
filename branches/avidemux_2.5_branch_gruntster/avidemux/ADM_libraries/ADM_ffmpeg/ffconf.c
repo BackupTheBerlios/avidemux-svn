@@ -55,6 +55,7 @@ int main(void)
     DECLARE_DECODER (FLV, flv);
     DECLARE_DECODER (SNOW, snow);
     DECLARE_DECODER (AMV, amv);
+	DECLARE_DECODER (PNG, png);
 #undef DECLARE_DECODER
 #define DECLARE_DECODER(a,b); printf("#define ENABLE_"#a"_DECODER 0\n"); 
     DECLARE_DECODER(PCX, aasc);
@@ -152,7 +153,6 @@ int main(void)
     DECLARE_DECODER (H261, h261);
 	DECLARE_DECODER (H263I, h263i);
     DECLARE_DECODER (JPEGLS, jpegls);
-    DECLARE_DECODER (PNG, png);
     DECLARE_DECODER (QTRLE, qtrle);
     DECLARE_DECODER (RAWVIDEO, rawvideo);
     DECLARE_DECODER (ROQ, roq);
@@ -359,6 +359,7 @@ int main(void)
 	DECLARE_MUXER(PSP, psp)
 	DECLARE_MUXER(TG2, tg2)
 	DECLARE_MUXER(TGP, tgp)
+	DECLARE_MUXER(IPOD, iPod)
 
 	printf("#define CONFIG_ENCODERS 1\n");
 	printf("#define CONFIG_DVVIDEO_ENCODER 1\n");

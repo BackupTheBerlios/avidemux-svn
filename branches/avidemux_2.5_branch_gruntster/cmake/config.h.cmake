@@ -67,9 +67,6 @@
 
 #define USE_MJPEG
 
-/* libpng is available */
-#cmakedefine USE_PNG
-
 /* use libsamplerate */
 #cmakedefine USE_SRC
 

@@ -21,7 +21,6 @@
 
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_codecs/ADM_ffmp43.h"
-#include "ADM_codecs/ADM_png.h"
 
 #include "ADM_toolkit/bitmap.h"
 #include "ADM_editor/ADM_edit.hxx"
@@ -330,7 +329,7 @@ ADMImage *createImageFromFile_png(const char *filename)
     
  	   ADMImage tmpImage(w,h,1);
     	// Decode PNG
-    	decoderPng decoder(w,h);
+    	decoderFFPng decoder(w,h);
     	ADMCompressedImage bin;
     	bin.data=data;
     	bin.dataLength=size; // This is more than actually, but who cares...
@@ -338,9 +337,14 @@ ADMImage *createImageFromFile_png(const char *filename)
     	decoder.uncompress (&bin, &tmpImage);
     	
     	ADMImage *image=new ADMImage(w,h);
-    	COL_RGB24_to_YV12( w, h,tmpImage._planes[0],image->data);
-    
+
+		COL_Generic2YV12 *convert = new COL_Generic2YV12(tmpImage._width, tmpImage._height, tmpImage._colorspace);
+
+		convert->transform(tmpImage._planes, tmpImage._planeStride, image->data);
+
+    	delete convert;
     	delete [] data;
+
     	return image;		
 }
 /**
