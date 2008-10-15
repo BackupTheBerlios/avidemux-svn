@@ -561,7 +561,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] rc.f_rf_constant = %f\n", x264Param->rc.f_rf_constant);
 	printf("[x264] rc.i_qp_constant = %d\n", x264Param->rc.i_qp_constant);	
 	printf("[x264] analyse.i_subpel_refine = %d\n", x264Param->analyse.i_subpel_refine);
+#if X264_BUILD < 65
 	printf("[x264] analyse.b_bframe_rdo = %d\n", x264Param->analyse.b_bframe_rdo);
+#endif
 	printf("[x264] analyse.i_me_method = %d\n", x264Param->analyse.i_me_method);
 	printf("[x264] analyse.i_me_range = %d\n", x264Param->analyse.i_me_range);
 	printf("[x264] analyse.i_mv_range = %d\n", x264Param->analyse.i_mv_range);
@@ -591,7 +593,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] b_pre_scenecut = %d\n", x264Param->b_pre_scenecut);
 	printf("[x264] analyse.b_mixed_references = %d\n", x264Param->analyse.b_mixed_references);
 	printf("[x264] analyse.b_chroma_me = %d\n", x264Param->analyse.b_chroma_me);
+#if X264_BUILD < 65
 	printf("[x264] analyse.b_bidir_me = %d\n", x264Param->analyse.b_bidir_me);
+#endif
 	printf("[x264] analyse.i_trellis = %d\n", x264Param->analyse.i_trellis);
 	printf("[x264] analyse.b_fast_pskip = %d\n", x264Param->analyse.b_fast_pskip);
 	printf("[x264] analyse.b_dct_decimate = %d\n", x264Param->analyse.b_dct_decimate);

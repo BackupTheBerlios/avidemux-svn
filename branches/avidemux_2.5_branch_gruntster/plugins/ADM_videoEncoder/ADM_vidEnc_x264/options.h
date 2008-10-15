@@ -228,14 +228,18 @@ public:
 	unsigned int getSubpixelRefinement(void);
 	void setSubpixelRefinement(unsigned int subpixelRefinement);
 
+#if X264_BUILD < 65
 	bool getBidirectionalMotionEstimation(void);
 	void setBidirectionalMotionEstimation(bool bidirectionalMotionEstimation);
+#endif
 
 	bool getChromaMotionEstimation(void);
 	void setChromaMotionEstimation(bool chromaMotionEstimation);
 
+#if X264_BUILD < 65
 	bool getBFrameRdo(void);
 	void setBFrameRdo(bool bFrameRdo);
+#endif
 
 	bool getMixedReferences(void);
 	void setMixedReferences(bool mixedReferences);

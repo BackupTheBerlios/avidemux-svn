@@ -341,13 +341,13 @@
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
                           <xs:minInclusive value="1"/>
-                          <xs:maxInclusive value="7"/>
+                          <xs:maxInclusive value="9"/>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
-                    <xs:element name="bidirectionalMotionEstimation" type="xs:boolean"/>
+                    <xs:element name="bidirectionalMotionEstimation" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="chromaMotionEstimation" type="xs:boolean"/>
-                    <xs:element name="bFrameRdo" type="xs:boolean"/>
+                    <xs:element name="bFrameRdo" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="mixedReferences" type="xs:boolean"/>
                     <xs:element name="trellis">
                       <xs:simpleType>

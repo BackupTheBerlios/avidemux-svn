@@ -83,6 +83,13 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.meMethodComboBox->addItem(QT_TR_NOOP("Hadamard Exhaustive Search"));
 #endif	// X264_BUILD >= 57
 
+#if X264_BUILD >= 65
+	ui.rdoCheckBox->setVisible(false);
+	ui.label_37->setText(QT_TR_NOOP("9 (Best)"));
+	ui.meSlider->setMaximum(9);
+	ui.meSpinBox->setMaximum(9);
+#endif
+
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
@@ -90,6 +97,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	// Analysis tab
 	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
+
+#if X264_BUILD >= 65
+	ui.bFrameMotionEstCheckBox->setVisible(false);
+#endif
 
 	// Quantiser tab
 #if X264_BUILD < 59
@@ -394,10 +405,13 @@ void x264ConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 void x264ConfigDialog::meSlider_valueChanged(int value)
 {
 	ui.meSpinBox->setValue(value);
+
+#if X264_BUILD < 65
 	ui.rdoCheckBox->setEnabled(value >= 6);
 
 	if (value < 6)
 		ui.rdoCheckBox->setChecked(false);
+#endif
 }
 
 void x264ConfigDialog::meSpinBox_valueChanged(int value)
@@ -584,7 +598,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Motion Estimation tab
 	ui.meSpinBox->setValue(options->getSubpixelRefinement());
+#if X264_BUILD < 65
 	ui.rdoCheckBox->setChecked(options->getBFrameRdo());
+#endif
 	ui.meMethodComboBox->setCurrentIndex(options->getMotionEstimationMethod());
 	ui.mvRangeSpinBox->setValue(options->getMotionVectorSearchRange());
 
@@ -640,7 +656,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Analysis tab
 	ui.mixedRefsCheckBox->setChecked(options->getMixedReferences());
 	ui.chromaMotionEstCheckBox->setChecked(options->getChromaMotionEstimation());
+#if X264_BUILD < 65
 	ui.bFrameMotionEstCheckBox->setChecked(options->getBidirectionalMotionEstimation());
+#endif
 
 	if (options->getTrellis())
 	{
@@ -794,7 +812,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Motion Estimation tab
 	options->setSubpixelRefinement(ui.meSpinBox->value());
+#if X264_BUILD < 65
 	options->setBFrameRdo(ui.rdoCheckBox->isChecked());
+#endif
 	options->setMotionEstimationMethod(ui.meMethodComboBox->currentIndex());
 	options->setMotionVectorSearchRange(ui.mvRangeSpinBox->value());
 	
@@ -842,7 +862,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Analysis tab
 	options->setMixedReferences(ui.mixedRefsCheckBox->isChecked());
 	options->setChromaMotionEstimation(ui.chromaMotionEstCheckBox->isChecked());
+#if X264_BUILD < 65
 	options->setBidirectionalMotionEstimation(ui.bFrameMotionEstCheckBox->isChecked());
+#endif
 
 	if (ui.trellisCheckBox->isChecked())
 		options->setTrellis(ui.trellisComboBox->currentIndex() + 1);

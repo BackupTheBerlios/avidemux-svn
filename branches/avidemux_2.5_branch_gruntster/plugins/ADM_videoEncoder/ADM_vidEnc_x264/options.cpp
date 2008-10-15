@@ -664,10 +664,11 @@ unsigned int x264Options::getSubpixelRefinement(void)
 
 void x264Options::setSubpixelRefinement(unsigned int subpixelRefinement)
 {
-	if (subpixelRefinement >= 1 && subpixelRefinement <= 7)
+	if (subpixelRefinement >= 1 && subpixelRefinement <= 9)
 		_param.analyse.i_subpel_refine = subpixelRefinement;
 }
 
+#if X264_BUILD < 65
 bool x264Options::getBidirectionalMotionEstimation(void)
 {
 	return _param.analyse.b_bidir_me;
@@ -677,6 +678,7 @@ void x264Options::setBidirectionalMotionEstimation(bool bidirectionalMotionEstim
 {
 	_param.analyse.b_bidir_me = bidirectionalMotionEstimation;
 }
+#endif
 
 bool x264Options::getChromaMotionEstimation(void)
 {
@@ -688,6 +690,7 @@ void x264Options::setChromaMotionEstimation(bool chromaMotionEstimation)
 	_param.analyse.b_chroma_me = chromaMotionEstimation;
 }
 
+#if X264_BUILD < 65
 bool x264Options::getBFrameRdo(void)
 {
 	return _param.analyse.b_bframe_rdo;
@@ -697,6 +700,7 @@ void x264Options::setBFrameRdo(bool bFrameRdo)
 {
 	_param.analyse.b_bframe_rdo = bFrameRdo;
 }
+#endif
 
 bool x264Options::getMixedReferences(void)
 {
@@ -1347,9 +1351,13 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"motionVectorLength", number2String(xmlBuffer, bufferSize, getMotionVectorLength()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"motionVectorThreadBuffer", number2String(xmlBuffer, bufferSize, getMotionVectorThreadBuffer()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"subpixelRefinement", number2String(xmlBuffer, bufferSize, getSubpixelRefinement()));
+#if X264_BUILD < 65
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bidirectionalMotionEstimation", boolean2String(xmlBuffer, bufferSize, getBidirectionalMotionEstimation()));
+#endif
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaMotionEstimation", boolean2String(xmlBuffer, bufferSize, getChromaMotionEstimation()));
+#if X264_BUILD < 65
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bFrameRdo", boolean2String(xmlBuffer, bufferSize, getBFrameRdo()));
+#endif
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mixedReferences", boolean2String(xmlBuffer, bufferSize, getMixedReferences()));
 
 	switch (getTrellis())
@@ -1862,12 +1870,16 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setMotionVectorThreadBuffer(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "subpixelRefinement") == 0)
 				setSubpixelRefinement(atoi(content));
+#if X264_BUILD < 65
 			else if (strcmp((char*)xmlChild->name, "bidirectionalMotionEstimation") == 0)
 				setBidirectionalMotionEstimation(string2Boolean(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "chromaMotionEstimation") == 0)
 				setChromaMotionEstimation(string2Boolean(content));
+#if X264_BUILD < 65
 			else if (strcmp((char*)xmlChild->name, "bFrameRdo") == 0)
 				setBFrameRdo(string2Boolean(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "mixedReferences") == 0)
 				setMixedReferences(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "trellis") == 0)

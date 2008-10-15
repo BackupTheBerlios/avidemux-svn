@@ -82,6 +82,30 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 	gtk_combo_box_append_text(GTK_COMBO_BOX(WID(comboboxMethod)), _("Hadamard Exhaustive Search"));
 #endif
 
+#if X264_BUILD >= 65
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("1 - QPel SAD (Fastest)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("2 - QPel SATD"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("3 - HPel on MB then QPel"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("4 - Always QPel"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("5 - QPel + Bidirectional ME"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("6 - RD on I/P frames (Default)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("7 - RD on all frames"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("8 - RD refinement on I/P frames"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("9 - RD refinement on all frames"));
+
+	gtk_widget_hide(WID(checkbuttonBidirME));
+#else
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("1  - Extremely Low (Fastest)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("2  - Very Low"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("3  - Low"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("4  - Medium"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("5  - High (Default)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6  - Very High"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6B - Very High (RDO on B-frames)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7  - Ultra High"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7B - Ultra High (RDO on B-frames)"));
+#endif
+
 	loadOptions(dialog, options);
 	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
 	updateDeblockingFilter(dialog);
@@ -267,7 +291,9 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate)), options->getDctDecimate());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)), options->getInterlaced());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference)), options->getBFrameReferences());
+#if X264_BUILD < 65
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBidirME)), options->getBidirectionalMotionEstimation());
+#endif
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative)), options->getAdaptiveBFrameDecision());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted)), options->getWeightedPrediction());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonMixedRefs)), options->getMixedReferences());
@@ -297,8 +323,6 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 
 	char string[11];
 
-	printf("%d, %d\n", options->getSarWidth(), options->getSarHeight());
-
 	snprintf(string, 10, "%d", options->getSarWidth());
 	gtk_entry_set_text(GTK_ENTRY(WID(entryAR_Num)), string);
 
@@ -318,6 +342,7 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbutton4x4I)), options->getPartitionI4x4());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(radiobuttonAsInputAR)), options->getSarAsInput());
 
+#if X264_BUILD < 65
 	int decisionItem;
 
 	if (options->getSubpixelRefinement() < 6)
@@ -333,6 +358,9 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 				decisionItem = 8;
 			else
 				decisionItem = 7;
+#else
+	int decisionItem = options->getSubpixelRefinement() - 1;
+#endif
 
 	gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxPartitionDecision)), decisionItem);
 }
@@ -343,7 +371,9 @@ void saveOptions(GtkWidget *dialog, x264Options *options)
 	options->setDctDecimate(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate))));
 	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced))));
 	options->setBFrameReferences(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference))));
+#if X264_BUILD < 65
 	options->setBidirectionalMotionEstimation(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBidirME))));
+#endif
 	options->setAdaptiveBFrameDecision(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative))));
 	options->setWeightedPrediction(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted))));
 	options->setMixedReferences(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonMixedRefs))));
@@ -405,6 +435,7 @@ void saveOptions(GtkWidget *dialog, x264Options *options)
 
 	uint32_t decisionItem = gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxPartitionDecision)));
 
+#if X264_BUILD < 65
 	if (decisionItem < 6)
 	{
 		options->setSubpixelRefinement(decisionItem + 1);
@@ -420,6 +451,9 @@ void saveOptions(GtkWidget *dialog, x264Options *options)
 		options->setSubpixelRefinement(7);
 		options->setBFrameRdo(decisionItem == 8);
 	}
+#else
+	options->setSubpixelRefinement(decisionItem + 1);
+#endif
 }
 
 GtkWidget*
@@ -765,15 +799,6 @@ create_dialog1 (void)
   gtk_table_attach (GTK_TABLE (table7), comboboxPartitionDecision, 1, 3, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (GTK_FILL), 0, 0);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("1  - Extremely Low (Fastest)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("2  - Very Low"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("3  - Low"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("4  - Medium"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("5  - High (Default)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6  - Very High"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6B - Very High (RDO on B-frames)"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7  - Ultra High"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7B - Ultra High (RDO on B-frames)"));
 
   comboboxMethod = gtk_combo_box_new_text ();
   gtk_widget_show (comboboxMethod);
