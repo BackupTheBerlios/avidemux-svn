@@ -44,5 +44,30 @@ const AspectRatio pixel_aspect[17] = {
 	{3, 2},
 	{2, 1},
 };
+
+typedef struct h264SpsInfo
+{
+	int width;
+	int height;
+	int fps1000;
+	int darNum;		// Display Aspect Ratio numerator
+	int darDen;		// Display Aspect Ratio denominator
+	int log2MaxFrameNumber;
+	int frameMbsOnlyFlag;
+} h264SpsInfo;
+
+typedef enum h264PictureType
+{
+	FRAME,
+	TOP_FIELD,
+	BOTTOM_FIELD
+} h264PictureType;
+
+typedef struct h264SliceHeader
+{
+	int sliceType;
+	int frameNumber;
+	h264PictureType pictureType;
+} h264SliceHeader;
 #endif
 //EOF

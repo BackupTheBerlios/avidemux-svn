@@ -42,12 +42,11 @@
 #include "dmx_indexer_internal.h"
 
 #include "ADM_infoExtractor/ADM_h264_tag.h"
-#undef aprintf
-#define aprintf printf
+
 static const char Type[5]={'X','I','P','B','P'};
 
 
-extern uint8_t extractSPSInfo(uint8_t *data, uint32_t len,uint32_t *wwidth,uint32_t *hheight, uint32_t *fps1000, uint32_t *darNum, uint32_t *darDen);
+extern uint8_t extractSPSInfo(uint8_t *data, uint32_t len, h264SpsInfo *info);
 
 dmx_videoIndexerH264::dmx_videoIndexerH264(dmx_runData *run) : dmx_videoIndexer(run)
 {
@@ -90,7 +89,8 @@ uint8_t streamid;
 uint32_t temporal_ref,ftype,val;
 uint64_t pts,dts;
 uint8_t pic_started=0;
-      
+h264SpsInfo spsInfo;
+int frameType;
       
 #if 0
     FILE *f=fopen("/tmp/foo.h264","wt");
@@ -114,7 +114,7 @@ uint8_t pic_started=0;
               streamid=streamid & 0x1f;
               //if(streamid>31) continue;
              // printf("Found NAL : %d 0x %x\n",streamid,streamid);
-#define T(x) case NAL_##x: printf(#x" found\n");break;
+#define T(x) case NAL_##x: aprintf(#x" found\n");break;
 #if 1
                 switch(streamid)
                 {
@@ -125,7 +125,7 @@ uint8_t pic_started=0;
                     T(SEI);
                     T(AU_DELIMITER);
                     T(FILLER);
-                  default :printf("%02x ?\n",streamid);
+                  default :aprintf("%02x ?\n",streamid);
                 }
 #endif
                  if((_run->totalFileSize>>16)>50)
@@ -147,8 +147,13 @@ uint8_t pic_started=0;
                       uint64_t xA,xR;
                       _run->demuxer->getPos(&xA,&xR);
                       _run->demuxer->read(buffer,60);
-                      if(extractSPSInfo(buffer,60,&( _run->imageW),&( _run->imageH),&(_run->imageFPS),&(_run->imageDarNum),&(_run->imageDarDen)))
+                      if (extractSPSInfo(buffer, 60, &spsInfo))
                       {
+						  _run->imageW = spsInfo.width;
+						  _run->imageH = spsInfo.height;
+						  _run->imageFPS = spsInfo.fps1000;
+						  _run->imageDarNum = spsInfo.darNum;
+						  _run->imageDarDen = spsInfo.darDen;
                             seq_found=1;
                             startFrame(1,syncAbs,syncRel);
                            _run->demuxer->setPos(xA,xR);
@@ -172,63 +177,50 @@ uint8_t pic_started=0;
               switch(streamid)
                       {
                       case NAL_AU_DELIMITER:
-                              if(pic_started)
-                                  pic_started=0;
-                              grabbing=0;
+							  pic_started = 0;
+
                               break;
-                      case NAL_SPS: // 
-                              pic_started=0;
-                              grabbing=1;
+                      case NAL_SPS:
+                              pic_started = 0;
                               aprintf("Sps %d\n",_run->nbGop);
-                              gopDump(syncAbs,syncRel);
+
+							  if (grabbing)
+								  _run->nbPushed--;
+							  else
+								  gopDump(syncAbs,syncRel);
+
+							  grabbing = 1;
+							  startFrame(2, syncAbs, syncRel);
+
                               break;
-                      case NAL_IDR: // IDR
-                              aprintf("IDR %d\n",_run->nbGop);
-                              uint32_t gop;   
-                              if(grabbing) 
-                              {
-                                aprintf("Grabbing, updating type\n");
-                                updateFrameType(1);
-                                pic_started=1;
-                                grabbing=0;
-                                continue;
-                              }
-                              aprintf("Dumping gop-\n");
-                              gopDump(syncAbs,syncRel);
-                              aprintf("New Frame-\n");
-                              updateFrameType(1);
-                              if(firstPicPTS==ADM_NO_PTS && pts!=ADM_NO_PTS)
-                                      firstPicPTS=pts;
-                              _run->totalFrame++;
-                              pic_started=1;
-                              break;
-                      case NAL_NON_IDR : // picture
-                              
-                              if(grabbing) 
-                              {
-                                updateFrameType(2);
-                                pic_started=1;
-                                grabbing=0;
-                                aprintf("Grabbing, updating type-2-\n");
-                                continue;
-                              }
-                              _run->totalFrame++;
-                              if(_run->nbPushed>MAX_PUSHED/2)
-                              {
-                                aprintf("Gop too big, dumping-\n");
-                                gopDump(syncAbs,syncRel);
-                                updateFrameType(2); 
-                              }else
-                              {
-                                aprintf("Staring new frame-\n");
-                                startFrame(2,syncAbs,syncRel);
-                              }
-                              pic_started=1;
-                              break;
-                      default:
-                        break;
-                      }
-                
+                      case NAL_IDR:
+					  case NAL_NON_IDR:
+						  frameType = (streamid == NAL_IDR ? 1 : 2);
+
+						  if (grabbing)
+						  {
+							  aprintf("Grabbing, updating type\n");
+							  updateFrameType(frameType);
+							  pic_started = 1;
+							  grabbing = 0;
+							  continue;
+						  }
+
+						  _run->totalFrame++;
+
+						  if (streamid == NAL_IDR || (streamid == NAL_NON_IDR && _run->nbPushed > MAX_PUSHED / 2))
+							  gopDump(syncAbs, syncRel);
+
+						  startFrame(frameType, syncAbs, syncRel);
+
+						  if (streamid == NAL_IDR && firstPicPTS == ADM_NO_PTS && pts != ADM_NO_PTS)
+							  firstPicPTS = pts;
+
+						  pic_started = 1;
+						  break;
+					  default:
+						  break;
+			  }
       }
     _frames[0].type=1; /* Always starts with an infra */
     return 1; 
@@ -365,7 +357,7 @@ uint64_t stats[_run->nbTrack];
         _run->nbGop++;
         _run->nbImage+=_run->nbPushed;
         _run->nbPushed=0;
-        startFrame(2,abs,rel);
+
         return 1;
         
 }
