@@ -88,7 +88,7 @@ ADM_flyDialog::ADM_flyDialog(uint32_t width,uint32_t height,AVDMGenericVideoStre
 		else
 			sourceColour = PIX_FMT_RGB32;
 
-		if (_isYuvProcessing && isRgbInverted())
+		if (sourceColour == PIX_FMT_YUV420P && isRgbInverted())
 			outputColour = PIX_FMT_BGR32;
 		else
 			outputColour = PIX_FMT_RGB32;
@@ -167,7 +167,7 @@ void ADM_flyDialog::recomputeSize(void)
         else
             sourceColour = PIX_FMT_RGB32;
 
-		if (_isYuvProcessing && isRgbInverted())
+		if (sourceColour == PIX_FMT_YUV420P && isRgbInverted())
 			outputColour = PIX_FMT_BGR32;
 		else
 			outputColour = PIX_FMT_RGB32;
