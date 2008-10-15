@@ -103,7 +103,7 @@ int diaElemUInteger::getRequiredLayout(void) { return 0; }
 //******************************************************
 
 diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, 
-                            ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip)
+                            ELEM_TYPE_FLOAT min, ELEM_TYPE_FLOAT max,const char *tip, int decimals)
   : diaElem(ELEM_FLOAT)
 {
 }

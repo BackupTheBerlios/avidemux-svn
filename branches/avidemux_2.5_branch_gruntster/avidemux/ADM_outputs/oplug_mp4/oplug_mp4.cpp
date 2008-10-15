@@ -328,7 +328,9 @@ bool receivedFrame = false;
 			  for (;;)
 			  {
 				  bitstream.cleanup(frame);
-				  bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+				  if (videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "32BCB447-21C9-4210-AE9A-4FCE6C8588AE") == 0)
+					  bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
 
 				  if (frame + frameDelay >= total)
 				  {
@@ -430,7 +432,9 @@ uint8_t prepareDualPass(uint32_t bufferSize,uint8_t *buffer,DIA_encoding *encodi
 					for (;;)
 					{
 						bitstream.cleanup(frame);
-						bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
+
+						if (videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "32BCB447-21C9-4210-AE9A-4FCE6C8588AE") == 0)
+							bitstream.dtsFrame = UINT32_MAX;	// let libavformat calculate it
 
 						if (frame + frameDelay >= total)
 						{

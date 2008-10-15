@@ -772,20 +772,20 @@ int nw;
 
 
         diaElemToggle togUsePredefined(&useDefined,QT_TR_NOOP("Use custom value"));
-        diaElemFloat  fpsFloatValue(&fps,QT_TR_NOOP("Frame Rate"),1.,200.,QT_TR_NOOP("_Frames per second"));
+        diaElemFloat  fpsFloatValue(&fps,QT_TR_NOOP("Frame Rate"),1.,200.,QT_TR_NOOP("_Frames per second"),3);
 
         diaMenuEntry menuFps[]={
               {0,QT_TR_NOOP("PAL - 25 FPS")},
-              {1,QT_TR_NOOP("FILM- 24 FPS")},
-              {2,QT_TR_NOOP("NTSC- 30 FPS")}};
+              {1,QT_TR_NOOP("FILM - 24 FPS")},
+              {2,QT_TR_NOOP("NTSC - 30 FPS")}};
 
-         diaElemMenu      stdFps(&index,QT_TR_NOOP("Standard FrameRate:"),3,menuFps);
+         diaElemMenu      stdFps(&index,QT_TR_NOOP("Standard Frame Rate:"),3,menuFps);
 
         togUsePredefined.link(1,&fpsFloatValue);
         togUsePredefined.link(0,&stdFps);
 
         diaElem *elems[3]={&togUsePredefined,&fpsFloatValue,&stdFps};
-        if(diaFactoryRun(QT_TR_NOOP("Change FrameRate"),3,elems))
+        if(diaFactoryRun(QT_TR_NOOP("Change Frame Rate"),3,elems))
         {
           if(useDefined)
           {

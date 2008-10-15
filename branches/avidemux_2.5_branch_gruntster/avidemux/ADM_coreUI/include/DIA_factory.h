@@ -285,14 +285,16 @@ public:
 
 /*********************************************/
 typedef diaElem  *(CREATE_FLOAT_T)(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, ELEM_TYPE_FLOAT min,
-        ELEM_TYPE_FLOAT max,const char *tip);
+        ELEM_TYPE_FLOAT max,const char *tip, int decimals);
 class diaElemFloat : public diaElem
 {
+protected:
+	int decimals;
 
 public:
   ELEM_TYPE_FLOAT min,max;
   diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, ELEM_TYPE_FLOAT min, 
-               ELEM_TYPE_FLOAT max,const char *tip=NULL);
+               ELEM_TYPE_FLOAT max,const char *tip=NULL, int decimals = 2);
   virtual ~diaElemFloat() ;
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);

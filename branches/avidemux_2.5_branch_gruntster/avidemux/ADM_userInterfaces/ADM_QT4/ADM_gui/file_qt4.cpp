@@ -62,10 +62,8 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		if (access)
-			fileName = QFileDialog::getSaveFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
-		else
-			fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), label, str, NULL, NULL, options);
+   if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
+       else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
 
 		if (!fileName.isNull() )
 		{
@@ -133,7 +131,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
+  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
 
 		if (!fileName.isNull())
 		{
@@ -165,7 +163,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), title, source, NULL, NULL, options);
+  fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
 
 		if (!fileName.isNull())
 		{
@@ -197,7 +195,7 @@ namespace ADM_QT4_fileSel
 		options |= QFileDialog::DontUseNativeDialog;
 #endif
 
-		fileName = QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), title, source, options);
+   fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), options);
 
 		if (!fileName.isNull())
 		{
