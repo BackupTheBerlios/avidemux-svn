@@ -23,6 +23,6 @@ public:
 	void gather(void);
 
 private slots:
-	void idxSel(bool i);
+	void idxSel();
 };
 #endif	// Q_vobsub_h

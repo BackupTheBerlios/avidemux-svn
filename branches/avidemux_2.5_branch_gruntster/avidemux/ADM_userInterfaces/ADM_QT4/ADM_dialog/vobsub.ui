@@ -5,77 +5,148 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>334</width>
-    <height>137</height>
+    <width>320</width>
+    <height>142</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>Subtitle Font Size and Position</string>
   </property>
-  <layout class="QGridLayout" >
-   <property name="leftMargin" >
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
     <number>9</number>
    </property>
-   <property name="topMargin" >
-    <number>9</number>
-   </property>
-   <property name="rightMargin" >
-    <number>9</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>9</number>
-   </property>
-   <property name="horizontalSpacing" >
+   <property name="spacing" >
     <number>6</number>
    </property>
-   <property name="verticalSpacing" >
-    <number>6</number>
-   </property>
-   <item row="1" column="2" >
-    <widget class="QComboBox" name="comboBoxLanguage" />
-   </item>
-   <item row="2" column="2" >
-    <widget class="QSpinBox" name="spinBox" >
-     <property name="minimum" >
-      <number>-2000</number>
+   <item>
+    <layout class="QGridLayout" >
+     <property name="margin" >
+      <number>0</number>
      </property>
-     <property name="maximum" >
-      <number>20000</number>
+     <property name="spacing" >
+      <number>6</number>
      </property>
-    </widget>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>Language:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="lineEditIdx" />
+     </item>
+     <item row="2" column="1" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QSpinBox" name="spinBox" >
+         <property name="maximum" >
+          <number>20000</number>
+         </property>
+         <property name="minimum" >
+          <number>-2000</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Idx File:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>Delay:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QComboBox" name="comboBoxLanguage" />
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QDialogButtonBox" name="buttonBox2" >
+       <property name="sizePolicy" >
+        <sizepolicy>
+         <hsizetype>0</hsizetype>
+         <vsizetype>0</vsizetype>
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons" >
+        <set>QDialogButtonBox::Open</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item row="2" column="0" >
-    <widget class="QLabel" name="label_3" >
-     <property name="text" >
-      <string>Delay :</string>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
      </property>
-    </widget>
-   </item>
-   <item row="0" column="1" colspan="3" >
-    <widget class="QLineEdit" name="lineEditIdx" />
-   </item>
-   <item row="0" column="4" >
-    <widget class="QPushButton" name="pushButtonIdx" >
-     <property name="text" >
-      <string>Select File</string>
+     <property name="sizeType" >
+      <enum>QSizePolicy::MinimumExpanding</enum>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2" >
-    <widget class="QLabel" name="label_2" >
-     <property name="text" >
-      <string>Language :</string>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
      </property>
-    </widget>
+    </spacer>
    </item>
-   <item row="0" column="0" >
-    <widget class="QLabel" name="label" >
-     <property name="text" >
-      <string>Idx File :</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3" colspan="2" >
+   <item>
     <widget class="QDialogButtonBox" name="buttonBox" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
@@ -87,6 +158,13 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEditIdx</tabstop>
+  <tabstop>buttonBox2</tabstop>
+  <tabstop>comboBoxLanguage</tabstop>
+  <tabstop>spinBox</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

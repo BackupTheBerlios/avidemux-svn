@@ -657,25 +657,12 @@ p, li { white-space: pre-wrap; }
         <number>0</number>
        </property>
        <item>
-        <spacer>
+        <widget class="QDialogButtonBox" name="buttonBox" >
          <property name="orientation" >
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeHint" >
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton" >
-         <property name="text" >
-          <string>Pause / Abort</string>
-         </property>
-         <property name="default" >
-          <bool>true</bool>
+         <property name="standardButtons" >
+          <set>QDialogButtonBox::Cancel</set>
          </property>
         </widget>
        </item>
@@ -686,7 +673,6 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <tabstops>
-  <tabstop>pushButton</tabstop>
   <tabstop>checkBoxShutdown</tabstop>
   <tabstop>comboBoxPriority</tabstop>
  </tabstops>

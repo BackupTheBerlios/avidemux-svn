@@ -12,6 +12,7 @@
  *                                                                         *
  ***************************************************************************/
 #include <math.h>
+#include <QtGui/QPushButton>
 
 #include "Q_encoding.h"
 #include "prefs.h"
@@ -42,8 +43,10 @@ encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, 
 	}
 #endif
 
+	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText("Pause / Abort");
+
 	connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
-	connect(ui.pushButton, SIGNAL(pressed()), this, SLOT(buttonPressed()));
+	connect(ui.buttonBox, SIGNAL(rejected()), this, SLOT(buttonPressed()));
 	connect(ui.comboBoxPriority, SIGNAL(currentIndexChanged(int)), this, SLOT(priorityChanged(int)));
 
 	// set priority
