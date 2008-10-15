@@ -406,9 +406,15 @@ _againBranch:
                         }
                         return 1;
                 }
-                // Udate info on that track
-                updateTracker(pid,left);
-                parser->forward(left);
+
+				parser->forward(left);
+
+                // Update info on that track
+				if (TS_PacketSize == 192 && left > 4)
+					left -= 4; // Remove timestamp of m2ts packet
+
+				updateTracker(pid,left);
+                
                 goto _againBranch;
         }
         // Payload present, read header
@@ -496,9 +502,15 @@ _againBranch:
                 }
                 return 1;
         }
+
+		parser->forward(left);
+
         // update info
+		if (TS_PacketSize == 192 && left > 4)
+			left -= 4; // Remove timestamp of m2ts packet
+
         updateTracker(pid,left);
-        parser->forward(left);
+
         goto _againBranch;
 }
 //***********************************
