@@ -153,8 +153,8 @@ ADMVideoColorYuv::ADMVideoColorYuv(AVDMGenericVideoStream *in,CONFcouple *couple
             MKP(opt,0); 
        
             MKP(colorbars,0);
-            MKP(analyze,1);
-            MKP(autowhite,1); 
+            MKP(analyze,0);
+            MKP(autowhite,0); 
             MKP(autogain,0); 
 
             
