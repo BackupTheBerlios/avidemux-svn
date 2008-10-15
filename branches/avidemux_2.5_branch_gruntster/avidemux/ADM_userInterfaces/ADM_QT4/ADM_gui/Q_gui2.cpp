@@ -29,6 +29,7 @@
 #include "ADM_video/ADM_vidMisc.h"
 #include "prefs.h"
 #include "avi_vars.h"
+#include "gtkgui.h"
 
 #include "ADM_userInterfaces/ADM_render/GUI_renderInternal.h"
 extern int global_argc;
@@ -542,9 +543,15 @@ void MainWindow::buildCustomMenu(void)
 	printf("Custom menu built\n");
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+	GUI_PlayAvi(true);
+}
+
 MainWindow::~MainWindow()
 {
 	clearCustomMenu();
+	renderDestroy();
 }
 static const UI_FUNCTIONS_T UI_Hooks=
     {
@@ -741,7 +748,7 @@ void setupMenus(void)
 	printf("Found %d format(s)\n",nbFormat);
 	for(uint32_t i=0;i<nbFormat;i++)
 	{
-		WIDGET(comboBoxFormat)->addItem(QString::fromUtf8(QT_TR_NOOP(ADM_allOutputFormat[i].text)));	
+		WIDGET(comboBoxFormat)->addItem(QString::fromUtf8(ADM_allOutputFormat[i].text));	
 	}
 
 }

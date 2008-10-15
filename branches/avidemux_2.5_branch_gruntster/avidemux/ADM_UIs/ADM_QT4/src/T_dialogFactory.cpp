@@ -124,13 +124,14 @@ uint8_t qt4DiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 */
 const char *shortkey(const char *in)
 {
- char *t=ADM_strdup(in);
- for(int i=0;i<strlen(t);i++)
- {
-    if(t[i]=='_') t[i]='&'; 
- }
-  return t;
+	QString escaped = QString::fromUtf8(in);
+
+	escaped.replace("&", "&&");
+	escaped.replace("_", "&");
+
+	return ADM_strdup(escaped.toUtf8().constData());
 }
+
 /**
  * 	\fn qt4DiaFactoryRunTabs
  */

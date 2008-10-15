@@ -1,0 +1,495 @@
+<ui version="4.0" >
+ <class>EqualiserDialog</class>
+ <widget class="QDialog" name="EqualiserDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>711</width>
+    <height>423</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>0</hsizetype>
+    <vsizetype>0</vsizetype>
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle" >
+   <string>Equaliser</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="groupBox" >
+       <property name="title" >
+        <string>Settings</string>
+       </property>
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_4" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>0</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>263</width>
+            <height>263</height>
+           </size>
+          </property>
+          <property name="frameShadow" >
+           <enum>QFrame::Plain</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="3" column="1" >
+           <widget class="QSpinBox" name="spinBox3" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>20</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="1" >
+           <widget class="QSpinBox" name="spinBox6" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QSpinBox" name="spinBox1" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QSlider" name="horizontalSlider3" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QSpinBox" name="spinBox4" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0" >
+           <widget class="QSlider" name="horizontalSlider8" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" >
+           <widget class="QSlider" name="horizontalSlider5" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" >
+           <widget class="QSlider" name="horizontalSlider4" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QSpinBox" name="spinBox2" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1" >
+           <widget class="QSpinBox" name="spinBox7" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QSlider" name="horizontalSlider1" >
+            <property name="minimumSize" >
+             <size>
+              <width>70</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" >
+           <widget class="QSlider" name="horizontalSlider6" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1" >
+           <widget class="QSpinBox" name="spinBox8" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0" >
+           <widget class="QSlider" name="horizontalSlider7" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" >
+           <widget class="QSpinBox" name="spinBox5" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QSlider" name="horizontalSlider2" >
+            <property name="maximum" >
+             <number>255</number>
+            </property>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>20</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2" >
+       <property name="title" >
+        <string>Histogram</string>
+       </property>
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>256</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QFrame" name="histInFrame" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>0</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>256</width>
+            <height>128</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>256</width>
+            <height>128</height>
+           </size>
+          </property>
+          <property name="frameShape" >
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow" >
+           <enum>QFrame::Plain</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType" >
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>256</width>
+            <height>6</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QFrame" name="histOutFrame" >
+          <property name="sizePolicy" >
+           <sizepolicy>
+            <hsizetype>0</hsizetype>
+            <vsizetype>0</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize" >
+           <size>
+            <width>256</width>
+            <height>128</height>
+           </size>
+          </property>
+          <property name="maximumSize" >
+           <size>
+            <width>256</width>
+            <height>128</height>
+           </size>
+          </property>
+          <property name="frameShape" >
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow" >
+           <enum>QFrame::Plain</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>256</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>693</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QSlider" name="horizontalSlider" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>0</hsizetype>
+       <vsizetype>0</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Plain</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::MinimumExpanding</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>horizontalSlider1</tabstop>
+  <tabstop>spinBox1</tabstop>
+  <tabstop>horizontalSlider2</tabstop>
+  <tabstop>spinBox2</tabstop>
+  <tabstop>horizontalSlider3</tabstop>
+  <tabstop>spinBox3</tabstop>
+  <tabstop>horizontalSlider4</tabstop>
+  <tabstop>spinBox4</tabstop>
+  <tabstop>horizontalSlider5</tabstop>
+  <tabstop>spinBox5</tabstop>
+  <tabstop>horizontalSlider6</tabstop>
+  <tabstop>spinBox6</tabstop>
+  <tabstop>horizontalSlider7</tabstop>
+  <tabstop>spinBox7</tabstop>
+  <tabstop>horizontalSlider8</tabstop>
+  <tabstop>spinBox8</tabstop>
+  <tabstop>horizontalSlider</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>EqualiserDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>EqualiserDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
