@@ -48,24 +48,16 @@ namespace ADM_QT4_fileSel
 			/* LASTDIR may have gone; then do nothing and use current dir instead (implied) */
 			if (dir = opendir(str))
 				closedir(dir);
-			else 
-			{
-				delete [] str;
-				str = NULL;
-			}
 		}
 
+		delete [] tmpname;
+
 		QString fileName;
-		QFileDialog::Options options = 0;
 
-#if defined(__APPLE__)
-		options |= QFileDialog::DontUseNativeDialog;
-#endif
+		if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), QString::fromUtf8(str));
+		else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), QString::fromUtf8(str));
 
-   if(access)  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
-       else    fileName=QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(label), str, NULL, NULL, options);
-
-		if (!fileName.isNull() )
+		if (!fileName.isNull())
 		{
 			fileName = QDir::toNativeSeparators(fileName);
 			const char *s=fileName.toUtf8().constData();
@@ -124,25 +116,38 @@ namespace ADM_QT4_fileSel
 	*/
 	uint8_t FileSel_SelectWrite(const char *title, char *target, uint32_t max, const char *source)
 	{
-		QString fileName;
-		QFileDialog::Options options = 0;
+		char *dir=NULL,*tmpname=NULL;
+		QString defaultPath, fileName;
 
-#if defined(__APPLE__)
-		options |= QFileDialog::DontUseNativeDialog;
-#endif
+		if (source && *source)
+			defaultPath = QString::fromUtf8(source);
+		else if (prefs->get(LASTDIR_WRITE, (ADM_filename **)&tmpname))
+		{
+			DIR *dir;
+			char *str = ADM_PathCanonize(tmpname);
 
-  fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
+			ADM_PathStripName(str);
 
-		if (!fileName.isNull())
+			if (dir = opendir(str))
+				closedir(dir);
+
+			defaultPath = QString::fromUtf8(str);
+			delete [] str;
+		}
+
+		delete [] tmpname;
+
+		fileName=QFileDialog::getSaveFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), defaultPath);
+
+		if(!fileName.isNull() )
 		{
 			fileName = QDir::toNativeSeparators(fileName);
 			const char *s=fileName.toUtf8().constData();
 			strncpy(target,s,max);
-
-			return 1;
+			prefs->set(LASTDIR_WRITE, (ADM_filename *)s);
 		}
 
-		return 0;
+		return !fileName.isNull();
 	}
 
 	/**
@@ -156,25 +161,38 @@ namespace ADM_QT4_fileSel
 	*/
 	uint8_t FileSel_SelectRead(const char *title, char *target, uint32_t max, const char *source)
 	{
-		QString fileName;
-		QFileDialog::Options options = 0;
+		char *dir=NULL,*tmpname=NULL;
+		QString defaultPath, fileName;
 
-#if defined(__APPLE__)
-		options |= QFileDialog::DontUseNativeDialog;
-#endif
+		if (source && *source)
+			defaultPath = QString::fromUtf8(source);
+		else if (prefs->get(LASTDIR_READ,(ADM_filename **)&tmpname))
+		{
+			DIR *dir;
+			char *str = ADM_PathCanonize(tmpname);
 
-  fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), NULL, NULL, options);
+			ADM_PathStripName(str);
 
-		if (!fileName.isNull())
+			if (dir = opendir(str))
+				closedir(dir);
+
+			defaultPath = QString::fromUtf8(str);
+			delete [] str;
+		}
+
+		delete [] tmpname;
+
+		fileName = QFileDialog::getOpenFileName(qtLastRegisteredDialog(), QString::fromUtf8(title), defaultPath);
+
+		if(!fileName.isNull() )
 		{
 			fileName = QDir::toNativeSeparators(fileName);
 			const char *s=fileName.toUtf8().constData();
 			strncpy(target,s,max);
-
-			return 1;
+			prefs->set(LASTDIR_READ, (ADM_filename *)s);
 		}
 
-		return 0;
+		return !fileName.isNull();
 	}
 
 	/**
@@ -188,24 +206,38 @@ namespace ADM_QT4_fileSel
 	*/
 	uint8_t FileSel_SelectDir(const char *title, char *target, uint32_t max, const char *source)
 	{
-		QString fileName;
-		QFileDialog::Options options = QFileDialog::ShowDirsOnly;
+		char *dir=NULL,*tmpname=NULL;
+		QString defaultPath, fileName;
 
-#if defined(__APPLE__)
-		options |= QFileDialog::DontUseNativeDialog;
-#endif
+		if (source && *source)
+			defaultPath = QString::fromUtf8(source);
+		else if (prefs->get(LASTDIR_READ,(ADM_filename **)&tmpname))
+		{
+			DIR *dir;
+			char *str = ADM_PathCanonize(tmpname);
 
-   fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), QString::fromUtf8(title), QString::fromUtf8(source), options);
+			ADM_PathStripName(str);
 
-		if (!fileName.isNull())
+			if (dir = opendir(str))
+				closedir(dir);
+
+			defaultPath = QString::fromUtf8(str);
+			delete [] str;
+		}
+
+		delete [] tmpname;
+
+		fileName=QFileDialog::getExistingDirectory(qtLastRegisteredDialog(), QString::fromUtf8(title), defaultPath, QFileDialog::ShowDirsOnly);
+
+		if(!fileName.isNull() )
 		{
 			fileName = QDir::toNativeSeparators(fileName);
 			const char *s=fileName.toUtf8().constData();
 			strncpy(target,s,max);
-			return 1;
+			prefs->set(LASTDIR_READ, (ADM_filename *)s);
 		}
 
-		return 0;
+		return !fileName.isNull();
 	}
 
 	/**

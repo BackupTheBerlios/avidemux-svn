@@ -353,7 +353,7 @@ int nw;
                 A_TimeShift();
                 break;
 	case ACT_OpenAvi:
-          GUI_FileSelRead (QT_TR_NOOP("Select AVI File..."), (SELFILE_CB *)A_openAvi);
+          GUI_FileSelRead (QT_TR_NOOP("Select Video/Image File..."), (SELFILE_CB *)A_openAvi);
 	  break;
 	}
       return;

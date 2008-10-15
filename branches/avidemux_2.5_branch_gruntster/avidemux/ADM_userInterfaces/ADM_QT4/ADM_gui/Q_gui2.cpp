@@ -545,7 +545,7 @@ void MainWindow::buildCustomMenu(void)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-	GUI_PlayAvi(true);
+	HandleAction(ACT_Exit);
 }
 
 MainWindow::~MainWindow()
