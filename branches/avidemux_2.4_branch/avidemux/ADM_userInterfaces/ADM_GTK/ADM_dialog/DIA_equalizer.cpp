@@ -40,6 +40,7 @@
 #include "ADM_video/ADM_genvideo.hxx"
 #include "ADM_video/ADM_vidEqualizer.h"
 #include "ADM_assert.h"
+#include "DIA_flyEqualiser.h"
 
 extern "C" {
 #include "ADM_libraries/ADM_lavcodec/avcodec.h"
@@ -427,6 +428,10 @@ gfloat g;
         //gtk_curve_set_curve_type(GTK_CURVE(WID(curve1)),GTK_CURVE_TYPE_LINEAR);
 
 }
+
+uint8_t flyEqualiser::upload(void) {}
+uint8_t flyEqualiser::download(void) {}
+
 GtkWidget*
 create_dialog1 (void)
 {
