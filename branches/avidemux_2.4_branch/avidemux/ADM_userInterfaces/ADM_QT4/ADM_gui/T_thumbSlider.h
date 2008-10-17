@@ -3,25 +3,30 @@
 
 #include <QtGui/QSlider>
 
-class ThumbSlider : public QSlider
+class ThumbSlider : public QAbstractSlider
 {
 	Q_OBJECT
 
 private:
 	int timerId, count, lock;
 
+	void drawBackground(QPainter *painter);
+	void drawLines(QPainter *painter);
+	void drawBorders(QPainter *painter);
+	void drawEdges(QPainter *painter);
+
 public:
 	ThumbSlider(QWidget *parent = 0);
 
 protected:
 	void timerEvent(QTimerEvent *event);
-
-private slots:
-	void sliderPressed();
-	void sliderReleased();
+	void paintEvent(QPaintEvent *event);
+	void mousePressEvent(QMouseEvent *event);
+	void mouseMoveEvent(QMouseEvent *event);
+	void mouseReleaseEvent(QMouseEvent *event);
 
 signals:
-	void valueChanged(int value);
+	void valueEmitted(int value);
 };
 
 #endif

@@ -31,6 +31,7 @@
 #include <QtGui/QKeyEvent>
 #include <QtGui/QValidator>
 
+#include "T_thumbSlider.h"
 #include "../ADM_toolkit/qtToolkit.h"
 #include "ADM_qslider.h"
 #include "default.h"
@@ -125,6 +126,9 @@ public:
 	
 	Ui_MainWindow ui;
 
+protected:
+	ThumbSlider *thumbSlider;
+
 public slots:
 	void timeChanged(int);
 	void buttonPressed(void);
@@ -177,7 +181,7 @@ public slots:
 		SliderIsShifted = 0;
 	}
 
-	void thumbSlider_valueChanged(int value)
+	void thumbSlider_valueEmitted(int value)
 	{
 		if (value > 0)
 			nextIntraFrame();
@@ -306,7 +310,9 @@ MainWindow::MainWindow() : QMainWindow()
 	connect( slider,SIGNAL(sliderReleased()),this,SLOT(sliderReleased()));
 
 	// Thumb slider
-	connect(ui.thumbSlider, SIGNAL(valueChanged(int)), this, SLOT(thumbSlider_valueChanged(int)));
+	ui.sliderPlaceHolder->installEventFilter(this);
+	thumbSlider = new ThumbSlider(ui.sliderPlaceHolder);
+	connect(thumbSlider, SIGNAL(valueEmitted(int)), this, SLOT(thumbSlider_valueEmitted(int)));
 
 	// Volume slider
 	QSlider *volSlider=ui.horizontalSlider_2;
@@ -482,6 +488,13 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 				if (!UI_readCurTime(hh, mm, ss, ms))
 					UI_updateTimeCount(currentFrame, currentFps);
 			}
+
+			break;
+		case QEvent::Resize:
+			if (watched == ui.sliderPlaceHolder)
+				thumbSlider->resize(ui.sliderPlaceHolder->width(), ui.sliderPlaceHolder->height());
+
+			break;
 	}
 
 	return QObject::eventFilter(watched, event);
@@ -601,6 +614,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 MainWindow::~MainWindow()
 {
+	delete thumbSlider;
 	clearCustomMenu();
 	renderDestroy();
 }

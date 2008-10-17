@@ -1234,19 +1234,6 @@
           </item>
          </layout>
         </item>
-        <item row="0" column="2" >
-         <widget class="ThumbSlider" name="thumbSlider" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="3" >
          <spacer>
           <property name="orientation" >
@@ -1262,6 +1249,9 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="0" column="2" >
+         <widget class="QWidget" native="1" name="sliderPlaceHolder" />
         </item>
        </layout>
       </item>
@@ -2373,11 +2363,6 @@
    <class>ADM_QSlider</class>
    <extends>QSlider</extends>
    <header>ADM_qslider.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ThumbSlider</class>
-   <extends>QSlider</extends>
-   <header>T_thumbSlider.h</header>
   </customwidget>
  </customwidgets>
  <resources>
