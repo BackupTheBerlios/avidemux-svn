@@ -7,6 +7,9 @@ class ThumbSlider : public QSlider
 {
 	Q_OBJECT
 
+private:
+	int timerId, count, lock;
+
 public:
 	ThumbSlider(QWidget *parent = 0);
 
