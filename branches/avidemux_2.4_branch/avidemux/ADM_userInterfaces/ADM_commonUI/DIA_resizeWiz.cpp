@@ -34,10 +34,10 @@ uint8_t r=0;
                              ONELINE(SVCD,QT_TR_NOOP("SVCD")),
                              ONELINE(DVD,QT_TR_NOOP("DVD")),
                              ONELINE(DVD_HD1,QT_TR_NOOP("DVD half D1")),
-                             ONELINE(PSP,QT_TR_NOOP("PSP 480*272")),
-                             ONELINE(PSP_FULLRES,QT_TR_NOOP("PSP full res (720*480")),
-                             ONELINE(IPOD,"IPOD 320*240"),
-                             ONELINE(IPOD640,"IPOD 640*480"),
+                             ONELINE(PSP,QT_TR_NOOP("PSP (480 * 272)")),
+                             ONELINE(PSP_FULLRES,QT_TR_NOOP("PSP full res. (720 * 480)")),
+                             ONELINE(IPOD,"iPod (320 * 240)"),
+                             ONELINE(IPOD640,"iPod (640 * 480)"),
                           };
              diaMenuEntry menuFAspect[3]={
                {RESWIZ_AR_1_1,QT_TR_NOOP("1:1"),NULL},

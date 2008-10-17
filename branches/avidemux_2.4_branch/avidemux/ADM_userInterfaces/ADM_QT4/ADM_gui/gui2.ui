@@ -2154,33 +2154,33 @@
   </action>
   <action name="actionVCD" >
    <property name="text" >
-    <string>&amp;VCD</string>
+    <string>&amp;Video CD...</string>
    </property>
   </action>
   <action name="actionSVCD" >
    <property name="text" >
-    <string>&amp;SVCD</string>
+    <string>&amp;Super Video CD...</string>
    </property>
   </action>
   <action name="actionDVD" >
    <property name="text" >
-    <string>&amp;DVD</string>
+    <string>&amp;DVD...</string>
    </property>
   </action>
   <action name="actionPSP" >
    <property name="text" >
-    <string>&amp;PSP</string>
+    <string>&amp;PlayStation Portable...</string>
    </property>
   </action>
   <action name="actionPSP_H264" >
    <property name="text" >
-    <string>PSP (&amp;H.264)</string>
+    <string>PlayStation Portable (&amp;H.264)...</string>
    </property>
    <property name="iconText" >
-    <string>PSP (H.264)</string>
+    <string>PlayStation Portable (H.264)</string>
    </property>
    <property name="toolTip" >
-    <string>PSP (H.264)</string>
+    <string>PlayStation Portable (H.264)</string>
    </property>
   </action>
   <action name="actionAdd_to_joblist" >
@@ -2336,12 +2336,12 @@
   </action>
   <action name="actionFLV" >
    <property name="text" >
-    <string>FLV</string>
+    <string>&amp;Flash Video</string>
    </property>
   </action>
   <action name="actionIPOD" >
    <property name="text" >
-    <string>IPOD (mpeg4)</string>
+    <string>&amp;iPod (MPEG-4 ASP)...</string>
    </property>
   </action>
   <action name="actionClose" >
