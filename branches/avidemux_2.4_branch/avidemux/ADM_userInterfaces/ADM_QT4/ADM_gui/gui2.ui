@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>709</width>
-    <height>524</height>
+    <height>526</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -669,7 +669,7 @@
             <property name="sizeHint" >
              <size>
               <width>20</width>
-              <height>20</height>
+              <height>10</height>
              </size>
             </property>
            </spacer>
@@ -930,7 +930,7 @@
             <property name="sizeHint" >
              <size>
               <width>20</width>
-              <height>20</height>
+              <height>10</height>
              </size>
             </property>
            </spacer>
@@ -1166,22 +1166,6 @@
         <item row="1" column="2" >
          <layout class="QVBoxLayout" >
           <item>
-           <spacer>
-            <property name="orientation" >
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType" >
-             <enum>QSizePolicy::Preferred</enum>
-            </property>
-            <property name="sizeHint" >
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QLabel" name="label_10" >
             <property name="sizePolicy" >
              <sizepolicy vsizetype="Minimum" hsizetype="Preferred" >
@@ -1299,7 +1283,7 @@
         <item>
          <widget class="QSlider" name="horizontalSlider_2" >
           <property name="sizePolicy" >
-           <sizepolicy vsizetype="Minimum" hsizetype="Fixed" >
+           <sizepolicy vsizetype="Ignored" hsizetype="Fixed" >
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
