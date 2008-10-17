@@ -492,7 +492,10 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 			break;
 		case QEvent::Resize:
 			if (watched == ui.sliderPlaceHolder)
-				thumbSlider->resize(ui.sliderPlaceHolder->width(), ui.sliderPlaceHolder->height());
+			{
+				thumbSlider->resize(ui.sliderPlaceHolder->width(), 16);
+				thumbSlider->move(0, (ui.sliderPlaceHolder->height() - thumbSlider->height()) / 2);
+			}
 
 			break;
 	}
