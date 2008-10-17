@@ -11,6 +11,7 @@ avidemux_rsc.cpp  file_qt4.cpp  gui_none.cpp  ADM_qslider.cpp  ADM_qtray.cpp
 SET(${ADM_LIB}_T
 tray
 preview
+thumbSlider
 )
 
 SET(${ADM_LIB}_Q

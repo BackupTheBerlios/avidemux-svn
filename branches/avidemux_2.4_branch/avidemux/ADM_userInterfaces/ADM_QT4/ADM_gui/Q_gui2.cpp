@@ -177,6 +177,14 @@ public slots:
 		SliderIsShifted = 0;
 	}
 
+	void thumbSlider_valueChanged(int value)
+	{
+		if (value > 0)
+			nextIntraFrame();
+		else
+			previousIntraFrame();
+	}
+
 	void volumeChange( int u )
 	{
 #ifdef HAVE_AUDIO
@@ -296,6 +304,9 @@ MainWindow::MainWindow() : QMainWindow()
 	connect( slider,SIGNAL(valueChanged(int)),this,SLOT(sliderValueChanged(int)));
 	connect( slider,SIGNAL(sliderMoved(int)),this,SLOT(sliderMoved(int)));
 	connect( slider,SIGNAL(sliderReleased()),this,SLOT(sliderReleased()));
+
+	// Thumb slider
+	connect(ui.thumbSlider, SIGNAL(valueChanged(int)), this, SLOT(thumbSlider_valueChanged(int)));
 
 	// Volume slider
 	QSlider *volSlider=ui.horizontalSlider_2;
