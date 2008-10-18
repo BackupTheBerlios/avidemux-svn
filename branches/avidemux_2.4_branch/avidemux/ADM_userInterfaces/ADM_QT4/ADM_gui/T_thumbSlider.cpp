@@ -142,7 +142,7 @@ void ThumbSlider::drawLines(QPainter *painter)
 	float offset = (float)width() / 6.0;
 	int pos = QStyle::sliderPositionFromValue(minimum(), maximum(), value(), width(), false);
 	int middle = width() / 2;
-	int start = pos - (offset * 3.0);
+	int start = pos - (width() / 2);
 	float colourF;
 	QPen pen;
 	QColor color;
@@ -190,8 +190,8 @@ void ThumbSlider::drawBorders(QPainter *painter)
 	color.setRgbF(0.53, 0.53, 0.53);
 
 	painter->setPen(QPen(QBrush(color), 1, Qt::SolidLine, Qt::FlatCap));
-	painter->drawLine(0, 0, width() - 1, 0);
-	painter->drawLine(0, height() - 1, width() - 1, height() - 1);
+	painter->drawLine(1, 0, width() - 1, 0);
+	painter->drawLine(1, height() - 1, width() - 1, height() - 1);
 	painter->drawLine(0, 1, 0, height() - 1);
 	painter->drawLine(width() - 1, 1, width() - 1, height() - 1);
 
