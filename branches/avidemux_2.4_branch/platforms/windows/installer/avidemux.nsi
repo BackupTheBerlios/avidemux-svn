@@ -209,7 +209,7 @@ SectionGroup /e "User interfaces" SecGrpUI
     SectionEnd
 
     Section GTK+ SecUiGtk
-        SectionIn 1 2
+        SectionIn 2
         SetOverwrite on
         SetOutPath $INSTDIR\etc\gtk-2.0
         File /r ${BUILDDIR}\etc\gtk-2.0\*
