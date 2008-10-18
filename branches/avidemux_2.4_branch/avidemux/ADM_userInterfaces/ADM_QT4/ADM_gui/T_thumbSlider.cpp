@@ -39,9 +39,6 @@ ThumbSlider::ThumbSlider(QWidget *parent) : QAbstractSlider(parent)
 	setValue(0);
 
 	count = lock = 0;
-
-	connect(this, SIGNAL(sliderPressed()), this, SLOT(sliderPressed()));
-	connect(this, SIGNAL(sliderReleased()), this, SLOT(sliderReleased()));
 }
 
 void ThumbSlider::timerEvent(QTimerEvent *event)
@@ -119,7 +116,7 @@ void ThumbSlider::mouseReleaseEvent(QMouseEvent *event)
 void ThumbSlider::drawBackground(QPainter *painter)
 {
 	int middle = width() / 2;
-	QLinearGradient base1 = QLinearGradient(1, 1, middle - 5, 1);
+	QLinearGradient base1 = QLinearGradient(0, 1, middle - 5, 1);
 	QLinearGradient base2 = QLinearGradient(width() - 1, 1, middle + 5, 1);
 	QColor color1, color2;
 
@@ -193,14 +190,14 @@ void ThumbSlider::drawBorders(QPainter *painter)
 	color.setRgbF(0.53, 0.53, 0.53);
 
 	painter->setPen(QPen(QBrush(color), 1, Qt::SolidLine, Qt::FlatCap));
-	painter->drawLine(1, 0, width() - 1, 0);
-	painter->drawLine(1, height() - 1, width() - 1, height() - 1);
-	painter->drawLine(1, 1, 1, height() - 1);
-	painter->drawLine(width(), 1, width(), height() - 1);
+	painter->drawLine(0, 0, width() - 1, 0);
+	painter->drawLine(0, height() - 1, width() - 1, height() - 1);
+	painter->drawLine(0, 1, 0, height() - 1);
+	painter->drawLine(width() - 1, 1, width() - 1, height() - 1);
 
-	QLinearGradient grad1 = QLinearGradient(1, 1, middle - 6, 1);
+	QLinearGradient grad1 = QLinearGradient(0, 1, middle - 6, 1);
 	QLinearGradient grad2 = QLinearGradient(width() - 1, 1, middle + 6, 1);
-	QLinearGradient grad3 = QLinearGradient(1, height() - 2, middle - 6, height() - 2);
+	QLinearGradient grad3 = QLinearGradient(0, height() - 2, middle - 6, height() - 2);
 	QLinearGradient grad4 = QLinearGradient(width() - 1, height() - 2, middle + 6, height() - 2);
 	QColor color1, color2;
 
@@ -233,7 +230,7 @@ void ThumbSlider::drawBorders(QPainter *painter)
 
 void ThumbSlider::drawEdges(QPainter *painter)
 {
-	QLinearGradient grad1 = QLinearGradient(1, 2, 6, 2);
+	QLinearGradient grad1 = QLinearGradient(0, 2, 6, 2);
 	QLinearGradient grad2 = QLinearGradient(width() - 1, 2, width() - 6, 2);
 	QColor color1, color2;
 
