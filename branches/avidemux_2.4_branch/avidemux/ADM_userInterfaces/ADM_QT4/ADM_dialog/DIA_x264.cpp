@@ -38,6 +38,7 @@ int b;
 int ret=0;
 int code;
 float AqStrength;
+uint32_t asInput;
 
       ADM_x264Param localParam;
       ADM_assert(config->extraSettingsLen==sizeof(localParam));
@@ -46,6 +47,7 @@ float AqStrength;
 
 	  AqStrength = localParam.AqStrength;
 	  AqStrength /= 100;
+	  asInput = localParam.AR_AsInput;
       
       // Our tabs
          /* Tab 1 main */
@@ -149,6 +151,14 @@ float AqStrength;
           frameMisc.swallow(&deblockStrength);
           frameMisc.swallow(&deblockThreshold);
 
+		  diaElemFrame  framePar(QT_TR_NOOP("Pixel Aspect Ratio"));
+		  diaElemToggle    parAsInput(&asInput, QT_TR_NOOP("As Input"));
+		  diaElemAspectRatio  par(PX(AR_Num), PX(AR_Den), QT_TR_NOOP("Aspect Ratio:"));
+
+		  parAsInput.link(0, &par);
+		  framePar.swallow(&parAsInput);
+		  framePar.swallow(&par);
+
 #if X264_BUILD >= 62
 		  diaElemFrame  frameAq(QT_TR_NOOP("Adaptive Quantisation"));
 
@@ -160,7 +170,7 @@ float AqStrength;
 		  frameAq.swallow(&aqStrength);
 #endif
 
-		  diaElem *misc[]={&frameMisc
+		  diaElem *misc[]={&frameMisc, &framePar
 #if X264_BUILD >= 62
 			  , &frameAq
 #endif
@@ -168,9 +178,9 @@ float AqStrength;
 
           diaElemTabs tabMisc(QT_TR_NOOP("Misc"),
 #if X264_BUILD >= 62
-			  2
+			  3
 #else
-			  1
+			  2
 #endif
 			  ,misc);
         /* Tab 4 Partition & frame*/
@@ -281,6 +291,7 @@ float AqStrength;
         if( diaFactoryRunTabs(QT_TR_NOOP("x264 Configuration"),6,tabs))
 	{
 		localParam.AqStrength = floor((AqStrength * 100) + 0.49);
+		localParam.AR_AsInput = asInput;
 
            memcpy(config->extraSettings,&localParam,sizeof(localParam));
            return 1;
