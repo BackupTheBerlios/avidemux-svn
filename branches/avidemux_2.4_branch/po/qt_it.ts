@@ -6,12 +6,12 @@
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1595"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1597"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Valore</translation>
     </message>
 </context>
 <context>
@@ -32,27 +32,27 @@
     <message>
         <location filename="../src/qt3support/sql/q3datatable.cpp" line="253"/>
         <source>True</source>
-        <translation type="unfinished"></translation>
+        <translation>Vero</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3datatable.cpp" line="254"/>
         <source>False</source>
-        <translation type="unfinished"></translation>
+        <translation>Falso</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3datatable.cpp" line="766"/>
         <source>Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3datatable.cpp" line="767"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3datatable.cpp" line="768"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
 </context>
 <context>
@@ -60,314 +60,314 @@
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="834"/>
         <source>Copy or Move a File</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia o sposta un file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="842"/>
         <source>Read: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Leggi: %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="878"/>
         <source>Write: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrivi: %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2470"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_mac.cpp" line="80"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutti i file (*)</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2426"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2427"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2429"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2430"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2431"/>
         <source>Attributes</source>
-        <translation type="unfinished"></translation>
+        <translation>Attributi</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4530"/>
         <source>&amp;OK</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2506"/>
         <source>Look &amp;in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarda &amp;in:</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4537"/>
         <source>File &amp;name:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nome file:</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2508"/>
         <source>File &amp;type:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tipo di file:</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2515"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Indietro</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2522"/>
         <source>One directory up</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartella superiore</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2531"/>
         <source>Create New Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea nuova cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2549"/>
         <source>List View</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizza elenco</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2557"/>
         <source>Detail View</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizza dettagli</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2566"/>
         <source>Preview File Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Anteprima informazioni file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2589"/>
         <source>Preview File Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>Anteprima contenuti file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2677"/>
         <source>Read-write</source>
-        <translation type="unfinished"></translation>
+        <translation>Lettura-scrittura</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2678"/>
         <source>Read-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Sola lettura</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2679"/>
         <source>Write-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Sola scrittura</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2680"/>
         <source>Inaccessible</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaccessibile</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2682"/>
         <source>Symlink to File</source>
-        <translation type="unfinished"></translation>
+        <translation>Collegamento simbolico al file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2683"/>
         <source>Symlink to Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Collegamento simbolico alla cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2684"/>
         <source>Symlink to Special</source>
-        <translation type="unfinished"></translation>
+        <translation>Collegamento simbolico al file speciale</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2685"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2686"/>
         <source>Dir</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="2687"/>
         <source>Special</source>
-        <translation type="unfinished"></translation>
+        <translation>Speciale</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_win.cpp" line="308"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_win.cpp" line="392"/>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva con nome</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4536"/>
         <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Apri</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4520"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Salva</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4179"/>
         <source>&amp;Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rinomina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4180"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Elimina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4200"/>
         <source>R&amp;eload</source>
-        <translation type="unfinished"></translation>
+        <translation>R&amp;icarica</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4204"/>
         <source>Sort by &amp;Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordina per &amp;Nome</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4206"/>
         <source>Sort by &amp;Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordina per &amp;Dimensione</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4207"/>
         <source>Sort by &amp;Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordina per D&amp;ata</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4209"/>
         <source>&amp;Unsorted</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Senza ordine</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4224"/>
         <source>Sort</source>
-        <translation type="unfinished"></translation>
+        <translation>Ordina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4228"/>
         <source>Show &amp;hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra file &amp;nascosti</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4259"/>
         <source>the file</source>
-        <translation type="unfinished"></translation>
+        <translation>il file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4261"/>
         <source>the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>la cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4263"/>
         <source>the symlink</source>
-        <translation type="unfinished"></translation>
+        <translation>il collegamento simbolico</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4266"/>
         <source>Delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4268"/>
         <source>&lt;qt&gt;Are you sure you wish to delete %1 &quot;%2&quot;?&lt;/qt&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;qt&gt;Sei sicuro di voler eliminare %1 &quot;%2&quot;?&lt;/qt&gt;</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4269"/>
         <source>&amp;Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sì</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4269"/>
         <source>&amp;No</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;No</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4305"/>
         <source>New Folder 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuova cartella 1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4310"/>
         <source>New Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuova cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4315"/>
         <source>New Folder %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuova cartella %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4420"/>
         <source>Find Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca cartella</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4533"/>
         <source>Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4531"/>
         <source>Directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartella:</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="5716"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog.cpp" line="4572"/>
         <source>%1
 File not found.
 Check path and filename.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1File non trovato.Controlla percorso e nome file.</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_win.cpp" line="103"/>
         <source>All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_win.cpp" line="478"/>
         <source>Open </source>
-        <translation type="unfinished"></translation>
+        <translation>Apri </translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3filedialog_win.cpp" line="633"/>
         <source>Select a Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona una cartella</translation>
     </message>
 </context>
 <context>
@@ -376,19 +376,21 @@ Check path and filename.</source>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="113"/>
         <source>Could not read directory
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile leggere la cartella
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="158"/>
         <source>Could not create directory
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile creare la cartella%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="192"/>
         <source>Could not remove file or directory
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile eliminare il file o la cartella
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="219"/>
@@ -396,19 +398,24 @@ Check path and filename.</source>
 %1
 to
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile rinominare
+%1
+in
+%2</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="244"/>
         <source>Could not open
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile aprire
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3localfs.cpp" line="312"/>
         <source>Could not write
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile scrivere
+%1</translation>
     </message>
 </context>
 <context>
@@ -416,12 +423,12 @@ to
     <message>
         <location filename="../src/qt3support/widgets/q3mainwindow.cpp" line="2050"/>
         <source>Line up</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea</translation>
     </message>
     <message>
         <location filename="../src/qt3support/widgets/q3mainwindow.cpp" line="2052"/>
         <source>Customize...</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalizza...</translation>
     </message>
 </context>
 <context>
@@ -429,7 +436,7 @@ to
     <message>
         <location filename="../src/qt3support/network/q3networkprotocol.cpp" line="827"/>
         <source>Operation stopped by the user</source>
-        <translation type="unfinished"></translation>
+        <translation>Operazione interrotta dall&apos;utente</translation>
     </message>
 </context>
 <context>
@@ -437,7 +444,7 @@ to
     <message>
         <location filename="../src/qt3support/dialogs/q3progressdialog.cpp" line="292"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
 </context>
 <context>
@@ -445,27 +452,27 @@ to
     <message>
         <location filename="../src/qt3support/dialogs/q3tabdialog.cpp" line="973"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3tabdialog.cpp" line="617"/>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3tabdialog.cpp" line="660"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3tabdialog.cpp" line="705"/>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Predefiniti</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3tabdialog.cpp" line="755"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
 </context>
 <context>
@@ -473,37 +480,37 @@ to
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5424"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5425"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ripristina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5430"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Taglia</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5431"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copia</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5433"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Incolla</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5436"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulisci</translation>
     </message>
     <message>
         <location filename="../src/qt3support/text/q3textedit.cpp" line="5442"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona tutto</translation>
     </message>
 </context>
 <context>
@@ -511,67 +518,67 @@ to
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="216"/>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="219"/>
         <source>Restore up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina in alto</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="220"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci a icona</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="223"/>
         <source>Restore down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina in basso</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="224"/>
         <source>Maximize</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingrandisci</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="226"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="244"/>
         <source>Contains commands to manipulate the window</source>
-        <translation type="unfinished"></translation>
+        <translation>Contiene comandi per manipolare la finestra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="247"/>
         <source>Puts a minimized back to normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina una finestra ridotta a icona</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="248"/>
         <source>Moves the window out of the way</source>
-        <translation type="unfinished"></translation>
+        <translation>Sposta la finestra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="251"/>
         <source>Puts a maximized window back to normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina una finestra ingrandita</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="252"/>
         <source>Makes the window full screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingrandisce la finestra a tutto schermo</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="254"/>
         <source>Closes the window</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiude la finestra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/compat/q3complexwidgets.cpp" line="256"/>
         <source>Displays the name of the window and contains controls to manipulate it</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizza il nome della finestra e contiene controlli per manipolarla</translation>
     </message>
 </context>
 <context>
@@ -579,7 +586,7 @@ to
     <message>
         <location filename="../src/qt3support/widgets/q3toolbar.cpp" line="656"/>
         <source>More...</source>
-        <translation type="unfinished"></translation>
+        <translation>Altro...</translation>
     </message>
 </context>
 <context>
@@ -587,47 +594,47 @@ to
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="624"/>
         <source>The protocol `%1&apos; is not supported</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non è supportato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="364"/>
         <source>The protocol `%1&apos; does not support listing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta l&apos;elenco cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="367"/>
         <source>The protocol `%1&apos; does not support creating new directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta la creazione di nuove cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="370"/>
         <source>The protocol `%1&apos; does not support removing files or directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta la rimozione di file o cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="373"/>
         <source>The protocol `%1&apos; does not support renaming files or directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta il cambio di nome di file o cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="376"/>
         <source>The protocol `%1&apos; does not support getting files</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta l&apos;acquisizione di file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="379"/>
         <source>The protocol `%1&apos; does not support putting files</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta il posizionamento di file</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="626"/>
         <source>The protocol `%1&apos; does not support copying or moving files or directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Il protocollo &apos;%1&apos; non supporta la copia o lo spostamento di file o cartelle</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3urloperator.cpp" line="881"/>
         <source>(unknown)</source>
-        <translation type="unfinished"></translation>
+        <translation>(sconosciuto)</translation>
     </message>
 </context>
 <context>
@@ -635,27 +642,27 @@ to
     <message>
         <location filename="../src/qt3support/dialogs/q3wizard.cpp" line="145"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3wizard.cpp" line="146"/>
         <source>&lt; &amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt; &amp;Indietro</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3wizard.cpp" line="147"/>
         <source>&amp;Next &gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Successivo &gt;</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3wizard.cpp" line="148"/>
         <source>&amp;Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Termina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/dialogs/q3wizard.cpp" line="149"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;iuto</translation>
     </message>
 </context>
 <context>
@@ -663,22 +670,22 @@ to
     <message>
         <location filename="../src/network/qabstractsocket.cpp" line="703"/>
         <source>Host not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host non trovato</translation>
     </message>
     <message>
         <location filename="../src/network/qhttpsocketengine.cpp" line="479"/>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione rifiutata</translation>
     </message>
     <message>
         <location filename="../src/network/qabstractsocket.cpp" line="1449"/>
         <source>Socket operation timed out</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo operazione socket scaduto</translation>
     </message>
     <message>
         <location filename="../src/network/qabstractsocket.cpp" line="1831"/>
         <source>Socket is not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Socket non è connesso</translation>
     </message>
 </context>
 <context>
@@ -686,17 +693,17 @@ to
     <message>
         <location filename="../src/gui/widgets/qabstractspinbox.cpp" line="1148"/>
         <source>&amp;Step up</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aumenta</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qabstractspinbox.cpp" line="1150"/>
         <source>Step &amp;down</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Diminuisci</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qabstractspinbox.cpp" line="1142"/>
         <source>&amp;Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Seleziona tutto</translation>
     </message>
 </context>
 <context>
@@ -704,28 +711,28 @@ to
     <message>
         <location filename="../src/gui/accessible/qaccessibleobject.cpp" line="346"/>
         <source>Activate</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.h" line="308"/>
         <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;eseguibile &apos;%1&apos; ha bisogno di Qt %2. Trovato Qt %3.</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.h" line="310"/>
         <source>Incompatible Qt Library Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore Libreria Qt incompatibile</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qapplication.cpp" line="2012"/>
         <source>QT_LAYOUT_DIRECTION</source>
         <comment>Translate this string to the string &apos;LTR&apos; in left-to-right languages or to &apos;RTL&apos; in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
-        <translation type="unfinished"></translation>
+        <translation>LTR</translation>
     </message>
     <message>
         <location filename="../src/gui/accessible/qaccessibleobject.cpp" line="348"/>
         <source>Activates the program&apos;s main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva la finestra principale del programma</translation>
     </message>
 </context>
 <context>
@@ -733,22 +740,22 @@ to
     <message>
         <location filename="../src/activeqt/container/ui_qaxselect.h" line="123"/>
         <source>Select ActiveX Control</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona controllo ActiveX</translation>
     </message>
     <message>
         <location filename="../src/activeqt/container/ui_qaxselect.h" line="124"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/activeqt/container/ui_qaxselect.h" line="125"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/activeqt/container/ui_qaxselect.h" line="126"/>
         <source>COM &amp;Object:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oggetto COM:</translation>
     </message>
 </context>
 <context>
@@ -756,17 +763,17 @@ to
     <message>
         <location filename="../src/plugins/accessible/widgets/simplewidgets.cpp" line="84"/>
         <source>Uncheck</source>
-        <translation type="unfinished"></translation>
+        <translation>Deseleziona</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/simplewidgets.cpp" line="87"/>
         <source>Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/simplewidgets.cpp" line="88"/>
         <source>Toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverti</translation>
     </message>
 </context>
 <context>
@@ -774,72 +781,72 @@ to
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1204"/>
         <source>Hu&amp;e:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tonalità:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1205"/>
         <source>&amp;Sat:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Saturazione:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1206"/>
         <source>&amp;Val:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Valore:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1207"/>
         <source>&amp;Red:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rosso:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1208"/>
         <source>&amp;Green:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verde:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1209"/>
         <source>Bl&amp;ue:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bl&amp;u:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1210"/>
         <source>A&amp;lpha channel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Canale a&amp;lpha:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1410"/>
         <source>&amp;Basic colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Colori di %base</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1411"/>
         <source>&amp;Custom colors</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Colori personalizzati</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1412"/>
         <source>&amp;Define Custom Colors &gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Definisci colori personalizzati &gt;&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1415"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1416"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1413"/>
         <source>&amp;Add to Custom Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aggiungi ai colori personalizzati</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1539"/>
         <source>Select color</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona colore</translation>
     </message>
 </context>
 <context>
@@ -847,22 +854,22 @@ to
     <message>
         <location filename="../src/plugins/accessible/widgets/complexwidgets.cpp" line="1394"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri</translation>
     </message>
     <message>
         <location filename="../src/gui/itemviews/qitemeditorfactory.cpp" line="515"/>
         <source>False</source>
-        <translation type="unfinished"></translation>
+        <translation>Falso</translation>
     </message>
     <message>
         <location filename="../src/gui/itemviews/qitemeditorfactory.cpp" line="516"/>
         <source>True</source>
-        <translation type="unfinished"></translation>
+        <translation>Vero</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/complexwidgets.cpp" line="1394"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
 </context>
 <context>
@@ -967,7 +974,7 @@ to
     <message>
         <location filename="../src/gui/dialogs/qdialog.cpp" line="490"/>
         <source>What&apos;s This?</source>
-        <translation type="unfinished"></translation>
+        <translation>Che cos&apos;è?</translation>
     </message>
 </context>
 <context>
@@ -1020,7 +1027,7 @@ to
     <message>
         <location filename="../src/gui/widgets/qdialogbuttonbox.cpp" line="554"/>
         <source>Discard</source>
-        <translation type="unfinished"></translation>
+        <translation>Scarta</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qdialogbuttonbox.cpp" line="557"/>
@@ -1139,27 +1146,27 @@ to
     <message>
         <location filename="../src/gui/dialogs/qerrormessage.cpp" line="131"/>
         <source>Debug Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Messaggio di debug:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qerrormessage.cpp" line="134"/>
         <source>Warning:</source>
-        <translation type="unfinished"></translation>
+        <translation>Avviso:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qerrormessage.cpp" line="137"/>
         <source>Fatal Error:</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore fatale:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qerrormessage.cpp" line="287"/>
         <source>&amp;Show this message again</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Mostra di nuovo questo messaggio</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qerrormessage.cpp" line="288"/>
         <source>&amp;OK</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;OK</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1307,7 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/itemviews/qfileiconprovider.cpp" line="332"/>
         <source>Drive</source>
-        <translation type="unfinished"></translation>
+        <translation>Drive</translation>
     </message>
     <message>
         <location filename="../src/gui/itemviews/qfileiconprovider.cpp" line="336"/>
@@ -1355,7 +1362,7 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/ui_qfiledialog.h" line="256"/>
         <source>Look in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarda in:</translation>
     </message>
     <message>
         <location filename="../src/gui/ui_qfiledialog.h" line="260"/>
@@ -1443,47 +1450,47 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="786"/>
         <source>&amp;Font</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tipo di Carattere</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="787"/>
         <source>Font st&amp;yle</source>
-        <translation type="unfinished"></translation>
+        <translation>St&amp;ile carattere</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="788"/>
         <source>&amp;Size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dimensione</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="789"/>
         <source>Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Effetti</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="790"/>
         <source>Stri&amp;keout</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Barrato</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="791"/>
         <source>&amp;Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sottolineato</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="792"/>
         <source>Sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Esempio</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="793"/>
         <source>Wr&amp;iting System</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema di scrittura</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="449"/>
         <source>Select Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona tipo di carattere</translation>
     </message>
 </context>
 <context>
@@ -1491,111 +1498,119 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="653"/>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Non connesso</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="718"/>
         <source>Host %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host %1 non trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="722"/>
         <source>Connection refused to host %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione rifiutata all&apos;host %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2327"/>
         <source>Connected to host %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connesso all&apos;host %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="985"/>
         <source>Connection refused for data connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione rifiutata per connessione dati</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="1960"/>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore sconosciuto</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2037"/>
         <source>Connecting to host failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione all&apos;host fallita:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2040"/>
         <source>Login failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Accesso fallito:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2043"/>
         <source>Listing directory failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Elenco delle cartelle fallito:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2046"/>
         <source>Changing directory failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica della cartella fallita:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2049"/>
         <source>Downloading file failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Download del file fallito:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2052"/>
         <source>Uploading file failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload del file fallito:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2055"/>
         <source>Removing file failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimozione del file fallita:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2058"/>
         <source>Creating directory failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Creazione della cartella fallita:
+%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2061"/>
         <source>Removing directory failed:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimozione della cartella fallita:%1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2336"/>
         <source>Connection closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione chiusa</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2325"/>
         <source>Host %1 found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host %1 trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2329"/>
         <source>Connection to %1 closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione a %1 chiusa</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2332"/>
         <source>Host found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3ftp.cpp" line="2334"/>
         <source>Connected to host</source>
-        <translation type="unfinished"></translation>
+        <translation>Connesso all&apos;host</translation>
     </message>
 </context>
 <context>
@@ -1629,92 +1644,92 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1749"/>
         <source>Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore sconosciuto</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1379"/>
         <source>Request aborted</source>
-        <translation type="unfinished"></translation>
+        <translation>Richiesta annullata</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1760"/>
         <source>No server set to connect to</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessun server disponibile per la connessione</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1816"/>
         <source>Wrong content length</source>
-        <translation type="unfinished"></translation>
+        <translation>Lunghezza contenuto errata</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1820"/>
         <source>Server closed connection unexpectedly</source>
-        <translation type="unfinished"></translation>
+        <translation>Il server ha chiuso la connessione in modo inatteso</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1858"/>
         <source>Connection refused</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione rifiutata</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1861"/>
         <source>Host %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host %1 non trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1864"/>
         <source>HTTP request failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Richiesta HTTP fallita</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="1933"/>
         <source>Invalid HTTP response header</source>
-        <translation type="unfinished"></translation>
+        <translation>Intestazione risposta HTTP non valida</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2020"/>
         <source>Invalid HTTP chunked body</source>
-        <translation type="unfinished"></translation>
+        <translation>Corpo segmentato HTTP non valido</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2314"/>
         <source>Host %1 found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host %1 trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2317"/>
         <source>Connected to host %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connesso all&apos;host %1</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2320"/>
         <source>Connection to %1 closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione a %1 chiusa</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2328"/>
         <source>Host found</source>
-        <translation type="unfinished"></translation>
+        <translation>Host trovato</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2331"/>
         <source>Connected to host</source>
-        <translation type="unfinished"></translation>
+        <translation>Connesso all&apos;host</translation>
     </message>
     <message>
         <location filename="../src/qt3support/network/q3http.cpp" line="2334"/>
         <source>Connection closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Connessione chiusa</translation>
     </message>
     <message>
         <location filename="../src/network/qhttp.cpp" line="2652"/>
         <source>Proxy authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Richiesta autenticazione proxy</translation>
     </message>
     <message>
         <location filename="../src/network/qhttp.cpp" line="2656"/>
         <source>Authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Autenticazione richiesta</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1737,7 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/network/qhttpsocketengine.cpp" line="492"/>
         <source>Authentication required</source>
-        <translation type="unfinished"></translation>
+        <translation>Autenticazione richiesta</translation>
     </message>
 </context>
 <context>
@@ -1955,37 +1970,37 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2489"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2491"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ripristina</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2495"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Taglia</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2497"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copia</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2499"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Incolla</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2502"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qlineedit.cpp" line="2506"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona tutto</translation>
     </message>
 </context>
 <context>
@@ -2074,52 +2089,52 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="547"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="550"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci a icona</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="553"/>
         <source>Restore Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina in basso</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="893"/>
         <source>&amp;Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ripristina</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="896"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sposta</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="897"/>
         <source>&amp;Size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dimensione</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="898"/>
         <source>Mi&amp;nimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci a ico&amp;na</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="900"/>
         <source>Ma&amp;ximize</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ingrandisci</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="902"/>
         <source>Stay on &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Sempre in &amp;primo piano</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmdisubwindow.cpp" line="905"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Chiudi</translation>
     </message>
 </context>
 <context>
@@ -2127,17 +2142,17 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/plugins/accessible/widgets/qaccessiblemenu.cpp" line="345"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/qaccessiblemenu.cpp" line="346"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/qaccessiblemenu.cpp" line="399"/>
         <source>Execute</source>
-        <translation type="unfinished"></translation>
+        <translation>Esegui</translation>
     </message>
 </context>
 <context>
@@ -2145,62 +2160,62 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="308"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="314"/>
         <source>Config</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurazione</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="315"/>
         <source>Preference</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="316"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opzioni</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="317"/>
         <source>Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="318"/>
         <source>Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Setup</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="320"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="321"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="356"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su %1</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="358"/>
         <source>About Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su Qt</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="360"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qmenu_mac.cpp" line="362"/>
         <source>Quit %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi %1</translation>
     </message>
 </context>
 <context>
@@ -2208,42 +2223,42 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/dialogs/qdialog.cpp" line="585"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.h" line="274"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="1456"/>
         <source>About Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su Qt</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="1636"/>
         <source>&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Questo programma usa la versione %1 di Qt.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="1635"/>
         <source>&lt;h3&gt;About Qt&lt;/h3&gt;%1&lt;p&gt;Qt is a C++ toolkit for cross-platform application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants. Qt is also available for embedded devices as Qtopia Core.&lt;/p&gt;&lt;p&gt;Qt is a Trolltech product. See &lt;a href=&quot;http://www.trolltech.com/qt/&quot;&gt;www.trolltech.com/qt/&lt;/a&gt; for more information.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h3&gt;Informazioni su Qt&lt;/h3&gt;%1&lt;p&gt;Qt è un insieme di strumenti C++ per lo sviluppo di applicazioni multi-piattaforma.&lt;/p&gt;&lt;p&gt;Qt consente di creare un&apos;unica interfaccia portatile compatibile con MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux e le principali varianti commerciali di Unix.&lt;br&gt;Qt è disponibile anche per le periferiche incorporate come Qtopia Core.&lt;/p&gt;&lt;p&gt;Qt è un prodotto Trolltech. Per ulteriori informazioni, visitare la pagina Web &lt;a href=&quot;http://www.trolltech.com/qt/&quot;&gt;www.trolltech.com/qt/&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="83"/>
         <source>Show Details...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra dettagli...</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="83"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi dettagli...</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qmessagebox.cpp" line="1644"/>
         <source>&lt;p&gt;This program uses Qt Open Source Edition version %1.&lt;/p&gt;&lt;p&gt;Qt Open Source Edition is intended for the development of Open Source applications. You need a commercial Qt license for development of proprietary (closed source) applications.&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;http://www.trolltech.com/company/model/&quot;&gt;www.trolltech.com/company/model/&lt;/a&gt; for an overview of Qt licensing.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Questo programma usa la versione %1 di Qt Open Source Edition.&lt;/p&gt;&lt;p&gt;Qt Open Source Edition è rivolta allo sviluppo di applicazioni Open Source. È necessaria una licenza Qt commerciale per lo sviluppo di applicazioni proprietarie (closed source)&lt;/p&gt;&lt;p&gt;Visitare la pagina Web &lt;a href=&quot;http://www.trolltech.com/company/model/&quot;&gt;www.trolltech.com/company/model/&lt;/a&gt; per una panoramica delle licenze Qt.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2570,350 +2585,353 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="186"/>
         <source>locally connected</source>
-        <translation type="unfinished"></translation>
+        <translation>connesso localmente</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="411"/>
         <source>Aliases: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alias: %1</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="854"/>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>sconosciuto</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="947"/>
         <source>Portrait</source>
-        <translation type="unfinished"></translation>
+        <translation>Verticale</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="948"/>
         <source>Landscape</source>
-        <translation type="unfinished"></translation>
+        <translation>Orizzontale</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="776"/>
         <source>A0 (841 x 1189 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A0 (841 x 1189 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="777"/>
         <source>A1 (594 x 841 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A1 (594 x 841 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="778"/>
         <source>A2 (420 x 594 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A2 (420 x 594 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="779"/>
         <source>A3 (297 x 420 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A3 (297 x 420 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="780"/>
         <source>A4 (210 x 297 mm, 8.26 x 11.7 inches)</source>
-        <translation type="unfinished"></translation>
+        <translation>A4 (210 x 297 mm, 8.26 x 11.7 pollici)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="781"/>
         <source>A5 (148 x 210 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A5 (148 x 210 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="782"/>
         <source>A6 (105 x 148 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A6 (105 x 148 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="783"/>
         <source>A7 (74 x 105 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A7 (74 x 105 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="784"/>
         <source>A8 (52 x 74 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A8 (52 x 74 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="785"/>
         <source>A9 (37 x 52 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>A9 (37 x 52 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="786"/>
         <source>B0 (1000 x 1414 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B0 (1000 x 1414 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="787"/>
         <source>B1 (707 x 1000 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B1 (707 x 1000 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="788"/>
         <source>B2 (500 x 707 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B2 (500 x 707 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="789"/>
         <source>B3 (353 x 500 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B3 (353 x 500 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="790"/>
         <source>B4 (250 x 353 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B4 (250 x 353 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="791"/>
         <source>B5 (176 x 250 mm, 6.93 x 9.84 inches)</source>
-        <translation type="unfinished"></translation>
+        <translation>B5 (176 x 250 mm, 6.93 x 9.84 pollici)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="792"/>
         <source>B6 (125 x 176 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B6 (125 x 176 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="793"/>
         <source>B7 (88 x 125 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B7 (88 x 125 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="794"/>
         <source>B8 (62 x 88 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B8 (62 x 88 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="795"/>
         <source>B9 (44 x 62 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B9 (44 x 62 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="796"/>
         <source>B10 (31 x 44 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>B10 (31 x 44 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="797"/>
         <source>C5E (163 x 229 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>C5E (163 x 229 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="798"/>
         <source>DLE (110 x 220 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>DLE (110 x 220 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="799"/>
         <source>Executive (7.5 x 10 inches, 191 x 254 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Executive (7.5 x 10 pollici, 191 x 254 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="800"/>
         <source>Folio (210 x 330 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Folio (210 x 330 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="801"/>
         <source>Ledger (432 x 279 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ledger (432 x 279 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="802"/>
         <source>Legal (8.5 x 14 inches, 216 x 356 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legal (8.5 x 14 pollici, 216 x 356 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="803"/>
         <source>Letter (8.5 x 11 inches, 216 x 279 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Letter (8.5 x 11 pollici, 216 x 279 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="804"/>
         <source>Tabloid (279 x 432 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabloid (279 x 432 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="805"/>
         <source>US Common #10 Envelope (105 x 241 mm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Busta standard USA (105 x 241 mm)</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qpagesetupdialog_unix.cpp" line="155"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qpagesetupdialog_unix.cpp" line="156"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qpagesetupdialog_unix.cpp" line="130"/>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione pagina:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="56"/>
         <source>Orientation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qpagesetupdialog_unix.cpp" line="141"/>
         <source>Paper source:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorgente carta:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="951"/>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1025"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1050"/>
         <source>Printer</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampante</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1136"/>
         <source>Print To File ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa su file...</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="25"/>
         <source>Print dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Finestra di stampa</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="37"/>
         <source>Paper format</source>
-        <translation type="unfinished"></translation>
+        <translation>Formato carta</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="49"/>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="162"/>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Proprietà</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="179"/>
         <source>Printer info:</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni stampante:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="239"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Sfoglia</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="259"/>
         <source>Print to file</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa su file</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_qws.cpp" line="347"/>
         <source>Print range</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervallo di stampa</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_qws.cpp" line="345"/>
         <source>Print all</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa tutto</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="307"/>
         <source>Pages from</source>
-        <translation type="unfinished"></translation>
+        <translation>Dalla pagina</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="321"/>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>alla</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="350"/>
         <source>Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Selezione</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="368"/>
         <source>Copies</source>
-        <translation type="unfinished"></translation>
+        <translation>Copie</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="388"/>
         <source>Number of copies:</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero di copie:</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="423"/>
         <source>Collate</source>
-        <translation type="unfinished"></translation>
+        <translation>Fascicola</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="430"/>
         <source>Print last page first</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa prima l&apos;ultima pagina</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="448"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Altro</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="460"/>
         <source>Print in color if available</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa a colori se disponibile</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog.ui" line="470"/>
         <source>Double side printing</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa a dimensione doppia</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1178"/>
         <source>File %1 is not writable.
 Please choose a different file name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Non è possibile scrivere il file %1.
+Scegliere un nome diverso.</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1182"/>
         <source>%1 already exists.
 Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 è già esistente.
+Sovrascrivere il file?</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_qws.cpp" line="118"/>
         <source>File exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Il file già esiste</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_qws.cpp" line="119"/>
         <source>&lt;qt&gt;Do you want to overwrite it?&lt;/qt&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;qt&gt;Vuoi sovrascriverlo?&lt;/qt&gt;</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_qws.cpp" line="346"/>
         <source>Print selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa selezione</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qprintdialog_unix.cpp" line="1174"/>
         <source>%1 is a directory.
 Please choose a different file name.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 è una cartella.
+Scegliere un nome diverso.</translation>
     </message>
 </context>
 <context>
@@ -2939,7 +2957,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/dialogs/qprogressdialog.cpp" line="147"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
 </context>
 <context>
@@ -2947,7 +2965,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/plugins/accessible/widgets/simplewidgets.cpp" line="80"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri</translation>
     </message>
 </context>
 <context>
@@ -2963,47 +2981,47 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="31"/>
         <source>no error occurred</source>
-        <translation type="unfinished"></translation>
+        <translation>nessun errore</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="32"/>
         <source>disabled feature used</source>
-        <translation type="unfinished"></translation>
+        <translation>è stata usata una funzione disabilitata</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="33"/>
         <source>bad char class syntax</source>
-        <translation type="unfinished"></translation>
+        <translation>sintassi della classe dei caratteri errata</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="34"/>
         <source>bad lookahead syntax</source>
-        <translation type="unfinished"></translation>
+        <translation>sintassi ricerca errata</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="35"/>
         <source>bad repetition syntax</source>
-        <translation type="unfinished"></translation>
+        <translation>sintassi ripetizioni errata</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="36"/>
         <source>invalid octal value</source>
-        <translation type="unfinished"></translation>
+        <translation>valore ottale non valido</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="37"/>
         <source>missing left delim</source>
-        <translation type="unfinished"></translation>
+        <translation>delimitatore sinistro mancante</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="38"/>
         <source>unexpected end</source>
-        <translation type="unfinished"></translation>
+        <translation>fine imprevista</translation>
     </message>
     <message>
         <location filename="../src/corelib/tools/qregexp.cpp" line="40"/>
         <source>met internal limit</source>
-        <translation type="unfinished"></translation>
+        <translation>è stato raggiunto il limite interno</translation>
     </message>
 </context>
 <context>
@@ -3186,7 +3204,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="288"/>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Spazio</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="289"/>
@@ -3196,17 +3214,17 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="290"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="291"/>
         <source>Backtab</source>
-        <translation type="unfinished"></translation>
+        <translation>Backtab</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="292"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="293"/>
@@ -3216,12 +3234,12 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="294"/>
         <source>Enter</source>
-        <translation type="unfinished"></translation>
+        <translation>Invio</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="295"/>
         <source>Ins</source>
-        <translation type="unfinished"></translation>
+        <translation>Ins</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="296"/>
@@ -3231,17 +3249,17 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="297"/>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pausa</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="298"/>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="299"/>
         <source>SysReq</source>
-        <translation type="unfinished"></translation>
+        <translation>SysReq</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="300"/>
@@ -3276,72 +3294,72 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="306"/>
         <source>PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>PgSu</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="307"/>
         <source>PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>PgGiù</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="308"/>
         <source>CapsLock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Maiuscolo</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="309"/>
         <source>NumLock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Num</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="310"/>
         <source>ScrollLock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Scroll</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="311"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="312"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="315"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Indietro</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="316"/>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Avanti</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="317"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="318"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricarica</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="319"/>
         <source>Volume Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume Giù</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="320"/>
         <source>Volume Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume Muto</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="321"/>
         <source>Volume Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume Su</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="322"/>
@@ -3396,22 +3414,22 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="333"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferiti</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="334"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricerca</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="335"/>
         <source>Standby</source>
-        <translation type="unfinished"></translation>
+        <translation>Standby</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="336"/>
         <source>Open URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri indirizzo</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="337"/>
@@ -3506,52 +3524,52 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="358"/>
         <source>Print Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Stamp</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="359"/>
         <source>Page Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina Su</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="360"/>
         <source>Page Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina Giù</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="361"/>
         <source>Caps Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Maiuscolo</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="362"/>
         <source>Num Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Num</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="363"/>
         <source>Number Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Numero</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="364"/>
         <source>Scroll Lock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc Scroll</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="365"/>
         <source>Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="366"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="367"/>
         <source>Escape</source>
-        <translation type="unfinished"></translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="368"/>
@@ -3561,7 +3579,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="372"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="373"/>
@@ -3636,12 +3654,12 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="1039"/>
         <source>F%1</source>
-        <translation type="unfinished"></translation>
+        <translation>F%1</translation>
     </message>
     <message>
         <location filename="../src/gui/kernel/qkeysequence.cpp" line="332"/>
         <source>Home Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Home</translation>
     </message>
 </context>
 <context>
@@ -3698,52 +3716,52 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="870"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="871"/>
         <source>Delete this record?</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminare il record?</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="924"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Sì</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="925"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>No</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="881"/>
         <source>Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="883"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="887"/>
         <source>Save edits?</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvare le modifiche?</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="890"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="922"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Conferma</translation>
     </message>
     <message>
         <location filename="../src/qt3support/sql/q3sqlmanager_p.cpp" line="923"/>
         <source>Cancel your edits?</source>
-        <translation type="unfinished"></translation>
+        <translation>Annullare le modifiche?</translation>
     </message>
 </context>
 <context>
@@ -3843,42 +3861,42 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1861"/>
         <source>&amp;Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1863"/>
         <source>&amp;Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ripristina</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1867"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Taglia</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1872"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copia</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1879"/>
         <source>Copy &amp;Link Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia indirizzo</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1885"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Incolla</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1888"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1895"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona tutto</translation>
     </message>
 </context>
 <context>
@@ -3907,12 +3925,12 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/util/qundogroup.cpp" line="341"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/util/qundogroup.cpp" line="369"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina</translation>
     </message>
 </context>
 <context>
@@ -3920,7 +3938,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/util/qundoview.cpp" line="71"/>
         <source>&lt;empty&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3928,12 +3946,12 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/util/qundostack.cpp" line="816"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/util/qundostack.cpp" line="843"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina</translation>
     </message>
 </context>
 <context>
@@ -3941,57 +3959,57 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2586"/>
         <source>LRM Left-to-right mark</source>
-        <translation type="unfinished"></translation>
+        <translation>LRM marcatura sinistra-destra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2587"/>
         <source>RLM Right-to-left mark</source>
-        <translation type="unfinished"></translation>
+        <translation>RLM marcatura destra-sinistra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2588"/>
         <source>ZWJ Zero width joiner</source>
-        <translation type="unfinished"></translation>
+        <translation>ZWJ spazio di unione a larghezza nulla</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2589"/>
         <source>ZWNJ Zero width non-joiner</source>
-        <translation type="unfinished"></translation>
+        <translation>ZWNJ spazio non di unione a larghezza nulla</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2590"/>
         <source>ZWSP Zero width space</source>
-        <translation type="unfinished"></translation>
+        <translation>ZWSP spazio a larghezza nulla</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2591"/>
         <source>LRE Start of left-to-right embedding</source>
-        <translation type="unfinished"></translation>
+        <translation>LRE inserimento sinistra-destra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2592"/>
         <source>RLE Start of right-to-left embedding</source>
-        <translation type="unfinished"></translation>
+        <translation>RLE inserimento destra-sinistra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2593"/>
         <source>LRO Start of left-to-right override</source>
-        <translation type="unfinished"></translation>
+        <translation>LRO sovrascrivi sinistra-destra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2594"/>
         <source>RLO Start of right-to-left override</source>
-        <translation type="unfinished"></translation>
+        <translation>RLO sovrascrivi destra-sinistra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2595"/>
         <source>PDF Pop directional formatting</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF cancella formattazione direzionale</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qtextedit.cpp" line="2601"/>
         <source>Insert Unicode control character</source>
-        <translation type="unfinished"></translation>
+        <translation>Inserisci carattere di controllo unicode</translation>
     </message>
 </context>
 <context>
@@ -4007,7 +4025,7 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/kernel/qwidget.cpp" line="4131"/>
         <source>*</source>
-        <translation type="unfinished"></translation>
+        <translation>*</translation>
     </message>
 </context>
 <context>
@@ -4015,12 +4033,12 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="554"/>
         <source>Go Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Vai indietro</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="555"/>
         <source>Continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Continua</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="565"/>
@@ -4030,37 +4048,37 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="557"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Fatto</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="558"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="559"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="561"/>
         <source>&lt; &amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt; &amp;Indietro</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="566"/>
         <source>&amp;Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Termina</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="567"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qwizard.cpp" line="568"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;iuto</translation>
     </message>
 </context>
 <context>
@@ -4068,67 +4086,67 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1061"/>
         <source>&amp;Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ripristina</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1062"/>
         <source>&amp;Move</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sposta</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1063"/>
         <source>&amp;Size</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dimensione</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1065"/>
         <source>Mi&amp;nimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci a ico&amp;na</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1067"/>
         <source>Ma&amp;ximize</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ingrandisci</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1070"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Chiudi</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1075"/>
         <source>Stay on &amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Sempre in &amp;primo piano</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="2137"/>
         <source>Sh&amp;ade</source>
-        <translation type="unfinished"></translation>
+        <translation>Bl&amp;occa</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="1919"/>
         <source>%1 - [%2]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - [%2]</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="85"/>
         <source>Minimize</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci a icona</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="87"/>
         <source>Restore Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripristina in basso</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="83"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qworkspace.cpp" line="2133"/>
         <source>&amp;Unshade</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rimuovi blocco</translation>
     </message>
 </context>
 <context>
@@ -4136,117 +4154,117 @@ Please choose a different file name.</source>
     <message>
         <location filename="../src/xml/qxml.cpp" line="31"/>
         <source>no error occurred</source>
-        <translation type="unfinished"></translation>
+        <translation>nessun errore</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="32"/>
         <source>error triggered by consumer</source>
-        <translation type="unfinished"></translation>
+        <translation>errore attivato da utente</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="33"/>
         <source>unexpected end of file</source>
-        <translation type="unfinished"></translation>
+        <translation>fine file inattesa</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="34"/>
         <source>more than one document type definition</source>
-        <translation type="unfinished"></translation>
+        <translation>sono state trovate più definizioni per il tipo di documento</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="35"/>
         <source>error occurred while parsing element</source>
-        <translation type="unfinished"></translation>
+        <translation>errore durante l&apos;analisi dell&apos;elemento</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="36"/>
         <source>tag mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation>tag non corrispondenti</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="37"/>
         <source>error occurred while parsing content</source>
-        <translation type="unfinished"></translation>
+        <translation>errore durante l&apos;analisi del contenuto</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="38"/>
         <source>unexpected character</source>
-        <translation type="unfinished"></translation>
+        <translation>carattere imprevisto</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="39"/>
         <source>invalid name for processing instruction</source>
-        <translation type="unfinished"></translation>
+        <translation>nome non valido per l&apos;elaborazione dell&apos;istruzione</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="40"/>
         <source>version expected while reading the XML declaration</source>
-        <translation type="unfinished"></translation>
+        <translation>versione attesa durante la lettura della dichiarazione XML</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="41"/>
         <source>wrong value for standalone declaration</source>
-        <translation type="unfinished"></translation>
+        <translation>valore errato per dichiarazione indipendente</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="42"/>
         <source>encoding declaration or standalone declaration expected while reading the XML declaration</source>
-        <translation type="unfinished"></translation>
+        <translation>attesa dichiarazione di codifica o indipendente durante la lettura della dichiarazione XML</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="43"/>
         <source>standalone declaration expected while reading the XML declaration</source>
-        <translation type="unfinished"></translation>
+        <translation>attesa dichiarazione indipendente durante la lettura della dichiarazione XML</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="44"/>
         <source>error occurred while parsing document type definition</source>
-        <translation type="unfinished"></translation>
+        <translation>errore durante l&apos;analisi della definizione del tipo di documento</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="45"/>
         <source>letter is expected</source>
-        <translation type="unfinished"></translation>
+        <translation>prevista lettera</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="46"/>
         <source>error occurred while parsing comment</source>
-        <translation type="unfinished"></translation>
+        <translation>errore durante l&apos;analisi del commento</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="47"/>
         <source>error occurred while parsing reference</source>
-        <translation type="unfinished"></translation>
+        <translation>errore durante l&apos;analisi del riferimento</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="48"/>
         <source>internal general entity reference not allowed in DTD</source>
-        <translation type="unfinished"></translation>
+        <translation>riferimento interno a entità generica non consentito in DTD</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="49"/>
         <source>external parsed general entity reference not allowed in attribute value</source>
-        <translation type="unfinished"></translation>
+        <translation>riferimento esterno a entità generale analizzata non consentito nel valore dell&apos;attributo</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="50"/>
         <source>external parsed general entity reference not allowed in DTD</source>
-        <translation type="unfinished"></translation>
+        <translation>riferimento esterno a entità generale analizzata non consentito in DTD</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="51"/>
         <source>unparsed entity reference in wrong context</source>
-        <translation type="unfinished"></translation>
+        <translation>riferimento entità non analizzata nel contesto errato</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="52"/>
         <source>recursive entities</source>
-        <translation type="unfinished"></translation>
+        <translation>entità ricorrenti</translation>
     </message>
     <message>
         <location filename="../src/xml/qxml.cpp" line="55"/>
         <source>error in the text declaration of an external entity</source>
-        <translation type="unfinished"></translation>
+        <translation>errore nella dichiarazione testuale di un&apos;entità esterna</translation>
     </message>
 </context>
 <context>
