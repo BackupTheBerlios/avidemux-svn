@@ -1273,7 +1273,7 @@
         <item>
          <widget class="QSlider" name="horizontalSlider_2" >
           <property name="sizePolicy" >
-           <sizepolicy vsizetype="Ignored" hsizetype="Fixed" >
+           <sizepolicy vsizetype="Ignored" hsizetype="Preferred" >
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
