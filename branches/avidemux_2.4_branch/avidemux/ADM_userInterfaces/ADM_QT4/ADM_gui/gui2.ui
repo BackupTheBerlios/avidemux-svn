@@ -1346,6 +1346,9 @@
     <addaction name="actionOCR" />
     <addaction name="actionOCR_DVB_T_TS_files" />
     <addaction name="actionGlyphs_Edit" />
+    <addaction name="separator" />
+    <addaction name="action_Preferences" />
+    <addaction name="actionAVI_Muxer_Options" />
    </widget>
    <widget class="QMenu" name="menuEdit" >
     <property name="title" >
@@ -1360,8 +1363,6 @@
     <addaction name="separator" />
     <addaction name="actionSet_marker_A" />
     <addaction name="actionSet_marker_B" />
-    <addaction name="separator" />
-    <addaction name="actionPreferences" />
    </widget>
    <widget class="QMenu" name="menuView" >
     <property name="title" >
@@ -2355,6 +2356,16 @@
   <action name="actionSave_Selection" >
    <property name="text" >
     <string>Save Selection as JPEG Images...</string>
+   </property>
+  </action>
+  <action name="action_Preferences" >
+   <property name="text" >
+    <string>&amp;Preferences...</string>
+   </property>
+  </action>
+  <action name="actionAVI_Muxer_Options" >
+   <property name="text" >
+    <string>&amp;AVI Muxer Options...</string>
    </property>
   </action>
  </widget>

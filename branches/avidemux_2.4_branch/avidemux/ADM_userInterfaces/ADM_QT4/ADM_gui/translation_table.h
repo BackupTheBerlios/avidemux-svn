@@ -9,7 +9,6 @@ PROCESS(actionPaste,ACT_Paste) \
 PROCESS(actionDelete,ACT_Delete) \
 PROCESS(actionSet_marker_A,ACT_MarkA) \
 PROCESS(actionSet_marker_B,ACT_MarkB) \
-PROCESS(actionPreferences,ACT_Pref) \
 PROCESS(actionProperties,ACT_AviInfo) \
 PROCESS(actionSave_video,ACT_SaveAvi) \
 PROCESS(actionSave_BMP,ACT_SaveImg) \
@@ -43,6 +42,8 @@ PROCESS(actionBitrate_histogram,ACT_BitRate) \
 PROCESS(actionScan_for_black_frames,ACT_AllBlackFrames) \
 PROCESS(actionVob_to_vobsub,ACT_V2V) \
 PROCESS(actionOCR,ACT_Ocr) \
+PROCESS(action_Preferences, ACT_Pref) \
+PROCESS(actionAVI_Muxer_Options, ACT_SetMuxParam) \
 PROCESS(actionPlay_Stop,ACT_StopAvi) \
 PROCESS(actionPrevious_Frame,ACT_PreviousFrame) \
 PROCESS(actionNext_Frame,ACT_NextFrame) \
