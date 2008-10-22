@@ -623,7 +623,8 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
 		}
 		case MUXER_MP4:
 		{
-			ptsFrame = bitstream->ptsFrame;
+			if (bitstream->dtsFrame == UINT32_MAX)
+				ptsFrame = bitstream->ptsFrame;
 			// break is missing on purpose!
 		}
 		default:
