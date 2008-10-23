@@ -124,7 +124,7 @@ encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, 
 	}
 #endif
 
-	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText(QT_TR_NOOP("Pause / Abort"));
+	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText(QString::fromUtf8(QT_TR_NOOP("Pause / Abort")));
 
 	connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
 	connect(ui.buttonBox, SIGNAL(rejected()), this, SLOT(buttonPressed()));
