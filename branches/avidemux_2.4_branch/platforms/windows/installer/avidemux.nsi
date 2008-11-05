@@ -259,9 +259,10 @@ SectionGroup "Additional languages" SecGrpLang
         !insertmacro InstallGtkLanguage Catalan ca
     SectionEnd
 
-    Section "Czech (GTK+ only)" SecLangCzech
+    Section "Czech" SecLangCzech
         SectionIn 2
         !insertmacro InstallGtkLanguage Czech cs
+        !insertmacro InstallQt4Language Czech cs
     SectionEnd
 
     Section "French" SecLangFrench
