@@ -220,6 +220,7 @@
 
 /* libdca detected */
 #cmakedefine USE_LIBDCA
+#cmakedefine USE_DCA_INSTEAD_OF_DTS
 
 /* Libxml2 is available */
 #cmakedefine USE_LIBXML2
