@@ -199,27 +199,9 @@ bool receivedFrame = false;
                         videoExtraData=new uint8_t[videoExtraDataSize];
                         memcpy(videoExtraData,dummy,videoExtraDataSize);
                 }
-        // _________________Setup video (cont) _______________
-             
-             ADM_assert(_encode);
-             bitstream.data=videoBuffer;
 
-           // If needed get VOL header
-           if(isMpeg4Compatible(info.fcc) && !videoExtraDataSize && bitstream.len)
-           {
-                // And put them as extradata for esds atom
-                uint32_t voslen=0;
-               
-                if(extractVolHeader(videoBuffer,bitstream.len,&voslen))
-                {
-                        if(voslen)
-                        {
-                                videoExtraDataSize=voslen;
-                                videoExtraData=new uint8_t[videoExtraDataSize];
-                                memcpy(videoExtraData,videoBuffer,videoExtraDataSize);
-                        }
-                } else  printf("Oops should be settings data for esds\n");
-            }
+				ADM_assert(_encode);
+				bitstream.data = videoBuffer;
 
 // ____________Setup audio__________________
           if(currentaudiostream)
@@ -260,16 +242,7 @@ bool receivedFrame = false;
            {
                 encoding_gui->setAudioCodec(QT_TR_NOOP("None"));
            }
-// ____________Setup Muxer _____________________
-           muxer= new lavMuxer;
-           
-           if(!muxer->open(
-                name,
-                2000000, // Muxrate
-                muxerType,
-                &info,videoExtraDataSize,videoExtraData,
-                audioinfo,extraDataSize,extraData))
-                         goto stopit;
+
 //_____________ Loop _____________________
           
           encoding_gui->setContainer(containerTitle);
@@ -300,25 +273,6 @@ bool receivedFrame = false;
 			  {
 				  r = 0;
 				  break;
-			  }
-
-			  while (muxer->needAudio())
-			  {
-				  if (pq->Pop(audioBuffer, &alen, &sample))
-				  {
-					  if (alen)
-					  {
-						  muxer->writeAudioPacket(alen, audioBuffer, sample_got);
-						  totalAudioSize += alen;
-						  encoding_gui->setAudioSize(totalAudioSize);
-						  sample_got += sample;
-					  }
-				  }
-				  else
-				  {
-					  r = 0;
-					  break;
-				  }
 			  }
 
 			  for (;;)
@@ -369,6 +323,57 @@ bool receivedFrame = false;
 
 			  if (!r)
 				  break;
+
+			  if (!muxer)
+			  {
+				  // If needed get VOL header
+				  if (isMpeg4Compatible(info.fcc) && !videoExtraDataSize && bitstream.len)
+				  {
+					  // And put them as extradata for esds atom
+					  uint32_t voslen = 0;
+
+					  if(extractVolHeader(videoBuffer, bitstream.len, &voslen))
+					  {
+						  if (voslen)
+						  {
+							  videoExtraDataSize = voslen;
+							  videoExtraData = new uint8_t[videoExtraDataSize];
+							  memcpy(videoExtraData, videoBuffer, videoExtraDataSize);
+						  }
+					  }
+					  else 
+						  printf("Oops should be settings data for esds\n");
+				  }
+
+				  muxer = new lavMuxer;
+
+				  if (!muxer->open(
+					  name,
+					  2000000, // Muxrate
+					  muxerType,
+					  &info, videoExtraDataSize, videoExtraData,
+					  audioinfo, extraDataSize, extraData))
+					  break;
+			  }
+
+			  while (muxer->needAudio())
+			  {
+				  if (pq->Pop(audioBuffer, &alen, &sample))
+				  {
+					  if (alen)
+					  {
+						  muxer->writeAudioPacket(alen, audioBuffer, sample_got);
+						  totalAudioSize += alen;
+						  encoding_gui->setAudioSize(totalAudioSize);
+						  sample_got += sample;
+					  }
+				  }
+				  else
+				  {
+					  r = 0;
+					  break;
+				  }
+			  }
 
 			  muxer->writeVideoPacket(&bitstream);
 			  encoding_gui->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
