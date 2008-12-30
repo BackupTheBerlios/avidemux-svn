@@ -396,21 +396,18 @@ if (fourCC::check (fcc, (uint8_t *) "MJPG")
       return (decoders *) (new decoderFFVP6F (w, h,extraLen,extraData));
     }
 
+  if (fourCC::check (fcc, (uint8_t *) "BMP "))
+  {
+	  printf ("\n using RGB codec\n");
+	  return (decoders *) (new decoderRGB16(w, h, 1, bpp));
+  }
 
-  if ((fcc == 0) || fourCC::check (fcc, (uint8_t *) "RGB "))
-    {
-      // RGB 16 Codecs
-      printf ("\n using RGB codec\n");
-      return (decoders *) (new decoderRGB16 (w, h, 1, bpp));
+  if (fcc == 0 || fourCC::check(fcc, (uint8_t *) "RGB ") || fourCC::check(fcc, (uint8_t *) "DIB "))
+  {
+	  printf ("\n using Rawvideo codec, BPP: %d\n", bpp);
+	  return (decoders *) (new decoderFFRaw(w, h, bpp));
+  }
 
-    }
- if ((fcc == 0) || fourCC::check (fcc, (uint8_t *) "DIB "))
-    {
-      // RGB 16 Codecs
-      printf ("\n using DIB codec\n");
-      return (decoders *) (new decoderRGB16 (w, h, 0, bpp));
-
-    }
   if (isMpeg12Compatible (fcc))
     {
       uint32_t lavcodec_mpeg = 0;

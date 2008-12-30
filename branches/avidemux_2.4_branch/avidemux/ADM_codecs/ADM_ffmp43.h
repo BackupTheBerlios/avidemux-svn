@@ -261,6 +261,12 @@ public:
   decoderFFY800 (uint32_t w, uint32_t h);
 };
 
+class decoderFFRaw : public decoderFF
+{
+public:
+	decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp);
+};
+
 class decoderFFPng : public decoderFF
 {
 public:

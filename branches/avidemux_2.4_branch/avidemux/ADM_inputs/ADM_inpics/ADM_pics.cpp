@@ -407,7 +407,7 @@ char realstring[250];
 	        break;
 	    case PIC_BMP:
 	    case PIC_BMP2:
-	        _video_bih.biCompression = _videostream.fccHandler = fourCC::get((uint8_t *) "DIB ");
+	        _video_bih.biCompression = _videostream.fccHandler = fourCC::get((uint8_t *) "BMP ");
 	        break;
 	    case PIC_PNG:
 	        _video_bih.biCompression = _videostream.fccHandler =
