@@ -398,8 +398,8 @@ if (fourCC::check (fcc, (uint8_t *) "MJPG")
 
   if (fourCC::check (fcc, (uint8_t *) "BMP "))
   {
-	  printf ("\n using RGB codec\n");
-	  return (decoders *) (new decoderRGB16(w, h, 1, bpp));
+	  printf ("\n using BMP codec\n");
+	  return (decoders *) (new decoderFFBmp(w, h, extraLen, extraData));
   }
 
   if (fcc == 0 || fourCC::check(fcc, (uint8_t *) "RGB ") || fourCC::check(fcc, (uint8_t *) "DIB "))

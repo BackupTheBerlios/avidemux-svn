@@ -561,6 +561,13 @@ decoderFFY800::decoderFFY800 (uint32_t w, uint32_t h):decoderFF (w, h)
   _context->pix_fmt = PIX_FMT_GRAY8;
 }
 
+decoderFFBmp::decoderFFBmp(uint32_t w, uint32_t h, uint32_t l, uint8_t *d) : decoderFF (w, h)
+{
+	_context->extradata = (uint8_t*)d;
+	_context->extradata_size = (int)l;
+	WRAP_Open (CODEC_ID_BMP);
+}
+
 decoderFFRaw::decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp) : decoderFF (w, h)
 {
 	_context->bits_per_sample = bpp;

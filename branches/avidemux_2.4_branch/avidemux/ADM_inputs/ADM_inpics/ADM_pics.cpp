@@ -266,7 +266,7 @@ char realstring[250];
 		fclose(fd);
 		return 0;
 	    }
-	    _offset = bmph.size + 14;
+	    //_offset = bmph.size + 14;
 	    w = bmph.width;
 	    h = bmph.height;
 		bpp = bmph.numBitsPerPlane;
@@ -326,11 +326,11 @@ char realstring[250];
 
 	    fseek(fd, 10, SEEK_SET);
 
-#define MK32() (fcc_tab[0]+(fcc_tab[1]<<8)+(fcc_tab[2]<<16)+ \
-						(fcc_tab[3]<<24))
+//#define MK32() (fcc_tab[0]+(fcc_tab[1]<<8)+(fcc_tab[2]<<16)+ \
+						//(fcc_tab[3]<<24))
 
 	    fread(fcc_tab, 4, 1, fd);
-	    _offset = MK32();
+	    //_offset = MK32();
 	    // size, width height follow as int32 
 	    fread(&bmph, sizeof(bmph), 1, fd);
 #ifdef ADM_BIG_ENDIAN

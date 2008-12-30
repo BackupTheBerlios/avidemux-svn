@@ -32,7 +32,7 @@ SET(${ADM_LIB}_SRCS
                 dvbsubdec.c
                 dvbsub.c xiph.c
                 sp5xdec.c nellymoserdec.c
-                rawdec.c rawenc.c
+                rawdec.c rawenc.c bmp.c
 )
 # ADD x86 ones
 

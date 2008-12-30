@@ -55,6 +55,7 @@ int main(void)
     DECLARE_DECODER (SNOW, snow);
     DECLARE_DECODER (AMV, amv);
     DECLARE_DECODER (RAWVIDEO, rawvideo);
+	DECLARE_DECODER (BMP, bmp);
 #undef DECLARE_DECODER
 #define DECLARE_DECODER(a,b); printf("#define ENABLE_"#a"_DECODER 0\n"); 
 
@@ -130,7 +131,6 @@ int main(void)
     /* DUPE */
     DECLARE_DECODER (ASV1, asv1);
     DECLARE_DECODER (ASV2, asv2);
-    DECLARE_DECODER (BMP, bmp);
     DECLARE_DECODER (FLASHSV, flashsv);
     DECLARE_DECODER (GIF, gif);
     DECLARE_DECODER (H261, h261);
