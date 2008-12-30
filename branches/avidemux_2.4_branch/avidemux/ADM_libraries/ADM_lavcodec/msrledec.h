@@ -1,6 +1,6 @@
 /*
- * internals for BMP codecs
- * Copyright (c) 2005 Mans Rullgard
+ * Micrsoft RLE Decoder
+ * Copyright (C) 2008 Konstantin Shishkov
  *
  * This file is part of FFmpeg.
  *
@@ -19,20 +19,22 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#ifndef AVCODEC_BMP_H
-#define AVCODEC_BMP_H
+#ifndef AVCODEC_MSRLEDEC_H
+#define AVCODEC_MSRLEDEC_H
 
 #include "avcodec.h"
 
-typedef struct BMPContext {
-    AVFrame picture;
-} BMPContext;
+/**
+ * decode stream in MS RLE format into frame
+ *
+ * @param avctx     codec context
+ * @param pic       destination frame
+ * @param depth     bit depth
+ * @param data      input stream
+ * @param data_size input size
+ */
+int ff_msrle_decode(AVCodecContext *avctx, AVPicture *pic, int depth,
+                    const uint8_t* data, int data_size);
 
-typedef enum {
-    BMP_RGB         =0,
-    BMP_RLE8        =1,
-    BMP_RLE4        =2,
-    BMP_BITFIELDS   =3,
-} BiCompression;
+#endif /* AVCODEC_MSRLEDEC_H */
 
-#endif /* AVCODEC_BMP_H */

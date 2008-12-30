@@ -70,7 +70,7 @@ libavcodec_a_SOURCES = $(EXTEND_PPC) $(EXTEND_MMX) ac3enc.c  \
                 wma.c \
                 dvbsub_parser.c \
                 dvbsubdec.c \
-                dvbsub.c xiph.c sp5xdec.c nellymoserdec.c bmp.c
+                dvbsub.c xiph.c sp5xdec.c nellymoserdec.c bmp.c msrledec.c
 
 	
 
