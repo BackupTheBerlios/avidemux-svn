@@ -41,3 +41,14 @@ FIND_PACKAGE(Threads)
 PRINT_LIBRARY_INFO("pthreads" PTHREAD_FOUND "${PTHREAD_INCLUDE_DIR}" "${PTHREAD_LIBRARIES}" FATAL_ERROR)
 
 MESSAGE("")
+
+########################################
+# zlib
+########################################
+MESSAGE(STATUS "Checking for zlib")
+MESSAGE(STATUS "*****************")
+
+FIND_PACKAGE(ZLIB)
+PRINT_LIBRARY_INFO("zlib" ZLIB_FOUND "${ZLIB_INCLUDE_DIR}" "${ZLIB_LIBRARY}" FATAL_ERROR)
+
+MESSAGE("")
