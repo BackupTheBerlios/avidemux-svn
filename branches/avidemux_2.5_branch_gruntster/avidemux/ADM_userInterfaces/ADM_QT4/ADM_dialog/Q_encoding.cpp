@@ -43,7 +43,7 @@ encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, 
 	}
 #endif
 
-	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText("Pause / Abort");
+	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText(QString::fromUtf8(QT_TR_NOOP("Pause / Abort")));
 
 	connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
 	connect(ui.buttonBox, SIGNAL(rejected()), this, SLOT(buttonPressed()));
@@ -129,7 +129,7 @@ void encodingWindow::shutdownChanged(int state)
 
 //*******************************************
 #define WIDGET(x) (window->ui.x)
-#define WRITEM(x,y) window->ui.x->setText(y)
+#define WRITEM(x,y) window->ui.x->setText(QString::fromUtf8(y))
 #define WRITE(x) WRITEM(x,string)
 /*************************************/
 static char string[80];

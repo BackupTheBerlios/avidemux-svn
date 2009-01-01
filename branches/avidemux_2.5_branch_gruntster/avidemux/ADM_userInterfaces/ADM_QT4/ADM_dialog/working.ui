@@ -182,28 +182,12 @@
       <number>0</number>
      </property>
      <item>
-      <spacer>
+      <widget class="QDialogButtonBox" name="buttonBox" >
        <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonCancel" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text" >
-        <string>Cancel</string>
+       <property name="standardButtons" >
+        <set>QDialogButtonBox::Cancel</set>
        </property>
       </widget>
      </item>

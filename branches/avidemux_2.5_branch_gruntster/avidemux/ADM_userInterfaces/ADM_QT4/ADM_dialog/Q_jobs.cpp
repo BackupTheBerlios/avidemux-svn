@@ -57,7 +57,7 @@ jobsWindow::~jobsWindow()
  */
 static void ADM_setText(const char *txt,uint32_t col, uint32_t row,QTableWidget *w)
 {
-        QString str(txt);
+	QString str = QString::fromUtf8(txt);
         QTableWidgetItem *newItem = new QTableWidgetItem(str);//GetFileName(_jobsName[i]));
         w->setItem(row, col, newItem);
   

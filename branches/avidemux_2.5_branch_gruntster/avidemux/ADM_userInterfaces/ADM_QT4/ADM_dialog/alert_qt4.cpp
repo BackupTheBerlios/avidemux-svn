@@ -174,35 +174,29 @@ int             GUI_Question(const char *alertstring)
 */
 int      GUI_Alternate(char *title,char *choice1,char *choice2)
 {
-int reply;
-QMessageBox *box;
-    if (beQuiet)
-              {
-                      printf("Alternate<%s>: %s or %s\n", title,choice1,choice2);
-                      return 0;
-              }
+	if (beQuiet)
+	{
+		printf("Alternate<%s>: %s or %s\n", title,choice1,choice2);
+		return 0;
+	}
 
-char alertstring[1024];
+	QMessageBox box(qtLastRegisteredDialog());
 
-        box=new QMessageBox(qtLastRegisteredDialog());
-        box->setWindowTitle(QString::fromUtf8(QT_TR_NOOP("Question ?")));
-        box->addButton(choice1,QMessageBox::YesRole);
-        box->addButton(choice2,QMessageBox::NoRole);
-         if (title)
-        {
-              snprintf(alertstring,1024,"%s",title);
-        }else
-        {
-            snprintf(alertstring,1024,QT_TR_NOOP("Question"));
-        }
-        box->setText(QString::fromUtf8(alertstring));
-        box->setIcon(QMessageBox::Question);
-        reply = box->exec();
-        delete box;
-        printf("Reply:%d\n",reply);
-        if(reply==0) return 1;
-        return 0;
+	box.setWindowTitle(QString::fromUtf8(QT_TR_NOOP("Question ?")));
+	box.addButton(QString::fromUtf8(choice1),QMessageBox::YesRole);
+	box.addButton(QString::fromUtf8(choice2),QMessageBox::NoRole);
 
+	if (title)
+		box.setText(QString::fromUtf8(title));
+	else
+		box.setText(QString::fromUtf8(QT_TR_NOOP("Question")));
+
+	box.setIcon(QMessageBox::Question);
+
+	if (box.exec() == 0)
+		return 1;
+	else
+		return 0;
 }
 //****************************************************************************************************
 uint8_t  GUI_getDoubleValue(double *valye, float min, float max, const char *title)

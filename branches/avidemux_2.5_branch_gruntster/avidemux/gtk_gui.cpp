@@ -2016,7 +2016,7 @@ void A_audioTrack( void )
         char string[MAX_AUDIO_TRACK_NAME];
         for(int i=0;i<nb;i++)
         {
-          sprintf(string,"Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)",i,getStrFromAudioCodec(infos[i].encoding),
+          sprintf(string,QT_TR_NOOP("Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)"),i,getStrFromAudioCodec(infos[i].encoding),
                         infos[i].channels,infos[i].bitrate,infos[i].av_sync);
            sourceavitracks[i]=new diaMenuEntryDynamic(i,string,NULL);
         }

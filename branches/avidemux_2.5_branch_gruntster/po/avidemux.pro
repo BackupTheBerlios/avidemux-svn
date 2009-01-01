@@ -528,6 +528,7 @@ HEADERS = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyCrop.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyDialog.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEq2.h \ 
+../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEqualiser.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEraser.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyHue.h \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyMpDelogo.h \ 
@@ -547,16 +548,16 @@ HEADERS = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/systray.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/ADM_flyTemplate.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/DIA_flyDialogQt4.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_EqualiserPath.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialogFactory/dialogFactoryQt4.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_seekablePreview.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qslider.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/ADM_qtray.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_preview.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/translation_table.h \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/curvePath.h \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/gridFrame.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_thumbSlider.h \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/qtToolkit.h \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/ui_curvePath.h \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/T_gridFrame.h \ 
 ../avidemux/ADM_video/ADM_cache.h \ 
 ../avidemux/ADM_video/ADM_confCouple.h \ 
 ../avidemux/ADM_video/ADM_interlaced.h \ 
@@ -925,6 +926,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyCrop.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyDialog.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEq2.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEqualiser.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyEraser.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyHue.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flyMpDelogo.cpp \ 
@@ -968,6 +970,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_crop.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_eq2.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_equaliser.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_hue.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_license.cpp \ 
@@ -977,6 +980,7 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_srt.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_vobsub.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_working.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_EqualiserPath.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_flyDialog.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_QCanvas.cpp \ 
@@ -1007,13 +1011,12 @@ SOURCES = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_preview.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_preview.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_thumbSlider.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/T_tray.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_ocr.cpp \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/curvePath.cpp \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/gridFrame.cpp \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/main.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/qtToolkit.cpp \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_toolkit/T_gridFrame.cpp \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp \ 
 ../avidemux/ADM_video/ADM_cache.cpp \ 
 ../avidemux/ADM_video/ADM_confCouples.cpp \ 
@@ -1129,7 +1132,7 @@ FORMS = \
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/crop.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/eq2.ui \ 
-../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/glypheditor.ui \ 
+../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/equaliser.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/hue.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui \ 
 ../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/license.ui \ 
