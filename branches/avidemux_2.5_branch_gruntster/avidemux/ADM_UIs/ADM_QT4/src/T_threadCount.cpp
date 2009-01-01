@@ -57,11 +57,14 @@ ADM_QthreadCount::ADM_QthreadCount(QWidget *widget, const char *title, uint32_t 
 	text = new QLabel(QString::fromUtf8(title), widget);
 	text->setBuddy(radiobutton1);
 
+	QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
 	layout->addWidget(text, line, 0);
 	layout->addWidget(radiobutton1, line, 1);
 	layout->addWidget(radiobutton2, line, 2);
 	layout->addWidget(radiobutton3, line, 3);
 	layout->addWidget(spinBox, line, 4);
+	layout->addItem(spacer,line,5);
 
 	QObject::connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(radioGroupChanged(QAbstractButton*)));
 
