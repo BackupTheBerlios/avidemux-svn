@@ -32,6 +32,7 @@
 #include "gtkgui.h"
 
 #include "ADM_userInterfaces/ADM_render/GUI_renderInternal.h"
+
 extern int global_argc;
 extern char **global_argv;
 
@@ -257,6 +258,11 @@ MainWindow::MainWindow() : QMainWindow()
 	connect( slider,SIGNAL(sliderMoved(int)),this,SLOT(sliderMoved(int)));
 	connect( slider,SIGNAL(sliderReleased()),this,SLOT(sliderReleased()));
 
+	// Thumb slider
+	ui.sliderPlaceHolder->installEventFilter(this);
+	thumbSlider = new ThumbSlider(ui.sliderPlaceHolder);
+	connect(thumbSlider, SIGNAL(valueEmitted(int)), this, SLOT(thumbSlider_valueEmitted(int)));
+
 	// Volume slider
 	QSlider *volSlider=ui.horizontalSlider_2;
 	volSlider->setMinimum(0);
@@ -431,6 +437,16 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 				if (!UI_readCurTime(hh, mm, ss, ms))
 					UI_updateTimeCount(currentFrame, currentFps);
 			}
+
+			break;
+		case QEvent::Resize:
+			if (watched == ui.sliderPlaceHolder)
+			{
+				thumbSlider->resize(ui.sliderPlaceHolder->width(), 16);
+				thumbSlider->move(0, (ui.sliderPlaceHolder->height() - thumbSlider->height()) / 2);
+			}
+
+			break;
 	}
 
 	return QObject::eventFilter(watched, event);
@@ -550,6 +566,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 MainWindow::~MainWindow()
 {
+	delete thumbSlider;
 	clearCustomMenu();
 	renderDestroy();
 }

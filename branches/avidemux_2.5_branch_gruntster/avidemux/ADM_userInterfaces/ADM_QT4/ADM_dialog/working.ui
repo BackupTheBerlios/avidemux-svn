@@ -66,13 +66,8 @@
         <widget class="QLabel" name="label_2" >
          <property name="font" >
           <font>
-           <family>MS Shell Dlg 2</family>
-           <pointsize>8</pointsize>
            <weight>75</weight>
-           <italic>false</italic>
            <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
           </font>
          </property>
          <property name="text" >
@@ -90,13 +85,8 @@
          </property>
          <property name="font" >
           <font>
-           <family>MS Shell Dlg 2</family>
-           <pointsize>8</pointsize>
            <weight>75</weight>
-           <italic>false</italic>
            <bold>true</bold>
-           <underline>false</underline>
-           <strikeout>false</strikeout>
           </font>
          </property>
          <property name="text" >

@@ -5,6 +5,7 @@
 #include <QtGui/QWidget>
 
 #include "ADM_qslider.h"
+#include "T_thumbSlider.h"
 #include "ui_gui2.h"
 
 class MainWindow : public QMainWindow
@@ -38,6 +39,8 @@ public slots:
 	void currentTimeChanged(void);
 
 protected:
+	ThumbSlider *thumbSlider;
+
 	void clearCustomMenu(void);
 	bool eventFilter(QObject* watched, QEvent* event);
 	void mousePressEvent(QMouseEvent* event);
