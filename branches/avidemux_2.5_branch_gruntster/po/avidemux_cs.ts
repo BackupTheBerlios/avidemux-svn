@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="cs_CZ">
+<defaultcodec></defaultcodec>
 <context>
     <name>@default</name>
     <message>
@@ -7663,12 +7664,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="398"/>
         <source>Down</source>
-        <translation>Dolů</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="411"/>
         <source>Up</source>
-        <translation>Nahoru</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="424"/>
@@ -8921,7 +8922,7 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1949"/>
         <source>Left</source>
-        <translation>Vlevo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1957"/>
@@ -8931,7 +8932,7 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1960"/>
         <source>Right</source>
-        <translation>Vpravo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1968"/>
@@ -8991,7 +8992,7 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2033"/>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2041"/>
@@ -9001,7 +9002,7 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2044"/>
         <source>End</source>
-        <translation>End</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2052"/>

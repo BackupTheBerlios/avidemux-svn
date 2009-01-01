@@ -262,7 +262,7 @@ char realstring[250];
 		fclose(fd);
 		return 0;
 	    }
-	    _offset = bmph.biSize + 14;
+	    //_offset = bmph.biSize + 14;
 	    w = bmph.biWidth;
 	    h = bmph.biHeight;
 		bpp = bmph.biBitCount;
@@ -322,11 +322,11 @@ char realstring[250];
 
 	    fseek(fd, 10, SEEK_SET);
 
-#define MK32() (fcc_tab[0]+(fcc_tab[1]<<8)+(fcc_tab[2]<<16)+ \
-						(fcc_tab[3]<<24))
+//#define MK32() (fcc_tab[0]+(fcc_tab[1]<<8)+(fcc_tab[2]<<16)+ \
+						//(fcc_tab[3]<<24))
 
 	    fread(fcc_tab, 4, 1, fd);
-	    _offset = MK32();
+	    //_offset = MK32();
 	    // size, width height follow as int32 
 	    fread(&bmph, sizeof(bmph), 1, fd);
 #ifdef ADM_BIG_ENDIAN
@@ -403,7 +403,7 @@ char realstring[250];
 	        break;
 	    case PIC_BMP:
 	    case PIC_BMP2:
-	        _video_bih.biCompression = _videostream.fccHandler = fourCC::get((uint8_t *) "DIB ");
+	        _video_bih.biCompression = _videostream.fccHandler = fourCC::get((uint8_t *) "BMP ");
 	        break;
 	    case PIC_PNG:
 	        _video_bih.biCompression = _videostream.fccHandler =

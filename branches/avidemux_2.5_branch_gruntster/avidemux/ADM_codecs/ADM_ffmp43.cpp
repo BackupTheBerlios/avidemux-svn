@@ -416,6 +416,9 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       // we do it or not
       out->_colorspace = ADM_COLOR_YV12;
       break;
+	case PIX_FMT_BGR24:
+	  out->_colorspace = ADM_COLOR_BGR24;
+	  break;
 	case PIX_FMT_RGB24:
 	  out->_colorspace = ADM_COLOR_RGB24;
 	  break;
@@ -550,6 +553,19 @@ decoderFFV1::decoderFFV1 (uint32_t w, uint32_t h):decoderFF (w, h)
   _refCopy = 1;			// YUV420 only
   WRAP_Open (CODEC_ID_FFV1);
 }
+decoderFFBmp::decoderFFBmp(uint32_t w, uint32_t h, uint32_t l, uint8_t *d) : decoderFF (w, h)
+{
+	_context->extradata = (uint8_t*)d;
+	_context->extradata_size = (int)l;
+	WRAP_Open (CODEC_ID_BMP);
+}
+
+decoderFFRaw::decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp) : decoderFF (w, h)
+{
+	_context->bits_per_sample = bpp;
+	WRAP_Open (CODEC_ID_RAWVIDEO);
+}
+
 decoderFFPng::decoderFFPng (uint32_t w, uint32_t h):decoderFF (w, h)
 {
   WRAP_Open (CODEC_ID_PNG);

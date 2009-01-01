@@ -252,6 +252,18 @@ public:
   decoderFFV1 (uint32_t w, uint32_t h);
 
 };
+class decoderFFBmp : public decoderFF
+{
+public:
+	decoderFFBmp(uint32_t w, uint32_t h, uint32_t l, uint8_t *d);
+};
+
+class decoderFFRaw : public decoderFF
+{
+public:
+	decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp);
+};
+
 class decoderFFPng : public decoderFF
 {
 public:
