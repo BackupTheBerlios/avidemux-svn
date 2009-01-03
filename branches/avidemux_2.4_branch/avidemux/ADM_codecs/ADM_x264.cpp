@@ -436,24 +436,12 @@ uint8_t
   x264_param_default (&param);
   memcpy(&admParam,zparam,sizeof(admParam));
 
-  // in case of pass 1 we switch off some options
-  // As mplayer does it
-  admParam.PartitionDecision = 1;
-  admParam.Method = X264_ME_DIA;
-  
-  admParam._8x8 = 0;
-  admParam._8x8P = 0;
-  admParam._8x8B = 0;
-  admParam._8x8I = 0;
-  admParam._4x4I = 0;
-  admParam.Weighted = 0;
-  admParam.Trellis = 0;
-  
-//  param.rc.i_rc_buffer_size=-1;
 #if X264_BUILD >=48
-  param.rc.i_rc_method=X264_RC_CQP;
+  param.rc.i_rc_method=X264_RC_ABR;
+#else
+  param.rc.b_cbr = 1;
 #endif
-  param.rc.i_qp_constant = 2;
+  param.rc.i_bitrate = val;
 
   param.rc.b_stat_write = 1;
   param.rc.b_stat_read = 0;
