@@ -61,7 +61,7 @@ typedef enum
     XVID4_RESPONSE_LAST,
 }XVID4_CODE;
 
-extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, xvidOptions *options)
+extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, XvidOptions *options)
 {
 	int b;
 	int ret=0;

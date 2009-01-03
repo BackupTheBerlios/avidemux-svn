@@ -31,7 +31,7 @@
 		int _uiType;
 
 		configGuiLoader *_loader;
-		xvidOptions _options;
+		XvidOptions _options;
 		vidEncOptions _encodeOptions;
 
 		int _currentPass, _passCount;

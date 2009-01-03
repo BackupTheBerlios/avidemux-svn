@@ -9,7 +9,7 @@ extern "C"
 #include "ADM_vidEnc_plugin.h"
 }
 
-typedef bool _showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, xvidOptions *options);
+typedef bool _showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, XvidOptions *options);
 
 class configGuiLoader : public ADM_LibWrapper
 {
