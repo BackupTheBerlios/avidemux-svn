@@ -29,6 +29,7 @@ public slots:
 	void sliderValueChanged(int u);
 	void sliderMoved(int value);
 	void sliderReleased(void);
+	void thumbSlider_valueEmitted(int value);
 	void volumeChange( int u );
 	void audioToggled(bool checked);
 	void previewModeChanged(QAction *action);

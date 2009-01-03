@@ -150,6 +150,14 @@ void MainWindow::sliderReleased(void)
 	SliderIsShifted = 0;
 }
 
+void MainWindow::thumbSlider_valueEmitted(int value)
+{
+	if (value > 0)
+		nextIntraFrame();
+	else
+		previousIntraFrame();
+}
+
 void MainWindow::volumeChange( int u )
 {
 #ifdef HAVE_AUDIO
