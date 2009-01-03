@@ -348,25 +348,25 @@ void x264ConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 	switch (index)
 	{
 		case 0:
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Bitrate"));
+			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Bitrate:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
 			break;
 		case 1: // Constant Quality - 1 pass
-			ui.quantiserLabel2->setText(QT_TR_NOOP("Quantiser"));
+			ui.quantiserLabel2->setText(QT_TR_NOOP("Quantiser:"));
 			enable = true;
 			break;
 		case 2: // Average Quantiser - 1 pass
-			ui.quantiserLabel2->setText(QT_TR_NOOP("Quality"));
+			ui.quantiserLabel2->setText(QT_TR_NOOP("Quality:"));
 			enable = true;
 			break;
 		case 3: // Video Size - 2 pass
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Video Size"));
+			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Video Size:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("MB"));
 			ui.targetRateControlSpinBox->setValue(lastVideoSize);
 			break;
 		case 4: // Average Bitrate - 2 pass
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Average Bitrate"));
+			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Average Bitrate:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
 			break;
