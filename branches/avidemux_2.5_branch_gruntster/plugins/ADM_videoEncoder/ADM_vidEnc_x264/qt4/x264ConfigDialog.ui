@@ -2141,7 +2141,7 @@
             <item>
              <widget class="QCheckBox" name="fastPSkipCheckBox" >
               <property name="text" >
-               <string>Fast skip detection on P-frames</string>
+               <string>Fast Skip Detection on P-frames</string>
               </property>
              </widget>
             </item>
