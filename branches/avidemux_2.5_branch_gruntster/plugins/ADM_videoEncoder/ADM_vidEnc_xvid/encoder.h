@@ -35,6 +35,7 @@
 		vidEncOptions _encodeOptions;
 
 		int _currentPass, _passCount;
+		bool _opened;
 
 	public:
 		xvidEncoder(void);

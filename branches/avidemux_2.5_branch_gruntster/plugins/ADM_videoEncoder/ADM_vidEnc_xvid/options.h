@@ -17,24 +17,41 @@
 #ifndef options_h
 #define options_h
 
+#include <libxml/tree.h>
 #include "xvid.h"
 
-enum MotionEstimationMode
+extern "C"
+{
+#include "ADM_vidEnc_plugin.h"
+}
+
+#define DEFAULT_ENCODE_MODE ADM_VIDENC_MODE_CQP
+#define DEFAULT_ENCODE_MODE_PARAMETER 4
+
+typedef enum
+{
+	CONFIG_CUSTOM,
+	CONFIG_DEFAULT,
+	CONFIG_USER,
+	CONFIG_SYSTEM
+} ConfigType;
+
+typedef enum
 {
 	ME_NONE = 0,
 	ME_LOW = XVID_ME_HALFPELREFINE16,	
 	ME_MEDIUM = XVID_ME_HALFPELREFINE16 | XVID_ME_ADVANCEDDIAMOND16,	
 	ME_HIGH = XVID_ME_HALFPELREFINE16 | XVID_ME_EXTSEARCH16 | XVID_ME_HALFPELREFINE8 | XVID_ME_USESQUARES16
-};
+} MotionEstimationMode;
 
-enum RateDistortionMode
+typedef enum
 {
 	RD_NONE = 0,
 	RD_DCT_ME = XVID_VOP_MODEDECISION_RD,
 	RD_HPEL_QPEL_16 = RD_DCT_ME | XVID_ME_HALFPELREFINE16_RD | XVID_ME_QUARTERPELREFINE16_RD,
 	RD_HPEL_QPEL_8 = RD_HPEL_QPEL_16 | XVID_ME_HALFPELREFINE8_RD | XVID_ME_QUARTERPELREFINE8_RD | XVID_ME_CHECKPREDICTION_RD,
 	RD_SQUARE = RD_HPEL_QPEL_8 | XVID_ME_EXTSEARCH_RD
-};
+} RateDistortionMode;
 
 class XvidOptions
 {
@@ -42,9 +59,43 @@ protected:
 	xvid_enc_create_t xvid_enc_create;
 	xvid_enc_frame_t xvid_enc_frame;
 
+	char* _configurationName;
+	ConfigType _configurationType;
+
+	bool _parAsInput;
+
+	void cleanUp(void);
+	xmlChar* number2String(xmlChar *buffer, size_t size, int number);
+	xmlChar* number2String(xmlChar *buffer, size_t size, unsigned int number);
+	xmlChar* number2String(xmlChar *buffer, size_t size, float number);
+	xmlChar* boolean2String(xmlChar *buffer, size_t size, bool boolean);
+	bool string2Boolean(char *buffer);
+
+	void addXvidOptionsToXml(xmlNodePtr xmlNodeRoot);
+	char* dumpXmlDocToMemory(xmlDocPtr xmlDoc);
+	bool validateXml(xmlDocPtr doc);
+	void parsePresetConfiguration(xmlNode *node);
+	void parseXvidOptions(xmlNode *node);
+	void parseVuiOptions(xmlNode *node);
+
 public:
 	XvidOptions(void);
 	~XvidOptions(void);
+
+	void reset(void);
+
+	void getPresetConfiguration(char** configurationName, ConfigType *configurationType);
+	void setPresetConfiguration(const char* configurationName, ConfigType configurationType);
+	void clearPresetConfiguration(void);
+
+	unsigned int getThreads(void);
+	void setThreads(unsigned int threads);
+
+	bool getParAsInput(void);
+	void setParAsInput(bool parAsInput);
+
+	void getPar(unsigned int *width, unsigned int *height);
+	void setPar(unsigned int width, unsigned int height);
 
 	MotionEstimationMode getMotionEstimation(void);
 	void setMotionEstimation(MotionEstimationMode motionEstimation);
@@ -94,9 +145,6 @@ public:
 	void getMaxQuantiser(unsigned int *i, unsigned int *p, unsigned int *b);
 	void setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b);
 
-	void getPar(unsigned int *width, unsigned int *height);
-	void setPar(unsigned int width, unsigned int height);
-
 	RateDistortionMode getRateDistortion(RateDistortionMode rateDistortion);
 	void setRateDistortion(RateDistortionMode rateDistortion);
 
@@ -105,6 +153,9 @@ public:
 
 	bool getClosedGop(void);
 	void setClosedGop(bool closedGop);
+
+	virtual char* toXml(void);
+	virtual int fromXml(const char *xml);
 };
 
 #endif	// options_h

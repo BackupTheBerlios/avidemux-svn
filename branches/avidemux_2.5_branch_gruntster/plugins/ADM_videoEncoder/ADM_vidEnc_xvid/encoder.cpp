@@ -42,7 +42,15 @@ extern "C"
 
 xvidEncoder::xvidEncoder(void)
 {
+	_loader = NULL;
+	_opened = false;
 
+	_passCount = 1;
+	_currentPass = 0;
+
+	_encodeOptions.structSize = sizeof(vidEncOptions);
+	_encodeOptions.encodeMode = DEFAULT_ENCODE_MODE;
+	_encodeOptions.encodeModeParameter = DEFAULT_ENCODE_MODE_PARAMETER;
 }
 
 xvidEncoder::~xvidEncoder(void)
@@ -95,12 +103,39 @@ int xvidEncoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 
 int xvidEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 {
+	char* xml = _options.toXml();
+	int xmlLength = strlen(xml);
 
+	if (bufferSize >= xmlLength)
+	{
+		memcpy(pluginOptions, xml, xmlLength);
+		memcpy(encodeOptions, &_encodeOptions, sizeof(vidEncOptions));
+	}
+	else if (bufferSize != 0)
+		xmlLength = 0;
+
+	delete [] xml;
+
+	return xmlLength;
 }
 
 int xvidEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 {
+	if (_opened)
+		return ADM_VIDENC_ERR_ALREADY_OPEN;
 
+	bool success = true;
+
+	if (pluginOptions)
+		success = _options.fromXml(pluginOptions);
+
+	if (encodeOptions && success)
+		memcpy(&_encodeOptions, encodeOptions, sizeof(vidEncOptions));
+
+	if (success)
+		return ADM_VIDENC_ERR_SUCCESS;
+	else
+		return ADM_VIDENC_ERR_FAILED;
 }
 
 int xvidEncoder::getCurrentPass(void)

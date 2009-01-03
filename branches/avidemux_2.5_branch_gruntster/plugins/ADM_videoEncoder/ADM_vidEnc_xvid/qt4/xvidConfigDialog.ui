@@ -360,7 +360,7 @@
                      <bool>false</bool>
                     </property>
                     <property name="text" >
-                     <string>0 (High Quality)</string>
+                     <string>1 (High Quality)</string>
                     </property>
                    </widget>
                   </item>
@@ -406,7 +406,7 @@
                      <bool>false</bool>
                     </property>
                     <property name="text" >
-                     <string>51 (Low Quality)</string>
+                     <string>31 (Low Quality)</string>
                     </property>
                    </widget>
                   </item>
@@ -424,13 +424,16 @@
                    </size>
                   </property>
                   <property name="maximum" >
-                   <number>51</number>
+                   <number>31</number>
                   </property>
                   <property name="pageStep" >
                    <number>5</number>
                   </property>
                   <property name="value" >
-                   <number>26</number>
+                   <number>4</number>
+                  </property>
+                  <property name="sliderPosition" >
+                   <number>4</number>
                   </property>
                   <property name="orientation" >
                    <enum>Qt::Horizontal</enum>
@@ -448,10 +451,13 @@
                  <bool>false</bool>
                 </property>
                 <property name="maximum" >
-                 <number>51</number>
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
                 </property>
                 <property name="value" >
-                 <number>26</number>
+                 <number>4</number>
                 </property>
                </widget>
               </item>
