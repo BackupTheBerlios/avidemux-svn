@@ -16,6 +16,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
 ***************************************************************************/
+#include <math.h>
 #include <QtGui/QFileDialog>
 
 #include "../config.h"
@@ -70,6 +71,8 @@ XvidConfigDialog::XvidConfigDialog(vidEncConfigParameters *configParameters, vid
 				connect(widget, SIGNAL(currentIndexChanged(int)), this, SLOT(generic_currentIndexChanged(int)));
 			else if (widget->inherits("QSpinBox"))
 				connect(widget, SIGNAL(valueChanged(int)), this, SLOT(generic_valueChanged(int)));
+			else if (widget->inherits("QDoubleSpinBox"))
+				connect(widget, SIGNAL(valueChanged(double)), this, SLOT(generic_valueChanged(double)));
 			else if (widget->inherits("QAbstractButton"))
 				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
 			else if (widget->inherits("QLineEdit"))
@@ -320,6 +323,12 @@ void XvidConfigDialog::generic_valueChanged(int value)
 		ui.configurationComboBox->setCurrentIndex(1);
 }
 
+void XvidConfigDialog::generic_valueChanged(double value)
+{
+	if (!disableGenericSlots)
+		ui.configurationComboBox->setCurrentIndex(1);
+}
+
 void XvidConfigDialog::generic_pressed(void)
 {
 	if (!disableGenericSlots)
@@ -465,6 +474,7 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	// Frame tab
 	ui.chromaOptimiserCheckBox->setChecked(options->getChromaOptimisation());
 	ui.fourMvCheckBox->setChecked(options->getInterMotionVector());
+	ui.cartoonCheckBox->setChecked(options->getCartoon());
 	ui.greyscaleCheckBox->setChecked(options->getGreyscale());
 
 	ui.interlacedCheckBox->setChecked((options->getInterlaced() != INTERLACED_NONE));
@@ -481,8 +491,35 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 
 	ui.frameDropSpinBox->setValue(options->getFrameDropRatio());
 	ui.maxIframeIntervalSpinBox->setValue(options->getMaxKeyInterval());
-	ui.maxBframesSpinBox->setValue(options->getMaxBFrames());
+	ui.maxBframesSpinBox->setValue(options->getMaxBframes());
+	ui.bFrameSensitivitySpinBox->setValue(options->getBframeSensitivity());
+	ui.closedGopCheckBox->setChecked(options->getClosedGop());
 	ui.packedCheckBox->setChecked(options->getPacked());
+
+	// Quantiser tab
+	unsigned int minI, minP, minB;
+	unsigned int maxI, maxP, maxB;
+
+	options->getMinQuantiser(&minI, &minP, &minB);
+	options->getMaxQuantiser(&maxI, &maxP, &maxB);
+
+	ui.quantIminSpinBox->setValue(minI);
+	ui.quantPminSpinBox->setValue(minP);
+	ui.quantBminSpinBox->setValue(minB);
+
+	ui.quantImaxSpinBox->setValue(maxI);
+	ui.quantPmaxSpinBox->setValue(maxP);
+	ui.quantBmaxSpinBox->setValue(maxB);
+
+	ui.quantBratioSpinBox->setValue((float)options->getBframeQuantiserRatio() / 100);
+	ui.quantBoffsetSpinBox->setValue((float)options->getBframeQuantiserOffset() / 100);
+
+	if (options->getMpegQuantisation())
+		ui.quantTypeComboBox->setCurrentIndex(1);
+	else
+		ui.quantTypeComboBox->setCurrentIndex(0);
+
+	ui.trellisCheckBox->setChecked(options->getTrellis());
 
 	disableGenericSlots = origDisableGenericSlots;
 }
@@ -581,6 +618,7 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	// Frame tab
 	options->setChromaOptimisation(ui.chromaOptimiserCheckBox->isChecked());
 	options->setInterMotionVector(ui.fourMvCheckBox->isChecked());
+	options->setCartoon(ui.cartoonCheckBox->isChecked());
 	options->setGreyscale(ui.greyscaleCheckBox->isChecked());
 
 	if (ui.interlacedCheckBox->isChecked())
@@ -600,8 +638,18 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 
 	options->setFrameDropRatio(ui.frameDropSpinBox->value());
 	options->setMaxKeyInterval(ui.maxIframeIntervalSpinBox->value());
-	options->setMaxBFrames(ui.maxBframesSpinBox->value());
+	options->setMaxBframes(ui.maxBframesSpinBox->value());
+	options->setBframeSensitivity(ui.bFrameSensitivitySpinBox->value());
+	options->setClosedGop(ui.closedGopCheckBox->isChecked());
 	options->setPacked(ui.packedCheckBox->isChecked());
+
+	// Quantiser tab
+	options->setMinQuantiser(ui.quantIminSpinBox->value(), ui.quantPminSpinBox->value(), ui.quantBminSpinBox->value());
+	options->setMaxQuantiser(ui.quantImaxSpinBox->value(), ui.quantPmaxSpinBox->value(), ui.quantBmaxSpinBox->value());
+	options->setBframeQuantiserRatio((unsigned int)floor(ui.quantBratioSpinBox->value() * 100 + .05));
+	options->setBframeQuantiserOffset((unsigned int)floor(ui.quantBoffsetSpinBox->value() * 100 + .05));
+	options->setMpegQuantisation(ui.quantTypeComboBox->currentIndex() == 1);
+	options->setTrellis(ui.trellisCheckBox->isChecked());
 }
 
 QString XvidConfigDialog::getUserConfigDirectory(void)

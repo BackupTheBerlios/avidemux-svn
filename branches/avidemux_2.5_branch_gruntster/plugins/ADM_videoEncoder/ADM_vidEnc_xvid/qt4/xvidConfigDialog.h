@@ -36,6 +36,7 @@ public:
 private slots:
 	void generic_currentIndexChanged(int index);
 	void generic_valueChanged(int value);
+	void generic_valueChanged(double value);
 	void generic_pressed(void);
 	void generic_textEdited(QString text);
 

@@ -66,6 +66,8 @@ void XvidOptions::reset(void)
 	setRateDistortion(RD_DCT_ME);
 	setMinQuantiser(2, 2, 2);
 	setMaxQuantiser(31, 31, 31);
+	setBframeQuantiserRatio(150);
+	setBframeQuantiserOffset(100);
 
 	_parAsInput = false;
 
@@ -323,6 +325,19 @@ void XvidOptions::setInterMotionVector(bool interMotionVector)
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_INTER4V;
 }
 
+bool XvidOptions::getCartoon(void)
+{
+	return xvid_enc_frame.vop_flags & XVID_VOP_CARTOON;
+}
+
+void XvidOptions::setCartoon(bool cartoon)
+{
+	if (cartoon)
+		xvid_enc_frame.vop_flags |= XVID_VOP_CARTOON;
+	else
+		xvid_enc_frame.vop_flags &= ~XVID_VOP_CARTOON;
+}
+
 bool XvidOptions::getGreyscale(void)
 {
 	return xvid_enc_frame.vop_flags & XVID_VOP_GREYSCALE;
@@ -387,15 +402,39 @@ void XvidOptions::setMaxKeyInterval(unsigned int maxKeyInterval)
 	xvid_enc_create.max_key_interval = maxKeyInterval;
 }
 
-unsigned int XvidOptions::getMaxBFrames(void)
+unsigned int XvidOptions::getMaxBframes(void)
 {
 	return xvid_enc_create.max_bframes;
 }
 
-void XvidOptions::setMaxBFrames(unsigned int maxBFrames)
+void XvidOptions::setMaxBframes(unsigned int maxBframes)
 {
-	if (maxBFrames <= 20)
-		xvid_enc_create.max_bframes = maxBFrames;
+	if (maxBframes <= 20)
+		xvid_enc_create.max_bframes = maxBframes;
+}
+
+int XvidOptions::getBframeSensitivity(void)
+{
+	return xvid_enc_frame.bframe_threshold;
+}
+
+void XvidOptions::setBframeSensitivity(int bFrameSensitivity)
+{
+	if (bFrameSensitivity >= -255 && bFrameSensitivity <= 255)
+		xvid_enc_frame.bframe_threshold = bFrameSensitivity;
+}
+
+bool XvidOptions::getClosedGop(void)
+{
+	return xvid_enc_create.global & XVID_GLOBAL_CLOSED_GOP;
+}
+
+void XvidOptions::setClosedGop(bool closedGop)
+{
+	if (closedGop)
+		xvid_enc_create.global |= XVID_GLOBAL_CLOSED_GOP;
+	else
+		xvid_enc_create.global &= ~XVID_GLOBAL_CLOSED_GOP;
 }
 
 bool XvidOptions::getPacked(void)
@@ -409,6 +448,66 @@ void XvidOptions::setPacked(bool packed)
 		xvid_enc_create.global |= XVID_GLOBAL_PACKED;
 	else
 		xvid_enc_create.global &= ~XVID_GLOBAL_PACKED;
+}
+
+void XvidOptions::getMinQuantiser(unsigned int *i, unsigned int *p, unsigned int *b)
+{
+	*i = xvid_enc_create.min_quant[0];
+	*p = xvid_enc_create.min_quant[1];
+	*b = xvid_enc_create.min_quant[2];
+}
+
+void XvidOptions::setMinQuantiser(unsigned int i, unsigned int p, unsigned int b)
+{
+	if (i > 0 && i <= 31)
+		xvid_enc_create.min_quant[0] = i;
+
+	if (p > 0 && p <= 31)
+		xvid_enc_create.min_quant[1] = p;
+
+	if (b > 0 && b <= 31)
+		xvid_enc_create.min_quant[2] = b;
+}
+
+void XvidOptions::getMaxQuantiser(unsigned int *i, unsigned int *p, unsigned int *b)
+{
+	*i = xvid_enc_create.max_quant[0];
+	*p = xvid_enc_create.max_quant[1];
+	*b = xvid_enc_create.max_quant[2];
+}
+
+void XvidOptions::setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b)
+{
+	if (i > 0 && i <= 31)
+		xvid_enc_create.max_quant[0] = i;
+
+	if (p > 0 && p <= 31)
+		xvid_enc_create.max_quant[1] = p;
+
+	if (b > 0 && b <= 31)
+		xvid_enc_create.max_quant[2] = b;
+}
+
+unsigned int XvidOptions::getBframeQuantiserRatio(void)
+{
+	return xvid_enc_create.bquant_ratio;
+}
+
+void XvidOptions::setBframeQuantiserRatio(unsigned int ratio)
+{
+	if (ratio <= 200)
+		xvid_enc_create.bquant_ratio = ratio;
+}
+
+unsigned int XvidOptions::getBframeQuantiserOffset(void)
+{
+	return xvid_enc_create.bquant_offset;
+}
+
+void XvidOptions::setBframeQuantiserOffset(unsigned int offset)
+{
+	if (offset <= 200)
+		xvid_enc_create.bquant_offset = offset;
 }
 
 bool XvidOptions::getMpegQuantisation(void)
@@ -435,70 +534,6 @@ void XvidOptions::setTrellis(bool trellis)
 		xvid_enc_frame.vop_flags |= XVID_VOP_TRELLISQUANT;
 	else
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_TRELLISQUANT;
-}
-
-bool XvidOptions::getCartoon(void)
-{
-	return xvid_enc_frame.vop_flags & XVID_VOP_CARTOON;
-}
-
-void XvidOptions::setCartoon(bool cartoon)
-{
-	if (cartoon)
-		xvid_enc_frame.vop_flags |= XVID_VOP_CARTOON;
-	else
-		xvid_enc_frame.vop_flags &= ~XVID_VOP_CARTOON;
-}
-
-void XvidOptions::getMinQuantiser(unsigned int *i, unsigned int *p, unsigned int *b)
-{
-	*i = xvid_enc_create.min_quant[0];
-	*p = xvid_enc_create.min_quant[1];
-	*b = xvid_enc_create.min_quant[2];
-}
-
-void XvidOptions::setMinQuantiser(unsigned int i, unsigned int p, unsigned int b)
-{
-	if (i > 0 && i <= 51)
-		xvid_enc_create.min_quant[0] = i;
-
-	if (p > 0 && p <= 51)
-		xvid_enc_create.min_quant[1] = p;
-
-	if (b > 0 && b <= 51)
-		xvid_enc_create.min_quant[2] = b;
-}
-
-void XvidOptions::getMaxQuantiser(unsigned int *i, unsigned int *p, unsigned int *b)
-{
-	*i = xvid_enc_create.max_quant[0];
-	*p = xvid_enc_create.max_quant[1];
-	*b = xvid_enc_create.max_quant[2];
-}
-
-void XvidOptions::setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b)
-{
-	if (i > 0 && i <= 51)
-		xvid_enc_create.max_quant[0] = i;
-
-	if (p > 0 && p <= 51)
-		xvid_enc_create.max_quant[1] = p;
-
-	if (b > 0 && b <= 51)
-		xvid_enc_create.max_quant[2] = b;
-}
-
-bool XvidOptions::getClosedGop(void)
-{
-	return xvid_enc_create.global & XVID_GLOBAL_CLOSED_GOP;
-}
-
-void XvidOptions::setClosedGop(bool closedGop)
-{
-	if (closedGop)
-		xvid_enc_create.global |= XVID_GLOBAL_CLOSED_GOP;
-	else
-		xvid_enc_create.global &= ~XVID_GLOBAL_CLOSED_GOP;
 }
 
 char* XvidOptions::toXml(void)
@@ -643,6 +678,7 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"turboMode", boolean2String(xmlBuffer, bufferSize, getTurboMode()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"chromaOptimiser", boolean2String(xmlBuffer, bufferSize, getChromaOptimisation()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"fourMv", boolean2String(xmlBuffer, bufferSize, getInterMotionVector()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cartoon", boolean2String(xmlBuffer, bufferSize, getCartoon()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"greyscale", boolean2String(xmlBuffer, bufferSize, getGreyscale()));
 
 	switch (getInterlaced())
@@ -661,8 +697,33 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", xmlBuffer);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"frameDropRatio", number2String(xmlBuffer, bufferSize, getFrameDropRatio()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxIframeInterval", number2String(xmlBuffer, bufferSize, getMaxKeyInterval()));
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxBframes", number2String(xmlBuffer, bufferSize, getMaxBFrames()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxBframes", number2String(xmlBuffer, bufferSize, getMaxBframes()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameSensitivity", number2String(xmlBuffer, bufferSize, getBframeSensitivity()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"closedGop", boolean2String(xmlBuffer, bufferSize, getClosedGop()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"packed", boolean2String(xmlBuffer, bufferSize, getPacked()));
+
+	unsigned int minI, minP, minB;
+	unsigned int maxI, maxP, maxB;
+
+	getMinQuantiser(&minI, &minP, &minB);
+	getMaxQuantiser(&maxI, &maxP, &maxB);
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantImin", number2String(xmlBuffer, bufferSize, minI));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantPmin", number2String(xmlBuffer, bufferSize, minP));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBmin", number2String(xmlBuffer, bufferSize, minB));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantImax", number2String(xmlBuffer, bufferSize, maxI));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantPmax", number2String(xmlBuffer, bufferSize, maxP));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBmax", number2String(xmlBuffer, bufferSize, maxB));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBratio", number2String(xmlBuffer, bufferSize, getBframeQuantiserRatio()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBoffset", number2String(xmlBuffer, bufferSize, getBframeQuantiserOffset()));
+
+	if (getMpegQuantisation())
+		strcpy((char*)xmlBuffer, "mpeg");
+	else
+		strcpy((char*)xmlBuffer, "h.263");
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantType", xmlBuffer);
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"trellis", boolean2String(xmlBuffer, bufferSize, getTrellis()));
 }
 
 bool XvidOptions::validateXml(xmlDocPtr doc)
@@ -763,6 +824,9 @@ void XvidOptions::parsePresetConfiguration(xmlNode *node)
 
 void XvidOptions::parseXvidOptions(xmlNode *node)
 {
+	int minI = -1, minP = -1, minB = -1;
+	int maxI = -1, maxP = -1, maxB = -1;
+
 	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
 	{
 		if (xmlChild->type == XML_ELEMENT_NODE)
@@ -815,6 +879,8 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 				setChromaOptimisation(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "fourMv") == 0)
 				setInterMotionVector(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "cartoon") == 0)
+				setCartoon(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "greyscale") == 0)
 				setGreyscale(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
@@ -833,13 +899,48 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "maxIframeInterval") == 0)
 				setMaxKeyInterval(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "maxBframes") == 0)
-				setMaxBFrames(atoi(content));
+				setMaxBframes(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "bFrameSensitivity") == 0)
+				setBframeSensitivity(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "closedGop") == 0)
+				setClosedGop(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "packed") == 0)
 				setPacked(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "quantImin") == 0)
+				minI = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantPmin") == 0)
+				minP = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantBmin") == 0)
+				minB = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantImax") == 0)
+				maxI = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantPmax") == 0)
+				maxP = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantBmax") == 0)
+				maxB = atoi(content);
+			else if (strcmp((char*)xmlChild->name, "quantBratio") == 0)
+				setBframeQuantiserRatio(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "quantBoffset") == 0)
+				setBframeQuantiserOffset(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "quantType") == 0)
+			{
+				if (strcmp(content, "mpeg") == 0)
+					setMpegQuantisation(true);
+				else
+					setMpegQuantisation(false);
+			}
+			else if (strcmp((char*)xmlChild->name, "trellis") == 0)
+				setTrellis(string2Boolean(content));
 
 			xmlFree(content);
 		}
 	}
+
+	if (minI != -1 && minP != -1 && minB != -1)
+		setMinQuantiser(minI, minP, minB);
+
+	if (maxI != -1 && maxP != -1 && maxB != -1)
+		setMaxQuantiser(maxI, maxP, maxB);
 }
 
 void XvidOptions::parseVuiOptions(xmlNode *node)

@@ -135,6 +135,8 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 				connect(widget, SIGNAL(currentIndexChanged(int)), this, SLOT(generic_currentIndexChanged(int)));
 			else if (widget->inherits("QSpinBox"))
 				connect(widget, SIGNAL(valueChanged(int)), this, SLOT(generic_valueChanged(int)));
+			else if (widget->inherits("QDoubleSpinBox"))
+				connect(widget, SIGNAL(valueChanged(double)), this, SLOT(generic_valueChanged(double)));
 			else if (widget->inherits("QAbstractButton"))
 				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
 			else if (widget->inherits("QLineEdit"))
@@ -220,6 +222,12 @@ void x264ConfigDialog::generic_currentIndexChanged(int index)
 }
 
 void x264ConfigDialog::generic_valueChanged(int value)
+{
+	if (!disableGenericSlots)
+		ui.configurationComboBox->setCurrentIndex(1);
+}
+
+void x264ConfigDialog::generic_valueChanged(double value)
 {
 	if (!disableGenericSlots)
 		ui.configurationComboBox->setCurrentIndex(1);

@@ -78,6 +78,7 @@
               <xs:element name="turboMode" type="xs:boolean"/>
               <xs:element name="chromaOptimiser" type="xs:boolean"/>
               <xs:element name="fourMv" type="xs:boolean"/>
+              <xs:element name="cartoon" type="xs:boolean"/>
               <xs:element name="greyscale" type="xs:boolean"/>
               <xs:element name="interlaced">
                 <xs:simpleType>
@@ -96,7 +97,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="maxIframeInterval" type="xs:integer"/>
+              <xs:element name="maxIframeInterval" type="uint"/>
               <xs:element name="maxBframes">
                 <xs:simpleType>
                   <xs:restriction base="xs:integer">
@@ -105,7 +106,47 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="bFrameSensitivity">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="-255"/>
+                    <xs:maxInclusive value="255"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="closedGop" type="xs:boolean"/>
               <xs:element name="packed" type="xs:boolean"/>
+              <xs:element name="quantImin" type="quantiser"/>
+              <xs:element name="quantPmin" type="quantiser"/>
+              <xs:element name="quantBmin" type="quantiser"/>
+              <xs:element name="quantImax" type="quantiser"/>
+              <xs:element name="quantPmax" type="quantiser"/>
+              <xs:element name="quantBmax" type="quantiser"/>
+              <xs:element name="quantBratio">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="200"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantBoffset">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="200"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="h.263"/>
+                    <xs:enumeration value="mpeg"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="trellis" type="xs:boolean"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -116,12 +157,6 @@
   <xs:simpleType name="uint">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="0"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="uint8">
-    <xs:restriction base="xs:integer">
-      <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="quantiser">

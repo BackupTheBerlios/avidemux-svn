@@ -133,6 +133,9 @@ public:
 	bool getInterMotionVector(void);
 	void setInterMotionVector(bool interMotionVector);
 
+	bool getCartoon(void);
+	void setCartoon(bool cartoon);
+
 	bool getGreyscale(void);
 	void setGreyscale(bool greyscale);
 
@@ -145,20 +148,17 @@ public:
 	unsigned int getMaxKeyInterval(void);
 	void setMaxKeyInterval(unsigned int maxKeyInterval);
 
-	unsigned int getMaxBFrames(void);
-	void setMaxBFrames(unsigned int maxBFrames);
+	unsigned int getMaxBframes(void);
+	void setMaxBframes(unsigned int maxBFrames);
+
+	int getBframeSensitivity(void);
+	void setBframeSensitivity(int bFrameSensitivity);
+
+	bool getClosedGop(void);
+	void setClosedGop(bool closedGop);
 
 	bool getPacked(void);
 	void setPacked(bool packed);
-
-	bool getMpegQuantisation(void);
-	void setMpegQuantisation(bool mpegQuantisation);
-
-	bool getTrellis(void);
-	void setTrellis(bool trellis);
-
-	bool getCartoon(void);
-	void setCartoon(bool cartoon);
 
 	void getMinQuantiser(unsigned int *i, unsigned int *p, unsigned int *b);
 	void setMinQuantiser(unsigned int i, unsigned int p, unsigned int b);
@@ -166,8 +166,17 @@ public:
 	void getMaxQuantiser(unsigned int *i, unsigned int *p, unsigned int *b);
 	void setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b);
 
-	bool getClosedGop(void);
-	void setClosedGop(bool closedGop);
+	unsigned int getBframeQuantiserRatio(void);
+	void setBframeQuantiserRatio(unsigned int ratio);
+
+	unsigned int getBframeQuantiserOffset(void);
+	void setBframeQuantiserOffset(unsigned int offset);
+
+	bool getMpegQuantisation(void);
+	void setMpegQuantisation(bool mpegQuantisation);
+
+	bool getTrellis(void);
+	void setTrellis(bool trellis);
 
 	virtual char* toXml(void);
 	virtual int fromXml(const char *xml);
