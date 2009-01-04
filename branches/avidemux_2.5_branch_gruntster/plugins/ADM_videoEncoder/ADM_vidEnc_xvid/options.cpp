@@ -58,7 +58,8 @@ void XvidOptions::reset(void)
 
 	memset(&xvid_enc_create, 0, sizeof(xvid_enc_create_t));
 	memset(&xvid_enc_frame, 0, sizeof(xvid_enc_frame_t));
-	memset(&xvid_plugin_single, 0, sizeof(xvid_plugin_single_t));	
+	memset(&xvid_plugin_single, 0, sizeof(xvid_plugin_single_t));
+	memset(&xvid_plugin_2pass2, 0, sizeof(xvid_plugin_2pass2_t));
 
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
@@ -69,6 +70,9 @@ void XvidOptions::reset(void)
 	setMaxQuantiser(31, 31, 31);
 	setBframeQuantiserRatio(150);
 	setBframeQuantiserOffset(100);
+	setOverflowControlStrength(5);
+	setMaxOverflowImprovement(5);
+	setMaxOverflowDegradation(5);
 
 	_parAsInput = false;
 
@@ -568,6 +572,129 @@ void XvidOptions::setSmoother(unsigned int smoother)
 		xvid_plugin_single.buffer = smoother;
 }
 
+unsigned int XvidOptions::getKeyFrameBoost(void)
+{
+	return xvid_plugin_2pass2.keyframe_boost;
+}
+
+void XvidOptions::setKeyFrameBoost(unsigned int keyFrameBoost)
+{
+	if (keyFrameBoost <= 100)
+		xvid_plugin_2pass2.keyframe_boost = keyFrameBoost;
+}
+
+unsigned int XvidOptions::getMaxKeyFrameReduceBitrate(void)
+{
+	return xvid_plugin_2pass2.kfreduction;
+}
+
+void XvidOptions::setMaxKeyFrameReduceBitrate(unsigned int bitrateReduction)
+{
+	if (bitrateReduction <= 100)
+		xvid_plugin_2pass2.kfreduction = bitrateReduction;
+}
+
+unsigned int XvidOptions::getKeyFrameBitrateThreshold(void)
+{
+	return xvid_plugin_2pass2.kfthreshold;
+}
+
+void XvidOptions::setKeyFrameBitrateThreshold(unsigned int bitrateThreshold)
+{
+	xvid_plugin_2pass2.kfthreshold = bitrateThreshold;
+}
+
+unsigned int XvidOptions::getOverflowControlStrength(void)
+{
+	return xvid_plugin_2pass2.overflow_control_strength;
+}
+
+void XvidOptions::setOverflowControlStrength(unsigned int overflowControlStrength)
+{
+	if (overflowControlStrength <= 100)
+		xvid_plugin_2pass2.overflow_control_strength = overflowControlStrength;
+}
+
+unsigned int XvidOptions::getMaxOverflowImprovement(void)
+{
+	return xvid_plugin_2pass2.max_overflow_improvement;
+}
+
+void XvidOptions::setMaxOverflowImprovement(unsigned int overflowImprovement)
+{
+	if (overflowImprovement <= 100)
+		xvid_plugin_2pass2.max_overflow_improvement = overflowImprovement;
+}
+
+unsigned int XvidOptions::getMaxOverflowDegradation(void)
+{
+	return xvid_plugin_2pass2.max_overflow_degradation;
+}
+
+void XvidOptions::setMaxOverflowDegradation(unsigned int overflowDegradation)
+{
+	if (overflowDegradation <= 100)
+		xvid_plugin_2pass2.max_overflow_degradation = overflowDegradation;
+}
+
+unsigned int XvidOptions::getAboveAverageCurveCompression(void)
+{
+	return xvid_plugin_2pass2.curve_compression_high;
+}
+
+void XvidOptions::setAboveAverageCurveCompression(unsigned int curveCompression)
+{
+	if (curveCompression <= 100)
+		xvid_plugin_2pass2.curve_compression_high = curveCompression;
+}
+
+unsigned int XvidOptions::getBelowAverageCurveCompression(void)
+{
+	return xvid_plugin_2pass2.curve_compression_low;
+}
+
+void XvidOptions::setBelowAverageCurveCompression(unsigned int curveCompression)
+{
+	if (curveCompression <= 100)
+		xvid_plugin_2pass2.curve_compression_low = curveCompression;
+}
+
+unsigned int XvidOptions::getVbvBufferSize(void)
+{
+	return xvid_plugin_2pass2.vbv_size;
+}
+
+void XvidOptions::setVbvBufferSize(unsigned int bufferSize)
+{
+	if (bufferSize <= 6291456)
+	{
+		xvid_plugin_2pass2.vbv_size = bufferSize;
+		xvid_plugin_2pass2.vbv_initial = (bufferSize * 3) >> 2;
+	}
+}
+
+unsigned int XvidOptions::getMaxVbvBitrate(void)
+{
+	return xvid_plugin_2pass2.vbv_maxrate;
+}
+
+void XvidOptions::setMaxVbvBitrate(unsigned int bitrate)
+{
+	if (bitrate <= 9708400)
+		xvid_plugin_2pass2.vbv_maxrate = bitrate;
+}
+
+unsigned int XvidOptions::getVbvPeakBitrate(void)
+{
+	return xvid_plugin_2pass2.vbv_peakrate;
+}
+
+void XvidOptions::setVbvPeakBitrate(unsigned int peakBitrate)
+{
+	if (peakBitrate <= 16000000)
+		xvid_plugin_2pass2.vbv_peakrate = peakBitrate;
+}
+
 char* XvidOptions::toXml(void)
 {
 	xmlDocPtr xmlDoc = xmlNewDoc((const xmlChar*)"1.0");
@@ -760,6 +887,19 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reactionDelayFactor", number2String(xmlBuffer, bufferSize, getReactionDelayFactor()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"averagingQuantiserPeriod", number2String(xmlBuffer, bufferSize, getAveragingQuantiserPeriod()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"smoother", number2String(xmlBuffer, bufferSize, getSmoother()));
+
+	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"twoPass", NULL);
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"keyFrameBoost", number2String(xmlBuffer, bufferSize, getKeyFrameBoost()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"maxKeyFrameReduceBitrate", number2String(xmlBuffer, bufferSize, getMaxKeyFrameReduceBitrate()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"keyFrameBitrateThreshold", number2String(xmlBuffer, bufferSize, getKeyFrameBitrateThreshold()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"overflowControlStrength", number2String(xmlBuffer, bufferSize, getOverflowControlStrength()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"maxOverflowImprovement", number2String(xmlBuffer, bufferSize, getMaxOverflowImprovement()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"maxOverflowDegradation", number2String(xmlBuffer, bufferSize, getMaxOverflowDegradation()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"aboveAverageCurveCompression", number2String(xmlBuffer, bufferSize, getAboveAverageCurveCompression()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"belowAverageCurveCompression", number2String(xmlBuffer, bufferSize, getBelowAverageCurveCompression()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"vbvBufferSize", number2String(xmlBuffer, bufferSize, getVbvBufferSize()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"maxVbvBitrate", number2String(xmlBuffer, bufferSize, getMaxVbvBitrate()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"vbvPeakBitrate", number2String(xmlBuffer, bufferSize, getVbvPeakBitrate()));
 }
 
 bool XvidOptions::validateXml(xmlDocPtr doc)
@@ -969,6 +1109,8 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 				setTrellis(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "singlePass") == 0)
 				parseSinglePassOptions(xmlChild);
+			else if (strcmp((char*)xmlChild->name, "twoPass") == 0)
+				parseTwoPassOptions(xmlChild);
 
 			xmlFree(content);
 		}
@@ -1019,6 +1161,42 @@ void XvidOptions::parseSinglePassOptions(xmlNode *node)
 				setAveragingQuantiserPeriod(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "smoother") == 0)
 				setSmoother(atoi(content));
+
+			xmlFree(content);
+		}
+	}
+}
+
+void XvidOptions::parseTwoPassOptions(xmlNode *node)
+{
+	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
+	{
+		if (xmlChild->type == XML_ELEMENT_NODE)
+		{
+			char *content = (char*)xmlNodeGetContent(xmlChild);
+
+			if (strcmp((char*)xmlChild->name, "keyFrameBoost") == 0)
+				setKeyFrameBoost(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxKeyFrameReduceBitrate") == 0)
+				setMaxKeyFrameReduceBitrate(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "keyFrameBitrateThreshold") == 0)
+				setKeyFrameBitrateThreshold(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "overflowControlStrength") == 0)
+				setOverflowControlStrength(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxOverflowImprovement") == 0)
+				setMaxOverflowImprovement(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxOverflowDegradation") == 0)
+				setMaxOverflowDegradation(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "aboveAverageCurveCompression") == 0)
+				setAboveAverageCurveCompression(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "belowAverageCurveCompression") == 0)
+				setBelowAverageCurveCompression(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "vbvBufferSize") == 0)
+				setVbvBufferSize(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxVbvBitrate") == 0)
+				setMaxVbvBitrate(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "vbvPeakBitrate") == 0)
+				setVbvPeakBitrate(atoi(content));
 
 			xmlFree(content);
 		}

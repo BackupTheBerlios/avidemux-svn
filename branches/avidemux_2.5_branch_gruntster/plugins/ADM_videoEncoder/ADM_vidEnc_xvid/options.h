@@ -68,6 +68,7 @@ protected:
 	xvid_enc_create_t xvid_enc_create;
 	xvid_enc_frame_t xvid_enc_frame;
 	xvid_plugin_single_t xvid_plugin_single;
+	xvid_plugin_2pass2_t xvid_plugin_2pass2;
 
 	char* _configurationName;
 	ConfigType _configurationType;
@@ -88,6 +89,7 @@ protected:
 	void parseXvidOptions(xmlNode *node);
 	void parseVuiOptions(xmlNode *node);
 	void parseSinglePassOptions(xmlNode *node);
+	void parseTwoPassOptions(xmlNode *node);
 
 public:
 	XvidOptions(void);
@@ -188,6 +190,39 @@ public:
 
 	unsigned int getSmoother(void);
 	void setSmoother(unsigned int smoother);
+
+	unsigned int getKeyFrameBoost(void);
+	void setKeyFrameBoost(unsigned int keyFrameBoost);
+
+	unsigned int getMaxKeyFrameReduceBitrate(void);
+	void setMaxKeyFrameReduceBitrate(unsigned int bitrateReduction);
+
+	unsigned int getKeyFrameBitrateThreshold(void);
+	void setKeyFrameBitrateThreshold(unsigned int bitrateThreshold);
+
+	unsigned int getOverflowControlStrength(void);
+	void setOverflowControlStrength(unsigned int overflowControlStrength);
+
+	unsigned int getMaxOverflowImprovement(void);
+	void setMaxOverflowImprovement(unsigned int overflowImprovement);
+
+	unsigned int getMaxOverflowDegradation(void);
+	void setMaxOverflowDegradation(unsigned int overflowDegradation);
+
+	unsigned int getAboveAverageCurveCompression(void);
+	void setAboveAverageCurveCompression(unsigned int curveCompression);
+
+	unsigned int getBelowAverageCurveCompression(void);
+	void setBelowAverageCurveCompression(unsigned int curveCompression);
+
+	unsigned int getVbvBufferSize(void);
+	void setVbvBufferSize(unsigned int bufferSize);
+
+	unsigned int getMaxVbvBitrate(void);
+	void setMaxVbvBitrate(unsigned int bitrate);
+
+	unsigned int getVbvPeakBitrate(void);
+	void setVbvPeakBitrate(unsigned int peakBitrate);
 
 	virtual char* toXml(void);
 	virtual int fromXml(const char *xml);

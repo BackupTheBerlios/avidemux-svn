@@ -528,9 +528,24 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 		ui.quantTypeComboBox->setCurrentIndex(0);
 
 	ui.trellisCheckBox->setChecked(options->getTrellis());
+
+	// Single pass tab
 	ui.reactionDelaySpinBox->setValue(options->getReactionDelayFactor());
 	ui.averagingQuantiserSpinBox->setValue(options->getAveragingQuantiserPeriod());
 	ui.smootherSpinBox->setValue(options->getSmoother());
+
+	// Two pass tab
+	ui.keyFrameBoostSpinBox->setValue(options->getKeyFrameBoost());
+	ui.maxKeyFrameReduceBitrateSpinBox->setValue(options->getMaxKeyFrameReduceBitrate());
+	ui.keyFrameBitrateThresholdSpinBox->setValue(options->getKeyFrameBitrateThreshold());
+	ui.overflowStrengthSpinBox->setValue(options->getOverflowControlStrength());
+	ui.maxOverflowImprovmentSpinBox->setValue(options->getMaxOverflowImprovement());
+	ui.maxOverflowDegradationSpinBox->setValue(options->getMaxOverflowDegradation());
+	ui.aboveAvgCurveCompSpinBox->setValue(options->getAboveAverageCurveCompression());
+	ui.belowAvgCurveCompSpinBox->setValue(options->getBelowAverageCurveCompression());
+	ui.vbvBufferSizeSpinBox->setValue(options->getVbvBufferSize());
+	ui.maxVbvBitrateSpinBox->setValue(options->getMaxVbvBitrate());
+	ui.vbvPeakBitrateSpinBox->setValue(options->getVbvPeakBitrate());
 
 	disableGenericSlots = origDisableGenericSlots;
 }
@@ -666,6 +681,19 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	options->setReactionDelayFactor(ui.reactionDelaySpinBox->value());
 	options->setAveragingQuantiserPeriod(ui.averagingQuantiserSpinBox->value());
 	options->setSmoother(ui.smootherSpinBox->value());
+
+	// Two pass tab
+	options->setKeyFrameBoost(ui.keyFrameBoostSpinBox->value());
+	options->setMaxKeyFrameReduceBitrate(ui.maxKeyFrameReduceBitrateSpinBox->value());
+	options->setKeyFrameBitrateThreshold(ui.keyFrameBitrateThresholdSpinBox->value());
+	options->setOverflowControlStrength(ui.overflowStrengthSpinBox->value());
+	options->setMaxOverflowImprovement(ui.maxOverflowImprovmentSpinBox->value());
+	options->setMaxOverflowDegradation(ui.maxOverflowDegradationSpinBox->value());
+	options->setAboveAverageCurveCompression(ui.aboveAvgCurveCompSpinBox->value());
+	options->setBelowAverageCurveCompression(ui.belowAvgCurveCompSpinBox->value());
+	options->setVbvBufferSize(ui.vbvBufferSizeSpinBox->value());
+	options->setMaxVbvBitrate(ui.maxVbvBitrateSpinBox->value());
+	options->setVbvPeakBitrate(ui.vbvPeakBitrateSpinBox->value());
 }
 
 QString XvidConfigDialog::getUserConfigDirectory(void)

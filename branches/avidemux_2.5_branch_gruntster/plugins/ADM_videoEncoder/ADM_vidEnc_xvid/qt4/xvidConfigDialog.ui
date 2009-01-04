@@ -1976,7 +1976,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_5" >
+             <widget class="QSpinBox" name="maxKeyFrameReduceBitrateSpinBox" >
               <property name="maximum" >
                <number>100</number>
               </property>
@@ -2016,9 +2016,9 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_4" >
+             <widget class="QSpinBox" name="keyFrameBoostSpinBox" >
               <property name="maximum" >
-               <number>1000</number>
+               <number>100</number>
               </property>
               <property name="value" >
                <number>10</number>
@@ -2070,7 +2070,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_6" >
+             <widget class="QSpinBox" name="keyFrameBitrateThresholdSpinBox" >
               <property name="maximum" >
                <number>2147483647</number>
               </property>
@@ -2125,7 +2125,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_7" >
+             <widget class="QSpinBox" name="overflowStrengthSpinBox" >
               <property name="maximum" >
                <number>100</number>
               </property>
@@ -2172,12 +2172,12 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_9" >
+             <widget class="QSpinBox" name="maxOverflowDegradationSpinBox" >
               <property name="maximum" >
-               <number>80</number>
+               <number>100</number>
               </property>
               <property name="minimum" >
-               <number>1</number>
+               <number>0</number>
               </property>
               <property name="value" >
                <number>5</number>
@@ -2215,12 +2215,12 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_8" >
+             <widget class="QSpinBox" name="maxOverflowImprovmentSpinBox" >
               <property name="maximum" >
-               <number>80</number>
+               <number>100</number>
               </property>
               <property name="minimum" >
-               <number>1</number>
+               <number>0</number>
               </property>
               <property name="value" >
                <number>5</number>
@@ -2294,7 +2294,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_10" >
+             <widget class="QSpinBox" name="aboveAvgCurveCompSpinBox" >
               <property name="maximum" >
                <number>100</number>
               </property>
@@ -2338,7 +2338,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_11" >
+             <widget class="QSpinBox" name="belowAvgCurveCompSpinBox" >
               <property name="maximum" >
                <number>100</number>
               </property>
@@ -2390,7 +2390,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_13" >
+             <widget class="QSpinBox" name="maxVbvBitrateSpinBox" >
               <property name="maximum" >
                <number>9708400</number>
               </property>
@@ -2427,7 +2427,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_12" >
+             <widget class="QSpinBox" name="vbvBufferSizeSpinBox" >
               <property name="maximum" >
                <number>6291456</number>
               </property>
@@ -2485,7 +2485,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_14" >
+             <widget class="QSpinBox" name="vbvPeakBitrateSpinBox" >
               <property name="maximum" >
                <number>16000000</number>
               </property>
@@ -2625,17 +2625,17 @@
   <tabstop>reactionDelaySpinBox</tabstop>
   <tabstop>averagingQuantiserSpinBox</tabstop>
   <tabstop>smootherSpinBox</tabstop>
-  <tabstop>spinBox_4</tabstop>
-  <tabstop>spinBox_5</tabstop>
-  <tabstop>spinBox_6</tabstop>
-  <tabstop>spinBox_7</tabstop>
-  <tabstop>spinBox_8</tabstop>
-  <tabstop>spinBox_9</tabstop>
-  <tabstop>spinBox_10</tabstop>
-  <tabstop>spinBox_11</tabstop>
-  <tabstop>spinBox_12</tabstop>
-  <tabstop>spinBox_13</tabstop>
-  <tabstop>spinBox_14</tabstop>
+  <tabstop>keyFrameBoostSpinBox</tabstop>
+  <tabstop>maxKeyFrameReduceBitrateSpinBox</tabstop>
+  <tabstop>keyFrameBitrateThresholdSpinBox</tabstop>
+  <tabstop>overflowStrengthSpinBox</tabstop>
+  <tabstop>maxOverflowImprovmentSpinBox</tabstop>
+  <tabstop>maxOverflowDegradationSpinBox</tabstop>
+  <tabstop>aboveAvgCurveCompSpinBox</tabstop>
+  <tabstop>belowAvgCurveCompSpinBox</tabstop>
+  <tabstop>vbvBufferSizeSpinBox</tabstop>
+  <tabstop>maxVbvBitrateSpinBox</tabstop>
+  <tabstop>vbvPeakBitrateSpinBox</tabstop>
   <tabstop>okButton</tabstop>
   <tabstop>cancelButton</tabstop>
   <tabstop>configurationComboBox</tabstop>
