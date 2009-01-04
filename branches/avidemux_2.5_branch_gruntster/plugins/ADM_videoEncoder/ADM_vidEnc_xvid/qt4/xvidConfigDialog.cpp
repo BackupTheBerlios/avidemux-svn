@@ -462,6 +462,28 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	ui.gmcCheckBox->setChecked(options->getGmc());
 	ui.turboCheckBox->setChecked(options->getTurboMode());
 
+	// Frame tab
+	ui.chromaOptimiserCheckBox->setChecked(options->getChromaOptimisation());
+	ui.fourMvCheckBox->setChecked(options->getInterMotionVector());
+	ui.greyscaleCheckBox->setChecked(options->getGreyscale());
+
+	ui.interlacedCheckBox->setChecked((options->getInterlaced() != INTERLACED_NONE));
+
+	switch (options->getInterlaced())
+	{
+		case INTERLACED_BFF:
+			ui.interlacedComboBox->setCurrentIndex(0);
+			break;
+		case INTERLACED_TFF:
+			ui.interlacedComboBox->setCurrentIndex(1);
+			break;
+	}
+
+	ui.frameDropSpinBox->setValue(options->getFrameDropRatio());
+	ui.maxIframeIntervalSpinBox->setValue(options->getMaxKeyInterval());
+	ui.maxBframesSpinBox->setValue(options->getMaxBFrames());
+	ui.packedCheckBox->setChecked(options->getPacked());
+
 	disableGenericSlots = origDisableGenericSlots;
 }
 
@@ -555,6 +577,31 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	options->setQpel(ui.qPelCheckBox->isChecked());
 	options->setGmc(ui.gmcCheckBox->isChecked());
 	options->setTurboMode(ui.turboCheckBox->isChecked());
+
+	// Frame tab
+	options->setChromaOptimisation(ui.chromaOptimiserCheckBox->isChecked());
+	options->setInterMotionVector(ui.fourMvCheckBox->isChecked());
+	options->setGreyscale(ui.greyscaleCheckBox->isChecked());
+
+	if (ui.interlacedCheckBox->isChecked())
+	{
+		switch (ui.interlacedComboBox->currentIndex())
+		{
+			case 0:
+				options->setInterlaced(INTERLACED_BFF);
+				break;
+			case 1:
+				options->setInterlaced(INTERLACED_TFF);
+				break;
+		}
+	}
+	else
+		options->setInterlaced(INTERLACED_NONE);
+
+	options->setFrameDropRatio(ui.frameDropSpinBox->value());
+	options->setMaxKeyInterval(ui.maxIframeIntervalSpinBox->value());
+	options->setMaxBFrames(ui.maxBframesSpinBox->value());
+	options->setPacked(ui.packedCheckBox->isChecked());
 }
 
 QString XvidConfigDialog::getUserConfigDirectory(void)

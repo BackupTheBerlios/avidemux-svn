@@ -59,12 +59,11 @@ void XvidOptions::reset(void)
 	memset(&xvid_enc_create, 0, sizeof(xvid_enc_create_t));
 	memset(&xvid_enc_frame, 0, sizeof(xvid_enc_frame_t));
 
-	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL;
+	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
 	setPar(1, 1);
 	setMotionEstimation(ME_LOW);
 	setRateDistortion(RD_DCT_ME);
-	setMaxKeyInterval(240);
 	setMinQuantiser(2, 2, 2);
 	setMaxQuantiser(31, 31, 31);
 
@@ -293,52 +292,17 @@ void XvidOptions::setTurboMode(bool turboMode)
 	}
 }
 
-unsigned int XvidOptions::getMaxKeyInterval(void)
+bool XvidOptions::getChromaOptimisation(void)
 {
-	return xvid_enc_create.max_key_interval;
+	return xvid_enc_frame.vop_flags & XVID_VOP_CHROMAOPT;
 }
 
-void XvidOptions::setMaxKeyInterval(unsigned int maxKeyInterval)
+void XvidOptions::setChromaOptimisation(bool chromaOptimisation)
 {
-	if (maxKeyInterval > 0 && maxKeyInterval <= 900)
-		xvid_enc_create.max_key_interval = maxKeyInterval;
-}
-
-unsigned int XvidOptions::getMaxBFrames(void)
-{
-	return xvid_enc_create.max_bframes;
-}
-
-void XvidOptions::setMaxBFrames(unsigned int maxBFrames)
-{
-	if (maxBFrames <= 3)
-		xvid_enc_create.max_bframes = maxBFrames;
-}
-
-bool XvidOptions::getMpegQuantisation(void)
-{
-	return xvid_enc_frame.vol_flags & XVID_VOL_MPEGQUANT;
-}
-
-void XvidOptions::setMpegQuantisation(bool mpegQuantisation)
-{
-	if (mpegQuantisation)
-		xvid_enc_frame.vol_flags |= XVID_VOL_MPEGQUANT;
+	if (chromaOptimisation)
+		xvid_enc_frame.vop_flags |= XVID_VOP_CHROMAOPT;
 	else
-		xvid_enc_frame.vol_flags &= ~XVID_VOL_MPEGQUANT;
-}
-
-bool XvidOptions::getInterlaced(void)
-{
-	return xvid_enc_frame.vol_flags & XVID_VOL_INTERLACING;
-}
-
-void XvidOptions::setInterlaced(bool interlaced)
-{
-	if (interlaced)
-		xvid_enc_frame.vol_flags |= XVID_VOL_INTERLACING;
-	else
-		xvid_enc_frame.vol_flags &= ~XVID_VOL_INTERLACING;
+		xvid_enc_frame.vop_flags &= ~XVID_VOP_CHROMAOPT;
 }
 
 bool XvidOptions::getInterMotionVector(void)
@@ -357,6 +321,107 @@ void XvidOptions::setInterMotionVector(bool interMotionVector)
 	}
 	else
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_INTER4V;
+}
+
+bool XvidOptions::getGreyscale(void)
+{
+	return xvid_enc_frame.vop_flags & XVID_VOP_GREYSCALE;
+}
+
+void XvidOptions::setGreyscale(bool greyscale)
+{
+	if (greyscale)
+		xvid_enc_frame.vop_flags |= XVID_VOP_GREYSCALE;
+	else
+		xvid_enc_frame.vop_flags &= ~XVID_VOP_GREYSCALE;
+}
+
+InterlacedMode XvidOptions::getInterlaced(void)
+{
+	InterlacedMode interlaced = INTERLACED_NONE;
+
+	if (xvid_enc_frame.vop_flags & XVID_VOP_TOPFIELDFIRST)
+		interlaced = INTERLACED_TFF;
+	else if (xvid_enc_frame.vol_flags & XVID_VOL_INTERLACING)
+		interlaced = INTERLACED_BFF;
+
+	return interlaced;
+}
+
+void XvidOptions::setInterlaced(InterlacedMode interlaced)
+{
+	if (interlaced == INTERLACED_NONE)
+	{
+		xvid_enc_frame.vol_flags &= ~XVID_VOL_INTERLACING;
+		xvid_enc_frame.vop_flags &= ~XVID_VOP_TOPFIELDFIRST;
+	}
+	else if (interlaced == INTERLACED_BFF || interlaced == INTERLACED_TFF)
+	{
+		xvid_enc_frame.vol_flags |= XVID_VOL_INTERLACING;
+
+		if (interlaced == INTERLACED_TFF)
+			xvid_enc_frame.vop_flags |= XVID_VOP_TOPFIELDFIRST;
+		else
+			xvid_enc_frame.vop_flags &= ~XVID_VOP_TOPFIELDFIRST;
+	}
+}
+
+unsigned int XvidOptions::getFrameDropRatio(void)
+{
+	return xvid_enc_create.frame_drop_ratio;
+}
+
+void XvidOptions::setFrameDropRatio(unsigned int frameDropRatio)
+{
+	if (frameDropRatio <= 100)
+		xvid_enc_create.frame_drop_ratio = frameDropRatio;
+}
+
+unsigned int XvidOptions::getMaxKeyInterval(void)
+{
+	return xvid_enc_create.max_key_interval;
+}
+
+void XvidOptions::setMaxKeyInterval(unsigned int maxKeyInterval)
+{
+	xvid_enc_create.max_key_interval = maxKeyInterval;
+}
+
+unsigned int XvidOptions::getMaxBFrames(void)
+{
+	return xvid_enc_create.max_bframes;
+}
+
+void XvidOptions::setMaxBFrames(unsigned int maxBFrames)
+{
+	if (maxBFrames <= 20)
+		xvid_enc_create.max_bframes = maxBFrames;
+}
+
+bool XvidOptions::getPacked(void)
+{
+	return xvid_enc_create.global & XVID_GLOBAL_PACKED;
+}
+
+void XvidOptions::setPacked(bool packed)
+{
+	if (packed)
+		xvid_enc_create.global |= XVID_GLOBAL_PACKED;
+	else
+		xvid_enc_create.global &= ~XVID_GLOBAL_PACKED;
+}
+
+bool XvidOptions::getMpegQuantisation(void)
+{
+	return xvid_enc_frame.vol_flags & XVID_VOL_MPEGQUANT;
+}
+
+void XvidOptions::setMpegQuantisation(bool mpegQuantisation)
+{
+	if (mpegQuantisation)
+		xvid_enc_frame.vol_flags |= XVID_VOL_MPEGQUANT;
+	else
+		xvid_enc_frame.vol_flags &= ~XVID_VOL_MPEGQUANT;
 }
 
 bool XvidOptions::getTrellis(void)
@@ -383,45 +448,6 @@ void XvidOptions::setCartoon(bool cartoon)
 		xvid_enc_frame.vop_flags |= XVID_VOP_CARTOON;
 	else
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_CARTOON;
-}
-
-bool XvidOptions::getGreyscale(void)
-{
-	return xvid_enc_frame.vop_flags & XVID_VOP_GREYSCALE;
-}
-
-void XvidOptions::setGreyscale(bool greyscale)
-{
-	if (greyscale)
-		xvid_enc_frame.vop_flags |= XVID_VOP_GREYSCALE;
-	else
-		xvid_enc_frame.vop_flags &= ~XVID_VOP_GREYSCALE;
-}
-
-bool XvidOptions::getAcPrediction(void)
-{
-	return xvid_enc_frame.vop_flags & XVID_VOP_HQACPRED;
-}
-
-void XvidOptions::setAcPrediction(bool acPrediction)
-{
-	if (acPrediction)
-		xvid_enc_frame.vop_flags |= XVID_VOP_HQACPRED;
-	else
-		xvid_enc_frame.vop_flags &= ~XVID_VOP_HQACPRED;
-}
-
-bool XvidOptions::getChromaOptimisation(void)
-{
-	return xvid_enc_frame.vop_flags & XVID_VOP_CHROMAOPT;
-}
-
-void XvidOptions::setChromaOptimisation(bool chromaOptimisation)
-{
-	if (chromaOptimisation)
-		xvid_enc_frame.vop_flags |= XVID_VOP_CHROMAOPT;
-	else
-		xvid_enc_frame.vop_flags &= ~XVID_VOP_CHROMAOPT;
 }
 
 void XvidOptions::getMinQuantiser(unsigned int *i, unsigned int *p, unsigned int *b)
@@ -460,19 +486,6 @@ void XvidOptions::setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b
 
 	if (b > 0 && b <= 51)
 		xvid_enc_create.max_quant[2] = b;
-}
-
-bool XvidOptions::getPacked(void)
-{
-	return xvid_enc_create.global & XVID_GLOBAL_PACKED;
-}
-
-void XvidOptions::setPacked(bool packed)
-{
-	if (packed)
-		xvid_enc_create.global |= XVID_GLOBAL_PACKED;
-	else
-		xvid_enc_create.global &= ~XVID_GLOBAL_PACKED;
 }
 
 bool XvidOptions::getClosedGop(void)
@@ -628,6 +641,28 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"qPel", boolean2String(xmlBuffer, bufferSize, getQpel()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gmc", boolean2String(xmlBuffer, bufferSize, getGmc()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"turboMode", boolean2String(xmlBuffer, bufferSize, getTurboMode()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"chromaOptimiser", boolean2String(xmlBuffer, bufferSize, getChromaOptimisation()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"fourMv", boolean2String(xmlBuffer, bufferSize, getInterMotionVector()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"greyscale", boolean2String(xmlBuffer, bufferSize, getGreyscale()));
+
+	switch (getInterlaced())
+	{
+		case INTERLACED_BFF:
+			strcpy((char*)xmlBuffer, "bff");
+			break;
+		case INTERLACED_TFF:
+			strcpy((char*)xmlBuffer, "tff");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", xmlBuffer);
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"frameDropRatio", number2String(xmlBuffer, bufferSize, getFrameDropRatio()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxIframeInterval", number2String(xmlBuffer, bufferSize, getMaxKeyInterval()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxBframes", number2String(xmlBuffer, bufferSize, getMaxBFrames()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"packed", boolean2String(xmlBuffer, bufferSize, getPacked()));
 }
 
 bool XvidOptions::validateXml(xmlDocPtr doc)
@@ -776,6 +811,31 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 				setGmc(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "turboMode") == 0)
 				setTurboMode(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "chromaOptimiser") == 0)
+				setChromaOptimisation(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "fourMv") == 0)
+				setInterMotionVector(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "greyscale") == 0)
+				setGreyscale(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
+			{
+				InterlacedMode interlaced = INTERLACED_NONE;
+
+				if (strcmp(content, "bff") == 0)
+					interlaced = INTERLACED_BFF;
+				else if (strcmp(content, "tff") == 0)
+					interlaced = INTERLACED_TFF;
+
+				setInterlaced(interlaced);
+			}
+			else if (strcmp((char*)xmlChild->name, "frameDropRatio") == 0)
+				setFrameDropRatio(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxIframeInterval") == 0)
+				setMaxKeyInterval(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "maxBframes") == 0)
+				setMaxBFrames(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "packed") == 0)
+				setPacked(string2Boolean(content));
 
 			xmlFree(content);
 		}

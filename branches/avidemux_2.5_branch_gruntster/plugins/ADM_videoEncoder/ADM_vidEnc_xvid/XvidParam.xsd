@@ -76,6 +76,36 @@
               <xs:element name="qPel" type="xs:boolean"/>
               <xs:element name="gmc" type="xs:boolean"/>
               <xs:element name="turboMode" type="xs:boolean"/>
+              <xs:element name="chromaOptimiser" type="xs:boolean"/>
+              <xs:element name="fourMv" type="xs:boolean"/>
+              <xs:element name="greyscale" type="xs:boolean"/>
+              <xs:element name="interlaced">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="bff"/>
+                    <xs:enumeration value="tff"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="frameDropRatio">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="maxIframeInterval" type="xs:integer"/>
+              <xs:element name="maxBframes">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="packed" type="xs:boolean"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

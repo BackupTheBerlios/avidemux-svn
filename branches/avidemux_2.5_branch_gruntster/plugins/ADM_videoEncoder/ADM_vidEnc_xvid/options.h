@@ -48,6 +48,13 @@ typedef enum
 
 typedef enum
 {
+	INTERLACED_NONE,
+	INTERLACED_BFF,
+	INTERLACED_TFF
+} InterlacedMode;
+
+typedef enum
+{
 	RD_NONE = -1,
 	RD_DCT_ME = 0,
 	RD_HPEL_QPEL_16 = RD_DCT_ME | XVID_ME_HALFPELREFINE16_RD | XVID_ME_QUARTERPELREFINE16_RD,
@@ -120,20 +127,32 @@ public:
 	bool getTurboMode(void);
 	void setTurboMode(bool turboMode);
 
+	bool getChromaOptimisation(void);
+	void setChromaOptimisation(bool chromaOptimisation);
+
+	bool getInterMotionVector(void);
+	void setInterMotionVector(bool interMotionVector);
+
+	bool getGreyscale(void);
+	void setGreyscale(bool greyscale);
+
+	InterlacedMode getInterlaced(void);
+	void setInterlaced(InterlacedMode interlaced);
+
+	unsigned int getFrameDropRatio(void);
+	void setFrameDropRatio(unsigned int frameDropRatio);
+
 	unsigned int getMaxKeyInterval(void);
 	void setMaxKeyInterval(unsigned int maxKeyInterval);
 
 	unsigned int getMaxBFrames(void);
 	void setMaxBFrames(unsigned int maxBFrames);
 
+	bool getPacked(void);
+	void setPacked(bool packed);
+
 	bool getMpegQuantisation(void);
 	void setMpegQuantisation(bool mpegQuantisation);
-
-	bool getInterlaced(void);
-	void setInterlaced(bool interlaced);
-
-	bool getInterMotionVector(void);
-	void setInterMotionVector(bool interMotionVector);
 
 	bool getTrellis(void);
 	void setTrellis(bool trellis);
@@ -141,23 +160,11 @@ public:
 	bool getCartoon(void);
 	void setCartoon(bool cartoon);
 
-	bool getGreyscale(void);
-	void setGreyscale(bool greyscale);
-
-	bool getAcPrediction(void);
-	void setAcPrediction(bool acPrediction);
-
-	bool getChromaOptimisation(void);
-	void setChromaOptimisation(bool chromaOptimisation);
-
 	void getMinQuantiser(unsigned int *i, unsigned int *p, unsigned int *b);
 	void setMinQuantiser(unsigned int i, unsigned int p, unsigned int b);
 
 	void getMaxQuantiser(unsigned int *i, unsigned int *p, unsigned int *b);
 	void setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b);
-
-	bool getPacked(void);
-	void setPacked(bool packed);
 
 	bool getClosedGop(void);
 	void setClosedGop(bool closedGop);

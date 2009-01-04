@@ -1114,7 +1114,11 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QSpinBox" name="maxIframeIntervalSpinBox" />
+               <widget class="QSpinBox" name="maxIframeIntervalSpinBox" >
+                <property name="maximum" >
+                 <number>2147483647</number>
+                </property>
+               </widget>
               </item>
               <item>
                <spacer>
@@ -1147,7 +1151,11 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QSpinBox" name="frameDropSpinBox" />
+               <widget class="QSpinBox" name="frameDropSpinBox" >
+                <property name="maximum" >
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
               <item>
                <spacer>
@@ -1205,9 +1213,9 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QSpinBox" name="maxBFramesSpinBox" >
+               <widget class="QSpinBox" name="maxBframesSpinBox" >
                 <property name="maximum" >
-                 <number>16</number>
+                 <number>20</number>
                 </property>
                </widget>
               </item>
@@ -2539,7 +2547,7 @@
   <tabstop>interlacedComboBox</tabstop>
   <tabstop>frameDropSpinBox</tabstop>
   <tabstop>maxIframeIntervalSpinBox</tabstop>
-  <tabstop>maxBFramesSpinBox</tabstop>
+  <tabstop>maxBframesSpinBox</tabstop>
   <tabstop>packedCheckBox</tabstop>
   <tabstop>quantIminSpinBox</tabstop>
   <tabstop>quantImaxSpinBox</tabstop>
