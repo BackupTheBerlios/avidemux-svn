@@ -422,6 +422,46 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 			ui.threadCustomSpinBox->setValue(options->getThreads());
 	}
 
+	// Motion tab
+	ui.meCheckBox->setChecked((options->getMotionEstimation() != ME_NONE));
+
+	switch (options->getMotionEstimation())
+	{
+		case ME_LOW:
+			ui.meComboBox->setCurrentIndex(0);
+			break;
+		case ME_MEDIUM:
+			ui.meComboBox->setCurrentIndex(1);
+			break;
+		case ME_HIGH:
+			ui.meComboBox->setCurrentIndex(2);
+			break;
+	}
+
+	ui.rdoCheckBox->setChecked((options->getRateDistortion() != RD_NONE));
+
+	switch (options->getRateDistortion())
+	{
+		case RD_DCT_ME:
+			ui.rdoComboBox->setCurrentIndex(0);
+			break;
+		case RD_HPEL_QPEL_16:
+			ui.rdoComboBox->setCurrentIndex(1);
+			break;
+		case RD_HPEL_QPEL_8:
+			ui.rdoComboBox->setCurrentIndex(2);
+			break;
+		case RD_SQUARE:
+			ui.rdoComboBox->setCurrentIndex(3);
+			break;
+	}
+
+	ui.rdoBframeCheckBox->setChecked(options->getBframeRdo());
+	ui.chromaMeCheckBox->setChecked(options->getChromaMotionEstimation());
+	ui.qPelCheckBox->setChecked(options->getQpel());
+	ui.gmcCheckBox->setChecked(options->getGmc());
+	ui.turboCheckBox->setChecked(options->getTurboMode());
+
 	disableGenericSlots = origDisableGenericSlots;
 }
 
@@ -469,6 +509,52 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 		options->setThreads(1);
 	else
 		options->setThreads(ui.threadCustomSpinBox->value());
+
+	// Motion tab
+	if (ui.meCheckBox->isChecked())
+	{
+		switch (ui.meComboBox->currentIndex())
+		{
+			case 0:
+				options->setMotionEstimation(ME_LOW);
+				break;
+			case 1:
+				options->setMotionEstimation(ME_MEDIUM);
+				break;
+			case 2:
+				options->setMotionEstimation(ME_HIGH);
+				break;
+		}
+	}
+	else
+		options->setMotionEstimation(ME_NONE);
+
+	if (ui.rdoCheckBox->isChecked())
+	{
+		switch (ui.rdoComboBox->currentIndex())
+		{
+			case 0:
+				options->setRateDistortion(RD_DCT_ME);
+				break;
+			case 1:
+				options->setRateDistortion(RD_HPEL_QPEL_16);
+				break;
+			case 2:
+				options->setRateDistortion(RD_HPEL_QPEL_8);
+				break;
+			case 3:
+				options->setRateDistortion(RD_SQUARE);
+				break;
+		}
+	}
+	else
+		options->setRateDistortion(RD_NONE);
+
+	options->setBframeRdo(ui.rdoBframeCheckBox->isChecked());
+	options->setChromaMotionEstimation(ui.chromaMeCheckBox->isChecked());
+	options->setQpel(ui.qPelCheckBox->isChecked());
+	options->setGmc(ui.gmcCheckBox->isChecked());
+	options->setTurboMode(ui.turboCheckBox->isChecked());
 }
 
 QString XvidConfigDialog::getUserConfigDirectory(void)

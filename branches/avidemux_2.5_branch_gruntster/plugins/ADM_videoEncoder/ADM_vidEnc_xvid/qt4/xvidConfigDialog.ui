@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>570</height>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -819,7 +819,7 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QComboBox" name="motionPrecisionComboBox" >
+               <widget class="QComboBox" name="meComboBox" >
                 <property name="currentIndex" >
                  <number>0</number>
                 </property>
@@ -890,7 +890,7 @@
                 </property>
                 <item>
                  <property name="text" >
-                  <string>No Search / DCT</string>
+                  <string>No Search (DCT only)</string>
                  </property>
                 </item>
                 <item>
@@ -948,7 +948,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_2" >
+           <widget class="QCheckBox" name="qPelCheckBox" >
             <property name="text" >
              <string>Quarter Pixel Motion Estimation</string>
             </property>
@@ -1009,6 +1009,20 @@
           <property name="spacing" >
            <number>6</number>
           </property>
+          <item>
+           <widget class="QCheckBox" name="chromaOptimiserCheckBox" >
+            <property name="text" >
+             <string>Chroma Optimiser</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="fourMvCheckBox" >
+            <property name="text" >
+             <string>Four Motion Vectors per Macroblock</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QCheckBox" name="greyscaleCheckBox" >
             <property name="text" >
@@ -2510,14 +2524,16 @@
   <tabstop>threadCustomRadioButton</tabstop>
   <tabstop>threadCustomSpinBox</tabstop>
   <tabstop>meCheckBox</tabstop>
-  <tabstop>motionPrecisionComboBox</tabstop>
+  <tabstop>meComboBox</tabstop>
   <tabstop>rdoCheckBox</tabstop>
   <tabstop>rdoComboBox</tabstop>
   <tabstop>rdoBframeCheckBox</tabstop>
   <tabstop>chromaMeCheckBox</tabstop>
-  <tabstop>checkBox_2</tabstop>
+  <tabstop>qPelCheckBox</tabstop>
   <tabstop>gmcCheckBox</tabstop>
   <tabstop>turboCheckBox</tabstop>
+  <tabstop>chromaOptimiserCheckBox</tabstop>
+  <tabstop>fourMvCheckBox</tabstop>
   <tabstop>greyscaleCheckBox</tabstop>
   <tabstop>interlacedCheckBox</tabstop>
   <tabstop>interlacedComboBox</tabstop>
@@ -2688,7 +2704,7 @@
   <connection>
    <sender>meCheckBox</sender>
    <signal>toggled(bool)</signal>
-   <receiver>motionPrecisionComboBox</receiver>
+   <receiver>meComboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >

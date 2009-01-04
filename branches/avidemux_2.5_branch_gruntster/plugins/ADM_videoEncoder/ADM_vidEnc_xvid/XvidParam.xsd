@@ -50,6 +50,32 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="motionEstimation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="low"/>
+                    <xs:enumeration value="medium"/>
+                    <xs:enumeration value="high"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rdo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="dct"/>
+                    <xs:enumeration value="hpelQpel16"/>
+                    <xs:enumeration value="hpelQpel8"/>
+                    <xs:enumeration value="square"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bFrameRdo" type="xs:boolean"/>
+              <xs:element name="chromaMotionEstimation" type="xs:boolean"/>
+              <xs:element name="qPel" type="xs:boolean"/>
+              <xs:element name="gmc" type="xs:boolean"/>
+              <xs:element name="turboMode" type="xs:boolean"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

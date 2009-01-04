@@ -61,10 +61,12 @@ void XvidOptions::reset(void)
 
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL;
 
+	setPar(1, 1);
+	setMotionEstimation(ME_LOW);
+	setRateDistortion(RD_DCT_ME);
 	setMaxKeyInterval(240);
 	setMinQuantiser(2, 2, 2);
 	setMaxQuantiser(31, 31, 31);
-	setPar(1, 1);
 
 	_parAsInput = false;
 
@@ -140,14 +142,16 @@ void XvidOptions::setPar(unsigned int width, unsigned int height)
 
 MotionEstimationMode XvidOptions::getMotionEstimation(void)
 {
-	if (xvid_enc_frame.motion & ME_HIGH == ME_HIGH)
-		return ME_HIGH;
-	else if (xvid_enc_frame.motion & ME_MEDIUM == ME_MEDIUM)
-		return ME_MEDIUM;
-	else if (xvid_enc_frame.motion & ME_LOW == ME_LOW)
-		return ME_LOW;
-	else
-		return ME_NONE;
+	MotionEstimationMode motionEstimation = ME_NONE;
+
+	if ((xvid_enc_frame.motion & ME_HIGH) == ME_HIGH)
+		motionEstimation = ME_HIGH;
+	else if ((xvid_enc_frame.motion & ME_MEDIUM) == ME_MEDIUM)
+		motionEstimation = ME_MEDIUM;
+	else if ((xvid_enc_frame.motion & ME_LOW) == ME_LOW)
+		motionEstimation = ME_LOW;
+
+	return motionEstimation;
 }
 
 void XvidOptions::setMotionEstimation(MotionEstimationMode motionEstimation)
@@ -164,6 +168,128 @@ void XvidOptions::setMotionEstimation(MotionEstimationMode motionEstimation)
 			xvid_enc_frame.type = XVID_TYPE_IVOP;
 		else
 			xvid_enc_frame.type = XVID_TYPE_AUTO;
+	}
+}
+
+RateDistortionMode XvidOptions::getRateDistortion(void)
+{
+	RateDistortionMode rateDistortion = RD_NONE;
+
+	if ((xvid_enc_frame.motion & RD_SQUARE) == RD_SQUARE)
+		rateDistortion = RD_SQUARE;
+	else if ((xvid_enc_frame.motion & RD_HPEL_QPEL_8) == RD_HPEL_QPEL_8)
+		rateDistortion = RD_HPEL_QPEL_8;
+	else if ((xvid_enc_frame.motion & RD_HPEL_QPEL_16) == RD_HPEL_QPEL_16)
+		rateDistortion = RD_HPEL_QPEL_16;
+	else if ((xvid_enc_frame.vop_flags & XVID_VOP_MODEDECISION_RD) == XVID_VOP_MODEDECISION_RD)
+		rateDistortion = RD_DCT_ME;
+
+	return rateDistortion;
+}
+
+void XvidOptions::setRateDistortion(RateDistortionMode rateDistortion)
+{
+	if (rateDistortion == RD_NONE || rateDistortion == RD_DCT_ME || rateDistortion == RD_HPEL_QPEL_16 || 
+		rateDistortion == RD_HPEL_QPEL_8 || rateDistortion == RD_SQUARE)
+	{
+		xvid_enc_frame.motion &= ~RD_HPEL_QPEL_16;
+		xvid_enc_frame.motion &= ~RD_HPEL_QPEL_8;
+		xvid_enc_frame.motion &= ~RD_SQUARE;
+
+		if (rateDistortion == RD_NONE)
+			xvid_enc_frame.vop_flags &= ~XVID_VOP_MODEDECISION_RD;
+		else
+		{
+			if (rateDistortion != RD_DCT_ME)
+				xvid_enc_frame.motion |= rateDistortion;
+
+			xvid_enc_frame.vop_flags |= XVID_VOP_MODEDECISION_RD;
+		}
+	}
+}
+
+bool XvidOptions::getBframeRdo(void)
+{
+	return xvid_enc_frame.vop_flags & XVID_VOP_RD_BVOP;
+}
+
+void XvidOptions::setBframeRdo(bool bFrameRdo)
+{
+	if (bFrameRdo)
+		xvid_enc_frame.vop_flags |= XVID_VOP_RD_BVOP;
+	else
+		xvid_enc_frame.vop_flags &= ~XVID_VOP_RD_BVOP;
+}
+
+bool XvidOptions::getChromaMotionEstimation(void)
+{
+	return xvid_enc_frame.motion & CHROMA_ME;
+}
+
+void XvidOptions::setChromaMotionEstimation(bool chromaMotionEstimation)
+{
+	if (chromaMotionEstimation)
+		xvid_enc_frame.motion |= CHROMA_ME;
+	else
+		xvid_enc_frame.motion &= ~CHROMA_ME;
+}
+
+bool XvidOptions::getQpel(void)
+{
+	return xvid_enc_frame.vol_flags & XVID_VOL_QUARTERPEL;
+}
+
+void XvidOptions::setQpel(bool qpel)
+{
+	if (qpel)
+	{
+		xvid_enc_frame.vol_flags |= XVID_VOL_QUARTERPEL;
+		xvid_enc_frame.motion |= XVID_ME_QUARTERPELREFINE16;
+
+		if (getInterMotionVector())
+			xvid_enc_frame.motion |= XVID_ME_QUARTERPELREFINE8;
+	}
+	else
+	{
+		xvid_enc_frame.vol_flags &= ~XVID_VOL_QUARTERPEL;
+		xvid_enc_frame.motion &= ~XVID_ME_QUARTERPELREFINE16;
+		xvid_enc_frame.motion &= ~XVID_ME_QUARTERPELREFINE8;
+	}
+}
+
+bool XvidOptions::getGmc(void)
+{
+	return xvid_enc_frame.vol_flags & XVID_VOL_GMC;
+}
+
+void XvidOptions::setGmc(bool gmc)
+{
+	if (gmc)
+	{
+		xvid_enc_frame.vol_flags |= XVID_VOL_GMC;
+		xvid_enc_frame.motion |= XVID_ME_GME_REFINE;
+	}
+	else
+	{
+		xvid_enc_frame.vol_flags &= ~XVID_VOL_GMC;
+		xvid_enc_frame.motion &= ~XVID_ME_GME_REFINE;
+	}
+}
+
+bool XvidOptions::getTurboMode(void)
+{
+	return xvid_enc_frame.motion & TURBO_MODE;
+}
+
+void XvidOptions::setTurboMode(bool turboMode)
+{
+	if (turboMode)
+	{
+		xvid_enc_frame.motion |= TURBO_MODE;
+	}
+	else
+	{
+		xvid_enc_frame.motion &= ~TURBO_MODE;
 	}
 }
 
@@ -272,61 +398,6 @@ void XvidOptions::setGreyscale(bool greyscale)
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_GREYSCALE;
 }
 
-bool XvidOptions::getQpel(void)
-{
-	return xvid_enc_frame.vol_flags & XVID_VOL_QUARTERPEL;
-}
-
-void XvidOptions::setQpel(bool qpel)
-{
-	if (qpel)
-	{
-		xvid_enc_frame.vol_flags |= XVID_VOL_QUARTERPEL;
-		xvid_enc_frame.motion |= XVID_ME_QUARTERPELREFINE16;
-
-		if (getInterMotionVector())
-			xvid_enc_frame.motion |= XVID_ME_QUARTERPELREFINE8;
-	}
-	else
-	{
-		xvid_enc_frame.vol_flags &= ~XVID_VOL_QUARTERPEL;
-		xvid_enc_frame.motion &= ~XVID_ME_QUARTERPELREFINE16;
-		xvid_enc_frame.motion &= ~XVID_ME_QUARTERPELREFINE8;
-	}
-}
-
-bool XvidOptions::getGmc(void)
-{
-	return xvid_enc_frame.vol_flags & XVID_VOL_GMC;
-}
-
-void XvidOptions::setGmc(bool gmc)
-{
-	if (gmc)
-	{
-		xvid_enc_frame.vol_flags |= XVID_VOL_GMC;
-		xvid_enc_frame.motion |= XVID_ME_GME_REFINE;
-	}
-	else
-	{
-		xvid_enc_frame.vol_flags &= ~XVID_VOL_GMC;
-		xvid_enc_frame.motion &= ~XVID_ME_GME_REFINE;
-	}
-}
-
-bool XvidOptions::getBvhq(void)
-{
-	return xvid_enc_frame.vop_flags & XVID_VOP_RD_BVOP;
-}
-
-void XvidOptions::setBvhq(bool bvhq)
-{
-	if (bvhq)
-		xvid_enc_frame.vop_flags |= XVID_VOP_RD_BVOP;
-	else
-		xvid_enc_frame.vop_flags &= ~XVID_VOP_RD_BVOP;
-}
-
 bool XvidOptions::getAcPrediction(void)
 {
 	return xvid_enc_frame.vop_flags & XVID_VOP_HQACPRED;
@@ -389,34 +460,6 @@ void XvidOptions::setMaxQuantiser(unsigned int i, unsigned int p, unsigned int b
 
 	if (b > 0 && b <= 51)
 		xvid_enc_create.max_quant[2] = b;
-}
-
-RateDistortionMode XvidOptions::getRateDistortion(RateDistortionMode rateDistortion)
-{
-	if (xvid_enc_frame.motion & RD_SQUARE == RD_SQUARE)
-		return RD_SQUARE;
-	else if (xvid_enc_frame.motion & RD_HPEL_QPEL_8 == RD_HPEL_QPEL_8)
-		return RD_HPEL_QPEL_8;
-	else if (xvid_enc_frame.motion & RD_HPEL_QPEL_16 == RD_HPEL_QPEL_16)
-		return RD_HPEL_QPEL_16;
-	else if (xvid_enc_frame.motion & RD_DCT_ME == RD_DCT_ME)
-		return RD_DCT_ME;
-	else
-		return RD_NONE;
-}
-
-void XvidOptions::setRateDistortion(RateDistortionMode rateDistortion)
-{
-	if (rateDistortion == RD_NONE || rateDistortion == RD_DCT_ME || rateDistortion == RD_HPEL_QPEL_16 || 
-		rateDistortion == RD_HPEL_QPEL_8 || rateDistortion == RD_SQUARE)
-	{
-		xvid_enc_frame.motion &= ~RD_NONE;
-		xvid_enc_frame.motion &= ~RD_DCT_ME;
-		xvid_enc_frame.motion &= ~RD_HPEL_QPEL_16;
-		xvid_enc_frame.motion &= ~RD_HPEL_QPEL_8;
-		xvid_enc_frame.motion &= ~RD_SQUARE;
-		xvid_enc_frame.motion |= rateDistortion;
-	}
 }
 
 bool XvidOptions::getPacked(void)
@@ -540,6 +583,51 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"sarHeight", number2String(xmlBuffer, bufferSize, height));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"sarWidth", number2String(xmlBuffer, bufferSize, width));
+
+	switch (getMotionEstimation())
+	{
+		case ME_LOW:
+			strcpy((char*)xmlBuffer, "low");
+			break;
+		case ME_MEDIUM:
+			strcpy((char*)xmlBuffer, "medium");
+			break;
+		case ME_HIGH:
+			strcpy((char*)xmlBuffer, "high");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"motionEstimation", xmlBuffer);
+
+	switch (getRateDistortion())
+	{
+		case RD_DCT_ME:
+			strcpy((char*)xmlBuffer, "dct");
+			break;
+		case RD_HPEL_QPEL_16:
+			strcpy((char*)xmlBuffer, "hpelQpel16");
+			break;
+		case RD_HPEL_QPEL_8:
+			strcpy((char*)xmlBuffer, "hpelQpel8");
+			break;
+		case RD_SQUARE:
+			strcpy((char*)xmlBuffer, "square");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"rdo", xmlBuffer);
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameRdo", boolean2String(xmlBuffer, bufferSize, getBframeRdo()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"chromaMotionEstimation", boolean2String(xmlBuffer, bufferSize, getChromaMotionEstimation()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"qPel", boolean2String(xmlBuffer, bufferSize, getQpel()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gmc", boolean2String(xmlBuffer, bufferSize, getGmc()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"turboMode", boolean2String(xmlBuffer, bufferSize, getTurboMode()));
 }
 
 bool XvidOptions::validateXml(xmlDocPtr doc)
@@ -650,6 +738,44 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 				setThreads(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "vui") == 0)
 				parseVuiOptions(xmlChild);
+			else if (strcmp((char*)xmlChild->name, "motionEstimation") == 0)
+			{
+				MotionEstimationMode motionEstimation = ME_NONE;
+
+				if (strcmp(content, "low") == 0)
+					motionEstimation = ME_LOW;
+				else if (strcmp(content, "medium") == 0)
+					motionEstimation = ME_MEDIUM;
+				else if (strcmp(content, "high") == 0)
+					motionEstimation = ME_HIGH;
+
+				setMotionEstimation(motionEstimation);
+			}
+			else if (strcmp((char*)xmlChild->name, "rdo") == 0)
+			{
+				RateDistortionMode rateDistortion = RD_NONE;
+
+				if (strcmp(content, "dct") == 0)
+					rateDistortion = RD_DCT_ME;
+				else if (strcmp(content, "hpelQpel16") == 0)
+					rateDistortion = RD_HPEL_QPEL_16;
+				else if (strcmp(content, "hpelQpel8") == 0)
+					rateDistortion = RD_HPEL_QPEL_8;
+				else if (strcmp(content, "square") == 0)
+					rateDistortion = RD_SQUARE;
+
+				setRateDistortion(rateDistortion);
+			}
+			else if (strcmp((char*)xmlChild->name, "bFrameRdo") == 0)
+				setBframeRdo(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "chromaMotionEstimation") == 0)
+				setChromaMotionEstimation(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "qPel") == 0)
+				setQpel(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "gmc") == 0)
+				setGmc(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "turboMode") == 0)
+				setTurboMode(string2Boolean(content));
 
 			xmlFree(content);
 		}
