@@ -58,6 +58,7 @@ void XvidOptions::reset(void)
 
 	memset(&xvid_enc_create, 0, sizeof(xvid_enc_create_t));
 	memset(&xvid_enc_frame, 0, sizeof(xvid_enc_frame_t));
+	memset(&xvid_plugin_single, 0, sizeof(xvid_plugin_single_t));	
 
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
@@ -536,6 +537,37 @@ void XvidOptions::setTrellis(bool trellis)
 		xvid_enc_frame.vop_flags &= ~XVID_VOP_TRELLISQUANT;
 }
 
+unsigned int XvidOptions::getReactionDelayFactor(void)
+{
+	return xvid_plugin_single.reaction_delay_factor;
+}
+
+void XvidOptions::setReactionDelayFactor(unsigned int delayFactor)
+{
+	if (delayFactor <= 100)
+		xvid_plugin_single.reaction_delay_factor = delayFactor;
+}
+
+unsigned int XvidOptions::getAveragingQuantiserPeriod(void)
+{
+	return xvid_plugin_single.averaging_period;
+}
+
+void XvidOptions::setAveragingQuantiserPeriod(unsigned int averagingPeriod)
+{
+		xvid_plugin_single.averaging_period = averagingPeriod;
+}
+
+unsigned int XvidOptions::getSmoother(void)
+{
+	return xvid_plugin_single.buffer;
+}
+
+void XvidOptions::setSmoother(unsigned int smoother)
+{
+		xvid_plugin_single.buffer = smoother;
+}
+
 char* XvidOptions::toXml(void)
 {
 	xmlDocPtr xmlDoc = xmlNewDoc((const xmlChar*)"1.0");
@@ -670,7 +702,6 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	}
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"rdo", xmlBuffer);
-
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameRdo", boolean2String(xmlBuffer, bufferSize, getBframeRdo()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"chromaMotionEstimation", boolean2String(xmlBuffer, bufferSize, getChromaMotionEstimation()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"qPel", boolean2String(xmlBuffer, bufferSize, getQpel()));
@@ -724,6 +755,11 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantType", xmlBuffer);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"trellis", boolean2String(xmlBuffer, bufferSize, getTrellis()));
+
+	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"singlePass", NULL);
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reactionDelayFactor", number2String(xmlBuffer, bufferSize, getReactionDelayFactor()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"averagingQuantiserPeriod", number2String(xmlBuffer, bufferSize, getAveragingQuantiserPeriod()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"smoother", number2String(xmlBuffer, bufferSize, getSmoother()));
 }
 
 bool XvidOptions::validateXml(xmlDocPtr doc)
@@ -931,6 +967,8 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 			}
 			else if (strcmp((char*)xmlChild->name, "trellis") == 0)
 				setTrellis(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "singlePass") == 0)
+				parseSinglePassOptions(xmlChild);
 
 			xmlFree(content);
 		}
@@ -965,6 +1003,26 @@ void XvidOptions::parseVuiOptions(xmlNode *node)
 	}
 
 	setPar(width, height);
+}
+
+void XvidOptions::parseSinglePassOptions(xmlNode *node)
+{
+	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
+	{
+		if (xmlChild->type == XML_ELEMENT_NODE)
+		{
+			char *content = (char*)xmlNodeGetContent(xmlChild);
+
+			if (strcmp((char*)xmlChild->name, "reactionDelayFactor") == 0)
+				setReactionDelayFactor(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "averagingQuantiserPeriod") == 0)
+				setAveragingQuantiserPeriod(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "smoother") == 0)
+				setSmoother(atoi(content));
+
+			xmlFree(content);
+		}
+	}
 }
 
 xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, int number)

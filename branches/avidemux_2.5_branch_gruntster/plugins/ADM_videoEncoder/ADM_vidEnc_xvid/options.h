@@ -67,6 +67,7 @@ class XvidOptions
 protected:
 	xvid_enc_create_t xvid_enc_create;
 	xvid_enc_frame_t xvid_enc_frame;
+	xvid_plugin_single_t xvid_plugin_single;
 
 	char* _configurationName;
 	ConfigType _configurationType;
@@ -86,6 +87,7 @@ protected:
 	void parsePresetConfiguration(xmlNode *node);
 	void parseXvidOptions(xmlNode *node);
 	void parseVuiOptions(xmlNode *node);
+	void parseSinglePassOptions(xmlNode *node);
 
 public:
 	XvidOptions(void);
@@ -177,6 +179,15 @@ public:
 
 	bool getTrellis(void);
 	void setTrellis(bool trellis);
+
+	unsigned int getReactionDelayFactor(void);
+	void setReactionDelayFactor(unsigned int delayFactor);
+
+	unsigned int getAveragingQuantiserPeriod(void);
+	void setAveragingQuantiserPeriod(unsigned int averagingPeriod);
+
+	unsigned int getSmoother(void);
+	void setSmoother(unsigned int smoother);
 
 	virtual char* toXml(void);
 	virtual int fromXml(const char *xml);

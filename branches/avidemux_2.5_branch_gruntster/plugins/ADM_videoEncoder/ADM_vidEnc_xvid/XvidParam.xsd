@@ -147,6 +147,22 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="trellis" type="xs:boolean"/>
+              <xs:element name="singlePass">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="reactionDelayFactor">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="averagingQuantiserPeriod" type="uint"/>
+                    <xs:element name="smoother" type="uint"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

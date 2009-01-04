@@ -261,21 +261,29 @@ void XvidConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 
 	switch (index)
 	{
-		case 0:
+		case 0: // Constant Bitrate - 1 pass
+			ui.singlePassTab->setEnabled(true);
+			ui.twoPassTab->setEnabled(false);
 			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Bitrate:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
 			break;
-		case 1: // Constant Quality - 1 pass
+		case 1: // Constant Quantiser - 1 pass
+			ui.singlePassTab->setEnabled(true);
+			ui.twoPassTab->setEnabled(false);
 			ui.quantiserLabel2->setText(QT_TR_NOOP("Quantiser:"));
 			enable = true;
 			break;
 		case 2: // Video Size - 2 pass
+			ui.singlePassTab->setEnabled(false);
+			ui.twoPassTab->setEnabled(true);
 			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Video Size:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("MB"));
 			ui.targetRateControlSpinBox->setValue(lastVideoSize);
 			break;
 		case 3: // Average Bitrate - 2 pass
+			ui.singlePassTab->setEnabled(false);
+			ui.twoPassTab->setEnabled(true);
 			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Average Bitrate:"));
 			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
@@ -520,6 +528,9 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 		ui.quantTypeComboBox->setCurrentIndex(0);
 
 	ui.trellisCheckBox->setChecked(options->getTrellis());
+	ui.reactionDelaySpinBox->setValue(options->getReactionDelayFactor());
+	ui.averagingQuantiserSpinBox->setValue(options->getAveragingQuantiserPeriod());
+	ui.smootherSpinBox->setValue(options->getSmoother());
 
 	disableGenericSlots = origDisableGenericSlots;
 }
@@ -650,6 +661,11 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	options->setBframeQuantiserOffset((unsigned int)floor(ui.quantBoffsetSpinBox->value() * 100 + .05));
 	options->setMpegQuantisation(ui.quantTypeComboBox->currentIndex() == 1);
 	options->setTrellis(ui.trellisCheckBox->isChecked());
+
+	// Single pass tab
+	options->setReactionDelayFactor(ui.reactionDelaySpinBox->value());
+	options->setAveragingQuantiserPeriod(ui.averagingQuantiserSpinBox->value());
+	options->setSmoother(ui.smootherSpinBox->value());
 }
 
 QString XvidConfigDialog::getUserConfigDirectory(void)

@@ -1785,7 +1785,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3" >
+     <widget class="QWidget" name="singlePassTab" >
       <attribute name="title" >
        <string>Single Pass</string>
       </attribute>
@@ -1838,7 +1838,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_3" >
+             <widget class="QSpinBox" name="smootherSpinBox" >
               <property name="maximum" >
                <number>2147483647</number>
               </property>
@@ -1868,7 +1868,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox_2" >
+             <widget class="QSpinBox" name="averagingQuantiserSpinBox" >
               <property name="maximum" >
                <number>2147483647</number>
               </property>
@@ -1898,7 +1898,7 @@
              <number>6</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="spinBox" >
+             <widget class="QSpinBox" name="reactionDelaySpinBox" >
               <property name="maximum" >
                <number>100</number>
               </property>
@@ -1937,7 +1937,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab" >
+     <widget class="QWidget" name="twoPassTab" >
       <attribute name="title" >
        <string>Two Pass</string>
       </attribute>
@@ -2610,7 +2610,7 @@
   <tabstop>maxIframeIntervalSpinBox</tabstop>
   <tabstop>maxBframesSpinBox</tabstop>
   <tabstop>bFrameSensitivitySpinBox</tabstop>
-   <tabstop>closedGopCheckBox</tabstop>
+  <tabstop>closedGopCheckBox</tabstop>
   <tabstop>packedCheckBox</tabstop>
   <tabstop>quantIminSpinBox</tabstop>
   <tabstop>quantImaxSpinBox</tabstop>
@@ -2622,9 +2622,9 @@
   <tabstop>quantBoffsetSpinBox</tabstop>
   <tabstop>quantTypeComboBox</tabstop>
   <tabstop>trellisCheckBox</tabstop>
-  <tabstop>spinBox</tabstop>
-  <tabstop>spinBox_2</tabstop>
-  <tabstop>spinBox_3</tabstop>
+  <tabstop>reactionDelaySpinBox</tabstop>
+  <tabstop>averagingQuantiserSpinBox</tabstop>
+  <tabstop>smootherSpinBox</tabstop>
   <tabstop>spinBox_4</tabstop>
   <tabstop>spinBox_5</tabstop>
   <tabstop>spinBox_6</tabstop>
