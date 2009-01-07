@@ -688,7 +688,8 @@ Function InstallOptionsPage
 FunctionEnd
 
 Function IsInstallOptionsRequired
-	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end resetOptions
+	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkQt4
+checkQt4:
 	!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} end resetOptions
 
 resetOptions:

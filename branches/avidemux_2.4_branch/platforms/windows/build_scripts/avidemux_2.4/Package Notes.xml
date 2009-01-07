@@ -1,5 +1,44 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4508" date="2009-01-01">
+    <comment>Updated x264 to r1069.</comment>
+  </buildentry>
+  <buildentry revision="4502" date="2008-12-27">
+    <comment>Updated GTK+ to version 2.14.6-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.2+.</comment>
+    <comment>Updated x264 to r1062 (patched).</comment>
+    <comment>Updated Xvid to 1.2.1.</comment>    
+  </buildentry>
+  <buildentry revision="4499" date="2008-12-03">
+    <comment>Packaged using NSIS 2.41.</comment>
+    <comment>Updated Avisynth Proxy GUI to version 2.06.</comment>
+    <comment>Updated GLib to version 2.18.3-1.</comment>
+    <comment>Updated GTK+ to version 2.14.5-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.2.</comment>
+    <comment>Updated Pango to version 1.22.2-1.</comment>
+    <comment>Updated Qt to version 4.4.3.</comment>
+    <comment>Updated win_iconv to version 20080403.</comment>
+    <comment>Updated x264 to r1046 (patched).</comment>
+    <comment>Updated Xvid to 1.2.0.</comment>
+  </buildentry>
+  <buildentry revision="4494" date="2008-10-22">
+    <comment>Updated GTK+ to version 2.14.4-1.</comment>
+  </buildentry>
+  <buildentry revision="4486" date="2008-10-18">
+    <comment>Updated GLib to version 2.18.2-1.</comment>
+  </buildentry>
+  <buildentry revision="4473" date="2008-10-15">
+  </buildentry>
+  <buildentry revision="4458" date="2008-10-13">
+  </buildentry>
+  <buildentry revision="4454" date="2008-10-08">
+  </buildentry>
+  <buildentry revision="4445" date="2008-10-06">
+    <comment>Updated x264 to r999 (patched).</comment>
+  </buildentry>
+  <buildentry revision="4435" date="2008-10-02">
+    <comment>Updated x264 to r997 (patched).</comment>
+  </buildentry>
   <buildentry revision="4421" date="2008-09-30">
     <comment>Updated x264 to r995 (patched).</comment>
   </buildentry>
@@ -28,7 +67,7 @@
     <comment>Updated Pango to version 1.20.5-2.</comment>
     <comment>Updated Qt to version 4.4.2.</comment>
     <comment>Updated x264 to r979 (patched).</comment>
-  </buildentry>  
+  </buildentry>
   <buildentry revision="4346" date="2008-09-14">
     <comment>Reverted GTK+ back to original 2.14.1 (Avidemux has now been fixed).</comment>
     <comment>Updated x264 to r968 (patched).</comment>
