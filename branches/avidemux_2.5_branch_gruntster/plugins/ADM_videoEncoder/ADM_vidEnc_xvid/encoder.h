@@ -25,7 +25,7 @@
 	#include "ADM_vidEnc_plugin.h"
 	}
 
-	class xvidEncoder
+	class XvidEncoder
 	{
 	private:
 		int _uiType;
@@ -33,13 +33,35 @@
 		configGuiLoader *_loader;
 		XvidOptions _options;
 		vidEncOptions _encodeOptions;
+		vidEncVideoProperties _properties;
+		char *_logFileName;
+		int _frameNumber;
+		int _processors;
 
+		uint8_t *_buffer;
+		int _bufferSize;
+
+		xvid_enc_create_t _xvid_enc_create;
+		xvid_enc_frame_t _xvid_enc_frame;
+		xvid_plugin_single_t _xvid_plugin_single;
+		xvid_plugin_2pass1_t _xvid_plugin_2pass1;
+		xvid_plugin_2pass2_t _xvid_plugin_2pass2;
+		xvid_enc_plugin_t _xvid_enc_plugin[2];
+
+		unsigned int _currentFrame;
 		int _currentPass, _passCount;
-		bool _opened;
+		bool _opened, _openPass;
+
+		void updateEncodeParameters(vidEncVideoProperties *properties);
+		unsigned int calculateBitrate(unsigned int fps1000, unsigned int frameCount, unsigned int sizeInMb);
+
+		void printEncCreate(xvid_enc_create_t *xvid_enc_create);
+		void printEncFrame(xvid_enc_frame_t *xvid_enc_frame);
+		void printArray(const int data[], int size);
 
 	public:
-		xvidEncoder(void);
-		~xvidEncoder(void);
+		XvidEncoder(void);
+		~XvidEncoder(void);
 		void setUiType(int uiType);
 		int isConfigurable(void);
 		int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
@@ -52,17 +74,18 @@
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 		int finishPass(void);
 		void close(void);
+		void setFrameNumber(int frameNumber);
 	};
 #else
 	void *encoders_getPointer(int uiType);
-	int xvidEncoder_isConfigurable(void);
-	int xvidEncoder_configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
-	int xvidEncoder_getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-	int xvidEncoder_setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
-	int xvidEncoder_getPassCount(void);
-	int xvidEncoder_getCurrentPass(void);
-	int xvidEncoder_open(vidEncVideoProperties *properties);
-	void xvidEncoder_close(void);
-	int xvidEncoder_encodeFrame(vidEncEncodeParameters *encodeParams);
+	int XvidEncoder_isConfigurable(void);
+	int XvidEncoder_configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
+	int XvidEncoder_getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
+	int XvidEncoder_setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+	int XvidEncoder_getPassCount(void);
+	int XvidEncoder_getCurrentPass(void);
+	int XvidEncoder_open(vidEncVideoProperties *properties);
+	void XvidEncoder_close(void);
+	int XvidEncoder_encodeFrame(vidEncEncodeParameters *encodeParams);
 #endif	// __cplusplus
 #endif	// encoder_h

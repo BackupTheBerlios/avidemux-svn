@@ -49,7 +49,7 @@ const char* vidEncGetEncoderDescription(int encoderId)
 
 const char* vidEncGetFourCC(int encoderId)
 {
-	return "xvid";
+	return "XVID";
 }
 
 int vidEncGetEncoderApiVersion(int encoderId)
@@ -71,57 +71,57 @@ const char* vidEncGetEncoderGuid(int encoderId)
 
 int vidEncIsConfigurable(int encoderId)
 {
-	return xvidEncoder_isConfigurable();
+	return XvidEncoder_isConfigurable();
 }
 
 int vidEncConfigure(int encoderId, vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
 {
-	return xvidEncoder_configure(configParameters, properties);
+	return XvidEncoder_configure(configParameters, properties);
 }
 
 int vidEncGetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 {
-	return xvidEncoder_getOptions(encodeOptions, pluginOptions, bufferSize);
+	return XvidEncoder_getOptions(encodeOptions, pluginOptions, bufferSize);
 }
 
 int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions)
 {
-	return xvidEncoder_setOptions(encodeOptions, pluginOptions);
+	return XvidEncoder_setOptions(encodeOptions, pluginOptions);
 }
 
 int vidEncGetPassCount(int encoderId)
 {
-	return xvidEncoder_getPassCount();
+	return XvidEncoder_getPassCount();
 }
 
 int vidEncGetCurrentPass(int encoderId)
 {
-	return xvidEncoder_getCurrentPass();
+	return XvidEncoder_getCurrentPass();
 }
 
 int vidEncOpen(int encoderId, vidEncVideoProperties *properties)
 {
-	return xvidEncoder_open(properties);
+	return XvidEncoder_open(properties);
 }
 
 int vidEncBeginPass(int encoderId, vidEncPassParameters *passParameters)
 {
-	return xvidEncoder_beginPass(passParameters);
+	return XvidEncoder_beginPass(passParameters);
 }
 
 int vidEncEncodeFrame(int encoderId, vidEncEncodeParameters *encodeParams)
 {
-	return xvidEncoder_encodeFrame(encodeParams);
+	return XvidEncoder_encodeFrame(encodeParams);
 }
 
 int vidEncFinishPass(int encoderId)
 {
-	return xvidEncoder_finishPass();
+	return XvidEncoder_finishPass();
 }
 
 int vidEncClose(int encoderId)
 {
-	xvidEncoder_close();
+	XvidEncoder_close();
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }

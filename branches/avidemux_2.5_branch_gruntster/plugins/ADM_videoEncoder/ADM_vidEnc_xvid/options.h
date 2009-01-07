@@ -97,6 +97,9 @@ public:
 
 	void reset(void);
 
+	void getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_frame_t **xvid_enc_frame,
+		xvid_plugin_single_t **xvid_plugin_single, xvid_plugin_2pass2_t **xvid_plugin_2pass2);
+
 	void getPresetConfiguration(char** configurationName, ConfigType *configurationType);
 	void setPresetConfiguration(const char* configurationName, ConfigType configurationType);
 	void clearPresetConfiguration(void);

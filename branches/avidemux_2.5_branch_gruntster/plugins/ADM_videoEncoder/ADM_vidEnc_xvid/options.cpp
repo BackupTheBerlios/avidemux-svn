@@ -61,6 +61,11 @@ void XvidOptions::reset(void)
 	memset(&xvid_plugin_single, 0, sizeof(xvid_plugin_single_t));
 	memset(&xvid_plugin_2pass2, 0, sizeof(xvid_plugin_2pass2_t));
 
+	xvid_enc_create.version = XVID_VERSION;
+	xvid_enc_frame.version = XVID_VERSION;
+	xvid_plugin_single.version = XVID_VERSION;
+	xvid_plugin_2pass2.version = XVID_VERSION;
+
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
 	setPar(1, 1);
@@ -77,6 +82,20 @@ void XvidOptions::reset(void)
 	_parAsInput = false;
 
 	setPresetConfiguration("<default>", CONFIG_DEFAULT);
+}
+
+void XvidOptions::getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_frame_t **xvid_enc_frame,
+	xvid_plugin_single_t **xvid_plugin_single, xvid_plugin_2pass2_t **xvid_plugin_2pass2)
+{
+	*xvid_enc_create = new xvid_enc_create_t;
+	*xvid_enc_frame = new xvid_enc_frame_t;
+	*xvid_plugin_single = new xvid_plugin_single_t;
+	*xvid_plugin_2pass2 = new xvid_plugin_2pass2_t;
+
+	memcpy(*xvid_enc_create, &this->xvid_enc_create, sizeof(xvid_enc_create_t));
+	memcpy(*xvid_enc_frame, &this->xvid_enc_frame, sizeof(xvid_enc_frame_t));
+	memcpy(*xvid_plugin_single, &this->xvid_plugin_single, sizeof(xvid_plugin_single_t));
+	memcpy(*xvid_plugin_2pass2, &this->xvid_plugin_2pass2, sizeof(xvid_plugin_2pass2_t));
 }
 
 void XvidOptions::getPresetConfiguration(char** configurationName, ConfigType *configurationType)

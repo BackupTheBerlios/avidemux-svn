@@ -18,7 +18,8 @@
  *                                                                         *
  ***************************************************************************/
 #include <libxml/parser.h>
-#include "ADM_default.h"
+#include <string.h>
+#include "ADM_inttype.h"
 #include "presetOptions.h"
 
 XvidPresetOptions::XvidPresetOptions(void) : XvidOptions()

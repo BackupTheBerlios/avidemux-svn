@@ -127,7 +127,7 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 
 const char* externalEncoder::getCodecName(void)
 {
-	return _plugin->getEncoderName(_plugin->encoderId);
+	return _plugin->getFourCC(_plugin->encoderId);
 }
 
 const char* externalEncoder::getDisplayName(void)
