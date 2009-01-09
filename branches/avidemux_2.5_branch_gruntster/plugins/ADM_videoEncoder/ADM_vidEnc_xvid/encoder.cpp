@@ -390,6 +390,22 @@ void XvidEncoder::updateEncodeParameters(vidEncVideoProperties *properties)
 
 	_xvid_plugin_2pass1.version = XVID_VERSION;
 
+	if (tmp_xvid_enc_frame->quant_intra_matrix)
+	{
+		memcpy(_intraMatrix, tmp_xvid_enc_frame->quant_intra_matrix, sizeof(unsigned char) * 64);
+		_xvid_enc_frame.quant_intra_matrix = _intraMatrix;
+
+		delete tmp_xvid_enc_frame->quant_intra_matrix;
+	}
+
+	if (tmp_xvid_enc_frame->quant_inter_matrix)
+	{
+		memcpy(_interMatrix, tmp_xvid_enc_frame->quant_inter_matrix, sizeof(unsigned char) * 64);
+		_xvid_enc_frame.quant_inter_matrix = _interMatrix;
+
+		delete tmp_xvid_enc_frame->quant_inter_matrix;
+	}
+
 	delete tmp_xvid_enc_create;
 	delete tmp_xvid_enc_frame;
 	delete tmp_xvid_plugin_single;
@@ -404,7 +420,7 @@ void XvidEncoder::updateEncodeParameters(vidEncVideoProperties *properties)
 			break;
 		case ADM_VIDENC_MODE_CQP:
 			_passCount = 1;
-			//_xvid_plugin_single.bitrate = 1500;
+			_xvid_enc_frame.quant = _encodeOptions.encodeModeParameter;
 
 			break;
 		case ADM_VIDENC_MODE_2PASS_SIZE:
@@ -474,7 +490,14 @@ void XvidEncoder::printEncFrame(xvid_enc_frame_t *xvid_enc_frame)
 	printf("[Xvid] # xvid_enc_frame #\n");
 	printf("[Xvid] version = %d\n", xvid_enc_frame->version);
 	printf("[Xvid] vol_flags = %d\n", xvid_enc_frame->vol_flags);
-	printf("[Xvid] par = %d\n", xvid_enc_frame->par);
+
+	printf("[Xvid] quant_intra_matrix = ");
+	printArray(xvid_enc_frame->quant_intra_matrix, 64);
+
+	printf("\n[Xvid] quant_inter_matrix = ");
+	printArray(xvid_enc_frame->quant_inter_matrix, 64);
+
+	printf("\n[Xvid] par = %d\n", xvid_enc_frame->par);
 	printf("[Xvid] par_width = %d\n", xvid_enc_frame->par_width);
 	printf("[Xvid] par_height = %d\n", xvid_enc_frame->par_height);
 	printf("[Xvid] fincr = %d\n", xvid_enc_frame->fincr);
@@ -486,6 +509,12 @@ void XvidEncoder::printEncFrame(xvid_enc_frame_t *xvid_enc_frame)
 }
 
 void XvidEncoder::printArray(const int data[], int size)
+{
+	for (int index = 0; index < size; index++)
+		printf("%d ", data[index]);
+}
+
+void XvidEncoder::printArray(const unsigned char data[], int size)
 {
 	for (int index = 0; index < size; index++)
 		printf("%d ", data[index]);

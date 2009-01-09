@@ -22,6 +22,7 @@
 #include "../config.h"
 #include "../presetOptions.h"
 #include "xvidConfigDialog.h"
+#include "xvidCustomMatrixDialog.h"
 
 #include "ADM_files.h"
 #include "DIA_coreToolkit.h"
@@ -57,6 +58,9 @@ XvidConfigDialog::XvidConfigDialog(vidEncConfigParameters *configParameters, vid
 
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
 
+	// Quantiser tab
+	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
+
 	QWidgetList widgetList = QApplication::allWidgets();
 
 	for (int widgetIndex = 0; widgetIndex < widgetList.size(); widgetIndex++)
@@ -73,7 +77,9 @@ XvidConfigDialog::XvidConfigDialog(vidEncConfigParameters *configParameters, vid
 				connect(widget, SIGNAL(valueChanged(int)), this, SLOT(generic_valueChanged(int)));
 			else if (widget->inherits("QDoubleSpinBox"))
 				connect(widget, SIGNAL(valueChanged(double)), this, SLOT(generic_valueChanged(double)));
-			else if (widget->inherits("QAbstractButton"))
+			else if (widget->inherits("QCheckBox"))
+				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
+			else if (widget->inherits("QRadioButton"))
 				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
 			else if (widget->inherits("QLineEdit"))
 				connect(widget, SIGNAL(textEdited(QString)), this, SLOT(generic_textEdited(QString)));
@@ -319,6 +325,17 @@ void XvidConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 		lastBitrate = value;
 }
 
+void XvidConfigDialog::matrixCustomEditButton_pressed()
+{
+	XvidCustomMatrixDialog dialog(this, intraMatrix, interMatrix);
+
+	if (dialog.exec() == QDialog::Accepted)
+	{
+		dialog.getMatrix(intraMatrix, interMatrix);
+		ui.configurationComboBox->setCurrentIndex(1);
+	}
+}
+
 void XvidConfigDialog::generic_currentIndexChanged(int index)
 {
 	if (!disableGenericSlots)
@@ -522,10 +539,21 @@ void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	ui.quantBratioSpinBox->setValue((float)options->getBframeQuantiserRatio() / 100);
 	ui.quantBoffsetSpinBox->setValue((float)options->getBframeQuantiserOffset() / 100);
 
-	if (options->getMpegQuantisation())
-		ui.quantTypeComboBox->setCurrentIndex(1);
-	else
-		ui.quantTypeComboBox->setCurrentIndex(0);
+	switch (options->getCqmPreset())
+	{
+		case CQM_MPEG:
+			ui.matrixMpegRadioButton->setChecked(true);
+			break;
+		case CQM_CUSTOM:
+			ui.matrixCustomRadioButton->setChecked(true);
+			break;
+		default:
+			ui.matrixH263RadioButton->setChecked(true);
+			break;
+	}
+
+	options->getIntraMatrix(intraMatrix);
+	options->getInterMatrix(interMatrix);
 
 	ui.trellisCheckBox->setChecked(options->getTrellis());
 
@@ -674,7 +702,18 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	options->setMaxQuantiser(ui.quantImaxSpinBox->value(), ui.quantPmaxSpinBox->value(), ui.quantBmaxSpinBox->value());
 	options->setBframeQuantiserRatio((unsigned int)floor(ui.quantBratioSpinBox->value() * 100 + .05));
 	options->setBframeQuantiserOffset((unsigned int)floor(ui.quantBoffsetSpinBox->value() * 100 + .05));
-	options->setMpegQuantisation(ui.quantTypeComboBox->currentIndex() == 1);
+
+	if (ui.matrixH263RadioButton->isChecked())
+		options->setCqmPreset(CQM_H263);
+	else if (ui.matrixMpegRadioButton->isChecked())
+		options->setCqmPreset(CQM_MPEG);
+	else if (ui.matrixCustomRadioButton->isChecked())
+	{
+		options->setCqmPreset(CQM_CUSTOM);
+		options->setIntraMatrix(intraMatrix);
+		options->setInterMatrix(interMatrix);
+	}
+
 	options->setTrellis(ui.trellisCheckBox->isChecked());
 
 	// Single pass tab

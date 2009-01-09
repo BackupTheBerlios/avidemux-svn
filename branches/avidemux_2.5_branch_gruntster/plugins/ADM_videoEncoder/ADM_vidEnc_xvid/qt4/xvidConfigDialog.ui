@@ -1334,371 +1334,6 @@
          <property name="title" >
           <string>Quantiser Control</string>
          </property>
-         <layout class="QGridLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item row="7" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QDoubleSpinBox" name="quantBoffsetSpinBox" >
-              <property name="decimals" >
-               <number>2</number>
-              </property>
-              <property name="maximum" >
-               <double>2.000000000000000</double>
-              </property>
-              <property name="singleStep" >
-               <double>0.100000000000000</double>
-              </property>
-              <property name="value" >
-               <double>1.000000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="6" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QDoubleSpinBox" name="quantBratioSpinBox" >
-              <property name="decimals" >
-               <number>2</number>
-              </property>
-              <property name="maximum" >
-               <double>2.000000000000000</double>
-              </property>
-              <property name="singleStep" >
-               <double>0.100000000000000</double>
-              </property>
-              <property name="value" >
-               <double>1.500000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="7" column="0" >
-           <widget class="QLabel" name="label_23" >
-            <property name="text" >
-             <string>B-frame Quantiser Offset:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0" >
-           <widget class="QLabel" name="label_20" >
-            <property name="text" >
-             <string>B-frame Quantiser Ratio:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantBminSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>2</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantImaxSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>31</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="0" >
-           <widget class="QLabel" name="label_15" >
-            <property name="text" >
-             <string>Minimum I-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" >
-           <widget class="QLabel" name="label_5" >
-            <property name="text" >
-             <string>Maximum P-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0" >
-           <widget class="QLabel" name="label_7" >
-            <property name="text" >
-             <string>Maximum B-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QLabel" name="label_17" >
-            <property name="text" >
-             <string>Minimum P-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0" >
-           <widget class="QLabel" name="label_6" >
-            <property name="text" >
-             <string>Minimum B-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QLabel" name="label_16" >
-            <property name="text" >
-             <string>Maximum I-frame Quantiser:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantPmaxSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>31</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantBmaxSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>31</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantIminSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>2</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>47</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="1" >
-           <layout class="QHBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QSpinBox" name="quantPminSpinBox" >
-              <property name="maximum" >
-               <number>31</number>
-              </property>
-              <property name="minimum" >
-               <number>1</number>
-              </property>
-              <property name="value" >
-               <number>2</number>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_3" >
-         <property name="title" >
-          <string>Quantiser Options</string>
-         </property>
          <layout class="QVBoxLayout" >
           <property name="margin" >
            <number>9</number>
@@ -1707,21 +1342,21 @@
            <number>6</number>
           </property>
           <item>
-           <layout class="QHBoxLayout" >
+           <layout class="QGridLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item>
-             <widget class="QLabel" name="label_2" >
+            <item row="5" column="0" >
+             <widget class="QLabel" name="label_7" >
               <property name="text" >
-               <string>Quantisation Type:</string>
+               <string>Maximum B-frame Quantiser:</string>
               </property>
              </widget>
             </item>
-            <item>
+            <item row="4" column="1" >
              <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -1730,17 +1365,16 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QComboBox" name="quantTypeComboBox" >
-                <item>
-                 <property name="text" >
-                  <string>H.263</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>MPEG</string>
-                 </property>
-                </item>
+               <widget class="QSpinBox" name="quantBminSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>2</number>
+                </property>
                </widget>
               </item>
               <item>
@@ -1758,6 +1392,313 @@
               </item>
              </layout>
             </item>
+            <item row="1" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="quantImaxSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>31</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="7" column="0" >
+             <widget class="QLabel" name="label_23" >
+              <property name="text" >
+               <string>B-frame Quantiser Offset:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="quantIminSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>2</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>47</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="label_17" >
+              <property name="text" >
+               <string>Minimum P-frame Quantiser:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0" >
+             <widget class="QLabel" name="label_20" >
+              <property name="text" >
+               <string>B-frame Quantiser Ratio:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label_15" >
+              <property name="text" >
+               <string>Minimum I-frame Quantiser:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="quantPmaxSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>31</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="5" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="quantBmaxSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>31</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0" >
+             <widget class="QLabel" name="label_6" >
+              <property name="text" >
+               <string>Minimum B-frame Quantiser:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QLabel" name="label_5" >
+              <property name="text" >
+               <string>Maximum P-frame Quantiser:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="quantPminSpinBox" >
+                <property name="maximum" >
+                 <number>31</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>2</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="7" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QDoubleSpinBox" name="quantBoffsetSpinBox" >
+                <property name="decimals" >
+                 <number>2</number>
+                </property>
+                <property name="maximum" >
+                 <double>2.000000000000000</double>
+                </property>
+                <property name="singleStep" >
+                 <double>0.100000000000000</double>
+                </property>
+                <property name="value" >
+                 <double>1.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="6" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QDoubleSpinBox" name="quantBratioSpinBox" >
+                <property name="decimals" >
+                 <number>2</number>
+                </property>
+                <property name="maximum" >
+                 <double>2.000000000000000</double>
+                </property>
+                <property name="singleStep" >
+                 <double>0.100000000000000</double>
+                </property>
+                <property name="value" >
+                 <double>1.500000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="label_16" >
+              <property name="text" >
+               <string>Maximum I-frame Quantiser:</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item>
@@ -1766,6 +1707,78 @@
              <string>Trellis Quantisation</string>
             </property>
            </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3" >
+         <property name="title" >
+          <string>Quantisation Matrix</string>
+         </property>
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="matrixH263RadioButton" >
+            <property name="text" >
+             <string>H.263 Matrix</string>
+            </property>
+            <property name="checked" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="matrixMpegRadioButton" >
+            <property name="text" >
+             <string>MPEG Matrix</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QRadioButton" name="matrixCustomRadioButton" >
+              <property name="text" >
+               <string>Custom Matrix</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="matrixCustomEditButton" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
+              <property name="text" >
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -2620,8 +2633,11 @@
   <tabstop>quantBmaxSpinBox</tabstop>
   <tabstop>quantBratioSpinBox</tabstop>
   <tabstop>quantBoffsetSpinBox</tabstop>
-  <tabstop>quantTypeComboBox</tabstop>
   <tabstop>trellisCheckBox</tabstop>
+  <tabstop>matrixH263RadioButton</tabstop>
+  <tabstop>matrixMpegRadioButton</tabstop>
+  <tabstop>matrixCustomRadioButton</tabstop>
+  <tabstop>matrixCustomEditButton</tabstop>
   <tabstop>reactionDelaySpinBox</tabstop>
   <tabstop>averagingQuantiserSpinBox</tabstop>
   <tabstop>smootherSpinBox</tabstop>
@@ -2817,6 +2833,22 @@
     <hint type="destinationlabel" >
      <x>156</x>
      <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>matrixCustomRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>matrixCustomEditButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>85</x>
+     <y>478</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>176</x>
+     <y>479</y>
     </hint>
    </hints>
   </connection>

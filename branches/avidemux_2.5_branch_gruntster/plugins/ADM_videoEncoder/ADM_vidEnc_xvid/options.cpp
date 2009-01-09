@@ -60,6 +60,8 @@ void XvidOptions::reset(void)
 	memset(&xvid_enc_frame, 0, sizeof(xvid_enc_frame_t));
 	memset(&xvid_plugin_single, 0, sizeof(xvid_plugin_single_t));
 	memset(&xvid_plugin_2pass2, 0, sizeof(xvid_plugin_2pass2_t));
+	memset(&_intraMatrix, 8, sizeof(unsigned char) * 64);
+	memset(&_interMatrix, 1, sizeof(unsigned char) * 64);
 
 	xvid_enc_create.version = XVID_VERSION;
 	xvid_enc_frame.version = XVID_VERSION;
@@ -96,6 +98,15 @@ void XvidOptions::getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_fr
 	memcpy(*xvid_enc_frame, &this->xvid_enc_frame, sizeof(xvid_enc_frame_t));
 	memcpy(*xvid_plugin_single, &this->xvid_plugin_single, sizeof(xvid_plugin_single_t));
 	memcpy(*xvid_plugin_2pass2, &this->xvid_plugin_2pass2, sizeof(xvid_plugin_2pass2_t));
+
+	if (getCqmPreset() == CQM_CUSTOM)
+	{
+		(*xvid_enc_frame)->quant_intra_matrix = new unsigned char[64];
+		(*xvid_enc_frame)->quant_inter_matrix = new unsigned char[64];
+
+		getIntraMatrix((*xvid_enc_frame)->quant_intra_matrix);
+		getInterMatrix((*xvid_enc_frame)->quant_inter_matrix);
+	}
 }
 
 void XvidOptions::getPresetConfiguration(char** configurationName, ConfigType *configurationType)
@@ -159,10 +170,10 @@ void XvidOptions::setPar(unsigned int width, unsigned int height)
 	if (height > 0)
 		xvid_enc_frame.par_height = height;
 
-	  if (xvid_enc_frame.par_width == xvid_enc_frame.par_height)
-		  xvid_enc_frame.par = XVID_PAR_11_VGA;
-	  else
-		  xvid_enc_frame.par = XVID_PAR_EXT;
+	if (xvid_enc_frame.par_width == xvid_enc_frame.par_height)
+		xvid_enc_frame.par = XVID_PAR_11_VGA;
+	else
+		xvid_enc_frame.par = XVID_PAR_EXT;
 }
 
 MotionEstimationMode XvidOptions::getMotionEstimation(void)
@@ -309,13 +320,9 @@ bool XvidOptions::getTurboMode(void)
 void XvidOptions::setTurboMode(bool turboMode)
 {
 	if (turboMode)
-	{
 		xvid_enc_frame.motion |= TURBO_MODE;
-	}
 	else
-	{
 		xvid_enc_frame.motion &= ~TURBO_MODE;
-	}
 }
 
 bool XvidOptions::getChromaOptimisation(void)
@@ -534,17 +541,47 @@ void XvidOptions::setBframeQuantiserOffset(unsigned int offset)
 		xvid_enc_create.bquant_offset = offset;
 }
 
-bool XvidOptions::getMpegQuantisation(void)
+CqmPresetMode XvidOptions::getCqmPreset(void)
 {
-	return xvid_enc_frame.vol_flags & XVID_VOL_MPEGQUANT;
+	return _cqmPreset;
 }
 
-void XvidOptions::setMpegQuantisation(bool mpegQuantisation)
+void XvidOptions::setCqmPreset(CqmPresetMode cqmPreset)
 {
-	if (mpegQuantisation)
-		xvid_enc_frame.vol_flags |= XVID_VOL_MPEGQUANT;
-	else
-		xvid_enc_frame.vol_flags &= ~XVID_VOL_MPEGQUANT;
+	if (cqmPreset == CQM_H263 || cqmPreset == CQM_MPEG || cqmPreset == CQM_CUSTOM)
+	{
+		_cqmPreset = cqmPreset;
+
+		switch (cqmPreset)
+		{
+			case CQM_MPEG:
+			case CQM_CUSTOM:
+				xvid_enc_frame.vol_flags |= XVID_VOL_MPEGQUANT;
+				break;
+			default:
+				xvid_enc_frame.vol_flags &= ~XVID_VOL_MPEGQUANT;
+		}
+	}
+}
+
+void XvidOptions::getIntraMatrix(unsigned char intra[64])
+{
+	memcpy(intra, _intraMatrix, 64 * sizeof(unsigned char));
+}
+
+void XvidOptions::setIntraMatrix(unsigned char intra[64])
+{
+	memcpy(_intraMatrix, intra, 64 * sizeof(unsigned char));
+}
+
+void XvidOptions::getInterMatrix(unsigned char inter[64])
+{
+	memcpy(inter, _interMatrix, 64 * sizeof(unsigned char));
+}
+
+void XvidOptions::setInterMatrix(unsigned char inter[64])
+{
+	memcpy(_interMatrix, inter, 64 * sizeof(unsigned char));
 }
 
 bool XvidOptions::getTrellis(void)
@@ -578,7 +615,7 @@ unsigned int XvidOptions::getAveragingQuantiserPeriod(void)
 
 void XvidOptions::setAveragingQuantiserPeriod(unsigned int averagingPeriod)
 {
-		xvid_plugin_single.averaging_period = averagingPeriod;
+	xvid_plugin_single.averaging_period = averagingPeriod;
 }
 
 unsigned int XvidOptions::getSmoother(void)
@@ -588,7 +625,7 @@ unsigned int XvidOptions::getSmoother(void)
 
 void XvidOptions::setSmoother(unsigned int smoother)
 {
-		xvid_plugin_single.buffer = smoother;
+	xvid_plugin_single.buffer = smoother;
 }
 
 unsigned int XvidOptions::getKeyFrameBoost(void)
@@ -894,12 +931,28 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBratio", number2String(xmlBuffer, bufferSize, getBframeQuantiserRatio()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantBoffset", number2String(xmlBuffer, bufferSize, getBframeQuantiserOffset()));
 
-	if (getMpegQuantisation())
-		strcpy((char*)xmlBuffer, "mpeg");
-	else
-		strcpy((char*)xmlBuffer, "h.263");
+	switch (getCqmPreset())
+	{
+		case CQM_H263:
+			strcpy((char*)xmlBuffer, "h.263");
+		case CQM_MPEG:
+			strcpy((char*)xmlBuffer, "mpeg");
+		case CQM_CUSTOM:
+			strcpy((char*)xmlBuffer, "custom");
+	}
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantType", xmlBuffer);
+
+	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"intraMatrix", NULL);
+
+	for (int i = 0; i < 64; i++)
+		xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"value", number2String(xmlBuffer, bufferSize, _intraMatrix[i]));
+
+	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interMatrix", NULL);
+
+	for (int i = 0; i < 64; i++)
+		xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"value", number2String(xmlBuffer, bufferSize, _interMatrix[i]));
+
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"trellis", boolean2String(xmlBuffer, bufferSize, getTrellis()));
 
 	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"singlePass", NULL);
@@ -1120,9 +1173,25 @@ void XvidOptions::parseXvidOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "quantType") == 0)
 			{
 				if (strcmp(content, "mpeg") == 0)
-					setMpegQuantisation(true);
+					setCqmPreset(CQM_MPEG);
+				else if (strcmp(content, "custom") == 0)
+					setCqmPreset(CQM_CUSTOM);
 				else
-					setMpegQuantisation(false);
+					setCqmPreset(CQM_H263);
+			}
+			else if (strcmp((char*)xmlChild->name, "intraMatrix") == 0)
+			{
+				unsigned char intraMatrix[64];
+
+				parseCqmOption(xmlChild, intraMatrix);
+				setIntraMatrix(intraMatrix);
+			}
+			else if (strcmp((char*)xmlChild->name, "interMatrix") == 0)
+			{
+				unsigned char interMatrix[64];
+
+				parseCqmOption(xmlChild, interMatrix);
+				setInterMatrix(interMatrix);
 			}
 			else if (strcmp((char*)xmlChild->name, "trellis") == 0)
 				setTrellis(string2Boolean(content));
@@ -1164,6 +1233,24 @@ void XvidOptions::parseVuiOptions(xmlNode *node)
 	}
 
 	setPar(width, height);
+}
+
+void XvidOptions::parseCqmOption(xmlNode *node, unsigned char matrix[])
+{
+	int index = 0;
+
+	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
+	{
+		if (xmlChild->type == XML_ELEMENT_NODE)
+		{
+			char *content = (char*)xmlNodeGetContent(xmlChild);
+
+			matrix[index] = atoi(content);
+			index++;
+
+			xmlFree(content);
+		}
+	}
 }
 
 void XvidOptions::parseSinglePassOptions(xmlNode *node)

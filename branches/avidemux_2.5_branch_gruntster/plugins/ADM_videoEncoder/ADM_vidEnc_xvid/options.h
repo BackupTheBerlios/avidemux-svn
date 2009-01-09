@@ -62,6 +62,13 @@ typedef enum
 	RD_SQUARE = RD_HPEL_QPEL_8 | XVID_ME_EXTSEARCH_RD
 } RateDistortionMode;
 
+typedef enum
+{
+	CQM_H263,
+	CQM_MPEG,
+	CQM_CUSTOM
+} CqmPresetMode;
+
 class XvidOptions
 {
 protected:
@@ -74,6 +81,8 @@ protected:
 	ConfigType _configurationType;
 
 	bool _parAsInput;
+	CqmPresetMode _cqmPreset;
+	unsigned char _intraMatrix[64], _interMatrix[64];
 
 	void cleanUp(void);
 	xmlChar* number2String(xmlChar *buffer, size_t size, int number);
@@ -88,6 +97,7 @@ protected:
 	void parsePresetConfiguration(xmlNode *node);
 	void parseXvidOptions(xmlNode *node);
 	void parseVuiOptions(xmlNode *node);
+	void parseCqmOption(xmlNode *node, unsigned char matrix[]);
 	void parseSinglePassOptions(xmlNode *node);
 	void parseTwoPassOptions(xmlNode *node);
 
@@ -179,8 +189,14 @@ public:
 	unsigned int getBframeQuantiserOffset(void);
 	void setBframeQuantiserOffset(unsigned int offset);
 
-	bool getMpegQuantisation(void);
-	void setMpegQuantisation(bool mpegQuantisation);
+	CqmPresetMode getCqmPreset(void);
+	void setCqmPreset(CqmPresetMode cqmPreset);
+
+	void getIntraMatrix(unsigned char intra[64]);
+	void setIntraMatrix(unsigned char intra[64]);
+
+	void getInterMatrix(unsigned char inter[64]);
+	void setInterMatrix(unsigned char inter[64]);
 
 	bool getTrellis(void);
 	void setTrellis(bool trellis);

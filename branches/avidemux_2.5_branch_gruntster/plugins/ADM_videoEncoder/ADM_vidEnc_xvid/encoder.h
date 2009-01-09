@@ -48,6 +48,9 @@
 		xvid_plugin_2pass2_t _xvid_plugin_2pass2;
 		xvid_enc_plugin_t _xvid_enc_plugin[2];
 
+		unsigned char _intraMatrix[64];
+		unsigned char _interMatrix[64];
+
 		unsigned int _currentFrame;
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
@@ -58,6 +61,7 @@
 		void printEncCreate(xvid_enc_create_t *xvid_enc_create);
 		void printEncFrame(xvid_enc_frame_t *xvid_enc_frame);
 		void printArray(const int data[], int size);
+		void printArray(const unsigned char data[], int size);
 
 	public:
 		XvidEncoder(void);

@@ -21,6 +21,7 @@ private:
 	int predefinedARs[aspectRatioCount][2];
 
 	int lastBitrate, lastVideoSize;
+	unsigned char intraMatrix[64], interMatrix[64];
 
 	void fillConfigurationComboBox(void);
 	bool selectConfiguration(QString *selectFile, ConfigType configurationType);
@@ -49,5 +50,8 @@ private slots:
 	void quantiserSlider_valueChanged(int value);
 	void quantiserSpinBox_valueChanged(int value);
 	void targetRateControlSpinBox_valueChanged(int value);
+
+	// Quantiser tab
+	void matrixCustomEditButton_pressed();
 };
 #endif	// XvidConfigDialog_h

@@ -136,8 +136,23 @@
                   <xs:restriction base="xs:string">
                     <xs:enumeration value="h.263"/>
                     <xs:enumeration value="mpeg"/>
+                    <xs:enumeration value="custom"/>
                   </xs:restriction>
                 </xs:simpleType>
+              </xs:element>
+              <xs:element name="intraMatrix">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" type="uint8" minOccurs="64" maxOccurs="64"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interMatrix">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" type="uint8" minOccurs="64" maxOccurs="64"/>
+                  </xs:sequence>
+                </xs:complexType>
               </xs:element>
               <xs:element name="trellis" type="xs:boolean"/>
               <xs:element name="singlePass">
@@ -196,6 +211,12 @@
   <xs:simpleType name="uint">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uint8">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="percentage">
