@@ -24,31 +24,29 @@
 #endif
 
 #include "ADM_inttype.h"
-#include "DIA_coreToolkit.h"
-#include "DIA_fileSel.h"
-
-#include "../options.h"
-
 #include "gtkSupport.h"
+
+#include "ADM_files.h"
+#include "DIA_fileSel.h"
+#include "DIA_coreToolkit.h"
+
+#include "../presetOptions.h"
 #include "xvidConfigDialog.h"
 
 #define WID(x) lookup_widget(dialog, #x)
 
-//static xvid4EncParam localParam;
-static uint32_t mQ,mB,mS,mA;
-static GtkWidget *dialog=NULL;
-//static COMPRESSION_MODE mMode;
-
 static GtkWidget *create_dialog1 (void);
 static GtkWidget *create_dialog3 (void);
 
-static void xvid4otherUpload(GtkWidget *dialog);
-static void xvid4otherDownload(GtkWidget *dialog);
-static uint8_t editMatrix(uint8_t *inter, uint8_t *intra, GtkWindow *parent);
-static void updateMode( void );
+static void loadOptions(GtkWidget *dialog, XvidOptions *options);
+void saveOptions(GtkWidget *dialog, XvidOptions *options);
 
-static int cb_mod(GtkObject * object, gpointer user_data);
-static int ch_par_asinput(GtkObject * object, gpointer user_data);
+static unsigned char editMatrix(unsigned char *inter, unsigned char *intra, GtkWidget *parent);
+static void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter);
+static int getCurrentEncodeMode(GtkWidget *dialog);
+
+static int cb_mod(GtkObject *object, gpointer user_data);
+static int ch_par_asinput(GtkObject *object, gpointer user_data);
 
 #define CALL_Z(x,y)  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), WID(x),XVID4_RESPONSE_##y);
 
@@ -59,141 +57,113 @@ typedef enum
     XVID4_RESPONSE_LOAD_MATRIX,
     XVID4_RESPONSE_SAVE_MATRIX,
     XVID4_RESPONSE_LAST,
-}XVID4_CODE;
+} XVID4_CODE;
+
+static int _parWidth, _parHeight;
+static int _lastBitrate, _lastVideoSize;
 
 extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, XvidOptions *options)
 {
-	int b;
-	int ret=0;
-	int code;
-	//ADM_assert(incoming->extraSettingsLen==sizeof(localParam));
-	//memcpy(&localParam,incoming->extraSettings,sizeof(localParam));
-	dialog=create_dialog1();
+	_lastBitrate = 1500;
+	_lastVideoSize = 700;
+
+	GtkWidget *dialog = create_dialog1();
+
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
+										GTK_RESPONSE_OK,
+										GTK_RESPONSE_CANCEL,
+										-1);
 
 	gtk_window_set_modal(GTK_WINDOW(dialog), 1);
 	gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(configParameters->parent));
 
-#define HIST_SET(x) gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuType)), x)
-#define VAL_SET(x) gtk_write_entry(WID(entryEntry), x)
+	_parWidth = properties->parWidth;
+	_parHeight = properties->parHeight;
 
-/*	mQ=incoming->qz;
-	mB=incoming->bitrate; // in kbits
-	mS=incoming->finalsize;	
-	mA=incoming->avg_bitrate;
-	mMode=incoming->mode;
-	updateMode();
+	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
+	loadOptions(dialog, options);
 
-	xvid4otherUpload(dialog); */
-	gtk_signal_connect(GTK_OBJECT(WID(optionmenuType)), "changed",
-		GTK_SIGNAL_FUNC(cb_mod),                   (void *) 0);
+	gtk_signal_connect(GTK_OBJECT(WID(optionmenuType)), "changed", GTK_SIGNAL_FUNC(cb_mod), dialog);
+	gtk_signal_connect(GTK_OBJECT(WID(checkbutton_par_asinput)), "clicked", GTK_SIGNAL_FUNC(ch_par_asinput), options);
 
-	gtk_signal_connect(GTK_OBJECT(WID(checkbutton_par_asinput)), "clicked",
-		GTK_SIGNAL_FUNC(ch_par_asinput),                   (void *) 0);
-
-	CALL_Z(buttonCreateCustomMatrix,EDIT_MATRIX);
-	CALL_Z(buttonLoadMatrix,LOAD_MATRIX);
+	CALL_Z(buttonCreateCustomMatrix, EDIT_MATRIX);
+	CALL_Z(buttonLoadMatrix, LOAD_MATRIX);
 
 _again:
-	code=gtk_dialog_run(GTK_DIALOG(dialog));
-/*	if(code==XVID4_RESPONSE_EDIT_MATRIX)
+	int code = gtk_dialog_run(GTK_DIALOG(dialog));
+	int b, ret = 0;
+
+	if (code == XVID4_RESPONSE_EDIT_MATRIX)
 	{
-		uint8_t intra[64],inter[64];
-		memcpy(intra,localParam.intraMatrix,64);
-		memcpy(inter,localParam.interMatrix,64);
-		if(editMatrix(intra,inter))
+		unsigned char intra[64], inter[64];
+
+		options->getIntraMatrix(intra);
+		options->getInterMatrix(inter);
+
+		if (editMatrix(intra, inter, dialog))
 		{
-			memcpy(localParam.intraMatrix,intra,64);
-			memcpy(localParam.interMatrix,inter,64);
+			options->setIntraMatrix(intra);
+			options->setInterMatrix(inter);
 		}
+
 		goto _again;
 	}
-	if(code==XVID4_RESPONSE_LOAD_MATRIX)
+
+	if (code == XVID4_RESPONSE_LOAD_MATRIX)
 	{
-		uint8_t intra[64],inter[64];
+		unsigned char intra[64], inter[64];
 		char name[1024];
-		FILE *file=NULL;
+		FILE *file = NULL;
 
 		if (!FileSel_SelectRead(_("Select Xvid matrix file to load"), name, 1023, NULL))
 			goto _again;
 
 		printf("Loading Matrix\n");
-		file=fopen(name,"rb");
-		if(!file)
+		file = fopen(name,"rb");
+
+		if (!file)
 		{
 _erLoad:
-			if(file) fclose(file);
+			if (file)
+				fclose(file);
+
 			GUI_Error_HIG(_("Error Loading"),_("Error loadind the custom matrix file."));
 			goto _again;
 		}
+
 		// Read it
-		if(64!=fread(intra,1,64,file))
+		if(64 != fread(intra, 1, 64, file))
 		{
 			printf("Error reading intra\n");
 			goto _erLoad;
 		}
-		if(64!=fread(inter,1,64,file))
+
+		if(64 != fread(inter, 1, 64, file))
 		{
 			printf("Error reading inter\n");
 			goto _erLoad;
 		}
-		// Ok
+
 		fclose(file);
-		memcpy(localParam.intraMatrix,intra,64);
-		memcpy(localParam.interMatrix,inter,64);
-		GUI_Info_HIG(ADM_LOG_INFO,_("Matrix Loaded"),_("The custom matrix file has been successfully loaded."));
+
+		options->setIntraMatrix(intra);
+		options->setInterMatrix(inter);
+
+		GUI_Info_HIG(ADM_LOG_INFO, _("Matrix Loaded"), _("The custom matrix file has been successfully loaded."));
 		goto _again;
 	}
-*/
-	if(code==GTK_RESPONSE_OK)
+
+	if (code == GTK_RESPONSE_OK)
 	{
-/*		int r,value=0;
-		ret=1;
-		r=getRangeInMenu(WID(optionmenuType));
-		xvid4otherDownload(dialog);
-		memcpy(incoming->extraSettings,&localParam,sizeof(localParam));
+		saveOptions(dialog, options);
 
-		switch(r)
+		if (getCurrentEncodeMode(dialog) == ADM_VIDENC_MODE_CQP)
+			encodeOptions->encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)));
+		else
 		{
-			case 0:
-				incoming->mode = COMPRESS_CBR;				      
-				value = (uint32_t) gtk_read_entry(WID(entryEntry));
-				incoming->bitrate = value;
-				ret = 1;
-				gtk_label_set_text(GTK_LABEL(WID(label11)),"Bitrate (kbps):");
-				break;
-			case 1:
-				incoming->mode = COMPRESS_CQ;		      			
-				value = (uint32_t) gtk_spin_button_get_value_as_int(
-					GTK_SPIN_BUTTON(WID(spinbuttonQuant)));
-				if (value >= 2 && value <= 32)
-				{
-					incoming->qz = value;
-				}
-				break;
-
-			case 2:
-				incoming->mode = COMPRESS_2PASS;		       				
-				value = (uint32_t) gtk_read_entry(WID(entryEntry));
-				if((value>0)&&(value<4000))
-				{
-					incoming->finalsize=value;
-
-				}
-				gtk_label_set_text(GTK_LABEL(WID(label11)),_("Size (MBytes):"));
-				break;
-			case 3:
-				incoming->mode = COMPRESS_2PASS_BITRATE;	
-				value = (uint32_t) gtk_read_entry(WID(entryEntry));
-				incoming->avg_bitrate=value;
-				gtk_label_set_text(GTK_LABEL(WID(label11)),_("Average bitrate (kb/s):"));
-				break;
-
-			case 4:
-				incoming->mode=COMPRESS_SAME;
-				break;
-			default:
-				ADM_assert(0);
-		} */
+			char *str = gtk_editable_get_chars(GTK_EDITABLE(WID(entryEntry)), 0, -1);
+			encodeOptions->encodeModeParameter = atoi(str);
+		}
 	}
 
 	gtk_widget_destroy(dialog);
@@ -201,235 +171,340 @@ _erLoad:
 	return ret;
 }
 
-// Read the localParam struct and set the ui fields
-// accordingly
-#define SPIN_GET(x,y) {localParam.y= gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(x))) ;\
-	printf(#x":%d\n",localParam.y);}
-
-#define SPIN_SET(x,y)  {gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(x)),(gfloat)localParam.y) ; \
-	printf(#x":%d\n",localParam.y);}
-
-#define MENU_SET(x,y) { gtk_option_menu_set_history (GTK_OPTION_MENU(WID(x)),localParam.y);}
-#define MENU_GET(x,y) { localParam.y	= getRangeInMenu(WID(x));}
-#define TOGGLE_SET(x,y) {gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(x)),localParam.y);}
-#define TOGGLE_GET(x,y) {localParam.y=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(x)));\
-	printf(#y":%d\n",localParam.y);}
-
-#define ENTRY_SET(x,y) {gtk_write_entry(WID(x),(int)localParam.y);}
-#define ENTRY_GET(x,y) {localParam.y=gtk_read_entry(WID(x));\
-	printf(#y":%d\n",localParam.y);}
-
-#define CHECK_GET(x,y) {localParam.y=gtk_toggle_button_get_active( GTK_TOGGLE_BUTTON(WID(x)));}
-#define CHECK_SET(x,y) {gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(WID(x)),localParam.y);}
-
-void xvid4otherUpload(GtkWidget *dialog)
+int getRangeInMenu(GtkWidget *menu)
 {
-/*	MENU_SET(optionmenuMS,guiLevel);
-	MENU_SET(optionmenuVHQ,vhqmode);
-	if(localParam.useCustomIntra || localParam.useCustomInter)
+    GtkWidget *br = gtk_option_menu_get_menu(GTK_OPTION_MENU(menu));
+    GtkWidget *active = gtk_menu_get_active(GTK_MENU(br));
+    int mode = g_list_index(GTK_MENU_SHELL(br)->children, active);
+
+    return mode;
+}
+
+void loadOptions(GtkWidget *dialog, XvidOptions *options)
+{
+	// Main tab
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonInterlaced)), options->getInterlaced() == INTERLACED_BFF);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonCartoon)), options->getCartoon());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonTurbo)), options->getTurboMode());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonGreyScale)), options->getGreyscale());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonChroma)), options->getChromaOptimisation());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonPacked)), options->getPacked());
+
+	// Motion & Misc tab
+	switch (options->getMotionEstimation())
 	{
-		RADIO_SET(radiobuttonCustomMatrix,		1);
-	}else
-		if(localParam.mpegQuantizer)
-			RADIO_SET(radiobuttonMpeg,		1);
-		else
-			RADIO_SET(radiobuttonH263,		1);		
-	CHECK_SET(checkbuttonInterlaced,	interlaced);
-	CHECK_SET(checkbutton4MV,		inter4mv);
-	CHECK_SET(checkbuttonTrellis,		trellis);
-	CHECK_SET(checkbuttonCartoon,		cartoon);
-	CHECK_SET(checkbuttonGreyScale,		greyscale);
-	CHECK_SET(checkbuttonChroma,		chroma_opt);
-	CHECK_SET(checkbuttonChromaMotion,	chroma_me);
-	CHECK_SET(checkbuttonGMC,		gmc);
-	CHECK_SET(checkbuttonBVHQ,		bvhq);
-	CHECK_SET(checkbutton_par_asinput,	par_as_input);
-	CHECK_SET(checkbuttonQPel,		qpel);
-	CHECK_SET(checkbuttonHQAC,		hqac);
+		case ME_NONE:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuMS)), 0);
+			break;
+		case ME_LOW:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuMS)), 1);
+			break;
+		case ME_MEDIUM:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuMS)), 2);
+			break;
+		case ME_HIGH:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuMS)), 3);
+			break;
+	}
 
-	CHECK_SET(checkbuttonTurbo,		turbo);
-	CHECK_SET(checkbuttonPacked,		packed);
+	switch (options->getRateDistortion())
+	{
+		case RD_NONE:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuVHQ)), 0);
+			break;
+		case RD_DCT_ME:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuVHQ)), 1);
+			break;
+		case RD_HPEL_QPEL_16:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuVHQ)), 2);
+			break;
+		case RD_HPEL_QPEL_8:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuVHQ)), 3);
+			break;
+		case RD_SQUARE:
+			gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuVHQ)), 4);
+			break;
+	}
 
-	SPIN_SET(spinbuttonIMaxPeriod,  max_key_interval);
-	ENTRY_SET(entryIInterv,		min_key_interval);
-	SPIN_SET(spinbuttonBFrame,	bframes);
-	ch_par_asinput(NULL, NULL);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonChromaMotion)), options->getChromaMotionEstimation());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbutton4MV)), options->getInterMotionVector());
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonIMaxPeriod)),(gfloat)options->getMaxKeyInterval());
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonBFrame)),(gfloat)options->getMaxBframes());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonQPel)), options->getQpel());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonGMC)), options->getGmc());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBVHQ)), options->getBframeRdo());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbutton_par_asinput)), options->getParAsInput());
 
-	SPIN_SET(spinbuttonIMax,	qmax[0]);
-	SPIN_SET(spinbuttonPMax,	qmax[1]);
-	SPIN_SET(spinbuttonBMax,	qmax[2]);
+	ch_par_asinput(GTK_OBJECT(WID(checkbutton_par_asinput)), options);
 
-	SPIN_SET(spinbuttonIMin,	qmin[0]);
-	SPIN_SET(spinbuttonPMin,	qmin[1]);
-	SPIN_SET(spinbuttonBMin,	qmin[2]);
+	// Quantisation tab
+	switch (options->getCqmPreset())
+	{
+		case CQM_H263:
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(radiobuttonH263)), 1);
+			break;
+		case CQM_MPEG:
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(radiobuttonMpeg)), 1);
+			break;
+		case CQM_CUSTOM:
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(radiobuttonCustomMatrix)), 1);
+			break;
+	}
 
+	unsigned int minI, minP, minB;
+	unsigned int maxI, maxP, maxB;
 
-	ENTRY_SET(entryIBoost		,	keyframe_boost		);
+	options->getMinQuantiser(&minI, &minP, &minB);
+	options->getMaxQuantiser(&maxI, &maxP, &maxB);
 
-	ENTRY_SET(entryHiPass		,	curve_compression_high	);
-	ENTRY_SET(entryLowPass		,	curve_compression_low	);
-	ENTRY_SET(entryOvrControl,		overflow_control_strength	);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonIMax)),(gfloat)maxI);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonIMin)),(gfloat)minI);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonPMax)),(gfloat)maxP);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonPMin)),(gfloat)minP);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonBMax)),(gfloat)maxB);
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonBMin)),(gfloat)minB);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonTrellis)), options->getTrellis());
 
-	ENTRY_SET(entryMaxOvrImp	,	max_overflow_improvement	);
-	ENTRY_SET(entryMaxOvrDeg	,	max_overflow_degradation	);
+	// Second Pass
+	char string[21];
 
-	ENTRY_SET(entryIreduction	,	kfreduction			);
-	ENTRY_SET(entryIInterv	,		kfthreshold			);
-	//TOGGLE_SET(toggleHPEL,			halfpel);
-*/
+	snprintf(string, 20, "%d", options->getKeyFrameBoost());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryIBoost)), string);
+
+	snprintf(string, 20, "%d", options->getAboveAverageCurveCompression());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryHiPass)), string);
+
+	snprintf(string, 20, "%d", options->getBelowAverageCurveCompression());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryLowPass)), string);
+
+	snprintf(string, 20, "%d", options->getOverflowControlStrength());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryOvrControl)), string);
+
+	snprintf(string, 20, "%d", options->getMaxOverflowImprovement());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryMaxOvrImp)), string);
+
+	snprintf(string, 20, "%d", options->getMaxOverflowDegradation());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryMaxOvrDeg)), string);
+
+	snprintf(string, 20, "%d", options->getMaxKeyFrameReduceBitrate());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryIreduction)), string);
+
+	snprintf(string, 20, "%d", options->getKeyFrameBitrateThreshold());
+	gtk_entry_set_text(GTK_ENTRY(WID(entryIInterv)), string);
 }
 
 // Read the ui fields and set localParam
 // accordingly
-void xvid4otherDownload(GtkWidget *dialog)
+void saveOptions(GtkWidget *dialog, XvidOptions *options)
 {
-/*	MENU_GET(optionmenuMS,guiLevel);
-	MENU_GET(optionmenuVHQ,vhqmode);
+	// Main tab
+	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonInterlaced))) ? INTERLACED_BFF : INTERLACED_NONE);
+	options->setCartoon(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonCartoon))));
+	options->setTurboMode(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonTurbo))));
+	options->setGreyscale(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonGreyScale))));
+	options->setChromaOptimisation(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonChroma))));
+	options->setPacked(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonPacked))));
 
-	localParam.mpegQuantizer=RADIO_GET(radiobuttonMpeg);
-	if(RADIO_GET(radiobuttonCustomMatrix))
+	// Motion & Misc tab
+	switch (getRangeInMenu(WID(optionmenuMS)))
 	{
-		localParam.useCustomIntra=1;
-		localParam.useCustomInter=1;
-	}else
-	{
-		localParam.useCustomIntra=0;
-		localParam.useCustomInter=0;
+		case 0:
+			options->setMotionEstimation(ME_NONE);
+			break;
+		case 1:
+			options->setMotionEstimation(ME_LOW);
+			break;
+		case 2:
+			options->setMotionEstimation(ME_MEDIUM);
+			break;
+		case 3:
+			options->setMotionEstimation(ME_HIGH);
+			break;
 	}
-	CHECK_GET(checkbuttonInterlaced,	interlaced);
-	CHECK_GET(checkbutton4MV,		inter4mv);
-	CHECK_GET(checkbuttonTrellis,		trellis);
-	CHECK_GET(checkbuttonCartoon,		cartoon);
-	CHECK_GET(checkbuttonGreyScale,		greyscale);
-	CHECK_GET(checkbuttonChroma,		chroma_opt);
-	CHECK_GET(checkbuttonChromaMotion,	chroma_me);
-	CHECK_GET(checkbuttonGMC,		gmc);
-	CHECK_GET(checkbuttonBVHQ,		bvhq);
-	CHECK_GET(checkbutton_par_asinput,	par_as_input);
-	CHECK_GET(checkbuttonQPel,		qpel);
-	CHECK_GET(checkbuttonHQAC,		hqac);
-	CHECK_GET(checkbuttonTurbo,		turbo);
-	CHECK_GET(checkbuttonPacked,		packed);
 
+	switch (getRangeInMenu(WID(optionmenuVHQ)))
+	{
+		case 0:
+			options->setRateDistortion(RD_NONE);
+			break;
+		case 1:
+			options->setRateDistortion(RD_DCT_ME);
+			break;
+		case 2:
+			options->setRateDistortion(RD_HPEL_QPEL_16);
+			break;
+		case 3:
+			options->setRateDistortion(RD_HPEL_QPEL_8);
+			break;
+		case 4:
+			options->setRateDistortion(RD_SQUARE);
+			break;
+	}
 
-	SPIN_GET(spinbuttonIMaxPeriod,  max_key_interval);	
-	ENTRY_GET(entryIInterv,			kfthreshold);
-	SPIN_GET(spinbuttonBFrame,		bframes);
+	options->setChromaMotionEstimation(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonChromaMotion))));
+	options->setInterMotionVector(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbutton4MV))));
+	options->setMaxKeyInterval(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonIMaxPeriod))));
+	options->setMaxBframes(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonBFrame))));
+	options->setQpel(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonQPel))));
+	options->setGmc(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonGMC))));
+	options->setBframeRdo(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBVHQ))));
+	options->setParAsInput(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbutton_par_asinput))));
+	options->setPar(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton_par_width))),
+		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton_par_height))));
 
-	SPIN_GET(spinbutton_par_width,	par_width);
-	SPIN_GET(spinbutton_par_height,	par_height);
+	// Quantisation tab
+	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(radiobuttonMpeg))))
+		options->setCqmPreset(CQM_MPEG);
+	else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(radiobuttonCustomMatrix))))
+		options->setCqmPreset(CQM_CUSTOM);
+	else
+		options->setCqmPreset(CQM_H263);
 
+	options->setMinQuantiser(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonIMin))),
+		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonPMin))),
+		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonBMin))));
+	options->setMaxQuantiser(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonIMax))),
+		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonPMax))),
+		gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbuttonBMax))));
+	options->setTrellis(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonTrellis))));
 
-	ENTRY_GET(entryIBoost		,	keyframe_boost		);
-
-	ENTRY_GET(entryHiPass		,	curve_compression_high	);
-	ENTRY_GET(entryLowPass		,	curve_compression_low	);
-	ENTRY_GET(entryOvrControl,		overflow_control_strength	);
-
-	ENTRY_GET(entryMaxOvrImp	,	max_overflow_improvement	);
-	ENTRY_GET(entryMaxOvrDeg	,	max_overflow_degradation	);
-
-	ENTRY_GET(entryIreduction	,	kfreduction			);
-	ENTRY_GET(entryIInterv	,	kfthreshold			);
-	//TOGGLE_SET(toggleHPEL,			halfpel);
-	SPIN_GET(spinbuttonIMax,	qmax[0]);
-	SPIN_GET(spinbuttonPMax,	qmax[1]);
-	SPIN_GET(spinbuttonBMax,	qmax[2]);
-
-	SPIN_GET(spinbuttonIMin,	qmin[0]);
-	SPIN_GET(spinbuttonPMin,	qmin[1]);
-	SPIN_GET(spinbuttonBMin,	qmin[2]);
-*/
-
+	// Second Pass
+	options->setKeyFrameBoost(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryIBoost)), 0, -1)));
+	options->setAboveAverageCurveCompression(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryHiPass)), 0, -1)));
+	options->setBelowAverageCurveCompression(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryLowPass)), 0, -1)));
+	options->setOverflowControlStrength(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryOvrControl)), 0, -1)));
+	options->setMaxOverflowImprovement(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryMaxOvrImp)), 0, -1)));
+	options->setMaxOverflowDegradation(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryMaxOvrDeg)), 0, -1)));
+	options->setMaxKeyFrameReduceBitrate(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryIreduction)), 0, -1)));
+	options->setKeyFrameBitrateThreshold(atoi(gtk_editable_get_chars(GTK_EDITABLE(WID(entryIInterv)), 0, -1)));
 }
 
-void updateMode( void )
+int getCurrentEncodeMode(GtkWidget *dialog)
 {
-/*	uint32_t b;
-	// set the right select button
-	switch (mMode)
+	int modeIndex = getRangeInMenu(WID(optionmenuType));
+	int encodeMode;
+
+	switch (modeIndex)
 	{
-	case COMPRESS_CBR:
-		HIST_SET(0);			
-		b=mB;
-		VAL_SET(b);
-		gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
-		gtk_widget_set_sensitive(WID(entryEntry),1);
-		gtk_label_set_text(GTK_LABEL(WID(label11)),_("Target bitrate (kb/s):"));
-		break;
+		case 0:
+			encodeMode = ADM_VIDENC_MODE_AQP;
+			break;
+		case 1:
+			encodeMode = ADM_VIDENC_MODE_CQP;
+			break;
+		case 2:
+			encodeMode = ADM_VIDENC_MODE_CBR;
+			break;
+		case 3:
+			encodeMode = ADM_VIDENC_MODE_2PASS_SIZE;
+			break;
+		case 4:
+			encodeMode = ADM_VIDENC_MODE_2PASS_ABR;
+			break;
+	}
 
-	case COMPRESS_2PASS:
-		HIST_SET(2);
-		VAL_SET(mS);
-		gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
-		gtk_widget_set_sensitive(WID(entryEntry),1);
-		gtk_label_set_text(GTK_LABEL(WID(label11)),_("Target video size (MB):"));
-		break;
-	case COMPRESS_2PASS_BITRATE:
-		HIST_SET(3);
-		VAL_SET(mA);
-		gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
-		gtk_widget_set_sensitive(WID(entryEntry),1);
-		gtk_label_set_text(GTK_LABEL(WID(label11)),_("Average bitrate (kb/s):"));
-		break;
-
-	case COMPRESS_CQ:
-		HIST_SET(1);
-		gtk_widget_set_sensitive(WID(entryEntry),0);
-		gtk_widget_set_sensitive(WID(spinbuttonQuant),1);
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)),(gfloat)mQ);
-		break;
-	case COMPRESS_SAME:
-		HIST_SET(4);
-		gtk_widget_set_sensitive(WID(entryEntry),0);
-		gtk_widget_set_sensitive(WID(spinbuttonQuant),0);
-
-		break;
-
-	} */
+	return encodeMode;
 }
 
-int cb_mod(GtkObject * object, gpointer user_data)
+void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter)
 {
-/*	int r;
-	r=getRangeInMenu(WID(optionmenuType));
-	switch(r)
-	{
-	case 0: mMode=COMPRESS_CBR ;break;
-	case 1: mMode=COMPRESS_CQ ;break;
-	case 2: mMode=COMPRESS_2PASS ;break;
-	case 3: mMode=COMPRESS_2PASS_BITRATE ;break;
-	case 4: mMode=COMPRESS_SAME;break;
+	int modeIndex = 0;
+	bool quantiser = false;
 
+	switch (encodeMode)
+	{
+		case ADM_VIDENC_MODE_CBR:
+			modeIndex = 0;
+			gtk_label_set_text(GTK_LABEL(WID(label11)),_("Target bitrate (kb/s)"));
+			break;
+		case ADM_VIDENC_MODE_CQP:
+			modeIndex = 1;
+			quantiser = true;
+			break;
+		case ADM_VIDENC_MODE_2PASS_SIZE:
+			modeIndex = 2;
+			gtk_label_set_text(GTK_LABEL(WID(label11)),_("Target video size (MB)"));
+			break;
+		case ADM_VIDENC_MODE_2PASS_ABR:
+			modeIndex = 3;
+			gtk_label_set_text(GTK_LABEL(WID(label11)),_("Average bitrate (kb/s)"));
+			break;
 	}
-	updateMode();
-	printf("Changed!!!\n");
+
+	gtk_option_menu_set_history(GTK_OPTION_MENU(WID(optionmenuType)), modeIndex);
+
+	if (quantiser)
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)), encodeModeParameter);
+	else
+	{
+		char string[21];
+
+		snprintf(string, 20, "%d", encodeModeParameter);
+		gtk_entry_set_text(GTK_ENTRY(WID(entryEntry)), string);
+	}
+
+	gtk_widget_set_sensitive(WID(spinbuttonQuant), quantiser);
+	gtk_widget_set_sensitive(WID(entryEntry), !quantiser);
+}
+
+int cb_mod(GtkObject *object, gpointer user_data)
+{
+	GtkWidget *dialog = ((GtkWidget*)object)->parent;
+	int r = getRangeInMenu(WID(optionmenuType));
+	int mode = getCurrentEncodeMode(dialog);
+	int encodeModeParameter;
+
+	switch (mode)
+	{
+		case ADM_VIDENC_MODE_CBR:
+		case ADM_VIDENC_MODE_2PASS_SIZE:
+			encodeModeParameter = _lastBitrate;
+			break;
+		case ADM_VIDENC_MODE_2PASS_ABR:
+			encodeModeParameter = _lastVideoSize;
+			break;
+		default:
+			encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuantizer)));
+	}
+
+	updateMode(((GtkWidget*)object)->parent, mode, encodeModeParameter);
+
 	return 0;
-*/
 }
 
-int ch_par_asinput(GtkObject * object, gpointer user_data)
+int ch_par_asinput(GtkObject *object, gpointer user_data)
 {
-/*	int on = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbutton_par_asinput)));
+	XvidOptions *options = (XvidOptions*)user_data;
+	GtkWidget *dialog = ((GtkWidget*)object)->parent;
+	int on = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbutton_par_asinput)));
+
 	gtk_widget_set_sensitive(WID(spinbutton_par_width), on^1);
 	gtk_widget_set_sensitive(WID(spinbutton_par_height), on^1);
 
-	if (on) {
-		SPIN_GET(spinbutton_par_width,	par_width);
-		SPIN_GET(spinbutton_par_height,	par_height);
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_width)), video_body->getPARWidth());
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_height)), video_body->getPARHeight());
-	}else{
-		SPIN_SET(spinbutton_par_width,	par_width);
-		SPIN_SET(spinbutton_par_height,	par_height);
+	if (on)
+	{
+		options->setPar(gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton_par_width))),
+			gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(spinbutton_par_height))));
+
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_width)), _parWidth);
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_height)), _parHeight);
+	}
+	else
+	{
+		unsigned int width, height;
+
+		options->getPar(&width, &height);
+
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_width)),(gfloat)width);
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbutton_par_height)),(gfloat)height);
 	}
 
-	return 0; */
+	return 0;
 }
 
-uint8_t editMatrix(uint8_t *intra, uint8_t *inter, GtkWindow *parent)
+uint8_t editMatrix(uint8_t *intra, uint8_t *inter, GtkWidget *parent)
 {
-	GtkWidget *dialog=NULL;
+	GtkWidget *dialog = create_dialog3();
 	GtkWidget *spinbutton1;
 	GtkObject *spinbutton1_adj;
 	GtkWidget *intraCell[64],*interCell[64];
@@ -437,48 +512,47 @@ uint8_t editMatrix(uint8_t *intra, uint8_t *inter, GtkWindow *parent)
 	int code;
 	int col, row;
 
-	dialog=create_dialog3();
 	gtk_window_set_modal(GTK_WINDOW(dialog), 1);
-	gtk_window_set_transient_for(GTK_WINDOW(dialog), parent);
+	gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(parent));
 
-	for(int i=0;i<64;i++)
-	{  //Intra
-		col=i%8;
-		row=i>>3;
-		spinbutton1_adj = gtk_adjustment_new (intra[i], 8, 255, 1, 10, 0);
-		intraCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-		//     gtk_widget_show (spinbutton1);
-		gtk_table_attach (GTK_TABLE (WID(tableIntra)), spinbutton1, col, col+1, row, row+1,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (0), 0, 0);
-
-
-	}
-
-	for(int i=0;i<64;i++)
-	{  //Inter
-		col=i%8;
-		row=i>>3;
-		spinbutton1_adj = gtk_adjustment_new (inter[i], 1, 255, 1, 10, 0);
-		interCell[i]=spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-		//    gtk_widget_show (spinbutton1);
-		gtk_table_attach (GTK_TABLE (WID(tableInter)), spinbutton1, col, col+1, row, row+1,
-			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-			(GtkAttachOptions) (0), 0, 0);
-	}
-
-	for(int i=0;i<64;i++)
+	for (int i = 0; i < 64; i++)
 	{
-		gtk_widget_show (intraCell[i]);
-		gtk_widget_show (interCell[i]);
+		//Intra
+		col = i % 8;
+		row = i >> 3;
+
+		spinbutton1_adj = gtk_adjustment_new(intra[i], 8, 255, 1, 10, 0);
+		intraCell[i] = spinbutton1 = gtk_spin_button_new(GTK_ADJUSTMENT(spinbutton1_adj), 1, 0);
+
+		gtk_table_attach (GTK_TABLE (WID(tableIntra)), spinbutton1, col, col+1, row, row+1,
+			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL), (GtkAttachOptions) (0), 0, 0);
 	}
-	//
 
-	CALL_Z(button12,SAVE_MATRIX)
+	for (int i = 0; i < 64; i++)
+	{
+		//Inter
+		col = i % 8;
+		row = i >> 3;
+
+		spinbutton1_adj = gtk_adjustment_new (inter[i], 1, 255, 1, 10, 0);
+		interCell[i] = spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
+
+		gtk_table_attach (GTK_TABLE (WID(tableInter)), spinbutton1, col, col+1, row, row+1,
+			(GtkAttachOptions) (GTK_EXPAND | GTK_FILL),	(GtkAttachOptions) (0), 0, 0);
+	}
+
+	for (int i = 0; i < 64; i++)
+	{
+		gtk_widget_show(intraCell[i]);
+		gtk_widget_show(interCell[i]);
+	}
+
+	CALL_Z(button12, SAVE_MATRIX)
+
 _loop:
-	code=gtk_dialog_run(GTK_DIALOG(dialog));
+	code = gtk_dialog_run(GTK_DIALOG(dialog));
 
-	if(code==XVID4_RESPONSE_SAVE_MATRIX)
+	if (code == XVID4_RESPONSE_SAVE_MATRIX)
 	{
 		printf("Save\n");
 		char name[1024];
@@ -506,7 +580,7 @@ _loop:
 		goto _loop;
 	}
 
-	if(code==GTK_RESPONSE_OK)
+	if (code==GTK_RESPONSE_OK)
 	{
 		printf("Accept\n");
 		ret=1;
@@ -545,7 +619,6 @@ create_dialog1 (void)
   GtkWidget *one_pass_quantizer1;
   GtkWidget *two_pass1;
   GtkWidget *two_pass__average_bitrate1;
-  GtkWidget *same_qz_as_input1;
   GtkWidget *entryEntry;
   GtkObject *spinbuttonQuant_adj;
   GtkWidget *spinbuttonQuant;
@@ -569,13 +642,10 @@ create_dialog1 (void)
   GtkWidget *vbox7;
   GtkWidget *optionmenuMS;
   GtkWidget *menu2;
-  GtkWidget *_0___none1;
-  GtkWidget *_1___very_low1;
-  GtkWidget *_2___low2;
-  GtkWidget *_3___medium1;
-  GtkWidget *_4___high1;
-  GtkWidget *_5___very_high1;
-  GtkWidget *_6___ultra_high1;
+  GtkWidget *_0___none;
+  GtkWidget *_1___low;
+  GtkWidget *_2___medium;
+  GtkWidget *_3___high;
   GtkWidget *optionmenuVHQ;
   GtkWidget *menu3;
   GtkWidget *_0___off1;
@@ -586,11 +656,7 @@ create_dialog1 (void)
   GtkWidget *hbox10;
   GtkWidget *checkbuttonChromaMotion;
   GtkWidget *checkbutton4MV;
-  GtkWidget *checkbuttonHQAC;
   GtkWidget *hbox9;
-  GtkWidget *labelIFrameIntervalMin;
-  GtkObject *spinbuttonIMinPeriod_adj;
-  GtkWidget *spinbuttonIMinPeriod;
   GtkWidget *labelIFrameIntervalMax;
   GtkObject *spinbuttonIMaxPeriod_adj;
   GtkWidget *spinbuttonIMaxPeriod;
@@ -698,7 +764,7 @@ create_dialog1 (void)
 
   dialog1 = gtk_dialog_new ();
   gtk_container_set_border_width (GTK_CONTAINER (dialog1), 2);
-  gtk_window_set_title (GTK_WINDOW (dialog1), _("XviD encoding options"));
+  gtk_window_set_title (GTK_WINDOW (dialog1), _("Xvid Configuration"));
   gtk_window_set_type_hint (GTK_WINDOW (dialog1), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialog_vbox1 = GTK_DIALOG (dialog1)->vbox;
@@ -774,10 +840,6 @@ create_dialog1 (void)
   gtk_widget_show (two_pass__average_bitrate1);
   gtk_container_add (GTK_CONTAINER (menu1), two_pass__average_bitrate1);
 
-  same_qz_as_input1 = gtk_menu_item_new_with_mnemonic (_("Same Quantizer as Input"));
-  gtk_widget_show (same_qz_as_input1);
-  gtk_container_add (GTK_CONTAINER (menu1), same_qz_as_input1);
-
   gtk_option_menu_set_menu (GTK_OPTION_MENU (optionmenuType), menu1);
 
   entryEntry = gtk_entry_new ();
@@ -786,8 +848,8 @@ create_dialog1 (void)
   gtk_tooltips_set_tip (tooltips, entryEntry, _("Target video bitrate"), NULL);
   gtk_entry_set_width_chars (GTK_ENTRY (entryEntry), 10);
 
-  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 0.1, 10, 0);
-  spinbuttonQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuant_adj), 1, 1);
+  spinbuttonQuant_adj = gtk_adjustment_new (4, 1, 31, 1, 10, 0);
+  spinbuttonQuant = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonQuant_adj), 1, 0);
   gtk_widget_show (spinbuttonQuant);
   gtk_box_pack_start (GTK_BOX (vbox22), spinbuttonQuant, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, spinbuttonQuant, _("Constant quantizer - each frame will get the same compression"), NULL);
@@ -882,33 +944,21 @@ create_dialog1 (void)
 
   menu2 = gtk_menu_new ();
 
-  _0___none1 = gtk_menu_item_new_with_mnemonic (_("0 - None"));
-  gtk_widget_show (_0___none1);
-  gtk_container_add (GTK_CONTAINER (menu2), _0___none1);
+  _0___none = gtk_menu_item_new_with_mnemonic (_("0 - None"));
+  gtk_widget_show (_0___none);
+  gtk_container_add (GTK_CONTAINER (menu2), _0___none);
 
-  _1___very_low1 = gtk_menu_item_new_with_mnemonic (_("1 - Very low"));
-  gtk_widget_show (_1___very_low1);
-  gtk_container_add (GTK_CONTAINER (menu2), _1___very_low1);
+  _1___low = gtk_menu_item_new_with_mnemonic (_("1 - Low"));
+  gtk_widget_show (_1___low);
+  gtk_container_add (GTK_CONTAINER (menu2), _1___low);
 
-  _2___low2 = gtk_menu_item_new_with_mnemonic (_("2 - Low"));
-  gtk_widget_show (_2___low2);
-  gtk_container_add (GTK_CONTAINER (menu2), _2___low2);
+  _2___medium = gtk_menu_item_new_with_mnemonic (_("2 - Medium"));
+  gtk_widget_show (_2___medium);
+  gtk_container_add (GTK_CONTAINER (menu2), _2___medium);
 
-  _3___medium1 = gtk_menu_item_new_with_mnemonic (_("3 - Medium"));
-  gtk_widget_show (_3___medium1);
-  gtk_container_add (GTK_CONTAINER (menu2), _3___medium1);
-
-  _4___high1 = gtk_menu_item_new_with_mnemonic (_("4 - High"));
-  gtk_widget_show (_4___high1);
-  gtk_container_add (GTK_CONTAINER (menu2), _4___high1);
-
-  _5___very_high1 = gtk_menu_item_new_with_mnemonic (_("5 - Very high"));
-  gtk_widget_show (_5___very_high1);
-  gtk_container_add (GTK_CONTAINER (menu2), _5___very_high1);
-
-  _6___ultra_high1 = gtk_menu_item_new_with_mnemonic (_("6 - Ultra high"));
-  gtk_widget_show (_6___ultra_high1);
-  gtk_container_add (GTK_CONTAINER (menu2), _6___ultra_high1);
+  _3___high = gtk_menu_item_new_with_mnemonic (_("3 - High"));
+  gtk_widget_show (_3___high);
+  gtk_container_add (GTK_CONTAINER (menu2), _3___high);
 
   gtk_option_menu_set_menu (GTK_OPTION_MENU (optionmenuMS), menu2);
 
@@ -955,26 +1005,11 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox10), checkbutton4MV, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, checkbutton4MV, _("Use 4 motion vectors per macroblock, might give better compression"), NULL);
 
-  checkbuttonHQAC = gtk_check_button_new_with_mnemonic (_("HQ _AC"));
-  gtk_widget_show (checkbuttonHQAC);
-  gtk_box_pack_start (GTK_BOX (hbox10), checkbuttonHQAC, FALSE, FALSE, 0);
-  gtk_tooltips_set_tip (tooltips, checkbuttonHQAC, _("Enable a better prediction of AC component. Turns on Lumi masking - applies more compression to dark/light areas that the eye cannot notice easily"), NULL);
-
   hbox9 = gtk_hbox_new (FALSE, 10);
   gtk_widget_show (hbox9);
   gtk_box_pack_start (GTK_BOX (vbox6), hbox9, FALSE, FALSE, 0);
 
-  labelIFrameIntervalMin = gtk_label_new (_("I-frame interval - Min:"));
-  gtk_widget_show (labelIFrameIntervalMin);
-  gtk_box_pack_start (GTK_BOX (hbox9), labelIFrameIntervalMin, FALSE, FALSE, 0);
-
-  spinbuttonIMinPeriod_adj = gtk_adjustment_new (1, 1, 9, 1, 10, 0);
-  spinbuttonIMinPeriod = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMinPeriod_adj), 1, 0);
-  gtk_widget_show (spinbuttonIMinPeriod);
-  gtk_box_pack_start (GTK_BOX (hbox9), spinbuttonIMinPeriod, FALSE, FALSE, 0);
-  gtk_tooltips_set_tip (tooltips, spinbuttonIMinPeriod, _("Minimum space between I-frames, 1 will disable forced I-frame spacing"), NULL);
-
-  labelIFrameIntervalMax = gtk_label_new (_("Max:"));
+  labelIFrameIntervalMax = gtk_label_new (_("Max I-frame interval:"));
   gtk_widget_show (labelIFrameIntervalMax);
   gtk_box_pack_start (GTK_BOX (hbox9), labelIFrameIntervalMax, FALSE, FALSE, 0);
 
@@ -1413,7 +1448,6 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, one_pass_quantizer1, "one_pass_quantizer1");
   GLADE_HOOKUP_OBJECT (dialog1, two_pass1, "two_pass1");
   GLADE_HOOKUP_OBJECT (dialog1, two_pass__average_bitrate1, "two_pass__average_bitrate1");
-  GLADE_HOOKUP_OBJECT (dialog1, same_qz_as_input1, "same_qz_as_input1");
   GLADE_HOOKUP_OBJECT (dialog1, entryEntry, "entryEntry");
   GLADE_HOOKUP_OBJECT (dialog1, spinbuttonQuant, "spinbuttonQuant");
   GLADE_HOOKUP_OBJECT (dialog1, label9, "label9");
@@ -1436,13 +1470,10 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, vbox7, "vbox7");
   GLADE_HOOKUP_OBJECT (dialog1, optionmenuMS, "optionmenuMS");
   GLADE_HOOKUP_OBJECT (dialog1, menu2, "menu2");
-  GLADE_HOOKUP_OBJECT (dialog1, _0___none1, "_0___none1");
-  GLADE_HOOKUP_OBJECT (dialog1, _1___very_low1, "_1___very_low1");
-  GLADE_HOOKUP_OBJECT (dialog1, _2___low2, "_2___low2");
-  GLADE_HOOKUP_OBJECT (dialog1, _3___medium1, "_3___medium1");
-  GLADE_HOOKUP_OBJECT (dialog1, _4___high1, "_4___high1");
-  GLADE_HOOKUP_OBJECT (dialog1, _5___very_high1, "_5___very_high1");
-  GLADE_HOOKUP_OBJECT (dialog1, _6___ultra_high1, "_6___ultra_high1");
+  GLADE_HOOKUP_OBJECT (dialog1, _0___none, "_0___none");
+  GLADE_HOOKUP_OBJECT (dialog1, _1___low, "_1___low");
+  GLADE_HOOKUP_OBJECT (dialog1, _2___medium, "_2___medium");
+  GLADE_HOOKUP_OBJECT (dialog1, _3___high, "_3___high");
   GLADE_HOOKUP_OBJECT (dialog1, optionmenuVHQ, "optionmenuVHQ");
   GLADE_HOOKUP_OBJECT (dialog1, menu3, "menu3");
   GLADE_HOOKUP_OBJECT (dialog1, _0___off1, "_0___off1");
@@ -1453,10 +1484,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, hbox10, "hbox10");
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttonChromaMotion, "checkbuttonChromaMotion");
   GLADE_HOOKUP_OBJECT (dialog1, checkbutton4MV, "checkbutton4MV");
-  GLADE_HOOKUP_OBJECT (dialog1, checkbuttonHQAC, "checkbuttonHQAC");
   GLADE_HOOKUP_OBJECT (dialog1, hbox9, "hbox9");
-  GLADE_HOOKUP_OBJECT (dialog1, labelIFrameIntervalMin, "labelIFrameIntervalMin");
-  GLADE_HOOKUP_OBJECT (dialog1, spinbuttonIMinPeriod, "spinbuttonIMinPeriod");
   GLADE_HOOKUP_OBJECT (dialog1, labelIFrameIntervalMax, "labelIFrameIntervalMax");
   GLADE_HOOKUP_OBJECT (dialog1, spinbuttonIMaxPeriod, "spinbuttonIMaxPeriod");
   GLADE_HOOKUP_OBJECT (dialog1, frameAdvancedSimpleProfile, "frameAdvancedSimpleProfile");
