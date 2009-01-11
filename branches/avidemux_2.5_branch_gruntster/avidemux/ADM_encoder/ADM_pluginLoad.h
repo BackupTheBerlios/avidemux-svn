@@ -26,6 +26,7 @@ typedef const char* _vidEncGetEncoderName(int encoderId);
 typedef const char* _vidEncGetEncoderType(int encoderId);
 typedef const char* _vidEncGetEncoderDescription(int encoderId);
 typedef const char* _vidEncGetFourCC(int encoderId);
+typedef int _vidEncGetEncoderRequirements(int encoderId);
 typedef int _vidEncGetEncoderApiVersion(int encoderId);
 typedef void _vidEncGetEncoderVersion(int encoderId, int *major, int *minor, int *patch);
 typedef const char* _vidEncGetEncoderGuid(int encoderId);
@@ -52,6 +53,7 @@ class ADM_vidEnc_plugin : public ADM_LibWrapper
 		_vidEncGetEncoderType *getEncoderType;
 		_vidEncGetEncoderDescription *getEncoderDescription;
 		_vidEncGetFourCC *getFourCC;
+		_vidEncGetEncoderRequirements *getEncoderRequirements;
 		_vidEncGetEncoderApiVersion *getEncoderApiVersion;
 		_vidEncGetEncoderVersion *getEncoderVersion;
 		_vidEncGetEncoderGuid *getEncoderGuid;

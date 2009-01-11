@@ -34,9 +34,12 @@
 #define ADM_VIDENC_MODE_2PASS_SIZE 4
 #define ADM_VIDENC_MODE_2PASS_ABR 5
 
-#define ADM_VIDENC_FRAMETYPE_IDR 1
-#define ADM_VIDENC_FRAMETYPE_B 2
-#define ADM_VIDENC_FRAMETYPE_P 3
+#define ADM_VIDENC_FRAMETYPE_NULL 1
+#define ADM_VIDENC_FRAMETYPE_IDR 2
+#define ADM_VIDENC_FRAMETYPE_B 3
+#define ADM_VIDENC_FRAMETYPE_P 4
+
+#define ADM_VIDENC_REQ_NULL_FLUSH 1
 
 #include "DIA_uiTypes.h"
 
@@ -97,6 +100,7 @@ const char* vidEncGetFourCC(int encoderId);
 int vidEncGetEncoderApiVersion(int encoderId);
 void vidEncGetEncoderVersion(int encoderId, int *major, int *minor, int *patch);
 const char* vidEncGetEncoderGuid(int encoderId);
+int vidEncGetEncoderRequirements(int encoderId);
 
 int vidEncIsConfigurable(int encoderId);
 int vidEncConfigure(int encoderId, vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);

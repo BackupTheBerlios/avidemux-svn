@@ -27,7 +27,7 @@ static void* encoders = { &encoder };
 
 extern "C"
 {
-	void *encoders_getPointer(int uiType) { encoder.setUiType(uiType); return &encoders; } 
+	void *encoders_getPointer(int uiType) { encoder.setUiType(uiType); return &encoders; }
 	int x264Encoder_isConfigurable(void) { return encoder.isConfigurable(); }
 	int x264Encoder_configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties) { return encoder.configure(configParameters, properties); }
 	int x264Encoder_getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize) { return encoder.getOptions(encodeOptions, pluginOptions, bufferSize); };
@@ -41,7 +41,9 @@ extern "C"
 	void x264Encoder_close(void) { encoder.close(); }
 }
 
+#ifdef __WIN32
 extern void convertPathToAnsi(const char *path, char **ansiPath);
+#endif
 
 x264Encoder::x264Encoder(void)
 {
@@ -302,20 +304,26 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	_picture.img.i_csp = X264_CSP_I420;
 	_picture.img.i_plane = 3;
-	_picture.img.plane[0] = encodeParams->frameData;	// Y
-	_picture.img.plane[2] = encodeParams->frameData + _param.i_width * _param.i_height;	// U
-	_picture.img.plane[1] = encodeParams->frameData + ((_param.i_width * _param.i_height * 5) >> 2);	// V
-	_picture.img.i_stride[0] = _param.i_width;
-	_picture.img.i_stride[1] = _param.i_width >> 1;
-	_picture.img.i_stride[2] = _param.i_width >> 1;
-	_picture.i_type = X264_TYPE_AUTO;
-	_picture.i_pts = _currentFrame++;
+
+	if (encodeParams->frameData)
+	{
+		_picture.img.plane[0] = encodeParams->frameData;	// Y
+		_picture.img.plane[2] = encodeParams->frameData + _param.i_width * _param.i_height;	// U
+		_picture.img.plane[1] = encodeParams->frameData + ((_param.i_width * _param.i_height * 5) >> 2);	// V
+		_picture.img.i_stride[0] = _param.i_width;
+		_picture.img.i_stride[1] = _param.i_width >> 1;
+		_picture.img.i_stride[2] = _param.i_width >> 1;
+		_picture.i_type = X264_TYPE_AUTO;
+		_picture.i_pts = _currentFrame;
+	}
 
 	if (x264_encoder_encode(_handle, &nal, &nalCount, &_picture, &picture_out) < 0)
 	{
 		printf("[x264] Error encoding\n");
 		return ADM_VIDENC_ERR_FAILED;
 	}
+
+	_currentFrame++;
 
 	// Write
 	int size = 0;
@@ -344,10 +352,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	encodeParams->encodedDataSize = size;
 	encodeParams->ptsFrame = picture_out.i_pts;	// In fact it is the picture number in out case
-
-	// Delay for b-pyramid
-	if (_param.b_bframe_pyramid)
-		encodeParams->ptsFrame += _param.i_bframe;
 
 	switch (picture_out.i_type)
 	{
@@ -384,7 +388,7 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_B;
 			break;
 		default:
-			printf("[x264] Unknown image type: %d\n", picture_out.i_type);
+			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_NULL;
 	}
 
 	encodeParams->quantiser = picture_out.i_qpplus1 - 1;

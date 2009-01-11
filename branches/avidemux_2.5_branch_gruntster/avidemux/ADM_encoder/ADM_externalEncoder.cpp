@@ -14,10 +14,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#define __STDC_LIMIT_MACROS
+
 #include "ADM_default.h"
 #include "ADM_externalEncoder.h"
 #include "ADM_plugin/ADM_vidEnc_plugin.h"
-
 
 externalEncoder::externalEncoder(COMPRES_PARAMS *params, bool globalHeader)
 {
@@ -83,15 +84,25 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 	int64_t ptsFrame;
 	vidEncEncodeParameters params;
 
-	if (!_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
+	if (frame != UINT32_MAX && !_in->getFrameNumberNoAlloc(frame, &l, _vbuffer, &f))
 	{
 		printf ("[externalEncoder] Error reading incoming frame\n");
 		return 0;
 	}
 
 	params.structSize = sizeof(vidEncEncodeParameters);
-	params.frameData = _vbuffer->data;
-	params.frameDataSize = ((_w + 15) & 0xffffff0) * ((_h + 15) & 0xfffffff0) * 2;
+
+	if (frame == UINT32_MAX)
+	{
+		params.frameData = NULL;
+		params.frameDataSize = 0;
+	}
+	else
+	{
+		params.frameData = _vbuffer->data;
+		params.frameDataSize = ((_w + 15) & 0xffffff0) * ((_h + 15) & 0xfffffff0) * 2;
+	}
+
 	params.encodedData = NULL;
 	params.encodedDataSize = 0;
 
@@ -105,6 +116,8 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 
 		switch (params.frameType)
 		{
+			case ADM_VIDENC_FRAMETYPE_NULL:
+				break;
 			case ADM_VIDENC_FRAMETYPE_IDR:
 				out->flags = AVI_KEY_FRAME;
 				break;
@@ -142,8 +155,10 @@ const char* externalEncoder::getFCCHandler(void)
 
 int externalEncoder::getRequirements(void)
 {
-	// FIXME
-	return 0;
+	int req = _plugin->getEncoderRequirements(_plugin->encoderId);
+
+	if (req == ADM_VIDENC_REQ_NULL_FLUSH)
+		return ADM_ENC_REQ_NULL_FLUSH;
 }
 
 uint8_t externalEncoder::isDualPass(void)

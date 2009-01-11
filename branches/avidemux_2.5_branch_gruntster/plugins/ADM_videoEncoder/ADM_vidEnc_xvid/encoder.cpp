@@ -89,8 +89,12 @@ XvidEncoder::XvidEncoder(void)
 	PRINT_CPU_FLAG(MMXEXT);
 	PRINT_CPU_FLAG(SSE);
 	PRINT_CPU_FLAG(SSE2);
+
+#if XVID_API >= XVID_MAKE_API(4, 2)
 	PRINT_CPU_FLAG(SSE3);
 	PRINT_CPU_FLAG(SSE41);
+#endif
+
 	PRINT_CPU_FLAG(3DNOW);
 	PRINT_CPU_FLAG(3DNOWEXT);
 	PRINT_CPU_FLAG(ALTIVEC);
@@ -98,6 +102,8 @@ XvidEncoder::XvidEncoder(void)
 
 XvidEncoder::~XvidEncoder(void)
 {
+	close();
+
 	if (_logFileName)
 		delete [] _logFileName;
 
@@ -311,14 +317,23 @@ int XvidEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	xvid_enc_stats.version = XVID_VERSION;
 	_xvid_enc_frame.bitstream = _buffer;
-	_xvid_enc_frame.length = 0;
-	_xvid_enc_frame.input.csp = XVID_CSP_YV12;
-	_xvid_enc_frame.input.stride[0] = _xvid_enc_create.width;
-	_xvid_enc_frame.input.stride[1] = _xvid_enc_create.width >> 1;
-	_xvid_enc_frame.input.stride[2] = _xvid_enc_create.width >> 1;
-	_xvid_enc_frame.input.plane[0] = encodeParams->frameData;
-	_xvid_enc_frame.input.plane[1] = encodeParams->frameData + (_xvid_enc_create.width * _xvid_enc_create.height);
-	_xvid_enc_frame.input.plane[2] = encodeParams->frameData + ((_xvid_enc_create.width * _xvid_enc_create.height * 5) >> 2);
+
+	if (encodeParams->frameData)
+	{
+		_xvid_enc_frame.length = 0;
+		_xvid_enc_frame.input.csp = XVID_CSP_YV12;
+		_xvid_enc_frame.input.stride[0] = _xvid_enc_create.width;
+		_xvid_enc_frame.input.stride[1] = _xvid_enc_create.width >> 1;
+		_xvid_enc_frame.input.stride[2] = _xvid_enc_create.width >> 1;
+		_xvid_enc_frame.input.plane[0] = encodeParams->frameData;
+		_xvid_enc_frame.input.plane[1] = encodeParams->frameData + (_xvid_enc_create.width * _xvid_enc_create.height);
+		_xvid_enc_frame.input.plane[2] = encodeParams->frameData + ((_xvid_enc_create.width * _xvid_enc_create.height * 5) >> 2);
+	}
+	else
+	{
+		_xvid_enc_frame.length = -1;
+		_xvid_enc_frame.input.csp = XVID_CSP_NULL;
+	}
 
 	int size = xvid_encore(_xvid_enc_create.handle, XVID_ENC_ENCODE, &_xvid_enc_frame, &xvid_enc_stats);
 
@@ -492,10 +507,18 @@ void XvidEncoder::printEncFrame(xvid_enc_frame_t *xvid_enc_frame)
 	printf("[Xvid] vol_flags = %d\n", xvid_enc_frame->vol_flags);
 
 	printf("[Xvid] quant_intra_matrix = ");
-	printArray(xvid_enc_frame->quant_intra_matrix, 64);
+
+	if (xvid_enc_frame->quant_intra_matrix)
+		printArray(xvid_enc_frame->quant_intra_matrix, 64);
+	else
+		printf("NULL");
 
 	printf("\n[Xvid] quant_inter_matrix = ");
-	printArray(xvid_enc_frame->quant_inter_matrix, 64);
+
+	if (xvid_enc_frame->quant_inter_matrix)
+		printArray(xvid_enc_frame->quant_inter_matrix, 64);
+	else
+		printf("NULL");
 
 	printf("\n[Xvid] par = %d\n", xvid_enc_frame->par);
 	printf("[Xvid] par_width = %d\n", xvid_enc_frame->par_width);

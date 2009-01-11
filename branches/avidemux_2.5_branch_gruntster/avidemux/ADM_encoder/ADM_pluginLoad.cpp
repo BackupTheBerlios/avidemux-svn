@@ -36,12 +36,13 @@ extern int getInternalVideoCodecCount();
 
 ADM_vidEnc_plugin::ADM_vidEnc_plugin(const char *file) : ADM_LibWrapper()
 {
-	initialised = (loadLibrary(file) && getSymbols(20,
+	initialised = (loadLibrary(file) && getSymbols(21,
 		&getEncoders, "vidEncGetEncoders",
 		&getEncoderName, "vidEncGetEncoderName",
 		&getEncoderType, "vidEncGetEncoderType",
 		&getEncoderDescription, "vidEncGetEncoderDescription",
 		&getFourCC, "vidEncGetFourCC",
+		&getEncoderRequirements, "vidEncGetEncoderRequirements",
 		&getEncoderApiVersion, "vidEncGetEncoderApiVersion",
 		&getEncoderVersion, "vidEncGetEncoderVersion",
 		&getEncoderGuid, "vidEncGetEncoderGuid",
@@ -315,7 +316,3 @@ ADM_vidEnc_plugin* getVideoEncoderPlugin(int index)
 
 	return ADM_videoEncoderPlugins[index];
 }
-/**
-
-*/
-//EOF

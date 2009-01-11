@@ -52,6 +52,11 @@ const char* vidEncGetFourCC(int encoderId)
 	return "XVID";
 }
 
+int vidEncGetEncoderRequirements(int encoderId)
+{
+	return ADM_VIDENC_REQ_NULL_FLUSH;
+}
+
 int vidEncGetEncoderApiVersion(int encoderId)
 {
 	return ADM_VIDENC_API_VERSION;
