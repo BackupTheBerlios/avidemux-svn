@@ -1,7 +1,7 @@
 #ifndef XvidCustomMatrixDialog_h
 #define XvidCustomMatrixDialog_h
 
-#include "ui_XvidCustomMatrixDialog.h"
+#include "ui_xvidCustomMatrixDialog.h"
 
 class XvidCustomMatrixDialog : public QDialog
 {
