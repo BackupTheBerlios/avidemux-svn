@@ -184,9 +184,9 @@ AUTOMATON reaction_table[]=
         {"audio-map",		0,"build audio map (MP3 VBR)",	call_buildtimemap},
         {"audio-bitrate",	1,"set audio encoding bitrate",	call_audiobitrate},
         {"fps",	                1,"set frames per second",	call_fps},
-        {"audio-codec",		1,"set audio codec (MP2/MP3/AC3/NONE (WAV PCM)/TWOLAME/COPY)",call_audiocodec},
+        {"audio-codec",		1,"set audio codec (AAC/AC3/COPY/MP2/MP3/NONE (WAV PCM)/TWOLAME)",call_audiocodec},
         
-        {"video-codec",		1,"set video codec (Divx/Xvid/FFmpeg4/VCD/SVCD/DVD/XVCD/XSVCD/COPY)",				call_videocodec},
+        {"video-codec",		1,"set video codec (COPY/DV/DVD/FFHUFF/FFmpeg4/FFV1/FLV1/H263/HUFF/MJPEG/REQUANT/SVCD/VCD/x264/XDVD/Xvid4/XVCD/XSVCD/Y800/YV12)", call_videocodec},
         {"video-conf",		1	,"set video codec conf (cq=q|cbr=br|2pass=size)[,mbr=br][,matrix=(0|1|2|3)]",				call_videoconf},
         {"reuse-2pass-log",	0	,"reuse 2pass logfile if it exists",	set_reuse_2pass_log},
         {"set-pp",		2	,"set post processing default value, value(1=hdeblok|2=vdeblock|4=dering) and strength (0-5)",
@@ -388,6 +388,10 @@ void call_audiocodec(char *p)
 {
 	if(!strcasecmp(p,"MP2"))
 		audioCodecSetcodec( AUDIOENC_MP2 );
+#ifdef USE_FAAC
+	else if(!strcasecmp(p,"AAC"))
+		audioCodecSetcodec( AUDIOENC_FAAC );
+#endif
 	else if(!strcasecmp(p,"AC3"))
 		audioCodecSetcodec( AUDIOENC_AC3 );
 #ifdef HAVE_LIBMP3LAME		
@@ -480,9 +484,9 @@ void call_help(char *p)
           printf("\n    --%s, %s ", reaction_table[i].string,reaction_table[i].help_string);
           switch(reaction_table[i].have_arg)
           {
-                  case 0:	 printf(" ( no arg )");break;
-                  case 1:	 printf(" (one arg )");break;
-                  case 2:	 printf(" (two args )");break;
+                  case 0:	 printf(" (no args)");break;
+                  case 1:	 printf(" (one arg)");break;
+                  case 2:	 printf(" (two args)");break;
                   case 3:	 printf(" (three args) ");break;
 
           }
