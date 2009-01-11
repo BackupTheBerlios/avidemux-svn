@@ -23,8 +23,9 @@
 #include "DIA_coreToolkit.h"
 #include "../guiHelper.h"
 
-x264CustomMatrixDialog::x264CustomMatrixDialog(const uint8_t intra4x4Luma[16], const uint8_t intraChroma[16], const uint8_t inter4x4Luma[16],
-											   const uint8_t interChroma[16], const uint8_t intra8x8Luma[64], const uint8_t inter8x8Luma[64])
+x264CustomMatrixDialog::x264CustomMatrixDialog(QWidget *parent, const uint8_t intra4x4Luma[16], const uint8_t intraChroma[16], 
+											   const uint8_t inter4x4Luma[16],	const uint8_t interChroma[16], 
+											   const uint8_t intra8x8Luma[64],  const uint8_t inter8x8Luma[64]) : QDialog(parent)
 {
 	ui.setupUi(this);
 

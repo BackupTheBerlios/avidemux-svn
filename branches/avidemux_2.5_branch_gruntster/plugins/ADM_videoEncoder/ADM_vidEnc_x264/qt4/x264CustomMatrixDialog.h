@@ -18,7 +18,7 @@ private:
 	void setInter8x8Luma(const uint8_t inter8x8Luma[]);
 
 public:
-	x264CustomMatrixDialog(const uint8_t* intra4x4Luma, const uint8_t* intraChroma, const uint8_t* inter4x4Luma, 
+	x264CustomMatrixDialog(QWidget *parent, const uint8_t* intra4x4Luma, const uint8_t* intraChroma, const uint8_t* inter4x4Luma, 
 		const uint8_t* interChroma, const uint8_t* intra8x8Luma, const uint8_t* inter8x8Luma);
 	void getMatrix(uint8_t* intra4x4Luma, uint8_t* intra4x4Chroma, uint8_t* inter4x4Luma, 
 		uint8_t* inter4x4Chroma, uint8_t* intra8x8Luma, uint8_t* inter8x8Luma);

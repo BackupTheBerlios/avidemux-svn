@@ -137,7 +137,9 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 				connect(widget, SIGNAL(valueChanged(int)), this, SLOT(generic_valueChanged(int)));
 			else if (widget->inherits("QDoubleSpinBox"))
 				connect(widget, SIGNAL(valueChanged(double)), this, SLOT(generic_valueChanged(double)));
-			else if (widget->inherits("QAbstractButton"))
+			else if (widget->inherits("QCheckBox"))
+				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
+			else if (widget->inherits("QRadioButton"))
 				connect(widget, SIGNAL(pressed()), this, SLOT(generic_pressed()));
 			else if (widget->inherits("QLineEdit"))
 				connect(widget, SIGNAL(textEdited(QString)), this, SLOT(generic_textEdited(QString)));
@@ -473,10 +475,13 @@ void x264ConfigDialog::trellisCheckBox_toggled(bool checked)
 
 void x264ConfigDialog::matrixCustomEditButton_pressed()
 {
-	x264CustomMatrixDialog dialog(intra4x4Luma, intraChroma, inter4x4Luma, interChroma, intra8x8Luma, inter8x8Luma);
+	x264CustomMatrixDialog dialog(this, intra4x4Luma, intraChroma, inter4x4Luma, interChroma, intra8x8Luma, inter8x8Luma);
 
 	if (dialog.exec() == QDialog::Accepted)
+	{
 		dialog.getMatrix(intra4x4Luma, intraChroma, inter4x4Luma, interChroma, intra8x8Luma, inter8x8Luma);
+		ui.configurationComboBox->setCurrentIndex(1);
+	}
 }
 
 void x264ConfigDialog::zoneAddButton_pressed()
