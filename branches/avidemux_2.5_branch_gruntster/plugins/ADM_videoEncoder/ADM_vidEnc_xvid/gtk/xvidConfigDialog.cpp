@@ -47,6 +47,7 @@ static int getCurrentEncodeMode(GtkWidget *dialog);
 
 static int cb_mod(GtkObject *object, gpointer user_data);
 static int ch_par_asinput(GtkObject *object, gpointer user_data);
+static int entryEntry_changed(GtkObject* object, gpointer user_data);
 
 #define CALL_Z(x,y)  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), WID(x),XVID4_RESPONSE_##y);
 
@@ -85,6 +86,7 @@ extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vi
 
 	gtk_signal_connect(GTK_OBJECT(WID(optionmenuType)), "changed", GTK_SIGNAL_FUNC(cb_mod), dialog);
 	gtk_signal_connect(GTK_OBJECT(WID(checkbutton_par_asinput)), "clicked", GTK_SIGNAL_FUNC(ch_par_asinput), options);
+	gtk_signal_connect(GTK_OBJECT(WID(entryEntry)), "changed", GTK_SIGNAL_FUNC(entryEntry_changed), dialog);
 
 	CALL_Z(buttonCreateCustomMatrix, EDIT_MATRIX);
 	CALL_Z(buttonLoadMatrix, LOAD_MATRIX);
@@ -387,18 +389,15 @@ int getCurrentEncodeMode(GtkWidget *dialog)
 	switch (modeIndex)
 	{
 		case 0:
-			encodeMode = ADM_VIDENC_MODE_AQP;
+			encodeMode = ADM_VIDENC_MODE_CBR;
 			break;
 		case 1:
 			encodeMode = ADM_VIDENC_MODE_CQP;
 			break;
 		case 2:
-			encodeMode = ADM_VIDENC_MODE_CBR;
-			break;
-		case 3:
 			encodeMode = ADM_VIDENC_MODE_2PASS_SIZE;
 			break;
-		case 4:
+		case 3:
 			encodeMode = ADM_VIDENC_MODE_2PASS_ABR;
 			break;
 	}
@@ -449,27 +448,37 @@ void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter)
 
 int cb_mod(GtkObject *object, gpointer user_data)
 {
-	GtkWidget *dialog = ((GtkWidget*)object)->parent;
+	GtkWidget *dialog = (GtkWidget*)user_data;
 	int r = getRangeInMenu(WID(optionmenuType));
-	int mode = getCurrentEncodeMode(dialog);
 	int encodeModeParameter;
 
-	switch (mode)
+	switch (r)
 	{
-		case ADM_VIDENC_MODE_CBR:
-		case ADM_VIDENC_MODE_2PASS_SIZE:
+		case 0:
+		case 3:
 			encodeModeParameter = _lastBitrate;
 			break;
-		case ADM_VIDENC_MODE_2PASS_ABR:
+		case 1:
+			encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)));
+			break;
+		case 2:
 			encodeModeParameter = _lastVideoSize;
 			break;
-		default:
-			encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuantizer)));
 	}
 
-	updateMode(((GtkWidget*)object)->parent, mode, encodeModeParameter);
+	updateMode(dialog, getCurrentEncodeMode(dialog), encodeModeParameter);
 
 	return 0;
+}
+
+int entryEntry_changed(GtkObject* object, gpointer user_data)
+{
+	GtkWidget *dialog = (GtkWidget*)user_data;
+
+	if (getRangeInMenu(WID(optionmenuType)) == 2)
+		_lastVideoSize = atoi(gtk_entry_get_text(GTK_ENTRY(WID(entryEntry))));
+	else
+		_lastBitrate = atoi(gtk_entry_get_text(GTK_ENTRY(WID(entryEntry))));
 }
 
 int ch_par_asinput(GtkObject *object, gpointer user_data)
