@@ -6,7 +6,7 @@ INCLUDES = $(all_includes) -I../ADM_libraries -I../ADM_libraries/ADM_utilities -
 libADM_codecs_a_METASOURCES = AUTO
 
 libADM_codecs_a_SOURCES =  ADM_theora_dec.cpp ADM_ffmp43.cpp \
-	ADM_mjpegEncode.cpp ADM_rgb16.cpp ADM_xvid.cpp ADM_xvideco.cpp ADM_mjpeg.cpp ADM_ffmpeg.cpp \
+	ADM_mjpegEncode.cpp ADM_xvid.cpp ADM_xvideco.cpp ADM_mjpeg.cpp ADM_ffmpeg.cpp \
 	ADM_codecs.cpp ADM_ffmpegConfig.h ADM_mpeg.h ADM_mpeg.cpp  \
 	ADM_xvidcvs.cpp ADM_xvid4.cpp ADM_uyvy.cpp ADM_x264.cpp
 
