@@ -25,7 +25,7 @@
 #include "ADM_flv.h"
 
 // Borrowed from lavformt/flv.h
-#include "ADM_libraries/ADM_ffmpeg/ADM_lavformat/flv.h"
+#include "libavformat/flv.h"
 // Borrowed from lavformt/flv.h    
 
 uint32_t ADM_UsecFromFps1000(uint32_t fps1000);

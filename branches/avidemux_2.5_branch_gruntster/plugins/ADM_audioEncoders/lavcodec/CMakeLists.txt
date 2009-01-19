@@ -1,9 +1,14 @@
 	INCLUDE(ae_plugin)
-        INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/../avidemux/")
-        INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/../avidemux/ADM_libraries/ADM_ffmpeg/ADM_lavcodec/")
-        INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/../avidemux/ADM_libraries/ADM_ffmpeg/ADM_lavutil/")
+	include(admFFmpegUtil)
+
+	getFfmpegLibNames("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
+	INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux")
+	INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 
 	SET(ADM_ae_lav_mp2_SRCS audioencoder_lavcodec.cpp)
+	
+	add_library(ADM_libavcodec UNKNOWN IMPORTED)
+	set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBAVCODEC_LIB}")	
 
 	ADD_LIBRARY(ADM_ae_lav_mp2 SHARED ${ADM_ae_lav_mp2_SRCS})
 	ADD_TARGET_CFLAGS(ADM_ae_lav_mp2 "-DADM_LAV_MP2")

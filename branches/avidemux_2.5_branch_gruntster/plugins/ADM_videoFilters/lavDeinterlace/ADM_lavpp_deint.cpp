@@ -31,7 +31,7 @@
 #include "ADM_lavpp_deintparam.h"
 extern "C"
 {
-#include "ADM_libraries/ADM_ffmpeg/ADM_libpostproc/postprocess.h"
+#include "libpostproc/postprocess.h"
 };
 #include "DIA_factory.h"
 /*

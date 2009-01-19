@@ -1,4 +1,5 @@
 INCLUDE(vf_plugin)
+include(admFFmpegUtil)
 
 SET(resizeCommon_SRCS ADM_vidMPLResize.cpp)
 SET(resizeCommonGtk_SRCS gtk/gtk_resize.cpp)
@@ -6,8 +7,18 @@ SET(resizeCommonQT_SRCS qt4/Q_resize.cpp)
 SET(resizeCommonQT_Headers qt4/Q_resize.h)
 SET(resizeCommonQT_UI qt4/resizing)
 
+getFfmpegLibNames("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/")
-#INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/../")
+INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
+
+add_library(ADM_libswscale UNKNOWN IMPORTED)
+set_property(TARGET ADM_libswscale PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBSWSCALE_LIB}")
+
+add_library(ADM_libavcodec UNKNOWN IMPORTED)
+set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBAVCODEC_LIB}")
+
+add_library(ADM_libavutil UNKNOWN IMPORTED)
+set_property(TARGET ADM_libavutil PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBAVUTIL_LIB}")
 
 INCLUDE(vf_plugin_gtk)
 INIT_VIDEOFILTER_PLUGIN_GTK(ADM_vf_mplayerResize_gtk ${resizeCommonGtk_SRCS} ${resizeCommon_SRCS})

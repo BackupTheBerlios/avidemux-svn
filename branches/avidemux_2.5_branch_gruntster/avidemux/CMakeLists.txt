@@ -58,8 +58,6 @@ INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_coreUI/include")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_coreImage/include")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_coreAudio/include")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_libraries/ADM_utilities")
-INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_libraries/ADM_ffmpeg/ADM_lavutil")
-INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_libraries/ADM_ffmpeg/ADM_lavcodec")
 
 IF (GETTEXT_FOUND)
 	INCLUDE_DIRECTORIES(${GETTEXT_INCLUDE_DIR})
@@ -130,22 +128,27 @@ SET(ADM_EXE_SRCS ${ADM_EXE_SRCS} ADM_preview.cpp  gtk_gui.cpp  gui_autodrive.cpp
 
 ADD_EXECUTABLE(avidemux2_cli MACOSX_BUNDLE ${ADM_EXE_SRCS} ${MO_FILES})
 ADD_TARGET_CFLAGS(avidemux2_cli "-I${CMAKE_BINARY_DIR}/config/cli")
-ADD_DEPENDENCIES(avidemux2_cli mofiles)
+ADD_DEPENDENCIES(avidemux2_cli mofiles  ffmpeg)
 
 IF (ADM_UI_GTK)
 	ADD_EXECUTABLE(avidemux2_gtk MACOSX_BUNDLE ${ADM_EXE_SRCS} ${MO_FILES})
 	ADD_TARGET_CFLAGS(avidemux2_gtk "-I${CMAKE_BINARY_DIR}/config/gtk")
-	ADD_DEPENDENCIES(avidemux2_gtk mofiles)
+	ADD_DEPENDENCIES(avidemux2_gtk mofiles  ffmpeg)
 ENDIF (ADM_UI_GTK)
 
 IF (ADM_UI_QT4)
 	ADD_EXECUTABLE(avidemux2_qt4 MACOSX_BUNDLE ${ADM_EXE_SRCS} ${QM_FILES})
 	ADD_TARGET_CFLAGS(avidemux2_qt4 "-I${CMAKE_BINARY_DIR}/config/qt4")
-	ADD_DEPENDENCIES(avidemux2_qt4 qmfiles)
+	ADD_DEPENDENCIES(avidemux2_qt4 qmfiles  ffmpeg)
 ENDIF (ADM_UI_QT4)
 
 SDLify(main.cpp)
 ADD_SOURCE_CFLAGS(main.cpp "-DADM_SUBVERSION=${ADM_SUBVERSION}")
+
+########################################
+# FFmpeg
+########################################
+include(admFFmpegBuild)
 
 ########################################
 # Compile and link general subdirs

@@ -28,7 +28,7 @@
 
 extern "C"
 {
-	#include "ADM_libraries/ADM_ffmpeg/ADM_lavformat/avformat.h"
+	#include "libavformat/avformat.h"
 };
 
 #undef malloc

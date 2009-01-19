@@ -7,6 +7,7 @@ ADM_vidEqualizer.cpp
 
 INCLUDE(vf_plugin_gtk)
 INCLUDE(vf_plugin_qt4)
+INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 
 SET(equalizerGtk_SRCS gtk/DIA_equalizer.cpp)
 SET(equalizerQT_SRCS  DIA_flyEqualiser.cpp  qt4/Q_equaliser.cpp  qt4/T_gridFrame.cpp  qt4/T_EqualiserPath.cpp)

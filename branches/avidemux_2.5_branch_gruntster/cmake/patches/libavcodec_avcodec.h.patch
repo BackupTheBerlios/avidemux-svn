@@ -1,0 +1,78 @@
+*** libavcodec/avcodec.h	Sat Jan 17 18:42:27 2009
+--- libavcodec/avcodec.h	Sat Jan 17 17:54:54 2009
+***************
+*** 177,182 ****
+--- 177,183 ----
+      CODEC_ID_SUNRAST,
+      CODEC_ID_INDEO4,
+      CODEC_ID_INDEO5,
++     CODEC_ID_DIRAC,
+  
+      /* various PCM "codecs" */
+      CODEC_ID_PCM_S16LE= 0x10000,
+***************
+*** 449,454 ****
+--- 450,457 ----
+  #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
+  #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
+  #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
++ //MEANX: NEVER EVER USE CLOSED GOP ?
++ #define CODEC_FLAG2_32_PULLDOWN   0x80000000 
+  
+  /* Unsupported options :
+   *              Syntax Arithmetic coding (SAC)
+***************
+*** 1215,1220 ****
+--- 1218,1224 ----
+       * - decoding: unused
+       */
+      int rc_max_rate;
++     int rc_max_rate_header; /*< That one is set in the header MEANX */
+  
+      /**
+       * minimum bitrate
+***************
+*** 1229,1234 ****
+--- 1233,1240 ----
+       * - decoding: unused
+       */
+      int rc_buffer_size;
++     int rc_buffer_size_header;  /*< That one is set in the header MEANX*/
++ 
+      float rc_buffer_aggressivity;
+  
+      /**
+***************
+*** 2293,2299 ****
+  
+  #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
+  /* YUV420 format is assumed ! */
+! 
+  /**
+   * @deprecated Use the software scaler (swscale) instead.
+   */
+--- 2299,2305 ----
+  
+  #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
+  /* YUV420 format is assumed ! */
+! #if 0 // MEANX
+  /**
+   * @deprecated Use the software scaler (swscale) instead.
+   */
+***************
+*** 2325,2331 ****
+   * @deprecated Use the software scaler (swscale) instead.
+   */
+  attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
+! 
+  #endif
+  
+  /**
+--- 2331,2337 ----
+   * @deprecated Use the software scaler (swscale) instead.
+   */
+  attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
+! #endif //MEANX
+  #endif
+  
+  /**

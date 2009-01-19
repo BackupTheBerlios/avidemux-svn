@@ -3,11 +3,11 @@ MESSAGE("Plugins Configure Started")
 MESSAGE("#####################################")
 MESSAGE("")
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.4.7 FATAL_ERROR)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.2 FATAL_ERROR)
 
 if (COMMAND cmake_policy)
-	cmake_policy(VERSION 2.4)
 	cmake_policy(SET CMP0003 NEW)
+	cmake_policy(SET CMP0004 OLD)
 endif (COMMAND cmake_policy)
 
 IF (NOT CMAKE_CXX_COMPILER_WORKS MATCHES "^${CMAKE_CXX_COMPILER_WORKS}$")
@@ -36,13 +36,13 @@ INCLUDE_DIRECTORIES(${AVIDEMUX_SOURCE_DIR})
 ########################################
 # Where are the libraries
 ########################################
-IF(NOT AVIDEMUX_LIB_DIR)
-	MESSAGE(FATAL_ERROR "Please add -DAVIDEMUX_LIB_DIR=path_to_avidemux_libs")
-ELSE (NOT AVIDEMUX_LIB_DIR)
-	SET(AVIDEMUX_LIB_DIR "${AVIDEMUX_LIB_DIR}" CACHE STRING "")
-ENDIF(NOT AVIDEMUX_LIB_DIR)
+IF (NOT AVIDEMUX_INSTALL_PREFIX)
+	MESSAGE(FATAL_ERROR "Please add -DAVIDEMUX_INSTALL_PREFIX=path_to_avidemux_install")
+ELSE (NOT AVIDEMUX_INSTALL_PREFIX)
+	SET(AVIDEMUX_BIN_DIR "${AVIDEMUX_INSTALL_PREFIX}" CACHE STRING "")
+ENDIF (NOT AVIDEMUX_INSTALL_PREFIX)
 
-LINK_DIRECTORIES(${AVIDEMUX_LIB_DIR})
+LINK_DIRECTORIES(${AVIDEMUX_INSTALL_PREFIX}/lib)
 
 ########################################
 # Where is coreConfig ?
@@ -89,6 +89,7 @@ ENDIF (ADM_CPU_ALTIVEC)
 
 IF (WIN32)
 	SET(BIN_DIR .)
+	set(AVIDEMUX_BIN_DIR ${AVIDEMUX_INSTALL_PREFIX})
 	SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-enable-auto-image-base -Wl,-enable-auto-import")
 
 	IF (CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -96,6 +97,7 @@ IF (WIN32)
 	ENDIF (CMAKE_BUILD_TYPE STREQUAL "Release")
 ELSE (WIN32)
 	SET(BIN_DIR bin)
+	set(AVIDEMUX_BIN_DIR ${AVIDEMUX_INSTALL_PREFIX}/bin)
 ENDIF (WIN32)
 
 ########################################
