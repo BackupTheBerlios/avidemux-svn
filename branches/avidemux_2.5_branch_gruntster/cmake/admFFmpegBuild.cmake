@@ -20,11 +20,16 @@ if (NOT VERBOSE)
 	set(ffmpegSvnOutput OUTPUT_VARIABLE FFMPEG_SVN_OUTPUT)
 	set(swscaleSvnOutput OUTPUT_VARIABLE SWSCALE_SVN_OUTPUT)
 	set(ffmpegBuildOutput OUTPUT_VARIABLE FFMPEG_CONFIGURE_OUTPUT)
+	set(unix2dosOutput OUTPUT_VARIABLE UNIX2DOS_OUTPUT)
 endif (NOT VERBOSE)
 
 # Checkout FFmpeg source and patch it
 if (NOT IS_DIRECTORY "${FFMPEG_SOURCE_DIR}/.svn")
 	find_package(Patch)
+
+	if (WIN32)
+		find_package(Unix2Dos)
+	endif (WIN32)
 
 	message(STATUS "Checking out FFmpeg")
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} co svn://svn.ffmpeg.org/ffmpeg/trunk -r ${FFMPEG_VERSION} --ignore-externals "${FFMPEG_SOURCE_DIR}"
@@ -33,6 +38,8 @@ if (NOT IS_DIRECTORY "${FFMPEG_SOURCE_DIR}/.svn")
 	message(STATUS "Checking out libswscale")
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} co svn://svn.ffmpeg.org/mplayer/trunk/libswscale -r ${SWSCALE_VERSION} "${FFMPEG_SOURCE_DIR}/libswscale"
 					${swscaleSvnOutput})
+
+	message("")
 
 	set(FFMPEG_PERFORM_PATCH 1)
 endif (NOT IS_DIRECTORY "${FFMPEG_SOURCE_DIR}/.svn")
@@ -45,8 +52,12 @@ if (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
 	MESSAGE(STATUS "Updating to revision ${FFMPEG_VERSION}")
 	set(FFMPEG_PERFORM_BUILD 1)
 	set(FFMPEG_PERFORM_PATCH 1)
-	
+
 	find_package(Patch)
+
+	if (WIN32)
+		find_package(Unix2Dos)
+	endif (WIN32)
 
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} up -r ${FFMPEG_VERSION} --ignore-externals "${FFMPEG_SOURCE_DIR}"
 					${ffmpegSvnOutput})	
@@ -61,8 +72,12 @@ if (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
 	message(STATUS "Updating to revision ${SWSCALE_VERSION}")
 	set(FFMPEG_PERFORM_BUILD 1)
 	set(FFMPEG_PERFORM_PATCH 1)
-	
+
 	find_package(Patch)
+
+	if (WIN32)
+		find_package(Unix2Dos)
+	endif (WIN32)
 
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} up -r ${SWSCALE_VERSION} "${FFMPEG_SOURCE_DIR}/libswscale"
 					${swscaleSvnOutput})
@@ -79,7 +94,16 @@ if (FFMPEG_PERFORM_PATCH)
 	file(GLOB patchFiles "${CMAKE_SOURCE_DIR}/cmake/patches/*.patch")
 
 	foreach(patchFile ${patchFiles})
-		execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i ${patchFile}
+		if (WIN32)
+			file(MAKE_DIRECTORY "${FFMPEG_BINARY_DIR}/patches")
+			get_filename_component(fileName "${patchFile}" NAME)
+			execute_process(COMMAND ${UNIX2DOS_EXECUTABLE} -n ${patchFile} ${FFMPEG_BINARY_DIR}/patches/${fileName}
+							${unix2dosOutput})
+
+			set(patchFile "${FFMPEG_BINARY_DIR}/patches/${fileName}")
+		endif (WIN32)
+
+		execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i "${patchFile}"
 						WORKING_DIRECTORY "${FFMPEG_SOURCE_DIR}")
 	endforeach(patchFile)
 
