@@ -11,6 +11,7 @@ function updatePatch {
 	mv $1/$2 $1/$2.old
 	mv $1/$2.new $1/$2
 	diff -c $1/$2.old $1/$2 > $curDir/$1_$2.patch
+	rm $1/$2.old
 	cd $curDir
 	dos2unix $1_$2.patch
 }

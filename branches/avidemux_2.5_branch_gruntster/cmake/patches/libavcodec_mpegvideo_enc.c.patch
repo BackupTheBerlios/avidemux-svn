@@ -1,8 +1,8 @@
-*** libavcodec/mpegvideo_enc.c	Sat Jan 17 21:37:28 2009
---- libavcodec/mpegvideo_enc.c	Sat Jan 17 21:37:50 2009
+*** libavcodec/mpegvideo_enc.c.old	Sat Jan 24 22:23:57 2009
+--- libavcodec/mpegvideo_enc.c	Sat Jan 24 22:23:56 2009
 ***************
-*** 371,382 ****
---- 371,384 ----
+*** 376,387 ****
+--- 376,389 ----
   
           av_log(avctx, AV_LOG_INFO, "Warning vbv_delay will be set to 0xFFFF (=VBR) as the specified vbv buffer is too large for the given bitrate!\n");
       }
@@ -18,30 +18,17 @@
       if(s->obmc && s->avctx->mb_decision != FF_MB_DECISION_SIMPLE){
           av_log(avctx, AV_LOG_ERROR, "OBMC is only supported with simple mb decision\n");
 ***************
-*** 408,419 ****
-          av_log(avctx, AV_LOG_ERROR, "interlacing not supported by codec\n");
+*** 414,423 ****
+--- 416,427 ----
           return -1;
       }
   
-      if(s->mpeg_quant && s->codec_id != CODEC_ID_MPEG4){ //FIXME mpeg2 uses that too
-          av_log(avctx, AV_LOG_ERROR, "mpeg2 style quantization not supported by codec\n");
-          return -1;
-      }
-! 
-      if((s->flags & CODEC_FLAG_CBP_RD) && !(s->flags & CODEC_FLAG_TRELLIS_QUANT)){
-          av_log(avctx, AV_LOG_ERROR, "CBP RD needs trellis quant\n");
-          return -1;
---- 410,422 ----
-          av_log(avctx, AV_LOG_ERROR, "interlacing not supported by codec\n");
-          return -1;
-      }
 + #if 0 //MEANX
-  
       if(s->mpeg_quant && s->codec_id != CODEC_ID_MPEG4){ //FIXME mpeg2 uses that too
           av_log(avctx, AV_LOG_ERROR, "mpeg2 style quantization not supported by codec\n");
           return -1;
       }
-! #endif
-      if((s->flags & CODEC_FLAG_CBP_RD) && !(s->flags & CODEC_FLAG_TRELLIS_QUANT)){
++ #endif
+  
+      if((s->flags & CODEC_FLAG_CBP_RD) && !avctx->trellis){
           av_log(avctx, AV_LOG_ERROR, "CBP RD needs trellis quant\n");
-          return -1;

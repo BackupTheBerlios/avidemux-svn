@@ -792,8 +792,4 @@ void adm_lavLogCallback(void  *instance, int level, const char* fmt, va_list lis
     printf("[lavc] %s\n",buf);
 }
 
-void ADM_lavDestroy(void)
-{
-	av_free_static();
-}
 // EOF

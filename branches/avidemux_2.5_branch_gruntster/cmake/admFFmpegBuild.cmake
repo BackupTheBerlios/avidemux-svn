@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 13000)
-set(SWSCALE_VERSION 26456)
+set(FFMPEG_VERSION 14000)
+set(SWSCALE_VERSION 27035)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
@@ -49,20 +49,22 @@ Subversion_WC_INFO(${FFMPEG_SOURCE_DIR} ffmpeg)
 message(STATUS "FFmpeg revision: ${ffmpeg_WC_REVISION}")
 
 if (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
-	MESSAGE(STATUS "Updating to revision ${FFMPEG_VERSION}")
-	set(FFMPEG_PERFORM_BUILD 1)
-	set(FFMPEG_PERFORM_PATCH 1)
-
 	find_package(Patch)
 
 	if (WIN32)
 		find_package(Unix2Dos)
 	endif (WIN32)
 
+	MESSAGE(STATUS "Updating to revision ${FFMPEG_VERSION}")
+	set(FFMPEG_PERFORM_BUILD 1)
+	set(FFMPEG_PERFORM_PATCH 1)
+
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}"
 					${ffmpegSvnOutput})
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} up -r ${FFMPEG_VERSION} --ignore-externals "${FFMPEG_SOURCE_DIR}"
 					${ffmpegSvnOutput})	
+
+	message("")
 endif (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
 
 message("")
@@ -71,15 +73,15 @@ Subversion_WC_INFO(${FFMPEG_SOURCE_DIR}/libswscale swscale)
 message(STATUS "libswscale revision: ${swscale_WC_REVISION}")
 
 if (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
-	message(STATUS "Updating to revision ${SWSCALE_VERSION}")
-	set(FFMPEG_PERFORM_BUILD 1)
-	set(FFMPEG_PERFORM_PATCH 1)
-
 	find_package(Patch)
 
 	if (WIN32)
 		find_package(Unix2Dos)
 	endif (WIN32)
+
+	message(STATUS "Updating to revision ${SWSCALE_VERSION}")
+	set(FFMPEG_PERFORM_BUILD 1)
+	set(FFMPEG_PERFORM_PATCH 1)
 
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}/libswscale"
 					${swscaleSvnOutput})

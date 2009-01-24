@@ -1,8 +1,8 @@
-*** libavcodec/avcodec.h.old	Sat Jan 24 21:36:29 2009
---- libavcodec/avcodec.h	Sat Jan 24 21:36:28 2009
+*** libavcodec/avcodec.h.old	Sat Jan 24 22:23:50 2009
+--- libavcodec/avcodec.h	Sat Jan 24 22:23:50 2009
 ***************
-*** 460,465 ****
---- 460,467 ----
+*** 465,470 ****
+--- 465,472 ----
   #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1228,1233 ****
---- 1230,1236 ----
+*** 1233,1238 ****
+--- 1235,1241 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1242,1247 ****
---- 1245,1252 ----
+*** 1247,1252 ****
+--- 1250,1257 ----
        * - decoding: unused
        */
       int rc_buffer_size;
@@ -33,7 +33,7 @@
   
       /**
 ***************
-*** 2316,2322 ****
+*** 2325,2331 ****
   
   #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
   /* YUV420 format is assumed ! */
@@ -41,7 +41,7 @@
   /**
    * @deprecated Use the software scaler (swscale) instead.
    */
---- 2321,2327 ----
+--- 2330,2336 ----
   
   #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
   /* YUV420 format is assumed ! */
@@ -50,7 +50,7 @@
    * @deprecated Use the software scaler (swscale) instead.
    */
 ***************
-*** 2348,2354 ****
+*** 2357,2363 ****
    * @deprecated Use the software scaler (swscale) instead.
    */
   attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
@@ -58,7 +58,7 @@
   #endif
   
   /**
---- 2353,2359 ----
+--- 2362,2368 ----
    * @deprecated Use the software scaler (swscale) instead.
    */
   attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);

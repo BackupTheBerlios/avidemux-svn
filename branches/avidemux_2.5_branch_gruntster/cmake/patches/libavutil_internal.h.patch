@@ -1,8 +1,8 @@
-*** libavutil/internal.h.old	Sat Jan 24 21:36:44 2009
---- libavutil/internal.h	Sat Jan 24 21:36:43 2009
+*** libavutil/internal.h.old	Sat Jan 24 22:24:05 2009
+--- libavutil/internal.h	Sat Jan 24 22:24:04 2009
 ***************
-*** 228,239 ****
---- 228,241 ----
+*** 227,238 ****
+--- 227,240 ----
   #endif
   
   /* avoid usage of various functions */

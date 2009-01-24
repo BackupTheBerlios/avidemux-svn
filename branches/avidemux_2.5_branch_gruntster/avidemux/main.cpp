@@ -37,10 +37,8 @@
 extern void xvid4_init(void);
 #endif
 
-
-
 extern void  ADM_lavInit();
-extern void  ADM_lavDestroy();
+
 extern "C" {
      extern uint8_t     ADM_InitMemcpy(void);
 };
@@ -303,7 +301,6 @@ void onexit( void )
     pthread_mutex_unlock(&g_pSpiderMonkeyMutex);
     destroyPrefs();
     filterCleanUp();
-	ADM_lavDestroy();
 
 #ifdef USE_SDL
 	quitSdl();

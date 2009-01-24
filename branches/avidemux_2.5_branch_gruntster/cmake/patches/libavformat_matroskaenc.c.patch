@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Sat Jan 24 21:36:41 2009
---- libavformat/matroskaenc.c	Sat Jan 24 21:36:40 2009
+*** libavformat/matroskaenc.c.old	Sat Jan 24 22:24:02 2009
+--- libavformat/matroskaenc.c	Sat Jan 24 22:24:01 2009
 ***************
 *** 392,397 ****
 --- 392,398 ----
@@ -42,8 +42,8 @@
   
   #define FLAC_STREAMINFO_SIZE 34
 ***************
-*** 541,546 ****
---- 564,586 ----
+*** 544,549 ****
+--- 567,589 ----
           put_ebml_uint (pb, MATROSKA_ID_TRACKNUMBER     , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
@@ -68,8 +68,8 @@
           if (st->language[0])
               put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, st->language);
 ***************
-*** 842,844 ****
---- 882,894 ----
+*** 845,847 ****
+--- 885,897 ----
       mkv_write_trailer,
       .codec_tag = (const AVCodecTag*[]){codec_wav_tags, 0},
   };
