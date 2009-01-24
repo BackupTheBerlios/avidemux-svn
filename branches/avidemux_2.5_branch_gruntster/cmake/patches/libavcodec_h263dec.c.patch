@@ -1,5 +1,5 @@
-*** libavcodec/h263dec.c	Sat Jan 17 19:12:00 2009
---- libavcodec/h263dec.c	Tue Jan 13 19:57:29 2009
+*** libavcodec/h263dec.c.old	Sat Jan 24 21:36:31 2009
+--- libavcodec/h263dec.c	Sat Jan 24 21:36:30 2009
 ***************
 *** 118,123 ****
 --- 118,140 ----
@@ -24,7 +24,7 @@
 +   }
 +   /* MeanX */
   
-  int ff_h263_decode_end(AVCodecContext *avctx)
+  av_cold int ff_h263_decode_end(AVCodecContext *avctx)
   {
 ***************
 *** 412,417 ****

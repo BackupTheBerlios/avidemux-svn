@@ -1,8 +1,8 @@
-*** libavcodec/utils.c	Sat Jan 17 19:17:40 2009
---- libavcodec/utils.c	Tue Jan 13 19:57:28 2009
+*** libavcodec/utils.c.old	Sat Jan 24 21:36:37 2009
+--- libavcodec/utils.c	Sat Jan 24 21:36:37 2009
 ***************
-*** 959,968 ****
---- 959,970 ----
+*** 963,972 ****
+--- 963,974 ----
   
       if((avctx->codec->capabilities & CODEC_CAP_DELAY) || buf_size){
           //FIXME remove the check below _after_ ensuring that all audio check that the available space is enough
@@ -16,7 +16,7 @@
           *frame_size_ptr < avctx->channels * avctx->frame_size * sizeof(int16_t)){
               av_log(avctx, AV_LOG_ERROR, "buffer %d too small\n", *frame_size_ptr);
 ***************
-*** 1387,1393 ****
+*** 1391,1397 ****
           return -1;
       }
   #if !defined(HAVE_MKSTEMP)
@@ -24,7 +24,7 @@
   #else
       snprintf(*filename, len, "/tmp/%sXXXXXX", prefix);
       fd = mkstemp(*filename);
---- 1389,1395 ----
+--- 1393,1399 ----
           return -1;
       }
   #if !defined(HAVE_MKSTEMP)

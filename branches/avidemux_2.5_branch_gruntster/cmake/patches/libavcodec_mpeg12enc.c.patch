@@ -1,5 +1,5 @@
-*** libavcodec/mpeg12enc.c	Sat Jan 17 21:33:37 2009
---- libavcodec/mpeg12enc.c	Sat Jan 17 21:35:16 2009
+*** libavcodec/mpeg12enc.c.old	Sat Jan 24 21:36:34 2009
+--- libavcodec/mpeg12enc.c	Sat Jan 24 21:36:33 2009
 ***************
 *** 127,136 ****
 --- 127,145 ----
@@ -21,7 +21,7 @@
 + 
   }
   
-  static int encode_init(AVCodecContext *avctx)
+  static av_cold int encode_init(AVCodecContext *avctx)
 ***************
 *** 208,213 ****
 --- 217,223 ----

@@ -1,5 +1,5 @@
-*** libavformat/isom.c	Sat Jan 17 19:28:21 2009
---- libavformat/isom.c	Tue Jan 13 19:57:35 2009
+*** libavformat/isom.c.old	Sat Jan 24 21:36:40 2009
+--- libavformat/isom.c	Sat Jan 24 21:36:39 2009
 ***************
 *** 40,46 ****
       { CODEC_ID_AAC       , 102 }, /* MPEG2 AAC Main */
@@ -24,8 +24,8 @@
   
 !     { CODEC_ID_MP3, MKTAG('.', 'm', 'p', '3') }, /* MPEG layer 3 */ /* sample files at http://www.3ivx.com/showcase.html use this tag */
       { CODEC_ID_MP3, 0x6D730055 }, /* MPEG layer 3 */
-      { CODEC_ID_MP3, MKTAG('m', 's', 0x00, 0x55) }, /* MPEG layer 3 *//* XXX: check endianness */
   
+  /*  { CODEC_ID_OGG_VORBIS, MKTAG('O', 'g', 'g', 'S') }, *//* sample files at http://heroinewarrior.com/xmovie.php3 use this tag */
 --- 149,158 ----
       { CODEC_ID_MACE3, MKTAG('M', 'A', 'C', '3') }, /* Macintosh Audio Compression and Expansion 3:1 */
       { CODEC_ID_MACE6, MKTAG('M', 'A', 'C', '6') }, /* Macintosh Audio Compression and Expansion 6:1 */
@@ -35,5 +35,5 @@
 !      { CODEC_ID_MP2, MKTAG( 'm', 'p', '4', 'a') },
 !     // /MEANX
       { CODEC_ID_MP3, 0x6D730055 }, /* MPEG layer 3 */
-      { CODEC_ID_MP3, MKTAG('m', 's', 0x00, 0x55) }, /* MPEG layer 3 *//* XXX: check endianness */
   
+  /*  { CODEC_ID_OGG_VORBIS, MKTAG('O', 'g', 'g', 'S') }, *//* sample files at http://heroinewarrior.com/xmovie.php3 use this tag */

@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 12476)
-set(SWSCALE_VERSION 26258)
+set(FFMPEG_VERSION 13000)
+set(SWSCALE_VERSION 26456)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
@@ -59,6 +59,8 @@ if (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
 		find_package(Unix2Dos)
 	endif (WIN32)
 
+	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}"
+					${ffmpegSvnOutput})
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} up -r ${FFMPEG_VERSION} --ignore-externals "${FFMPEG_SOURCE_DIR}"
 					${ffmpegSvnOutput})	
 endif (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
@@ -79,6 +81,8 @@ if (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
 		find_package(Unix2Dos)
 	endif (WIN32)
 
+	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}/libswscale"
+					${swscaleSvnOutput})
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} up -r ${SWSCALE_VERSION} "${FFMPEG_SOURCE_DIR}/libswscale"
 					${swscaleSvnOutput})
 endif (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
@@ -86,11 +90,6 @@ endif (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
 message("")
 
 if (FFMPEG_PERFORM_PATCH)
-	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}"
-					${ffmpegSvnOutput})
-	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} revert -R "${FFMPEG_SOURCE_DIR}/libswscale"
-					${swscaleSvnOutput})
-
 	file(GLOB patchFiles "${CMAKE_SOURCE_DIR}/cmake/patches/*.patch")
 
 	foreach(patchFile ${patchFiles})

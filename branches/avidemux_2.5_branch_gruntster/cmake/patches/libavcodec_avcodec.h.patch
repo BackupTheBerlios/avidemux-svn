@@ -1,18 +1,8 @@
-*** libavcodec/avcodec.h	Sat Jan 17 18:42:27 2009
---- libavcodec/avcodec.h	Sat Jan 17 17:54:54 2009
+*** libavcodec/avcodec.h.old	Sat Jan 24 21:36:29 2009
+--- libavcodec/avcodec.h	Sat Jan 24 21:36:28 2009
 ***************
-*** 177,182 ****
---- 177,183 ----
-      CODEC_ID_SUNRAST,
-      CODEC_ID_INDEO4,
-      CODEC_ID_INDEO5,
-+     CODEC_ID_DIRAC,
-  
-      /* various PCM "codecs" */
-      CODEC_ID_PCM_S16LE= 0x10000,
-***************
-*** 449,454 ****
---- 450,457 ----
+*** 460,465 ****
+--- 460,467 ----
   #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
@@ -22,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1215,1220 ****
---- 1218,1224 ----
+*** 1228,1233 ****
+--- 1230,1236 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -32,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1229,1234 ****
---- 1233,1240 ----
+*** 1242,1247 ****
+--- 1245,1252 ----
        * - decoding: unused
        */
       int rc_buffer_size;
@@ -43,7 +33,7 @@
   
       /**
 ***************
-*** 2293,2299 ****
+*** 2316,2322 ****
   
   #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
   /* YUV420 format is assumed ! */
@@ -51,7 +41,7 @@
   /**
    * @deprecated Use the software scaler (swscale) instead.
    */
---- 2299,2305 ----
+--- 2321,2327 ----
   
   #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
   /* YUV420 format is assumed ! */
@@ -60,7 +50,7 @@
    * @deprecated Use the software scaler (swscale) instead.
    */
 ***************
-*** 2325,2331 ****
+*** 2348,2354 ****
    * @deprecated Use the software scaler (swscale) instead.
    */
   attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
@@ -68,7 +58,7 @@
   #endif
   
   /**
---- 2331,2337 ----
+--- 2353,2359 ----
    * @deprecated Use the software scaler (swscale) instead.
    */
   attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
