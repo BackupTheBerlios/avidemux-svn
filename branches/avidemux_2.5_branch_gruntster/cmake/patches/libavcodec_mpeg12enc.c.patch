@@ -1,5 +1,5 @@
-*** libavcodec/mpeg12enc.c.old	Sat Jan 24 22:23:55 2009
---- libavcodec/mpeg12enc.c	Sat Jan 24 22:23:54 2009
+*** libavcodec/mpeg12enc.c.old	Sat Jan 24 22:57:41 2009
+--- libavcodec/mpeg12enc.c	Sat Jan 24 22:57:40 2009
 ***************
 *** 127,136 ****
 --- 127,145 ----
@@ -23,19 +23,12 @@
   
   static av_cold int encode_init(AVCodecContext *avctx)
 ***************
-*** 208,214 ****
+*** 209,214 ****
+--- 218,224 ----
+              put_sbits(&s->pb, 12, s->width );
+              put_sbits(&s->pb, 12, s->height);
   
-              put_bits(&s->pb, 12, s->width  & 0xFFF);
-              put_bits(&s->pb, 12, s->height & 0xFFF);
-! 
-              for(i=1; i<15; i++){
-                  float error= aspect_ratio;
-                  if(s->codec_id == CODEC_ID_MPEG1VIDEO || i <=1)
---- 217,223 ----
-  
-              put_bits(&s->pb, 12, s->width  & 0xFFF);
-              put_bits(&s->pb, 12, s->height & 0xFFF);
-! #if 0 //MEANX
++ #if 0 //MEANX
               for(i=1; i<15; i++){
                   float error= aspect_ratio;
                   if(s->codec_id == CODEC_ID_MPEG1VIDEO || i <=1)
@@ -61,7 +54,7 @@
               else
                   /* VBV calculation: Scaled so that a VCD has the proper VBV size of 40 kilobytes */
                   vbv_buffer_size = (( 20 * s->bit_rate) / (1151929 / 2)) * 8 * 1024;
---- 232,275 ----
+--- 233,276 ----
                       s->aspect_ratio_info= i;
                   }
               }
@@ -116,7 +109,7 @@
                   put_bits(&s->pb, 2, s->chroma_format);
                   put_bits(&s->pb, 2, s->width >>12);
                   put_bits(&s->pb, 2, s->height>>12);
---- 302,318 ----
+--- 303,319 ----
   
                   put_bits(&s->pb, 3, s->avctx->profile); //profile
                   put_bits(&s->pb, 4, s->avctx->level); //level
@@ -136,7 +129,7 @@
                   put_bits(&s->pb, 2, s->height>>12);
 ***************
 *** 334,339 ****
---- 376,383 ----
+--- 377,384 ----
   
   void mpeg1_encode_picture_header(MpegEncContext *s, int picture_number)
   {
@@ -147,7 +140,7 @@
       /* mpeg1 picture header */
 ***************
 *** 370,375 ****
---- 414,462 ----
+--- 415,463 ----
   
       s->frame_pred_frame_dct = 1;
       if(s->codec_id == CODEC_ID_MPEG2VIDEO){
@@ -199,7 +192,7 @@
           if (s->pict_type == FF_P_TYPE || s->pict_type == FF_B_TYPE) {
 ***************
 *** 388,398 ****
---- 475,490 ----
+--- 476,491 ----
   
           assert(s->picture_structure == PICT_FRAME);
           put_bits(&s->pb, 2, s->picture_structure);
@@ -225,7 +218,7 @@
           s->progressive_frame = s->progressive_sequence;
           put_bits(&s->pb, 1, s->chroma_format == CHROMA_420 ? s->progressive_frame : 0); /* chroma_420_type */
           put_bits(&s->pb, 1, s->progressive_frame);
---- 494,503 ----
+--- 495,504 ----
           put_bits(&s->pb, 1, s->q_scale_type);
           put_bits(&s->pb, 1, s->intra_vlc_format);
           put_bits(&s->pb, 1, s->alternate_scan);

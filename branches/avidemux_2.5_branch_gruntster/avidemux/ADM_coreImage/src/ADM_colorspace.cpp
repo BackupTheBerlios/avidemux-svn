@@ -30,7 +30,7 @@ extern "C" {
 
 #ifdef ADM_CPU_X86
 		#define ADD(x,y) if( CpuCaps::has##x()) flags|=SWS_CPU_CAPS_##y;
-#define FLAGS()		ADD(MMX,MMX);				ADD(3DNOW,3DNOW);		ADD(MMXEXT,MMX2);
+#define FLAGS()		ADD(MMX,MMX);				ADD(3DNOW,3DNOW);		ADD(MMXEXT,MMX2)	flags|=SWS_SPLINE;
 #else
 #ifdef ADM_CPU_ALTIVEC
 #define FLAGS() flags|=SWS_CPU_CAPS_ALTIVEC;

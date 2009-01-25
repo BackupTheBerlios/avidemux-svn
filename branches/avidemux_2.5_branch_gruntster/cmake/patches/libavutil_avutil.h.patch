@@ -1,10 +1,10 @@
-*** libavutil/avutil.h	Sat Jan 17 21:11:42 2009
---- libavutil/avutil.h	Sat Jan 17 21:42:06 2009
+*** libavutil/avutil.h.old	Sat Jan 24 22:57:50 2009
+--- libavutil/avutil.h	Sat Jan 24 22:57:49 2009
 ***************
-*** 48,53 ****
---- 48,60 ----
-  
-  #define LIBAVUTIL_IDENT         "Lavu" AV_STRINGIFY(LIBAVUTIL_VERSION)
+*** 26,31 ****
+--- 26,38 ----
+   * external API header
+   */
   
 + /* MEANX
 +  * - */
@@ -14,5 +14,5 @@
 + 
 + 
   
-  #include "common.h"
-  #include "mathematics.h"
+  #define AV_STRINGIFY(s)         AV_TOSTRING(s)
+  #define AV_TOSTRING(s) #s

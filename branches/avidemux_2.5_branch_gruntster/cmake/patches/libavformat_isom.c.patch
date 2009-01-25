@@ -1,5 +1,5 @@
-*** libavformat/isom.c.old	Sat Jan 24 22:24:01 2009
---- libavformat/isom.c	Sat Jan 24 22:24:00 2009
+*** libavformat/isom.c.old	Sat Jan 24 22:57:47 2009
+--- libavformat/isom.c	Sat Jan 24 22:57:46 2009
 ***************
 *** 40,46 ****
       { CODEC_ID_AAC       , 102 }, /* MPEG2 AAC Main */
@@ -18,7 +18,7 @@
       { CODEC_ID_MPEG1VIDEO, 106 }, /* 11172-2 */
       { CODEC_ID_MJPEG     , 108 }, /* 10918-1 */
 ***************
-*** 150,156 ****
+*** 176,182 ****
       { CODEC_ID_MACE3, MKTAG('M', 'A', 'C', '3') }, /* Macintosh Audio Compression and Expansion 3:1 */
       { CODEC_ID_MACE6, MKTAG('M', 'A', 'C', '6') }, /* Macintosh Audio Compression and Expansion 6:1 */
   
@@ -26,7 +26,7 @@
       { CODEC_ID_MP3, 0x6D730055 }, /* MPEG layer 3 */
   
   /*  { CODEC_ID_OGG_VORBIS, MKTAG('O', 'g', 'g', 'S') }, *//* sample files at http://heroinewarrior.com/xmovie.php3 use this tag */
---- 150,159 ----
+--- 176,185 ----
       { CODEC_ID_MACE3, MKTAG('M', 'A', 'C', '3') }, /* Macintosh Audio Compression and Expansion 3:1 */
       { CODEC_ID_MACE6, MKTAG('M', 'A', 'C', '6') }, /* Macintosh Audio Compression and Expansion 6:1 */
   

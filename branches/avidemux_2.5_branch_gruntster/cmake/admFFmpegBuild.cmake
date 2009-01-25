@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 14000)
-set(SWSCALE_VERSION 27035)
+set(FFMPEG_VERSION 15000)
+set(SWSCALE_VERSION 27349)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
