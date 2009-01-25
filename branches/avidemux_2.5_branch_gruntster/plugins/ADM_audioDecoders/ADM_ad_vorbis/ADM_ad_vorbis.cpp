@@ -152,12 +152,12 @@ DECLARE_AUDIO_DECODER(ADM_vorbis,						// Class
 	STRUCT->ampscale=1;
 	_init=1;
 
-	channelMapping[0] = CH_FRONT_LEFT;
-	channelMapping[1] = CH_FRONT_RIGHT;
-	channelMapping[2] = CH_REAR_LEFT;
-	channelMapping[3] = CH_REAR_RIGHT;
-	channelMapping[4] = CH_FRONT_CENTER;
-	channelMapping[5] = CH_LFE;
+	channelMapping[0] = CHTYP_FRONT_LEFT;
+	channelMapping[1] = CHTYP_FRONT_RIGHT;
+	channelMapping[2] = CHTYP_REAR_LEFT;
+	channelMapping[3] = CHTYP_REAR_RIGHT;
+	channelMapping[4] = CHTYP_FRONT_CENTER;
+	channelMapping[5] = CHTYP_LFE;
  }
  // This codec expects more or less one packet at a time !
  

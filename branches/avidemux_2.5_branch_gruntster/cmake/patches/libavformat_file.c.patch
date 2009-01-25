@@ -1,13 +1,15 @@
-*** libavformat/file.c.old	Sat Jan 24 22:23:59 2009
---- libavformat/file.c	Sat Jan 24 22:23:58 2009
+*** libavformat/file.c.old	Sun Jan 25 00:55:22 2009
+--- libavformat/file.c	Sun Jan 25 00:55:22 2009
 ***************
 *** 27,32 ****
---- 27,96 ----
+--- 27,98 ----
   #include <stdlib.h>
   #include "os_support.h"
   
 + // GRUNTSTER start
 + #ifdef __WIN32
++ #include <windows.h>
++ 
 + int utf8StringToWideChar(const char *utf8String, int utf8StringLength, wchar_t *wideCharString)
 + {
 + 	int wideCharStringLength = MultiByteToWideChar(CP_UTF8, 0, utf8String, utf8StringLength, NULL, 0);

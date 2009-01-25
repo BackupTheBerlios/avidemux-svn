@@ -68,18 +68,18 @@ AUDMEncoder_Faac::AUDMEncoder_Faac(AUDMAudioFilter * instream)  :AUDMEncoder    
   channels=instream->getInfo()->channels;
   switch(channels)
   {
-    case 1:outputChannelMapping[1] = CH_FRONT_LEFT;break;
+    case 1:outputChannelMapping[1] = CHTYP_FRONT_LEFT;break;
     case 2:
-    	outputChannelMapping[0] = CH_FRONT_LEFT;
-    	outputChannelMapping[1] = CH_FRONT_RIGHT;
+    	outputChannelMapping[0] = CHTYP_FRONT_LEFT;
+    	outputChannelMapping[1] = CHTYP_FRONT_RIGHT;
       break;
     default :
-    	outputChannelMapping[0] = CH_FRONT_CENTER;
-    	outputChannelMapping[1] = CH_FRONT_LEFT;
-    	outputChannelMapping[2] = CH_FRONT_RIGHT;
-    	outputChannelMapping[3] = CH_REAR_LEFT;
-    	outputChannelMapping[4] = CH_REAR_RIGHT;
-    	outputChannelMapping[5] = CH_LFE;
+    	outputChannelMapping[0] = CHTYP_FRONT_CENTER;
+    	outputChannelMapping[1] = CHTYP_FRONT_LEFT;
+    	outputChannelMapping[2] = CHTYP_FRONT_RIGHT;
+    	outputChannelMapping[3] = CHTYP_REAR_LEFT;
+    	outputChannelMapping[4] = CHTYP_REAR_RIGHT;
+    	outputChannelMapping[5] = CHTYP_LFE;
   }
 };
 

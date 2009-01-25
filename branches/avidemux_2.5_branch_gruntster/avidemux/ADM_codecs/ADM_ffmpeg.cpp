@@ -742,7 +742,6 @@ ffmpegEncoder::mplayer_init (void)
       //SETX(_HQ);
       SETX (_4MV);
       SETX (_QPEL);
-      SETX (_TRELLIS_QUANT);
       SETX (_NORMALIZE_AQP);
 
       if (_settings.widescreen)

@@ -562,7 +562,7 @@ decoderFFBmp::decoderFFBmp(uint32_t w, uint32_t h, uint32_t l, uint8_t *d) : dec
 
 decoderFFRaw::decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp) : decoderFF (w, h)
 {
-	_context->bits_per_sample = bpp;
+	_context->bits_per_coded_sample = bpp;
 	WRAP_Open (CODEC_ID_RAWVIDEO);
 }
 
@@ -576,7 +576,7 @@ decoderFF_ffhuff::decoderFF_ffhuff (uint32_t w, uint32_t h, uint32_t l, uint8_t 
 {
   _context->extradata = (uint8_t *) d;
   _context->extradata_size = (int) l;
-  _context->bits_per_sample=bpp;
+  _context->bits_per_coded_sample = bpp;
   printf ("[lavc] FFhuff: We have %d bytes of extra data\n", l);
   WRAP_Open (CODEC_ID_FFVHUFF);
 
@@ -618,7 +618,7 @@ decoderFFhuff::decoderFFhuff (uint32_t w, uint32_t h, uint32_t l, uint8_t * d,ui
 {
   _context->extradata = (uint8_t *) d;
   _context->extradata_size = (int) l;
-  _context->bits_per_sample = bpp;
+  _context->bits_per_coded_sample = bpp;
   WRAP_Open (CODEC_ID_HUFFYUV);
 }
 decoderFFWMV2::decoderFFWMV2 (uint32_t w, uint32_t h, uint32_t l, uint8_t * d):decoderFF (w,
@@ -684,7 +684,7 @@ decoderSnow::decoderSnow (uint32_t w, uint32_t h):decoderFF (w, h)
 //*************
 decoderCamtasia::decoderCamtasia (uint32_t w, uint32_t h,uint32_t bpp):decoderFF (w,  h)
 {
-  _context->bits_per_sample = bpp;
+  _context->bits_per_coded_sample = bpp;
   WRAP_Open (CODEC_ID_TSCC);
 }
 //*************

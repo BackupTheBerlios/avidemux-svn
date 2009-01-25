@@ -1,8 +1,8 @@
-*** libavcodec/avcodec.h.old	Sat Jan 24 22:57:36 2009
---- libavcodec/avcodec.h	Sat Jan 24 22:57:35 2009
+*** libavcodec/avcodec.h.old	Sun Jan 25 00:55:13 2009
+--- libavcodec/avcodec.h	Sun Jan 25 00:55:13 2009
 ***************
-*** 476,481 ****
---- 476,483 ----
+*** 497,502 ****
+--- 497,504 ----
   #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1260,1265 ****
---- 1262,1268 ----
+*** 1274,1279 ****
+--- 1276,1282 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1274,1279 ****
---- 1277,1284 ----
+*** 1288,1293 ****
+--- 1291,1298 ----
        * - decoding: unused
        */
       int rc_buffer_size;
@@ -32,37 +32,3 @@
       float rc_buffer_aggressivity;
   
       /**
-***************
-*** 2362,2368 ****
-  
-  #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
-  /* YUV420 format is assumed ! */
-! 
-  /**
-   * @deprecated Use the software scaler (swscale) instead.
-   */
---- 2367,2373 ----
-  
-  #if LIBAVCODEC_VERSION_INT < ((52<<16)+(0<<8)+0)
-  /* YUV420 format is assumed ! */
-! #if 0 // MEANX
-  /**
-   * @deprecated Use the software scaler (swscale) instead.
-   */
-***************
-*** 2394,2400 ****
-   * @deprecated Use the software scaler (swscale) instead.
-   */
-  attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
-! 
-  #endif
-  
-  /**
---- 2399,2405 ----
-   * @deprecated Use the software scaler (swscale) instead.
-   */
-  attribute_deprecated void img_resample_close(struct ImgReSampleContext *s);
-! #endif //MEANX
-  #endif
-  
-  /**

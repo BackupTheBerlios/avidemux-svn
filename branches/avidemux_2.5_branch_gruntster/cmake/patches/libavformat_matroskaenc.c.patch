@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Sat Jan 24 22:57:48 2009
---- libavformat/matroskaenc.c	Sat Jan 24 22:57:48 2009
+*** libavformat/matroskaenc.c.old	Sun Jan 25 00:55:25 2009
+--- libavformat/matroskaenc.c	Sun Jan 25 00:55:25 2009
 ***************
 *** 393,398 ****
 --- 393,399 ----
@@ -68,9 +68,9 @@
           if (st->language[0])
               put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, st->language);
 ***************
-*** 863,865 ****
---- 903,915 ----
-      mkv_write_trailer,
+*** 922,924 ****
+--- 962,974 ----
+      .flags = AVFMT_GLOBALHEADER,
       .codec_tag = (const AVCodecTag* const []){codec_wav_tags, 0},
   };
 + // MEANX

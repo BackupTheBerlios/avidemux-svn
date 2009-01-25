@@ -1,8 +1,8 @@
-*** libavformat/movenc.c.old	Sat Jan 24 22:57:49 2009
---- libavformat/movenc.c	Sat Jan 24 22:57:48 2009
+*** libavformat/movenc.c.old	Sun Jan 25 00:55:26 2009
+--- libavformat/movenc.c	Sun Jan 25 00:55:25 2009
 ***************
-*** 1786,1788 ****
---- 1786,1800 ----
+*** 1857,1859 ****
+--- 1857,1871 ----
       .codec_tag = (const AVCodecTag* const []){ff_mp4_obj_type, 0},
   };
   #endif

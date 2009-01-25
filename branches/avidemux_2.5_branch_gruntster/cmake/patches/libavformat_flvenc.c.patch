@@ -1,7 +1,7 @@
-*** libavformat/flvenc.c.old	Sat Jan 24 22:57:46 2009
---- libavformat/flvenc.c	Sat Jan 24 22:57:45 2009
+*** libavformat/flvenc.c.old	Sun Jan 25 00:55:23 2009
+--- libavformat/flvenc.c	Sun Jan 25 00:55:23 2009
 ***************
-*** 378,384 ****
+*** 382,388 ****
       "video/x-flv",
       "flv",
       sizeof(FLVContext),
@@ -9,7 +9,7 @@
       CODEC_ID_MP3,
   #else // CONFIG_LIBMP3LAME
       CODEC_ID_ADPCM_SWF,
---- 378,385 ----
+--- 382,389 ----
       "video/x-flv",
       "flv",
       sizeof(FLVContext),
@@ -19,8 +19,8 @@
   #else // CONFIG_LIBMP3LAME
       CODEC_ID_ADPCM_SWF,
 ***************
-*** 390,392 ****
---- 391,399 ----
+*** 394,396 ****
+--- 395,403 ----
       .codec_tag= (const AVCodecTag* const []){flv_video_codec_ids, flv_audio_codec_ids, 0},
       .flags= AVFMT_GLOBALHEADER,
   };
