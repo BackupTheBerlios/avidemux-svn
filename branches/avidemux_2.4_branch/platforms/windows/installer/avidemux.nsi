@@ -172,7 +172,7 @@ Section "Core files (required)" SecCore
     File ${BUILDDIR}\iconv.dll
     File ${BUILDDIR}\intl.dll
     File ${BUILDDIR}\libaften.dll
-    File ${BUILDDIR}\libexpat.dll
+    File ${BUILDDIR}\libexpat-*.dll
     File ${BUILDDIR}\libfaac.dll
     File ${BUILDDIR}\libfaad2.dll
     File ${BUILDDIR}\libfontconfig-1.dll
@@ -523,7 +523,7 @@ Section /o "un.Core files (required)" UnSecCore
     Delete /REBOOTOK $INSTDIR\libfontconfig-1.dll
     Delete /REBOOTOK $INSTDIR\libfaad2.dll
     Delete /REBOOTOK $INSTDIR\libfaac.dll
-    Delete /REBOOTOK $INSTDIR\libexpat.dll
+    Delete /REBOOTOK $INSTDIR\libexpat-*.dll
     Delete /REBOOTOK $INSTDIR\libaften.dll
     Delete /REBOOTOK $INSTDIR\intl.dll
     Delete /REBOOTOK $INSTDIR\iconv.dll
