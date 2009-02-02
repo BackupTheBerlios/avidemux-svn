@@ -83,7 +83,7 @@ propWindow::propWindow(QWidget *parent)     : QDialog(parent)
         har=video_body->getPARHeight();
         getAspectRatioFromAR(war,har, &s);
 		FILLTEXT5(LabelAspectRatio,QT_TR_NOOP("%s (%u:%u)"), s,war,har);
-#define SET_YES(a,b) ui.a->setText(yesno[b])
+#define SET_YES(a,b) ui.a->setText(QString::fromUtf8(yesno[b]))
 #define FILLQT_TR_NOOP(q) ui.q->setText(QString::fromUtf8(text));
         SET_YES(LabelPackedBitstream,vop);
         SET_YES(LabelQuarterPixel,qpel);

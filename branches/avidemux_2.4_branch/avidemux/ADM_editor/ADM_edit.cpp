@@ -425,19 +425,11 @@ thisIsMpeg:
       aviInfo info0, infox;
       _videos[   0     ]._aviheader->getVideoInfo (&info0);
       _videos[_nb_video]._aviheader->getVideoInfo (&infox);
-      if( info0.width != infox.width || info0.height != infox.height ){
-        char str[512+1];
-         str[0] = '\0';
-         if( info0.width != infox.width )
-            strcpy(str,"width");
-         if( info0.height != infox.height )
-            snprintf(str+strlen(str),512-strlen(str),
-              "%sheight%sdifferent between first and this video stream",
-                 (strlen(str)?" and ":""),
-                 (strlen(str)?" are ":" is ") );
-         str[512] = '\0';
-         GUI_Error_HIG(str,QT_TR_NOOP("You cannot mix different video dimensions yet. Using the partial video filter later, will not work around this problem. The workaround is:\n1.) \"resize\" / \"add border\" / \"crop\" each stream to the same resolution\n2.) concatinate them together"));
-         delete _videos[_nb_video]._aviheader;
+
+      if(info0.width != infox.width || info0.height != infox.height)
+	  {
+         GUI_Error_HIG(QT_TR_NOOP("Video dimensions don't match."), QT_TR_NOOP("You cannot mix different video dimensions yet. Using the partial video filter later will not work around this problem. The workaround is:\n\n1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same resolution\n2) Concatenate them together"));
+		 delete _videos[_nb_video]._aviheader;
          return 0;
       }
    }
