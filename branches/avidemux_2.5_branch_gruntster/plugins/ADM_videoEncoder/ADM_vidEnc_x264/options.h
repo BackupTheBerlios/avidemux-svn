@@ -207,8 +207,10 @@ public:
 	unsigned int getDirectPredictionMode(void);
 	void setDirectPredictionMode(unsigned int directPredictionMode);
 
+#if X264_BUILD < 66
 	int getDirectPredictionSize(void);
 	void setDirectPredictionSize(int directPredictionSize);
+#endif
 
 	int getChromaLumaQuantiserDifference(void);
 	void setChromaLumaQuantiserDifference(int chromaLumaQuantiserDifference);

@@ -573,7 +573,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] analyse.i_mv_range = %d\n", x264Param->analyse.i_mv_range);
 	printf("[x264] analyse.i_mv_range_thread = %d\n", x264Param->analyse.i_mv_range_thread);
 	printf("[x264] analyse.i_direct_mv_pred = %d\n", x264Param->analyse.i_direct_mv_pred);
+#if X264_BUILD < 66
 	printf("[x264] analyse.i_direct_8x8_inference = %d\n", x264Param->analyse.i_direct_8x8_inference);
+#endif
 	printf("[x264] analyse.b_weighted_bipred = %d\n", x264Param->analyse.b_weighted_bipred);
 	printf("[x264] analyse.b_transform_8x8 = %d\n", x264Param->analyse.b_transform_8x8);
 	printf("[x264] analyse.inter = %d\n", x264Param->analyse.inter);

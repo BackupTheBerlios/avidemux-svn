@@ -592,6 +592,7 @@ void x264Options::setDirectPredictionMode(unsigned int directPredictionMode)
 		_param.analyse.i_direct_mv_pred = directPredictionMode;
 }
 
+#if X264_BUILD < 66
 int x264Options::getDirectPredictionSize(void)
 {
 	return _param.analyse.i_direct_8x8_inference;
@@ -602,6 +603,7 @@ void x264Options::setDirectPredictionSize(int directPredictionSize)
 	if (directPredictionSize >= -1 && directPredictionSize <= 1)
 		_param.analyse.i_direct_8x8_inference = directPredictionSize;
 }
+#endif
 
 int x264Options::getChromaLumaQuantiserDifference(void)
 {
@@ -1308,6 +1310,7 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionMode", xmlBuffer);
 
+#if X264_BUILD < 66
 	switch (getDirectPredictionSize())
 	{
 		case 0:
@@ -1320,6 +1323,7 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 			strcpy((char*)xmlBuffer, "smallest");
 			break;
 	}
+#endif
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionSize", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaLumaQuantiserDifference", number2String(xmlBuffer, bufferSize, getChromaLumaQuantiserDifference()));

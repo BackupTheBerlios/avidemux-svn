@@ -90,6 +90,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.meSpinBox->setMaximum(9);
 #endif
 
+#if X264_BUILD >= 66
+	ui.label_41->setVisible(false);
+	ui.predictSizeComboBox->setVisible(false);
+#endif
+
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
@@ -635,10 +640,12 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	ui.predictModeComboBox->setCurrentIndex(options->getDirectPredictionMode());
 
+#if X264_BUILD < 66
 	if (options->getDirectPredictionSize() == -1)
 		ui.predictSizeComboBox->setCurrentIndex(0);
 	else
 		ui.predictSizeComboBox->setCurrentIndex(options->getDirectPredictionSize());
+#endif
 
 	// Prediction tab
 	ui.weightedPredictCheckBox->setChecked(options->getWeightedPrediction());
@@ -843,10 +850,12 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	options->setDirectPredictionMode(ui.predictModeComboBox->currentIndex());
 
+#if X264_BUILD < 66
 	if (ui.predictSizeComboBox->currentIndex() == 0)
 		options->setDirectPredictionSize(-1);
 	else
 		options->setDirectPredictionSize(ui.predictSizeComboBox->currentIndex());
+#endif
 
 	options->setWeightedPrediction(ui.weightedPredictCheckBox->isChecked());
 	options->setDct8x8(ui.dct8x8CheckBox->isChecked());
