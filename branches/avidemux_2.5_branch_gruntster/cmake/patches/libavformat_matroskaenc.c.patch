@@ -1,8 +1,8 @@
-*** libavformat/matroskaenc.c.old	Sun Jan 25 00:55:25 2009
---- libavformat/matroskaenc.c	Sun Jan 25 00:55:25 2009
+*** libavformat/matroskaenc.c.old	Mon Feb  2 19:50:00 2009
+--- libavformat/matroskaenc.c	Mon Feb  2 19:49:59 2009
 ***************
-*** 393,398 ****
---- 393,399 ----
+*** 394,399 ****
+--- 394,400 ----
   
   static int put_xiph_codecpriv(AVFormatContext *s, ByteIOContext *pb, AVCodecContext *codec)
   {
@@ -11,8 +11,8 @@
       int header_len[3];
       int first_header_size;
 ***************
-*** 417,422 ****
---- 418,445 ----
+*** 418,423 ****
+--- 419,446 ----
           put_buffer(pb, header_start[j], header_len[j]);
   
       return 0;
@@ -42,8 +42,8 @@
   
   #define FLAC_STREAMINFO_SIZE 34
 ***************
-*** 553,558 ****
---- 576,598 ----
+*** 554,559 ****
+--- 577,599 ----
           put_ebml_uint (pb, MATROSKA_ID_TRACKNUMBER     , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
@@ -68,8 +68,8 @@
           if (st->language[0])
               put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, st->language);
 ***************
-*** 922,924 ****
---- 962,974 ----
+*** 926,928 ****
+--- 966,978 ----
       .flags = AVFMT_GLOBALHEADER,
       .codec_tag = (const AVCodecTag* const []){codec_wav_tags, 0},
   };

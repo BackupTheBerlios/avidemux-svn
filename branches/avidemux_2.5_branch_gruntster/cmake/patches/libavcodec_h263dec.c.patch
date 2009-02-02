@@ -1,5 +1,5 @@
-*** libavcodec/h263dec.c.old	Sat Jan 24 21:36:31 2009
---- libavcodec/h263dec.c	Sat Jan 24 21:36:30 2009
+*** libavcodec/h263dec.c.old	Mon Feb  2 19:49:50 2009
+--- libavcodec/h263dec.c	Mon Feb  2 19:49:49 2009
 ***************
 *** 118,123 ****
 --- 118,140 ----
@@ -27,8 +27,8 @@
   av_cold int ff_h263_decode_end(AVCodecContext *avctx)
   {
 ***************
-*** 412,417 ****
---- 429,440 ----
+*** 409,414 ****
+--- 426,437 ----
       } else {
           ret = h263_decode_picture_header(s);
       }
@@ -42,8 +42,8 @@
       if(ret==FRAME_SKIPPED) return get_consumed_bytes(s, buf_size);
   
 ***************
-*** 690,695 ****
---- 713,726 ----
+*** 687,692 ****
+--- 710,723 ----
   
   assert(s->current_picture.pict_type == s->current_picture_ptr->pict_type);
   assert(s->current_picture.pict_type == s->pict_type);

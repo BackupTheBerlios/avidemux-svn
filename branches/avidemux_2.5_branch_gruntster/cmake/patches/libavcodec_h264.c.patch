@@ -1,8 +1,8 @@
-*** libavcodec/h264.c.old	Sun Jan 25 00:55:16 2009
---- libavcodec/h264.c	Sun Jan 25 00:55:16 2009
+*** libavcodec/h264.c.old	Mon Feb  2 19:49:51 2009
+--- libavcodec/h264.c	Mon Feb  2 19:49:50 2009
 ***************
-*** 7948,7953 ****
---- 7948,7964 ----
+*** 8010,8015 ****
+--- 8010,8026 ----
       return 0;
   }
   

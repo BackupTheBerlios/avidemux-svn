@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 16000)
-set(SWSCALE_VERSION 28058)
+set(FFMPEG_VERSION 16945)
+set(SWSCALE_VERSION 28447)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
@@ -12,7 +12,7 @@ set(FFMPEG_ENCODERS  ac3  dvbsub  dvvideo  ffv1  ffvhuff  flv  flv1  h263  h263p
 set(FFMPEG_MUXERS  flv  ipod  matroska  mov  mp4  psp  tg2  tgp)
 set(FFMPEG_PARSERS  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
-set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-protocols --disable-network --disable-indevs --disable-outdevs --disable-bsfs
+set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-protocols --disable-indevs --disable-outdevs --disable-bsfs
 				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-swscale --enable-gpl 
 				  --prefix=${CMAKE_INSTALL_PREFIX})
 

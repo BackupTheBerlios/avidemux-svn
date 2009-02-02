@@ -182,19 +182,20 @@ uint8_t *org=NULL;
             printf("Found %d rects to process\n",sub.num_rects);
             for(int i=0;i<sub.num_rects;i++)
             {
-              AVSubtitleRect *r=&(sub.rects[i]);
+              AVSubtitleRect *r= sub.rects[i];
               // First convert RGB to Y+ALPHA
               for(int col=0;col<r->nb_colors;col++)
               {
                     // Color is RGB, convert to YUV
                     uint32_t y,u,v,a;
-                    uint32_t rgb=r->rgba_palette[col];
+                    uint32_t rgb = ((uint32_t*)r->pict.data[1])[col];
                 
                           y=rgba2y(rgb);
                           u=rgba2u(rgb)&0xff;
                           v=rgba2v(rgb)&0xff;
                           a=_a(rgb);
-                          r->rgba_palette[col]=y+(u<<8)+(v<<16)+(a<<24);
+
+						  ((uint32_t*)r->pict.data[1])[col] = y + (u << 8) + (v << 16) + (a << 24);
                           printf("Color %d, alpha %u luma %u rgb:%x\n",col,a,y,rgb);
               }
               // Palette is ready, display !
@@ -224,7 +225,7 @@ uint8_t *org=NULL;
                       uint8_t *ptrU=imageU.data;
                       uint8_t *ptrV=imageV.data;
                       uint8_t *ptrAlpha=alphaImage.data;
-                      uint8_t *in=r->bitmap;
+                      uint8_t *in=r->pict.data[0];
                       for(int yy=0;yy<r->h;yy++)
                       {
                           for(int xx=0;xx<r->w;xx++)
@@ -232,7 +233,7 @@ uint8_t *org=NULL;
                             uint32_t alpha,valout;
                             uint32_t val=*in++;
                             
-                                  val=r->rgba_palette[val];
+								  val = ((uint32_t*)r->pict.data[1])[val];
                                   
                                   *ptrAlpha++=(val>>24)&0xff;
                                   *ptr++=(val&0xff);;
@@ -314,8 +315,8 @@ uint8_t *org=NULL;
               }
                // Delete palette & data
 _skip:
-               av_free(r->rgba_palette);
-               av_free(r->bitmap);
+			  av_freep(r->pict.data[0]);
+			  av_freep(r->pict.data[1]);
             } // Next rec..
             memset(&sub,0,sizeof(sub));
         
@@ -347,19 +348,19 @@ uint8_t *org=NULL;
             printf("Found %d rects to process\n",sub.num_rects);
             for(int i=0;i<sub.num_rects;i++)
             {
-              AVSubtitleRect *r=&(sub.rects[i]);
+              AVSubtitleRect *r = sub.rects[i];
               // First convert RGB to Y+ALPHA
               for(int col=0;col<r->nb_colors;col++)
               {
                     // Color is RGB, convert to YUV
                     uint32_t y,u,v,a;
-                    uint32_t rgb=r->rgba_palette[col];
+					uint32_t rgb = ((uint32_t*)r->pict.data[1])[col];
                 
                           y=rgba2y(rgb);
                           u=rgba2u(rgb)&0xff;
                           v=rgba2v(rgb)&0xff;
                           a=_a(rgb);
-                          r->rgba_palette[col]=y+(u<<8)+(v<<16)+(a<<24);
+                          ((uint32_t*)r->pict.data[1])[col] = y + (u << 8) + (v << 16) + (a << 24);
 #if 0
                           printf("Color %d, alpha %u luma %u rgb:%x\n",col,a,y,rgb);
 #endif
@@ -387,7 +388,7 @@ uint8_t *org=NULL;
                       
                       uint8_t *ptr=image.data;
                       uint8_t *ptrAlpha=alphaImage.data;
-                      uint8_t *in=r->bitmap;
+                      uint8_t *in=r->pict.data[0];
                       for(int yy=0;yy<r->h;yy++)
                       {
                           for(int xx=0;xx<r->w;xx++)
@@ -395,7 +396,7 @@ uint8_t *org=NULL;
                             uint32_t alpha,valout;
                             uint32_t val=*in++;
                             
-                                  val=r->rgba_palette[val];
+								  val = ((uint32_t*)r->pict.data[1])[val];
                                   
                                   *ptrAlpha++=(val>>24)&0xff;
                                   *ptr++=(val&0xff);;
@@ -431,8 +432,8 @@ uint8_t *org=NULL;
                    // We dont need chroma here...
                // Delete palette & data
 _skipX:
-               av_free(r->rgba_palette);
-               av_free(r->bitmap);
+				  av_freep(r->pict.data[0]);
+				  av_freep(r->pict.data[1]);
             } // Next rec..
             memset(&sub,0,sizeof(sub));
         

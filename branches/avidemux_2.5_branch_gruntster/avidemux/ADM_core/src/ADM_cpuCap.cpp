@@ -37,10 +37,6 @@ extern "C"{
 #ifdef ADM_CPU_X86
 extern "C" 
 {
-#define AV_WN16
-#define AV_WN32
-#define AV_RN16
-#define AV_RN32
 #include "libavcodec/dsputil.h"
 }
 #endif
