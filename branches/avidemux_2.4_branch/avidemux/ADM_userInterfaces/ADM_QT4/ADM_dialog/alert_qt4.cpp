@@ -62,6 +62,7 @@ void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *sec
 		va_start(ap, secondary_format);
 
 		alertString.vsprintf(secondary_format, ap);
+		alertString = QString::fromUtf8(alertString.toAscii().constData());
 		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + alertString;
 		alertString.replace("\n", "<br>");
 
@@ -95,6 +96,7 @@ void GUI_Error_HIG(const char *primary, const char *secondary_format, ...)
 		va_start(ap, secondary_format);
 
 		alertString.vsprintf(secondary_format, ap);
+		alertString = QString::fromUtf8(alertString.toAscii().constData());
 		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + alertString;
 		alertString.replace("\n", "<br>");
 
@@ -125,6 +127,7 @@ int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const 
 		va_start(ap, secondary_format);
 
 		alertString.vsprintf(secondary_format, ap);
+		alertString = QString::fromUtf8(alertString.toAscii().constData());
 		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + alertString;
 		alertString.replace("\n", "<br>");
 
@@ -161,6 +164,7 @@ int GUI_YesNo(const char *primary, const char *secondary_format, ...)
 		va_start(ap, secondary_format);
 
 		alertString.vsprintf(secondary_format, ap);
+		alertString = QString::fromUtf8(alertString.toAscii().constData());
 		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + alertString;
 		alertString.replace("\n", "<br>");
 
