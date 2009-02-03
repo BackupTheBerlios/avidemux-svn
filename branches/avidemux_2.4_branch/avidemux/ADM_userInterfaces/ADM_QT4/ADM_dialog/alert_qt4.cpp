@@ -1,23 +1,14 @@
 #include "config.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <ctype.h>
-#include <math.h>
-#include "default.h"
-#include "prefs.h"
-#include "default.h"
 
-#include <QDialog>
+#ifdef HAVE_GETTEXT
+#  include <libintl.h>
+#endif
+
 #include <QMessageBox>
 
+#include "default.h"
+#include "prefs.h"
 #include "ADM_toolkit/toolkit.hxx"
-#include "ADM_assert.h" 
 #include "../ADM_toolkit/qtToolkit.h"
 
 static int beQuiet=0;
