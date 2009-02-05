@@ -43,114 +43,117 @@ void            GUI_Info(const char *alertstring)
 }
 
 //****************************************************************************************************
-void            GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *secondary_format)
+void GUI_Info_HIG(const ADM_LOG_LEVEL level,const char *primary, const char *secondary_format)
 {
-  uint32_t msglvl=2;
-  char *string;
-  char alertstring[1024];
+	uint32_t msglvl = 2;
+	QString alertString;
 
-        prefs->get(MESSAGE_LEVEL,&msglvl);
+	prefs->get(MESSAGE_LEVEL, &msglvl);
 
-        if(msglvl<level)
-        {
-                printf("Info : %s \n",primary);
-                return;
-        }
+	if (msglvl<level)
+	{
+		printf("Info: %s\n",primary);
+		return;
+	}
 
-        if(! secondary_format)
-        {
-            snprintf(alertstring,1024,"<big><b>%s</b></big>",primary);
-         }else
-         {
-        	 snprintf(alertstring,1024,"<big><b>%s</b></big><br><br>%s",primary,secondary_format);
-         }
-        QMessageBox::StandardButton reply;
-          reply = QMessageBox::information(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Info")),
-                                    QString::fromUtf8(alertstring),
-                                    QMessageBox::Ok );
+	if (!secondary_format)
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big>";
+	else
+	{
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + QString::fromUtf8(secondary_format);
+		alertString.replace("\n", "<br>");
+	}
 
+	QMessageBox::StandardButton reply;
+
+	reply = QMessageBox::information(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Info")),
+		alertString, QMessageBox::Ok);
 }
 //****************************************************************************************************
-void            GUI_Error_HIG(const char *primary, const char *secondary_format)
+void GUI_Error_HIG(const char *primary, const char *secondary_format)
 {
-  uint32_t msglvl=2;
-  char *string;
-  char alertstring[1024];
-  
-  
-        prefs->get(MESSAGE_LEVEL,&msglvl);
+	uint32_t msglvl = 2;
+	QString alertString;
 
-        if(msglvl==ADM_LOG_NONE) 
-        {
-                printf("Error :%s\n",primary);
-                return;
-        }
+	prefs->get(MESSAGE_LEVEL, &msglvl);
 
-        if(! secondary_format)
-        {
-            snprintf(alertstring,1024,"<big><b>%s</b></big>",primary);
-         }else
-         {
-        	 snprintf(alertstring,1024,"<big><b>%s</b></big><br><br>%s",primary,secondary_format);
-         }
-          QMessageBox::StandardButton reply;
-          reply = QMessageBox::critical(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Info")),
-                                    QString::fromUtf8(alertstring),
-                                    QMessageBox::Ok );
+	if (msglvl == ADM_LOG_NONE)
+	{
+		printf("Error: %s\n", primary);
+		return;
+	}
+
+	if (!secondary_format)
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big>";
+	else
+	{
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + QString::fromUtf8(secondary_format);
+		alertString.replace("\n", "<br>");
+	}
+
+	QMessageBox::StandardButton reply;
+
+	reply = QMessageBox::critical(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Info")),
+		alertString, QMessageBox::Ok);
 }
 //****************************************************************************************************
-int             GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const char *secondary_format)
+int GUI_Confirmation_HIG(const char *button_confirm, const char *primary, const char *secondary_format)
 {
-uint32_t msglvl=2;
-char alertstring[1024];
+	QString alertString;
 
-        if (beQuiet)
-              {
-                      printf("Info: %s\n", primary);
-                      return 0;
-              }
-        
-        if (!secondary_format)
-        {
-              snprintf(alertstring,1024,"<big><b>%s</b></big>",primary);
-        }
-        else
-        {	
-        	snprintf(alertstring,1024,"<big><b>%s</b></big><br><br>%s",primary,secondary_format);
-        }
-          QMessageBox::StandardButton reply;
-          reply = QMessageBox::question(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Confirmation")),
-                                    QString::fromUtf8(alertstring),
-                                    QMessageBox::Yes | QMessageBox::No );
-          if(reply==QMessageBox::Yes) return 1;
-        return 0; 
+	if (beQuiet)
+	{
+		printf("Info: %s\n", primary);
+		return 0;
+	}
+
+	if (!secondary_format)
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big>";
+	else
+	{
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + QString::fromUtf8(secondary_format);
+		alertString.replace("\n", "<br>");
+	}
+
+	QMessageBox::StandardButton reply;
+
+	reply = QMessageBox::question(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Confirmation")),
+		alertString, QMessageBox::Yes | QMessageBox::No);
+
+	if (reply == QMessageBox::Yes)
+		return 1;
+
+	return 0;
 }
 //****************************************************************************************************
-int             GUI_YesNo(const char *primary, const char *secondary_format)
+int GUI_YesNo(const char *primary, const char *secondary_format)
 {
-uint32_t msglvl=2;
-char alertstring[1024];
-char alertstring2[1024];
-        if (beQuiet)
-              {
-                      printf("Info: %s\n", primary);
-                      return 0;
-              }
-        
-        if (!secondary_format)
-        {
-              snprintf(alertstring,1024,"<big><b>%s</b></big>",primary);
-        }
-        else
-        {	
-        	snprintf(alertstring,1024,"<big><b>%s</b></big><br><br>%s",primary,secondary_format);
-        }
-          QMessageBox::StandardButton reply;
-          reply = QMessageBox::question(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Confirmation")),
-                                    QString::fromUtf8(alertstring),
-                                    QMessageBox::Yes | QMessageBox::No );
-          if(reply==QMessageBox::Yes) return 1;
-        return 0; 
+	uint32_t msglvl = 2;
+	QString alertString;
+
+	if (beQuiet)
+	{
+		printf("Info: %s\n", primary);
+		return 0;
+	}
+
+	if (!secondary_format)
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big>";
+	else
+	{
+		alertString = "<big><b>" + QString::fromUtf8(primary) + "</b></big><br><br>" + QString::fromUtf8(secondary_format);
+		alertString.replace("\n", "<br>");
+	}
+
+	QMessageBox::StandardButton reply;
+
+	reply = QMessageBox::question(qtLastRegisteredDialog(), QString::fromUtf8(QT_TR_NOOP("Confirmation")),
+		alertString, QMessageBox::Yes | QMessageBox::No);
+
+	if (reply == QMessageBox::Yes)
+		return 1;
+
+	return 0; 
 }
 //****************************************************************************************************
 int             GUI_Question(const char *alertstring)

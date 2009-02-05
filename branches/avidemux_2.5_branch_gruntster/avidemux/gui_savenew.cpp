@@ -40,6 +40,7 @@
 #include "ADM_outputs/oplug_avi/op_saveprocess.h"
 #include "ADM_outputs/oplug_avi/op_savesmart.hxx"
 
+#include "DIA_enter.h"
 
 #include "DIA_fileSel.h"
 #include "ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
@@ -335,11 +336,11 @@ uint8_t  A_SaveAudioNVideo(const char *name)
                   }
                   else
                   {
-                    if(GUI_Question(QT_TR_NOOP("You may need smart copy.\n Enable it ?")))
+                    if (GUI_Question(QT_TR_NOOP("You may need smart copy.\nEnable it?")))
                     {
                         value=4;
-                        if( ! DIA_GetIntegerValue(&value, 2, 31, "_Q factor (set 4):",""))
-                                      return 0;
+                        if (!DIA_GetIntegerValue(&value, 2, 31, QT_TR_NOOP("Smart Copy"), QT_TR_NOOP("_Q factor (set 4):")))
+							return 0;
                         nw=new   GenericAviSaveSmart(value);
                     }
                 }

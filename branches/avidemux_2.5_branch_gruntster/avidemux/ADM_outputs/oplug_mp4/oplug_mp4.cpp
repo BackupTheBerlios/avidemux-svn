@@ -371,10 +371,7 @@ bool receivedFrame = false;
 					  }
 				  }
 				  else
-				  {
-					  r = 0;
 					  break;
-				  }
 			  }
 
 			  muxer->writeVideoPacket(&bitstream);

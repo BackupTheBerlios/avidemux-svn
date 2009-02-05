@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: avidemux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 22:09+0300\n"
-"PO-Revision-Date: 2008-10-18 09:53+0100\n"
+"PO-Revision-Date: 2009-02-03 14:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: it\n"
 "MIME-Version: 1.0\n"
@@ -170,8 +170,8 @@ msgstr "dummy"
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:236
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:257
 #: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:165
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:257
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:278
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:239
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:251
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:221
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:225
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:379
@@ -407,33 +407,39 @@ msgstr "Potrebbe essere correlato a un vecchio file di indice."
 msgid "Attempt to open %s failed!"
 msgstr "Tentativo di aprire %s fallito!"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:439
-msgid ""
-"You cannot mix different video dimensions yet. Using the partial video filter later, will not work around this problem. The workaround is:\n"
-"1.) \"resize\" / \"add border\" / \"crop\" each stream to the same resolution\n"
-"2.) concatinate them together"
-msgstr ""
-"Non puoi ancora mescolare dimensioni video differenti. Usare il filtro video parziale, non risolverà il problema. La soluzione è:\n"
-"1.) \"ridimensiona\" / \"aggiungi bordi\" / \"ritaglia\" ogni flusso alla stessa risoluzione\n"
-"2.) concatenali insieme"
+#: avidemux/ADM_editor/ADM_edit.cpp:431
+msgid "Video dimensions don't match."
+msgstr "Le dimensioni video non corrispondono."
 
-#: avidemux/ADM_editor/ADM_edit.cpp:551
+#: avidemux/ADM_editor/ADM_edit.cpp:431
+msgid ""
+"You cannot mix different video dimensions yet. Using the partial video filter later will not work around this problem. The workaround is:\n"
+"\n"
+"1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same resolution\n"
+"2) Concatenate them together"
+msgstr ""
+"Non è possibile unire video di dimensioni diverse. L'utilizzo del filtro video parziale non risolve il problema. La soluzione è la seguente:\n"
+"\n"
+"1) ridimensiona, aggiungi bordi o ritaglia tutti i flussi alla stessa risoluzione\n"
+"2) concatenali insieme"
+
+#: avidemux/ADM_editor/ADM_edit.cpp:543
 msgid "Build Time Map"
 msgstr "Crea time map"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:551
+#: avidemux/ADM_editor/ADM_edit.cpp:543
 msgid "Build VBR time map?"
 msgstr "Creare la time map VBR?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:585
+#: avidemux/ADM_editor/ADM_edit.cpp:577
 msgid "Use safe mode"
 msgstr "Usa modalità sicura"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:585
+#: avidemux/ADM_editor/ADM_edit.cpp:577
 msgid "H.264 detected"
 msgstr "H.264 rilevato"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:585
+#: avidemux/ADM_editor/ADM_edit.cpp:577
 msgid ""
 "If the file is using B-frames as reference it can lead to a crash or stuttering.\n"
 "Avidemux can use another mode which is safe but YOU WILL LOSE FRAME ACCURACY.\n"
@@ -443,47 +449,47 @@ msgstr ""
 "Avidemux può utilizzare un'altra modalità più sicura, ma PERDERAI PRECISIONE NEI FOTOGRAMMI.\n"
 "Vuoi usare questa modalità?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:715
+#: avidemux/ADM_editor/ADM_edit.cpp:707
 msgid "Packed Bitstream detected"
 msgstr "Flusso di bit compresso rilevato"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:716
+#: avidemux/ADM_editor/ADM_edit.cpp:708
 msgid "Do you want me to unpack it ?"
 msgstr "Vuoi decomprimerlo?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:736
+#: avidemux/ADM_editor/ADM_edit.cpp:728
 msgid "Could not unpack the video"
 msgstr "Impossibile decomprimere il video"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:736
+#: avidemux/ADM_editor/ADM_edit.cpp:728
 msgid "Using backup decoder - not frame accurate."
 msgstr "Utilizzo decodificatore backup - non preciso sui fotogrammi."
 
-#: avidemux/ADM_editor/ADM_edit.cpp:741
+#: avidemux/ADM_editor/ADM_edit.cpp:733
 msgid "Weird"
 msgstr "Strano"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:741
+#: avidemux/ADM_editor/ADM_edit.cpp:733
 msgid "The unpacking succeedeed but the index is still not up to date."
 msgstr "La decompressione è riuscita ma l'indice non è ancora aggiornato."
 
-#: avidemux/ADM_editor/ADM_edit.cpp:747
+#: avidemux/ADM_editor/ADM_edit.cpp:739
 msgid "Troubles ahead"
 msgstr "Problemi avanti"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:747
+#: avidemux/ADM_editor/ADM_edit.cpp:739
 msgid "This a VOP packed AVI."
 msgstr "Questo è un AVI compresso con VOP."
 
-#: avidemux/ADM_editor/ADM_edit.cpp:758
+#: avidemux/ADM_editor/ADM_edit.cpp:750
 msgid "Index is not up to date"
 msgstr "L'indice non è aggiornato"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:758
+#: avidemux/ADM_editor/ADM_edit.cpp:750
 msgid "You should use Tool->Rebuild frame. Do it now ?"
 msgstr "Dovresti usare Strumenti -> Ricostruisci fotogrammi. Vuoi farlo ora?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:1520
+#: avidemux/ADM_editor/ADM_edit.cpp:1512
 msgid ""
 "This looks like mpeg\n"
 " Do you want to index it?"
@@ -491,7 +497,7 @@ msgstr ""
 "Questo sembra un file mpeg\n"
 " Vuoi indicizzarlo?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:1572
+#: avidemux/ADM_editor/ADM_edit.cpp:1564
 msgid "Indexing failed"
 msgstr "Indicizzazione fallita"
 
@@ -1129,6 +1135,7 @@ msgid "Add a png as logo."
 msgstr "Aggiunge un'immagine png come logo."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:182
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:53
 msgid "Animated Menu"
 msgstr "Menu animato"
 
@@ -1468,7 +1475,7 @@ msgid ""
 msgstr ""
 "È avvenuto un errore fatale.\n"
 "\n"
-"Clicca OK per visualizzare le informazioni di debug. Potrebbe richiedere alcuni minuti."
+"Clicca OK per produrre le informazioni di debug. Potrebbe richiedere alcuni minuti."
 
 #: avidemux/ADM_osSupport/ADM_crashdump.cpp:437
 msgid "Load it"
@@ -1617,7 +1624,7 @@ msgstr "Errore di inizializzazione filtri video"
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:188
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:240
 #: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:163
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:261
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:243
 #: avidemux/ADM_outputs/oplug_ogm/op_ogaudio.cpp:70
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:80
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:89
@@ -1735,7 +1742,7 @@ msgid "Filter init failed"
 msgstr "Inizializzazione filtro fallita"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:128
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:418
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:420
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:103
 msgid ""
 "\n"
@@ -1745,7 +1752,7 @@ msgstr ""
 " Riutilizzare il file log esistente?"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:137
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:426
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:428
 msgid "1st Pass"
 msgstr "1a passata"
 
@@ -1760,14 +1767,15 @@ msgstr "Annullamento in corso"
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:373
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:167
 msgid "Encoding"
-msgstr "Codifica in corso"
+msgstr "Codifica"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:269
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:501
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:503
 msgid "2nd Pass"
 msgstr "2a passata"
 
 #: avidemux/ADM_outputs/oplug_avi/op_savesmart.cpp:107
+#: avidemux/gui_savenew.cpp:351
 msgid "Smart Copy"
 msgstr "Copia intelligente"
 
@@ -1783,23 +1791,23 @@ msgstr "Dummy"
 
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:206
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:321
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:346
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:462
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:300
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:464
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:352
 msgid "Error while encoding"
 msgstr "Errore durante la codifica"
 
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:213
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:328
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:353
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:469
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:307
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:471
 msgid "KeyFrame error"
 msgstr "Errore fotogramma chiave"
 
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:213
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:328
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:353
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:469
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:307
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:471
 msgid ""
 "The beginning frame is not a key frame.\n"
 "Please move the A marker."
@@ -1829,7 +1837,7 @@ msgid "Frequency must be 44100, 22050 or 11025 Hz."
 msgstr "La frequenza deve essere 44100, 22050 o 11025 Hz."
 
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:225
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:230
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:212
 msgid "Cannot initialize the audio stream"
 msgstr "Impossibile inizializzare il flusso audio"
 
@@ -1837,11 +1845,11 @@ msgstr "Impossibile inizializzare il flusso audio"
 msgid "PSP"
 msgstr "PSP"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:248
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:230
 msgid "Invalid audio stream detected"
 msgstr "Rilevato flusso audio non valido"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:248
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:230
 msgid ""
 "The audio stream may be invalid for this container.\n"
 "\n"
@@ -2037,7 +2045,7 @@ msgid "Select background image"
 msgstr "Seleziona immagine di sfonfo"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:37
-msgid "_NTSC(default is Pal):"
+msgid "_NTSC (default is PAL):"
 msgstr "N_TSC (predefinito è Pal):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:38
@@ -2055,11 +2063,6 @@ msgstr "Numero di fotogrammi vignetta"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:46
 msgid "Timecode:"
 msgstr "Timecode:"
-
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_animated.cpp:53
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:70
-msgid "MPEG-2 Configuration"
-msgstr "Configurazione MPEG-2"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioconfig.cpp:56
 msgid "Audio Configuration"
@@ -3146,6 +3149,10 @@ msgstr "A capo _automatico"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_srt.cpp:119
 msgid "_Delay (ms):"
 msgstr "_Ritardo (ms):"
+
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:70
+msgid "MPEG-2 Configuration"
+msgstr "Configurazione MPEG-2"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:45
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_tdeint.cpp:51
@@ -8367,7 +8374,7 @@ msgstr "Salvare (A+V) genererà un file AVI difettoso. Salvare l'audio funzioner
 
 #: avidemux/gtk_gui.cpp:1103
 msgid "Something failed when appending"
-msgstr "Qualcosa è fallito durante l'aggiunta"
+msgstr "Errore durante l'aggiunta"
 
 #: avidemux/gtk_gui.cpp:1114
 #: avidemux/gtk_gui.cpp:1944
@@ -8564,6 +8571,11 @@ msgstr "Sorgente _audio:"
 msgid "_External file:"
 msgstr "File _esterno:"
 
+#: avidemux/gtk_gui.cpp:2035
+#, c-format
+msgid "Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)"
+msgstr "Traccia audio %d (%s/%d canali/%d kbit per s/ritardo %d ms)"
+
 #: avidemux/gtk_gui.cpp:2041
 msgid "_Track from video:"
 msgstr "_Traccia dal video:"
@@ -8730,47 +8742,51 @@ msgstr "Ricerca fotogrammi neri"
 msgid "Cannot decode the frame."
 msgstr "Impossibile decodificare il fotogramma."
 
-#: avidemux/gui_savenew.cpp:89
+#: avidemux/gui_savenew.cpp:88
 msgid "Dual audio can only be used in copy mode"
 msgstr "Il doppio audio può essere usato solo in modalità copia"
 
-#: avidemux/gui_savenew.cpp:89
+#: avidemux/gui_savenew.cpp:88
 msgid "Select Copy as the video codec."
 msgstr "Seleziona Copia come codec video."
 
-#: avidemux/gui_savenew.cpp:209
-#: avidemux/gui_savenew.cpp:225
-#: avidemux/gui_savenew.cpp:238
+#: avidemux/gui_savenew.cpp:208
+#: avidemux/gui_savenew.cpp:224
+#: avidemux/gui_savenew.cpp:237
 msgid "Incompatible output format"
 msgstr "Formato in uscita incompatibile"
 
-#: avidemux/gui_savenew.cpp:259
+#: avidemux/gui_savenew.cpp:258
 msgid "There is no second track"
 msgstr "Non c'è una seconda traccia"
 
-#: avidemux/gui_savenew.cpp:259
+#: avidemux/gui_savenew.cpp:258
 msgid "Select a second audio track in the Audio menu."
 msgstr "Seleziona una seconda traccia nel menu Audio."
 
-#: avidemux/gui_savenew.cpp:263
+#: avidemux/gui_savenew.cpp:262
 msgid "Select dual audio AVI to write"
 msgstr "Seleziona il file AVI con doppio audio da scrivere"
 
-#: avidemux/gui_savenew.cpp:285
-#: avidemux/gui_savenew.cpp:303
+#: avidemux/gui_savenew.cpp:284
+#: avidemux/gui_savenew.cpp:302
 msgid "This cannot have packed VOP"
 msgstr "Non può avere VOP compresso"
 
-#: avidemux/gui_savenew.cpp:285
-#: avidemux/gui_savenew.cpp:303
+#: avidemux/gui_savenew.cpp:284
+#: avidemux/gui_savenew.cpp:302
 msgid "It is not MPEG-4 video. File will not be saved."
 msgstr "Non è un video MPEG-4. Il file non verrà salvato."
 
-#: avidemux/gui_savenew.cpp:349
+#: avidemux/gui_savenew.cpp:348
 msgid ""
 "You may need smart copy.\n"
-" Enable it ?"
+"Enable it?"
 msgstr ""
 "Potresti avere bisogno di una copia intelligente.\n"
-" Attivarla?"
+"Attivarla?"
+
+#: avidemux/gui_savenew.cpp:351
+msgid "_Q factor (set 4):"
+msgstr "Fattore _Q (4 predefinito):"
 
