@@ -38,17 +38,9 @@ AC_CANONICAL_HOST
 dnl Perform program name transformation
 AC_ARG_PROGRAM
 dnl Automake doc recommends to do this only here. (Janos)
-AM_INIT_AUTOMAKE(avidemux,"2.4.3")
+AM_INIT_AUTOMAKE(avidemux,"2.4.4")
 ADM_SUBVERSION="0"
 
-if [[ -f .svn/entries ]]; then
-	AC_PATH_PROG(SVNVERSION, svnversion, no)
-	
-	if test "$SVNVERSION" != "no" ; then
-		rev=`svnversion . | sed 's/^.*://g' | sed 's/M$//g'`
-		ADM_SUBVERSION="\"$rev\""
-	fi
-fi
 
 dnl almost the same like KDE_SET_PEFIX but the path is /usr/local
 unset CDPATH

@@ -35,20 +35,6 @@ include(CheckCXXCompilerFlag)
 #**************************************************
 # Subversion
 #**************************************************
-if(NOT NO_SVN AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${CMAKE_SOURCE_DIR}/.svn")
-	MESSAGE(STATUS "<Checking for Subversion>")
-	MESSAGE(STATUS "<***********************>")
-	include(FindSubversion)
-
-	FIND_PACKAGE(Subversion)
-	IF(Subversion_FOUND)
-		Subversion_WC_INFO(${PROJECT_SOURCE_DIR} Project)
-		MESSAGE(STATUS "Current revision is ${Project_WC_REVISION}")
-		SET(ADM_SUBVERSION ${Project_WC_REVISION})
-	ELSE(Subversion_FOUND)
-		MESSAGE(STATUS "Could not find Subversion")
-	ENDIF(Subversion_FOUND)
-ENDIF(NOT NO_SVN AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND EXISTS "${CMAKE_SOURCE_DIR}/.svn")
 
 IF(NOT Subversion_FOUND)
 	SET(ADM_SUBVERSION 0)
