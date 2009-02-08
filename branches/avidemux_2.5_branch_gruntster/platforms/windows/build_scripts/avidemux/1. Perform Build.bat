@@ -1,20 +1,23 @@
 @echo off
 
 set curDir=%CD%
-call "Set Avidemux 2.4 Environment Variables"
+call "Set Avidemux Environment Variables"
 
 if errorlevel 1 goto error
 
 cd "%sourceDir%"
 echo Cleaning build directories
 rmdir /s /q build 2> NULL
-rmdir /s /q buildcli 2> NULL
+
+cd "%sourceDir%\plugins"
+rmdir /s /q build 2> NULL
 
 if exist build goto removalFailure
-if exist buildcli goto removalFailure
+cd "%sourceDir%"
+if exist build goto removalFailure
 
-mkdir buildcli
 mkdir build
+mkdir plugins\build
 
 echo Performing Subversion update
 svn up .
@@ -25,7 +28,7 @@ call "1b. Continue Build"
 goto end
 
 :removalFailure
-echo ERROR - build or buildcli could not be fully deleted.
+echo ERROR - build directories could not be fully deleted.
 echo Aborting.
 pause
 

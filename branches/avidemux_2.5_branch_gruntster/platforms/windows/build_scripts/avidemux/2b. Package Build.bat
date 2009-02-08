@@ -1,6 +1,6 @@
 @echo off
 
-call "Set Avidemux 2.4 Environment Variables"
+call "Set Avidemux Environment Variables"
 
 cd Tools
 call "Get Revision Number"

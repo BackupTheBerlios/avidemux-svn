@@ -26,16 +26,11 @@ if errorlevel 1 (
 	goto error
 )
 
-set buildDir=%devDir%\avidemux_2.4_build
+set buildDir=%devDir%\avidemux_2.5_build
 set curDir=%CD%
 cd ..\..\..\..
 set sourceDir=%CD%
 cd "%curDir%"
-
-if not exist "%buildDir%" (
-	echo Build directory could not be found at "%buildDir%".
-	goto error
-)
 
 if not exist "%sourceDir%" (
 	echo Source directory could not be found at "%sourceDir%".

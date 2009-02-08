@@ -1,6 +1,6 @@
 @echo off
 
-call "Set Avidemux 2.4 Environment Variables"
+call "Set Avidemux Environment Variables"
 if errorlevel 1 goto error
 
 set PATH=%msysDir%\bin;%PATH%

@@ -4,9 +4,9 @@ set ProgramFiles32=%ProgramFiles%
 if "%PROCESSOR_ARCHITECTURE%" == "AMD64" for /D %%d in ("%ProgramFiles(x86)%") do set ProgramFiles32=%%~fsd
 set nsisDir=%ProgramFiles32%\NSIS
 
-set devDir=C:\Dev
+set devDir=E:\Dev
 set mingwDir=%devDir%\MinGW
-set msysDir=C:/Dev/MSYS
+set msysDir=E:/Dev/MSYS
 set usrLocalDir=%msysDir%/local
 set CMAKE_INCLUDE_PATH=%usrLocalDir%/include
 set CMAKE_LIBRARY_PATH=%usrLocalDir%/lib
@@ -68,7 +68,7 @@ if not exist "%nsisDir%" (
 	goto error
 )
 
-set PATH=%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%qtDir%\bin;%PATH%
+set PATH=%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%msysDir%\bin;%qtDir%\bin;%PATH%
 
 goto end
 
