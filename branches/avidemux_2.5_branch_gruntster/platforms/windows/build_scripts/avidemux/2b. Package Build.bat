@@ -7,8 +7,8 @@ call "Get Revision Number"
 cd ..
 
 set curDir=%CD%
-set zipFile=avidemux_2.4_r%revisionNo%_win32.zip
-set exeFile=avidemux_2.4_r%revisionNo%_win32.exe
+set zipFile=avidemux_2.5_r%revisionNo%_win32.zip
+set exeFile=avidemux_2.5_r%revisionNo%_win32.exe
 set packageDir=%CD%\%revisionNo%
 
 echo %packageDir%

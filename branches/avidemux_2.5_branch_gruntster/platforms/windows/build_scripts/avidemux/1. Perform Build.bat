@@ -7,10 +7,10 @@ if errorlevel 1 goto error
 
 cd "%sourceDir%"
 echo Cleaning build directories
-rmdir /s /q build 2> NULL
+rmdir /s /q build 2> NUL
 
 cd "%sourceDir%\plugins"
-rmdir /s /q build 2> NULL
+rmdir /s /q build 2> NUL
 
 if exist build goto removalFailure
 cd "%sourceDir%"

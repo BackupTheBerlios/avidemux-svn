@@ -24,6 +24,8 @@ cd "%sourceDir%\plugins\build"
 make install
 
 del /s "%buildDir%\*.a"
+del "%buildDir%\lib\ADM_plugins\audioDecoder\libADM_ad_dca.dll"
+del "%buildDir%\lib\ADM_plugins\audioDecoder\libADM_ad_amrnb.dll"
 
 echo Finished!
 goto end
