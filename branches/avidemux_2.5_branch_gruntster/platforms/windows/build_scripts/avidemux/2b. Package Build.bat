@@ -24,9 +24,7 @@ cd %curDir%
 advzip -z -4 "%packageDir%\%zipFile%"
 
 echo -- Generating %exeFile% --
-echo !define BUILDDIR %buildDir% > "..\..\installer\builddir.nsh"
-"%nsisDir%\makensis" /V2 "..\..\installer\avidemux.nsi"
-
-move "..\..\installer\%exeFile%" "%packageDir%"
+cd %buildDir%
+"%nsisDir%\makensis" /V2 /NOCD /DNSIDIR="%curDir%\..\..\installer" /DEXEDIR="%packageDir%" "%curDir%\..\..\installer\avidemux.nsi"
 
 pause
