@@ -6,6 +6,7 @@
 !include nsDialogs.nsh
 !include Memento.nsh
 !include FileFunc.nsh
+!include WordFunc.nsh
 !include ${NSIDIR}\revision.nsh
 
 Name "Avidemux 2.5.0 beta r${REVISION}"
@@ -42,8 +43,8 @@ SetCompressorDictSize 96
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER Avidemux
 !define MUI_STARTMENUPAGE_NODISABLE
 !define MUI_WELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
 !define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\xpm\adm.ico"
-!define MUI_UNFINISHPAGE_NOAUTOCLOSE
 !define MUI_COMPONENTSPAGE_NODESC
 
 ##########################
@@ -53,12 +54,16 @@ Var CreateDesktopIcon
 Var CreateStartMenuGroup
 Var CreateQuickLaunchIcon
 Var StartMenuGroup
+Var PreviousVersion
+Var PreviousVersionState
+Var ReinstallUninstall
 
 ##########################
 # Installer pages
 ##########################
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "${NSIDIR}\License.rtf"
+ Page custom ReinstallPage ReinstallPageLeave
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE CheckSelectedUIs
 !insertmacro MUI_PAGE_COMPONENTS
 Page custom InstallOptionsPage InstallOptionsPageLeave
@@ -66,6 +71,8 @@ Page custom InstallOptionsPage InstallOptionsPageLeave
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuGroup
 !insertmacro MUI_PAGE_DIRECTORY
 !define MUI_PAGE_CUSTOMFUNCTION_PRE ActivateInternalSections
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW InstFilesPageShow
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE InstFilesPageLeave
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_FUNCTION RunAvidemux
@@ -76,8 +83,12 @@ Page custom InstallOptionsPage InstallOptionsPageLeave
 !define MUI_FINISHPAGE_LINK_LOCATION "http://www.razorbyte.com.au/avidemux/"
 !define MUI_PAGE_CUSTOMFUNCTION_PRE ConfigureFinishPage
 !insertmacro MUI_PAGE_FINISH
+
+!define MUI_PAGE_CUSTOMFUNCTION_PRE un.ConfirmPagePre
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
+!define MUI_PAGE_CUSTOMFUNCTION_PRE un.FinishPagePre
+!insertmacro MUI_UNPAGE_FINISH
 
 ##########################
 # Installer languages
@@ -92,6 +103,7 @@ InstallDir "$PROGRAMFILES\Avidemux 2.5"
 CRCCheck on
 XPStyle on
 ShowInstDetails nevershow
+ShowUninstDetails nevershow
 VIProductVersion 2.5.0.${REVISION}
 VIAddVersionKey ProductName Avidemux
 VIAddVersionKey ProductVersion "${VERSION} (beta)"
@@ -99,7 +111,6 @@ VIAddVersionKey FileVersion ""
 VIAddVersionKey FileDescription ""
 VIAddVersionKey LegalCopyright ""
 InstallDirRegKey HKLM "${REGKEY}" Path
-ShowUninstDetails nevershow
 BrandingText "Packaged by Gruntster"
 InstType Standard
 InstType Full
@@ -107,6 +118,9 @@ InstType Full
 ##########################
 # Uninstaller macros
 ##########################
+!insertmacro un.GetOptions
+!insertmacro un.GetParameters
+
 !define UninstallLogPath "$INSTDIR\uninstall.log"
 Var UninstallLogHandle
 
@@ -1081,6 +1095,7 @@ ${MementoSectionDone}
 Section -post SecUninstaller
     SectionIn 1 2
     WriteRegStr HKLM "${REGKEY}" Path $INSTDIR
+    WriteRegStr HKLM "${REGKEY}" Version ${VERSION}
     SetOutPath $INSTDIR
     WriteUninstaller $INSTDIR\uninstall.exe
     WriteRegStr HKLM "${UNINST_REGKEY}" DisplayName "${INTERNALNAME}"
@@ -1137,21 +1152,44 @@ SectionEnd
 # Installer functions
 ##########################
 Function .onInit
-    ReadRegStr $R0  HKLM "${UNINST_REGKEY}" "UninstallString"
-    StrCmp $R0 "" startInstall
+	Call LoadPreviousSettings
 
-    MessageBox MB_YESNO|MB_ICONEXCLAMATION "${INTERNALNAME} has already been installed. $\n$\nDo you want to remove \
-      the previous version before installing $(^Name)?" IDNO startInstall
+	ReadRegStr $PreviousVersion HKLM "${REGKEY}" Version
 
-    # Run the uninstaller
-    ClearErrors
-    ExecWait '$R0 _?=$INSTDIR' ; Do not copy the uninstaller to a temp file
-
-startInstall:
+	${If} $PreviousVersion != ""
+		${VersionCompare} ${VERSION} $PreviousVersion $PreviousVersionState
+	${EndIf}
+	
     InitPluginsDir
-
-    ${MementoSectionRestore}
     SetShellVarContext all
+FunctionEnd
+
+Function .onInstSuccess
+	${MementoSectionSave}
+FunctionEnd
+
+Function .onSelChange
+	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkCLI
+checkCLI:
+	!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} end disable
+
+disable:  # GTK langs only
+	SectionSetFlags ${SecLangCatalan} SF_RO
+	SectionSetFlags ${SecLangCzech} SF_RO
+	SectionSetFlags ${SecLangFrench} SF_RO
+	SectionSetFlags ${SecLangGerman} SF_RO
+	SectionSetFlags ${SecLangGreek} SF_RO
+	SectionSetFlags ${SecLangJapanese} SF_RO
+	SectionSetFlags ${SecLangRussian} SF_RO
+	SectionSetFlags ${SecLangSerbianCyrillic} SF_RO
+	SectionSetFlags ${SecLangSerbianLatin} SF_RO
+	SectionSetFlags ${SecLangSpanish} SF_RO
+	SectionSetFlags ${SecLangTurkish} SF_RO
+end:
+FunctionEnd
+
+Function LoadPreviousSettings
+    ${MementoSectionRestore}
 	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
 
 #checkStartMenuGtk:
@@ -1181,28 +1219,30 @@ enableQuickLaunch:
 end:
 FunctionEnd
 
-Function .onInstSuccess
-	${MementoSectionSave}
-FunctionEnd
+Function RunUninstaller
+    ReadRegStr $R1  HKLM "${UNINST_REGKEY}" "UninstallString"
 
-Function .onSelChange
-	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkCLI
-checkCLI:
-	!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} end disable
+	${If} $R1 == ""
+		Return
+	${EndIf}
 
-disable:  # GTK langs only
-	SectionSetFlags ${SecLangCatalan} SF_RO
-	SectionSetFlags ${SecLangCzech} SF_RO
-	SectionSetFlags ${SecLangFrench} SF_RO
-	SectionSetFlags ${SecLangGerman} SF_RO
-	SectionSetFlags ${SecLangGreek} SF_RO	
-	SectionSetFlags ${SecLangJapanese} SF_RO
-	SectionSetFlags ${SecLangRussian} SF_RO
-	SectionSetFlags ${SecLangSerbianCyrillic} SF_RO
-	SectionSetFlags ${SecLangSerbianLatin} SF_RO
-	SectionSetFlags ${SecLangSpanish} SF_RO
-	SectionSetFlags ${SecLangTurkish} SF_RO
-end:
+	;Run uninstaller
+	HideWindow
+	ClearErrors
+	
+	${If} $PreviousVersionState == 0
+	${AndIf} $ReinstallUninstall == 1
+		ExecWait '$R1 _?=$INSTDIR'
+	${Else}
+		ExecWait '$R1 /frominstall _?=$INSTDIR'
+	${EndIf}
+
+	IfErrors NoRemoveUninstaller
+	IfFileExists "$INSTDIR\uninstall.exe" 0 NoRemoveUninstaller
+		Delete "$R1"
+		RMDir $INSTDIR
+
+NoRemoveUninstaller:
 FunctionEnd
 
 Function CheckSelectedUIs
@@ -1314,6 +1354,24 @@ Function ActivateInternalSections
     SectionSetFlags ${SecStartMenuQt4} $1
 FunctionEnd
 
+Function InstFilesPageShow
+	${If} $ReinstallUninstall != ""
+		Call RunUninstaller
+		BringToFront
+	${EndIf}
+FunctionEnd
+
+Function InstFilesPageLeave
+	; Don't advance automatically if details expanded
+	FindWindow $R0 "#32770" "" $HWNDPARENT
+	GetDlgItem $R0 $R0 1016
+	System::Call user32::IsWindowVisible(i$R0)i.s
+	Pop $R0
+
+	StrCmp $R0 0 +2
+	SetAutoClose false
+FunctionEnd
+
 Function ConfigureFinishPage
     SectionGetFlags ${SecUiGtk} $0
     IntOp $0 $0 & ${SF_SELECTED}
@@ -1350,11 +1408,95 @@ GTK:
 end:
 FunctionEnd
 
+Var ReinstallUninstallButton
+
+Function ReinstallPage
+	${If} $PreviousVersion == ""
+		Abort
+	${EndIf}
+
+	nsDialogs::Create /NOUNLOAD 1018
+	Pop $0
+
+	${If} $PreviousVersionState == 1
+		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${INTERNALNAME}."
+		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "An older version of Avidemux is installed on your system.  Select the operation you want to perform and click Next to continue."
+		Pop $R0
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Upgrade Avidemux using previous settings (recommended)"
+		Pop $ReinstallUninstallButton
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_TOP}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 10 85 100% 50 "Change settings (advanced)"
+		Pop $R0
+
+		${If} $ReinstallUninstall == ""
+			StrCpy $ReinstallUninstall 1
+		${EndIf}
+	${ElseIf} $PreviousVersionState == 2
+		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${INTERNALNAME}."
+		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "A newer version of FileZilla is already installed! It is not recommended that you downgrade to an older version. Select the operation you want to perform and click Next to continue."
+		Pop $R0
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Downgrade Avidemux using previous settings (recommended)"
+		Pop $ReinstallUninstallButton
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_TOP}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 10 85 100% 50 "Change settings (advanced)"
+		Pop $R0
+
+		${If} $ReinstallUninstall == ""
+			StrCpy $ReinstallUninstall 1
+		${EndIf}
+	${ElseIf} $PreviousVersionState == 0
+		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose the maintenance option to perform."
+		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "Avidemux ${VERSION} is already installed. Select the operation you want to perform and click Next to continue."
+		Pop $R0
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Add/Remove/Reinstall components"
+		Pop $R0
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_TOP}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 10 85 100% 50 "Uninstall FileZilla"
+		Pop $ReinstallUninstallButton
+
+		${If} $ReinstallUninstall == ""
+			StrCpy $ReinstallUninstall 2
+		${EndIf}
+	${Else}
+		MessageBox MB_ICONSTOP "Unknown value of PreviousVersionState, aborting" /SD IDOK
+		Abort
+	${EndIf}
+
+	${If} $ReinstallUninstall == "1"
+		SendMessage $ReinstallUninstallButton ${BM_SETCHECK} 1 0
+	${Else}
+		SendMessage $R0 ${BM_SETCHECK} 1 0
+	${EndIf}
+
+	nsDialogs::Show
+FunctionEnd
+
+Function ReinstallPageLeave
+	SendMessage $ReinstallUninstallButton ${BM_GETCHECK} 0 0 $R0
+
+	${If} $R0 == 1
+		; Option to uninstall old version selected
+		StrCpy $ReinstallUninstall 1
+	${Else}
+		; Custom up/downgrade or add/remove/reinstall
+		StrCpy $ReinstallUninstall 2
+	${EndIf}
+
+	${If} $ReinstallUninstall == 1
+		${If} $PreviousVersionState == 0
+			Call RunUninstaller
+			Quit
+		${Else}
+			; Need to reload defaults. User could have
+			; chosen custom, change something, went back and selected
+			; the express option.
+			Call LoadPreviousSettings
+		${EndIf}
+	${EndIf}
+FunctionEnd
+
+
 ##########################
 # Uninstaller functions
 ##########################
 Function un.onInit
-	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
 	SetShellVarContext all
 FunctionEnd
 
@@ -1408,4 +1550,21 @@ Function un.RemoveEmptyDirs
 "${Index}-End:"
 	FindClose $0
 	!undef Index
+FunctionEnd
+
+Function un.ConfirmPagePre
+	${un.GetParameters} $R0
+	${un.GetOptions} $R0 "/frominstall" $R1
+	${Unless} ${Errors}
+		Abort
+	${EndUnless}
+FunctionEnd
+
+Function un.FinishPagePre
+	${un.GetParameters} $R0
+	${un.GetOptions} $R0 "/frominstall" $R1
+	${Unless} ${Errors}
+		SetRebootFlag false
+		Abort
+	${EndUnless}
 FunctionEnd
