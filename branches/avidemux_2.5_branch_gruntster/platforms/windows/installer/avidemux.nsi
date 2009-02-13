@@ -9,8 +9,6 @@
 !include WordFunc.nsh
 !include ${NSIDIR}\revision.nsh
 
-Name "Avidemux 2.5.0 beta r${REVISION}"
-
 SetCompressor /SOLID lzma
 SetCompressorDictSize 96
 
@@ -24,6 +22,30 @@ SetCompressorDictSize 96
 !define COMPANY "Free Software Foundation"
 !define URL "http://www.avidemux.org"
 
+!ifndef INST_GTK
+!ifndef INST_QT
+!define INST_GTK
+!define INST_QT
+!endif
+!endif
+
+!ifdef INST_GTK
+!ifdef INST_QT
+!define INST_BOTH
+!endif
+!endif
+
+!ifdef INST_BOTH
+OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_full_win32.exe
+Name "Avidemux 2.5.0 Full beta r${REVISION}"
+!else ifdef INST_QT
+OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_win32.exe
+Name "Avidemux 2.5.0 beta r${REVISION}"
+!else ifdef INST_GTK
+OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_gtk_win32.exe
+Name "Avidemux 2.5.0 GTK+ beta r${REVISION}"
+!endif
+
 ##########################
 # Memento defines
 ##########################
@@ -36,7 +58,11 @@ SetCompressorDictSize 96
 !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install-blue-full.ico"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
+!ifdef INST_GTK
+!define MUI_HEADERIMAGE_BITMAP "${NSIDIR}\PageHeaderGtk.bmp"
+!else
 !define MUI_HEADERIMAGE_BITMAP "${NSIDIR}\PageHeader.bmp"
+!endif
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${REGKEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
@@ -44,7 +70,11 @@ SetCompressorDictSize 96
 !define MUI_STARTMENUPAGE_NODISABLE
 !define MUI_WELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
+!ifdef INST_GTK
 !define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\xpm\adm.ico"
+!else
+!define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\xpm\avidemux.ico"
+!endif
 !define MUI_COMPONENTSPAGE_NODESC
 
 ##########################
@@ -64,9 +94,11 @@ Var ReinstallUninstall
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "${NSIDIR}\License.rtf"
  Page custom ReinstallPage ReinstallPageLeave
+!ifdef INST_BOTH
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE CheckSelectedUIs
+!endif
 !insertmacro MUI_PAGE_COMPONENTS
-Page custom InstallOptionsPage InstallOptionsPageLeave
+Page custom InstallOptionsPage
 !define MUI_PAGE_CUSTOMFUNCTION_PRE IsStartMenuRequired
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuGroup
 !insertmacro MUI_PAGE_DIRECTORY
@@ -79,7 +111,7 @@ Page custom InstallOptionsPage InstallOptionsPageLeave
 !define MUI_FINISHPAGE_RUN_TEXT "Run ${INTERNALNAME} now"
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\Change Log.html"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "View Change Log now"
-!define MUI_FINISHPAGE_LINK "Visit the Avidemux Win32 Builds website"
+!define MUI_FINISHPAGE_LINK "Visit the Avidemux Windows Builds website"
 !define MUI_FINISHPAGE_LINK_LOCATION "http://www.razorbyte.com.au/avidemux/"
 !define MUI_PAGE_CUSTOMFUNCTION_PRE ConfigureFinishPage
 !insertmacro MUI_PAGE_FINISH
@@ -98,8 +130,7 @@ Page custom InstallOptionsPage InstallOptionsPageLeave
 ##########################
 # Installer attributes
 ##########################
-OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_win32.exe
-InstallDir "$PROGRAMFILES\Avidemux 2.5"
+InstallDir "$PROGRAMFILES\${INTERNALNAME}"
 CRCCheck on
 XPStyle on
 ShowInstDetails nevershow
@@ -187,6 +218,7 @@ FunctionEnd
 # Macros
 ##########################
 !macro InstallGtkLanguage LANG_NAME LANG_CODE
+!ifdef INST_GTK
 	SetOverwrite on
 
 	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} installGtk${LANG_CODE} endGtk${LANG_CODE}
@@ -197,19 +229,22 @@ installGtk${LANG_CODE}:
     ${File} share\locale\${LANG_CODE}\LC_MESSAGES\gtk20.mo
 
 endGtk${LANG_CODE}:
+!endif
 !macroend
 
-!macro InstallQt4Language LANG_NAME LANG_CODE
+!macro InstallQtLanguage LANG_NAME LANG_CODE
+!ifdef INST_QT
 	SetOverwrite on
 
-	!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} installQt4${LANG_CODE} endQt4${LANG_CODE}
+	!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} installQt${LANG_CODE} endQt${LANG_CODE}
 
-installQt4${LANG_CODE}:	
+installQt${LANG_CODE}:
 	SetOutPath $INSTDIR\i18n
     ${File} i18n\avidemux_${LANG_CODE}.qm
     ${File} i18n\qt_${LANG_CODE}.qm
 
-endQt4${LANG_CODE}:
+endQt${LANG_CODE}:
+!endif
 !macroend
 
 ##########################
@@ -221,7 +256,7 @@ Section -OpenLogFile
 	FileSeek $UninstallLogHandle 0 END
 SectionEnd
 
-Section "Core files (required)" SecCore
+Section "Avidemux Core" SecCore
     SectionIn 1 2 RO
     SetOutPath $INSTDIR
     SetOverwrite on
@@ -266,8 +301,14 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} libADM_UICli.dll
     ${MementoSectionEnd}
 
-    ${MementoUnselectedSection} GTK+ SecUiGtk
-        SectionIn 2
+!ifdef INST_BOTH
+	${MementoUnselectedSection} GTK+ SecUiGtk    
+	SectionIn 2
+!else ifdef INST_GTK
+	${MementoSection} GTK+ SecUiGtk    
+	SectionIn 1 2 RO
+!endif
+!ifdef INST_BOTH | INST_GTK
         SetOverwrite on
         SetOutPath $INSTDIR\etc\gtk-2.0
         ${Folder} etc\gtk-2.0
@@ -299,9 +340,15 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} libpng12-0.dll
         ${File} libtiff3.dll
     ${MementoSectionEnd}
+!endif
 
-    ${MementoSection} Qt4 SecUiQt4
+!ifdef INST_QT
+    ${MementoSection} Qt SecUiQt
+!ifdef INST_BOTH
         SectionIn 1 2
+!else
+		SectionIn 1 2 RO
+!endif
         SetOutPath $INSTDIR
         SetOverwrite on
         ${File} QtGui4.dll
@@ -311,6 +358,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} mingwm10.dll
         ${File} QtCore4.dll
     ${MementoSectionEnd}
+!endif
 SectionGroupEnd
 
 SectionGroup Plugins SecGrpPlugin
@@ -408,14 +456,18 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder
 			${File} lib\ADM_plugins\videoEncoder\libADM_vidEnc_x264.dll
 			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder\x264
-			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 			${File} lib\ADM_plugins\videoEncoder\x264\libADM_vidEnc_x264_Gtk.dll
-CheckQt4:
-			!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+			!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 			${File} lib\ADM_plugins\videoEncoder\x264\libADM_vidEnc_x264_Qt.dll
 End:
+!endif
 			${File} lib\ADM_plugins\videoEncoder\x264\x264Param.xsd
 			${File} lib\ADM_plugins\videoEncoder\x264\*.xml
 			SetOutPath $INSTDIR
@@ -426,15 +478,19 @@ End:
 			SetOverwrite on
 			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder
 			${File} lib\ADM_plugins\videoEncoder\libADM_vidEnc_xvid.dll
-SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder\xvid
-			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder\xvid
+!ifdef INST_GTK
+			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 			${File} lib\ADM_plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Gtk.dll
-CheckQt4:
-			!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+			!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 			${File} lib\ADM_plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Qt.dll
 End:
+!endif
 			${File} lib\ADM_plugins\videoEncoder\xvid\XvidParam.xsd
 			#${File} lib\ADM_plugins\videoEncoder\xvid\*.xml
 			SetOutPath $INSTDIR
@@ -453,15 +509,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_avisynthResize_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_avisynthResize_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Blacken Borders" SecVidFltBlackenBorders
 				SectionIn 1 2
@@ -473,15 +532,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_Crop_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_crop_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Fade" SecVidFltFade
 				SectionIn 1 2
@@ -493,15 +555,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_mplayerResize_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_mplayerResize_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Resample FPS" SecVidFltResampleFps
 				SectionIn 1 2
@@ -691,15 +756,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_colorYUV_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_colorYUV_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Blend Removal" SecVidFltBlendRemoval
 				SectionIn 1 2
@@ -711,15 +779,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_chromaShift_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_chromaShift_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Chroma U" SecVidFltChromaU
 				SectionIn 1 2
@@ -737,15 +808,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_contrast_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_contrast_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Luma Delta" SecVidFltLumaDelta
 				SectionIn 1 2
@@ -757,15 +831,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_equalizer_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_equalizer_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Luma Only" SecVidFltLumaOnly
 				SectionIn 1 2
@@ -777,29 +854,35 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_eq2_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_eq2_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Mplayer Hue" SecVidFltMPlayerHue
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_hue_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_hue_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Swap U and V" SecVidFltSwapUandV
 				SectionIn 1 2
@@ -813,15 +896,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_cnr2_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_cnr2_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Denoise" SecVidFltDenoise
 				SectionIn 1 2
@@ -883,15 +969,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_asharp_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_asharp_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "MSharpen" SecVidFltMSharpen
 				SectionIn 1 2
@@ -923,15 +1012,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_sub_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_sub_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Miscellaneous Filters" SecGrpVideoFilterMiscellaneous
@@ -945,15 +1037,18 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-
-				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt4
+!ifdef INST_GTK
+				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_mpdelogo_gtk.dll
-CheckQt4:
-				!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} InstallQt4 End
-InstallQt4:
+CheckQt:
+!endif
+!ifdef INST_QT
+				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
+InstallQt:
 				${File} lib\ADM_plugins\videoFilter\libADM_vf_mpdelogo_qt4.dll
 End:
+!endif
 			${MementoSectionEnd}
 			${MementoSection} "Whirl" SecVidFltWhirl
 				SectionIn 1 2
@@ -966,68 +1061,122 @@ End:
 SectionGroupEnd
 
 SectionGroup "Additional languages" SecGrpLang
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Catalan (GTK+ only)" SecLangCatalan
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Catalan" SecLangCatalan
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Catalan ca
     ${MementoSectionEnd}
+!endif
 
     ${MementoUnselectedSection} "Czech" SecLangCzech
         SectionIn 2
         !insertmacro InstallGtkLanguage Czech cs
-        !insertmacro InstallQt4Language Czech cs
+        !insertmacro InstallQtLanguage Czech cs
     ${MementoSectionEnd}
 
     ${MementoUnselectedSection} "French" SecLangFrench
         SectionIn 2
         !insertmacro InstallGtkLanguage French fr
-        !insertmacro InstallQt4Language French fr
+        !insertmacro InstallQtLanguage French fr
     ${MementoSectionEnd}
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "German (GTK+ only)" SecLangGerman
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "German" SecLangGerman
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage German de
     ${MementoSectionEnd}
+!endif
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Greek (GTK+ only)" SecLangGreek
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Greek" SecLangGreek
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Greek el
     ${MementoSectionEnd}
+!endif
 
     ${MementoUnselectedSection} "Italian" SecLangItalian
         SectionIn 2
         !insertmacro InstallGtkLanguage Italian it
-        !insertmacro InstallQt4Language Italian it
+        !insertmacro InstallQtLanguage Italian it
     ${MementoSectionEnd}
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Japanese (GTK+ only)" SecLangJapanese
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Japanese" SecLangJapanese
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Japanese ja
     ${MementoSectionEnd}
+!endif
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Russian (GTK+ only)" SecLangRussian
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Russian" SecLangRussian
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Russian ru
     ${MementoSectionEnd}
+!endif
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Serbian Cyrillic (GTK+ only)" SecLangSerbianCyrillic
+!else ifdef INST_GTK
+    ${MementoUnselectedSection} "Serbian Cyrillic" SecLangSerbianCyrillic
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage SerbianCyrillic sr
     ${MementoSectionEnd}
+!endif
 
-    ${MementoUnselectedSection} "Serbian Latin (GTK+ only)" SecLangSerbianLatin
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
+	${MementoUnselectedSection} "Serbian Latin (GTK+ only)" SecLangSerbianLatin
+!else ifdef INST_GTK
+    ${MementoUnselectedSection} "Serbian Latin" SecLangSerbianLatin
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage SerbianLatin sr@latin
     ${MementoSectionEnd}
+!endif
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Spanish (GTK+ only)" SecLangSpanish
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Spanish" SecLangSpanish
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Spanish es
     ${MementoSectionEnd}
+!endif
 
+!ifdef INST_BOTH | INST_GTK
+!ifdef INST_BOTH
     ${MementoUnselectedSection} "Turkish (GTK+ only)" SecLangTurkish
+!else ifdef INST_GTK
+	${MementoUnselectedSection} "Turkish" SecLangTurkish
+!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage Turkish tr
     ${MementoSectionEnd}
+!endif
 SectionGroupEnd
 
 ${MementoUnselectedSection} "Avisynth Proxy" SecAvsProxy
@@ -1047,19 +1196,23 @@ ${MementoSection} "-Start menu Change Log" SecStartMenuChangeLog
 ${MementoSectionEnd}
 
 ${MementoSection} "-Start menu GTK+" SecStartMenuGtk
+!ifdef INST_GTK
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
     !insertmacro MUI_STARTMENU_WRITE_END
+!endif
 ${MementoSectionEnd}
 
-${MementoSection} "-Start menu Qt4" SecStartMenuQt4
+${MementoSection} "-Start menu Qt" SecStartMenuQt
+!ifdef INST_QT
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt4.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
     !insertmacro MUI_STARTMENU_WRITE_END
+!endif
 ${MementoSectionEnd}
 
 ${MementoSection} "-Start menu AVS Proxy GUI" SecStartMenuAvsProxyGui
@@ -1071,23 +1224,31 @@ ${MementoSection} "-Start menu AVS Proxy GUI" SecStartMenuAvsProxyGui
 ${MementoSectionEnd}
 
 ${MementoSection} "-Quick Launch GTK+" SecQuickLaunchGtk
+!ifdef INST_GTK
     SetOutPath $INSTDIR
     CreateShortcut "$QUICKLAUNCH\${INTERNALNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
+!endif
 ${MementoSectionEnd}
 
-${MementoSection} "-Quick Launch Qt4" SecQuickLaunchQt4
+${MementoSection} "-Quick Launch Qt" SecQuickLaunchQt
+!ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$QUICKLAUNCH\${INTERNALNAME} Qt4.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$QUICKLAUNCH\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
+!endif
 ${MementoSectionEnd}
 
 ${MementoSection} "-Desktop GTK+" SecDesktopGtk
+!ifdef INST_GTK
     SetOutPath $INSTDIR
     CreateShortcut "$DESKTOP\${INTERNALNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
+!endif
 ${MementoSectionEnd}
 
-${MementoSection} "-Desktop Qt4" SecDesktopQt4
+${MementoSection} "-Desktop Qt" SecDesktopQt
+!ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$DESKTOP\${INTERNALNAME} Qt4.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$DESKTOP\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
+!endif
 ${MementoSectionEnd}
 
 ${MementoSectionDone}
@@ -1113,14 +1274,20 @@ SectionEnd
  
 Section Uninstall
 	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup	
-	
+
+!ifdef INST_GTK
 	Delete /REBOOTOK "$QUICKLAUNCH\${INTERNALNAME} GTK+.lnk"
-    Delete /REBOOTOK "$QUICKLAUNCH\${INTERNALNAME} Qt4.lnk"
     Delete /REBOOTOK "$DESKTOP\${INTERNALNAME} GTK+.lnk"
-    Delete /REBOOTOK "$DESKTOP\${INTERNALNAME} Qt4.lnk"
-	Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Change Log.lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} GTK+.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt4.lnk"
+!endif
+
+!ifdef INST_QT
+    Delete /REBOOTOK "$QUICKLAUNCH\${INTERNALNAME} Qt.lnk"
+    Delete /REBOOTOK "$DESKTOP\${INTERNALNAME} Qt.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt.lnk"
+!endif
+
+	Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Change Log.lnk"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\AVS Proxy GUI.lnk"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     DeleteRegValue HKLM "${REGKEY}" StartMenuGroup
@@ -1168,6 +1335,7 @@ Function .onInstSuccess
 	${MementoSectionSave}
 FunctionEnd
 
+!ifdef INST_BOTH
 Function .onSelChange
 	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkCLI
 checkCLI:
@@ -1187,31 +1355,32 @@ disable:  # GTK langs only
 	SectionSetFlags ${SecLangTurkish} SF_RO
 end:
 FunctionEnd
+!endif
 
 Function LoadPreviousSettings
     ${MementoSectionRestore}
 	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup
 
 #checkStartMenuGtk:
-	!insertmacro SectionFlagIsSet ${SecStartMenuGtk} ${SF_SELECTED} enableStartMenu checkStartMenuQt4
-checkStartMenuQt4:
-	!insertmacro SectionFlagIsSet ${SecStartMenuQt4} ${SF_SELECTED} enableStartMenu checkDesktopGtk
+	!insertmacro SectionFlagIsSet ${SecStartMenuGtk} ${SF_SELECTED} enableStartMenu checkStartMenuQt
+checkStartMenuQt:
+	!insertmacro SectionFlagIsSet ${SecStartMenuQt} ${SF_SELECTED} enableStartMenu checkDesktopGtk
 
 enableStartMenu:
 	StrCpy $CreateStartMenuGroup 1
 
 checkDesktopGtk:
-	!insertmacro SectionFlagIsSet ${SecDesktopGtk} ${SF_SELECTED} enableDesktop checkDesktopQt4
-checkDesktopQt4:
-	!insertmacro SectionFlagIsSet ${SecDesktopQt4} ${SF_SELECTED} enableDesktop checkQuickLaunchGtk
+	!insertmacro SectionFlagIsSet ${SecDesktopGtk} ${SF_SELECTED} enableDesktop checkDesktopQt
+checkDesktopQt:
+	!insertmacro SectionFlagIsSet ${SecDesktopQt} ${SF_SELECTED} enableDesktop checkQuickLaunchGtk
 
 enableDesktop:
 	StrCpy $CreateDesktopIcon 1
 	
 checkQuickLaunchGtk:
-	!insertmacro SectionFlagIsSet ${SecQuickLaunchGtk} ${SF_SELECTED} enableQuickLaunch checkQuickLaunchQt4
-checkQuickLaunchQt4:
-	!insertmacro SectionFlagIsSet ${SecQuickLaunchQt4} ${SF_SELECTED} enableQuickLaunch end
+	!insertmacro SectionFlagIsSet ${SecQuickLaunchGtk} ${SF_SELECTED} enableQuickLaunch checkQuickLaunchQt
+checkQuickLaunchQt:
+	!insertmacro SectionFlagIsSet ${SecQuickLaunchQt} ${SF_SELECTED} enableQuickLaunch end
 
 enableQuickLaunch:
 	StrCpy $CreateQuickLaunchIcon 1	
@@ -1245,6 +1414,7 @@ Function RunUninstaller
 NoRemoveUninstaller:
 FunctionEnd
 
+!ifdef INST_BOTH
 Function CheckSelectedUIs
 	!insertmacro SectionFlagIsSet ${SecGrpUI} ${SF_SELECTED} end checkPartial
 checkPartial:
@@ -1254,6 +1424,7 @@ displayError:
     Abort
 end:
 FunctionEnd
+!endif
 
 LangString INSTALL_OPTS_PAGE_TITLE ${LANG_ENGLISH} "Choose Install Options"
 LangString INSTALL_OPTS_PAGE_SUBTITLE ${LANG_ENGLISH} "Choose where to install Avidemux icons."
@@ -1280,30 +1451,40 @@ Function InstallOptionsPage
 	${NSD_CreateCheckBox} 0 18u 100% 12u "On my &Desktop"
 	Pop $chkDesktop
 	${NSD_SetState} $chkDesktop $CreateDesktopIcon
+	${NSD_OnClick} $chkDesktop UpdateInstallOptions
 
 	${NSD_CreateCheckBox} 0 36u 100% 12u "In my &Start Menu Programs folder"
 	Pop $chkStartMenu
 	${NSD_SetState} $chkStartMenu $CreateStartMenuGroup
+	${NSD_OnClick} $chkStartMenu UpdateInstallOptions
 
 	${NSD_CreateCheckBox} 0 54u 100% 12u "In my &Quick Launch bar"
 	Pop $chkQuickLaunch
 	${NSD_SetState} $chkQuickLaunch $CreateQuickLaunchIcon
+	${NSD_OnClick} $chkQuickLaunch UpdateInstallOptions
 
 	nsDialogs::Show
 FunctionEnd
 
-Function InstallOptionsPageLeave
+Function UpdateInstallOptions
 	${NSD_GetState} $chkDesktop $CreateDesktopIcon
 	${NSD_GetState} $chkStartMenu $CreateStartMenuGroup
 	${NSD_GetState} $chkQuickLaunch $CreateQuickLaunchIcon
 FunctionEnd
 
 Function IsInstallOptionsRequired
-	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkQt4
-checkQt4:
-	!insertmacro SectionFlagIsSet ${SecUiQt4} ${SF_SELECTED} end resetOptions
-
+!ifdef INST_GTK
+	!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} end checkQt
+checkQt:
+!ifndef INST_BOTH
+Goto end
+!endif
+!endif
+!ifdef INST_QT
+	!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} end resetOptions
 resetOptions:
+!endif
+
     StrCpy $CreateDesktopIcon 0
     StrCpy $CreateStartMenuGroup 0
     StrCpy $CreateQuickLaunchIcon 0
@@ -1327,6 +1508,7 @@ Function ActivateInternalSections
     #Change Log shortcut:
     SectionSetFlags ${SecStartMenuChangeLog} $CreateStartMenuGroup
 
+!ifdef INST_GTK
     #GTK shortcuts:
     SectionGetFlags ${SecUiGtk} $0
     IntOp $0 $0 & ${SF_SELECTED}
@@ -1339,19 +1521,22 @@ Function ActivateInternalSections
 
     IntOp $1 $0 & $CreateStartMenuGroup
     SectionSetFlags ${SecStartMenuGtk} $1
+!endif
 
-    #Qt4 shortcuts:
-    SectionGetFlags ${SecUiQt4} $0
+!ifdef INST_QT
+    #Qt shortcuts:
+    SectionGetFlags ${SecUiQt} $0
     IntOp $0 $0 & ${SF_SELECTED}
 
     IntOp $1 $0 & $CreateDesktopIcon
-    SectionSetFlags ${SecDesktopQt4} $1
+    SectionSetFlags ${SecDesktopQt} $1
 
     IntOp $1 $0 & $CreateQuickLaunchIcon
-    SectionSetFlags ${SecQuickLaunchQt4} $1
+    SectionSetFlags ${SecQuickLaunchQt} $1
 
     IntOp $1 $0 & $CreateStartMenuGroup
-    SectionSetFlags ${SecStartMenuQt4} $1
+    SectionSetFlags ${SecStartMenuQt} $1
+!endif
 FunctionEnd
 
 Function InstFilesPageShow
@@ -1373,13 +1558,17 @@ Function InstFilesPageLeave
 FunctionEnd
 
 Function ConfigureFinishPage
+!ifdef INST_GTK
     SectionGetFlags ${SecUiGtk} $0
     IntOp $0 $0 & ${SF_SELECTED}
     StrCmp $0 ${SF_SELECTED} end
+!endif
 
-    SectionGetFlags ${SecUiQt4} $0
+!ifdef INST_QT
+    SectionGetFlags ${SecUiQt} $0
     IntOp $0 $0 & ${SF_SELECTED}
     StrCmp $0 ${SF_SELECTED} end
+!endif
 
     DeleteINISec "$PLUGINSDIR\ioSpecial.ini" "Field 4"
 
@@ -1389,21 +1578,25 @@ FunctionEnd
 Function RunAvidemux
     SetOutPath $INSTDIR
 
-#Qt4:
-    SectionGetFlags ${SecUiQt4} $0
+!ifdef INST_QT
+#Qt:
+    SectionGetFlags ${SecUiQt} $0
     IntOp $0 $0 & ${SF_SELECTED}
 
     StrCmp $0 ${SF_SELECTED} 0 GTK
         Exec "$INSTDIR\avidemux2_qt4.exe"
 
     Goto end
-
 GTK:
+!endif
+
+!ifdef INST_GTK
     SectionGetFlags ${SecUiGtk} $0
     IntOp $0 $0 & ${SF_SELECTED}
 
     StrCmp $0 ${SF_SELECTED} 0 End
         Exec "$INSTDIR\avidemux2_gtk.exe"
+!endif
 
 end:
 FunctionEnd
