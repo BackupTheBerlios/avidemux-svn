@@ -1,1 +1,1 @@
-INSTALL(FILES "PlayStation Portable.xml" DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ADM_plugins/videoEncoder/${PLUGIN_SUBDIR}")
+INSTALL(FILES "PlayStation Portable.xml" DESTINATION "${VIDENC_INSTALL_DIR}${PLUGIN_SUBDIR}")

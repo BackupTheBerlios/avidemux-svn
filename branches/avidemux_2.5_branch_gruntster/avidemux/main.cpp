@@ -223,16 +223,23 @@ int main(int argc, char *argv[])
 
 	//***************Plugins *********************
 	// Load system wide audio decoder plugin
+#ifdef _WIN32
+	const char *startDir="";
+	const char *pluginDir="plugins";
+#else
+	const char *pluginDir="ADM_plugins";
+
 #ifdef __APPLE__
     const char *startDir="../Resources/lib";
 #else
     const char *startDir="lib";
 #endif
-	char *adPlugins = ADM_getInstallRelativePath(startDir,"ADM_plugins","audioDecoder");
-	char *vfPlugins = ADM_getInstallRelativePath(startDir,"ADM_plugins","videoFilter");
-    char *avPlugins = ADM_getInstallRelativePath(startDir,"ADM_plugins","audioDevices");    
-    char *aePlugins = ADM_getInstallRelativePath(startDir,"ADM_plugins","audioEncoders");    
+#endif
 
+	char *adPlugins = ADM_getInstallRelativePath(startDir,pluginDir,"audioDecoder");
+	char *vfPlugins = ADM_getInstallRelativePath(startDir,pluginDir,"videoFilter");
+    char *avPlugins = ADM_getInstallRelativePath(startDir,pluginDir,"audioDevices");
+    char *aePlugins = ADM_getInstallRelativePath(startDir,pluginDir,"audioEncoders");
 
 	ADM_ad_loadPlugins(adPlugins);
 	delete [] adPlugins;

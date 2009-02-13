@@ -111,8 +111,8 @@ Page custom InstallOptionsPage
 !define MUI_FINISHPAGE_RUN_TEXT "Run ${INTERNALNAME} now"
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\Change Log.html"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "View Change Log now"
-!define MUI_FINISHPAGE_LINK "Visit the Avidemux Windows Builds website"
-!define MUI_FINISHPAGE_LINK_LOCATION "http://www.razorbyte.com.au/avidemux/"
+!define MUI_FINISHPAGE_LINK "Visit the Avidemux Builds for Windows website"
+!define MUI_FINISHPAGE_LINK_LOCATION "http://avidemux.razorbyte.com.au/"
 !define MUI_PAGE_CUSTOMFUNCTION_PRE ConfigureFinishPage
 !insertmacro MUI_PAGE_FINISH
 
@@ -366,72 +366,72 @@ SectionGroup Plugins SecGrpPlugin
 		${MementoSection} "FAAD2 (AAC)" SecAudDecFaad
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioDecoder
-			${File} lib\ADM_plugins\audioDecoder\libADM_ad_faad.dll
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_faad.dll
 			SetOutPath $INSTDIR
 			${File} libfaad2.dll
 		${MementoSectionEnd}
 		${MementoSection} "liba52 (AC-3)" SecAudDecA52
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioDecoder
-			${File} lib\ADM_plugins\audioDecoder\libADM_ad_a52.dll
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_a52.dll
 		${MementoSectionEnd}
 		${MementoSection} "MAD (MPEG)" SecAudDecMad
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioDecoder
-			${File} lib\ADM_plugins\audioDecoder\libADM_ad_Mad.dll
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_Mad.dll
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Devices" SecGrpAudioDevice
 		${MementoUnselectedSection} SDL SecAudDevSdl
 			SectionIn 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioDevices
-			${File} lib\ADM_plugins\audioDevices\libADM_av_sdl.dll
+			SetOutPath $INSTDIR\plugins\audioDevices
+			${File} plugins\audioDevices\libADM_av_sdl.dll
 		${MementoSectionEnd}
 		${MementoSection} "MS Windows (Waveform)" SecAudDevWaveform
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioDevices
-			${File} lib\ADM_plugins\audioDevices\libADM_av_win32.dll
+			SetOutPath $INSTDIR\plugins\audioDevices
+			${File} plugins\audioDevices\libADM_av_win32.dll
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Encoders" SecGrpAudioEncoder
 		${MementoSection} "FAAC (AAC)" SecAudEncFaac
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_faac.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_faac.dll
 			SetOutPath $INSTDIR
 			${File} libfaac.dll
 		${MementoSectionEnd}
 		${MementoSection} "LAME (MP3)" SecAudEncLame
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_lame.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_lame.dll
 			SetOutPath $INSTDIR
 			${File} libmp3lame-0.dll
 		${MementoSectionEnd}
 		${MementoSection} "libavcodec (AC-3)" SecAudEncLavAc3
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_lav_ac3.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_lav_ac3.dll
 		${MementoSectionEnd}
 		${MementoSection} "libavcodec (MP2)" SecAudEncLavMp2
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_lav_mp2.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_lav_mp2.dll
 		${MementoSectionEnd}
 		${MementoSection} "libvorbis (Vorbis)" SecAudEncVorbis
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_vorbis.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_vorbis.dll
 			SetOutPath $INSTDIR
 			${File} vorbis.dll
 			${File} vorbisenc.dll
@@ -439,60 +439,60 @@ SectionGroup Plugins SecGrpPlugin
 		${MementoSection} "PCM" SecAudEncPcm
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_pcm.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_pcm.dll
 		${MementoSectionEnd}
 		${MementoSection} "TwoLAME (MP2)" SecAudEncTwoLame
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\audioEncoders
-			${File} lib\ADM_plugins\audioEncoders\libADM_ae_twolame.dll
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_twolame.dll
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Video Encoders" SecGrpVideoEncoder
 		${MementoSection} "x264 (MPEG-4 AVC)" SecVidEncX264
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder
-			${File} lib\ADM_plugins\videoEncoder\libADM_vidEnc_x264.dll
-			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder\x264
+			SetOutPath $INSTDIR\plugins\videoEncoder
+			${File} plugins\videoEncoder\libADM_vidEnc_x264.dll
+			SetOutPath $INSTDIR\plugins\videoEncoder\x264
 !ifdef INST_GTK
 			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-			${File} lib\ADM_plugins\videoEncoder\x264\libADM_vidEnc_x264_Gtk.dll
+			${File} plugins\videoEncoder\x264\libADM_vidEnc_x264_Gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 			!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-			${File} lib\ADM_plugins\videoEncoder\x264\libADM_vidEnc_x264_Qt.dll
+			${File} plugins\videoEncoder\x264\libADM_vidEnc_x264_Qt.dll
 End:
 !endif
-			${File} lib\ADM_plugins\videoEncoder\x264\x264Param.xsd
-			${File} lib\ADM_plugins\videoEncoder\x264\*.xml
+			${File} plugins\videoEncoder\x264\x264Param.xsd
+			${File} plugins\videoEncoder\x264\*.xml
 			SetOutPath $INSTDIR
 			${File} libx264-*.dll
 		${MementoSectionEnd}
 		${MementoSection} "Xvid (MPEG-4 ASP)" SecVidEncXvid
 			SectionIn 1 2
 			SetOverwrite on
-			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder
-			${File} lib\ADM_plugins\videoEncoder\libADM_vidEnc_xvid.dll
-			SetOutPath $INSTDIR\lib\ADM_plugins\videoEncoder\xvid
+			SetOutPath $INSTDIR\plugins\videoEncoder
+			${File} plugins\videoEncoder\libADM_vidEnc_xvid.dll
+			SetOutPath $INSTDIR\plugins\videoEncoder\xvid
 !ifdef INST_GTK
 			!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-			${File} lib\ADM_plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Gtk.dll
+			${File} plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 			!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-			${File} lib\ADM_plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Qt.dll
+			${File} plugins\videoEncoder\xvid\libADM_vidEnc_Xvid_Qt.dll
 End:
 !endif
-			${File} lib\ADM_plugins\videoEncoder\xvid\XvidParam.xsd
-			#${File} lib\ADM_plugins\videoEncoder\xvid\*.xml
+			${File} plugins\videoEncoder\xvid\XvidParam.xsd
+			#${File} plugins\videoEncoder\xvid\*.xml
 			SetOutPath $INSTDIR
 			${File} xvidcore.dll
 		${MementoSectionEnd}
@@ -502,526 +502,526 @@ End:
 			${MementoSection} "Add Black Borders" SecVidFltBlackBorders
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_addborders.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_addborders.dll
 			${MementoSectionEnd}
 			${MementoSection} "Avisynth Resize" SecVidFltAvisynthResize
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_avisynthResize_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_avisynthResize_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_avisynthResize_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_avisynthResize_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Blacken Borders" SecVidFltBlackenBorders
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_blackenBorders.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_blackenBorders.dll
 			${MementoSectionEnd}
 			${MementoSection} "Crop" SecVidFltCrop
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Crop_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_Crop_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_crop_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_crop_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Fade" SecVidFltFade
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_fade.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_fade.dll
 			${MementoSectionEnd}
 			${MementoSection} "MPlayer Resize" SecVidFltMplayerResize
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mplayerResize_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_mplayerResize_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mplayerResize_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_mplayerResize_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Resample FPS" SecVidFltResampleFps
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_resampleFps.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_resampleFps.dll
 			${MementoSectionEnd}
 			${MementoSection} "Reverse" SecVidFltReverse
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_reverse.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_reverse.dll
 			${MementoSectionEnd}
 			${MementoSection} "Rotate" SecVidFltRotate
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_rotate.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_rotate.dll
 			${MementoSectionEnd}
 			${MementoSection} "Vertical Flip" SecVidFltVerticalFlip
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_vflip.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_vflip.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Interlacing Filters" SecGrpVideoFilterInterlacing
 			${MementoSection} "Decomb Decimate" SecVidFltDecombDecimate
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_decimate.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_decimate.dll
 			${MementoSectionEnd}
 			${MementoSection} "Decomb Telecide" SecVidFltDecombTelecide
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_telecide.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_telecide.dll
 			${MementoSectionEnd}
 			${MementoSection} "Deinterlace" SecVidFltDeinterlace
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Deinterlace.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Deinterlace.dll
 			${MementoSectionEnd}
 			${MementoSection} "DG Bob" SecVidFltDbGob
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_blendDgBob.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_blendDgBob.dll
 			${MementoSectionEnd}
 			${MementoSection} "Drop" SecVidFltDrop
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_dropOut.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_dropOut.dll
 			${MementoSectionEnd}
 			${MementoSection} "Fade" SecVidFltFadeInterlace
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_separateField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_separateField.dll
 			${MementoSectionEnd}
 			${MementoSection} "Gauss Smooth" SecVidFltGaussSmooth
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_fastconvolutiongauss.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_fastconvolutiongauss.dll
 			${MementoSectionEnd}
 			${MementoSection} "Keep Even Fields" SecVidFltKeepEvenFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_keepEvenField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_keepEvenField.dll
 			${MementoSectionEnd}
 			${MementoSection} "Keep Odd Fields" SecVidFltKeepOddFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_keepOddField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_keepOddField.dll
 			${MementoSectionEnd}
 			${MementoSection} "KernelDeint" SecVidFltKernelDeint
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_kernelDeint.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_kernelDeint.dll
 			${MementoSectionEnd}
 			${MementoSection} "libavcodec Deinterlacer" SecVidFltLavDeinterlacer
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_lavDeinterlace.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_lavDeinterlace.dll
 			${MementoSectionEnd}
 			${MementoSection} "mcDeint" SecVidFltMcDeint
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mcdeint.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_mcdeint.dll
 			${MementoSectionEnd}
 			${MementoSection} "Mean" SecVidFltMean
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_fastconvolutionmean.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_fastconvolutionmean.dll
 			${MementoSectionEnd}
 			${MementoSection} "Median" SecVidFltMedian
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_fastconvolutionmedian.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_fastconvolutionmedian.dll
 			${MementoSectionEnd}
 			${MementoSection} "Merge Fields" SecVidFltMergeFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mergeField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_mergeField.dll
 			${MementoSectionEnd}
 			${MementoSection} "PAL Field Shift" SecVidFltPalFieldShift
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_palShift.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_palShift.dll
 			${MementoSectionEnd}
 			${MementoSection} "PAL Smart Field Shift" SecVidFltPalSmartFieldShift
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_smartPalShift.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_smartPalShift.dll
 			${MementoSectionEnd}
 			${MementoSection} "Pulldown" SecVidFltPulldown
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Pulldown.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Pulldown.dll
 			${MementoSectionEnd}
 			${MementoSection} "Separate Fields" SecVidFltSeparateFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_hzStackField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_hzStackField.dll
 			${MementoSectionEnd}
 			${MementoSection} "Sharpen" SecVidFltSharpen
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_fastconvolutionsharpen.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_fastconvolutionsharpen.dll
 			${MementoSectionEnd}
 			${MementoSection} "Smart Swap Fields" SecVidFltSmartSwapFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_smartSwapField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_smartSwapField.dll
 			${MementoSectionEnd}
 			${MementoSection} "Stack Fields" SecVidFltStackFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_stackField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_stackField.dll
 			${MementoSectionEnd}
 			${MementoSection} "Swap Fields" SecVidFltSwapFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_swapField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_swapField.dll
 			${MementoSectionEnd}
 			${MementoSection} "TDeint" SecVidFltTDeint
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_tdeint.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_tdeint.dll
 			${MementoSectionEnd}
 			${MementoSection} "Unstack Fields" SecVidFltUnstackFields
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_unstackField.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_unstackField.dll
 			${MementoSectionEnd}
 			${MementoSection} "yadif" SecVidFltYadif
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_yadif.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_yadif.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Colour Filters" SecGrpVideoFilterColour
 			${MementoSection} "Avisynth ColorYUV" SecVidFltAvisynthColorYuv
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_colorYUV_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_colorYUV_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_colorYUV_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_colorYUV_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Blend Removal" SecVidFltBlendRemoval
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_blendRemoval.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_blendRemoval.dll
 			${MementoSectionEnd}
 			${MementoSection} "Chroma Shift" SecVidFltChromaShift
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_chromaShift_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_chromaShift_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_chromaShift_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_chromaShift_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Chroma U" SecVidFltChromaU
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vidChromaU.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vidChromaU.dll
 			${MementoSectionEnd}
 			${MementoSection} "Chroma V" SecVidFltChromaV
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vidChromaV.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vidChromaV.dll
 			${MementoSectionEnd}
 			${MementoSection} "Contrast" SecVidFltContrast
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_contrast_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_contrast_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_contrast_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_contrast_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Luma Delta" SecVidFltLumaDelta
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Delta.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Delta.dll
 			${MementoSectionEnd}
 			${MementoSection} "Luma Equaliser" SecVidFltLumaEqualiser
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_equalizer_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_equalizer_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_equalizer_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_equalizer_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Luma Only" SecVidFltLumaOnly
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_lumaonly.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_lumaonly.dll
 			${MementoSectionEnd}
 			${MementoSection} "Mplayer Eq2" SecVidFltMPlayerEq2
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_eq2_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_eq2_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_eq2_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_eq2_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Mplayer Hue" SecVidFltMPlayerHue
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_hue_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_hue_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_hue_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_hue_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Swap U and V" SecVidFltSwapUandV
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_swapuv.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_swapuv.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Noise Filters" SecGrpVideoFilterNoise
 			${MementoSection} "Cnr2" SecVidFltCnr2
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_cnr2_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_cnr2_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_cnr2_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_cnr2_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Denoise" SecVidFltDenoise
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Denoise.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Denoise.dll
 			${MementoSectionEnd}
 			${MementoSection} "FluxSmooth" SecVidFltFluxSmooth
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_FluxSmooth.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_FluxSmooth.dll
 			${MementoSectionEnd}
 			${MementoSection} "Forced Post-processing" SecVidFltForcedPostProcessing
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_forcedPP.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_forcedPP.dll
 			${MementoSectionEnd}
 			${MementoSection} "Light Denoiser" SecVidFltLightDenoiser
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Stabilize.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Stabilize.dll
 			${MementoSectionEnd}
 			${MementoSection} "Median (5x5)" SecVidFltMediam5x5
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_largemedian.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_largemedian.dll
 			${MementoSectionEnd}
 			${MementoSection} "MPlayer Denoise3d" SecVidFltMPlayerDenoise3d
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_denoise3d.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_denoise3d.dll
 			${MementoSectionEnd}
 			${MementoSection} "MPlayer Hqdn3d" SecVidFltMPlayerHqdn3d
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_denoise3dhq.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_denoise3dhq.dll
 			${MementoSectionEnd}
 			${MementoSection} "Temporal Cleaner" SecVidFltTemporalCleaner
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_vlad.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_vlad.dll
 			${MementoSectionEnd}
 			${MementoSection} "TIsophote" SecVidFltTisophote
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Tisophote.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Tisophote.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Sharpness Filters" SecGrpVideoFilterSharpness
 			${MementoSection} "asharp" SecVidFltAsharp
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_asharp_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_asharp_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_asharp_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_asharp_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "MSharpen" SecVidFltMSharpen
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mSharpen.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_mSharpen.dll
 			${MementoSectionEnd}
 			${MementoSection} "MSmooth" SecVidFltMSmooth
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mSmooth.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_mSmooth.dll
 			${MementoSectionEnd}
 			${MementoSection} "Soften" SecVidFltSoften
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_soften.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_soften.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 		SectionGroup "Subtitle Filters" SecGrpVideoFilterSubtitle
 			${MementoSection} "ASS/SSA" SecVidFltAssSsa
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_ssa.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_ssa.dll
 			${MementoSectionEnd}
 			${MementoSection} "Subtitler" SecVidFltSubtitler
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_sub_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_sub_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_sub_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_sub_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
@@ -1030,31 +1030,31 @@ End:
 			${MementoSection} "Mosaic" SecVidFltMosaic
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Mosaic.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Mosaic.dll
 			${MementoSectionEnd}
 			${MementoSection} "MPlayer Delogo" SecVidFltMPlayerDelogo
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
+				SetOutPath $INSTDIR\plugins\videoFilter
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mpdelogo_gtk.dll
+				${File} plugins\videoFilter\libADM_vf_mpdelogo_gtk.dll
 CheckQt:
 !endif
 !ifdef INST_QT
 				!insertmacro SectionFlagIsSet ${SecUiQt} ${SF_SELECTED} InstallQt End
 InstallQt:
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_mpdelogo_qt4.dll
+				${File} plugins\videoFilter\libADM_vf_mpdelogo_qt4.dll
 End:
 !endif
 			${MementoSectionEnd}
 			${MementoSection} "Whirl" SecVidFltWhirl
 				SectionIn 1 2
 				SetOverwrite on
-				SetOutPath $INSTDIR\lib\ADM_plugins\videoFilter
-				${File} lib\ADM_plugins\videoFilter\libADM_vf_Whirl.dll
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_Whirl.dll
 			${MementoSectionEnd}
 		SectionGroupEnd
 	SectionGroupEnd

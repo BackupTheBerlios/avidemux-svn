@@ -269,9 +269,10 @@ static char *ADM_getRelativePath(const char *base0,const char *base1, const char
 	result = (char *)new char [length];
 	strcpy(result, base0);
 	strcat(result, separator);
-
 	strcat(result, base1);
-	strcat(result, separator);
+
+	if (strlen(base1))
+		strcat(result, separator);
 
 	if (base2)
 	{
@@ -337,7 +338,20 @@ char *ADM_getInstallRelativePath(const char *base1, const char *base2,const char
 
 char *ADM_getPluginPath(void)
 {
-	return ADM_getInstallRelativePath("lib", "ADM_plugins", "videoEncoder");
+#ifdef _WIN32
+	const char *startDir="";
+	const char *pluginDir="plugins";
+#else
+	const char *pluginDir="ADM_plugins";
+
+#ifdef __APPLE__
+    const char *startDir="../Resources/lib";
+#else
+    const char *startDir="lib";
+#endif
+#endif
+
+	return ADM_getInstallRelativePath(startDir, pluginDir, "videoEncoder");
 }
 /*
       Get the root directory for .avidemux stuff
