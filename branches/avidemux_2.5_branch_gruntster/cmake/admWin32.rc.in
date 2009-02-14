@@ -15,7 +15,7 @@ BEGIN
             VALUE "FileDescription",  "Avidemux ${PRODUCTVERSION_STRING}"
             VALUE "FileVersion",      "${FILEVERSION_STRING}"
             VALUE "InternalName",     "avidemux"
-            VALUE "LegalCopyright",   "Copyright © 2001-2007 Free Software Foundation"
+            VALUE "LegalCopyright",   "Copyright © 2001-2009 Free Software Foundation"
             VALUE "OriginalFilename", ""
             VALUE "ProductName",      "Avidemux"
             VALUE "ProductVersion",   "${PRODUCTVERSION_STRING}"
@@ -28,4 +28,4 @@ BEGIN
     END
 END
 
-100 ICON "${CMAKE_SOURCE_DIR}/avidemux/xpm/adm.ico"
+100 ICON "${CMAKE_SOURCE_DIR}/avidemux/xpm/${AVIDEMUX_ICON}"

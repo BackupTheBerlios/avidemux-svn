@@ -292,7 +292,7 @@ Section "Avidemux Core" SecCore
 SectionEnd
 
 SectionGroup /e "User interfaces" SecGrpUI
-    ${MementoSection} "Command line" SecUiCli
+    ${MementoUnselectedSection} "Command line" SecUiCli
         SectionIn 1 2
         SetOutPath $INSTDIR
         SetOverwrite on
@@ -302,10 +302,10 @@ SectionGroup /e "User interfaces" SecGrpUI
     ${MementoSectionEnd}
 
 !ifdef INST_BOTH
-	${MementoUnselectedSection} GTK+ SecUiGtk    
+	${MementoUnselectedSection} GTK+ SecUiGtk
 	SectionIn 2
 !else ifdef INST_GTK
-	${MementoSection} GTK+ SecUiGtk    
+	${MementoSection} GTK+ SecUiGtk
 	SectionIn 1 2 RO
 !endif
 !ifdef INST_BOTH | INST_GTK
