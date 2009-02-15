@@ -14,6 +14,7 @@ set PKG_CONFIG_PATH=%usrLocalDir%\lib\pkgconfig
 set SDLDIR=%usrLocalDir%
 set CFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
 set CXXFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
+set LDFLAGS=-L%CMAKE_LIBRARY_PATH%
 set qtDir=%devDir%\Qt
 
 if exist "%qtDir%" (
