@@ -176,25 +176,31 @@ add_custom_target(ffmpeg ALL
 # Add and install libraries
 getFfmpegLibNames("${FFMPEG_SOURCE_DIR}")
 
+if (WIN32)
+	set(FFMPEG_INSTALL_DIR ${BIN_DIR})
+else (WIN32)
+	set(FFMPEG_INSTALL_DIR lib)
+endif (WIN32)
+
 add_library(ADM_libswscale UNKNOWN IMPORTED)
 set_property(TARGET ADM_libswscale PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libswscale/${LIBSWSCALE_LIB}")
-install(FILES "${FFMPEG_BINARY_DIR}/libswscale/${LIBSWSCALE_LIB}" DESTINATION "${BIN_DIR}")
+install(FILES "${FFMPEG_BINARY_DIR}/libswscale/${LIBSWSCALE_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 add_library(ADM_libpostproc UNKNOWN IMPORTED)
 set_property(TARGET ADM_libpostproc PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libpostproc/${LIBPOSTPROC_LIB}")
-install(FILES "${FFMPEG_BINARY_DIR}/libpostproc/${LIBPOSTPROC_LIB}" DESTINATION "${BIN_DIR}")
+install(FILES "${FFMPEG_BINARY_DIR}/libpostproc/${LIBPOSTPROC_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 add_library(ADM_libavutil UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavutil PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavutil/${LIBAVUTIL_LIB}")
-install(FILES "${FFMPEG_BINARY_DIR}/libavutil/${LIBAVUTIL_LIB}" DESTINATION "${BIN_DIR}")
+install(FILES "${FFMPEG_BINARY_DIR}/libavutil/${LIBAVUTIL_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 add_library(ADM_libavcodec UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavcodec/${LIBAVCODEC_LIB}")
-install(FILES "${FFMPEG_BINARY_DIR}/libavcodec/${LIBAVCODEC_LIB}" DESTINATION "${BIN_DIR}")
+install(FILES "${FFMPEG_BINARY_DIR}/libavcodec/${LIBAVCODEC_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 add_library(ADM_libavformat UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavformat PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}")
-install(FILES "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}" DESTINATION "${BIN_DIR}")
+install(FILES "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 include_directories("${FFMPEG_SOURCE_DIR}")
 include_directories("${FFMPEG_SOURCE_DIR}/libavutil")
