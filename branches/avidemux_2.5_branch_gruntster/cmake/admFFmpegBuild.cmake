@@ -1,4 +1,5 @@
 include(admFFmpegUtil)
+find_package(Subversion)
 
 set(FFMPEG_VERSION 16945)
 set(SWSCALE_VERSION 28447)
