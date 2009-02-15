@@ -8,7 +8,7 @@
 	SET(ADM_ae_lav_mp2_SRCS audioencoder_lavcodec.cpp)
 	
 	add_library(ADM_libavcodec UNKNOWN IMPORTED)
-	set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBAVCODEC_LIB}")	
+	set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_LIB_DIR}/${LIBAVCODEC_LIB}")	
 
 	ADD_LIBRARY(ADM_ae_lav_mp2 SHARED ${ADM_ae_lav_mp2_SRCS})
 	ADD_TARGET_CFLAGS(ADM_ae_lav_mp2 "-DADM_LAV_MP2")

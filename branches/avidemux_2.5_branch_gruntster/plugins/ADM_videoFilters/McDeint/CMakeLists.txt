@@ -7,7 +7,7 @@ INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 SET(ADM_vf_mcdeint_SRCS ADM_vidMcDeint.cpp)
 
 add_library(ADM_libavcodec UNKNOWN IMPORTED)
-set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${AVIDEMUX_BIN_DIR}/${LIBAVCODEC_LIB}")
+set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_LIB_DIR}/${LIBAVCODEC_LIB}")
 
 ADD_LIBRARY(ADM_vf_mcdeint SHARED ${ADM_vf_mcdeint_SRCS})
 TARGET_LINK_LIBRARIES(ADM_vf_mcdeint ADM_libavcodec)
