@@ -302,9 +302,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	memset(&_picture, 0, sizeof(x264_picture_t));
 
-	_picture.img.i_csp = X264_CSP_I420;
-	_picture.img.i_plane = 3;
-
 	if (encodeParams->frameData)
 	{
 		_picture.img.plane[0] = encodeParams->frameData;	// Y
@@ -315,9 +312,11 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 		_picture.img.i_stride[2] = _param.i_width >> 1;
 		_picture.i_type = X264_TYPE_AUTO;
 		_picture.i_pts = _currentFrame;
+		_picture.img.i_csp = X264_CSP_I420;
+		_picture.img.i_plane = 3;
 	}
 
-	if (x264_encoder_encode(_handle, &nal, &nalCount, &_picture, &picture_out) < 0)
+	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData ? &_picture : NULL, &picture_out) < 0)
 	{
 		printf("[x264] Error encoding\n");
 		return ADM_VIDENC_ERR_FAILED;

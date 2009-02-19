@@ -6,7 +6,8 @@ if errorlevel 1 goto error
 
 set PATH=%PATH%;%devDir%\Git\bin
 
-rm "%usrLocalDir%/include/x264.h"
+del "%usrLocalDir%\bin\libx264-*.dll"
+del "%usrLocalDir%\include\x264.h"
 cd "%devDir%"
 
 rm -r -f x264
@@ -22,6 +23,7 @@ if errorlevel 1 goto end
 make install
 if errorlevel 1 goto end
 
+del "%devDir%\avidemux_2.5_build\libx264-*.dll"
 copy "%usrLocalDir%/bin/libx264-*.dll" "%devDir%\avidemux_2.5_build"
 
 :end
