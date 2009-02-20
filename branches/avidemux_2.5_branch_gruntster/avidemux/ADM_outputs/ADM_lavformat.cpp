@@ -196,8 +196,6 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                 case MUXER_MATROSKA:
                         strcpy(oc->title,"Avidemux");
                         strcpy(oc->author,"Avidemux");
-                        c->sample_aspect_ratio.num=1;
-                        c->sample_aspect_ratio.den=1;
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
@@ -235,8 +233,6 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 
                         strcpy(oc->title,ADM_GetFileName(foo));
                         strcpy(oc->author,"Avidemux");
-                        c->sample_aspect_ratio.num=1;
-                        c->sample_aspect_ratio.den=1;
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
