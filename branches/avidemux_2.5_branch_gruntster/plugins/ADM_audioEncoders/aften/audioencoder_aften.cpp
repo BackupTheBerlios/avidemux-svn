@@ -36,11 +36,9 @@ extern "C"
 
 #define _HANDLE ((AftenContext *)_handle)
 
-static AFTEN_encoderParam aftenParam= {
-  128
-  
-};
+static AFTEN_encoderParam aftenParam = { 128 };
 static uint8_t configure (void);
+
 /********************* Declare Plugin *****************************************************/
 ADM_DECLARE_AUDIO_ENCODER_PREAMBLE(AUDMEncoder_Aften);
 
@@ -206,18 +204,18 @@ uint8_t configure (void)
  int ret=0;
 
     diaMenuEntry bitrateM[]={
-                              BITRATE(56),
-                              BITRATE(64),
-                              BITRATE(80),
-                              BITRATE(96),
-                              BITRATE(112),
-                              BITRATE(128),
-                              BITRATE(160),
-                              BITRATE(192),
-                              BITRATE(224),
-                              BITRATE(384)
+							  {56, "56"},
+							  {64 ,"64"},
+							  {80, "80"},
+							  {96, "96"},
+							  {112, "112"},
+							  {128, "128"},
+							  {160, "160"},
+							  {192, "192"},
+							  {224, "224"},
+							  {384, "384"}
                           };
-    diaElemMenu bitrate(&(aftenParam.bitrate),   QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
+    diaElemMenu bitrate(&(aftenParam.bitrate), QT_TR_NOOP("_Bitrate:"), sizeof(bitrateM) / sizeof(diaMenuEntry), bitrateM);
   
     
 

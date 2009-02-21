@@ -399,6 +399,14 @@ SectionGroup Plugins SecGrpPlugin
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Encoders" SecGrpAudioEncoder
+		${MementoSection} "Aften (AC-3)" SecAudDecAften
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\audioEncoders
+			${File} plugins\audioEncoders\libADM_ae_aften.dll
+			SetOutPath $INSTDIR
+			${File} libaften.dll
+		${MementoSectionEnd}
 		${MementoSection} "FAAC (AAC)" SecAudEncFaac
 			SectionIn 1 2
 			SetOverwrite on

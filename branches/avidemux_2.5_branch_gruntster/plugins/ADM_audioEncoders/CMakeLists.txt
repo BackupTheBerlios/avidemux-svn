@@ -18,7 +18,7 @@ ADD_SUBDIRECTORY(lame)
 endif(USE_LAME)
 
 if(USE_AFTEN)
-# not tested ADD_SUBDIRECTORY(aften)
+	ADD_SUBDIRECTORY(aften)
 endif(USE_AFTEN)
 
 if(USE_VORBIS)

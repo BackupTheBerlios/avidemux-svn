@@ -21,6 +21,7 @@ echo -- Generating avidemux.pot --
 cd "%sourceDir%\po"
 sh update_pot.bash
 
+cd "%curDir%"
 goto end
 
 :error
