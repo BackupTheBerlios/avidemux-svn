@@ -87,8 +87,8 @@ public:
 	bool getDeterministic(void);
 	void setDeterministic(bool deterministic);
 
-	unsigned int getIdcLevel(void);
-	void setIdcLevel(unsigned int idcLevel);
+	int getIdcLevel(void);
+	void setIdcLevel(int idcLevel);
 
 	bool getSarAsInput(void);
 	void setSarAsInput(bool sarAsInput);

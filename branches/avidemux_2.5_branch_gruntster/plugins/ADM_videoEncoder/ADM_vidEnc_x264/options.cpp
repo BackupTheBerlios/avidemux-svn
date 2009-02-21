@@ -134,15 +134,16 @@ void x264Options::setDeterministic(bool deterministic)
 	_param.b_deterministic = deterministic;
 }
 
-unsigned int x264Options::getIdcLevel(void)
+int x264Options::getIdcLevel(void)
 {
 	return _param.i_level_idc;
 }
 
-void x264Options::setIdcLevel(unsigned int idcLevel)
+void x264Options::setIdcLevel(int idcLevel)
 {
 	switch (idcLevel)
 	{
+		case -1:
 		case 1:
 		case 11:
 		case 12:
@@ -1323,9 +1324,10 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 			strcpy((char*)xmlBuffer, "smallest");
 			break;
 	}
-#endif
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionSize", xmlBuffer);
+#endif
+
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaLumaQuantiserDifference", number2String(xmlBuffer, bufferSize, getChromaLumaQuantiserDifference()));
 
 	switch (getMotionEstimationMethod())
@@ -1832,6 +1834,7 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 
 				setDirectPredictionMode(directPredictionMode);
 			}
+#if X264_BUILD < 66
 			else if (strcmp((char*)xmlChild->name, "directPredictionSize") == 0)
 			{
 				int directPredictionSize = -1;
@@ -1843,8 +1846,9 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				else if (strcmp(content, "smallest") == 0)
 					directPredictionSize = -1;
 
-				setDirectPredictionMode(directPredictionSize);
+				setDirectPredictionSize(directPredictionSize);
 			}
+#endif
 			else if (strcmp((char*)xmlChild->name, "chromaLumaQuantiserDifference") == 0)
 				setChromaLumaQuantiserDifference(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "motionEstimationMethod") == 0)

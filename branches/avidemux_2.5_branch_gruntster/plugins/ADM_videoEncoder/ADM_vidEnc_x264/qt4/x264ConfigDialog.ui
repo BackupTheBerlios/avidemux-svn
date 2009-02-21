@@ -3428,8 +3428,13 @@
                 <item>
                  <widget class="QComboBox" name="idcLevelComboBox" >
                   <property name="currentIndex" >
-                   <number>14</number>
+                   <number>0</number>
                   </property>
+                  <item>
+                   <property name="text" >
+                    <string>Auto</string>
+                   </property>
+                  </item>
                   <item>
                    <property name="text" >
                     <string>1</string>

@@ -24,7 +24,7 @@ private:
 	static const int aspectRatioCount = 4;
 	int predefinedARs[aspectRatioCount][2];
 
-	static const int idcLevelCount = 15;
+	static const int idcLevelCount = 16;
 	uint8_t idcLevel[idcLevelCount];
 
 	static const int videoFormatCount = 6;
