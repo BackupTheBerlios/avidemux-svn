@@ -26,7 +26,7 @@ ADMImageResizer::ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t
 	init(ow, oh, dw, dh, PIX_FMT_YUV420P, PIX_FMT_YUV420P);
 }
 
-ADMImageResizer::ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, int srcFormat, int destFormat)
+ADMImageResizer::ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat destFormat)
 {
 	init(ow, oh, dw, dh, srcFormat, destFormat);
 }
@@ -40,7 +40,7 @@ ADMImageResizer::~ADMImageResizer()
    }
 }
 
-void ADMImageResizer::init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, int srcFormat, int dstFormat)
+void ADMImageResizer::init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat dstFormat)
 {
     orgWidth = ow;
     orgHeight = oh;
@@ -67,7 +67,7 @@ void ADMImageResizer::init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, i
 	_context = (void *)sws_getContext(orgWidth, orgHeight,
 									  srcFormat,
 									  destWidth, destHeight,
-									  destFormat,
+									  dstFormat,
 									  flags, NULL, NULL,NULL);
 }
 

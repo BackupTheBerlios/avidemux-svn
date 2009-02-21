@@ -25,6 +25,10 @@
 #include "ADM_assert.h"
 #include "ADM_rgb.h"
 
+extern "C" {
+#include "libavutil/avutil.h"
+}
+
 typedef enum 
 {
 	ADM_ASPECT_4_3=1,
@@ -167,11 +171,11 @@ class ADMImageResizer
 		uint32_t orgWidth, orgHeight;
 		uint32_t destWidth, destHeight;
 
-		void init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, int srcFormat, int dstFormat);
+		void init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat dstFormat);
 		void getYuvPlanes(uint8_t *source, uint32_t width, uint32_t height, uint8_t*& yPlane, uint8_t*& uPlane, uint8_t*& vPlane);
 	public:
 		ADMImageResizer(uint32_t ow,uint32_t oh, uint32_t dw, uint32_t dh);
-		ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, int srcFormat, int dstFormat);
+		ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat dstFormat);
 		~ADMImageResizer();
 		
 		uint8_t resize(ADMImage *src, ADMImage *dest);

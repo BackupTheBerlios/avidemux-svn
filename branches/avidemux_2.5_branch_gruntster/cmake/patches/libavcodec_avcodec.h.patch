@@ -1,8 +1,8 @@
-*** libavcodec/avcodec.h.old	Mon Feb  2 19:49:48 2009
---- libavcodec/avcodec.h	Mon Feb  2 19:49:47 2009
+*** libavcodec/avcodec.h.old	Sat Feb 21 16:10:58 2009
+--- libavcodec/avcodec.h	Sat Feb 21 16:10:57 2009
 ***************
-*** 500,505 ****
---- 500,507 ----
+*** 501,506 ****
+--- 501,508 ----
   #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1281,1286 ****
---- 1283,1289 ----
+*** 1290,1295 ****
+--- 1292,1298 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1295,1300 ****
---- 1298,1305 ----
+*** 1304,1309 ****
+--- 1307,1314 ----
        * - decoding: unused
        */
       int rc_buffer_size;

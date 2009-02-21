@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Mon Feb  2 19:50:00 2009
---- libavformat/matroskaenc.c	Mon Feb  2 19:49:59 2009
+*** libavformat/matroskaenc.c.old	Sat Feb 21 16:11:12 2009
+--- libavformat/matroskaenc.c	Sat Feb 21 16:11:12 2009
 ***************
 *** 394,399 ****
 --- 394,400 ----
@@ -42,8 +42,8 @@
   
   #define FLAC_STREAMINFO_SIZE 34
 ***************
-*** 554,559 ****
---- 577,599 ----
+*** 555,560 ****
+--- 578,600 ----
           put_ebml_uint (pb, MATROSKA_ID_TRACKNUMBER     , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
@@ -65,11 +65,11 @@
 +         
 + /**  MEANX : Add a default duration for video **/
   
-          if (st->language[0])
-              put_ebml_string(pb, MATROSKA_ID_TRACKLANGUAGE, st->language);
+          if ((tag = av_metadata_get(st->metadata, "description", NULL, 0)))
+              put_ebml_string(pb, MATROSKA_ID_TRACKNAME, tag->value);
 ***************
-*** 926,928 ****
---- 966,978 ----
+*** 928,930 ****
+--- 968,980 ----
       .flags = AVFMT_GLOBALHEADER,
       .codec_tag = (const AVCodecTag* const []){codec_wav_tags, 0},
   };

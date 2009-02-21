@@ -1,8 +1,8 @@
 include(admFFmpegUtil)
 find_package(Subversion)
 
-set(FFMPEG_VERSION 16945)
-set(SWSCALE_VERSION 28447)
+set(FFMPEG_VERSION 17480)
+set(SWSCALE_VERSION 28690)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 

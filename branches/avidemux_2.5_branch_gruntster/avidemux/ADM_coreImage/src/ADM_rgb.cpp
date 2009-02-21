@@ -326,7 +326,7 @@ uint8_t ColYv12Rgb24::reset(uint32_t ww, uint32_t hh)
  uint8_t ColRgbToYV12::reset(uint32_t ww, uint32_t hh)
  {
  int flags=0;
- int c;	
+ PixelFormat c;	
     clean();
     FLAGS();
     flags|=SWS_BILINEAR;
@@ -472,7 +472,7 @@ void SwapMe(uint8_t *tgt,uint8_t *src,int nb)
 COL_Generic2YV12::COL_Generic2YV12(uint32_t ww, uint32_t hh,ADM_colorspace col)
 {
 int flags=0;
-int c=0; 
+PixelFormat c; 
 
         FLAGS();
         flags|=SWS_BILINEAR;

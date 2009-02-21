@@ -32,6 +32,7 @@ ELSE (NOT AVIDEMUX_SOURCE_DIR)
 ENDIF (NOT AVIDEMUX_SOURCE_DIR)
 
 INCLUDE_DIRECTORIES(${AVIDEMUX_SOURCE_DIR})
+INCLUDE_DIRECTORIES("${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 
 ########################################
 # Where are the libraries
