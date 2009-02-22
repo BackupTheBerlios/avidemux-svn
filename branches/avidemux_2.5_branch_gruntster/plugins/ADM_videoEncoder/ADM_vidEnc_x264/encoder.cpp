@@ -507,6 +507,12 @@ int x264Encoder::finishPass(void)
 	if (!_opened)
 		return ADM_VIDENC_ERR_CLOSED;
 
+	if (_handle)
+	{
+		x264_encoder_close(_handle);
+		_handle = NULL;
+	}
+
 	if (_openPass)
 		_openPass = false;
 
@@ -531,12 +537,6 @@ void x264Encoder::close(void)
 		finishPass();
 
 	_opened = false;
-
-	if (_handle)
-	{
-		x264_encoder_close(_handle);
-		_handle = NULL;
-	}
 
 	if (_buffer)
 	{
