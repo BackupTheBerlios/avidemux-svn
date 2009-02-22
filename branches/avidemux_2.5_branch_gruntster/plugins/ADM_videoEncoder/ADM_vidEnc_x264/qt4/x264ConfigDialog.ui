@@ -101,7 +101,7 @@
      <property name="sizeHint" >
       <size>
        <width>491</width>
-       <height>16</height>
+       <height>10</height>
       </size>
      </property>
     </spacer>
@@ -1713,12 +1713,61 @@
               </property>
              </widget>
             </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="label_4" >
+              <property name="text" >
+               <string>Adaptive B-frame Decision:</string>
+              </property>
+             </widget>
+            </item>
             <item row="1" column="0" >
              <widget class="QLabel" name="label_29" >
               <property name="text" >
                <string>B-frame Bias:</string>
               </property>
              </widget>
+            </item>
+            <item row="2" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="adaptiveBFrameComboBox" >
+                <item>
+                 <property name="text" >
+                  <string>Disabled</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Fast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Optimal</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </item>
             <item row="1" column="1" >
              <layout class="QHBoxLayout" >
@@ -1808,28 +1857,11 @@
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" >
-            <property name="margin" >
-             <number>0</number>
+           <widget class="QCheckBox" name="bFrameRefCheckBox" >
+            <property name="text" >
+             <string>Use B-frames as References</string>
             </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item>
-             <widget class="QCheckBox" name="bFrameRefCheckBox" >
-              <property name="text" >
-               <string>Use B-frames as References</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="adaptiveBFrameCheckBox" >
-              <property name="text" >
-               <string>Adaptive B-frame Decision</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -4143,10 +4175,14 @@
   <tabstop>sarPredefinedRadioButton</tabstop>
   <tabstop>sarPredefinedComboBox</tabstop>
   <tabstop>sarAsInputRadioButton</tabstop>
+  <tabstop>threadDisableRadioButton</tabstop>
+  <tabstop>threadAutoDetectRadioButton</tabstop>
+  <tabstop>threadCustomRadioButton</tabstop>
+  <tabstop>threadCustomSpinBox</tabstop>
+  <tabstop>meMethodComboBox</tabstop>
   <tabstop>meSlider</tabstop>
   <tabstop>meSpinBox</tabstop>
   <tabstop>rdoCheckBox</tabstop>
-  <tabstop>meMethodComboBox</tabstop>
   <tabstop>mvRangeSpinBox</tabstop>
   <tabstop>mvLengthCheckBox</tabstop>
   <tabstop>mvLengthSpinBox</tabstop>
@@ -4155,16 +4191,22 @@
   <tabstop>predictModeComboBox</tabstop>
   <tabstop>predictSizeComboBox</tabstop>
   <tabstop>weightedPredictCheckBox</tabstop>
+  <tabstop>dct8x8CheckBox</tabstop>
+  <tabstop>p8x8CheckBox</tabstop>
+  <tabstop>b8x8CheckBox</tabstop>
+  <tabstop>p4x4CheckBox</tabstop>
+  <tabstop>i8x8CheckBox</tabstop>
+  <tabstop>i4x4CheckBox</tabstop>
   <tabstop>cabacCheckBox</tabstop>
   <tabstop>interlacedCheckBox</tabstop>
   <tabstop>loopFilterCheckBox</tabstop>
   <tabstop>alphaC0SpinBox</tabstop>
   <tabstop>betaSpinBox</tabstop>
+  <tabstop>refFramesSpinBox</tabstop>
   <tabstop>maxBFramesSpinBox</tabstop>
   <tabstop>BFrameBiasSpinBox</tabstop>
-  <tabstop>refFramesSpinBox</tabstop>
+  <tabstop>adaptiveBFrameComboBox</tabstop>
   <tabstop>bFrameRefCheckBox</tabstop>
-  <tabstop>adaptiveBFrameCheckBox</tabstop>
   <tabstop>maxGopSizeSpinBox</tabstop>
   <tabstop>minGopSizeSpinBox</tabstop>
   <tabstop>IFrameThresholdSpinBox</tabstop>
@@ -4186,12 +4228,19 @@
   <tabstop>quantiserMinSpinBox</tabstop>
   <tabstop>quantiserMaxSpinBox</tabstop>
   <tabstop>quantiserMaxStepSpinBox</tabstop>
+  <tabstop>avgBitrateToleranceSpinBox</tabstop>
   <tabstop>quantiserIpRatioSpinBox</tabstop>
   <tabstop>quantiserPbRatioSpinBox</tabstop>
   <tabstop>chromaLumaOffsetSpinBox</tabstop>
   <tabstop>quantiserCurveCompressSpinBox</tabstop>
   <tabstop>quantiserBeforeCompressSpinBox</tabstop>
   <tabstop>quantiserAfterCompressSpinBox</tabstop>
+  <tabstop>aqVarianceCheckBox</tabstop>
+  <tabstop>aqStrengthSpinBox</tabstop>
+  <tabstop>vbvMaxBitrateSpinBox</tabstop>
+  <tabstop>vbvBufferSizeSpinBox</tabstop>
+  <tabstop>vbvBufferOccupancySpinBox</tabstop>
+  <tabstop>zoneTableView</tabstop>
   <tabstop>zoneAddButton</tabstop>
   <tabstop>zoneEditButton</tabstop>
   <tabstop>zoneDeleteButton</tabstop>
@@ -4208,6 +4257,9 @@
   <tabstop>fullRangeSamplesCheckBox</tabstop>
   <tabstop>okButton</tabstop>
   <tabstop>cancelButton</tabstop>
+  <tabstop>configurationComboBox</tabstop>
+  <tabstop>saveAsButton</tabstop>
+  <tabstop>deleteButton</tabstop>
  </tabstops>
  <resources/>
  <connections>

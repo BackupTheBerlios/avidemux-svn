@@ -99,6 +99,12 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
+#if X264_BUILD < 63
+	ui.adaptiveBFrameComboBox->clear();
+	ui.adaptiveBFrameComboBox->addItem(QT_TR_NOOP("Disabled"));
+	ui.adaptiveBFrameComboBox->addItem(QT_TR_NOOP("Enabled"));
+#endif
+
 	// Analysis tab
 	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
@@ -667,7 +673,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.BFrameBiasSpinBox->setValue(options->getBFrameBias());
 	ui.refFramesSpinBox->setValue(options->getReferenceFrames());
 	ui.bFrameRefCheckBox->setChecked(options->getBFrameReferences());
-	ui.adaptiveBFrameCheckBox->setChecked(options->getAdaptiveBFrameDecision());
+	ui.adaptiveBFrameComboBox->setCurrentIndex(options->getAdaptiveBFrameDecision());
 	ui.maxGopSizeSpinBox->setValue(options->getGopMaximumSize());
 	ui.minGopSizeSpinBox->setValue(options->getGopMaximumSize());
 	ui.IFrameThresholdSpinBox->setValue(options->getScenecutThreshold());
@@ -875,7 +881,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setBFrameBias(ui.BFrameBiasSpinBox->value());
 	options->setReferenceFrames(ui.refFramesSpinBox->value());
 	options->setBFrameReferences(ui.bFrameRefCheckBox->isChecked());
-	options->setAdaptiveBFrameDecision(ui.adaptiveBFrameCheckBox->isChecked());
+	options->setAdaptiveBFrameDecision(ui.adaptiveBFrameComboBox->currentIndex());
 	options->setGopMaximumSize(ui.maxGopSizeSpinBox->value());
 	options->setGopMaximumSize(ui.minGopSizeSpinBox->value());
 	options->setScenecutThreshold(ui.IFrameThresholdSpinBox->value());
