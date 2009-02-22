@@ -50,7 +50,7 @@ uint32_t useMaster=0;
 uint32_t useAutoIndex=0;
 uint32_t useSwap=0;
 uint32_t useNuv=0;
-uint32_t lavcThreads=0,x264Threads=0,xvidThreads=0;
+uint32_t lavcThreads=0;
 uint32_t encodePriority=2;
 uint32_t indexPriority=2;
 uint32_t playbackPriority=0;
@@ -127,8 +127,6 @@ char     *globalGlyphName=NULL;
 
         // Multithreads
         prefs->get(FEATURE_THREADING_LAVC, &lavcThreads);
-        prefs->get(FEATURE_THREADING_X264, &x264Threads);
-        prefs->get(FEATURE_THREADING_XVID, &xvidThreads);
 
 		// Encoding priority
 		if(!prefs->get(PRIORITY_ENCODING, &encodePriority))
@@ -217,13 +215,9 @@ char     *globalGlyphName=NULL;
 		frameSimd.swallow(&capsToggleSSSE3);
 
 		diaElemThreadCount lavcThreadCount(&lavcThreads, QT_TR_NOOP("_lavc threads:"));
-		diaElemThreadCount x264ThreadCount(&x264Threads, QT_TR_NOOP("_x264 threads:"));
-		diaElemThreadCount xvidThreadCount(&xvidThreads, QT_TR_NOOP("X_vid threads:"));
 
 		diaElemFrame frameThread(QT_TR_NOOP("Multi-threading"));
 		frameThread.swallow(&lavcThreadCount);
-		frameThread.swallow(&x264ThreadCount);
-		frameThread.swallow(&xvidThreadCount);
 
 		diaMenuEntry priorityEntries[] = {
                              {0,       QT_TR_NOOP("High"),NULL}
@@ -454,8 +448,6 @@ char     *globalGlyphName=NULL;
                 
                 // number of threads
                 prefs->set(FEATURE_THREADING_LAVC, lavcThreads);
-				prefs->set(FEATURE_THREADING_X264, x264Threads);
-				prefs->set(FEATURE_THREADING_XVID, xvidThreads);
 
 				// Encoding priority
 				prefs->set(PRIORITY_ENCODING, encodePriority);
