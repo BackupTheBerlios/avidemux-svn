@@ -675,7 +675,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.bFrameRefCheckBox->setChecked(options->getBFrameReferences());
 	ui.adaptiveBFrameComboBox->setCurrentIndex(options->getAdaptiveBFrameDecision());
 	ui.maxGopSizeSpinBox->setValue(options->getGopMaximumSize());
-	ui.minGopSizeSpinBox->setValue(options->getGopMaximumSize());
+	ui.minGopSizeSpinBox->setValue(options->getGopMinimumSize());
 	ui.IFrameThresholdSpinBox->setValue(options->getScenecutThreshold());
 	ui.scenecutDetectionCheckBox->setChecked(options->getPreScenecutDetection());
 
@@ -883,7 +883,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setBFrameReferences(ui.bFrameRefCheckBox->isChecked());
 	options->setAdaptiveBFrameDecision(ui.adaptiveBFrameComboBox->currentIndex());
 	options->setGopMaximumSize(ui.maxGopSizeSpinBox->value());
-	options->setGopMaximumSize(ui.minGopSizeSpinBox->value());
+	options->setGopMinimumSize(ui.minGopSizeSpinBox->value());
 	options->setScenecutThreshold(ui.IFrameThresholdSpinBox->value());
 	options->setPreScenecutDetection(ui.scenecutDetectionCheckBox->isChecked());
 
