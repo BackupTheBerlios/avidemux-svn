@@ -18,6 +18,8 @@
 #include "ADM_JSGlobal.h"
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSDirectorySearch.h"
+#include "ADM_JSDialogFactory.h"
+#include "ADM_JSDFMenu.h"
 
 extern uint8_t JS_AvidemuxFunction(JSContext *cx,JSObject *global);
 extern void A_Resync(void);
@@ -94,6 +96,9 @@ bool SpidermonkeyInit()
 			// load our custom JS class objects
 			JSObject *obj = ADM_JSAvidemux::JSInit(cx, global);
 			JSObject *dsObj = ADM_JSDirectorySearch::JSInit(cx, global);
+			JSObject *df = ADM_JSDialogFactory::JSInit(cx, global);
+			JSObject *dfmenu = ADM_JSDFMenu::JSInit(cx, global);
+
 			// register error handler
 			JS_SetErrorReporter(cx, printJSError);
                         JS_AvidemuxFunction(cx,global);
