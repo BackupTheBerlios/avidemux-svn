@@ -95,15 +95,15 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 
 	gtk_widget_hide(WID(checkbuttonBidirME));
 #else
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("1  - Extremely Low (Fastest)"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("2  - Very Low"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("3  - Low"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("4  - Medium"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("5  - High (Default)"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6  - Very High"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("6B - Very High (RDO on B-frames)"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7  - Ultra High"));
-	gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxPartitionDecision), _("7B - Ultra High (RDO on B-frames)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("1  - Extremely Low (Fastest)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("2  - Very Low"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("3  - Low"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("4  - Medium"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("5  - High (Default)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("6  - Very High"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("6B - Very High (RDO on B-frames)"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("7  - Ultra High"));
+	gtk_combo_box_append_text (GTK_COMBO_BOX(WID(comboboxPartitionDecision)), _("7B - Ultra High (RDO on B-frames)"));
 #endif
 
 	loadOptions(dialog, options);
