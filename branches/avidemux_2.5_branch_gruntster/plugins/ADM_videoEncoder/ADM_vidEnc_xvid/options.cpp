@@ -21,10 +21,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <stdlib.h>
-#include <string.h>
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
+#include <sstream>
+#include <string>
 
 #include "config.h"
 #include "ADM_inttype.h"
@@ -1311,21 +1311,39 @@ void XvidOptions::parseTwoPassOptions(xmlNode *node)
 
 xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, int number)
 {
-	snprintf((char*)buffer, size, "%d", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }
 
 xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, unsigned int number)
 {
-	snprintf((char*)buffer, size, "%d", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }
 
 xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, float number)
 {
-	snprintf((char*)buffer, size, "%f", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }

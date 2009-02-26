@@ -24,6 +24,8 @@
 #include <math.h>
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
+#include <sstream>
+#include <string>
 
 #include "config.h"
 #include "ADM_inttype.h"
@@ -2002,21 +2004,39 @@ void x264Options::parseZoneOptions(xmlNode *zoneNode)
 
 xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, int number)
 {
-	snprintf((char*)buffer, size, "%d", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }
 
 xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, unsigned int number)
 {
-	snprintf((char*)buffer, size, "%d", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }
 
 xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, float number)
 {
-	snprintf((char*)buffer, size, "%f", number);
+	std::ostringstream stream;
+
+	stream.imbue(std::locale::classic());
+	stream << number;
+	std::string string = stream.str();
+
+	strncpy((char*)buffer, string.c_str(), size);
 
 	return buffer;
 }
@@ -2024,9 +2044,9 @@ xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, float number)
 xmlChar* x264Options::boolean2String(xmlChar *buffer, size_t size, bool boolean)
 {
 	if (boolean)
-		strcpy((char*)buffer, "true");
+		strncpy((char*)buffer, "true", size);
 	else
-		strcpy((char*)buffer, "false");
+		strncpy((char*)buffer, "false", size);
 
 	return buffer;
 }
