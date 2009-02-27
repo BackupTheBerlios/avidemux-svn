@@ -67,12 +67,7 @@ uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExis
 		properties.flags |= ADM_VIDENC_FLAG_GLOBAL_HEADER;
 
 	if (_plugin->open(_plugin->encoderId, &properties))
-	{
-		if (!isDualPass())
-			return (startPass() == ADM_VIDENC_ERR_SUCCESS);
-		else
-			return 1;
-	}
+		return (startPass() == ADM_VIDENC_ERR_SUCCESS);
 	else
 		return 0;
 }
@@ -191,7 +186,7 @@ uint8_t externalEncoder::startPass(void)
 
 uint8_t externalEncoder::startPass1(void)
 {
-	return startPass();
+	return 1;
 }
 
 uint8_t externalEncoder::startPass2(void)
