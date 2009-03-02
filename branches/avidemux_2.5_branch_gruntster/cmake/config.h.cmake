@@ -29,9 +29,6 @@
 /* Define to 1 if you have the `mp3lame' library (-lmp3lame). */
 #cmakedefine HAVE_LIBMP3LAME
 
-/* stricter prototyping */
-#cmakedefine ICONV_NEED_CONST
-
 /* OSS detected */
 #cmakedefine OSS_SUPPORT
 
