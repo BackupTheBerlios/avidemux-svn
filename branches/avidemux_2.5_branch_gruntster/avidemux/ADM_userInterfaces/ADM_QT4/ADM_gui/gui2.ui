@@ -1304,13 +1304,6 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuHelp" >
-    <property name="title" >
-     <string>&amp;Help</string>
-    </property>
-    <addaction name="actionShow_built_in_support" />
-    <addaction name="actionAbout_avidemux" />
-   </widget>
    <widget class="QMenu" name="menuVideo" >
     <property name="title" >
      <string>Vi&amp;deo</string>
@@ -1463,6 +1456,15 @@
     <addaction name="actionConnect_to_AvsProxy" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
+   </widget>
+   <widget class="QMenu" name="menuHelp" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionShow_built_in_support" />
+    <addaction name="action_Plugins" />
+    <addaction name="separator" />
+    <addaction name="actionAbout_avidemux" />
    </widget>
    <addaction name="menuFile" />
    <addaction name="menuEdit" />
@@ -2366,6 +2368,11 @@
   <action name="actionAVI_Muxer_Options" >
    <property name="text" >
     <string>&amp;AVI Muxer Options...</string>
+   </property>
+  </action>
+  <action name="action_Plugins" >
+   <property name="text" >
+    <string>&amp;Plugins...</string>
    </property>
   </action>
  </widget>

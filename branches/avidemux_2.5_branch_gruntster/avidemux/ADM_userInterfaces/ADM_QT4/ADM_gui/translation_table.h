@@ -56,6 +56,7 @@ PROCESS(actionGo_to_Marker_B,ACT_GotoMarkB) \
 PROCESS(actionJump_to_Frame,ACT_Goto) \
 PROCESS(actionJump_to_Time,ACT_GotoTime) \
 PROCESS(actionShow_built_in_support,ACT_BUILT_IN) \
+PROCESS(action_Plugins, ACT_PLUGIN_INFO) \
 PROCESS(actionAbout_avidemux,ACT_About) \
 PROCESS(actionPlay,ACT_PlayAvi) \
 PROCESS(actionRecent0,ACT_RECENT0) \
