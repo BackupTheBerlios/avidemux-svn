@@ -1,1 +1,1 @@
-execute_process(COMMAND make)
+execute_process(COMMAND ${CMAKE_BUILD_TOOL})
