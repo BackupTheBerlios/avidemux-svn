@@ -9,7 +9,7 @@
 		<TS>
 			<xsl:copy-of select="@*" />
 
-			<xsl:for-each select="context/message">
+			<xsl:for-each select="context/message[not(source = preceding::message/source)]">
 				<xsl:variable name="location" select="location/@filename" />
 
 				<context>
