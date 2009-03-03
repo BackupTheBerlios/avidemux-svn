@@ -437,10 +437,10 @@ void filtermainWindow::filterFamilyItemChanged(QListWidgetItem *current, QListWi
 
 void filtermainWindow::displayFamily(uint32_t family)
 {
-  printf("Family :%u\n",family);
-  ADM_assert(family<VF_MAX);
-  std::vector <FilterDescriptor *> vec=filterCategories[family];
   availableList->clear();
+  printf("Family :%u\n",family);
+  if (family >= VF_MAX) return;
+  std::vector <FilterDescriptor *> vec=filterCategories[family];
   QSize sz;
   
   for (uint32_t i = 0; i < vec.size(); i++)
