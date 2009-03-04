@@ -38,12 +38,6 @@
 
 extern "C"
 {
-	#define HAVE_MMX
-	#define AV_WN16
-	#define AV_WN32
-	#define AV_RN16
-	#define AV_RN32
-	#include "libavcodec/dsputil.h"
 	#include "libavcodec/avcodec.h"
 
 adm_fast_memcpy myAdmMemcpy=NULL;
