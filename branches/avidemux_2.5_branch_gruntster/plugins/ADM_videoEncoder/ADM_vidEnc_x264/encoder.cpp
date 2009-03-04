@@ -121,7 +121,12 @@ int x264Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 	}
 
 	if (_loader->isAvailable())
-		return _loader->showX264ConfigDialog(configParameters, properties, &_encodeOptions, &_options);
+		if (_loader->showX264ConfigDialog(configParameters, properties, &_encodeOptions, &_options))
+		{
+			updateEncodeParameters(NULL);
+
+			return 1;
+		}
 	else
 		return 0;
 }
@@ -155,7 +160,10 @@ int x264Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 		success = _options.fromXml(pluginOptions);
 
 	if (encodeOptions && success)
+	{
 		memcpy(&_encodeOptions, encodeOptions, sizeof(vidEncOptions));
+		updateEncodeParameters(NULL);
+	}
 
 	if (success)
 		return ADM_VIDENC_ERR_SUCCESS;
@@ -218,6 +226,12 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 	if (_currentPass == _passCount)
 		return ADM_VIDENC_ERR_PASS_COUNT_REACHED;
 
+	if (_passCount > 1 && _currentPass == 0 && passParameters->useExistingLogFile)
+	{
+		_currentPass++;
+		return ADM_VIDENC_ERR_PASS_SKIP;
+	}
+
 	_openPass = true;
 	_currentPass++;
 	_currentFrame = 0;
@@ -234,9 +248,6 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 		logFileName = new char[strlen(passParameters->logFileName) + 1];
 		strcpy(logFileName, passParameters->logFileName);
 #endif
-
-		if (passParameters->useExistingLogFile)
-			_currentPass++;
 
 		if (_currentPass == 1)
 		{
@@ -532,7 +543,6 @@ void x264Encoder::close(void)
 		finishPass();
 
 	_opened = false;
-	_passCount = 0;
 	_currentPass = 0;
 
 	if (_buffer)
@@ -680,7 +690,12 @@ void x264Encoder::updateEncodeParameters(vidEncVideoProperties *properties)
 		case ADM_VIDENC_MODE_2PASS_SIZE:
 			_passCount = 2;
 			_param.rc.i_rc_method = X264_RC_ABR;
-			_param.rc.i_bitrate = calculateBitrate(properties->fpsNum, properties->fpsDen, properties->frameCount, _encodeOptions.encodeModeParameter) / 1000;
+
+			if (properties)
+				_param.rc.i_bitrate = calculateBitrate(properties->fpsNum, properties->fpsDen, properties->frameCount, _encodeOptions.encodeModeParameter) / 1000;
+			else
+				_param.rc.i_bitrate = 1500;
+
 			break;
 		case ADM_VIDENC_MODE_2PASS_ABR:
 			_passCount = 2;

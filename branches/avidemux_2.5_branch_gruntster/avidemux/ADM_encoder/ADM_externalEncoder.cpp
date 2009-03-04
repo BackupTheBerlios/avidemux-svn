@@ -165,13 +165,26 @@ uint8_t externalEncoder::isDualPass(void)
 uint8_t externalEncoder::startPass(void)
 {
 	vidEncPassParameters passParameters;
+	int ret;
 
 	memset(&passParameters, 0, sizeof(vidEncPassParameters));
 	passParameters.structSize = sizeof(vidEncPassParameters);
 	passParameters.logFileName = _logFileName;
 	passParameters.useExistingLogFile = _useExistingLogFile;
 
-	_openPass = (_plugin->beginPass(_plugin->encoderId, &passParameters) == ADM_VIDENC_ERR_SUCCESS);
+	ret = _plugin->beginPass(_plugin->encoderId, &passParameters);
+
+	if (ret == ADM_VIDENC_ERR_PASS_SKIP)
+	{
+		printf("[externalEncoder] skipping pass\n");
+
+		return 1;
+	}
+
+	if (ret != ADM_VIDENC_ERR_SUCCESS)
+		printf("[externalEncoder] begin pass failed: %d\n", ret);
+
+	_openPass = (ret == ADM_VIDENC_ERR_SUCCESS);
 
 	if (_openPass && _globalHeader)
 	{
