@@ -65,9 +65,8 @@ typedef struct
 	unsigned int parWidth;
 	unsigned int parHeight;
 	unsigned int frameCount;
-	unsigned int fps1000;
-	const char* logFileName;
-	int useExistingLogFile;
+	unsigned int fpsNum;
+	unsigned int fpsDen;
 	unsigned int flags;
 } vidEncVideoProperties;
 
@@ -83,6 +82,8 @@ typedef struct
 	int structSize;
 	uint8_t *extraData;
 	int extraDataSize;
+	const char* logFileName;
+	int useExistingLogFile;
 } vidEncPassParameters;
 
 typedef struct

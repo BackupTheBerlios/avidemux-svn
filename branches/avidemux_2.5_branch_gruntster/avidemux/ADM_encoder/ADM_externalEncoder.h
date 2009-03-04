@@ -28,6 +28,7 @@ class externalEncoder : public Encoder
 private:
 	ADM_vidEnc_plugin *_plugin;
 	bool _openPass;
+	bool _useExistingLogFile;
 	char* _logFileName;
 	bool _globalHeader;
 	uint8_t *_extraData;

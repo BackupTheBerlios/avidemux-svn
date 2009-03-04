@@ -56,7 +56,7 @@
 		bool _opened, _openPass;
 
 		void updateEncodeParameters(vidEncVideoProperties *properties);
-		unsigned int calculateBitrate(unsigned int fps1000, unsigned int frameCount, unsigned int sizeInMb);
+		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
 
 		void printEncCreate(xvid_enc_create_t *xvid_enc_create);
 		void printEncFrame(xvid_enc_frame_t *xvid_enc_frame);

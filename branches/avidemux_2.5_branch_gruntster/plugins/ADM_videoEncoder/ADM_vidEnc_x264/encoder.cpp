@@ -55,9 +55,7 @@ x264Encoder::x264Encoder(void)
 	_currentPass = 0;
 	_openPass = false;
 
-	_logFileName = NULL;
 	_buffer = NULL;
-
 	_extraData = NULL;
 	_extraDataSize = 0;
 
@@ -77,9 +75,6 @@ x264Encoder::~x264Encoder(void)
 
 	if (_loader)
 		delete _loader;
-
-	if (_logFileName)
-		delete [] _logFileName;
 
 	if (_buffer)
 		delete [] _buffer;
@@ -189,24 +184,12 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
-	_properties.logFileName = NULL;
-
-	if (_logFileName)
-		delete [] _logFileName;
-
-#ifdef __WIN32
-	convertPathToAnsi(properties->logFileName, &_logFileName);
-#else
-	_logFileName = new char[strlen(properties->logFileName) + 1];
-	strcpy(_logFileName, properties->logFileName);
-#endif
-
 	updateEncodeParameters(&_properties);
 
 	_param.i_width = _properties.width;
 	_param.i_height = _properties.height;
-	_param.i_fps_num = _properties.fps1000;
-	_param.i_fps_den = 1000;
+	_param.i_fps_num = _properties.fpsNum;
+	_param.i_fps_den = _properties.fpsDen;
 
 	if (_options.getSarAsInput())
 	{
@@ -218,9 +201,6 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 		_param.b_repeat_headers = 0;
 	else
 		_param.b_repeat_headers = 1;
-
-	if (_passCount > 1 && properties->useExistingLogFile)
-		_currentPass++;
 
 	printParam(&_param);
 
@@ -242,25 +222,37 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 	_currentPass++;
 	_currentFrame = 0;
 
+	char *logFileName = NULL;
+
 	printf("[x264] begin pass %d/%d\n", _currentPass, _passCount);
 
 	if (_passCount > 1)
 	{
+#ifdef __WIN32
+		convertPathToAnsi(passParameters->logFileName, &logFileName);
+#else
+		logFileName = new char[strlen(passParameters->logFileName) + 1];
+		strcpy(logFileName, passParameters->logFileName);
+#endif
+
+		if (passParameters->useExistingLogFile)
+			_currentPass++;
+
 		if (_currentPass == 1)
 		{
 			_param.rc.b_stat_write = 1;
 			_param.rc.b_stat_read = 0;
-			_param.rc.psz_stat_out = _logFileName;
+			_param.rc.psz_stat_out = logFileName;
 
-			printf("[x264] writing to %s\n", _logFileName);
+			printf("[x264] writing to %s\n", logFileName);
 		}
 		else
 		{
 			_param.rc.b_stat_write = 0;
 			_param.rc.b_stat_read = 1;
-			_param.rc.psz_stat_in = _logFileName;
+			_param.rc.psz_stat_in = logFileName;
 
-			printf("[x264] reading from %s\n", _logFileName);
+			printf("[x264] reading from %s\n", logFileName);
 		}
 	}
 	else
@@ -270,6 +262,9 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 	}
 
 	_handle = x264_encoder_open(&_param);
+
+	if (logFileName)
+		delete logFileName;
 
 	if (_handle)
 	{
@@ -537,6 +532,8 @@ void x264Encoder::close(void)
 		finishPass();
 
 	_opened = false;
+	_passCount = 0;
+	_currentPass = 0;
 
 	if (_buffer)
 	{
@@ -683,7 +680,7 @@ void x264Encoder::updateEncodeParameters(vidEncVideoProperties *properties)
 		case ADM_VIDENC_MODE_2PASS_SIZE:
 			_passCount = 2;
 			_param.rc.i_rc_method = X264_RC_ABR;
-			_param.rc.i_bitrate = calculateBitrate(properties->fps1000, properties->frameCount, _encodeOptions.encodeModeParameter) / 1000;
+			_param.rc.i_bitrate = calculateBitrate(properties->fpsNum, properties->fpsDen, properties->frameCount, _encodeOptions.encodeModeParameter) / 1000;
 			break;
 		case ADM_VIDENC_MODE_2PASS_ABR:
 			_passCount = 2;
@@ -693,7 +690,7 @@ void x264Encoder::updateEncodeParameters(vidEncVideoProperties *properties)
 	}
 }
 
-unsigned int x264Encoder::calculateBitrate(unsigned int fps1000, unsigned int frameCount, unsigned int sizeInMb)
+unsigned int x264Encoder::calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb)
 {
 	double db, ti;
 
@@ -703,8 +700,8 @@ unsigned int x264Encoder::calculateBitrate(unsigned int fps1000, unsigned int fr
 
 	// compute duration
 	ti = frameCount;
-	ti *= 1000;
-	ti /= fps1000;	// nb sec
+	ti *= fpsDen;
+	ti /= fpsNum;	// nb sec
 	db = db / ti;
 
 	return (unsigned int)floor(db);

@@ -212,17 +212,6 @@ int XvidEncoder::open(vidEncVideoProperties *properties)
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
-	_properties.logFileName = NULL;
-
-	if (_logFileName)
-		delete [] _logFileName;
-
-#ifdef __WIN32
-	convertPathToAnsi(properties->logFileName, &_logFileName);
-#else
-	_logFileName = new char[strlen(properties->logFileName) + 1];
-	strcpy(_logFileName, properties->logFileName);
-#endif
 
 	if (_options.getParAsInput())
 		_options.setPar(_properties.parWidth, _properties.parHeight);
@@ -231,8 +220,8 @@ int XvidEncoder::open(vidEncVideoProperties *properties)
 
 	_xvid_enc_create.width = _properties.width;
 	_xvid_enc_create.height = _properties.height;
-	_xvid_enc_create.fincr = 1000;
-	_xvid_enc_create.fbase = _properties.fps1000;
+	_xvid_enc_create.fincr = _properties.fpsDen;
+	_xvid_enc_create.fbase = _properties.fpsNum;
 
 	if (_options.getThreads() == 0)
 		_xvid_enc_create.num_threads = _processors;
@@ -259,6 +248,19 @@ int XvidEncoder::beginPass(vidEncPassParameters *passParameters)
 
 	if (_passCount > 1)
 	{
+		if (_logFileName)
+			delete [] _logFileName;
+
+#ifdef __WIN32
+		convertPathToAnsi(passParameters->logFileName, &_logFileName);
+#else
+		_logFileName = new char[strlen(passParameters->logFileName) + 1];
+		strcpy(_logFileName, passParameters->logFileName);
+#endif
+
+		if (passParameters->useExistingLogFile)
+			_currentPass++;
+
 		if (_currentPass == 1)
 		{
 			_xvid_plugin_2pass1.filename = _logFileName;
@@ -374,6 +376,8 @@ void XvidEncoder::close(void)
 		finishPass();
 
 	_opened = false;
+	_passCount = 0;
+	_currentPass = 0;
 
 	if (_xvid_enc_create.handle)
 	{
@@ -440,7 +444,7 @@ void XvidEncoder::updateEncodeParameters(vidEncVideoProperties *properties)
 			break;
 		case ADM_VIDENC_MODE_2PASS_SIZE:
 			_passCount = 2;
-			_xvid_plugin_2pass2.bitrate = calculateBitrate(properties->fps1000, properties->frameCount, _encodeOptions.encodeModeParameter);
+			_xvid_plugin_2pass2.bitrate = calculateBitrate(properties->fpsNum, properties->fpsDen, properties->frameCount, _encodeOptions.encodeModeParameter);
 
 			break;
 		case ADM_VIDENC_MODE_2PASS_ABR:
@@ -451,7 +455,7 @@ void XvidEncoder::updateEncodeParameters(vidEncVideoProperties *properties)
 	}
 }
 
-unsigned int XvidEncoder::calculateBitrate(unsigned int fps1000, unsigned int frameCount, unsigned int sizeInMb)
+unsigned int XvidEncoder::calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb)
 {
 	double db, ti;
 
@@ -461,8 +465,8 @@ unsigned int XvidEncoder::calculateBitrate(unsigned int fps1000, unsigned int fr
 
 	// compute duration
 	ti = frameCount;
-	ti *= 1000;
-	ti /= fps1000;	// nb sec
+	ti *= fpsDen;
+	ti /= fpsNum;	// nb sec
 	db = db / ti;
 
 	return (unsigned int)floor(db);

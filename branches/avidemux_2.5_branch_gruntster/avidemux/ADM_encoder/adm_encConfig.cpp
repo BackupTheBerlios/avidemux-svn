@@ -486,7 +486,8 @@ void videoCodecConfigureUI(int codecIndex)
 			properties.parWidth = video_body->getPARWidth();
 			properties.parHeight = video_body->getPARHeight();
 			properties.frameCount = info.nb_frames;
-			properties.fps1000 = info.fps1000;
+			properties.fpsNum = info.fps1000;
+			properties.fpsDen = 1000;
 		}
 
 		configParameters.structSize = sizeof(vidEncConfigParameters);

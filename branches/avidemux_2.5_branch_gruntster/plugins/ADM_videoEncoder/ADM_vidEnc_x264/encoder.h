@@ -41,7 +41,6 @@
 		x264Options _options;
 		vidEncOptions _encodeOptions;
 		vidEncVideoProperties _properties;
-		char *_logFileName;
 
 		x264_t *_handle;
 		x264_param_t _param;
@@ -62,7 +61,7 @@
 		void printParam(x264_param_t* x264Param);
 		void printCqm(const uint8_t cqm[], int size);
 		void updateEncodeParameters(vidEncVideoProperties *properties);
-		unsigned int calculateBitrate(unsigned int fps1000, unsigned int frameCount, unsigned int sizeInMb);
+		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
 		int createHeader(void);
 
 	public:

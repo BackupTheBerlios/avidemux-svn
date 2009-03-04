@@ -24,6 +24,7 @@ externalEncoder::externalEncoder(COMPRES_PARAMS *params, bool globalHeader)
 {
 	_plugin = getVideoEncoderPlugin(params->extra_param);
 	_openPass = false;
+	_useExistingLogFile = false;
 	_logFileName = NULL;
 	_globalHeader = globalHeader;
 }
@@ -48,6 +49,7 @@ uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExis
 	ADM_assert(_vbuffer);
 
 	_in = instream;
+	_useExistingLogFile = useExistingLogFile;
 
 	vidEncVideoProperties properties;
 
@@ -59,9 +61,8 @@ uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExis
 	properties.parWidth = instream->getPARWidth();
 	properties.parHeight = instream->getPARHeight();
 	properties.frameCount = info->nb_frames;
-	properties.fps1000 = info->fps1000;
-	properties.logFileName = _logFileName;
-	properties.useExistingLogFile = useExistingLogFile;
+	properties.fpsNum = info->fps1000;
+	properties.fpsDen = 1000;
 
 	if (_globalHeader)
 		properties.flags |= ADM_VIDENC_FLAG_GLOBAL_HEADER;
@@ -167,6 +168,8 @@ uint8_t externalEncoder::startPass(void)
 
 	memset(&passParameters, 0, sizeof(vidEncPassParameters));
 	passParameters.structSize = sizeof(vidEncPassParameters);
+	passParameters.logFileName = _logFileName;
+	passParameters.useExistingLogFile = _useExistingLogFile;
 
 	_openPass = (_plugin->beginPass(_plugin->encoderId, &passParameters) == ADM_VIDENC_ERR_SUCCESS);
 
