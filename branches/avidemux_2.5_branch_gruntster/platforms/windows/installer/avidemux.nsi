@@ -287,6 +287,8 @@ Section "Avidemux Core" SecCore
     ${File} avutil-*.dll
     ${File} postproc-*.dll
     ${File} swscale-*.dll
+    ${File} libgcc_sjlj_*.dll
+    ${File} libstdc++_sjlj_*.dll
     SetOutPath $INSTDIR\etc\fonts
     ${Folder} etc\fonts
 SectionEnd

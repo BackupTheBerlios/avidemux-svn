@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <log>
-  <buildentry revision="" date="">
-    <comment></comment>
+  <buildentry revision="4648" date="2009-03-02">
+    <comment>Updated x264 to r1115.</comment>
+  </buildentry>
+  <buildentry revision="4629" date="2009-02-24">
+  </buildentry>
+  <buildentry revision="4618" date="2009-02-21">
+    <comment>Updated x264 to r1114.</comment>
+  </buildentry>
+  <buildentry revision="4609" date="2009-02-16">
+    <comment>Packaged using NSIS 2.43.</comment>
+    <comment>Updated Avisynth Proxy GUI to version 2.07 (2nd release).</comment>
+    <comment>Updated Libxml2 to version 2.7.3.</comment>
+    <comment>Updated x264 to r1113.</comment>
   </buildentry>
 </log>

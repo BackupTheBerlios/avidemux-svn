@@ -30,9 +30,9 @@ goto end
 :removalFailure
 echo ERROR - build directories could not be fully deleted.
 echo Aborting.
-pause
 
 :error
 set ERRORLEVEL=1
 
 :end
+pause

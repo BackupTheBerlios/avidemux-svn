@@ -4,14 +4,14 @@ call "Set Avidemux Environment Variables"
 if errorlevel 1 goto error
 
 cd "%sourceDir%\build"
-cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" ..
+cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" -DCMAKE_EXE_LINKER_FLAGS="-shared-libgcc" -DCMAKE_SHARED_LINKER_FLAGS="-shared-libgcc" ..
 
 if errorlevel 1 goto error
 pause
 
 set msysSourceDir=%sourceDir:\=/%
 cd "%sourceDir%\plugins\build"
-cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" -DAVIDEMUX_CORECONFIG_DIR="%msysSourceDir%/build/config" -DAVIDEMUX_INSTALL_PREFIX="%buildDir%" -DAVIDEMUX_SOURCE_DIR="%msysSourceDir%" ..
+cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" -DAVIDEMUX_CORECONFIG_DIR="%msysSourceDir%/build/config" -DAVIDEMUX_INSTALL_PREFIX="%buildDir%" -DAVIDEMUX_SOURCE_DIR="%msysSourceDir%" -DCMAKE_EXE_LINKER_FLAGS="-shared-libgcc" -DCMAKE_SHARED_LINKER_FLAGS="-shared-libgcc" ..
 
 if errorlevel 1 goto error
 pause
