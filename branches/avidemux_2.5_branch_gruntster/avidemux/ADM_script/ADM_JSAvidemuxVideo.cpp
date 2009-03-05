@@ -39,7 +39,15 @@ extern void filterCleanUp( void );
 
 JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] = 
 { 
-        { "process", videoprocess_prop, JSPROP_ENUMERATE },        // process video when saving
+	{ "process", videoProcessProperty, JSPROP_ENUMERATE },        // process video when saving
+	{ "width", widthProperty, JSPROP_ENUMERATE },
+	{ "height", heightProperty, JSPROP_ENUMERATE },
+	{ "frameCount", frameCountProperty, JSPROP_ENUMERATE },
+	{ "vopPacked", vopPackedProperty, JSPROP_ENUMERATE },
+	{ "qPel", qPelProperty, JSPROP_ENUMERATE },
+	{ "gmc", gmcProperty, JSPROP_ENUMERATE },
+	{ "fcc", fccProperty, JSPROP_ENUMERATE },
+	{ "fps1000", fps1000Property, JSPROP_ENUMERATE },
 	{ 0 }
 };
 
@@ -47,26 +55,17 @@ JSFunctionSpec ADM_JSAvidemuxVideo::avidemuxvideo_methods[] =
 {
 	{ "clear", Clear, 0, 0, 0 },	// clear
 	{ "add", Add, 3, 0, 0 },	// add
-        { "clearFilters", ClearFilters, 0, 0, 0 }, // Delete all filters
+	{ "clearFilters", ClearFilters, 0, 0, 0 }, // Delete all filters
 	{ "addFilter", AddFilter, 10, 0, 0 },	// Add filter to filter chain
 	{ "codec", Codec, 3, 0, 0 },	// Set the video codec
-	{ "codecPlugin", codecPlugin, 4, 0, 0 },	// Set the video codec plugin
+	{ "codecPlugin", CodecPlugin, 4, 0, 0 },	// Set the video codec plugin
 	{ "codecConf", CodecConf, 1, 0, 0 },	// load video codec config
 	{ "save", Save, 1, 0, 0 },	// save video portion of the stream
 	{ "saveJpeg", SaveJPEG, 1, 0, 0 },	// save the current frame as a JPEG
 	{ "listBlackFrames", ListBlackFrames, 1, 0, 0 },	// output a list of the black frame to a file
 	{ "setPostProc", PostProcess, 3, 0, 0 },	// Postprocess
-        { "setFps1000", SetFps1000, 1, 0, 0 },        // Postprocess
-        { "getFps1000", GetFps1000, 0, 0, 0 },        // Postprocess
-        { "getNbFrames", GetNbFrames, 0, 0, 0 },        // Postprocess
-        { "getWidth", GetWidth, 0, 0, 0 },        // Postprocess
-        { "getHeight", GetHeight, 0, 0, 0 },        // Postprocess
-        { "getFCC", GetFCC, 0, 0, 0 },        // Postprocess
-        { "isVopPacked", isVopPacked, 0, 0, 0 },        // Postprocess
-        { "hasQpel", hasQpel, 0, 0, 0 },        // Postprocess
-        { "hasGmc", hasGmc, 0, 0, 0 },        // Postprocess
-        { "frameSize", getFrameSize, 1, 0, 0 },        // FrameSize
-        { "frameType", getFrameType, 1, 0, 0 },        // Postprocess
+	{ "getFrameSize", getFrameSize, 1, 0, 0 },        // FrameSize
+	{ "getFrameType", getFrameType, 1, 0, 0 },        // Postprocess
 	{ 0 }
 };
 
@@ -129,35 +128,112 @@ void ADM_JSAvidemuxVideo::JSDestructor(JSContext *cx, JSObject *obj)
 
 JSBool ADM_JSAvidemuxVideo::JSGetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp)
 {
-        if (JSVAL_IS_INT(id)) 
-        {
-                ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
-                switch(JSVAL_TO_INT(id))
-                {
-                        case videoprocess_prop:
-                                *vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bVideoProcess);
-                                break;
-                }
-        }
-        return JS_TRUE;
+	if (JSVAL_IS_INT(id)) 
+	{
+		ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
+		switch(JSVAL_TO_INT(id))
+		{
+			case videoProcessProperty:
+				*vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bVideoProcess);
+				break;
+			case widthProperty:
+			{
+				aviInfo info;
+
+				video_body->getVideoInfo(&info);
+				*vp = INT_TO_JSVAL(info.width);
+				break;
+			}
+			case heightProperty:
+			{
+				aviInfo info;
+
+				video_body->getVideoInfo(&info);
+				*vp = INT_TO_JSVAL(info.height);
+				break;
+			}
+			case frameCountProperty:
+			{
+				aviInfo info;
+
+				video_body->getVideoInfo(&info);
+				*vp = INT_TO_JSVAL(info.nb_frames);
+				break;
+			}
+			case vopPackedProperty:
+			{
+				*vp = ((video_body->getSpecificMpeg4Info() & ADM_VOP_ON) == ADM_VOP_ON);
+				break;
+			}
+			case qPelProperty:
+			{
+				*vp = ((video_body->getSpecificMpeg4Info() & ADM_QPEL_ON) == ADM_QPEL_ON);
+				break;
+			}
+			case gmcProperty:
+			{
+				*vp = ((video_body->getSpecificMpeg4Info() & ADM_GMC_ON) == ADM_GMC_ON);
+				break;
+			}
+			case fccProperty:
+			{
+				aviInfo info;
+
+				video_body->getVideoInfo(&info);
+				*vp = STRING_TO_JSVAL(JS_NewStringCopyZ(cx, fourCC::tostring(info.fcc)));
+				break;
+			}
+			case fps1000Property:
+			{
+				aviInfo info;
+
+				video_body->getVideoInfo(&info);
+				*vp = INT_TO_JSVAL(info.fps1000);
+				break;
+			}
+		}
+	}
+	return JS_TRUE;
 }
 
 JSBool ADM_JSAvidemuxVideo::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp)
 {
-        if (JSVAL_IS_INT(id)) 
-        {
-                ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
-                switch(JSVAL_TO_INT(id))
-                {
-                        case videoprocess_prop:
-                                if(JSVAL_IS_BOOLEAN(*vp) == false)
-                                        break;
-                                priv->getObject()->m_bVideoProcess = JSVAL_TO_BOOLEAN(*vp);
-                                UI_setVProcessToggleStatus(priv->getObject()->m_bVideoProcess);
-                                break;
-                }
-        }
-        return JS_TRUE;
+	if (JSVAL_IS_INT(id)) 
+	{
+		ADM_JSAvidemuxVideo *priv = (ADM_JSAvidemuxVideo *) JS_GetPrivate(cx, obj);
+		switch(JSVAL_TO_INT(id))
+		{
+			case videoProcessProperty:
+				if (!JSVAL_IS_BOOLEAN(*vp))
+					break;
+
+				priv->getObject()->m_bVideoProcess = JSVAL_TO_BOOLEAN(*vp);
+				UI_setVProcessToggleStatus(priv->getObject()->m_bVideoProcess);
+				break;
+			case fps1000Property:
+			{
+				if(!JSVAL_IS_INT(*vp))
+					break;
+
+				aviInfo info;
+				int fps = JSVAL_TO_INT(*vp);
+
+				if(fps > 100000 || fps < 2000)
+				{
+					printf("FPS too low\n");
+					break;
+				}
+
+				video_body->getVideoInfo(&info);
+				info.fps1000 = fps;
+				video_body->updateVideoInfo(&info);
+
+				break;
+			}
+		}
+	}
+
+	return JS_TRUE;
 }
 
 JSBool ADM_JSAvidemuxVideo::Clear(JSContext *cx, JSObject *obj, uintN argc, 
@@ -283,7 +359,7 @@ JSBool ADM_JSAvidemuxVideo::Codec(JSContext *cx, JSObject *obj, uintN argc,
         return JS_TRUE;
 }// end Codec
 
-JSBool ADM_JSAvidemuxVideo::codecPlugin(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
+JSBool ADM_JSAvidemuxVideo::CodecPlugin(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {
 	*rval = BOOLEAN_TO_JSVAL(false);
 
@@ -409,166 +485,9 @@ JSBool ADM_JSAvidemuxVideo::PostProcess(JSContext *cx, JSObject *obj, uintN argc
         return JS_TRUE;
 }// end PostProcess
 
-JSBool ADM_JSAvidemuxVideo::GetFps1000(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-aviInfo info;
-        if(argc != 0)
-          return JS_FALSE;
-        
-        enterLock();
-        video_body->getVideoInfo(&info);
-        leaveLock();
-        
-        *rval = INT_TO_JSVAL(info.fps1000);
-        return JS_TRUE;
-}// end PostProcess
-JSBool ADM_JSAvidemuxVideo::GetNbFrames(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-aviInfo info;
-        if(argc != 0)
-          return JS_FALSE;
-        
-        enterLock();
-        video_body->getVideoInfo(&info);
-        leaveLock();
-        
-        *rval = INT_TO_JSVAL(info.nb_frames);
-        return JS_TRUE;
-}// end PostProcess
-
-JSBool ADM_JSAvidemuxVideo::SetFps1000(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-int fps;
-aviInfo info;
-
-        if(argc != 1)
-          return JS_FALSE;
-        if(JSVAL_IS_INT(argv[0]) == false)
-          return JS_FALSE;
-
-        enterLock();
-        video_body->getVideoInfo(&info);
-        video_body->getVideoInfo (avifileinfo);
-
-
-        // default return value
-        fps=JSVAL_TO_INT(argv[0]);
-        if(fps>100000 || fps<2000)
-        {      
-                printf("Fps too low\n");
-                leaveLock();
-                return JS_FALSE;
-        }       
- 	
-       info.fps1000=fps;
-        video_body->updateVideoInfo(&info);
-        video_body->getVideoInfo (avifileinfo);
-        
-	leaveLock();
-        return JS_TRUE;
-}// end PostProcess
-
-
-JSBool ADM_JSAvidemuxVideo::GetWidth(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-aviInfo info;
-        if(argc != 0)
-          return JS_FALSE;
-
-
-        enterLock();
-        video_body->getVideoInfo(&info);
-        leaveLock();
-        
-        *rval = INT_TO_JSVAL(info.width);
-        return JS_TRUE;
-}// end PostProcess
-JSBool ADM_JSAvidemuxVideo::GetHeight(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-aviInfo info;
-        if(argc != 0)
-          return JS_FALSE;
-
-        enterLock();
-        video_body->getVideoInfo(&info);
-        leaveLock();
-        
-        *rval = INT_TO_JSVAL(info.height);
-        return JS_TRUE;
-}// end PostProcess
-JSBool ADM_JSAvidemuxVideo::GetFCC(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-aviInfo info;
-
-        if(argc != 0)
-          return JS_FALSE;
-
-        enterLock();
-        video_body->getVideoInfo(&info);
-        leaveLock();
-        
-        *rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx, fourCC::tostring(info.fcc)));
-        return JS_TRUE;
-}// end PostProcess
-
-JSBool ADM_JSAvidemuxVideo::isVopPacked(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-int32_t info;
-        if(argc != 0)
-          return JS_FALSE;
-
-      enterLock();
-       info=video_body->getSpecificMpeg4Info();
-       leaveLock();
-         
-        // default return value
-        *rval=JS_FALSE;
-        if(info & ADM_VOP_ON) *rval=JS_TRUE;
-        return JS_TRUE;
-}// end PostProcess
-JSBool ADM_JSAvidemuxVideo::hasGmc(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-uint32_t info;
-        if(argc != 0)
-          return JS_FALSE;
-
-       enterLock();
-       info=video_body->getSpecificMpeg4Info();
-       leaveLock(); 
-        
-        // default return value
-        *rval=JS_FALSE;
-        if(info & ADM_GMC_ON) *rval=JS_TRUE;
-        return JS_TRUE;
-}// end PostProcess
-JSBool ADM_JSAvidemuxVideo::hasQpel(JSContext *cx, JSObject *obj, uintN argc, 
-                                       jsval *argv, jsval *rval)
-{// begin PostProcess
-uint32_t info;
-        if(argc != 0)
-          return JS_FALSE;
-        
-        enterLock();
-        info=video_body->getSpecificMpeg4Info();
-        leaveLock(); 
-        
-        *rval=JS_FALSE;
-        if(info & ADM_QPEL_ON) *rval=JS_TRUE;
-        return JS_TRUE;
-}// end PostProcess
-
-
 JSBool ADM_JSAvidemuxVideo::getFrameSize(JSContext *cx, JSObject *obj, uintN argc, 
                                        jsval *argv, jsval *rval)
-{// begin PostProcess
+{
 uint32_t info;
 uint32_t frame;
 uint32_t sz;
@@ -582,10 +501,11 @@ uint32_t sz;
         
         *rval=INT_TO_JSVAL(sz);
         return JS_TRUE;
-}// end PostProcess
+}
+
 JSBool ADM_JSAvidemuxVideo::getFrameType(JSContext *cx, JSObject *obj, uintN argc, 
                                        jsval *argv, jsval *rval)
-{// begin PostProcess
+{
 uint32_t info;
 uint32_t frame;
 uint32_t sz;
@@ -599,5 +519,5 @@ uint32_t sz;
         
         *rval=INT_TO_JSVAL(sz);
         return JS_TRUE;
-}// end PostProcess
+}
 /* EOF */
