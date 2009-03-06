@@ -10,15 +10,35 @@
 class ADM_JSAvidemuxVideo
 {
 public:
-	ADM_JSAvidemuxVideo(void) : m_pObject(NULL) {}
 	virtual ~ADM_JSAvidemuxVideo(void);
+	static JSObject *JSInit(JSContext *cx, JSObject *obj, JSObject *proto = NULL);
+
+	enum
+	{
+		videoProcessProperty,
+		widthProperty,
+		heightProperty,
+		frameCountProperty,
+		vopPackedProperty,
+		qPelProperty,
+		gmcProperty,
+		fccProperty,
+		fps1000Property
+	};
+
+private:
+	ADM_AvidemuxVideo *m_pObject;
+	static JSPropertySpec properties[];
+	static JSFunctionSpec methods[];
+	static JSClass m_classAvidemuxVideo;
+
+	ADM_JSAvidemuxVideo(void) : m_pObject(NULL) {}
+	void setObject(ADM_AvidemuxVideo *pObject);
+	ADM_AvidemuxVideo *getObject();
 
 	static JSBool JSGetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
 	static JSBool JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp);
-	static JSBool JSConstructor(JSContext *cx, JSObject *obj, uintN argc, 
-								jsval *argv, jsval *rval);
 	static void JSDestructor(JSContext *cx, JSObject *obj);
-	static JSObject *JSInit(JSContext *cx, JSObject *obj, JSObject *proto = NULL);
 	static JSBool Clear(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool Add(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool ClearFilters(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
@@ -34,31 +54,6 @@ public:
 	static JSBool RebuildIBFrames(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool getFrameSize(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool getFrameType(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-
-	static JSPropertySpec avidemuxvideo_properties[];
-	static JSFunctionSpec avidemuxvideo_methods[];
-	enum
-	{
-		videoProcessProperty,
-		widthProperty,
-		heightProperty,
-		frameCountProperty,
-		vopPackedProperty,
-		qPelProperty,
-		gmcProperty,
-		fccProperty,
-		fps1000Property
-	};
-
-	static JSClass m_classAvidemuxVideo;
-
-//protected:
-	void setObject(ADM_AvidemuxVideo *pObject);
-	ADM_AvidemuxVideo *getObject();
-
-private:
-	ADM_AvidemuxVideo *m_pObject;
-
 };
 
 #endif

@@ -302,7 +302,7 @@ struct dirent *direntry;
 
 JSBool nextFile(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {
-char *n;
+const char *n;
         if(argc != 0)
                 return JS_FALSE;
 

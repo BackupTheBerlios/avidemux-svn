@@ -20,14 +20,6 @@
 #include "avi_vars.h"
 #include "gui_action.hxx"
 #include "ADM_encoder/ADM_vidEncode.hxx"
-#include "ADM_videoFilter.h"
-#include "ADM_encoder/adm_encoder.h"
-#include "ADM_encoder/adm_encConfig.h"
-#include "ADM_editor/ADM_outputfmt.h"
-
-
-
-#include "ADM_script/ADM_container.h"
 
 extern int A_audioSave(char *name);
 extern int A_loadAC3 (char *name);
@@ -36,9 +28,7 @@ extern int A_loadWave (char *name);
 extern void HandleAction(Action act);
 extern uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name);
 
-JSPropertySpec ADM_JSAvidemuxAudio::avidemuxaudio_properties[] = 
-{ 
-
+JSPropertySpec ADM_JSAvidemuxAudio::properties[] = {
         { "process", audioprocess_prop, JSPROP_ENUMERATE },        // process audio when saving
         { "resample", resample_prop, JSPROP_ENUMERATE },	// resample
         { "delay", delay_prop, JSPROP_ENUMERATE },	// set audio delay
@@ -50,8 +40,7 @@ JSPropertySpec ADM_JSAvidemuxAudio::avidemuxaudio_properties[] =
         { 0 }
 };
 
-JSFunctionSpec ADM_JSAvidemuxAudio::avidemuxaudio_methods[] = 
-{
+JSFunctionSpec ADM_JSAvidemuxAudio::methods[] = {
         { "scanVBR", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
         { "save", Save, 1, 0, 0 },	// save audio stream
         { "load", Load, 2, 0, 0 },	// load audio stream
@@ -94,25 +83,14 @@ ADM_AvidemuxAudio *ADM_JSAvidemuxAudio::getObject()
 
 JSObject *ADM_JSAvidemuxAudio::JSInit(JSContext *cx, JSObject *obj, JSObject *proto)
 {
-        JSObject *newObj = JS_InitClass(cx, obj, proto, &m_classAvidemuxAudio, 
-                                                                        ADM_JSAvidemuxAudio::JSConstructor, 0,
-                                                                        ADM_JSAvidemuxAudio::avidemuxaudio_properties, ADM_JSAvidemuxAudio::avidemuxaudio_methods,
-                                                                        NULL, NULL);
-        return newObj;
-}
+	JSObject *newObj = JS_InitClass(cx, obj, proto, &m_classAvidemuxAudio, NULL, 0,
+		ADM_JSAvidemuxAudio::properties, ADM_JSAvidemuxAudio::methods, NULL, NULL);
+	ADM_JSAvidemuxAudio *p = new ADM_JSAvidemuxAudio();
 
-JSBool ADM_JSAvidemuxAudio::JSConstructor(JSContext *cx, JSObject *obj, uintN argc, 
-                                                                jsval *argv, jsval *rval)
-{
-        if(argc != 0)
-                return JS_FALSE;
-        ADM_JSAvidemuxAudio *p = new ADM_JSAvidemuxAudio();
-        ADM_AvidemuxAudio *pObject = new ADM_AvidemuxAudio();
-        p->setObject(pObject);
-        if ( ! JS_SetPrivate(cx, obj, p) )
-                return JS_FALSE;
-        *rval = OBJECT_TO_JSVAL(obj);
-        return JS_TRUE;
+	p->setObject(new ADM_AvidemuxAudio());
+	JS_SetPrivate(cx, newObj, p);
+
+	return newObj;
 }
 
 void ADM_JSAvidemuxAudio::JSDestructor(JSContext *cx, JSObject *obj)

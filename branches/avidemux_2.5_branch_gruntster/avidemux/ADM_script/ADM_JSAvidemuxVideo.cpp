@@ -11,23 +11,15 @@
 //
 //
 #include "ADM_default.h"
-
 #include "ADM_JSAvidemuxVideo.h"
+#include "ADM_JSVideoFilterCollection.h"
 #include "ADM_JSGlobal.h"
-
-
-#include "../ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
-#include "ADM_audiofilter/audioeng_buildfilters.h"
 #include "avi_vars.h"
-#include "gui_action.hxx"
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
-#include "ADM_encoder/adm_encoder.h"
 #include "ADM_encoder/adm_encConfig.h"
-#include "ADM_editor/ADM_outputfmt.h"
 #include "../ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
-#include "ADM_script/ADM_container.h"
 
 extern VF_FILTERS filterGetTagFromName(const char *inname);
 extern uint8_t A_ListAllBlackFrames( char *file );
@@ -37,7 +29,7 @@ extern int A_saveJpg (char *name);
 extern uint8_t loadVideoCodecConf( const char *name);
 extern void filterCleanUp( void );
 
-JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] = 
+JSPropertySpec ADM_JSAvidemuxVideo::properties[] = 
 { 
 	{ "process", videoProcessProperty, JSPROP_ENUMERATE },        // process video when saving
 	{ "width", widthProperty, JSPROP_ENUMERATE },
@@ -51,7 +43,7 @@ JSPropertySpec ADM_JSAvidemuxVideo::avidemuxvideo_properties[] =
 	{ 0 }
 };
 
-JSFunctionSpec ADM_JSAvidemuxVideo::avidemuxvideo_methods[] = 
+JSFunctionSpec ADM_JSAvidemuxVideo::methods[] = 
 {
 	{ "clear", Clear, 0, 0, 0 },	// clear
 	{ "add", Add, 3, 0, 0 },	// add
@@ -97,25 +89,14 @@ ADM_AvidemuxVideo *ADM_JSAvidemuxVideo::getObject()
 
 JSObject *ADM_JSAvidemuxVideo::JSInit(JSContext *cx, JSObject *obj, JSObject *proto)
 {
-        JSObject *newObj = JS_InitClass(cx, obj, proto, &m_classAvidemuxVideo, 
-                                        ADM_JSAvidemuxVideo::JSConstructor, 0,
-                                        ADM_JSAvidemuxVideo::avidemuxvideo_properties, ADM_JSAvidemuxVideo::avidemuxvideo_methods,
-                                        NULL, NULL);
-	return newObj;
-}
+	JSObject *newObj = JS_InitClass(cx, obj, proto, &m_classAvidemuxVideo, NULL, 0,
+		ADM_JSAvidemuxVideo::properties, ADM_JSAvidemuxVideo::methods, NULL, NULL);
+	ADM_JSAvidemuxVideo *p = new ADM_JSAvidemuxVideo();
 
-JSBool ADM_JSAvidemuxVideo::JSConstructor(JSContext *cx, JSObject *obj, uintN argc, 
-								 jsval *argv, jsval *rval)
-{
-        if(argc != 0)
-                return JS_FALSE;
-        ADM_JSAvidemuxVideo *p = new ADM_JSAvidemuxVideo();
-        ADM_AvidemuxVideo *pObject = new ADM_AvidemuxVideo();
-        p->setObject(pObject);
-        if ( ! JS_SetPrivate(cx, obj, p) )
-                return JS_FALSE;
-        *rval = OBJECT_TO_JSVAL(obj);
-        return JS_TRUE;
+	p->setObject(new ADM_AvidemuxVideo());
+	JS_SetPrivate(cx, newObj, p);
+
+	return newObj;
 }
 
 void ADM_JSAvidemuxVideo::JSDestructor(JSContext *cx, JSObject *obj)
