@@ -472,12 +472,18 @@ SET(ADM_EXES avidemux2_cli)
 
 IF (ADM_UI_QT4)
 	SET(ADM_EXES ${ADM_EXES} avidemux2_qt4)
-	MakeOSXBundleApp(avidemux2_qt4 ${PROJECT_BINARY_DIR})
+
+	IF (APPLE)
+		MakeOSXBundleApp(avidemux2_qt4 ${PROJECT_BINARY_DIR})
+	ENDIF (APPLE)
 ENDIF (ADM_UI_QT4)
 
 IF (ADM_UI_GTK)
 	SET(ADM_EXES ${ADM_EXES} avidemux2_gtk)
-	MakeOSXBundleApp(avidemux2_gtk ${PROJECT_BINARY_DIR})
+
+	IF (APPLE)
+		MakeOSXBundleApp(avidemux2_gtk ${PROJECT_BINARY_DIR})
+	ENDIF (APPLE)
 ENDIF (ADM_UI_GTK)
 
 IF (APPLE)
