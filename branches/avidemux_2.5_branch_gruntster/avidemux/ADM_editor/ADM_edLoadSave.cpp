@@ -156,7 +156,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 	if( avifileinfo ){
 	  aviInfo info;
 		video_body->getVideoInfo(&info);
-		qfprintf(fd,"\napp.video.setFps1000(%u);\n",info.fps1000);
+		qfprintf(fd,"\napp.video.fps1000 = %u;\n",info.fps1000);
 	}
 
 // Filter

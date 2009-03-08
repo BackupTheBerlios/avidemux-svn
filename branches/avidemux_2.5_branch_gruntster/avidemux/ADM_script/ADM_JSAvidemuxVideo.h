@@ -23,7 +23,8 @@ public:
 		qPelProperty,
 		gmcProperty,
 		fccProperty,
-		fps1000Property
+		fps1000Property,
+		appliedFiltersProperty
 	};
 
 private:

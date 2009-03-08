@@ -12,7 +12,6 @@
 //
 #include "ADM_default.h"
 #include "ADM_JSAvidemuxVideo.h"
-#include "ADM_JSVideoFilterCollection.h"
 #include "ADM_JSGlobal.h"
 #include "avi_vars.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
@@ -20,6 +19,7 @@
 #include "ADM_videoFilter_internal.h"
 #include "ADM_encoder/adm_encConfig.h"
 #include "../ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
+#include "ADM_JSAppliedVideoFilter.h"
 
 extern VF_FILTERS filterGetTagFromName(const char *inname);
 extern uint8_t A_ListAllBlackFrames( char *file );
@@ -28,6 +28,7 @@ extern uint8_t ADM_saveRaw (const char *name);
 extern int A_saveJpg (char *name);
 extern uint8_t loadVideoCodecConf( const char *name);
 extern void filterCleanUp( void );
+extern uint32_t nb_active_filter;
 
 JSPropertySpec ADM_JSAvidemuxVideo::properties[] = 
 { 
@@ -40,6 +41,7 @@ JSPropertySpec ADM_JSAvidemuxVideo::properties[] =
 	{ "gmc", gmcProperty, JSPROP_ENUMERATE },
 	{ "fcc", fccProperty, JSPROP_ENUMERATE },
 	{ "fps1000", fps1000Property, JSPROP_ENUMERATE },
+	{ "appliedFilters", appliedFiltersProperty, JSPROP_ENUMERATE },
 	{ 0 }
 };
 
@@ -170,6 +172,21 @@ JSBool ADM_JSAvidemuxVideo::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 
 				video_body->getVideoInfo(&info);
 				*vp = INT_TO_JSVAL(info.fps1000);
+				break;
+			}
+			case appliedFiltersProperty:
+			{
+				JSObject *filters = JS_NewArrayObject(cx, 0, NULL);
+				jsval appliedFilter;
+
+				*vp = OBJECT_TO_JSVAL(filters);
+
+				for (int filterIndex = 1; filterIndex < nb_active_filter; filterIndex++)
+				{
+					appliedFilter = OBJECT_TO_JSVAL(ADM_JSAppliedVideoFilter::JSInit(cx, obj, NULL, filterIndex));
+					JS_SetElement(cx, filters, filterIndex - 1, &appliedFilter);
+				}
+
 				break;
 			}
 		}

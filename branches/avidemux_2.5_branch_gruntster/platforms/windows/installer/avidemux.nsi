@@ -1220,7 +1220,7 @@ ${MementoSection} "-Start menu Qt" SecStartMenuQt
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
     !insertmacro MUI_STARTMENU_WRITE_END
 !endif
 ${MementoSectionEnd}
@@ -1243,7 +1243,7 @@ ${MementoSectionEnd}
 ${MementoSection} "-Quick Launch Qt" SecQuickLaunchQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$QUICKLAUNCH\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$QUICKLAUNCH\${INTERNALNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
 !endif
 ${MementoSectionEnd}
 
@@ -1257,7 +1257,7 @@ ${MementoSectionEnd}
 ${MementoSection} "-Desktop Qt" SecDesktopQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$DESKTOP\${INTERNALNAME} Qt.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$DESKTOP\${INTERNALNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
 !endif
 ${MementoSectionEnd}
 
@@ -1292,9 +1292,9 @@ Section Uninstall
 !endif
 
 !ifdef INST_QT
-    Delete /REBOOTOK "$QUICKLAUNCH\${INTERNALNAME} Qt.lnk"
-    Delete /REBOOTOK "$DESKTOP\${INTERNALNAME} Qt.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME} Qt.lnk"
+    Delete /REBOOTOK "$QUICKLAUNCH\${INTERNALNAME}.lnk"
+    Delete /REBOOTOK "$DESKTOP\${INTERNALNAME}.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${INTERNALNAME}.lnk"
 !endif
 
 	Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Change Log.lnk"
