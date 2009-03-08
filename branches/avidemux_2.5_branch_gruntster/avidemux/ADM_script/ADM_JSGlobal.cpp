@@ -164,12 +164,23 @@ bool parseECMAScript(const char *name)
 	printf("Spidermonkey compiling \"%s\"...",name);
 	JSScript *pJSScript = JS_CompileFile(g_pCx, g_pObject, name);
 	printf("Done.\n");
+
 	if(pJSScript != NULL)
 	{// begin execute external file
+		char curDir[PATH_MAX + 1];
+		char scriptPath[strlen(name) + 1];
+
+		strcpy(scriptPath, name);
+		ADM_PathStripName(scriptPath);
+		getcwd(curDir, PATH_MAX);
+		chdir(scriptPath);
+
 		printf("Spidermonkey executing \"%s\"...",name);
 		JSBool ok = JS_ExecuteScript(g_pCx, g_pObject, pJSScript, &rval);
 		JS_DestroyScript(g_pCx,pJSScript);
 		printf("Done.\n");
+
+		chdir(curDir);
 	}// end execute external file
         // Run garbage collector now, it is safe
         JS_GC(g_pCx);
