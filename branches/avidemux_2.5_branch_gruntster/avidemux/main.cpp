@@ -230,7 +230,7 @@ int main(int argc, char *argv[])
 	const char *pluginDir="ADM_plugins";
 
 #ifdef __APPLE__
-    const char *startDir="../Resources/lib";
+    const char *startDir="../Libraries/lib";
 #else
     const char *startDir="lib";
 #endif
@@ -334,4 +334,3 @@ void dummyXref(void)
 {
     checkCrashFile();
 }
-//EOF

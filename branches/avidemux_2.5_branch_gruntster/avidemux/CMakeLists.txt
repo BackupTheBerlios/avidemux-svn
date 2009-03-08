@@ -42,6 +42,23 @@ MACRO (ADD_LDFLAGS_ALL_TARGETS)
 ENDMACRO (ADD_LDFLAGS_ALL_TARGETS)
 
 ########################################
+# Functions
+########################################
+function(MakeOSXBundleApp target binary_dir)
+	SET (OSX_MAKE_STANDALONE_BUNDLE_CMAKE_SCRIPT "${binary_dir}/${target}_OSX_MakeStandAloneBundle.cmake")
+	SET (OSX_MAKE_STANDALONE_BUNDLE_BASH_SCRIPT "${binary_dir}/${target}_OSX_MakeStandAloneBundle.sh")
+
+	#-- Configure the cmake file and the shell script
+	CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/Apple/CompleteBundle.cmake.in"
+		"${OSX_MAKE_STANDALONE_BUNDLE_CMAKE_SCRIPT}" @ONLY IMMEDIATE)
+	CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/Apple/CreateBundle.sh.in"
+		"${OSX_MAKE_STANDALONE_BUNDLE_BASH_SCRIPT}" @ONLY IMMEDIATE)
+
+	#-- Create the installation code
+	install(SCRIPT "${OSX_MAKE_STANDALONE_BUNDLE_CMAKE_SCRIPT}")
+endfunction(MakeOSXBundleApp)
+
+########################################
 # Definitions and Includes
 ########################################
 ADD_DEFINITIONS(-D_FILE_OFFSET_BITS=64 -D_LARGE_FILES)
@@ -452,20 +469,24 @@ ENDIF (APPLE)
 ###########################################
 SET(ADM_EXES avidemux2_cli)
 
-IF (ADM_UI_GTK)
-	SET(ADM_EXES ${ADM_EXES} avidemux2_gtk)
-ENDIF (ADM_UI_GTK)
 
 IF (ADM_UI_QT4)
 	SET(ADM_EXES ${ADM_EXES} avidemux2_qt4)
+	MakeOSXBundleApp(avidemux2_qt4 ${PROJECT_BINARY_DIR})
 ENDIF (ADM_UI_QT4)
 
+IF (ADM_UI_GTK)
+	SET(ADM_EXES ${ADM_EXES} avidemux2_gtk)
+	MakeOSXBundleApp(avidemux2_gtk ${PROJECT_BINARY_DIR})
+ENDIF (ADM_UI_GTK)
+
 IF (APPLE)
-	IF (NOT MAC_BUNDLE_DIR)
-		INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} BUNDLE DESTINATION "/Applications" LIBRARY DESTINATION lib)
-	ELSE (NOT MAC_BUNDLE_DIR)
+	IF (MAC_BUNDLE_DIR)
 		INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} BUNDLE DESTINATION ${MAC_BUNDLE_DIR} LIBRARY DESTINATION lib)
-	ENDIF (NOT MAC_BUNDLE_DIR)
+	ELSE (MAC_BUNDLE_DIR)
+		INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} BUNDLE DESTINATION "/Applications" LIBRARY DESTINATION lib)
+		SET (MAC_BUNDLE_DIR "/Applications")
+	ENDIF (MAC_BUNDLE_DIR)
 ELSE (APPLE)
 	INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} LIBRARY DESTINATION lib)
 ENDIF (APPLE)

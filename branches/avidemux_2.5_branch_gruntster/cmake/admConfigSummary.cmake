@@ -40,6 +40,17 @@ ADM_DISPLAY("gettext   " "${HAVE_GETTEXT}")
 ADM_DISPLAY("SDL       " "${USE_SDL}")
 ADM_DISPLAY("XVideo    " "${USE_XV}" "${XVIDEO_CAPABLE}")
 
+IF (APPLE)
+	MESSAGE("*** Apple Bundle  ***")
+	MESSAGE("    Install at")
+	
+	IF (MAC_BUNDLE_DIR)
+		MESSAGE("    ${MAC_BUNDLE_DIR}")
+	ELSE (MAC_BUNDLE_DIR)
+		ADM_DISPLAY("    /Applications")
+	ENDIF (MAC_BUNDLE_DIR) 
+ENDIF (APPLE)
+
 MESSAGE("*********************")
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
