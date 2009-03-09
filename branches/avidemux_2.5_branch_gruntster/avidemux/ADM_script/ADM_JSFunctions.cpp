@@ -423,6 +423,7 @@ JSBool systemExecute(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 		*rval = INT_TO_JSVAL(-1);	// failure
 	return JS_TRUE;
 }// end systemExecute
+
 JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {// begin systemInclude
 	// default return value
@@ -437,22 +438,38 @@ JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	// make sure we haven't included this already to avoid a recursive
 	// dependency loop
 	char *pTempStr = new char[PATH_MAX+1];
+
  #ifdef __MINGW32__
  	if(_fullpath(pTempStr,pIncludeFile,PATH_MAX) == NULL)
  #else
 	if(realpath(pIncludeFile,pTempStr) == NULL)
 #endif
-	{// begin can't resolve path
+	{
 		JS_ReportError(cx, "include() can't resolve the path of \"%s\".", pIncludeFile);
+		delete pTempStr;
+
 		return JS_FALSE;
-	}// end can't resolve path
+	}
+
+	if(stat(pTempStr, &sbFileInfo) != 0)
+	{
+		char *scriptPath = ADM_getScriptPath();
+
+		strcpy(pTempStr, scriptPath);
+		strcat(pTempStr, pIncludeFile);
+		delete scriptPath;
+
+		if(stat(pTempStr, &sbFileInfo) != 0)
+		{
+			JS_ReportError(cx, "include() Can't stat \"%s\" errno(%i).", pTempStr, errno);
+			delete pTempStr;
+
+			return JS_FALSE;
+		}
+	}
 
 	std::string sRealPath = pTempStr;
-	if(stat(sRealPath.c_str() , &sbFileInfo) != 0)
-	{// begin can't stat file
-		JS_ReportError(cx, "include() Can't stat \"%s\" errno(%i).", sRealPath.c_str(), errno);
-		return JS_FALSE;
-	}// end can't stat file
+	delete pTempStr;
 
 	for(int i = 0;i < g_vIncludes.size();i++)
 	{// begin check previous includes

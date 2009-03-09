@@ -353,6 +353,20 @@ char *ADM_getPluginPath(void)
 
 	return ADM_getInstallRelativePath(startDir, pluginDir, "videoEncoder");
 }
+
+char *ADM_getScriptPath(void)
+{
+#ifdef _WIN32
+	const char *startDir = "";
+	const char *scriptPath = "scripts";
+#else
+	const char *startDir = "share";
+	const char *scriptPath = "ADM_scripts";
+#endif
+
+	return ADM_getInstallRelativePath(startDir, scriptPath, NULL);
+}
+
 /*
       Get the root directory for .avidemux stuff
 ******************************************************/
