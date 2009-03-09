@@ -199,6 +199,7 @@ MESSAGE("")
 ########################################
 ADD_SUBDIRECTORY(avidemux)
 ADD_SUBDIRECTORY(po)
+ADD_SUBDIRECTORY(scripts)
 
 ########################################
 # Config Summary
