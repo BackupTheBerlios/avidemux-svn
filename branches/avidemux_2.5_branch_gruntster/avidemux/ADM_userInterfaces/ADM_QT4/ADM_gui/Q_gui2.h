@@ -1,8 +1,10 @@
 #ifndef Q_gui2_h
 #define Q_gui2_h
 
+#include <QtCore/QFileInfo>
 #include <QtGui/QSlider>
 #include <QtGui/QWidget>
+#include <QtGui/QMenu>
 
 #include "ADM_qslider.h"
 #include "T_thumbSlider.h"
@@ -14,15 +16,17 @@ class MainWindow : public QMainWindow
 
 public:
 	MainWindow();
-	virtual ~MainWindow();	
+	virtual ~MainWindow();
 	void buildCustomMenu(void);
-	
+	void buildAutoMenu(void);
+
 	Ui_MainWindow ui;
 
 public slots:
 	void timeChanged(int);
 	void buttonPressed(void);
 	void custom(void);
+	void autoMenuHandler(void);
 	void toolButtonPressed(bool z);
 
 	void comboChanged(int z);
@@ -48,5 +52,6 @@ protected:
 	void dragEnterEvent(QDragEnterEvent *event);
 	void dropEvent(QDropEvent *event);
 	void closeEvent(QCloseEvent *event);
+	void addDirEntryToMenu(QMenu *parentMenu, QString path);
 };
 #endif	// Q_gui2_h

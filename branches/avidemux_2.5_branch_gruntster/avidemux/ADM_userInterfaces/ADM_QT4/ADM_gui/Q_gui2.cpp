@@ -13,8 +13,8 @@
  ***************************************************************************/
 #include "config.h"
 
-#include <QtCore/QFileInfo>
 #include <QtCore/QUrl>
+#include <QtCore/QDir>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QGraphicsView>
 
@@ -53,6 +53,7 @@ extern int A_openAvi(const char *name);
 extern int A_appendAvi(const char *name);
 extern char *actual_workbench_file;
 extern void FileSel_ReadWrite(SELFILE_CB *cb, int rw, const char *name, const char *actual_workbench_file);
+extern bool A_parseECMAScript(const char *name);
 
 int SliderIsShifted=0;
 static void setupMenus(void);
@@ -306,6 +307,7 @@ MainWindow::MainWindow() : QMainWindow()
 
 	/* Build the custom menu */
 	buildCustomMenu();
+	buildAutoMenu();
 
 	this->installEventFilter(this);
 	slider->installEventFilter(this);
@@ -565,6 +567,73 @@ void MainWindow::buildCustomMenu(void)
 		printf("No custom scripts\n");
 
 	printf("Custom menu built\n");
+}
+
+void MainWindow::autoMenuHandler(void)
+{
+	QObject *obj = sender();
+	QString filePath = ((QAction*)obj)->text() + ".js";
+
+	while (obj->parent() != ui.menuAuto)
+	{
+		obj = obj->parent();
+		filePath = ((QMenu*)obj)->title() + QDir::separator() + filePath;
+	}
+
+	char *scriptDir = ADM_getScriptPath();
+
+	A_parseECMAScript((QString::fromUtf8(scriptDir) + "auto" + QDir::separator() + filePath).toUtf8().constData());
+
+	delete scriptDir;
+}
+
+void MainWindow::addDirEntryToMenu(QMenu *parentMenu, QString path)
+{
+	QFileInfo info(path);
+
+	if (info.isDir())
+	{
+		QDir dir(info.path() + QDir::separator());
+
+		dir.setSorting(QDir::DirsFirst | QDir::Name);
+
+		QFileInfoList fileList = dir.entryInfoList();
+
+		for (int x = 0; x < fileList.count(); x++)
+		{
+			if (fileList[x].fileName() != "." && fileList[x].fileName() != "..")
+			{
+				QMenu *menu = parentMenu;
+
+				if (fileList[x].isDir())
+				{
+					menu = parentMenu->addMenu(QDir(fileList[x].filePath()).dirName());
+
+					addDirEntryToMenu(menu, fileList[x].filePath() + QDir::separator());
+				}
+				else
+					addDirEntryToMenu(menu, fileList[x].filePath());
+			}
+		}
+	}
+	else
+	{
+		QAction *action = new QAction(info.baseName(), parentMenu);
+
+		parentMenu->addAction(action);
+		connect(action, SIGNAL(triggered()), this, SLOT(autoMenuHandler()));
+	}
+}
+
+void MainWindow::buildAutoMenu(void)
+{
+	char *scriptDir = ADM_getScriptPath();
+	QFileInfo autoDirInfo = QFileInfo(QString::fromUtf8(scriptDir) + QString("auto") + QDir::separator());
+
+	delete scriptDir;
+
+	if (autoDirInfo.isDir())
+		addDirEntryToMenu(ui.menuAuto, autoDirInfo.filePath());
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
