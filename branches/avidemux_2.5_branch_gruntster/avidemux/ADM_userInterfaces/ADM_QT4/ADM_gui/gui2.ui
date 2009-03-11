@@ -1325,24 +1325,6 @@
     <addaction name="actionSave_2" />
     <addaction name="actionFilters_2" />
    </widget>
-   <widget class="QMenu" name="menuTools" >
-    <property name="title" >
-     <string>&amp;Tools</string>
-    </property>
-    <addaction name="actionCalculator" />
-    <addaction name="separator" />
-    <addaction name="actionRebuild_I_B_Frames" />
-    <addaction name="actionBitrate_histogram" />
-    <addaction name="actionScan_for_black_frames" />
-    <addaction name="separator" />
-    <addaction name="actionVob_to_vobsub" />
-    <addaction name="actionOCR" />
-    <addaction name="actionOCR_DVB_T_TS_files" />
-    <addaction name="actionGlyphs_Edit" />
-    <addaction name="separator" />
-    <addaction name="action_Preferences" />
-    <addaction name="actionAVI_Muxer_Options" />
-   </widget>
    <widget class="QMenu" name="menuEdit" >
     <property name="title" >
      <string>&amp;Edit</string>
@@ -1459,14 +1441,32 @@
      <string>A&amp;uto</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuTools" >
+    <property name="title" >
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="actionCalculator" />
+    <addaction name="separator" />
+    <addaction name="actionRebuild_I_B_Frames" />
+    <addaction name="actionBitrate_histogram" />
+    <addaction name="actionScan_for_black_frames" />
+    <addaction name="separator" />
+    <addaction name="actionVob_to_vobsub" />
+    <addaction name="actionOCR" />
+    <addaction name="actionOCR_DVB_T_TS_files" />
+    <addaction name="actionGlyphs_Edit" />
+    <addaction name="separator" />
+    <addaction name="action_Preferences" />
+    <addaction name="actionAVI_Muxer_Options" />
+   </widget>
    <addaction name="menuFile" />
    <addaction name="menuEdit" />
    <addaction name="menuView" />
    <addaction name="menuVideo" />
    <addaction name="menuAudio" />
    <addaction name="menuTools" />
-   <addaction name="menuAuto" />
    <addaction name="menuGo" />
+   <addaction name="menuAuto" />
    <addaction name="menuCustom" />
    <addaction name="menuHelp" />
   </widget>
