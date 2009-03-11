@@ -634,6 +634,9 @@ void MainWindow::buildAutoMenu(void)
 
 	if (autoDirInfo.isDir())
 		addDirEntryToMenu(ui.menuAuto, autoDirInfo.filePath());
+
+	if (ui.menuAuto->isEmpty())
+		ui.menuAuto->setEnabled(false);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

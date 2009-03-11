@@ -1403,18 +1403,6 @@
     <addaction name="actionJump_to_Frame" />
     <addaction name="actionJump_to_Time" />
    </widget>
-   <widget class="QMenu" name="menuAuto" >
-    <property name="title" >
-     <string>A&amp;uto</string>
-    </property>
-    <addaction name="actionVCD" />
-    <addaction name="actionSVCD" />
-    <addaction name="actionDVD" />
-    <addaction name="actionPSP" />
-    <addaction name="actionPSP_H264" />
-    <addaction name="actionFLV" />
-    <addaction name="actionIPOD" />
-   </widget>
    <widget class="QMenu" name="menuFile" >
     <property name="title" >
      <string>&amp;File</string>
@@ -1465,6 +1453,11 @@
     <addaction name="action_Plugins" />
     <addaction name="separator" />
     <addaction name="actionAbout_avidemux" />
+   </widget>
+   <widget class="QMenu" name="menuAuto" >
+    <property name="title" >
+     <string>A&amp;uto</string>
+    </property>
    </widget>
    <addaction name="menuFile" />
    <addaction name="menuEdit" />
