@@ -145,10 +145,18 @@ JSBool ADM_JSAvidemux::JSGetProperty(JSContext *cx, JSObject *obj, jsval id, jsv
                                 *vp = INT_TO_JSVAL(frameEnd);
                                 break;
                         case audio_prop:
-                                *vp = OBJECT_TO_JSVAL(priv->getObject()->m_pAudio);
+								if (avifileinfo)
+									*vp = OBJECT_TO_JSVAL(priv->getObject()->m_pAudio);
+								else
+									*vp = NULL;
+
                                 break;
                         case video_prop:
-                                *vp = OBJECT_TO_JSVAL(priv->getObject()->m_pVideo);
+								if (avifileinfo)
+									*vp = OBJECT_TO_JSVAL(priv->getObject()->m_pVideo);
+								else
+									*vp = NULL;
+
                                 break;
                         case container_prop:
                                 *vp = STRING_TO_JSVAL(priv->getObject()->m_pContainer);
