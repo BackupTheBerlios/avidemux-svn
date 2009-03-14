@@ -22,8 +22,8 @@ function resizeAndFillVideo(targetX, targetY, sourceRatio, destinationRatio)
     }
 
     // Resizing
-    var width = rescaleVideoDimension(width, sourceRatio, destinationRatio, getColourEncodingSystem(fps1000));
-    var rX = width / targetX;
+    var scaledWidth = rescaleVideoDimension(width, sourceRatio, destinationRatio, getColourEncodingSystem(fps1000));
+    var rX = scaledWidth / targetX;
     var rY = height / targetY;
     var newX;
     var newY;
@@ -38,14 +38,14 @@ function resizeAndFillVideo(targetX, targetY, sourceRatio, destinationRatio)
     {
         // resize by Y
         newY = targetY;
-        newX = Math.round(width / rY);
+        newX = Math.round(scaledWidth / rY);
     }
 
     // resize to multiple of 4
     newX -= newX % 4;
     newY -= newY % 4;
 
-    if (newX != app.video.width || newY != app.video.height)
+    if (newX != width || newY != height)
         app.video.addFilter("mpresize", "w=" + newX, "h=" + newY, "algo=0");
 
     // Black bars
