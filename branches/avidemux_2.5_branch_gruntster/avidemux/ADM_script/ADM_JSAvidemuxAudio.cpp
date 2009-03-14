@@ -32,25 +32,25 @@ JSPropertySpec ADM_JSAvidemuxAudio::properties[] = {
         { "process", audioprocess_prop, JSPROP_ENUMERATE },        // process audio when saving
         { "resample", resample_prop, JSPROP_ENUMERATE },	// resample
         { "delay", delay_prop, JSPROP_ENUMERATE },	// set audio delay
-        { "film2pal", film2pal_prop, JSPROP_ENUMERATE },	// convert film to pal
-        { "pal2film", pal2film_prop, JSPROP_ENUMERATE },	// convert pal to film
+        { "film2Pal", film2pal_prop, JSPROP_ENUMERATE },	// convert film to pal
+        { "pal2Film", pal2film_prop, JSPROP_ENUMERATE },	// convert pal to film
         { "normalizeMode", normalizemode_prop, JSPROP_ENUMERATE },	//
         { "drc", drc_prop, JSPROP_ENUMERATE },	//
         { "normalizeValue", normalizevalue_prop, JSPROP_ENUMERATE },	//
+		{ "mixer", mixerProperty, JSPROP_ENUMERATE },	//
         { 0 }
 };
 
 JSFunctionSpec ADM_JSAvidemuxAudio::methods[] = {
-        { "scanVBR", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
+        { "scanVbr", ScanVBR, 0, 0, 0 },	// scan variable bit rate audio
         { "save", Save, 1, 0, 0 },	// save audio stream
         { "load", Load, 2, 0, 0 },	// load audio stream
         { "reset", Reset, 0, 0, 0 },	// reset audio stream
         { "codec", Codec, 4, 0, 0 },	// set output codec
-        { "getNbTracks", getNbTracks, 0, 0, 0 },    // set output codec
+        { "getTrackCount", getNbTracks, 0, 0, 0 },    // set output codec
         { "setTrack", setTrack, 1, 0, 0 },    // set output codec
         { "secondAudioTrack", secondAudioTrack, 2, 0, 0 },    // set audio track
-        { "mixer", mixer, 1, 0, 0 },    // set mixer configuration
-        { "getNbChannels", getNbChannels, 1, 0, 0 },
+        { "getChannelCount", getNbChannels, 1, 0, 0 },
         { "getBitrate", getBitrate, 1, 0, 0 },
         { 0 }
 };
@@ -132,11 +132,9 @@ JSBool ADM_JSAvidemuxAudio::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
                         case drc_prop:
                             *vp = BOOLEAN_TO_JSVAL(priv->getObject()->m_bDRC);
                             break;
-/*
-                        case audio_prop:
-                                *vp = OBJECT_TO_JSVAL(priv->getObject()->m_pAudio);
-                                break;
-*/
+						case mixerProperty:
+							*vp = STRING_TO_JSVAL(JS_NewStringCopyZ(cx, getCurrentMixerString()));
+							break;
                 }
         }
         return JS_TRUE;
@@ -227,6 +225,13 @@ JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id
                                   leaveLock();
                                   break;
                         }
+						case mixerProperty:
+						{
+							const char *mixer = JS_GetStringBytes(JSVAL_TO_STRING(*vp));
+
+							setCurrentMixerFromString(mixer);
+							break;
+						}
                         default : printf("UNKNOWN AUDIO PROP\n");
                         return JS_FALSE;
                 }
@@ -447,28 +452,6 @@ JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN
         leaveLock();
       return JS_FALSE;
 }
-JSBool ADM_JSAvidemuxAudio::mixer(JSContext *cx, JSObject *obj, uintN argc, 
-                                      jsval *argv, jsval *rval)
-{
-uint32_t nb=0,nw=0;
-uint32_t *infos=NULL;
-        // default return value
-        ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
-
-        // default return value
-      if(argc != 1)
-                return JS_FALSE;
-        char *pArg0 = JS_GetStringBytes(JSVAL_TO_STRING(argv[0]));
-        enterLock();
-
-        if(setCurrentMixerFromString(pArg0))
-                *rval=BOOLEAN_TO_JSVAL(true);
-        else
-                *rval=BOOLEAN_TO_JSVAL(false);
-        leaveLock();
-        return JS_TRUE;
-
-}// end Codec
 
 JSBool ADM_JSAvidemuxAudio::getNbChannels(JSContext *cx, JSObject *obj, uintN argc, 
                                       jsval *argv, jsval *rval)

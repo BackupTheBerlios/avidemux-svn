@@ -22,8 +22,8 @@ else
         app.video.codecPlugin("32BCB447-21C9-4210-AE9A-4FCE6C8588AE", "x264", "2PASSBITRATE=1000", "<?xml version='1.0'?><x264Config><presetConfiguration><name>Sony PlayStation Portable</name><type>system</type></presetConfiguration><x264Options></x264Options></x264Config>");
         app.audio.codec("Faac", 128, 4, "80 00 00 00 ");
 
-        if (app.audio.getNbChannels(0) != 2)
-            app.audio.mixer("STEREO");
+        if (app.audio.getChannelCount(0) != 2)
+            app.audio.mixer = "STEREO";
 
         app.setContainer("PSP");
     }

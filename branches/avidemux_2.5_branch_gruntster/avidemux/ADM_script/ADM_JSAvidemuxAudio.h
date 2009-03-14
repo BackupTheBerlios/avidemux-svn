@@ -24,7 +24,8 @@ public:
 		pal2film_prop,
 		normalizemode_prop,
 		normalizevalue_prop,
-		drc_prop
+		drc_prop,
+		mixerProperty
 	};
 
 private:
@@ -47,8 +48,6 @@ private:
 	static JSBool Codec(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool getNbTracks(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool setTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-	static JSBool lamePreset(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-	static JSBool mixer(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool secondAudioTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool getNbChannels(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool getBitrate(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
