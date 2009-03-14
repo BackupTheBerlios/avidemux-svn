@@ -71,6 +71,8 @@ void XvidOptions::reset(void)
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
 	setPar(1, 1);
+	setParAsInput(false);
+	setCqmPreset(CQM_H263);
 	setMotionEstimation(ME_LOW);
 	setRateDistortion(RD_DCT_ME);
 	setMinQuantiser(2, 2, 2);
@@ -80,8 +82,6 @@ void XvidOptions::reset(void)
 	setOverflowControlStrength(5);
 	setMaxOverflowImprovement(5);
 	setMaxOverflowDegradation(5);
-
-	_parAsInput = false;
 
 	setPresetConfiguration("<default>", CONFIG_DEFAULT);
 }
@@ -935,10 +935,13 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	{
 		case CQM_H263:
 			strcpy((char*)xmlBuffer, "h.263");
+			break;
 		case CQM_MPEG:
 			strcpy((char*)xmlBuffer, "mpeg");
+			break;
 		case CQM_CUSTOM:
 			strcpy((char*)xmlBuffer, "custom");
+			break;
 	}
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"quantType", xmlBuffer);
