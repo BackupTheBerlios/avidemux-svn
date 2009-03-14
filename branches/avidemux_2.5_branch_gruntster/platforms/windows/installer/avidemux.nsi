@@ -291,6 +291,8 @@ Section "Avidemux Core" SecCore
     ${File} libstdc++_sjlj_*.dll
     SetOutPath $INSTDIR\etc\fonts
     ${Folder} etc\fonts
+    SetOutPath $INSTDIR\scripts
+    ${Folder} scripts
 SectionEnd
 
 SectionGroup /e "User interfaces" SecGrpUI
@@ -1635,7 +1637,7 @@ Function ReinstallPage
 		${EndIf}
 	${ElseIf} $PreviousVersionState == 2
 		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${INTERNALNAME}."
-		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "A newer version of FileZilla is already installed! It is not recommended that you downgrade to an older version. Select the operation you want to perform and click Next to continue."
+		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "A newer version of Avidemux is already installed! It is not recommended that you downgrade to an older version. Select the operation you want to perform and click Next to continue."
 		Pop $R0
 		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Downgrade Avidemux using previous settings (recommended)"
 		Pop $ReinstallUninstallButton
@@ -1651,7 +1653,7 @@ Function ReinstallPage
 		Pop $R0
 		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Add/Remove/Reinstall components"
 		Pop $R0
-		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_TOP}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 10 85 100% 50 "Uninstall FileZilla"
+		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_TOP}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 10 85 100% 50 "Uninstall Avidemux"
 		Pop $ReinstallUninstallButton
 
 		${If} $ReinstallUninstall == ""
