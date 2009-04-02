@@ -205,7 +205,7 @@ decoderFF::decoderFF (uint32_t w, uint32_t h):decoders (w, h)
 
   _context->width = _w;
   _context->height = _h;
-  _context->pix_fmt = PIX_FMT_YUV420P;	//PIX_FMT_RGBA32
+  _context->pix_fmt = PIX_FMT_YUV420P;
   //_context->debug=1;
 
   _internalBuffer = new uint8_t[w * h * 3];
@@ -422,7 +422,7 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
 	case PIX_FMT_RGB24:
 	  out->_colorspace = ADM_COLOR_RGB24;
 	  break;
-    case PIX_FMT_RGBA32:
+    case PIX_FMT_RGB32:
       out->_colorspace = ADM_COLOR_RGB32A;
       break;
     case PIX_FMT_RGB555:

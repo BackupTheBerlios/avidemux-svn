@@ -34,13 +34,6 @@ extern "C"{
 }
 
 
-#ifdef ADM_CPU_X86
-extern "C" 
-{
-#include "libavcodec/dsputil.h"
-}
-#endif
-
 #define cpuid(index,eax,ebx,ecx,edx)\
     __asm __volatile\
         ("mov %%"REG_b", %%"REG_S"\n\t"\

@@ -334,7 +334,7 @@ extern "C"
 {
 #undef av_always_inline
 #define av_always_inline inline
-#include "libavutil/bswap.h"
+#define INT_BIT (CHAR_BIT * sizeof(int))
 #include "libavcodec/bitstream.h"
 }
 void putNvop(ADMBitstream *data,uint32_t timebits, uint32_t timeincval)

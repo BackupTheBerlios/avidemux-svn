@@ -1,9 +1,9 @@
-*** libavformat/movenc.c.old	Sat Feb 21 16:11:13 2009
---- libavformat/movenc.c	Sat Feb 21 16:11:13 2009
+*** libavformat/movenc.c.old	Wed Apr  1 18:35:42 2009
+--- libavformat/movenc.c	Wed Apr  1 18:35:42 2009
 ***************
-*** 1925,1927 ****
---- 1925,1939 ----
-      .codec_tag = (const AVCodecTag* const []){ff_mp4_obj_type, 0},
+*** 1960,1962 ****
+--- 1960,1974 ----
+      .codec_tag = (const AVCodecTag* const []){codec_ipod_tags, 0},
   };
   #endif
 + /* MEANX */

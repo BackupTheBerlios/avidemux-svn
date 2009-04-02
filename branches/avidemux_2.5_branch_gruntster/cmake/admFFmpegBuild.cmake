@@ -1,8 +1,8 @@
 include(admFFmpegUtil)
 find_package(Subversion)
 
-set(FFMPEG_VERSION 17480)
-set(SWSCALE_VERSION 28690)
+set(FFMPEG_VERSION 18300)
+set(SWSCALE_VERSION 29120)
 set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
@@ -14,7 +14,7 @@ set(FFMPEG_MUXERS  flv  ipod  matroska  mov  mp4  psp  tg2  tgp)
 set(FFMPEG_PARSERS  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-protocols --disable-indevs --disable-outdevs --disable-bsfs
-				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-swscale --enable-gpl 
+				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-gpl 
 				  --prefix=${CMAKE_INSTALL_PREFIX})
 
 if (NOT VERBOSE)

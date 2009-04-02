@@ -14,13 +14,13 @@
 #include <stdio.h>
 #include "ADM_default.h"
 #include "ADM_audio/ADM_dcainfo.h"
+
 extern "C"
 {
-#include "libavutil/common.h"
-#include "libavutil/bswap.h"
+#define INT_BIT (CHAR_BIT * sizeof(int))
 #include "libavcodec/bitstream.h"
-
 }
+
 #include "ADM_assert.h"
 
 /*

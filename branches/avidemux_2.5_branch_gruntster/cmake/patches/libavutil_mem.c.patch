@@ -1,7 +1,7 @@
-*** libavutil/mem.c.old	Mon Feb  2 20:01:23 2009
---- libavutil/mem.c	Mon Feb  2 20:01:22 2009
+*** libavutil/mem.c.old	Wed Apr  1 18:35:44 2009
+--- libavutil/mem.c	Wed Apr  1 18:35:44 2009
 ***************
-*** 46,131 ****
+*** 46,132 ****
   
   void *av_malloc(unsigned int size)
   {
@@ -22,7 +22,8 @@
 !     ptr = (char*)ptr + diff;
 !     ((char*)ptr)[-1]= diff;
 ! #elif HAVE_POSIX_MEMALIGN
-!     posix_memalign(&ptr,16,size);
+!     if (posix_memalign(&ptr,16,size))
+!         ptr = NULL;
 ! #elif HAVE_MEMALIGN
 !     ptr = memalign(16,size);
 !     /* Why 64?
@@ -135,7 +136,7 @@
 ! 		return av_malloc(newsize);
 ! 
 ! 	if (!newsize) 
-! 	{    	
+! 	{
 ! 		av_free(ptr);
 ! 		return NULL;
 ! 	}

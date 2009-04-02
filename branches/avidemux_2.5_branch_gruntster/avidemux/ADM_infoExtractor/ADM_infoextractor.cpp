@@ -26,9 +26,7 @@
 
 extern "C"
 {
-#include "libavutil/common.h"
-#include "libavutil/bswap.h"
-#define INT_MAX (0x7FFFFFFF)
+#define INT_BIT (CHAR_BIT * sizeof(int))
 #include "libavcodec/bitstream.h"
 #include "libavcodec/golomb.h"
 }
