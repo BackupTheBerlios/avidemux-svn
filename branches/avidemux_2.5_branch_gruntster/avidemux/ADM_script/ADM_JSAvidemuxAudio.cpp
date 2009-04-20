@@ -170,9 +170,9 @@ JSBool ADM_JSAvidemuxAudio::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 							break;
 						}
 				}
-
-				return JS_TRUE;
 		}
+
+		return JS_TRUE;
 }
 
 void ADM_JSAvidemuxAudio::AddAudioSourceToJSArray(JSContext *cx, JSObject *obj, int trackIndex, AudioSource audioSource, 
