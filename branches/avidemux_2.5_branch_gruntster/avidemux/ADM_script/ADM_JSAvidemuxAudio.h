@@ -8,6 +8,8 @@
 // Spidermonkey
 #include "ADM_libraries/ADM_smjs/jsapi.h"
 #include "ADM_AvidemuxAudio.h"
+#include "avi_vars.h"
+#include "ADM_audiofilter/audioeng_buildfilters.h"
 
 class ADM_JSAvidemuxAudio
 {
@@ -25,7 +27,9 @@ public:
 		normalizemode_prop,
 		normalizevalue_prop,
 		drc_prop,
-		mixerProperty
+		mixerProperty,
+		sourceTrackInfoProperty,
+		targetTrackInfoProperty
 	};
 
 private:
@@ -46,11 +50,9 @@ private:
 	static JSBool Load(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool Reset(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool Codec(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-	static JSBool getNbTracks(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
+	static void AddAudioSourceToJSArray(JSContext *cx, JSObject *obj, int trackIndex, AudioSource audioSource, AVDMGenericAudioStream *audioStream, JSObject *tracks);
 	static JSBool setTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 	static JSBool secondAudioTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-	static JSBool getNbChannels(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-	static JSBool getBitrate(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 };
 
 #endif

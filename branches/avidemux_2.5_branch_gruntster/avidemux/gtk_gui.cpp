@@ -61,10 +61,10 @@
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_preview.h"
-static AudioSource currentAudioSource = AudioAvi;
-static AudioSource secondAudioSource = AudioNone;
-static char *currentAudioName = NULL;
-static char *secondAudioName = NULL;
+AudioSource currentAudioSource = AudioAvi;
+AudioSource secondAudioSource = AudioNone;
+char *currentAudioName = NULL;
+char *secondAudioName = NULL;
 
 void A_handleSecondTrack (int tracktype);
 int A_delete(uint32_t start, uint32_t end);

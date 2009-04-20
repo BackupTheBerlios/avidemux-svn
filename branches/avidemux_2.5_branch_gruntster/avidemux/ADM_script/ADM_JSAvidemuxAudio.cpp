@@ -16,15 +16,16 @@
 #include "ADM_JSAvidemuxAudio.h"
 
 #include "../ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
-#include "ADM_audiofilter/audioeng_buildfilters.h"
-#include "avi_vars.h"
 #include "gui_action.hxx"
 #include "ADM_encoder/ADM_vidEncode.hxx"
+#include "ADM_JSAudioTrackInfo.h"
 
 extern int A_audioSave(char *name);
 extern int A_loadAC3 (char *name);
 extern int A_loadMP3 (char *name);
 extern int A_loadWave (char *name);
+extern AudioSource currentAudioSource;
+extern AudioSource secondAudioSource;
 extern void HandleAction(Action act);
 extern uint8_t A_setSecondAudioTrack(const AudioSource nw,char *name);
 
@@ -38,6 +39,8 @@ JSPropertySpec ADM_JSAvidemuxAudio::properties[] = {
         { "drc", drc_prop, JSPROP_ENUMERATE },	//
         { "normalizeValue", normalizevalue_prop, JSPROP_ENUMERATE },	//
 		{ "mixer", mixerProperty, JSPROP_ENUMERATE },	//
+		{ "sourceTrackInfo", sourceTrackInfoProperty, JSPROP_ENUMERATE },
+		{ "targetTrackInfo", targetTrackInfoProperty, JSPROP_ENUMERATE },
         { 0 }
 };
 
@@ -47,11 +50,8 @@ JSFunctionSpec ADM_JSAvidemuxAudio::methods[] = {
         { "load", Load, 2, 0, 0 },	// load audio stream
         { "reset", Reset, 0, 0, 0 },	// reset audio stream
         { "codec", Codec, 4, 0, 0 },	// set output codec
-        { "getTrackCount", getNbTracks, 0, 0, 0 },    // set output codec
         { "setTrack", setTrack, 1, 0, 0 },    // set output codec
         { "secondAudioTrack", secondAudioTrack, 2, 0, 0 },    // set audio track
-        { "getChannelCount", getNbChannels, 1, 0, 0 },
-        { "getBitrate", getBitrate, 1, 0, 0 },
         { 0 }
 };
 
@@ -135,9 +135,62 @@ JSBool ADM_JSAvidemuxAudio::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 						case mixerProperty:
 							*vp = STRING_TO_JSVAL(JS_NewStringCopyZ(cx, getCurrentMixerString()));
 							break;
-                }
-        }
-        return JS_TRUE;
+						case sourceTrackInfoProperty:
+						{
+							JSObject *tracks = JS_NewArrayObject(cx, 0, NULL);
+							jsval sourceTrack;
+
+							audioInfo *audioInfos = NULL;
+							uint32_t trackCount = 0;
+
+							*vp = OBJECT_TO_JSVAL(tracks);
+							video_body->getAudioStreamsInfo(0, &trackCount, &audioInfos);
+
+							for (int infoIndex = 0; infoIndex < trackCount; infoIndex++)
+							{
+								sourceTrack = OBJECT_TO_JSVAL(ADM_JSAudioTrackInfo::JSInit(cx, obj, NULL, infoIndex, (&audioInfos)[infoIndex]));
+								JS_SetElement(cx, tracks, infoIndex, &sourceTrack);
+							}
+
+							if(audioInfos)
+								delete [] audioInfos;
+
+							break;
+						}
+						case targetTrackInfoProperty:
+						{
+							JSObject *tracks = JS_NewArrayObject(cx, 0, NULL);
+							jsval targetTrack;
+
+							*vp = OBJECT_TO_JSVAL(tracks);
+
+							AddAudioSourceToJSArray(cx, obj, 0, currentAudioSource, currentaudiostream, tracks);
+							AddAudioSourceToJSArray(cx, obj, 1, secondAudioSource, secondaudiostream, tracks);
+
+							break;
+						}
+				}
+
+				return JS_TRUE;
+		}
+}
+
+void ADM_JSAvidemuxAudio::AddAudioSourceToJSArray(JSContext *cx, JSObject *obj, int trackIndex, AudioSource audioSource, 
+												  AVDMGenericAudioStream *audioStream, JSObject *tracks)
+{
+	if (audioSource != AudioNone)
+	{
+		WAVHeader *trackHeader = audioStream->getInfo();
+
+		jsval targetTrack = OBJECT_TO_JSVAL(ADM_JSAudioTrackInfo::JSInit(
+			cx, obj, NULL, 
+			audioSource == AudioAvi ? video_body->getCurrentAudioStreamNumber(trackIndex) : -1,
+			trackIndex, trackHeader));
+		jsuint length;
+
+		JS_GetArrayLength(cx, tracks, &length);
+		JS_SetElement(cx, tracks, length, &targetTrack);
+	}
 }
 
 JSBool ADM_JSAvidemuxAudio::JSSetProperty(JSContext *cx, JSObject *obj, jsval id, jsval *vp)
@@ -386,25 +439,7 @@ JSBool ADM_JSAvidemuxAudio::Codec(JSContext *cx, JSObject *obj, uintN argc,
         leaveLock();
         return JS_TRUE;
 }// end Codec
-JSBool ADM_JSAvidemuxAudio::getNbTracks(JSContext *cx, JSObject *obj, uintN argc, 
-                                      jsval *argv, jsval *rval)
-{
-uint32_t nb=0;
-audioInfo *infos=NULL;
-        // default return value
-        ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
-        if(argc != 0)
-                return JS_FALSE;
-        // default return value
-      
-        enterLock();
-        video_body->getAudioStreamsInfo(0,&nb, &infos);
-        leaveLock();
-        if(infos)
-                delete [] infos;
-        *rval = INT_TO_JSVAL(nb);
-        return JS_TRUE;
-}// end Codec
+
 JSBool ADM_JSAvidemuxAudio::setTrack(JSContext *cx, JSObject *obj, uintN argc, 
                                       jsval *argv, jsval *rval)
 {
@@ -427,6 +462,7 @@ audioInfo *infos=NULL;
         leaveLock();
         return JS_TRUE;
 }// end Codec
+
 JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
 {
         ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
@@ -452,52 +488,3 @@ JSBool ADM_JSAvidemuxAudio::secondAudioTrack(JSContext *cx, JSObject *obj, uintN
         leaveLock();
       return JS_FALSE;
 }
-
-JSBool ADM_JSAvidemuxAudio::getNbChannels(JSContext *cx, JSObject *obj, uintN argc, 
-                                      jsval *argv, jsval *rval)
-{
-uint32_t nb=0, nw=0;
-audioInfo *infos=NULL;
-        // default return value
-        ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
-        if(argc != 1)
-                return JS_FALSE;
-        // default return value
-      
-        if(JSVAL_IS_INT(argv[0]) == false)
-                return JS_FALSE;
-        enterLock();
-        video_body->getAudioStreamsInfo(0,&nb, &infos);
-        leaveLock()
-        nw=(JSVAL_TO_INT(argv[0]));
-        if(nw>nb)
-                return JS_FALSE;
-        *rval = INT_TO_JSVAL(infos[nw].channels);
-        delete [] infos;
-        return JS_TRUE;
-}// end Codec
-
-JSBool ADM_JSAvidemuxAudio::getBitrate(JSContext *cx, JSObject *obj, uintN argc, 
-                                      jsval *argv, jsval *rval)
-{
-uint32_t nb=0, nw=0;
-audioInfo *infos=NULL;
-        // default return value
-        ADM_JSAvidemuxAudio *p = (ADM_JSAvidemuxAudio *)JS_GetPrivate(cx, obj);
-        if(argc != 1)
-                return JS_FALSE;
-        // default return value
-      
-        if(JSVAL_IS_INT(argv[0]) == false)
-                return JS_FALSE;
-        enterLock();
-        video_body->getAudioStreamsInfo(0,&nb, &infos);
-        leaveLock()
-        nw=(JSVAL_TO_INT(argv[0]));
-        if(nw>nb)
-                return JS_FALSE;
-        *rval = INT_TO_JSVAL(infos[nw].bitrate);
-        delete [] infos;
-        return JS_TRUE;
-}// end Codec
-
