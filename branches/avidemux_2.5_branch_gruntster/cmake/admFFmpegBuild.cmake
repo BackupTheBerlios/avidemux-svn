@@ -26,12 +26,6 @@ endif (NOT VERBOSE)
 
 # Checkout FFmpeg source and patch it
 if (NOT IS_DIRECTORY "${FFMPEG_SOURCE_DIR}/.svn")
-	find_package(Patch)
-
-	if (WIN32)
-		find_package(Unix2Dos)
-	endif (WIN32)
-
 	message(STATUS "Checking out FFmpeg")
 	execute_process(COMMAND ${Subversion_SVN_EXECUTABLE} co svn://svn.ffmpeg.org/ffmpeg/trunk -r ${FFMPEG_VERSION} --ignore-externals "${FFMPEG_SOURCE_DIR}"
 					${ffmpegSvnOutput})
@@ -50,12 +44,6 @@ Subversion_WC_INFO(${FFMPEG_SOURCE_DIR} ffmpeg)
 message(STATUS "FFmpeg revision: ${ffmpeg_WC_REVISION}")
 
 if (NOT ${ffmpeg_WC_REVISION} EQUAL ${FFMPEG_VERSION})
-	find_package(Patch)
-
-	if (WIN32)
-		find_package(Unix2Dos)
-	endif (WIN32)
-
 	MESSAGE(STATUS "Updating to revision ${FFMPEG_VERSION}")
 	set(FFMPEG_PERFORM_BUILD 1)
 	set(FFMPEG_PERFORM_PATCH 1)
@@ -74,12 +62,6 @@ Subversion_WC_INFO(${FFMPEG_SOURCE_DIR}/libswscale swscale)
 message(STATUS "libswscale revision: ${swscale_WC_REVISION}")
 
 if (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
-	find_package(Patch)
-
-	if (WIN32)
-		find_package(Unix2Dos)
-	endif (WIN32)
-
 	message(STATUS "Updating to revision ${SWSCALE_VERSION}")
 	set(FFMPEG_PERFORM_BUILD 1)
 	set(FFMPEG_PERFORM_PATCH 1)
@@ -93,23 +75,7 @@ endif (NOT ${swscale_WC_REVISION} EQUAL ${SWSCALE_VERSION})
 message("")
 
 if (FFMPEG_PERFORM_PATCH)
-	file(GLOB patchFiles "${CMAKE_SOURCE_DIR}/cmake/patches/*.patch")
-
-	foreach(patchFile ${patchFiles})
-		if (WIN32)
-			file(MAKE_DIRECTORY "${FFMPEG_BINARY_DIR}/patches")
-			get_filename_component(fileName "${patchFile}" NAME)
-			execute_process(COMMAND ${UNIX2DOS_EXECUTABLE} -n ${patchFile} ${FFMPEG_BINARY_DIR}/patches/${fileName}
-							${unix2dosOutput})
-
-			set(patchFile "${FFMPEG_BINARY_DIR}/patches/${fileName}")
-		endif (WIN32)
-
-		execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i "${patchFile}"
-						WORKING_DIRECTORY "${FFMPEG_SOURCE_DIR}")
-	endforeach(patchFile)
-
-	message("")
+	include(admFFmpegPatch)
 endif (FFMPEG_PERFORM_PATCH)
 
 # Configure FFmpeg, if required
