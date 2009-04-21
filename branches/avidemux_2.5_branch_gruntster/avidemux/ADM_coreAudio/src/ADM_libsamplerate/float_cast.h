@@ -45,7 +45,7 @@
 **		long int lrint  (double x) ;
 */
 
-// MEANX #include "config.h"
+#include "config.h"
 
 /*
 **	The presence of the required functions are detected during the configure

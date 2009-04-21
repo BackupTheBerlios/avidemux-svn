@@ -21,15 +21,13 @@
 ** use license for this code is available, please see:
 **		http://www.mega-nerd.com/SRC/procedure.html
 */
-#if 0 // MEANX
+
 #include	<stdio.h>
 #include	<stdlib.h>
 #include	<string.h>
 
 #include	"config.h"
-#else
-#include "ADM_default.h"
-#endif
+
 #include	"samplerate.h"
 #include	"float_cast.h"
 #include	"common.h"
@@ -89,7 +87,8 @@ src_callback_new (src_callback_t func, int converter_type, int channels, int *er
 	if (error != NULL)
 		*error = 0 ;
 
-	src_state = src_new (converter_type, channels, error) ;
+	if ((src_state = src_new (converter_type, channels, error)) == NULL)
+		return NULL ;
 
 	src_reset (src_state) ;
 
@@ -134,16 +133,13 @@ src_process (SRC_STATE *state, SRC_DATA *data)
 	if (data == NULL)
 		return SRC_ERR_BAD_DATA ;
 
-	/* Check src_ratio is in range. */
-	if (is_bad_src_ratio (data->src_ratio))
-		return SRC_ERR_BAD_SRC_RATIO ;
-
 	/* And that data_in and data_out are valid. */
 	if (data->data_in == NULL || data->data_out == NULL)
 		return SRC_ERR_BAD_DATA_PTR ;
 
-	if (data->data_in == NULL)
-		data->input_frames = 0 ;
+	/* Check src_ratio is in range. */
+	if (is_bad_src_ratio (data->src_ratio))
+		return SRC_ERR_BAD_SRC_RATIO ;
 
 	if (data->input_frames < 0)
 		data->input_frames = 0 ;
@@ -226,9 +222,13 @@ src_callback_read (SRC_STATE *state, double src_ratio, long frames, float *data)
 
 	output_frames_gen = 0 ;
 	while (output_frames_gen < frames)
-	{
+	{	/*	Use a dummy array for the case where the callback function
+		**	returns without setting the ptr.
+		*/
+		float dummy [1] ;
+
 		if (src_data.input_frames == 0)
-		{	float *ptr ;
+		{	float *ptr = dummy ;
 
 			src_data.input_frames = psrc->callback_func (psrc->user_callback_data, &ptr) ;
 			src_data.data_in = ptr ;
@@ -392,8 +392,10 @@ src_strerror (int error)
 				return "SRC_DATA->data_out is NULL." ;
 		case SRC_ERR_NO_PRIVATE :
 				return "Internal error. No private data." ;
+
 		case SRC_ERR_BAD_SRC_RATIO :
-				return "SRC ratio outside [1/12, 12] range." ;
+				return "SRC ratio outside [1/" SRC_MAX_RATIO_STR ", " SRC_MAX_RATIO_STR "] range." ;
+
 		case SRC_ERR_BAD_SINC_STATE :
 				return "src_process() called without reset after end_of_input." ;
 		case SRC_ERR_BAD_PROC_PTR :
@@ -422,6 +424,8 @@ src_strerror (int error)
 				return "Callback function pointer is NULL in src_callback_read ()." ;
 		case SRC_ERR_NO_VARIABLE_RATIO :
 				return "This converter only allows constant conversion ratios." ;
+		case SRC_ERR_SINC_PREPARE_DATA_BAD_LEN :
+				return "Internal error : Bad length in prepare_data ()." ;
 
 		case SRC_ERR_MAX_ERROR :
 				return "Placeholder. No error defined for this error number." ;
