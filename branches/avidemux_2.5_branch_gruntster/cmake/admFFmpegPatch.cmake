@@ -2,6 +2,10 @@ find_package(Patch)
 
 if (WIN32)
 	find_package(Unix2Dos)
+	
+	if (NOT VERBOSE)
+		set(unix2dosOutput OUTPUT_VARIABLE UNIX2DOS_OUTPUT)
+	endif (NOT VERBOSE)
 endif (WIN32)
 
 file(GLOB patchFiles "${CMAKE_SOURCE_DIR}/cmake/patches/*.patch")
