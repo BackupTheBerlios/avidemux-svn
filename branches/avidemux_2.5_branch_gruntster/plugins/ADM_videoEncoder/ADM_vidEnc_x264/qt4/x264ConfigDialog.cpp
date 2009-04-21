@@ -173,12 +173,12 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	disableGenericSlots = true;
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).baseName(), CONFIG_USER);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_USER);
 
 	list = QDir(getSystemConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).baseName(), CONFIG_SYSTEM);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_SYSTEM);
 
 	ui.configurationComboBox->clear();
 	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), CONFIG_DEFAULT);
@@ -340,7 +340,7 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 		delete [] xml;
 
 		fillConfigurationComboBox();
-		selectConfiguration(&QFileInfo(configFileName).baseName(), CONFIG_USER);
+		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), CONFIG_USER);
 	}
 
 	delete [] configDirectory;
