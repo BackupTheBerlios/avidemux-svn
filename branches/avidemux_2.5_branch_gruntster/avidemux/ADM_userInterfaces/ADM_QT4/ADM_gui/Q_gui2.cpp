@@ -618,7 +618,7 @@ void MainWindow::addDirEntryToMenu(QMenu *parentMenu, QString path)
 	}
 	else
 	{
-		QAction *action = new QAction(info.baseName(), parentMenu);
+		QAction *action = new QAction(info.completeBaseName(), parentMenu);
 
 		parentMenu->addAction(action);
 		connect(action, SIGNAL(triggered()), this, SLOT(autoMenuHandler()));
