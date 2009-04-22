@@ -1,8 +1,10 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 18300)
-set(SWSCALE_VERSION 29120)
-set(FFMPEG_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg")
+set(FFMPEG_VERSION 18300)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=004034d83aa068cd26b52c17e1b0af6e11410940;sf=tgz
+set(SWSCALE_VERSION 29120)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=e58c77c7cf34896dcbc109730551902a4d5a321b;sf=tgz
+
+set(LIBRARY_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries")
+set(FFMPEG_SOURCE_DIR "${LIBRARY_SOURCE_DIR}/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
 set(FFMPEG_DECODERS  adpcm_ima_amv  amv  bmp  cinepak  dnxhd  dvbsub  dvvideo  ffv1  ffvhuff  flv  fourxm  fraps  h263  h264  huffyuv  indeo2  indeo3
@@ -16,7 +18,11 @@ set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-p
 				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-gpl 
 				  --prefix=${CMAKE_INSTALL_PREFIX})
 
-include(admFFmpegPrepareSvn)
+include(admFFmpegPrepareTar)
+
+if (NOT FFMPEG_PREPARED)
+	include(admFFmpegPrepareSvn)
+endif (NOT FFMPEG_PREPARED)
 
 if (NOT VERBOSE)
 	set(ffmpegBuildOutput OUTPUT_VARIABLE FFMPEG_CONFIGURE_OUTPUT)
