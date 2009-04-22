@@ -602,7 +602,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] i_keyint_max = %d\n", x264Param->i_keyint_max);
 	printf("[x264] i_keyint_min = %d\n", x264Param->i_keyint_min);
 	printf("[x264] i_scenecut_threshold = %d\n", x264Param->i_scenecut_threshold);
+#if X264_BUILD < 67
 	printf("[x264] b_pre_scenecut = %d\n", x264Param->b_pre_scenecut);
+#endif
 	printf("[x264] analyse.b_mixed_references = %d\n", x264Param->analyse.b_mixed_references);
 	printf("[x264] analyse.b_chroma_me = %d\n", x264Param->analyse.b_chroma_me);
 #if X264_BUILD < 65

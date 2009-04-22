@@ -315,6 +315,7 @@ void x264Options::setScenecutThreshold(unsigned int scenecutThreshold)
 		_param.i_scenecut_threshold = scenecutThreshold;
 }
 
+#if X264_BUILD < 67
 bool x264Options::getPreScenecutDetection(void)
 {
 	return _param.b_pre_scenecut;
@@ -324,6 +325,7 @@ void x264Options::setPreScenecutDetection(bool preScenecutDetection)
 {
 	_param.b_pre_scenecut = preScenecutDetection;
 }
+#endif
 
 unsigned int x264Options::getBFrames(void)
 {
@@ -1223,7 +1225,9 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMaximumSize", number2String(xmlBuffer, bufferSize, getGopMaximumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMinimumSize", number2String(xmlBuffer, bufferSize, getGopMinimumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"scenecutThreshold", number2String(xmlBuffer, bufferSize, getScenecutThreshold()));
+#if X264_BUILD < 67
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"preScenecutDetection", boolean2String(xmlBuffer, bufferSize, getPreScenecutDetection()));
+#endif
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrames", number2String(xmlBuffer, bufferSize, getBFrames()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
@@ -1567,8 +1571,10 @@ void x264Options::parseX264Options(xmlNode *node)
 				setGopMinimumSize(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "scenecutThreshold") == 0)
 				setScenecutThreshold(atoi(content));
+#if X264_BUILD < 67
 			else if (strcmp((char*)xmlChild->name, "preScenecutDetection") == 0)
 				setPreScenecutDetection(string2Boolean(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "bFrames") == 0)
 				setBFrames(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "adaptiveBframeDecision") == 0)

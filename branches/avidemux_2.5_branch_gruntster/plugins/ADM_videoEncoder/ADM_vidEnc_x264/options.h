@@ -132,8 +132,10 @@ public:
 	unsigned int getScenecutThreshold(void);
 	void setScenecutThreshold(unsigned int scenecutThreshold);
 
+#if X264_BUILD < 67
 	bool getPreScenecutDetection(void);
 	void setPreScenecutDetection(bool preScenecutDetection);
+#endif
 
 	unsigned int getBFrames(void);
 	void setBFrames(unsigned int bFrames);

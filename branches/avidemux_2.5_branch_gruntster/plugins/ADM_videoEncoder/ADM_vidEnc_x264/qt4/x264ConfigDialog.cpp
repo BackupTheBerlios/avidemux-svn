@@ -95,6 +95,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.predictSizeComboBox->setVisible(false);
 #endif
 
+#if X264_BUILD >= 67
+	ui.scenecutDetectionCheckBox->setVisible(false);
+#endif
+
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
@@ -677,7 +681,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.maxGopSizeSpinBox->setValue(options->getGopMaximumSize());
 	ui.minGopSizeSpinBox->setValue(options->getGopMinimumSize());
 	ui.IFrameThresholdSpinBox->setValue(options->getScenecutThreshold());
+#if X264_BUILD < 67
 	ui.scenecutDetectionCheckBox->setChecked(options->getPreScenecutDetection());
+#endif
 
 	// Analysis tab
 	ui.mixedRefsCheckBox->setChecked(options->getMixedReferences());
@@ -885,7 +891,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setGopMaximumSize(ui.maxGopSizeSpinBox->value());
 	options->setGopMinimumSize(ui.minGopSizeSpinBox->value());
 	options->setScenecutThreshold(ui.IFrameThresholdSpinBox->value());
+#if X264_BUILD < 67
 	options->setPreScenecutDetection(ui.scenecutDetectionCheckBox->isChecked());
+#endif
 
 	// Analysis tab
 	options->setMixedReferences(ui.mixedRefsCheckBox->isChecked());
