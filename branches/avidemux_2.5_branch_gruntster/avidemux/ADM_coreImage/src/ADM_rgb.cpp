@@ -90,6 +90,13 @@ extern "C" {
 	if (_context)
 		sws_freeContext((SwsContext *)_context);
 
+	/* 
+	FIXME: remove when ffmpeg is fixed
+	Without SWS_ACCURATE_RND the quality is bad 
+	for YUV->RGB (caused by libswscale r28700) 
+	*/
+	flags |= SWS_ACCURATE_RND;
+
 	 _context=(void *)sws_getContext(
                       ww,hh,
                       PIX_FMT_YUV420P ,
