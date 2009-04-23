@@ -439,17 +439,7 @@ JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 	// dependency loop
 	char *pTempStr = new char[PATH_MAX+1];
 
- #ifdef __MINGW32__
- 	if(_fullpath(pTempStr,pIncludeFile,PATH_MAX) == NULL)
- #else
-	if(realpath(pIncludeFile,pTempStr) == NULL)
-#endif
-	{
-		JS_ReportError(cx, "include() can't resolve the path of \"%s\".", pIncludeFile);
-		delete pTempStr;
-
-		return JS_FALSE;
-	}
+	strcpy(pTempStr, pIncludeFile);
 
 	if(stat(pTempStr, &sbFileInfo) != 0)
 	{
@@ -461,7 +451,7 @@ JSBool systemInclude(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsva
 
 		if(stat(pTempStr, &sbFileInfo) != 0)
 		{
-			JS_ReportError(cx, "include() Can't stat \"%s\" errno(%i).", pTempStr, errno);
+			JS_ReportError(cx, "include() Can't stat \"%s\" errno(%i).", pIncludeFile, errno);
 			delete pTempStr;
 
 			return JS_FALSE;
