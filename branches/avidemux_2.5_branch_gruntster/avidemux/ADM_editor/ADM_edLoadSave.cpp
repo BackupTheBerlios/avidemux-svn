@@ -233,7 +233,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
    qfprintf(fd,"app.audio.normalizeMode=%d;\n",audioGetNormalizeMode());
    qfprintf(fd,"app.audio.normalizeValue=%d;\n",audioGetNormalizeValue());
    qfprintf(fd,"app.audio.delay=%d;\n",audioGetDelay());
-   qfprintf(fd,"app.audio.mixer(\"%s\");\n",getCurrentMixerString());
+   qfprintf(fd,"app.audio.mixer=\"%s\";\n",getCurrentMixerString());
 
     // VBR ?
     if(currentaudiostream)
@@ -268,7 +268,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 
   // container
         
-  qfprintf(fd,"app.setContainer(\"%s\");\n",getCurrentContainerAsString());
+  qfprintf(fd,"app.container=\"%s\";\n",getCurrentContainerAsString());
   if(outputname)
   {
         char *o=ADM_cleanupPath(outputname);
