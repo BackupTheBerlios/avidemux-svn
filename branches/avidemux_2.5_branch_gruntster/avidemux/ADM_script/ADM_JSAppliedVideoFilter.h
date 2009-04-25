@@ -4,7 +4,7 @@
 #pragma once
 
 // Spidermonkey
-#include "ADM_libraries/ADM_smjs/jsapi.h"
+#include "jsapi.h"
 
 class ADM_JSAppliedVideoFilter
 {

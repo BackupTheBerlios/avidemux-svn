@@ -6,7 +6,7 @@
 #include "config.h"
 
 // Spidermonkey
-#include "ADM_libraries/ADM_smjs/jsapi.h"
+#include "jsapi.h"
 #include "ADM_AvidemuxAudio.h"
 #include "avi_vars.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"

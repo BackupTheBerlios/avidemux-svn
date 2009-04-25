@@ -2,7 +2,7 @@
 #define _ADM_JSDialogFactory_H
 
 #include "config.h"
-#include "ADM_libraries/ADM_smjs/jsapi.h"
+#include "jsapi.h"
 #include "DIA_factory.h"
 #include "ADM_JSDFMenu.h"
 #include <vector>

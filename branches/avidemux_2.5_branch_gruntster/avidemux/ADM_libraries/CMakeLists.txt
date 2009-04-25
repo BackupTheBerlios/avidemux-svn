@@ -1,7 +1,11 @@
 add_subdirectory(ADM_libmpeg2enc)
 add_subdirectory(ADM_lvemux)
 add_subdirectory(ADM_mplex)
-add_subdirectory(ADM_smjs)
+
+if (NOT USE_SYSTEM_SPIDERMONKEY)
+	add_subdirectory(ADM_smjs)
+endif (NOT USE_SYSTEM_SPIDERMONKEY)
+
 add_subdirectory(ADM_utilities)
 add_subdirectory(ADM_xvidratectl)
 

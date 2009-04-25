@@ -3,7 +3,7 @@
 
 // Spidermonkey
 
-#include "ADM_libraries/ADM_smjs/jsapi.h"
+#include "jsapi.h"
 #include <pthread.h>
 
 // javscript debugging helper

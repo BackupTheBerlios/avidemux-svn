@@ -1,7 +1,7 @@
 #ifndef _ADM_JSAUDIOTRACKINFO_H
 #define _ADM_JSAUDIOTRACKINFO_H
 
-#include "ADM_libraries/ADM_smjs/jsapi.h"
+#include "jsapi.h"
 #include "ADM_editor/ADM_Video.h"
 
 class ADM_JSAudioTrackInfo
