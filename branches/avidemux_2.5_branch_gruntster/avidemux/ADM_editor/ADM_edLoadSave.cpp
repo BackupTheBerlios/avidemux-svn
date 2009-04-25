@@ -268,7 +268,7 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 
   // container
         
-  qfprintf(fd,"app.container=\"%s\";\n",getCurrentContainerAsString());
+  qfprintf(fd,"app.setContainer(\"%s\");\n",getCurrentContainerAsString());
   if(outputname)
   {
         char *o=ADM_cleanupPath(outputname);
