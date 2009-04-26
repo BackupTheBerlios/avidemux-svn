@@ -37,6 +37,9 @@ if not exist "%sourceDir%" (
 	goto error
 )
 
+set SpiderMonkeySourceDir=%devDir%\js\src
+set SpiderMonkeyLibDir=%devDir%\js\src\WINNT6.0_OPT.OBJ
+
 goto end
 
 :error

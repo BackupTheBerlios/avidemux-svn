@@ -266,11 +266,12 @@ Section "Avidemux Core" SecCore
     ${File} freetype6.dll
     ${File} iconv.dll
     ${File} intl.dll
+    ${File} libjs.dll
+    ${File} nspr4.dll
     ${File} libADM_core.dll
     ${File} libADM_coreAudio.dll
     ${File} libADM_coreImage.dll
     ${File} libADM_coreUI.dll
-    ${File} libADM_smjs.dll
     ${File} libaften.dll
     ${File} libexpat-*.dll
     ${File} libfontconfig-1.dll
