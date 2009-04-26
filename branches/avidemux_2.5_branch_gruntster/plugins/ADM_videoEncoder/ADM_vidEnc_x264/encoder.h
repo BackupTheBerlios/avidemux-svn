@@ -62,7 +62,7 @@
 		void printCqm(const uint8_t cqm[], int size);
 		void updateEncodeParameters(vidEncVideoProperties *properties);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
-		int createHeader(void);
+		bool createHeader(void);
 
 	public:
 		x264Encoder(void);

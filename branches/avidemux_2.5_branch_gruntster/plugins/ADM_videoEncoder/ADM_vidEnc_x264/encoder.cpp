@@ -402,7 +402,7 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	return ADM_VIDENC_ERR_SUCCESS;
 }
 
-int x264Encoder::createHeader(void)
+bool x264Encoder::createHeader(void)
 {
 	x264_nal_t *nal;
 	int nalCount;
@@ -415,12 +415,12 @@ int x264Encoder::createHeader(void)
 	int sz;
 
 	if (!_handle)
-		return ADM_VIDENC_ERR_FAILED;
+		return false;
 
 	if (x264_encoder_headers(_handle, &nal, &nalCount))
 	{
 		printf("[x264] Cannot create header\n");
-		return ADM_VIDENC_ERR_FAILED;
+		return false;
 	}
 
 	if (_extraData)
@@ -454,7 +454,7 @@ int x264Encoder::createHeader(void)
 		{
 			printf("[x264] Cannot encode nal header %d\n", i);
 
-			return ADM_VIDENC_ERR_FAILED;
+			return false;
 		}
 	}
 
@@ -463,7 +463,7 @@ int x264Encoder::createHeader(void)
 	if (!picParamLen || !seqParamLen)
 	{
 		printf("[x264] Seqparam or PicParam not found\n");
-		return ADM_VIDENC_ERR_FAILED;
+		return false;
 	}
 
 	// Fill header
@@ -504,8 +504,7 @@ int x264Encoder::createHeader(void)
 	_extraDataSize = offset;
 
 	printf("[x264] generated %d extra bytes for header\n", _extraDataSize);
-
-	//assert(offset < X264_MAX_HEADER_SIZE);
+	return true;
 }
 
 int x264Encoder::finishPass(void)
