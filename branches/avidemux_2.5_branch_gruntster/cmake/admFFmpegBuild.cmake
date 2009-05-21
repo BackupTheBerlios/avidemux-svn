@@ -98,6 +98,9 @@ if (FFMPEG_PERFORM_BUILD)
 	execute_process(COMMAND sh ${FFMPEG_SOURCE_DIR}/configure ${FFMPEG_FLAGS}
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}"
 					${ffmpegBuildOutput})
+        execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i "${CMAKE_SOURCE_DIR}/cmake/patches/patch_config.mak"
+					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}")
+
 	message("")
 endif (FFMPEG_PERFORM_BUILD)
 
