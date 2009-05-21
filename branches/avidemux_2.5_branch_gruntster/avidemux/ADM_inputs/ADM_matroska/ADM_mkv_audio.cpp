@@ -29,6 +29,7 @@
 
 #include "ADM_mkv.h"
 #include "ADM_audio/ADM_a52info.h"
+#include "ADM_audio/ADM_dcainfo.h"
 #define vprintf(...) {}
 
 /**
@@ -316,6 +317,22 @@ uint8_t             mkvAudio::getPacket(uint8_t *dest, uint32_t *packlen, uint32
      {
        uint32_t fq,br,chan,syncoff;
         if( ADM_AC3GetInfo(ac3Buffer, len, &fq, &br, &chan,&syncoff) )
+        {
+            _wavheader->channels=chan;
+            _wavheader->frequency=fq;
+            _wavheader->byterate=br;
+        }
+     }
+     goToCluster(0);
+  }
+if(_wavheader->encoding==WAV_DTS)
+  {
+    uint8_t ac3Buffer[20000];
+    uint32_t len,sample,timecode;
+     if( getPacket(ac3Buffer, &len, &sample,&timecode))
+     {
+       uint32_t fq,br,chan,syncoff,flags,nbsample;
+        if( ADM_DCAGetInfo(ac3Buffer, len, &fq, &br, &chan,&syncoff,&flags,&nbsample) )
         {
             _wavheader->channels=chan;
             _wavheader->frequency=fq;
