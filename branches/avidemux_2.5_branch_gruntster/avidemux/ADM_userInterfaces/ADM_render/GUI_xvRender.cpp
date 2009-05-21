@@ -252,11 +252,8 @@ unsigned long num_adaptors;
 	  printf("\n no port found");
 	  goto failed;
       }
-#ifdef 	COLORSPACE_YV12
+
     printf("\n Xv YV12 found at port :%d, format : %ld", port, xv_format);
-#else
-    printf("\n Xv YUY2 found at port :%d, format : %ld", port, xv_format);
-#endif
 
     if (Success != XvGrabPort(WDN, port, 0))
 	goto failed;
@@ -351,11 +348,8 @@ uint8_t GUI_XvList(Display * dis, uint32_t port, uint32_t * fmt)
 	      printf("\n %lx %d --> %s", port, formatValues[k].id,
 		     formatValues[k].guid);
 #endif
-#ifdef 	COLORSPACE_YV12
+
 	      if (!strcmp(formatValues[k].guid, "YV12"))
-#else
-	      if (!strcmp(formatValues[k].guid, "YUY2"))
-#endif
 		{
 		    f = 1;
 		    *fmt = formatValues[k].id;
