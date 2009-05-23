@@ -18,6 +18,7 @@ set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-p
 				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-gpl 
 				  --prefix=${CMAKE_INSTALL_PREFIX})
 
+include(admFFmpegPatch)
 include(admFFmpegPrepareTar)
 
 if (NOT FFMPEG_PREPARED)
@@ -31,7 +32,17 @@ endif (NOT VERBOSE)
 message("")
 
 if (FFMPEG_PERFORM_PATCH)
-	include(admFFmpegPatch)
+	find_patch()
+	file(GLOB patchFiles "${CMAKE_SOURCE_DIR}/cmake/patches/*.patch")
+
+	foreach(patchFile ${patchFiles})
+		patch_file("${FFMPEG_SOURCE_DIR}" "${patchFile}")
+	endforeach(patchFile)
+
+	if (NOT WIN32)
+		patch_file("${FFMPEG_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/common.mak.diff")
+	endif (NOT WIN32)
+
 	message("")
 endif (FFMPEG_PERFORM_PATCH)
 
@@ -98,8 +109,11 @@ if (FFMPEG_PERFORM_BUILD)
 	execute_process(COMMAND sh ${FFMPEG_SOURCE_DIR}/configure ${FFMPEG_FLAGS}
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}"
 					${ffmpegBuildOutput})
-        execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i "${CMAKE_SOURCE_DIR}/cmake/patches/patch_config.mak"
-					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}")
+
+	if (NOT WIN32)
+		find_patch()
+		patch_file("${FFMPEG_BINARY_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/config.mak.diff")
+	endif (NOT WIN32)
 
 	message("")
 endif (FFMPEG_PERFORM_BUILD)
