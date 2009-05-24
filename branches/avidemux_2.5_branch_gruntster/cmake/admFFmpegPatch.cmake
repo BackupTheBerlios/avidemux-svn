@@ -21,9 +21,9 @@ macro(patch_file baseDir patchFile)
 
 		set(_patchFile "${tempPatchDir}/${fileName}")
 	else (WIN32)
-		set(_patchFile "${tempPatchDir}/${fileName}")
+		set(_patchFile "${patchFile}")
 	endif (WIN32)
-
+        MESSAGE(STATUS BaseDir: ${baseDir} patchFile: ${patchFile} => out : ${_patchFile} PWD: ${baseDir})
 	execute_process(COMMAND ${PATCH_EXECUTABLE} -p0 -i "${_patchFile}"
 					WORKING_DIRECTORY "${baseDir}")
 endmacro(patch_file)
