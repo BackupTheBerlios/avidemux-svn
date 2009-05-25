@@ -27,7 +27,7 @@
 extern "C"
 {
 #define INT_BIT (CHAR_BIT * sizeof(int))
-#include "libavcodec/bitstream.h"
+#include "libavcodec/get_bits.h"
 #include "libavcodec/golomb.h"
 }
 
