@@ -2,9 +2,11 @@
 cd .. 
 echo "Finding HEADERS..."
 find ./avidemux -iname '*.h' -not -iwholename '*ADM_QT4*' > po/POTFILES.in
+find ./plugins -iname '*.h' -not -iwholename '*ADM_QT4*' >> po/POTFILES.in
 
 echo "Finding SOURCES..."
 find ./avidemux -iname '*.cpp' -not -iwholename '*ADM_QT4*' >> po/POTFILES.in
+find ./plugins -iname '*.cpp' -not -iwholename '*ADM_QT4*' >> po/POTFILES.in
 
 cd po
 echo "Generating pot file..."
