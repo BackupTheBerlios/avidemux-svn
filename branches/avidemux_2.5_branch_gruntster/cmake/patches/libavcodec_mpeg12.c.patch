@@ -1,8 +1,8 @@
-*** libavcodec/mpeg12.c.old	Mon May 25 14:32:18 2009
---- libavcodec/mpeg12.c	Mon May 25 14:32:18 2009
+*** libavcodec/mpeg12.c.old	Sat Jun 27 18:45:12 2009
+--- libavcodec/mpeg12.c	Sat Jun 27 18:45:11 2009
 ***************
-*** 1963,1968 ****
---- 1963,1973 ----
+*** 1962,1967 ****
+--- 1962,1972 ----
           ff_er_frame_end(s);
   
           MPV_frame_end(s);

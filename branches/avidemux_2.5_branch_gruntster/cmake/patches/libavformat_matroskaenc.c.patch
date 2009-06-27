@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Wed Apr  1 18:35:42 2009
---- libavformat/matroskaenc.c	Wed Apr  1 18:35:42 2009
+*** libavformat/matroskaenc.c.old	Sat Jun 27 18:45:28 2009
+--- libavformat/matroskaenc.c	Sat Jun 27 18:45:28 2009
 ***************
 *** 395,400 ****
 --- 395,401 ----
@@ -71,7 +71,7 @@
 *** 907,909 ****
 --- 947,959 ----
       .flags = AVFMT_GLOBALHEADER,
-      .codec_tag = (const AVCodecTag* const []){codec_wav_tags, 0},
+      .codec_tag = (const AVCodecTag* const []){ff_codec_wav_tags, 0},
   };
 + // MEANX
 + //

@@ -1,7 +1,7 @@
-*** libavcodec/mpegvideo.c.old	Mon May 25 14:32:19 2009
---- libavcodec/mpegvideo.c	Mon May 25 14:32:19 2009
+*** libavcodec/mpegvideo.c.old	Sat Jun 27 18:45:15 2009
+--- libavcodec/mpegvideo.c	Sat Jun 27 18:45:14 2009
 ***************
-*** 610,616 ****
+*** 613,619 ****
       CHECKED_ALLOCZ(s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE);
   
       s->parse_context.state= -1;
@@ -9,7 +9,7 @@
          s->visualization_buffer[0] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
          s->visualization_buffer[1] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
          s->visualization_buffer[2] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
---- 610,620 ----
+--- 613,623 ----
       CHECKED_ALLOCZ(s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE);
   
       s->parse_context.state= -1;
