@@ -230,7 +230,7 @@ static two_arg_type two;
 static int index;
           argv=global_argv;
           argc=global_argc;
-          printf("\n *** Automated : %d entries*************\n",NB_AUTO);
+          printf("\n *** Automated : %d entries*************\n",(int)NB_AUTO);
           // we need to process
           argc-=1;
           cur=1;
@@ -323,9 +323,9 @@ extern void audioSetResample(uint32_t fq);
 
 void call_normalize   (char *p)
 {
-  int32_t i;
+  int i;
   sscanf(p,"%d",&i);
-        audioFilterNormalizeMode(i);	
+        audioFilterNormalizeMode((uint8_t)i);	
 }
 void call_resample    (char *p)
 {
@@ -379,9 +379,9 @@ void call_setPP(char *v,char *s)
 void call_setAudio (char *p) 	
 {
 	
-		int32_t i;
-		sscanf(p,"%ld",&i);
-		audioFilterDelay(i);	
+		int i;
+		sscanf(p,"%d",&i);
+		audioFilterDelay((int32_t)i);	
 }
 void call_audiocodec(char *p)
 {
@@ -425,9 +425,9 @@ static void call_videoconf(char *p)
 void call_audiobitrate(char *p)
 {
 
-		int32_t i;
-		sscanf(p,"%ld",&i);
-		printf("\n Audio bitrate %ld\n",i);
+		int i;
+		sscanf(p,"%d",&i);
+		printf("\n Audio bitrate %d\n",i);
 		audioFilter_SetBitrate(i);
 }
 void call_fps(char *p)
@@ -452,9 +452,9 @@ void call_fps(char *p)
 void call_autosplit(char *p)
 {
 
-		int32_t i;
-		sscanf(p,"%ld",&i);
-		ADM_aviSetSplitSize(i);
+		int i;
+		sscanf(p,"%d",&i);
+		ADM_aviSetSplitSize((uint32_t)i);
 }
 
 void setBegin(char *p) 
@@ -678,7 +678,7 @@ char *script_getVar(char *in, int *r)
 
                 }
         }
-        printf("Warning: var [%s] is unknown !\n");
+        printf("Warning: var [%s] is unknown !\n",in);
         return NULL;
 
 }
