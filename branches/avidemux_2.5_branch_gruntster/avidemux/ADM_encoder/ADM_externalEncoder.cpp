@@ -186,7 +186,7 @@ uint8_t externalEncoder::startPass(void)
 
 	_openPass = (ret == ADM_VIDENC_ERR_SUCCESS);
 
-	if (_openPass && _globalHeader)
+	if (_openPass)
 	{
 		_extraData = passParameters.extraData;
 		_extraDataSize = passParameters.extraDataSize;
@@ -217,7 +217,7 @@ uint8_t externalEncoder::hasExtraHeaderData(uint32_t *l, uint8_t **data)
 {
 	printf ("[externalEncoder] %d extra header bytes\n", _extraDataSize);
 
-	if (_globalHeader && _extraDataSize > 0)
+	if (_extraDataSize > 0)
 	{
 		*data = _extraData;
 		*l = _extraDataSize;

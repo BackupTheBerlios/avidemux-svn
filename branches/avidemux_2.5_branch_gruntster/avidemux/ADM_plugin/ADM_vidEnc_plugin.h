@@ -40,6 +40,7 @@
 #define ADM_VIDENC_FRAMETYPE_B 3
 #define ADM_VIDENC_FRAMETYPE_P 4
 
+#define ADM_VIDENC_REQ_NONE 0
 #define ADM_VIDENC_REQ_NULL_FLUSH 1
 
 #include "DIA_uiTypes.h"
