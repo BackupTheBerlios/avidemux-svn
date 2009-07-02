@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "encoder.h"
+#include "dvEncoder.h"
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
 #include "HuffyuvEncoder.h"
@@ -22,11 +23,12 @@
 
 int uiType;
 
+static DVEncoder dv;
 static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
 
-static AvcodecEncoder* encoders[] = { &ffv1, &ffvhuff, &huffyuv};
+static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv};
 
 extern "C"
 {
@@ -284,11 +286,11 @@ int AvcodecEncoder::beginPass(vidEncPassParameters *passParameters)
 	_openPass = true;
 	_currentPass++;
 
-	if (_targetPixelFormat != PIX_FMT_YUV420P)
+	if (_context->pix_fmt != PIX_FMT_YUV420P)
 	{
 		_swsContext = sws_getContext(
 			_context->width, _context->height, PIX_FMT_YUV420P,
-			_context->width, _context->height, _targetPixelFormat,
+			_context->width, _context->height, _context->pix_fmt,
 			SWS_BICUBLIN, NULL, NULL, NULL);
 
 		_resampleSize = _bufferSize;
@@ -328,7 +330,7 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 			AVPicture resamplePicture;
 
 			avpicture_fill(
-				&resamplePicture, _resampleBuffer, _targetPixelFormat, _context->width, _context->height);
+				&resamplePicture, _resampleBuffer, _context->pix_fmt, _context->width, _context->height);
 
 			inputPicture = &resamplePicture;
 
