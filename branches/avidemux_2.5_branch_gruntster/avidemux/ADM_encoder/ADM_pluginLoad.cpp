@@ -107,6 +107,9 @@ static int loadVideoEncoderPlugin(int uiType, const char *file)
 
 		for (int encoderIndex = 0; encoderIndex < encoderCount; encoderIndex++)
 		{
+			if (!plugin)
+				plugin = new ADM_vidEnc_plugin(file);
+
 			int encoderId = encoderIds[encoderIndex];
 			int apiVersion = plugin->getEncoderApiVersion(encoderId);
 
@@ -123,14 +126,21 @@ static int loadVideoEncoderPlugin(int uiType, const char *file)
 
 				ADM_videoEncoderPlugins.push_back(plugin);
 
+				plugin = NULL;
 				success = true;
 			}
 			else
+			{
 				printf("[ADM_vidEnc_plugin] File %s has an outdated API version (%d vs %d)\n", ADM_GetFileName(file), apiVersion, ADM_VIDENC_API_VERSION);
+				delete plugin;
+			}
 		}		
 	}
 	else
+	{
 		printf("[ADM_vidEnc_plugin] Unable to load %s\n", ADM_GetFileName(file));
+		delete plugin;
+	}
 
 	return success;
 }
