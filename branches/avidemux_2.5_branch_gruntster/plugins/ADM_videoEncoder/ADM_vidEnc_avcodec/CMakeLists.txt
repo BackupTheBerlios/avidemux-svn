@@ -16,7 +16,7 @@ add_library(ADM_libswscale UNKNOWN IMPORTED)
 set_property(TARGET ADM_libswscale PROPERTY IMPORTED_LOCATION "${FFMPEG_INSTALL_DIR}/${LIBSWSCALE_LIB}")
 
 SET(PLUGIN_SUBDIR "avcodec")
-SET(ADM_vidEnc_avcodec_SRCS interface.c encoder.cpp huffyuvEncoder.cpp)
+SET(ADM_vidEnc_avcodec_SRCS interface.c encoder.cpp huffyuvEncoder.cpp ffvhuffEncoder.cpp ffv1Encoder.cpp)
 
 ADD_LIBRARY(ADM_vidEnc_avcodec SHARED ${ADM_vidEnc_avcodec_SRCS})
 TARGET_LINK_LIBRARIES(ADM_vidEnc_avcodec ADM_core ADM_libavcodec ADM_libswscale)

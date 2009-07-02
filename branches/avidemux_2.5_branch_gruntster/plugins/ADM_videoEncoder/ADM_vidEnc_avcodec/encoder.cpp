@@ -15,19 +15,25 @@
  ***************************************************************************/
 
 #include "encoder.h"
+#include "ffv1Encoder.h"
+#include "ffvhuffEncoder.h"
 #include "HuffyuvEncoder.h"
 #include "ADM_inttype.h"
 
 int uiType;
+
+static FFV1Encoder ffv1;
+static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
-static void* encoders = { &huffyuv };
+
+static AvcodecEncoder* encoders[] = { &ffv1, &ffvhuff, &huffyuv};
 
 extern "C"
 {
 	void *avcodecEncoder_getPointers(int _uiType, int *count)
 	{
 		uiType = _uiType;
-		*count = sizeof(encoders) / sizeof(void*);
+		*count = sizeof(encoders) / sizeof(AvcodecEncoder*);
 
 		return &encoders;
 	}
