@@ -155,22 +155,7 @@ COMPRES_PARAMS ffmpegMpeg4 = {
   sizeof (ffmpeg4Extra),
   getFFCompressParams
 };
-COMPRES_PARAMS ffmpegDV = {
-  CodecDV,
-  QT_TR_NOOP("DV (lavc)"),
-  "DV",
-  "DV",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  NULL
-};
+
 COMPRES_PARAMS ffmpegFLV1 = {
   CodecFLV1,
   QT_TR_NOOP("FLV1 (lavc)"),
@@ -489,139 +474,6 @@ COMPRES_PARAMS DVDCodec = {
   DIA_SVCDParam
 };
 
-/*
-//*************************** Xvid 0.9*****************
-*/
-#ifdef USE_XX_XVID
-#error !!! XVID 0.9 support not codec
-#error !!! XVID 0.9 support not codec
-#error !!! XVID 0.9 support not codec
-#error !!! XVID 0.9 support not codec
-
-
-#endif
-
-//*************************** Xvid 4*****************
-
-#ifdef USE_XVID_4
-xvid4EncParam xvid4Extra = {
-  6,				//int guiLevel;              
-
-  1,				//int min_key_interval;
-  250,				// Max key interval
-  2,				//int bframes;
-
-  0,				//int mpegQuantizer; 
-  0,				//int interlaced;
-  1,				//int inter4mv;
-  0,				//int trellis;       
-  0,				//int cartoon;
-  0,				//int greyscale;             
-  0,				// qpel
-  0,				// GMC
-  1,				// BVHQ
-  1,				// hqac
-  0,				// Chroma optim
-  {2, 2, 2}
-  ,				//qmin
-  {31, 31, 31}
-  ,				//qmax
-
-  0,				//par as input
-  1,				//par width
-  1,				//par height
-
-  // This if for 2 pass   
-  0,				//int keyframe_boost;
-  0,				//int curve_compression_high;
-  0,				//int curve_compression_low;
-  5,				//int overflow_control_strength;
-  5,				//int max_overflow_improvement;
-  5,				//int max_overflow_degradation;
-  0,				//int kfreduction;
-  0,				//int kfthreshold;
-
-  0,				//24,//int container_frame_overhead;
-  150,				//int bquant_ratio;
-  100,				//int bquant_offset;    
-  1,				//vhqmode                
-  1,				// chroma me
-  0,				// turbo
-  0,				// Packed bitstream - Not Xvid Default
-  1,				// closed_gop
-  0,				// bframe_threshold
-  0,                            // Use inter
-  0                             // Use intra
-};
-xvid4EncParam xvid4ExtraIPOD = {
-  6,				//int guiLevel;              
-
-  1,				//int min_key_interval;
-  250,				// Max key interval
-  0,				//int bframes;
-
-  0,				//int mpegQuantizer; 
-  0,				//int interlaced;
-  1,				//int inter4mv;
-  0,				//int trellis;       
-  0,				//int cartoon;
-  0,				//int greyscale;             
-  0,				// qpel
-  0,				// GMC
-  1,				// BVHQ
-  1,				// hqac
-  0,				// Chroma optim
-  {2, 2, 2}
-  ,				//qmin
-  {31, 31, 31}
-  ,				//qmax
-
-  0,				//par as input
-  1,				//par width
-  1,				//par height
-
-  // This if for 2 pass   
-  0,				//int keyframe_boost;
-  0,				//int curve_compression_high;
-  0,				//int curve_compression_low;
-  5,				//int overflow_control_strength;
-  5,				//int max_overflow_improvement;
-  5,				//int max_overflow_degradation;
-  0,				//int kfreduction;
-  0,				//int kfthreshold;
-
-  0,				//24,//int container_frame_overhead;
-  150,				//int bquant_ratio;
-  100,				//int bquant_offset;    
-  1,				//vhqmode                
-  1,				// chroma me
-  0,				// turbo
-  0,				// Packed bitstream - Not Xvid Default
-  1,				// closed_gop
-  0,				// bframe_threshold
-  0,                            // Use inter
-  0                             // Use intra
-};
-
-extern uint8_t DIA_xvid4 (COMPRES_PARAMS * incoming);
-COMPRES_PARAMS Xvid4Codec = {
-  CodecXvid4,
-  QT_TR_NOOP("MPEG-4 ASP (Xvid4)"),
-  "XVID4",
-  "XVID 4 mpeg4",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS +ADM_ENC_CAP_2PASS_BR+ADM_ENC_CAP_SAME,
-  ADM_EXTRA_PARAM,
-  &xvid4Extra,
-  sizeof (xvid4Extra),
-  DIA_xvid4
-};
-#endif
-
 COMPRES_PARAMS DUMMYONE =
   { CodecDummy, QT_TR_NOOP("dummy"), "dummy", "dummy", COMPRESS_CQ, 4, 1500, 700,1000, 0, 0,
 NULL, 0 };
@@ -631,9 +483,6 @@ COMPRES_PARAMS CopyCodec =
 
 COMPRES_PARAMS *internalVideoCodec[] = {
   &CopyCodec,
-#ifdef USE_XVID_4
-  &Xvid4Codec,
-#endif
   &ffmpegMpeg4,
   &ffmpeg1Codec,
   &ffmpeg2DVDCodec,

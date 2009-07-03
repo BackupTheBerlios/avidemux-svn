@@ -23,8 +23,6 @@ DIA_about.cpp
  TLK_filesel.cpp
 )
 SET(OBSOLETE_SRCS
- DIA_exLame.cpp
- DIA_pipe.cpp
  DIA_threshold.cpp
  DIA_SwissArmyKnife.cpp
  DIA_particle.cpp

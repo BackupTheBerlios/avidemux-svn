@@ -41,19 +41,6 @@
 
 #endif
 
-#ifdef USE_XX_XVID
-#include "ADM_codecs/ADM_xvid.h"
-#include "ADM_encoder/adm_encxvid.h"
-
-#endif
-#ifdef USE_XVID_4
-#include "ADM_codecs/ADM_xvid4.h"
-#include "ADM_codecs/ADM_xvid4param.h"
-#include "ADM_encoder/adm_encXvid4.h"
-
-#endif
-
-
 #ifdef USE_FFMPEG
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "ADM_encoder/adm_encffmpeg.h"
@@ -98,16 +85,6 @@ register_Encoders (void)
 #ifdef USE_FFMPEG
   nb_encoder++;
   printf ("MJPEG encoder registered\n");
-#endif
-
-#ifdef USE_XX_XVID
-    nb_encoder++;
-    printf ("Xvid encoder registered\n");
-#endif
-
-#ifdef USE_XVID_4
-    nb_encoder++;
-    printf ("Xvid-4 encoder registered\n");
 #endif
 
 #ifdef USE_FFMPEG

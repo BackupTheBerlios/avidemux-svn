@@ -33,10 +33,6 @@ extern "C"
 
 //#include "ADM_colorspace/colorspace.h"
 
-#ifdef USE_XX_XVID
-#include "xvid.h"
-#endif
-
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_codecs/ADM_mjpeg.h"
 #include "ADM_codecs/ADM_codecNull.h"

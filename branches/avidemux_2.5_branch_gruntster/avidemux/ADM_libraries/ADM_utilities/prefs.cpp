@@ -76,10 +76,6 @@ static opt_def opt_defs [] = {
 	{"codecs.dvd.matrix",		UINT,	"0",	NULL,	"0",	"99999"},
 	{"codecs.dvd.gopsize",		UINT,	"12",	NULL,	"0",	"99999"},
 	{"codecs.dvd.maxbitrate",		UINT,	"9000",	NULL,	"0",	"9900"	},
-	{"codecs.xvid.enctype",		UINT,	"0",	NULL,	"0",	"99999"},
-	{"codecs.xvid.quantizer",		UINT,	"4",	NULL,	"2",	"32"	},
-	{"codecs.xvid.bitrate",		UINT,	"1500000",NULL,	"17",	"5900000"},
-	{"codecs.xvid.finalsize",	UINT,	"700",	NULL,	"0",	"3999"	},
 	{"codecs.preferredcodec",		STRING,"FFmpeg4",NULL, NULL, NULL },
 #ifdef __WIN32
 	{"filters.subtitle.fontname",		FILENAME,"C:\\Windows\\Fonts\\arial.ttf",NULL, NULL, NULL },
@@ -109,13 +105,6 @@ static opt_def opt_defs [] = {
 	{"lastfiles.file4",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastdir_read",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastdir_write",		FILENAME,"",	NULL, NULL, NULL },
-	{"lame_cli",		STRING,"",	NULL, NULL, NULL },
-	{"pipe_cmd",		STRING,"",	NULL, NULL, NULL },
-	{"pipe_param",		STRING,"",	NULL, NULL, NULL },
-	{"lame_path",		STRING,"",	NULL, NULL, NULL },
-	{"toolame_path",		STRING,"",	NULL, NULL, NULL },
-	{"lvemux_path",		STRING,"",	NULL, NULL, NULL },
-	{"requant_path",		STRING,"",	NULL, NULL, NULL },
 	{"message_level",		UINT,	"2",	NULL,	"0",	"2"	},
 	{"feature.swap_if_A_greater_than_B",		UINT,	"1",	NULL,	"0",	"1"	},
 	{"feature.svcdres.preferedsourceratio",		STRING,"1:1",	NULL, NULL, NULL },
@@ -144,7 +133,7 @@ static opt_def opt_defs [] = {
 	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	}
 };
 
-int num_opts = 78;
+int num_opts = 67;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2

@@ -47,18 +47,6 @@ static void encoderPrint(void);
 #include "adm_encConfig.h"
 #include "adm_encoder.h"
 
-#ifdef USE_XVID_4
-#include "ADM_codecs/ADM_xvid4.h"
-#include "ADM_codecs/ADM_xvid4param.h"
-#include "adm_encXvid4.h"
-#endif
-
-#ifdef USE_XX_XVID
-#include "ADM_codecs/ADM_xvid.h"
-#include "adm_encxvid.h"
-#include "xvid.h"
-#endif
-
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "adm_encffmpeg.h"
 
@@ -607,11 +595,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 
 		e = new EncoderFFMPEG (FF_H263, desc);
 		break;
-#ifdef USE_XVID_4
-	case CodecXvid4:
-		e = new EncoderXvid4 (desc);
-		break;
-#endif
 	case CodecExternal:
 		e = new externalEncoder(&AllVideoCodec[currentCodecIndex], globalHeaderFlag);
 		break;
@@ -784,16 +767,5 @@ void videoCodecSetConf(uint32_t extraLen, uint8_t *extraData)
 		memcpy(param->extraSettings, extraData, param->extraSettingsLen);
 	}
 }
-
-#ifdef USE_XVID_4
-/**
-    \fn     setIpod_Xvid4Preset(void)
-    \brief  set XVID4 codec conf to the Ipod preset
-*/
-void setIpod_Xvid4Preset(void)
-{
-	memcpy(&xvid4Extra,&xvid4ExtraIPOD,sizeof(xvid4ExtraIPOD)); 
-}
-#endif
 
 // EOF
