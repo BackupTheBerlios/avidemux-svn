@@ -29,13 +29,8 @@ typedef enum
   FF_MPEG1 = 3,
   FF_H263 = 4,
   FF_H263P = 5,
-  FF_HUFF = 6,
-  FF_FFV1 = 7,
   FF_MJPEG = 8,
   FF_MPEG2 = 9,
-  FF_SNOW = 10,
-  FF_FFHUFF = 11,
-  FF_DV=12,
   FF_FLV1=13,
 } FF_CODEC_ID;
 
@@ -158,51 +153,7 @@ public:
   virtual uint8_t encode (ADMImage * in, ADMBitstream * out);
   virtual ~ ffmpegEncoderVBRExternal ();
 };
-//*********************************************************
-class ffmpegEncoderHuff:public ffmpegEncoder
-{
-protected: 
-            uint8_t *yuy2;
-            ADMColorspace *convert;
 
-public:
-                ffmpegEncoderHuff (uint32_t width, uint32_t height,FF_CODEC_ID id);
-                        
-
-  virtual uint8_t init (uint32_t val, uint32_t fps1000, uint8_t vbr = 0);
-          uint8_t encode(ADMImage *in,ADMBitstream *out);
-  virtual ~ ffmpegEncoderHuff ();
-};
-//*********************************************************
-class ffmpegEncoderFFHuff:public ffmpegEncoder
-{
-protected: 
-public:
-        ffmpegEncoderFFHuff (uint32_t width, uint32_t height,FF_CODEC_ID id):
-                                ffmpegEncoder (width,height, id)
-  {
-
-  };
-
-  virtual uint8_t init (uint32_t val, uint32_t fps1000, uint8_t vbr = 0);
-  virtual ~ ffmpegEncoderFFHuff ()
-  {
-    stopEncoder ();
-  }
-};
-
-
-class ffmpegEncoderFFV1:public ffmpegEncoder
-{
-protected: public:ffmpegEncoderFFV1 (uint32_t width, uint32_t height,FF_CODEC_ID id)
-    :ffmpegEncoder (width,height, id) {}
-  virtual uint8_t init (uint32_t val, uint32_t fps1000, uint8_t vbr = 0);
-  virtual ~ ffmpegEncoderFFV1 ()
-  {
-    stopEncoder ();
-
-  }
-};
 class ffmpegEncoderFFMjpeg:public ffmpegEncoder
 {
 protected:uint32_t _qual;

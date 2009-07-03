@@ -595,23 +595,8 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 	case CodecMjpeg:
 		e = new EncoderMjpeg (&MjpegCodec);
 		break;
-	case CodecFFhuff:
-		e = new EncoderFFMPEGFFHuff (desc);
-		break;
-	case CodecHuff:
-		e = new EncoderFFMPEGHuff (desc);
-		break;
 	case CodecFLV1:
 		e = new EncoderFFMPEGFLV1 (desc);
-		break;
-	case CodecFFV1:
-		e = new EncoderFFMPEGFFV1 (desc);
-		break;
-	case CodecDV:
-		e = new EncoderFFMPEGDV (desc);
-		break;
-	case CodecSnow:
-		e = new EncodeFFMPEGSNow (desc);
 		break;
 	case CodecH263:
 		if (!((w == 128) && (h == 96)) && !((w == 176) && (h == 144)))

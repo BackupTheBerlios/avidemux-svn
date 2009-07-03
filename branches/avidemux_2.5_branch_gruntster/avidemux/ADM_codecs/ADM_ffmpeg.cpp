@@ -318,8 +318,6 @@ ffmpegEncoder::initContext (void)
     gopMpeg1 ();
   // if (_id == FF_HUFF || _id == FF_FFV1)
   _context->strict_std_compliance = -1;
-  if (_id == FF_HUFF || _id == FF_FFV1 ||_id == FF_FFHUFF )
-    _context->strict_std_compliance = -2;
   
   switch (_id)
     {
@@ -347,26 +345,8 @@ ffmpegEncoder::initContext (void)
     case FF_FLV1:
       WRAP_Open (CODEC_ID_FLV1);
       break;
-    case FF_HUFF:
-      WRAP_Open (CODEC_ID_HUFFYUV);
-      break;
-    case FF_FFV1:
-      WRAP_Open (CODEC_ID_FFV1);
-      break;
     case FF_MJPEG:
       WRAP_Open (CODEC_ID_MJPEG);
-      break;
-    case FF_FFHUFF:
-      WRAP_Open (CODEC_ID_FFVHUFF);
-      break;
-    case FF_SNOW:
-      WRAP_Open (CODEC_ID_SNOW);
-      break;
-      
-    case FF_DV:
-      if(_context->width!=720 || _context->height!=576) 
-            return 0; // should be caught by upper layers before going here...
-      WRAP_Open (CODEC_ID_DVVIDEO);
       break;
 
     default:
@@ -799,97 +779,6 @@ ffmpegEncoder::init (uint32_t val, uint32_t fps1000, uint8_t sw)
   return init (val, fps1000);
 }
 
-//------------------------------
-uint8_t
-ffmpegEncoderHuff::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
-{
-  UNUSED_ARG (val);
-  UNUSED_ARG (vbr);
-  mplayer_init ();
-
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
-//   _context->frame_rate_base = 1000;
-//   _context->frame_rate = fps1000;
-
-
-  _context->bit_rate = 0;
-  _context->bit_rate_tolerance = 1024 * 8 * 1000;
-  _context->gop_size = 250;
-
-  return initContext ();
-}
-//__________________________________
-/**
-
-*/
-
-ffmpegEncoderHuff::ffmpegEncoderHuff (uint32_t width, uint32_t height,FF_CODEC_ID id) 
-  :   ffmpegEncoder (width,height, id,PIX_FMT_YUV422P) 
-{
-  // Allocate our resampler & intermediate
-  yuy2=new uint8_t[width*height*2];
-  // And Color converted
-    convert=new ADMColorspace(width,height, ADM_COLOR_YV12,ADM_COLOR_YUV422P);
-}
-/**
-
-*/
-
-ffmpegEncoderHuff::~ffmpegEncoderHuff()
-{
-  if(yuy2)
-  {
-    delete [] yuy2;
-    yuy2=NULL;  
-  }
-  if(convert)
-  {
-   delete convert;
-    convert=NULL; 
-  }
-  stopEncoder ();
-}
-/**
-
-*/
-  uint8_t   ffmpegEncoderHuff::encode(ADMImage *in,ADMBitstream *out)
-{
-    int32_t sz = 0;
-    ADM_assert(out->bufferSize);
-    encodePreamble(yuy2);
-    /* Convert */
-   convert->convert(in->data,yuy2);
-    
-    /***/
-    if ((sz = avcodec_encode_video (_context, out->data, out->bufferSize, &_frame)) < 0)
-        return 0;
-    postAmble(out,sz);
-    return 1;
-}
-//------------------------------
-uint8_t
-  ffmpegEncoderFFHuff::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
-{
-  UNUSED_ARG (val);
-  UNUSED_ARG (vbr);
-  mplayer_init ();
-
-/*  _context->frame_rate_base = 1000;
-  _context->frame_rate = fps1000;*/
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
-
-  _context->bit_rate = 0;
-  _context->bit_rate_tolerance = 1024 * 8 * 1000;
-  _context->gop_size = 250;
-
-  return initContext ();
-}
-
-//_______________________________________
 uint8_t
 ffmpegEncoder::getExtraData (uint32_t * l, uint8_t ** d)
 {
@@ -903,30 +792,6 @@ ffmpegEncoder::getExtraData (uint32_t * l, uint8_t ** d)
     return 0;
 }
 
-//----
-//------------------------------
-uint8_t
-ffmpegEncoderFFV1::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
-{
-  UNUSED_ARG (val);
-  UNUSED_ARG (vbr);
-  mplayer_init ();
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
-//   _context->frame_rate_base = 1000;
-//   _context->frame_rate = fps1000;
-
-
-  _context->bit_rate = 0;
-  _context->bit_rate_tolerance = 1024 * 8 * 1000;
-  _context->gop_size = 250;
-  printf ("[LAVCODEC]FFV1 codec initializing...\n");
-  return initContext ();
-}
-
-/*---
-*/
 uint8_t
   ffmpegEncoderFFMjpeg::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
 {

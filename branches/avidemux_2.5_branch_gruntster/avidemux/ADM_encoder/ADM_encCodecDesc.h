@@ -187,70 +187,7 @@ COMPRES_PARAMS ffmpegFLV1 = {
   sizeof (ffmpeg4Extra),
   &DIA_flv1Param
 };
-COMPRES_PARAMS ffmpegSnow = {
-  CodecSnow,
-  QT_TR_NOOP("Snow (lavc)"),
-  "FFMpeg4",
-  "Lavcodec Snow",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  NULL
-};
-COMPRES_PARAMS ffmpegFFHUFF = {
-  CodecFFhuff,
-  QT_TR_NOOP("FF Huffyuv (lavc)"),
-  "FFHUFF",
-  "Lavcodec FF HUFFYUV",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  NULL
-};
-COMPRES_PARAMS ffmpegHUFF = {
-  CodecHuff,
-  QT_TR_NOOP("Huffyuv (lavc)"),
-  "HUFF",
-  "Lavcodec HUFFYUV",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CQ,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  NULL
-};
-COMPRES_PARAMS ffmpegFFV1 = {
-  CodecFFV1,
-  QT_TR_NOOP("FFV1 (lavc)"),
-  "FFV1",
-  "Lavcodec FFV1",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CQ,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  NULL
-};
+
 static MJPEGConfig MjpegExtra = { 90, 0 };
 extern uint8_t DIA_mjpegCodecSetting (COMPRES_PARAMS * param);
 COMPRES_PARAMS MjpegCodec = {
@@ -705,10 +642,6 @@ COMPRES_PARAMS *internalVideoCodec[] = {
   &SVCDCodec,
   &DVDCodec,
   &RequantCodec,
-  &ffmpegDV,
-  &ffmpegHUFF,
-  &ffmpegFFHUFF,
-  &ffmpegFFV1,
   &yv12codec,
   &ffmpegH263Codec,
   &MjpegCodec,
