@@ -1,5 +1,28 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="4968" date="2009-06-27">
+    <comment>Updated ATK to version 1.26.0-1.</comment>
+    <comment>Updated GLib to version 2.20.3-1.</comment>
+    <comment>Updated GTK+ to version 2.16.2-1.</comment>
+    <comment>Updated libpng to version 1.2.37-1.</comment>
+    <comment>Updated Ogg to version 1.1.4.</comment>
+    <comment>Updated Pango to version 1.24.2-1.</comment>
+    <comment>Updated Qt to version 4.5.2.</comment>
+    <comment>Updated Vorbis to version 1.2.2.</comment>
+    <comment>Updated x264 to r1173.</comment>
+  </buildentry>
+  <buildentry revision="4944 [2.5.0 Final]" date="2009-06-23">
+    <comment>Updated x264 to r1170.</comment>
+  </buildentry>
+  <buildentry revision="4871" date="2009-05-25">
+    <comment>Updated x264 to r1159.</comment>
+  </buildentry>
+  <buildentry revision="4763" date="2009-04-26">
+    <comment>Added Netscape Portable Runtime version 4.7.4.</comment>
+    <comment>Updated Pango to version 1.24.1-1.</comment>
+    <comment>Updated Qt to version 4.5.1.</comment>
+    <comment>Updated SpiderMonkey to version 1.7.0.</comment>
+  </buildentry>
   <buildentry revision="4758" date="2009-04-22">
     <comment>Updated Avisynth Proxy GUI to version 2.08.</comment>
     <comment>Updated x264 to r1145.</comment>

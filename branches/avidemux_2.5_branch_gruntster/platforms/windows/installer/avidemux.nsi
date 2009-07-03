@@ -463,6 +463,12 @@ SectionGroup Plugins SecGrpPlugin
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Video Encoders" SecGrpVideoEncoder
+		${MementoSection} "avcodec (multiple encoders)" SecVidEncAvcodec
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\videoEncoder
+			${File} plugins\videoEncoder\libADM_vidEnc_avcodec.dll
+		${MementoSectionEnd}
 		${MementoSection} "x264 (MPEG-4 AVC)" SecVidEncX264
 			SectionIn 1 2
 			SetOverwrite on
