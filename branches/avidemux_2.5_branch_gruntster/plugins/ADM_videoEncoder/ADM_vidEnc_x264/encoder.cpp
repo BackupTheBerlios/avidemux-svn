@@ -534,6 +534,8 @@ int x264Encoder::finishPass(void)
 		_seiUserData = NULL;
 		_seiUserDataLen = 0;
 	}
+
+	return ADM_VIDENC_ERR_SUCCESS;
 }
 
 void x264Encoder::close(void)

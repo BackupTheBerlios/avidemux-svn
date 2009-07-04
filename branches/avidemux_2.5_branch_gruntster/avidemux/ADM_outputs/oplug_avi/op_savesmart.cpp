@@ -399,12 +399,6 @@ GenericAviSaveSmart::initEncoder (uint32_t qz)
 
   if(  isMpeg4Compatible(info.fcc) )
   	{
-/*	
-#ifdef USE_DIVX		 
-		 	 _encoder = new divxEncoderCQ (info.width, info.height);
-	   
-#else			
-*/
 // 	uint8_t				setConfig(FFcodecSetting *set);	
 			ffmpegEncoderCQ *tmp;		
 			tmp = new ffmpegEncoderCQ (info.width, info.height,FF_MPEG4);					
@@ -413,9 +407,6 @@ GenericAviSaveSmart::initEncoder (uint32_t qz)
 			printf("\n init qz %ld\n",qz);
 	    		ret= tmp->init (qz,25000);
 			_encoder=tmp;
-/*			
-#endif		  		  
-*/
 		
 #warning 25 fps hardcoded
 

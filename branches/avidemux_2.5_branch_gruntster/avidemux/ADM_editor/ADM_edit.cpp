@@ -55,9 +55,6 @@
 #define MODULE_NAME MODULE_EDITOR
 #include "ADM_osSupport/ADM_debug.h"
 
-#ifdef USE_DIVX
-	#include "ADM_codecs/ADM_divx4.h"
-#endif
 #include "ADM_inputs/ADM_mpegdemuxer/dmx_indexer.h"
 #include "ADM_outputfmt.h"
 //#include "ADM_gui2/GUI_ui.h"
@@ -718,17 +715,12 @@ TryAgain:
                                                                         GUI_Error_HIG(QT_TR_NOOP("Could not unpack the video"),QT_TR_NOOP( "Using backup decoder - not frame accurate."));
 									}
 								}
-#if  1 //def USE_DIVX
                                                                 if(count)
                                                                         GUI_Info_HIG(ADM_LOG_IMPORTANT,QT_TR_NOOP("Weird"),QT_TR_NOOP( "The unpacking succeedeed but the index is still not up to date."));
 								printf("\n Switching codec...\n");
 								delete vid->decoder;
 								vid->decoder=getDecoderVopPacked(info.fcc, info.width,info.height,0,NULL);
 								ispacked=1;
-#else
-								GUI_Info_HIG(ADM_LOG_IMPORTANT,QT_TR_NOOP("Troubles ahead"), QT_TR_NOOP("This a VOP packed AVI."));
-#endif
-
 							}
 
 						}

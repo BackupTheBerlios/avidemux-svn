@@ -39,8 +39,6 @@ extern "C" {
 
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_encoder/adm_encoder.h"
-//#include "ADM_codecs/ADM_divxEncode.h"
-//#include "ADM_encoder/adm_encdivx.h"
 
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "ADM_encoder/adm_encffmpeg.h"

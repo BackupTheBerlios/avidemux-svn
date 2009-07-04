@@ -35,12 +35,6 @@
 #include "ADM_videoFilter.h"
 #include "ADM_encoder/adm_encoder.h"
 
-#ifdef USE_DIVX
-#include "ADM_codecs/ADM_divxEncode.h"
-#include "ADM_encoder/adm_encdivx.h"
-
-#endif
-
 #ifdef USE_FFMPEG
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "ADM_encoder/adm_encffmpeg.h"
@@ -76,11 +70,6 @@ register_Encoders (void)
 {
   printf ("\n Registering Encoders\n");
   printf ("*********************\n");
-
-#ifdef USE_DIVX
-  nb_encoder++;
-  printf ("DivX encoder registered\n");
-#endif
 
 #ifdef USE_FFMPEG
   nb_encoder++;

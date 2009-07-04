@@ -20,7 +20,6 @@
 typedef enum 
 {
   CodecCopy,
-  CodecDivx,
   CodecFF,
   CodecMjpeg,
   CodecH263,

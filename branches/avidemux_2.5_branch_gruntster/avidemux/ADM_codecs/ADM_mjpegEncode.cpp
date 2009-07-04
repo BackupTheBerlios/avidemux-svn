@@ -36,7 +36,6 @@ extern "C"
 #include "mjpegtools/jpegutils.h"
 }
 
-//#include "ADM_codecs/ADM_divxEncode.h"
 #include "ADM_codecs/ADM_mjpegEncode.h"
 
 //

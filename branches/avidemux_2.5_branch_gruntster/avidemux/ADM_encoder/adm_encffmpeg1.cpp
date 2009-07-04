@@ -34,8 +34,6 @@
 
 #include "ADM_videoFilter.h"
 
-
-//#include "ADM_codecs/ADM_divxEncode.h"
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "ADM_encoder/adm_encoder.h"
 #include "ADM_encoder/adm_encffmpeg.h"

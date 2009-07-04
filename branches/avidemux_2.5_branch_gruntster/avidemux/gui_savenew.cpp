@@ -27,7 +27,6 @@
 
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
-//#include "ADM_codecs/ADM_divxEncode.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
 
 #include "ADM_outputs/oplug_avi/op_aviwrite.hxx"

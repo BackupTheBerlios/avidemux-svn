@@ -18,7 +18,7 @@
 #include "dvEncoder.h"
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
-#include "HuffyuvEncoder.h"
+#include "huffyuvEncoder.h"
 #include "ADM_inttype.h"
 
 int uiType;
