@@ -333,6 +333,16 @@ diaElemBitrate ::~diaElemBitrate()
 	Factory->DestroyBitrate(internalPointer);
 	internalPointer=NULL;
 }
+int diaElemBitrate::getSize(void)
+{ 
+	ADM_assert(internalPointer); 
+	return internalPointer->getSize(); 
+}
+void diaElemBitrate::setSize(int size)
+{ 
+	ADM_assert(internalPointer); 
+	internalPointer->setSize(size); 
+}
 void diaElemBitrate::updateMe()
 {
 	

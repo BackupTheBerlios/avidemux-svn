@@ -59,7 +59,6 @@ typedef void ADM_FAC_CALLBACK(void *cookie);
 class diaElem
 {
   protected:
-    void    setSize(int z) {size=z;};
     int     readOnly;
     diaElem    *internalPointer;
 public:
@@ -71,7 +70,8 @@ public:
   int       size; // Size of the widget in line
 
   diaElem(elemEnum num) {paramTitle=NULL;param=NULL;mySelf=num;myWidget=NULL;size=1;readOnly=0;internalPointer=NULL;};
-          int getSize(void) {return size;};
+  virtual int getSize(void) {return size;};
+  virtual void setSize(int z) {size=z;};
   virtual ~diaElem() {};
   virtual void setMe(void *dialog, void *opaque,uint32_t line)=0;
   virtual void getMe(void)=0;
@@ -406,7 +406,7 @@ public:
 
 /*************************************************/
 #ifndef ADM_MINIMAL_UI_INTERFACE
-#include "ADM_encoder/ADM_vidEncode.hxx"
+#include "../../ADM_encoder/ADM_vidEncode.hxx"
 typedef diaElem  *(CREATE_BITRATE_T)(COMPRES_PARAMS *p,const char *toggleTitle,const char *tip);
 class diaElemBitrateBase : public diaElem
 {
@@ -430,6 +430,8 @@ public:
   void getMe(void);
   void setMaxQz(uint32_t qz);
   void setMinQz(uint32_t qz);
+  int getSize(void);
+  void setSize(int size);
   
   void updateMe(void);
   int getRequiredLayout(void);

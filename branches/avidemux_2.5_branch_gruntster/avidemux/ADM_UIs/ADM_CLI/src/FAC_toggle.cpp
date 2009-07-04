@@ -225,6 +225,14 @@ void diaElemBitrate::getMe(void)
  
 }
 
+int diaElemBitrate::getSize(void)
+{ 
+}
+
+void diaElemBitrate::setSize(int size)
+{ 
+}
+
 int diaElemBitrate::getRequiredLayout(void) { return 0; }
 
 void diaElemFile::changeFile(void)
