@@ -25,7 +25,7 @@ private:
 	int predefinedARs[aspectRatioCount][2];
 
 	static const int idcLevelCount = 16;
-	uint8_t idcLevel[idcLevelCount];
+	int8_t idcLevel[idcLevelCount];
 
 	static const int videoFormatCount = 6;
 	uint8_t videoFormat[videoFormatCount];
@@ -49,6 +49,7 @@ private:
 	bool loadPresetSettings(vidEncOptions *encodeOptions, x264Options *options);
 	void loadSettings(vidEncOptions *encodeOptions, x264Options *options);
 	int getValueIndexInArray(uint8_t value, const uint8_t valueArray[], int elementCount);
+	int getValueIndexInArray(int8_t value, const int8_t valueArray[], int elementCount);
 	QString getUserConfigDirectory(void);
 	QString getSystemConfigDirectory(void);
 
