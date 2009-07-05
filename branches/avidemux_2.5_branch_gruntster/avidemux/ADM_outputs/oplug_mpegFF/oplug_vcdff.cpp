@@ -93,7 +93,7 @@ uint32_t  sample_target=0;
 uint32_t  total_sample=0;
 ADMBitstream bitstream(0);
 uint32_t audioSum=0;
-DIA_encoding  *encoding;
+DIA_encoding  *encoding = NULL;
 int reuse = 0;
 
         twoPass=new char[strlen(name)+6];
@@ -491,7 +491,10 @@ int reuse = 0;
         ret=1;
 finishvcdff:
         printf("[MPEGFF] Finishing..\n");
-        delete encoding;
+
+		if (encoding)
+			delete encoding;
+
         end();
 
         if(file)
