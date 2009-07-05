@@ -51,7 +51,7 @@ foreach (decoder ${FFMPEG_DECODERS})
 	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-decoder=${decoder})
 endforeach (decoder)
 
-foreach (encoder ${FFMPEG_DECODERS})
+foreach (encoder ${FFMPEG_ENCODERS})
 	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-encoder=${encoder})
 endforeach (encoder)
 
