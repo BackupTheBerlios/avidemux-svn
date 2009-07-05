@@ -33,9 +33,9 @@ extern "C" {
 #define FLAGS()		ADD(MMX,MMX);				ADD(3DNOW,3DNOW);		ADD(MMXEXT,MMX2)	flags|=SWS_SPLINE;
 #else
 #ifdef ADM_CPU_ALTIVEC
-#define FLAGS() flags|=SWS_CPU_CAPS_ALTIVEC;
+#define FLAGS() flags|=SWS_CPU_CAPS_ALTIVEC | SWS_BICUBLIN;
 #else
-#define FLAGS()
+#define FLAGS() flags|=SWS_BICUBLIN;
 #endif
 #endif
 
@@ -118,7 +118,7 @@ uint8_t ADMColorspace::convert(uint8_t  *from, uint8_t *to)
 
 ADMColorspace::ADMColorspace(uint32_t w, uint32_t h, ADM_colorspace from,ADM_colorspace to)
 {
-  int flags=SWS_BICUBLIN;
+  int flags;
   FLAGS();
   
     width=w;

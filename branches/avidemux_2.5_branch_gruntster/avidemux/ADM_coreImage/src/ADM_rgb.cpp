@@ -45,9 +45,9 @@ extern "C" {
 #define FLAGS()		ADD(MMX,MMX);				ADD(3DNOW,3DNOW);		ADD(MMXEXT,MMX2)	flags|=SWS_SPLINE;
 #else
 #ifdef ADM_CPU_ALTIVEC
-#define FLAGS() flags|=SWS_CPU_CAPS_ALTIVEC;
+#define FLAGS() flags|=SWS_CPU_CAPS_ALTIVEC | SWS_BICUBLIN;
 #else
-#define FLAGS()
+#define FLAGS() flags|=SWS_BICUBLIN;
 #endif
 #endif
 
@@ -336,7 +336,7 @@ uint8_t ColYv12Rgb24::reset(uint32_t ww, uint32_t hh)
  PixelFormat c;	
     clean();
     FLAGS();
-    flags|=SWS_BILINEAR;
+
     switch(_colorspace)
     {
                 case ADM_COLOR_RGB24:c=PIX_FMT_RGB24;break;
@@ -482,7 +482,7 @@ int flags=0;
 PixelFormat c; 
 
         FLAGS();
-        flags|=SWS_BILINEAR;
+
         _context=NULL;
         w=ww;
         h=hh;
