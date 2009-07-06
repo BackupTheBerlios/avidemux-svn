@@ -16,7 +16,7 @@ set(FFMPEG_PARSERS  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-protocols --disable-indevs --disable-outdevs --disable-bsfs
 				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-gpl 
-				  --prefix=${CMAKE_INSTALL_PREFIX})
+				  --enable-runtime-cpudetect --prefix=${CMAKE_INSTALL_PREFIX})
 
 include(admFFmpegPatch)
 include(admFFmpegPrepareTar)
