@@ -778,7 +778,6 @@ void ADM_lavInit(void)
     avcodec_register_all();
     lavformat_init();
     av_log_set_callback(adm_lavLogCallback);
-	av_log_set_level(AV_LOG_INFO);
 #ifdef ADM_DEBUG
   //  av_log_set_level(AV_LOG_DEBUG);
 #endif
@@ -786,10 +785,13 @@ void ADM_lavInit(void)
 }
 void adm_lavLogCallback(void  *instance, int level, const char* fmt, va_list list)
 {
-    char buf[256];
-  
-    vsnprintf(buf, sizeof(buf), fmt, list);
-    printf("[lavc] %s\n",buf);
+	if (level > AV_LOG_INFO)
+		return;
+
+	char buf[256];
+
+	vsnprintf(buf, sizeof(buf), fmt, list);
+	printf("[lavc] %s\n",buf);
 }
 
 // EOF
