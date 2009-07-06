@@ -81,16 +81,19 @@ uint32_t ADM_ve_getNbEncoders(void)
 */
 bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch)
 {
-    ADM_assert(filter>=0 && filter<ADM_videoEncoderPlugins.size());
-    ADM_vidEnc_plugin *plugin =ADM_videoEncoderPlugins[filter];
-        *name=plugin->getEncoderDescription(0);
-    int ma,mi,pa;
-        plugin->getEncoderVersion(0,&ma,&mi,&pa);
-        *major=(uint32_t)ma;
-        *minor=(uint32_t)mi;
-        *patch=(uint32_t)pa;
-        return true;
+	ADM_assert(filter >= 0 && filter < ADM_videoEncoderPlugins.size());
 
+	ADM_vidEnc_plugin *plugin = ADM_videoEncoderPlugins[filter];
+	int ma, mi, pa;
+
+	plugin->getEncoderVersion(0, &ma, &mi, &pa);
+
+	*name = plugin->getEncoderDescription(plugin->encoderId);
+	*major = (uint32_t)ma;
+	*minor = (uint32_t)mi;
+	*patch = (uint32_t)pa;
+
+	return true;
 }
 
 static int loadVideoEncoderPlugin(int uiType, const char *file)
