@@ -79,7 +79,7 @@ uint8_t ADMVideoPullDown::getFrameNumberNoAlloc(uint32_t frame,
 //static Image in,out;
 			if(frame>=_info.nb_frames)
 			{
-				printf("out of bound frame (%lu / %lu)\n",frame,_info.nb_frames);
+				printf("out of bound frame (%d / %d)\n",frame,_info.nb_frames);
 				return 0;
 			}
 

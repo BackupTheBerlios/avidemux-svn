@@ -62,7 +62,7 @@ VF_DEFINE_FILTER(AVDMVideoStreamBSMear,cropParam,
 //********************************************
 char *AVDMVideoStreamBSMear::printConf( void )
 {
- 	ADM_FILTER_DECLARE_CONF(" Black l:%lu  r:%lu  u:%lu x d:%lu",
+ 	ADM_FILTER_DECLARE_CONF(" Black l:%d  r:%d  u:%d x d:%d",
  				_param->left,
  					_param->right,
  					_param->top,

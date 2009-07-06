@@ -87,7 +87,7 @@ uint8_t	ADMVideoMaskedSoften::getCoupledConf( CONFcouple **couples)
 }
 char *ADMVideoMaskedSoften::printConf( void )
 {
- 	ADM_FILTER_DECLARE_CONF(" Soften : radius: %lu l:%lu c:%lu", 
+ 	ADM_FILTER_DECLARE_CONF(" Soften : radius: %d l:%d c:%d", 
 		_param->radius,_param->luma, _param->chroma);
         
 }

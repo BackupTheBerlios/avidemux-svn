@@ -197,7 +197,7 @@ uint8_t AVDMVideoStreamMPResize::reset(uint32_t nw, uint32_t old,uint32_t algo)
 }
 char *AVDMVideoStreamMPResize::printConf( void )
 {
- 	ADM_FILTER_DECLARE_CONF(" MPL Resize %lu x %lu --> %lu x %lu (%s)",
+ 	ADM_FILTER_DECLARE_CONF(" MPL Resize %d x %d --> %d x %d (%s)",
  				_in->getInfo()->width,
  				_in->getInfo()->height,
  				_info.width,
