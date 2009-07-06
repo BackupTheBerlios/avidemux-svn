@@ -28,117 +28,118 @@ static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
 
-static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv};
+static int encoderIds[] = { 0, 1, 2, 3 };
+static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv };
 
 extern "C"
 {
 	void *avcodecEncoder_getPointers(int _uiType, int *count)
 	{
 		uiType = _uiType;
-		*count = sizeof(encoders) / sizeof(AvcodecEncoder*);
+		*count = sizeof(encoderIds) / sizeof(int);
 
-		return &encoders;
+		return &encoderIds;
 	}
 
 	const char* avcodecEncoder_getEncoderName(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getEncoderName();
 	}
 
 	const char* avcodecEncoder_getEncoderType(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getEncoderType();
 	}
 
 	const char* avcodecEncoder_getEncoderDescription(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getEncoderDescription();
 	}
 
 	const char* avcodecEncoder_getFourCC(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getFourCC();
 	}
 
 	int avcodecEncoder_getEncoderRequirements(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getEncoderRequirements();
 	}
 
 	const char* avcodecEncoder_getEncoderGuid(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getEncoderGuid();
 	}
 
 	int avcodecEncoder_isConfigurable(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->isConfigurable();
 	}
 
 	int avcodecEncoder_configure(int encoderId, vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->configure(configParameters, properties);
 	}
 
 	int avcodecEncoder_getOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getOptions(encodeOptions, pluginOptions, bufferSize);
 	}
 
 	int avcodecEncoder_setOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->setOptions(encodeOptions, pluginOptions);
 	}
 
 	int avcodecEncoder_getPassCount(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getPassCount();
 	}
 
 	int avcodecEncoder_getCurrentPass(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->getCurrentPass();
 	}
 
 	int avcodecEncoder_open(int encoderId, vidEncVideoProperties *properties)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->open(properties);
 	}
 
 	int avcodecEncoder_beginPass(int encoderId, vidEncPassParameters *passParameters)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->beginPass(passParameters);
 	}
 
 	int avcodecEncoder_encodeFrame(int encoderId, vidEncEncodeParameters *encodeParams)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->encodeFrame(encodeParams);
 	}
 
 	int avcodecEncoder_finishPass(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->finishPass();
 	}
 
 	int avcodecEncoder_close(int encoderId)
 	{
-		AvcodecEncoder *encoder = (AvcodecEncoder*)encoderId;
+		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->close();
 	}
 }
