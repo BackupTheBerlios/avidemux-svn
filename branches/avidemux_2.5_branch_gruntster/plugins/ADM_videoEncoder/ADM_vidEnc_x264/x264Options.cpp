@@ -30,9 +30,9 @@
 #include "config.h"
 #include "ADM_inttype.h"
 #include "ADM_files.h"
-#include "options.h"
+#include "x264Options.h"
 
-x264Options::x264Options(void)
+x264Options::x264Options(void) : PluginOptions("x264", "x264Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	_configurationName = NULL;
 	memset(&_param, 0, sizeof(x264_param_t));
@@ -47,18 +47,13 @@ x264Options::~x264Options(void)
 
 void x264Options::cleanUp(void)
 {
-	if (_configurationName)
-	{
-		free(_configurationName);
-		_configurationName = NULL;
-	}
-
+	PluginOptions::cleanUp();
 	clearZones();
 }
 
 void x264Options::reset(void)
 {
-	cleanUp();
+	PluginOptions::reset();
 
 	x264_param_default(&_param);
 	_param.vui.i_sar_height = 1;
@@ -66,8 +61,6 @@ void x264Options::reset(void)
 	_param.i_threads = 0;	// set to auto-detect; default is disabled
 
 	_sarAsInput = false;
-
-	setPresetConfiguration("<default>", CONFIG_DEFAULT);
 }
 
 x264_param_t* x264Options::getParameters(void)
@@ -86,33 +79,6 @@ x264_param_t* x264Options::getParameters(void)
 	}
 
 	return param;
-}
-
-void x264Options::getPresetConfiguration(char** configurationName, configType *configurationType)
-{
-	if (_configurationName)
-		*configurationName = strdup(_configurationName);
-	else
-		*configurationName = NULL;
-
-	*configurationType = _configurationType;
-}
-
-void x264Options::setPresetConfiguration(const char* configurationName, configType configurationType)
-{
-	clearPresetConfiguration();
-
-	_configurationName = strdup(configurationName);
-	_configurationType = configurationType;
-}
-
-void x264Options::clearPresetConfiguration(void)
-{
-	if (_configurationName)
-		free(_configurationName);
-
-	_configurationName = strdup("<custom>");
-	_configurationType = CONFIG_CUSTOM;
 }
 
 int x264Options::getThreads(void)
@@ -998,90 +964,13 @@ void x264Options::setSpsIdentifier(unsigned int spsIdentifier)
 	}
 }
 
-char* x264Options::toXml(void)
-{
-	xmlDocPtr xmlDoc = xmlNewDoc((const xmlChar*)"1.0");
-	xmlNodePtr xmlNodeRoot, xmlNodeChild;
-	const int bufferSize = 100;
-	xmlChar xmlBuffer[bufferSize + 1];
-	char *xml = NULL;
-
-	while (true)
-	{
-		if (!xmlDoc)
-			break;
-
-		if (!(xmlNodeRoot = xmlNewDocNode(xmlDoc, NULL, (xmlChar*)"x264Config", NULL)))
-			break;
-
-		xmlDocSetRootElement(xmlDoc, xmlNodeRoot);
-
-		if (_configurationType != CONFIG_CUSTOM)
-		{
-			xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"presetConfiguration", NULL);
-
-			xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"name", (xmlChar*)_configurationName);
-
-			if (_configurationType == CONFIG_USER)
-				strcpy((char*)xmlBuffer, "user");
-			else if (_configurationType == CONFIG_SYSTEM)
-				strcpy((char*)xmlBuffer, "system");
-			else
-				strcpy((char*)xmlBuffer, "default");
-
-			xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"type", xmlBuffer);
-		}
-
-		addX264OptionsToXml(xmlNodeRoot);
-		xml = dumpXmlDocToMemory(xmlDoc);
-		xmlFreeDoc(xmlDoc);
-
-		break;
-	}
-
-	return xml;
-}
-
-char* x264Options::dumpXmlDocToMemory(xmlDocPtr xmlDoc)
-{
-	xmlChar *tempBuffer;
-	int tempBufferSize;
-	char *xml = NULL;
-
-	xmlDocDumpMemory(xmlDoc, &tempBuffer, &tempBufferSize);
-
-	// remove carriage returns (even though libxml was instructed not to format the XML)
-	xmlChar* bufferChar = tempBuffer;
-	int bufferCharIndex = 0;
-
-	while (*bufferChar != '\0')
-	{
-		if (*bufferChar == '\n')
-		{
-			memmove(bufferChar, bufferChar + 1, tempBufferSize - bufferCharIndex);
-			tempBufferSize--;
-		}
-		else if (*bufferChar == '\"')
-			*bufferChar = '\'';
-
-		bufferChar++;
-		bufferCharIndex++;
-	}
-
-	xml = new char[tempBufferSize + 1];
-	memcpy(xml, tempBuffer, tempBufferSize);
-	xml[tempBufferSize] = 0;
-
-	return xml;
-}
-
-void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
+void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
 	xmlChar xmlBuffer[bufferSize + 1];
 	xmlNodePtr xmlNodeChild, xmlNodeChild2;
 
-	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"x264Options", NULL);
+	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"deterministic", boolean2String(xmlBuffer, bufferSize, getDeterministic()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"idcLevel", number2String(xmlBuffer, bufferSize, getIdcLevel()));
@@ -1450,104 +1339,14 @@ void x264Options::addX264OptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"spsIdentifier", number2String(xmlBuffer, bufferSize, getSpsIdentifier()));
 }
 
-bool x264Options::validateXml(xmlDocPtr doc)
+int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
 {
-	const char *schemaFile = "x264Param.xsd";
-	char *pluginDir = ADM_getPluginPath();
-	char schemaPath[strlen(pluginDir) + strlen(PLUGIN_SUBDIR) + 1 + strlen(schemaFile) + 1];
-	bool success = false;
-
-	strcpy(schemaPath, pluginDir);
-	strcat(schemaPath, PLUGIN_SUBDIR);
-	strcat(schemaPath, "/");
-	strcat(schemaPath, schemaFile);
-	delete [] pluginDir;
-
-	xmlSchemaParserCtxtPtr xmlSchemaParserCtxt = xmlSchemaNewParserCtxt(schemaPath);
-	xmlSchemaPtr xmlSchema = xmlSchemaParse(xmlSchemaParserCtxt);
-
- 	xmlSchemaFreeParserCtxt(xmlSchemaParserCtxt);
-
- 	xmlSchemaValidCtxtPtr xmlSchemaValidCtxt = xmlSchemaNewValidCtxt(xmlSchema);
-
- 	if (xmlSchemaValidCtxt)
-	{
- 		success = !xmlSchemaValidateDoc(xmlSchemaValidCtxt, doc);
-	 	xmlSchemaFree(xmlSchema);
-		xmlSchemaFreeValidCtxt(xmlSchemaValidCtxt);
- 	}
-	else
- 		xmlSchemaFree(xmlSchema);
-
-	return success;
-}
-
-int x264Options::fromXml(const char *xml)
-{
-	bool success = false;
-
-	clearPresetConfiguration();
 	clearZones();
 
-	xmlDocPtr doc = xmlReadMemory(xml, strlen(xml), "x264.xml", NULL, 0);
-
-	if (success = validateXml(doc))
-	{
-		xmlNode *xmlNodeRoot = xmlDocGetRootElement(doc);
-
-		for (xmlNode *xmlChild = xmlNodeRoot->children; xmlChild; xmlChild = xmlChild->next)
-		{
-			if (xmlChild->type == XML_ELEMENT_NODE)
-			{
-				char *content = (char*)xmlNodeGetContent(xmlChild);
-
-				if (strcmp((char*)xmlChild->name, "presetConfiguration") == 0)
-					parsePresetConfiguration(xmlChild);
-				else if (strcmp((char*)xmlChild->name, "x264Options") == 0)
-					parseX264Options(xmlChild);
-
-				xmlFree(content);
-			}
-		}
-	}
-
-	xmlFreeDoc(doc);
-
-	return success;
+	return PluginOptions::fromXml(xml, xmlType);
 }
 
-void x264Options::parsePresetConfiguration(xmlNode *node)
-{
-	char* name = NULL;
-	configType type = CONFIG_CUSTOM;
-
-	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
-	{
-		if (xmlChild->type == XML_ELEMENT_NODE)
-		{
-			char *content = (char*)xmlNodeGetContent(xmlChild);
-
-			if (strcmp((char*)xmlChild->name, "name") == 0)
-				name = strdup((char*)content);
-			else if (strcmp((char*)xmlChild->name, "type") == 0)
-			{
-				if (strcmp(content, "user") == 0)
-					type = CONFIG_USER;
-				else if (strcmp(content, "system") == 0)
-					type = CONFIG_SYSTEM;
-				else
-					type = CONFIG_DEFAULT;
-			}
-
-			xmlFree(content);
-		}
-	}
-
-	setPresetConfiguration(name, type);
-	free(name);
-}
-
-void x264Options::parseX264Options(xmlNode *node)
+void x264Options::parseOptions(xmlNode *node)
 {
 	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
 	{
@@ -2005,59 +1804,4 @@ void x264Options::parseZoneOptions(xmlNode *zoneNode)
 	}
 
 	addZone(&option);
-}
-
-
-xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, int number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, unsigned int number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* x264Options::number2String(xmlChar *buffer, size_t size, float number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* x264Options::boolean2String(xmlChar *buffer, size_t size, bool boolean)
-{
-	if (boolean)
-		strncpy((char*)buffer, "true", size);
-	else
-		strncpy((char*)buffer, "false", size);
-
-	return buffer;
-}
-
-bool x264Options::string2Boolean(char *buffer)
-{
-	return (strcmp(buffer, "true") == 0);
 }

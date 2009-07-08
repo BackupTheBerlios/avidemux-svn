@@ -8,13 +8,16 @@ IF (X264_FOUND)
 	checkLibxml2()
 
 	IF (LIBXML2_FOUND)
-		INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${X264_INCLUDE_DIR} ${LIBXML2_INCLUDE_DIR})
-		ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
-		
+		SET(PLUGIN_SUBDIR "x264")
 		SET(QT_PLUGIN_NAME "ADM_vidEnc_x264_Qt")
 		SET(GTK_PLUGIN_NAME "ADM_vidEnc_x264_Gtk")
-		SET(PLUGIN_SUBDIR "x264")
-		SET(ADM_vidEnc_x264_SRCS interface.c configGuiLoader.cpp encoder.cpp guiHelper.cpp options.cpp presetOptions.cpp zoneOptions.cpp)
+		
+		INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${X264_INCLUDE_DIR} ${LIBXML2_INCLUDE_DIR} ../common)
+		ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
+		ADD_DEFINITIONS(-DPLUGIN_SUBDIR="${PLUGIN_SUBDIR}")
+		
+		SET(ADM_vidEnc_x264_SRCS interface.c configGuiLoader.cpp encoder.cpp guiHelper.cpp zoneOptions.cpp x264Options.cpp
+								 ../common/PluginOptions.cpp)
 
 		CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config.h")
 

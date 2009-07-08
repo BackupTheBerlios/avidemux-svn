@@ -14,12 +14,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef options_h
-#define options_h
+#ifndef x264Options_h
+#define x264Options_h
 
 #include <vector>
 #include <libxml/tree.h>
 
+#include "PluginOptions.h"
 #include "zoneOptions.h"
 
 extern "C"
@@ -31,37 +32,18 @@ extern "C"
 #define DEFAULT_ENCODE_MODE ADM_VIDENC_MODE_AQP
 #define DEFAULT_ENCODE_MODE_PARAMETER 26
 
-typedef enum
-{
-	CONFIG_CUSTOM,
-	CONFIG_DEFAULT,
-	CONFIG_USER,
-	CONFIG_SYSTEM
-} configType;
-
-class x264Options
+class x264Options : public PluginOptions
 {
 protected:
 	x264_param_t _param;
 	std::vector<x264ZoneOptions*> _zoneOptions;
 
-	char* _configurationName;
-	configType _configurationType;
-
 	bool _sarAsInput;
 
 	void cleanUp(void);
-	xmlChar* number2String(xmlChar *buffer, size_t size, int number);
-	xmlChar* number2String(xmlChar *buffer, size_t size, unsigned int number);
-	xmlChar* number2String(xmlChar *buffer, size_t size, float number);
-	xmlChar* boolean2String(xmlChar *buffer, size_t size, bool boolean);
-	bool string2Boolean(char *buffer);
 
-	void addX264OptionsToXml(xmlNodePtr xmlNodeRoot);
-	char* dumpXmlDocToMemory(xmlDocPtr xmlDoc);
-	bool validateXml(xmlDocPtr doc);
-	void parsePresetConfiguration(xmlNode *node);
-	void parseX264Options(xmlNode *node);
+	void addOptionsToXml(xmlNodePtr xmlNodeRoot);
+	void parseOptions(xmlNode *node);
 
 private:
 	void parseVuiOptions(xmlNode *node);
@@ -76,10 +58,6 @@ public:
 
 	void reset(void);
 	x264_param_t* getParameters(void);
-
-	void getPresetConfiguration(char** configurationName, configType *configurationType);
-	void setPresetConfiguration(const char* configurationName, configType configurationType);
-	void clearPresetConfiguration(void);
 
 	int getThreads(void);
 	void setThreads(int threads);
@@ -327,8 +305,7 @@ public:
 	unsigned int getSpsIdentifier(void);
 	void setSpsIdentifier(unsigned int spsIdentifier);
 
-	virtual char* toXml(void);
-	virtual int fromXml(const char *xml);
+	int fromXml(const char *xml, PluginXmlType xmlType);
 };
 
-#endif	// options_h
+#endif	// x264Options_h

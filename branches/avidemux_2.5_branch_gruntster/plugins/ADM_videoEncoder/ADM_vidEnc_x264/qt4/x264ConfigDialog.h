@@ -2,7 +2,7 @@
 #define x264ConfigDialog_h
 
 #include "ui_x264ConfigDialog.h"
-#include "../options.h"
+#include "../x264Options.h"
 #include "x264ZoneTableModel.h"
 #include "x264ZoneTableDelegate.h"
 
@@ -45,7 +45,7 @@ private:
 	uint8_t intra8x8Luma[64], inter8x8Luma[64];
 
 	void fillConfigurationComboBox(void);
-	bool selectConfiguration(QString *selectFile, configType configurationType);
+	bool selectConfiguration(QString *selectFile, PluginConfigType configurationType);
 	bool loadPresetSettings(vidEncOptions *encodeOptions, x264Options *options);
 	void loadSettings(vidEncOptions *encodeOptions, x264Options *options);
 	int getValueIndexInArray(uint8_t value, const uint8_t valueArray[], int elementCount);

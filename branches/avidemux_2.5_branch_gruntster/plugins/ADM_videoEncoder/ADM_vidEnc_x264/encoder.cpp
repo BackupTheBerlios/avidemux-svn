@@ -20,7 +20,7 @@
 #include "ADM_inttype.h"
 #include "ADM_files.h"
 #include "encoder.h"
-#include "options.h"
+#include "x264Options.h"
 
 static x264Encoder encoder;
 static void* encoders = { &encoder };
@@ -133,7 +133,7 @@ int x264Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 
 int x264Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 {
-	char* xml = _options.toXml();
+	char* xml = _options.toXml(PLUGIN_XML_INTERNAL);
 	int xmlLength = strlen(xml);
 
 	if (bufferSize >= xmlLength)
@@ -157,7 +157,7 @@ int x264Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 	bool success = true;
 
 	if (pluginOptions)
-		success = _options.fromXml(pluginOptions);
+		success = _options.fromXml(pluginOptions, PLUGIN_XML_INTERNAL);
 
 	if (encodeOptions && success)
 	{

@@ -2,7 +2,7 @@
 #define configGuiLoader_h
 
 #include "ADM_dynamicLoading.h"
-#include "options.h"
+#include "x264Options.h"
 
 extern "C"
 {

@@ -3,7 +3,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../options.h"
+#include "../x264Options.h"
 
 extern "C"
 {

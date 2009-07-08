@@ -21,7 +21,6 @@
 #include <QtGui/QFileDialog>
 
 #include "../config.h"
-#include "../presetOptions.h"
 #include "x264ConfigDialog.h"
 #include "x264CustomMatrixDialog.h"
 
@@ -177,16 +176,16 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	disableGenericSlots = true;
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_USER);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
 	list = QDir(getSystemConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_SYSTEM);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_SYSTEM);
 
 	ui.configurationComboBox->clear();
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), CONFIG_DEFAULT);
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<custom>"), CONFIG_CUSTOM);
+	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), PLUGIN_CONFIG_DEFAULT);
+	ui.configurationComboBox->addItem(QT_TR_NOOP("<custom>"), PLUGIN_CONFIG_CUSTOM);
 
 	QMap<QString, int>::const_iterator mapIterator = configs.constBegin();
 
@@ -199,14 +198,14 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	disableGenericSlots = origDisableGenericSlots;
 }
 
-bool x264ConfigDialog::selectConfiguration(QString *selectFile, configType configurationType)
+bool x264ConfigDialog::selectConfiguration(QString *selectFile, PluginConfigType configurationType)
 {
 	bool success = false;
 	bool origDisableGenericSlots = disableGenericSlots;
 
 	disableGenericSlots = true;
 
-	if (configurationType == CONFIG_DEFAULT)
+	if (configurationType == PLUGIN_CONFIG_DEFAULT)
 	{
 		ui.configurationComboBox->setCurrentIndex(0);
 		success = true;
@@ -272,7 +271,7 @@ void x264ConfigDialog::configurationComboBox_currentIndexChanged(int index)
 	{
 		ui.deleteButton->setEnabled(false);
 
-		x264PresetOptions defaultOptions;
+		x264Options defaultOptions;
 		vidEncOptions *defaultEncodeOptions = defaultOptions.getEncodeOptions();
 
 		loadSettings(defaultEncodeOptions, &defaultOptions);
@@ -286,11 +285,11 @@ void x264ConfigDialog::configurationComboBox_currentIndexChanged(int index)
 		int configType = ui.configurationComboBox->itemData(index).toInt();
 		QString configFileName;
 
-		ui.deleteButton->setEnabled(configType == CONFIG_USER);
+		ui.deleteButton->setEnabled(configType == PLUGIN_CONFIG_USER);
 
-		if (configType == CONFIG_SYSTEM)
+		if (configType == PLUGIN_CONFIG_SYSTEM)
 			configFileName = QFileInfo(getSystemConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
-		else	// CONFIG_USER
+		else	// PLUGIN_CONFIG_USER
 			configFileName = QFileInfo(getUserConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
 
 		QFile configFile(configFileName);
@@ -300,11 +299,11 @@ void x264ConfigDialog::configurationComboBox_currentIndexChanged(int index)
 			configFile.open(QIODevice::ReadOnly | QIODevice::Text);
 
 			QByteArray fileContents = configFile.readAll();
-			x264PresetOptions options;
+			x264Options options;
 			vidEncOptions *encodeOptions;
 
 			configFile.close();
-			options.fromXml(fileContents.constData());
+			options.fromXml(fileContents.constData(), PLUGIN_XML_EXTERNAL);
 			encodeOptions = options.getEncodeOptions();
 
 			loadSettings(encodeOptions, &options);
@@ -330,13 +329,13 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 	{
 		QFile configFile(configFileName);
 		vidEncOptions encodeOptions;
-		x264PresetOptions presetOptions;
+		x264Options options;
 
 		configFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text);
-		saveSettings(&encodeOptions, &presetOptions);
-		presetOptions.setEncodeOptions(&encodeOptions);
+		saveSettings(&encodeOptions, &options);
+		options.setEncodeOptions(&encodeOptions);
 
-		char* xml = presetOptions.toXml();
+		char* xml = options.toXml(PLUGIN_XML_EXTERNAL);
 
 		configFile.write(xml, strlen(xml));
 		configFile.close();
@@ -344,7 +343,7 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 		delete [] xml;
 
 		fillConfigurationComboBox();
-		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), CONFIG_USER);
+		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), PLUGIN_CONFIG_USER);
 	}
 
 	delete [] configDirectory;
@@ -553,7 +552,7 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 {
 	bool origDisableGenericSlots = disableGenericSlots;
 	char *configurationName;
-	configType configurationType;
+	PluginConfigType configurationType;
 
 	disableGenericSlots = true;
 	options->getPresetConfiguration(&configurationName, &configurationType);		
@@ -568,7 +567,7 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 
 	disableGenericSlots = origDisableGenericSlots;
 
-	return (foundConfig && configurationType != CONFIG_CUSTOM);
+	return (foundConfig && configurationType != PLUGIN_CONFIG_CUSTOM);
 }
 
 void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *options)
@@ -829,7 +828,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 			break;
 	}
 
-	configType configurationType = (configType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
+	PluginConfigType configurationType = (PluginConfigType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
 
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
 	options->setSarAsInput(ui.sarAsInputRadioButton->isChecked());
