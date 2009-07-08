@@ -50,8 +50,6 @@ private:
 	void loadSettings(vidEncOptions *encodeOptions, x264Options *options);
 	int getValueIndexInArray(uint8_t value, const uint8_t valueArray[], int elementCount);
 	int getValueIndexInArray(int8_t value, const int8_t valueArray[], int elementCount);
-	QString getUserConfigDirectory(void);
-	QString getSystemConfigDirectory(void);
 
 public:
 	x264ConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, x264Options *options);

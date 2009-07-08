@@ -157,7 +157,11 @@ int x264Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 	bool success = true;
 
 	if (pluginOptions)
+	{
 		success = _options.fromXml(pluginOptions, PLUGIN_XML_INTERNAL);
+
+		_options.loadPresetConfiguration();
+	}
 
 	if (encodeOptions && success)
 	{

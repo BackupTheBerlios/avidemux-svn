@@ -124,6 +124,54 @@ void PluginOptions::clearPresetConfiguration(void)
 	_configurationType = PLUGIN_CONFIG_CUSTOM;
 }
 
+bool PluginOptions::loadPresetConfiguration(void)
+{
+	char *dir = NULL;
+	bool success = false;
+	PluginConfigType configurationType = _configurationType;
+	char configurationName[strlen(_configurationName) + 1];
+
+	strcpy(configurationName, _configurationName);
+
+	if (configurationType == PLUGIN_CONFIG_USER)
+		dir = getUserConfigDirectory();
+	else if (configurationType == PLUGIN_CONFIG_SYSTEM)
+		dir = getSystemConfigDirectory();
+
+	if (dir)
+	{
+		char presetConfigFile[strlen(dir) + strlen(configurationName) + 6];
+
+		strcpy(presetConfigFile, dir);
+		strcat(presetConfigFile, "/");
+		strcat(presetConfigFile, configurationName);
+		strcat(presetConfigFile, ".xml");
+
+		delete [] dir;
+		FILE *file = fopen(presetConfigFile, "r");
+
+		if (file)
+		{
+			fseek(file, 0, SEEK_END);
+
+			long size = ftell(file);
+			char presetXml[size];
+
+			fseek(file, 0, SEEK_SET);
+			size = fread(presetXml, 1, size, file);
+			presetXml[size] = 0;
+			fclose(file);
+
+			success = fromXml(presetXml, PLUGIN_XML_EXTERNAL);
+			setPresetConfiguration(configurationName, configurationType);
+		}
+		else
+			printf("Error - Unable to open or read %s\n", presetConfigFile);
+	}
+
+	return success;
+}
+
 void PluginOptions::setEncodeOptionsToDefaults(void)
 {
 	_encodeOptions.encodeMode = _defaultEncodeMode;
@@ -310,4 +358,23 @@ void PluginOptions::parsePresetConfiguration(xmlNode *node)
 
 	setPresetConfiguration(name, type);
 	free(name);
+}
+
+char* PluginOptions::getUserConfigDirectory(void)
+{
+	return ADM_getHomeRelativePath(PLUGIN_SUBDIR);
+}
+
+char* PluginOptions::getSystemConfigDirectory(void)
+{
+	char* pluginPath = ADM_getPluginPath();
+	char* systemConfigPath = new char[strlen(pluginPath) + strlen(PLUGIN_SUBDIR) + 2];
+
+	strcpy(systemConfigPath, pluginPath);
+	strcat(systemConfigPath, "/");
+	strcat(systemConfigPath, PLUGIN_SUBDIR);
+
+	delete [] pluginPath;
+
+	return systemConfigPath;
 }

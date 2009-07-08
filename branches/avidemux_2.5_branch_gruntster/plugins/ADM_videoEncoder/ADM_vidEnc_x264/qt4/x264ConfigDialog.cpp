@@ -171,14 +171,19 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	bool origDisableGenericSlots = disableGenericSlots;
 	QMap<QString, int> configs;
 	QStringList filter("*.xml");
-	QStringList list = QDir(getUserConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
+	char* configDir = x264Options::getUserConfigDirectory();
+	QStringList list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
+	delete [] configDir;
 	disableGenericSlots = true;
 
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
-	list = QDir(getSystemConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
+	configDir = x264Options::getSystemConfigDirectory();
+	list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
+
+	delete [] configDir;
 
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_SYSTEM);
@@ -282,28 +287,18 @@ void x264ConfigDialog::configurationComboBox_currentIndexChanged(int index)
 		ui.deleteButton->setEnabled(false);
 	else
 	{
-		int configType = ui.configurationComboBox->itemData(index).toInt();
+		PluginConfigType configType = (PluginConfigType)ui.configurationComboBox->itemData(index).toInt();
 		QString configFileName;
 
 		ui.deleteButton->setEnabled(configType == PLUGIN_CONFIG_USER);
 
-		if (configType == PLUGIN_CONFIG_SYSTEM)
-			configFileName = QFileInfo(getSystemConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
-		else	// PLUGIN_CONFIG_USER
-			configFileName = QFileInfo(getUserConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
+		x264Options options;
+		vidEncOptions *encodeOptions;
 
-		QFile configFile(configFileName);
+		options.setPresetConfiguration(ui.configurationComboBox->itemText(index).toUtf8().constData(), configType);
 
-		if (configFile.exists())
+		if (options.loadPresetConfiguration())
 		{
-			configFile.open(QIODevice::ReadOnly | QIODevice::Text);
-
-			QByteArray fileContents = configFile.readAll();
-			x264Options options;
-			vidEncOptions *encodeOptions;
-
-			configFile.close();
-			options.fromXml(fileContents.constData(), PLUGIN_XML_EXTERNAL);
 			encodeOptions = options.getEncodeOptions();
 
 			loadSettings(encodeOptions, &options);
@@ -351,8 +346,11 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 
 void x264ConfigDialog::deleteButton_pressed(void)
 {
-	QString configFileName = QFileInfo(getUserConfigDirectory(), ui.configurationComboBox->currentText() + ".xml").filePath();
+	char *configDir = x264Options::getUserConfigDirectory();
+	QString configFileName = QFileInfo(QString(configDir), ui.configurationComboBox->currentText() + ".xml").filePath();
 	QFile configFile(configFileName);
+
+	delete [] configDir;
 
 	if (GUI_Question(QT_TR_NOOP("Are you sure you wish to delete the selected configuration?")) && configFile.exists())
 	{
@@ -989,26 +987,6 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setColorMatrix(colourMatrix[ui.colourMatrixComboBox->currentIndex()]);
 	options->setChromaSampleLocation(ui.chromaSampleSpinBox->value());
 	options->setFullRangeSamples(ui.fullRangeSamplesCheckBox->isChecked());
-}
-
-QString x264ConfigDialog::getUserConfigDirectory(void)
-{
-	char *userConfigDirectory = ADM_getHomeRelativePath("x264");
-	QString qstring = QString(userConfigDirectory);
-
-	delete [] userConfigDirectory;
-
-	return qstring;
-}
-
-QString x264ConfigDialog::getSystemConfigDirectory(void)
-{
-	char* pluginPath = ADM_getPluginPath();
-	QString qstring = QString(pluginPath).append("/").append(PLUGIN_SUBDIR);
-
-	delete [] pluginPath;
-
-	return qstring;
 }
 
 extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, x264Options *options)

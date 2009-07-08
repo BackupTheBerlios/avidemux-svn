@@ -66,12 +66,16 @@ public:
 	virtual void getPresetConfiguration(char** configurationName, PluginConfigType *configurationType);
 	virtual void setPresetConfiguration(const char* configurationName, PluginConfigType configurationType);
 	virtual void clearPresetConfiguration(void);
+	virtual bool loadPresetConfiguration(void);
 
 	virtual void addOptionsToXml(xmlNodePtr xmlNodeRoot) = 0;
 	virtual void parseOptions(xmlNode *node) = 0;
 
 	virtual char* toXml(PluginXmlType xmlType);
 	virtual int fromXml(const char *xml, PluginXmlType xmlType);
+
+	static char* getUserConfigDirectory(void);
+	static char* getSystemConfigDirectory(void);
 };
 
 #endif	// options_h
