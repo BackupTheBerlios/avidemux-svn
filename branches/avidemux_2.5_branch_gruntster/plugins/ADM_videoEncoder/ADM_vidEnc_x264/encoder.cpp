@@ -192,7 +192,7 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 
 	_opened = true;
 	_currentPass = 0;
-	_bufferSize = properties->width * properties->height * 3;
+	_bufferSize = (properties->width * properties->height) + 2 * ((properties->width + 1 >> 1) * (properties->height + 1 >> 1));
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
