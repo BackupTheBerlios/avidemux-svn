@@ -112,20 +112,20 @@ void x264Options::setIdcLevel(int idcLevel)
 	switch (idcLevel)
 	{
 		case -1:
-		case 1:
+		case 10:
 		case 11:
 		case 12:
 		case 13:
-		case 2:
+		case 20:
 		case 21:
 		case 22:
-		case 3:
+		case 30:
 		case 31:
 		case 32:
-		case 4:
+		case 40:
 		case 41:
 		case 42:
-		case 5:
+		case 50:
 		case 51:
 			_param.i_level_idc = idcLevel;
 	}

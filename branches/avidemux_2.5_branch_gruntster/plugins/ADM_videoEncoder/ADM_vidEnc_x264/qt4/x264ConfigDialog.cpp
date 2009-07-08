@@ -42,7 +42,7 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	static const int _predefinedARs[aspectRatioCount][2] = {{16, 15}, {64, 45}, {8, 9}, {32, 27}};
 
 	// Mappings for x264 array index -> UI combobox index
-	static const int8_t _idcLevel[idcLevelCount] = {-1, 1, 11, 12, 13, 2, 21, 22, 3, 31, 32, 4, 41, 42, 5, 51};
+	static const int8_t _idcLevel[idcLevelCount] = {-1, 10, 11, 12, 13, 20, 21, 22, 30, 31, 32, 40, 41, 42, 50, 51};
 	static const uint8_t _videoFormat[videoFormatCount] = {5, 0, 1, 2, 3, 4};
 	static const uint8_t _colourPrimaries[colourPrimariesCount] = {2, 1, 4, 5, 6, 7, 8};
 	static const uint8_t _transferCharacteristics[transferCharacteristicsCount] = {2, 1, 4, 5, 8, 9, 10, 6, 7};

@@ -5,7 +5,7 @@
     <parameter>1000</parameter>
   </encodeOptions>
   <x264Options>
-    <idcLevel>3</idcLevel>
+    <idcLevel>30</idcLevel>
     <loopFilter>false</loopFilter>
     <cabac>false</cabac>
     <analyse>

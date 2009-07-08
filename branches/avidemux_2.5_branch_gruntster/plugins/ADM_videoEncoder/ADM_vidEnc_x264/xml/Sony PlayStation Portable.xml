@@ -5,7 +5,7 @@
     <parameter>1000</parameter>
   </encodeOptions>
   <x264Options>
-    <idcLevel>3</idcLevel>
+    <idcLevel>30</idcLevel>
     <referenceFrames>3</referenceFrames>
     <bFrames>3</bFrames>
     <adaptiveBframeDecision>2</adaptiveBframeDecision>
