@@ -54,7 +54,6 @@ private:
 
 public:
 	x264Options(void);
-	~x264Options(void);
 
 	void reset(void);
 	x264_param_t* getParameters(void);

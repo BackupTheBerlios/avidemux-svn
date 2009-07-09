@@ -34,15 +34,7 @@
 
 x264Options::x264Options(void) : PluginOptions("x264", "x264Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
-	_configurationName = NULL;
 	memset(&_param, 0, sizeof(x264_param_t));
-
-	reset();
-}
-
-x264Options::~x264Options(void)
-{
-	cleanUp();
 }
 
 void x264Options::cleanUp(void)
