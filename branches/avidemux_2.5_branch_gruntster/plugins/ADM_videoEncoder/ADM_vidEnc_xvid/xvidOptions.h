@@ -14,11 +14,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef options_h
-#define options_h
+#ifndef xvidOptions_h
+#define xvidOptions_h
 
 #include <libxml/tree.h>
 #include "xvid.h"
+#include "PluginOptions.h"
 
 extern "C"
 {
@@ -29,14 +30,6 @@ extern "C"
 #define DEFAULT_ENCODE_MODE_PARAMETER (4)
 #define TURBO_MODE (XVID_ME_FASTREFINE16 | XVID_ME_FASTREFINE8 | XVID_ME_SKIP_DELTASEARCH | XVID_ME_FAST_MODEINTERPOLATE | XVID_ME_BFRAME_EARLYSTOP)
 #define CHROMA_ME (XVID_ME_CHROMA_PVOP | XVID_ME_CHROMA_BVOP)
-
-typedef enum
-{
-	CONFIG_CUSTOM,
-	CONFIG_DEFAULT,
-	CONFIG_USER,
-	CONFIG_SYSTEM
-} ConfigType;
 
 typedef enum
 {
@@ -69,7 +62,7 @@ typedef enum
 	CQM_CUSTOM
 } CqmPresetMode;
 
-class XvidOptions
+class XvidOptions : public PluginOptions
 {
 protected:
 	xvid_enc_create_t xvid_enc_create;
@@ -77,25 +70,12 @@ protected:
 	xvid_plugin_single_t xvid_plugin_single;
 	xvid_plugin_2pass2_t xvid_plugin_2pass2;
 
-	char* _configurationName;
-	ConfigType _configurationType;
-
 	bool _parAsInput;
 	CqmPresetMode _cqmPreset;
 	unsigned char _intraMatrix[64], _interMatrix[64];
 
-	void cleanUp(void);
-	xmlChar* number2String(xmlChar *buffer, size_t size, int number);
-	xmlChar* number2String(xmlChar *buffer, size_t size, unsigned int number);
-	xmlChar* number2String(xmlChar *buffer, size_t size, float number);
-	xmlChar* boolean2String(xmlChar *buffer, size_t size, bool boolean);
-	bool string2Boolean(char *buffer);
-
-	void addXvidOptionsToXml(xmlNodePtr xmlNodeRoot);
-	char* dumpXmlDocToMemory(xmlDocPtr xmlDoc);
-	bool validateXml(xmlDocPtr doc);
-	void parsePresetConfiguration(xmlNode *node);
-	void parseXvidOptions(xmlNode *node);
+	void addOptionsToXml(xmlNodePtr xmlNodeRoot);
+	void parseOptions(xmlNode *node);
 	void parseVuiOptions(xmlNode *node);
 	void parseCqmOption(xmlNode *node, unsigned char matrix[]);
 	void parseSinglePassOptions(xmlNode *node);
@@ -103,16 +83,10 @@ protected:
 
 public:
 	XvidOptions(void);
-	~XvidOptions(void);
-
 	void reset(void);
 
 	void getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_frame_t **xvid_enc_frame,
 		xvid_plugin_single_t **xvid_plugin_single, xvid_plugin_2pass2_t **xvid_plugin_2pass2);
-
-	void getPresetConfiguration(char** configurationName, ConfigType *configurationType);
-	void setPresetConfiguration(const char* configurationName, ConfigType configurationType);
-	void clearPresetConfiguration(void);
 
 	unsigned int getThreads(void);
 	void setThreads(unsigned int threads);
@@ -242,9 +216,6 @@ public:
 
 	unsigned int getVbvPeakBitrate(void);
 	void setVbvPeakBitrate(unsigned int peakBitrate);
-
-	virtual char* toXml(void);
-	virtual int fromXml(const char *xml);
 };
 
-#endif	// options_h
+#endif	// xvidOptions_h

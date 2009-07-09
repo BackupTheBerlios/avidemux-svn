@@ -20,7 +20,7 @@
 #include "ADM_inttype.h"
 #include "ADM_files.h"
 #include "encoder.h"
-#include "options.h"
+#include "xvidOptions.h"
 
 int avidemuxHook(void *handle, int opt, void *param1, void *param2);
 static XvidEncoder encoder;
@@ -161,7 +161,7 @@ int XvidEncoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 
 int XvidEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 {
-	char* xml = _options.toXml();
+	char* xml = _options.toXml(PLUGIN_XML_INTERNAL);
 	int xmlLength = strlen(xml);
 
 	if (bufferSize >= xmlLength)
@@ -185,7 +185,11 @@ int XvidEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 	bool success = true;
 
 	if (pluginOptions)
-		success = _options.fromXml(pluginOptions);
+	{
+		success = _options.fromXml(pluginOptions, PLUGIN_XML_INTERNAL);
+
+		_options.loadPresetConfiguration();
+	}
 
 	if (encodeOptions && success)
 	{

@@ -2,7 +2,7 @@
 #define XvidConfigDialog_h
 
 #include "ui_xvidConfigDialog.h"
-#include "../options.h"
+#include "../xvidOptions.h"
 
 extern "C"
 {
@@ -24,7 +24,7 @@ private:
 	unsigned char intraMatrix[64], interMatrix[64];
 
 	void fillConfigurationComboBox(void);
-	bool selectConfiguration(QString *selectFile, ConfigType configurationType);
+	bool selectConfiguration(QString *selectFile, PluginConfigType configurationType);
 	bool loadPresetSettings(vidEncOptions *encodeOptions, XvidOptions *options);
 	void loadSettings(vidEncOptions *encodeOptions, XvidOptions *options);
 	QString getUserConfigDirectory(void);

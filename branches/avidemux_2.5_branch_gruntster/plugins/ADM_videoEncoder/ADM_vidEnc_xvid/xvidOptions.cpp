@@ -29,32 +29,15 @@
 #include "config.h"
 #include "ADM_inttype.h"
 #include "ADM_files.h"
-#include "options.h"
+#include "xvidOptions.h"
 
-XvidOptions::XvidOptions(void)
+XvidOptions::XvidOptions(void) : PluginOptions("Xvid", "XvidParam.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
-	_configurationName = NULL;
-
-	reset();
-}
-
-XvidOptions::~XvidOptions(void)
-{
-	cleanUp();
-}
-
-void XvidOptions::cleanUp(void)
-{
-	if (_configurationName)
-	{
-		free(_configurationName);
-		_configurationName = NULL;
-	}
 }
 
 void XvidOptions::reset(void)
 {
-	cleanUp();
+	PluginOptions::reset();
 
 	memset(&xvid_enc_create, 0, sizeof(xvid_enc_create_t));
 	memset(&xvid_enc_frame, 0, sizeof(xvid_enc_frame_t));
@@ -82,8 +65,6 @@ void XvidOptions::reset(void)
 	setOverflowControlStrength(5);
 	setMaxOverflowImprovement(5);
 	setMaxOverflowDegradation(5);
-
-	setPresetConfiguration("<default>", CONFIG_DEFAULT);
 }
 
 void XvidOptions::getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_frame_t **xvid_enc_frame,
@@ -107,33 +88,6 @@ void XvidOptions::getParameters(xvid_enc_create_t **xvid_enc_create, xvid_enc_fr
 		getIntraMatrix((*xvid_enc_frame)->quant_intra_matrix);
 		getInterMatrix((*xvid_enc_frame)->quant_inter_matrix);
 	}
-}
-
-void XvidOptions::getPresetConfiguration(char** configurationName, ConfigType *configurationType)
-{
-	if (_configurationName)
-		*configurationName = strdup(_configurationName);
-	else
-		*configurationName = NULL;
-
-	*configurationType = _configurationType;
-}
-
-void XvidOptions::setPresetConfiguration(const char* configurationName, ConfigType configurationType)
-{
-	clearPresetConfiguration();
-
-	_configurationName = strdup(configurationName);
-	_configurationType = configurationType;
-}
-
-void XvidOptions::clearPresetConfiguration(void)
-{
-	if (_configurationName)
-		free(_configurationName);
-
-	_configurationName = strdup("<custom>");
-	_configurationType = CONFIG_CUSTOM;
 }
 
 unsigned int XvidOptions::getThreads(void)
@@ -751,84 +705,7 @@ void XvidOptions::setVbvPeakBitrate(unsigned int peakBitrate)
 		xvid_plugin_2pass2.vbv_peakrate = peakBitrate;
 }
 
-char* XvidOptions::toXml(void)
-{
-	xmlDocPtr xmlDoc = xmlNewDoc((const xmlChar*)"1.0");
-	xmlNodePtr xmlNodeRoot, xmlNodeChild;
-	const int bufferSize = 100;
-	xmlChar xmlBuffer[bufferSize + 1];
-	char *xml = NULL;
-
-	while (true)
-	{
-		if (!xmlDoc)
-			break;
-
-		if (!(xmlNodeRoot = xmlNewDocNode(xmlDoc, NULL, (xmlChar*)"XvidConfig", NULL)))
-			break;
-
-		xmlDocSetRootElement(xmlDoc, xmlNodeRoot);
-
-		if (_configurationType != CONFIG_CUSTOM)
-		{
-			xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"presetConfiguration", NULL);
-
-			xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"name", (xmlChar*)_configurationName);
-
-			if (_configurationType == CONFIG_USER)
-				strcpy((char*)xmlBuffer, "user");
-			else if (_configurationType == CONFIG_SYSTEM)
-				strcpy((char*)xmlBuffer, "system");
-			else
-				strcpy((char*)xmlBuffer, "default");
-
-			xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"type", xmlBuffer);
-		}
-
-		addXvidOptionsToXml(xmlNodeRoot);
-		xml = dumpXmlDocToMemory(xmlDoc);
-		xmlFreeDoc(xmlDoc);
-
-		break;
-	}
-
-	return xml;
-}
-
-char* XvidOptions::dumpXmlDocToMemory(xmlDocPtr xmlDoc)
-{
-	xmlChar *tempBuffer;
-	int tempBufferSize;
-	char *xml = NULL;
-
-	xmlDocDumpMemory(xmlDoc, &tempBuffer, &tempBufferSize);
-
-	// remove carriage returns (even though libxml was instructed not to format the XML)
-	xmlChar* bufferChar = tempBuffer;
-	int bufferCharIndex = 0;
-
-	while (*bufferChar != '\0')
-	{
-		if (*bufferChar == '\n')
-		{
-			memmove(bufferChar, bufferChar + 1, tempBufferSize - bufferCharIndex);
-			tempBufferSize--;
-		}
-		else if (*bufferChar == '\"')
-			*bufferChar = '\'';
-
-		bufferChar++;
-		bufferCharIndex++;
-	}
-
-	xml = new char[tempBufferSize + 1];
-	memcpy(xml, tempBuffer, tempBufferSize);
-	xml[tempBufferSize] = 0;
-
-	return xml;
-}
-
-void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
+void XvidOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
 	xmlChar xmlBuffer[bufferSize + 1];
@@ -977,103 +854,7 @@ void XvidOptions::addXvidOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"vbvPeakBitrate", number2String(xmlBuffer, bufferSize, getVbvPeakBitrate()));
 }
 
-bool XvidOptions::validateXml(xmlDocPtr doc)
-{
-	const char *schemaFile = "XvidParam.xsd";
-	char *pluginDir = ADM_getPluginPath();
-	char schemaPath[strlen(pluginDir) + strlen(PLUGIN_SUBDIR) + 1 + strlen(schemaFile) + 1];
-	bool success = false;
-
-	strcpy(schemaPath, pluginDir);
-	strcat(schemaPath, PLUGIN_SUBDIR);
-	strcat(schemaPath, "/");
-	strcat(schemaPath, schemaFile);
-	delete [] pluginDir;
-
-	xmlSchemaParserCtxtPtr xmlSchemaParserCtxt = xmlSchemaNewParserCtxt(schemaPath);
-	xmlSchemaPtr xmlSchema = xmlSchemaParse(xmlSchemaParserCtxt);
-
- 	xmlSchemaFreeParserCtxt(xmlSchemaParserCtxt);
-
- 	xmlSchemaValidCtxtPtr xmlSchemaValidCtxt = xmlSchemaNewValidCtxt(xmlSchema);
-
- 	if (xmlSchemaValidCtxt)
-	{
- 		success = !xmlSchemaValidateDoc(xmlSchemaValidCtxt, doc);
-	 	xmlSchemaFree(xmlSchema);
-		xmlSchemaFreeValidCtxt(xmlSchemaValidCtxt);
- 	}
-	else
- 		xmlSchemaFree(xmlSchema);
-
-	return success;
-}
-
-int XvidOptions::fromXml(const char *xml)
-{
-	bool success = false;
-
-	clearPresetConfiguration();
-
-	xmlDocPtr doc = xmlReadMemory(xml, strlen(xml), "Xvid.xml", NULL, 0);
-
-	if (success = validateXml(doc))
-	{
-		xmlNode *xmlNodeRoot = xmlDocGetRootElement(doc);
-
-		for (xmlNode *xmlChild = xmlNodeRoot->children; xmlChild; xmlChild = xmlChild->next)
-		{
-			if (xmlChild->type == XML_ELEMENT_NODE)
-			{
-				char *content = (char*)xmlNodeGetContent(xmlChild);
-
-				if (strcmp((char*)xmlChild->name, "presetConfiguration") == 0)
-					parsePresetConfiguration(xmlChild);
-				else if (strcmp((char*)xmlChild->name, "XvidOptions") == 0)
-					parseXvidOptions(xmlChild);
-
-				xmlFree(content);
-			}
-		}
-	}
-
-	xmlFreeDoc(doc);
-
-	return success;
-}
-
-void XvidOptions::parsePresetConfiguration(xmlNode *node)
-{
-	char* name = NULL;
-	ConfigType type = CONFIG_CUSTOM;
-
-	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
-	{
-		if (xmlChild->type == XML_ELEMENT_NODE)
-		{
-			char *content = (char*)xmlNodeGetContent(xmlChild);
-
-			if (strcmp((char*)xmlChild->name, "name") == 0)
-				name = strdup((char*)content);
-			else if (strcmp((char*)xmlChild->name, "type") == 0)
-			{
-				if (strcmp(content, "user") == 0)
-					type = CONFIG_USER;
-				else if (strcmp(content, "system") == 0)
-					type = CONFIG_SYSTEM;
-				else
-					type = CONFIG_DEFAULT;
-			}
-
-			xmlFree(content);
-		}
-	}
-
-	setPresetConfiguration(name, type);
-	free(name);
-}
-
-void XvidOptions::parseXvidOptions(xmlNode *node)
+void XvidOptions::parseOptions(xmlNode *node)
 {
 	int minI = -1, minP = -1, minB = -1;
 	int maxI = -1, maxP = -1, maxB = -1;
@@ -1310,58 +1091,4 @@ void XvidOptions::parseTwoPassOptions(xmlNode *node)
 			xmlFree(content);
 		}
 	}
-}
-
-xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, int number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, unsigned int number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* XvidOptions::number2String(xmlChar *buffer, size_t size, float number)
-{
-	std::ostringstream stream;
-
-	stream.imbue(std::locale::classic());
-	stream << number;
-	std::string string = stream.str();
-
-	strncpy((char*)buffer, string.c_str(), size);
-
-	return buffer;
-}
-
-xmlChar* XvidOptions::boolean2String(xmlChar *buffer, size_t size, bool boolean)
-{
-	if (boolean)
-		strcpy((char*)buffer, "true");
-	else
-		strcpy((char*)buffer, "false");
-
-	return buffer;
-}
-
-bool XvidOptions::string2Boolean(char *buffer)
-{
-	return (strcmp(buffer, "true") == 0);
 }

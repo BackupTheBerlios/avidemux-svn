@@ -20,7 +20,6 @@
 #include <QtGui/QFileDialog>
 
 #include "../config.h"
-#include "../presetOptions.h"
 #include "xvidConfigDialog.h"
 #include "xvidCustomMatrixDialog.h"
 
@@ -102,16 +101,16 @@ void XvidConfigDialog::fillConfigurationComboBox(void)
 	disableGenericSlots = true;
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_USER);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
 	list = QDir(getSystemConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
 
 	for (int item = 0; item < list.size(); item++)
-		configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_SYSTEM);
+		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_SYSTEM);
 
 	ui.configurationComboBox->clear();
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), CONFIG_DEFAULT);
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<custom>"), CONFIG_CUSTOM);
+	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), PLUGIN_CONFIG_DEFAULT);
+	ui.configurationComboBox->addItem(QT_TR_NOOP("<custom>"), PLUGIN_CONFIG_CUSTOM);
 
 	QMap<QString, int>::const_iterator mapIterator = configs.constBegin();
 
@@ -124,14 +123,14 @@ void XvidConfigDialog::fillConfigurationComboBox(void)
 	disableGenericSlots = origDisableGenericSlots;
 }
 
-bool XvidConfigDialog::selectConfiguration(QString *selectFile, ConfigType configurationType)
+bool XvidConfigDialog::selectConfiguration(QString *selectFile, PluginConfigType configurationType)
 {
 	bool success = false;
 	bool origDisableGenericSlots = disableGenericSlots;
 
 	disableGenericSlots = true;
 
-	if (configurationType == CONFIG_DEFAULT)
+	if (configurationType == PLUGIN_CONFIG_DEFAULT)
 	{
 		ui.configurationComboBox->setCurrentIndex(0);
 		success = true;
@@ -167,7 +166,7 @@ void XvidConfigDialog::configurationComboBox_currentIndexChanged(int index)
 	{
 		ui.deleteButton->setEnabled(false);
 
-		XvidPresetOptions defaultOptions;
+		XvidOptions defaultOptions;
 		vidEncOptions *defaultEncodeOptions = defaultOptions.getEncodeOptions();
 
 		loadSettings(defaultEncodeOptions, &defaultOptions);
@@ -178,28 +177,18 @@ void XvidConfigDialog::configurationComboBox_currentIndexChanged(int index)
 		ui.deleteButton->setEnabled(false);
 	else
 	{
-		int configType = ui.configurationComboBox->itemData(index).toInt();
+		PluginConfigType configType = (PluginConfigType)ui.configurationComboBox->itemData(index).toInt();
 		QString configFileName;
 
-		ui.deleteButton->setEnabled(configType == CONFIG_USER);
+		ui.deleteButton->setEnabled(configType == PLUGIN_CONFIG_USER);
 
-		if (configType == CONFIG_SYSTEM)
-			configFileName = QFileInfo(getSystemConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
-		else	// CONFIG_USER
-			configFileName = QFileInfo(getUserConfigDirectory(), ui.configurationComboBox->itemText(index) + ".xml").filePath();
+		XvidOptions options;
+		vidEncOptions *encodeOptions;
 
-		QFile configFile(configFileName);
+		options.setPresetConfiguration(ui.configurationComboBox->itemText(index).toUtf8().constData(), configType);
 
-		if (configFile.exists())
+		if (options.loadPresetConfiguration())
 		{
-			configFile.open(QIODevice::ReadOnly | QIODevice::Text);
-
-			QByteArray fileContents = configFile.readAll();
-			XvidPresetOptions options;
-			vidEncOptions *encodeOptions;
-
-			configFile.close();
-			options.fromXml(fileContents.constData());
 			encodeOptions = options.getEncodeOptions();
 
 			loadSettings(encodeOptions, &options);
@@ -225,13 +214,13 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 	{
 		QFile configFile(configFileName);
 		vidEncOptions encodeOptions;
-		XvidPresetOptions presetOptions;
+		XvidOptions presetOptions;
 
 		configFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text);
 		saveSettings(&encodeOptions, &presetOptions);
 		presetOptions.setEncodeOptions(&encodeOptions);
 
-		char* xml = presetOptions.toXml();
+		char* xml = presetOptions.toXml(PLUGIN_XML_EXTERNAL);
 
 		configFile.write(xml, strlen(xml));
 		configFile.close();
@@ -239,7 +228,7 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 		delete [] xml;
 
 		fillConfigurationComboBox();
-		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), CONFIG_USER);
+		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), PLUGIN_CONFIG_USER);
 	}
 
 	delete [] configDirectory;
@@ -370,7 +359,7 @@ bool XvidConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, XvidOpti
 {
 	bool origDisableGenericSlots = disableGenericSlots;
 	char *configurationName;
-	ConfigType configurationType;
+	PluginConfigType configurationType;
 
 	disableGenericSlots = true;
 	options->getPresetConfiguration(&configurationName, &configurationType);		
@@ -385,7 +374,7 @@ bool XvidConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, XvidOpti
 
 	disableGenericSlots = origDisableGenericSlots;
 
-	return (foundConfig && configurationType != CONFIG_CUSTOM);
+	return (foundConfig && configurationType != PLUGIN_CONFIG_CUSTOM);
 }
 
 void XvidConfigDialog::loadSettings(vidEncOptions *encodeOptions, XvidOptions *options)
@@ -603,7 +592,7 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 			break;
 	}
 
-	ConfigType configurationType = (ConfigType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
+	PluginConfigType configurationType = (PluginConfigType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
 
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
 	options->setParAsInput(ui.sarAsInputRadioButton->isChecked());

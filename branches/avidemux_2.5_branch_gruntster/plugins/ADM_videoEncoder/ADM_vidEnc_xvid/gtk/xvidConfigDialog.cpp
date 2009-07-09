@@ -30,7 +30,7 @@
 #include "DIA_fileSel.h"
 #include "DIA_coreToolkit.h"
 
-#include "../presetOptions.h"
+#include "../xvidOptions.h"
 #include "xvidConfigDialog.h"
 
 #define WID(x) lookup_widget(dialog, #x)
