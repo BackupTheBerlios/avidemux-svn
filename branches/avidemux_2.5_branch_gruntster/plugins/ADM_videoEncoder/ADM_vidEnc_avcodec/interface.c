@@ -18,12 +18,15 @@
 #include "ADM_vidEnc_plugin.h"
 #include "encoder.h"
 
+int _uiType = 0;
+
 int vidEncGetEncoders(int uiType, int** encoderIds)
 {
 	if (uiType == ADM_UI_CLI || uiType == ADM_UI_GTK || uiType == ADM_UI_QT4)
 	{
 		int count = 0;
 
+		_uiType = uiType;
 		*encoderIds = avcodecEncoder_getPointers(uiType, &count);
 
 		return count;

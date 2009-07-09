@@ -19,6 +19,7 @@
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
 #include "huffyuvEncoder.h"
+#include "mpeg1Encoder.h"
 #include "ADM_inttype.h"
 
 int uiType;
@@ -27,9 +28,10 @@ static DVEncoder dv;
 static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
+static Mpeg1Encoder mpeg1Encoder;
 
-static int encoderIds[] = { 0, 1, 2, 3 };
-static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv };
+static int encoderIds[] = { 0, 1, 2, 3, 4 };
+static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv, &mpeg1Encoder};
 
 extern "C"
 {
@@ -292,7 +294,7 @@ int AvcodecEncoder::beginPass(vidEncPassParameters *passParameters)
 		_swsContext = sws_getContext(
 			_context->width, _context->height, PIX_FMT_YUV420P,
 			_context->width, _context->height, _context->pix_fmt,
-			SWS_BICUBLIN, NULL, NULL, NULL);
+			SWS_SPLINE, NULL, NULL, NULL);
 
 		_resampleSize = _bufferSize;
 		_resampleBuffer = new uint8_t[_resampleSize];

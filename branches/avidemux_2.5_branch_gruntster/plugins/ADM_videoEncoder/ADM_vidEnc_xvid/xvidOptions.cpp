@@ -711,7 +711,7 @@ void XvidOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlChar xmlBuffer[bufferSize + 1];
 	xmlNodePtr xmlNodeChild, xmlNodeChild2;
 
-	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"XvidOptions", NULL);
+	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 
 	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"vui", NULL);
