@@ -13,7 +13,6 @@ SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  ../common/PluginOptions.c
 							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  mpeg1Encoder.cpp
 							 mpeg1EncoderOptions.cpp)
 
-CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config.h")
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR})
 ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
 
