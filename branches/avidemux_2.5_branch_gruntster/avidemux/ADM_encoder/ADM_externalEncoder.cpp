@@ -20,6 +20,11 @@
 #include "ADM_externalEncoder.h"
 #include "ADM_plugin/ADM_vidEnc_plugin.h"
 
+extern "C"
+{
+#include "libavcodec/avcodec.h"
+}
+
 externalEncoder::externalEncoder(COMPRES_PARAMS *params, bool globalHeader)
 {
 	_plugin = getVideoEncoderPlugin(params->extra_param);
@@ -90,13 +95,19 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 
 	if (frame == UINT32_MAX)
 	{
-		params.frameData = NULL;
+		memset(&params.frameData, 0, sizeof(params.frameData));
+		memset(&params.frameLineSize, 0, sizeof(params.frameLineSize));
+
 		params.frameDataSize = 0;
 	}
 	else
 	{
-		params.frameData = _vbuffer->data;
-		params.frameDataSize = ((_w + 15) & 0xffffff0) * ((_h + 15) & 0xfffffff0) * 2;
+		AVPicture sourcePicture;
+
+		params.frameDataSize = avpicture_fill(&sourcePicture, _vbuffer->data, PIX_FMT_YUV420P, _w, _h);
+
+		memcpy(&params.frameLineSize, sourcePicture.linesize, sizeof(params.frameLineSize));
+		memcpy(&params.frameData, sourcePicture.data, sizeof(params.frameData));
 	}
 
 	params.encodedData = NULL;

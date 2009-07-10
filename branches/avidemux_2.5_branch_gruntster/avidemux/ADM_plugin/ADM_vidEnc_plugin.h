@@ -17,7 +17,7 @@
 #ifndef ADM_vidEnc_plugin_h
 #define ADM_vidEnc_plugin_h
 
-#define ADM_VIDENC_API_VERSION 1
+#define ADM_VIDENC_API_VERSION 2
 
 #define ADM_VIDENC_ERR_SUCCESS 1
 #define ADM_VIDENC_ERR_FAILED 0
@@ -50,7 +50,8 @@
 typedef struct
 {
 	int structSize;
-	uint8_t *frameData;
+	uint8_t *frameData[4];
+	int frameLineSize[4];
 	int frameDataSize;
 	uint8_t *encodedData;
 	int encodedDataSize;

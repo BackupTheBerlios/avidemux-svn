@@ -220,7 +220,7 @@ int XvidEncoder::open(vidEncVideoProperties *properties)
 
 	_opened = true;
 	_currentPass = 0;
-	_bufferSize = properties->width * properties->height * 3;
+	_bufferSize = (properties->width * properties->height) + 2 * ((properties->width + 1 >> 1) * (properties->height + 1 >> 1));
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
@@ -335,16 +335,16 @@ int XvidEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	xvid_enc_stats.version = XVID_VERSION;
 	_xvid_enc_frame.bitstream = _buffer;
 
-	if (encodeParams->frameData)
+	if (encodeParams->frameData[0])
 	{
 		_xvid_enc_frame.length = 0;
 		_xvid_enc_frame.input.csp = XVID_CSP_YV12;
-		_xvid_enc_frame.input.stride[0] = _xvid_enc_create.width;
-		_xvid_enc_frame.input.stride[1] = _xvid_enc_create.width >> 1;
-		_xvid_enc_frame.input.stride[2] = _xvid_enc_create.width >> 1;
-		_xvid_enc_frame.input.plane[0] = encodeParams->frameData;
-		_xvid_enc_frame.input.plane[1] = encodeParams->frameData + (_xvid_enc_create.width * _xvid_enc_create.height);
-		_xvid_enc_frame.input.plane[2] = encodeParams->frameData + ((_xvid_enc_create.width * _xvid_enc_create.height * 5) >> 2);
+		_xvid_enc_frame.input.stride[0] = encodeParams->frameLineSize[0];
+		_xvid_enc_frame.input.stride[1] = encodeParams->frameLineSize[1];
+		_xvid_enc_frame.input.stride[2] = encodeParams->frameLineSize[2];
+		_xvid_enc_frame.input.plane[0] = encodeParams->frameData[0];
+		_xvid_enc_frame.input.plane[1] = encodeParams->frameData[1];
+		_xvid_enc_frame.input.plane[2] = encodeParams->frameData[2];
 	}
 	else
 	{

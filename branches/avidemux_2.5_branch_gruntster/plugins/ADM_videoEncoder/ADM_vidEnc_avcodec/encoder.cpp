@@ -315,18 +315,13 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	_frame.key_frame = 0;
 	_frame.pict_type = 0;
 
-	if (encodeParams->frameData)
+	if (encodeParams->frameData[0])
 	{
-		AVPicture sourcePicture, *inputPicture;
+		// Swap planes since input is YV12 (not YUV420P)
+		uint8_t *tmpPlane = encodeParams->frameData[1];
 
-		avpicture_fill(
-			&sourcePicture, encodeParams->frameData, PIX_FMT_YUV420P, _context->width, _context->height);
-
-		// Swap planes to make YV12 look like YUV420P
-		uint8_t *tmpPlane = sourcePicture.data[1];
-
-		sourcePicture.data[1] = sourcePicture.data[2];
-		sourcePicture.data[2] = tmpPlane;
+		encodeParams->frameData[1] = encodeParams->frameData[2];
+		encodeParams->frameData[2] = tmpPlane;
 
 		if (_swsContext)
 		{
@@ -335,17 +330,22 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 			avpicture_fill(
 				&resamplePicture, _resampleBuffer, _context->pix_fmt, _context->width, _context->height);
 
-			inputPicture = &resamplePicture;
-
 			sws_scale(
-				_swsContext, sourcePicture.data, sourcePicture.linesize, 0,
-				_context->height, inputPicture->data, inputPicture->linesize);
+				_swsContext, encodeParams->frameData, encodeParams->frameLineSize, 0,
+				_context->height, resamplePicture.data, resamplePicture.linesize);
+
+			memcpy(&_frame.linesize, resamplePicture.linesize, sizeof(resamplePicture.linesize));
+			memcpy(&_frame.data, resamplePicture.data, sizeof(resamplePicture.data));
 		}
 		else
-			inputPicture = &sourcePicture;
-
-		memcpy(&_frame.linesize, inputPicture->linesize, sizeof(_frame.linesize));
-		memcpy(&_frame.data, inputPicture->data, sizeof(_frame.data));
+		{
+			_frame.data[0] = encodeParams->frameData[0];
+			_frame.data[1] = encodeParams->frameData[1];
+			_frame.data[2] = encodeParams->frameData[2];
+			_frame.linesize[0] = encodeParams->frameLineSize[0];
+			_frame.linesize[1] = encodeParams->frameLineSize[1];
+			_frame.linesize[2] = encodeParams->frameLineSize[2];
+		}
 
 		int size = avcodec_encode_video(_context, _buffer, _bufferSize, &_frame);
 

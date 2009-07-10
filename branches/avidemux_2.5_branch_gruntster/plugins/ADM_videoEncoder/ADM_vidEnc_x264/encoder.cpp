@@ -312,21 +312,21 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	memset(&_picture, 0, sizeof(x264_picture_t));
 
-	if (encodeParams->frameData)
+	if (encodeParams->frameData[0])
 	{
-		_picture.img.plane[0] = encodeParams->frameData;	// Y
-		_picture.img.plane[2] = encodeParams->frameData + _param.i_width * _param.i_height;	// U
-		_picture.img.plane[1] = encodeParams->frameData + ((_param.i_width * _param.i_height * 5) >> 2);	// V
-		_picture.img.i_stride[0] = _param.i_width;
-		_picture.img.i_stride[1] = _param.i_width >> 1;
-		_picture.img.i_stride[2] = _param.i_width >> 1;
+		_picture.img.plane[0] = encodeParams->frameData[0];
+		_picture.img.plane[1] = encodeParams->frameData[1];
+		_picture.img.plane[2] = encodeParams->frameData[2];
+		_picture.img.i_stride[0] = encodeParams->frameLineSize[0];
+		_picture.img.i_stride[1] = encodeParams->frameLineSize[1];
+		_picture.img.i_stride[2] = encodeParams->frameLineSize[2];
 		_picture.i_type = X264_TYPE_AUTO;
 		_picture.i_pts = _currentFrame;
-		_picture.img.i_csp = X264_CSP_I420;
+		_picture.img.i_csp = X264_CSP_YV12;
 		_picture.img.i_plane = 3;
 	}
 
-	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData ? &_picture : NULL, &picture_out) < 0)
+	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData[0] ? &_picture : NULL, &picture_out) < 0)
 	{
 		printf("[x264] Error encoding\n");
 		return ADM_VIDENC_ERR_FAILED;
