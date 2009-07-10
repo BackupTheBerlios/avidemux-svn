@@ -35,6 +35,7 @@
 
 Mpeg1EncoderOptions::Mpeg1EncoderOptions(void) : PluginOptions("Mpeg1", "Mpeg1Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
+	reset();
 }
 
 void Mpeg1EncoderOptions::reset(void)

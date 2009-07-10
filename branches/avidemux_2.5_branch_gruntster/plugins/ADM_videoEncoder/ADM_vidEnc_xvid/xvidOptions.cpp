@@ -33,6 +33,7 @@
 
 XvidOptions::XvidOptions(void) : PluginOptions("Xvid", "XvidParam.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
+	reset();
 }
 
 void XvidOptions::reset(void)
