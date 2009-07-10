@@ -24,7 +24,7 @@ extern "C"
 }
 
 #include "encoder.h"
-#include "Mpeg1EncoderOptions.h"
+#include "mpeg1EncoderOptions.h"
 #include "../../ADM_encoder/ADM_vidEncode.hxx"
 
 class Mpeg1Encoder : public AvcodecEncoder
