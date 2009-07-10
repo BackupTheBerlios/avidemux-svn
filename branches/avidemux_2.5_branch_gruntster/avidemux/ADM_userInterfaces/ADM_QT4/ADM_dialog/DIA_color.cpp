@@ -1,7 +1,7 @@
 #include <QtGui/QColorDialog>
 
 #include "ADM_toolkitQt.h"
-
+#include "ADM_default.h"
 int DIA_colorSel(uint8_t *r, uint8_t *g, uint8_t *b)
 {
 	QColor initialColor = QColor(*r, *g, *b);

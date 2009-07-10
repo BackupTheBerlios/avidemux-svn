@@ -17,7 +17,7 @@
 
 #ifndef ADM_TRAY_H
 #define ADM_TRAY_H
-
+#include "ADM_default.h"
 class ADM_tray
 {
 protected:

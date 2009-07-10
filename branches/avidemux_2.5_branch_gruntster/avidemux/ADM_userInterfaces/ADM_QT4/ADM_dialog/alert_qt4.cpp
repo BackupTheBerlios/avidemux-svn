@@ -15,9 +15,9 @@
 
 #include <QtGui/QDialog>
 #include <QtGui/QMessageBox>
+#include "ADM_default.h"
 #include "DIA_coreToolkit.h"
 #include "DIA_coreUI_internal.h"
-#include "ADM_default.h"
 #include "prefs.h"
 #include "ADM_toolkitQt.h"
 

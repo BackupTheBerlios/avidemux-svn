@@ -5,7 +5,7 @@
 #include <QtGui/QSlider>
 #include <QtGui/QWidget>
 #include <QtGui/QMenu>
-
+#include "ADM_default.h"
 #include "ADM_qslider.h"
 #include "T_thumbSlider.h"
 #include "ui_gui2.h"

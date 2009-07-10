@@ -18,8 +18,8 @@
 #include <QtGui/QKeyEvent>
 #include <QtGui/QGraphicsView>
 
-#include "Q_gui2.h"
 #include "ADM_default.h"
+#include "Q_gui2.h"
 #include "ADM_toolkitQt.h"
 #include "ADM_qslider.h"
 #include "ADM_codecs/ADM_codec.h"

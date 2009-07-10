@@ -14,7 +14,7 @@ Custom slider
 
 #include <QtGui/QPainter>
 #include <QtGui/QSlider>
-
+#include "ADM_default.h"
 #include "ADM_qslider.h"
 
 ADM_QSlider::ADM_QSlider(QWidget *parent) : QSlider(parent)

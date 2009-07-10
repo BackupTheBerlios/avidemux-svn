@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "Q_license.h"
+#include "ADM_default.h"
 #include "ADM_toolkitQt.h"
 
 Ui_licenseWindow::Ui_licenseWindow(QWidget *parent) : QDialog(parent)

@@ -1,7 +1,7 @@
 #ifndef Q_jobs_h
 #define Q_jobs_h
-
 #include "ui_jobs.h"
+#include "ADM_default.h"
 #include "ADM_misc.h"
 
 typedef enum
