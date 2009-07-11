@@ -104,7 +104,7 @@ void y4m_ratio_reduce(y4m_ratio_t *r)
 
 int y4m_parse_ratio(y4m_ratio_t *r, const char *s)
 {
-  char *t = strchr(s, ':');
+  const char *t = strchr(s, ':');
   if (t == NULL) return Y4M_ERR_RANGE;
   r->n = atoi(s);
   r->d = atoi(t+1);
