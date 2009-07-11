@@ -12,7 +12,7 @@ echo "* Building Main *"
 rm -Rf buildMain
 mkdir -p buildMain
 cd buildMain
-cmake .. || fail cmake
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DAVIDEMUX_INSTALL_PREFIX=/usr/ .. || fail cmake
 make || fail make_main
 sudo make install | fail install_main
 echo "*  Main Ok*"
