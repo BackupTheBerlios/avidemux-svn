@@ -9,12 +9,13 @@ else (WIN32)
 endif (WIN32)
 
 SET(PLUGIN_SUBDIR "avcodec")
-SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  ../common/PluginOptions.cpp  huffyuvEncoder.cpp
+SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp
 							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  mpeg1Encoder.cpp
 							 mpeg1EncoderOptions.cpp)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR})
 ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
+ADD_DEFINITIONS(-DPLUGIN_SUBDIR="${PLUGIN_SUBDIR}")
 
 getFfmpegLibNames(${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg)
 

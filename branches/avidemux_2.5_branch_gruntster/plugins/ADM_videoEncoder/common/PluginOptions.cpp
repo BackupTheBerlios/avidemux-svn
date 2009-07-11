@@ -20,7 +20,6 @@
 #include <sstream>
 #include <string>
 
-#include "config.h"
 #include "ADM_inttype.h"
 #include "ADM_files.h"
 #include "PluginOptions.h"

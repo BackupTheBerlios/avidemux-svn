@@ -15,8 +15,7 @@ IF (XVID_FOUND)
 		ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
 		ADD_DEFINITIONS(-DPLUGIN_SUBDIR="${PLUGIN_SUBDIR}")
 
-		SET(ADM_vidEnc_xvid_SRCS interface.c  encoder.cpp  xvidOptions.cpp  configGuiLoader.cpp
-								 ../common/PluginOptions.cpp)
+		SET(ADM_vidEnc_xvid_SRCS interface.c  encoder.cpp  xvidOptions.cpp  configGuiLoader.cpp)
 
 		CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake" "${CMAKE_CURRENT_BINARY_DIR}/config.h")
 

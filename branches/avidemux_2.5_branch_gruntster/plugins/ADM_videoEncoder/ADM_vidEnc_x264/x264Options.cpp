@@ -30,6 +30,8 @@
 #include "config.h"
 #include "ADM_inttype.h"
 #include "ADM_files.h"
+
+#include "../common/PluginOptions.cpp"
 #include "x264Options.h"
 
 x264Options::x264Options(void) : PluginOptions("x264", "x264Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)

@@ -29,6 +29,8 @@
 #include "config.h"
 #include "ADM_inttype.h"
 #include "ADM_files.h"
+
+#include "../common/PluginOptions.cpp"
 #include "xvidOptions.h"
 
 XvidOptions::XvidOptions(void) : PluginOptions("Xvid", "XvidParam.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)

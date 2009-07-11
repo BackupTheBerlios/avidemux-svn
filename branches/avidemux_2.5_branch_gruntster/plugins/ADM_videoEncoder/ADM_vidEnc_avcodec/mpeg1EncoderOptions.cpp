@@ -30,7 +30,7 @@
 #include "ADM_inttype.h"
 #include "ADM_files.h"
 
-#include "config.h"
+#include "../common/PluginOptions.cpp"
 #include "mpeg1EncoderOptions.h"
 
 Mpeg1EncoderOptions::Mpeg1EncoderOptions(void) : PluginOptions("Mpeg1", "Mpeg1Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
