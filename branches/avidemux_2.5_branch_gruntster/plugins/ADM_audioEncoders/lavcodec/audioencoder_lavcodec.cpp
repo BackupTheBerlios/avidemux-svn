@@ -19,7 +19,6 @@
 #include "ADM_default.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
-#include <lame/lame.h>
 #include "audioencoder.h"
 #include "audioencoderInternal.h"
 //
