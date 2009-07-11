@@ -1352,7 +1352,7 @@ A_loadAC3 (char *name)
   if (ac3->open (path) == 0)
     {
       GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not a WAV file?"));
-      printf (QT_TR_NOOP("WAV open file failed..."));
+      printf ("%s", QT_TR_NOOP("WAV open file failed..."));
       delete ac3;
 	  delete [] path;
       return 0;
