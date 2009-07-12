@@ -43,6 +43,7 @@ PluginOptions::PluginOptions(const char* tagPrefix, const char* schemaFile, unsi
 	_configurationName = NULL;
 	_defaultEncodeMode = defaultEncodeMode;
 	_defaultEncodeModeParameter = defaultEncodeModeParameter;
+	setEncodeOptionsToDefaults();
 
 	reset();
 }
