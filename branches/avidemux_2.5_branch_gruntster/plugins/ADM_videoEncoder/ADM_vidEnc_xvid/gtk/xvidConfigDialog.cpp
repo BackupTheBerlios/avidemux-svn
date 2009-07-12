@@ -157,15 +157,17 @@ _erLoad:
 
 	if (code == GTK_RESPONSE_OK)
 	{
-		saveOptions(dialog, options);
+		encodeOptions->encodeMode = getCurrentEncodeMode(dialog);
 
-		if (getCurrentEncodeMode(dialog) == ADM_VIDENC_MODE_CQP)
+		if (encodeOptions->encodeMode == ADM_VIDENC_MODE_CQP)
 			encodeOptions->encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuant)));
 		else
 		{
 			char *str = gtk_editable_get_chars(GTK_EDITABLE(WID(entryEntry)), 0, -1);
 			encodeOptions->encodeModeParameter = atoi(str);
 		}
+
+		saveOptions(dialog, options);
 	}
 
 	gtk_widget_destroy(dialog);
