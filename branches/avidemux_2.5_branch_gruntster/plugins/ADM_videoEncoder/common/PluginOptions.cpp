@@ -14,7 +14,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <math.h>
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
 #include <sstream>
@@ -54,14 +53,26 @@ PluginOptions::~PluginOptions(void)
 
 	if (_tagPrefix)
 	{
-		free(_tagPrefix);
+		delete [] _tagPrefix;
 		_tagPrefix = NULL;
 	}
 
 	if (_schemaFile)
 	{
-		free(_schemaFile);
+		delete [] _schemaFile;
 		_schemaFile = NULL;
+	}
+
+	if (_configTagRoot)
+	{
+		delete [] _configTagRoot;
+		_configTagRoot = NULL;
+	}
+
+	if (_optionsTagRoot)
+	{
+		delete [] _optionsTagRoot;
+		_optionsTagRoot = NULL;
 	}
 }
 
@@ -99,7 +110,10 @@ const char* PluginOptions::getOptionsTagRoot()
 void PluginOptions::getPresetConfiguration(char** configurationName, PluginConfigType *configurationType)
 {
 	if (_configurationName)
-		*configurationName = strdup(_configurationName);
+	{
+		*configurationName = new char[strlen(_configurationName) + 1];
+		strcpy(*configurationName, _configurationName);
+	}
 	else
 		*configurationName = NULL;
 

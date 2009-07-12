@@ -561,7 +561,7 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 		printf("Configuration %s (type %d) could not be found.  Using snapshot.\n", configurationName, configurationType);
 
 	if (configurationName)
-		free(configurationName);
+		delete [] configurationName;
 
 	disableGenericSlots = origDisableGenericSlots;
 

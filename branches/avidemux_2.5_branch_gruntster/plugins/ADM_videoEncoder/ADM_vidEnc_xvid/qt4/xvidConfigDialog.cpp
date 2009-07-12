@@ -370,7 +370,7 @@ bool XvidConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, XvidOpti
 		printf("Configuration %s (type %d) could not be found.  Using snapshot.\n", configurationName, configurationType);
 
 	if (configurationName)
-		free(configurationName);
+		delete [] configurationName;
 
 	disableGenericSlots = origDisableGenericSlots;
 
