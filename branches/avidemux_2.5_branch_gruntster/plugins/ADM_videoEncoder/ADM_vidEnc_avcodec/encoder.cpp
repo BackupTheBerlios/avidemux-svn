@@ -146,7 +146,7 @@ extern "C"
 	}
 }
 
-void AvcodecEncoder::init(enum CodecID id, enum PixelFormat targetPixelFormat)
+void AvcodecEncoder::init(enum CodecID id, int targetColourSpace)
 {
 	_codecId = id;
 	_opened = false;
@@ -155,10 +155,7 @@ void AvcodecEncoder::init(enum CodecID id, enum PixelFormat targetPixelFormat)
 	_currentPass = 0;
 	_openPass = false;
 
-	_targetPixelFormat = targetPixelFormat;
-
-	_swsContext = NULL;
-	_resampleBuffer = NULL;
+	_supportedCsps[0] = targetColourSpace;
 }
 
 void AvcodecEncoder::initContext(vidEncVideoProperties *properties)
@@ -166,12 +163,29 @@ void AvcodecEncoder::initContext(vidEncVideoProperties *properties)
 	_context->width = properties->width;
 	_context->height = properties->height;
 	_context->time_base = (AVRational){properties->fpsDen, properties->fpsNum};
-	_context->pix_fmt = _targetPixelFormat;
+	_context->pix_fmt = getAvCodecColourSpace(_supportedCsps[0]);
 }
 
 AVCodec *AvcodecEncoder::getAvCodec(void)
 {
 	return avcodec_find_encoder(_codecId);
+}
+
+enum PixelFormat AvcodecEncoder::getAvCodecColourSpace(int colourSpace)
+{
+	enum PixelFormat pixFmt = PIX_FMT_NONE;
+
+	switch (colourSpace)
+	{
+		case ADM_CSP_YV12:
+			pixFmt = PIX_FMT_YUV420P;
+			break;
+		case ADM_CSP_I422:
+			pixFmt = PIX_FMT_YUV422P;
+			break;
+	}
+
+	return pixFmt;
 }
 
 int AvcodecEncoder::getFrameType(void)
@@ -263,8 +277,8 @@ int AvcodecEncoder::open(vidEncVideoProperties *properties)
 	memset(&_frame, 0, sizeof(_frame));
 	_frame.pts = AV_NOPTS_VALUE;
 
-	_bufferSize = properties->width * properties->height * 3;
-	_buffer = new uint8_t[_bufferSize];
+	properties->supportedCspsCount = 1;
+	properties->supportedCsps = &_supportedCsps[0];
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -286,21 +300,17 @@ int AvcodecEncoder::beginPass(vidEncPassParameters *passParameters)
 		return ADM_VIDENC_ERR_PASS_SKIP;
 	}
 
+	if (!_buffer)
+	{
+		AVPicture encodedPicture;
+
+		_bufferSize = avpicture_fill(&encodedPicture, NULL, _context->pix_fmt, _context->width, _context->height);
+		_buffer = new uint8_t[_bufferSize];
+	}
+
 	_openPass = true;
 	_currentPass++;
 
-	if (_context->pix_fmt != PIX_FMT_YUV420P)
-	{
-		_swsContext = sws_getContext(
-			_context->width, _context->height, PIX_FMT_YUV420P,
-			_context->width, _context->height, _context->pix_fmt,
-			SWS_SPLINE, NULL, NULL, NULL);
-
-		_resampleSize = _bufferSize;
-		_resampleBuffer = new uint8_t[_resampleSize];
-	}
-
-	passParameters->structSize = sizeof(vidEncPassParameters);
 	passParameters->extraData = _context->extradata;
 	passParameters->extraDataSize = _context->extradata_size;
 
@@ -317,35 +327,21 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	if (encodeParams->frameData[0])
 	{
-		// Swap planes since input is YV12 (not YUV420P)
-		uint8_t *tmpPlane = encodeParams->frameData[1];
-
-		encodeParams->frameData[1] = encodeParams->frameData[2];
-		encodeParams->frameData[2] = tmpPlane;
-
-		if (_swsContext)
+		if (_supportedCsps[0] == ADM_CSP_YV12)
 		{
-			AVPicture resamplePicture;
+			// Swap planes so YV12 looks like YUV420P
+			uint8_t *tmpPlane = encodeParams->frameData[1];
 
-			avpicture_fill(
-				&resamplePicture, _resampleBuffer, _context->pix_fmt, _context->width, _context->height);
-
-			sws_scale(
-				_swsContext, encodeParams->frameData, encodeParams->frameLineSize, 0,
-				_context->height, resamplePicture.data, resamplePicture.linesize);
-
-			memcpy(&_frame.linesize, resamplePicture.linesize, sizeof(resamplePicture.linesize));
-			memcpy(&_frame.data, resamplePicture.data, sizeof(resamplePicture.data));
+			encodeParams->frameData[1] = encodeParams->frameData[2];
+			encodeParams->frameData[2] = tmpPlane;
 		}
-		else
-		{
-			_frame.data[0] = encodeParams->frameData[0];
-			_frame.data[1] = encodeParams->frameData[1];
-			_frame.data[2] = encodeParams->frameData[2];
-			_frame.linesize[0] = encodeParams->frameLineSize[0];
-			_frame.linesize[1] = encodeParams->frameLineSize[1];
-			_frame.linesize[2] = encodeParams->frameLineSize[2];
-		}
+
+		_frame.data[0] = encodeParams->frameData[0];
+		_frame.data[1] = encodeParams->frameData[1];
+		_frame.data[2] = encodeParams->frameData[2];
+		_frame.linesize[0] = encodeParams->frameLineSize[0];
+		_frame.linesize[1] = encodeParams->frameLineSize[1];
+		_frame.linesize[2] = encodeParams->frameLineSize[2];
 
 		int size = avcodec_encode_video(_context, _buffer, _bufferSize, &_frame);
 
@@ -365,18 +361,6 @@ int AvcodecEncoder::finishPass(void)
 
 	if (_openPass)
 		_openPass = false;
-
-	if (_swsContext)
-	{
-		sws_freeContext(_swsContext);
-		_swsContext = NULL;
-	}
-
-	if (_resampleBuffer)
-	{
-		delete _resampleBuffer;
-		_resampleBuffer = NULL;
-	}
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }

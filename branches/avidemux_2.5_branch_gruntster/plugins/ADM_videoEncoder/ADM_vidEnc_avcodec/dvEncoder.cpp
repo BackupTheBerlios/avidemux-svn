@@ -23,7 +23,7 @@
 
 DVEncoder::DVEncoder(void)
 {
-	init(CODEC_ID_DVVIDEO, PIX_FMT_YUV420P);
+	init(CODEC_ID_DVVIDEO, ADM_CSP_YV12);
 }
 
 const char* DVEncoder::getEncoderType(void)
@@ -57,9 +57,10 @@ int DVEncoder::open(vidEncVideoProperties *properties)
 		for (int i = 0; i < profileCount; i++)
 		{
 			if (properties->height == dvProfiles[i].height && properties->width == dvProfiles[i].width && 
-				((int)(properties->fpsNum * 1000.0 / properties->fpsDen) == (int)(dvProfiles[i].time_base.num * 1000.0 / dvProfiles[i].time_base.den)))
+				((int)(properties->fpsNum * 1000.0 / properties->fpsDen) == (int)(dvProfiles[i].timeBase.num * 1000.0 / dvProfiles[i].timeBase.den)))
 			{
-				_context->pix_fmt = dvProfiles[i].pix_fmt;
+				_context->pix_fmt = getAvCodecColourSpace(dvProfiles[i].pixFmt);
+				_supportedCsps[0] = dvProfiles[i].pixFmt;
 				validProfile = true;
 				break;
 			}
@@ -75,7 +76,7 @@ int DVEncoder::open(vidEncVideoProperties *properties)
 			for (int i = 0; i < profileCount; i++)
 			{
 				out << "\n" << dvProfiles[i].width << " x " << dvProfiles[i].height << " @ " << std::fixed
-					<< std::setprecision(2) << (float)dvProfiles[i].time_base.num / dvProfiles[i].time_base.den << "fps";
+					<< std::setprecision(2) << (float)dvProfiles[i].timeBase.num / dvProfiles[i].timeBase.den << "fps";
 			}
 
 			ret = ADM_VIDENC_ERR_FAILED;

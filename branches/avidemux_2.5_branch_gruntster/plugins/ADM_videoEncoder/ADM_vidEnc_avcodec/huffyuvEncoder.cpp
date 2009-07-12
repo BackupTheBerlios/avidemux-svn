@@ -19,7 +19,7 @@
 
 HuffyuvEncoder::HuffyuvEncoder(void)
 {
-	init(CODEC_ID_HUFFYUV, PIX_FMT_YUV422P);
+	init(CODEC_ID_HUFFYUV, ADM_CSP_I422);
 }
 
 const char* HuffyuvEncoder::getEncoderType(void)

@@ -25,6 +25,7 @@
 int avidemuxHook(void *handle, int opt, void *param1, void *param2);
 static XvidEncoder encoder;
 static void* encoders = { &encoder };
+static int supportedCsps[] = { ADM_CSP_YV12 };
 
 extern "C"
 {
@@ -237,6 +238,9 @@ int XvidEncoder::open(vidEncVideoProperties *properties)
 
 	if (_options.getThreads() == 0)
 		_xvid_enc_create.num_threads = _processors;
+
+	properties->supportedCspsCount = 1;
+	properties->supportedCsps = supportedCsps;
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }

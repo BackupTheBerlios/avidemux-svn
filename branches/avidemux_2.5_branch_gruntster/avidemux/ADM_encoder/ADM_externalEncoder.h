@@ -27,14 +27,20 @@ class externalEncoder : public Encoder
 {
 private:
 	ADM_vidEnc_plugin *_plugin;
+	PixelFormat _pixFmt;
 	bool _openPass;
 	bool _useExistingLogFile;
 	char* _logFileName;
 	bool _globalHeader;
 	uint8_t *_extraData;
 	int _extraDataSize;
+	struct SwsContext *_swsContext;
+	int _resampleSize;
+	uint8_t *_resampleBuffer;
 
 	uint8_t startPass(void);
+	int getColourSpace(enum PixelFormat pixFmt);
+	enum PixelFormat getAvCodecColourspace(int colourSpace);
 
 public:
 	externalEncoder(COMPRES_PARAMS *params, bool globalHeader);

@@ -19,7 +19,7 @@
 
 FFV1Encoder::FFV1Encoder(void)
 {
-	init(CODEC_ID_FFV1, PIX_FMT_YUV420P);
+	init(CODEC_ID_FFV1, ADM_CSP_YV12);
 }
 
 const char* FFV1Encoder::getEncoderType(void)

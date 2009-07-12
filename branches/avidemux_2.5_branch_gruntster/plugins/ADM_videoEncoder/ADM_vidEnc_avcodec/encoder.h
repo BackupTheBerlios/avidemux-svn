@@ -26,28 +26,27 @@ extern "C"
 {
 	#include "ADM_vidEnc_plugin.h"
 	#include "libavcodec/avcodec.h"
-	#include "libswscale/swscale.h"
 }
 
 class AvcodecEncoder
 {
 	protected:
 		enum CodecID _codecId;
-		enum PixelFormat _targetPixelFormat;
+		int _supportedCsps[1];
 
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
 
 		AVCodecContext *_context;
 		AVFrame _frame;
-		struct SwsContext *_swsContext;
 
-		int _resampleSize, _bufferSize;
-		uint8_t *_resampleBuffer, *_buffer;
+		int _bufferSize;
+		uint8_t *_buffer;
 
-		virtual void init(enum CodecID id, enum PixelFormat targetPixelFormat);
+		virtual void init(enum CodecID id, int targetColourSpace);
 		virtual void initContext(vidEncVideoProperties *properties);
 		AVCodec *getAvCodec(void);
+		enum PixelFormat getAvCodecColourSpace(int colourSpace);
 		virtual int getFrameType(void);
 		virtual void updateEncodeParameters(vidEncEncodeParameters *encodeParams, uint8_t *buffer, int bufferSize);
 

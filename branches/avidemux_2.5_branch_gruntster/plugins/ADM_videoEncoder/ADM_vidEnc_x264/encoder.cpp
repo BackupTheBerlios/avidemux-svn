@@ -24,6 +24,7 @@
 
 static x264Encoder encoder;
 static void* encoders = { &encoder };
+static int supportedCsps[] = { ADM_CSP_YV12 };
 
 extern "C"
 {
@@ -214,6 +215,9 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 	else
 		_param.b_repeat_headers = 1;
 
+	properties->supportedCspsCount = 1;
+	properties->supportedCsps = supportedCsps;
+
 	printParam(&_param);
 
 	return ADM_VIDENC_ERR_SUCCESS;
@@ -279,7 +283,7 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 	_handle = x264_encoder_open(&_param);
 
 	if (logFileName)
-		delete logFileName;
+		delete [] logFileName;
 
 	if (_handle)
 	{
@@ -287,7 +291,6 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 		{
 			if (createHeader())
 			{
-				passParameters->structSize = sizeof(vidEncPassParameters);
 				passParameters->extraData = _extraData;
 				passParameters->extraDataSize = _extraDataSize;
 			}

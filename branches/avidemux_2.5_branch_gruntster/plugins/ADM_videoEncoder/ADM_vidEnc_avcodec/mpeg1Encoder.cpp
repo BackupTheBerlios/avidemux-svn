@@ -22,7 +22,7 @@ extern int _uiType;
 
 Mpeg1Encoder::Mpeg1Encoder(void)
 {
-	init(CODEC_ID_MPEG1VIDEO, PIX_FMT_YUV420P);
+	init(CODEC_ID_MPEG1VIDEO, ADM_CSP_YV12);
 
 	_encodeOptions.structSize = sizeof(vidEncOptions);
 	_encodeOptions.encodeMode = DEFAULT_ENCODE_MODE;

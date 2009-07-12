@@ -19,7 +19,7 @@
 
 FFVHuffEncoder::FFVHuffEncoder(void)
 {
-	init(CODEC_ID_FFVHUFF, PIX_FMT_YUV420P);
+	init(CODEC_ID_FFVHUFF, ADM_CSP_YV12);
 }
 
 const char* FFVHuffEncoder::getEncoderType(void)

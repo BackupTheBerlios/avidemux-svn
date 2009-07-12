@@ -23,7 +23,10 @@
 extern "C"
 {
 #include "libavcodec/avcodec.h"
+#include "libswscale/swscale.h"
 }
+
+static const int colourSpaceMapping[][2] = {{ADM_CSP_YV12, PIX_FMT_YUV420P}, {ADM_CSP_I422, PIX_FMT_YUV422P}};
 
 externalEncoder::externalEncoder(COMPRES_PARAMS *params, bool globalHeader)
 {
@@ -32,6 +35,10 @@ externalEncoder::externalEncoder(COMPRES_PARAMS *params, bool globalHeader)
 	_useExistingLogFile = false;
 	_logFileName = NULL;
 	_globalHeader = globalHeader;
+
+	_swsContext = NULL;
+	_resampleSize = 0;
+	_resampleBuffer = NULL;
 }
 
 externalEncoder::~externalEncoder()
@@ -40,6 +47,44 @@ externalEncoder::~externalEncoder()
 
 	if (_logFileName)
 		delete [] _logFileName;
+
+	if (_resampleBuffer)
+		delete [] _resampleBuffer;
+
+	if (_swsContext)
+		sws_freeContext(_swsContext);
+}
+
+int externalEncoder::getColourSpace(enum PixelFormat pixFmt)
+{
+	int colourSpace = 0;
+
+	for (int i = 0; i < (sizeof(colourSpaceMapping) / sizeof(int) / 2); i++)
+	{
+		if (colourSpaceMapping[i][1] == pixFmt)
+		{
+			colourSpace = colourSpaceMapping[i][0];
+			break;
+		}
+	}
+
+	return colourSpace;
+}
+
+enum PixelFormat externalEncoder::getAvCodecColourspace(int colourSpace)
+{
+	enum PixelFormat pixFmt = PIX_FMT_NONE;
+
+	for (int i = 0; i < (sizeof(colourSpaceMapping) / sizeof(int) / 2); i++)
+	{
+		if (colourSpaceMapping[i][0] == colourSpace)
+		{
+			pixFmt = (enum PixelFormat)colourSpaceMapping[i][1];
+			break;
+		}
+	}
+
+	return pixFmt;
 }
 
 uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExistingLogFile)
@@ -73,7 +118,31 @@ uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExis
 		properties.flags |= ADM_VIDENC_FLAG_GLOBAL_HEADER;
 
 	if (_plugin->open(_plugin->encoderId, &properties))
+	{
+		int64_t pixFmtMask = 0;
+
+		for (int i = 0; i < properties.supportedCspsCount; i++)
+			pixFmtMask |= (1 << getAvCodecColourspace(properties.supportedCsps[i]));
+
+		_pixFmt = avcodec_find_best_pix_fmt(pixFmtMask, PIX_FMT_YUV420P, 0, NULL);
+
+		if (_pixFmt != PIX_FMT_YUV420P)
+		{
+			AVPicture resamplePicture;
+
+			_swsContext = sws_getContext(
+				properties.width, properties.height, PIX_FMT_YUV420P,
+				properties.width, properties.height, _pixFmt,
+				SWS_SPLINE, NULL, NULL, NULL);
+
+			_resampleSize = avpicture_fill(&resamplePicture, NULL, _pixFmt, properties.width, properties.height);
+			_resampleBuffer = new uint8_t[_resampleSize];
+		}
+
+		printf("[externalEncoder] Target colourspace: %s\n", _pixFmt == PIX_FMT_YUV420P ? "yv12" : avcodec_get_pix_fmt_name(_pixFmt));
+
 		return (startPass() == ADM_VIDENC_ERR_SUCCESS);
+	}
 	else
 		return 0;
 }
@@ -102,12 +171,31 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 	}
 	else
 	{
-		AVPicture sourcePicture;
+		AVPicture sourcePicture, resamplePicture, *inputPicture;
 
 		params.frameDataSize = avpicture_fill(&sourcePicture, _vbuffer->data, PIX_FMT_YUV420P, _w, _h);
 
-		memcpy(&params.frameLineSize, sourcePicture.linesize, sizeof(params.frameLineSize));
-		memcpy(&params.frameData, sourcePicture.data, sizeof(params.frameData));
+		if (_swsContext)
+		{
+			params.frameDataSize = avpicture_fill(&resamplePicture, _resampleBuffer, _pixFmt, _w, _h);
+
+			// Swap planes since input is YV12 (not YUV420P)
+			uint8_t *tmpPlane = sourcePicture.data[1];
+
+			sourcePicture.data[1] = sourcePicture.data[2];
+			sourcePicture.data[2] = tmpPlane;
+
+			sws_scale(
+				_swsContext, sourcePicture.data, sourcePicture.linesize, 0,
+				_h, resamplePicture.data, resamplePicture.linesize);
+
+			inputPicture = &resamplePicture;
+		}
+		else
+			inputPicture = &sourcePicture;
+
+		memcpy(&params.frameLineSize, inputPicture->linesize, sizeof(params.frameLineSize));
+		memcpy(&params.frameData, inputPicture->data, sizeof(params.frameData));
 	}
 
 	params.encodedData = NULL;
@@ -182,6 +270,7 @@ uint8_t externalEncoder::startPass(void)
 	passParameters.structSize = sizeof(vidEncPassParameters);
 	passParameters.logFileName = _logFileName;
 	passParameters.useExistingLogFile = _useExistingLogFile;
+	passParameters.csp = getColourSpace(_pixFmt);
 
 	ret = _plugin->beginPass(_plugin->encoderId, &passParameters);
 

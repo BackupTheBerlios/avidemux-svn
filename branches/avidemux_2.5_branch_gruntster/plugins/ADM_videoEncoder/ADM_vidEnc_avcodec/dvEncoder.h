@@ -20,25 +20,25 @@
 #ifdef __cplusplus
 extern "C"
 {
-	#include "ADM_vidEnc_plugin.h"
+#include "ADM_vidEnc_plugin.h"
 }
 
 #include "encoder.h"
 
 typedef struct DVprofile {
-	AVRational time_base;
+	AVRational timeBase;
 	int height;
 	int width;
-	enum PixelFormat pix_fmt;
+	int pixFmt;
 } DVprofile;
 
 static const DVprofile dvProfiles[] = {
-	{ { 30000, 1001 }, 480, 720, PIX_FMT_YUV422P },
-    { { 25, 1 }, 576, 720, PIX_FMT_YUV420P },
-	{ { 50, 1 }, 720, 960, PIX_FMT_YUV422P },
-    { { 60000, 1001 }, 720, 960, PIX_FMT_YUV422P },
-    { { 30000, 1001 }, 1080, 1280, PIX_FMT_YUV422P },
-    { { 25, 1 }, 1080, 1440, PIX_FMT_YUV422P }
+	{ { 30000, 1001 }, 480, 720, ADM_CSP_I422 },
+    { { 25, 1 }, 576, 720, ADM_CSP_YV12 },
+	{ { 50, 1 }, 720, 960, ADM_CSP_I422 },
+    { { 60000, 1001 }, 720, 960, ADM_CSP_I422 },
+    { { 30000, 1001 }, 1080, 1280, ADM_CSP_I422 },
+    { { 25, 1 }, 1080, 1440, ADM_CSP_I422 }
 };
 
 class DVEncoder : public AvcodecEncoder

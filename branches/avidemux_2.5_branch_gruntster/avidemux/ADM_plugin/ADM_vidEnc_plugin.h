@@ -43,16 +43,21 @@
 #define ADM_VIDENC_REQ_NONE 0
 #define ADM_VIDENC_REQ_NULL_FLUSH 1
 
+#define ADM_CSP_YV12 1
+#define ADM_CSP_I422 2
+
 #include "DIA_uiTypes.h"
 
 #define ADM_VIDENC_FLAG_GLOBAL_HEADER 1
 
 typedef struct
 {
+	// In
 	int structSize;
 	uint8_t *frameData[4];
 	int frameLineSize[4];
 	int frameDataSize;
+	// Out
 	uint8_t *encodedData;
 	int encodedDataSize;
 	int64_t ptsFrame;
@@ -62,6 +67,7 @@ typedef struct
 
 typedef struct
 {
+	// In
 	int structSize;
 	unsigned int width;
 	unsigned int height;
@@ -71,26 +77,36 @@ typedef struct
 	unsigned int fpsNum;
 	unsigned int fpsDen;
 	unsigned int flags;
+	// Out
+	unsigned int supportedCspsCount;
+	int *supportedCsps;
+
 } vidEncVideoProperties;
 
 typedef struct
 {
+	// In
 	int structSize;
+	// In/Out
 	unsigned int encodeMode;
 	int encodeModeParameter;
 } vidEncOptions;
 
 typedef struct
 {
+	// In
 	int structSize;
+	int useExistingLogFile;
+	const char* logFileName;
+	int csp;
+	// Out
 	uint8_t *extraData;
 	int extraDataSize;
-	const char* logFileName;
-	int useExistingLogFile;
 } vidEncPassParameters;
 
 typedef struct
 {
+	// In
 	int structSize;
 	intptr_t parent;
 	intptr_t parentNative;
