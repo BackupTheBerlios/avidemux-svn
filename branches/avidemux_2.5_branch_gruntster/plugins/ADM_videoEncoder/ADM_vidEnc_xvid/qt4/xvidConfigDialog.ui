@@ -2555,32 +2555,12 @@
       <number>6</number>
      </property>
      <item>
-      <spacer>
+      <widget class="QDialogButtonBox" name="buttonBox" >
        <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
-        <size>
-         <width>131</width>
-         <height>31</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="okButton" >
-       <property name="text" >
-        <string>OK</string>
-       </property>
-       <property name="default" >
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="cancelButton" >
-       <property name="text" >
-        <string>Cancel</string>
+       <property name="standardButtons" >
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::NoButton|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
@@ -2652,46 +2632,12 @@
   <tabstop>vbvBufferSizeSpinBox</tabstop>
   <tabstop>maxVbvBitrateSpinBox</tabstop>
   <tabstop>vbvPeakBitrateSpinBox</tabstop>
-  <tabstop>okButton</tabstop>
-  <tabstop>cancelButton</tabstop>
   <tabstop>configurationComboBox</tabstop>
   <tabstop>saveAsButton</tabstop>
   <tabstop>deleteButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>okButton</sender>
-   <signal>clicked()</signal>
-   <receiver>XvidConfigDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>354</x>
-     <y>635</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>246</x>
-     <y>344</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelButton</sender>
-   <signal>clicked()</signal>
-   <receiver>XvidConfigDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>437</x>
-     <y>635</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>246</x>
-     <y>344</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>sarPredefinedRadioButton</sender>
    <signal>toggled(bool)</signal>
@@ -2849,6 +2795,38 @@
     <hint type="destinationlabel" >
      <x>176</x>
      <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>XvidConfigDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>257</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>257</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>XvidConfigDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>257</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>257</x>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
