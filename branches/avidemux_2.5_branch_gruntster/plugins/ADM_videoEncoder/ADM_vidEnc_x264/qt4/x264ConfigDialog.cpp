@@ -468,7 +468,7 @@ void x264ConfigDialog::loopFilterCheckBox_toggled(bool checked)
 
 void x264ConfigDialog::cabacCheckBox_toggled(bool checked)
 {
-	if (!checked && ui.trellisCheckBox->isChecked())
+	if (!disableGenericSlots && !checked && ui.trellisCheckBox->isChecked())
 		if (GUI_Question(QT_TR_NOOP("Trellis optimisation isn't possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.\n\n Do you wish to continue?")))
 			ui.trellisCheckBox->setChecked(false);
 		else
@@ -478,7 +478,7 @@ void x264ConfigDialog::cabacCheckBox_toggled(bool checked)
 // Analysis tab
 void x264ConfigDialog::trellisCheckBox_toggled(bool checked)
 {
-	if (checked && !ui.cabacCheckBox->isChecked())
+	if (disableGenericSlots && checked && !ui.cabacCheckBox->isChecked())
 		if (GUI_Question(QT_TR_NOOP("Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.\n\nDo you wish to continue?")))
 			ui.cabacCheckBox->setChecked(true);
 		else
@@ -705,7 +705,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.bFrameMotionEstCheckBox->setChecked(options->getBidirectionalMotionEstimation());
 #endif
 
-	if (options->getTrellis())
+	if (options->getTrellis() && options->getCabac())
 	{
 		ui.trellisCheckBox->setChecked(true);
 		ui.trellisComboBox->setCurrentIndex(options->getTrellis() - 1);
