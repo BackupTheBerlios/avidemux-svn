@@ -501,17 +501,22 @@ void x264ConfigDialog::zoneAddButton_pressed()
 	zoneTableModel.insertRows(0, 1, QModelIndex());
 	ui.zoneTableView->selectRow(0);
 	ui.zoneTableView->edit(ui.zoneTableView->currentIndex());
+	ui.configurationComboBox->setCurrentIndex(1);
 }
 
 void x264ConfigDialog::zoneEditButton_pressed()
 {
 	ui.zoneTableView->edit(ui.zoneTableView->currentIndex());
+	ui.configurationComboBox->setCurrentIndex(1);
 }
 
 void x264ConfigDialog::zoneDeleteButton_pressed()
 {
 	if (ui.zoneTableView->currentIndex().row() >= 0 && GUI_Question(QT_TR_NOOP("Are you sure you wish to delete the selected zone?")))
+	{
 		zoneTableModel.removeRows(ui.zoneTableView->currentIndex().row(), 1, QModelIndex());
+		ui.configurationComboBox->setCurrentIndex(1);
+	}
 }
 
 int x264ConfigDialog::getValueIndexInArray(uint8_t value, const uint8_t valueArray[], int elementCount)
