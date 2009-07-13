@@ -321,9 +321,12 @@ uint8_t configure (void)
   diaElem *elems[] = { &menuMode, &Mode, &quality, &bitrate, &reservoir };
 
   if (diaFactoryRun (QT_TR_NOOP ("LAME Configuration"), 5, elems))
-    {
-      return 1;
-    }
+  {
+	  lameParam->mode=(ADM_mode)mmode; 
+	  lameParam->preset=(ADM_LAME_PRESET)ppreset;
+
+	  return 1;
+  }
   return 0;
 }
 /**
