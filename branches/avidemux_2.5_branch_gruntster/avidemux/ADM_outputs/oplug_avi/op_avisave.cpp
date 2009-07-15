@@ -495,6 +495,7 @@ const char *getStrFromAudioCodec( uint32_t codec)
               case WAV_AAC: return QT_TR_NOOP("AAC");
               case WAV_QDM2: return QT_TR_NOOP("QDM2");
               case WAV_AMRNB: return QT_TR_NOOP("AMR-NB");
+		      case WAV_AMRWB: return QT_TR_NOOP("AMR-WB");
               case WAV_MSADPCM: return QT_TR_NOOP("MSADPCM");
               case WAV_ULAW: return QT_TR_NOOP("ULAW");
               case WAV_IMAADPCM: return QT_TR_NOOP("IMA ADPCM");
