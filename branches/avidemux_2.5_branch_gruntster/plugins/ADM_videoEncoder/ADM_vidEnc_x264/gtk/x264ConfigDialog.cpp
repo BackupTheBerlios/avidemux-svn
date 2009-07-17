@@ -148,7 +148,7 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 	{
 		encodeOptions->encodeMode = getCurrentEncodeMode(dialog);
 
-		if (encodeOptions->encodeMode == ADM_VIDENC_MODE_CQP)
+		if (encodeOptions->encodeMode == ADM_VIDENC_MODE_CQP || encodeOptions->encodeMode == ADM_VIDENC_MODE_AQP)
 			encodeOptions->encodeModeParameter = (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(WID(spinbuttonQuantizer)));
 		else
 		{
