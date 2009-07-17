@@ -39,6 +39,7 @@ extern int AllVideoCodecCount;
 extern uint8_t DIA_videoCodec(int *codecIndex);
 extern void UI_setVideoCodec(int i);
 extern void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle);
+extern uint8_t isMpeg12Compatible (uint32_t fourcc);
 
 // Some static stuff
 void setVideoEncoderSettings(COMPRESSION_MODE mode, uint32_t param, uint32_t extraConf, uint8_t *extraData);
@@ -54,6 +55,8 @@ static void encoderPrint(void);
 #include "adm_encmjpeg.h"
 #include "adm_encCopy.h"
 #include "adm_encyv12.h"
+#include "adm_encmpeg2enc.h"
+#include "adm_encRequant.h"
 #include "ADM_pluginLoad.h"
 #include "ADM_externalEncoder.h"
 
@@ -581,7 +584,7 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 		e = new EncoderFFMPEG (FF_MPEG4, desc);
 		break;
 	case CodecMjpeg:
-		e = new EncoderMjpeg (&MjpegCodec);
+		e = new EncoderMjpeg (desc);
 		break;
 	case CodecFLV1:
 		e = new EncoderFFMPEGFLV1 (desc);
@@ -595,10 +598,46 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 
 		e = new EncoderFFMPEG (FF_H263, desc);
 		break;
+	case CodecXVCD:
+		e=new EncoderFFMPEGMpeg1(FF_MPEG1, desc);
+		printf("\n Using ffmpeg mpeg1 encoder\n");
+		break;
+	case CodecXSVCD:
+		e=new EncoderFFMPEGMpeg1(FF_MPEG2, desc);
+		printf("\n Using ffmpeg mpeg2 encoder\n");
+		break;
+	case CodecXDVD:
+		e=new EncoderFFMPEGMpeg1(FF_MPEG2, desc);
+		printf("\n Using ffmpeg mpeg2 encoder (DVD)\n");
+		break;
+	case CodecDVD:
+		e=new EncoderMpeg2enc(MPEG2ENC_DVD, desc);
+		printf("\n Using mpeg2enc encoder (DVD)\n");
+		break;
+	case CodecRequant:
+		if(!isMpeg12Compatible(avifileinfo->fcc))
+		{
+			GUI_Error_HIG("Incompatible Input","The input file must be mpeg2 to be able to use requant!");
+			break;
+		}
+
+		e=new EncoderRequant(desc);
+
+		printf("\n Using mpeg2 requant\n");
+		break;
+	case CodecSVCD:
+		e=new EncoderMpeg2enc(MPEG2ENC_SVCD, desc);
+		printf("\n Using mpeg2enc encoder (SVCD)\n");
+		break;
+	case CodecVCD:
+		e=new EncoderMpeg2enc(MPEG2ENC_VCD, desc);
+		printf("\n Using mpeg2enc encoder (VCD)\n");
+		break;
 	case CodecExternal:
 		e = new externalEncoder(&AllVideoCodec[currentCodecIndex], globalHeaderFlag);
 		break;
 	}
+
 	return e;
 }
 

@@ -13,8 +13,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef __ADM_encoder_copy__
-#define __ADM_encoder_copy__
+#ifndef __ADM_encoder_requant__
+#define __ADM_encoder_requant__
 
 
 class EncoderRequant:public Encoder

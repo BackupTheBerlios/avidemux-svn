@@ -22,8 +22,6 @@
 #include "config.h"
 
 #ifdef USE_FFMPEG
-#include <math.h>
-
 #include "ADM_default.h"
 #include "ADM_threads.h"
 
@@ -32,20 +30,11 @@ extern "C" {
 }
 
 #include "avi_vars.h"
-#include "prototype.h"
-
-//#include "ADM_colorspace/colorspace.h"
 #include "DIA_coreToolkit.h"
-#include "ADM_videoFilter.h"
-#include "ADM_videoFilter_internal.h"
 
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_encoder/adm_encoder.h"
 
-#include "ADM_codecs/ADM_ffmpeg.h"
-#include "ADM_encoder/adm_encffmpeg.h"
-#include "ADM_encoder/adm_encmpeg2enc.h"
-#include "ADM_encoder/adm_encRequant.h"
 #include "../oplug_mpegFF/oplug_vcdff.h"
 
 #include "ADM_userInterfaces/ADM_commonUI/DIA_encoding.h"
@@ -54,19 +43,11 @@ extern "C" {
 #include "../ADM_lavformat.h"
 
 #include "ADM_encoder/adm_encConfig.h"
-#include "ADM_encoder/ADM_vidEncode.hxx"
-
 #include "ADM_libraries/ADM_mplex/ADM_mthread.h"
 
 static uint8_t *_buffer = NULL, *_outbuffer = NULL;
 static void end(void);
 extern const char *getStrFromAudioCodec(uint32_t codec);
-
-extern COMPRES_PARAMS ffmpeg1Codec,ffmpeg2DVDCodec,ffmpeg2SVCDCodec,RequantCodec;	
-extern FFcodecSetting ffmpeg1Extra,ffmpeg2DVDExtra,ffmpeg2SVCDExtra;
-extern COMPRES_PARAMS SVCDCodec, DVDCodec,VCDCodec;
-
-extern uint8_t    isMpeg12Compatible (uint32_t fourcc);
 
 extern SelectCodecType videoCodecGetType(void);
 
@@ -186,48 +167,10 @@ int reuse = 0;
             }
          }        
         // Create muxer
-       
-       
-        switch (videoCodecGetType())
-        {
-                
-                case CodecXVCD:
-                        encoder=new EncoderFFMPEGMpeg1(FF_MPEG1,&ffmpeg1Codec);
-                        printf("\n Using ffmpeg mpeg1 encoder\n");
-                        break;
-                case CodecXSVCD:
-                        encoder=new EncoderFFMPEGMpeg1(FF_MPEG2,&ffmpeg2SVCDCodec);
-                        printf("\n Using ffmpeg mpeg2 encoder\n");
-                        break;
-                case CodecXDVD:
-                        encoder=new EncoderFFMPEGMpeg1(FF_MPEG2,&ffmpeg2DVDCodec);
-                        printf("\n Using ffmpeg mpeg2 encoder (DVD)\n");
-                        break;
-                case CodecDVD:
-                  encoder=new EncoderMpeg2enc(MPEG2ENC_DVD,&DVDCodec);
-                  printf("\n Using mpeg2enc encoder (DVD)\n");
-                  break;
-                case CodecRequant:
-                  if(!isMpeg12Compatible(avifileinfo->fcc))
-                  {
-                    GUI_Error_HIG("Incompatible Input","The input file must be mpeg2 to be able to use requant!");
-                    return 0; // Fixme, do some cleanup 
-                  }
-                  encoder=new EncoderRequant(&RequantCodec);
-                  printf("\n Using mpeg2 requant\n");
-                  break;
-                break;
-                case CodecSVCD:
-                  encoder=new EncoderMpeg2enc(MPEG2ENC_SVCD,&SVCDCodec);
-                  printf("\n Using mpeg2enc encoder (SVCD)\n");
-                  break;
-                case CodecVCD:
-                  encoder=new EncoderMpeg2enc(MPEG2ENC_VCD,&VCDCodec);
-                  printf("\n Using mpeg2enc encoder (VCD)\n");
-                  break;
-                default:
-                ADM_assert(0);
-      }
+       encoder = getVideoEncoder(_w, _h, 0);
+
+	   if (encoder == NULL)
+		   return 0;
 
       encoder->setLogFile(twoPass,total);
 
