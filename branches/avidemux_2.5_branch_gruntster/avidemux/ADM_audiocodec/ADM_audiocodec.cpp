@@ -81,16 +81,20 @@ ADM_Audiocodec *out = NULL;
 					out= (ADM_Audiocodec *)new ADM_AudiocodecWav(fourcc);
 #endif					
                   		break;
-#ifdef USE_LIBDCA
                 case WAV_DTS:
+#ifdef USE_LIBDCA
 					if (dca->isAvailable())
 					{
-						printf("\n Audio codec:  DTS\n");
+						printf("\n Audio codec:  DTS (libdca)\n");
 						out= (ADM_Audiocodec *) new ADM_AudiocodecDCA(fourcc, info);						
 					}
+#else
+					printf("\n Audio codec:  DTS (avcodec)\n");
+					out= (ADM_Audiocodec *)new ADM_AudiocodecWMA(fourcc,info,extra,extraData);
+#endif
 
 					break;
-#endif
+
 				case WAV_ULAW:
 						printf("\n ULAW codec\n");
 						out=(ADM_Audiocodec *) new ADM_AudiocodecUlaw(fourcc,info);

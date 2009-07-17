@@ -75,7 +75,10 @@ uint8_t scratchPad[SCRATCH_PAD_SIZE];
         _context->codec_id = CODEC_ID_NELLYMOSER;
         _blockalign=1;
         break;
-
+	  case WAV_DTS:
+		_context->codec_id = CODEC_ID_DTS;
+		_blockalign = 1;
+		break;
       default:
              ADM_assert(0);
     }
