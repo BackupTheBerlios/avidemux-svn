@@ -1,5 +1,23 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5087" date="2009-07-13">
+  </buildentry>
+  <buildentry revision="5065" date="2009-07-12">
+    <comment>Updated Vorbis to version 1.2.3.</comment>
+    <comment>Updated x264 to r1181.</comment>
+  </buildentry>
+  <buildentry revision="5031" date="2009-07-10">
+    <comment>Recompiled FAAC with MinGW's GCC 4.2.1-sjlj-2.</comment>
+    <comment>Updated x264 to r1179.</comment>
+  </buildentry>
+  <buildentry revision="5010" date="2009-07-06">
+  </buildentry>
+  <buildentry revision="4997" date="2009-07-05">
+  </buildentry>
+  <buildentry revision="4992" date="2009-07-04">
+    <comment>Updated FAAC to version 1.28.</comment>
+    <comment>Updated FAAD2 to version 2.7.</comment>
+  </buildentry>
   <buildentry revision="4968" date="2009-06-27">
     <comment>Updated ATK to version 1.26.0-1.</comment>
     <comment>Updated GLib to version 2.20.3-1.</comment>

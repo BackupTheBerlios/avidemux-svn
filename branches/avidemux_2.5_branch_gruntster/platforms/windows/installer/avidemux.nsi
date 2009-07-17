@@ -388,6 +388,22 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioDecoder
 			${File} plugins\audioDecoder\libADM_ad_Mad.dll
 		${MementoSectionEnd}
+		${MementoSection} "opencore-amrnb (AMR-NB)" SecAudDecOpencoreAmrNb
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_opencore_amrnb.dll
+			SetOutPath $INSTDIR
+			${File} libopencore-amrnb.dll
+		${MementoSectionEnd}
+		${MementoSection} "opencore-amrwb (AMR-WB)" SecAudDecOpencoreAmrWb
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_opencore_amrwb.dll
+			SetOutPath $INSTDIR
+			${File} libopencore-amrwb.dll
+		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Devices" SecGrpAudioDevice
 		${MementoUnselectedSection} SDL SecAudDevSdl
