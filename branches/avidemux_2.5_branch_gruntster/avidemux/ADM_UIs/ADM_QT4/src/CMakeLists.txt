@@ -2,12 +2,12 @@ SET(ADM_LIB ADM_UIQT4)
 
 QT4_WRAP_CPP(${ADM_LIB}_source
 	T_bitrate.h  T_button.h  T_dialogFactory.h  T_filesel.h  T_menu.h  T_slider.h
-	T_threadCount.h  T_toggle.h  T_notch.h)
+	T_threadCount.h  T_toggle.h  T_notch.h  T_configMenu.h)
 
 SET(${ADM_LIB}_T
 	T_bitrate.cpp  T_button.cpp  T_dialogFactory.cpp  T_filesel.cpp  T_menu.cpp
 	T_slider.cpp  T_threadCount.cpp  T_toggle.cpp  T_notch.cpp
-    T_flyDialogQt4.cpp T_QCanvas.cpp
+    T_flyDialogQt4.cpp T_QCanvas.cpp  T_configMenu.cpp
 )
 
 SET(${ADM_LIB}_SRCS

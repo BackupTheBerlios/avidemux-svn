@@ -58,6 +58,11 @@ uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 	ADM_assert(Factory); 
 	return Factory->FactoryRunTab(title,nb,tabs);
 }
+uint8_t diaFactoryRunTabs(const char *title, unsigned int headerControlCount, diaElem **headerControls, unsigned int tabControlCount, diaElemTabs **tabControls)
+{
+	ADM_assert(Factory);
+	return Factory->FactoryRunTab2(title, headerControlCount, headerControls, tabControlCount, tabControls);
+}
 
 // ****************** Buttons ********************
 diaElemButton ::diaElemButton(const char *toggleTitle, ADM_FAC_CALLBACK *cb,void *cookie,const char *tip) :diaElem(ELEM_BUTTON)
@@ -566,5 +571,25 @@ uint8_t   diaElemSlider::setDigits(uint32_t digits)
 			cast->setDigits(digits);	
 }
 DIA_MKSTUBS(diaElemSlider)
-//
-// EOF
+// ****************** diaElemConfigMenu ********************
+diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
+									 CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
+{
+	ADM_assert(Factory);
+	internalPointer = Factory->CreateConfigMenu(userConfigDir, systemConfigDir, changedFunc, serializeFunc, controls, controlCount);
+}
+
+diaElemConfigMenu::~diaElemConfigMenu()
+{
+	ADM_assert(Factory); 
+	Factory->DestroyConfigMenu(internalPointer);
+	internalPointer = NULL;
+}
+
+void diaElemConfigMenu::enable(uint32_t onoff)
+{ 
+	ADM_assert(internalPointer); 
+	internalPointer->enable(onoff);
+}
+
+DIA_MKSTUBS(diaElemConfigMenu)

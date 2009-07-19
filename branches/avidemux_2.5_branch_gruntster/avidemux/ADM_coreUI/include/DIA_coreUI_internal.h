@@ -38,12 +38,15 @@ uint8_t DIA_fileSelInit(DIA_FILESEL_DESC_T *d);
 
 //
 typedef uint8_t DIA_FACTORY_RUN_TABS(const char *title,uint32_t nb,diaElemTabs **tabs);
+typedef uint8_t DIA_FACTORY_RUN_TABS2(const char *title, unsigned int headerControlCount, diaElem **headerControls, unsigned int tabControlCount, diaElemTabs **tabControls);
 typedef uint8_t DIA_FACTORY_RUN(const char *title,uint32_t nb,diaElem **elems);
+
 typedef struct
 {
 	COREUI_GET_VERSION   *FactoryGetVersion;
 	DIA_FACTORY_RUN      *FactoryRun;
 	DIA_FACTORY_RUN_TABS *FactoryRunTab;
+	DIA_FACTORY_RUN_TABS2 *FactoryRunTab2;
 //	
 	CREATE_BUTTON_T 	 *CreareButton;
 	DELETE_DIA_ELEM_T    *DestroyButton;
@@ -110,6 +113,9 @@ typedef struct
 // Slider
 	CREATE_SLIDER_T      *CreateSlider;
 	DELETE_DIA_ELEM_T    *DestroySlider;
+// Config Menu
+	CREATE_CONFIG_MENU_T *CreateConfigMenu;
+	DELETE_DIA_ELEM_T    *DestroyConfigMenu;
 }FactoryDescriptor;
 //
 uint8_t DIA_factoryInit(FactoryDescriptor *d);

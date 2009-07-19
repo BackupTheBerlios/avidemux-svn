@@ -23,7 +23,7 @@
 
 #define ADM_COREUI_MAJOR 1
 #define ADM_COREUI_MINOR 0
-#define ADM_COREUI_PATCH 0
+#define ADM_COREUI_PATCH 1
 
 typedef enum 
 {
@@ -47,8 +47,9 @@ typedef enum
   ELEM_SLIDER,
   ELEM_THREAD_COUNT,
   ELEM_MATRIX,
-  ELEM_COUNT,
   ELEM_ASPECT_RATIO,
+  ELEM_CONFIG_MENU,
+  ELEM_COUNT,
   ELEM_MAX=ELEM_COUNT-1
 }elemEnum;
 typedef void ADM_FAC_CALLBACK(void *cookie);
@@ -630,9 +631,42 @@ public:
 	void enable(uint32_t onoff);
 	int getRequiredLayout(void);
 };
+/*********************************************/
+typedef enum
+{
+	CONFIG_MENU_CUSTOM,
+	CONFIG_MENU_DEFAULT,
+	CONFIG_MENU_USER,
+	CONFIG_MENU_SYSTEM
+} ConfigMenuType;
 
+typedef char *(CONFIG_MENU_SERIALIZE_T)(void);
+typedef bool (CONFIG_MENU_CHANGED_T)(const char* configName, ConfigMenuType configType);
+typedef diaElem *(CREATE_CONFIG_MENU_T)(const char* userConfigDir, const char* systemConfigDir,	CONFIG_MENU_CHANGED_T *changedFunc, 
+										CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+
+class diaElemConfigMenu : public diaElem
+{
+protected:
+	const char *userConfigDir, *systemConfigDir;
+	diaElem **controls;
+	unsigned int controlCount;
+
+	CONFIG_MENU_CHANGED_T *changedFunc;
+	CONFIG_MENU_SERIALIZE_T *serializeFunc;
+
+public:
+	diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
+			CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+	~diaElemConfigMenu();
+	void setMe(void *dialog, void *opaque, uint32_t line);
+	void getMe(void);
+	void enable(uint32_t onoff);
+	int getRequiredLayout(void);
+};
 /*********************************************/
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems);
 uint8_t diaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs);
+uint8_t diaFactoryRunTabs(const char *title, unsigned int headerControlCount, diaElem **headerControls, unsigned int tabControlCount, diaElemTabs **tabControls);
 /*********************************************/
 #endif

@@ -365,6 +365,7 @@ static FactoryDescriptor GtkFactoryDescriptor=
 	&gtkFactoryGetVersion,
 	&gtkDiaFactoryRun,
 	&gtkDiaFactoryRunTabs,
+	NULL,
 	// Buttons
 	&gtkCreateButton,
 	&gtkDeleteButton,
@@ -427,7 +428,10 @@ static FactoryDescriptor GtkFactoryDescriptor=
 	&gtkCreateUSlider,
 	&gtkDestroyUSlider,
 	&gtkCreateSlider,
-	&gtkDestroySlider
+	&gtkDestroySlider,
+	// Config Menu
+	NULL,
+	NULL
 };
 
 /**
