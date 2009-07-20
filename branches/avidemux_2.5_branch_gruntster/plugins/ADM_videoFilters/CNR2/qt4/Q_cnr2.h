@@ -1,4 +1,5 @@
 #include "ui_cnr2.h"
+#include "ADM_default.h"
 #include "ADM_vidCNR2_param.h"
 
 class Cnr2Window : public QDialog

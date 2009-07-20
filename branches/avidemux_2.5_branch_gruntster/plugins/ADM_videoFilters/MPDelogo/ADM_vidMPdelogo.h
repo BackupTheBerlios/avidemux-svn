@@ -12,6 +12,7 @@
  ***************************************************************************/
 #ifndef ADM_DELOGO_H
 #define ADM_DELOGO_H
+#include "ADM_default.h"
 typedef struct MPDELOGO_PARAM
 {
         uint32_t xoff;

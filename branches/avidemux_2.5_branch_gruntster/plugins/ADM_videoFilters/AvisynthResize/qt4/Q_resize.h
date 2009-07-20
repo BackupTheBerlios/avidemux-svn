@@ -1,7 +1,7 @@
 #ifndef Q_resizing_h
 #define Q_resizing_h
-
 #include "ui_resizing.h"
+#include "ADM_default.h"
 
 typedef struct resParam
 {

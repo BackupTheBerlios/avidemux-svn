@@ -14,6 +14,7 @@
 
 #ifndef ADM_VID_COLOR_YUV_PARAM_H
 #define ADM_VID_COLOR_YUV_PARAM_H
+#include "ADM_default.h"
 typedef struct COLOR_YUV_PARAM
 {
     double y_contrast, y_bright, y_gamma, y_gain;
