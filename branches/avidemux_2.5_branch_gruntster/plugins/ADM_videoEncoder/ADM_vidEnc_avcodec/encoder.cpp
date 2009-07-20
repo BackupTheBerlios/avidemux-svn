@@ -13,6 +13,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include <libxml/tree.h>
 
 #include "encoder.h"
 #include "dvEncoder.h"

@@ -26,8 +26,7 @@
 #include <libxml/xmlschemas.h>
 #include <sstream>
 #include <string>
-
-#include "ADM_inttype.h"
+#include "ADM_default.h"
 #include "ADM_files.h"
 
 #include "../common/PluginOptions.cpp"

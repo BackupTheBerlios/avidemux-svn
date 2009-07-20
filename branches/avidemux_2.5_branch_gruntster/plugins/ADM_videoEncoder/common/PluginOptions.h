@@ -17,7 +17,6 @@
 #ifndef PluginOptions_h
 #define PluginOptions_h
 
-#include <libxml/tree.h>
 
 extern "C"
 {

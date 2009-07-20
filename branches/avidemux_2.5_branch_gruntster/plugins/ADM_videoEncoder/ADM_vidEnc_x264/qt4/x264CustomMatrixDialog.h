@@ -2,7 +2,7 @@
 #define x264CustomMatrixDialog_h
 
 #include "ui_x264CustomMatrixDialog.h"
-
+#include "ADM_default.h"
 class x264CustomMatrixDialog : public QDialog
 {
 	Q_OBJECT

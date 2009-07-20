@@ -14,8 +14,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <libxml/parser.h>
-#include <libxml/xmlschemas.h>
 #include <sstream>
 #include <string>
 
@@ -23,7 +21,9 @@
 #include "ADM_files.h"
 #include "PluginOptions.h"
 #include "PluginXmlOptions.cpp"
-
+#undef malloc
+#undef free
+#undef strdup
 PluginOptions::PluginOptions(const char* tagPrefix, const char* schemaFile, unsigned int defaultEncodeMode, int defaultEncodeModeParameter)
 {
 	_tagPrefix = new char[strlen(tagPrefix) + 1];

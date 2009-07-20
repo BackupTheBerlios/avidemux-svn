@@ -18,7 +18,6 @@
 #define mpeg1EncoderOptions_h
 
 #include <vector>
-#include <libxml/tree.h>
 #include "../common/PluginOptions.h"
 
 extern "C"

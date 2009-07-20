@@ -4,7 +4,6 @@
 #include <QtCore/QAbstractTableModel>
 #include <QtCore/QPair>
 #include <QtCore/QList>
-
 #include "../zoneOptions.h"
 
 class x264ZoneTableModel : public QAbstractTableModel

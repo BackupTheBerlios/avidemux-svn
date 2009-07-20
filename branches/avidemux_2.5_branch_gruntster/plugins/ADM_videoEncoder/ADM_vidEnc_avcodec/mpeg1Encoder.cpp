@@ -13,7 +13,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
+#include <libxml/tree.h>
 #include "ADM_inttype.h"
 #include "mpeg1Encoder.h"
 #include "DIA_factory.h"

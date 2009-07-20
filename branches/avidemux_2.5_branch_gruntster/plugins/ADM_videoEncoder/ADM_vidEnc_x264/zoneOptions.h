@@ -16,12 +16,12 @@
 
 #ifndef zoneOptions_h
 #define zoneOptions_h
+#include "ADM_default.h"
 
 extern "C"
 {
 #include "x264.h"
 }
-
 typedef enum
 {
 	ZONE_MODE_QUANTISER,

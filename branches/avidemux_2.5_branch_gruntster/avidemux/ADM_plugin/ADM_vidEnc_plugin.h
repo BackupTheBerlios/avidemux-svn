@@ -45,7 +45,7 @@
 
 #define ADM_CSP_YV12 1
 #define ADM_CSP_I422 2
-
+#include "ADM_default.h"
 #include "DIA_uiTypes.h"
 
 #define ADM_VIDENC_FLAG_GLOBAL_HEADER 1
