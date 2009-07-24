@@ -208,7 +208,10 @@ uint8_t ADM_vf_loadPlugins(const char *path)
 	}
 
 	for(int i=0;i<nbFile;i++)
+	{
 		tryLoadingFilterPlugin(files[i]);
+		ADM_dealloc(files[i]);
+	}
 
 	printf("[ADM_vf_plugin] Scanning done\n");
 

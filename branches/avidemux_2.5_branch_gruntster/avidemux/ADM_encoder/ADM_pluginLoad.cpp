@@ -186,7 +186,10 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 		printf("[ADM_vidEnc_plugin] Cannot parse plugin\n");
 
 	for (int i = 0; i < nbFile; i++)
+	{
 		loadVideoEncoderPlugin(uiType, files[i]);
+		ADM_dealloc(files[i]);
+	}
 
 	printf("[ADM_vidEnc_plugin] Scanning done, found %d codec\n", ADM_videoEncoderPlugins.size());
 
