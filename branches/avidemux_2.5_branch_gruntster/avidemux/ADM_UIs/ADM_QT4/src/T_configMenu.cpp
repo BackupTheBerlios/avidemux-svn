@@ -56,11 +56,11 @@ namespace ADM_Qt4Factory
 		layout->addWidget(deleteButton, line, 4);
 		layout->addItem(spacer2, line, 5);
 
+		fillConfigurationComboBox();
+
 		QObject::connect(deleteButton, SIGNAL(clicked(bool)), this, SLOT(deleteClicked(bool)));
 		QObject::connect(saveAsButton, SIGNAL(clicked(bool)), this, SLOT(saveAsClicked(bool)));
 		QObject::connect(combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(comboboxIndexChanged(int)));
-
-		fillConfigurationComboBox();
 	}
 
 	ADM_QconfigMenu::~ADM_QconfigMenu() 
@@ -69,6 +69,7 @@ namespace ADM_Qt4Factory
 
 	void ADM_QconfigMenu::fillConfigurationComboBox(void)
 	{
+		bool origDisableGenericSlots = disableGenericSlots;
 		QMap<QString, int> configs;
 		QStringList filter("*.xml");
 		QStringList list = QDir(this->userConfigDir).entryList(filter, QDir::Files | QDir::Readable);
@@ -92,11 +93,14 @@ namespace ADM_Qt4Factory
 			combobox->addItem(mapIterator.key(), mapIterator.value());
 			mapIterator++;
 		}
+
+		disableGenericSlots = origDisableGenericSlots;
 	}
 
 	bool ADM_QconfigMenu::selectConfiguration(QString *selectFile, ConfigMenuType configurationType)
 	{
 		bool success = false;
+		bool origDisableGenericSlots = disableGenericSlots;
 
 		if (configurationType == CONFIG_MENU_DEFAULT)
 		{
@@ -118,6 +122,8 @@ namespace ADM_Qt4Factory
 			if (!success)
 				combobox->setCurrentIndex(1);
 		}
+
+		disableGenericSlots = origDisableGenericSlots;
 
 		return success;
 	}
@@ -168,12 +174,22 @@ namespace ADM_Qt4Factory
 
 	void ADM_QconfigMenu::comboboxIndexChanged(int index)
 	{
+		bool origDisableGenericSlots = disableGenericSlots;
 		ConfigMenuType configType = (ConfigMenuType)combobox->itemData(index).toInt();
 
+		disableGenericSlots = true;
 		deleteButton->setEnabled(configType == CONFIG_MENU_USER);
 
 		if (changedFunc)
-			changedFunc(combobox->itemText(index).toUtf8().constData(), configType);
+		{
+			if (!changedFunc(combobox->itemText(index).toUtf8().constData(), configType))
+				combobox->setCurrentIndex(0);
+
+			for (int i = 0; i < this->controlCount; i++)
+				this->controls[i]->updateMe();
+		}
+
+		disableGenericSlots = origDisableGenericSlots;
 	}
 
 	class diaElemConfigMenu : public diaElem
@@ -194,6 +210,7 @@ namespace ADM_Qt4Factory
 		void getMe(void);
 		void enable(uint32_t onoff);
 		int getRequiredLayout(void);
+		void updateMe(void);
 	};
 
 	diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
@@ -242,6 +259,10 @@ namespace ADM_Qt4Factory
 	int diaElemConfigMenu::getRequiredLayout(void)
 	{
 		return FAC_QT_GRIDLAYOUT;
+	}
+
+	void diaElemConfigMenu::updateMe(void)
+	{
 	}
 }
 

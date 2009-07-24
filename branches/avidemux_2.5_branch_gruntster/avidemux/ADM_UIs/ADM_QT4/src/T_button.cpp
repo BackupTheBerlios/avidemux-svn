@@ -32,6 +32,7 @@ class diaElemButton : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 ADM_Qbutton::ADM_Qbutton(QWidget *z,QGridLayout *layout,const char *blah,int line,ADM_FAC_CALLBACK *cb, void *cookie) : QWidget(z) 
@@ -89,7 +90,7 @@ void   diaElemButton::enable(uint32_t onoff)
 }
 
 int diaElemButton::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
-
+void diaElemButton::updateMe(void) {}
 }; // End of namespace
 //****************************Hoook*****************
 

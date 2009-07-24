@@ -42,6 +42,7 @@ public:
   void   changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 class diaElemDirSelect : public diaElemDirSelectBase
 {
@@ -56,6 +57,7 @@ public:
   void changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 void ADM_Qfilesel::buttonPressed(QAbstractButton *s)
@@ -191,6 +193,7 @@ void diaElemFile::enable(uint32_t onoff)
 void diaElemFile::changeFile(void) {}
 
 int diaElemFile::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+void diaElemFile::updateMe(void) {};
 
 //****************************
 diaElemDirSelect::diaElemDirSelect(char **filename,const char *toggleTitle,const char *selectDirDesc) :
@@ -243,6 +246,7 @@ void diaElemDirSelect::enable(uint32_t onoff)
 void diaElemDirSelect::changeFile(void) {}
 
 int diaElemDirSelect::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+void diaElemDirSelect::updateMe(void) {};
 } // End of namespace
 //****************************Hoook*****************
 

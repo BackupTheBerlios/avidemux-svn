@@ -15,6 +15,9 @@ namespace ADM_Qt4Factory
 	{
 		Q_OBJECT
 
+	private:
+		void updateCombo(COMPRESSION_MODE mode);
+
 	public slots:
 		void comboChanged(int i);
 
@@ -27,6 +30,7 @@ namespace ADM_Qt4Factory
 		uint32_t        maxQ, _minQ;
 
 		ADM_Qbitrate(COMPRES_PARAMS *p, uint32_t minQ, uint32_t mq, QGridLayout *layout, int line);
+		void updateMe();
 		virtual ~ADM_Qbitrate();
 		void readBack(void);
 	};

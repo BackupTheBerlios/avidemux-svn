@@ -30,6 +30,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) {};
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 
@@ -74,6 +75,7 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
 }
 
 int diaElemNotch::getRequiredLayout(void) { return 0; }
+void diaElemNotch::updateMe(void) {}
 } // End of namespace
 //****************************Hoook*****************
 

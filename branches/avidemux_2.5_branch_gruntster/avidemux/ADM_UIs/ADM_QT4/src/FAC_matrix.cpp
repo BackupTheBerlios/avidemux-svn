@@ -38,6 +38,7 @@ class diaElemMatrix : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 
@@ -122,6 +123,7 @@ void diaElemMatrix::enable(uint32_t onoff)
 }
 
 int diaElemMatrix::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+void diaElemMatrix::updateMe(void) {}
 }
 //****************************Hoook*****************
 

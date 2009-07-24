@@ -43,7 +43,7 @@ ADM_Qbitrate::ADM_Qbitrate(COMPRES_PARAMS *p,uint32_t minQ, uint32_t mq,QGridLay
 	_minQ=minQ;
 	maxQ=mq;
 	int index=0,set=-1;
-#define add(x,z,y) if(compress->capabilities & ADM_ENC_CAP_##x) {combo->addItem(QString::fromUtf8(y));\
+#define add(x,z,y) if(compress->capabilities & ADM_ENC_CAP_##x) {combo->addItem(QString::fromUtf8(y), COMPRESS_##z);\
 	if(p->mode==COMPRESS_##z) set=index;\
 	index++;}
 
@@ -134,57 +134,71 @@ void ADM_Qbitrate::readBack(void)
           ADM_assert(0);
   }
 }
-void ADM_Qbitrate::comboChanged(int i)
+
+void ADM_Qbitrate::updateMe()
 {
-  printf("Changed\n"); 
+	updateCombo(compress->mode);
+}
+
+void ADM_Qbitrate::updateCombo(COMPRESSION_MODE mode)
+{
 #define P(x) text2->setText(QString::fromUtf8(x))
 #define M(x,y) box->setMinimum  (x);box->setMaximum  (y);
 #define S(x)   box->setValue(x);
-  COMPRESSION_MODE mode=readPulldown(compress,i);
-    switch(mode)
-  {
-    case COMPRESS_CBR: //CBR
-          P(QT_TR_NOOP("Target bitrate (kb/s)"));
-          M(0,20000);
-          S(compress->bitrate);
-          break; 
-    case COMPRESS_CQ:// CQ
-          P(QT_TR_NOOP("Quantizer"));
-          M(_minQ,maxQ);
-          S(compress->qz);
-          break;
-    case COMPRESS_2PASS : // 2pass Filesize
-          P(QT_TR_NOOP("Target video size (MB)"));
-          M(1,8000);
-          S(compress->finalsize);
-          break;
-    case COMPRESS_2PASS_BITRATE : // 2pass Avg
-          P(QT_TR_NOOP("Average bitrate (kb/s)"));
-          M(0,20000);
-          S(compress->avg_bitrate);
-          break;
-    case COMPRESS_SAME : // Same Qz as input
-          P(QT_TR_NOOP("-"));
-          M(0,0);
-          break;
-    case COMPRESS_AQ : // AQ
-          P(QT_TR_NOOP("Quantizer"));
-          M(_minQ,maxQ);
-          S(compress->qz);
-          break;
-    default:ADM_assert(0);
-  }
+
+	for (int i = 0; i < combo->count(); i++)
+	{
+		if (combo->itemData(i).toInt() == mode)
+		{
+			if (combo->currentIndex() != i)
+				combo->setCurrentIndex(i);
+
+			break;
+		}
+	}
+
+	switch(mode)
+	{
+		case COMPRESS_CBR: //CBR
+			P(QT_TR_NOOP("Target bitrate (kb/s)"));
+			M(0,20000);
+			S(compress->bitrate);
+			break; 
+		case COMPRESS_CQ:// CQ
+			P(QT_TR_NOOP("Quantizer"));
+			M(_minQ,maxQ);
+			S(compress->qz);
+			break;
+		case COMPRESS_2PASS : // 2pass Filesize
+			P(QT_TR_NOOP("Target video size (MB)"));
+			M(1,8000);
+			S(compress->finalsize);
+			break;
+		case COMPRESS_2PASS_BITRATE : // 2pass Avg
+			P(QT_TR_NOOP("Average bitrate (kb/s)"));
+			M(0,20000);
+			S(compress->avg_bitrate);
+			break;
+		case COMPRESS_SAME : // Same Qz as input
+			P(QT_TR_NOOP("-"));
+			M(0,0);
+			break;
+		case COMPRESS_AQ : // AQ
+			P(QT_TR_NOOP("Quantizer"));
+			M(_minQ,maxQ);
+			S(compress->qz);
+			break;
+		default:
+			ADM_assert(0);
+	}
 }
-ADM_Qbitrate::~ADM_Qbitrate()
+
+void ADM_Qbitrate::comboChanged(int i)
 {
-#define DEL(x) if(x) {delete x;x=NULL;}
-#if 0 // Automatically deleted
-                 DEL(text1)
-                 DEL(text2)
-                 DEL(box) 
-                 DEL(combo) 
-#endif
-};
+	updateCombo(readPulldown(compress,i));
+}
+
+ADM_Qbitrate::~ADM_Qbitrate() {}
 
 //**********************************
 diaElemBitrate::diaElemBitrate(COMPRES_PARAMS *p,const char *toggleTitle,const char *tip)
@@ -227,6 +241,12 @@ void diaElemBitrate::getMe(void)
 }
 
 int diaElemBitrate::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemBitrate::updateMe(void)
+{
+	memcpy(&copy, param, sizeof(copy));
+	((ADM_Qbitrate*)myWidget)->updateMe();
+}
 } // End of namespace
 //****************************Hoook*****************
 

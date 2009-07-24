@@ -38,6 +38,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /* Same but unsigned */
 class diaElemUInteger : public diaElem
@@ -51,6 +52,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 //********************************************************************
@@ -113,6 +115,12 @@ void diaElemInteger::enable(uint32_t onoff)
 }
 
 int diaElemInteger::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemInteger::updateMe(void)
+{
+	QSpinBox *box = (QSpinBox*)myWidget;
+	box->setValue(*(int32_t *)param);
+}
 
 //******************************************************
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
@@ -177,6 +185,11 @@ void diaElemUInteger::enable(uint32_t onoff)
 
 int diaElemUInteger::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
+void diaElemUInteger::updateMe(void)
+{
+	QSpinBox *box = (QSpinBox*)myWidget;
+	box->setValue(*(uint32_t *)param);
+}
 //********************************************
 //****************************************************
 } // End of namespace

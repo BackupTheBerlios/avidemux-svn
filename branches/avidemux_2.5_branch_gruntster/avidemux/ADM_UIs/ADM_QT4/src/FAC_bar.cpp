@@ -37,6 +37,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 //********************************************************************
@@ -73,6 +74,7 @@ void diaElemBar::getMe(void)
 }
 
 int diaElemBar::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+void diaElemBar::updateMe(void) {};
 } // nameapsce
 
 diaElem  *qt4CreateBar(uint32_t percent,const char *toggleTitle)

@@ -16,6 +16,7 @@ namespace ADM_Qt4Factory
 		const char *userConfigDir, *systemConfigDir;
 		diaElem **controls;
 		unsigned int controlCount;
+		bool disableGenericSlots;
 
 		CONFIG_MENU_CHANGED_T *changedFunc;
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;

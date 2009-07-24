@@ -33,6 +33,7 @@ public:
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 void ADM_QthreadCount::radioGroupChanged(QAbstractButton *s)
@@ -68,6 +69,15 @@ ADM_QthreadCount::ADM_QthreadCount(QWidget *widget, const char *title, uint32_t 
 
 	QObject::connect(buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(radioGroupChanged(QAbstractButton*)));
 
+	updateMe(value);
+}
+
+ADM_QthreadCount::~ADM_QthreadCount() 
+{
+}
+
+void ADM_QthreadCount::updateMe(uint32_t value)
+{
 	spinBox->setEnabled(value > 1);
 
 	if (value == 0)
@@ -79,27 +89,6 @@ ADM_QthreadCount::ADM_QthreadCount(QWidget *widget, const char *title, uint32_t 
 		radiobutton3->setChecked(true);
 		spinBox->setValue(value);
 	}
-}
-
-ADM_QthreadCount::~ADM_QthreadCount() 
-{
-	if (buttonGroup)
-		delete buttonGroup;
-
-	if (radiobutton1)
-		delete radiobutton1;
-
-	if (radiobutton2)
-		delete radiobutton2;
-
-	if (radiobutton3)
-		delete radiobutton3;
-
-	if (spinBox)
-		delete spinBox;
-
-	if (text)
-		delete text;
 }
 
 diaElemThreadCount::diaElemThreadCount(uint32_t *value, const char *title, const char *tip) : diaElem(ELEM_THREAD_COUNT)
@@ -137,6 +126,11 @@ void diaElemThreadCount::getMe(void)
 }
 
 int diaElemThreadCount::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemThreadCount::updateMe(void)
+{
+	((ADM_QthreadCount*)myWidget)->updateMe(*(uint32_t *)param);
+}
 
 //**********************
 } // End of namesapce

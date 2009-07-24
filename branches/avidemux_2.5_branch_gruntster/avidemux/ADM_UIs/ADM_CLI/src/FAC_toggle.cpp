@@ -78,6 +78,7 @@ uint8_t   diaElemToggle::link(uint32_t onoff,diaElem *w)
 }
 void diaElemInteger::enable(uint32_t onoff) {}
 int diaElemInteger::getRequiredLayout(void) { return 0; }
+void diaElemInteger::updateMe(void) {}
 
 //******************************************************
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
@@ -99,6 +100,7 @@ void diaElemUInteger::getMe(void)
 }
 void diaElemUInteger::enable(uint32_t onoff) {}
 int diaElemUInteger::getRequiredLayout(void) { return 0; }
+void diaElemUInteger::updateMe(void) {}
 
 //******************************************************
 
@@ -122,6 +124,7 @@ void diaElemFloat::getMe(void)
 }
 void diaElemFloat::enable(uint32_t onoff) {}
 int diaElemFloat::getRequiredLayout(void) { return 0; }
+void diaElemFloat::updateMe(void) {}
 
 //******************************************************
 
@@ -144,6 +147,7 @@ void diaElemBar::getMe(void)
 }
 
 int diaElemBar::getRequiredLayout(void) { return 0; }
+void diaElemBar::updateMe(void) {}
 
 //******************************************************
 
@@ -200,16 +204,16 @@ void diaElemFile::getMe(void)
 {
  
 }
-void   diaElemFile::enable(uint32_t onoff)
-{}
+void   diaElemFile::enable(uint32_t onoff) {}
+int diaElemFile::getRequiredLayout(void) { return 0; }
+void diaElemFile::updateMe(void) {}
+
 #include "ADM_encoder/ADM_vidEncode.hxx"
   diaElemBitrate::diaElemBitrate(COMPRES_PARAMS *p,const char *toggleTitle,const char *tip)
   : diaElemBitrateBase()
 {
   
 }
-
-int diaElemFile::getRequiredLayout(void) { return 0; }
 
 diaElemBitrate::~diaElemBitrate()
 {
@@ -241,6 +245,7 @@ void diaElemFile::changeFile(void)
 void diaElemBitrate::setMaxQz(uint32_t qz)
 {
 }
+void diaElemBitrate::updateMe(void) {}
 //******************************************************
 diaElemReadOnlyText::diaElemReadOnlyText(const char *readyOnly,const char *toggleTitle,const char *tip)
   : diaElem(ELEM_ROTEXT)
@@ -262,6 +267,7 @@ void diaElemReadOnlyText::getMe(void)
 }
 
 int diaElemReadOnlyText::getRequiredLayout(void) { return 0; }
+void diaElemReadOnlyText::updateMe(void) {}
 
 //******************************************************
 diaElemNotch::diaElemNotch(uint32_t yes,const char *toggleTitle, const char *tip)
@@ -281,6 +287,7 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
  void diaElemNotch::getMe(void) {};
 
 int diaElemNotch::getRequiredLayout(void) { return 0; }
+void diaElemNotch::updateMe(void) {}
 
 //******************************************************
 diaElemDirSelect::diaElemDirSelect(char **filename,const char *toggleTitle,const char *tip)  : diaElemDirSelectBase() {}
@@ -291,6 +298,7 @@ void diaElemDirSelect::getMe(void) {}
 void diaElemDirSelect::changeFile(void) {}
 void   diaElemDirSelect::enable(uint32_t onoff){}
 int diaElemDirSelect::getRequiredLayout(void) { return 0; }
+void diaElemDirSelect::updateMe(void) {}
 //******************************************************
 diaElemText::diaElemText(char **text,const char *toggleTitle,const char *tip)
     : diaElem(ELEM_NOTCH) {}
@@ -299,6 +307,7 @@ void diaElemText::setMe(void *dialog, void *opaque,uint32_t line) {}
 void diaElemText::getMe(void) {}  
 void diaElemText::enable(uint32_t onoff) {};
 int diaElemText::getRequiredLayout(void) { return 0; }
+void diaElemText::updateMe(void) {}
 //******************************************************
 diaElemMenuDynamic::diaElemMenuDynamic(uint32_t *intValue,const char *itle, uint32_t nb, 
                 diaMenuEntryDynamic **menu,const char *tip)
@@ -361,6 +370,7 @@ void diaElemFrame::finalize(void)
 }
 
 int diaElemFrame::getRequiredLayout(void) { return 0; }
+void diaElemFrame::updateMe(void) {}
 //**************************
 
   
@@ -370,6 +380,7 @@ int diaElemFrame::getRequiredLayout(void) { return 0; }
   void diaElemHex::getMe(void) {} ;
   void diaElemHex::finalize(void) {};
   int diaElemHex::getRequiredLayout(void) { return 0; }
+  void diaElemHex::updateMe(void) {}
 //**************************
 diaElemToggleUint::diaElemToggleUint(uint32_t *toggleValue,const char *toggleTitle, uint32_t *uintval, const char *name,uint32_t min,uint32_t max,const char *tip)
   : diaElem(ELEM_TOGGLE_UINT)
@@ -433,6 +444,7 @@ void   diaElemToggleInt::finalize(void)
 void   diaElemToggleInt::enable(uint32_t onoff)
 {
 }
+void diaElemToggleInt::updateMe(void) {}
 //*********************************************************
 diaElemButton:: diaElemButton(const char *toggleTitle, ADM_FAC_CALLBACK *cb,void *cookie,const char *tip)
   : diaElem(ELEM_BUTTON)
@@ -458,6 +470,7 @@ void   diaElemButton::enable(uint32_t onoff)
 }
 
 int diaElemButton::getRequiredLayout(void) { return 0; }
+void diaElemButton::updateMe(void) {}
 
 //***
 #if 0
@@ -518,7 +531,7 @@ int diaElemGenericSlider<T>::getRequiredLayout(void) { return 0; }
  }
 
 int diaElemMatrix::getRequiredLayout(void) { return 0; }
-
+void diaElemMatrix::updateMe(void) {}
 
 //***
 diaElemThreadCount::diaElemThreadCount(uint32_t *value, const char *title, const char *tip) : diaElem(ELEM_THREAD_COUNT) {}
@@ -526,5 +539,6 @@ diaElemThreadCount::~diaElemThreadCount() {}
 void diaElemThreadCount::setMe(void *dialog, void *opaque, uint32_t line) {}
 void diaElemThreadCount::getMe(void) {}
 int diaElemThreadCount::getRequiredLayout(void) { return 0; }
+void diaElemThreadCount::updateMe(void) {}
 
 //EOF

@@ -31,6 +31,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /* Same but unsigned */
 class diaElemUInteger : public diaElem
@@ -44,6 +45,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
   
 };
 
@@ -118,6 +120,13 @@ void diaElemInteger::enable(uint32_t onoff)
 
 int diaElemInteger::getRequiredLayout(void) { return 0; }
 
+void diaElemInteger::updateMe(void)
+{
+	GtkWidget *widget = (GtkWidget*)myWidget;
+	int32_t val = *(int32_t*)param;
+
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), val);
+}
 //**********************************************************************************
 
 diaElemUInteger::diaElemUInteger(uint32_t *intValue,const char *toggleTitle, uint32_t min, uint32_t max,const char *tip)
@@ -191,6 +200,14 @@ void diaElemUInteger::enable(uint32_t onoff)
 }
 
 int diaElemUInteger::getRequiredLayout(void) { return 0; }
+
+void diaElemUInteger::updateMe(void)
+{
+	GtkWidget *widget = (GtkWidget*)myWidget;
+	uint32_t val = *(uint32_t*)param;
+
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), val);
+}
 
 //****************************************************
 } // End of namespace

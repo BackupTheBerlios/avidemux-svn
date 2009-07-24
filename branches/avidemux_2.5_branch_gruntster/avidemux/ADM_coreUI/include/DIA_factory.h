@@ -82,6 +82,7 @@ public:
   virtual void enable(uint32_t onoff) {}
   virtual void finalize(void) {} // in case some widget needs some stuff just before using them
   virtual int getRequiredLayout(void)=0;
+  virtual void updateMe(void) = 0;
 };
 /*********************************************/
 #define MENU_MAX_lINK 10
@@ -110,6 +111,7 @@ class diaElemButton : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 /*********************************************/
@@ -127,6 +129,7 @@ class diaElemMatrix : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /************************************/
 class diaElemSliderBase : public diaElem
@@ -154,6 +157,7 @@ public:
   void      enable(uint32_t onoff) ;
   uint8_t   setDigits(uint32_t digits) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 class diaElemSlider : public diaElemSliderBase
 {
@@ -169,6 +173,7 @@ public:
   void      enable(uint32_t onoff) ;
   uint8_t   setDigits(uint32_t digits) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*********************************************/
 typedef diaElem *CREATE_TOGGLE(uint32_t *toggleValue,const char *toggleTitle, const char *tip);
@@ -254,6 +259,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /* Same but unsigned */
 class diaElemUInteger : public diaElem
@@ -267,6 +273,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*************************************************/
 typedef diaElem  *(CREATE_BAR_T)(uint32_t percent,const char *toggleTitle);
@@ -282,6 +289,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 /*********************************************/
@@ -301,6 +309,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*************************************************/
 typedef struct diaMenuEntry
@@ -469,6 +478,7 @@ public:
   void   changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*************************************************/
 typedef diaElem *CREATE_DIR_T(char **filename,const char *toggleTitle,const char *tip);
@@ -494,6 +504,7 @@ public:
   void changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*************************************************/
 /* The text MUST be copied internally ! */
@@ -508,6 +519,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*************************************************/
 typedef diaElem *(CREATE_TEXT_T )(char **readOnly,const char *toggleTitle, const char *tip);
@@ -523,6 +535,7 @@ public:
   void getMe(void);
   void enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 /*********************************************/
@@ -537,6 +550,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /*********************************************/
 typedef diaElem *(CREATE_TAB_T )(const char *toggleTitle, uint32_t nb, diaElem **content);
@@ -586,6 +600,7 @@ public:
   void enable(uint32_t onoff);
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /**********************************************/
 typedef diaElem *(CREATE_HEX_T )(const char *toggleTitle, uint32_t dataSize,uint8_t *data);
@@ -602,6 +617,7 @@ public:
   void getMe(void) ;
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /**********************************************/
 typedef diaElem *(CREATE_THREADCOUNT_T)(uint32_t *value, const char *title, const char *tip = NULL);
@@ -615,6 +631,7 @@ public:
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 /**********************************************/
 typedef diaElem *(CREATE_ASPECTRATIO_T)(uint32_t *value, const char *title, const char *tip = NULL);
@@ -630,6 +647,7 @@ public:
 	void getMe(void);
 	void enable(uint32_t onoff);
 	int getRequiredLayout(void);
+	void updateMe(void);
 };
 /*********************************************/
 typedef enum
@@ -663,6 +681,7 @@ public:
 	void getMe(void);
 	void enable(uint32_t onoff);
 	int getRequiredLayout(void);
+	void updateMe(void);
 };
 /*********************************************/
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems);

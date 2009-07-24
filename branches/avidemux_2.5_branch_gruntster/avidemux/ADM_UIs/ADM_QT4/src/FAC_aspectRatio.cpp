@@ -38,6 +38,7 @@ public:
 	void getMe(void);
 	void enable(uint32_t onoff);
 	int getRequiredLayout(void);
+	void updateMe(void);
 };
 
 diaElemAspectRatio::diaElemAspectRatio(uint32_t *num, uint32_t *den, const char *title, const char *tip) : diaElem(ELEM_ASPECT_RATIO)
@@ -108,6 +109,12 @@ void diaElemAspectRatio::enable(uint32_t onoff)
 }
 
 int diaElemAspectRatio::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemAspectRatio::updateMe(void)
+{
+	((QSpinBox*)myWidget)->setValue(*(uint32_t*)param);
+	((QSpinBox*)this->denControl)->setValue(*(uint32_t*)den);
+}
 } // End of namespace
 //****************************Hoook*****************
 

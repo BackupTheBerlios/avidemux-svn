@@ -34,6 +34,7 @@ public:
   void   changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 class diaElemDirSelect : public diaElemDirSelectBase
 {
@@ -48,6 +49,7 @@ public:
   void changeFile(void);
   void   enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 static void fileRead(void *w,void *p);
 static void dirSel(void *w,void *p);
@@ -209,6 +211,7 @@ GtkWidget **wid=(GtkWidget **)myWidget;
 }
 
 int diaElemFile::getRequiredLayout(void) { return 0; }
+void diaElemFile::updateMe(void) {}
 
 void fileRead(void *w,void *p)
 {
@@ -340,6 +343,7 @@ void   diaElemDirSelect::enable(uint32_t onoff)
 }
 
 int diaElemDirSelect::getRequiredLayout(void) { return 0; }
+void diaElemDirSelect::updateMe(void) {}
 
 void dirSel(void *w,void *p)
 {

@@ -28,6 +28,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 class diaElemText : public diaElem
@@ -41,6 +42,7 @@ public:
   void getMe(void);
   void enable(uint32_t onoff);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 
@@ -93,6 +95,7 @@ void diaElemReadOnlyText::getMe(void)
 }
 
 int diaElemReadOnlyText::getRequiredLayout(void) { return 0; }
+void diaElemReadOnlyText::updateMe(void) {}
 
 /***************************************************************/
 diaElemText::diaElemText(char **text,const char *toggleTitle,const char *tip)
@@ -154,6 +157,13 @@ void diaElemText::enable(uint32_t onoff)
 }
 
 int diaElemText::getRequiredLayout(void) { return 0; }
+
+void diaElemText::updateMe(void)
+{
+	char **input = (char **)param;
+
+	gtk_write_entry_string((GtkWidget*)myWidget, *input);
+}
 } // End of namespace
 //****************************Hoook*****************
 

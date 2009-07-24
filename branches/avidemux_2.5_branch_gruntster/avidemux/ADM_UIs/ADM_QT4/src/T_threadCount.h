@@ -27,6 +27,7 @@ namespace ADM_qt4Factory
 
 		ADM_QthreadCount(QWidget *widget, const char *title, uint32_t value, QGridLayout *layout, int line);
 		~ADM_QthreadCount();
+		void updateMe(uint32_t value);
 	};
 }
 #endif	// T_threadCount_h

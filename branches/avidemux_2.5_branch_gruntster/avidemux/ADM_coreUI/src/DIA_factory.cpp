@@ -265,11 +265,7 @@ uint8_t   diaElemMenu::link(diaMenuEntry *entry,uint32_t onoff,diaElem *w)
 	diaElemMenuBase *cast=(diaElemMenuBase *)internalPointer;
 	cast->link(entry,onoff,w);
 }
-void      diaElemMenu::updateMe(void)
-{
-	
 
-}
 void   diaElemMenu::finalize(void)
 {
 	internalPointer->finalize();
@@ -302,11 +298,6 @@ uint8_t   diaElemMenuDynamic::link(diaMenuEntryDynamic *entry,uint32_t onoff,dia
 void   diaElemMenuDynamic::finalize(void)
 {
 	internalPointer->finalize();
-}
-void      diaElemMenuDynamic::updateMe(void)
-{
-	
-
 }
 
 DIA_MKSTUBS(diaElemMenuDynamic)
@@ -348,10 +339,7 @@ void diaElemBitrate::setSize(int size)
 	ADM_assert(internalPointer); 
 	internalPointer->setSize(size); 
 }
-void diaElemBitrate::updateMe()
-{
-	
-}
+
 void diaElemBitrate::setMaxQz(uint32_t qz)
 {
 	diaElemBitrateBase *cast=(diaElemBitrateBase *)internalPointer;

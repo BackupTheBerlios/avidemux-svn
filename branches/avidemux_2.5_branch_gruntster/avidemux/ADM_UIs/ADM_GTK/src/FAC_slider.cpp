@@ -33,7 +33,7 @@ public:
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
-  
+  void updateMe(void);
 };
 class diaElemSlider : public diaElemSliderBase
 {
@@ -48,6 +48,7 @@ public:
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 //****************************************************
@@ -124,10 +125,10 @@ void diaElemSlider::setMe(void *dialog, void *opaque,uint32_t line)
 void diaElemSlider::getMe(void)
 {
   GtkWidget *widget=(GtkWidget *)myWidget;
-  uint32_t *val=(uint32_t *)param;
+  int32_t *val=(int32_t *)param;
   ADM_assert(widget);
   GtkAdjustment *adj = gtk_range_get_adjustment (GTK_RANGE(widget));
-  *val = (uint32_t)GTK_ADJUSTMENT(adj)->value;
+  *val = (int32_t)GTK_ADJUSTMENT(adj)->value;
   if(*val<min) *val=min;
   if(*val>max) *val=max;
 }
@@ -140,6 +141,16 @@ void diaElemSlider::enable(uint32_t onoff)
 
 int diaElemSlider::getRequiredLayout(void) { return 0; }
 
+void diaElemSlider::updateMe(void)
+{
+	int32_t val = *(int32_t*)param;
+	GtkWidget *widget = (GtkWidget*)myWidget;
+	GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
+
+	GTK_ADJUSTMENT(adj)->value = val;
+
+	gtk_range_set_adjustment(GTK_RANGE(widget), adj);
+}
 //********************** USLIDER***********
 
 
@@ -229,6 +240,17 @@ void diaElemUSlider::enable(uint32_t onoff)
 }
 
 int diaElemUSlider::getRequiredLayout(void) { return 0; }
+
+void diaElemUSlider::updateMe(void)
+{
+	uint32_t val = *(uint32_t*)param;
+	GtkWidget *widget = (GtkWidget*)myWidget;
+	GtkAdjustment *adj = gtk_range_get_adjustment(GTK_RANGE(widget));
+
+	GTK_ADJUSTMENT(adj)->value = val;
+
+	gtk_range_set_adjustment(GTK_RANGE(widget), adj);
+}
 
 //****************************************************
 } // End of namespace

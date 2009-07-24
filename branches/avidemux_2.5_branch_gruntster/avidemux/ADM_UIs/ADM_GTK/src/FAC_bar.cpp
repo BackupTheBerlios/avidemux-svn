@@ -28,6 +28,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 diaElemBar::diaElemBar(uint32_t percent,const char *toggleTitle)
@@ -76,6 +77,7 @@ void diaElemBar::getMe(void)
 }
 
 int diaElemBar::getRequiredLayout(void) { return 0; }
+void diaElemBar::updateMe(void) {}
 } // End of namespace
 //****************************Hoook*****************
 

@@ -32,6 +32,7 @@ class diaElemButton : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 
@@ -82,6 +83,8 @@ void cb_button (GtkWidget *widget,gpointer callback_data)
   diaElemButton *button=(diaElemButton *)callback_data;
   button->_callBack(button->_cookie);
 }
+
+void diaElemButton::updateMe(void) {}
 
 } // End of namespace
 //****************************Hoook*****************

@@ -37,6 +37,7 @@ public:
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
   
 };
 class diaElemSlider : public diaElemSliderBase
@@ -52,6 +53,7 @@ public:
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 int SpinSlider::value()
@@ -152,6 +154,13 @@ void diaElemUSlider::enable(uint32_t onoff)
 
 int diaElemUSlider::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
 
+void diaElemUSlider::updateMe(void)
+{
+	SpinSlider *slider = (SpinSlider*)myWidget;
+
+	slider->setValue(*(uint32_t*)param);
+}
+
 diaElemSlider::diaElemSlider(int32_t *value,const char *toggleTitle, int32_t min,int32_t max,int32_t incr,const char *tip)
   : diaElemSliderBase()
 {
@@ -208,6 +217,13 @@ void diaElemSlider::enable(uint32_t onoff)
 }
 
 int diaElemSlider::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemSlider::updateMe(void)
+{
+	SpinSlider *slider = (SpinSlider*)myWidget;
+
+	slider->setValue(*(int32_t*)param);
+}
 //****************************************************
 } // End of namespace
 //****************************Hoook*****************

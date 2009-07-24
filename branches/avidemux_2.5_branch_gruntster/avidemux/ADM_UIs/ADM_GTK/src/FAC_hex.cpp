@@ -30,6 +30,7 @@ public:
   void getMe(void) ;
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 #define HEX_NB_LINE   8
@@ -44,7 +45,7 @@ typedef struct hexStruct
     uint32_t  curOffset;
 }hexStruct;
 
-static void updateMe(hexStruct *s);
+static void update(hexStruct *s);
 static void prev(void *z,hexStruct *s);
 static void next(void *z,hexStruct *s);
 
@@ -174,21 +175,21 @@ void diaElemHex::setMe(void *dialog, void *opaque,uint32_t line)
   g_signal_connect(GTK_OBJECT(buttonN), "clicked",
                     GTK_SIGNAL_FUNC(next),  s);
 #endif
-  updateMe(s);
+  update(s);
 }
 void prev(void *z,hexStruct *s)
 {
   if(s->curOffset>=HEX_NB_COLUMN*4)
       s->curOffset-=HEX_NB_COLUMN*4;
-  updateMe(s);
+  update(s);
   
 }
 void next(void *z,hexStruct *s)
 {
       s->curOffset+=HEX_NB_COLUMN*4;
-  updateMe(s);
+  update(s);
 }
-void updateMe(hexStruct *s)
+void update(hexStruct *s)
 {
   uint8_t *tail=s->data+s->size;
   uint8_t *cur;
@@ -225,9 +226,10 @@ void diaElemHex::getMe(void)
 void diaElemHex::finalize(void) 
 {
 
-};
+}
 
 int diaElemHex::getRequiredLayout(void) { return 0; }
+void diaElemHex::updateMe(void) {}
 
 } // End of namespace
 //****************************Hoook*****************

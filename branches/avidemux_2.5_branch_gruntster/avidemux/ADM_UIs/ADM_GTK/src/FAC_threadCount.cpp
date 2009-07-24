@@ -30,6 +30,7 @@ public:
   void setMe(void *dialog, void *opaque, uint32_t line);
   void getMe(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 static void customToggled(void *widget, void *userData);
@@ -123,22 +124,28 @@ void diaElemThreadCount::setMe(void *dialog, void *opaque, uint32_t line)
 
 	myWidget = (void *)w;
 
-	uint32_t val = *(uint32_t *)param;
-
-	gtk_widget_set_sensitive(GTK_WIDGET(spinbutton1), val > 1);
-
-	if (val == 0)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton2), TRUE);
-	else if (val == 1)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
-	else
-	{
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton3), TRUE);
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON(spinbutton1), val);
-	}
+	updateMe();
 }
 
 int diaElemThreadCount::getRequiredLayout(void) { return 0; }
+
+void diaElemThreadCount::updateMe(void)
+{
+	uint32_t val = *(uint32_t *)param;
+	GtkWidget **widgets = (GtkWidget**)myWidget;
+
+	gtk_widget_set_sensitive(GTK_WIDGET(widgets[3]), val > 1);
+
+	if (val == 0)
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets[1]), TRUE);
+	else if (val == 1)
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets[0]), TRUE);
+	else
+	{
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(widgets[2]), TRUE);
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON(widgets[3]), val);
+	}
+}
 
 void customToggled(void *widget, void *userData)
 {

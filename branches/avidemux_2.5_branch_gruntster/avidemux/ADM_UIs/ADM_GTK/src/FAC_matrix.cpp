@@ -29,6 +29,7 @@ class diaElemMatrix : public diaElem
   void      getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 diaElemMatrix::diaElemMatrix(uint8_t *trix,const char *toggleTitle, uint32_t trixSize,const char *tip)
@@ -131,6 +132,8 @@ void diaElemMatrix::enable(uint32_t onoff)
 }
 
 int diaElemMatrix::getRequiredLayout(void) { return 0; }
+void diaElemMatrix::updateMe(void) {}
+
 } // End of namespace
 //****************************Hoook*****************
 

@@ -30,6 +30,7 @@ public:
   void enable(uint32_t onoff);
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 diaElemFrame::diaElemFrame(const char *toggleTitle, const char *tip)
   : diaElemFrameBase()
@@ -118,6 +119,7 @@ void diaElemFrame::enable(uint32_t onoff)
 }
 
 int diaElemFrame::getRequiredLayout(void) { return 0; }
+void diaElemFrame::updateMe(void) {}
 } // End of namespace
 //****************************Hoook*****************
 

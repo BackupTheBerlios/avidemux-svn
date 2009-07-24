@@ -34,6 +34,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 diaElemFloat::diaElemFloat(ELEM_TYPE_FLOAT *intValue,const char *toggleTitle, 
@@ -104,6 +105,12 @@ void diaElemFloat::enable(uint32_t onoff)
 }
 
 int diaElemFloat::getRequiredLayout(void) { return 0; }
+
+void diaElemFloat::updateMe(void)
+{
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON((GtkWidget*)myWidget), *(ELEM_TYPE_FLOAT*)param);
+}
+
 } // End of namespace
 //****************************Hoook*****************
 

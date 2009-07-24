@@ -32,5 +32,10 @@ int      aClass::getRequiredLayout(void)\
 	{ \
 	ADM_assert(internalPointer); \
 	return internalPointer->getRequiredLayout(); \
-	} 
+	} \
+void      aClass::updateMe(void)\
+	{ \
+	ADM_assert(internalPointer); \
+	return internalPointer->updateMe(); \
+	}
 #endif

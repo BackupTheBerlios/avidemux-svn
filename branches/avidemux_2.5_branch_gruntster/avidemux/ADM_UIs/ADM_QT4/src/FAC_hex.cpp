@@ -33,6 +33,7 @@ public:
   void getMe(void) ;
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 extern const char *shortkey(const char *);
   diaElemHex::diaElemHex(const char *toggleTitle, uint32_t dataSize,uint8_t *data) :diaElem(ELEM_HEXDUMP){};
@@ -41,6 +42,7 @@ extern const char *shortkey(const char *);
   void diaElemHex::getMe(void) {} ;
   void diaElemHex::finalize(void) {};
   int diaElemHex::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+  void diaElemHex::updateMe(void) {}
 //******************************************************
 } // End of namespace
 //****************************Hoook*****************

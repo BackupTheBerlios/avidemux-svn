@@ -44,6 +44,7 @@ public:
   void setMe(void *dialog, void *opaque,uint32_t line);
   void getMe(void) {};
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 diaElemNotch::diaElemNotch(uint32_t yes,const char *toggleTitle, const char *tip)
@@ -74,6 +75,7 @@ void diaElemNotch::setMe(void *dialog, void *opaque,uint32_t line)
 }
 
 int diaElemNotch::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+void diaElemNotch::updateMe(void) {}
 } // End of namespace
 //****************************Hoook*****************
 

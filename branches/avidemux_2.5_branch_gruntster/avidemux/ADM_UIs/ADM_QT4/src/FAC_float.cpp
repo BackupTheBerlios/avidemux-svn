@@ -42,6 +42,7 @@ public:
   void getMe(void);
   void      enable(uint32_t onoff) ;
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 
@@ -108,6 +109,14 @@ void diaElemFloat::enable(uint32_t onoff)
 }
 
 int diaElemFloat::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
+
+void diaElemFloat::updateMe(void)
+{
+	QDoubleSpinBox *box = (QDoubleSpinBox*)myWidget;
+
+	box->setValue(*(ELEM_TYPE_FLOAT*)param);
+}
+
 } // End of namespace
 //****************************Hoook*****************
 

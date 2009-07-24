@@ -40,6 +40,7 @@ public:
   void enable(uint32_t onoff);
   void finalize(void);
   int getRequiredLayout(void);
+  void updateMe(void);
 };
 
 diaElemFrame::diaElemFrame(const char *toggleTitle, const char *tip)
@@ -127,6 +128,7 @@ void diaElemFrame::enable(uint32_t onoff)
 }
 
 int diaElemFrame::getRequiredLayout(void) { return FAC_QT_VBOXLAYOUT; }
+void diaElemFrame::updateMe(void) {};
 } // End of namespace
 //****************************Hoook*****************
 
