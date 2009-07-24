@@ -288,7 +288,6 @@ void x264ConfigDialog::configurationComboBox_currentIndexChanged(int index)
 	else
 	{
 		PluginConfigType configType = (PluginConfigType)ui.configurationComboBox->itemData(index).toInt();
-		QString configFileName;
 
 		ui.deleteButton->setEnabled(configType == PLUGIN_CONFIG_USER);
 
