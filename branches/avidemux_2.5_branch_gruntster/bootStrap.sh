@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 fail()
 {
         echo "*** fail $1 ***"
