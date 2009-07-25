@@ -19,9 +19,14 @@
 #include "DIA_factory.h"
 
 extern int _uiType;
+static bool changedConfig(const char* fileName, ConfigMenuType configType);
+static char *serializeConfig(void);
+static Mpeg1Encoder *encoder = NULL;
 
 Mpeg1Encoder::Mpeg1Encoder(void)
 {
+	encoder = this;
+
 	init(CODEC_ID_MPEG1VIDEO, ADM_CSP_YV12);
 
 	_encodeOptions.structSize = sizeof(vidEncOptions);
@@ -76,19 +81,7 @@ int Mpeg1Encoder::isConfigurable(void)
 
 int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
 {
-	unsigned int minBitrate = _options.getMinBitrate();
-	unsigned int maxBitrate = _options.getMaxBitrate();
-	unsigned int useXvidRateControl = _options.getXvidRateControl();
-	unsigned int bufferSize = _options.getBufferSize();
-	unsigned int widescreen = _options.getWidescreen();
-	unsigned int interlaced = _options.getInterlaced();
-	unsigned int userMatrix = _options.getMatrix();
-	unsigned int gopSize = _options.getGopSize();
-
-	_bitrateParam.avg_bitrate = 1000;
-	_bitrateParam.finalsize = 700;
-
-	updateEncodeProperties(properties);
+	loadSettings(&_encodeOptions, &_options);
 
 	diaMenuEntry wideM[] = {
 		{0, "4:3"},
@@ -108,51 +101,126 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	};
 
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
-	diaElemUInteger ctlMaxb(&maxBitrate, "Ma_x. bitrate:", 100, 9000);
-	diaElemUInteger ctlMinb(&minBitrate, "Mi_n. bitrate:", 0, 9000);
-	diaElemToggle ctlXvid(&useXvidRateControl, "_Use Xvid rate control");
-	diaElemUInteger ctlVbv(&bufferSize, "_Buffer size:", 1, 1024);
-	diaElemMenu ctlWidescreen(&widescreen, "Aspect _ratio:", 2, wideM);
-	diaElemMenu ctlMatrix(&userMatrix, "_Matrices:", 4, matrixM);
-	diaElemUInteger ctlGop(&gopSize, "_GOP size:", 1, 30);
-	diaElemMenu ctlInterW(&interlaced, "_Interlacing:", 3, interM);
+	diaElemUInteger ctlMaxb(&_maxBitrate, "Ma_x. bitrate:", 100, 9000);
+	diaElemUInteger ctlMinb(&_minBitrate, "Mi_n. bitrate:", 0, 9000);
+	diaElemToggle ctlXvid(&_useXvidRateControl, "_Use Xvid rate control");
+	diaElemUInteger ctlVbv(&_bufferSize, "_Buffer size:", 1, 1024);
+	diaElemMenu ctlWidescreen(&_widescreen, "Aspect _ratio:", 2, wideM);
+	diaElemMenu ctlMatrix(&_userMatrix, "_Matrices:", 4, matrixM);
+	diaElemUInteger ctlGop(&_gopSize, "_GOP size:", 1, 30);
+	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
+	diaElem *elmGeneral[9]= {&ctlBitrate, &ctlMinb, &ctlMaxb, &ctlXvid, &ctlVbv, &ctlWidescreen, &ctlInterW, &ctlMatrix, &ctlGop};
 
-	diaElem *elems[9]= {&ctlBitrate, &ctlMinb, &ctlMaxb, &ctlXvid, &ctlVbv, &ctlWidescreen, &ctlInterW, &ctlMatrix, &ctlGop};
+	diaElemConfigMenu ctlConfigMenu(_options.getUserConfigDirectory(), _options.getSystemConfigDirectory(), changedConfig, serializeConfig, elmGeneral, 9);
+	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	if (diaFactoryRun("avcodec MPEG-1 Configuration", 9, elems))
+	diaElemTabs tabGeneral("User Interface", 9, elmGeneral);
+	diaElemTabs *tabs[] = {&tabGeneral};
+
+	if (diaFactoryRunTabs("avcodec MPEG-1 Configuration", 1, elmHeader, 1, tabs))
 	{
-		switch (_bitrateParam.mode)
-		{
-			case COMPRESS_CQ:
-				_encodeOptions.encodeMode = ADM_VIDENC_MODE_CQP;
-				_encodeOptions.encodeModeParameter = _bitrateParam.qz;
-
-				break;
-			case COMPRESS_2PASS:
-				_encodeOptions.encodeMode = ADM_VIDENC_MODE_2PASS_SIZE;
-				_encodeOptions.encodeModeParameter = _bitrateParam.finalsize;
-
-				break;
-			case COMPRESS_2PASS_BITRATE:
-				_encodeOptions.encodeMode = COMPRESS_2PASS_BITRATE;
-				_encodeOptions.encodeModeParameter = _bitrateParam.avg_bitrate;
-
-				break;
-		}
-
-		_options.setMinBitrate(minBitrate);
-		_options.setMaxBitrate(maxBitrate);
-		_options.setXvidRateControl(useXvidRateControl);
-		_options.setBufferSize(bufferSize);
-		_options.setWidescreen(widescreen);
-		_options.setInterlaced((InterlacedMode)interlaced);
-		_options.setMatrix((MatrixMode)userMatrix);
-		_options.setGopSize(gopSize);
+		saveSettings(&_encodeOptions, &_options);
 
 		return 1;
 	}
 
 	return 0;
+}
+
+void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
+{
+	_minBitrate = options->getMinBitrate();
+	_maxBitrate = options->getMaxBitrate();
+	_useXvidRateControl = options->getXvidRateControl();
+	_bufferSize = options->getBufferSize();
+	_widescreen = options->getWidescreen();
+	_interlaced = options->getInterlaced();
+	_userMatrix = options->getMatrix();
+	_gopSize = options->getGopSize();
+
+	_bitrateParam.qz = 1000;
+	_bitrateParam.finalsize = 700;
+
+	updateEncodeProperties(encodeOptions, NULL);
+}
+
+void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
+{
+	switch (_bitrateParam.mode)
+	{
+		case COMPRESS_CQ:
+			encodeOptions->encodeMode = ADM_VIDENC_MODE_CQP;
+			encodeOptions->encodeModeParameter = _bitrateParam.qz;
+
+			break;
+		case COMPRESS_2PASS:
+			encodeOptions->encodeMode = ADM_VIDENC_MODE_2PASS_SIZE;
+			encodeOptions->encodeModeParameter = _bitrateParam.finalsize;
+
+			break;
+		case COMPRESS_2PASS_BITRATE:
+			encodeOptions->encodeMode = COMPRESS_2PASS_BITRATE;
+			encodeOptions->encodeModeParameter = _bitrateParam.avg_bitrate;
+
+			break;
+	}
+
+	options->setMinBitrate(_minBitrate);
+	options->setMaxBitrate(_maxBitrate);
+	options->setXvidRateControl(_useXvidRateControl);
+	options->setBufferSize(_bufferSize);
+	options->setWidescreen(_widescreen);
+	options->setInterlaced((InterlacedMode)_interlaced);
+	options->setMatrix((MatrixMode)_userMatrix);
+	options->setGopSize(_gopSize);
+}
+
+bool changedConfig(const char* configName, ConfigMenuType configType)
+{
+	bool failure = false;
+
+	if (configType == CONFIG_MENU_DEFAULT)
+	{
+		Mpeg1EncoderOptions defaultOptions;
+		vidEncOptions *defaultEncodeOptions = defaultOptions.getEncodeOptions();
+
+		encoder->loadSettings(defaultEncodeOptions, &defaultOptions);
+
+		delete defaultEncodeOptions;
+	}
+	else if (configType != CONFIG_MENU_CUSTOM)
+	{
+		Mpeg1EncoderOptions options;
+		vidEncOptions *encodeOptions;
+
+		options.setPresetConfiguration(configName, (PluginConfigType)configType);
+
+		if (options.loadPresetConfiguration())
+		{
+			encodeOptions = options.getEncodeOptions();
+
+			encoder->loadSettings(encodeOptions, &options);
+
+			delete encodeOptions;
+		}
+		else
+		{
+			failure = true;
+		}
+	}
+
+	return !failure;
+}
+
+char *serializeConfig(void)
+{
+	vidEncOptions encodeOptions;
+	Mpeg1EncoderOptions options;
+
+	encoder->saveSettings(&encodeOptions, &options);
+	options.setEncodeOptions(&encodeOptions);
+
+	return options.toXml(PLUGIN_XML_EXTERNAL);
 }
 
 int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
@@ -190,7 +258,7 @@ int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 	if (encodeOptions && success)
 	{
 		memcpy(&_encodeOptions, encodeOptions, sizeof(vidEncOptions));
-		updateEncodeProperties(NULL);
+		updateEncodeProperties(encodeOptions, NULL);
 	}
 
 	if (success)
@@ -214,22 +282,22 @@ int Mpeg1Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	return ret;
 }
 
-void Mpeg1Encoder::updateEncodeProperties(vidEncVideoProperties *properties)
+void Mpeg1Encoder::updateEncodeProperties(vidEncOptions *encodeOptions, vidEncVideoProperties *properties)
 {
-	switch (_encodeOptions.encodeMode)
+	switch (encodeOptions->encodeMode)
 	{
 		case ADM_VIDENC_MODE_CQP:
 			_passCount = 1;
 
 			_bitrateParam.mode = COMPRESS_CQ;
-			_bitrateParam.qz = _encodeOptions.encodeModeParameter;
+			_bitrateParam.qz = encodeOptions->encodeModeParameter;
 
 			break;
 		case ADM_VIDENC_MODE_2PASS_SIZE:
 			_passCount = 2;
 
 			_bitrateParam.mode = COMPRESS_2PASS;
-			_bitrateParam.finalsize = _encodeOptions.encodeModeParameter;
+			_bitrateParam.finalsize = encodeOptions->encodeModeParameter;
 
 			//if (properties)
 				//bitrateParam->bitrate = calculateBitrate(properties->fpsNum, properties->fpsDen, properties->frameCount, _encodeOptions.encodeModeParameter) / 1000;					
@@ -241,7 +309,7 @@ void Mpeg1Encoder::updateEncodeProperties(vidEncVideoProperties *properties)
 			_passCount = 2;
 
 			_bitrateParam.mode = COMPRESS_2PASS_BITRATE;
-			_bitrateParam.avg_bitrate = _encodeOptions.encodeModeParameter;
+			_bitrateParam.avg_bitrate = encodeOptions->encodeModeParameter;
 
 			break;
 	}

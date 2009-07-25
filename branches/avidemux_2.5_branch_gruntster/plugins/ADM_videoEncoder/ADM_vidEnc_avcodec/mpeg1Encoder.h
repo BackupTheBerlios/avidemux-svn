@@ -31,10 +31,12 @@ class Mpeg1Encoder : public AvcodecEncoder
 {
 	private:
 		COMPRES_PARAMS _bitrateParam;
+		unsigned int _minBitrate, _maxBitrate, _useXvidRateControl, _bufferSize, _widescreen, _interlaced, _userMatrix, _gopSize;
+
 		Mpeg1EncoderOptions _options;
 		vidEncOptions _encodeOptions;
 
-		void updateEncodeProperties(vidEncVideoProperties *properties);
+		void updateEncodeProperties(vidEncOptions *encodeOptions, vidEncVideoProperties *properties);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
 
 	public:
@@ -46,6 +48,8 @@ class Mpeg1Encoder : public AvcodecEncoder
 		const char* getEncoderGuid(void);
 		int isConfigurable(void);
 		int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
+		void loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options);
+		void saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
 		int beginPass(vidEncPassParameters *passParameters);
