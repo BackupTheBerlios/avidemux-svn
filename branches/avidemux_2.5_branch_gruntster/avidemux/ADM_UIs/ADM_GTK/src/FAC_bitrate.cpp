@@ -96,7 +96,6 @@ diaElemBitrate::~diaElemBitrate()
  */
 void diaElemBitrate::setMe(void *dialog, void *opaque,uint32_t line)
 {
-  GtkWidget *widget;
   GtkObject *adj;
   GtkWidget *label1;
   GtkWidget *label2;

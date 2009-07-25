@@ -19,8 +19,11 @@
 
 static uint8_t  buildOneTab(GtkWidget *nb,int index, diaElemTabs *tab);
 static uint8_t  readOneTab(int index, diaElemTabs *tab);
+static void addControls(GtkWidget *dialog, GtkWidget *vbox, diaElem **controls, unsigned int controlCount);
+static void addButtonBox(GtkWidget *dialog);
 //
 static uint8_t gtkDiaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs);
+static uint8_t gtkDiaFactoryRunTabs2(const char *title, unsigned int headerControlCount, diaElem **headerControls, unsigned int tabControlCount, diaElemTabs **tabControls);
 static uint8_t gtkDiaFactoryRun(const char *title,uint32_t nb,diaElem **elems);
 //
 
@@ -79,61 +82,9 @@ uint8_t gtkDiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
   gtk_container_add (GTK_CONTAINER (dialog_vbox1), vbox1);
   gtk_widget_show (vbox1);
   
-  int line=0;
-  int i=0;  
-  while (i<nb)
-  {
-	  if (elems[i]->mySelf == ELEM_FRAME)
-	  {
-		  addLine(elems[i],dialog,vbox1,line);
-		  i++;
-	  }
-	  else
-	  {
-		  line = 0;
-		  int nbLine=0;
-		  while (i+nbLine<nb && elems[i+nbLine]->mySelf != ELEM_FRAME) 
-			  nbLine++;
-		  table1 = gtk_table_new (nbLine, 2, FALSE);
-		  gtk_table_set_col_spacings (GTK_TABLE (table1), 12);
-		  gtk_table_set_row_spacings (GTK_TABLE (table1), 6);
-		  gtk_box_pack_start (GTK_BOX(vbox1), table1, FALSE, FALSE, 0);
-		  gtk_widget_show (table1);
-                  
-		  while (i<nb && elems[i]->mySelf != ELEM_FRAME)
-		  {
-			  addLine(elems[i],dialog,table1,line);
-			  line+=elems[i]->getSize();
-			  i++;
-		  }
-	  }
-  }
-  
-  // Add a Close button
-  GtkWidget *okbutton1;
-  GtkWidget *cancelbutton1;
+  addControls(dialog, vbox1, elems, nb);
+  addButtonBox(dialog);
 
-  cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
-  gtk_widget_show (cancelbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), cancelbutton1, GTK_RESPONSE_CANCEL);
-  
-  okbutton1 = gtk_button_new_from_stock ("gtk-ok");
-  gtk_widget_show (okbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), okbutton1, GTK_RESPONSE_OK);
-  GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
-  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
-  
-  gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
-										GTK_RESPONSE_OK,
-										GTK_RESPONSE_CANCEL,
-										-1);
-
-  /* Finalize them */
-  for(int i=0;i<nb;i++)
-  {
-    elems[i]->finalize();
-  }
-  
   // Show it & run
   gtk_register_dialog(dialog);
   if(GTK_RESPONSE_OK==gtk_dialog_run(GTK_DIALOG(dialog)))
@@ -158,84 +109,120 @@ uint8_t gtkDiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 */
 uint8_t gtkDiaFactoryRunTabs(const char *title,uint32_t nb,diaElemTabs **tabs)
 {
-  uint8_t ret=0;
-  ADM_assert(tabs);
-  ADM_assert(nb);
-  ADM_assert(title);
-  
-  /* First there was a dialog ...*/
-  GtkWidget *dialog=gtk_dialog_new ();
-  GtkWidget *dialog_vbox1;
-  GtkWidget *table1;
-  GtkWidget *notebook1;
-  
-  gtk_window_set_title (GTK_WINDOW (dialog),title );
-  gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-  gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
-  gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
-  dialog_vbox1 = GTK_DIALOG (dialog)->vbox;
-  gtk_box_set_spacing (GTK_BOX(dialog_vbox1), 12);
-  gtk_widget_show (dialog_vbox1);
-   // Ok  create our tabs
-  notebook1 = gtk_notebook_new ();
-  gtk_widget_show (notebook1);
-  gtk_box_pack_start (GTK_BOX (dialog_vbox1), notebook1, FALSE, FALSE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (notebook1), 6);
-  
-  // And fill them
-  for(int i=0;i<nb;i++)
-  {
-    buildOneTab(notebook1,i,tabs[i]); 
-  }
-  
-  diaElemTabs *itab;
-  for(int i=0;i<nb;i++)
-  {
-    itab=(tabs[i]);
-    for(int j=0;j<itab->nbElems;j++)
-    {
-      itab->dias[j]->finalize();
-    }
-  }
-  // Add a Close button
-  GtkWidget *okbutton1;
-  GtkWidget *cancelbutton1;
-
-  cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
-  gtk_widget_show (cancelbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), cancelbutton1, GTK_RESPONSE_CANCEL);
-  
-  okbutton1 = gtk_button_new_from_stock ("gtk-ok");
-  gtk_widget_show (okbutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), okbutton1, GTK_RESPONSE_OK);
-  GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
-  gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
-
-  gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog),
-										GTK_RESPONSE_OK,
-										GTK_RESPONSE_CANCEL,
-										-1);
-
-  // Show it & run
-  gtk_register_dialog(dialog);
-  if(GTK_RESPONSE_OK==gtk_dialog_run(GTK_DIALOG(dialog)))
-  {
-    for(int i=0;i<nb;i++)
-    {
-      readOneTab(i,tabs[i]);
-    }
-    ret=1;
-  }
-
-  // Cleanup
-  gtk_unregister_dialog(dialog);
-  gtk_widget_destroy(dialog);
-  return ret;
-  
+	return gtkDiaFactoryRunTabs2(title, 0, NULL, nb, tabs);
 }
-/**
 
-*/
+uint8_t gtkDiaFactoryRunTabs2(const char *title, unsigned int headerControlCount, diaElem **headerControls, unsigned int tabControlCount, diaElemTabs **tabControls)
+{
+	uint8_t ret = 0;
+
+	ADM_assert(tabControls);
+	ADM_assert(tabControlCount);
+	ADM_assert(title);
+
+	GtkWidget *dialog = gtk_dialog_new();
+	GtkWidget *dialog_vbox1;
+	GtkWidget *table1;
+	GtkWidget *notebook1;
+
+	gtk_window_set_title(GTK_WINDOW(dialog),title);
+	gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+	gtk_container_set_border_width(GTK_CONTAINER(dialog), 6);
+	gtk_dialog_set_has_separator(GTK_DIALOG(dialog), FALSE);
+	dialog_vbox1 = GTK_DIALOG(dialog)->vbox;
+	gtk_box_set_spacing(GTK_BOX(dialog_vbox1), 12);
+	gtk_widget_show(dialog_vbox1);
+
+	if (headerControls)
+		addControls(dialog, dialog_vbox1, headerControls, headerControlCount);
+
+	notebook1 = gtk_notebook_new();
+	gtk_widget_show(notebook1);
+	gtk_box_pack_start(GTK_BOX(dialog_vbox1), notebook1, FALSE, FALSE, 0);
+	gtk_container_set_border_width(GTK_CONTAINER(notebook1), 6);
+
+	for (int i = 0; i < tabControlCount; i++)
+		buildOneTab(notebook1, i, tabControls[i]); 
+
+	addButtonBox(dialog);
+
+	// Show it & run
+	gtk_register_dialog(dialog);
+
+	if (GTK_RESPONSE_OK == gtk_dialog_run(GTK_DIALOG(dialog)))
+	{
+		for (int i = 0; i < tabControlCount; i++)
+			readOneTab(i, tabControls[i]);
+
+		ret = 1;
+	}
+
+	gtk_unregister_dialog(dialog);
+	gtk_widget_destroy(dialog);
+
+	return ret;
+}
+
+void addControls(GtkWidget *dialog, GtkWidget *vbox, diaElem **controls, unsigned int controlCount)
+{
+	GtkWidget *table;
+	int line = 0;
+	int i = 0;
+
+	while (i < controlCount)
+	{
+		if (controls[i]->mySelf == ELEM_FRAME)
+		{
+			addLine(controls[i], dialog, vbox, line);
+			i++;
+		}
+		else
+		{
+			int nbLine = 0;
+
+			line = 0;
+
+			while (i + nbLine < controlCount && controls[i + nbLine]->mySelf != ELEM_FRAME) 
+				nbLine++;
+
+			table = gtk_table_new(nbLine, 2, FALSE);
+			gtk_table_set_col_spacings(GTK_TABLE(table), 12);
+			gtk_table_set_row_spacings(GTK_TABLE(table), 6);
+			gtk_box_pack_start(GTK_BOX(vbox), table, FALSE, FALSE, 0);
+			gtk_widget_show(table);
+
+			while (i < controlCount && controls[i]->mySelf != ELEM_FRAME)
+			{
+				addLine(controls[i], dialog, table, line);
+				line += controls[i]->getSize();
+				i++;
+			}
+		}
+	}
+
+	for(int i = 0; i < controlCount; i++)
+	{
+		controls[i]->finalize();
+	}
+}
+
+void addButtonBox(GtkWidget *dialog)
+{
+	GtkWidget *okbutton1;
+	GtkWidget *cancelbutton1;
+
+	cancelbutton1 = gtk_button_new_from_stock("gtk-cancel");
+	gtk_widget_show(cancelbutton1);
+	gtk_dialog_add_action_widget(GTK_DIALOG(dialog), cancelbutton1, GTK_RESPONSE_CANCEL);
+
+	okbutton1 = gtk_button_new_from_stock("gtk-ok");
+	gtk_widget_show(okbutton1);
+	gtk_dialog_add_action_widget(GTK_DIALOG(dialog), okbutton1, GTK_RESPONSE_OK);
+	GTK_WIDGET_SET_FLAGS(okbutton1, GTK_CAN_DEFAULT);
+	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
+	gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+}
+
 uint8_t  buildOneTab(GtkWidget *nb,int index, diaElemTabs *tab)
 {
   GtkWidget *table1,*vbox1,*label;
@@ -246,43 +233,11 @@ uint8_t  buildOneTab(GtkWidget *nb,int index, diaElemTabs *tab)
   gtk_container_add (GTK_CONTAINER (nb), vbox1);
   gtk_widget_show (vbox1);
 
-  int line=0;
-  int i=0;
-  while (i<tab->nbElems)
-  {
-	  if (tab->dias[i]->mySelf == ELEM_FRAME)
-	  {
-		  addLine(tab->dias[i],nb,vbox1,line);
-		  i++;
-	  }
-	  else
-	  {
-                  line = 0;
-                  int nbLine=0;
-                   while (i+nbLine<tab->nbElems && tab->dias[i+nbLine]->mySelf != ELEM_FRAME) 
-                    nbLine++;
-                  table1 = gtk_table_new (nbLine, 2, FALSE);
-                  gtk_table_set_col_spacings (GTK_TABLE (table1), 12);
-                  gtk_table_set_row_spacings (GTK_TABLE (table1), 6);
-                  gtk_box_pack_start (GTK_BOX(vbox1), table1, FALSE, FALSE, 0);
-                  gtk_widget_show (table1);
-                  
-                  while (i<tab->nbElems && tab->dias[i]->mySelf != ELEM_FRAME)
-                  {
-                          addLine(tab->dias[i],nb,table1,line);
-						  line+=tab->dias[i]->getSize();
-						  i++;
-                  }
-	  }
-  }
-  
-
+  addControls(nb, vbox1, tab->dias, tab->nbElems);
   
   label = gtk_label_new (tab->title);
   gtk_widget_show (label);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (nb), gtk_notebook_get_nth_page (GTK_NOTEBOOK (nb), index), label);
-
-  
 
   return 1; 
 }
@@ -348,6 +303,8 @@ extern CREATE_USLIDER_T     gtkCreateUSlider;
 extern DELETE_DIA_ELEM_T    gtkDestroyUSlider;
 extern 	CREATE_SLIDER_T     gtkCreateSlider;
 extern 	DELETE_DIA_ELEM_T   gtkDestroySlider;
+extern CREATE_CONFIG_MENU_T gtkCreateConfigMenu;
+extern DELETE_DIA_ELEM_T    gtkDestroyConfigMenu;
 /**
  *  \fn gtkFactoryGetVersion
  * 	\brief returns the version this has been compiled with
@@ -365,7 +322,7 @@ static FactoryDescriptor GtkFactoryDescriptor=
 	&gtkFactoryGetVersion,
 	&gtkDiaFactoryRun,
 	&gtkDiaFactoryRunTabs,
-	NULL,
+	&gtkDiaFactoryRunTabs2,
 	// Buttons
 	&gtkCreateButton,
 	&gtkDeleteButton,
@@ -430,8 +387,8 @@ static FactoryDescriptor GtkFactoryDescriptor=
 	&gtkCreateSlider,
 	&gtkDestroySlider,
 	// Config Menu
-	NULL,
-	NULL
+	&gtkCreateConfigMenu,
+	&gtkDestroyConfigMenu
 };
 
 /**
