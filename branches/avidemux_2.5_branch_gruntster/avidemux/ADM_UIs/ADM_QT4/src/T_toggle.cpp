@@ -82,11 +82,11 @@ void ADM_QCheckBox::changed(int i)
 	switch(_type)
 	{
 		case TT_TOGGLE:
-			((diaElemToggle *)_toggle)->updateMe();break;
+			((diaElemToggle *)_toggle)->finalize();break;
 		case TT_TOGGLE_UINT:
-			((diaElemToggleUint *)_toggle)->updateMe();break;
+			((diaElemToggleUint *)_toggle)->finalize();break;
 		case TT_TOGGLE_INT:
-			((diaElemToggleInt *)_toggle)->updateMe();break;
+			((diaElemToggleInt *)_toggle)->finalize();break;
 		default:
 			ADM_assert(0);
 	}
@@ -156,12 +156,7 @@ void diaElemToggle::enable(uint32_t onoff)
 
 void   diaElemToggle::finalize(void)
 {
-  updateMe(); 
-}
-void   diaElemToggle::updateMe(void)
-{
- 
-  uint32_t val;
+uint32_t val;
   uint32_t rank=0;
   if(!nbLink) return;
   ADM_assert(myWidget);
@@ -186,6 +181,18 @@ void   diaElemToggle::updateMe(void)
       dialElemLink *l=&(links[i]);
       if(l->onoff==rank)  l->widget->enable(1);
   }
+}
+
+void   diaElemToggle::updateMe(void)
+{
+	ADM_QCheckBox *box = (ADM_QCheckBox *)myWidget;
+
+	if( *(uint32_t *)param)
+		box->setCheckState(Qt::Checked);
+	else
+		box->setCheckState(Qt::Unchecked);
+
+	this->finalize();
 }
 
 uint8_t   diaElemToggle::link(uint32_t onoff,diaElem *w)
