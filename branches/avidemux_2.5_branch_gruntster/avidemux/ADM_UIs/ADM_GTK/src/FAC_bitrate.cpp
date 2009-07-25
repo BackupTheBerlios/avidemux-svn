@@ -61,6 +61,29 @@ static COMPRESSION_MODE readPulldown(COMPRES_PARAMS *copy,int rank)
 	return mode;
 }
 
+static void updatePulldown(COMPRES_PARAMS *copy, GtkComboBox *combo)
+{
+	int index = 0, set = -1;
+
+#undef LOOKUP
+#define LOOKUP(A,B) \
+	if(copy->capabilities & ADM_ENC_CAP_##A) \
+	{ \
+		if (copy->mode == COMPRESS_##B) set = index; \
+			index++; \
+	} \
+
+	LOOKUP(CBR, CBR);
+	LOOKUP(CQ, CQ);
+	LOOKUP(SAME, SAME);
+	LOOKUP(AQ, AQ);
+	LOOKUP(2PASS, 2PASS);
+	LOOKUP(2PASS_BR, 2PASS_BITRATE);
+
+	if (set != -1)
+		gtk_combo_box_set_active(combo, set);
+}
+
  diaElemBitrate::diaElemBitrate(COMPRES_PARAMS *p,const char *toggleTitle,const char *tip)
   : diaElemBitrateBase()
 {
@@ -175,24 +198,8 @@ void diaElemBitrate::setMe(void *dialog, void *opaque,uint32_t line)
   w[3]=spin;
   myWidget=(void *)w;
   
-  int index=0,set=-1;
-#undef LOOKUP
-#define LOOKUP(A,B) \
-  if(copy.capabilities & ADM_ENC_CAP_##A) \
-  { \
-	  if(copy.mode==COMPRESS_##B) set=index; \
-	  index++; \
-  } \
-  
-  LOOKUP(CBR,CBR);
-  LOOKUP(CQ,CQ);
-  LOOKUP(SAME,SAME);
-  LOOKUP(AQ,AQ);
-  LOOKUP(2PASS,2PASS);
-  LOOKUP(2PASS_BR,2PASS_BITRATE);
-  if(set!=-1) gtk_combo_box_set_active(GTK_COMBO_BOX(combo),set);
+  updatePulldown(&copy, GTK_COMBO_BOX(combo));
 }
-
 
 
 void diaElemBitrate::getMe(void)
@@ -262,43 +269,45 @@ int diaElemBitrate::getRequiredLayout(void) { return 0; }
 
 void diaElemBitrate::updateMe(void)
 {
+  memcpy(&copy, param, sizeof(copy));
+
   // Read current value
   GtkWidget **w=(GtkWidget **)myWidget;
   GtkComboBox *combo=(GtkComboBox *)w[2];
   GtkSpinButton *spin=(GtkSpinButton*)w[3];
   GtkLabel *label=(GtkLabel*)w[1];
-  int rank=gtk_combo_box_get_active(GTK_COMBO_BOX(combo));
-  COMPRESSION_MODE mode=readPulldown(&copy,rank);
-  
-//#undef P
+  int index = 0, set = 0;
+
 #undef M
 #undef S
-//#define P(x) gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP(#x));
 #define M(x,y) gtk_spin_button_set_range  (GTK_SPIN_BUTTON(spin),x,y)
 #define S(x)   gtk_spin_button_set_value  (GTK_SPIN_BUTTON(spin),x)
-  switch(mode)
+
+  updatePulldown(&copy, GTK_COMBO_BOX(combo));
+
+  switch (copy.mode)
   {
-    case COMPRESS_CBR: //CBR
+    case COMPRESS_CBR:
           gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Bitrate (kb/s):"));
           M(0,20000);
           S(copy.bitrate);
           break; 
-    case COMPRESS_CQ:// CQ
+    case COMPRESS_CQ:
           gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Quantizer:"));
           M(minQ,maxQ);
           S(copy.qz);
           break;
-    case COMPRESS_AQ:// CQ
-              gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("A_vg Quantizer:"));
-              M(2,64);
-              S(copy.qz);
-              break;
-    case COMPRESS_2PASS : // 2pass Filesize
+    case COMPRESS_AQ:
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("A_vg Quantizer:"));
+          M(2,64);
+          S(copy.qz);
+          break;
+    case COMPRESS_2PASS:
           gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Video size (MB):"));
           M(1,8000);
           S(copy.finalsize);
           break;
-    case COMPRESS_2PASS_BITRATE : // 2pass Avg
+    case COMPRESS_2PASS_BITRATE:
           gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Average bitrate (kb/s):"));
           M(0,20000);
           S(copy.avg_bitrate);
