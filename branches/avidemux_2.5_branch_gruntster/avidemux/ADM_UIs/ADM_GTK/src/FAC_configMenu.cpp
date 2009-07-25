@@ -108,7 +108,7 @@ namespace ADM_GtkFactory
 			char *config;
 			int index = 0;
 
-			if (gtk_tree_model_get_iter_first(model, &iter))
+			if (gtk_tree_model_get_iter_first(model, &iter) && selectFile)
 			{
 				do
 				{
@@ -201,17 +201,21 @@ namespace ADM_GtkFactory
 	{
 		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)data;
 		const char* selectedConfig = gtk_combo_box_get_active_text(menuData->combo);
-		map<string, int>::iterator it = menuData->configs->find(string((selectedConfig)));
 
-		gtk_widget_set_sensitive(GTK_WIDGET(menuData->deleteButton), it->second == CONFIG_MENU_USER);
-
-		if (menuData->changedFunc)
+		if (selectedConfig)
 		{
-			if (!menuData->changedFunc(selectedConfig, (ConfigMenuType)it->second))
-				gtk_combo_box_set_active(menuData->combo, 0);
+			map<string, int>::iterator it = menuData->configs->find(string((selectedConfig)));
 
-			for (int i = 0; i < menuData->controlCount; i++)
-				menuData->controls[i]->updateMe();
+			gtk_widget_set_sensitive(GTK_WIDGET(menuData->deleteButton), it->second == CONFIG_MENU_USER);
+
+			if (menuData->changedFunc)
+			{
+				if (!menuData->changedFunc(selectedConfig, (ConfigMenuType)it->second))
+					gtk_combo_box_set_active(menuData->combo, 0);
+
+				for (int i = 0; i < menuData->controlCount; i++)
+					menuData->controls[i]->updateMe();
+			}
 		}
 	}
 
