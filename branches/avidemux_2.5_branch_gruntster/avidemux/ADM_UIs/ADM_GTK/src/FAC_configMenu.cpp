@@ -84,6 +84,9 @@ namespace ADM_GtkFactory
 		for (map<string, int>::iterator it = configs->begin(); it != configs->end(); it++)
 			gtk_combo_box_append_text(combo, it->first.c_str());
 
+		configs->insert(pair<string, ConfigMenuType>(string(QT_TR_NOOP("<default>")), CONFIG_MENU_DEFAULT));
+		configs->insert(pair<string, ConfigMenuType>(string(QT_TR_NOOP("<custom>")), CONFIG_MENU_CUSTOM));
+
 		gtk_combo_box_set_active(combo, 0);
 
 		return configs;
