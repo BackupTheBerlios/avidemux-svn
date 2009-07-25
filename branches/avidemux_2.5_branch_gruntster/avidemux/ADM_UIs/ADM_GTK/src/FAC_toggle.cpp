@@ -127,10 +127,6 @@ void diaElemToggle::getMe(void)
 }
 void   diaElemToggle::finalize(void)
 {
-  updateMe(); 
-}
-void   diaElemToggle::updateMe(void)
-{
   GtkWidget *widget=(GtkWidget *)myWidget;
   uint32_t val;
   uint32_t rank;
@@ -154,6 +150,14 @@ void   diaElemToggle::updateMe(void)
       if(l->onoff==rank)  l->widget->enable(1);
   }
 }
+void diaElemToggle::updateMe(void)
+{
+	GtkWidget *widget = (GtkWidget *)myWidget;
+
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(myWidget), *(int32_t *)param);
+	this->finalize();
+}
+
 void   diaElemToggle::enable(uint32_t onoff)
 {
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);  
@@ -165,7 +169,7 @@ int diaElemToggle::getRequiredLayout(void) { return 0; }
 void cb_menu(void *w,void *p)
 {
   diaElemToggle *me=(diaElemToggle *)p;
-  me->updateMe();
+  me->finalize();
 }
 //*************************************************************************
 diaElemToggleUint::diaElemToggleUint(uint32_t *toggleValue,const char *toggleTitle, uint32_t *uintval, const char *name,uint32_t min,uint32_t max,const char *tip)
@@ -232,21 +236,24 @@ void diaElemToggleUint::getMe(void)
 }
 void   diaElemToggleUint::finalize(void)
 {
-  updateMe();
-}
-void   diaElemToggleUint::updateMe(void)
-{
   GtkWidget *widget=(GtkWidget *)myWidget;
   GtkWidget *wuint=(GtkWidget *)widgetUint;
   uint32_t val;
   uint32_t rank;
   ADM_assert(widget);
   
-  
   rank=gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
   gtk_widget_set_sensitive(GTK_WIDGET(wuint),rank);
-    
 }
+
+void   diaElemToggleUint::updateMe(void)
+{
+	GtkWidget *widget = (GtkWidget *)myWidget;
+
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(myWidget), *(uint32_t *)param);
+	this->finalize();
+}
+
 void   diaElemToggleUint::enable(uint32_t onoff)
 {
    GtkWidget *widget=(GtkWidget *)myWidget;
@@ -262,7 +269,7 @@ int diaElemToggleUint::getRequiredLayout(void) { return 0; }
 void cb_menu2(void *w,void *p)
 {
   diaElemToggleUint *me=(diaElemToggleUint *)p;
-  me->updateMe();
+  me->finalize();
 }
 //*************************************************************************
 diaElemToggleInt::diaElemToggleInt(uint32_t *toggleValue,const char *toggleTitle, int32_t *uintval, const char *name,int32_t min,int32_t max,const char *tip)
