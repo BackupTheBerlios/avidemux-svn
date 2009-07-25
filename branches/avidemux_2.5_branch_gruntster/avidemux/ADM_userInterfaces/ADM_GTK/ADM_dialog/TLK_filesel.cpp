@@ -473,8 +473,8 @@ static DIA_FILESEL_DESC_T GtkFileSelDesc=
 	ADM_GTK_fileSel::GUI_FileSelWrite,
 	ADM_GTK_fileSel::GUI_FileSelRead,
 	ADM_GTK_fileSel::GUI_FileSelWrite,
-	ADM_GTK_fileSel::FileSel_SelectWrite,
 	ADM_GTK_fileSel::FileSel_SelectRead,
+	ADM_GTK_fileSel::FileSel_SelectWrite,
 	ADM_GTK_fileSel::FileSel_SelectDir
 };
 
