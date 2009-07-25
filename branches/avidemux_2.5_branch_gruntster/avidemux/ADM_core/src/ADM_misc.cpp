@@ -219,15 +219,6 @@ void  ADM_LowerCase(char *string)
 
 }
 
-uint8_t         ADM_fileExist(char *name)
-{
-FILE *file;
-                file=fopen(name,"rb");
-                if(!file) return 0;
-                fclose(file);
-                return 1;
-
-}
 /*
     In some case (e.g. javascript), the reader expects unixish path 
     c:/foo/bar/c.c

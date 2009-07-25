@@ -56,6 +56,18 @@ extern int utf8StringToWideChar(const char *utf8String, int utf8StringLength, wc
 extern int wideCharStringToUtf8(const wchar_t *wideCharString, int wideCharStringLength, char *utf8String);
 #endif
 
+uint8_t ADM_fileExist(char *name)
+{
+	FILE *file = fopen(name, "rb");
+
+	if (!file)
+		return 0;
+
+	fclose(file);
+
+	return 1;
+}
+
 size_t ADM_fread (void *ptr, size_t size, size_t n, FILE *sstream)
 {
 	return fread(ptr,size,n,sstream);
@@ -682,7 +694,7 @@ void ADM_PathStripName(char *str)
 const char *ADM_GetFileName(const char *str)
 {
 	const char *filename;
-	char *filename2;
+	const char *filename2;
 
 #ifndef __WIN32
 	filename = strrchr(str, '/');
