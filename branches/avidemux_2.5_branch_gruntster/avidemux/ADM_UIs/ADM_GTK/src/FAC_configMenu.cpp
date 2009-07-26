@@ -160,7 +160,7 @@ namespace ADM_GtkFactory
 				delete menuData->configs;
 				menuData->configs = fillConfigurationComboBox(menuData->combo, menuData->userConfigDir, menuData->systemConfigDir);
 
-				const char* baseName = ADM_GetFileName(filename);
+				char* baseName = (char *)ADM_GetFileName(filename);
 				char *ext = strrchr(baseName, '.');
 
 				if (ext)
