@@ -1,7 +1,8 @@
 #ifndef x264ConfigDialog_h
 #define x264ConfigDialog_h
-
 #include "ui_x264ConfigDialog.h"
+#define ADM_LEGACY_PROGGY
+#include "ADM_default.h"
 #include "../x264Options.h"
 #include "x264ZoneTableModel.h"
 #include "x264ZoneTableDelegate.h"

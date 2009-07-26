@@ -2,6 +2,8 @@
 #define XvidConfigDialog_h
 
 #include "ui_xvidConfigDialog.h"
+#define ADM_LEGACY_PROGGY
+#include "ADM_default.h"
 #include "../xvidOptions.h"
 
 extern "C"
