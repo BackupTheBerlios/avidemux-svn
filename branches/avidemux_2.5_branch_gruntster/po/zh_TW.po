@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-02 23:58+0800\n"
-"PO-Revision-Date: 2009-06-13 13:27+0800\n"
+"POT-Creation-Date: 2009-07-21 14:00+0800\n"
+"PO-Revision-Date: 2009-07-22 10:45+0800\n"
 "Last-Translator: Dong-Jun Wu <ziyawu@gmail.com>\n"
 "Language-Team: Traditional Chinese <ziyawu@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "MPEG 影片"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:50
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:494
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:120
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:118
 msgid "MP4"
 msgstr "MP4"
 
@@ -67,7 +67,7 @@ msgid "FLV"
 msgstr "FLV"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:54
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:121
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:119
 msgid "MKV"
 msgstr "MKV"
 
@@ -79,10 +79,6 @@ msgstr "虛擬"
 msgid "YV12"
 msgstr "YV12"
 
-#: avidemux/ADM_encoder/adm_encdivx.h:53
-msgid "DivX"
-msgstr "DivX"
-
 #: avidemux/ADM_encoder/adm_encmjpeg.h:61
 msgid "MJPEG"
 msgstr "MJPEG"
@@ -92,11 +88,6 @@ msgstr "MJPEG"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:47
 msgid "MPEG"
 msgstr "MPEG"
-
-#: avidemux/ADM_encoder/adm_encxvid.h:61
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:127
-msgid "Xvid"
-msgstr "Xvid"
 
 #: avidemux/ADM_encoder/adm_encffmpeg.h:48
 msgid "LavCodec"
@@ -118,81 +109,57 @@ msgstr "H.263+ (lavc)"
 msgid "MPEG-4 ASP (lavc)"
 msgstr "MPEG-4 ASP (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:160
-msgid "DV (lavc)"
-msgstr "DV (lavc)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:176
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:161
 msgid "FLV1 (lavc)"
 msgstr "FLV1 (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:192
-msgid "Snow (lavc)"
-msgstr "Snow (lavc)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:208
-msgid "FF Huffyuv (lavc)"
-msgstr "FF Huffyuv (lavc)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:224
-msgid "Huffyuv (lavc)"
-msgstr "Huffyuv (lavc)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:240
-msgid "FFV1 (lavc)"
-msgstr "FFV1 (lavc)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:258
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:180
 msgid "MJPEG (lavc)"
 msgstr "MJPEG (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:315
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:237
 msgid "VCD (lavc)"
 msgstr "VCD (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:375
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:297
 msgid "DVD (lavc)"
 msgstr "DVD (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:435
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:357
 msgid "SVCD (lavc)"
 msgstr "SVCD (lavc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:462
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:384
 msgid "VCD (mpeg2enc)"
 msgstr "VCD (mpeg2enc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:494
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:416
 msgid "SVCD (mpeg2enc)"
 msgstr "SVCD (mpeg2enc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:513
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:435
 msgid "MPEG-2 requant"
 msgstr "MPEG-2 requant"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:540
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:462
 msgid "DVD (mpeg2enc)"
 msgstr "DVD (mpeg2enc)"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:672
-msgid "MPEG-4 ASP (Xvid4)"
-msgstr "MPEG-4 ASP (Xvid4)"
-
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:689
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:478
 msgid "dummy"
 msgstr "虛擬"
 
-#: avidemux/ADM_encoder/ADM_encCodecDesc.h:692
+#: avidemux/ADM_encoder/ADM_encCodecDesc.h:481
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:272
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:368
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:155
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:243
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:255
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:153
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:241
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:253
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:173
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:177
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:136
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:168
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:365
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:308
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:182
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:228
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:249
@@ -204,19 +171,15 @@ msgstr "虛擬"
 msgid "Copy"
 msgstr "複製來源"
 
-#: avidemux/ADM_encoder/adm_encXvid4.h:63
-msgid "Xvid4"
-msgstr "Xvid4"
-
 #: avidemux/guiplay.cpp:352
 msgid "Trouble initializing audio device"
-msgstr "起始化音訊設備發生故障"
+msgstr "起始化音訊裝置發生故障"
 
-#: avidemux/ADM_audiocodec/ADM_codecwma.cpp:88
+#: avidemux/ADM_audiocodec/ADM_codecwma.cpp:91
 msgid "Internal error"
 msgstr "內部錯誤"
 
-#: avidemux/ADM_audiocodec/ADM_codecwma.cpp:88
+#: avidemux/ADM_audiocodec/ADM_codecwma.cpp:91
 msgid "Cannot open WMA2 codec."
 msgstr "無法開啟 WMA2 編解碼器。"
 
@@ -252,7 +215,7 @@ msgstr "舊格式的專案"
 msgid "No more supported."
 msgstr "不再支援。"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:72
+#: avidemux/ADM_editor/ADM_edit.cpp:69
 msgid ""
 "Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?\n"
 "\n"
@@ -262,24 +225,24 @@ msgstr ""
 "\n"
 "你可以稍候透過 \"音訊 -> 建立 VBR 時間對應\" 來建立。"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:397
+#: avidemux/ADM_editor/ADM_edit.cpp:394
 msgid "File type identified but no loader support detected..."
 msgstr "識別出檔案類型但沒有檢測到支援的載入器..."
 
-#: avidemux/ADM_editor/ADM_edit.cpp:398
+#: avidemux/ADM_editor/ADM_edit.cpp:395
 msgid "May be related to an old index file."
 msgstr "可能被關聯至舊的索引檔"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:405
+#: avidemux/ADM_editor/ADM_edit.cpp:402
 #, c-format
 msgid "Attempt to open %s failed!"
 msgstr "嘗試去開啟 %s 失敗！"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:421
+#: avidemux/ADM_editor/ADM_edit.cpp:418
 msgid "Video dimensions don't match."
 msgstr "視訊尺寸不符合。"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:421
+#: avidemux/ADM_editor/ADM_edit.cpp:418
 msgid ""
 "You cannot mix different video dimensions yet. Using the partial video filter later will not work around this problem. The workaround is:\n"
 "\n"
@@ -291,73 +254,65 @@ msgstr ""
 "1.) \"調整大小\" / \"增加邊框\" / \"剪裁\" 每個串流對應相同的解析度\n"
 "2.) 一起連結它們"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:533
+#: avidemux/ADM_editor/ADM_edit.cpp:530
 msgid "Build Time Map"
 msgstr "建立時間對應"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:533
+#: avidemux/ADM_editor/ADM_edit.cpp:530
 msgid "Build VBR time map?"
-msgstr "要建立變動位元率(VBR)時間對應？"
+msgstr "要建立變動位元率 (VBR) 時間對應？"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:567
+#: avidemux/ADM_editor/ADM_edit.cpp:564
 msgid "Use safe mode"
 msgstr "使用安全模式"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:567
+#: avidemux/ADM_editor/ADM_edit.cpp:564
 msgid "H.264 detected"
 msgstr "檢測到 H.264"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:567
+#: avidemux/ADM_editor/ADM_edit.cpp:564
 msgid ""
 "If the file is using B-frames as reference it can lead to a crash or stuttering.\n"
 "Avidemux can use another mode which is safe but YOU WILL LOSE FRAME ACCURACY.\n"
 "Do you want to use that mode?"
 msgstr ""
-"假如這個檔案使用 B-畫格為參考，那麼會導致崩潰或影片斷斷續續。\n"
-"Avidemux 能使用其他的方式來儲存，但是<b>你將失去畫格的精確度</b>。\n"
+"假如這個檔案使用 B-畫格為參考，那麼會導致不正常關閉或影片斷斷續續。\n"
+"Avidemux 能使用其他的方式來儲存，但是「你將失去畫格的精確度」。\n"
 "你要使用這個方式嗎 ?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:697
+#: avidemux/ADM_editor/ADM_edit.cpp:694
 msgid "Packed Bitstream detected"
 msgstr "偵測到打包好的位元流"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:698
+#: avidemux/ADM_editor/ADM_edit.cpp:695
 msgid "Do you want me to unpack it ?"
 msgstr "確定要拆開打包？"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:718
+#: avidemux/ADM_editor/ADM_edit.cpp:715
 msgid "Could not unpack the video"
 msgstr "不能打開此視訊的包裝"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:718
+#: avidemux/ADM_editor/ADM_edit.cpp:715
 msgid "Using backup decoder - not frame accurate."
 msgstr "使用備份解碼器 - 非正確的畫格。"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:723
+#: avidemux/ADM_editor/ADM_edit.cpp:719
 msgid "Weird"
 msgstr "奇特的"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:723
+#: avidemux/ADM_editor/ADM_edit.cpp:719
 msgid "The unpacking succeedeed but the index is still not up to date."
 msgstr "拆開打包成功但索引仍然不是最新的。"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:729
-msgid "Troubles ahead"
-msgstr "故障前"
-
-#: avidemux/ADM_editor/ADM_edit.cpp:729
-msgid "This a VOP packed AVI."
-msgstr "這是帶有打包好的 VOP 之 AVI。"
-
-#: avidemux/ADM_editor/ADM_edit.cpp:740
+#: avidemux/ADM_editor/ADM_edit.cpp:732
 msgid "Index is not up to date"
 msgstr "索引不是最新的"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:740
+#: avidemux/ADM_editor/ADM_edit.cpp:732
 msgid "You should use Tool->Rebuild frame. Do it now ?"
 msgstr "你應該使用 工具->重新建立畫格。現在執行嗎？"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:1502
+#: avidemux/ADM_editor/ADM_edit.cpp:1494
 msgid ""
 "This looks like mpeg\n"
 " Do you want to index it?"
@@ -365,7 +320,7 @@ msgstr ""
 "這看起來是 mpeg\n"
 " 要索引它嗎?"
 
-#: avidemux/ADM_editor/ADM_edit.cpp:1554
+#: avidemux/ADM_editor/ADM_edit.cpp:1546
 msgid "Indexing failed"
 msgstr "索引失敗"
 
@@ -388,18 +343,18 @@ msgid ""
 "Width is not a multiple of 8\n"
 " continue anyway ?"
 msgstr ""
-"寬不是 8 的倍數\n"
+"寬度不是 8 的倍數\n"
 " 不管如何還是要繼續嗎 ?"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:92
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:173
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:238
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:171
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:181
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:78
 msgid "Reuse the existing log file?"
 msgstr "重複使用現有的日誌檔？"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:101
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:180
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:178
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:142
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:188
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:87
@@ -407,7 +362,7 @@ msgid "Filter init failed"
 msgstr "濾鏡初始化失敗"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:132
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:420
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:418
 msgid "1st Pass"
 msgstr "第一次運算"
 
@@ -416,21 +371,21 @@ msgid "Aborting"
 msgstr "中止"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:262
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:191
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:189
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:146
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:359
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:302
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:192
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:165
 msgid "Encoding"
 msgstr "編碼中"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:264
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:493
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:491
 msgid "2nd Pass"
 msgstr "第二次運算"
 
 #: avidemux/ADM_outputs/oplug_avi/op_savesmart.cpp:97
-#: avidemux/gui_savenew.cpp:342
+#: avidemux/gui_savenew.cpp:341
 msgid "Smart Copy"
 msgstr "智慧型複製"
 
@@ -450,19 +405,19 @@ msgstr "利用分組尺寸來合成"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:69
 msgid "Muxing _type:"
-msgstr "合成方式(_T):"
+msgstr "合成方式 (_T):"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:70
 msgid "_Split every MB:"
-msgstr "分割成每個檔案多少MB(_S):"
+msgstr "分割成每個檔案多少MB (_S):"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:72
 msgid "Mux _every x video frames:"
-msgstr "合成每個 x 視訊畫格(_E):"
+msgstr "合成每個 x 視訊畫格 (_E):"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:73
 msgid "Mux in _blocks of x bytes:"
-msgstr "以 x 位元的區塊數來合成(_B):"
+msgstr "以 x 位元的區塊數來合成 (_B):"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:80
 msgid "AVI Muxer Options"
@@ -477,8 +432,8 @@ msgid "Error initalizing video filters"
 msgstr "初始化視訊濾鏡發生錯誤"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:257
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:153
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:247
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:151
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:245
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:134
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:180
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:232
@@ -547,45 +502,49 @@ msgid "AMR-NB"
 msgstr "AMR-NB"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:498
+msgid "AMR-WB"
+msgstr "AMR-WB"
+
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:499
 msgid "MSADPCM"
 msgstr "MSADPCM"
 
-#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:499
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:500
 msgid "ULAW"
 msgstr "ULAW"
 
-#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:500
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:501
 msgid "IMA ADPCM"
 msgstr "IMA ADPCM"
 
-#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:501
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:502
 msgid "8-bit PCM"
 msgstr "8-位元 PCM"
 
-#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:503
+#: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:504
 msgid "Unknown codec"
 msgstr "未知的編解碼器"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:119
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:117
 msgid "PSP"
 msgstr "PSP"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:145
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:143
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:128
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:174
 msgid "Cannot initialize the video stream"
 msgstr "無法初始化視訊串流"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:216
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:214
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:217
 msgid "Cannot initialize the audio stream"
 msgstr "無法初始化音訊串流"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:234
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:232
 msgid "Invalid audio stream detected"
 msgstr "偵測到無效的音訊流"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:234
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:232
 msgid ""
 "The audio stream may be invalid for this container.\n"
 "\n"
@@ -595,23 +554,23 @@ msgstr ""
 "\n"
 "無論如何都要繼續嗎？"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:302
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:454
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:300
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:452
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:304
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:199
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:313
 msgid "Error while encoding"
 msgstr "當編碼時發生錯誤"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:309
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:461
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:307
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:459
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:206
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:320
 msgid "KeyFrame error"
 msgstr "關鍵畫格錯誤"
 
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:309
-#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:461
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:307
+#: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:459
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:206
 #: avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp:320
 msgid ""
@@ -630,8 +589,8 @@ msgid "You can't use the Copy codec."
 msgstr "你無法使用此專利編解碼器。"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:84
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:128
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:139
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:109
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:120
 msgid "There is no audio track"
 msgstr "沒有音軌"
 
@@ -644,7 +603,7 @@ msgid "Use the &lt;&lt; and the &gt;&gt; buttons to move using Intra frames."
 msgstr "使用 &lt;&lt; 和 &gt;&gt; 按鈕來移動正在使用的內部畫格。"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:103
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:149
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:130
 msgid "Audio track is not suitable"
 msgstr "音軌不合"
 
@@ -657,22 +616,22 @@ msgid "---"
 msgstr "---"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:182
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:282
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:225
 msgid "MPEG TS"
 msgstr "MPEG TS"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:183
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:283
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:226
 msgid "MPEG VCD"
 msgstr "MPEG VCD"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:184
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:284
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:227
 msgid "MPEG SVCD"
 msgstr "MPEG SVCD"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:185
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:285
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:228
 msgid "MPEG DVD"
 msgstr "MPEG DVD"
 
@@ -680,60 +639,60 @@ msgstr "MPEG DVD"
 msgid "Dummy"
 msgstr "虛擬"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:159
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:140
 msgid "For VCD, audio must be 44.1 kHz MP2."
 msgstr "VCD 的音訊必須是 44.1 kHz MP2。"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:179
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:160
 #: avidemux/ADM_libraries/ADM_lvemux/ADM_muxer.cpp:75
 msgid "Incompatible audio"
 msgstr "不相容的音訊"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:179
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:160
 msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
 msgstr "DVD 的音訊必須是 48 kHz MP2, AC3 或 LPCM。"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:255
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:198
 msgid "libmpeg2enc VCD"
 msgstr "libmpeg2enc VCD"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:258
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:201
 msgid "libmpeg2enc SVCD"
 msgstr "libmpeg2enc SVCD"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:261
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:204
 msgid "libmpeg2enc DVD"
 msgstr "libmpeg2enc DVD"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:264
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:207
 msgid "FFmpeg MPEG-1 VBR"
 msgstr "FFmpeg MPEG-1 VBR"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:267
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:210
 msgid "FFmpeg MPEG-2 SVCD VBR"
 msgstr "FFmpeg MPEG-2 SVCD VBR"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:270
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:213
 msgid "FFmpeg MPEG-2 DVD VBR"
 msgstr "FFmpeg MPEG-2 DVD VBR"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:273
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:216
 msgid "MPEG Requantizer"
 msgstr "MPEG 重複量化編碼"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:281
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:224
 msgid "MPEG ES"
 msgstr "MPEG ES"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:297
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:240
 msgid "Pass 1/2"
 msgstr "運算 1/2"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:306
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:249
 msgid "Error in pass 1"
 msgstr "在運算 1 中出現錯誤"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:352
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:295
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
 #: avidemux/gtk_gui.cpp:889
 #: avidemux/gtk_gui.cpp:1499
@@ -751,7 +710,7 @@ msgstr "在運算 1 中出現錯誤"
 msgid "File error"
 msgstr "檔案錯誤"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:352
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:295
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
 #: avidemux/gtk_gui.cpp:1499
 #: avidemux/gtk_gui.cpp:2607
@@ -759,11 +718,11 @@ msgstr "檔案錯誤"
 msgid "Cannot open \"%s\" for writing."
 msgstr "無法開啟 \"%s\" 執行寫入"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:357
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:300
 msgid "Pass 2/2"
 msgstr "運算 2/2"
 
-#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:449
+#: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:392
 msgid "Error in pass 2"
 msgstr "在運算 2 中出現錯誤"
 
@@ -881,7 +840,7 @@ msgstr "大小不相符"
 
 #: avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp:754
 msgid "Expect a crash."
-msgstr "預期一個崩潰。"
+msgstr "預期的不正常關閉。"
 
 #: avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp:1046
 msgid "Do you want to save an index ?"
@@ -987,7 +946,7 @@ msgstr "前往畫格"
 
 #: avidemux/gtk_gui.cpp:670
 msgid "_Go to frame:"
-msgstr "前往畫格(_G):"
+msgstr "前往畫格 (_G):"
 
 #: avidemux/gtk_gui.cpp:675
 msgid "Out of bounds"
@@ -1025,7 +984,7 @@ msgstr "畫格率"
 
 #: avidemux/gtk_gui.cpp:775
 msgid "_Frames per second"
-msgstr "每秒畫格數(_F)"
+msgstr "每秒畫格數 (_F)"
 
 #: avidemux/gtk_gui.cpp:778
 msgid "PAL - 25 FPS"
@@ -1338,7 +1297,7 @@ msgstr "音軌 %d (%s/%d 聲道每 s/%d ms 位移 /%d kbit )"
 
 #: avidemux/gtk_gui.cpp:2025
 msgid "_Track from video:"
-msgstr "影片中的軌道(_T):"
+msgstr "影片中的軌道 (_T):"
 
 #: avidemux/gtk_gui.cpp:2035
 msgid "Main Audio Track"
@@ -1464,15 +1423,15 @@ msgstr "無法選擇此 MPEG-4 SP 編解碼器。"
 
 #: avidemux/gui_autodrive.cpp:78
 msgid "No AAC audio encoder plugin found."
-msgstr "沒有找到 AAC 音訊編碼器外掛程式。"
+msgstr "沒有找到 AAC 音訊編碼器外掛模組。"
 
 #: avidemux/gui_autodrive.cpp:110
 msgid ""
 "The MP3 codec does not allow disabling reservoir.\n"
 "Install lame plugin"
 msgstr ""
-"此 MP3 編解碼器不允許關閉儲存器。\n"
-"安裝 lame 外掛程式"
+"此 MP3 編解碼器不允許停用儲存器。\n"
+"安裝 lame 外掛模組"
 
 #: avidemux/gui_autodrive.cpp:116
 msgid ""
@@ -1513,13 +1472,13 @@ msgstr "自訂"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:111
 msgid "_Encoding mode:"
-msgstr "編碼模式(_E):"
+msgstr "編碼模式 (_E):"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:121
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:283
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_flv1.cpp:36
 msgid "_Bitrate (kb/s):"
-msgstr "位元率(_B) (kb/s):"
+msgstr "位元率 (_B) (kb/s):"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:135
 msgid "Single pass - bitrate"
@@ -1569,12 +1528,12 @@ msgstr "-"
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:103
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:137
 msgid "_Previous"
-msgstr "上一步(_P)"
+msgstr "上一步 (_P)"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:111
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:167
 msgid "_Next"
-msgstr "下一步(_N)"
+msgstr "下一步 (_N)"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/DIA_color.cpp:51
 msgid "Select Color"
@@ -1583,7 +1542,7 @@ msgstr "選擇顏色"
 #: avidemux/ADM_UIs/ADM_GTK/src/DIA_filesel.cpp:119
 #: avidemux/ADM_UIs/ADM_GTK/src/DIA_filesel.cpp:279
 msgid "_Browse..."
-msgstr "瀏覽...(_B)"
+msgstr "瀏覽... (_B)"
 
 #: avidemux/ADM_audio/audiotimeline.cpp:78
 #: avidemux/ADM_audio/audiotimeline.cpp:89
@@ -1594,55 +1553,47 @@ msgstr "建立變動位元率(VBR)對應"
 msgid "Requant"
 msgstr "重複量化"
 
-#: avidemux/ADM_encoder/adm_encConfig.cpp:619
+#: avidemux/ADM_encoder/adm_encConfig.cpp:595
 msgid "Only QCIF and subQCIF are allowed for H.263"
 msgstr "H.263 只允許 QCIF 和 subQCIF"
 
-#: avidemux/ADM_encoder/adm_encffmpeg.cpp:266
-msgid "Incompatible settings"
-msgstr "不相容設定"
-
-#: avidemux/ADM_encoder/adm_encffmpeg.cpp:266
-msgid "At the moment, the DV codec only accepts 720*576@25"
-msgstr "在這階段 DV 編解碼器只接受 720*576@25"
-
-#: avidemux/gui_savenew.cpp:79
+#: avidemux/gui_savenew.cpp:78
 msgid "Dual audio can only be used in copy mode"
 msgstr "雙語只能使用在 複製來源 的模式"
 
-#: avidemux/gui_savenew.cpp:79
+#: avidemux/gui_savenew.cpp:78
 msgid "Select Copy as the video codec."
 msgstr "選擇 複製來源 作為視訊的編解碼器。"
 
-#: avidemux/gui_savenew.cpp:199
-#: avidemux/gui_savenew.cpp:215
-#: avidemux/gui_savenew.cpp:228
+#: avidemux/gui_savenew.cpp:198
+#: avidemux/gui_savenew.cpp:214
+#: avidemux/gui_savenew.cpp:227
 msgid "Incompatible output format"
 msgstr "不相容的輸出格式"
 
-#: avidemux/gui_savenew.cpp:249
+#: avidemux/gui_savenew.cpp:248
 msgid "There is no second track"
 msgstr "沒有第二音軌"
 
-#: avidemux/gui_savenew.cpp:249
+#: avidemux/gui_savenew.cpp:248
 msgid "Select a second audio track in the Audio menu."
 msgstr "在音訊選單選擇一個第二音軌。"
 
-#: avidemux/gui_savenew.cpp:253
+#: avidemux/gui_savenew.cpp:252
 msgid "Select dual audio AVI to write"
 msgstr "選擇雙語 AVI 進行寫入"
 
-#: avidemux/gui_savenew.cpp:275
-#: avidemux/gui_savenew.cpp:293
+#: avidemux/gui_savenew.cpp:274
+#: avidemux/gui_savenew.cpp:292
 msgid "This cannot have packed VOP"
 msgstr "不能有打包好的 VOP"
 
-#: avidemux/gui_savenew.cpp:275
-#: avidemux/gui_savenew.cpp:293
+#: avidemux/gui_savenew.cpp:274
+#: avidemux/gui_savenew.cpp:292
 msgid "It is not MPEG-4 video. File will not be saved."
 msgstr "不是 MPEG-4 視訊。檔案將不會儲存。"
 
-#: avidemux/gui_savenew.cpp:339
+#: avidemux/gui_savenew.cpp:338
 msgid ""
 "You may need smart copy.\n"
 "Enable it?"
@@ -1650,7 +1601,7 @@ msgstr ""
 "你也許需要智慧複製。\n"
 " 要啟動嗎 ?"
 
-#: avidemux/gui_savenew.cpp:342
+#: avidemux/gui_savenew.cpp:341
 msgid "_Q factor (set 4):"
 msgstr "_Q 係數 (設定 4):"
 
@@ -1665,95 +1616,95 @@ msgstr "Avidemux"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:290
 #: avidemux/ADM_libraries/ADM_utilities/ADM_gettext.cpp:46
 msgid "_File"
-msgstr "檔案(_F)"
+msgstr "檔案 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:297
 msgid "_Open..."
-msgstr "開啟...(_O)"
+msgstr "開啟... (_O)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:308
 msgid "_Append..."
-msgstr "添加...(_A)"
+msgstr "添加... (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:319
 msgid "_Save"
-msgstr "儲存(_S)"
+msgstr "儲存 (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:330
 msgid "Save _Video..."
-msgstr "儲存影片...(_V)"
+msgstr "儲存影片... (_V)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:342
 msgid "Save _BMP Image..."
-msgstr "儲存成BMP 圖片...(_B)"
+msgstr "儲存成BMP 圖片... (_B)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:346
 msgid "Save _JPEG Image..."
-msgstr "儲存成JPEG 圖片...(_J)"
+msgstr "儲存成JPEG 圖片... (_J)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:350
 msgid "Save _Selection as JPEG Images..."
-msgstr "將取選範圍另存成JPEG 圖片...(_S)"
+msgstr "將取選範圍另存成JPEG 圖片... (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:363
 msgid "Save _Project"
-msgstr "儲存專案(_P)"
+msgstr "儲存專案 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:371
 msgid "Save P_roject As..."
-msgstr "另存專案為...(_R)"
+msgstr "另存專案為... (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:379
 msgid "_Load/Run Project..."
-msgstr "載入/執行 專案...(_L)"
+msgstr "載入/執行專案... (_L)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:387
 msgid "A_dd to Joblist..."
-msgstr "增加到工作列表...(_D)"
+msgstr "增加到工作清單... (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:391
 msgid "Show _Joblist"
-msgstr "顯示工作列表(_J)"
+msgstr "顯示工作清單 (_J)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:403
 msgid "Co_nnect to avsproxy"
-msgstr "連線至 avsproxy(_N)"
+msgstr "連線至 avsproxy (_N)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:412
 msgid "Proper_ties"
-msgstr "屬性(_T)"
+msgstr "屬性 (_T)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:423
 msgid "AVI _Muxer Options"
-msgstr "AVI 合成器選項(_M)"
+msgstr "AVI 合成器選項 (_M)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:432
 msgid "_Quit"
-msgstr "離開(_Q)"
+msgstr "離開 (_Q)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:443
 msgid "_Edit"
-msgstr "編輯(_E)"
+msgstr "編輯 (_E)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:450
 msgid "_Reset Edits"
-msgstr "回復編輯(_R)"
+msgstr "回復編輯 (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:463
 msgid "Cu_t"
-msgstr "剪下(_T)"
+msgstr "剪下 (_T)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:474
 msgid "_Copy"
-msgstr "複製(_C)"
+msgstr "複製 (_C)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:485
 msgid "_Paste"
-msgstr "貼上(_P)"
+msgstr "貼上 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:496
 msgid "_Delete"
-msgstr "刪除(_D)"
+msgstr "刪除 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:512
 msgid "Set Marker _A"
@@ -1765,27 +1716,27 @@ msgstr "設定標記 _B"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:531
 msgid "Pre_ferences"
-msgstr "偏好設定(_F)"
+msgstr "偏好設定 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:539
 msgid "_View"
-msgstr "檢視(_V)"
+msgstr "檢視 (_V)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:546
 msgid "_Main Toolbar"
-msgstr "主工具列(_M)"
+msgstr "主工具列 (_M)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:551
 msgid "_A/V Sidebar"
-msgstr "音訊/視訊 側欄(_A)"
+msgstr "音訊/視訊側欄 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:561
 msgid "_Zoom 1:4"
-msgstr "縮放成 1:4(_Z)"
+msgstr "縮放成 1:4 (_Z)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:568
 msgid "Z_oom 1:2"
-msgstr "縮放成 1:2(_O)"
+msgstr "縮放成 1:2 (_O)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:575
 msgid "Zoom _1:1"
@@ -1797,15 +1748,15 @@ msgstr "縮放成 _2:1"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:589
 msgid "Vi_deo"
-msgstr "視訊(_D)"
+msgstr "視訊 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:596
 msgid "_Decoder Options"
-msgstr "解碼器選項(_D)"
+msgstr "解碼器選項 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:603
 msgid "_Postprocessing"
-msgstr "後置處理(_P)"
+msgstr "後置處理 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:606
 msgid "Select postprocessing level"
@@ -1813,56 +1764,56 @@ msgstr "選擇後置處理等級"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:616
 msgid "P_review"
-msgstr "預覽(_R)"
+msgstr "預覽 (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:623
 msgid "Display _Output"
-msgstr "顯示輸出(_O)"
+msgstr "顯示輸出 (_O)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:635
 msgid "_Frame Rate"
-msgstr "畫格率(_F)"
+msgstr "畫格率 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:639
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:688
 msgid "_Encoder"
-msgstr "編碼器(_E)"
+msgstr "編碼器 (_E)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:646
 msgid "Fil_ters"
-msgstr "濾鏡(_F)"
+msgstr "濾鏡 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:653
 msgid "_Audio"
-msgstr "音訊(_A)"
+msgstr "音訊 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:660
 msgid "_Main Track"
-msgstr "主軌道(_M)"
+msgstr "主軌道 (_M)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:664
 msgid "_Second Track"
-msgstr "次軌道(_S)"
+msgstr "次軌道 (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:668
 msgid "_Build VBR Time Map"
-msgstr "建立變動位元率(VBR)時間對應(_B)"
+msgstr "建立變動位元率 (VBR) 時間對應 (_B)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:677
 msgid "S_ave..."
-msgstr "儲存...(_A)"
+msgstr "儲存... (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:695
 msgid "_Filters"
-msgstr "濾鏡(_F)"
+msgstr "濾鏡 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:699
 msgid "_Tools"
-msgstr "工具(_T)"
+msgstr "工具 (_T)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:706
 msgid "_Calculator"
-msgstr "計算機(_C)"
+msgstr "計算機 (_C)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:722
 msgid "_Rebuild Frames (I & B)"
@@ -1874,11 +1825,11 @@ msgstr "檢查畫格 (慢)(_H)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:730
 msgid "_Bitrate Histogram"
-msgstr "位元率分佈圖(_B)"
+msgstr "位元率分佈圖 (_B)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:734
 msgid "_Scan for Black Frames..."
-msgstr "掃描黑畫面...(_S)"
+msgstr "掃描黑畫面... (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:743
 msgid "_VOB -> VobSub"
@@ -1894,15 +1845,15 @@ msgstr "OCR (TS 轉成 srt)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:755
 msgid "_Edit Glyph"
-msgstr "編輯字形(_E)"
+msgstr "編輯字形 (_E)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:764
 msgid "_Frame Hex Dump"
-msgstr "畫格二位元轉出(_F)"
+msgstr "畫格二位元轉出 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:768
 msgid "A_uto"
-msgstr "自動(_U)"
+msgstr "自動 (_U)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:775
 msgid "_VCD"
@@ -1934,43 +1885,43 @@ msgstr "IPOD (mpeg4)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:803
 msgid "_Go"
-msgstr "前往(_G)"
+msgstr "前往 (_G)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:810
 msgid "_Play/Stop"
-msgstr "播放/停止(_P)"
+msgstr "播放/停止 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:821
 msgid "P_revious Frame"
-msgstr "上一格(_R)"
+msgstr "上一格 (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:832
 msgid "_Next Frame"
-msgstr "下一格(_N)"
+msgstr "下一格 (_N)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:843
 msgid "Pr_evious Intra Frame"
-msgstr "上一內部畫格(_E)"
+msgstr "上一內部畫格 (_E)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:854
 msgid "Next _Intra Frame"
-msgstr "下一內部畫格(_I)"
+msgstr "下一內部畫格 (_I)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:865
 msgid "Previou_s Black Frame"
-msgstr "上一黑畫面(_S)"
+msgstr "上一黑畫面 (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:869
 msgid "Ne_xt Black Frame"
-msgstr "下一黑畫面(_X)"
+msgstr "下一黑畫面 (_X)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:873
 msgid "_First Frame"
-msgstr "第一格(_F)"
+msgstr "第一格 (_F)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:884
 msgid "_Last Frame"
-msgstr "最後一格(_L)"
+msgstr "最後一格 (_L)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:900
 msgid "Go to Marker _A"
@@ -1982,31 +1933,31 @@ msgstr "前往標記 _B"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:919
 msgid "Go to Fra_me..."
-msgstr "前往畫格...(_M)"
+msgstr "前往畫格... (_M)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:930
 msgid "Go to _Time..."
-msgstr "前往時間...(_T)"
+msgstr "前往時間... (_T)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:941
 msgid "_Custom"
-msgstr "自訂(_C)"
+msgstr "自訂 (_C)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:945
 msgid "_Help"
-msgstr "說明(_H)"
+msgstr "說明 (_H)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:952
 msgid "_Plugins"
-msgstr "外掛程式(_P)"
+msgstr "外掛模組 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:956
 msgid "_Built-in Support"
-msgstr "內建的支援(_B)"
+msgstr "內建的支援 (_B)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:960
 msgid "_About"
-msgstr "關於(_A)"
+msgstr "關於 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:978
 msgid "Open a file"
@@ -2018,7 +1969,7 @@ msgstr "儲存檔案"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:994
 msgid "Audio/video file information"
-msgstr "音訊/視訊 資訊"
+msgstr "音訊/視訊資訊"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1002
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:391
@@ -2027,7 +1978,7 @@ msgstr "計算機"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1005
 msgid "Bitrate/size calculator"
-msgstr "位元率/大小 計算機"
+msgstr "位元率/大小計算機"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1066
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:298
@@ -2243,7 +2194,7 @@ msgstr "分離視窗"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_bindings.cpp:723
 #, c-format
 msgid "Frame:%c(%02d)"
-msgstr "畫格:%c(%02d)"
+msgstr "畫格:%c (%02d)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/ADM_tray_gtk.cpp:53
 msgid "Open Avidemux"
@@ -2298,7 +2249,7 @@ msgstr "增加視訊濾鏡"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filterlist.cpp:100
 msgid "Transformation"
-msgstr "轉換"
+msgstr "變形"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filterlist.cpp:125
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:286
@@ -2353,11 +2304,11 @@ msgstr "視訊濾鏡管理器"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:146
 msgid "Open filter list [Ctrl-O]"
-msgstr "開啟濾鏡列表 [Ctrl-O]"
+msgstr "開啟濾鏡清單 [Ctrl-O]"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:155
 msgid "Save filter list [Ctrl-S]"
-msgstr "儲存濾鏡列表 [Ctrl-S]"
+msgstr "儲存濾鏡清單 [Ctrl-S]"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:163
 msgid "Save Script"
@@ -2401,7 +2352,7 @@ msgstr "VCD 解析度 [Ctrl-4]"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:261
 msgid "Transform"
-msgstr "轉換"
+msgstr "變形"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:334
 msgid "Noise"
@@ -2413,7 +2364,7 @@ msgstr "清晰度"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:406
 msgid "Misc"
-msgstr "雜項"
+msgstr "其他"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:417
 msgid "External"
@@ -2421,7 +2372,7 @@ msgstr "外部的"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:428
 msgid "Add selected filter to the Active Filters list"
-msgstr "增加選擇的濾鏡到作用中的濾鏡列表裡"
+msgstr "將選擇的濾鏡加入到作用中的濾鏡清單裡"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:434
 msgid "<b>Available Filters</b>"
@@ -2441,7 +2392,7 @@ msgstr "濾鏡上移"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:503
 msgid "P_artial"
-msgstr "區段(_A)"
+msgstr "區段 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:506
 msgid "Apply the current filter only to a part of the file"
@@ -2453,7 +2404,7 @@ msgstr "設定濾鏡"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:521
 msgid "C_onfigure"
-msgstr "設定(_O)"
+msgstr "設定 (_O)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:525
 msgid "<b >Active Filters</b>"
@@ -2461,7 +2412,7 @@ msgstr "<b >作用中的濾鏡</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:552
 msgid "_Preview"
-msgstr "預覽(_P)"
+msgstr "預覽 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:194
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:152
@@ -2508,26 +2459,6 @@ msgstr "忽略"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_quota.cpp:134
 msgid "Retry"
 msgstr "重試"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_exLame.cpp:63
-msgid "Lame command"
-msgstr "Lame 命令"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_exLame.cpp:72
-msgid "Enter parameters (i.e. -b 192 -m s ...)"
-msgstr "輸入參數 (i.e. -b 192 -m s ...)"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pipe.cpp:78
-msgid "Pipe to"
-msgstr "輸送到"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pipe.cpp:87
-msgid "Application path/name (/usr/bin/sox...)"
-msgstr "應用程式的路徑/名稱 (/usr/bin/sox...)"
-
-#: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pipe.cpp:96
-msgid "Full parameter line"
-msgstr "完整參考線"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/toolkit_dialog.cpp:481
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/toolkit_dialog.cpp:559
@@ -2772,7 +2703,7 @@ msgstr " "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_ocr.cpp:160
 msgid "_Calibrate"
-msgstr "校準(_C)"
+msgstr "校準 (_C)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_ocr.cpp:164
 msgid "If the glyphs are too thin, enter a lower value here"
@@ -2796,7 +2727,7 @@ msgstr "略過當前 字母/字形"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_ocr.cpp:178
 msgid "_Ignore glyph"
-msgstr "忽略字形(_I)"
+msgstr "忽略字形 (_I)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_ocr.cpp:182
 msgid "This glyph will be ignored from now on"
@@ -2826,16 +2757,16 @@ msgstr "00:00:00"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:451
 msgid "_Medium:"
-msgstr "媒體(_M):"
+msgstr "媒體 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:462
 msgid "_Format:"
-msgstr "格式(_F):"
+msgstr "格式 (_F):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:473
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:531
 msgid "Total size (custom)"
-msgstr "總大小(自訂)"
+msgstr "總大小 (自訂)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:483
 msgid "_Custom size (MB):"
@@ -2966,7 +2897,7 @@ msgstr "未知"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:609
 msgid "<b>Processed Frames:</b>"
-msgstr "<b>處理過的畫格數</b>"
+msgstr "<b>已處理的畫格數</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:617
 msgid "<b>Total Frames:</b>"
@@ -3858,7 +3789,7 @@ msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_about.cpp:62
 msgid "translator-credits"
-msgstr "吳東俊 (ziyawu@gmail.com)"
+msgstr "吳東俊 (Dong-Jun Wu) <ziyawu@gmail.com>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_idx_pg.cpp:39
 msgid "Continue indexing"
@@ -4084,6 +4015,10 @@ msgstr "確定？"
 msgid "Video Codecs"
 msgstr "視訊編解碼器"
 
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:127
+msgid "Xvid"
+msgstr "Xvid"
+
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp:128
 msgid "x264"
 msgstr "x264"
@@ -4162,11 +4097,11 @@ msgstr "內建的支援"
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:320
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:317
 msgid "_Quality:"
-msgstr "品質(_Q):"
+msgstr "品質 (_Q):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_mjpeg.cpp:31
 msgid "_Swap U&V"
-msgstr "置換 U&V(_S)"
+msgstr "置換 U&V (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_mjpeg.cpp:33
 msgid "MJPEG Configuration"
@@ -4175,7 +4110,7 @@ msgstr "MJPEG 設定"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:21
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:44
 msgid "_Filter strength:"
-msgstr "濾鏡強度(_S):"
+msgstr "濾鏡強度 (_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:22
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp:27
@@ -4186,18 +4121,18 @@ msgstr "置換 U 和 V (_S)"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:298
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:56
 msgid "_Horizontal deblocking"
-msgstr "去除水平方向塊狀色斑(_H)"
+msgstr "去除水平方向塊狀色斑 (_H)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:33
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:299
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:57
 msgid "_Vertical deblocking"
-msgstr "去除垂直方向塊狀色斑(_V)"
+msgstr "去除垂直方向塊狀色斑 (_V)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:34
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:58
 msgid "_Deringing"
-msgstr "去除環狀色斑(_D)"
+msgstr "去除環狀色斑 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:38
 msgid "Postprocessing"
@@ -4205,7 +4140,7 @@ msgstr "後置處理"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:48
 msgid "_Dynamic range compression"
-msgstr "動態範圍壓縮(_D)"
+msgstr "動態範圍壓縮 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:50
 msgid "_Time shift (ms):"
@@ -4217,7 +4152,7 @@ msgstr "時間位移值 (ms)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:58
 msgid "R_esampling (Hz):"
-msgstr "重複取樣(_E) (Hz):"
+msgstr "重複取樣 (_E) (Hz):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:58
 msgid "Resampling frequency (Hz)"
@@ -4233,7 +4168,7 @@ msgstr "PAL 轉成 Film"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:71
 msgid "_Frame rate change:"
-msgstr "畫格率改變(_F):"
+msgstr "畫格率改變 (_F):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:76
 msgid "Automatic (max -3 dB)"
@@ -4245,11 +4180,11 @@ msgstr "手動"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:79
 msgid "_Gain mode:"
-msgstr "增益模式(_G):"
+msgstr "增益模式 (_G):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:81
 msgid "G_ain value:"
-msgstr "增益值(_A):"
+msgstr "增益值 (_A):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:83
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:183
@@ -4294,7 +4229,7 @@ msgstr "第二代杜比定向邏輯"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:101
 msgid "_Mixer:"
-msgstr "混合器(_M):"
+msgstr "混合器 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:105
 msgid "Audio Filters"
@@ -4302,15 +4237,15 @@ msgstr "音訊濾鏡"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp:9
 msgid "_Hours:"
-msgstr "小時(_H):"
+msgstr "小時 (_H):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp:10
 msgid "_Minutes:"
-msgstr "分鐘(_M):"
+msgstr "分鐘 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp:11
 msgid "_Seconds:"
-msgstr "秒(_S):"
+msgstr "秒 (_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp:14
 msgid "Go to Time"
@@ -4318,7 +4253,7 @@ msgstr "前往時間點"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp:28
 msgid "Show motion _vectors"
-msgstr "顯示運動方向(_V)"
+msgstr "顯示運動方向 (_V)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp:30
 msgid "Decoder Options"
@@ -4366,15 +4301,15 @@ msgstr "矩陣"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:60
 msgid "Mi_n. quantizer:"
-msgstr "最小量化值(_N):"
+msgstr "最小量化值 (_N):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:61
 msgid "Ma_x. quantizer:"
-msgstr "最大量化值(_X):"
+msgstr "最大量化值 (_X):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:62
 msgid "Max. quantizer _difference:"
-msgstr "最大量化差值(_D):"
+msgstr "最大量化差值 (_D):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:64
 msgid "4_MV"
@@ -4382,11 +4317,11 @@ msgstr "4_MV"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:65
 msgid "_Trellis quantization"
-msgstr "框架量化編碼(_T)"
+msgstr "框架量化編碼 (_T)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:67
 msgid "_Quarter pixel"
-msgstr "1/4 像素(_Q)"
+msgstr "1/4 像素 (_Q)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:68
 msgid "_GMC"
@@ -4394,15 +4329,15 @@ msgstr "_GMC"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:71
 msgid "_Number of B frames:"
-msgstr "B 畫格數目(_N):"
+msgstr "B 畫格數目 (_N):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:72
 msgid "_Quantization type:"
-msgstr "量化編碼類型(_Q):"
+msgstr "量化編碼類型 (_Q):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:74
 msgid "_Macroblock decision:"
-msgstr "運算區塊判定(_M):"
+msgstr "運算區塊判定 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:76
 msgid "_Filesize tolerance (kb):"
@@ -4410,11 +4345,11 @@ msgstr "檔案大小的容許誤差 (kb):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:78
 msgid "_Quantizer compression:"
-msgstr "量化壓縮(_Q):"
+msgstr "量化壓縮 (_Q):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:79
 msgid "Quantizer _blur:"
-msgstr "量化平滑(_B):"
+msgstr "量化平滑 (_B):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavcodec.cpp:84
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:326
@@ -4479,12 +4414,12 @@ msgstr "交錯的 BFF"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:57
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:70
 msgid "Aspect _ratio:"
-msgstr "外觀比例(_R):"
+msgstr "外觀比例 (_R):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:58
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:71
 msgid "_Matrices:"
-msgstr "矩陣(_M):"
+msgstr "矩陣 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:59
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:72
@@ -4500,7 +4435,7 @@ msgstr "最大位元率:"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:66
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:78
 msgid "_Interlacing:"
-msgstr "交錯(_I):"
+msgstr "交錯 (_I):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_SVCD.cpp:70
 msgid "MPEG-2 Configuration"
@@ -4508,7 +4443,7 @@ msgstr "MPEG-2 設定"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:45
 msgid "Audio Plugins"
-msgstr "音訊外掛程式"
+msgstr "音訊外掛模組"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:68
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:344
@@ -4519,7 +4454,7 @@ msgstr "音訊"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:74
 msgid "Video Encoder Plugins"
-msgstr "視訊編碼器外掛程式"
+msgstr "視訊編碼器外掛模組"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:98
 msgid "Video Encoder"
@@ -4527,15 +4462,15 @@ msgstr "視訊編碼器"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:103
 msgid "Audio Device Plugins"
-msgstr "音訊設備外掛程式"
+msgstr "音訊裝置外掛模組"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:125
 msgid "Audio Device"
-msgstr "音訊設備"
+msgstr "音訊裝置"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:132
 msgid "Audio Encoder Plugins"
-msgstr "音訊解碼器外掛程式"
+msgstr "音訊解碼器外掛模組"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:154
 msgid "Audio Encoders"
@@ -4543,7 +4478,7 @@ msgstr "音訊解碼器"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:161
 msgid "Plugins Info"
-msgstr "外掛程式資訊"
+msgstr "外掛模組資訊"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp:35
 msgid "_VOB file(s):"
@@ -4584,7 +4519,7 @@ msgstr "請選擇一個正確的 VobSub 路徑/資料夾"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:39
 msgid "_Shrink Factor:"
-msgstr "收縮係數(_S):"
+msgstr "收縮係數 (_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:42
 msgid "Requant Configuration"
@@ -4597,7 +4532,7 @@ msgstr "選擇 idx 檔案:"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:82
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:198
 msgid "Use GlyphSet (optional):"
-msgstr "使用字庫 (可選擇):"
+msgstr "使用字庫 (選擇性):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:82
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:198
@@ -4688,7 +4623,7 @@ msgstr "最小位元率:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:66
 msgid "_Use Xvid rate control"
-msgstr "使用 Xvid 比率控制器(_U)"
+msgstr "使用 Xvid 比率控制器 (_U)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_DVDff.cpp:68
 msgid "_Buffer size:"
@@ -4700,11 +4635,11 @@ msgstr "libavcodec MPEG-2 設定"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:175
 msgid "_Use systray while encoding"
-msgstr "編碼時使用工作欄(_U)"
+msgstr "編碼時使用工作欄 (_U)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:176
 msgid "_Accept non-standard audio frequency for DVD"
-msgstr "同意在 DVD 使用非標準的音訊頻率(_A)"
+msgstr "同意在 DVD 使用非標準的音訊頻率 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:177
 msgid "Create _OpenDML files"
@@ -4712,27 +4647,27 @@ msgstr "建立 _OpenDML 檔案"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:178
 msgid "Automatically _index MPEG files"
-msgstr "自動索引 MPEG 檔(_I)"
+msgstr "自動索引 MPEG 檔 (_I)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:179
 msgid "Automatically _swap A and B if A>B"
-msgstr "如果 A>B ，則自動置換 A 和 B(_S)"
+msgstr "如果 A>B ，則自動置換 A 和 B (_S)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:180
 msgid "_Disable NUV audio sync"
-msgstr "停用 NUV 音訊同步(_D)"
+msgstr "停用 NUV 音訊同步 (_D)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:182
 msgid "Automatically _build VBR map"
-msgstr "自動建立變動位元率(VBR)對應(_B)"
+msgstr "自動建立變動位元率 (VBR) 對應 (_B)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:183
 msgid "Automatically _rebuild index"
-msgstr "自動重新建立索引(_R)"
+msgstr "自動重新建立索引 (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:184
 msgid "Automatically remove _packed bitstream"
-msgstr "自動地移除打包好的位元流(_P)"
+msgstr "自動地移除打包好的位元流 (_P)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:186
 msgid "SIMD"
@@ -4792,15 +4727,15 @@ msgstr "低於一般"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:229
 msgid "_Encoding priority:"
-msgstr "編碼優先權(_E):"
+msgstr "編碼優先權 (_E):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:230
 msgid "_Indexing/unpacking priority:"
-msgstr "索引/拆開打包的優先權(_I):"
+msgstr "索引/拆開打包的優先權 (_I):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:231
 msgid "_Playback priority:"
-msgstr "播放控制優先權(_P):"
+msgstr "播放控制優先權 (_P):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:233
 msgid "Prioritisation"
@@ -4812,7 +4747,7 @@ msgstr "MPEG 檔分割成每一個檔 (MB)(_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:240
 msgid "_Use alternative tag for MP3 in .mp4"
-msgstr "在 .mp4 對 MP3 使用選擇對象標籤(_U)"
+msgstr "在 .mp4 對 MP3 使用選擇對象標籤 (_U)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:244
 msgid "XVideo (best)"
@@ -4832,7 +4767,7 @@ msgstr "SDL (佳)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:255
 msgid "Video _display:"
-msgstr "視訊顯示(_D):"
+msgstr "視訊顯示 (_D):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:260
 msgid "No alerts"
@@ -4848,7 +4783,7 @@ msgstr "顯示所有警告"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:264
 msgid "_Message level:"
-msgstr "訊息等級(_M):"
+msgstr "訊息等級 (_M):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:270
 msgid "Master"
@@ -4856,7 +4791,7 @@ msgstr "主要"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:271
 msgid "_Volume control:"
-msgstr "音量控制(_V):"
+msgstr "音量控制 (_V):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:276
 msgid "No downmixing"
@@ -4872,21 +4807,21 @@ msgstr "第二代定向邏輯"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:281
 msgid "_Local playback downmixing:"
-msgstr "局部錄放降混(_L):"
+msgstr "局部錄放降混 (_L):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:295
 msgid "_AudioDevice"
-msgstr "音訊設備(_A)"
+msgstr "音訊裝置 (_A)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:300
 msgid "De_ringing"
-msgstr "去除環狀色斑(_R)"
+msgstr "去除環狀色斑 (_R)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:301
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:160
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:184
 msgid "_Strength:"
-msgstr "強度(_S):"
+msgstr "強度 (_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:302
 msgid "Default Postprocessing"
@@ -4894,7 +4829,7 @@ msgstr "預設的後置處理"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:316
 msgid "_Filter directory:"
-msgstr "濾鏡目錄(_F):"
+msgstr "濾鏡目錄 (_F):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:316
 msgid "Select filter directory"
@@ -4902,15 +4837,15 @@ msgstr "選擇濾鏡目錄"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:317
 msgid "_Load external filters"
-msgstr "載入外部濾鏡(_L)"
+msgstr "載入外部濾鏡 (_L)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:320
 msgid "Use _Global GlyphSet"
-msgstr "使用整體字庫(_G)"
+msgstr "使用整體字庫 (_G)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:321
 msgid "Gl_yphSet:"
-msgstr "字庫(_Y):"
+msgstr "字庫 (_Y):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:330
 msgid "Automation"
@@ -4995,15 +4930,15 @@ msgstr "PSP 完整解析度。 (720*480)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:53
 msgid "_Target type:"
-msgstr "目標類型(_T):"
+msgstr "目標類型 (_T):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:54
 msgid "_Source aspect ratio:"
-msgstr "來源的外觀比例(_S):"
+msgstr "來源的外觀比例 (_S):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:55
 msgid "_Destination aspect ratio:"
-msgstr "目的檔案的外觀比例(_D):"
+msgstr "目的檔案的外觀比例 (_D):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_resizeWiz.cpp:60
 msgid "Auto Wizard"
@@ -5011,11 +4946,11 @@ msgstr "自動精靈"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp:7
 msgid "_Job name:"
-msgstr "工作名稱(_J):"
+msgstr "工作名稱 (_J):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp:8
 msgid "Output _File:"
-msgstr "輸出檔案(_F):"
+msgstr "輸出檔案 (_F):"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp:8
 msgid "Select Video To Write"
@@ -5072,7 +5007,7 @@ msgstr "載入它"
 
 #: avidemux/ADM_osSupport/ADM_crashHook.cpp:64
 msgid "Crash file"
-msgstr "崩潰檔"
+msgstr "損壞檔"
 
 #: avidemux/ADM_osSupport/ADM_crashHook.cpp:65
 msgid ""
@@ -5080,7 +5015,7 @@ msgid ""
 "Do you want to load it  ?\n"
 "(It will be deleted in all cases, you should save it if you want to keep it)"
 msgstr ""
-"檢測到一個崩潰檔。\n"
+"檢測到一個損壞檔。\n"
 "是否要載入 ?\n"
 "(在所有的案例都將被檢測，若要保存它你必須執行儲存)"
 
@@ -5134,7 +5069,7 @@ msgstr "強制 過亮/過暗 的像素為 0 且重新設定成 255 或者反過�
 
 #: avidemux/ADM_filter/filter_declaration.cpp:52
 msgid "Particle List"
-msgstr "區段列表"
+msgstr "區段清單"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:52
 msgid "Identify 'particles' (groups of pixels)"
@@ -5219,11 +5154,11 @@ msgstr "lvemux 初始化失敗"
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:135
 msgid "Mi_nimum value to be in-range:"
-msgstr "在範圍中的最小值(_N):"
+msgstr "在範圍中的最小值 (_N):"
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:136
 msgid "Ma_ximum value to be in-range:"
-msgstr "在範圍中的最大值(_X):"
+msgstr "在範圍中的最大值 (_X):"
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:139
 msgid "In-range values go white, out-of-range go black"
@@ -5255,7 +5190,7 @@ msgstr "結束畫格 (包含最後一個畫格 #), -1 = 最後(_E):"
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:179
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:187
 msgid "_Output File:"
-msgstr "輸出檔(_O):"
+msgstr "輸出檔 (_O):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:179
 msgid "Select output file"
@@ -5279,7 +5214,7 @@ msgstr "無任何顯示 (對批次處理而言是快速的)"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:193
 msgid "Display _Mode:"
-msgstr "顯示模式(_M):"
+msgstr "顯示模式 (_M):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:198
 msgid "ComputeAverage"
@@ -5303,15 +5238,15 @@ msgstr "舊格式無法正確讀取 Tracker3D"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:141
 msgid "Output _Format:"
-msgstr "輸出格式(_F):"
+msgstr "輸出格式 (_F):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:166
 msgid "Mi_nimum area for a particle to be detected:"
-msgstr "偵測一個區段的最小範圍(_N):"
+msgstr "偵測一個區段的最小範圍 (_N):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:169
 msgid "Ma_ximum area for a particle to be detected:"
-msgstr "偵測一個區段的最大範圍(_X):"
+msgstr "偵測一個區段的最大範圍 (_X):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:173
 msgid "_Left side crop (ignore particles in):"
@@ -5331,7 +5266,7 @@ msgstr "剪裁底部 (忽略在區段中的)(_B):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:190
 msgid "_Camera number:"
-msgstr "攝影機數目(_C):"
+msgstr "攝影機數目 (_C):"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:187
 msgid "Erase"
@@ -5375,11 +5310,11 @@ msgstr "21x21"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:203
 msgid "Brush _Mode:"
-msgstr "筆刷模式(_M):"
+msgstr "筆刷模式 (_M):"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:207
 msgid "Brush _Size:"
-msgstr "筆刷大小(_S):"
+msgstr "筆刷大小 (_S):"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:240
 msgid "Output \"_Color\" for all masked pixels:"
@@ -5387,7 +5322,7 @@ msgstr "對所有被遮罩的像素輸出 \"顏色\" (_C):"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:246
 msgid "Eraser _Data File:"
-msgstr "擦除器資料檔(_D):"
+msgstr "擦除器資料檔 (_D):"
 
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:246
 msgid "Select data file"
@@ -5439,7 +5374,7 @@ msgstr "P' = max (P, A)"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:272
 msgid "A = convolve(P); Load convolution kernel from file"
-msgstr "A = 卷積(P); 從檔案載入卷積內核"
+msgstr "A = 卷積 (P); 從檔案載入卷積內核"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:274
 msgid "A = pixel from image file as float; Load image from file"
@@ -5459,11 +5394,11 @@ msgstr "A = 像素的可變動範圍: A = A*(1-alpha)+(P*alpha)"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:285
 msgid "Select _Operation on each pixel P and input A:"
-msgstr "選擇在每個像素 P 的操作和輸入 A(_O):"
+msgstr "選擇在每個像素 P 的操作和輸入 A (_O):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:290
 msgid "Input _Type:"
-msgstr "輸入類型(_T):"
+msgstr "輸入類型 (_T):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:321
 msgid "Input _File (image or convolution kernel):"
@@ -5487,7 +5422,7 @@ msgstr ""
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:335
 msgid "Input _Constant:"
-msgstr "輸入固定值(_C):"
+msgstr "輸入固定值 (_C):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:339
 msgid ""
@@ -5547,7 +5482,7 @@ msgstr "無法解碼下一個畫格"
 #: avidemux/gui_navigate.cpp:112
 #: avidemux/gui_navigate.cpp:430
 msgid "Cannot decode keyframe."
-msgstr "無法解碼關鍵畫格"
+msgstr "無法解碼關鍵畫格。"
 
 #: avidemux/gui_navigate.cpp:238
 msgid "Seeking"
@@ -5630,7 +5565,7 @@ msgstr "Oops"
 
 #: avidemux/GUI_jobs.cpp:37
 msgid "Something very wrong happened when building joblist."
-msgstr "建立工作列表時發生某些重大錯誤。"
+msgstr "建立工作清單時發生某些重大錯誤。"
 
 #: avidemux/GUI_jobs.cpp:42
 msgid "There are no jobs stored"
@@ -5711,7 +5646,7 @@ msgstr "Deinterlace"
 
 #: plugins/ADM_videoFilters/Deinterlace/ADM_vidDeinterlace.cpp:39
 msgid "Mask interlacing artifacts. Port of Smart deinterlace."
-msgstr "從智慧型去交錯轉移而來的遮罩交錯加工。"
+msgstr "從智慧型去交錯移植的遮罩交錯加工。"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:32
 msgid "Add black borders"
@@ -5724,22 +5659,22 @@ msgstr "加入黑色邊框。"
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:214
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:211
 msgid "_Left border:"
-msgstr "左邊框(_L):"
+msgstr "左邊框 (_L):"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:215
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:212
 msgid "_Right border:"
-msgstr "右邊框(_R):"
+msgstr "右邊框 (_R):"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:216
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:213
 msgid "_Top border:"
-msgstr "頂部邊框(_T):"
+msgstr "頂部邊框 (_T):"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:217
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:214
 msgid "_Bottom border:"
-msgstr "底部邊框(_B):"
+msgstr "底部邊框 (_B):"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:220
 msgid "Add Borders"
@@ -5808,11 +5743,11 @@ msgstr "維持連續時間時改變畫格率。"
 
 #: plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp:71
 msgid "_New frame rate:"
-msgstr "新畫格率(_N):"
+msgstr "新畫格率 (_N):"
 
 #: plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp:72
 msgid "_Blend"
-msgstr "混合(_B)"
+msgstr "混合 (_B)"
 
 #: plugins/ADM_videoFilters/MPDelogo/ADM_vidMPdelogo.cpp:43
 msgid "MPlayer delogo"
@@ -5893,19 +5828,19 @@ msgstr "慢 (全部的明度和色度)"
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:100
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:304
 msgid "_Mode:"
-msgstr "模式(_M):"
+msgstr "模式 (_M):"
 
 #: plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp:185
 msgid "_Threshold 1:"
-msgstr "臨界值 1(_T):"
+msgstr "臨界值 1 (_T):"
 
 #: plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp:186
 msgid "T_hreshold 2:"
-msgstr "臨界值 2(_H):"
+msgstr "臨界值 2 (_H):"
 
 #: plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp:187
 msgid "C_ycle:"
-msgstr "循環(_Y):"
+msgstr "循環 (_Y):"
 
 #: plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp:38
 msgid "Pulldown"
@@ -6002,7 +5937,7 @@ msgstr "_Y 位置:"
 
 #: plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp:82
 msgid "_Alpha:"
-msgstr "透明(_A):"
+msgstr "透明 (_A):"
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:76
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:151
@@ -6011,7 +5946,7 @@ msgstr "yadif"
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:79
 msgid "Yet Another DeInterlacer. Ported from MPlayer."
-msgstr "從 MPlayer 轉移而來的另一個去交錯器。"
+msgstr "另一個去交錯器。從 MPlayer 移植而來。"
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:136
 msgid "Temporal & spatial check"
@@ -6041,31 +5976,31 @@ msgstr "頂部圖場開始"
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:147
 msgid "_Order:"
-msgstr "命令(_O):"
+msgstr "命令 (_O):"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:43
 msgid "Port of Transcode DNR."
-msgstr "由 DNR 譯碼轉移而來。"
+msgstr "從 DNR 轉碼移植而來。"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:382
 msgid "_Luma lock:"
-msgstr "明度鎖定(_L):"
+msgstr "明度鎖定 (_L):"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:383
 msgid "C_hroma lock:"
-msgstr "色度鎖定(_H):"
+msgstr "色度鎖定 (_H):"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:384
 msgid "L_uma threshold:"
-msgstr "明度臨界值(_U):"
+msgstr "明度臨界值 (_U):"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:385
 msgid "Ch_roma threshold:"
-msgstr "彩度臨界值(_R):"
+msgstr "彩度臨界值 (_R):"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:387
 msgid "_Scene change:"
-msgstr "場景改變(_S):"
+msgstr "場景改變 (_S):"
 
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:81
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:165
@@ -6078,11 +6013,11 @@ msgstr "沒有放大雜訊下銳利化邊緣。作者為 Donald Graft。"
 
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:156
 msgid "_Mask"
-msgstr "遮罩(_M)"
+msgstr "遮罩 (_M)"
 
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:157
 msgid "_High Q"
-msgstr "高 Q(_H)"
+msgstr "高 Q (_H)"
 
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:159
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:86
@@ -6128,7 +6063,7 @@ msgstr "270°"
 
 #: plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp:264
 msgid "_Angle:"
-msgstr "角度(_A):"
+msgstr "角度 (_A):"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:72
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:96
@@ -6137,15 +6072,15 @@ msgstr "時間清理器"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:75
 msgid "Vlad59's Avisynth port of Jim Casaburi's denoiser."
-msgstr "Vlad59 的 Avisynth 由 Jim Casaburi 的去雜訊器轉移而來。"
+msgstr "Vlad59 的 Avisynth 是從 Jim Casaburi 的去雜訊器移植而來。"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:91
 msgid "_Luma temporal threshold:"
-msgstr "明度時間臨界值(_L):"
+msgstr "明度時間臨界值 (_L):"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:92
 msgid "Ch_roma temporal threshold:"
-msgstr "色度時間臨界值(_R):"
+msgstr "色度時間臨界值 (_R):"
 
 #: plugins/ADM_videoFilters/Delta/ADM_vidDelta.cpp:40
 msgid "Luma delta"
@@ -6195,11 +6130,11 @@ msgstr "FFmpeg 去交錯"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:115
 msgid "_Deinterlacing:"
-msgstr "去交錯(_D):"
+msgstr "去交錯 (_D):"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:116
 msgid "_Autolevel"
-msgstr "自動色階(_A)"
+msgstr "自動色階 (_A)"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:53
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:123
@@ -6263,54 +6198,54 @@ msgstr "處理圖像 (非圖場)，除錯"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:102
 msgid "_Strategy:"
-msgstr "策略(_S):"
+msgstr "策略 (_S):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:103
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:77
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:84
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:74
 msgid "_Field order:"
-msgstr "圖場優先順序(_F):"
+msgstr "圖場優先順序 (_F):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:104
 msgid "_Postprocessing:"
-msgstr "後置處理(_P):"
+msgstr "後置處理 (_P):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:105
 msgid "_Try backward:"
-msgstr "嘗試反向(_T):"
+msgstr "嘗試反向 (_T):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:107
 msgid "_Direct threshold:"
-msgstr "正向臨界值(_D):"
+msgstr "正向臨界值 (_D):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:108
 msgid "_Backward threshold:"
-msgstr "反向臨界值(_B):"
+msgstr "反向臨界值 (_B):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:109
 msgid "_Noise threshold:"
-msgstr "雜訊臨界值(_N):"
+msgstr "雜訊臨界值 (_N):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:110
 msgid "Postp_rocessing threshold:"
-msgstr "後置處理臨界值(_R):"
+msgstr "後置處理臨界值 (_R):"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:112
 msgid "_Use chroma to decide"
-msgstr "使用色度來判定(_U)"
+msgstr "使用色度來判定 (_U)"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:113
 msgid "Sho_w info"
-msgstr "顯示資訊(_W)"
+msgstr "顯示資訊 (_W)"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:114
 msgid "Debu_g"
-msgstr "除錯(_D)"
+msgstr "除錯 (_D)"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:115
 msgid "Bl_end"
-msgstr "混合(_E)"
+msgstr "混合 (_E)"
 
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:58
 msgid "Blacken borders"
@@ -6404,12 +6339,12 @@ msgstr "2"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:78
 msgid "_Interpolate:"
-msgstr "插入(_I):"
+msgstr "插入 (_I):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:80
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:66
 msgid "_Type:"
-msgstr "類型(_T):"
+msgstr "類型 (_T):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:81
 msgid "_MntMode:"
@@ -6417,7 +6352,7 @@ msgstr "_Mnt 模式:"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:82
 msgid "_Link:"
-msgstr "連結(_L):"
+msgstr "連結 (_L):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:83
 msgid "_AP type:"
@@ -6425,44 +6360,44 @@ msgstr "_AP 類型:"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:86
 msgid "Use ch_roma to evalute"
-msgstr "使用色度來估算(_R)"
+msgstr "使用色度來估算 (_R)"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:87
 msgid "Try _weave"
-msgstr "嘗試編排(_W)"
+msgstr "嘗試編排 (_W)"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:88
 msgid "_Denoise"
-msgstr "減少雜訊(_D)"
+msgstr "減少雜訊 (_D)"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:89
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:76
 msgid "_Sharp"
-msgstr "銳利(_S)"
+msgstr "銳利 (_S)"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:90
 msgid "_Evalute all frames"
-msgstr "估算所有的畫格(_E)"
+msgstr "估算所有的畫格 (_E)"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:93
 msgid "Motion threshold, l_uma:"
-msgstr "動作臨界值，明度(_U):"
+msgstr "動作臨界值，明度 (_U):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:94
 msgid "Motion threshold, c_hroma:"
-msgstr "動作臨界值，色度(_H):"
+msgstr "動作臨界值，色度 (_H):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:95
 msgid "Area com_bing threshold:"
-msgstr "範圍梳形濾波臨界值(_B):"
+msgstr "範圍梳形濾波臨界值 (_B):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:96
 msgid "Combe_d threshold:"
-msgstr "梳形濾波臨界值(_D):"
+msgstr "梳形濾波臨界值 (_D):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:97
 msgid "Artefact _protection threshold:"
-msgstr "人工保護臨界值(_P):"
+msgstr "人工保護臨界值 (_P):"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:98
 msgid "Debug:"
@@ -6486,7 +6421,7 @@ msgstr "根據一個圖場來移動圖場。用於一些 PAL 電影。"
 
 #: plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp:67
 msgid "_Try reverse"
-msgstr "嘗試反轉(_T)"
+msgstr "嘗試反轉 (_T)"
 
 #: plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp:71
 msgid "Pal Field Shift"
@@ -6498,7 +6433,7 @@ msgstr "TIsophote"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:49
 msgid "Port of TIsophote by tritical ."
-msgstr "從 TIsophote  轉移而來，作者為 Tritical。 "
+msgstr "從 TIsophote  移植，作者為 Tritical。 "
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:60
 msgid "Simple"
@@ -6515,7 +6450,7 @@ msgstr "慢"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:67
 msgid "_Iterations:"
-msgstr "疊代(_I):"
+msgstr "疊代 (_I):"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:67
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:75
@@ -6524,7 +6459,7 @@ msgstr "越小表示更多的去交錯"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:68
 msgid "_Chroma:"
-msgstr "色度(_C):"
+msgstr "色度 (_C):"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:68
 msgid "Process chroma."
@@ -6532,7 +6467,7 @@ msgstr "處理色度。"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:69
 msgid "_Step:"
-msgstr "階層(_S):"
+msgstr "階層 (_S):"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:69
 msgid "Step."
@@ -6570,11 +6505,11 @@ msgstr "兩倍畫格和 fps 的數目"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:81
 msgid "Double nb of frames (slow motion)"
-msgstr "兩倍畫格的數量(慢動作)"
+msgstr "兩倍畫格的數量 (慢動作)"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:87
 msgid "_Extra"
-msgstr "額外的(_E)"
+msgstr "額外 (_E)"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:87
 msgid "Extra check, avoid using it"
@@ -6600,7 +6535,7 @@ msgstr "如果數值小於臨界值，它被視為有效的。較小的值可能
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:71
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:81
 msgid "_Noise:"
-msgstr "雜訊(_N):"
+msgstr "雜訊 (_N):"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:71
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:81
@@ -6609,7 +6544,7 @@ msgstr "如果像素太接近雜訊，它們被視為一樣"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:72
 msgid "I_dentical:"
-msgstr "相同(_D):"
+msgstr "相同 (_D):"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:72
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
@@ -6619,7 +6554,7 @@ msgstr "如果量度少於等同的，圖像被視為完全相同"
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:73
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:83
 msgid "_Show metrics"
-msgstr "顯示量度(_S)"
+msgstr "顯示量度 (_S)"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:73
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:83
@@ -6636,7 +6571,7 @@ msgstr "如果數值小於臨界值，它被視為有效的。較小的值可能
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
 msgid "_Identical:"
-msgstr "相同(_I):"
+msgstr "相同 (_I):"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:87
 msgid "Hard IVTC Removal"
@@ -6665,11 +6600,11 @@ msgstr "NTSC (預設是 PAL)(_N):"
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:39
 msgid "Vignette _Width:"
-msgstr "小插曲寬(_W):"
+msgstr "小插曲寬 (_W):"
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:40
 msgid "Vignette _Height:"
-msgstr "小插曲高(_H):"
+msgstr "小插曲高 (_H):"
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:43
 msgid "Vignette frame number"
@@ -6685,11 +6620,11 @@ msgstr "內核去交錯器，作者為 Donald Graft。"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:76
 msgid "_Sharper engine:"
-msgstr "清晰化引擎(_S):"
+msgstr "清晰化引擎 (_S):"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:77
 msgid "T_woway"
-msgstr "雙向(_W)"
+msgstr "雙向 (_W)"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:77
 msgid "Extrapolate better (better not to use it)"
@@ -6697,11 +6632,11 @@ msgstr "推算較好的 (最好不使用它)"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:78
 msgid "_Map"
-msgstr "對應(_M)"
+msgstr "對應 (_M)"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:78
 msgid "Show interlaced areas (for test!)"
-msgstr "顯示交錯的範圍(測試用！)"
+msgstr "顯示交錯的範圍 (測試用！)"
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:55
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:75
@@ -6714,15 +6649,15 @@ msgstr "穩定的一個變體。"
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:69
 msgid "_Luma threshold:"
-msgstr "明度臨界值(_L):"
+msgstr "明度臨界值 (_L):"
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:70
 msgid "C_hroma threshold:"
-msgstr "色度臨界值(_H):"
+msgstr "色度臨界值 (_H):"
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:71
 msgid "_Radius:"
-msgstr "半徑(_R):"
+msgstr "半徑 (_R):"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:64
 msgid "mosaic"
@@ -6734,19 +6669,19 @@ msgstr "將圖片分割成一堆微小的圖片。"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:76
 msgid "_Horizontal stacking:"
-msgstr "水平層疊(_H):"
+msgstr "水平層疊 (_H):"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:77
 msgid "_Vertical stacking:"
-msgstr "垂直層疊(_V):"
+msgstr "垂直層疊 (_V):"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:78
 msgid "_Shrink factor:"
-msgstr "收縮係數(_S):"
+msgstr "收縮係數 (_S):"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:79
 msgid "Show _frame"
-msgstr "顯示畫格(_F)"
+msgstr "顯示畫格 (_F)"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:84
 msgid "Mosaic"
@@ -6778,7 +6713,7 @@ msgstr "中位數內核 5x5。可有效減少色度雜訊。"
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:293
 #: plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp:175
 msgid "_Process luma"
-msgstr "處理明度(_P)"
+msgstr "處理明度 (_P)"
 
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:293
 #: plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp:175
@@ -6788,7 +6723,7 @@ msgstr "處理明度平面"
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:294
 #: plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp:176
 msgid "P_rocess chroma"
-msgstr "處理色度(_R)"
+msgstr "處理色度 (_R)"
 
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:298
 msgid "Large Median 5x5"
@@ -6803,7 +6738,7 @@ msgstr "寬和高不能為奇數"
 
 #: plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp:42
 msgid "Picture resizer ported from Avisynth (C Version, slow)."
-msgstr "從 Avisynth 轉移而來的圖像調整大小器(C 版本，慢)。"
+msgstr "從 Avisynth 移植的圖像調整大小器 (C 版本，慢)。"
 
 #: plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp:243
 #: plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp:131
@@ -6886,35 +6821,35 @@ msgstr "調整對比、亮度、飽和度和伽馬。"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:222
 msgid "Brigh_tness:"
-msgstr "亮度(_T):"
+msgstr "亮度 (_T):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:230
 msgid "_Saturation:"
-msgstr "飽和度(_S):"
+msgstr "飽和度 (_S):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:265
 msgid "_Contrast:"
-msgstr "對比(_C):"
+msgstr "對比 (_C):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:291
 msgid "_Initial:"
-msgstr "初始(_I):"
+msgstr "初始 (_I):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:317
 msgid "_Red:"
-msgstr "紅(_R):"
+msgstr "紅 (_R):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:334
 msgid "_Green:"
-msgstr "綠(_G):"
+msgstr "綠 (_G):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:342
 msgid "_Blue:"
-msgstr "藍(_B):"
+msgstr "藍 (_B):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:350
 msgid "_Weight:"
-msgstr "加重(_W):"
+msgstr "加重 (_W):"
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:376
 msgid "<b>Gamma</b>"
@@ -6935,7 +6870,7 @@ msgstr "mcDeinterlace"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:78
 msgid "Motion compensation deinterlacer. Ported from MPlayer."
-msgstr "從 MPlayer 轉移而來的動作補償去交錯器。"
+msgstr "從 MPlayer 移植的動作補償去交錯器。"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:91
 msgid "Fast"
@@ -6951,7 +6886,7 @@ msgstr "特別慢 (同於3或3倍數以上的參考畫格數)"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:101
 msgid "_Field dominance:"
-msgstr "圖場控制(_F):"
+msgstr "圖場控制 (_F):"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:102
 msgid "_Qp:"
@@ -7074,19 +7009,19 @@ msgstr "選擇字幕檔"
 
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:85
 msgid "_Line spacing:"
-msgstr "行距(_L):"
+msgstr "行距 (_L):"
 
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:86
 msgid "_Font scale:"
-msgstr "字型縮放(_F):"
+msgstr "字型縮放 (_F):"
 
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:87
 msgid "_Top margin:"
-msgstr "頂部邊界(_T):"
+msgstr "頂部邊界 (_T):"
 
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:88
 msgid "Botto_m margin"
-msgstr "底部邊界(_M)"
+msgstr "底部邊界 (_M)"
 
 #: plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp:28
 msgid "Swap U and V"
@@ -7148,17 +7083,17 @@ msgstr "denoise3d 的高品質版本。 較慢但更精確。"
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:60
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:60
 msgid "_Spatial luma strength:"
-msgstr "空間的明度強度(_S):"
+msgstr "空間的明度強度 (_S):"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:61
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:61
 msgid "S_patial chroma strength:"
-msgstr "空間的色度強度(_P):"
+msgstr "空間的色度強度 (_P):"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:62
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:62
 msgid "_Temporal strength:"
-msgstr "時間強度(_T):"
+msgstr "時間強度 (_T):"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:33
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:66
@@ -7257,7 +7192,7 @@ msgstr "UTF-16"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:84
 msgid "_Subtitle file:"
-msgstr "字幕檔(_S):"
+msgstr "字幕檔 (_S):"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:85
 msgid "_Font (TTF):"
@@ -7269,7 +7204,7 @@ msgstr "選擇 TTF 檔"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:100
 msgid "_Encoding:"
-msgstr "編碼(_E):"
+msgstr "編碼 (_E):"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:102
 msgid "S_elect C_olor"
@@ -7277,11 +7212,11 @@ msgstr "選擇顏色"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:103
 msgid "Set Size and _Position"
-msgstr "設定大小和位置(_P)"
+msgstr "設定大小和位置 (_P)"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:104
 msgid "_Auto split"
-msgstr "自動分割(_A)"
+msgstr "自動分割 (_A)"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:105
 msgid "_Delay (ms):"
@@ -7330,11 +7265,11 @@ msgstr "空間-時間清理器，作者為 Ross Thomas。"
 
 #: plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp:122
 msgid "_Temporal threshold:"
-msgstr "時間臨界值(_T):"
+msgstr "時間臨界值 (_T):"
 
 #: plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp:123
 msgid "_Spatial threshold:"
-msgstr "空間臨界值(_S):"
+msgstr "空間臨界值 (_S):"
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:103
 msgid "MSmooth by Donald Graft"
@@ -7346,11 +7281,11 @@ msgstr "平滑此圖像但不模糊邊緣。用於動畫上。"
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:181
 msgid "_High quality"
-msgstr "高畫質(_H)"
+msgstr "高畫質 (_H)"
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:182
 msgid "Show _mask"
-msgstr "顯示遮罩(_M)"
+msgstr "顯示遮罩 (_M)"
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:188
 msgid "MSmooth"
@@ -7362,7 +7297,7 @@ msgstr "Avisynth ColorYUV"
 
 #: plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp:72
 msgid "Alter colors (auto white balance etc...). Ported from Avisynth."
-msgstr "變更色彩 (自動白平衡等...)。從 Avisynth 轉移而來。"
+msgstr "變更色彩 (自動白平衡等...)。從 Avisynth 移植而來。"
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:138
 msgid "ColorYuv (From avisynth)"
@@ -7478,19 +7413,19 @@ msgstr "淡入"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:57
 msgid "_Fade type:"
-msgstr "淡化方式(_F):"
+msgstr "淡化方式 (_F):"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:58
 msgid "_Start frame:"
-msgstr "起始畫格(_S):"
+msgstr "開始畫格 (_S):"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:59
 msgid "_End frame:"
-msgstr "結束畫格(_E):"
+msgstr "結束畫格 (_E):"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:60
 msgid "Fade to _black"
-msgstr "逐漸消失成黑色(_B)"
+msgstr "逐漸消失成黑色 (_B)"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:69
 msgid "Parameter Error"
@@ -7509,19 +7444,19 @@ msgid "Quality based"
 msgstr "基本品質"
 
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:318
-#: plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp:226
+#: plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp:225
 #: plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp:226
 #: plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp:218
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:315
 #: plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp:268
 msgid "_Bitrate:"
-msgstr "位元率(_B):"
+msgstr "位元率 (_B):"
 
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:327
 msgid "Vorbis Configuration"
 msgstr "Vorbis 設定"
 
-#: plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp:232
+#: plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp:231
 #: plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp:224
 #: plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp:274
 msgid "Aften Configuration"
@@ -7555,69 +7490,69 @@ msgstr "極致"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:299
 msgid "Bit_rate mode:"
-msgstr "位元率模式(_R):"
+msgstr "位元率模式 (_R):"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:319
 msgid "_Disable reservoir"
-msgstr "關閉儲存槽(_D)"
+msgstr "停用儲存槽 (_D)"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:323
 msgid "LAME Configuration"
 msgstr "LAME 設定"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:113
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:188
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:112
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:192
 msgid "<default>"
 msgstr "<預設>"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:114
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:189
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:113
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:193
 msgid "<custom>"
 msgstr "<自訂>"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:222
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:327
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:211
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:321
 msgid "Save As"
 msgstr "另存"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:222
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:211
 msgid "Xvid Configuration File (*.xml)"
 msgstr "Xvid 設定檔 (*.xml)"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:253
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:358
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:242
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:355
 msgid "Are you sure you wish to delete the selected configuration?"
 msgstr "確定要刪除所選的設定 ?"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:273
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:376
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:262
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:373
 msgid "Target Bitrate:"
 msgstr "目標位元率:"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:274
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:294
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:377
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:395
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:263
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:283
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:374
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:392
 msgid "kbit/s"
 msgstr "kbit/s"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:280
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:381
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:269
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:378
 msgid "Quantiser:"
 msgstr "量化值:"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:286
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:389
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:275
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:386
 msgid "Target Video Size:"
 msgstr "目標視訊大小:"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:287
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:390
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:276
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:387
 msgid "MB"
 msgstr "MB"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:293
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:394
+#: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp:282
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:391
 msgid "Average Bitrate:"
 msgstr "平均位元率:"
 
@@ -7646,31 +7581,31 @@ msgstr "量化值"
 msgid "Bitrate Factor"
 msgstr "位元率係數"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:83
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:82
 msgid "Hadamard Exhaustive Search"
 msgstr "哈達馬德徹底搜尋"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:88
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:87
 msgid "9 (Best)"
 msgstr "9 (最好)"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:108
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:107
 msgid "Disabled"
 msgstr "已停用"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:109
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:108
 msgid "Enabled"
 msgstr "已啟用"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:327
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:321
 msgid "x264 Configuration File (*.xml)"
 msgstr "x264 設定檔 (*.xml)"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:385
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:382
 msgid "Quality:"
 msgstr "品質:"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:475
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:472
 msgid ""
 "Trellis optimisation isn't possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.\n"
 "\n"
@@ -7680,7 +7615,7 @@ msgstr ""
 "\n"
 " 你希望繼續嗎？"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:485
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:482
 msgid ""
 "Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.\n"
 "\n"
@@ -7690,7 +7625,7 @@ msgstr ""
 "\n"
 "你希望繼續嗎？"
 
-#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:516
+#: plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp:515
 msgid "Are you sure you wish to delete the selected zone?"
 msgstr "確定要刪除所選擇的區域 ?"
 
@@ -7710,6 +7645,40 @@ msgstr "模式"
 msgid "Value"
 msgstr "數值"
 
+#~ msgid "DivX"
+#~ msgstr "DivX"
+#~ msgid "DV (lavc)"
+#~ msgstr "DV (lavc)"
+#~ msgid "Snow (lavc)"
+#~ msgstr "Snow (lavc)"
+#~ msgid "FF Huffyuv (lavc)"
+#~ msgstr "FF Huffyuv (lavc)"
+#~ msgid "Huffyuv (lavc)"
+#~ msgstr "Huffyuv (lavc)"
+#~ msgid "FFV1 (lavc)"
+#~ msgstr "FFV1 (lavc)"
+#~ msgid "MPEG-4 ASP (Xvid4)"
+#~ msgstr "MPEG-4 ASP (Xvid4)"
+#~ msgid "Xvid4"
+#~ msgstr "Xvid4"
+#~ msgid "Troubles ahead"
+#~ msgstr "故障前"
+#~ msgid "This a VOP packed AVI."
+#~ msgstr "這是帶有打包好的 VOP 之 AVI。"
+#~ msgid "Incompatible settings"
+#~ msgstr "不相容設定"
+#~ msgid "At the moment, the DV codec only accepts 720*576@25"
+#~ msgstr "在這階段 DV 編解碼器只接受 720*576@25"
+#~ msgid "Lame command"
+#~ msgstr "Lame 命令"
+#~ msgid "Enter parameters (i.e. -b 192 -m s ...)"
+#~ msgstr "輸入參數 (i.e. -b 192 -m s ...)"
+#~ msgid "Pipe to"
+#~ msgstr "輸送到"
+#~ msgid "Application path/name (/usr/bin/sox...)"
+#~ msgstr "應用程式的路徑/名稱 (/usr/bin/sox...)"
+#~ msgid "Full parameter line"
+#~ msgstr "完整參考線"
 #~ msgid "Y800 (lavc)"
 #~ msgstr "Y800 (lavc)"
 #~ msgid "MPEG-4 AVC (x264)"
