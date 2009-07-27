@@ -580,4 +580,10 @@ void diaElemConfigMenu::enable(uint32_t onoff)
 	internalPointer->enable(onoff);
 }
 
+void diaElemConfigMenu::finalize(void)
+{
+	ADM_assert(internalPointer);
+	internalPointer->finalize();
+}
+
 DIA_MKSTUBS(diaElemConfigMenu)

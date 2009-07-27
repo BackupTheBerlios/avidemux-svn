@@ -46,7 +46,7 @@ public:
 
 /**/
 
-ADM_QComboBox::ADM_QComboBox(diaElemMenuDynamic *menu)
+ADM_QComboBox::ADM_QComboBox(QWidget *parent, diaElemMenuDynamic *menu) : QComboBox(parent)
 {
 	_menu=menu;
 }
@@ -145,7 +145,7 @@ diaElemMenuDynamic::~diaElemMenuDynamic()
 }
 void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
 {
-  ADM_QComboBox *combo=new ADM_QComboBox(this);
+  ADM_QComboBox *combo=new ADM_QComboBox((QWidget*)dialog, this);
 
   QGridLayout *layout=(QGridLayout*) opaque;
      myWidget=(void *)combo; 

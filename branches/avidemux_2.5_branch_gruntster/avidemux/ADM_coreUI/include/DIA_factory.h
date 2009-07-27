@@ -682,6 +682,7 @@ public:
 	void enable(uint32_t onoff);
 	int getRequiredLayout(void);
 	void updateMe(void);
+	void finalize(void);
 };
 /*********************************************/
 uint8_t diaFactoryRun(const char *title,uint32_t nb,diaElem **elems);

@@ -34,7 +34,7 @@ namespace ADM_qt4Factory
 		diaElemMenuDynamic *_menu;
 
 	public:
-		ADM_QComboBox(diaElemMenuDynamic *menu);
+		ADM_QComboBox(QWidget *parent, diaElemMenuDynamic *menu);
 		void connectMe(void);
 	};
 }

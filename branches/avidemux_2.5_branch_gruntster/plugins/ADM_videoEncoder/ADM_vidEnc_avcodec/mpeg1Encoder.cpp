@@ -34,6 +34,9 @@ Mpeg1Encoder::Mpeg1Encoder(void)
 	_encodeOptions.encodeModeParameter = DEFAULT_ENCODE_MODE_PARAMETER;
 
 	_bitrateParam.capabilities = ADM_ENC_CAP_CQ | ADM_ENC_CAP_2PASS | ADM_ENC_CAP_2PASS_BR;
+	_bitrateParam.qz = DEFAULT_ENCODE_MODE_PARAMETER;
+	_bitrateParam.avg_bitrate = 1000;
+	_bitrateParam.finalsize = 700;
 }
 
 void Mpeg1Encoder::initContext(vidEncVideoProperties *properties)
@@ -138,9 +141,6 @@ void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOption
 	_userMatrix = options->getMatrix();
 	_gopSize = options->getGopSize();
 
-	_bitrateParam.qz = 1000;
-	_bitrateParam.finalsize = 700;
-
 	updateEncodeProperties(encodeOptions, NULL);
 }
 
@@ -209,7 +209,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 		}
 	}
 
-	return !failure;
+	return configType == CONFIG_MENU_CUSTOM | !failure;
 }
 
 char *serializeConfig(void)

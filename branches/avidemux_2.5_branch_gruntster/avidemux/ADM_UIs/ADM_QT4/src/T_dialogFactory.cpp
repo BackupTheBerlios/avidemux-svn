@@ -113,7 +113,7 @@ uint8_t qt4DiaFactoryRunTabs2(const char *title, unsigned int headerControlCount
   QVBoxLayout *vboxLayout = new QVBoxLayout();
   QGridLayout *layout = new QGridLayout();
   QSpacerItem *spacer = new QSpacerItem(20, 16, QSizePolicy::Minimum, QSizePolicy::Fixed);
-  QTabWidget *wtabs = new QTabWidget();
+  QTabWidget *wtabs = new QTabWidget(&dialog);
   QDialogButtonBox *buttonBox = new QDialogButtonBox();
 
   if (headerControls)
@@ -124,6 +124,9 @@ uint8_t qt4DiaFactoryRunTabs2(const char *title, unsigned int headerControlCount
         ADM_assert(tabControls[i]);
         insertTab(i,tabControls[i],wtabs);
       }
+
+	 for (int i = 0; i < headerControlCount; i++)
+		 headerControls[i]->finalize();
 
 	 buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 

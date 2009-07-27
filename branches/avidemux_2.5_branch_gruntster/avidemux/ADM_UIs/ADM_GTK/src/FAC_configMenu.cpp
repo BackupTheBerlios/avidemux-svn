@@ -238,6 +238,7 @@ namespace ADM_GtkFactory
 		void enable(uint32_t onoff);
 		int getRequiredLayout(void);
 		void updateMe(void);
+		void finalize(void);
 	};
 
 	diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
@@ -304,6 +305,11 @@ namespace ADM_GtkFactory
 	void diaElemConfigMenu::enable(uint32_t onoff) { }
 	int diaElemConfigMenu::getRequiredLayout(void) { return 0; }
 	void diaElemConfigMenu::updateMe(void) { }
+
+	void diaElemConfigMenu::finalize(void)
+	{
+
+	}
 }
 
 diaElem* gtkCreateConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 

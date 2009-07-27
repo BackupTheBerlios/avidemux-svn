@@ -142,7 +142,10 @@ uint8_t gtkDiaFactoryRunTabs2(const char *title, unsigned int headerControlCount
 	gtk_container_set_border_width(GTK_CONTAINER(notebook1), 6);
 
 	for (int i = 0; i < tabControlCount; i++)
-		buildOneTab(notebook1, i, tabControls[i]); 
+		buildOneTab(notebook1, i, tabControls[i]);
+
+	for (int i = 0; i < headerControlCount; i++)
+		headerControls[i]->finalize();
 
 	addButtonBox(dialog);
 

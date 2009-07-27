@@ -13,7 +13,9 @@ Handle dialog factory element : Config Menu
 *                                                                         *
 ***************************************************************************/
 
+#include <QtGui/QApplication>
 #include <QtGui/QFileDialog>
+
 #include "T_configMenu.h"
 #include "ADM_dialogFactoryQt4.h"
 #include "ADM_files.h"
@@ -32,6 +34,8 @@ namespace ADM_Qt4Factory
 		const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
 		CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : QWidget(widget) 
 	{
+		disableGenericSlots = false;
+
 		this->userConfigDir = userConfigDir;
 		this->systemConfigDir = systemConfigDir;
 
@@ -67,12 +71,44 @@ namespace ADM_Qt4Factory
 	{
 	}
 
+	void ADM_QconfigMenu::generic_currentIndexChanged(int index)
+	{
+		if (!disableGenericSlots)
+			combobox->setCurrentIndex(1);
+	}
+
+	void ADM_QconfigMenu::generic_valueChanged(int value)
+	{
+		if (!disableGenericSlots)
+			combobox->setCurrentIndex(1);
+	}
+
+	void ADM_QconfigMenu::generic_valueChanged(double value)
+	{
+		if (!disableGenericSlots)
+			combobox->setCurrentIndex(1);
+	}
+
+	void ADM_QconfigMenu::generic_pressed(void)
+	{
+		if (!disableGenericSlots)
+			combobox->setCurrentIndex(1);
+	}
+
+	void ADM_QconfigMenu::generic_textEdited(QString text)
+	{
+		if (!disableGenericSlots)
+			combobox->setCurrentIndex(1);
+	}
+
 	void ADM_QconfigMenu::fillConfigurationComboBox(void)
 	{
 		bool origDisableGenericSlots = disableGenericSlots;
 		QMap<QString, int> configs;
 		QStringList filter("*.xml");
 		QStringList list = QDir(this->userConfigDir).entryList(filter, QDir::Files | QDir::Readable);
+
+		disableGenericSlots = true;
 
 		for (int item = 0; item < list.size(); item++)
 			configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_MENU_USER);
@@ -101,6 +137,8 @@ namespace ADM_Qt4Factory
 	{
 		bool success = false;
 		bool origDisableGenericSlots = disableGenericSlots;
+
+		disableGenericSlots = true;
 
 		if (configurationType == CONFIG_MENU_DEFAULT)
 		{
@@ -180,13 +218,18 @@ namespace ADM_Qt4Factory
 		disableGenericSlots = true;
 		deleteButton->setEnabled(configType == CONFIG_MENU_USER);
 
+		for (int i = 0; i < this->controlCount; i++)
+			this->controls[i]->getMe();
+
 		if (changedFunc)
 		{
-			if (!changedFunc(combobox->itemText(index).toUtf8().constData(), configType))
+			if (changedFunc(combobox->itemText(index).toUtf8().constData(), configType))
+			{
+				for (int i = 0; i < this->controlCount; i++)
+					this->controls[i]->updateMe();
+			}
+			else
 				combobox->setCurrentIndex(0);
-
-			for (int i = 0; i < this->controlCount; i++)
-				this->controls[i]->updateMe();
 		}
 
 		disableGenericSlots = origDisableGenericSlots;
@@ -211,6 +254,7 @@ namespace ADM_Qt4Factory
 		void enable(uint32_t onoff);
 		int getRequiredLayout(void);
 		void updateMe(void);
+		void finalize(void);
 	};
 
 	diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
@@ -241,15 +285,6 @@ namespace ADM_Qt4Factory
 
 	void diaElemConfigMenu::getMe(void)
 	{
-		/*ADM_QconfigMenu *configMenu = (ADM_QconfigMenu*)myWidget;
-		uint32_t *val = (uint32_t*)param;
-
-		if ((configMenu->radiobutton1)->isChecked())
-			*val = 1;
-		else if ((configMenu->radiobutton2)->isChecked())
-			*val = 0;
-		else
-			*val = (configMenu->spinBox)->value(); */
 	}
 
 	void diaElemConfigMenu::enable(uint32_t onoff)
@@ -263,6 +298,44 @@ namespace ADM_Qt4Factory
 
 	void diaElemConfigMenu::updateMe(void)
 	{
+	}
+
+	void diaElemConfigMenu::finalize(void)
+	{
+		ADM_QconfigMenu *configMenu = (ADM_QconfigMenu*)myWidget;
+		QWidgetList widgetList = QApplication::allWidgets();
+
+		for (int widgetIndex = 0; widgetIndex < widgetList.size(); widgetIndex++)
+		{
+			QWidget *widget = widgetList.at(widgetIndex);
+			QWidget *parentWidget = widget;
+
+			if (widget != configMenu->combobox && widget != configMenu->label && 
+				widget != configMenu->deleteButton && widget != configMenu->saveAsButton)
+			{
+				do
+				{
+					if (parentWidget == configMenu->combobox->parent())
+					{
+						if (widget->inherits("QComboBox"))
+							QObject::connect(widget, SIGNAL(currentIndexChanged(int)), configMenu, SLOT(generic_currentIndexChanged(int)));
+						else if (widget->inherits("QSpinBox"))
+							QObject::connect(widget, SIGNAL(valueChanged(int)), configMenu, SLOT(generic_valueChanged(int)));
+						else if (widget->inherits("QDoubleSpinBox"))
+							QObject::connect(widget, SIGNAL(valueChanged(double)), configMenu, SLOT(generic_valueChanged(double)));
+						else if (widget->inherits("QCheckBox"))
+							QObject::connect(widget, SIGNAL(pressed()), configMenu, SLOT(generic_pressed()));
+						else if (widget->inherits("QRadioButton"))
+							QObject::connect(widget, SIGNAL(pressed()), configMenu, SLOT(generic_pressed()));
+						else if (widget->inherits("QLineEdit"))
+							QObject::connect(widget, SIGNAL(textEdited(QString)), configMenu, SLOT(generic_textEdited(QString)));
+					}
+
+					parentWidget = (QWidget*)parentWidget->parent();
+				}
+				while (parentWidget != NULL);
+			}
+		}
 	}
 }
 

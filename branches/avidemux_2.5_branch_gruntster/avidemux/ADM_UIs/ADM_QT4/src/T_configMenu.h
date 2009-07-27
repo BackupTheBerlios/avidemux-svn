@@ -21,13 +21,18 @@ namespace ADM_Qt4Factory
 		CONFIG_MENU_CHANGED_T *changedFunc;
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;
 
-		void fillConfigurationComboBox(void);
 		bool selectConfiguration(QString *selectFile, ConfigMenuType configurationType);
 
 	public slots:
 		void deleteClicked(bool checked);
 		void saveAsClicked(bool checked);
 		void comboboxIndexChanged(int index);
+
+		void generic_currentIndexChanged(int index);
+		void generic_valueChanged(int value);
+		void generic_valueChanged(double value);
+		void generic_pressed(void);
+		void generic_textEdited(QString text);
 
 	public:
 		QLabel *label;
@@ -39,6 +44,7 @@ namespace ADM_Qt4Factory
 			const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
 			CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
 		~ADM_QconfigMenu();
+		void fillConfigurationComboBox(void);
 	};
 }
 #endif	// T_configMenu_h
