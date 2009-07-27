@@ -25,10 +25,9 @@ ADM_DISPLAY("x264          " "$ENV{ADM_HAVE_X264}")
 ADM_DISPLAY("Xvid          " "$ENV{ADM_HAVE_XVID}")
 
 MESSAGE("***    Audio Codec    ***")
-ADM_DISPLAY("amrnb         " "$ENV{ADM_HAVE_AMRNB}")
 ADM_DISPLAY("FAAD          " "$ENV{ADM_HAVE_FAAD}")
-ADM_DISPLAY("libdca        " "$ENV{ADM_HAVE_LIBDCA}")
 ADM_DISPLAY("opencore-amrnb" "$ENV{ADM_HAVE_OPENCORE_AMRNB}")
+ADM_DISPLAY("opencore-amrwb" "$ENV{ADM_HAVE_OPENCORE_AMRWB}")
 
 MESSAGE("***   Miscellaneous   ***")
 ADM_DISPLAY("FontConfig    " "$ENV{ADM_HAVE_FONTCONFIG}")
