@@ -16,53 +16,44 @@
 #include "ADM_default.h"
 
 #include "ADM_assert.h"
-#include "xpm/play.xpm"
-#include "xpm/stop.xpm"
-#include "xpm/forward.xpm"
-#include "xpm/Kforward.xpm"
-#include "xpm/backward.xpm"
-#include "xpm/Kbackward.xpm"
-#include "xpm/avidemux_icon.xpm"
-#include "xpm/begin.xpm"
-#include "xpm/end.xpm"
-#include "xpm/markA.xpm"
-#include "xpm/markB.xpm"
 #include "xpm/about.xpm"
-#include "xpm/xpm_prevblack.xpm"
-#include "xpm/xpm_nextblack.xpm"
-#include "xpm/gnome-calculator.xpm"
-#include "xpm/gnome-calculator_small.xpm"
-#include "xpm/systray.xpm"
+
+#include "xpm/audio_volume_medium.inc"
+#include "xpm/avidemux_icon.inc"
 #include "xpm/avidemux_icon_small.inc"
-#include "xpm/gnome_calc_small.inc"
+#include "xpm/film11.inc"
+#include "xpm/film13.inc"
+#include "xpm/film15.inc"
+#include "xpm/film17.inc"
+#include "xpm/film19.inc"
+#include "xpm/film1.inc"
+#include "xpm/film21.inc"
+#include "xpm/film23.inc"
+#include "xpm/film3.inc"
+#include "xpm/film5.inc"
+#include "xpm/film7.inc"
+#include "xpm/film9.inc"
+#include "xpm/first_frame.inc"
 #include "xpm/gnome_calculator.inc"
-#include "xpm/1.inc"
-#include "xpm/2.inc"
-#include "xpm/4.inc"
-#include "xpm/3.inc"
-#include "xpm/6.inc"
-#include "xpm/5.inc"
-#include "xpm/7.inc"
-#include "xpm/systray.inc"
-#include "xpm/systray2.inc"
-#include "xpm/preview.inc"
+#include "xpm/gnome_calculator_small.inc"
+#include "xpm/last_frame.inc"
+#include "xpm/markA.inc"
+#include "xpm/markB.inc"
+#include "xpm/next_black_frame.inc"
+#include "xpm/next_frame.inc"
+#include "xpm/next_key_frame.inc"
 #include "xpm/output.inc"
-
-#include "xpm/film1.xpm"
-#include "xpm/film3.xpm"
-#include "xpm/film5.xpm"
-#include "xpm/film7.xpm"
-#include "xpm/film9.xpm"
-#include "xpm/film11.xpm"
-#include "xpm/film13.xpm"
-#include "xpm/film15.xpm"
-#include "xpm/film17.xpm"
-#include "xpm/film19.xpm"
-#include "xpm/film21.xpm"
-#include "xpm/film23.xpm"
-#include "xpm/audio-volume-medium.inc"
-#include "xpm/preview-button.inc"
-
+#include "xpm/play.inc"
+#include "xpm/preview_button.inc"
+#include "xpm/preview.inc"
+#include "xpm/previous_black_frame.inc"
+#include "xpm/previous_frame.inc"
+#include "xpm/previous_key_frame.inc"
+#include "xpm/stock_allow_effects.inc"
+#include "xpm/stock_filters_aging.inc"
+#include "xpm/stop.inc"
+#include "xpm/systray2.inc"
+#include "xpm/systray.inc"
 typedef enum 
 {
         A_ICON_XPM,
@@ -81,26 +72,26 @@ typedef struct name2xpm
 
 name2xpm iconTranslation[]=
 {
-	{A_ICON_XPM,"Kbackward.xpm",	(void *)	xpm_Kbackward},	
-	{A_ICON_XPM,"Kbackward.xpm",	(void *)	xpm_Kbackward},	
-	{A_ICON_XPM,"Kforward.xpm",	(void *)	xpm_Kforward},
-	{A_ICON_XPM,"backward.xpm",	(void *)	xpm_backward},	
-	{A_ICON_XPM,"forward.xpm",	(void *)	xpm_forward},
 	{A_ICON_XPM,"about.xpm",	(void *)	xpm_about},
-	{A_ICON_XPM,"begin.xpm",	(void *)	xpm_begin},
-	{A_ICON_XPM,"end.xpm",		(void *)	xpm_end},
-	{A_ICON_XPM,"play.xpm",		(void *)	xpm_play},
-	{A_ICON_XPM,"stop.xpm",		(void *)	xpm_stop},
-	{A_ICON_XPM,"markA.xpm",	(void *)	xpm_markA},
-	{A_ICON_XPM,"markB.xpm",	(void *)	xpm_markB},
-	{A_ICON_XPM,"xpm_nextblack.xpm",(void *)        xpm_nextblack},
-	{A_ICON_XPM,"xpm_prevblack.xpm",(void *)        xpm_prevblack},
-        {A_ICON_XPM,"avidemux_icon.xpm",(void *)        avidemux_icon_xpm},
-        {A_ICON_XPM,"xpm_prevblack.xpm",(void *)        xpm_prevblack},
+
+	{A_ICON_PNG,"Kbackward.xpm",	(void *)	previous_key_frame},	
+	{A_ICON_PNG,"Kforward.xpm",	(void *)	next_key_frame},
+	{A_ICON_PNG,"backward.xpm",	(void *)	previous_frame},	
+	{A_ICON_PNG,"forward.xpm",	(void *)	next_frame},
+	{A_ICON_PNG,"begin.xpm",	(void *)	first_frame},
+	{A_ICON_PNG,"end.xpm",		(void *)	last_frame},
+	{A_ICON_PNG,"play.xpm",		(void *)	play},
+	{A_ICON_PNG,"stop.xpm",		(void *)	stop},
+	{A_ICON_PNG,"markA.xpm",	(void *)	markA},
+	{A_ICON_PNG,"markB.xpm",	(void *)	markB},
+	{A_ICON_PNG,"xpm_prevblack.xpm",(void *)        previous_black_frame},
+	{A_ICON_PNG,"xpm_nextblack.xpm",(void *)        next_black_frame},
+        {A_ICON_PNG,"xpm_prevblack.xpm",(void *)        previous_black_frame},
         {A_ICON_PNG,"gnome-calculator.png",(void *)     gnome_calculator},
         {A_ICON_PNG,"gnome-calculator_small.xpm",(void *) gnome_calculator_small},
         {A_ICON_PNG,"preview.png",(void *) preview},
         {A_ICON_PNG,"output.png",(void *) output},
+#if 0
         {A_ICON_PNG,"1.png",(void *) x1},
         {A_ICON_PNG,"2.png",(void *) x2},
         {A_ICON_PNG,"3.png",(void *) x3},
@@ -108,12 +99,14 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"5.png",(void *) x5},
         {A_ICON_PNG,"6.png",(void *) x6},
         {A_ICON_PNG,"7.png",(void *) x7},
-        {A_ICON_PNG,"avidemux_icon_small.png",         (void *) avidemux_icon_small},
-        {A_ICON_PNG,"systray.png",                 (void *)systray},
-        {A_ICON_PNG,"audio-volume-medium.png",                 (void *)audio_volume_medium},
-        {A_ICON_PNG,"preview-button.png",                 (void *)preview_button},
+#endif
+        {A_ICON_XPM,"avidemux_icon.xpm",        (void *) avidemux_icon},
+        {A_ICON_PNG,"avidemux_icon_small.png",  (void *) avidemux_icon_small},
+        {A_ICON_PNG,"systray.png",              (void *) systray},
+        {A_ICON_PNG,"audio-volume-medium.png",  (void *) audio_volume_medium},
+        {A_ICON_PNG,"preview-button.png",       (void *) preview_button},
 	// Jakub nice animation
-#define MKFILM(x) 	{A_ICON_XPM,"film"#x".xpm",                 (void *)xpm_film##x},
+#define MKFILM(x) 	{A_ICON_PNG,"film"#x".xpm",                 (void *)film##x},
 	MKFILM(1)
 	MKFILM(3)
 	MKFILM(5)

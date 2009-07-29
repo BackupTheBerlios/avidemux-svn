@@ -6,6 +6,6 @@ SET(${ADM_LIB}_SRCS
 ADM_icons.cpp
 
 )
-
+include_directories(../../../ADM_icons)
 ADD_ADM_LIB_GTK_TARGET(${ADM_LIB} ${${ADM_LIB}_SRCS})
 ADD_CFLAGS_GTK_TARGET(${ADM_LIB} ${GTK_CFLAGS})

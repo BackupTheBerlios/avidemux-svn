@@ -7,6 +7,6 @@ QT4_ADD_RESOURCES(${ADM_LIB}_resource  avidemux.qrc)
 SET(${ADM_LIB}_SRCS
 	Q_gui2.cpp  T_preview.cpp  file_qt4.cpp  gui_none.cpp  ADM_qslider.cpp  ADM_qtray.cpp  Q_preview.cpp  T_thumbSlider.cpp
 	${${ADM_LIB}_header}  ${${ADM_LIB}_source}  ${${ADM_LIB}_resource})
-
+INCLUDE_DIRECTORIES(../../../ADM_icons)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}  ${CMAKE_CURRENT_SOURCE_DIR})
 ADD_ADM_LIB_QT4_TARGET(${ADM_LIB} ${${ADM_LIB}_SRCS})
