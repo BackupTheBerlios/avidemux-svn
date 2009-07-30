@@ -23,6 +23,7 @@ extern "C"
 	#include "ADM_vidEnc_plugin.h"
 }
 
+#include <stdlib.h>
 #include "encoder.h"
 #include "mpeg1EncoderOptions.h"
 #include "../../ADM_encoder/ADM_vidEncode.hxx"
