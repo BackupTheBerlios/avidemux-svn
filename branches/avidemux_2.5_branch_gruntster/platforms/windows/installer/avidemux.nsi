@@ -71,9 +71,9 @@ Name "Avidemux 2.5.0 GTK+ beta r${REVISION}"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "${NSIDIR}\WelcomeFinishStrip.bmp"
 !ifdef INST_GTK
-!define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\xpm\adm.ico"
+!define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\ADM_icons\xpm\adm.ico"
 !else
-!define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\xpm\avidemux.ico"
+!define MUI_UNICON "${NSIDIR}\..\..\..\avidemux\ADM_icons\xpm\avidemux.ico"
 !endif
 !define MUI_COMPONENTSPAGE_NODESC
 
