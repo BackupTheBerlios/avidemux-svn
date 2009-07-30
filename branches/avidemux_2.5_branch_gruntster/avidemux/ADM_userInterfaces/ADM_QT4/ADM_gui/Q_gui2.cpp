@@ -39,6 +39,7 @@ extern char **global_argv;
 extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w,uint32_t *h);
 extern int automation(void );
 extern void HandleAction(Action a);
+extern bool isVideoCodecConfigurable(void);
 extern int encoderGetEncoderCount (void);
 extern const char *encoderGetIndexedName (uint32_t i);
 uint32_t audioEncoderGetNumberOfEncoders(void);
@@ -107,32 +108,23 @@ extern void UI_purge(void);
 
 void MainWindow::comboChanged(int z)
 {
-	const char *source=qPrintable(sender()->objectName());
+	if (sender() == ui.comboBoxVideo)
+	{
+		bool b = (ui.comboBoxVideo->currentIndex() != 0);
 
-	if(!strcmp(source,"comboBoxVideo"))  
-	{
-		bool b=FALSE;
-		if(ui.comboBoxVideo->currentIndex())
-		{
-			b=TRUE;
-		}
-		ui.pushButtonVideoConf->setEnabled(b);
 		ui.pushButtonVideoFilter->setEnabled(b);
-		HandleAction (ACT_VideoCodecChanged) ;
+		HandleAction (ACT_VideoCodecChanged);
+
+		ui.pushButtonVideoConf->setEnabled(b && isVideoCodecConfigurable());
 	}
-	else if(!strcmp(source,"comboBoxAudio"))  
+	else if (sender() == ui.comboBoxAudio)
 	{
-		bool b=FALSE;
-		if(ui.comboBoxAudio->currentIndex())
-		{
-			b=TRUE;
-		}
+		bool b = (ui.comboBoxAudio->currentIndex() != 0);
+
 		ui.pushButtonAudioConf->setEnabled(b);
 		ui.pushButtonAudioFilter->setEnabled(b);
-		HandleAction (ACT_AudioCodecChanged) ;
+		HandleAction(ACT_AudioCodecChanged);
 	}
-	else
-		printf("From +: %s\n",source);
 }
 
 void MainWindow::sliderValueChanged(int u) 
@@ -255,8 +247,8 @@ MainWindow::MainWindow() : QMainWindow()
 	connect(ui.actionNext_intra_frame, SIGNAL(triggered()), this, SLOT(nextIntraFrame()));
 
 	//ACT_VideoCodecChanged
-	connect( ui.comboBoxVideo,SIGNAL(activated(int)),this,SLOT(comboChanged(int)));
-	connect( ui.comboBoxAudio,SIGNAL(activated(int)),this,SLOT(comboChanged(int)));
+	connect( ui.comboBoxVideo,SIGNAL(currentIndexChanged(int)),this,SLOT(comboChanged(int)));
+	connect( ui.comboBoxAudio,SIGNAL(currentIndexChanged(int)),this,SLOT(comboChanged(int)));
 
 	// Slider
 	slider=ui.horizontalSlider;
@@ -1067,11 +1059,7 @@ int 	UI_getCurrentVCodec(void)
 
 void UI_setVideoCodec( int i)
 {
-	int b=!!i;
 	WIDGET(comboBoxVideo)->setCurrentIndex(i);
-
-	WIDGET(pushButtonVideoConf)->setEnabled(b);
-	WIDGET(pushButtonVideoFilter)->setEnabled(b);
 }
 /**
     \fn     UI_getCurrentACodec(void)
