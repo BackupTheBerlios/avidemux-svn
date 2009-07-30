@@ -87,8 +87,8 @@ IF(Subversion_SVN_EXECUTABLE)
     ENDIF(NOT ${Subversion_svn_info_result} EQUAL 0)
 
     EXECUTE_PROCESS(COMMAND
-      ${Subversion_SVN_EXECUTABLE} log -r BASE .
-      WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+      ${Subversion_SVN_EXECUTABLE} log -r BASE ${dir} 
+      WORKING_DIRECTORY ${dir}
       OUTPUT_VARIABLE Subversion_LAST_CHANGED_LOG
       ERROR_VARIABLE Subversion_svn_log_error
       RESULT_VARIABLE Subversion_svn_log_result
