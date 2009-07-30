@@ -33,6 +33,7 @@ namespace ADM_GtkFactory
 	class diaElemConfigMenuData
 	{
 	public:
+		bool disableSignals;
 		GtkComboBox *combo;
 		GtkButton *deleteButton;
 
@@ -47,25 +48,16 @@ namespace ADM_GtkFactory
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;
 	};
 
-	static map<string, int>* fillConfigurationComboBox(GtkComboBox *combo, const char* userConfigDir, const char* systemConfigDir)
+	static map<string, int>* fillConfigurationComboBox(diaElemConfigMenuData *menuData)
 	{
 #define MAX_CONFIG 100
 
 		uint32_t fileCount;
 		char *files[MAX_CONFIG];
 		map<string, int> *configs = new map<string, int>();
+		bool origDisableSignals = menuData->disableSignals;
 
-		buildDirectoryContent(&fileCount, userConfigDir, files, MAX_CONFIG, "xml");
-
-		for (int i = 0; i < fileCount; i++)
-		{
-			files[i][strlen(files[i]) - 4] = 0;	// clip extension
-			configs->insert(pair<string, ConfigMenuType>(string(ADM_GetFileName(files[i])), CONFIG_MENU_USER));
-
-			ADM_dealloc(files[i]);
-		}
-
-		buildDirectoryContent(&fileCount, systemConfigDir, files, MAX_CONFIG, "xml");
+		buildDirectoryContent(&fileCount, menuData->userConfigDir, files, MAX_CONFIG, "xml");
 
 		for (int i = 0; i < fileCount; i++)
 		{
@@ -75,50 +67,63 @@ namespace ADM_GtkFactory
 			ADM_dealloc(files[i]);
 		}
 
-		GtkTreeModel* model = gtk_combo_box_get_model(combo);
+		buildDirectoryContent(&fileCount, menuData->systemConfigDir, files, MAX_CONFIG, "xml");
+
+		for (int i = 0; i < fileCount; i++)
+		{
+			files[i][strlen(files[i]) - 4] = 0;	// clip extension
+			configs->insert(pair<string, ConfigMenuType>(string(ADM_GetFileName(files[i])), CONFIG_MENU_USER));
+
+			ADM_dealloc(files[i]);
+		}
+
+		GtkTreeModel* model = gtk_combo_box_get_model(menuData->combo);
 
 		gtk_list_store_clear(GTK_LIST_STORE(model));
-		gtk_combo_box_append_text(combo, QT_TR_NOOP("<default>"));
-		gtk_combo_box_append_text(combo, QT_TR_NOOP("<custom>"));
+		gtk_combo_box_append_text(menuData->combo, QT_TR_NOOP("<default>"));
+		gtk_combo_box_append_text(menuData->combo, QT_TR_NOOP("<custom>"));
 
 		for (map<string, int>::iterator it = configs->begin(); it != configs->end(); it++)
-			gtk_combo_box_append_text(combo, it->first.c_str());
+			gtk_combo_box_append_text(menuData->combo, it->first.c_str());
 
 		configs->insert(pair<string, ConfigMenuType>(string(QT_TR_NOOP("<default>")), CONFIG_MENU_DEFAULT));
 		configs->insert(pair<string, ConfigMenuType>(string(QT_TR_NOOP("<custom>")), CONFIG_MENU_CUSTOM));
 
-		gtk_combo_box_set_active(combo, 0);
+		gtk_combo_box_set_active(menuData->combo, 0);
+
+		menuData->disableSignals = origDisableSignals;
 
 		return configs;
 	}
 
-	static bool selectConfiguration(GtkComboBox *combo, map<string, int> *configs, const char *selectFile, ConfigMenuType configurationType)
+	static bool selectConfiguration(diaElemConfigMenuData *menuData, const char *selectFile, ConfigMenuType configurationType)
 	{
 		bool success = false;
+		bool origDisableSignals = menuData->disableSignals;
 
 		if (configurationType == CONFIG_MENU_DEFAULT)
 		{
-			gtk_combo_box_set_active(combo, 0);
+			gtk_combo_box_set_active(menuData->combo, 0);
 			success = true;
 		}
 		else
 		{
-			GtkTreeModel* model = gtk_combo_box_get_model(combo);
+			GtkTreeModel* model = gtk_combo_box_get_model(menuData->combo);
 			GtkTreeIter iter;
-			char *config;
+			const char *config;
 			int index = 0;
 
 			if (gtk_tree_model_get_iter_first(model, &iter) && selectFile)
 			{
 				do
 				{
-					map<string, int>::iterator it = configs->find(string(selectFile));
+					map<string, int>::iterator it = menuData->configs->find(string(selectFile));
 
 					gtk_tree_model_get(model, &iter, 0, &config, -1);
 
 					if (strcmp(config, selectFile) == 0 && it->second == configurationType)
 					{
-						gtk_combo_box_set_active(combo, index);
+						gtk_combo_box_set_active(menuData->combo, index);
 						success = true;
 						break;
 					}
@@ -129,8 +134,10 @@ namespace ADM_GtkFactory
 			}
 
 			if (!success)
-				gtk_combo_box_set_active(combo, 1);
+				gtk_combo_box_set_active(menuData->combo, 1);
 		}
+
+		menuData->disableSignals = origDisableSignals;
 
 		return success;
 	}
@@ -158,7 +165,7 @@ namespace ADM_GtkFactory
 				fclose(fd);
 
 				delete menuData->configs;
-				menuData->configs = fillConfigurationComboBox(menuData->combo, menuData->userConfigDir, menuData->systemConfigDir);
+				menuData->configs = fillConfigurationComboBox(menuData);
 
 				char* baseName = (char *)ADM_GetFileName(filename);
 				char *ext = strrchr(baseName, '.');
@@ -166,7 +173,7 @@ namespace ADM_GtkFactory
 				if (ext)
 					*ext = 0;
 
-				selectConfiguration(menuData->combo, menuData->configs, baseName, CONFIG_MENU_USER);
+				selectConfiguration(menuData, baseName, CONFIG_MENU_USER);
 
 				delete [] configData;
 			}
@@ -201,6 +208,7 @@ namespace ADM_GtkFactory
 	{
 		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)data;
 		const char* selectedConfig = gtk_combo_box_get_active_text(menuData->combo);
+		bool origDisableSignals = menuData->disableSignals;
 
 		if (selectedConfig)
 		{
@@ -217,11 +225,16 @@ namespace ADM_GtkFactory
 					menuData->controls[i]->updateMe();
 			}
 		}
+
+		menuData->disableSignals = origDisableSignals;
 	}
 
 	class diaElemConfigMenu : public diaElem
 	{
 	protected:
+		char *configName;
+		ConfigMenuType *configType;
+
 		const char *userConfigDir, *systemConfigDir;
 		diaElem **controls;
 		unsigned int controlCount;
@@ -245,6 +258,9 @@ namespace ADM_GtkFactory
 		const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc,
 		diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
 	{
+		this->configName = configName;
+		this->configType = configType;
+
 		this->userConfigDir = userConfigDir;
 		this->systemConfigDir = systemConfigDir;
 
@@ -287,13 +303,14 @@ namespace ADM_GtkFactory
 
 		data->combo = combo;
 		data->deleteButton = button2;
-		data->configs = fillConfigurationComboBox(combo, this->userConfigDir, this->systemConfigDir);
 		data->controls = controls;
 		data->controlCount = controlCount;
 		data->userConfigDir = userConfigDir;
 		data->systemConfigDir = systemConfigDir;
 		data->changedFunc = changedFunc;
 		data->serializeFunc = serializeFunc;
+		data->disableSignals = false;
+		data->configs = fillConfigurationComboBox(data);
 
 		myWidget = (void*)data;
 
@@ -302,14 +319,29 @@ namespace ADM_GtkFactory
 		g_signal_connect(GTK_OBJECT(combo), "changed", G_CALLBACK(comboChanged), myWidget);
 	}
 
-	void diaElemConfigMenu::getMe(void)	{ }
+	void diaElemConfigMenu::getMe(void)
+	{
+		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)myWidget;
+		const char* selectedConfig = gtk_combo_box_get_active_text(menuData->combo);
+		map<string, int>::iterator it = menuData->configs->find(string((selectedConfig)));
+
+		strcpy(this->configName, selectedConfig);
+		*this->configType = (ConfigMenuType)it->second;
+	}
+
 	void diaElemConfigMenu::enable(uint32_t onoff) { }
 	int diaElemConfigMenu::getRequiredLayout(void) { return 0; }
-	void diaElemConfigMenu::updateMe(void) { }
+
+	void diaElemConfigMenu::updateMe(void)
+	{
+		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)myWidget;
+
+		selectConfiguration(menuData, this->configName, *this->configType);
+	}
 
 	void diaElemConfigMenu::finalize(void)
 	{
-
+		this->updateMe();
 	}
 }
 

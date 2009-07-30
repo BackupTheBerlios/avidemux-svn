@@ -83,6 +83,10 @@ uint8_t gtkDiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
   gtk_widget_show (vbox1);
   
   addControls(dialog, vbox1, elems, nb);
+
+  for(int i = 0; i < nb; i++)
+	  elems[i]->finalize(); 
+
   addButtonBox(dialog);
 
   // Show it & run
@@ -142,7 +146,12 @@ uint8_t gtkDiaFactoryRunTabs2(const char *title, unsigned int headerControlCount
 	gtk_container_set_border_width(GTK_CONTAINER(notebook1), 6);
 
 	for (int i = 0; i < tabControlCount; i++)
+	{
 		buildOneTab(notebook1, i, tabControls[i]);
+
+		for(int j = 0; j < tabControls[i]->nbElems; j++)
+			tabControls[i]->dias[j]->finalize();
+	}
 
 	for (int i = 0; i < headerControlCount; i++)
 		headerControls[i]->finalize();
@@ -201,11 +210,6 @@ void addControls(GtkWidget *dialog, GtkWidget *vbox, diaElem **controls, unsigne
 				i++;
 			}
 		}
-	}
-
-	for(int i = 0; i < controlCount; i++)
-	{
-		controls[i]->finalize();
 	}
 }
 
