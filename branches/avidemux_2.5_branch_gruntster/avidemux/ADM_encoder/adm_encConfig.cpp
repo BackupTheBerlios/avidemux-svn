@@ -503,6 +503,20 @@ void videoCodecConfigureUI(int codecIndex)
 	}
 }
 
+bool isVideoCodecConfigurable(void)
+{
+	COMPRES_PARAMS *param = &AllVideoCodec[currentCodecIndex];
+
+	if (param->codec == CodecExternal)
+	{
+		ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(param->extra_param);
+
+		return plugin->isConfigurable(plugin->encoderId);
+	}
+	else
+		return param->configure != NULL;
+}
+
 /*___________________________________________________________
 	Set mode param and extra data for the currently selected codec
 	The extradata is a free binary chunk (->memcpy of codec.specific part)
