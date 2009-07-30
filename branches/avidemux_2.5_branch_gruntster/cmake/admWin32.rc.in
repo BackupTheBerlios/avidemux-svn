@@ -28,4 +28,4 @@ BEGIN
     END
 END
 
-100 ICON "${CMAKE_SOURCE_DIR}/avidemux/xpm/${AVIDEMUX_ICON}"
+100 ICON "${CMAKE_SOURCE_DIR}/avidemux/ADM_icons/xpm/${AVIDEMUX_ICON}"
