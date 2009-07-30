@@ -230,8 +230,8 @@ namespace ADM_GtkFactory
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;
 
 	public:
-		diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
-				CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+		diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir, 
+			CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
 		~diaElemConfigMenu();
 		void setMe(void *dialog, void *opaque, uint32_t line);
 		void getMe(void);
@@ -241,8 +241,9 @@ namespace ADM_GtkFactory
 		void finalize(void);
 	};
 
-	diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
-				CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
+	diaElemConfigMenu::diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir,
+		const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc,
+		diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
 	{
 		this->userConfigDir = userConfigDir;
 		this->systemConfigDir = systemConfigDir;
@@ -312,10 +313,12 @@ namespace ADM_GtkFactory
 	}
 }
 
-diaElem* gtkCreateConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
-							 CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount)
+diaElem* gtkCreateConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir,
+							 CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, 
+							 unsigned int controlCount)
 {
-	return new ADM_GtkFactory::diaElemConfigMenu(userConfigDir, systemConfigDir, changedFunc, serializeFunc, controls, controlCount);
+	return new ADM_GtkFactory::diaElemConfigMenu(configName, configType, userConfigDir, systemConfigDir, changedFunc,
+		serializeFunc, controls, controlCount);
 }
 
 void gtkDestroyConfigMenu(diaElem *e)

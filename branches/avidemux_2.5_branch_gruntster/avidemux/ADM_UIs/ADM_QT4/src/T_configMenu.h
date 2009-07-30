@@ -21,7 +21,7 @@ namespace ADM_Qt4Factory
 		CONFIG_MENU_CHANGED_T *changedFunc;
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;
 
-		bool selectConfiguration(QString *selectFile, ConfigMenuType configurationType);
+		void fillConfigurationComboBox(void);
 
 	public slots:
 		void deleteClicked(bool checked);
@@ -40,11 +40,13 @@ namespace ADM_Qt4Factory
 		QPushButton *saveAsButton;
 		QPushButton *deleteButton;
 
-		ADM_QconfigMenu(QWidget *widget, QGridLayout *layout, int line,
-			const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
+		ADM_QconfigMenu(QWidget *widget, QGridLayout *layout, int line,	const char* userConfigDir,
+			const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
 			CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
 		~ADM_QconfigMenu();
-		void fillConfigurationComboBox(void);
+
+		void getConfiguration(char *configName, ConfigMenuType *configType);
+		bool selectConfiguration(QString *selectFile, ConfigMenuType configurationType);
 	};
 }
 #endif	// T_configMenu_h

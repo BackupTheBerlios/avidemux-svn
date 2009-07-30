@@ -560,11 +560,13 @@ uint8_t   diaElemSlider::setDigits(uint32_t digits)
 }
 DIA_MKSTUBS(diaElemSlider)
 // ****************** diaElemConfigMenu ********************
-diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
-									 CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
+diaElemConfigMenu::diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir,
+									 CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls,
+									 unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
 {
 	ADM_assert(Factory);
-	internalPointer = Factory->CreateConfigMenu(userConfigDir, systemConfigDir, changedFunc, serializeFunc, controls, controlCount);
+	internalPointer = Factory->CreateConfigMenu(configName, configType, userConfigDir, systemConfigDir, changedFunc, 
+		serializeFunc, controls, controlCount);
 }
 
 diaElemConfigMenu::~diaElemConfigMenu()

@@ -16,7 +16,6 @@
 #include <libxml/tree.h>
 #include "ADM_inttype.h"
 #include "mpeg1Encoder.h"
-#include "DIA_factory.h"
 
 extern int _uiType;
 static bool changedConfig(const char* fileName, ConfigMenuType configType);
@@ -114,7 +113,8 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
 	diaElem *elmGeneral[9]= {&ctlBitrate, &ctlMinb, &ctlMaxb, &ctlXvid, &ctlVbv, &ctlWidescreen, &ctlInterW, &ctlMatrix, &ctlGop};
 
-	diaElemConfigMenu ctlConfigMenu(_options.getUserConfigDirectory(), _options.getSystemConfigDirectory(), changedConfig, serializeConfig, elmGeneral, 9);
+	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
+		changedConfig, serializeConfig, elmGeneral, 9);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
 	diaElemTabs tabGeneral("User Interface", 9, elmGeneral);
@@ -132,20 +132,35 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 
 void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
 {
-	_minBitrate = options->getMinBitrate();
-	_maxBitrate = options->getMaxBitrate();
-	_useXvidRateControl = options->getXvidRateControl();
-	_bufferSize = options->getBufferSize();
-	_widescreen = options->getWidescreen();
-	_interlaced = options->getInterlaced();
-	_userMatrix = options->getMatrix();
-	_gopSize = options->getGopSize();
+	char *configurationName;
 
-	updateEncodeProperties(encodeOptions, NULL);
+	options->getPresetConfiguration(&configurationName, (PluginConfigType*)&configType);
+
+	if (configurationName)
+	{
+		strcpy(this->configName, configurationName);
+		delete [] configurationName;
+	}
+
+	if (configType != CONFIG_MENU_CUSTOM)
+	{
+		_minBitrate = options->getMinBitrate();
+		_maxBitrate = options->getMaxBitrate();
+		_useXvidRateControl = options->getXvidRateControl();
+		_bufferSize = options->getBufferSize();
+		_widescreen = options->getWidescreen();
+		_interlaced = options->getInterlaced();
+		_userMatrix = options->getMatrix();
+		_gopSize = options->getGopSize();
+
+		updateEncodeProperties(encodeOptions, NULL);
+	}
 }
 
 void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
 {
+	options->setPresetConfiguration(&configName[0], (PluginConfigType)configType);
+
 	switch (_bitrateParam.mode)
 	{
 		case COMPRESS_CQ:
@@ -188,24 +203,30 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 
 		delete defaultEncodeOptions;
 	}
-	else if (configType != CONFIG_MENU_CUSTOM)
+	else
 	{
 		Mpeg1EncoderOptions options;
-		vidEncOptions *encodeOptions;
 
 		options.setPresetConfiguration(configName, (PluginConfigType)configType);
 
-		if (options.loadPresetConfiguration())
-		{
-			encodeOptions = options.getEncodeOptions();
-
-			encoder->loadSettings(encodeOptions, &options);
-
-			delete encodeOptions;
-		}
+		if (configType == CONFIG_MENU_CUSTOM)
+			encoder->loadSettings(NULL, &options);
 		else
 		{
-			failure = true;
+			vidEncOptions *encodeOptions;
+
+			if (options.loadPresetConfiguration())
+			{
+				encodeOptions = options.getEncodeOptions();
+
+				encoder->loadSettings(encodeOptions, &options);
+
+				delete encodeOptions;
+			}
+			else
+			{
+				failure = true;
+			}
 		}
 	}
 

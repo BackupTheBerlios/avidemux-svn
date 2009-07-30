@@ -51,8 +51,11 @@ uint8_t qt4DiaFactoryRun(const char *title,uint32_t nb,diaElem **elems)
 
   addControls(&dialog, vboxLayout, elems, nb);
 
+  for(int i = 0; i < nb; i++)
+	  elems[i]->finalize(); 
+
   // Add buttons
-   buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+  buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
    QObject::connect(buttonBox, SIGNAL(accepted()), &dialog, SLOT(accept()));
    QObject::connect(buttonBox, SIGNAL(rejected()), &dialog, SLOT(reject()));
@@ -123,6 +126,9 @@ uint8_t qt4DiaFactoryRunTabs2(const char *title, unsigned int headerControlCount
      {
         ADM_assert(tabControls[i]);
         insertTab(i,tabControls[i],wtabs);
+
+		for(int j = 0; j < tabControls[i]->nbElems; j++)
+			tabControls[i]->dias[j]->finalize(); 
       }
 
 	 for (int i = 0; i < headerControlCount; i++)
@@ -208,9 +214,6 @@ void addControls(QWidget *parent, QVBoxLayout *vboxLayout, diaElem **controls, u
 
 	if (layout)
 		vboxLayout->addLayout(layout);
-
-	for(int i = 0; i < controlCount; i++)
-		controls[i]->finalize(); 
 }
 
 void insertTab(uint32_t index, diaElemTabs *tab, QTabWidget *wtab)

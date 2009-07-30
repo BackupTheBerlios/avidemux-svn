@@ -660,12 +660,16 @@ typedef enum
 
 typedef char *(CONFIG_MENU_SERIALIZE_T)(void);
 typedef bool (CONFIG_MENU_CHANGED_T)(const char* configName, ConfigMenuType configType);
-typedef diaElem *(CREATE_CONFIG_MENU_T)(const char* userConfigDir, const char* systemConfigDir,	CONFIG_MENU_CHANGED_T *changedFunc, 
-										CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+typedef diaElem *(CREATE_CONFIG_MENU_T)(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir,
+										CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, 
+										unsigned int controlCount);
 
 class diaElemConfigMenu : public diaElem
 {
 protected:
+	char *configName;
+	ConfigMenuType *configType;
+
 	const char *userConfigDir, *systemConfigDir;
 	diaElem **controls;
 	unsigned int controlCount;
@@ -674,8 +678,8 @@ protected:
 	CONFIG_MENU_SERIALIZE_T *serializeFunc;
 
 public:
-	diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
-			CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+	diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir,
+		CONFIG_MENU_CHANGED_T *changedFunc,	CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
 	~diaElemConfigMenu();
 	void setMe(void *dialog, void *opaque, uint32_t line);
 	void getMe(void);

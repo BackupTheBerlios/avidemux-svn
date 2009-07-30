@@ -26,12 +26,16 @@ extern "C"
 #include "encoder.h"
 #include "mpeg1EncoderOptions.h"
 #include "../../ADM_encoder/ADM_vidEncode.hxx"
+#include "DIA_factory.h"
 
 class Mpeg1Encoder : public AvcodecEncoder
 {
 	private:
 		COMPRES_PARAMS _bitrateParam;
 		unsigned int _minBitrate, _maxBitrate, _useXvidRateControl, _bufferSize, _widescreen, _interlaced, _userMatrix, _gopSize;
+
+		char configName[MAX_PATH];
+		ConfigMenuType configType;
 
 		Mpeg1EncoderOptions _options;
 		vidEncOptions _encodeOptions;

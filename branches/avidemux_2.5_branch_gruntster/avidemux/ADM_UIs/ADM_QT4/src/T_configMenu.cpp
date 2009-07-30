@@ -30,9 +30,9 @@ extern const char* shortkey(const char*);
 
 namespace ADM_Qt4Factory
 {
-	ADM_QconfigMenu::ADM_QconfigMenu(QWidget *widget, QGridLayout *layout, int line, 
-		const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
-		CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : QWidget(widget) 
+	ADM_QconfigMenu::ADM_QconfigMenu(QWidget *widget, QGridLayout *layout, int line, const char* userConfigDir,
+		const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc,
+		diaElem **controls,	unsigned int controlCount) : QWidget(widget) 
 	{
 		disableGenericSlots = false;
 
@@ -131,6 +131,13 @@ namespace ADM_Qt4Factory
 		}
 
 		disableGenericSlots = origDisableGenericSlots;
+	}
+
+	void ADM_QconfigMenu::getConfiguration(char *configName, ConfigMenuType *configType)
+	{
+		strcpy(configName, combobox->currentText().toUtf8().constData());
+
+		*configType = (ConfigMenuType)combobox->itemData(combobox->currentIndex()).toInt();
 	}
 
 	bool ADM_QconfigMenu::selectConfiguration(QString *selectFile, ConfigMenuType configurationType)
@@ -238,6 +245,9 @@ namespace ADM_Qt4Factory
 	class diaElemConfigMenu : public diaElem
 	{
 	protected:
+		char *configName;
+		ConfigMenuType *configType;
+
 		const char *userConfigDir, *systemConfigDir;
 		diaElem **controls;
 		unsigned int controlCount;
@@ -246,8 +256,9 @@ namespace ADM_Qt4Factory
 		CONFIG_MENU_SERIALIZE_T *serializeFunc;
 
 	public:
-		diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
-				CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount);
+		diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir,
+			const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc,
+			diaElem **controls, unsigned int controlCount);
 		~diaElemConfigMenu();
 		void setMe(void *dialog, void *opaque, uint32_t line);
 		void getMe(void);
@@ -257,9 +268,13 @@ namespace ADM_Qt4Factory
 		void finalize(void);
 	};
 
-	diaElemConfigMenu::diaElemConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc,
-				CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
+	diaElemConfigMenu::diaElemConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir,
+		const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc,
+		diaElem **controls, unsigned int controlCount) : diaElem(ELEM_CONFIG_MENU)
 	{
+		this->configName = configName;
+		this->configType = configType;
+
 		this->userConfigDir = userConfigDir;
 		this->systemConfigDir = systemConfigDir;
 
@@ -285,6 +300,9 @@ namespace ADM_Qt4Factory
 
 	void diaElemConfigMenu::getMe(void)
 	{
+		ADM_QconfigMenu *configMenu = (ADM_QconfigMenu*)myWidget;
+
+		configMenu->getConfiguration(configName, configType);
 	}
 
 	void diaElemConfigMenu::enable(uint32_t onoff)
@@ -298,6 +316,9 @@ namespace ADM_Qt4Factory
 
 	void diaElemConfigMenu::updateMe(void)
 	{
+		ADM_QconfigMenu *configMenu = (ADM_QconfigMenu*)myWidget;
+
+		configMenu->selectConfiguration(&QString(configName), *configType);
 	}
 
 	void diaElemConfigMenu::finalize(void)
@@ -336,13 +357,17 @@ namespace ADM_Qt4Factory
 				while (parentWidget != NULL);
 			}
 		}
+
+		configMenu->selectConfiguration(&QString(configName), *configType);
 	}
 }
 
-diaElem* qt4CreateConfigMenu(const char* userConfigDir, const char* systemConfigDir, CONFIG_MENU_CHANGED_T *changedFunc, 
-							 CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls, unsigned int controlCount)
+diaElem* qt4CreateConfigMenu(char *configName, ConfigMenuType *configType, const char* userConfigDir, const char* systemConfigDir,
+							 CONFIG_MENU_CHANGED_T *changedFunc, CONFIG_MENU_SERIALIZE_T *serializeFunc, diaElem **controls,
+							 unsigned int controlCount)
 {
-	return new ADM_Qt4Factory::diaElemConfigMenu(userConfigDir, systemConfigDir, changedFunc, serializeFunc, controls, controlCount);
+	return new ADM_Qt4Factory::diaElemConfigMenu(configName, configType, userConfigDir, systemConfigDir, changedFunc, 
+		serializeFunc, controls, controlCount);
 }
 
 void qt4DestroyConfigMenu(diaElem *e)
