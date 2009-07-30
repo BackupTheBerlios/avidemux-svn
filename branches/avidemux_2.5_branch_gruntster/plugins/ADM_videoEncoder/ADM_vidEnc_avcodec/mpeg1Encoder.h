@@ -23,7 +23,6 @@ extern "C"
 	#include "ADM_vidEnc_plugin.h"
 }
 
-#include <stdlib.h>
 #include "encoder.h"
 #include "mpeg1EncoderOptions.h"
 #include "../../ADM_encoder/ADM_vidEncode.hxx"
@@ -35,7 +34,7 @@ class Mpeg1Encoder : public AvcodecEncoder
 		COMPRES_PARAMS _bitrateParam;
 		unsigned int _minBitrate, _maxBitrate, _useXvidRateControl, _bufferSize, _widescreen, _interlaced, _userMatrix, _gopSize;
 
-		char configName[MAX_PATH];
+		char configName[PATH_MAX];
 		ConfigMenuType configType;
 
 		Mpeg1EncoderOptions _options;
