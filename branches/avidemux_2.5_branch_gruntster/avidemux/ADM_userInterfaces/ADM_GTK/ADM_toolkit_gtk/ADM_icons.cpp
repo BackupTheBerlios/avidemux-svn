@@ -100,7 +100,7 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"6.png",(void *) x6},
         {A_ICON_PNG,"7.png",(void *) x7},
 #endif
-        {A_ICON_XPM,"avidemux_icon.xpm",        (void *) avidemux_icon},
+        {A_ICON_PNG,"avidemux_icon.xpm",        (void *) avidemux_icon},
         {A_ICON_PNG,"avidemux_icon_small.png",  (void *) avidemux_icon_small},
         {A_ICON_PNG,"systray.png",              (void *) systray},
         {A_ICON_PNG,"audio-volume-medium.png",  (void *) audio_volume_medium},
