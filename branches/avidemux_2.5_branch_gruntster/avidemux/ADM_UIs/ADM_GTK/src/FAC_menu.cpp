@@ -184,15 +184,13 @@ void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
 void diaElemMenuDynamic::getMe(void)
 {
   GtkWidget *widget=(GtkWidget *)myWidget;
-  uint32_t *val=(uint32_t *)param;
-  uint32_t rank;
-  if(!nbMenu) return;
-  ADM_assert(widget);
+  int rank = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
   
-  
-  rank=gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
-  ADM_assert(rank<this->nbMenu);
-  *(uint32_t *)param=this->menu[rank]->val;
+  if (!nbMenu)
+	  return;
+
+  ADM_assert(rank < this->nbMenu);
+  *(uint32_t *)param = this->menu[rank]->val;
 }
 
 uint8_t   diaElemMenuDynamic::link(diaMenuEntryDynamic *entry,uint32_t onoff,diaElem *w)
@@ -205,7 +203,22 @@ uint8_t   diaElemMenuDynamic::link(diaMenuEntryDynamic *entry,uint32_t onoff,dia
     return 1;
 }
 
-void   diaElemMenuDynamic::updateMe(void)
+void diaElemMenuDynamic::updateMe(void)
+{
+	GtkWidget *widget = (GtkWidget*)myWidget;
+
+	for (int i = 0; i < this->nbMenu; i++)
+	{
+		if (this->menu[i]->val == *(uint32_t*)param)
+		{
+			gtk_combo_box_set_active(GTK_COMBO_BOX(widget), i);
+			finalize();
+			break;
+		}
+	}
+}
+
+void   diaElemMenuDynamic::finalize(void)
 {
   GtkWidget *widget=(GtkWidget *)myWidget;
   uint32_t val;
@@ -246,10 +259,6 @@ void   diaElemMenuDynamic::updateMe(void)
     
   }
 }
-void   diaElemMenuDynamic::finalize(void)
-{
-  updateMe(); 
-}
 void   diaElemMenuDynamic::enable(uint32_t onoff)
 {
   gtk_widget_set_sensitive(GTK_WIDGET(myWidget),onoff);  
@@ -260,9 +269,11 @@ int diaElemMenuDynamic::getRequiredLayout(void) { return 0; }
 //** C callback **
 void cb_menu(void *w,void *p)
 {
-  diaElemMenuDynamic *me=(diaElemMenuDynamic *)p;
-  me->updateMe();
+	diaElemMenuDynamic *me=(diaElemMenuDynamic *)p;
+
+	me->finalize();
 }
+
 void cb_menus(void *w,void *p)
 {
   diaElemMenu *me=(diaElemMenu *)p;

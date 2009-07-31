@@ -53,7 +53,7 @@ ADM_QComboBox::ADM_QComboBox(QWidget *parent, diaElemMenuDynamic *menu) : QCombo
 
 void ADM_QComboBox::changed(int i)
 {
-	_menu->updateMe();
+	_menu->finalize();
 }
 
 void ADM_QComboBox::connectMe(void)
@@ -174,12 +174,14 @@ void diaElemMenuDynamic::setMe(void *dialog, void *opaque,uint32_t line)
 
 void diaElemMenuDynamic::getMe(void)
 {
-  ADM_QComboBox *combo=(ADM_QComboBox *)myWidget;
-  int r;
-  r=combo->currentIndex();
-  if(!nbMenu) return;
-  ADM_assert(r<nbMenu);
-  *(uint32_t *)param=menu[r]->val;
+  ADM_QComboBox *combo = (ADM_QComboBox *)myWidget;
+  int r = combo->currentIndex();
+
+  if (!nbMenu)
+	  return;
+
+  ADM_assert(r < nbMenu);
+  *(uint32_t *)param = menu[r]->val;
       
 }
 void diaElemMenuDynamic::finalize(void)
@@ -244,7 +246,17 @@ uint8_t   diaElemMenuDynamic::link(diaMenuEntryDynamic *entry,uint32_t onoff,dia
 }
 void   diaElemMenuDynamic::updateMe(void)
 {
-  finalize();
+	ADM_QComboBox *combo = (ADM_QComboBox*)myWidget;
+
+	for (int i = 0; i < this->nbMenu; i++)
+	{
+		if (this->menu[i]->val == *(uint32_t*)param)
+		{
+			combo->setCurrentIndex(i);
+			finalize();
+			break;
+		}
+	}
 }
 
 int diaElemMenuDynamic::getRequiredLayout(void) { return FAC_QT_GRIDLAYOUT; }
