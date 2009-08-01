@@ -8,6 +8,13 @@ output.inc \
 stock_filters_aging.inc \
 systray.inc \
 systray2.inc \
+filter1.inc \
+filter2.inc \
+filter3.inc \
+filter4.inc \
+filter5.inc \
+filter6.inc \
+filter7.inc \
 film1.inc \
 film3.inc \
 film5.inc \

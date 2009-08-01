@@ -33,6 +33,15 @@
 #include "xpm/film5.inc"
 #include "xpm/film7.inc"
 #include "xpm/film9.inc"
+
+#include "xpm/filter1.inc"
+#include "xpm/filter2.inc"
+#include "xpm/filter3.inc"
+#include "xpm/filter4.inc"
+#include "xpm/filter5.inc"
+#include "xpm/filter6.inc"
+#include "xpm/filter7.inc"
+
 #include "xpm/first_frame.inc"
 #include "xpm/gnome_calculator.inc"
 #include "xpm/gnome_calculator_small.inc"
@@ -91,15 +100,15 @@ name2xpm iconTranslation[]=
         {A_ICON_PNG,"gnome-calculator_small.xpm",(void *) gnome_calculator_small},
         {A_ICON_PNG,"preview.png",(void *) preview},
         {A_ICON_PNG,"output.png",(void *) output},
-#if 0
-        {A_ICON_PNG,"1.png",(void *) x1},
-        {A_ICON_PNG,"2.png",(void *) x2},
-        {A_ICON_PNG,"3.png",(void *) x3},
-        {A_ICON_PNG,"4.png",(void *) x4},
-        {A_ICON_PNG,"5.png",(void *) x5},
-        {A_ICON_PNG,"6.png",(void *) x6},
-        {A_ICON_PNG,"7.png",(void *) x7},
-#endif
+
+        {A_ICON_PNG,"1.png",(void *) filter1},
+        {A_ICON_PNG,"2.png",(void *) filter2},
+        {A_ICON_PNG,"3.png",(void *) filter3},
+        {A_ICON_PNG,"4.png",(void *) filter4},
+        {A_ICON_PNG,"5.png",(void *) filter5},
+        {A_ICON_PNG,"6.png",(void *) filter6},
+        {A_ICON_PNG,"7.png",(void *) filter7},
+
         {A_ICON_PNG,"avidemux_icon.xpm",        (void *) avidemux_icon},
         {A_ICON_PNG,"avidemux_icon_small.png",  (void *) avidemux_icon_small},
         {A_ICON_PNG,"systray.png",              (void *) systray},
