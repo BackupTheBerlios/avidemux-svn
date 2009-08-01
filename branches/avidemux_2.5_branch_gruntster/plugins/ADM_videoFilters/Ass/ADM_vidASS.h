@@ -14,7 +14,7 @@
 
 extern "C"
 {
-#include "ADM_libass/ass.h"
+#include "ADM_libAss/ass.h"
 }
 #include "ADM_vidAss_Params.h" 
 class ADMVideoSubASS : public AVDMGenericVideoStream 

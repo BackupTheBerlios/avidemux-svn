@@ -2,7 +2,7 @@ INCLUDE(admCheckFreeType)
 checkFreeType()
 
 IF (USE_FREETYPE)
-	ADD_SUBDIRECTORY(ADM_libass)
+	ADD_SUBDIRECTORY(ADM_libAss)
 
 	INCLUDE(vf_plugin)
 	SET(ADM_vf_ssa_SRCS ADM_vidASS.cpp)

@@ -174,7 +174,10 @@ bool use_margins = ( _params->top_margin | _params->bottom_margin ) != 0;
         ass_set_margins(_ass_rend, _params->top_margin, _params->bottom_margin, 0, 0);
         ass_set_use_margins(_ass_rend, use_margins);
         ass_set_font_scale(_ass_rend, _params->font_scale);
-        ass_set_fonts(_ass_rend, NULL, "Sans");
+        ass_set_fonts(_ass_rend, NULL, "Sans",
+                false, // No fontconfig
+                NULL,
+                false);
         //~ ass_set_aspect_ratio(_ass_rend, ((double)_info.width) / ((double)_info.height));
 #if ASS_HAS_GLOBAL
         if(_ass_track) 
