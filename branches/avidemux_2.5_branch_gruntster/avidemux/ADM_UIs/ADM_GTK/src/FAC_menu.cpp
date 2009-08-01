@@ -18,8 +18,6 @@
 namespace ADM_GtkFactory
 {
 static void cb_menu(void *w,void *p);
-static void cb_menus(void *w,void *p);
-
 
 class diaElemMenuDynamic : public diaElemMenuDynamicBase
 {
@@ -274,11 +272,6 @@ void cb_menu(void *w,void *p)
 	me->finalize();
 }
 
-void cb_menus(void *w,void *p)
-{
-  diaElemMenu *me=(diaElemMenu *)p;
-  me->updateMe();
-}
 //********************
 }; // End of namespace
 

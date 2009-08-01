@@ -30,10 +30,11 @@ extern "C"
 
 namespace ADM_GtkFactory
 {
-	class diaElemConfigMenuData
+	struct diaElemConfigMenuData
 	{
-	public:
 		bool disableSignals;
+
+		GtkDialog *dialog;
 		GtkComboBox *combo;
 		GtkButton *deleteButton;
 
@@ -210,23 +211,38 @@ namespace ADM_GtkFactory
 		const char* selectedConfig = gtk_combo_box_get_active_text(menuData->combo);
 		bool origDisableSignals = menuData->disableSignals;
 
+		menuData->disableSignals = true;
+
 		if (selectedConfig)
 		{
 			map<string, int>::iterator it = menuData->configs->find(string((selectedConfig)));
 
 			gtk_widget_set_sensitive(GTK_WIDGET(menuData->deleteButton), it->second == CONFIG_MENU_USER);
 
+			for (int i = 0; i < menuData->controlCount; i++)
+				menuData->controls[i]->getMe();
+
 			if (menuData->changedFunc)
 			{
-				if (!menuData->changedFunc(selectedConfig, (ConfigMenuType)it->second))
+				if (menuData->changedFunc(selectedConfig, (ConfigMenuType)it->second))
+				{
+					for (int i = 0; i < menuData->controlCount; i++)
+						menuData->controls[i]->updateMe();
+				}
+				else
 					gtk_combo_box_set_active(menuData->combo, 0);
-
-				for (int i = 0; i < menuData->controlCount; i++)
-					menuData->controls[i]->updateMe();
 			}
 		}
 
 		menuData->disableSignals = origDisableSignals;
+	}
+
+	void genericControlChanged(GtkWidget *widget, gpointer *data)
+	{
+		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)data;
+
+		if (!menuData->disableSignals)
+			gtk_combo_box_set_active(menuData->combo, 1);
 	}
 
 	class diaElemConfigMenu : public diaElem
@@ -301,6 +317,7 @@ namespace ADM_GtkFactory
 
 		diaElemConfigMenuData *data = new diaElemConfigMenuData();
 
+		data->dialog = (GtkDialog*)dialog;
 		data->combo = combo;
 		data->deleteButton = button2;
 		data->controls = controls;
@@ -339,8 +356,37 @@ namespace ADM_GtkFactory
 		selectConfiguration(menuData, this->configName, *this->configType);
 	}
 
+	void traverseChildren(GtkContainer *container, diaElemConfigMenuData *menuData)
+	{
+		GList *list = gtk_container_get_children(container);
+
+		for (GList *listItem = g_list_first(list); listItem != NULL; listItem = g_list_next(listItem))
+		{
+			const char* typeName = g_type_name(GTK_OBJECT_TYPE(listItem->data));
+
+			if (GTK_IS_CONTAINER(listItem->data))
+				traverseChildren(GTK_CONTAINER(listItem->data), menuData);
+
+			if (strcmp(typeName, "GtkComboBox") == 0 && GTK_COMBO_BOX(listItem->data) != menuData->combo)
+				g_signal_connect(GTK_OBJECT(listItem->data), "changed", G_CALLBACK(genericControlChanged), menuData);
+			else if (strcmp(typeName, "GtkSpinButton") == 0)
+				g_signal_connect(GTK_OBJECT(listItem->data), "value-changed", G_CALLBACK(genericControlChanged), menuData);
+			else if (strcmp(typeName, "GtkCheckButton") == 0)
+				g_signal_connect(GTK_OBJECT(listItem->data), "toggled", G_CALLBACK(genericControlChanged), menuData);
+			else if (strcmp(typeName, "GtkRadioButton") == 0)
+				g_signal_connect(GTK_OBJECT(listItem->data), "toggled", G_CALLBACK(genericControlChanged), menuData);
+			else if (strcmp(typeName, "GtkEntry") == 0)
+				g_signal_connect(GTK_OBJECT(listItem->data), "changed", G_CALLBACK(genericControlChanged), menuData);
+		}
+
+		g_list_free(list);
+	}
+
 	void diaElemConfigMenu::finalize(void)
 	{
+		diaElemConfigMenuData *menuData = (diaElemConfigMenuData*)myWidget;
+		traverseChildren(GTK_CONTAINER(menuData->dialog), menuData);
+
 		this->updateMe();
 	}
 }
