@@ -17,6 +17,13 @@
 #include "DIA_factory.h"
 namespace ADM_GtkFactory
 {
+struct diaElemBitrateData
+{
+	GtkWidget *label1, *label2, *combo, *spin;
+	COMPRES_PARAMS *param;
+	unsigned int maxQ, minQ;
+};
+
 class diaElemBitrate : public diaElemBitrateBase
 {
 protected:
@@ -32,7 +39,7 @@ public:
   int getRequiredLayout(void);
 };
 
-static void cb_mod(void *w,void *p);
+static void cb_mod(GtkWidget *widget, gpointer *data);
 /**
  * 	\fn 	readPullDown
  * \brief 	Convert the raw read of the combox into the actual compression mode
@@ -107,9 +114,10 @@ void diaElemBitrate::setMaxQz(uint32_t qz)
 }
 diaElemBitrate::~diaElemBitrate()
 {
-  GtkWidget *w=(GtkWidget *)myWidget;
-  delete [] w;
-  myWidget=NULL;
+	diaElemBitrateData *data = (diaElemBitrateData*)myWidget;
+
+	delete data;
+	myWidget = NULL;
 }
 /**
  * \fn setMe
@@ -184,146 +192,138 @@ void diaElemBitrate::setMe(void *dialog, void *opaque,uint32_t line)
     PUT_ARRAY(1,1,spin);
   /*  add button */
    gtk_label_set_mnemonic_widget (GTK_LABEL(label1), combo);
-   gtk_label_set_mnemonic_widget (GTK_LABEL(label2), spin); 
-   
-  gtk_signal_connect(GTK_OBJECT(combo), "changed",
-                      GTK_SIGNAL_FUNC(cb_mod),
-                      (void *) this);
-  
-  GtkWidget **w;
-  w=new GtkWidget*[4];
-  w[0]=label1;
-  w[1]=label2;
-  w[2]=combo;
-  w[3]=spin;
-  myWidget=(void *)w;
-  
-  updatePulldown(&copy, GTK_COMBO_BOX(combo));
-}
+   gtk_label_set_mnemonic_widget (GTK_LABEL(label2), spin);
 
+   diaElemBitrateData *data = new diaElemBitrateData;
+
+   data->param = &copy;
+   data->label1 = label1;
+   data->label2 = label2;
+   data->combo = combo;
+   data->spin = spin;
+   data->maxQ = maxQ;
+   data->minQ = minQ;
+
+   myWidget = (void*)data;
+
+   gtk_signal_connect(GTK_OBJECT(data->combo), "changed",
+	   G_CALLBACK(cb_mod), (void *)data);
+
+   updatePulldown(&copy, GTK_COMBO_BOX(combo));
+}
 
 void diaElemBitrate::getMe(void)
 {
-  
-  
   // Read current value
-  GtkWidget **w=(GtkWidget **)myWidget;
-  GtkComboBox *combo=(GtkComboBox *)w[2];
-  GtkSpinButton *spin=(GtkSpinButton*)w[3];
-  GtkLabel *label=(GtkLabel*)w[1];
+  diaElemBitrateData *data = (diaElemBitrateData*)myWidget;
+  int rank = gtk_combo_box_get_active(GTK_COMBO_BOX(data->combo));
+  data->param->mode = readPulldown(data->param,rank);
 
-  int rank=gtk_combo_box_get_active(GTK_COMBO_BOX(combo));
-  COMPRESSION_MODE mode=readPulldown(&copy,rank);
-    
-  
 #undef P
 #undef M
 #undef S
 #define P(x) 
 #define M(x,y)
-#define S(x)   x=(uint32_t)gtk_spin_button_get_value  (GTK_SPIN_BUTTON(spin))
-  switch(mode)
+#define S(x)   x=(uint32_t)gtk_spin_button_get_value  (GTK_SPIN_BUTTON(data->spin))
+  switch(data->param->mode)
   {
     case COMPRESS_CBR: //CBR
           P(_Bitrate (kb/s):);
           M(0,20000);
-          S(copy.bitrate);
-          copy.mode=COMPRESS_CBR;
+          S(data->param->bitrate);
           break;
     case COMPRESS_AQ:// CQ
           P(_Quantizer:);
           M(2,31);
-          S(copy.qz);
-          copy.mode=COMPRESS_AQ;
+          S(data->param->qz);
           break;
-
     case COMPRESS_CQ:// CQ
           P(_Quantizer:);
           M(2,31);
-          S(copy.qz);
-          copy.mode=COMPRESS_CQ;
+          S(data->param->qz);
           break;
     case  COMPRESS_2PASS: // 2pass Filesize
           P(_Video size (MB):);
           M(1,8000);
-          S(copy.finalsize);
-          copy.mode=COMPRESS_2PASS;
+          S(data->param->finalsize);
           break;
     case COMPRESS_2PASS_BITRATE : // 2pass Avg
           P(_Average bitrate (kb/s):);
           M(0,20000);
-          S(copy.avg_bitrate);
-          copy.mode=COMPRESS_2PASS_BITRATE;
+          S(data->param->avg_bitrate);
           break;
     case COMPRESS_SAME : // Same Qz as input
           P(-);
           M(0,0);
-          copy.mode=COMPRESS_SAME;
           break;
-    default:ADM_assert(0);
+    default:
+		ADM_assert(0);
   }
-  memcpy(param,&copy,sizeof(copy));
+
+  memcpy(param, data->param, sizeof(COMPRES_PARAMS));
 }
 
 int diaElemBitrate::getRequiredLayout(void) { return 0; }
 
-void diaElemBitrate::updateMe(void)
+void updateCombo(diaElemBitrateData *data)
 {
-  memcpy(&copy, param, sizeof(copy));
-
-  // Read current value
-  GtkWidget **w=(GtkWidget **)myWidget;
-  GtkComboBox *combo=(GtkComboBox *)w[2];
-  GtkSpinButton *spin=(GtkSpinButton*)w[3];
-  GtkLabel *label=(GtkLabel*)w[1];
-  int index = 0, set = 0;
-
 #undef M
 #undef S
-#define M(x,y) gtk_spin_button_set_range  (GTK_SPIN_BUTTON(spin),x,y)
-#define S(x)   gtk_spin_button_set_value  (GTK_SPIN_BUTTON(spin),x)
+#define M(x,y) gtk_spin_button_set_range  (GTK_SPIN_BUTTON(data->spin),x,y)
+#define S(x)   gtk_spin_button_set_value  (GTK_SPIN_BUTTON(data->spin),x)
 
-  updatePulldown(&copy, GTK_COMBO_BOX(combo));
+  updatePulldown(data->param, GTK_COMBO_BOX(data->combo));
 
-  switch (copy.mode)
+  switch (data->param->mode)
   {
     case COMPRESS_CBR:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Bitrate (kb/s):"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Bitrate (kb/s):"));
           M(0,20000);
-          S(copy.bitrate);
+          S(data->param->bitrate);
           break; 
     case COMPRESS_CQ:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Quantizer:"));
-          M(minQ,maxQ);
-          S(copy.qz);
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Quantizer:"));
+          M(data->minQ,data->maxQ);
+          S(data->param->qz);
           break;
     case COMPRESS_AQ:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("A_vg Quantizer:"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("A_vg Quantizer:"));
           M(2,64);
-          S(copy.qz);
+          S(data->param->qz);
           break;
     case COMPRESS_2PASS:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Video size (MB):"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Video size (MB):"));
           M(1,8000);
-          S(copy.finalsize);
+          S(data->param->finalsize);
           break;
     case COMPRESS_2PASS_BITRATE:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("_Average bitrate (kb/s):"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Average bitrate (kb/s):"));
           M(0,20000);
-          S(copy.avg_bitrate);
+          S(data->param->avg_bitrate);
           break;
     case COMPRESS_SAME : // Same Qz as input
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(label),QT_TR_NOOP("-"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("-"));
           M(0,0);
           break;
-    default:ADM_assert(0);
+    default:
+		ADM_assert(0);
   }
 }
 
-void cb_mod(void *w,void *p)
+void diaElemBitrate::updateMe(void)
 {
-  diaElemBitrate *me=(diaElemBitrate *)p;
-  me->updateMe();
+	diaElemBitrateData *data = (diaElemBitrateData*)myWidget;
+
+	memcpy(data->param, param, sizeof(COMPRES_PARAMS));
+	updateCombo(data);
+}
+
+void cb_mod(GtkWidget *widget, gpointer *d)
+{
+	diaElemBitrateData *data = (diaElemBitrateData*)d;
+
+	data->param->mode = readPulldown(data->param, gtk_combo_box_get_active(GTK_COMBO_BOX(data->combo)));
+	updateCombo(data);
 }
 
 } // End of namespace
