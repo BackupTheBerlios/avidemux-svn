@@ -59,7 +59,7 @@ MACRO(COMPILE_AVIDEMUX_TS_FILES ts_subdir _sources)
                 COMMAND ${LRELEASE_EXECUTABLE}
                     ${_outXml}
                     -qm ${_out}
-                DEPENDS ${_in}
+                DEPENDS ${_in} ${_outXml}
             )
                 
             SET(qm_files ${qm_files} ${_outXml} ${_out})
