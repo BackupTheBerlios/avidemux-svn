@@ -18,7 +18,7 @@
 #include "ADM_colorspace.h"
 #include "DIA_factory.h"
 
-
+#define ASS_HAS_GLOBAL 1 // no more globals, we can cleanup
 
 #ifndef DIR_SEP
 # ifdef WIN32
@@ -156,8 +156,8 @@ bool use_margins = ( _params->top_margin | _params->bottom_margin ) != 0;
         memcpy(&_info,_in->getInfo(),sizeof(_info));
         _info.height += _params->top_margin + _params->bottom_margin;
 
-        ass_set_fonts_dir(_ass_lib, (const char*)_params->fonts_dir);
-        ass_set_extract_fonts(_ass_lib, _params->extract_embedded_fonts);
+        ass_set_fonts_dir(_ass_lib, ""); //(const char*)_params->fonts_dir);
+        ass_set_extract_fonts(_ass_lib, 0); // _params->extract_embedded_fonts);
         ass_set_style_overrides(_ass_lib, NULL);
 #if ASS_HAS_GLOBAL
          if(_ass_rend) 
@@ -175,9 +175,9 @@ bool use_margins = ( _params->top_margin | _params->bottom_margin ) != 0;
         ass_set_use_margins(_ass_rend, use_margins);
         ass_set_font_scale(_ass_rend, _params->font_scale);
         ass_set_fonts(_ass_rend, NULL, "Sans",
-                false, // No fontconfig
+                1, // No fontconfig
                 NULL,
-                false);
+                1);
         //~ ass_set_aspect_ratio(_ass_rend, ((double)_info.width) / ((double)_info.height));
 #if ASS_HAS_GLOBAL
         if(_ass_track) 
@@ -206,18 +206,18 @@ ADMVideoSubASS::~ADMVideoSubASS()
         DELETE(_params);
       }
 #if ASS_HAS_GLOBAL
+        if(_ass_track) 
+        {
+              ass_free_track(_ass_track);
+              _ass_track = NULL;
+        }
         if(_ass_rend) 
         {
               ass_renderer_done(_ass_rend);
               _ass_rend = NULL;
          }
 
-        if(_ass_track) 
-        {
-              ass_free_track(_ass_track);
-              _ass_track = NULL;
-        }
-        if(_ass_lib) 
+             if(_ass_lib) 
         {
               ass_library_done(_ass_lib);
               _ass_lib = NULL;
