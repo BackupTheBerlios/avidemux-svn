@@ -557,7 +557,7 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 	PluginConfigType configurationType;
 
 	disableGenericSlots = true;
-	options->getPresetConfiguration(&configurationName, &configurationType);		
+	options->getPresetConfiguration(&configurationName, &configurationType);
 
 	bool foundConfig = selectConfiguration(&QString(configurationName), configurationType);
 

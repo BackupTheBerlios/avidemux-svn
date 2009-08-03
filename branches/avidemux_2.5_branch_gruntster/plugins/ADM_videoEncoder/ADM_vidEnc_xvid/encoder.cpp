@@ -134,10 +134,10 @@ int XvidEncoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 		else
 			configGuiLibName = QT_PLUGIN_NAME;
 
-		char* configGuiPath = new char[strlen(pluginPath) + 1 + strlen(PLUGIN_SUBDIR) + 1 + strlen(PLUGIN_PREFIX) + strlen(configGuiLibName) + strlen(PLUGIN_SUFFIX) + 1];
+		char* configGuiPath = new char[strlen(pluginPath) + 1 + strlen(PLUGIN_CONFIG_DIR) + 1 + strlen(PLUGIN_PREFIX) + strlen(configGuiLibName) + strlen(PLUGIN_SUFFIX) + 1];
 
 		strcpy(configGuiPath, pluginPath);
-		strcat(configGuiPath, PLUGIN_SUBDIR);
+		strcat(configGuiPath, PLUGIN_CONFIG_DIR);
 		strcat(configGuiPath, "/");
 		strcat(configGuiPath, PLUGIN_PREFIX);
 		strcat(configGuiPath, configGuiLibName);

@@ -29,8 +29,6 @@ private:
 	bool selectConfiguration(QString *selectFile, PluginConfigType configurationType);
 	bool loadPresetSettings(vidEncOptions *encodeOptions, XvidOptions *options);
 	void loadSettings(vidEncOptions *encodeOptions, XvidOptions *options);
-	QString getUserConfigDirectory(void);
-	QString getSystemConfigDirectory(void);
 
 public:
 	XvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, XvidOptions *options);

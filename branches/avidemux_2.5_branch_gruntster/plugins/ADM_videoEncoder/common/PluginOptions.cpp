@@ -376,17 +376,17 @@ void PluginOptions::parsePresetConfiguration(xmlNode *node)
 
 char* PluginOptions::getUserConfigDirectory(void)
 {
-	return ADM_getHomeRelativePath(PLUGIN_SUBDIR);
+	return ADM_getHomeRelativePath(PLUGIN_CONFIG_DIR);
 }
 
 char* PluginOptions::getSystemConfigDirectory(void)
 {
 	char* pluginPath = ADM_getPluginPath();
-	char* systemConfigPath = new char[strlen(pluginPath) + strlen(PLUGIN_SUBDIR) + 2];
+	char* systemConfigPath = new char[strlen(pluginPath) + strlen(PLUGIN_CONFIG_DIR) + 2];
 
 	strcpy(systemConfigPath, pluginPath);
 	strcat(systemConfigPath, "/");
-	strcat(systemConfigPath, PLUGIN_SUBDIR);
+	strcat(systemConfigPath, PLUGIN_CONFIG_DIR);
 
 	delete [] pluginPath;
 

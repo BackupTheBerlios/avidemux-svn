@@ -96,14 +96,19 @@ void XvidConfigDialog::fillConfigurationComboBox(void)
 	bool origDisableGenericSlots = disableGenericSlots;
 	QMap<QString, int> configs;
 	QStringList filter("*.xml");
-	QStringList list = QDir(getUserConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
+	char* configDir = XvidOptions::getUserConfigDirectory();
+	QStringList list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
+	delete [] configDir;
 	disableGenericSlots = true;
 
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
-	list = QDir(getSystemConfigDirectory()).entryList(filter, QDir::Files | QDir::Readable);
+	configDir = XvidOptions::getSystemConfigDirectory();
+	list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
+
+	delete [] configDir;
 
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_SYSTEM);
@@ -235,8 +240,11 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 
 void XvidConfigDialog::deleteButton_pressed(void)
 {
-	QString configFileName = QFileInfo(getUserConfigDirectory(), ui.configurationComboBox->currentText() + ".xml").filePath();
+	char *configDir = XvidOptions::getUserConfigDirectory();
+	QString configFileName = QFileInfo(QString(configDir), ui.configurationComboBox->currentText() + ".xml").filePath();
 	QFile configFile(configFileName);
+
+	delete [] configDir;
 
 	if (GUI_Question(QT_TR_NOOP("Are you sure you wish to delete the selected configuration?")) && configFile.exists())
 	{
@@ -721,26 +729,6 @@ void XvidConfigDialog::saveSettings(vidEncOptions *encodeOptions, XvidOptions *o
 	options->setVbvBufferSize(ui.vbvBufferSizeSpinBox->value());
 	options->setMaxVbvBitrate(ui.maxVbvBitrateSpinBox->value());
 	options->setVbvPeakBitrate(ui.vbvPeakBitrateSpinBox->value());
-}
-
-QString XvidConfigDialog::getUserConfigDirectory(void)
-{
-	char *userConfigDirectory = ADM_getHomeRelativePath("xvid");
-	QString qstring = QString(userConfigDirectory);
-
-	delete [] userConfigDirectory;
-
-	return qstring;
-}
-
-QString XvidConfigDialog::getSystemConfigDirectory(void)
-{
-	char* pluginPath = ADM_getPluginPath();
-	QString qstring = QString(pluginPath).append("/").append(PLUGIN_SUBDIR);
-
-	delete [] pluginPath;
-
-	return qstring;
 }
 
 extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, XvidOptions *options)
