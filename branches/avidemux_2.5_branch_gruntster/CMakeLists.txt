@@ -100,17 +100,17 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 OPTION(SVN "" ON)
 SET(ADM_SUBVERSION 0)
 
-#IF ( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+IF (SVN)
 	MESSAGE(STATUS "Checking for SCM Revision")
 	MESSAGE(STATUS "*************************")
 
 	SET(Subversion_FIND_REQUIRED OFF)
-        include (admGetRevision)
-        admGetRevision( ${PROJECT_SOURCE_DIR} ADM_SUBVERSION)
-        MESSAGE(STATUS "  revision: ${ADM_SUBVERSION}")
-	
+	include(admGetRevision)
+	admGetRevision(${PROJECT_SOURCE_DIR} ADM_SUBVERSION)
+	MESSAGE(STATUS "  revision: ${ADM_SUBVERSION}")
+
 	MESSAGE("")
-#ENDIF ( CMAKE_BUILD_TYPE STREQUAL "Debug" )
+ENDIF (SVN)
 
 ########################################
 # Check for libraries
