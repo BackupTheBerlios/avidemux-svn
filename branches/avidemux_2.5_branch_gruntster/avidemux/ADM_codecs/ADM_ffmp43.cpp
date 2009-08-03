@@ -717,6 +717,10 @@ decoderFFMjpegB::decoderFFMjpegB (uint32_t w, uint32_t h, uint32_t l, uint8_t * 
   WRAP_Open (CODEC_ID_MJPEGB);
   //_context->codec_id=CODEC_ID_AMV;
 }
+decoderFraps::decoderFraps(uint32_t w, uint32_t h) : decoderFF (w, h)
+{
+  WRAP_Open (CODEC_ID_FRAPS);
+}
 decoderFFDVBSub::decoderFFDVBSub (uint32_t w, uint32_t h, uint32_t l, uint8_t * d):decoderFF (w,	   h)
 {
   _context->sub_id=1;

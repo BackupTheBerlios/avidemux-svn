@@ -365,4 +365,9 @@ public:
   decoderFFMjpegB (uint32_t w, uint32_t h, uint32_t l, uint8_t * d);
 };
 
+class decoderFraps : public decoderFF
+{
+public:
+	decoderFraps(uint32_t w, uint32_t h);
+};
 #endif

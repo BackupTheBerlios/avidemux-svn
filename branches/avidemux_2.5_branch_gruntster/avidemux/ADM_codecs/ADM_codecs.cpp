@@ -316,6 +316,10 @@ if (fourCC::check (fcc, (uint8_t *) "FFV1"))
 
       return (decoders *) (new decoderFFH264 (w, h, extraLen, extraData,1));
     }
+  if (fourCC::check(fcc, (uint8_t *)"FPS1"))
+  {
+	  return (decoders *)(new decoderFraps(w, h));
+  }
 #endif
 
 /*
