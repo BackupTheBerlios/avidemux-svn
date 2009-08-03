@@ -62,8 +62,8 @@ char *x264_slurp_file(const char *filename)
 
 int x264_cqm_parse_jmlist(const char *buf, const char *name, uint8_t *cqm, uint8_t *defaultMatrix, int length)
 {
-	char *p;
-	char *nextvar;
+	const char *p;
+	const char *nextvar;
 	int i;
 
 	p = strstr(buf, name);
