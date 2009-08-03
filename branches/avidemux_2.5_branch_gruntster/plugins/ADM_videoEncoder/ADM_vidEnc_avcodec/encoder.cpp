@@ -261,6 +261,12 @@ int AvcodecEncoder::open(vidEncVideoProperties *properties)
 	if (!_context)
 		return ADM_VIDENC_ERR_FAILED;
 
+	memset(&_frame, 0, sizeof(_frame));
+	_frame.pts = AV_NOPTS_VALUE;
+
+	properties->supportedCspsCount = 1;
+	properties->supportedCsps = &_supportedCsps[0];
+
 	initContext(properties);
 
 	AVCodec *codec = getAvCodec();
@@ -274,12 +280,6 @@ int AvcodecEncoder::open(vidEncVideoProperties *properties)
 
 		return ADM_VIDENC_ERR_FAILED;
 	}
-
-	memset(&_frame, 0, sizeof(_frame));
-	_frame.pts = AV_NOPTS_VALUE;
-
-	properties->supportedCspsCount = 1;
-	properties->supportedCsps = &_supportedCsps[0];
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -314,6 +314,8 @@ int AvcodecEncoder::beginPass(vidEncPassParameters *passParameters)
 
 	passParameters->extraData = _context->extradata;
 	passParameters->extraDataSize = _context->extradata_size;
+
+	//this->printContext();
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -387,4 +389,183 @@ int AvcodecEncoder::close(void)
 	}
 
 	return ADM_VIDENC_ERR_SUCCESS;
+}
+
+void AvcodecEncoder::printContext(void)
+{
+	printf("bit_rate: %d\n", _context->bit_rate);
+	printf("bit_rate_tolerance: %d\n", _context->bit_rate_tolerance);
+	printf("flags: %d\n", _context->flags);
+	printf("sub_id: %d\n", _context->sub_id);
+	printf("me_method: %d\n", _context->me_method);
+	printf("extradata_size: %d\n", _context->extradata_size);
+	printf("time_base %d, %d\n", _context->time_base.num, _context->time_base.den);
+	printf("width: %d\n", _context->width);
+	printf("height: %d\n", _context->height);
+	printf("gop_size: %d\n", _context->gop_size);
+	printf("pix_fmt: %d\n", _context->pix_fmt);
+	printf("rate_emu: %d\n", _context->rate_emu);
+	printf("frame_size: %d\n", _context->frame_size);
+	printf("frame_number: %d\n", _context->frame_number);
+	printf("delay: %d\n", _context->delay);
+	printf("qcompress: %f\n", _context->qcompress);
+	printf("qblur: %f\n", _context->qblur);
+	printf("qmin: %d\n", _context->qmin);
+	printf("qmax: %d\n", _context->qmax);
+	printf("max_qdiff: %d\n", _context->max_qdiff);
+	printf("max_b_frames: %d\n", _context->max_b_frames);
+	printf("b_quant_factor: %f\n", _context->b_quant_factor);
+	printf("rc_strategy: %d\n", _context->rc_strategy);
+	printf("b_frame_strategy: %d\n", _context->b_frame_strategy);
+	printf("hurry_up: %d\n", _context->hurry_up);
+	printf("rtp_payload_size: %d\n", _context->rtp_payload_size);
+	printf("mv_bits: %d\n", _context->mv_bits);
+	printf("header_bits: %d\n", _context->header_bits);
+	printf("i_tex_bits: %d\n", _context->i_tex_bits);
+	printf("p_tex_bits: %d\n", _context->p_tex_bits);
+	printf("i_count: %d\n", _context->i_count);
+	printf("p_count: %d\n", _context->p_count);
+	printf("skip_count: %d\n", _context->skip_count);
+	printf("misc_bits: %d\n", _context->misc_bits);
+	printf("frame_bits: %d\n", _context->frame_bits);
+	printf("codec_name: %s\n", _context->codec_name);
+	printf("codec_type: %d\n", _context->codec_type);
+	printf("codec_id: %d\n", _context->codec_id);
+	printf("codec_tag: %d\n", _context->codec_tag);
+	printf("workaround_bugs: %d\n", _context->workaround_bugs);
+	printf("luma_elim_threshold: %d\n", _context->luma_elim_threshold);
+	printf("chroma_elim_threshold: %d\n", _context->chroma_elim_threshold);
+	printf("strict_std_compliance: %d\n", _context->strict_std_compliance);
+	printf("b_quant_offset: %f\n", _context->b_quant_offset);
+	printf("error_recognition: %d\n", _context->error_recognition);
+	printf("has_b_frames: %d\n", _context->has_b_frames);
+	printf("block_align: %d\n", _context->block_align);
+	printf("parse_only: %d\n", _context->parse_only);
+	printf("mpeg_quant: %d\n", _context->mpeg_quant);
+	printf("rc_qsquish: %f\n", _context->rc_qsquish);
+	printf("rc_qmod_amp: %f\n", _context->rc_qmod_amp);
+	printf("rc_qmod_freq: %d\n", _context->rc_qmod_freq);
+	printf("rc_override_count: %d\n", _context->rc_override_count);
+	printf("rc_eq: %s\n", _context->rc_eq);
+	printf("rc_max_rate: %d\n", _context->rc_max_rate);
+	printf("rc_min_rate: %d\n", _context->rc_min_rate);
+	printf("rc_max_rate_header: %d\n", _context->rc_max_rate_header);
+	printf("rc_buffer_size: %d\n", _context->rc_buffer_size);
+	printf("rc_buffer_size_header: %d\n", _context->rc_buffer_size_header);
+	printf("rc_buffer_aggressivity: %f\n", _context->rc_buffer_aggressivity);
+	printf("i_quant_factor: %f\n", _context->i_quant_factor);
+	printf("i_quant_offset: %f\n", _context->i_quant_offset);
+	printf("rc_initial_cplx: %f\n", _context->rc_initial_cplx);
+	printf("dct_algo: %d\n", _context->dct_algo);
+	printf("lumi_masking: %f\n", _context->lumi_masking);
+	printf("temporal_cplx_masking: %f\n", _context->temporal_cplx_masking);
+	printf("spatial_cplx_masking: %f\n", _context->spatial_cplx_masking);
+	printf("p_masking: %f\n", _context->p_masking);
+	printf("dark_masking: %f\n", _context->dark_masking);
+	printf("idct_algo: %d\n", _context->idct_algo);
+	printf("slice_count: %d\n", _context->slice_count);
+	printf("*slice_offset: %d\n", _context->slice_offset);
+	printf("error_concealment: %d\n", _context->error_concealment);
+	printf("dsp_mask: %d\n", _context->dsp_mask);
+	printf("bits_per_coded_sample: %d\n", _context->bits_per_coded_sample);
+	printf("prediction_method: %d\n", _context->prediction_method);
+	printf("sample_aspect_ratio: %d, %d\n", _context->sample_aspect_ratio.num, _context->sample_aspect_ratio.den);
+	printf("debug: %d\n", _context->debug);
+	printf("debug_mv: %d\n", _context->debug_mv);
+	printf("mb_qmin: %d\n", _context->mb_qmin);
+	printf("mb_qmax: %d\n", _context->mb_qmax);
+	printf("me_cmp: %d\n", _context->me_cmp);
+	printf("me_sub_cmp: %d\n", _context->me_sub_cmp);
+	printf("mb_cmp: %d\n", _context->mb_cmp);
+	printf("ildct_cmp: %d\n", _context->ildct_cmp);
+	printf("dia_size: %d\n", _context->dia_size);
+	printf("last_predictor_count: %d\n", _context->last_predictor_count);
+	printf("pre_me: %d\n", _context->pre_me);
+	printf("me_pre_cmp: %d\n", _context->me_pre_cmp);
+	printf("pre_dia_size: %d\n", _context->pre_dia_size);
+	printf("me_subpel_quality: %d\n", _context->me_subpel_quality);
+	printf("dtg_active_format: %d\n", _context->dtg_active_format);
+	printf("me_range: %d\n", _context->me_range);
+	printf("intra_quant_bias: %d\n", _context->intra_quant_bias);
+	printf("inter_quant_bias: %d\n", _context->inter_quant_bias);
+	printf("color_table_id: %d\n", _context->color_table_id);
+	printf("internal_buffer_count: %d\n", _context->internal_buffer_count);
+	printf("global_quality: %d\n", _context->global_quality);
+	printf("coder_type: %d\n", _context->coder_type);
+	printf("context_model: %d\n", _context->context_model);
+	printf("slice_flags: %d\n", _context->slice_flags);
+	printf("xvmc_acceleration: %d\n", _context->xvmc_acceleration);
+	printf("mb_decision: %d\n", _context->mb_decision);
+	printf("stream_codec_tag: %d\n", _context->stream_codec_tag);
+	printf("scenechange_threshold: %d\n", _context->scenechange_threshold);
+	printf("lmin: %d\n", _context->lmin);
+	printf("lmax: %d\n", _context->lmax);
+	printf("noise_reduction: %d\n", _context->noise_reduction);
+	printf("rc_initial_buffer_occupancy: %d\n", _context->rc_initial_buffer_occupancy);
+	printf("inter_threshold: %d\n", _context->inter_threshold);
+	printf("flags2: %d\n", _context->flags2);
+	printf("error_rate: %d\n", _context->error_rate);
+	printf("antialias_algo: %d\n", _context->antialias_algo);
+	printf("quantizer_noise_shaping: %d\n", _context->quantizer_noise_shaping);
+	printf("thread_count: %d\n", _context->thread_count);
+	printf("me_threshold: %d\n", _context->me_threshold);
+	printf("mb_threshold: %d\n", _context->mb_threshold);
+	printf("intra_dc_precision: %d\n", _context->intra_dc_precision);
+	printf("nsse_weight: %d\n", _context->nsse_weight);
+	printf("skip_top: %d\n", _context->skip_top);
+	printf("skip_bottom: %d\n", _context->skip_bottom);
+	printf("profile: %d\n", _context->profile);
+	printf("level: %d\n", _context->level);
+	printf("lowres: %d\n", _context->lowres);
+	printf("coded_width: %d\n", _context->coded_width);
+	printf("coded_height: %d\n", _context->coded_height);
+	printf("frame_skip_threshold: %d\n", _context->frame_skip_threshold);
+	printf("frame_skip_factor: %d\n", _context->frame_skip_factor);
+	printf("frame_skip_exp: %d\n", _context->frame_skip_exp);
+	printf("frame_skip_cmp: %d\n", _context->frame_skip_cmp);
+	printf("border_masking: %f\n", _context->border_masking);
+	printf("mb_lmin: %d\n", _context->mb_lmin);
+	printf("mb_lmax: %d\n", _context->mb_lmax);
+	printf("me_penalty_compensation: %d\n", _context->me_penalty_compensation);
+	printf("skip_loop_filter: %d\n", _context->skip_loop_filter);
+	printf("skip_idct: %d\n", _context->skip_idct);
+	printf("skip_frame: %d\n", _context->skip_frame);
+	printf("bidir_refine: %d\n", _context->bidir_refine);
+	printf("brd_scale: %d\n", _context->brd_scale);
+	printf("crf: %f\n", _context->crf);
+	printf("cqp: %d\n", _context->cqp);
+	printf("keyint_min: %d\n", _context->keyint_min);
+	printf("refs: %d\n", _context->refs);
+	printf("chromaoffset: %d\n", _context->chromaoffset);
+	printf("bframebias: %d\n", _context->bframebias);
+	printf("trellis: %d\n", _context->trellis);
+	printf("complexityblur: %f\n", _context->complexityblur);
+	printf("deblockalpha: %d\n", _context->deblockalpha);
+	printf("deblockbeta: %d\n", _context->deblockbeta);
+	printf("partitions: %d\n", _context->partitions);
+	printf("directpred: %d\n", _context->directpred);
+	printf("cutoff: %d\n", _context->cutoff);
+	printf("scenechange_factor: %d\n", _context->scenechange_factor);
+	printf("mv0_threshold: %d\n", _context->mv0_threshold);
+	printf("b_sensitivity: %d\n", _context->b_sensitivity);
+	printf("compression_level: %d\n", _context->compression_level);
+	printf("use_lpc: %d\n", _context->use_lpc);
+	printf("lpc_coeff_precision: %d\n", _context->lpc_coeff_precision);
+	printf("min_prediction_order: %d\n", _context->min_prediction_order);
+	printf("max_prediction_order: %d\n", _context->max_prediction_order);
+	printf("prediction_order_method: %d\n", _context->prediction_order_method);
+	printf("min_partition_order: %d\n", _context->min_partition_order);
+	printf("max_partition_order: %d\n", _context->max_partition_order);
+	printf("timecode_frame_start: %"LLU"\n", _context->timecode_frame_start);
+	printf("drc_scale: %f\n", _context->drc_scale);
+	printf("reordered_opaque: %"LLU"\n", _context->reordered_opaque);
+	printf("bits_per_raw_sample: %d\n", _context->bits_per_raw_sample);
+	printf("rc_max_available_vbv_use: %f\n", _context->rc_max_available_vbv_use);
+	printf("rc_min_vbv_overflow_use: %f\n", _context->rc_min_vbv_overflow_use);
+	printf("ticks_per_frame: %d\n", _context->ticks_per_frame);
+	printf("color_primaries: %d\n", _context->color_primaries);
+	printf("color_trc: %d\n", _context->color_trc);
+	printf("colorspace: %d\n", _context->colorspace);
+	printf("color_range: %d\n", _context->color_range);
+	printf("chroma_sample_location: %d\n", _context->chroma_sample_location);
 }

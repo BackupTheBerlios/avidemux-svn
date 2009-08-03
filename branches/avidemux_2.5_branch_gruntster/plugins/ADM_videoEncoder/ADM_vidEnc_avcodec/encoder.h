@@ -30,6 +30,9 @@ extern "C"
 
 class AvcodecEncoder
 {
+	private:
+		void printContext(void);
+
 	protected:
 		enum CodecID _codecId;
 		int _supportedCsps[1];

@@ -56,7 +56,6 @@ class Mpeg1Encoder : public AvcodecEncoder
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
-		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 };
 #endif	// __cplusplus

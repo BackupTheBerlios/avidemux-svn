@@ -87,7 +87,8 @@ static COMPRES_PARAMS* getCodecParamFromTag(    SelectCodecType tag)
 }
 CodecFamilty videoCodecGetFamily(void)
 {
-	if (currentCodecType == CodecXVCD || currentCodecType == CodecXSVCD || currentCodecType == CodecXDVD)
+	if (currentCodecType == CodecXVCD || currentCodecType == CodecXSVCD || currentCodecType == CodecXDVD ||
+		(currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0))
 		return CodecFamilyXVCD;
 	if (currentCodecType == CodecVCD || currentCodecType == CodecSVCD || currentCodecType == CodecDVD || currentCodecType == CodecRequant)
 		return CodecFamilyMpeg;

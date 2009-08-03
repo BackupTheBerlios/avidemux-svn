@@ -16,6 +16,7 @@
 #include <libxml/tree.h>
 #include "ADM_inttype.h"
 #include "mpeg1Encoder.h"
+#include "mpegMatrix.h"
 
 extern int _uiType;
 static bool changedConfig(const char* fileName, ConfigMenuType configType);
@@ -54,6 +55,49 @@ void Mpeg1Encoder::initContext(vidEncVideoProperties *properties)
 		_context->sample_aspect_ratio.num = 4;
 		_context->sample_aspect_ratio.den = 3;
 	}
+
+	switch (_options.getMatrix())
+	{
+		case MATRIX_TMPGENC:
+			printf("using custom matrix: Tmpg\n");
+			_context->intra_matrix = tmpgenc_intra;
+			_context->inter_matrix = tmpgenc_inter;
+			break;
+		case MATRIX_ANIME:
+			printf("using custom matrix: anim\n");
+			_context->intra_matrix = anime_intra;
+			_context->inter_matrix = anime_inter;
+
+			break;
+		case MATRIX_KVCD:
+			printf("using custom matrix: kvcd\n");
+			_context->intra_matrix = kvcd_intra;
+			_context->inter_matrix = kvcd_inter;
+			break;
+	}
+
+	switch (_options.getInterlaced())
+	{
+		case INTERLACED_TFF:
+			_frame.top_field_first = true;
+		case INTERLACED_BFF:
+			_frame.interlaced_frame = true;
+			break;
+	}
+
+	_context->max_b_frames = 2;
+	_context->luma_elim_threshold = -2;
+	_context->chroma_elim_threshold = -5;
+	_context->me_range = 255;
+	_context->mb_decision = FF_MB_DECISION_RD;
+	_context->scenechange_threshold = 0xfffffff;
+	_context->rc_max_rate_header = _options.getMaxBitrate() * 1000;
+	_context->rc_buffer_size_header = _options.getBufferSize() * 8 * 1024;
+	_context->rc_max_rate = _context->rc_max_rate_header;
+	_context->rc_buffer_size = _context->rc_buffer_size_header;
+
+	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
+		_context->flags |= CODEC_FLAG_QSCALE;
 }
 
 const char* Mpeg1Encoder::getEncoderType(void)
@@ -288,19 +332,12 @@ int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 		return ADM_VIDENC_ERR_FAILED;
 }
 
-int Mpeg1Encoder::beginPass(vidEncPassParameters *passParameters)
-{
-	return AvcodecEncoder::beginPass(passParameters);
-}
-
 int Mpeg1Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 {
-	int ret = AvcodecEncoder::encodeFrame(encodeParams);
-
 	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
-		encodeParams->quantiser = _encodeOptions.encodeModeParameter;
+		_frame.quality = (int)floor(FF_QP2LAMBDA * _encodeOptions.encodeModeParameter + 0.5);
 
-	return ret;
+	return AvcodecEncoder::encodeFrame(encodeParams);
 }
 
 void Mpeg1Encoder::updateEncodeProperties(vidEncOptions *encodeOptions, vidEncVideoProperties *properties)

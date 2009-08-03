@@ -133,7 +133,9 @@ int reuse = 0;
                 // Check
                 WAVHeader *hdr=audio->getInfo();	
                 audio_encoding=hdr->encoding;
-                if (videoCodecGetType() == CodecXVCD || videoCodecGetType() == CodecVCD)
+
+                if (videoCodecGetType() == CodecXVCD || videoCodecGetType() == CodecVCD ||
+					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0))	// MPEG-1 plugin
                 {
                         if(hdr->frequency!=44100 ||  hdr->encoding != WAV_MP2)
                         {
@@ -215,7 +217,9 @@ int reuse = 0;
           case CodecRequant:
             encoding->setCodec(QT_TR_NOOP("MPEG Requantizer"));
             break;
-          
+          case CodecExternal:
+            encoding->setCodec(encoder->getDisplayName());
+            break;
           default:
             ADM_assert(0);
 	}
