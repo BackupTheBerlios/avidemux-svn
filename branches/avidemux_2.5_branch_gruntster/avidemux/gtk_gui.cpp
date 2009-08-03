@@ -665,12 +665,14 @@ int nw;
       GUI_GoToFrame (nf);
       break;
     case ACT_Goto:
-      uint32_t fn;
-      fn=curframe;
-      if (DIA_GetIntegerValue ((int *)&fn,0,avifileinfo->nb_frames,QT_TR_NOOP("Go to Frame"),QT_TR_NOOP("_Go to frame:")))
+	int fn;
+
+	fn = curframe;
+
+	if (DIA_GetIntegerValue(&fn, 0, avifileinfo->nb_frames, QT_TR_NOOP("Go to Frame"), QT_TR_NOOP("_Go to frame:")))
 	{
 		if (fn < avifileinfo->nb_frames)
-			GUI_GoToFrame (curframe);
+			GUI_GoToFrame(fn);
 		else
 			GUI_Error_HIG (QT_TR_NOOP("Out of bounds"), NULL);
 	}
