@@ -328,7 +328,7 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       printf ("\n[lavc] null frame\n");
       {
 	// search the last image
-	if (_context->coded_frame && _context->coded_frame->data)
+	if (_context->coded_frame && _context->coded_frame->data && _context->coded_frame->linesize[0])
 	  {
 	    clonePic (_context->coded_frame, out);
 	  }
