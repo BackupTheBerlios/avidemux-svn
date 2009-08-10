@@ -155,16 +155,19 @@ void AvcodecEncoder::init(enum CodecID id, int targetColourSpace)
 	_passCount = 1;
 	_currentPass = 0;
 	_openPass = false;
+	_context = NULL;
 
 	_supportedCsps[0] = targetColourSpace;
 }
 
-void AvcodecEncoder::initContext(vidEncVideoProperties *properties)
+int AvcodecEncoder::initContext(const char* logFileName)
 {
-	_context->width = properties->width;
-	_context->height = properties->height;
-	_context->time_base = (AVRational){properties->fpsDen, properties->fpsNum};
+	_context->width = _width;
+	_context->height = _height;
+	_context->time_base = (AVRational){_fpsDen, _fpsNum};
 	_context->pix_fmt = getAvCodecColourSpace(_supportedCsps[0]);
+
+	return ADM_VIDENC_ERR_SUCCESS;
 }
 
 AVCodec *AvcodecEncoder::getAvCodec(void)
@@ -256,30 +259,17 @@ int AvcodecEncoder::open(vidEncVideoProperties *properties)
 
 	_opened = true;
 	_currentPass = 0;
-	_context = avcodec_alloc_context();
-
-	if (!_context)
-		return ADM_VIDENC_ERR_FAILED;
-
-	memset(&_frame, 0, sizeof(_frame));
-	_frame.pts = AV_NOPTS_VALUE;
 
 	properties->supportedCspsCount = 1;
 	properties->supportedCsps = &_supportedCsps[0];
 
-	initContext(properties);
+	_width = properties->width;
+	_height = properties->height;
 
-	AVCodec *codec = getAvCodec();
+	_fpsNum = properties->fpsNum;
+	_fpsDen = properties->fpsDen;
 
-	if (!codec)
-		return ADM_VIDENC_ERR_FAILED;
-
-	if (avcodec_open(_context, codec) < 0)
-	{
-		close();
-
-		return ADM_VIDENC_ERR_FAILED;
-	}
+	_frameCount = properties->frameCount;
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -301,21 +291,43 @@ int AvcodecEncoder::beginPass(vidEncPassParameters *passParameters)
 		return ADM_VIDENC_ERR_PASS_SKIP;
 	}
 
-	if (!_buffer)
-	{
-		AVPicture encodedPicture;
-
-		_bufferSize = avpicture_fill(&encodedPicture, NULL, _context->pix_fmt, _context->width, _context->height);
-		_buffer = new uint8_t[_bufferSize];
-	}
-
 	_openPass = true;
 	_currentPass++;
+	_context = avcodec_alloc_context();
+
+	if (!_context)
+		return ADM_VIDENC_ERR_FAILED;
+
+	memset(&_frame, 0, sizeof(_frame));
+	_frame.pts = AV_NOPTS_VALUE;
+
+	int ret = initContext(passParameters->logFileName);
+
+	if (ret != ADM_VIDENC_ERR_SUCCESS)
+		return ret;
+
+	AVCodec *codec = getAvCodec();
+
+	if (!codec)
+		return ADM_VIDENC_ERR_FAILED;
+
+	if (avcodec_open(_context, codec) < 0)
+	{
+		//this->printContext();
+		finishPass();
+
+		return ADM_VIDENC_ERR_FAILED;
+	}
+
+	//this->printContext();
+
+	AVPicture encodedPicture;
+
+	_bufferSize = avpicture_fill(&encodedPicture, NULL, _context->pix_fmt, _context->width, _context->height);
+	_buffer = new uint8_t[_bufferSize];
 
 	passParameters->extraData = _context->extradata;
 	passParameters->extraDataSize = _context->extradata_size;
-
-	//this->printContext();
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -365,17 +377,6 @@ int AvcodecEncoder::finishPass(void)
 	if (_openPass)
 		_openPass = false;
 
-	return ADM_VIDENC_ERR_SUCCESS;
-}
-
-int AvcodecEncoder::close(void)
-{
-	if (_openPass)
-		finishPass();
-
-	_opened = false;
-	_currentPass = 0;
-
 	if (_context)
 	{
 		avcodec_close(_context);
@@ -387,6 +388,17 @@ int AvcodecEncoder::close(void)
 		delete [] _buffer;
 		_buffer = NULL;
 	}
+
+	return ADM_VIDENC_ERR_SUCCESS;
+}
+
+int AvcodecEncoder::close(void)
+{
+	if (_openPass)
+		finishPass();
+
+	_opened = false;
+	_currentPass = 0;
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }

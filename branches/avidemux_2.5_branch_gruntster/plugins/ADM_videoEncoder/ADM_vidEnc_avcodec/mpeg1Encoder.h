@@ -40,12 +40,14 @@ class Mpeg1Encoder : public AvcodecEncoder
 		Mpeg1EncoderOptions _options;
 		vidEncOptions _encodeOptions;
 
-		void updateEncodeProperties(vidEncOptions *encodeOptions, vidEncVideoProperties *properties);
+		FILE *_statFile;
+
+		void updateEncodeProperties(vidEncOptions *encodeOptions);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
 
 	public:
 		Mpeg1Encoder(void);
-		void initContext(vidEncVideoProperties *properties);
+		int initContext(const char* logFileName);
 		const char* getEncoderType(void);
 		const char* getEncoderDescription(void);
 		const char* getFourCC(void);
@@ -56,7 +58,9 @@ class Mpeg1Encoder : public AvcodecEncoder
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
+		int finishPass(void);
 };
 #endif	// __cplusplus
 #endif	// Mpeg1Encoder_h

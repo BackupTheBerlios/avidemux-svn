@@ -30,12 +30,13 @@ extern "C"
 
 class AvcodecEncoder
 {
-	private:
-		void printContext(void);
-
 	protected:
 		enum CodecID _codecId;
 		int _supportedCsps[1];
+
+		unsigned int _width, _height;
+		unsigned int _fpsNum, _fpsDen;
+		unsigned int _frameCount;
 
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
@@ -47,11 +48,12 @@ class AvcodecEncoder
 		uint8_t *_buffer;
 
 		virtual void init(enum CodecID id, int targetColourSpace);
-		virtual void initContext(vidEncVideoProperties *properties);
+		virtual int initContext(const char* logFileName);
 		AVCodec *getAvCodec(void);
 		enum PixelFormat getAvCodecColourSpace(int colourSpace);
 		virtual int getFrameType(void);
 		virtual void updateEncodeParameters(vidEncEncodeParameters *encodeParams, uint8_t *buffer, int bufferSize);
+		void printContext(void);
 
 	public:
 		virtual ~AvcodecEncoder(void);
