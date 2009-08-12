@@ -16,6 +16,7 @@
  ***************************************************************************/
 #include "ADM_default.h"
 #include "ADM_ad_plugin.h"
+#include "ADM_audioCodecEnum.h"
 
 extern "C" {
 #include <opencore-amrnb/interf_dec.h>
@@ -40,7 +41,9 @@ public:
 	uint8_t isDecompressable(void) { return 1; }
 };
 
-static uint32_t Formats[] = { WAV_AMRNB };
+static  ad_supportedFormat Formats[]={
+        {WAV_AMRNB,AD_MEDIUM_QUAL},
+};
 
 DECLARE_AUDIO_DECODER(ADM_AudiocodecOpencoreAmrNb,	// Class
 1,0,0, 												// Major, minor,patch 
