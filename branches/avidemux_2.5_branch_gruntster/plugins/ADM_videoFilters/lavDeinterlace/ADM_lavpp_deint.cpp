@@ -103,16 +103,17 @@ uint8_t ADMVideoLavPPDeint::configure(AVDMGenericVideoStream *in)
   _in=in;
   
   
-   diaMenuEntry menuField[6]={{PP_BM_NONE,        QT_TR_NOOP("None"),NULL},
+   diaMenuEntry menuField[7]={{PP_BM_NONE,        QT_TR_NOOP("None"),NULL},
                              {PP_BM_LINEAR_BLEND, QT_TR_NOOP("Linear blend"),NULL},
                              {PP_BM_LINEAR_INTER, QT_TR_NOOP("Linear interpolate"),NULL},
                              {PP_BM_CUBIC_INTER, QT_TR_NOOP("Cubic interpolate"),NULL},
                              {PP_BM_MEDIAN_INTER, QT_TR_NOOP("Median interpolate"),NULL},
                              {PP_BM_FFMPEG_DEINT, QT_TR_NOOP("FFmpeg deint"),NULL},
+                             {PP_BM_LOWPASS5_DEINT, QT_TR_NOOP("Lowpass5 deint"),NULL},
                           };
   
     
-    diaElemMenu     menu1(PX(deintType),QT_TR_NOOP("_Deinterlacing:"), 6,menuField);
+    diaElemMenu     menu1(PX(deintType),QT_TR_NOOP("_Deinterlacing:"), 7,menuField);
     diaElemToggle   autolevel(PX(autolevel),QT_TR_NOOP("_Autolevel"));
     
     diaElem *elems[2]={&menu1,&autolevel};
@@ -202,7 +203,8 @@ void ADMVideoLavPPDeint::setup(void)
           case PP_BM_LINEAR_INTER: ADD(li);break;
           case PP_BM_CUBIC_INTER: ADD(ci);break;
           case PP_BM_MEDIAN_INTER: ADD(md);break;
-          case PP_BM_FFMPEG_DEINT: ADD(fd);break;                             
+          case PP_BM_FFMPEG_DEINT: ADD(fd);break;
+          case PP_BM_LOWPASS5_DEINT: ADD(l5);break;
         }        
 
 
