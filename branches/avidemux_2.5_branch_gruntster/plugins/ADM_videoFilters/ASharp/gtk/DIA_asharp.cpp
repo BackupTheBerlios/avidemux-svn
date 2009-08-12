@@ -211,7 +211,7 @@ create_dialog1 (void)
   gtk_label_set_justify (GTK_LABEL (label3), GTK_JUSTIFY_LEFT);
   gtk_misc_set_alignment (GTK_MISC (label3), 0, 0.5);
 
-  label4 = gtk_label_new (QT_TR_NOOP("Unknown flag :"));
+  label4 = gtk_label_new (QT_TR_NOOP("High Quality Block Filtering :"));
   gtk_widget_show (label4);
   gtk_table_attach (GTK_TABLE (table1), label4, 0, 1, 3, 4,
                     (GtkAttachOptions) (GTK_FILL),
