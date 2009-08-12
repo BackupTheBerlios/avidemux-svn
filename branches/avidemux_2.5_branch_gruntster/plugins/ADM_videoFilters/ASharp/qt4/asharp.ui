@@ -138,7 +138,11 @@
     <widget class="QDoubleSpinBox" name="doubleSpinBoxStrength" />
    </item>
    <item row="2" column="2" >
-    <widget class="QDoubleSpinBox" name="doubleSpinBoxBlock" />
+    <widget class="QDoubleSpinBox" name="doubleSpinBoxBlock">
+     <property name="minimum">
+      <double>-1.000000000000000</double>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
