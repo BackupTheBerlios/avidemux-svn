@@ -9,8 +9,8 @@ else (WIN32)
 endif (WIN32)
 
 SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp
-							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  mpeg1Encoder.cpp
-							 mpeg1EncoderOptions.cpp)
+							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp)
+							 #mpeg1Encoder.cpp  mpeg1EncoderOptions.cpp)
 
 set(PLUGIN_SCHEMA_DIR "avcodec")
 set(MPEG1_PLUGIN_CONFIG_DIR "avcodec/mpeg1")
