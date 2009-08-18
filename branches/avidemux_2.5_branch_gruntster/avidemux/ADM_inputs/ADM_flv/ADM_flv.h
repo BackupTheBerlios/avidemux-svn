@@ -88,6 +88,7 @@ class flvHeader         :public vidHeader
     uint8_t                 getAudioStreamsInfo(uint32_t *nbStreams, audioInfo **infos);
     flvAudio                *_audioStream;
     /* */
+    uint32_t                metaWidth,metaHeight,metaFps1000;
     
     uint8_t     read(uint32_t len, uint8_t *where);
     uint8_t     read8(void);
@@ -102,6 +103,11 @@ class flvHeader         :public vidHeader
     
     
     uint8_t     getFrameSize (uint32_t frame, uint32_t * size);
+    uint8_t     parseMetaData(uint32_t remaining);
+    void        setProperties(const char *name,float value);
+    char        *readFlvString(void);
+ 
+
   public:
 
 

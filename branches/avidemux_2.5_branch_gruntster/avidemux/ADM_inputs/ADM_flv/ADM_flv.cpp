@@ -80,6 +80,98 @@ uint32_t flvHeader::read32(void)
     fread(r,4,1,_fd);
     return (r[0]<<24)+(r[1]<<16)+(r[2]<<8)+r[3]; 
 }
+/**
+    \fn     readFlvString
+    \brief  read pascal like string
+*/
+char *flvHeader::readFlvString(void)
+{
+static char stringz[255];
+    int size=read16();
+    read(size,(uint8_t *)stringz);
+    stringz[size]=0;
+    return stringz;
+}
+
+extern "C" {
+double av_int2dbl(int64_t v);
+}
+
+/**
+    \fn setProperties
+    \brief get a couple key/value and use it if needed...
+*/
+void flvHeader::setProperties(const char *name,float value)
+{
+    if(!strcmp(name,"framerate"))
+    {
+        _videostream.dwRate=(uint32_t)(value*1000);
+        return;
+    }
+    if(!strcmp(name,"width"))
+    {
+        metaWidth=(uint32_t)value;
+    }
+    if(!strcmp(name,"height"))
+    {
+        metaHeight=(uint32_t)value;
+    }
+
+}
+/**
+    \fn parseMetaData
+    \brief
+*/
+uint8_t flvHeader::parseMetaData(uint32_t remaining)
+{
+    uint32_t endPos=ftello(_fd)+remaining;
+    {
+        // Check the first one is onMetaData...
+        uint8_t type=read8();
+
+        if(type!=AMF_DATA_TYPE_STRING) // String!
+            goto endit;
+        char *z=readFlvString();
+        printf("[FlashString] %s\n",z);
+        if(z && strncmp(z,"onMetaData",10)) goto endit;
+        // Normally the next one is mixed array
+        Skip(4);
+        Skip(1);
+        while(ftello(_fd)<endPos-4)
+        {
+
+            char *s=readFlvString();
+            printf("[FlvType] :%d String : %s",type,s);
+            type=read8();
+            switch(type)
+            {
+                case AMF_DATA_TYPE_DATE: Skip(8+2);break;
+                case AMF_DATA_TYPE_NUMBER:
+                                        {
+                                            float val;
+                                            uint64_t hi,lo;
+                                            hi=read32();lo=read32();
+                                            hi=(hi<<32)+lo;
+                                            val=(float)av_int2dbl(hi);
+                                            printf("->%f\n",val);
+                                            setProperties(s,val);
+                                        }
+                                        ;break;
+                case AMF_DATA_TYPE_STRING: {int r=read16();Skip(r);}break;
+                case AMF_DATA_TYPE_BOOL: read8();break;
+                case AMF_DATA_TYPE_OBJECT: goto endit; // unsupported for the moment
+                default : printf("\n");ADM_assert(0);
+            }
+            printf("\n");
+
+        }
+
+        // Process them...
+    }
+endit:
+    fseeko(_fd,endPos,SEEK_SET);
+    return 1;
+}
 
 /**
       \fn open
@@ -182,6 +274,11 @@ uint8_t flvHeader::open(const char *name)
             insertAudio(pos+of,remaining,pts);
           }
           break;
+      case FLV_TAG_TYPE_META:
+                parseMetaData(remaining);
+                remaining=0;
+                break;
+
       case FLV_TAG_TYPE_VIDEO:
           {
             int of=1+4+3+3+1+4;
@@ -191,7 +288,7 @@ uint8_t flvHeader::open(const char *name)
             
             int codec=(flags)&0xf;
             
-            if(codec==FLV_CODECID_VP6)
+            if(codec==FLV_CODECID_VP6 || codec==FLV_CODECID_VP6A)
             {
               read8(); // 1 byte of extraData
               remaining--;
@@ -257,10 +354,19 @@ uint8_t flvHeader::setVideoHeader(uint8_t codec,uint32_t *remaining)
     {
       case FLV_CODECID_H263:            _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"FLV1");break;
       case FLV_CODECID_VP6:             _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6F");break;
+      case FLV_CODECID_VP6A:
+                        _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6A");break;
+
     //???   case FLV_CODECID_SCREEN:          _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6F");break;
       default :                         _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"XXX");break;
       
     }
+    if(codec==FLV_CODECID_VP6A && metaWidth && metaHeight )
+    {
+         _video_bih.biHeight=_mainaviheader.dwHeight=metaHeight ;
+         _video_bih.biWidth=_mainaviheader.dwWidth=metaWidth;
+    }
+
     if(codec==FLV_CODECID_VP6)
     {
         read8();
