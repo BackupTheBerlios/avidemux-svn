@@ -810,24 +810,35 @@ int nw;
       video_body->setDecodeParam ( curframe);
 
       break;
-    case ACT_VideoParameter:
-      // first remove current viewer
-      if (getPreviewMode()!=ADM_PREVIEW_NONE)
-        {
-	         admPreview::stop();
-        }
-      GUI_handleVFilter();
-      if( getLastVideoFilter()->getInfo()->width % 8 ){
-        GUI_Error_HIG(QT_TR_NOOP("Width is not a multiple of 8"),
-                      QT_TR_NOOP("This will make trouble for AVI files."));
-      }
-      if (getPreviewMode()!=ADM_PREVIEW_NONE)
-      {
-         admPreview::start();
-         admPreview::update (curframe);
-      }
-      break;
+	case ACT_VideoParameter:
+		if (videoProcessMode())
+		{
+			// first remove current viewer
+			if (getPreviewMode() != ADM_PREVIEW_NONE)
+			{
+				admPreview::stop();
+			}
 
+			GUI_handleVFilter();
+
+			if (getLastVideoFilter()->getInfo()->width % 8)
+			{
+				GUI_Error_HIG(QT_TR_NOOP("Width is not a multiple of 8"),
+					QT_TR_NOOP("This will make trouble for AVI files."));
+			}
+
+			if (getPreviewMode() != ADM_PREVIEW_NONE)
+			{
+				admPreview::start();
+				admPreview::update (curframe);
+			}
+		}
+		else
+		{
+			GUI_Error_HIG(QT_TR_NOOP("Video filters cannot be applied in Copy mode"), QT_TR_NOOP("To apply filters the video must be transcoded."));
+		}
+
+		break;
     case ACT_RebuildKF:
       if (GUI_Question (QT_TR_NOOP("Rebuild all Keyframes?")))
 	{
