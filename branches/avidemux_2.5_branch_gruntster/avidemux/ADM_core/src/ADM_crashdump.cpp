@@ -42,7 +42,6 @@ void ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal)
         myFatalFunction=fatal;
 }
 
-static void saveCrashProject(void);
 extern char *ADM_getBaseDir(void);
 extern void A_parseECMAScript(const char *name);
 

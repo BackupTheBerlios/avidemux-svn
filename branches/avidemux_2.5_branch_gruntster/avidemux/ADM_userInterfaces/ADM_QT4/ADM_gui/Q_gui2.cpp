@@ -30,7 +30,7 @@
 #include "prefs.h"
 #include "avi_vars.h"
 #include "gtkgui.h"
-
+#include "DIA_coreToolkit.h"
 #include "ADM_userInterfaces/ADM_render/GUI_renderInternal.h"
 
 extern int global_argc;
@@ -55,6 +55,7 @@ extern int A_appendAvi(const char *name);
 extern char *actual_workbench_file;
 extern void FileSel_ReadWrite(SELFILE_CB *cb, int rw, const char *name, const char *actual_workbench_file);
 extern bool A_parseECMAScript(const char *name);
+extern void saveCrashProject(void);
 
 int SliderIsShifted=0;
 static void setupMenus(void);
@@ -735,6 +736,11 @@ void UI_setCurrentPreview(int ne)
 	}
 }
 
+static void FatalFunctionQt(const char *title, const char *info)
+{
+	GUI_Info_HIG(ADM_LOG_IMPORTANT, title, info);
+}
+
 /**
     \fn UI_RunApp(void)
     \brief Main entry point for the GUI application
@@ -762,6 +768,7 @@ int UI_RunApp(void)
 	UI_QT4VideoWidget(mw->ui.frame_video);  // Add the widget that will handle video display
 	UI_updateRecentMenu();
 	setupMenus();
+	ADM_setCrashHook(&saveCrashProject, &FatalFunctionQt);
 	checkCrashFile();
 
 	if (global_argc >= 2)
