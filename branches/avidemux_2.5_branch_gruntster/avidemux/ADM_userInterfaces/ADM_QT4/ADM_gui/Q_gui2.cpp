@@ -67,6 +67,8 @@ static uint32_t ADM_nbCustom=0;
 static int currentFps = 0;
 static int frameCount = 0;
 static int currentFrame = 0;
+ADM_OUT_FORMAT UI_GetCurrentFormat(void);
+void UI_setVideoCodec(int i);
 
 #ifdef HAVE_AUDIO
 extern uint8_t AVDM_setVolume(int volume);
@@ -124,6 +126,20 @@ void MainWindow::comboChanged(int z)
 		ui.pushButtonAudioConf->setEnabled(b);
 		ui.pushButtonAudioFilter->setEnabled(b);
 		HandleAction(ACT_AudioCodecChanged);
+	}
+	else if (sender() == ui.comboBoxFormat)
+	{
+		ADM_OUT_FORMAT fmt = UI_GetCurrentFormat();
+
+		if (fmt == ADM_AVI_UNP || fmt == ADM_AVI_PAK)
+		{
+			ui.comboBoxVideo->setEnabled(false);
+			UI_setVideoCodec(0);
+		}
+		else
+		{
+			ui.comboBoxVideo->setEnabled(true);
+		}
 	}
 }
 
@@ -249,6 +265,7 @@ MainWindow::MainWindow() : QMainWindow()
 	//ACT_VideoCodecChanged
 	connect( ui.comboBoxVideo,SIGNAL(currentIndexChanged(int)),this,SLOT(comboChanged(int)));
 	connect( ui.comboBoxAudio,SIGNAL(currentIndexChanged(int)),this,SLOT(comboChanged(int)));
+	connect(ui.comboBoxFormat, SIGNAL(currentIndexChanged(int)), this, SLOT(comboChanged(int)));
 
 	// Slider
 	slider=ui.horizontalSlider;
