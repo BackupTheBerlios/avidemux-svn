@@ -267,9 +267,17 @@ int nw;
       audioCodecConfigure();
       return;
 
-    case ACT_AudioFilters:
-      audioFilter_configureFilters ();
-      return;
+	case ACT_AudioFilters:
+		if (audioProcessMode())
+		{
+			audioFilter_configureFilters();
+		}
+		else
+		{
+			GUI_Error_HIG(QT_TR_NOOP("Audio filters cannot be applied in Copy mode"), QT_TR_NOOP("To apply filters the audio must be transcoded."));
+		}
+
+		return;
     case ACT_Pref:
         if(playing) return;
     	if(DIA_Preferences())
