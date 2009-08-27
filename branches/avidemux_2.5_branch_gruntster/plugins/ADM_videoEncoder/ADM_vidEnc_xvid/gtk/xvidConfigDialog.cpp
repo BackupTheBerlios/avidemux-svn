@@ -1024,7 +1024,7 @@ create_dialog1 (void)
   gtk_widget_show (labelIFrameIntervalMax);
   gtk_box_pack_start (GTK_BOX (hbox9), labelIFrameIntervalMax, FALSE, FALSE, 0);
 
-  spinbuttonIMaxPeriod_adj = gtk_adjustment_new (250, 1, 500, 1, 10, 0);
+  spinbuttonIMaxPeriod_adj = gtk_adjustment_new (250, 0, 300, 1, 10, 0);
   spinbuttonIMaxPeriod = gtk_spin_button_new (GTK_ADJUSTMENT (spinbuttonIMaxPeriod_adj), 1, 0);
   gtk_widget_show (spinbuttonIMaxPeriod);
   gtk_box_pack_start (GTK_BOX (hbox9), spinbuttonIMaxPeriod, FALSE, FALSE, 0);
