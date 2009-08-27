@@ -8,6 +8,7 @@ function updatePatch {
 	cp $1/$2 $1/$2.new
 	svn revert $1/$2
 	unix2dos $1/$2
+	unix2dos $1/$2.new
 	mv $1/$2 $1/$2.old
 	mv $1/$2.new $1/$2
 	diff -c $1/$2.old $1/$2 > $curDir/$1_$2.patch
@@ -33,4 +34,3 @@ updatePatch libavformat movenc.c
 updatePatch libavutil avutil.h
 updatePatch libavutil internal.h
 updatePatch libavutil mem.c
-updatePatch libswscale swscale_internal.h
