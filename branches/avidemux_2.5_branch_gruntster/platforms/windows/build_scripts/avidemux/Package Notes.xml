@@ -1,5 +1,34 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5268" date="2009-08-23">
+    <comment>Updated x264 r1222.</comment>
+  </buildentry>
+  <buildentry revision="5249 [2.5.1 Final]" date="2009-08-16">
+    <comment>Updated Fontconfig to version 2.7.1-2.</comment>
+  </buildentry>
+  <buildentry revision="5234" date="2009-08-12">
+    <comment>Updated Cairo to version 1.8.8-1.</comment>
+    <comment>Updated Fontconfig to version 2.7.1-1.</comment>
+    <comment>Updated Freetype to version 2.3.9-1.</comment>
+    <comment>Updated GLib to version 2.20.4-1.</comment>
+    <comment>Updated GTK+ to version 2.16.5-1.</comment>
+    <comment>Updated libpng to version 1.2.38-1.</comment>
+    <comment>Updated Pango to version 1.24.5-1.</comment>
+    <comment>Updated x264 to r1206.</comment>
+  </buildentry>
+  <buildentry revision="5204" date="2009-08-03">
+  </buildentry>
+  <buildentry revision="5181" date="2009-07-30">
+    <comment>Updated x264 to r1195.</comment>
+  </buildentry>
+  <buildentry revision="5152" date="2009-07-25">
+    <comment>Updated Avisynth Proxy GUI to version 2.09d.</comment>
+    <comment>Updated x264 to r1185.</comment>
+  </buildentry>
+  <buildentry revision="5104" date="2009-07-17">
+    <comment>Added opencore-amr 0.1.1.</comment>
+    <comment>Updated x264 to r1183.</comment>
+  </buildentry>
   <buildentry revision="5087" date="2009-07-13">
   </buildentry>
   <buildentry revision="5065" date="2009-07-12">

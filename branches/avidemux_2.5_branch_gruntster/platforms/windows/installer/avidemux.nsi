@@ -382,6 +382,12 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioDecoder
 			${File} plugins\audioDecoder\libADM_ad_a52.dll
 		${MementoSectionEnd}
+		${MementoSection} "libvorbis (Vorbis)" SecAudDecVorbis
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\audioDecoder
+			${File} plugins\audioDecoder\libADM_ad_vorbis.dll
+		${MementoSectionEnd}
 		${MementoSection} "MAD (MPEG)" SecAudDecMad
 			SectionIn 1 2
 			SetOverwrite on
