@@ -23,8 +23,6 @@
 
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
-#include <sstream>
-#include <string>
 
 #include "config.h"
 #include "ADM_default.h"
@@ -56,15 +54,36 @@ void XvidOptions::reset(void)
 
 	xvid_enc_frame.vop_flags = XVID_VOP_HALFPEL | XVID_VOP_HQACPRED;
 
+	// General
 	setPar(1, 1);
 	setParAsInput(false);
+
+	// Quantiser
 	setCqmPreset(CQM_H263);
-	setMotionEstimation(ME_LOW);
-	setRateDistortion(RD_DCT_ME);
-	setMinQuantiser(2, 2, 2);
+	setMinQuantiser(1, 1, 1);
 	setMaxQuantiser(31, 31, 31);
+	setTrellis(true);
+
+	// Motion
+	setMotionEstimation(ME_HIGH);
+	setChromaMotionEstimation(true);
+	setRateDistortion(RD_DCT_ME);
+
+	// Frame
+	setMaxKeyInterval(300);
+	setMaxBframes(2);
 	setBframeQuantiserRatio(150);
 	setBframeQuantiserOffset(100);
+
+	// 1-Pass
+	setReactionDelayFactor(16);
+	setAveragingQuantiserPeriod(100);
+	setSmoother(100);
+
+	// 2-Pass
+	setKeyFrameBoost(10);
+	setMaxKeyFrameReduceBitrate(20);
+	setKeyFrameBitrateThreshold(1);
 	setOverflowControlStrength(5);
 	setMaxOverflowImprovement(5);
 	setMaxOverflowDegradation(5);
