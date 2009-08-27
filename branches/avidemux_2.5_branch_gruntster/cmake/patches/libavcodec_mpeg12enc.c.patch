@@ -1,5 +1,5 @@
-*** libavcodec/mpeg12enc.c.old	Sat Jan 24 22:57:41 2009
---- libavcodec/mpeg12enc.c	Sat Jan 24 22:57:40 2009
+*** libavcodec/mpeg12enc.c.old	Thu Aug 27 21:16:08 2009
+--- libavcodec/mpeg12enc.c	Thu Aug 27 21:16:09 2009
 ***************
 *** 127,136 ****
 --- 127,145 ----
@@ -40,7 +40,7 @@
   
 !             put_bits(&s->pb, 4, s->aspect_ratio_info);
 !             put_bits(&s->pb, 4, s->frame_rate_index);
-! 
+  
 !             if(s->avctx->rc_max_rate){
 !                 v = (s->avctx->rc_max_rate + 399) / 400;
                   if (v > 0x3ffff && s->codec_id == CODEC_ID_MPEG1VIDEO)
@@ -75,16 +75,16 @@
 +                 put_bits(&s->pb, 4, 12); // MPEG1
 +             }
 + // /MEANX
-+ 
-+ // //MEANX PULLDOWN            put_bits(&s->pb, 4, s->frame_rate_index);
-+ if((s->flags2 & CODEC_FLAG2_32_PULLDOWN) && (s->codec_id == CODEC_ID_MPEG2VIDEO))
-+             {           
-+                 put_bits(&s->pb, 4,4);
-+             }
-+             else
-+             {                                  
-+                 put_bits(&s->pb, 4, s->frame_rate_index);
-+             } //MEANX pulldown
+  
+! // //MEANX PULLDOWN            put_bits(&s->pb, 4, s->frame_rate_index);
+! if((s->flags2 & CODEC_FLAG2_32_PULLDOWN) && (s->codec_id == CODEC_ID_MPEG2VIDEO))
+!             {           
+!                 put_bits(&s->pb, 4,4);
+!             }
+!             else
+!             {                                  
+!                 put_bits(&s->pb, 4, s->frame_rate_index);
+!             } //MEANX pulldown
   
 !             if(s->avctx->rc_max_rate_header){ //MEANX we use header
 !                 v = (s->avctx->rc_max_rate_header + 399) / 400;
