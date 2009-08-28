@@ -14,23 +14,30 @@
 #include <math.h>
 
 #include "Q_working.h"
-#include "ADM_default.h"
 #include "ADM_video/ADM_vidMisc.h"
-#include "DIA_working.h"
 #include "ADM_toolkitQt.h"
 
 extern void UI_purge(void);
 
-workWindow::workWindow(QWidget *parent) : QDialog(parent)
- {
-     ui.setupUi(this);
- }
+workWindow::workWindow(QWidget *parent, DIA_working *working) : QDialog(parent)
+{
+	ui.setupUi(this);
+
+	connect(ui.buttonBox, SIGNAL(rejected()), this, SLOT(closeDialog(void)));
+	_working = working;
+}
+
+void workWindow::closeDialog(void)
+{
+	_working->closeDialog();
+}
+
 //*******************************************
 
 DIA_working::DIA_working( void )
 {
   workWindow *wind;
-  wind=new workWindow(qtLastRegisteredDialog());
+  wind=new workWindow(qtLastRegisteredDialog(), this);
   qtRegisterDialog(wind);
   _priv=(void *)wind;
   postCtor();
@@ -38,7 +45,7 @@ DIA_working::DIA_working( void )
 DIA_working::DIA_working( const char *title )
 {
   workWindow *wind;
-  wind=new workWindow(qtLastRegisteredDialog());
+  wind=new workWindow(qtLastRegisteredDialog(), this);
   qtRegisterDialog(wind);
   _priv=(void *)wind;
   wind->setWindowTitle(QString::fromUtf8(title));
@@ -110,8 +117,7 @@ uint8_t DIA_working::update(uint32_t cur, uint32_t total)
 
 uint8_t DIA_working::isAlive (void )
 {
-	if(!_priv) return 0;
-	return 1;
+	return _priv != NULL;
 }
 
 DIA_working::~DIA_working()
@@ -121,10 +127,15 @@ DIA_working::~DIA_working()
 
 void DIA_working::closeDialog( void )
 {
-  workWindow *wind=(workWindow *)_priv; ADM_assert(wind);
-  qtUnregisterDialog(wind);
-    delete wind;
-    wind=NULL;
+	if (_priv)
+	{
+		QDialog* dialog = (QDialog*)_priv;
+
+		_priv = NULL;
+		dialog->accept();
+		qtUnregisterDialog(dialog);
+		delete dialog;
+	}
 }
 
 //********************************************
