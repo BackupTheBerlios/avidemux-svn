@@ -121,63 +121,69 @@ const char *name;
  */
 VF_FILTERS filterGetTagFromName(const char *inname)
 {
-const char *name;
-int max=allfilters.size();
-	VF_FILTERS filter=VF_INVALID;
-	for(uint32_t i=0;i<max;i++)
+	const char *name;
+	int max = allfilters.size();
+	VF_FILTERS filter = VF_INVALID;
+
+	for (uint32_t i = 0; i < max; i++)
 	{
-		name=allfilters[ i]->filterName;
-		if(1) // allfilters[i]->tag==VF_PARTIAL_FILTER)
+		name = allfilters[i]->filterName;
+
+		if (name && strlen(name) && !strcasecmp(name, inname))
 		{
-			if(name)
-			{
-				if(strlen(name))
-				{
-					if(!strcasecmp(name,inname))
-						return allfilters[ i]->tag;
-				}
-			}
+			filter = allfilters[i]->tag;
+			break;
 		}
 	}
+
 	return filter;
 }
+
 /**
  * 	\fn tryLoadingFilterPlugin
  *  \brief try to load the plugin given as argument..
  */
 
 #define Fail(x) {printf("%s:"#x"\n",file);goto er;}
+
 static bool tryLoadingFilterPlugin(const char *file)
 {
-	ADM_vf_pluginLoader *dll=new ADM_vf_pluginLoader(file);
+	ADM_vf_pluginLoader *dll = new ADM_vf_pluginLoader(file);
+	FilterDescriptor *desc = NULL;
+	FilterDescriptor *myDesc = NULL;
 
-	FilterDescriptor *desc=NULL;
-	FilterDescriptor *myDesc=NULL;
-	if(!dll->getDesc) Fail(nogetdesc);
+	if (!dll->getDesc)
+		Fail(nogetdesc);
 
-	desc=dll->getDesc();
-	if(!desc) Fail(GetDescriptor);
-	// Check the API version
-	if(desc->apiVersion!=ADM_FILTER_API_VERSION) Fail(WrongAPI);
-	if(!(desc->uiFlags & UI_GetCurrentUI())) Fail(WrongUI);
+	desc = dll->getDesc();
+
+	if (!desc)
+		Fail(GetDescriptor);
+
+	if (desc->apiVersion != ADM_FILTER_API_VERSION)
+		Fail(WrongAPI);
+
+	if (!(desc->uiFlags & UI_GetCurrentUI()))
+		Fail(WrongUI);
+
 	// Duplicate it, just in case...
-	myDesc=new FilterDescriptor();
-	memcpy(myDesc,desc,sizeof(*myDesc));
-	// push it !
-	myDesc->tag=tagCount++;
-	ADM_assert(myDesc->category<VF_MAX);
+	myDesc = new FilterDescriptor();
 
-    allfilters.push_back (myDesc);
-    filterCategories[myDesc->category].push_back(myDesc);
-    pluginLoaderQueue.push_back(dll); // Needed for cleanup. FIXME TODO Delete it.
-    printf("[Filters] Registered filter %s as  %s\n",file,desc->name);
-    return true;
-	// Tag it
-	// Fail!
+	memcpy(myDesc, desc, sizeof(*myDesc));
+	myDesc->tag = tagCount++;
+	ADM_assert(myDesc->category < VF_MAX);
+
+	allfilters.push_back(myDesc);
+	filterCategories[myDesc->category].push_back(myDesc);
+	pluginLoaderQueue.push_back(dll); // Needed for cleanup. FIXME TODO Delete it.
+	printf("[Filters] Registered filter %s as %s\n", file, desc->name);
+
+	return true;
+
 er:
 	delete dll;
-	return false;
 
+	return false;
 }
 /**
  * 	\fn ADM_vf_loadPlugins
@@ -198,16 +204,16 @@ uint8_t ADM_vf_loadPlugins(const char *path)
 	char *files[MAX_EXTERNAL_FILTER];
 	uint32_t nbFile;
 
-	memset(files,0,sizeof(char *)*MAX_EXTERNAL_FILTER);
-	printf("[ADM_vf_plugin] Scanning directory %s\n",path);
+	memset(files, 0, sizeof(char *)*MAX_EXTERNAL_FILTER);
+	printf("[ADM_vf_plugin] Scanning directory %s\n", path);
 
-	if(!buildDirectoryContent(&nbFile, path, files, MAX_EXTERNAL_FILTER, SHARED_LIB_EXT))
+	if (!buildDirectoryContent(&nbFile, path, files, MAX_EXTERNAL_FILTER, SHARED_LIB_EXT))
 	{
 		printf("[ADM_vf_plugin] Cannot parse plugin\n");
 		return 0;
 	}
 
-	for(int i=0;i<nbFile;i++)
+	for (int i = 0; i < nbFile; i++)
 	{
 		tryLoadingFilterPlugin(files[i]);
 		ADM_dealloc(files[i]);
@@ -226,8 +232,14 @@ void registerFilterEx(const char *name,const char *filtername,VF_CATEGORY catego
 		AVDMGenericVideoStream *(*create_from_script) (AVDMGenericVideoStream *in, int n,Arg *args),
 		const char *descText)
 {
+	int tag;
 
-	FilterDescriptor *desc=new FilterDescriptor(tagCount++,filtername,name,
+	if (strcmp(name, "partial") == 0)
+		tag = VF_PARTIAL_FILTER;
+	else
+		tag = tagCount++;
+
+	FilterDescriptor *desc=new FilterDescriptor(tag,filtername,name,
 												descText,
 												category,
 												create,
@@ -360,25 +372,25 @@ void updateVideoFilters(void )
 //
 //	Create a filter from : its tag, its config and an input stream
 //
-
 AVDMGenericVideoStream *filterCreateFromTag(VF_FILTERS tag,CONFcouple *couple, AVDMGenericVideoStream *in)
 {
-	 AVDMGenericVideoStream *filter;
+	ADM_assert(tag != VF_INVALID);
 
-			ADM_assert(tag!=VF_INVALID);
+	AVDMGenericVideoStream *filter = VF_INVALID;
 
-                        {
-                          for(unsigned int i=0;i<allfilters.size();i++)
-                                  {
-                                          if(tag==allfilters[i]->tag)
-                                                  {
-                                                          filter=allfilters[i]->create( in, couple);
-                                                          return filter;
-                                                  }
-                                  }
-                        }
-			ADM_assert(0);
-			return NULL;
+	for (unsigned int i = 0; i < allfilters.size(); i++)
+	{
+		if (tag == allfilters[i]->tag)
+		{
+			filter = allfilters[i]->create(in, couple);
+
+			break;
+		}
+	}
+
+	ADM_assert(filter != VF_INVALID);
+
+	return filter;
 }
 
 /*

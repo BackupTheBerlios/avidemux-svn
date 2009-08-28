@@ -598,23 +598,26 @@ void filtermainWindow::buildActiveFilterList(void)
 
 	for (uint32_t i = 1; i < nb_active_filter; i++)
 	{
-		const char *name = filterGetNameFromTag(videofilters[i].tag);
-		const char *conf = videofilters[i].filter->printConf ();
-		int namelen = strlen (name);
-
-		while (*conf == ' ')
-			++conf;
-
-		if (strncasecmp (name, conf, namelen) == 0)
+		if (videofilters[i].tag != VF_INTERNAL)
 		{
-			conf += namelen;
-			while (*conf == ' ' || *conf == ':')
-				++conf;
-		}
+			const char *name = filterGetNameFromTag(videofilters[i].tag);
+			const char *conf = videofilters[i].filter->printConf ();
+			int namelen = strlen (name);
 
-		QString str = QString("<b>") + QString::fromUtf8(name) + QString("</b><br>\n<small>") + QString::fromUtf8(conf) + QString("</small>");
-		QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
-		activeList->addItem(item);
+			while (*conf == ' ')
+				++conf;
+
+			if (strncasecmp (name, conf, namelen) == 0)
+			{
+				conf += namelen;
+				while (*conf == ' ' || *conf == ':')
+					++conf;
+			}
+
+			QString str = QString("<b>") + QString::fromUtf8(name) + QString("</b><br>\n<small>") + QString::fromUtf8(conf) + QString("</small>");
+			QListWidgetItem *item=new QListWidgetItem(str,activeList,ACTIVE_FILTER_BASE+i);
+			activeList->addItem(item);
+		}
 	}
 }
   /**
