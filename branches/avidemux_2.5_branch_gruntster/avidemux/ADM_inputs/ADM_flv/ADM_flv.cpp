@@ -322,7 +322,7 @@ uint8_t flvHeader::open(const char *name)
                 if(extraHeader(audioTrack,&remaining,false,&cts)) continue;
             }
             if(remaining)
-                insertAudio(pos+of,remaining,pts);
+                insertAudio(ftello(_fd),remaining,pts);
           }
           break;
       case FLV_TAG_TYPE_META:
@@ -662,9 +662,15 @@ uint8_t  flvHeader::getFrameNoAlloc(uint32_t frame,ADMCompressedImage *img)
 
 uint8_t  flvHeader::getExtraHeaderData(uint32_t *len, uint8_t **data)
 {
-                *len=0; //_tracks[0].extraDataLen;
-                *data=NULL; //_tracks[0].extraData;
-                return 1;            
+        if(videoTrack)
+        {
+                *len=videoTrack->extraDataLen;
+                *data=videoTrack->extraData;
+                return 1;
+        }
+        *len=0;
+        *data=NULL;
+        return 1;
 }
 /*
     __________________________________________________________
