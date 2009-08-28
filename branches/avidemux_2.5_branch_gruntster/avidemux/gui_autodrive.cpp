@@ -148,11 +148,7 @@ uint8_t A_autoDrive(Action action)
                     {
                     case ACT_AUTO_PSP:
                           {
-#ifdef USE_XVID_4
-                            if(!videoCodecSelectByName("XVID4")) 
-#else
                             if(!videoCodecSelectByName("FFMpeg4"))            
-#endif
                             {
                               GUI_Error_HIG(QT_TR_NOOP("Codec Error"),QT_TR_NOOP( "Cannot select mpeg4 sp codec."));
                                 return 0;

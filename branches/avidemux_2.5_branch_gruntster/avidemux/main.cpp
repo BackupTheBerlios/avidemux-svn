@@ -33,10 +33,6 @@
 #include "prefs.h"
 #include "ADM_audiodevice/audio_out.h"
 
-#ifdef USE_XVID_4
-extern void xvid4_init(void);
-#endif
-
 extern void  ADM_lavInit();
 
 extern "C" {
@@ -201,10 +197,6 @@ int main(int argc, char *argv[])
 
     UI_Init(argc,argv);
     AUDMEncoder_initDither();
-
-#ifdef USE_XVID_4
-    xvid4_init();
-#endif
 
     // Hook our UI...
     InitFactory();
