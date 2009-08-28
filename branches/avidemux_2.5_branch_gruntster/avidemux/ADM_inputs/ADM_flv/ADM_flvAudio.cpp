@@ -61,8 +61,9 @@ uint8_t             flvAudio::goTo(uint32_t newoffset)
 */
 uint8_t             flvAudio::extraData(uint32_t *l,uint8_t **d)
 {
-  *l=0;
-  *d=NULL;
+    *l=_track->extraDataLen;
+    *d=_track->extraData;
+    return 1;
 }
 /**
     \fn getPacket

@@ -145,6 +145,14 @@ uint8_t flvHeader::parseMetaData(uint32_t remaining)
             type=read8();
             switch(type)
             {
+                case AMF_DATA_TYPE_ARRAY:
+                                    {
+                                            uint32_t len=read32();
+                                            printf("[FLV] Array :");
+                                            for(int i=0;i<len;i++) printf("%02x ",read8());
+                                            printf("\n");
+                                            break;
+                                    }
                 case AMF_DATA_TYPE_DATE: Skip(8+2);break;
                 case AMF_DATA_TYPE_NUMBER:
                                         {
@@ -172,6 +180,43 @@ endit:
     fseeko(_fd,endPos,SEEK_SET);
     return 1;
 }
+/**
+    \fn extraHeader
+    \brief if returns true means we must skip the remainder
+*/
+bool flvHeader::extraHeader(flvTrak *trk,uint32_t *remain,bool have_cts,int32_t *cts)
+{
+    int type=read8();
+    int r=*remain;
+    r--;
+    if(have_cts)
+    {
+        uint32_t c=read24();
+         *cts=(c+0xff800000)^0xff800000;
+        //printf("Type :%d\n",type);
+        r-=3;
+    }
+    if(!type)
+    {  // Grab extra data
+        if(trk->extraData) 
+        {
+            Skip(r);
+            r=0;
+        }
+        else    
+        {
+            printf("[FLV] found some extradata %lu\n",r);
+            trk->extraData=new uint8_t[r];
+            trk->extraDataLen=r;
+            read(r,trk->extraData);
+            r=0;            
+        }
+        *remain=r;
+        return true;
+    }
+    *remain=r;
+    return false;
+}
 
 /**
       \fn open
@@ -181,7 +226,8 @@ endit:
 uint8_t flvHeader::open(const char *name)
 {
   uint32_t prevLen, type, size, pts,pos=0;
-  
+  bool firstVideo=true;
+  int32_t cts; 
   _isvideopresent=0;
   _isaudiopresent=0;
   audioTrack=NULL;
@@ -271,7 +317,12 @@ uint8_t flvHeader::open(const char *name)
             {
                setAudioHeader(format,fq,bps,channel);
             }
-            insertAudio(pos+of,remaining,pts);
+            if(format==10)
+            {
+                if(extraHeader(audioTrack,&remaining,false,&cts)) continue;
+            }
+            if(remaining)
+                insertAudio(pos+of,remaining,pts);
           }
           break;
       case FLV_TAG_TYPE_META:
@@ -294,13 +345,18 @@ uint8_t flvHeader::open(const char *name)
               remaining--;
               of++;
             }
-            int first=0;
-            if(!videoTrack->_nbIndex) first=1;
-            insertVideo(pos+of,remaining,frameType,pts);
-            if(first) // first frame..
+            if(firstVideo==true) // first frame..
             {
                 if(!setVideoHeader(codec,&remaining)) return 0;
+                firstVideo=false;
             }
+            if(codec==FLV_CODECID_H264)
+            {
+                if(true==extraHeader(videoTrack,&remaining,true,&cts)) continue;
+
+            }
+            if(remaining)
+                insertVideo(ftello(_fd),remaining,frameType,pts);
             
           }
            break;
@@ -350,39 +406,34 @@ uint8_t flvHeader::setVideoHeader(uint8_t codec,uint32_t *remaining)
     printf("[FLV] Video Codec:%u\n",codec);
      _video_bih.biWidth=_mainaviheader.dwWidth=320;
     _video_bih.biHeight=_mainaviheader.dwHeight=240;
+#define MKFLV(x,t) case FLV_CODECID_##x :  _videostream.fccHandler=_video_bih.biCompression=\
+                            fourCC::get((uint8_t *)#t);break;
+
     switch(codec)
     {
-      case FLV_CODECID_H263:            _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"FLV1");break;
-      case FLV_CODECID_VP6:             _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6F");break;
-      case FLV_CODECID_VP6A:
-                        _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6A");break;
+        MKFLV(H264,H264);
+        MKFLV(H263,FLV1);
+        MKFLV(VP6,VP6F);
+        MKFLV(VP6A,VP6A);
 
-    //???   case FLV_CODECID_SCREEN:          _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"VP6F");break;
       default :                         _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t *)"XXX");break;
       
     }
-    if(codec==FLV_CODECID_VP6A && metaWidth && metaHeight )
-    {
-         _video_bih.biHeight=_mainaviheader.dwHeight=metaHeight ;
-         _video_bih.biWidth=_mainaviheader.dwWidth=metaWidth;
-    }
+     if( metaWidth && metaHeight )
+        if( codec==FLV_CODECID_VP6A  || codec==FLV_CODECID_H264 || codec==FLV_CODECID_VP6) 
+        {
+                _video_bih.biHeight=_mainaviheader.dwHeight=metaHeight ;
+                _video_bih.biWidth=_mainaviheader.dwWidth=metaWidth;
+        }
 
-    if(codec==FLV_CODECID_VP6)
-    {
-        read8();
-        read8();
-        *remaining-=2;
-         
-         _video_bih.biHeight=_mainaviheader.dwHeight=read8()*16;
-         _video_bih.biWidth=_mainaviheader.dwWidth=read8()*16;
-        *remaining-=2; 
-    }
     if(codec==FLV_CODECID_H263)
     {
       uint32_t len=*remaining,width,height;
+      uint32_t pos=ftello(_fd);
+
       uint8_t buffer[len];
       read(len,buffer);
-      *remaining=0;
+      fseeko(_fd,pos,SEEK_SET);
        /* Decode header, from h263dec.c / lavcodec*/
       if(extractH263FLVInfo(buffer,len,&width,&height))
       {
@@ -417,6 +468,7 @@ uint8_t   flvHeader::setAudioHeader(uint32_t format,uint32_t fq,uint32_t bps,uin
     case 3: wavHeader.encoding=WAV_PCM;break; 
     case 0: wavHeader.encoding=WAV_LPCM;break;
     case 1: wavHeader.encoding=WAV_MSADPCM;break;
+    case 10:wavHeader.encoding=WAV_AAC;break;
     default:
           printf("[FLV]Unsupported audio codec:%u\n",format);    
   }
@@ -514,8 +566,17 @@ void flvHeader::Dump(void)
 uint8_t flvHeader::close(void)
 {
   if(_filename) ADM_dealloc(_filename);
-  if(videoTrack) delete videoTrack;
-  if(audioTrack) delete audioTrack;
+  if(videoTrack) 
+  {
+        if(videoTrack->extraData) delete [] videoTrack->extraData;
+        delete videoTrack;
+  }
+  if(audioTrack) 
+  {
+     if(audioTrack->extraData) delete [] audioTrack->extraData;
+    delete audioTrack;
+  }
+
   if(_fd) fclose(_fd);
   if(_audioStream) delete _audioStream;
   
