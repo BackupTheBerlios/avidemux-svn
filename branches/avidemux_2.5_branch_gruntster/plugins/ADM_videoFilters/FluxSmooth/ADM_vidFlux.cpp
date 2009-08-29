@@ -25,24 +25,23 @@
 #include "ADM_vidFlux.h"
 
 static int16_t FUNNY_MANGLE_ARRAY(scaletab, 16);
-static uint64_t FUNNY_MANGLE_ARRAY(scaletab_MMX, 65535);
+static uint64_t FUNNY_MANGLE_ARRAY(scaletab_MMX, 65536);
 
-void initScaleTab( void )
+static void initScaleTab(void)
 {
-//uint32_t i;
+	scaletab[1] = 32767;
 
-		scaletab[1] = 32767;
-		for(int i = 2; i < 16; ++i)
-				scaletab[i] = (int)(32768.0 / i + 0.5);
-		for(uint32_t  i = 0; i < 65536; ++i)
-		{
-			scaletab_MMX[i] = ( (uint64_t)scaletab[ i        & 15]       ) |
-							  (((uint64_t)scaletab[(i >>  4) & 15]) << 16) |
-							  (((uint64_t)scaletab[(i >>  8) & 15]) << 32) |
-							  (((uint64_t)scaletab[(i >> 12) & 15]) << 48);
-		}
+	for(int i = 2; i < 16; ++i)
+		scaletab[i] = (int)(32768.0 / i + 0.5);
+
+	for(uint32_t  i = 0; i < 65536; ++i)
+	{
+		scaletab_MMX[i] = ((uint64_t)scaletab[i & 15]) |
+			(((uint64_t)scaletab[(i >>  4) & 15]) << 16) |
+			(((uint64_t)scaletab[(i >>  8) & 15]) << 32) |
+			(((uint64_t)scaletab[(i >> 12) & 15]) << 48);
+	}
 }
- 
 
 static FILTER_PARAM fluxParam={2,{"temporal_threshold","spatial_threshold"}};
 
@@ -78,9 +77,15 @@ static	 uint8_t * FUNNY_MANGLE(_l_destp);
 static uint32_t size;
 
 ADMVideoFlux::ADMVideoFlux(AVDMGenericVideoStream *in,CONFcouple *couples)
-			
 {
-  
+	static bool _initialised = false;
+
+	if (!_initialised)
+	{
+		initScaleTab();
+		_initialised = true;
+	}
+
 	_in=in;
 	memcpy(&_info,in->getInfo(),sizeof(_info));
 	if(couples)
