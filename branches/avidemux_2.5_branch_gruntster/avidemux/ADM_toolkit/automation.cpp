@@ -48,7 +48,7 @@
 extern void filterListAll(void );
 
 extern uint8_t loadVideoCodecConf( const char *name);
-extern int A_saveJpg (char *name);
+extern int A_saveBunchJpg(const char *name);
 extern void filterLoadXml(const char *n);
 extern int A_appendAvi (const char *name);
 extern void A_saveAudio(char *name);
@@ -154,7 +154,7 @@ AUTOMATON reaction_table[]=
         {"svcd-res",		0,"set SVCD resolution",		(one_arg_type)setSVCD}              ,
         {"dvd-res",		0,"set DVD resolution",			(one_arg_type)setDVD}  ,
         {"halfd1-res",		0,"set 1/2 DVD resolution",		(one_arg_type)setHalfD1} ,  
-        {"save-jpg",		1,"save a jpeg",			(one_arg_type)A_saveJpg}        ,
+        {"save-jpg",		1,"save JPEG images",			(one_arg_type)A_saveBunchJpg},
         {"begin",		1,"set start frame",			setBegin},
         {"end",			1,"set end frame",			setEnd},
         {"save-unpacked-vop",	1,"save avi, unpacking vop",(one_arg_type)A_SaveUnpackedVop},
