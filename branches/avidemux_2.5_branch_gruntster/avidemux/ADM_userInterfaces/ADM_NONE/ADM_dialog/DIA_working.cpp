@@ -17,17 +17,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
 #include <math.h>
 
-
-
-#include "config.h"
 #include "ADM_default.h"
 
 #include "ADM_osSupport/ADM_debugID.h"
@@ -55,7 +46,6 @@ uint8_t DIA_working::update(uint32_t percent)
 {
 	#define  GUI_UPDATE_RATE 1000
 
-                if(!_priv) return 1;
                 if(!percent) return 0;
                 if(percent==lastper)
                 {
@@ -105,7 +95,6 @@ uint8_t DIA_working::update(uint32_t cur, uint32_t total)
 {
 		double d,n;
 		uint32_t percent;
-		if(!_priv) return 1;
 
 		aprintf("DIA_working::update(uint32_t %lu,uint32_t %lu) called\n", cur, total);
 		if(!total) return 0;
@@ -123,7 +112,6 @@ uint8_t DIA_working::update(uint32_t cur, uint32_t total)
 
 uint8_t DIA_working::isAlive (void )
 {
-	if(!_priv) return 0;
 	return 1;
 }
 
