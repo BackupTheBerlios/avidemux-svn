@@ -5,7 +5,7 @@ INCLUDE(admFFmpegUtil)
 if (WIN32)
 	set(FFMPEG_INSTALL_DIR ${AVIDEMUX_INSTALL_PREFIX})
 else (WIN32)
-	set(FFMPEG_INSTALL_DIR ${AVIDEMUX_INSTALL_PREFIX}/lib)
+	set(FFMPEG_INSTALL_DIR ${AVIDEMUX_INSTALL_PREFIX}/lib${LIB_SUFFIX})
 endif (WIN32)
 
 SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp

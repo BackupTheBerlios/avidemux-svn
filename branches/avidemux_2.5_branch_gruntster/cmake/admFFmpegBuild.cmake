@@ -132,7 +132,7 @@ getFfmpegLibNames("${FFMPEG_SOURCE_DIR}")
 if (WIN32)
 	set(FFMPEG_INSTALL_DIR ${BIN_DIR})
 else (WIN32)
-	set(FFMPEG_INSTALL_DIR lib)
+	set(FFMPEG_INSTALL_DIR lib${LIB_SUFFIX})
 endif (WIN32)
 
 add_library(ADM_libswscale UNKNOWN IMPORTED)
