@@ -184,6 +184,7 @@ MESSAGE("")
 ADD_SUBDIRECTORY(avidemux)
 ADD_SUBDIRECTORY(po)
 ADD_SUBDIRECTORY(scripts)
+# MEANX : DOES NOT WORK ADD_SUBDIRECTORY(plugins EXCLUDE_FROM_ALL)
 
 ########################################
 # Config Summary
