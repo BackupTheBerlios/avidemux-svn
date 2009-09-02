@@ -6,6 +6,7 @@ SET(${ADM_LIB}_SRCS
 	ADM_mplexmuxer.cpp  ADM_transfert.cpp  interact.cpp       mpastrm_in.cpp  stillsstream.cpp  mpegconsts.c      mjpeg_logging.c    decodebufmodel.cpp
 	yuv4mpeg.c          cpu_accel.c)
 
+include_directories("${PTHREAD_INCLUDE_DIR}")
 ADD_ADM_LIB_ALL_TARGETS(${ADM_LIB} ${${ADM_LIB}_SRCS})
 ADD_CFLAGS_ALL_TARGETS(${ADM_LIB} "-I${CMAKE_CURRENT_SOURCE_DIR} -DHAVE_FMAX -DRETSIGTYPE=void")
 

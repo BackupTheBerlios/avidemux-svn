@@ -169,7 +169,8 @@ IF (ADM_UI_QT4)
 ENDIF (ADM_UI_QT4)
 
 SDLify(main.cpp)
-ADD_SOURCE_CFLAGS(main.cpp "-DADM_SUBVERSION=${ADM_SUBVERSION}")
+ADD_SOURCE_CFLAGS(main.cpp "-DADM_SUBVERSION=${ADM_SUBVERSION} -I${PTHREAD_INCLUDE_DIR}")
+ADD_SOURCE_CFLAGS(gui_savenew.cpp "-I${PTHREAD_INCLUDE_DIR}")
 
 ########################################
 # FFmpeg
