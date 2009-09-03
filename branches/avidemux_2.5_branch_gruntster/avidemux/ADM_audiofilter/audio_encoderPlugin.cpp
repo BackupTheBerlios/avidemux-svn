@@ -281,7 +281,7 @@ uint32_t audioProcessMode(void)
  */
 uint32_t audioFilter_getOuputCodec(void)
 {
-	ADM_assert(!currentEncoder);
+    ADM_assert(currentEncoder);
     return ListOfAudioEncoder[currentEncoder]->wavTag;
 }
 
