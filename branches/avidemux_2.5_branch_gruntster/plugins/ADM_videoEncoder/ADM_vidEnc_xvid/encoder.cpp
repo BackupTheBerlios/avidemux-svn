@@ -387,6 +387,12 @@ int XvidEncoder::finishPass(void)
 
 	if (_openPass)
 		_openPass = false;
+
+	if (_xvid_enc_create.handle)
+	{
+		xvid_encore(_xvid_enc_create.handle, XVID_ENC_DESTROY, NULL, NULL);
+		_xvid_enc_create.handle = NULL;
+	}
 }
 
 void XvidEncoder::close(void)
@@ -396,12 +402,6 @@ void XvidEncoder::close(void)
 
 	_opened = false;
 	_currentPass = 0;
-
-	if (_xvid_enc_create.handle)
-	{
-		xvid_encore (_xvid_enc_create.handle, XVID_ENC_DESTROY, NULL, NULL);
-		_xvid_enc_create.handle = NULL;
-	}
 
 	if (_buffer)
 	{
