@@ -53,7 +53,7 @@ FileOutputStream::FileOutputStream( const char *name_pat )
 int FileOutputStream::Open()
 {
   char msg[512];
-   while( !(strm = fopen( cur_filename, "wb" )) ){
+   while( !(strm = ADM_fopen( cur_filename, "wb" )) ){
       if( errno == ENOSPC
 #ifndef __MINGW32__
                           || errno == EDQUOT
