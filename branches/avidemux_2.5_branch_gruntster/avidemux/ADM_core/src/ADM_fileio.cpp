@@ -58,7 +58,7 @@ extern int wideCharStringToUtf8(const wchar_t *wideCharString, int wideCharStrin
 
 uint8_t ADM_fileExist(char *name)
 {
-	FILE *file = fopen(name, "rb");
+	FILE *file = ADM_fopen(name, "rb");
 
 	if (!file)
 		return 0;
