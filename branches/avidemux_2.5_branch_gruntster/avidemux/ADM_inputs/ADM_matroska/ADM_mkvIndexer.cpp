@@ -32,6 +32,8 @@
 #include "mkv_tags.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_idx_pg.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_working.h"
+#include "ADM_video/ADM_videoInfoExtractor.h"
+#include "ADM_codecs/ADM_codecFrameType.h"
 #define VIDEO _tracks[0]
 /**
     \fn videoIndexer
@@ -154,7 +156,7 @@ uint8_t mkvHeader::indexBlock(ADM_ebml_file *parser,uint32_t len,uint32_t cluste
         case 0: // No lacing
               if(!track) // Video
               {
-                  addIndexEntry(track,parser->tell(),remaining,entryFlags,clusterTimeCodeMs+timecode);
+                  addIndexEntry(track,parser,parser->tell(),remaining,entryFlags,clusterTimeCodeMs+timecode);
               }
               else
               {
@@ -177,7 +179,7 @@ uint8_t mkvHeader::indexBlock(ADM_ebml_file *parser,uint32_t len,uint32_t cluste
                     }
                     if(!track)
                     {
-                      addIndexEntry(track,parser->tell(),remaining,0,clusterTimeCodeMs+timecode);
+                      addIndexEntry(track,parser,parser->tell(),remaining,0,clusterTimeCodeMs+timecode);
                       printf("Warning lacing on video track\n");
                     }
                     else
@@ -247,7 +249,8 @@ uint8_t mkvHeader::indexBlock(ADM_ebml_file *parser,uint32_t len,uint32_t cluste
     \brief add an entry to the video index
     @param timecodeMS PTS of the frame in ms!
 */
-uint8_t mkvHeader::addIndexEntry(uint32_t track,uint64_t where, uint32_t size,uint32_t flags,uint32_t timecodeMS)
+uint8_t mkvHeader::addIndexEntry(uint32_t track,ADM_ebml_file *parser,
+                                uint64_t where, uint32_t size,uint32_t flags,uint32_t timecodeMS)
 {
   //
   mkvTrak *Track=&(_tracks[track]);
@@ -285,6 +288,39 @@ uint8_t mkvHeader::addIndexEntry(uint32_t track,uint64_t where, uint32_t size,ui
     index[x].timeCode=delta+1-Track->_nbIndex;
   }
   Track->_nbIndex++;
+
+  if(track) return 1; // no 0 track = audio or subs, we are done here
+
+    // Try to update frame type on the fly...
+    // Only do it for Mpeg4 SP/ASP/AVC
+    if( isMpeg4Compatible(_videostream.fccHandler))
+    {
+        uint8_t buffer[size];
+        
+        parser->readBin(buffer,size-3);
+        // Search the frame type...
+
+         uint32_t nb,vopType,timeinc=16;
+         ADM_vopS vops[10];
+         vops[0].type=AVI_KEY_FRAME;
+         ADM_searchVop(buffer,buffer+size-3,&nb,vops, &timeinc);
+         index[x].flags=vops[0].type;
+    
+    }
+    else
+    if(isH264Compatible(_videostream.fccHandler))
+    {
+        uint8_t buffer[size];
+            uint32_t flags=AVI_KEY_FRAME;
+            parser->readBin(buffer,size-3);
+            extractH264FrameType(2,buffer,size-3,&flags); // Nal size is not used in that case
+            if(flags & AVI_KEY_FRAME)
+            {
+                //printf("[MKV/H264] Frame %"LU" is a keyframe\n",(uint32_t)Track->index.size());
+            }
+            index[x].flags=flags;
+    }
+
 
  // printf("++\n");
   return 1;
