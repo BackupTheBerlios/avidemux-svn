@@ -1,5 +1,5 @@
-*** libavformat/flvenc.c.old	Mon Feb  2 19:49:58 2009
---- libavformat/flvenc.c	Mon Feb  2 19:49:57 2009
+*** libavformat/flvenc.c.old	Thu Sep 17 16:14:10 2009
+--- libavformat/flvenc.c	Thu Sep 17 16:14:10 2009
 ***************
 *** 389,395 ****
       "video/x-flv",
@@ -22,7 +22,7 @@
 *** 401,403 ****
 --- 402,410 ----
       .codec_tag= (const AVCodecTag* const []){flv_video_codec_ids, flv_audio_codec_ids, 0},
-      .flags= AVFMT_GLOBALHEADER,
+      .flags= AVFMT_GLOBALHEADER | AVFMT_VARIABLE_FPS,
   };
 + // MEANX
 + int flvenc_init(void)
