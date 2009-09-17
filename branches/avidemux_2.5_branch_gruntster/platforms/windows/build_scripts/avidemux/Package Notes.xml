@@ -1,7 +1,17 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5327" date="2009-09-09">
+    <comment>Updated x264 to r1251.</comment>
+  </buildentry>
+  <buildentry revision="5281" date="2009-08-29">
+    <comment>Updated x264 to r1240.</comment>
+  </buildentry>
+  <buildentry revision="5273" date="2009-08-27">
+    <comment>Updated x264 to r1235.</comment>
+    <comment>Updated Xvid to version 1.2.2.</comment>
+  </buildentry>
   <buildentry revision="5268" date="2009-08-23">
-    <comment>Updated x264 r1222.</comment>
+    <comment>Updated x264 to r1222.</comment>
   </buildentry>
   <buildentry revision="5249 [2.5.1 Final]" date="2009-08-16">
     <comment>Updated Fontconfig to version 2.7.1-2.</comment>

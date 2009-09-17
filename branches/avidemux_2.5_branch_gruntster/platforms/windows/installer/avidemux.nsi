@@ -845,6 +845,14 @@ End:
 				SetOutPath $INSTDIR\plugins\videoFilter
 				${File} plugins\videoFilter\libADM_vidChromaV.dll
 			${MementoSectionEnd}
+!ifdef INST_QT
+			${MementoSection} "Colour Curve Editor" SecVidFltColourCurveEditor
+				SectionIn 1 2
+				SetOverwrite on
+				SetOutPath $INSTDIR\plugins\videoFilter
+				${File} plugins\videoFilter\libADM_vf_curveEditor_qt4.dll
+			${MementoSectionEnd}
+!endif
 			${MementoSection} "Contrast" SecVidFltContrast
 				SectionIn 1 2
 				SetOverwrite on
