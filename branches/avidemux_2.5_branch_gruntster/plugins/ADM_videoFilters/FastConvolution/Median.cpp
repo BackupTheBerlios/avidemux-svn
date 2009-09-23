@@ -26,7 +26,7 @@ VF_DEFINE_FILTER(AVDMFastVideoMedian,convParam,
                 median,
                 QT_TR_NOOP("Median"),
                 1,
-                VF_INTERLACING,
+                VF_SHARPNESS,
                 QT_TR_NOOP("Median kernel 3x3. Remove high frequency noise."));
 
 

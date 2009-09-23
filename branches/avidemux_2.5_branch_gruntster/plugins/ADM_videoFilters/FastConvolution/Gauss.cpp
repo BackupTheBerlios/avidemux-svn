@@ -26,7 +26,7 @@ VF_DEFINE_FILTER(AVDMFastVideoGauss,convParam,
                 gaussian,
                 QT_TR_NOOP("Gauss smooth"),
                 1,
-                VF_INTERLACING,
+                VF_SHARPNESS,
                 QT_TR_NOOP("Gaussian smooth. Blur the picture."));
 
 //          6 10 6

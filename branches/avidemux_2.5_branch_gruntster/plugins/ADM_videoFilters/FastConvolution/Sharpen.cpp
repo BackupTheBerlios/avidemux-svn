@@ -25,7 +25,7 @@ VF_DEFINE_FILTER(AVDMFastVideoSharpen,convParam,
                 sharpen,
                 QT_TR_NOOP("Sharpen"),
                 1,
-                VF_INTERLACING,
+                VF_SHARPNESS,
                 QT_TR_NOOP("Enhance difference between near pixels."));
 
 

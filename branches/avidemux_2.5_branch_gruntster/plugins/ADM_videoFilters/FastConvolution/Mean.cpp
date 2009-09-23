@@ -30,7 +30,7 @@ VF_DEFINE_FILTER(AVDMFastVideoMean,convParam,
                 mean,
                 QT_TR_NOOP("Mean"),
                 1,
-                VF_INTERLACING,
+                VF_SHARPNESS,
                 QT_TR_NOOP("Mean (blur) kernel."));
 
 char 	*AVDMFastVideoMean::printConf(void)
