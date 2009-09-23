@@ -1,5 +1,5 @@
 /***************************************************************************
-                          Separate Fields.cpp  -  description
+                          Hz stack field Fields.cpp  -  description
                              -------------------
 Convert a x*y * f fps video into -> x*(y/2)*fps/2 video
 
@@ -30,10 +30,10 @@ static FILTER_PARAM swapParam={0,{""}};
 //QT_TR_NOOP("Put botj fields side by side."),VF_HZSTACKFIELD,1,hzstackfield_create,hzstackfield_script);
 VF_DEFINE_FILTER(AVDMVideoHzStackField,swapParam,
     hzstackfield,
-                QT_TR_NOOP("separatefields"),
+                QT_TR_NOOP("Horizontal Stack Field"),
                 1,
                 VF_INTERLACING,
-                QT_TR_NOOP("Put botj fields side by side."));
+                QT_TR_NOOP("Put both fields side by side."));
 
 //*************************************************************
 //_______________________Hz Stack Fields_______________________

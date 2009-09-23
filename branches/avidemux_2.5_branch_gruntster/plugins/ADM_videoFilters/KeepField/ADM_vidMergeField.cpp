@@ -1,5 +1,5 @@
 /***************************************************************************
-                          Separate Fields.cpp  -  description
+                          Merge Fields.cpp  -  description
                              -------------------
 Convert a x*y * f fps video into -> x*(y/2)*fps/2 video
 
