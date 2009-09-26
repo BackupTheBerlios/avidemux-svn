@@ -39,9 +39,9 @@ if (FFMPEG_PERFORM_PATCH)
 		patch_file("${FFMPEG_SOURCE_DIR}" "${patchFile}")
 	endforeach(patchFile)
 
-	if (NOT WIN32)
+	if (UNIX AND NOT APPLE)
 		patch_file("${FFMPEG_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/common.mak.diff")
-	endif (NOT WIN32)
+	endif (UNIX AND NOT APPLE)
 
 	message("")
 endif (FFMPEG_PERFORM_PATCH)
@@ -110,10 +110,10 @@ if (FFMPEG_PERFORM_BUILD)
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}"
 					${ffmpegBuildOutput})
 
-	if (NOT WIN32)
+	if (UNIX AND NOT APPLE)
 		find_patch()
 		patch_file("${FFMPEG_BINARY_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/config.mak.diff")
-	endif (NOT WIN32)
+	endif (UNIX AND NOT APPLE)
 
 	message("")
 endif (FFMPEG_PERFORM_BUILD)
