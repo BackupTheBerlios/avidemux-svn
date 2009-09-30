@@ -52,8 +52,10 @@
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
 
+#if X264_BUILD < 76
 		uint8_t *_seiUserData;
 		uint32_t _seiUserDataLen;
+#endif
 
 		uint8_t *_extraData;
 		int _extraDataSize;

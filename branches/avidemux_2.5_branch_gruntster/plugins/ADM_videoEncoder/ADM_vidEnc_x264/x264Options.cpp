@@ -24,8 +24,6 @@
 #include <math.h>
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
-#include <sstream>
-#include <string>
 
 #include "config.h"
 #include "ADM_inttype.h"

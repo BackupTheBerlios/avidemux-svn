@@ -60,8 +60,10 @@ x264Encoder::x264Encoder(void)
 	_extraData = NULL;
 	_extraDataSize = 0;
 
+#if X264_BUILD < 76
 	_seiUserData = NULL;
 	_seiUserDataLen = 0;
+#endif
 
 	_encodeOptions.structSize = sizeof(vidEncOptions);
 	_encodeOptions.encodeMode = DEFAULT_ENCODE_MODE;
@@ -329,15 +331,27 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 		_picture.img.i_plane = 3;
 	}
 
+#if X264_BUILD > 75
+	int size = x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData[0] ? &_picture : NULL, &picture_out);
+
+	if (size > 0)
+	{
+		memcpy(_buffer, nal->p_payload, size);
+	}
+	else if (size < 0)
+	{
+		printf("[x264] Error encoding\n");
+		return ADM_VIDENC_ERR_FAILED;
+	}
+
+	encodeParams->encodedDataSize = size;
+#else
 	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData[0] ? &_picture : NULL, &picture_out) < 0)
 	{
 		printf("[x264] Error encoding\n");
 		return ADM_VIDENC_ERR_FAILED;
 	}
 
-	_currentFrame++;
-
-	// Write
 	int size = 0;
 	int currentNal, sizemax;
 
@@ -363,13 +377,16 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	}
 
 	encodeParams->encodedDataSize = size;
+#endif
+
+	_currentFrame++;
 	encodeParams->ptsFrame = picture_out.i_pts;	// In fact it is the picture number in out case
 
 	switch (picture_out.i_type)
 	{
 		case X264_TYPE_IDR:
 			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_IDR;
-
+#if X264_BUILD < 76
 			if(!_param.b_repeat_headers && _seiUserData && !picture_out.i_pts)
 			{
 				// Put our SEI front...
@@ -389,6 +406,7 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 				size += 4 + _seiUserDataLen;
 				encodeParams->encodedDataSize = size; // update total size
 			}
+#endif
 
 			break;
 		case X264_TYPE_I:
@@ -413,6 +431,18 @@ bool x264Encoder::createHeader(void)
 {
 	x264_nal_t *nal;
 	int nalCount;
+
+	if (!_handle)
+		return false;
+
+	if (_extraData)
+		delete _extraData;
+
+#if X264_BUILD > 75
+	_extraDataSize = x264_encoder_headers(_handle, &nal, &nalCount);
+	_extraData = new uint8_t[_extraDataSize];
+	memcpy(_extraData, nal->p_payload, _extraDataSize);
+#else
 	uint32_t offset = 0;
 	uint8_t buffer[X264_MAX_HEADER_SIZE];
 	uint8_t picParam[X264_MAX_HEADER_SIZE];
@@ -421,20 +451,10 @@ bool x264Encoder::createHeader(void)
 	int picParamLen = 0, seqParamLen = 0, seiParamLen = 0, len;
 	int sz;
 
-	if (!_handle)
-		return false;
-
-	if (x264_encoder_headers(_handle, &nal, &nalCount))
-	{
-		printf("[x264] Cannot create header\n");
-		return false;
-	}
-
-	if (_extraData)
-		delete _extraData;
-
 	_extraData = new uint8_t[X264_MAX_HEADER_SIZE];
 	_extraDataSize = 0;
+
+	x264_encoder_headers(_handle, &nal, &nalCount)
 
 	printf("[x264] Nal count: %d\n", nalCount);
 
@@ -509,8 +529,10 @@ bool x264Encoder::createHeader(void)
 	}
 
 	_extraDataSize = offset;
+#endif
 
 	printf("[x264] generated %d extra bytes for header\n", _extraDataSize);
+
 	return true;
 }
 
@@ -535,12 +557,14 @@ int x264Encoder::finishPass(void)
 		_extraDataSize = 0;
 	}
 
+#if X264_BUILD < 76
 	if (_seiUserData)
 	{
 		delete [] _seiUserData;
 		_seiUserData = NULL;
 		_seiUserDataLen = 0;
 	}
+#endif
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
