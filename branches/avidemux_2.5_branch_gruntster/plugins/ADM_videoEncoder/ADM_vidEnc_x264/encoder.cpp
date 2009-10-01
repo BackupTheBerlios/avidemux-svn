@@ -454,7 +454,7 @@ bool x264Encoder::createHeader(void)
 	_extraData = new uint8_t[X264_MAX_HEADER_SIZE];
 	_extraDataSize = 0;
 
-	x264_encoder_headers(_handle, &nal, &nalCount)
+	x264_encoder_headers(_handle, &nal, &nalCount);
 
 	printf("[x264] Nal count: %d\n", nalCount);
 
