@@ -76,6 +76,24 @@ ELSE (WIN32)
 	SET(BIN_DIR bin)
 ENDIF (WIN32)
 
+IF (APPLE)
+	## Add needed Compiler and Linker flags for OSX
+	SET(CMAKE_C_FLAGS:STRING "\"$CMAKE_C_FLAGS\" -flat_namespace -undefined suppress" )
+	SET(CMAKE_CXX_FLAGS:STRING "\"$CMAKE_CXX_FLAGS\" -flat_namespace -undefined suppress" )
+	SET(CMAKE_LDFLAGS:STRING "\"$CMAKE_LD_FLAGS\"" )
+	SET(CMAKE_INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib" )
+
+	IF (${CMAKE_BUILD_TYPE} STREQUAL "Release")
+		SET(CMAKE_C_FLAGS_RELEASE:STRING " $CMAKE_C_FLAGS_RELEASE ")
+		SET(CMAKE_CXX_FLAGS_RELEASE:STRING " $CMAKE_CXX_FLAGS_RELEASE ")
+	ENDIF (${CMAKE_BUILD_TYPE} STREQUAL "Release")
+
+	if (${MAC_SELF_CONTAINED_BUNDLE})
+		MESSAGE(STATUS "Configuring avidemux for fully bundled version. (not yet working correctly)")
+		SET(CMAKE_INSTALL_NAME_DIR "@executable_path/../Libraries" )
+	endif (${MAC_SELF_CONTAINED_BUNDLE})
+ENDIF (APPLE)
+
 ########################################
 # Standard Avidemux defines
 ########################################
