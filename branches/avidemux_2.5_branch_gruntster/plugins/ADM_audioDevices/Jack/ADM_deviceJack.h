@@ -20,9 +20,9 @@ class jackAudioDevice : public audioDevice
 {
 public:
 	jackAudioDevice();
-	virtual uint8_t init(uint8_t channel,uint32_t fq);
-	virtual uint8_t play(uint32_t len, float *data);
-	virtual uint8_t stop();
+	virtual uint8_t init(uint32_t channel,uint32_t fq);
+	virtual uint8_t  play(uint32_t len, float *data);
+	virtual uint8_t  stop();
 	uint8_t setVolume(int volume);
 	int process(jack_nframes_t nframes);
 

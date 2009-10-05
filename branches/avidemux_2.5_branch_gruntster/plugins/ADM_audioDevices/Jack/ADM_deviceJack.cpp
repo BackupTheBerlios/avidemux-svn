@@ -12,9 +12,9 @@
 
 #include "ADM_default.h"
 #include "ADM_audiodevice.h"
-#include "ADM_assert.h"
+#include  "ADM_audioDeviceInternal.h"
 #include "ADM_deviceJack.h"
-
+ADM_DECLARE_AUDIODEVICE(Jack,jackAudioDevice,1,0,0,"Jack audio device (c) mean");
 
 #define BUFSIZE 16385
 
@@ -53,7 +53,7 @@ uint8_t jackAudioDevice::stop()
 	return 1;
 }
 
-uint8_t jackAudioDevice::init(uint8_t channels, uint32_t fq)
+uint8_t jackAudioDevice::init(uint32_t channels, uint32_t fq)
 {
 	jack_status_t status;
 	_channels = channels;
