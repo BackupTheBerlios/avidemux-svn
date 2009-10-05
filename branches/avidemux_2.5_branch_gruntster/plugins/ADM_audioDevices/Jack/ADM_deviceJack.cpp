@@ -14,7 +14,7 @@
 #include "ADM_audiodevice.h"
 #include  "ADM_audioDeviceInternal.h"
 #include "ADM_deviceJack.h"
-ADM_DECLARE_AUDIODEVICE(Jack,jackAudioDevice,1,0,0,"Jack audio device (c) mean");
+ADM_DECLARE_AUDIODEVICE(Jack,jackAudioDevice,1,0,0,"Jack audio device (c) M. Zenkov ");
 
 #define BUFSIZE 16385
 
