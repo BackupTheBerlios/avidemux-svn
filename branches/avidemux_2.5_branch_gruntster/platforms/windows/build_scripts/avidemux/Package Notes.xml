@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5341" date="2009-09-17">
+    <comment>Updated x264 to r1259.</comment>
+  </buildentry>
   <buildentry revision="5327" date="2009-09-09">
     <comment>Updated x264 to r1251.</comment>
   </buildentry>
@@ -36,7 +39,7 @@
     <comment>Updated x264 to r1185.</comment>
   </buildentry>
   <buildentry revision="5104" date="2009-07-17">
-    <comment>Added opencore-amr 0.1.1.</comment>
+    <comment>Added opencore-amr version 0.1.1.</comment>
     <comment>Updated x264 to r1183.</comment>
   </buildentry>
   <buildentry revision="5087" date="2009-07-13">

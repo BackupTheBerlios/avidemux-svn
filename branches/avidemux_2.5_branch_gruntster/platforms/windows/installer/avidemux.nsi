@@ -264,22 +264,17 @@ Section "Avidemux Core" SecCore
     ${File} "Change Log.html"
     ${File} zlib1.dll
     ${File} freetype6.dll
-    ${File} iconv.dll
-    ${File} intl.dll
     ${File} libjs.dll
-    ${File} nspr4.dll
+    ${File} libnspr4.dll
     ${File} libADM_core.dll
     ${File} libADM_coreAudio.dll
     ${File} libADM_coreImage.dll
     ${File} libADM_coreUI.dll
     ${File} libaften.dll
-    ${File} libexpat-*.dll
-    ${File} libfontconfig-1.dll
-    ${File} libxml2.dll
+    ${File} libxml2-*.dll
     ${File} ogg.dll
     ${File} pthreadGC2.dll
     ${File} SDL.dll
-    ${File} xmltok.dll
     ${File} AUTHORS.
     ${File} COPYING.
     ${File} README.
@@ -290,8 +285,6 @@ Section "Avidemux Core" SecCore
     ${File} swscale-*.dll
     ${File} libgcc_sjlj_*.dll
     ${File} libstdc++_sjlj_*.dll
-    SetOutPath $INSTDIR\etc\fonts
-    ${Folder} etc\fonts
     SetOutPath $INSTDIR\scripts
     ${Folder} scripts
 SectionEnd
@@ -326,7 +319,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         SetOutPath $INSTDIR
         ${File} avidemux2_gtk.exe
         ${File} gtk2_prefs.exe
-        ${File} jpeg62.dll
+        ${File} intl.dll
         ${File} libADM_render_gtk.dll
         ${File} libADM_UIGtk.dll
         ${File} libatk-1.0-0.dll
@@ -343,7 +336,6 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} libpangocairo-1.0-0.dll
         ${File} libpangowin32-1.0-0.dll
         ${File} libpng12-0.dll
-        ${File} libtiff3.dll
     ${MementoSectionEnd}
 !endif
 
@@ -400,7 +392,7 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioDecoder
 			${File} plugins\audioDecoder\libADM_ad_opencore_amrnb.dll
 			SetOutPath $INSTDIR
-			${File} libopencore-amrnb.dll
+			${File} libopencore-amrnb-*.dll
 		${MementoSectionEnd}
 		${MementoSection} "opencore-amrwb (AMR-WB)" SecAudDecOpencoreAmrWb
 			SectionIn 1 2
@@ -408,7 +400,7 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioDecoder
 			${File} plugins\audioDecoder\libADM_ad_opencore_amrwb.dll
 			SetOutPath $INSTDIR
-			${File} libopencore-amrwb.dll
+			${File} libopencore-amrwb-*.dll
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Devices" SecGrpAudioDevice
@@ -1056,6 +1048,10 @@ End:
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
 				${File} plugins\videoFilter\libADM_vf_ssa.dll
+				SetOutPath $INSTDIR
+				${File} libfontconfig-1.dll
+				SetOutPath $INSTDIR\etc\fonts
+				${Folder} etc\fonts
 			${MementoSectionEnd}
 			${MementoSection} "Subtitler" SecVidFltSubtitler
 				SectionIn 1 2
