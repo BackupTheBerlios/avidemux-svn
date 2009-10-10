@@ -61,7 +61,7 @@ uint8_t alsaAudioDevice::init( uint32_t channel,uint32_t fq )
 
   static char *pcm_name;
 //  if( prefs->get(DEVICE_AUDIO_ALSA_DEVICE, &pcm_name) != RC_OK )
-               pcm_name = ADM_strdup("dmix");
+               pcm_name = ADM_strdup("default");
     printf("[Alsa] Using device :%s\n",pcm_name);
  /* Allocate the snd_pcm_hw_params_t structure on the stack. */
     snd_pcm_hw_params_alloca(&hwparams);
