@@ -437,7 +437,7 @@ uint8_t extractSPSInfo(uint8_t *data, uint32_t len, h264SpsInfo *info)
                  {
                       get_se_golomb(&s);
                  }
-             }else 
+             }else if(pic_order_cnt_type!=2)
              {
                printf("Error in SPS\n");
                return 0;
