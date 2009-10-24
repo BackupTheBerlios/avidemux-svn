@@ -57,6 +57,7 @@ uint8_t scratchPad[SCRATCH_PAD_SIZE];
     // Fills in some values...
     _context->sample_rate = info->frequency;
     _context->channels = info->channels;
+    _channels=info->channels;
     _blockalign=_context->block_align = info->blockalign;
     _context->bit_rate = info->byterate*8;
     switch(fourcc)
@@ -163,6 +164,19 @@ int nbChunk;
           {
             *outptr++=((float)run16[i])/32767.;
           }
+         if(_channels>=5 )
+            {
+            CHANNEL_TYPE *p_ch_type = channelMapping;
+        #define DOIT(x,y) if(_context->channel_layout & CH_##x) *(p_ch_type++)=CHTYP_##y;
+                DOIT(LOW_FREQUENCY,LFE);
+                DOIT(FRONT_LEFT,FRONT_LEFT);
+                DOIT(FRONT_CENTER,FRONT_CENTER);
+                DOIT(FRONT_RIGHT,FRONT_RIGHT);
+                DOIT(SIDE_LEFT,REAR_LEFT);
+                DOIT(SIDE_RIGHT,REAR_RIGHT);
+
+            }
+
         }
         
         

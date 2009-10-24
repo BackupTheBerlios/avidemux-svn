@@ -109,6 +109,7 @@ class ADM_AudiocodecWMA : public     ADM_Audiocodec
 		uint8_t _buffer[ ADMWA_BUF];
 		uint32_t _tail,_head;
 		uint32_t _blockalign;
+                uint32_t _channels;
 
 	public:
 		ADM_AudiocodecWMA(uint32_t fourcc, WAVHeader *info, uint32_t l, uint8_t *d);
