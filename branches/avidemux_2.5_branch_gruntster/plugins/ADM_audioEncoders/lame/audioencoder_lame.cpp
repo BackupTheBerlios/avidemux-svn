@@ -172,11 +172,15 @@ AUDMEncoder_Lame::initialize (void)
     {
     default:
     case ADM_LAME_PRESET_CBR:
+          lame_set_VBR(MYFLAGS, vbr_off);
       break;
     case ADM_LAME_PRESET_ABR:
 
-      lame_set_preset (MYFLAGS, lameConf->bitrate);
+     // lame_set_preset (MYFLAGS, lameConf->bitrate);
       _wavheader->blockalign = BLOCK_SIZE;
+       lame_set_VBR(MYFLAGS, vbr_abr);
+       lame_set_VBR_mean_bitrate_kbps(MYFLAGS, lameConf->bitrate);
+
       break;
     case ADM_LAME_PRESET_EXTREME:
       _wavheader->blockalign = BLOCK_SIZE;
@@ -197,7 +201,7 @@ AUDMEncoder_Lame::initialize (void)
     @return 1 if the stream is vbr, 0 is cbr
 
 */
-uint8_t AUDMEncoder_Lame::isVBR (void)
+bool AUDMEncoder_Lame::isVBR (void)
 {
   if (myLameParam.preset == ADM_LAME_PRESET_CBR)
     return 0;
