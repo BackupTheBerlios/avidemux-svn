@@ -72,6 +72,7 @@ class AUDMEncoder //: public AVDMGenericAudioStream
     virtual uint8_t packetPerFrame( void) {return 1;}
     virtual uint8_t extraData(uint32_t *l,uint8_t **d) {*l=_extraSize;*d=_extraData;return 1;}
             uint8_t  goTo(uint32_t timeMS) {ADM_assert(0);return 1;}
+    virtual bool    isVBR(void) {return false;}
 };
 // Used by some old code (lame/twolame) OBSOLETE   / DO NOT USE
 typedef enum  

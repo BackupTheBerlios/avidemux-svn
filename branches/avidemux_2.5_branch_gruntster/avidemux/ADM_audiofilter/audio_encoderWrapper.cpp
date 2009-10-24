@@ -78,5 +78,13 @@ uint8_t		ADM_audioEncoderWrapper::extraData(uint32_t *l,uint8_t **d)
     return _encoder->extraData(l,d);
 
 }
-
+/**
+    \fn isVBR
+    \brief Trampoline
+*/
+uint8_t  	ADM_audioEncoderWrapper::isVBR(void )
+{
+    ADM_assert(_encoder);
+    return _encoder->isVBR();
+}
 //EOF

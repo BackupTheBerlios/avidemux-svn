@@ -20,6 +20,7 @@ public:
         virtual uint8_t		goTo(uint32_t offset) {ADM_assert(0);return 0;} // Not supposed to seek..
         virtual uint32_t	read(uint32_t size,uint8_t *ptr);
         virtual uint8_t		extraData(uint32_t *l,uint8_t **d);
+        virtual uint8_t  	isVBR(void ) ;
 };
 
 #endif
