@@ -330,12 +330,20 @@ void x264Options::setBFrameBias(int bFrameBias)
 
 bool x264Options::getBFrameReferences(void)
 {
+#if X264_BUILD >= 78
+	return _param.i_bframe_pyramid;
+#else
 	return _param.b_bframe_pyramid;
+#endif
 }
 
 void x264Options::setBFrameReferences(bool bFrameReferences)
 {
+#if X264_BUILD >= 78
+	_param.i_bframe_pyramid = bFrameReferences;
+#else
 	_param.b_bframe_pyramid = bFrameReferences;
+#endif
 }
 
 bool x264Options::getLoopFilter(void)
