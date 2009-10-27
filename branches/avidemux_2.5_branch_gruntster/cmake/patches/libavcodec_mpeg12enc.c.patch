@@ -1,5 +1,5 @@
-*** libavcodec/mpeg12enc.c.old	Thu Aug 27 21:16:08 2009
---- libavcodec/mpeg12enc.c	Thu Aug 27 21:16:09 2009
+*** libavcodec/mpeg12enc.c.old	Sun Oct 18 17:15:07 2009
+--- libavcodec/mpeg12enc.c	Sun Oct 18 17:15:07 2009
 ***************
 *** 127,136 ****
 --- 127,145 ----
@@ -128,8 +128,8 @@
                   put_bits(&s->pb, 2, s->width >>12);
                   put_bits(&s->pb, 2, s->height>>12);
 ***************
-*** 334,339 ****
---- 377,384 ----
+*** 339,344 ****
+--- 382,389 ----
   
   void mpeg1_encode_picture_header(MpegEncContext *s, int picture_number)
   {
@@ -139,8 +139,8 @@
   
       /* mpeg1 picture header */
 ***************
-*** 370,375 ****
---- 415,463 ----
+*** 375,380 ****
+--- 420,468 ----
   
       s->frame_pred_frame_dct = 1;
       if(s->codec_id == CODEC_ID_MPEG2VIDEO){
@@ -191,8 +191,8 @@
           put_bits(&s->pb, 4, 8); //pic ext
           if (s->pict_type == FF_P_TYPE || s->pict_type == FF_B_TYPE) {
 ***************
-*** 388,398 ****
---- 476,491 ----
+*** 393,403 ****
+--- 481,496 ----
   
           assert(s->picture_structure == PICT_FRAME);
           put_bits(&s->pb, 2, s->picture_structure);
@@ -210,7 +210,7 @@
              measures */
           s->frame_pred_frame_dct = s->progressive_sequence;
 ***************
-*** 402,408 ****
+*** 407,413 ****
           put_bits(&s->pb, 1, s->q_scale_type);
           put_bits(&s->pb, 1, s->intra_vlc_format);
           put_bits(&s->pb, 1, s->alternate_scan);
@@ -218,7 +218,7 @@
           s->progressive_frame = s->progressive_sequence;
           put_bits(&s->pb, 1, s->chroma_format == CHROMA_420 ? s->progressive_frame : 0); /* chroma_420_type */
           put_bits(&s->pb, 1, s->progressive_frame);
---- 495,504 ----
+--- 500,509 ----
           put_bits(&s->pb, 1, s->q_scale_type);
           put_bits(&s->pb, 1, s->intra_vlc_format);
           put_bits(&s->pb, 1, s->alternate_scan);

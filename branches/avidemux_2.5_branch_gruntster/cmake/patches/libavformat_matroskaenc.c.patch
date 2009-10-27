@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Sat Jun 27 18:45:28 2009
---- libavformat/matroskaenc.c	Sat Jun 27 18:45:28 2009
+*** libavformat/matroskaenc.c.old	Sun Oct 18 17:15:09 2009
+--- libavformat/matroskaenc.c	Sun Oct 18 17:15:10 2009
 ***************
 *** 395,400 ****
 --- 395,401 ----
@@ -68,8 +68,8 @@
           if ((tag = av_metadata_get(st->metadata, "description", NULL, 0)))
               put_ebml_string(pb, MATROSKA_ID_TRACKNAME, tag->value);
 ***************
-*** 907,909 ****
---- 947,959 ----
+*** 954,956 ****
+--- 994,1006 ----
       .flags = AVFMT_GLOBALHEADER,
       .codec_tag = (const AVCodecTag* const []){ff_codec_wav_tags, 0},
   };
