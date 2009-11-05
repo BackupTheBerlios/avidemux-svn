@@ -33,7 +33,7 @@ typedef enum
 }VF_CATEGORY;
 #define VF_INVALID 		  0
 
-#define VF_PARTIAL_FILTER 9
+#define VF_PARTIAL_FILTER  filterGetTagFromName( "partial" )
 #define VF_START_TAG 	  10
 
 typedef uint32_t VF_FILTERS ;
