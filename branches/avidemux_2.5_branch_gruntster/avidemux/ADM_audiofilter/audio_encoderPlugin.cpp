@@ -343,8 +343,9 @@ const char  *audioEncoderGetDisplayName(uint32_t i)
 AUDMEncoder *audioEncoderCreate(AUDMAudioFilter *filter)
 {
       ADM_assert(currentEncoder<ListOfAudioEncoder.size());
-      static ADM_audioEncoder *enc=ListOfAudioEncoder[currentEncoder];
-     return enc->create(filter);
+      printf("[**] Current encoder : %d :%s\n",currentEncoder,ListOfAudioEncoder[currentEncoder]->menuName);
+      ADM_audioEncoder *enc=ListOfAudioEncoder[currentEncoder];
+      return enc->create(filter);
 }
 /**
         \fn getAudioExtraConf
