@@ -285,25 +285,30 @@ AVDMGenericAudioStream *buildAudioFilter(AVDMGenericAudioStream *currentaudiostr
     printf(" buildInternalAudioFilter failed\n");
     return 0;
   }
+  
   if(lastFilter->getInfo()->channels > audioFilter_getMaxChannels())
   {
     GUI_Error_HIG(QT_TR_NOOP("Codec Error"),QT_TR_NOOP("The number of channels is greater than what the selected audio codec can do.\n"
         "Either change codec or use the mixer filter to have less channels."));
     deleteAudioFilter(NULL);
-    return 0; 
+    return NULL; 
   }
-
+  
   tmpfilter=audioEncoderCreate(lastFilter);
   if(!tmpfilter || !tmpfilter->initialize())
   {
+    
     if(tmpfilter) delete tmpfilter;
     tmpfilter=NULL;
-    GUI_Error_HIG(QT_TR_NOOP("[BuildChain] Encoder initialization failed"), QT_TR_NOOP("Not activated."));
+    GUI_Error_HIG(QT_TR_NOOP("[BuildChain] Encoder initialization failed"), QT_TR_NOOP("Not activated, make sure number of channels and bitrate are compatible with encoder!"));
+    return NULL;
   }
+  
   ADM_audioEncoderWrapper *wrapper=new ADM_audioEncoderWrapper(tmpfilter);
   output=wrapper;
   currentaudiostream->beginDecompress();
   ADM_assert(output);
+  
   return output;
 }
 
