@@ -53,6 +53,11 @@ vidHeader::vidHeader (void)
   _name = NULL;
   _videoExtraData = NULL;
   _videoExtraLen = 0;
+// Clear headers
+#define ADM_BZERO(x) memset(&x,0,sizeof(x));
+    ADM_BZERO(_mainaviheader);
+    ADM_BZERO(_audiostream);
+    ADM_BZERO(_videostream);
 }
 uint32_t             vidHeader::ptsDtsDelta(uint32_t framenum)
 {

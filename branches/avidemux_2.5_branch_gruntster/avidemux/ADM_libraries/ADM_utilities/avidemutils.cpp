@@ -293,6 +293,7 @@ void printBih(ADM_BITMAPINFOHEADER *bi)
         X_DUMP( biXPelsPerMeter);
         X_DUMP( biYPelsPerMeter);
         X_DUMP( biClrUsed);
+        X_DUMP( biClrImportant);
 }
 
 void printWavHeader(WAVHeader *hdr)
