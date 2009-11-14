@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 #include <math.h>
+#include <locale.h>
 #include <libxml/parser.h>
 #include <libxml/xmlschemas.h>
 
@@ -1350,6 +1351,8 @@ int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
 
 void x264Options::parseOptions(xmlNode *node)
 {
+    char *curLocale = setlocale(LC_NUMERIC, "C");
+
 	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
 	{
 		if (xmlChild->type == XML_ELEMENT_NODE)
@@ -1461,6 +1464,8 @@ void x264Options::parseOptions(xmlNode *node)
 			xmlFree(content);
 		}
 	}
+
+    setlocale(LC_NUMERIC, curLocale);
 }
 
 void x264Options::parseVuiOptions(xmlNode *node)
@@ -1800,7 +1805,7 @@ void x264Options::parseZoneOptions(xmlNode *zoneNode)
 		else if (strcmp((char*)xmlChild->name, "quantiser") == 0)
 			option.setQuantiser(atoi(content));
 		else if (strcmp((char*)xmlChild->name, "bitrateFactor") == 0)
-			option.setBitrateFactor((int)floor(atoi(content) * 100 + .5));
+			option.setBitrateFactor((int)floor(atof(content) * 100 + .5));
 
 		xmlFree(content);
 	}
