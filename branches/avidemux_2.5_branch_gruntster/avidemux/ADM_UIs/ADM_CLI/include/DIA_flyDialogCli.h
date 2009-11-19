@@ -24,7 +24,7 @@ public:
                               void *canvas, void *slider, int yuv, ResizeMethod resizeMethod):
                                 ADM_flyDialog(width,height,in,canvas,slider,yuv,resizeMethod) {};
 
-  virtual uint8_t  cleanup2(void);
+  //virtual uint8_t  cleanup2(void);
   virtual uint8_t  isRgbInverted(void);
   virtual uint8_t  display(void);
   virtual float   calcZoomFactor(void);

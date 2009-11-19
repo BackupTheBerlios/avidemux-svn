@@ -1,12 +1,9 @@
 INCLUDE(vf_plugin)
 
-SET(avisynthResizeCommon_SRCS 
-	ADM_resizebis.cpp  ADM_resizeter.cpp  ADM_vidResize.cpp
-)
-
+SET(avisynthResizeCommon_SRCS ADM_resizebis.cpp  ADM_resizeter.cpp  ADM_vidResize.cpp)
 
 SET(resizeCommonGtk_SRCS gtk/gtk_resize.cpp)
-
+SET(resizeCLI_SRCS cli/cli_resize.cpp)
 SET(resizeQt_SRCS qt4/Q_resize.cpp)
 SET(resizeQt_Headers qt4/Q_resize.h)
 SET(resizeQt_UI qt4/resizing)
@@ -18,3 +15,8 @@ INIT_VIDEOFILTER_PLUGIN_QT4(ADM_vf_avisynthResize_qt4
                 ${resizeQt_SRCS} ${resizeQt_Headers} ${resizeQt_UI} ${avisynthResizeCommon_SRCS})
 INIT_VIDEOFILTER_PLUGIN_GTK(ADM_vf_avisynthResize_gtk 
                 ${resizeCommonGtk_SRCS} ${avisynthResizeCommon_SRCS})
+#CLI
+INCLUDE (vf_plugin_cli)
+INIT_VIDEOFILTER_PLUGIN_CLI(ADM_vf_resize_cli ${avisynthResizeCommon_SRCS}  ${resizeCLI_SRCS})
+INSTALL_VIDEOFILTER(ADM_vf_resize_cli)
+#CLI
