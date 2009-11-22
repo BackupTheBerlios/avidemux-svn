@@ -13,7 +13,6 @@
  ***************************************************************************/
 #include <math.h>
 
-#include "ADM_toolkitGtk.h"
 #include "ADM_default.h"
 #define aprintf(...) {}
 
