@@ -1351,8 +1351,6 @@ int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
 
 void x264Options::parseOptions(xmlNode *node)
 {
-    char *curLocale = setlocale(LC_NUMERIC, "C");
-
 	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
 	{
 		if (xmlChild->type == XML_ELEMENT_NODE)
@@ -1464,8 +1462,6 @@ void x264Options::parseOptions(xmlNode *node)
 			xmlFree(content);
 		}
 	}
-
-    setlocale(LC_NUMERIC, curLocale);
 }
 
 void x264Options::parseVuiOptions(xmlNode *node)
@@ -1748,17 +1744,17 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "quantiserStep") == 0)
 				setQuantiserStep(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "averageBitrateTolerance") == 0)
-				setAverageBitrateTolerance(atof(content));
+				setAverageBitrateTolerance(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "vbvMaximumBitrate") == 0)
 				setVbvMaximumBitrate(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "vbvBufferSize") == 0)
 				setVbvBufferSize(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "vbvInitialOccupancy") == 0)
-				setVbvInitialOccupancy(atof(content));
+				setVbvInitialOccupancy(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "ipFrameQuantiser") == 0)
-				setIpFrameQuantiser(atof(content));
+				setIpFrameQuantiser(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "pbFrameQuantiser") == 0)
-				setPbFrameQuantiser(atof(content));
+				setPbFrameQuantiser(string2Float(content));
 #if X264_BUILD >= 62
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserMode") == 0)
 			{
@@ -1772,14 +1768,14 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 				setAdaptiveQuantiserMode(adaptiveQuantiserMode);
 			}
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserStrength") == 0)
-				setAdaptiveQuantiserStrength(atof(content));
+				setAdaptiveQuantiserStrength(string2Float(content));
 #endif
 			else if (strcmp((char*)xmlChild->name, "quantiserCurveCompression") == 0)
-				setQuantiserCurveCompression(atof(content));
+				setQuantiserCurveCompression(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "reduceFluxBeforeCurveCompression") == 0)
-				setReduceFluxBeforeCurveCompression(atof(content));
+				setReduceFluxBeforeCurveCompression(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "reduceFluxAfterCurveCompression") == 0)
-				setReduceFluxAfterCurveCompression(atof(content));
+				setReduceFluxAfterCurveCompression(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "zone") == 0)
 				parseZoneOptions(xmlChild);
 			else
@@ -1805,7 +1801,7 @@ void x264Options::parseZoneOptions(xmlNode *zoneNode)
 		else if (strcmp((char*)xmlChild->name, "quantiser") == 0)
 			option.setQuantiser(atoi(content));
 		else if (strcmp((char*)xmlChild->name, "bitrateFactor") == 0)
-			option.setBitrateFactor((int)floor(atof(content) * 100 + .5));
+			option.setBitrateFactor((int)floor(string2Float(content) * 100 + .5));
 
 		xmlFree(content);
 	}

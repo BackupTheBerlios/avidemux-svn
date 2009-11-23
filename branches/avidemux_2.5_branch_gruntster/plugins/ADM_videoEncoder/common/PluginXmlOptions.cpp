@@ -70,9 +70,19 @@ xmlChar* PluginXmlOptions::boolean2String(xmlChar *buffer, size_t size, bool boo
 	return buffer;
 }
 
-bool PluginXmlOptions::string2Boolean(char *buffer)
+bool PluginXmlOptions::string2Boolean(const char *buffer)
 {
 	return (strcmp(buffer, "true") == 0);
+}
+
+float PluginXmlOptions::string2Float(const char *buffer)
+{
+	std::istringstream stream(buffer);
+	float value;
+
+	stream >> value;
+
+	return value;
 }
 
 char* PluginXmlOptions::dumpXmlDocToMemory(xmlDocPtr xmlDoc)

@@ -31,7 +31,9 @@ protected:
 	xmlChar* number2String(xmlChar *buffer, size_t size, unsigned int number);
 	xmlChar* number2String(xmlChar *buffer, size_t size, float number);
 	xmlChar* boolean2String(xmlChar *buffer, size_t size, bool boolean);
-	bool string2Boolean(char *buffer);
+	
+	bool string2Boolean(const char *buffer);
+	float string2Float(const char *buffer);
 
 	virtual char* dumpXmlDocToMemory(xmlDocPtr xmlDoc);
 	virtual bool validateXml(xmlDocPtr doc, const char* schemaFile);
