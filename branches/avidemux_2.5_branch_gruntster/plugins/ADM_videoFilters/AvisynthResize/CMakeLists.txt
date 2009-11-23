@@ -17,6 +17,6 @@ INIT_VIDEOFILTER_PLUGIN_GTK(ADM_vf_avisynthResize_gtk
                 ${resizeCommonGtk_SRCS} ${avisynthResizeCommon_SRCS})
 #CLI
 INCLUDE (vf_plugin_cli)
-INIT_VIDEOFILTER_PLUGIN_CLI(ADM_vf_resize_cli ${avisynthResizeCommon_SRCS}  ${resizeCLI_SRCS})
-INSTALL_VIDEOFILTER(ADM_vf_resize_cli)
+INIT_VIDEOFILTER_PLUGIN_CLI(ADM_vf_avisynthResize_cli ${avisynthResizeCommon_SRCS}  ${resizeCLI_SRCS})
+INSTALL_VIDEOFILTER(ADM_vf_avisynthResize_cli)
 #CLI
