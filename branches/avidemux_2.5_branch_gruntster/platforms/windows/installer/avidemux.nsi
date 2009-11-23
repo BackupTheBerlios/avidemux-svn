@@ -542,7 +542,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_avisynthResize_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -566,7 +569,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_crop_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -590,7 +596,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_mplayerResize_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -792,7 +801,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_colorYUV_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -816,7 +828,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_chromashift_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -854,7 +869,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_contrast_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -878,7 +896,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_equalizer_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -902,7 +923,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_eq2_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -920,7 +944,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_Hue_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -946,7 +973,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_cnr2_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -1020,7 +1050,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_asharp_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -1068,7 +1101,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_sub_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
@@ -1094,7 +1130,10 @@ End:
 				SectionIn 1 2
 				SetOverwrite on
 				SetOutPath $INSTDIR\plugins\videoFilter
+				!insertmacro SectionFlagIsSet ${SecUiCli} ${SF_SELECTED} InstallCli CheckGtk
+InstallCli:
 				${File} plugins\videoFilter\libADM_vf_mpdelogo_cli.dll
+CheckGtk:
 !ifdef INST_GTK
 				!insertmacro SectionFlagIsSet ${SecUiGtk} ${SF_SELECTED} InstallGtk CheckQt
 InstallGtk:
