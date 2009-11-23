@@ -116,6 +116,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.bFrameMotionEstCheckBox->setVisible(false);
 #endif
 
+#if X264_BUILD < 64
+	ui.lblPsychoRDO->setVisible(false);
+	ui.psychoRdoSpinBox->setVisible(false);
+#endif
+
 	// Quantiser tab
 #if X264_BUILD < 59
 	ui.aqGroupBox->setEnabled(false);
@@ -719,6 +724,11 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	ui.fastPSkipCheckBox->setChecked(options->getFastPSkip());
 	ui.dctDecimateCheckBox->setChecked(options->getDctDecimate());
+
+#if X264_BUILD >= 64
+	ui.psychoRdoSpinBox->setValue(options->getPsychoRdo());
+#endif
+
 	ui.noiseReductionSpinBox->setValue(options->getNoiseReduction());
 	ui.interLumaSpinBox->setValue(options->getInterLumaDeadzone());
 	ui.intraLumaSpinBox->setValue(options->getIntraLumaDeadzone());
@@ -926,6 +936,11 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	options->setFastPSkip(ui.fastPSkipCheckBox->isChecked());
 	options->setDctDecimate(ui.dctDecimateCheckBox->isChecked());
+
+#if X264_BUILD >= 64
+	options->setPsychoRdo(ui.psychoRdoSpinBox->value());
+#endif
+
 	options->setNoiseReduction(ui.noiseReductionSpinBox->value());
 	options->setInterLumaDeadzone(ui.interLumaSpinBox->value());
 	options->setIntraLumaDeadzone(ui.intraLumaSpinBox->value());

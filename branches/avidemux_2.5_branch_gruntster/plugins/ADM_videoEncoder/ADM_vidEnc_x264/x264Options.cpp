@@ -719,6 +719,19 @@ void x264Options::setDctDecimate(bool dctDecimate)
 	_param.analyse.b_dct_decimate = dctDecimate;
 }
 
+#if X264_BUILD >= 64
+float x264Options::getPsychoRdo(void)
+{
+	return _param.analyse.f_psy_rd;
+}
+
+void x264Options::setPsychoRdo(float psychoRdo)
+{
+	if (psychoRdo >= 0 && psychoRdo <= 10)
+		_param.analyse.f_psy_rd = psychoRdo;
+}
+#endif
+
 unsigned int x264Options::getNoiseReduction(void)
 {
 	return _param.analyse.i_noise_reduction;
@@ -1280,6 +1293,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"trellis", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"fastPSkip", boolean2String(xmlBuffer, bufferSize, getFastPSkip()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"dctDecimate", boolean2String(xmlBuffer, bufferSize, getDctDecimate()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"psychoRdo", number2String(xmlBuffer, bufferSize, getPsychoRdo()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"noiseReduction", number2String(xmlBuffer, bufferSize, getNoiseReduction()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"interLumaDeadzone", number2String(xmlBuffer, bufferSize, getInterLumaDeadzone()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"intraLumaDeadzone", number2String(xmlBuffer, bufferSize, getIntraLumaDeadzone()));
@@ -1717,6 +1731,8 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setFastPSkip(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "dctDecimate") == 0)
 				setDctDecimate(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "psychoRdo") == 0)
+				setPsychoRdo(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "noiseReduction") == 0)
 				setNoiseReduction(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "interLumaDeadzone") == 0)

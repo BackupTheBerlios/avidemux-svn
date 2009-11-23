@@ -361,6 +361,14 @@
                     </xs:element>
                     <xs:element name="fastPSkip" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="dctDecimate" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="psychoRdo" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:float">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="10"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
                     <xs:element name="noiseReduction" minOccurs="0">
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">

@@ -234,6 +234,11 @@ public:
 	bool getDctDecimate(void);
 	void setDctDecimate(bool dctDecimate);
 
+#if X264_BUILD >= 64
+	float getPsychoRdo(void);
+	void setPsychoRdo(float psychoRdo);
+#endif
+
 	unsigned int getNoiseReduction(void);
 	void setNoiseReduction(unsigned int noiseReduction);
 
