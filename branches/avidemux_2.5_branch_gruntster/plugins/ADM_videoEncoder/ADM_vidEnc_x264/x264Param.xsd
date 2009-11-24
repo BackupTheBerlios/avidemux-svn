@@ -480,6 +480,7 @@
                       </xs:simpleType>
                     </xs:element>
                     <xs:element name="adaptiveQuantiserStrength" type="xs:float" minOccurs="0"/>
+                    <xs:element name="mbTree" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="quantiserCurveCompression" minOccurs="0">
                       <xs:simpleType>
                         <xs:restriction base="xs:float">

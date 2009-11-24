@@ -289,6 +289,11 @@ public:
 	void setAdaptiveQuantiserStrength(float adaptiveQuantiserStrength);
 #endif
 
+#if X264_BUILD >= 69
+	bool getMbTree(void);
+	void setMbTree(bool mbTree);
+#endif
+
 	float getQuantiserCurveCompression(void);
 	void setQuantiserCurveCompression(float quantiserCurveCompression);
 

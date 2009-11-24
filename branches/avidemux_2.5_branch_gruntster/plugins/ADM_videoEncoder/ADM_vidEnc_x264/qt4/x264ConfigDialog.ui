@@ -477,6 +477,13 @@
             </item>
            </layout>
           </item>
+          <item>
+           <widget class="QCheckBox" name="mbTreeCheckBox" >
+            <property name="text" >
+             <string>Macroblock-Tree Rate Control</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -4182,6 +4189,7 @@
   <tabstop>targetRateControlSpinBox</tabstop>
   <tabstop>quantiserSlider</tabstop>
   <tabstop>quantiserSpinBox</tabstop>
+  <tabstop>mbTreeCheckBox</tabstop>
   <tabstop>sarCustomRadioButton</tabstop>
   <tabstop>sarCustomSpinBox1</tabstop>
   <tabstop>sarCustomSpinBox2</tabstop>

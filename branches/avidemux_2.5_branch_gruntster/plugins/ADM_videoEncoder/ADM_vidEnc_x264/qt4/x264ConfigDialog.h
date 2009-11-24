@@ -72,6 +72,9 @@ private slots:
 	void quantiserSlider_valueChanged(int value);
 	void quantiserSpinBox_valueChanged(int value);
 	void targetRateControlSpinBox_valueChanged(int value);
+#if X264_BUILD >= 69
+	void mbTreeCheckBox_toggled(bool checked);
+#endif
 
 	// Motion Estimation tab
 	void meSlider_valueChanged(int value);
@@ -86,6 +89,11 @@ private slots:
 	// Analysis tab
 	void trellisCheckBox_toggled(bool checked);
 	void matrixCustomEditButton_pressed();
+
+	// Quantiser tab
+#if X264_BUILD >= 69
+	void aqVarianceCheckBox_toggled(bool checked);
+#endif
 
 	// Advanced Rate Control tab
 	void zoneAddButton_pressed();

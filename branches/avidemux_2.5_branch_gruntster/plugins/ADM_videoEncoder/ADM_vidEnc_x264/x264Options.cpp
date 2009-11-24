@@ -887,6 +887,18 @@ void x264Options::setAdaptiveQuantiserStrength(float adaptiveQuantiserStrength)
 }
 #endif
 
+#if X264_BUILD >= 69
+bool x264Options::getMbTree(void)
+{
+	return _param.rc.b_mb_tree;
+}
+
+void x264Options::setMbTree(bool mbTree)
+{
+	_param.rc.b_mb_tree = mbTree;
+}
+#endif
+
 float x264Options::getQuantiserCurveCompression(void)
 {
 	return _param.rc.f_qcompress;
@@ -1323,6 +1335,11 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserMode", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserStrength", number2String(xmlBuffer, bufferSize, getAdaptiveQuantiserStrength()));
 #endif
+
+#if X264_BUILD >= 69
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mbTree", boolean2String(xmlBuffer, bufferSize, getMbTree()));
+#endif
+
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserCurveCompression", number2String(xmlBuffer, bufferSize, getQuantiserCurveCompression()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reduceFluxBeforeCurveCompression", number2String(xmlBuffer, bufferSize, getReduceFluxBeforeCurveCompression()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reduceFluxAfterCurveCompression", number2String(xmlBuffer, bufferSize, getReduceFluxAfterCurveCompression()));
@@ -1785,6 +1802,10 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 			}
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserStrength") == 0)
 				setAdaptiveQuantiserStrength(string2Float(content));
+#endif
+#if X264_BUILD >= 69
+			else if (strcmp((char*)xmlChild->name, "mbTree") == 0)
+				setMbTree(string2Boolean(content));
 #endif
 			else if (strcmp((char*)xmlChild->name, "quantiserCurveCompression") == 0)
 				setQuantiserCurveCompression(string2Float(content));

@@ -70,6 +70,12 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.quantiserSpinBox, SIGNAL(valueChanged(int)), this, SLOT(quantiserSpinBox_valueChanged(int)));
 	connect(ui.targetRateControlSpinBox, SIGNAL(valueChanged(int)), this, SLOT(targetRateControlSpinBox_valueChanged(int)));
 
+#if X264_BUILD >= 69
+	connect(ui.mbTreeCheckBox, SIGNAL(toggled(bool)), this, SLOT(mbTreeCheckBox_toggled(bool)));
+#else
+	ui.mbTreeCheckBox->setVisible(false);
+#endif
+
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
 
 	// Motion Estimation tab
@@ -80,7 +86,7 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 
 #if X264_BUILD >= 57
 	ui.meMethodComboBox->addItem(QT_TR_NOOP("Hadamard Exhaustive Search"));
-#endif	// X264_BUILD >= 57
+#endif
 
 #if X264_BUILD >= 65
 	ui.rdoCheckBox->setVisible(false);
@@ -124,6 +130,9 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	// Quantiser tab
 #if X264_BUILD < 59
 	ui.aqGroupBox->setEnabled(false);
+#endif
+#if X264_BUILD >= 69
+	connect(ui.aqVarianceCheckBox, SIGNAL(toggled(bool)), this, SLOT(aqVarianceCheckBox_toggled(bool)));
 #endif
 
 	// Advanced tab
@@ -427,6 +436,17 @@ void x264ConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 		lastBitrate = value;
 }
 
+#if X264_BUILD >= 69
+void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
+{
+	if (!disableGenericSlots && checked && !ui.aqVarianceCheckBox->isChecked())
+		if (GUI_Question(QT_TR_NOOP("Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.\n\nDo you wish to continue?")))
+			ui.aqVarianceCheckBox->setChecked(true);
+		else
+			ui.mbTreeCheckBox->setChecked(false);
+}
+#endif
+
 // Motion Estimation tab
 void x264ConfigDialog::meSlider_valueChanged(int value)
 {
@@ -482,7 +502,7 @@ void x264ConfigDialog::cabacCheckBox_toggled(bool checked)
 // Analysis tab
 void x264ConfigDialog::trellisCheckBox_toggled(bool checked)
 {
-	if (disableGenericSlots && checked && !ui.cabacCheckBox->isChecked())
+	if (!disableGenericSlots && checked && !ui.cabacCheckBox->isChecked())
 		if (GUI_Question(QT_TR_NOOP("Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.\n\nDo you wish to continue?")))
 			ui.cabacCheckBox->setChecked(true);
 		else
@@ -500,6 +520,19 @@ void x264ConfigDialog::matrixCustomEditButton_pressed()
 	}
 }
 
+// Quantiser tab
+#if X264_BUILD >= 69
+void x264ConfigDialog::aqVarianceCheckBox_toggled(bool checked)
+{
+	if (!disableGenericSlots && !checked && ui.mbTreeCheckBox->isChecked())
+		if (GUI_Question(QT_TR_NOOP("Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.\n\nDo you wish to continue?")))
+			ui.mbTreeCheckBox->setChecked(false);
+		else
+			ui.aqVarianceCheckBox->setChecked(true);
+}
+#endif
+
+// Advanced tab
 void x264ConfigDialog::zoneAddButton_pressed()
 {
 	zoneTableModel.insertRows(0, 1, QModelIndex());
@@ -607,6 +640,10 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 			ui.targetRateControlSpinBox->setValue(encodeOptions->encodeModeParameter);
 			break;
 	}
+
+#if X264_BUILD >= 69
+	ui.mbTreeCheckBox->setChecked(options->getMbTree());
+#endif
 
 	if (options->getSarAsInput())
 		ui.sarAsInputRadioButton->setChecked(true);
@@ -843,6 +880,11 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	PluginConfigType configurationType = (PluginConfigType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
 
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
+
+#if X264_BUILD >= 69
+	options->setMbTree(ui.mbTreeCheckBox->isChecked());
+#endif
+
 	options->setSarAsInput(ui.sarAsInputRadioButton->isChecked());
 
 	if (ui.sarCustomRadioButton->isChecked())
