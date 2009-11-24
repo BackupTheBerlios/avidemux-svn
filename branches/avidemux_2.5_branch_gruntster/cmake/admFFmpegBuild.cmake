@@ -12,7 +12,7 @@ set(FFMPEG_DECODERS  adpcm_ima_amv  amv  bmp  cinepak  dca  dnxhd  dvbsub  dvvid
 					 nellymoser  png  qdm2  rawvideo rv10  rv20  snow  svq1  svq3  tscc  vc1  vcr1  vp3  vp5  vp6  vp6a  vp6f  wmav2  wmv1  wmv2  wmv3)
 set(FFMPEG_ENCODERS  ac3  dvbsub  dvvideo  ffv1  ffvhuff  flv  flv1  h263  h263p  huffyuv  mjpeg  mpeg1video  mpeg2video  mp2  mpeg4  msmpeg4v3  snow)
 set(FFMPEG_MUXERS  flv  ipod  matroska  mov  mp4  psp  tg2  tgp)
-set(FFMPEG_PARSERS  h263  h264  mpeg4video)
+set(FFMPEG_PARSERS  h263  h264  mpeg4video ac3)
 set(FFMPEG_PROTOCOLS  file)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-filters --disable-protocols --disable-indevs --disable-outdevs --disable-bsfs
 				  --disable-parsers --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --enable-postproc --enable-gpl 
