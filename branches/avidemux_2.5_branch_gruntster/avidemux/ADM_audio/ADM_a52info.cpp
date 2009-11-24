@@ -15,14 +15,6 @@
 #include "ADM_default.h"
 #include "ADM_assert.h"
 #include "ADM_audio/ADM_a52info.h"
-extern "C"
-{
-#define ADM_NO_CONFIG_H
-#define sign_extend
-#include "libavcodec/internal.h"
-#include "libavcodec/ac3_parser.h"
-
-};
 
 #define A52_CHANNEL 0
 #define A52_MONO 1
@@ -98,50 +90,6 @@ uint8_t ADM_AC3GetInfo(uint8_t *buf, uint32_t len, uint32_t *fq, uint32_t *br, u
 uint32_t l;
 int ibr,ifq,flags;
 uint32_t of=0;
-
-	*syncoff=of=0;
- //    	printf("\n Syncing on %d \n",len);
-	// Search for startcode
-	// 0x0b 0x77
-	while(1)
-	{
-		 if(len<7)
-		 {
-		 	printf("Not enough info to find a52 syncword\n");
-		 	return 0;
-		 }
-		 if( *buf!=0x0b || *(buf+1)!=0x77)
-		 {
-		 	len--;
-			buf++;
-			of++;
-			continue;
-		 }
-            AC3HeaderInfo hdr;
-            GetBitContext gb;
-            init_get_bits(&gb,buf,len*8);
-            if(ff_ac3_parse_header(&gb, &hdr))
-            {
-                len--;
-                buf++;
-                of++;
-                printf("Sync failed..continuing\n");
-                continue;
-            }
-//            printf("Sync found at offset %"LU"\n",of);
-            *syncoff=of;
-            *fq=(uint32_t)hdr.sample_rate;
-            *br=(uint32_t)hdr.bit_rate>>3;
-            *chan=hdr.channels;
-            //info->frameSizeInBytes=hdr.frame_size;
-            //info->samples=265*6; // ??
-            return 1;
-		}
-		return 1;
-#if 0
-uint32_t l;
-int ibr,ifq,flags;
-uint32_t of=0;
 		
 	*syncoff=of=0;
      	printf("\n Syncing on %d \n",len);
@@ -202,5 +150,4 @@ uint32_t of=0;
 		return 1;
 	}
 	return 0;
-#endif
 }
