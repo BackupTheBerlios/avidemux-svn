@@ -93,7 +93,7 @@ uint8_t   asfAudio::goTo(uint32_t newoffset)
 {
   // Look into the index until we find the audio
   // just after the wanted value
-  for(int i=0;i<_father->nbImage;i++)
+  for(int i=0;i<_father->_index.size();i++)
   {
     if(!_father->_index[i].audioSeen[_myRank]) continue;
     if(_father->_index[i].audioSeen[_myRank]>=newoffset)

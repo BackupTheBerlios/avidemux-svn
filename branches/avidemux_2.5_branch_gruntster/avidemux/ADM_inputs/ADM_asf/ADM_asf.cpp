@@ -83,11 +83,6 @@ uint8_t asfHeader::close(void)
     delete [] _extraData;
     _extraData=NULL; 
   }
-  if(_index)
-  {
-    delete [] _index; 
-  }
-  _index=NULL;
   if(_packet)
     delete _packet;
   _packet=NULL;
@@ -118,8 +113,6 @@ uint8_t       asfHeader::getExtraHeaderData(uint32_t *len, uint8_t **data)
   _extraData=NULL;
   _packetSize=0;
   _videoStreamId=0;
-  nbImage=0;
-  _index=NULL;
   _packet=NULL;
   _curAudio=NULL;
   _nbPackets=0;
@@ -175,7 +168,7 @@ uint8_t asfHeader::open(const char *name)
 
   uint8_t  asfHeader::setFlag(uint32_t frame,uint32_t flags)
 {
-  ADM_assert(frame<nbImage);
+  ADM_assert(frame<_index.size());
   _index[frame].flags=flags;
   return 1; 
 }
@@ -185,7 +178,7 @@ uint8_t asfHeader::open(const char *name)
 
 uint32_t asfHeader::getFlags(uint32_t frame,uint32_t *flags)
 {
-  if(frame>=nbImage) return 0;
+  if(frame>=_index.size()) return 0;
   if(!frame) *flags=AVI_KEY_FRAME;
   else 
       *flags=_index[frame].flags;
@@ -199,9 +192,9 @@ uint8_t  asfHeader::getFrameNoAlloc(uint32_t framenum,ADMCompressedImage *img)
 {
   img->dataLength=0;
   img->flags=AVI_KEY_FRAME;
-  if(framenum>=nbImage)
+  if(framenum>=_index.size())
   {
-    printf("[ASF] Going out of bound %u %u\n",framenum, nbImage);
+    printf("[ASF] Going out of bound %u %u\n",framenum, _index.size());
     return 0;
   }
   if(!_index[framenum].frameLen)
@@ -652,33 +645,32 @@ uint8_t asfHeader::buildIndex(void)
   uint32_t sequence=1;
   uint32_t ceilImage=MAXIMAGE;
 
-  nbImage=0;
+  
   asfIndex *tmpIndex=new asfIndex[ceilImage];
   memset(tmpIndex,0,sizeof(asfIndex)*ceilImage);
   len=0;
-  tmpIndex[0].segNb=1;
+  asfIndex currentIndex;
+  memset(&currentIndex,0,sizeof(currentIndex));
+  currentIndex.segNb=1;
+  bool first=true;
   while(packet<_nbPackets)
   {
     while(!readQueue.isEmpty())
     {
       asfBit *bit=NULL;
       ADM_assert(readQueue.pop((void**)&bit));
-      if(nbImage>=ceilImage-1)
-      {  // Expand if our first guess was too small
-           uint32_t newceil=ceilImage*2;
-           asfIndex *tmptmpIndex=new asfIndex[newceil];
-           memset(tmptmpIndex,0,sizeof(asfIndex)*newceil);
-           memcpy(tmptmpIndex,tmpIndex,sizeof(asfIndex)*ceilImage);
-           delete [] tmpIndex;
-           tmpIndex=tmptmpIndex;
-           ceilImage=newceil;
-      }
       if(bit->stream==_videoStreamId)
       {
           aprintf(">found packet of size %d seq %d, while curseq =%d\n",bit->len,bit->sequence,curSeq);
+          if(first==true)
+          {
+            currentIndex.segNb=sequence=bit->sequence;
+            currentIndex.flags=AVI_KEY_FRAME;
+            first=false;
+          }else
           if(bit->sequence!=sequence)
           {
-            tmpIndex[nbImage].frameLen=len;
+            currentIndex.frameLen=len;
             aprintf("New sequence\n");
             if( ((sequence+1)&0xff)!=(bit->sequence&0xff))
             {
@@ -691,22 +683,30 @@ uint8_t asfHeader::buildIndex(void)
                 start&=0xff;
                 printf("!!!!!!!!!!!! Delta %d\n",start);
                 
-                for(int filler=0;filler<start;filler++)
+                
+                if(start)
                 {
-                  tmpIndex[++nbImage].frameLen=0;
+                    asfIndex fillerIndex;
+                    memset(&fillerIndex,0,sizeof(fillerIndex));
+                    for(int filler=0;filler<start;filler++)
+                       _index.push_back(fillerIndex);
                 }
     #endif            
-            }
-            nbImage++;
-            ADM_assert(nbImage<ceilImage);
-            tmpIndex[nbImage].frameLen=0;
-            tmpIndex[nbImage].segNb=bit->sequence;
-            tmpIndex[nbImage].packetNb=bit->packet;
-            tmpIndex[nbImage].flags=bit->flags;
+           }
+            _index.push_back(currentIndex);
+            aprintf("Adding new packet of size %u\n",currentIndex.frameLen);
+            memset(&currentIndex,0,sizeof(currentIndex));
+            
+            // Start a new one
+            
+            currentIndex.frameLen=0;
+            currentIndex.segNb=bit->sequence;
+            currentIndex.packetNb=bit->packet;
+            currentIndex.flags=bit->flags;
 
             for(int z=0;z<_nbAudioTrack;z++)
             {
-              tmpIndex[nbImage].audioSeen[z]=_allAudioTracks[z].length;
+              currentIndex.audioSeen[z]=_allAudioTracks[z].length;
             }
             readQueue.pushBack(bit);
     
@@ -723,7 +723,6 @@ uint8_t asfHeader::buildIndex(void)
         {
           if(bit->stream == _allAudioTracks[i].streamIndex)
           {
-            
             _allAudioTracks[i].length+=bit->len;
             found=1;
           }
@@ -737,28 +736,25 @@ uint8_t asfHeader::buildIndex(void)
      delete bit;
     }
     //working->update(packet,_nbPackets);
-
     packet++;
     aPacket->nextPacket(0xff); // All packets
     aPacket->skipPacket();
   }
   delete aPacket;
-  //delete working;
-  /* Compact index */
-  _index=new asfIndex[nbImage];
-  memcpy(_index,tmpIndex,sizeof(asfIndex)*nbImage);
-  delete [] tmpIndex;
   
   fseeko(_fd,_dataStartOffset,SEEK_SET);
-  printf("[ASF] %u images found\n",nbImage);
+  printf("[ASF] %u images found\n",_index.size());
   printf("[ASF] ******** End of buildindex *******\n");
-  _videostream.dwLength=_mainaviheader.dwTotalFrames=nbImage;
-  if(!nbImage) return 0;
+  for(int i=0;i<10;i++)
+        printf("%d %d flags:%x\n",i,_index[i].frameLen,_index[i].flags);
+
+  _videostream.dwLength=_mainaviheader.dwTotalFrames=_index.size();
+  if(!_index.size()) return 0;
   
   // Update fps
   // In fact it is an average fps
   // FIXME
-  float f=nbImage;
+  float f=_index.size();
   uint32_t ps;
   
   f*=1000.*1000.*10000.;

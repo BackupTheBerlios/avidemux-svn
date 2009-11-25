@@ -25,7 +25,8 @@
 
 #include "ADM_osSupport/ADM_queue.h"
 #include "ADM_asfPacket.h"
-
+#include <vector>
+using std::vector;
 #define ASF_MAX_AUDIO_TRACK 8
 
 typedef struct 
@@ -120,8 +121,11 @@ class asfAudio : public AVDMGenericAudioStream
     virtual uint8_t             extraData(uint32_t *l,uint8_t **d);
 };
 
-
-
+typedef vector <asfIndex > listOfAsfIndeces;
+/**
+    \class asfHeader
+    
+*/
 class asfHeader         :public vidHeader
 {
   protected:
@@ -148,8 +152,7 @@ class asfHeader         :public vidHeader
   public: // Shared with audio track
     char                    *myName;
     
-    uint32_t                nbImage;
-    asfIndex                *_index;
+    listOfAsfIndeces        _index;
     uint32_t                _packetSize;
     uint32_t                _dataStartOffset;
     uint32_t                _nbAudioTrack;
