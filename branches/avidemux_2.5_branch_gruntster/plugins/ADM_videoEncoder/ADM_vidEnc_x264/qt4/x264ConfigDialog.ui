@@ -484,6 +484,50 @@
             </property>
            </widget>
           </item>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblLookahead" >
+              <property name="text" >
+               <string>Frametype Lookahead:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="lookaheadSpinBox" >
+              <property name="maximum" >
+               <number>250</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblLookaheadFrames" >
+              <property name="text" >
+               <string>frames</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
          </layout>
         </widget>
        </item>
@@ -4106,6 +4150,7 @@
   <tabstop>quantiserSlider</tabstop>
   <tabstop>quantiserSpinBox</tabstop>
   <tabstop>mbTreeCheckBox</tabstop>
+  <tabstop>lookaheadSpinBox</tabstop>
   <tabstop>sarCustomRadioButton</tabstop>
   <tabstop>sarCustomSpinBox1</tabstop>
   <tabstop>sarCustomSpinBox2</tabstop>

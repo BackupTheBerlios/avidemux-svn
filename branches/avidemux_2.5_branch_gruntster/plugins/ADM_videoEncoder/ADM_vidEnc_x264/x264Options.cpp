@@ -836,6 +836,17 @@ void x264Options::setMbTree(bool mbTree)
 {
 	_param.rc.b_mb_tree = mbTree;
 }
+
+unsigned int x264Options::getFrametypeLookahead(void)
+{
+	return _param.rc.i_lookahead;
+}
+
+void x264Options::setFrametypeLookahead(unsigned int frames)
+{
+	if (frames <= 250)
+		_param.rc.i_lookahead = frames;
+}
 #endif
 
 float x264Options::getQuantiserCurveCompression(void)
@@ -1245,6 +1256,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 #if X264_BUILD >= 69
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mbTree", boolean2String(xmlBuffer, bufferSize, getMbTree()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"frametypeLookahead", number2String(xmlBuffer, bufferSize, getFrametypeLookahead()));
 #endif
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserCurveCompression", number2String(xmlBuffer, bufferSize, getQuantiserCurveCompression()));
@@ -1682,6 +1694,8 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 #if X264_BUILD >= 69
 			else if (strcmp((char*)xmlChild->name, "mbTree") == 0)
 				setMbTree(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "frametypeLookahead") == 0)
+				setFrametypeLookahead(atoi(content));
 #endif
 			else if (strcmp((char*)xmlChild->name, "quantiserCurveCompression") == 0)
 				setQuantiserCurveCompression(string2Float(content));

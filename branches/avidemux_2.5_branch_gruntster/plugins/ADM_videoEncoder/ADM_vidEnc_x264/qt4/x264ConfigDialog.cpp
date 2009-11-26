@@ -74,6 +74,9 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.mbTreeCheckBox, SIGNAL(toggled(bool)), this, SLOT(mbTreeCheckBox_toggled(bool)));
 #else
 	ui.mbTreeCheckBox->setVisible(false);
+	ui.lblLookahead->setVisible(false);
+	ui.lookaheadSpinBox->setVisible(false);
+	ui.lblLookaheadFrames>setVisible(false);
 #endif
 
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
@@ -600,6 +603,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 #if X264_BUILD >= 69
 	ui.mbTreeCheckBox->setChecked(options->getMbTree());
+	ui.lookaheadSpinBox->setValue(options->getFrametypeLookahead());
 #endif
 
 	if (options->getSarAsInput())
@@ -818,6 +822,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 #if X264_BUILD >= 69
 	options->setMbTree(ui.mbTreeCheckBox->isChecked());
+	options->setFrametypeLookahead(ui.lookaheadSpinBox->value());
 #endif
 
 	options->setSarAsInput(ui.sarAsInputRadioButton->isChecked());

@@ -268,6 +268,9 @@ public:
 #if X264_BUILD >= 69
 	bool getMbTree(void);
 	void setMbTree(bool mbTree);
+
+	unsigned int getFrametypeLookahead(void);
+	void setFrametypeLookahead(unsigned int frames);
 #endif
 
 	float getQuantiserCurveCompression(void);
