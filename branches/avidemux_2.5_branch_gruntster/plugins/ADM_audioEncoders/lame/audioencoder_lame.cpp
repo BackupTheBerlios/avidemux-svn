@@ -312,7 +312,9 @@ uint8_t configure (void)
     BITRATE (128),
     BITRATE (160),
     BITRATE (192),
-    BITRATE (224)
+    BITRATE (224),
+	BITRATE (256),
+	BITRATE (320)
   };
 
 //***  
