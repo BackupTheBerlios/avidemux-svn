@@ -319,7 +319,6 @@ SectionGroup /e "User interfaces" SecGrpUI
         SetOutPath $INSTDIR
         ${File} avidemux2_gtk.exe
         ${File} gtk2_prefs.exe
-        ${File} intl.dll
         ${File} libADM_render_gtk.dll
         ${File} libADM_UIGtk.dll
         ${File} libatk-1.0-0.dll
