@@ -34,21 +34,6 @@
 #include "xvidConfigDialog.h"
 
 #define WID(x) lookup_widget(dialog, #x)
-
-static GtkWidget *create_dialog1 (void);
-static GtkWidget *create_dialog3 (void);
-
-static void loadOptions(GtkWidget *dialog, XvidOptions *options);
-void saveOptions(GtkWidget *dialog, XvidOptions *options);
-
-static unsigned char editMatrix(unsigned char *inter, unsigned char *intra, GtkWidget *parent);
-static void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter);
-static int getCurrentEncodeMode(GtkWidget *dialog);
-
-static int cb_mod(GtkObject *object, gpointer user_data);
-static int ch_par_asinput(GtkObject *object, gpointer user_data);
-static int entryEntry_changed(GtkObject* object, gpointer user_data);
-
 #define CALL_Z(x,y)  gtk_dialog_add_action_widget (GTK_DIALOG (dialog), WID(x),XVID4_RESPONSE_##y);
 
 typedef enum 
@@ -81,8 +66,8 @@ extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vi
 	_parWidth = properties->parWidth;
 	_parHeight = properties->parHeight;
 
-	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
 	loadOptions(dialog, options);
+	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
 
 	gtk_signal_connect(GTK_OBJECT(WID(optionmenuType)), "changed", GTK_SIGNAL_FUNC(cb_mod), dialog);
 	gtk_signal_connect(GTK_OBJECT(WID(checkbutton_par_asinput)), "clicked", GTK_SIGNAL_FUNC(ch_par_asinput), options);
@@ -93,7 +78,7 @@ extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vi
 
 _again:
 	int code = gtk_dialog_run(GTK_DIALOG(dialog));
-	int b, ret = 0;
+	int b;
 
 	if (code == XVID4_RESPONSE_EDIT_MATRIX)
 	{
@@ -172,7 +157,7 @@ _erLoad:
 
 	gtk_widget_destroy(dialog);
 
-	return ret;
+	return code == GTK_RESPONSE_OK;
 }
 
 int getRangeInMenu(GtkWidget *menu)
