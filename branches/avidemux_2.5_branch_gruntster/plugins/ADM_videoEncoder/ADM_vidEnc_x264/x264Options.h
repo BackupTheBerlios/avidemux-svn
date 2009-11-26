@@ -109,11 +109,6 @@ public:
 	unsigned int getScenecutThreshold(void);
 	void setScenecutThreshold(unsigned int scenecutThreshold);
 
-#if X264_BUILD < 67
-	bool getPreScenecutDetection(void);
-	void setPreScenecutDetection(bool preScenecutDetection);
-#endif
-
 	unsigned int getBFrames(void);
 	void setBFrames(unsigned int bFrames);
 
@@ -186,11 +181,6 @@ public:
 	unsigned int getDirectPredictionMode(void);
 	void setDirectPredictionMode(unsigned int directPredictionMode);
 
-#if X264_BUILD < 66
-	int getDirectPredictionSize(void);
-	void setDirectPredictionSize(int directPredictionSize);
-#endif
-
 	int getChromaLumaQuantiserDifference(void);
 	void setChromaLumaQuantiserDifference(int chromaLumaQuantiserDifference);
 
@@ -209,18 +199,8 @@ public:
 	unsigned int getSubpixelRefinement(void);
 	void setSubpixelRefinement(unsigned int subpixelRefinement);
 
-#if X264_BUILD < 65
-	bool getBidirectionalMotionEstimation(void);
-	void setBidirectionalMotionEstimation(bool bidirectionalMotionEstimation);
-#endif
-
 	bool getChromaMotionEstimation(void);
 	void setChromaMotionEstimation(bool chromaMotionEstimation);
-
-#if X264_BUILD < 65
-	bool getBFrameRdo(void);
-	void setBFrameRdo(bool bFrameRdo);
-#endif
 
 	bool getMixedReferences(void);
 	void setMixedReferences(bool mixedReferences);
@@ -234,10 +214,8 @@ public:
 	bool getDctDecimate(void);
 	void setDctDecimate(bool dctDecimate);
 
-#if X264_BUILD >= 64
 	float getPsychoRdo(void);
 	void setPsychoRdo(float psychoRdo);
-#endif
 
 	unsigned int getNoiseReduction(void);
 	void setNoiseReduction(unsigned int noiseReduction);
@@ -281,13 +259,11 @@ public:
 	float getPbFrameQuantiser(void);
 	void setPbFrameQuantiser(float pbFrameQuantiser);
 
-#if X264_BUILD >= 62
 	unsigned int getAdaptiveQuantiserMode(void);
 	void setAdaptiveQuantiserMode(unsigned int adaptiveQuantiserMode);
 
 	float getAdaptiveQuantiserStrength(void);
 	void setAdaptiveQuantiserStrength(float adaptiveQuantiserStrength);
-#endif
 
 #if X264_BUILD >= 69
 	bool getMbTree(void);

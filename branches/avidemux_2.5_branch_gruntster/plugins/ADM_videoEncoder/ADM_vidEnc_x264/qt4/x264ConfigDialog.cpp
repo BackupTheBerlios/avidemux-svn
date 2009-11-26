@@ -84,53 +84,17 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.dct8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(dct8x8CheckBox_toggled(bool)));
 	connect(ui.p8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(p8x8CheckBox_toggled(bool)));
 
-#if X264_BUILD >= 57
-	ui.meMethodComboBox->addItem(QT_TR_NOOP("Hadamard Exhaustive Search"));
-#endif
-
-#if X264_BUILD >= 65
-	ui.rdoCheckBox->setVisible(false);
-	ui.label_37->setText(QT_TR_NOOP("9 (Best)"));
-	ui.meSlider->setMaximum(9);
-	ui.meSpinBox->setMaximum(9);
-#endif
-
-#if X264_BUILD >= 66
-	ui.label_41->setVisible(false);
-	ui.predictSizeComboBox->setVisible(false);
-#endif
-
-#if X264_BUILD >= 67
 	ui.scenecutDetectionCheckBox->setVisible(false);
-#endif
 
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
-#if X264_BUILD < 63
-	ui.adaptiveBFrameComboBox->clear();
-	ui.adaptiveBFrameComboBox->addItem(QT_TR_NOOP("Disabled"));
-	ui.adaptiveBFrameComboBox->addItem(QT_TR_NOOP("Enabled"));
-#endif
-
 	// Analysis tab
 	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
 
-#if X264_BUILD >= 65
-	ui.bFrameMotionEstCheckBox->setVisible(false);
-#endif
-
-#if X264_BUILD < 64
-	ui.lblPsychoRDO->setVisible(false);
-	ui.psychoRdoSpinBox->setVisible(false);
-#endif
-
 	// Quantiser tab
-#if X264_BUILD < 59
-	ui.aqGroupBox->setEnabled(false);
-#endif
 #if X264_BUILD >= 69
 	connect(ui.aqVarianceCheckBox, SIGNAL(toggled(bool)), this, SLOT(aqVarianceCheckBox_toggled(bool)));
 #endif
@@ -451,13 +415,6 @@ void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
 void x264ConfigDialog::meSlider_valueChanged(int value)
 {
 	ui.meSpinBox->setValue(value);
-
-#if X264_BUILD < 65
-	ui.rdoCheckBox->setEnabled(value >= 6);
-
-	if (value < 6)
-		ui.rdoCheckBox->setChecked(false);
-#endif
 }
 
 void x264ConfigDialog::meSpinBox_valueChanged(int value)
@@ -685,9 +642,6 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Motion Estimation tab
 	ui.meSpinBox->setValue(options->getSubpixelRefinement());
-#if X264_BUILD < 65
-	ui.rdoCheckBox->setChecked(options->getBFrameRdo());
-#endif
 	ui.meMethodComboBox->setCurrentIndex(options->getMotionEstimationMethod());
 	ui.mvRangeSpinBox->setValue(options->getMotionVectorSearchRange());
 
@@ -708,16 +662,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	}
 
 	ui.predictModeComboBox->setCurrentIndex(options->getDirectPredictionMode());
-
-#if X264_BUILD < 66
-	if (options->getDirectPredictionSize() == -1)
-		ui.predictSizeComboBox->setCurrentIndex(0);
-	else
-		ui.predictSizeComboBox->setCurrentIndex(options->getDirectPredictionSize());
-#endif
-
-	// Prediction tab
 	ui.weightedPredictCheckBox->setChecked(options->getWeightedPrediction());
+
+	// Partition tab
 	ui.p8x8CheckBox->setChecked(options->getPartitionP8x8());
 	ui.b8x8CheckBox->setChecked(options->getPartitionB8x8());
 	ui.p4x4CheckBox->setChecked(options->getPartitionP4x4());
@@ -740,16 +687,10 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.maxGopSizeSpinBox->setValue(options->getGopMaximumSize());
 	ui.minGopSizeSpinBox->setValue(options->getGopMinimumSize());
 	ui.IFrameThresholdSpinBox->setValue(options->getScenecutThreshold());
-#if X264_BUILD < 67
-	ui.scenecutDetectionCheckBox->setChecked(options->getPreScenecutDetection());
-#endif
 
 	// Analysis tab
 	ui.mixedRefsCheckBox->setChecked(options->getMixedReferences());
 	ui.chromaMotionEstCheckBox->setChecked(options->getChromaMotionEstimation());
-#if X264_BUILD < 65
-	ui.bFrameMotionEstCheckBox->setChecked(options->getBidirectionalMotionEstimation());
-#endif
 
 	if (options->getTrellis() && options->getCabac())
 	{
@@ -761,10 +702,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	ui.fastPSkipCheckBox->setChecked(options->getFastPSkip());
 	ui.dctDecimateCheckBox->setChecked(options->getDctDecimate());
-
-#if X264_BUILD >= 64
 	ui.psychoRdoSpinBox->setValue(options->getPsychoRdo());
-#endif
 
 	ui.noiseReductionSpinBox->setValue(options->getNoiseReduction());
 	ui.interLumaSpinBox->setValue(options->getInterLumaDeadzone());
@@ -801,11 +739,8 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.quantiserCurveCompressSpinBox->setValue((int)floor(options->getQuantiserCurveCompression() * 100 + .5));
 	ui.quantiserBeforeCompressSpinBox->setValue(options->getReduceFluxBeforeCurveCompression());
 	ui.quantiserAfterCompressSpinBox->setValue(options->getReduceFluxAfterCurveCompression());
-
-#if X264_BUILD >= 62
 	ui.aqVarianceCheckBox->setChecked(options->getAdaptiveQuantiserMode() == X264_AQ_VARIANCE);
 	ui.aqStrengthSpinBox->setValue(options->getAdaptiveQuantiserStrength());
-#endif	// X264_BUILD >= 62
 
 	// Advanced tab
 	ui.vbvMaxBitrateSpinBox->setValue(options->getVbvMaximumBitrate());
@@ -913,9 +848,6 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Motion Estimation tab
 	options->setSubpixelRefinement(ui.meSpinBox->value());
-#if X264_BUILD < 65
-	options->setBFrameRdo(ui.rdoCheckBox->isChecked());
-#endif
 	options->setMotionEstimationMethod(ui.meMethodComboBox->currentIndex());
 	options->setMotionVectorSearchRange(ui.mvRangeSpinBox->value());
 	
@@ -930,14 +862,6 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 		options->setMotionVectorThreadBuffer(-1);
 
 	options->setDirectPredictionMode(ui.predictModeComboBox->currentIndex());
-
-#if X264_BUILD < 66
-	if (ui.predictSizeComboBox->currentIndex() == 0)
-		options->setDirectPredictionSize(-1);
-	else
-		options->setDirectPredictionSize(ui.predictSizeComboBox->currentIndex());
-#endif
-
 	options->setWeightedPrediction(ui.weightedPredictCheckBox->isChecked());
 	options->setDct8x8(ui.dct8x8CheckBox->isChecked());
 	options->setPartitionP8x8(ui.p8x8CheckBox->isChecked());
@@ -960,16 +884,10 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setGopMaximumSize(ui.maxGopSizeSpinBox->value());
 	options->setGopMinimumSize(ui.minGopSizeSpinBox->value());
 	options->setScenecutThreshold(ui.IFrameThresholdSpinBox->value());
-#if X264_BUILD < 67
-	options->setPreScenecutDetection(ui.scenecutDetectionCheckBox->isChecked());
-#endif
 
 	// Analysis tab
 	options->setMixedReferences(ui.mixedRefsCheckBox->isChecked());
 	options->setChromaMotionEstimation(ui.chromaMotionEstCheckBox->isChecked());
-#if X264_BUILD < 65
-	options->setBidirectionalMotionEstimation(ui.bFrameMotionEstCheckBox->isChecked());
-#endif
 
 	if (ui.trellisCheckBox->isChecked())
 		options->setTrellis(ui.trellisComboBox->currentIndex() + 1);
@@ -978,11 +896,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	options->setFastPSkip(ui.fastPSkipCheckBox->isChecked());
 	options->setDctDecimate(ui.dctDecimateCheckBox->isChecked());
-
-#if X264_BUILD >= 64
 	options->setPsychoRdo(ui.psychoRdoSpinBox->value());
-#endif
-
 	options->setNoiseReduction(ui.noiseReductionSpinBox->value());
 	options->setInterLumaDeadzone(ui.interLumaSpinBox->value());
 	options->setIntraLumaDeadzone(ui.intraLumaSpinBox->value());
@@ -1015,14 +929,12 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setReduceFluxBeforeCurveCompression(ui.quantiserBeforeCompressSpinBox->value());
 	options->setReduceFluxAfterCurveCompression(ui.quantiserAfterCompressSpinBox->value());
 
-#if X264_BUILD >= 62
 	if (ui.aqVarianceCheckBox->isChecked())
 		options->setAdaptiveQuantiserMode(X264_AQ_VARIANCE);
 	else
 		options->setAdaptiveQuantiserMode(X264_AQ_NONE);
 
 	options->setAdaptiveQuantiserStrength(ui.aqStrengthSpinBox->value());
-#endif	// X264_BUILD >= 62
 
 	// Advanced tab
 	options->setVbvMaximumBitrate(ui.vbvMaxBitrateSpinBox->value());

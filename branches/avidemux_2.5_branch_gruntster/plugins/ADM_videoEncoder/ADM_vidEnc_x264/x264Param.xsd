@@ -177,6 +177,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <!-- preScenecutDetection deprecated core 67 -->
               <xs:element name="preScenecutDetection" type="xs:boolean" minOccurs="0"/>
               <xs:element name="bFrames" minOccurs="0">
                 <xs:simpleType>
@@ -293,6 +294,7 @@
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
+                    <!-- directPredictionSize deprecated core 66 -->
                     <xs:element name="directPredictionSize" minOccurs="0">
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -346,8 +348,10 @@
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
+                    <!-- bidirectionalMotionEstimation deprecated core 65 -->
                     <xs:element name="bidirectionalMotionEstimation" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="chromaMotionEstimation" type="xs:boolean" minOccurs="0"/>
+                    <!-- bFrameRdo deprecated core 65 -->
                     <xs:element name="bFrameRdo" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="mixedReferences" type="xs:boolean" minOccurs="0"/>
                     <xs:element name="trellis" minOccurs="0">

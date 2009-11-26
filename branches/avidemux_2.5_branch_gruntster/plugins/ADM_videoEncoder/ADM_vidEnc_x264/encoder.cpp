@@ -603,17 +603,11 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] rc.f_rf_constant = %f\n", x264Param->rc.f_rf_constant);
 	printf("[x264] rc.i_qp_constant = %d\n", x264Param->rc.i_qp_constant);	
 	printf("[x264] analyse.i_subpel_refine = %d\n", x264Param->analyse.i_subpel_refine);
-#if X264_BUILD < 65
-	printf("[x264] analyse.b_bframe_rdo = %d\n", x264Param->analyse.b_bframe_rdo);
-#endif
 	printf("[x264] analyse.i_me_method = %d\n", x264Param->analyse.i_me_method);
 	printf("[x264] analyse.i_me_range = %d\n", x264Param->analyse.i_me_range);
 	printf("[x264] analyse.i_mv_range = %d\n", x264Param->analyse.i_mv_range);
 	printf("[x264] analyse.i_mv_range_thread = %d\n", x264Param->analyse.i_mv_range_thread);
 	printf("[x264] analyse.i_direct_mv_pred = %d\n", x264Param->analyse.i_direct_mv_pred);
-#if X264_BUILD < 66
-	printf("[x264] analyse.i_direct_8x8_inference = %d\n", x264Param->analyse.i_direct_8x8_inference);
-#endif
 	printf("[x264] analyse.b_weighted_bipred = %d\n", x264Param->analyse.b_weighted_bipred);
 	printf("[x264] analyse.b_transform_8x8 = %d\n", x264Param->analyse.b_transform_8x8);
 	printf("[x264] analyse.inter = %d\n", x264Param->analyse.inter);
@@ -630,22 +624,12 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 #else
 	printf("[x264] b_bframe_pyramid = %d\n", x264Param->b_bframe_pyramid);
 #endif
-#if X264_BUILD >= 63
 	printf("[x264] i_bframe_adaptive = %d\n", x264Param->i_bframe_adaptive);
-#else
-	printf("[x264] b_bframe_adaptive = %d\n", x264Param->b_bframe_adaptive);
-#endif
 	printf("[x264] i_keyint_max = %d\n", x264Param->i_keyint_max);
 	printf("[x264] i_keyint_min = %d\n", x264Param->i_keyint_min);
 	printf("[x264] i_scenecut_threshold = %d\n", x264Param->i_scenecut_threshold);
-#if X264_BUILD < 67
-	printf("[x264] b_pre_scenecut = %d\n", x264Param->b_pre_scenecut);
-#endif
 	printf("[x264] analyse.b_mixed_references = %d\n", x264Param->analyse.b_mixed_references);
 	printf("[x264] analyse.b_chroma_me = %d\n", x264Param->analyse.b_chroma_me);
-#if X264_BUILD < 65
-	printf("[x264] analyse.b_bidir_me = %d\n", x264Param->analyse.b_bidir_me);
-#endif
 	printf("[x264] analyse.i_trellis = %d\n", x264Param->analyse.i_trellis);
 	printf("[x264] analyse.b_fast_pskip = %d\n", x264Param->analyse.b_fast_pskip);
 	printf("[x264] analyse.b_dct_decimate = %d\n", x264Param->analyse.b_dct_decimate);

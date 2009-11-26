@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>523</width>
-    <height>540</height>
+    <height>536</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -100,7 +100,7 @@
      </property>
      <property name="sizeHint" >
       <size>
-       <width>491</width>
+       <width>505</width>
        <height>10</height>
       </size>
      </property>
@@ -846,6 +846,11 @@
                   <string>Exhaustive Search</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text" >
+                  <string>Hadamard Exhaustive Search</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
@@ -866,7 +871,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" >
+           <layout class="QHBoxLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
@@ -879,18 +884,18 @@
                <number>0</number>
               </property>
               <property name="spacing" >
-               <number>6</number>
+               <number>12</number>
               </property>
               <item>
-               <layout class="QHBoxLayout" >
+               <layout class="QVBoxLayout" >
                 <property name="margin" >
                  <number>0</number>
                 </property>
                 <property name="spacing" >
-                 <number>12</number>
+                 <number>0</number>
                 </property>
                 <item>
-                 <layout class="QVBoxLayout" >
+                 <layout class="QHBoxLayout" >
                   <property name="margin" >
                    <number>0</number>
                   </property>
@@ -898,142 +903,119 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <layout class="QHBoxLayout" >
-                    <property name="margin" >
-                     <number>0</number>
+                   <widget class="QLabel" name="label_35" >
+                    <property name="text" >
+                     <string>1 (Fast)</string>
                     </property>
-                    <property name="spacing" >
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="label_35" >
-                      <property name="text" >
-                       <string>1 (Fast)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer>
-                      <property name="orientation" >
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" >
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_36" >
-                      <property name="text" >
-                       <string>Subpixel Refinement</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer>
-                      <property name="orientation" >
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" >
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="label_37" >
-                      <property name="text" >
-                       <string>7 (Best)</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                   </widget>
                   </item>
                   <item>
-                   <widget class="QSlider" name="meSlider" >
-                    <property name="sizePolicy" >
-                     <sizepolicy>
-                      <hsizetype>5</hsizetype>
-                      <vsizetype>0</vsizetype>
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize" >
-                     <size>
-                      <width>375</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="minimum" >
-                     <number>1</number>
-                    </property>
-                    <property name="maximum" >
-                     <number>7</number>
-                    </property>
-                    <property name="pageStep" >
-                     <number>1</number>
-                    </property>
-                    <property name="value" >
-                     <number>5</number>
-                    </property>
+                   <spacer>
                     <property name="orientation" >
                      <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="tickPosition" >
-                     <enum>QSlider::TicksBelow</enum>
+                    <property name="sizeHint" >
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_36" >
+                    <property name="text" >
+                     <string>Subpixel Refinement</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer>
+                    <property name="orientation" >
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" >
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_37" >
+                    <property name="text" >
+                     <string>9 (Best)</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="meSpinBox" >
-                  <property name="maximum" >
-                   <number>7</number>
+                 <widget class="QSlider" name="meSlider" >
+                  <property name="sizePolicy" >
+                   <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>0</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize" >
+                   <size>
+                    <width>375</width>
+                    <height>0</height>
+                   </size>
                   </property>
                   <property name="minimum" >
                    <number>1</number>
                   </property>
+                  <property name="maximum" >
+                   <number>9</number>
+                  </property>
+                  <property name="pageStep" >
+                   <number>1</number>
+                  </property>
                   <property name="value" >
                    <number>5</number>
+                  </property>
+                  <property name="orientation" >
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="tickPosition" >
+                   <enum>QSlider::TicksBelow</enum>
                   </property>
                  </widget>
                 </item>
                </layout>
               </item>
               <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
+               <widget class="QSpinBox" name="meSpinBox" >
+                <property name="maximum" >
+                 <number>9</number>
                 </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
+                <property name="minimum" >
+                 <number>1</number>
                 </property>
-               </spacer>
+                <property name="value" >
+                 <number>5</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
             <item>
-             <widget class="QCheckBox" name="rdoCheckBox" >
-              <property name="enabled" >
-               <bool>false</bool>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
               </property>
-              <property name="text" >
-               <string>Rate Distortion Optimisation for B-frames</string>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
               </property>
-              <property name="checked" >
-               <bool>false</bool>
-              </property>
-             </widget>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -1210,7 +1192,7 @@
            <number>6</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" >
+           <layout class="QHBoxLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
@@ -1218,129 +1200,70 @@
              <number>6</number>
             </property>
             <item>
-             <layout class="QGridLayout" >
+             <widget class="QLabel" name="label_40" >
+              <property name="text" >
+               <string>Direct Prediction Mode:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
               </property>
               <property name="spacing" >
                <number>6</number>
               </property>
-              <item row="1" column="0" >
-               <widget class="QLabel" name="label_41" >
-                <property name="text" >
-                 <string>Direct Prediction Size:</string>
+              <item>
+               <widget class="QComboBox" name="predictModeComboBox" >
+                <property name="currentIndex" >
+                 <number>1</number>
                 </property>
+                <item>
+                 <property name="text" >
+                  <string>None</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Spatial</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Temporal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Auto</string>
+                 </property>
+                </item>
                </widget>
               </item>
-              <item row="0" column="0" >
-               <widget class="QLabel" name="label_40" >
-                <property name="text" >
-                 <string>Direct Prediction Mode:</string>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
                 </property>
-               </widget>
-              </item>
-              <item row="0" column="1" >
-               <layout class="QHBoxLayout" >
-                <property name="margin" >
-                 <number>0</number>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
                 </property>
-                <property name="spacing" >
-                 <number>6</number>
-                </property>
-                <item>
-                 <widget class="QComboBox" name="predictModeComboBox" >
-                  <property name="currentIndex" >
-                   <number>1</number>
-                  </property>
-                  <item>
-                   <property name="text" >
-                    <string>None</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>Spatial</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>Temporal</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>Auto</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item>
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="1" >
-               <layout class="QHBoxLayout" >
-                <property name="margin" >
-                 <number>0</number>
-                </property>
-                <property name="spacing" >
-                 <number>6</number>
-                </property>
-                <item>
-                 <widget class="QComboBox" name="predictSizeComboBox" >
-                  <item>
-                   <property name="text" >
-                    <string>Smallest Possible</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>4x4</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>8x8</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item>
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
+               </spacer>
               </item>
              </layout>
             </item>
-            <item>
-             <widget class="QCheckBox" name="weightedPredictCheckBox" >
-              <property name="text" >
-               <string>Weighted Prediction for B-frames</string>
-              </property>
-             </widget>
-            </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="weightedPredictCheckBox" >
+            <property name="text" >
+             <string>Weighted Prediction for B-frames</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -2112,13 +2035,6 @@
            <widget class="QCheckBox" name="chromaMotionEstCheckBox" >
             <property name="text" >
              <string>Chroma Motion Estimation</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="bFrameMotionEstCheckBox" >
-            <property name="text" >
-             <string>Motion Estimation Before and After B-frames</string>
             </property>
            </widget>
           </item>
@@ -4203,14 +4119,12 @@
   <tabstop>meMethodComboBox</tabstop>
   <tabstop>meSlider</tabstop>
   <tabstop>meSpinBox</tabstop>
-  <tabstop>rdoCheckBox</tabstop>
   <tabstop>mvRangeSpinBox</tabstop>
   <tabstop>mvLengthCheckBox</tabstop>
   <tabstop>mvLengthSpinBox</tabstop>
   <tabstop>minThreadBufferCheckBox</tabstop>
   <tabstop>minThreadBufferSpinBox</tabstop>
   <tabstop>predictModeComboBox</tabstop>
-  <tabstop>predictSizeComboBox</tabstop>
   <tabstop>weightedPredictCheckBox</tabstop>
   <tabstop>dct8x8CheckBox</tabstop>
   <tabstop>p8x8CheckBox</tabstop>
@@ -4234,7 +4148,6 @@
   <tabstop>scenecutDetectionCheckBox</tabstop>
   <tabstop>mixedRefsCheckBox</tabstop>
   <tabstop>chromaMotionEstCheckBox</tabstop>
-  <tabstop>bFrameMotionEstCheckBox</tabstop>
   <tabstop>trellisCheckBox</tabstop>
   <tabstop>trellisComboBox</tabstop>
   <tabstop>fastPSkipCheckBox</tabstop>

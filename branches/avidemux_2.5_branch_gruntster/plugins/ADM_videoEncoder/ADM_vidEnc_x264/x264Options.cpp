@@ -276,18 +276,6 @@ void x264Options::setScenecutThreshold(unsigned int scenecutThreshold)
 		_param.i_scenecut_threshold = scenecutThreshold;
 }
 
-#if X264_BUILD < 67
-bool x264Options::getPreScenecutDetection(void)
-{
-	return _param.b_pre_scenecut;
-}
-
-void x264Options::setPreScenecutDetection(bool preScenecutDetection)
-{
-	_param.b_pre_scenecut = preScenecutDetection;
-}
-#endif
-
 unsigned int x264Options::getBFrames(void)
 {
 	return _param.i_bframe;
@@ -301,21 +289,13 @@ void x264Options::setBFrames(unsigned int bFrames)
 
 unsigned int x264Options::getAdaptiveBFrameDecision(void)
 {
-#if X264_BUILD >= 63
 	return _param.i_bframe_adaptive;
-#else
-	return _param.b_bframe_adaptive;
-#endif
 }
 
 void x264Options::setAdaptiveBFrameDecision(unsigned int adaptiveBframeDecision)
 {
 	if (adaptiveBframeDecision <= 2)
-#if X264_BUILD >= 63
 		_param.i_bframe_adaptive = adaptiveBframeDecision;
-#else
-		_param.b_bframe_adaptive = adaptiveBframeDecision;
-#endif
 }
 
 int x264Options::getBFrameBias(void)
@@ -566,19 +546,6 @@ void x264Options::setDirectPredictionMode(unsigned int directPredictionMode)
 		_param.analyse.i_direct_mv_pred = directPredictionMode;
 }
 
-#if X264_BUILD < 66
-int x264Options::getDirectPredictionSize(void)
-{
-	return _param.analyse.i_direct_8x8_inference;
-}
-
-void x264Options::setDirectPredictionSize(int directPredictionSize)
-{
-	if (directPredictionSize >= -1 && directPredictionSize <= 1)
-		_param.analyse.i_direct_8x8_inference = directPredictionSize;
-}
-#endif
-
 int x264Options::getChromaLumaQuantiserDifference(void)
 {
 	return _param.analyse.i_chroma_qp_offset;
@@ -644,18 +611,6 @@ void x264Options::setSubpixelRefinement(unsigned int subpixelRefinement)
 		_param.analyse.i_subpel_refine = subpixelRefinement;
 }
 
-#if X264_BUILD < 65
-bool x264Options::getBidirectionalMotionEstimation(void)
-{
-	return _param.analyse.b_bidir_me;
-}
-
-void x264Options::setBidirectionalMotionEstimation(bool bidirectionalMotionEstimation)
-{
-	_param.analyse.b_bidir_me = bidirectionalMotionEstimation;
-}
-#endif
-
 bool x264Options::getChromaMotionEstimation(void)
 {
 	return _param.analyse.b_chroma_me;
@@ -665,18 +620,6 @@ void x264Options::setChromaMotionEstimation(bool chromaMotionEstimation)
 {
 	_param.analyse.b_chroma_me = chromaMotionEstimation;
 }
-
-#if X264_BUILD < 65
-bool x264Options::getBFrameRdo(void)
-{
-	return _param.analyse.b_bframe_rdo;
-}
-
-void x264Options::setBFrameRdo(bool bFrameRdo)
-{
-	_param.analyse.b_bframe_rdo = bFrameRdo;
-}
-#endif
 
 bool x264Options::getMixedReferences(void)
 {
@@ -719,7 +662,6 @@ void x264Options::setDctDecimate(bool dctDecimate)
 	_param.analyse.b_dct_decimate = dctDecimate;
 }
 
-#if X264_BUILD >= 64
 float x264Options::getPsychoRdo(void)
 {
 	return _param.analyse.f_psy_rd;
@@ -730,7 +672,6 @@ void x264Options::setPsychoRdo(float psychoRdo)
 	if (psychoRdo >= 0 && psychoRdo <= 10)
 		_param.analyse.f_psy_rd = psychoRdo;
 }
-#endif
 
 unsigned int x264Options::getNoiseReduction(void)
 {
@@ -864,7 +805,6 @@ void x264Options::setPbFrameQuantiser(float pbFrameQuantiser)
 		_param.rc.f_pb_factor = pbFrameQuantiser;
 }
 
-#if X264_BUILD >= 62
 unsigned int x264Options::getAdaptiveQuantiserMode(void)
 {
 	return _param.rc.i_aq_mode;
@@ -885,7 +825,6 @@ void x264Options::setAdaptiveQuantiserStrength(float adaptiveQuantiserStrength)
 {
 	_param.rc.f_aq_strength = adaptiveQuantiserStrength;
 }
-#endif
 
 #if X264_BUILD >= 69
 bool x264Options::getMbTree(void)
@@ -1142,9 +1081,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMaximumSize", number2String(xmlBuffer, bufferSize, getGopMaximumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMinimumSize", number2String(xmlBuffer, bufferSize, getGopMinimumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"scenecutThreshold", number2String(xmlBuffer, bufferSize, getScenecutThreshold()));
-#if X264_BUILD < 67
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"preScenecutDetection", boolean2String(xmlBuffer, bufferSize, getPreScenecutDetection()));
-#endif
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrames", number2String(xmlBuffer, bufferSize, getBFrames()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
@@ -1232,25 +1168,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 			break;
 	}
 
-	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionMode", xmlBuffer);
-
-#if X264_BUILD < 66
-	switch (getDirectPredictionSize())
-	{
-		case 0:
-			strcpy((char*)xmlBuffer, "4x4");
-			break;
-		case 1:
-			strcpy((char*)xmlBuffer, "8x8");
-			break;
-		case -1:
-			strcpy((char*)xmlBuffer, "smallest");
-			break;
-	}
-
-	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionSize", xmlBuffer);
-#endif
-
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaLumaQuantiserDifference", number2String(xmlBuffer, bufferSize, getChromaLumaQuantiserDifference()));
 
 	switch (getMotionEstimationMethod())
@@ -1264,11 +1181,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 		case X264_ME_ESA:
 			strcpy((char*)xmlBuffer, "exhaustive");
 			break;
-#if X264_BUILD >= 57
 		case X264_ME_TESA:
 			strcpy((char*)xmlBuffer, "hadamard");
 			break;
-#endif
 		case X264_ME_HEX:
 		default:
 			strcpy((char*)xmlBuffer, "hexagonal");
@@ -1280,13 +1195,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"motionVectorLength", number2String(xmlBuffer, bufferSize, getMotionVectorLength()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"motionVectorThreadBuffer", number2String(xmlBuffer, bufferSize, getMotionVectorThreadBuffer()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"subpixelRefinement", number2String(xmlBuffer, bufferSize, getSubpixelRefinement()));
-#if X264_BUILD < 65
-	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bidirectionalMotionEstimation", boolean2String(xmlBuffer, bufferSize, getBidirectionalMotionEstimation()));
-#endif
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaMotionEstimation", boolean2String(xmlBuffer, bufferSize, getChromaMotionEstimation()));
-#if X264_BUILD < 65
-	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bFrameRdo", boolean2String(xmlBuffer, bufferSize, getBFrameRdo()));
-#endif
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mixedReferences", boolean2String(xmlBuffer, bufferSize, getMixedReferences()));
 
 	switch (getTrellis())
@@ -1321,7 +1230,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"ipFrameQuantiser", number2String(xmlBuffer, bufferSize, getIpFrameQuantiser()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"pbFrameQuantiser", number2String(xmlBuffer, bufferSize, getPbFrameQuantiser()));
 
-#if X264_BUILD >= 62
 	switch (getAdaptiveQuantiserMode())
 	{
 		case X264_AQ_NONE:
@@ -1334,7 +1242,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserMode", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserStrength", number2String(xmlBuffer, bufferSize, getAdaptiveQuantiserStrength()));
-#endif
 
 #if X264_BUILD >= 69
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mbTree", boolean2String(xmlBuffer, bufferSize, getMbTree()));
@@ -1404,10 +1311,6 @@ void x264Options::parseOptions(xmlNode *node)
 				setGopMinimumSize(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "scenecutThreshold") == 0)
 				setScenecutThreshold(atoi(content));
-#if X264_BUILD < 67
-			else if (strcmp((char*)xmlChild->name, "preScenecutDetection") == 0)
-				setPreScenecutDetection(string2Boolean(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "bFrames") == 0)
 				setBFrames(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "adaptiveBframeDecision") == 0)
@@ -1675,21 +1578,6 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 
 				setDirectPredictionMode(directPredictionMode);
 			}
-#if X264_BUILD < 66
-			else if (strcmp((char*)xmlChild->name, "directPredictionSize") == 0)
-			{
-				int directPredictionSize = -1;
-
-				if (strcmp(content, "4x4") == 0)
-					directPredictionSize = 0;
-				else if (strcmp(content, "8x8") == 0)
-					directPredictionSize = 1;
-				else if (strcmp(content, "smallest") == 0)
-					directPredictionSize = -1;
-
-				setDirectPredictionSize(directPredictionSize);
-			}
-#endif
 			else if (strcmp((char*)xmlChild->name, "chromaLumaQuantiserDifference") == 0)
 				setChromaLumaQuantiserDifference(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "motionEstimationMethod") == 0)
@@ -1704,10 +1592,8 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 					motionEstimationMethod = X264_ME_UMH;
 				else if (strcmp(content, "exhaustive") == 0)
 					motionEstimationMethod = X264_ME_ESA;
-#if X264_BUILD >= 57
 				else if (strcmp(content, "hadamard") == 0)
 					motionEstimationMethod = X264_ME_TESA;
-#endif
 
 				setMotionEstimationMethod(motionEstimationMethod);
 			}
@@ -1719,16 +1605,8 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setMotionVectorThreadBuffer(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "subpixelRefinement") == 0)
 				setSubpixelRefinement(atoi(content));
-#if X264_BUILD < 65
-			else if (strcmp((char*)xmlChild->name, "bidirectionalMotionEstimation") == 0)
-				setBidirectionalMotionEstimation(string2Boolean(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "chromaMotionEstimation") == 0)
 				setChromaMotionEstimation(string2Boolean(content));
-#if X264_BUILD < 65
-			else if (strcmp((char*)xmlChild->name, "bFrameRdo") == 0)
-				setBFrameRdo(string2Boolean(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "mixedReferences") == 0)
 				setMixedReferences(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "trellis") == 0)
@@ -1788,7 +1666,6 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 				setIpFrameQuantiser(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "pbFrameQuantiser") == 0)
 				setPbFrameQuantiser(string2Float(content));
-#if X264_BUILD >= 62
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserMode") == 0)
 			{
 				int adaptiveQuantiserMode = X264_AQ_VARIANCE;
@@ -1802,7 +1679,6 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 			}
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserStrength") == 0)
 				setAdaptiveQuantiserStrength(string2Float(content));
-#endif
 #if X264_BUILD >= 69
 			else if (strcmp((char*)xmlChild->name, "mbTree") == 0)
 				setMbTree(string2Boolean(content));

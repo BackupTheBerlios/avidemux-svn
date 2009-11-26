@@ -401,16 +401,15 @@ Two Pass - Average Bitrate</property>
 				  <child>
 				    <widget class="GtkComboBox" id="comboboxPartitionDecision">
 				      <property name="visible">True</property>
-				      <property name="items" translatable="yes">1  - Extremely Low (Fastest)
-2  - Very Low
-3  - Low
-4  - Medium
-5  - High (Default)
-6  - Very High
-6B - Very High (RDO on B-frames)
-7  - Ultra High
-7B - Ultra High (RDO on B-frames)
-</property>
+				      <property name="items" translatable="yes">1 - QPel SAD (Fastest)
+2 - QPel SATD
+3 - HPel on MB then QPel
+4 - Always QPel
+5 - QPel + Bidirectional ME
+6 - RD on I/P frames (Default)
+7 - RD on all frames
+8 - RD refinement on I/P frames
+9 - RD refinement on all frames</property>
 				      <property name="add_tearoffs">False</property>
 				      <property name="focus_on_click">True</property>
 				    </widget>
@@ -430,7 +429,8 @@ Two Pass - Average Bitrate</property>
 				      <property name="items" translatable="yes">Diamond Search
 Hexagonal Search
 Uneven Multi-hexagon
-Exhaustive Search</property>
+Exhaustive Search
+Hadamard Exhaustive Search</property>
 				      <property name="add_tearoffs">False</property>
 				      <property name="focus_on_click">True</property>
 				    </widget>
@@ -1746,29 +1746,6 @@ Exhaustive Search</property>
 				      <property name="homogeneous">False</property>
 				      <property name="row_spacing">3</property>
 				      <property name="column_spacing">10</property>
-
-				      <child>
-					<widget class="GtkCheckButton" id="checkbuttonBidirME">
-					  <property name="visible">True</property>
-					  <property name="tooltip" translatable="yes">Optimise both motion vectors in B-frames. This will improve quality but take more time for encoding.</property>
-					  <property name="can_focus">True</property>
-					  <property name="label" translatable="yes">Bidirectional ME</property>
-					  <property name="use_underline">True</property>
-					  <property name="relief">GTK_RELIEF_NORMAL</property>
-					  <property name="focus_on_click">True</property>
-					  <property name="active">False</property>
-					  <property name="inconsistent">False</property>
-					  <property name="draw_indicator">True</property>
-					</widget>
-					<packing>
-					  <property name="left_attach">1</property>
-					  <property name="right_attach">2</property>
-					  <property name="top_attach">0</property>
-					  <property name="bottom_attach">1</property>
-					  <property name="x_options">fill</property>
-					  <property name="y_options"></property>
-					</packing>
-				      </child>
 
 				      <child>
 					<widget class="GtkCheckButton" id="checkbuttonWeighted">
