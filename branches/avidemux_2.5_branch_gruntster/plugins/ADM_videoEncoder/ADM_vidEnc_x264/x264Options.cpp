@@ -1179,6 +1179,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 			break;
 	}
 
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"directPredictionMode", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"chromaLumaQuantiserDifference", number2String(xmlBuffer, bufferSize, getChromaLumaQuantiserDifference()));
 
 	switch (getMotionEstimationMethod())
