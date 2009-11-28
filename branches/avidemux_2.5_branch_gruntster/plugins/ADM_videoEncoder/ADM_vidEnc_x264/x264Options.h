@@ -64,6 +64,11 @@ public:
 	bool getDeterministic(void);
 	void setDeterministic(bool deterministic);
 
+#if X264_BUILD >= 75
+	int getThreadedLookahead(void);
+	void setThreadedLookahead(int frames);
+#endif
+
 	int getIdcLevel(void);
 	void setIdcLevel(int idcLevel);
 

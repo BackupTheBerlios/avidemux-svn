@@ -79,6 +79,12 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.lblLookaheadFrames->setVisible(false);
 #endif
 
+#if X264_BUILD < 75
+	ui.threadedLookaheadCheckBox->setVisible(false);
+	ui.threadedLookaheadSpinBox->setVisible(false);
+	ui.lblThreadedFrames->setVisible(false);
+#endif
+
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
 
 	// Motion Estimation tab
@@ -648,6 +654,15 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 			ui.threadCustomSpinBox->setValue(options->getThreads());
 	}
 
+#if X264_BUILD >= 75
+	int threadedLookahead = options->getThreadedLookahead();
+
+	ui.threadedLookaheadCheckBox->setChecked(threadedLookahead > -1);
+
+	if (threadedLookahead > -1)
+		ui.threadedLookaheadSpinBox->setValue(threadedLookahead);
+#endif
+
 	// Motion Estimation tab
 	ui.meSpinBox->setValue(options->getSubpixelRefinement());
 	ui.meMethodComboBox->setCurrentIndex(options->getMotionEstimationMethod());
@@ -860,6 +875,13 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 		options->setThreads(1);
 	else
 		options->setThreads(ui.threadCustomSpinBox->value());
+
+#if X264_BUILD >= 75
+	if (ui.threadedLookaheadCheckBox->isChecked())
+		options->setThreadedLookahead(ui.threadedLookaheadSpinBox->value());
+	else
+		options->setThreadedLookahead(-1);
+#endif
 
 	// Motion Estimation tab
 	options->setSubpixelRefinement(ui.meSpinBox->value());

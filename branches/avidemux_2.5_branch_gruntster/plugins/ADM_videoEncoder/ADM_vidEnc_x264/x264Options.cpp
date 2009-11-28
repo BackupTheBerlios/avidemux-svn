@@ -97,6 +97,19 @@ void x264Options::setDeterministic(bool deterministic)
 	_param.b_deterministic = deterministic;
 }
 
+#if X264_BUILD >= 75
+int x264Options::getThreadedLookahead(void)
+{
+	return _param.i_sync_lookahead;
+}
+
+void x264Options::setThreadedLookahead(int frames)
+{
+	if (frames >= -1 && frames <= 250)
+		_param.i_sync_lookahead = frames;
+}
+#endif
+
 int x264Options::getIdcLevel(void)
 {
 	return _param.i_level_idc;
@@ -983,6 +996,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"deterministic", boolean2String(xmlBuffer, bufferSize, getDeterministic()));
+#if X264_BUILD >= 75
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threadedLookahead", number2String(xmlBuffer, bufferSize, getThreadedLookahead()));
+#endif
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"idcLevel", number2String(xmlBuffer, bufferSize, getIdcLevel()));
 
 	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"vui", NULL);
@@ -1350,6 +1366,10 @@ void x264Options::parseOptions(xmlNode *node)
 				setThreads(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "deterministic") == 0)
 				setDeterministic(string2Boolean(content));
+#if X264_BUILD >= 75
+			else if (strcmp((char*)xmlChild->name, "threadedLookahead") == 0)
+				setThreadedLookahead(atoi(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "idcLevel") == 0)
 				setIdcLevel(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "vui") == 0)

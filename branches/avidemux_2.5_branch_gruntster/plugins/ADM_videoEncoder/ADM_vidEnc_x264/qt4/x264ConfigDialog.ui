@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>523</width>
-    <height>536</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -101,7 +101,7 @@
      <property name="sizeHint" >
       <size>
        <width>505</width>
-       <height>10</height>
+       <height>16</height>
       </size>
      </property>
     </spacer>
@@ -532,194 +532,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_15" >
-         <property name="title" >
-          <string>Pixel Aspect Ratio</string>
-         </property>
-         <layout class="QVBoxLayout" >
-          <property name="margin" >
-           <number>9</number>
-          </property>
-          <property name="spacing" >
-           <number>6</number>
-          </property>
-          <item>
-           <layout class="QGridLayout" >
-            <property name="margin" >
-             <number>0</number>
-            </property>
-            <property name="spacing" >
-             <number>6</number>
-            </property>
-            <item row="0" column="0" >
-             <widget class="QRadioButton" name="sarCustomRadioButton" >
-              <property name="text" >
-               <string>Custom:</string>
-              </property>
-              <property name="checked" >
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" >
-             <widget class="QRadioButton" name="sarAsInputRadioButton" >
-              <property name="text" >
-               <string>As Input</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="sarAsInputLabel" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-                <property name="text" >
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item row="0" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QSpinBox" name="sarCustomSpinBox1" >
-                <property name="maximum" >
-                 <number>9999</number>
-                </property>
-                <property name="minimum" >
-                 <number>1</number>
-                </property>
-                <property name="value" >
-                 <number>1</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="sarCustomLabel" >
-                <property name="text" >
-                 <string>:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="sarCustomSpinBox2" >
-                <property name="maximum" >
-                 <number>9999</number>
-                </property>
-                <property name="minimum" >
-                 <number>1</number>
-                </property>
-                <property name="value" >
-                 <number>1</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QRadioButton" name="sarPredefinedRadioButton" >
-              <property name="text" >
-               <string>Predefined Aspect Ratio:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QComboBox" name="sarPredefinedComboBox" >
-                <property name="enabled" >
-                 <bool>false</bool>
-                </property>
-                <item>
-                 <property name="text" >
-                  <string>16:15 (PAL 4:3)</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>64:45 (PAL 16:9)</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>8:9 (NTSC 4:3)</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>32:27 (NTSC 16:9)</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
         <widget class="QGroupBox" name="groupBox_17" >
          <property name="title" >
           <string>Multithreading</string>
@@ -798,6 +610,63 @@
                </spacer>
               </item>
              </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="repeatabilityCheckBox" >
+            <property name="text" >
+             <string>Enforce Repeatability</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="threadedLookaheadCheckBox" >
+              <property name="text" >
+               <string>Custom Threaded Lookahead Buffer:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="threadedLookaheadSpinBox" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
+              <property name="maximum" >
+               <number>250</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblThreadedFrames" >
+              <property name="enabled" >
+               <bool>false</bool>
+              </property>
+              <property name="text" >
+               <string>frames</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>461</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -3564,206 +3433,139 @@
            <number>6</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" >
+           <layout class="QGridLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item>
-             <layout class="QGridLayout" >
+            <item row="0" column="1" >
+             <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
               </property>
               <property name="spacing" >
                <number>6</number>
               </property>
-              <item row="0" column="1" >
-               <layout class="QHBoxLayout" >
-                <property name="margin" >
+              <item>
+               <widget class="QComboBox" name="idcLevelComboBox" >
+                <property name="currentIndex" >
                  <number>0</number>
                 </property>
-                <property name="spacing" >
-                 <number>6</number>
-                </property>
                 <item>
-                 <widget class="QComboBox" name="idcLevelComboBox" >
-                  <property name="currentIndex" >
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <property name="text" >
-                    <string>Auto</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>1.1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>1.2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>1.3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>2.1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>2.2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>3.1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>3.2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>4</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>4.1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>4.2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>5.1</string>
-                   </property>
-                  </item>
-                 </widget>
+                 <property name="text" >
+                  <string>Auto</string>
+                 </property>
                 </item>
                 <item>
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 <property name="text" >
+                  <string>1</string>
+                 </property>
                 </item>
-               </layout>
-              </item>
-              <item row="1" column="0" >
-               <widget class="QLabel" name="label_55" >
-                <property name="text" >
-                 <string>Sequence Parameter Set Identifer:</string>
-                </property>
+                <item>
+                 <property name="text" >
+                  <string>1.1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>1.2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>1.3</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>2.1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>2.2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>3</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>3.1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>3.2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>4</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>4.1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>4.2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>5</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>5.1</string>
+                 </property>
+                </item>
                </widget>
               </item>
-              <item row="0" column="0" >
-               <widget class="QLabel" name="label_56" >
-                <property name="text" >
-                 <string>IDC Level:</string>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
                 </property>
-               </widget>
-              </item>
-              <item row="1" column="1" >
-               <layout class="QHBoxLayout" >
-                <property name="margin" >
-                 <number>0</number>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
                 </property>
-                <property name="spacing" >
-                 <number>6</number>
-                </property>
-                <item>
-                 <widget class="QComboBox" name="spsiComboBox" >
-                  <item>
-                   <property name="text" >
-                    <string>0</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>7</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>15</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text" >
-                    <string>31</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item>
-                 <spacer>
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" >
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
+               </spacer>
               </item>
              </layout>
             </item>
-            <item>
-             <layout class="QVBoxLayout" >
+            <item row="1" column="0" >
+             <widget class="QLabel" name="label_55" >
+              <property name="text" >
+               <string>Sequence Parameter Set Identifer:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label_56" >
+              <property name="text" >
+               <string>IDC Level:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
               </property>
@@ -3771,18 +3573,246 @@
                <number>6</number>
               </property>
               <item>
-               <widget class="QCheckBox" name="repeatabilityCheckBox" >
+               <widget class="QComboBox" name="spsiComboBox" >
+                <item>
+                 <property name="text" >
+                  <string>0</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>3</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>7</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>15</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>31</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="accessUnitCheckBox" >
+            <property name="text" >
+             <string>Generate Access Unit Delimiters</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_15" >
+         <property name="title" >
+          <string>Pixel Aspect Ratio</string>
+         </property>
+         <layout class="QVBoxLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <widget class="QRadioButton" name="sarCustomRadioButton" >
+              <property name="text" >
+               <string>Custom:</string>
+              </property>
+              <property name="checked" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QRadioButton" name="sarAsInputRadioButton" >
+              <property name="text" >
+               <string>As Input</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="sarAsInputLabel" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
                 <property name="text" >
-                 <string>Enforce Repeatability</string>
+                 <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="accessUnitCheckBox" >
-                <property name="text" >
-                 <string>Use Access Unit Delimiters</string>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="sarCustomSpinBox1" >
+                <property name="maximum" >
+                 <number>9999</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>1</number>
                 </property>
                </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="sarCustomLabel" >
+                <property name="text" >
+                 <string>:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="sarCustomSpinBox2" >
+                <property name="maximum" >
+                 <number>9999</number>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="value" >
+                 <number>1</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QRadioButton" name="sarPredefinedRadioButton" >
+              <property name="text" >
+               <string>Predefined Aspect Ratio:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="sarPredefinedComboBox" >
+                <property name="enabled" >
+                 <bool>false</bool>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>16:15 (PAL 4:3)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>64:45 (PAL 16:9)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>8:9 (NTSC 4:3)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>32:27 (NTSC 16:9)</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </item>
@@ -4284,16 +4314,12 @@
   <tabstop>quantiserSpinBox</tabstop>
   <tabstop>mbTreeCheckBox</tabstop>
   <tabstop>lookaheadSpinBox</tabstop>
-  <tabstop>sarCustomRadioButton</tabstop>
-  <tabstop>sarCustomSpinBox1</tabstop>
-  <tabstop>sarCustomSpinBox2</tabstop>
-  <tabstop>sarPredefinedRadioButton</tabstop>
-  <tabstop>sarPredefinedComboBox</tabstop>
-  <tabstop>sarAsInputRadioButton</tabstop>
   <tabstop>threadDisableRadioButton</tabstop>
   <tabstop>threadAutoDetectRadioButton</tabstop>
   <tabstop>threadCustomRadioButton</tabstop>
   <tabstop>threadCustomSpinBox</tabstop>
+  <tabstop>repeatabilityCheckBox</tabstop>
+  <tabstop>threadedLookaheadSpinBox</tabstop>
   <tabstop>meMethodComboBox</tabstop>
   <tabstop>meSlider</tabstop>
   <tabstop>meSpinBox</tabstop>
@@ -4362,8 +4388,13 @@
   <tabstop>zoneDeleteButton</tabstop>
   <tabstop>idcLevelComboBox</tabstop>
   <tabstop>spsiComboBox</tabstop>
-  <tabstop>repeatabilityCheckBox</tabstop>
   <tabstop>accessUnitCheckBox</tabstop>
+  <tabstop>sarCustomRadioButton</tabstop>
+  <tabstop>sarCustomSpinBox1</tabstop>
+  <tabstop>sarCustomSpinBox2</tabstop>
+  <tabstop>sarPredefinedRadioButton</tabstop>
+  <tabstop>sarPredefinedComboBox</tabstop>
+  <tabstop>sarAsInputRadioButton</tabstop>
   <tabstop>overscanComboBox</tabstop>
   <tabstop>videoFormatComboBox</tabstop>
   <tabstop>colourPrimariesComboBox</tabstop>
@@ -4375,70 +4406,6 @@
  </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>sarPredefinedRadioButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sarPredefinedComboBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>108</x>
-     <y>290</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>243</x>
-     <y>290</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sarCustomRadioButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sarCustomSpinBox1</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>108</x>
-     <y>262</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>209</x>
-     <y>262</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sarCustomRadioButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sarCustomSpinBox2</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>108</x>
-     <y>262</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>272</x>
-     <y>262</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sarCustomRadioButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sarCustomLabel</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>108</x>
-     <y>262</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>240</x>
-     <y>262</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>mvLengthCheckBox</sender>
    <signal>toggled(bool)</signal>
@@ -4600,22 +4567,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>sarAsInputRadioButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>sarAsInputLabel</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>108</x>
-     <y>318</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>184</x>
-     <y>317</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>threadCustomRadioButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>threadCustomSpinBox</receiver>
@@ -4692,6 +4643,38 @@
     <hint type="destinationlabel" >
      <x>262</x>
      <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>threadedLookaheadCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>threadedLookaheadSpinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>142</x>
+     <y>470</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>273</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>threadedLookaheadCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lblThreadedFrames</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>142</x>
+     <y>470</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>318</x>
+     <y>470</y>
     </hint>
    </hints>
   </connection>
