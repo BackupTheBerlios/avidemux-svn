@@ -545,6 +545,9 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="sliceMaxSize" type="xs:integer" minOccurs="0"/>
+              <xs:element name="sliceMaxMacroblocks" type="xs:integer" minOccurs="0"/>
+              <xs:element name="sliceCount" type="xs:integer" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

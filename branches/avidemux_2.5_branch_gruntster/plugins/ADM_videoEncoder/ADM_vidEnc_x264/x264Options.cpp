@@ -942,6 +942,38 @@ void x264Options::setSpsIdentifier(unsigned int spsIdentifier)
 	}
 }
 
+#if X264_BUILD >= 73
+unsigned int x264Options::getSliceMaxSize(void)
+{
+	return _param.i_slice_max_size;
+}
+
+void x264Options::setSliceMaxSize(unsigned int maxSize)
+{
+	_param.i_slice_max_size = maxSize;
+}
+
+unsigned int x264Options::getSliceMaxMacroblocks(void)
+{
+	return _param.i_slice_max_mbs;
+}
+
+void x264Options::setSliceMaxMacroblocks(unsigned int maxMbs)
+{
+	_param.i_slice_max_mbs = maxMbs;
+}
+
+unsigned int x264Options::getSliceCount(void)
+{
+	return _param.i_slice_count;
+}
+
+void x264Options::setSliceCount(unsigned int sliceCount)
+{
+	_param.i_slice_count = sliceCount;
+}
+#endif
+
 void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
@@ -1291,6 +1323,12 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"accessUnitDelimiters", boolean2String(xmlBuffer, bufferSize, getAccessUnitDelimiters()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"spsIdentifier", number2String(xmlBuffer, bufferSize, getSpsIdentifier()));
+
+#if X264_BUILD >= 73
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxSize", number2String(xmlBuffer, bufferSize, getSliceMaxSize()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxMacroblocks", number2String(xmlBuffer, bufferSize, getSliceMaxMacroblocks()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceCount", number2String(xmlBuffer, bufferSize, getSliceCount()));
+#endif
 }
 
 int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
@@ -1405,6 +1443,14 @@ void x264Options::parseOptions(xmlNode *node)
 				setAccessUnitDelimiters(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "spsIdentifier") == 0)
 				setSpsIdentifier(atoi(content));
+#if X264_BUILD >= 73
+			else if (strcmp((char*)xmlChild->name, "sliceMaxSize") == 0)
+				setSliceMaxSize(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "sliceMaxMacroblocks") == 0)
+				setSliceMaxMacroblocks(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "sliceCount") == 0)
+				setSliceCount(atoi(content));
+#endif
 
 			xmlFree(content);
 		}

@@ -116,6 +116,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.zoneEditButton, SIGNAL(pressed()), this, SLOT(zoneEditButton_pressed()));
 	connect(ui.zoneDeleteButton, SIGNAL(pressed()), this, SLOT(zoneDeleteButton_pressed()));
 
+#if X264_BUILD < 73
+	ui.slicingGroupBox->setEnabled(false);
+#endif
+
 	QWidgetList widgetList = QApplication::allWidgets();
 
 	for (int widgetIndex = 0; widgetIndex < widgetList.size(); widgetIndex++)
@@ -751,6 +755,12 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.vbvBufferSizeSpinBox->setValue(options->getVbvBufferSize());
 	ui.vbvBufferOccupancySpinBox->setValue((int)floor(options->getVbvInitialOccupancy() * 100 + .5));
 
+#if X264_BUILD >= 73
+	ui.maxSliceSizeSpinBox->setValue(options->getSliceMaxSize());
+	ui.maxSliceMbSpinBox->setValue(options->getSliceMaxMacroblocks());
+	ui.slicesPerFrameSpinBox->setValue(options->getSliceCount());
+#endif
+
 	zoneTableModel.removeRows();
 
 	int zoneCount = options->getZoneCount();
@@ -945,6 +955,12 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setVbvMaximumBitrate(ui.vbvMaxBitrateSpinBox->value());
 	options->setVbvBufferSize(ui.vbvBufferSizeSpinBox->value());
 	options->setVbvInitialOccupancy((float)ui.vbvBufferOccupancySpinBox->value() / 100);
+
+#if X264_BUILD >= 73
+	options->setSliceMaxSize(ui.maxSliceSizeSpinBox->value());
+	options->setSliceMaxMacroblocks(ui.maxSliceMbSpinBox->value());
+	options->setSliceCount(ui.slicesPerFrameSpinBox->value());
+#endif
 
 	options->clearZones();
 

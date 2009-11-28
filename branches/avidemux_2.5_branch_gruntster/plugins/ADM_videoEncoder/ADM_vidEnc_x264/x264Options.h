@@ -293,6 +293,17 @@ public:
 	unsigned int getSpsIdentifier(void);
 	void setSpsIdentifier(unsigned int spsIdentifier);
 
+#if X264_BUILD >= 73
+	unsigned int getSliceMaxSize(void);
+	void setSliceMaxSize(unsigned int maxSize);
+
+	unsigned int getSliceMaxMacroblocks(void);
+	void setSliceMaxMacroblocks(unsigned int maxMbs);
+
+	unsigned int getSliceCount(void);
+	void setSliceCount(unsigned int sliceCount);
+#endif
+
 	int fromXml(const char *xml, PluginXmlType xmlType);
 };
 
