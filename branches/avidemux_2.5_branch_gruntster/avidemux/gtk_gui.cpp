@@ -566,12 +566,24 @@ int nw;
       A_setPostproc();
       break;
 
-    case ACT_NextFrame:
-      GUI_NextFrame ();
-      break;
-    case ACT_NextKFrame:
-      GUI_NextKeyFrame ();
-      break;
+	case ACT_NextFrame:
+		if (!ignore_change)
+		{
+			ignore_change++;
+			GUI_NextFrame();
+			ignore_change--;
+		}
+
+		break;
+	case ACT_NextKFrame:
+		if (!ignore_change)
+		{
+			ignore_change++;
+			GUI_NextKeyFrame();
+			ignore_change--;
+		}
+
+		break;
     case ACT_NextBlackFrame:
       GUI_NextPrevBlackFrame(1);
       break;
@@ -582,9 +594,15 @@ int nw;
       GUI_FileSelWrite (QT_TR_NOOP("Select File to Save"), (SELFILE_CB *)A_ListAllBlackFrames);
         break;                        
     
-    case ACT_PreviousFrame:
-        GUI_PrevFrame();
-      break;
+	case ACT_PreviousFrame:
+		if (!ignore_change)
+		{
+			ignore_change++;
+			GUI_PrevFrame();
+			ignore_change--;
+		}
+
+		break;
     case ACT_Forward100Frames:
       GUI_GoToKFrame (curframe + (avifileinfo->fps1000 / 1000 * 4));
       break;
@@ -621,9 +639,15 @@ int nw;
 	}
       break;
 
-    case ACT_PreviousKFrame:
-      GUI_PreviousKeyFrame ();
-      break;
+	case ACT_PreviousKFrame:
+		if (!ignore_change)
+		{
+			ignore_change++;
+			GUI_PreviousKeyFrame();
+			ignore_change--;
+		}
+
+		break;
     case ACT_AudioSourceAvi:
       //currentaudiostream=aviaudiostream;
       A_changeAudioStream (aviaudiostream, AudioAvi,NULL);
