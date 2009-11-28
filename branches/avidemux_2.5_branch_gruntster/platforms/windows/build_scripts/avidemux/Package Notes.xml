@@ -1,5 +1,31 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5567" date="2009-11-26">
+  </buildentry>
+  <buildentry revision="5558" date="2009-11-24">
+  </buildentry>
+  <buildentry revision="5546" date="2009-11-23">
+    <comment>Updated x264 to r1347.</comment>
+  </buildentry>
+  <buildentry revision="5530" date="2009-11-19">
+    <comment>Updated x264 to r1342.</comment>
+  </buildentry>
+  <buildentry revision="5422" date="2009-10-27">
+    <comment>Updated SDL to version 1.2.14.</comment>
+    <comment>Updated x264 to r1310.</comment>
+  </buildentry>
+  <buildentry revision="5369" date="2009-10-05">
+    <comment>Updated ATK to version 1.28.0-1.</comment>
+    <comment>Updated Fontconfig to version 2.7.3-1.</comment>
+    <comment>Updated GLib to version 2.22.1-1.</comment>
+    <comment>Updated GTK+ to version 2.18.1-1.</comment>
+    <comment>Updated libpng to version 1.2.39-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.4-1.</comment>
+    <comment>Updated NSPR to version 4.8.</comment>
+    <comment>Updated opencore-amr to version 0.1.2.</comment>
+    <comment>Updated Qt to version 4.5.3.</comment>
+    <comment>Updated x264 to r1271.</comment>
+  </buildentry>
   <buildentry revision="5341" date="2009-09-17">
     <comment>Updated x264 to r1259.</comment>
   </buildentry>

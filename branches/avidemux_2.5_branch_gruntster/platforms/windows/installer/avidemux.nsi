@@ -333,6 +333,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} libgtk-win32-2.0-0.dll
         ${File} libpango-1.0-0.dll
         ${File} libpangocairo-1.0-0.dll
+        ${File} libpangoft2-1.0-0.dll
         ${File} libpangowin32-1.0-0.dll
         ${File} libpng12-0.dll
     ${MementoSectionEnd}
