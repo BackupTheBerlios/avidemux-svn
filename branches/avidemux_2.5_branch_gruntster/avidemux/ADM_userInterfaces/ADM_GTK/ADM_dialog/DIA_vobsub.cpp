@@ -172,14 +172,8 @@ GtkWidget*
   GtkWidget *label4;
   GtkWidget *optionmenu1;
   GtkWidget *label2;
-  GtkWidget *frame2;
-  GtkWidget *table2;
-  GtkWidget *label6;
-  GtkObject *spinbutton1_adj;
-  GtkWidget *spinbutton1;
   GtkWidget *label7;
   GtkWidget *entryShift;
-  GtkWidget *label5;
   GtkWidget *dialog_action_area1;
   GtkWidget *cancelbutton1;
   GtkWidget *okbutton1;
@@ -235,32 +229,9 @@ GtkWidget*
   gtk_frame_set_label_widget (GTK_FRAME (frame1), label2);
   gtk_label_set_justify (GTK_LABEL (label2), GTK_JUSTIFY_LEFT);
 
-  frame2 = gtk_frame_new (NULL);
-  gtk_widget_show (frame2);
-  gtk_box_pack_start (GTK_BOX (vbox1), frame2, TRUE, TRUE, 0);
-
-  table2 = gtk_table_new (2, 2, FALSE);
-  gtk_widget_show (table2);
-  gtk_container_add (GTK_CONTAINER (frame2), table2);
-
-  label6 = gtk_label_new (QT_TR_NOOP("Extra Shrink Factor :"));
-  gtk_widget_show (label6);
-  gtk_table_attach (GTK_TABLE (table2), label6, 0, 1, 0, 1,
-                    (GtkAttachOptions) (GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-  gtk_label_set_justify (GTK_LABEL (label6), GTK_JUSTIFY_LEFT);
-  gtk_misc_set_alignment (GTK_MISC (label6), 0, 0.5);
-
-  spinbutton1_adj = gtk_adjustment_new (1, 1, 2, 0.1, 0.2, 0);
-  spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton1_adj), 1, 0);
-  gtk_widget_show (spinbutton1);
-  gtk_table_attach (GTK_TABLE (table2), spinbutton1, 1, 2, 0, 1,
-                    (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                    (GtkAttachOptions) (0), 0, 0);
-
   label7 = gtk_label_new (QT_TR_NOOP("Shift (ms) :"));
   gtk_widget_show (label7);
-  gtk_table_attach (GTK_TABLE (table2), label7, 0, 1, 1, 2,
+  gtk_table_attach (GTK_TABLE (table1), label7, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
   gtk_label_set_justify (GTK_LABEL (label7), GTK_JUSTIFY_LEFT);
@@ -268,14 +239,9 @@ GtkWidget*
 
   entryShift = gtk_entry_new ();
   gtk_widget_show (entryShift);
-  gtk_table_attach (GTK_TABLE (table2), entryShift, 1, 2, 1, 2,
+  gtk_table_attach (GTK_TABLE (table1), entryShift, 1, 2, 2, 3,
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-
-  label5 = gtk_label_new (QT_TR_NOOP("Extra Settings"));
-  gtk_widget_show (label5);
-  gtk_frame_set_label_widget (GTK_FRAME (frame2), label5);
-  gtk_label_set_justify (GTK_LABEL (label5), GTK_JUSTIFY_LEFT);
 
   dialog_action_area1 = GTK_DIALOG (dialog1)->action_area;
   gtk_widget_show (dialog_action_area1);
@@ -302,13 +268,8 @@ GtkWidget*
   GLADE_HOOKUP_OBJECT (dialog1, label4, "label4");
   GLADE_HOOKUP_OBJECT (dialog1, optionmenu1, "optionmenu1");
   GLADE_HOOKUP_OBJECT (dialog1, label2, "label2");
-  GLADE_HOOKUP_OBJECT (dialog1, frame2, "frame2");
-  GLADE_HOOKUP_OBJECT (dialog1, table2, "table2");
-  GLADE_HOOKUP_OBJECT (dialog1, label6, "label6");
-  GLADE_HOOKUP_OBJECT (dialog1, spinbutton1, "spinbutton1");
   GLADE_HOOKUP_OBJECT (dialog1, label7, "label7");
   GLADE_HOOKUP_OBJECT (dialog1, entryShift, "entryShift");
-  GLADE_HOOKUP_OBJECT (dialog1, label5, "label5");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog1, dialog_action_area1, "dialog_action_area1");
   GLADE_HOOKUP_OBJECT (dialog1, cancelbutton1, "cancelbutton1");
   GLADE_HOOKUP_OBJECT (dialog1, okbutton1, "okbutton1");
