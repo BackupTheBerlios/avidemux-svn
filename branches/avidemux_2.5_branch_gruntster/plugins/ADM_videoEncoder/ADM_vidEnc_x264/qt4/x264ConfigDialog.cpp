@@ -76,7 +76,7 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	ui.mbTreeCheckBox->setVisible(false);
 	ui.lblLookahead->setVisible(false);
 	ui.lookaheadSpinBox->setVisible(false);
-	ui.lblLookaheadFrames>setVisible(false);
+	ui.lblLookaheadFrames->setVisible(false);
 #endif
 
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
