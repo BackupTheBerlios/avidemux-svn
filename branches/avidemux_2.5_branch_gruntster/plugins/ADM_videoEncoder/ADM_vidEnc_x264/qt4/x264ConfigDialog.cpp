@@ -95,6 +95,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 
 	ui.scenecutDetectionCheckBox->setVisible(false);
 
+#if X264_BUILD < 79
+	ui.lblWeightedPPredict->setVisible(false);
+	ui.weightedPPredictComboBox->setVisible(false);
+#endif
+
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
@@ -695,6 +700,11 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	}
 
 	ui.predictModeComboBox->setCurrentIndex(options->getDirectPredictionMode());
+
+#if X264_BUILD >= 79
+	ui.weightedPPredictComboBox->setCurrentIndex(options->getWeightedPredictionPFrames());
+#endif
+
 	ui.weightedPredictCheckBox->setChecked(options->getWeightedPrediction());
 
 	// Partition tab
@@ -914,6 +924,11 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 		options->setMotionVectorThreadBuffer(-1);
 
 	options->setDirectPredictionMode(ui.predictModeComboBox->currentIndex());
+
+#if X264_BUILD >= 79
+	options->setWeightedPredictionPFrames(ui.weightedPPredictComboBox->currentIndex());
+#endif
+
 	options->setWeightedPrediction(ui.weightedPredictCheckBox->isChecked());
 	options->setDct8x8(ui.dct8x8CheckBox->isChecked());
 	options->setPartitionP8x8(ui.p8x8CheckBox->isChecked());

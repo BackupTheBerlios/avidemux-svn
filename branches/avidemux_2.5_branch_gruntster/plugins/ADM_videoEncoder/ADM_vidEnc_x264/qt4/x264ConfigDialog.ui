@@ -1097,29 +1097,78 @@
          <property name="title" >
           <string>Prediction</string>
          </property>
-         <layout class="QVBoxLayout" >
+         <layout class="QGridLayout" >
           <property name="margin" >
            <number>9</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item>
-           <layout class="QHBoxLayout" >
+          <item row="0" column="0" >
+           <layout class="QGridLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item>
+            <item row="1" column="1" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="weightedPPredictComboBox" >
+                <item>
+                 <property name="text" >
+                  <string>Disabled</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Blind Offset</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Smart Analysis</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0" >
              <widget class="QLabel" name="label_40" >
               <property name="text" >
                <string>Direct Prediction Mode:</string>
               </property>
              </widget>
             </item>
-            <item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblWeightedPPredict" >
+              <property name="text" >
+               <string>Weighted Prediction for P-frames:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
              <layout class="QHBoxLayout" >
               <property name="margin" >
                <number>0</number>
@@ -1171,14 +1220,14 @@
             </item>
            </layout>
           </item>
-          <item>
+          <item row="1" column="0" >
            <widget class="QCheckBox" name="weightedPredictCheckBox" >
             <property name="text" >
              <string>Weighted Prediction for B-frames</string>
             </property>
            </widget>
           </item>
-          <item>
+          <item row="2" column="0" >
            <widget class="QCheckBox" name="constrainedIntraCheckBox" >
             <property name="text" >
              <string>Constrained Intra Prediction</string>
@@ -4353,6 +4402,7 @@
   <tabstop>minThreadBufferCheckBox</tabstop>
   <tabstop>minThreadBufferSpinBox</tabstop>
   <tabstop>predictModeComboBox</tabstop>
+  <tabstop>weightedPPredictComboBox</tabstop>
   <tabstop>weightedPredictCheckBox</tabstop>
   <tabstop>constrainedIntraCheckBox</tabstop>
   <tabstop>dct8x8CheckBox</tabstop>

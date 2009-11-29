@@ -551,6 +551,18 @@ void x264Options::setDct8x8(bool dct8x8)
 	_param.analyse.b_transform_8x8 = dct8x8;
 }
 
+#if X264_BUILD >= 79
+unsigned int x264Options::getWeightedPredictionPFrames(void)
+{
+	return _param.analyse.i_weighted_pred;
+}
+
+void x264Options::setWeightedPredictionPFrames(unsigned int weightedPrediction)
+{
+	_param.analyse.i_weighted_pred = weightedPrediction;
+}
+#endif
+
 bool x264Options::getWeightedPrediction(void)
 {
 	return _param.analyse.b_weighted_bipred;
@@ -1245,6 +1257,24 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"partitionP4x4", boolean2String(xmlBuffer, bufferSize, getPartitionP4x4()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"partitionB8x8", boolean2String(xmlBuffer, bufferSize, getPartitionB8x8()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"dct8x8", boolean2String(xmlBuffer, bufferSize, getDct8x8()));
+
+#if X264_BUILD >= 79
+	switch (getWeightedPredictionPFrames())
+	{
+		case X264_WEIGHTP_NONE:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+		case X264_WEIGHTP_BLIND:
+			strcpy((char*)xmlBuffer, "blind");
+			break;
+		case X264_WEIGHTP_SMART:
+			strcpy((char*)xmlBuffer, "smart");
+			break;
+	}
+
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"weightedPredictionPframes", xmlBuffer);
+#endif
+
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"weightedPrediction", boolean2String(xmlBuffer, bufferSize, getWeightedPrediction()));
 
 	switch (getDirectPredictionMode())
@@ -1693,6 +1723,19 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setPartitionB8x8(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "dct8x8") == 0)
 				setDct8x8(string2Boolean(content));
+#if X264_BUILD >= 79
+			else if (strcmp((char*)xmlChild->name, "weightedPredictionPframes") == 0)
+			{
+				int weightedPredPFrames = X264_WEIGHTP_NONE;
+
+				if (strcmp(content, "blind") == 0)
+					weightedPredPFrames = X264_WEIGHTP_BLIND;
+				else if (strcmp(content, "smart") == 0)
+					weightedPredPFrames = X264_WEIGHTP_SMART;
+
+				setWeightedPredictionPFrames(weightedPredPFrames);
+			}
+#endif
 			else if (strcmp((char*)xmlChild->name, "weightedPrediction") == 0)
 				setWeightedPrediction(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "directPredictionMode") == 0)

@@ -185,6 +185,11 @@ public:
 	bool getDct8x8(void);
 	void setDct8x8(bool dct8x8);
 
+#if X264_BUILD >= 79
+	unsigned int getWeightedPredictionPFrames(void);
+	void setWeightedPredictionPFrames(unsigned int weightedPrediction);
+#endif
+
 	bool getWeightedPrediction(void);
 	void setWeightedPrediction(bool weightedPrediction);
 
