@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>523</width>
-    <height>600</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -101,7 +101,7 @@
      <property name="sizeHint" >
       <size>
        <width>505</width>
-       <height>16</height>
+       <height>10</height>
       </size>
      </property>
     </spacer>
@@ -1534,175 +1534,191 @@
          <property name="title" >
           <string>B-frames</string>
          </property>
-         <layout class="QVBoxLayout" >
+         <layout class="QGridLayout" >
           <property name="margin" >
            <number>9</number>
           </property>
           <property name="spacing" >
            <number>6</number>
           </property>
-          <item>
-           <layout class="QGridLayout" >
+          <item row="4" column="0" >
+           <widget class="QLabel" name="label_33" >
+            <property name="text" >
+             <string>B-frames as References:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <layout class="QHBoxLayout" >
             <property name="margin" >
              <number>0</number>
             </property>
             <property name="spacing" >
              <number>6</number>
             </property>
-            <item row="0" column="0" >
-             <widget class="QLabel" name="label_31" >
-              <property name="text" >
-               <string>Maximum Consecutive B-frames:</string>
-              </property>
+            <item>
+             <widget class="QComboBox" name="bFrameRefComboBox" >
+              <item>
+               <property name="text" >
+                <string>Disabled</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Strictly Hierarchical Pyramid</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Non-strict (Not Blu-ray Compatible)</string>
+               </property>
+              </item>
              </widget>
             </item>
-            <item row="2" column="0" >
-             <widget class="QLabel" name="label_4" >
-              <property name="text" >
-               <string>Adaptive B-frame Decision:</string>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
               </property>
-             </widget>
-            </item>
-            <item row="1" column="0" >
-             <widget class="QLabel" name="label_29" >
-              <property name="text" >
-               <string>B-frame Bias:</string>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
               </property>
-             </widget>
-            </item>
-            <item row="2" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QComboBox" name="adaptiveBFrameComboBox" >
-                <item>
-                 <property name="text" >
-                  <string>Disabled</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>Fast</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text" >
-                  <string>Optimal</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item row="1" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QSpinBox" name="BFrameBiasSpinBox" >
-                <property name="maximum" >
-                 <number>100</number>
-                </property>
-                <property name="minimum" >
-                 <number>-100</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType" >
-                 <enum>QSizePolicy::MinimumExpanding</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>10</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item row="0" column="1" >
-             <layout class="QHBoxLayout" >
-              <property name="margin" >
-               <number>0</number>
-              </property>
-              <property name="spacing" >
-               <number>6</number>
-              </property>
-              <item>
-               <widget class="QSpinBox" name="maxBFramesSpinBox" >
-                <property name="maximum" >
-                 <number>16</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer>
-                <property name="orientation" >
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType" >
-                 <enum>QSizePolicy::MinimumExpanding</enum>
-                </property>
-                <property name="sizeHint" >
-                 <size>
-                  <width>10</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             </spacer>
             </item>
            </layout>
           </item>
-          <item>
-           <spacer>
-            <property name="orientation" >
-             <enum>Qt::Vertical</enum>
+          <item row="3" column="1" >
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
             </property>
-            <property name="sizeType" >
-             <enum>QSizePolicy::Fixed</enum>
+            <property name="spacing" >
+             <number>6</number>
             </property>
-            <property name="sizeHint" >
-             <size>
-              <width>362</width>
-              <height>2</height>
-             </size>
-            </property>
-           </spacer>
+            <item>
+             <widget class="QComboBox" name="adaptiveBFrameComboBox" >
+              <item>
+               <property name="text" >
+                <string>Disabled</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Fast</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Optimal</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
-          <item>
-           <widget class="QCheckBox" name="bFrameRefCheckBox" >
+          <item rowspan="2" row="1" column="1" >
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QSpinBox" name="BFrameBiasSpinBox" >
+              <property name="maximum" >
+               <number>100</number>
+              </property>
+              <property name="minimum" >
+               <number>-100</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType" >
+               <enum>QSizePolicy::MinimumExpanding</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>10</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1" >
+           <layout class="QHBoxLayout" >
+            <property name="margin" >
+             <number>0</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item>
+             <widget class="QSpinBox" name="maxBFramesSpinBox" >
+              <property name="maximum" >
+               <number>16</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType" >
+               <enum>QSizePolicy::MinimumExpanding</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>10</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="label_29" >
             <property name="text" >
-             <string>Use B-frames as References</string>
+             <string>B-frame Bias:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_31" >
+            <property name="text" >
+             <string>Maximum Consecutive B-frames:</string>
+            </property>
+           </widget>
+          </item>
+          <item rowspan="2" row="2" column="0" >
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Adaptive B-frame Decision:</string>
             </property>
            </widget>
           </item>
@@ -4319,6 +4335,7 @@
   <tabstop>threadCustomRadioButton</tabstop>
   <tabstop>threadCustomSpinBox</tabstop>
   <tabstop>repeatabilityCheckBox</tabstop>
+  <tabstop>threadedLookaheadCheckBox</tabstop>
   <tabstop>threadedLookaheadSpinBox</tabstop>
   <tabstop>meMethodComboBox</tabstop>
   <tabstop>meSlider</tabstop>
@@ -4345,7 +4362,7 @@
   <tabstop>maxBFramesSpinBox</tabstop>
   <tabstop>BFrameBiasSpinBox</tabstop>
   <tabstop>adaptiveBFrameComboBox</tabstop>
-  <tabstop>bFrameRefCheckBox</tabstop>
+  <tabstop>bFrameRefComboBox</tabstop>
   <tabstop>minGopSizeSpinBox</tabstop>
   <tabstop>maxGopSizeSpinBox</tabstop>
   <tabstop>IFrameThresholdSpinBox</tabstop>
@@ -4406,6 +4423,70 @@
  </tabstops>
  <resources/>
  <connections>
+  <connection>
+   <sender>sarPredefinedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sarPredefinedComboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>108</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>243</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sarCustomRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sarCustomSpinBox1</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>108</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>209</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sarCustomRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sarCustomSpinBox2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>108</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>272</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sarCustomRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sarCustomLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>108</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>240</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
   <connection>
    <sender>mvLengthCheckBox</sender>
    <signal>toggled(bool)</signal>
@@ -4563,6 +4644,22 @@
     <hint type="destinationlabel" >
      <x>413</x>
      <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sarAsInputRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sarAsInputLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>108</x>
+     <y>318</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>184</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>

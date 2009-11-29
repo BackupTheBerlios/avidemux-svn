@@ -322,7 +322,7 @@ void x264Options::setBFrameBias(int bFrameBias)
 		_param.i_bframe_bias = bFrameBias;
 }
 
-bool x264Options::getBFrameReferences(void)
+unsigned int x264Options::getBFrameReferences(void)
 {
 #if X264_BUILD >= 78
 	return _param.i_bframe_pyramid;
@@ -331,12 +331,13 @@ bool x264Options::getBFrameReferences(void)
 #endif
 }
 
-void x264Options::setBFrameReferences(bool bFrameReferences)
+void x264Options::setBFrameReferences(unsigned int bFrameReferences)
 {
 #if X264_BUILD >= 78
-	_param.i_bframe_pyramid = bFrameReferences;
+	if (bFrameReferences <= 2)
+		_param.i_bframe_pyramid = bFrameReferences;
 #else
-	_param.b_bframe_pyramid = bFrameReferences;
+	_param.b_bframe_pyramid = !!bFrameReferences;
 #endif
 }
 
@@ -1143,7 +1144,27 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrames", number2String(xmlBuffer, bufferSize, getBFrames()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", number2String(xmlBuffer, bufferSize, getBFrameReferences()));
+
+#if X264_BUILD >= 78
+	switch (getBFrameReferences())
+	{
+		case 0:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+		case 1:
+			strcpy((char*)xmlBuffer, "strict");
+			break;
+		case 2:
+			strcpy((char*)xmlBuffer, "normal");
+			break;
+	}
+
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bFrameReferences", xmlBuffer);
+#else
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", boolean2String(xmlBuffer, bufferSize, (bool)getBFrameReferences()));
+#endif
+
+
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilter", boolean2String(xmlBuffer, bufferSize, getLoopFilter()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterAlphaC0", number2String(xmlBuffer, bufferSize, getLoopFilterAlphaC0()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
@@ -1389,7 +1410,20 @@ void x264Options::parseOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "bFrameBias") == 0)
 				setBFrameBias(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "bFrameReferences") == 0)
-				setBFrameReferences(atoi(content));
+			{
+				int bFrameReferences = 0;
+
+				if (strcmp(content, "strict") == 0)
+					bFrameReferences = 1;
+				else if (strcmp(content, "normal") == 0 || strcmp(content, "true") == 0)
+#if X264_BUILD >= 78
+					bFrameReferences = 2;
+#else
+					bFrameReferences = 1;
+#endif
+
+				setBFrameReferences(bFrameReferences);
+			}
 			else if (strcmp((char*)xmlChild->name, "loopFilter") == 0)
 				setLoopFilter(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "loopFilterAlphaC0") == 0)

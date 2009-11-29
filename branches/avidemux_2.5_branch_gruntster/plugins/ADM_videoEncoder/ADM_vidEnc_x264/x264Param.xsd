@@ -211,7 +211,19 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="bFrameReferences" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="bFrameReferences" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="strict"/>
+                    <xs:enumeration value="normal"/>
+
+                    <!-- boolean values deprecated core 78 -->
+                    <xs:enumeration value="true"/>
+                    <xs:enumeration value="false"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="loopFilter" type="xs:boolean" minOccurs="0"/>
               <xs:element name="loopFilterAlphaC0" minOccurs="0">
                 <xs:simpleType>

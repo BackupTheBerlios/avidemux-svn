@@ -123,8 +123,8 @@ public:
 	int getBFrameBias(void);
 	void setBFrameBias(int bFrameBias);
 
-	bool getBFrameReferences(void);
-	void setBFrameReferences(bool bFrameReferences);
+	unsigned int getBFrameReferences(void);
+	void setBFrameReferences(unsigned int bFrameReferences);
 
 	bool getLoopFilter(void);
 	void setLoopFilter(bool loopFilter);
