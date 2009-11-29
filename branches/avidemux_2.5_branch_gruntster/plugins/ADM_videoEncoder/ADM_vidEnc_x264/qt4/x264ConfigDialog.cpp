@@ -99,6 +99,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
+#if X264_BUILD < 77
+	ui.constrainedIntraCheckBox->setVisible(false);
+#endif
+
 #if X264_BUILD < 78
 	ui.bFrameRefComboBox->clear();
 	ui.bFrameRefComboBox->addItem(QT_TR_NOOP("Disabled"));
@@ -705,6 +709,11 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Frame tab
 	ui.cabacCheckBox->setChecked(options->getCabac());
 	ui.interlacedCheckBox->setChecked(options->getInterlaced());
+
+#if X264_BUILD >= 77
+	ui.constrainedIntraCheckBox->setChecked(options->getConstrainedIntraPrediction());
+#endif
+
 	ui.loopFilterCheckBox->setChecked(options->getLoopFilter());
 	ui.alphaC0SpinBox->setValue(options->getLoopFilterAlphaC0());
 	ui.betaSpinBox->setValue(options->getLoopFilterBeta());
@@ -916,6 +925,11 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Frame tab
 	options->setCabac(ui.cabacCheckBox->isChecked());
 	options->setInterlaced(ui.interlacedCheckBox->isChecked());
+
+#if X264_BUILD >= 77
+	options->setConstrainedIntraPrediction(ui.constrainedIntraCheckBox->isChecked());
+#endif
+
 	options->setLoopFilter(ui.loopFilterCheckBox->isChecked());
 	options->setLoopFilterAlphaC0(ui.alphaC0SpinBox->value());
 	options->setLoopFilterBeta(ui.betaSpinBox->value());

@@ -1178,6 +1178,13 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QCheckBox" name="constrainedIntraCheckBox" >
+            <property name="text" >
+             <string>Constrained Intra Prediction</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -4347,6 +4354,7 @@
   <tabstop>minThreadBufferSpinBox</tabstop>
   <tabstop>predictModeComboBox</tabstop>
   <tabstop>weightedPredictCheckBox</tabstop>
+  <tabstop>constrainedIntraCheckBox</tabstop>
   <tabstop>dct8x8CheckBox</tabstop>
   <tabstop>p8x8CheckBox</tabstop>
   <tabstop>b8x8CheckBox</tabstop>

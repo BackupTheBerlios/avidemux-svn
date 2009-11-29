@@ -243,6 +243,7 @@
               </xs:element>
               <xs:element name="cabac" type="xs:boolean" minOccurs="0"/>
               <xs:element name="interlaced" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="constrainedIntraPrediction" type="xs:boolean" minOccurs="0"/>
               <xs:element name="cqmPreset" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

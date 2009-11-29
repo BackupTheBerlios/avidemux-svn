@@ -141,6 +141,11 @@ public:
 	bool getInterlaced(void);
 	void setInterlaced(bool interlaced);
 
+#if X264_BUILD >= 77
+	bool getConstrainedIntraPrediction(void);
+	void setConstrainedIntraPrediction(bool constrainedIntra);
+#endif
+
 	unsigned int getCqmPreset(void);
 	void setCqmPreset(unsigned int cqmPreset);
 

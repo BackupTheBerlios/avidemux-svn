@@ -393,6 +393,18 @@ void x264Options::setInterlaced(bool interlaced)
 	_param.b_interlaced = interlaced;
 }
 
+#if X264_BUILD >= 77
+bool x264Options::getConstrainedIntraPrediction(void)
+{
+	return _param.b_constrained_intra;
+}
+
+void x264Options::setConstrainedIntraPrediction(bool constrainedIntra)
+{
+	_param.b_constrained_intra = constrainedIntra;
+}
+#endif
+
 unsigned int x264Options::getCqmPreset(void)
 {
 	return _param.i_cqm_preset;
@@ -1170,6 +1182,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cabac", boolean2String(xmlBuffer, bufferSize, getCabac()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", boolean2String(xmlBuffer, bufferSize, getInterlaced()));
+#if X264_BUILD >= 77
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"constrainedIntraPrediction", boolean2String(xmlBuffer, bufferSize, getConstrainedIntraPrediction()));
+#endif
 
 	switch (getCqmPreset())
 	{
@@ -1434,6 +1449,10 @@ void x264Options::parseOptions(xmlNode *node)
 				setCabac(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
 				setInterlaced(string2Boolean(content));
+#if X264_BUILD >= 77
+			else if (strcmp((char*)xmlChild->name, "constrainedIntraPrediction") == 0)
+				setConstrainedIntraPrediction(string2Boolean(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "cqmPreset") == 0)
 			{
 				int cqmPreset = 0;
