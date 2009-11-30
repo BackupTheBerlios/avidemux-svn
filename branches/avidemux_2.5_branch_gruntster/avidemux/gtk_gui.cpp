@@ -764,10 +764,15 @@ int nw;
 	}
 	break;
 
+	case ACT_Cut:
+		if (frameEnd < frameStart)
+		{
+			GUI_Error_HIG(QT_TR_NOOP("Marker A > B"), QT_TR_NOOP("Cannot cut."));
+			break;
+		}
+		else
+			video_body->copyToClipBoard(frameStart, frameEnd);
     case ACT_Delete:
-    case ACT_Cut:
-    
-     
       old=frameStart;
       if( A_delete(frameStart,frameEnd))
       {
