@@ -1183,7 +1183,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 			break;
 	}
 
-	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"bFrameReferences", xmlBuffer);
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", xmlBuffer);
 #else
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", boolean2String(xmlBuffer, bufferSize, (bool)getBFrameReferences()));
 #endif
