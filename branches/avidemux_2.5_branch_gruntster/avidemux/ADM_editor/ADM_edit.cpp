@@ -65,6 +65,8 @@ extern uint8_t indexMpeg (char *mpeg, char *file, uint8_t aid);
 
 extern uint8_t loadVideoCodecConf( const char *name);
 extern uint8_t parseScript(char *name);
+extern int ADM_open(const char *path, int oflag, int aflag);
+
 uint8_t UI_SetCurrentFormat( ADM_OUT_FORMAT fmt );
 const char *VBR_MSG = QT_TR_NOOP("Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?\n\nYou can do it later with \"Audio -> Build VBR Time Map\".");
 //
@@ -338,7 +340,7 @@ thisIsMpeg:
         }
 	/* check for "Read-only file system" */
 	{
-                int fd = open(tmpname,O_CREAT|O_EXCL|O_WRONLY,S_IRUSR|S_IWUSR);
+                int fd = ADM_open(tmpname,O_CREAT|O_EXCL|O_WRONLY,S_IRUSR|S_IWUSR);
                 if( fd >= 0 )
                 {
                     close(fd);

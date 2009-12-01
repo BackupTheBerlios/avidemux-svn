@@ -135,61 +135,58 @@ FILE *ADM_fopen(const char *file, const char *mode)
 #endif
 }
 
-#if __WIN32
-extern "C"
+int ADM_open(const char *path, int oflag, int aflag)
 {
-	// libavformat uses open (in the file_open function) so we need to override that too.
-	// Following the same rules as ADM_fopen.
-	int ADM_open(const char *path, int oflag, ...)
+#ifdef __WIN32
+	int fileNameLength = utf8StringToWideChar(path, -1, NULL);
+	wchar_t wcFile[fileNameLength];
+	int creation = 0, access = 0;
+	HANDLE hFile;
+
+	utf8StringToWideChar(path, -1, wcFile);
+
+	if (oflag & O_WRONLY || oflag & O_RDWR)
 	{
-		int fileNameLength = utf8StringToWideChar(path, -1, NULL);
-		wchar_t wcFile[fileNameLength];
-		int creation = 0, access = 0;
-		HANDLE hFile;
+		access = GENERIC_WRITE;
 
-		utf8StringToWideChar(path, -1, wcFile);
+		if (oflag & O_RDWR)
+			access |= GENERIC_READ;
 
-		if (oflag & O_WRONLY || oflag & O_RDWR)
+		if (oflag & O_CREAT)
 		{
-			access = GENERIC_WRITE;
-
-			if (oflag & O_RDWR)
-				access |= GENERIC_READ;
-
-			if (oflag & O_CREAT)
-			{
-				if (oflag & O_EXCL)
-					creation = CREATE_NEW;
-				else if (oflag & O_TRUNC)
-					creation = CREATE_ALWAYS;
-				else
-					creation = OPEN_ALWAYS;
-			}
+			if (oflag & O_EXCL)
+				creation = CREATE_NEW;
 			else if (oflag & O_TRUNC)
-				creation = TRUNCATE_EXISTING;
-		}
-		else if (oflag & O_RDONLY)
-			creation = OPEN_EXISTING;
-
-		if (creation & GENERIC_WRITE)
-		{
-			hFile = CreateFileW(wcFile, access, 0, NULL, creation, 0, NULL);
-
-			if (hFile == INVALID_HANDLE_VALUE)
-				return -1;
+				creation = CREATE_ALWAYS;
 			else
-				CloseHandle(hFile);
+				creation = OPEN_ALWAYS;
 		}
+		else if (oflag & O_TRUNC)
+			creation = TRUNCATE_EXISTING;
+	}
+	else if (oflag & O_RDONLY)
+		creation = OPEN_EXISTING;
 
-		hFile = CreateFileW(wcFile, access, FILE_SHARE_READ, NULL, creation, 0, NULL);
+	if (creation & GENERIC_WRITE)
+	{
+		hFile = CreateFileW(wcFile, access, 0, NULL, creation, 0, NULL);
 
 		if (hFile == INVALID_HANDLE_VALUE)
 			return -1;
 		else
-			return _open_osfhandle((intptr_t)hFile, oflag);
+			CloseHandle(hFile);
 	}
-}
+
+	hFile = CreateFileW(wcFile, access, FILE_SHARE_READ, NULL, creation, 0, NULL);
+
+	if (hFile == INVALID_HANDLE_VALUE)
+		return -1;
+	else
+		return _open_osfhandle((intptr_t)hFile, oflag);
+#else
+	return open(path, oflag, aflag);
 #endif
+}
 
 int ADM_fclose(FILE *file)
 {
