@@ -1460,7 +1460,7 @@ void x264Options::parseOptions(xmlNode *node)
 
 				if (strcmp(content, "strict") == 0)
 					bFrameReferences = 1;
-				else if (strcmp(content, "normal") == 0 || strcmp(content, "true") == 0)
+				else if (strcmp(content, "normal") == 0 || strcmp(content, "1") == 0)
 #if X264_BUILD >= 78
 					bFrameReferences = 2;
 #else
