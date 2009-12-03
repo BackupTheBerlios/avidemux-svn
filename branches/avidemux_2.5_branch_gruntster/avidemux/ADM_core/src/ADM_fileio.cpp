@@ -20,7 +20,9 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <unistd.h>
-
+#ifndef __WIN32
+#include <fcntl.h>
+#endif
 #ifdef __WIN32
 #include <direct.h>
 #include <shlobj.h>
