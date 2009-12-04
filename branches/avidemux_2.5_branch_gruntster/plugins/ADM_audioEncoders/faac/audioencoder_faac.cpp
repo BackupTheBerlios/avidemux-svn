@@ -78,10 +78,12 @@ AUDMEncoder_Faac::AUDMEncoder_Faac(AUDMAudioFilter * instream)  :AUDMEncoder    
         *f++ = CHTYP_FRONT_CENTER;
     	*f++ = CHTYP_FRONT_LEFT;
     	*f++ = CHTYP_FRONT_RIGHT;
-        
-        *f++ = CHTYP_REAR_LEFT;
-    	*f++ = CHTYP_REAR_RIGHT;
+    	
+        *f++ = CHTYP_REAR_RIGHT;
         *f++ = CHTYP_LFE;
+        *f++ = CHTYP_REAR_LEFT;
+        
+        
         
     	
   }
