@@ -74,12 +74,16 @@ AUDMEncoder_Faac::AUDMEncoder_Faac(AUDMAudioFilter * instream)  :AUDMEncoder    
     	outputChannelMapping[1] = CHTYP_FRONT_RIGHT;
       break;
     default :
-    	outputChannelMapping[0] = CHTYP_FRONT_CENTER;
-    	outputChannelMapping[1] = CHTYP_FRONT_LEFT;
-    	outputChannelMapping[2] = CHTYP_FRONT_RIGHT;
-    	outputChannelMapping[3] = CHTYP_REAR_LEFT;
-    	outputChannelMapping[4] = CHTYP_REAR_RIGHT;
-    	outputChannelMapping[5] = CHTYP_LFE;
+    	CHANNEL_TYPE *f=outputChannelMapping;
+        *f++ = CHTYP_FRONT_CENTER;
+    	*f++ = CHTYP_FRONT_LEFT;
+    	*f++ = CHTYP_FRONT_RIGHT;
+        
+        *f++ = CHTYP_REAR_LEFT;
+    	*f++ = CHTYP_REAR_RIGHT;
+        *f++ = CHTYP_LFE;
+        
+    	
   }
 };
 
