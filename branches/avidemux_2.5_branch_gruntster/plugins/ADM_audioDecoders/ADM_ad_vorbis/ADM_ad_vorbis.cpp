@@ -154,13 +154,32 @@ DECLARE_AUDIO_DECODER(ADM_vorbis,						// Class
 	printf("Vorbis init successfull\n");
 	STRUCT->ampscale=1;
 	_init=1;
-
-	channelMapping[0] = CHTYP_FRONT_LEFT;
-	channelMapping[1] = CHTYP_FRONT_RIGHT;
-	channelMapping[2] = CHTYP_REAR_LEFT;
-	channelMapping[3] = CHTYP_REAR_RIGHT;
-	channelMapping[4] = CHTYP_FRONT_CENTER;
-	channelMapping[5] = CHTYP_LFE;
+CHANNEL_TYPE *p_ch_type = channelMapping;
+#define DOIT(y) *(p_ch_type++)=CHTYP_##y;
+    switch(STRUCT->vinfo.channels)
+    {
+    case 1:
+    case 2:
+    {
+        DOIT(FRONT_LEFT);
+        DOIT(FRONT_RIGHT);
+        break;
+    }
+    default:
+    case 5:
+    {
+        DOIT(FRONT_LEFT);
+        DOIT(FRONT_CENTER);
+        DOIT(FRONT_RIGHT);
+        
+        
+        DOIT(REAR_LEFT);
+        DOIT(REAR_RIGHT);
+        DOIT(LFE);
+        break;
+    }
+    }
+	
  }
  // This codec expects more or less one packet at a time !
  
