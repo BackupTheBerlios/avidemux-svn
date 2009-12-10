@@ -83,7 +83,7 @@ Either change codec or use the mixer filter to have less channels.</source>
     </message>
     <message>
         <source>Not activated.</source>
-        <translation>沒有啟動。</translation>
+        <translation type="obsolete">沒有啟動。</translation>
     </message>
     <message>
         <source>Internal error finding codec &apos;&apos;</source>
@@ -103,7 +103,7 @@ Either change codec or use the mixer filter to have less channels.</source>
         <source>Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?
 
 You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
-        <translation>Avidemux 檢測到這個檔案含有 VBR MP3 音訊。為了維持影音同步，時間對應是必須的。現在建立嗎？
+        <translation>Avidemux 偵測到這個檔案含有 VBR MP3 音訊。為了維持影音同步，時間對應是必須的。現在建立嗎？
 
 你可以稍候透過 \&quot;音訊 -&gt; 建立 VBR 時間對應\&quot; 來建立。</translation>
     </message>
@@ -249,7 +249,7 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation>複製來源</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <source>Wrong output format</source>
@@ -1039,9 +1039,9 @@ Click OK to generate debug information. This may take a few minutes to complete.
         <source>I have detected a crash file. 
 Do you want to load it  ?
 (It will be deleted in all cases, you should save it if you want to keep it)</source>
-        <translation>檢測到一個損壞檔。
+        <translation>偵測到一個損壞檔。
 是否要載入 ?
-(在所有的案例都將被檢測，若要保存它你必須執行儲存)</translation>
+(在所有的案例都會偵測，若要保存它你必須執行儲存)</translation>
     </message>
     <message>
         <source>Oops</source>
@@ -1275,7 +1275,7 @@ Please move the A marker.</source>
 Continue anyway?</source>
         <translation>對這個容器而言此音訊流可能是無效的。
 
-無論如何都要繼續嗎?</translation>
+仍要繼續嗎?</translation>
     </message>
     <message>
         <source>
@@ -1296,7 +1296,7 @@ Continue anyway?</source>
     </message>
     <message>
         <source>You can&apos;t use the Copy codec.</source>
-        <translation>無法使用複製來源的編解碼器。</translation>
+        <translation>無法使用複製的編解碼器。</translation>
     </message>
     <message>
         <source>There is no audio track</source>
@@ -2396,15 +2396,15 @@ Continue anyway?</source>
     </message>
     <message>
         <source>Video Codecs</source>
-        <translation>視訊編解碼器</translation>
+        <translation type="obsolete">視訊編解碼器</translation>
     </message>
     <message>
         <source>Xvid</source>
-        <translation>Xvid</translation>
+        <translation type="obsolete">Xvid</translation>
     </message>
     <message>
         <source>x264</source>
-        <translation>x264</translation>
+        <translation type="obsolete">x264</translation>
     </message>
     <message>
         <source>Audio Codecs</source>
@@ -2448,11 +2448,11 @@ Continue anyway?</source>
     </message>
     <message>
         <source>aRts</source>
-        <translation>aRts</translation>
+        <translation type="obsolete">aRts</translation>
     </message>
     <message>
         <source>ESD</source>
-        <translation>ESD</translation>
+        <translation type="obsolete">ESD</translation>
     </message>
     <message>
         <source>Fontconfig</source>
@@ -2468,11 +2468,11 @@ Continue anyway?</source>
     </message>
     <message>
         <source>ALSA</source>
-        <translation>ALSA</translation>
+        <translation type="obsolete">ALSA</translation>
     </message>
     <message>
         <source>OSS</source>
-        <translation>OSS</translation>
+        <translation type="obsolete">OSS</translation>
     </message>
     <message>
         <source>SDL</source>
@@ -2500,7 +2500,7 @@ Continue anyway?</source>
     </message>
     <message>
         <source>Codecs</source>
-        <translation>編解器</translation>
+        <translation type="obsolete">編解器</translation>
     </message>
     <message>
         <source>Libraries</source>
@@ -3596,7 +3596,7 @@ Go to Audio-&gt;MainTrack to select the active one.</source>
     </message>
     <message>
         <source>Cannot save the audio in copy mode</source>
-        <translation>無法在 複製來源 模式儲存此音訊</translation>
+        <translation>無法在複製模式儲存此音訊</translation>
     </message>
     <message>
         <source>Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.</source>
@@ -3712,7 +3712,7 @@ Go to Audio-&gt;MainTrack to select the active one.</source>
     </message>
     <message>
         <source>Switch audio codec to Copy.</source>
-        <translation>切換音訊編解碼器為複製來源。</translation>
+        <translation>切換音訊編解碼器為複製。</translation>
     </message>
     <message>
         <source>Cannot delete the selection.</source>
@@ -3918,11 +3918,11 @@ It is needed to create PSP compatible video.</source>
     </message>
     <message>
         <source>Dual audio can only be used in copy mode</source>
-        <translation>雙語只可以使用於複製來源模式</translation>
+        <translation>雙語只可以使用於複製模式</translation>
     </message>
     <message>
         <source>Select Copy as the video codec.</source>
-        <translation>選擇 複製來源 作為視訊編解碼器。</translation>
+        <translation>選擇複製作為視訊編解碼器。</translation>
     </message>
     <message>
         <source>Incompatible output format</source>
@@ -4027,6 +4027,31 @@ Enable it?</source>
 Install lame plugin</source>
         <translation>此 MP3 編解碼器不允許停用儲存器。
 安裝 lame 外掛模組</translation>
+    </message>
+    <message>
+        <source>Audio filters cannot be applied in Copy mode</source>
+        <translation>在複製模式無法套用音訊濾鏡</translation>
+    </message>
+    <message>
+        <source>To apply filters the audio must be transcoded.</source>
+        <translation>音訊必須轉碼才能套用濾鏡。</translation>
+    </message>
+    <message>
+        <source>Video filters cannot be applied in Copy mode</source>
+        <translation>在複製模式無法套用視訊濾鏡</translation>
+    </message>
+    <message>
+        <source>To apply filters the video must be transcoded.</source>
+        <translation>視訊必須轉碼才能套用濾鏡。</translation>
+    </message>
+    <message>
+        <source>Not activated, make sure number of channels and bitrate are compatible with encoder!</source>
+        <translation>沒有作用，請確認聲道數和位元率能與編碼器相容!</translation>
+    </message>
+    <message>
+        <source>Cannot cut.</source>
+        <translatorcomment>無法剪下。</translatorcomment>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4905,7 +4930,7 @@ multiplied by this):</source>
     </message>
     <message>
         <source>DivX 5 + packed?</source>
-        <translation>DivX 5 + 打包好的?</translation>
+        <translation>DivX 5 + 打包?</translation>
     </message>
     <message>
         <source>Rebuilding Frames</source>
@@ -4929,7 +4954,7 @@ multiplied by this):</source>
     </message>
     <message>
         <source>File type identified but no loader support detected...</source>
-        <translation>識別出檔案類型但沒有檢測到支援的載入器...</translation>
+        <translation>識別出檔案類型但沒有偵測到支援的載入器...</translation>
     </message>
     <message>
         <source>May be related to an old index file.</source>
@@ -4979,7 +5004,7 @@ Avidemux 能使用其他的方式來儲存，但是&lt;b&gt;你將失去畫格�
     </message>
     <message>
         <source>Packed Bitstream detected</source>
-        <translation>檢測到打包好的位元流</translation>
+        <translation>偵測到打包好的位元流</translation>
     </message>
     <message>
         <source>Do you want me to unpack it ?</source>
@@ -5146,7 +5171,7 @@ Avidemux 能使用其他的方式來儲存，但是&lt;b&gt;你將失去畫格�
     </message>
     <message>
         <source>Save As</source>
-        <translation>另存</translation>
+        <translation>另存新檔</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -5177,7 +5202,7 @@ Avidemux 能使用其他的方式來儲存，但是&lt;b&gt;你將失去畫格�
     </message>
     <message>
         <source>Auto-detect</source>
-        <translation type="obsolete">自動檢測</translation>
+        <translation type="obsolete">自動偵測</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -5616,7 +5641,7 @@ Avidemux 能使用其他的方式來儲存，但是&lt;b&gt;你將失去畫格�
     </message>
     <message>
         <source>Use chroma to also detect scene change</source>
-        <translation type="obsolete">也使用色度來檢測場景改變</translation>
+        <translation type="obsolete">也使用色度偵測場景改變</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -7098,7 +7123,7 @@ Avidemux 能使用其他的方式來儲存，但是&lt;b&gt;你將失去畫格�
     </message>
     <message>
         <source>Save P&amp;roject As...</source>
-        <translation>另存專案為(&amp;R)...</translation>
+        <translation>另存專案(&amp;R)...</translation>
     </message>
     <message>
         <source>Save Project As</source>
