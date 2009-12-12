@@ -1,0 +1,33 @@
+*** libavformat/flvenc.c.old	Tue Nov 24 18:58:08 2009
+--- libavformat/flvenc.c	Tue Nov 24 18:58:08 2009
+***************
+*** 406,412 ****
+      "video/x-flv",
+      "flv",
+      sizeof(FLVContext),
+! #if CONFIG_LIBMP3LAME
+      CODEC_ID_MP3,
+  #else // CONFIG_LIBMP3LAME
+      CODEC_ID_ADPCM_SWF,
+--- 406,413 ----
+      "video/x-flv",
+      "flv",
+      sizeof(FLVContext),
+! //MEANX #if CONFIG_LIBMP3LAME
+! #ifdef HAVE_LIBMP3LAME
+      CODEC_ID_MP3,
+  #else // CONFIG_LIBMP3LAME
+      CODEC_ID_ADPCM_SWF,
+***************
+*** 418,420 ****
+--- 419,427 ----
+      .codec_tag= (const AVCodecTag* const []){flv_video_codec_ids, flv_audio_codec_ids, 0},
+      .flags= AVFMT_GLOBALHEADER | AVFMT_VARIABLE_FPS,
+  };
++ // MEANX
++ int flvenc_init(void)
++ {
++     av_register_output_format(&flv_muxer);
++     return 0;
++ }
+\ No newline at end of file
