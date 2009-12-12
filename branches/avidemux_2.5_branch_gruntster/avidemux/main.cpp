@@ -222,7 +222,7 @@ int main(int argc, char *argv[])
 	const char *pluginDir="ADM_plugins";
 
 #ifdef __APPLE__
-    const char *startDir="../Libraries/lib";
+    const char *startDir="../lib";
 #else
     const char *startDir="lib";
 #endif

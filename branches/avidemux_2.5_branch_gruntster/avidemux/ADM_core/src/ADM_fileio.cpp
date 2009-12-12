@@ -361,7 +361,7 @@ char *ADM_getPluginPath(void)
 	const char *pluginDir="ADM_plugins";
 
 #ifdef __APPLE__
-    const char *startDir="../Libraries/lib";
+    const char *startDir="../lib";
 #else
     const char *startDir="lib";
 #endif
