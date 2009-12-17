@@ -44,11 +44,10 @@ static FILTER_PARAM rotpParam={3,{"width","height","angle"}};
 
 
 //********** Register chunk ************
-static FILTER_PARAM flipParam={0,{""}};
 
 //REGISTERX(VF_TRANSFORM, "rotate",QT_TR_NOOP("Rotate"),QT_TR_NOOP(
 //    "Rotate the picture by 90, 180 or 270 degrees."),VF_ROTATE,1,rotate_create,rotate_script);
-VF_DEFINE_FILTER(ADMVideoRotate,flipParam,
+VF_DEFINE_FILTER(ADMVideoRotate,rotpParam,
                                 rotate,
                                 QT_TR_NOOP("Rotate"),
                                 1,
