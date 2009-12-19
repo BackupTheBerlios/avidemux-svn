@@ -68,7 +68,11 @@ foreach (protocol ${FFMPEG_PROTOCOLS})
 endforeach (protocol)
 
 if (WIN32)
-	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-memalign-hack --enable-w32threads)
+	if (ADM_CPU_X86_32)
+		set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-memalign-hack)
+	endif (ADM_CPU_X86_32)
+
+	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-w32threads)
 else (WIN32)
 	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-pthreads)
 endif (WIN32)
