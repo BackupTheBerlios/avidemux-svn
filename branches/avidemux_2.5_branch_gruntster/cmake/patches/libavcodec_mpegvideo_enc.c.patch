@@ -1,8 +1,8 @@
-*** libavcodec/mpegvideo_enc.c.old	Sun Jan 25 00:55:20 2009
---- libavcodec/mpegvideo_enc.c	Sun Jan 25 00:55:19 2009
+*** libavcodec/mpegvideo_enc.c.old	Sat Dec 19 22:15:57 2009
+--- libavcodec/mpegvideo_enc.c	Sat Dec 19 22:15:58 2009
 ***************
-*** 349,360 ****
---- 349,362 ----
+*** 363,374 ****
+--- 363,376 ----
   
           av_log(avctx, AV_LOG_INFO, "Warning vbv_delay will be set to 0xFFFF (=VBR) as the specified vbv buffer is too large for the given bitrate!\n");
       }
@@ -18,8 +18,8 @@
       if(s->obmc && s->avctx->mb_decision != FF_MB_DECISION_SIMPLE){
           av_log(avctx, AV_LOG_ERROR, "OBMC is only supported with simple mb decision\n");
 ***************
-*** 387,396 ****
---- 389,400 ----
+*** 409,418 ****
+--- 411,422 ----
           return -1;
       }
   

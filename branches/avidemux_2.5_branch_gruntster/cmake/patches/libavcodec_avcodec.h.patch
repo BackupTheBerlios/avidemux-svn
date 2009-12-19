@@ -1,19 +1,19 @@
-*** libavcodec/avcodec.h.old	Tue Nov 24 18:57:43 2009
---- libavcodec/avcodec.h	Tue Nov 24 18:57:43 2009
+*** libavcodec/avcodec.h.old	Sat Dec 19 22:15:38 2009
+--- libavcodec/avcodec.h	Sat Dec 19 22:15:38 2009
 ***************
-*** 580,585 ****
---- 580,587 ----
-  #define CODEC_FLAG2_CHUNKS        0x00008000 ///< Input bitstream might be truncated at a packet boundaries instead of only at frame boundaries.
+*** 583,588 ****
+--- 583,590 ----
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
+  #define CODEC_FLAG2_MBTREE        0x00040000 ///< Use macroblock tree ratecontrol (x264 only)
 + //MEANX: NEVER EVER USE CLOSED GOP ?
-+ #define CODEC_FLAG2_32_PULLDOWN   0x80000000 
++ #define CODEC_FLAG2_32_PULLDOWN   0x80000000
   
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1438,1443 ****
---- 1440,1446 ----
+*** 1441,1446 ****
+--- 1443,1449 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1452,1457 ****
---- 1455,1462 ----
+*** 1455,1460 ****
+--- 1458,1465 ----
        * - decoding: unused
        */
       int rc_buffer_size;
