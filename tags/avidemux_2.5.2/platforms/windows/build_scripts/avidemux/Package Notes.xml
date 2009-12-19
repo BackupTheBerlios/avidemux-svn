@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<log>
+  <buildentry revision="5567" date="2009-11-26">
+  </buildentry>
+  <buildentry revision="5558" date="2009-11-24">
+  </buildentry>
+  <buildentry revision="5546" date="2009-11-23">
+    <comment>Updated x264 to r1347.</comment>
+  </buildentry>
+  <buildentry revision="5530" date="2009-11-19">
+    <comment>Updated x264 to r1342.</comment>
+  </buildentry>
+  <buildentry revision="5422" date="2009-10-27">
+    <comment>Updated SDL to version 1.2.14.</comment>
+    <comment>Updated x264 to r1310.</comment>
+  </buildentry>
+  <buildentry revision="5369" date="2009-10-05">
+    <comment>Updated ATK to version 1.28.0-1.</comment>
+    <comment>Updated Fontconfig to version 2.7.3-1.</comment>
+    <comment>Updated GLib to version 2.22.1-1.</comment>
+    <comment>Updated GTK+ to version 2.18.1-1.</comment>
+    <comment>Updated libpng to version 1.2.39-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.4-1.</comment>
+    <comment>Updated NSPR to version 4.8.</comment>
+    <comment>Updated opencore-amr to version 0.1.2.</comment>
+    <comment>Updated Qt to version 4.5.3.</comment>
+    <comment>Updated x264 to r1271.</comment>
+  </buildentry>
+  <buildentry revision="5341" date="2009-09-17">
+    <comment>Updated x264 to r1259.</comment>
+  </buildentry>
+  <buildentry revision="5327" date="2009-09-09">
+    <comment>Updated x264 to r1251.</comment>
+  </buildentry>
+  <buildentry revision="5281" date="2009-08-29">
+    <comment>Updated x264 to r1240.</comment>
+  </buildentry>
+  <buildentry revision="5273" date="2009-08-27">
+    <comment>Updated x264 to r1235.</comment>
+    <comment>Updated Xvid to version 1.2.2.</comment>
+  </buildentry>
+  <buildentry revision="5268" date="2009-08-23">
+    <comment>Updated x264 to r1222.</comment>
+  </buildentry>
+  <buildentry revision="5249 [2.5.1 Final]" date="2009-08-16">
+    <comment>Updated Fontconfig to version 2.7.1-2.</comment>
+  </buildentry>
+  <buildentry revision="5234" date="2009-08-12">
+    <comment>Updated Cairo to version 1.8.8-1.</comment>
+    <comment>Updated Fontconfig to version 2.7.1-1.</comment>
+    <comment>Updated Freetype to version 2.3.9-1.</comment>
+    <comment>Updated GLib to version 2.20.4-1.</comment>
+    <comment>Updated GTK+ to version 2.16.5-1.</comment>
+    <comment>Updated libpng to version 1.2.38-1.</comment>
+    <comment>Updated Pango to version 1.24.5-1.</comment>
+    <comment>Updated x264 to r1206.</comment>
+  </buildentry>
+  <buildentry revision="5204" date="2009-08-03">
+  </buildentry>
+  <buildentry revision="5181" date="2009-07-30">
+    <comment>Updated x264 to r1195.</comment>
+  </buildentry>
+  <buildentry revision="5152" date="2009-07-25">
+    <comment>Updated Avisynth Proxy GUI to version 2.09d.</comment>
+    <comment>Updated x264 to r1185.</comment>
+  </buildentry>
+  <buildentry revision="5104" date="2009-07-17">
+    <comment>Added opencore-amr version 0.1.1.</comment>
+    <comment>Updated x264 to r1183.</comment>
+  </buildentry>
+  <buildentry revision="5087" date="2009-07-13">
+  </buildentry>
+  <buildentry revision="5065" date="2009-07-12">
+    <comment>Updated Vorbis to version 1.2.3.</comment>
+    <comment>Updated x264 to r1181.</comment>
+  </buildentry>
+  <buildentry revision="5031" date="2009-07-10">
+    <comment>Recompiled FAAC with MinGW's GCC 4.2.1-sjlj-2.</comment>
+    <comment>Updated x264 to r1179.</comment>
+  </buildentry>
+  <buildentry revision="5010" date="2009-07-06">
+  </buildentry>
+  <buildentry revision="4997" date="2009-07-05">
+  </buildentry>
+  <buildentry revision="4992" date="2009-07-04">
+    <comment>Updated FAAC to version 1.28.</comment>
+    <comment>Updated FAAD2 to version 2.7.</comment>
+  </buildentry>
+  <buildentry revision="4968" date="2009-06-27">
+    <comment>Updated ATK to version 1.26.0-1.</comment>
+    <comment>Updated GLib to version 2.20.3-1.</comment>
+    <comment>Updated GTK+ to version 2.16.2-1.</comment>
+    <comment>Updated libpng to version 1.2.37-1.</comment>
+    <comment>Updated Ogg to version 1.1.4.</comment>
+    <comment>Updated Pango to version 1.24.2-1.</comment>
+    <comment>Updated Qt to version 4.5.2.</comment>
+    <comment>Updated Vorbis to version 1.2.2.</comment>
+    <comment>Updated x264 to r1173.</comment>
+  </buildentry>
+  <buildentry revision="4944 [2.5.0 Final]" date="2009-06-23">
+    <comment>Updated x264 to r1170.</comment>
+  </buildentry>
+  <buildentry revision="4871" date="2009-05-25">
+    <comment>Updated x264 to r1159.</comment>
+  </buildentry>
+  <buildentry revision="4763" date="2009-04-26">
+    <comment>Added Netscape Portable Runtime version 4.7.4.</comment>
+    <comment>Updated Pango to version 1.24.1-1.</comment>
+    <comment>Updated Qt to version 4.5.1.</comment>
+    <comment>Updated SpiderMonkey to version 1.7.0.</comment>
+  </buildentry>
+  <buildentry revision="4758" date="2009-04-22">
+    <comment>Updated Avisynth Proxy GUI to version 2.08.</comment>
+    <comment>Updated x264 to r1145.</comment>
+  </buildentry>
+  <buildentry revision="4741" date="2009-04-20">
+    <comment>Updated GLib to version 2.20.1-1.</comment>
+    <comment>Updated GTK+ to version 2.16.1-1.</comment>
+    <comment>Updated Pango to version 1.24.0-1.</comment>
+  </buildentry>
+  <buildentry revision="4685" date="2009-03-14">
+  </buildentry>
+  <buildentry revision="4658" date="2009-03-05">
+    <comment>Updated Qt to version 4.5.0.</comment>
+  </buildentry>
+  <buildentry revision="4648" date="2009-03-02">
+    <comment>Updated x264 to r1115.</comment>
+  </buildentry>
+  <buildentry revision="4629" date="2009-02-24">
+  </buildentry>
+  <buildentry revision="4618" date="2009-02-21">
+    <comment>Updated x264 to r1114.</comment>
+  </buildentry>
+  <buildentry revision="4609" date="2009-02-16">
+    <comment>Packaged using NSIS 2.43.</comment>
+    <comment>Updated Avisynth Proxy GUI to version 2.07 (2nd release).</comment>
+    <comment>Updated Libxml2 to version 2.7.3.</comment>
+    <comment>Updated x264 to r1113.</comment>
+  </buildentry>
+</log>
