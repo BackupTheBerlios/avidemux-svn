@@ -210,12 +210,15 @@ bool getWindowsVersion(char* version)
 
 	if (osvi.dwPlatformId != VER_PLATFORM_WIN32_NT)
 		return false;
-// Vista
-	if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion == 0)
+// Windows Vista / Windows 7
+	if (osvi.dwMajorVersion == 6 && osvi.dwMinorVersion <= 1)
 	{
 		if (osvi.wProductType == VER_NT_WORKSTATION)
 		{
-			index += sprintf(version + index, "Microsoft Windows Vista");
+			if (osvi.dwMinorVersion == 1)
+				index += sprintf(version + index, "Microsoft Windows 7");
+			else
+				index += sprintf(version + index, "Microsoft Windows Vista");
 
 			uint32_t productType = 0;
 
@@ -278,7 +281,10 @@ bool getWindowsVersion(char* version)
 		}
 		else if (osvi.wProductType == VER_NT_SERVER)
 		{
-			index += sprintf(version + index, "Microsoft Windows Server 2008");
+			if (osvi.dwMinorVersion == 1)
+				index += sprintf(version + index, "Microsoft Windows Server 2008 R2");
+			else
+				index += sprintf(version + index, "Microsoft Windows Server 2008");
 
 			if (osvi.wSuiteMask & VER_SUITE_DATACENTER)
 				index += sprintf(version + index, " Datacenter Edition");
@@ -373,6 +379,9 @@ bool getWindowsVersion(char* version)
 	index += sprintf(version + index, " (%d.%d.%d", osvi.dwMajorVersion, osvi.dwMinorVersion, osvi.dwBuildNumber & 0xFFFF);
 
 // 64-bit Windows
+#ifdef __WIN64
+	index += sprintf(version + index, "; 64-bit");
+#else
 	bool isWow64 = false;
 	HMODULE hKernel = GetModuleHandle("kernel32.dll");
 
@@ -392,6 +401,7 @@ bool getWindowsVersion(char* version)
 		index += sprintf(version + index, "; 64-bit");
 	else
 		index += sprintf(version + index, "; 32-bit");
+#endif
 
 	index += sprintf(version + index, ")");
 	
