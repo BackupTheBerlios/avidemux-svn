@@ -78,7 +78,7 @@ extern adm_fast_memcpy myAdmMemcpy;
 #define access	ADM_access
 #endif
 
-#ifndef __APPLE__
+#if !defined(__APPLE__) && !defined(__WIN64)
 #ifndef ADM_LEGACY_PROGGY
   #define malloc #error
   #define realloc #error

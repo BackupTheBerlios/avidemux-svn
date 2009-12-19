@@ -80,7 +80,7 @@ void *ADM_calloc(size_t nbElm, size_t elSize)
 
 void *ADM_alloc(size_t size)
 {
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__WIN64)
 	return malloc(size);
 #else
 	char *c;
@@ -114,7 +114,7 @@ void *ADM_alloc(size_t size)
 
 void ADM_dezalloc(void *ptr)
 {
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__WIN64)
 	if (!ptr)
 		return;
 
@@ -181,7 +181,7 @@ void operator delete[] (void *c)
  */
 void *ADM_realloc(void *ptr, size_t newsize)
 {
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__WIN64)
 	if(!ptr)
 		return ADM_alloc(newsize);
 
