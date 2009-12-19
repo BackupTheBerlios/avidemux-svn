@@ -62,7 +62,8 @@ static const externalSource Sources[]=
         {AudioAC3,"AC3"},
         {AudioNone,"NONE"}
 };
-typedef struct Mixer_String
+
+struct Mixer_String
 {
   const char         *name;
   CHANNEL_CONF conf;

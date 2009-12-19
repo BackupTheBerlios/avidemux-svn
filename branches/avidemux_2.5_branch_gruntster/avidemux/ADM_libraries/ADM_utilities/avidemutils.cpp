@@ -310,7 +310,7 @@ void printWavHeader(WAVHeader *hdr)
 
 }
 /* Compute aspect ration from common ARWidth / AR Height value */
-typedef struct ARDescriptor
+struct ARDescriptor
 {
   int width;
   int height;

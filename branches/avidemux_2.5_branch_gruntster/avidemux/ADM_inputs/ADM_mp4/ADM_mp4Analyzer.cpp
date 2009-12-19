@@ -1108,7 +1108,7 @@ uint8_t MP4Header::updateCtts(MPsampleinfo *info )
             uint32_t  cel=0;
             for(uint32_t i=0;i<scope;i++)
             {
-              if(info->Ctts[i]>4294967290)
+              if(info->Ctts[i]>4294967290UL)
               {
                 if(i)
                   info->Ctts[i]=info->Ctts[0];

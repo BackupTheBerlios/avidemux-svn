@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "gtkmarkscale.h"
 
 static GtkWidgetClass *parent_class = NULL;
