@@ -366,7 +366,7 @@ uint32_t rd;
                                         }
                                         // now read extra stuff
                                         fseeko(_fd,_Tracks[run].strf.offset,SEEK_SET);		
-                                        extra=_Tracks[run].strf.size-sizeof(_wavHeader);
+                                        extra=_Tracks[run].strf.size-sizeof(WAVHeader);
                                         if(extra<0)
                                         {	
                                                 printf("WavHeader is not big enough (%lu/%lu)!\n",
