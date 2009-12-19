@@ -110,7 +110,7 @@ uint8_t scratchPad[SCRATCH_PAD_SIZE];
  ADM_AudiocodecWMA::~ADM_AudiocodecWMA()
  {
         avcodec_close(_context);
-        ADM_dealloc(_context);
+        av_free(_context);
         _contextVoid=NULL;
 }    
 /*-------------------------------------------------------------------------------------------------------------------------

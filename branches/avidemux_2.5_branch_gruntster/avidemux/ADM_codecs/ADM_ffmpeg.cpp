@@ -59,7 +59,7 @@ uint8_t ffmpegEncoder::stopEncoder(void)
     if (_context)
     {
         avcodec_close (_context);
-        ADM_dealloc (_context);
+        av_free(_context);
         _context = NULL;
     }
     return 1;

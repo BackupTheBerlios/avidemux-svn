@@ -192,12 +192,8 @@ decoderFF::decoderFF (uint32_t w, uint32_t h):decoders (w, h)
   _context = NULL;
   _refCopy = 0;
   _usingMT = 0;
-#if LIBAVCODEC_BUILD >= 4624
+
   _context = avcodec_alloc_context ();
-#else
-  _context = new AVCodecContext;
-  memset (_context, 0, sizeof (AVCodecContext));
-#endif
   ADM_assert (_context);
   memset (&_frame, 0, sizeof (_frame));
 
@@ -234,7 +230,7 @@ decoderFF::~decoderFF ()
     }
 
   avcodec_close (_context);
-  ADM_dealloc (_context);
+  av_free(_context);
   delete[]_internalBuffer;
   printf ("[lavc] Destroyed\n");
 }
