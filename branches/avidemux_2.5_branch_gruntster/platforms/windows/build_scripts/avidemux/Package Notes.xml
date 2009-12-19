@@ -1,5 +1,20 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5660 [2.5.2 Final]" date="2009-12-19">
+  </buildentry>
+  <buildentry revision="5636 [2.5.2 RC1]" date="2009-12-12">
+  </buildentry>
+  <buildentry revision="5602" date="2009-11-30">
+  </buildentry>
+  <buildentry revision="5590" date="2009-11-28">
+    <comment>Updated Cairo to version 1.8.8-3.</comment>
+    <comment>Updated Fontconfig to version 2.8.0-1.</comment>
+    <comment>Updated Freetype to version 2.3.11-1.</comment>
+    <comment>Updated GLib to version 2.22.2-1.</comment>
+    <comment>Updated GTK+ to version 2.18.3-1.</comment>
+    <comment>Updated Pango to version 1.26.0-1.</comment>
+    <comment>Updated x264 to r1352.</comment>
+  </buildentry>
   <buildentry revision="5567" date="2009-11-26">
   </buildentry>
   <buildentry revision="5558" date="2009-11-24">

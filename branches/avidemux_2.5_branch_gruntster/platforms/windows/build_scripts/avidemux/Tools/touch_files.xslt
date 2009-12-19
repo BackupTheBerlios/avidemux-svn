@@ -106,7 +106,7 @@
   <xsl:template name='getFileName'>
     <xsl:param name='revision' />
 
-    <xsl:text>2.4/</xsl:text>
+    <xsl:text>2.5/</xsl:text>
 
     <xsl:choose>
       <xsl:when test="contains($revision, 'Final')">

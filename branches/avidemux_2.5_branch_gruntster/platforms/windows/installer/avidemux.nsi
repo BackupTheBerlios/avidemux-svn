@@ -18,7 +18,7 @@ SetCompressorDictSize 96
 !define INTERNALNAME "Avidemux 2.5"
 !define REGKEY "SOFTWARE\${INTERNALNAME}"
 !define UNINST_REGKEY "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${INTERNALNAME}"
-!define VERSION 2.5.1.${REVISION}
+!define VERSION 2.5.2.${REVISION}
 !define COMPANY "Free Software Foundation"
 !define URL "http://www.avidemux.org"
 
@@ -37,13 +37,13 @@ SetCompressorDictSize 96
 
 !ifdef INST_BOTH
 OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_full_win32.exe
-Name "Avidemux 2.5.1 Full beta r${REVISION}"
+Name "Avidemux 2.5.2 Full beta r${REVISION}"
 !else ifdef INST_QT
 OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_win32.exe
-Name "Avidemux 2.5.1 beta r${REVISION}"
+Name "Avidemux 2.5.2 beta r${REVISION}"
 !else ifdef INST_GTK
 OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_gtk_win32.exe
-Name "Avidemux 2.5.1 GTK+ beta r${REVISION}"
+Name "Avidemux 2.5.2 GTK+ beta r${REVISION}"
 !endif
 
 ##########################
@@ -135,7 +135,7 @@ CRCCheck on
 XPStyle on
 ShowInstDetails nevershow
 ShowUninstDetails nevershow
-VIProductVersion 2.5.1.${REVISION}
+VIProductVersion 2.5.2.${REVISION}
 VIAddVersionKey ProductName Avidemux
 VIAddVersionKey ProductVersion "${VERSION} (beta)"
 VIAddVersionKey FileVersion ""
