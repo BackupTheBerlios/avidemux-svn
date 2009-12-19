@@ -122,6 +122,7 @@ int out=0;
 int max=0,pout=0;
 int16_t *run16;
 int nbChunk;
+AVPacket avpkt;
 
         *nbOut=0;
         // Shrink
@@ -139,8 +140,12 @@ int nbChunk;
         {
           nbChunk=(_tail-_head)/_blockalign;
           pout=SCRATCH_PAD_SIZE;
-          out=avcodec_decode_audio2(_context,(int16_t *)scratchPad,
-                                   &pout,_buffer+_head,nbChunk*_blockalign);
+
+		  av_init_packet(&avpkt);
+		  avpkt.data = _buffer + _head;
+		  avpkt.size = nbChunk * _blockalign;
+
+          out=avcodec_decode_audio3(_context, (int16_t *)scratchPad, &pout, &avpkt);
                 
           if(out<0)
           {

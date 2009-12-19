@@ -148,7 +148,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                 ADM_assert(0);
 		return 0;
 	}
-	oc = av_alloc_format_context();
+	oc = avformat_alloc_context();
 	if (!oc)
 	{
        		printf("Lav:Cannot allocate context\n");
@@ -712,7 +712,7 @@ uint8_t lavformat_init(void)
                 movenc_init();
                 flvenc_init();
                 matroskaenc_init();
-                register_protocol(&file_protocol);
+                av_register_protocol(&file_protocol);
 }
 extern "C"
 {
