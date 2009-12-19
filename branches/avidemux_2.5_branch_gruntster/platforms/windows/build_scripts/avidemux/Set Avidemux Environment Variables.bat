@@ -26,7 +26,10 @@ if errorlevel 1 (
 	goto error
 )
 
-set buildDir=%devDir%\avidemux_2.5_build
+if "%BuildBits%" == "32" (set buildFolder=build)
+if "%BuildBits%" == "64" (set buildFolder=build64)
+
+set buildDir=%devDir%\avidemux_2.5_%buildFolder%
 set curDir=%CD%
 cd ..\..\..\..
 set sourceDir=%CD%
@@ -37,8 +40,11 @@ if not exist "%sourceDir%" (
 	goto error
 )
 
-set SpiderMonkeySourceDir=%devDir%\js\src
-set SpiderMonkeyLibDir=%devDir%\js\src\WINNT6.0_OPT.OBJ
+if "%BuildBits%" == "32" (set jsFolder=js)
+if "%BuildBits%" == "64" (set jsFolder=js-64)
+
+set SpiderMonkeySourceDir=%devDir%\%jsFolder%\src
+set SpiderMonkeyLibDir=%devDir%\%jsFolder%\src\WINNT6.0_OPT.OBJ
 
 goto end
 

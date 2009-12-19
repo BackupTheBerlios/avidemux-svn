@@ -5,8 +5,23 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" for /D %%d in ("%ProgramFiles(x86)%") d
 set nsisDir=%ProgramFiles32%\NSIS
 
 set devDir=E:\Dev
-set mingwDir=%devDir%\MinGW
-set msysDir=E:/Dev/MSYS
+
+if "%BuildBits%" == "32" (
+	set mingwDir=%devDir%\MinGW
+	set msysDir=E:/Dev/MSYS
+	set qtDir=%devDir%\Qt
+	goto :setVars )
+
+if "%BuildBits%" == "64" (
+	set mingwDir=%devDir%\MinGW-w64
+	set msysDir=E:/Dev/MSYS-64
+	set qtDir=%devDir%\Qt-64
+	goto :setVars )
+
+echo Error - BuildBits variable not set
+goto error
+
+:setVars
 set usrLocalDir=%msysDir%/local
 set CMAKE_INCLUDE_PATH=%usrLocalDir%/include
 set CMAKE_LIBRARY_PATH=%usrLocalDir%/lib
@@ -15,7 +30,6 @@ set SDLDIR=%usrLocalDir%
 set CFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
 set CXXFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
 set LDFLAGS=-L%CMAKE_LIBRARY_PATH%
-set qtDir=%devDir%\Qt
 
 if exist "%qtDir%" (
 	for /f %%d in ('dir /b /ad /on %qtDir%') do set qtVer=%%d
@@ -25,16 +39,6 @@ if exist "%qtDir%" (
 )
 
 set qtDir=%qtDir%\%qtVer%
-
-if exist "%devDir%\CMake 2.4\bin" (
-	set cmakeDir=%devDir%\CMake 2.4\bin
-	goto foundCMake
-)
-
-if exist "%ProgramFiles32%\CMake 2.4\bin" (
-	set cmakeDir=%ProgramFiles32%\CMake 2.4\bin
-	goto foundCMake
-)
 
 if exist "%devDir%\CMake 2.6\bin" (
 	set cmakeDir=%devDir%\CMake 2.6\bin
@@ -69,7 +73,7 @@ if not exist "%nsisDir%" (
 	goto error
 )
 
-set PATH=%PATH%;%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%msysDir%\bin;%qtDir%\bin
+set PATH=%PATH%;%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%msysDir%\bin;%msysDir%\local32\bin;%qtDir%\bin
 
 goto end
 
