@@ -42,13 +42,6 @@ extern void operator delete(void* pointer, const char* file, int line) throw();
 extern size_t getSizeFromPointer(void* ptr);
 #endif
 
-extern "C"
-{
-	void *av_malloc(unsigned int size);
-	void av_free(void *ptr);
-	void *av_realloc(void *ptr, unsigned int size);
-}
-
 void ADM_memStat(void);
 void ADM_memStatInit(void);
 void ADM_memStatEnd(void);
@@ -180,49 +173,6 @@ void operator delete[] (void *c)
 {
 	ADM_dezalloc(c);
 }
-//********************************
-// lavcodec wrapper
-//********************************
-extern "C"
-{
-	void *av_malloc(unsigned int size)
-	{
- 		return ADM_alloc(size);
-	}
-
-	void av_freep(void *arg)
-	{
-		void **ptr= (void**)arg;
-		av_free(*ptr);
-		*ptr = NULL;
-	}
-
-	void *av_mallocz(unsigned int size)
-	{
-		void *ptr;
-
-		ptr = av_malloc(size);
-
-		if (ptr)
-			memset(ptr, 0, size);
-
-		return ptr;
-	}
-
-	char *av_strdup(const char *s)
-	{
-		char *ptr;
-		int len;
-
-		len = strlen(s) + 1;
-		ptr = (char *)av_malloc(len);
-
-		if (ptr)
-			memcpy(ptr, s, len);
-
-		return ptr;
-	}
-}
 
 /**
  * av_realloc semantics (same as glibc): if ptr is NULL and size > 0,
@@ -280,18 +230,6 @@ void *ADM_realloc(void *ptr, size_t newsize)
 
 	return nalloc;
 #endif
-}
-
-void *av_realloc(void *ptr, unsigned int newsize)
-{
-	return ADM_realloc(ptr,newsize);
-}
-
-/* NOTE: ptr = NULL is explicetly allowed */
-void av_free(void *ptr)
-{
-	if(ptr)
-		ADM_dealloc(ptr);  
 }
 
 char *ADM_strdup(const char *in)
@@ -364,59 +302,6 @@ void *ADM_realloc(void *ptr, size_t newsize)
 	operator delete(ptr, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
 
 	return nalloc;
-}
-
-extern "C"
-{
-	void *av_malloc(unsigned int size)
-	{
-		return operator new(size, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
-	}
-	void av_freep(void *arg)
-	{
-		void **ptr = (void**)arg;
-		av_free(*ptr);
-		*ptr = NULL;
-	}
-
-	void *av_mallocz(unsigned int size)
-	{
-		void *ptr;
-
-		ptr = operator new(size, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
-
-		if (ptr)
-			memset(ptr, 0, size);
-
-		return ptr;
-	}
-}
-
-char *av_strdup(const char *s)
-{
-    char *ptr;
-    int len;
-    len = strlen(s) + 1;
-	ptr = (char *)operator new(len, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
-
-    if (ptr)
-        memcpy(ptr, s, len);
-
-    return ptr;
-}
-
-void *av_realloc(void *ptr, unsigned int newsize)
-{
-	if(!ptr)
-		return operator new(newsize, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
-	else
-		return ADM_realloc(ptr,newsize);
-}
-
-void av_free(void *ptr)
-{
-	if(ptr)
-		operator delete(ptr, (char*)_DEBUG_NEW_CALLER_ADDRESS, 0);
 }
 #endif
 // EOF
