@@ -452,14 +452,14 @@ IF (WIN32)
 
 	ADD_LIB_ALL_TARGETS(winmm)
 
-	ADD_TARGET_LDFLAGS(avidemux2_cli "-Wl,-subsystem,console ${CMAKE_SOURCE_DIR}/avidemux/ADM_icons/xpm/adm.o")
+	ADD_TARGET_LDFLAGS(avidemux2_cli "-Wl,-subsystem,console")
 
 	IF (ADM_UI_GTK)
-		ADD_TARGET_LDFLAGS(avidemux2_gtk "-mwindows ${CMAKE_SOURCE_DIR}/avidemux/ADM_icons/xpm/adm.o")
+		ADD_TARGET_LDFLAGS(avidemux2_gtk "-mwindows")
 	ENDIF (ADM_UI_GTK)
 
 	IF (ADM_UI_QT4)
-		ADD_TARGET_LDFLAGS(avidemux2_qt4 "-mwindows ${CMAKE_SOURCE_DIR}/avidemux/ADM_icons/xpm/avidemux.o")
+		ADD_TARGET_LDFLAGS(avidemux2_qt4 "-mwindows")
 	ENDIF (ADM_UI_QT4)
 ENDIF (WIN32)
 
