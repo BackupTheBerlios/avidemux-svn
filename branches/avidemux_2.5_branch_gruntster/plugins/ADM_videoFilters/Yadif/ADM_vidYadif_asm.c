@@ -1,15 +1,14 @@
-
-
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <inttypes.h>
-#include <math.h>
 
 #include "ADM_default.h"
 
 #ifdef ADM_CPU_X86
-
+#ifdef ADM_CPU_64BIT
+typedef int64_t x86_reg;
+#else
+typedef int32_t x86_reg;
+#endif
 
 #define LOAD4(mem,dst) \
             "movd      "mem", "#dst" \n\t"\
@@ -188,8 +187,8 @@ void filter_line_mmx2(int mode, uint8_t *dst, const uint8_t *prev, const uint8_t
             :[prev] "r"(prev),\
              [cur]  "r"(cur),\
              [next] "r"(next),\
-             [prefs]"r"((long)refs),\
-             [mrefs]"r"((long)-refs),\
+             [prefs]"r"((x86_reg)refs),\
+             [mrefs]"r"((x86_reg)-refs),\
              [pw1]  "m"(pw_1),\
              [pb1]  "m"(pb_1),\
              [mode] "g"(mode)\
