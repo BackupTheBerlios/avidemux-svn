@@ -12,19 +12,20 @@
 
 #ifndef NOAVIFMT
 
-#if !defined(__WINE_WINDEF_H) && !defined(_WINDEF_H)
+#ifndef LOBYTE
 #define LOBYTE(w)              ((uint8_t)(uint16_t)(w))
+#endif
+#ifndef HIBYTE
 #define HIBYTE(w)              ((uint8_t)((uint16_t)(w) >> 8))
-
+#endif
+#ifndef LOWORD
 #define LOWORD(l)              ((uint16_t)(uint32_t)(l))
+#endif
+#ifndef HIWORD
 #define HIWORD(l)              ((uint16_t)((uint32_t)(l) >> 16))
-
+#endif
+#ifndef MAKELONG
 #define MAKELONG(low,high)     ((int32_t)(((uint16_t)(low)) | (((uint32_t)((uint16_t)(high))) << 16)))
-
-#endif // __WINE_WINDEF_H
-
-#ifdef _MSC_VER
-#pragma warning(disable:4200)
 #endif
 
 /* The following is a short description of the AVI file format.
@@ -230,8 +231,12 @@ typedef struct  __attribute__((__packed__))
 #define AVIIF_NOTIME	0x00000100L // this frame doesn't take any time
 #define AVIIF_COMPUSE	0x0FFF0000L // these bits are for compressor use
 
+#ifndef FOURCC_RIFF
 #define FOURCC_RIFF	mmioFOURCC('R', 'I', 'F', 'F')
+#endif
+#ifndef FOURCC_LIST
 #define FOURCC_LIST	mmioFOURCC('L', 'I', 'S', 'T')
+#endif
 
 typedef struct __attribute__((__packed__))
 {
