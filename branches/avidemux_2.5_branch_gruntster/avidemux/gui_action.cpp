@@ -1,4 +1,3 @@
-#include "ADM_default.h"
 #include <strings.h>
 
 #include <vector>
@@ -13,6 +12,7 @@ using std::transform;
 using std::sort;
 using std::equal_range;
 
+#include "ADM_default.h"
 #include "gui_action.hxx"
 
 struct ActionNameNum

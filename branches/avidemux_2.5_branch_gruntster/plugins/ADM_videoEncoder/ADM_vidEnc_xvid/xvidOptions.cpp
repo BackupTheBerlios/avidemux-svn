@@ -25,7 +25,6 @@
 #include <libxml/xmlschemas.h>
 
 #include "config.h"
-#include "ADM_default.h"
 #include "ADM_files.h"
 
 #include "../common/PluginOptions.cpp"
