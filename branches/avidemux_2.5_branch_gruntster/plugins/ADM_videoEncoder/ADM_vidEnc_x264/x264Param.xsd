@@ -221,6 +221,8 @@
                     <!-- boolean values deprecated core 78 -->
                     <xs:enumeration value="0"/>
                     <xs:enumeration value="1"/>
+                    <xs:enumeration value="false"/>
+                    <xs:enumeration value="true"/>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
