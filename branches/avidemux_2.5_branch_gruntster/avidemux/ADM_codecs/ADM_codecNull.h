@@ -31,3 +31,19 @@ public:
     return 1;
   }
 };
+
+class decoderI420 : public decoders
+{
+public:
+	decoderI420(uint32_t w, uint32_t h) : decoders(w, h) {}
+	virtual ~decoderI420() {}
+
+	virtual uint8_t uncompress(ADMCompressedImage *in, ADMImage *out)
+	{
+		memcpy(YPLANE(out), in->data, _w * _h);
+		memcpy(UPLANE(out), in->data + (5 * (_w * _h) >> 2), (_w * _h) >> 2);
+		memcpy(VPLANE(out), in->data + (_w * _h), (_w * _h) >> 2);
+
+		return 1;
+	}
+};

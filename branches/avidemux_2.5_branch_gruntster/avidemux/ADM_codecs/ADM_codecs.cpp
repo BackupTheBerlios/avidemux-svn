@@ -355,12 +355,16 @@ if (fourCC::check (fcc, (uint8_t *) "MJPG")
 #endif
 
     }
-  if (fourCC::check (fcc, (uint8_t *) "YV12")
-      || fourCC::check (fcc, (uint8_t *) "I420"))
+  if (fourCC::check (fcc, (uint8_t *) "YV12"))
     {
       printf ("\n using null codec\n");
       return (decoders *) (new decoderNull (w, h));
     }
+  if (fourCC::check (fcc, (uint8_t *) "I420"))
+  {
+	  printf ("\n using I420 codec\n");
+	  return (decoders *) (new decoderI420(w, h));
+  }
   if (fourCC::check (fcc, (uint8_t *) "UYVY"))
     {
       printf ("\n using uyvy codec\n");
