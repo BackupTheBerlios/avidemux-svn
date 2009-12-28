@@ -85,7 +85,7 @@ extern uint8_t AVDM_setVolume(int volume);
 /*
     Declare the table converting widget name to our internal signal           
 */
-typedef struct adm_qt4_translation
+struct adm_qt4_translation
 {
 	const char *name;
 	Action     action; 
@@ -802,13 +802,13 @@ uint8_t UI_updateRecentMenu( void )
 {
 	const char **names;
 	uint32_t nb_item=0;
-	QAction *actions[4]={WIDGET(actionRecent0),WIDGET(actionRecent1),WIDGET(actionRecent2),WIDGET(actionRecent3)};
+	QAction *actions[6]={WIDGET(actionRecent0),WIDGET(actionRecent1),WIDGET(actionRecent2),WIDGET(actionRecent3),WIDGET(actionRecent4),WIDGET(actionRecent5)};
 	names=prefs->get_lastfiles();
 
 	// hide them all
-	for(int i=0;i<4;i++) actions[i]->setVisible(0);
+	for(int i=0;i<6;i++) actions[i]->setVisible(0);
 	// Redraw..
-	for( nb_item=0;nb_item<4;nb_item++)
+	for( nb_item=0;nb_item<6;nb_item++)
 	{
 		if(!names[nb_item]) 
 		{

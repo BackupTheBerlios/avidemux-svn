@@ -1397,6 +1397,8 @@
      <addaction name="actionRecent1" />
      <addaction name="actionRecent2" />
      <addaction name="actionRecent3" />
+     <addaction name="actionRecent4" />
+     <addaction name="actionRecent5" />
     </widget>
     <widget class="QMenu" name="menuSave" >
      <property name="title" >
@@ -1409,7 +1411,6 @@
      <addaction name="actionSave_Selection" />
     </widget>
     <addaction name="actionOpen" />
-    <addaction name="menuRecent_Files" />
     <addaction name="actionAppend" />
     <addaction name="menuSave" />
     <addaction name="actionClose" />
@@ -1424,6 +1425,8 @@
     <addaction name="actionShow_Joblist" />
     <addaction name="separator" />
     <addaction name="actionConnect_to_AvsProxy" />
+    <addaction name="separator" />
+    <addaction name="menuRecent_Files" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
    </widget>
@@ -1528,7 +1531,7 @@
   </action>
   <action name="actionQuit" >
    <property name="text" >
-    <string>&amp;Quit</string>
+    <string>E&amp;xit</string>
    </property>
   </action>
   <action name="actionCut" >
@@ -2366,6 +2369,16 @@
   <action name="action_Plugins" >
    <property name="text" >
     <string>&amp;Plugins...</string>
+   </property>
+  </action>
+  <action name="actionRecent4" >
+   <property name="text" >
+    <string>Recent4</string>
+   </property>
+  </action>
+  <action name="actionRecent5" >
+   <property name="text" >
+    <string>Recent5</string>
    </property>
   </action>
  </widget>

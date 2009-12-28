@@ -51,6 +51,8 @@ typedef enum {
 	LASTFILES_FILE2,
 	LASTFILES_FILE3,
 	LASTFILES_FILE4,
+	LASTFILES_FILE5,
+	LASTFILES_FILE6,
 	LASTDIR_READ,
 	LASTDIR_WRITE,
 	MESSAGE_LEVEL,
@@ -84,7 +86,7 @@ typedef enum {
 
 class preferences {
 	private:
-		char *internal_lastfiles[5];
+		char *internal_lastfiles[7];
 		int save_xml_to_file();
 	public:
 		preferences();

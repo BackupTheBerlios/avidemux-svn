@@ -11,11 +11,9 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-
-
 #include "config.h"
+#include <list>
+using namespace std;
 
 #ifdef USE_LIBXML2
 #include <libxml/tree.h>
@@ -107,6 +105,8 @@ static opt_def opt_defs [] = {
 	{"lastfiles.file2",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastfiles.file3",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastfiles.file4",		FILENAME,"",	NULL, NULL, NULL },
+	{"lastfiles.file5",		FILENAME,"",	NULL, NULL, NULL },
+	{"lastfiles.file6",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastdir_read",		FILENAME,"",	NULL, NULL, NULL },
 	{"lastdir_write",		FILENAME,"",	NULL, NULL, NULL },
 	{"message_level",		UINT,	"2",	NULL,	"0",	"2"	},
@@ -137,7 +137,7 @@ static opt_def opt_defs [] = {
 	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	}
 };
 
-int num_opts = 71;
+int num_opts = 73;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2
@@ -232,7 +232,8 @@ void set_content(const char *option, xmlNodePtr x){
 preferences::preferences(){
 	internal_lastfiles[0] = internal_lastfiles[1] = NULL;
 	internal_lastfiles[2] = internal_lastfiles[3] = NULL;
-	internal_lastfiles[4] = NULL;
+	internal_lastfiles[4] = internal_lastfiles[5] = NULL;
+	internal_lastfiles[6] = NULL;
 	#ifdef USE_LIBXML2
 	xdoc = NULL;
 	#endif
@@ -240,7 +241,7 @@ preferences::preferences(){
 
 preferences::~preferences(){
   unsigned int idx;
-	for( idx=0; idx < 4; idx++ ){
+	for( idx=0; idx < 6; idx++ ){
 		if( internal_lastfiles[idx] )
 			ADM_dealloc(internal_lastfiles[idx]);
 	}
@@ -847,42 +848,32 @@ int preferences::set_lastfile(const char* file){
 	PRT_LAFI("<= LASTFILES_",2,opt_defs[LASTFILES_FILE2].current_val);
 	PRT_LAFI("<= LASTFILES_",3,opt_defs[LASTFILES_FILE3].current_val);
 	PRT_LAFI("<= LASTFILES_",4,opt_defs[LASTFILES_FILE4].current_val);
+	PRT_LAFI("<= LASTFILES_",5,opt_defs[LASTFILES_FILE5].current_val);
+	PRT_LAFI("<= LASTFILES_",6,opt_defs[LASTFILES_FILE6].current_val);
 #endif
-	// change opt_defs array
-	//
-	// ToDo:
-	// * a call with a file already in lastfiles will resort lastfiles with
-	//   the actual argument on top
-	// * a call with a file new to lastfiles will drop LASTFILE_4, move all
-	//   one step down and add the file as LASTFILE_1
-	if( opt_defs[LASTFILES_FILE4].current_val &&
-	    !strncmp(opt_defs[LASTFILES_FILE4].current_val,internal_file,strlen(opt_defs[LASTFILES_FILE4].current_val)) ){
-	  char *x = opt_defs[LASTFILES_FILE4].current_val;
-		opt_defs[LASTFILES_FILE4].current_val = opt_defs[LASTFILES_FILE3].current_val;
-		opt_defs[LASTFILES_FILE3].current_val = opt_defs[LASTFILES_FILE2].current_val;
-		opt_defs[LASTFILES_FILE2].current_val = opt_defs[LASTFILES_FILE1].current_val;
-		opt_defs[LASTFILES_FILE1].current_val = x;
-	}else if( opt_defs[LASTFILES_FILE3].current_val &&
-            !strncmp(opt_defs[LASTFILES_FILE3].current_val,internal_file,strlen(opt_defs[LASTFILES_FILE3].current_val)) ){
-          char *x = opt_defs[LASTFILES_FILE3].current_val;
-		opt_defs[LASTFILES_FILE3].current_val = opt_defs[LASTFILES_FILE2].current_val;
-                opt_defs[LASTFILES_FILE2].current_val = opt_defs[LASTFILES_FILE1].current_val;
-                opt_defs[LASTFILES_FILE1].current_val = x;
-        }else if( opt_defs[LASTFILES_FILE2].current_val &&
-            !strncmp(opt_defs[LASTFILES_FILE2].current_val,internal_file,strlen(opt_defs[LASTFILES_FILE2].current_val)) ){
-          char *x = opt_defs[LASTFILES_FILE2].current_val;
-		opt_defs[LASTFILES_FILE2].current_val = opt_defs[LASTFILES_FILE1].current_val;
-		opt_defs[LASTFILES_FILE1].current_val = x;
-	}else if( opt_defs[LASTFILES_FILE1].current_val &&
-            !strncmp(opt_defs[LASTFILES_FILE1].current_val,internal_file,strlen(opt_defs[LASTFILES_FILE1].current_val)) ){
-		; // nothing to do - always on top
-	}else{
-		if( opt_defs[LASTFILES_FILE4].current_val )
-			ADM_dealloc(opt_defs[LASTFILES_FILE4].current_val);
-		opt_defs[LASTFILES_FILE4].current_val = opt_defs[LASTFILES_FILE3].current_val;
-		opt_defs[LASTFILES_FILE3].current_val = opt_defs[LASTFILES_FILE2].current_val;
-		opt_defs[LASTFILES_FILE2].current_val = opt_defs[LASTFILES_FILE1].current_val;
-		opt_defs[LASTFILES_FILE1].current_val = ADM_strdup(internal_file);
+
+	int firstIndex = LASTFILES_FILE1;
+	int lastIndex = LASTFILES_FILE6;
+	list<char*> lastFileList;
+	int currentIndex = firstIndex;
+
+	for (int index = firstIndex; index <= lastIndex; index++)
+	{
+		if (opt_defs[index].current_val && strcmp(opt_defs[index].current_val, internal_file) != 0)
+			lastFileList.push_back(opt_defs[index].current_val);
+	}
+
+	lastFileList.push_front(ADM_strdup(internal_file));
+
+	while (!lastFileList.empty())
+	{
+		if (currentIndex <= lastIndex)
+			opt_defs[currentIndex].current_val = lastFileList.front();
+		else
+			ADM_dealloc(lastFileList.front());
+
+		lastFileList.pop_front();
+		currentIndex++;
 	}
 
 #ifdef USE_LIBXML2
@@ -917,6 +908,12 @@ int preferences::set_lastfile(const char* file){
 		q = goto_node_with_create(p, "file4");		// ->avidemux->lastfile->4
 		xmlNodeSetContent( q,
 			(xmlChar*)(opt_defs[LASTFILES_FILE4].current_val?opt_defs[LASTFILES_FILE4].current_val:""));
+		q = goto_node_with_create(p, "file5");		// ->avidemux->lastfile->5
+		xmlNodeSetContent( q,
+			(xmlChar*)(opt_defs[LASTFILES_FILE5].current_val?opt_defs[LASTFILES_FILE5].current_val:""));
+		q = goto_node_with_create(p, "file6");		// ->avidemux->lastfile->6
+		xmlNodeSetContent( q,
+			(xmlChar*)(opt_defs[LASTFILES_FILE6].current_val?opt_defs[LASTFILES_FILE6].current_val:""));
 		save_xml_to_file();
 	}
 #endif
@@ -926,6 +923,8 @@ int preferences::set_lastfile(const char* file){
 	PRT_LAFI("=> LASTFILES_",2,opt_defs[LASTFILES_FILE2].current_val);
 	PRT_LAFI("=> LASTFILES_",3,opt_defs[LASTFILES_FILE3].current_val);
 	PRT_LAFI("=> LASTFILES_",4,opt_defs[LASTFILES_FILE4].current_val);
+	PRT_LAFI("=> LASTFILES_",5,opt_defs[LASTFILES_FILE5].current_val);
+	PRT_LAFI("=> LASTFILES_",6,opt_defs[LASTFILES_FILE6].current_val);
 #endif
 	delete[] internal_file;
 	return RC_OK;
@@ -939,7 +938,7 @@ const char **preferences::get_lastfiles(void){
 #ifdef DEBUG_PREFS
 	fprintf(stderr,"Prefs: get_lastfile()\n");
 #endif
-	for( idx=0; idx < 4; idx++ ){
+	for( idx=0; idx < 6; idx++ ){
 		if( internal_lastfiles[idx] ){
 			ADM_dealloc(internal_lastfiles[idx]);
 			internal_lastfiles[idx] = NULL;
@@ -953,7 +952,11 @@ const char **preferences::get_lastfiles(void){
 		internal_lastfiles[2] = ADM_strdup(opt_defs[LASTFILES_FILE3].current_val);
 	if( opt_defs[LASTFILES_FILE4].current_val )
 		internal_lastfiles[3] = ADM_strdup(opt_defs[LASTFILES_FILE4].current_val);
-	internal_lastfiles[4] = NULL;
+	if( opt_defs[LASTFILES_FILE5].current_val )
+		internal_lastfiles[4] = ADM_strdup(opt_defs[LASTFILES_FILE5].current_val);
+	if( opt_defs[LASTFILES_FILE6].current_val )
+		internal_lastfiles[5] = ADM_strdup(opt_defs[LASTFILES_FILE6].current_val);
+	internal_lastfiles[6] = NULL;
 
 #ifdef DEBUG_PREFS
 	PRT_LAFI(0,internal_lastfiles[0]);
@@ -961,6 +964,8 @@ const char **preferences::get_lastfiles(void){
 	PRT_LAFI(2,internal_lastfiles[2]);
 	PRT_LAFI(3,internal_lastfiles[3]);
 	PRT_LAFI(4,internal_lastfiles[4]);
+	PRT_LAFI(5,internal_lastfiles[5]);
+	PRT_LAFI(6,internal_lastfiles[6]);
 #endif
 	return (const char**)internal_lastfiles;
 }
