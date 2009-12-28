@@ -43,6 +43,7 @@ Mpeg1Encoder::Mpeg1Encoder(void)
 	_bitrateParam.finalsize = 700;
 
 	_statFile = NULL;
+	_xvidRc = NULL;
 }
 
 int Mpeg1Encoder::initContext(const char* logFileName)
@@ -95,6 +96,7 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 	_context->max_b_frames = 2;
 	_context->luma_elim_threshold = -2;
 	_context->chroma_elim_threshold = -5;
+	_context->lumi_masking = 0.05;
 	_context->me_range = 255;
 	_context->mb_decision = FF_MB_DECISION_RD;
 	_context->scenechange_threshold = 0xfffffff;
@@ -114,16 +116,26 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 	}
 	else 
 	{
-		if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE)
-			_context->bit_rate = calculateBitrate(_fpsNum, _fpsDen, _frameCount, _encodeOptions.encodeModeParameter);
+		if (_options.getXvidRateControl())
+		{
+			_context->max_qdiff = 10;
+			_context->bit_rate = 2500 * 1000 * 8;
+			_context->bit_rate_tolerance = 1024 * 8 * 1000;
+			_context->flags |= CODEC_FLAG_QSCALE;
+		}
 		else
-			_context->bit_rate = _encodeOptions.encodeModeParameter * 1000;
+		{
+			_context->bit_rate_tolerance = 8000000;
+			_context->flags |= CODEC_FLAG_PASS2;
 
-		if (_context->bit_rate > _options.getMaxBitrate() * 1000)
-			_context->bit_rate = _options.getMaxBitrate() * 1000;
+			if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE)
+				_context->bit_rate = calculateBitrate(_fpsNum, _fpsDen, _frameCount, _encodeOptions.encodeModeParameter);
+			else
+				_context->bit_rate = _encodeOptions.encodeModeParameter * 1000;
 
-		_context->bit_rate_tolerance = 8000000;
-		_context->flags |= CODEC_FLAG_PASS2;
+			if (_context->bit_rate > _options.getMaxBitrate() * 1000)
+				_context->bit_rate = _options.getMaxBitrate() * 1000;
+		}		
 	}
 
 	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR)
@@ -137,7 +149,11 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 		strcpy(log, logFileName);
 #endif
 
-		if (_currentPass == 1)
+		if (_options.getXvidRateControl())
+		{
+			_xvidRc = new ADM_newXvidRcVBV((_fpsNum * 1000) / _fpsDen, log);
+		}
+		else if (_currentPass == 1)
 		{
 			_statFile = fopen(log, "wb");
 
@@ -166,7 +182,7 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 		}
 	}
 
-	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP || _currentPass == 2)
+	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP || (_currentPass == 2 && !_options.getXvidRateControl()))
 	{
 		_context->rc_max_rate = _context->rc_max_rate_header;
 		_context->rc_buffer_size = _context->rc_buffer_size_header;
@@ -415,8 +431,39 @@ int Mpeg1Encoder::beginPass(vidEncPassParameters *passParameters)
 
 	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
 		qz = _encodeOptions.encodeModeParameter;
-	else if (_currentPass == 1)
-		qz = 2;
+	else if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR)
+	{
+		if (_currentPass == 1)
+		{
+			qz = 2;
+
+			if (_options.getXvidRateControl())
+				_xvidRc->startPass1();
+		}
+		else if (_currentPass == 2 && _options.getXvidRateControl())
+		{
+			double d = _frameCount;
+			uint32_t maxBitrate = _options.getMaxBitrate() * 1000;
+			uint32_t bitrate;
+
+			if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE)
+				bitrate = calculateBitrate(_fpsNum, _fpsDen, _frameCount, _encodeOptions.encodeModeParameter);
+			else
+				bitrate = _encodeOptions.encodeModeParameter * 1000;
+
+			if (bitrate > maxBitrate)
+				bitrate = maxBitrate;
+
+			d *= 1000.;
+			d /= (_fpsNum * 1000) / _fpsDen;   // D is a duration in second
+			d *= bitrate;   // * bitrate = total bits
+			d /= 8;   // Byte
+			d /= 1024 * 1024;   // MB
+
+			_xvidRc->setVBVInfo(_options.getMaxBitrate(), _options.getMinBitrate(), _options.getBufferSize());
+			_xvidRc->startPass2((uint32_t)d, _frameCount);
+		}
+	}
 
 	if (qz)
 		_frame.quality = (int)floor(FF_QP2LAMBDA * qz + 0.5);
@@ -434,6 +481,12 @@ int Mpeg1Encoder::finishPass(void)
 		_statFile = NULL;
 	}
 
+	if (_xvidRc)
+	{
+		delete _xvidRc;
+		_xvidRc = NULL;
+	}
+
 	if (_context && _context->stats_in)
 	{
 		delete [] _context->stats_in;
@@ -445,10 +498,47 @@ int Mpeg1Encoder::finishPass(void)
 
 int Mpeg1Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 {
+	ADM_rframe rf;
+	uint32_t qz;
+
+	if (_options.getXvidRateControl() && _currentPass == 2)
+	{
+		_xvidRc->getQz(&qz, &rf);
+
+		if (qz < 2)
+			qz = 2;
+
+		if (qz > 28)
+			qz = 28;
+
+		_frame.quality = (int)floor(FF_QP2LAMBDA * qz + 0.5);
+	}
+
 	int ret = AvcodecEncoder::encodeFrame(encodeParams);
 
 	if (_context->stats_out)
 		fprintf (_statFile, "%s", _context->stats_out);
+
+	if (_options.getXvidRateControl() && encodeParams->encodedDataSize && (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR))
+	{
+		switch (encodeParams->frameType)
+		{
+			case ADM_VIDENC_FRAMETYPE_IDR:
+				rf = RF_I;
+				break;
+			case ADM_VIDENC_FRAMETYPE_B:
+				rf = RF_B;
+				break;
+			case ADM_VIDENC_FRAMETYPE_P:
+				rf = RF_P;
+				break;
+		}
+
+		if (_currentPass == 1)
+			_xvidRc->logPass1(encodeParams->quantiser, rf, encodeParams->encodedDataSize);
+		else
+			_xvidRc->logPass2(qz, rf, encodeParams->encodedDataSize);
+	}
 
 	return ret;
 }

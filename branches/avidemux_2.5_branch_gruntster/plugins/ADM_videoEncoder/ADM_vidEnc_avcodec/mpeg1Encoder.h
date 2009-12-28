@@ -25,8 +25,8 @@ extern "C"
 
 #include "encoder.h"
 #include "mpeg1EncoderOptions.h"
-#include "../../ADM_encoder/ADM_vidEncode.hxx"
 #include "DIA_factory.h"
+#include "xvidRateCtl/xvidRateCtlVbv.h"
 
 class Mpeg1Encoder : public AvcodecEncoder
 {
@@ -41,6 +41,7 @@ class Mpeg1Encoder : public AvcodecEncoder
 		vidEncOptions _encodeOptions;
 
 		FILE *_statFile;
+		ADM_newXvidRcVBV *_xvidRc;
 
 		void updateEncodeProperties(vidEncOptions *encodeOptions);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
