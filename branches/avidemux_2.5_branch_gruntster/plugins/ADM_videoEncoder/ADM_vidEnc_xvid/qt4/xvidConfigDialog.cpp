@@ -93,10 +93,11 @@ XvidConfigDialog::XvidConfigDialog(vidEncConfigParameters *configParameters, vid
 
 void XvidConfigDialog::fillConfigurationComboBox(void)
 {
+	XvidOptions options;
 	bool origDisableGenericSlots = disableGenericSlots;
 	QMap<QString, int> configs;
 	QStringList filter("*.xml");
-	char* configDir = XvidOptions::getUserConfigDirectory();
+	char* configDir = options.getUserConfigDirectory();
 	QStringList list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
 	delete [] configDir;
@@ -105,7 +106,7 @@ void XvidConfigDialog::fillConfigurationComboBox(void)
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
-	configDir = XvidOptions::getSystemConfigDirectory();
+	configDir = options.getSystemConfigDirectory();
 	list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
 	delete [] configDir;
@@ -240,7 +241,8 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 
 void XvidConfigDialog::deleteButton_pressed(void)
 {
-	char *configDir = XvidOptions::getUserConfigDirectory();
+	XvidOptions options;
+	char *configDir = options.getUserConfigDirectory();
 	QString configFileName = QFileInfo(QString(configDir), ui.configurationComboBox->currentText() + ".xml").filePath();
 	QFile configFile(configFileName);
 

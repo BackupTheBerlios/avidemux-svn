@@ -41,7 +41,7 @@ protected:
 	int _defaultEncodeModeParameter;
 
 	char *_tagPrefix, *_configTagRoot, *_optionsTagRoot;
-	char *_schemaFile;
+	char *_configurationDirectory, *_schemaFile;
 	char *_configurationName;
 	PluginConfigType _configurationType;
 
@@ -51,7 +51,7 @@ protected:
 	virtual void parsePresetConfiguration(xmlNode *node);
 
 public:
-	PluginOptions(const char* tagPrefix, const char* schemaFile, unsigned int defaultEncodeMode, int defaultEncodeModeParameter);
+	PluginOptions(const char* configurationDirectory, const char* tagPrefix, const char* schemaFile, unsigned int defaultEncodeMode, int defaultEncodeModeParameter);
 	~PluginOptions(void);
 
 	virtual vidEncOptions* getEncodeOptions(void);
@@ -73,8 +73,8 @@ public:
 	virtual char* toXml(PluginXmlType xmlType);
 	virtual int fromXml(const char *xml, PluginXmlType xmlType);
 
-	static char* getUserConfigDirectory(void);
-	static char* getSystemConfigDirectory(void);
+	virtual char* getUserConfigDirectory(void);
+	virtual char* getSystemConfigDirectory(void);
 };
 
 #endif	// options_h

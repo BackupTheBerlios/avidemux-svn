@@ -29,10 +29,9 @@
 #include "ADM_default.h"
 #include "ADM_files.h"
 
-#include "../common/PluginOptions.cpp"
 #include "mpeg1EncoderOptions.h"
 
-Mpeg1EncoderOptions::Mpeg1EncoderOptions(void) : PluginOptions("Mpeg1", "Mpeg1Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
+Mpeg1EncoderOptions::Mpeg1EncoderOptions(void) : PluginOptions(PLUGIN_CONFIG_DIR, "Mpeg1", "Mpeg1Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }

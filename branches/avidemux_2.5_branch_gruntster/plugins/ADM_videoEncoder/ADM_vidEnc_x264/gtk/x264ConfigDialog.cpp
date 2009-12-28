@@ -40,7 +40,7 @@ extern "C"
 
 #define WID(x) lookup_widget(dialog, #x)
 
-typedef struct X264_AR
+struct X264_AR
 {
 	uint32_t num, den;
 	const char *symbol;

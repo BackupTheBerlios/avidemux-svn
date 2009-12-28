@@ -19,13 +19,18 @@
 
 #include "ADM_inttype.h"
 #include "ADM_files.h"
-#include "PluginOptions.h"
 #include "PluginXmlOptions.cpp"
+#include "PluginOptions.h"
+
 #undef malloc
 #undef free
 #undef strdup
-PluginOptions::PluginOptions(const char* tagPrefix, const char* schemaFile, unsigned int defaultEncodeMode, int defaultEncodeModeParameter)
+PluginOptions::PluginOptions(const char* configurationDirectory, const char* tagPrefix, const char* schemaFile, 
+							 unsigned int defaultEncodeMode, int defaultEncodeModeParameter)
 {
+	_configurationDirectory = new char[strlen(configurationDirectory) + 1];
+	strcpy(_configurationDirectory, configurationDirectory);
+
 	_tagPrefix = new char[strlen(tagPrefix) + 1];
 	strcpy(_tagPrefix, tagPrefix);
 
@@ -51,6 +56,12 @@ PluginOptions::PluginOptions(const char* tagPrefix, const char* schemaFile, unsi
 PluginOptions::~PluginOptions(void)
 {
 	cleanUp();
+
+	if (_configurationDirectory)
+	{
+		delete [] _configurationDirectory;
+		_configurationDirectory = NULL;
+	}
 
 	if (_tagPrefix)
 	{
@@ -376,17 +387,17 @@ void PluginOptions::parsePresetConfiguration(xmlNode *node)
 
 char* PluginOptions::getUserConfigDirectory(void)
 {
-	return ADM_getHomeRelativePath(PLUGIN_CONFIG_DIR);
+	return ADM_getHomeRelativePath(_configurationDirectory);
 }
 
 char* PluginOptions::getSystemConfigDirectory(void)
 {
 	char* pluginPath = ADM_getPluginPath();
-	char* systemConfigPath = new char[strlen(pluginPath) + strlen(PLUGIN_CONFIG_DIR) + 2];
+	char* systemConfigPath = new char[strlen(pluginPath) + strlen(_configurationDirectory) + 2];
 
 	strcpy(systemConfigPath, pluginPath);
 	strcat(systemConfigPath, "/");
-	strcat(systemConfigPath, PLUGIN_CONFIG_DIR);
+	strcat(systemConfigPath, _configurationDirectory);
 
 	delete [] pluginPath;
 

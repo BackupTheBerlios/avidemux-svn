@@ -177,7 +177,8 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	bool origDisableGenericSlots = disableGenericSlots;
 	QMap<QString, int> configs;
 	QStringList filter("*.xml");
-	char* configDir = x264Options::getUserConfigDirectory();
+	x264Options options;
+	char* configDir = options.getUserConfigDirectory();
 	QStringList list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
 	delete [] configDir;
@@ -186,7 +187,7 @@ void x264ConfigDialog::fillConfigurationComboBox(void)
 	for (int item = 0; item < list.size(); item++)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_USER);
 
-	configDir = x264Options::getSystemConfigDirectory();
+	configDir = options.getSystemConfigDirectory();
 	list = QDir(configDir).entryList(filter, QDir::Files | QDir::Readable);
 
 	delete [] configDir;
@@ -351,7 +352,8 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 
 void x264ConfigDialog::deleteButton_pressed(void)
 {
-	char *configDir = x264Options::getUserConfigDirectory();
+	x264Options options;
+	char *configDir = options.getUserConfigDirectory();
 	QString configFileName = QFileInfo(QString(configDir), ui.configurationComboBox->currentText() + ".xml").filePath();
 	QFile configFile(configFileName);
 
