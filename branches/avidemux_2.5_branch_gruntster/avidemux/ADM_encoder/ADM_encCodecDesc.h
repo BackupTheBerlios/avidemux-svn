@@ -7,7 +7,6 @@ uint8_t DIA_flv1Param(COMPRES_PARAMS *incoming);
 #include "ADM_vidEncode.hxx"
 // Yv12
 extern uint8_t DIA_requant(COMPRES_PARAMS *incoming);
-#define FF_TRELLIS 0		// use treillis for mpeg1 encoding
 
 COMPRES_PARAMS yv12codec = {
   CodecYV12,
@@ -189,184 +188,6 @@ COMPRES_PARAMS MjpegCodec = {
   &DIA_mjpegCodecSetting
 };
 
-//************************* FFMpeg mpeg1 **********************
-FFcodecSetting ffmpeg1Extra = {
-  ME_EPZS,			//     ME
-  0,				//          GMC
-  0,				//           _4MV;
-  0,				//           _QPEL;
-  0,				//           _TREILLIS_QUANT
-  2,				//           qmin;
-  31,				//          qmax;
-  3,				//           max_qdiff;
-  0,				//           max_b_frames;
-  1,				//          mpeg_quant;
-  1,				//
-  -2,				//                 luma_elim_threshold;
-  1,				//
-  -5,				//                 chroma_elim_threshold;
-  0.05,				//                lumi_masking;
-  1,
-  0.01,				//                dark_masking;
-  1,
-  0.5,				//         qcompress;  /* amount of qscale change between easy & hard scenes (0.0-1.0)*/
-  0.5,				//         qblur;      /* amount of qscale smoothing over time (0.0-1.0) */
-  600 ,   		// min bitrate in kB/S
-  2200 ,		// max bitrate
-  0,				// user_matrix 0->default, 1 tmpg, 2 anim�, 3 kvcd
-  12,				// Safe gop size limit
-  NULL,				// inter & intra matrix, will be set depending on user_matrix
-  NULL,
-  0,				// interlaced
-  0,				// WLA: bottom-field-first
-  0,				// wide screen
-  2,				// mb eval = distortion
-  8000,				// vratetol
-  0,
-  0.5,				// temporal masking
-  0,
-  0.5,				// spatial masking
-  0,				// NAQ
-  0,				// Use xvid ratecontrol
-  40,				// buffersize VCD like
-  0				// DUMMY                
-};
-
-COMPRES_PARAMS ffmpeg1Codec = {
-  CodecXVCD,
-  QT_TR_NOOP("VCD (lavc)"),
-  "XVCD",
-  "Lavcodec Mpeg1",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_2PASS_BR,
-  ADM_EXTRA_PARAM,
-  &ffmpeg1Extra,
-  sizeof (ffmpeg1Extra),
-  DIA_DVDffParam
-};
-//************ ffmpeg mpeg2 DVD **********
-
-FFcodecSetting ffmpeg2DVDExtra = {
-  ME_EPZS,			//     ME
-  0,				//          GMC
-  0,				//           _4MV;
-  0,				//           _QPEL;
-  FF_TRELLIS,			//          _TREILLIS_QUANT
-  2,				//           qmin;
-  31,				//          qmax;
-  3,				//           max_qdiff;
-  2,				//           max_b_frames;
-  1,				//          mpeg_quant;
-  1,				//
-  -2,				//                 luma_elim_threshold;
-  1,				//
-  -5,				//                 chroma_elim_threshold;
-  0.05,				//                lumi_masking;
-  1,
-  0.01,				//                dark_masking;
-  1,
-  0.5,				//         qcompress;  /* amount of qscale change between easy & hard scenes (0.0-1.0)*/
-  0.5,				//         qblur;      /* amount of qscale smoothing over time (0.0-1.0) */
-  0,				// min bitrate in kB/S
-  8000 ,		// max bitrate
-  0,				// user_matrix 0->default, 1 tmpg, 2 anim�, 3 kvcd
-  12,				// Safe gop size limit
-  NULL,				// inter & intra matrix, will be set depending on user_matrix
-  NULL,
-  0,				// interlaced
-  0,				// WLA: bottom-field-first
-  0,				// wide screen
-  2,				// mb eval = distortion
-  8000,				// vratetol
-  0,
-  0.5,				// temporal masking
-  0,
-  0.5,				// spatial masking
-  0,				// NAQ
-  1,				// Use xvid ratecontrol
-  224,				// buffersize 240 KB for Mpeg2 /
-  0				// DUMMY        
-};
-
-COMPRES_PARAMS ffmpeg2DVDCodec = {
-  CodecXDVD,
-  QT_TR_NOOP("DVD (lavc)"),
-  "XDVD",
-  "Lavcodec Mpeg2 (DVD)",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_2PASS_BR,
-  ADM_EXTRA_PARAM,
-  &ffmpeg2DVDExtra,
-  sizeof (ffmpeg2DVDExtra),
-  DIA_DVDffParam
-};
-//************ ffmpeg mpeg2 SVCD **********
-
-FFcodecSetting ffmpeg2SVCDExtra = {
-  ME_EPZS,			//     ME
-  0,				//          GMC
-  0,				//           _4MV;
-  0,				//           _QPEL;
-  FF_TRELLIS,			//          _TREILLIS_QUANT
-  2,				//           qmin;
-  31,				//          qmax;
-  3,				//           max_qdiff;
-  2,				//           max_b_frames;
-  1,				//          mpeg_quant;
-  1,				//
-  -2,				//                 luma_elim_threshold;
-  1,				//
-  -5,				//                 chroma_elim_threshold;
-  0.05,				//                lumi_masking;
-  1,
-  0.01,				//                dark_masking;
-  1,
-  0.5,				//         qcompress;  /* amount of qscale change between easy & hard scenes (0.0-1.0)*/
-  0.5,				//         qblur;      /* amount of qscale smoothing over time (0.0-1.0) */
-  0,				// min bitrate in kB/S
-  2400          ,		// max bitrate
-  0,				// user_matrix 0->default, 1 tmpg, 2 anim�, 3 kvcd
-  12,				// Safe gop size limit
-  NULL,				// inter & intra matrix, will be set depending on user_matrix
-  NULL,
-  0,				// interlaced
-  0,				// WLA: bottom-field-first
-  0,				// wide screen
-  2,				// mb eval = distortion
-  2400,				// vratetol
-  0,
-  0.5,				// temporal masking
-  0,
-  0.5,				// spatial masking
-  0,				// NAQ
-  1,				// Use xvid ratecontrol
-  112,				// buffersize 240 KB for Mpeg2 /
-  0				// DUMMY        
-};
-
-COMPRES_PARAMS ffmpeg2SVCDCodec = {
-  CodecXSVCD,
-  QT_TR_NOOP("SVCD (lavc)"),
-  "XSVCD",
-  "Lavcodec Mpeg2 (SVCD)",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_2PASS_BR,
-  ADM_EXTRA_PARAM,
-  &ffmpeg2SVCDExtra,
-  sizeof (ffmpeg2SVCDExtra),
-  DIA_DVDffParam
-};
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 // ************ Mpeg2enc VCD *************
 Mpeg2encParam VCDExtra = {
@@ -484,9 +305,6 @@ COMPRES_PARAMS CopyCodec =
 COMPRES_PARAMS *internalVideoCodec[] = {
   &CopyCodec,
   &ffmpegMpeg4,
-  &ffmpeg1Codec,
-  &ffmpeg2DVDCodec,
-  &ffmpeg2SVCDCodec,
   &VCDCodec,
   &SVCDCodec,
   &DVDCodec,

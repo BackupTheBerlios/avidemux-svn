@@ -134,7 +134,7 @@ int reuse = 0;
                 WAVHeader *hdr=audio->getInfo();	
                 audio_encoding=hdr->encoding;
 
-                if (videoCodecGetType() == CodecXVCD || videoCodecGetType() == CodecVCD ||
+                if (videoCodecGetType() == CodecVCD ||
 					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) || // avcodec MPEG-1 plugin
 					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0)) // avcodec MPEG-2 plugin
                 {
@@ -205,15 +205,6 @@ int reuse = 0;
             break;
           case CodecDVD:
             encoding->setCodec(QT_TR_NOOP("libmpeg2enc DVD"));
-            break;
-          case CodecXVCD:
-            encoding->setCodec(QT_TR_NOOP("FFmpeg MPEG-1 VBR"));
-            break;
-          case CodecXSVCD:
-            encoding->setCodec(QT_TR_NOOP("FFmpeg MPEG-2 SVCD VBR"));
-            break;
-          case CodecXDVD:
-            encoding->setCodec(QT_TR_NOOP("FFmpeg MPEG-2 DVD VBR"));
             break;
           case CodecRequant:
             encoding->setCodec(QT_TR_NOOP("MPEG Requantizer"));

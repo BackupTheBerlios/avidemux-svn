@@ -87,8 +87,7 @@ static COMPRES_PARAMS* getCodecParamFromTag(    SelectCodecType tag)
 }
 CodecFamilty videoCodecGetFamily(void)
 {
-	if (currentCodecType == CodecXVCD || currentCodecType == CodecXSVCD || currentCodecType == CodecXDVD ||
-		(currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) ||
+	if ((currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) ||
 		(currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0))
 		return CodecFamilyXVCD;
 	if (currentCodecType == CodecVCD || currentCodecType == CodecSVCD || currentCodecType == CodecDVD || currentCodecType == CodecRequant)
@@ -613,18 +612,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 		}
 
 		e = new EncoderFFMPEG (FF_H263, desc);
-		break;
-	case CodecXVCD:
-		e=new EncoderFFMPEGMpeg1(FF_MPEG1, desc);
-		printf("\n Using ffmpeg mpeg1 encoder\n");
-		break;
-	case CodecXSVCD:
-		e=new EncoderFFMPEGMpeg1(FF_MPEG2, desc);
-		printf("\n Using ffmpeg mpeg2 encoder\n");
-		break;
-	case CodecXDVD:
-		e=new EncoderFFMPEGMpeg1(FF_MPEG2, desc);
-		printf("\n Using ffmpeg mpeg2 encoder (DVD)\n");
 		break;
 	case CodecDVD:
 		e=new EncoderMpeg2enc(MPEG2ENC_DVD, desc);

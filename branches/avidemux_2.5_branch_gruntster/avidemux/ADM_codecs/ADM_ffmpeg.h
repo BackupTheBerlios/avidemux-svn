@@ -26,11 +26,9 @@ typedef enum
 {
   FF_MSMP4V3 = 1,
   FF_MPEG4 = 2,
-  FF_MPEG1 = 3,
   FF_H263 = 4,
   FF_H263P = 5,
   FF_MJPEG = 8,
-  FF_MPEG2 = 9,
   FF_FLV1=13,
 } FF_CODEC_ID;
 
@@ -56,7 +54,6 @@ protected:
   FFcodecSetting _settings;
   void mplayer_init (void);
   uint8_t initContext (void);
-  uint8_t gopMpeg1 (void);
   uint32_t frameType (void);
   uint8_t encodePreamble (uint8_t * in);
   PixelFormat _targetColorSpace;

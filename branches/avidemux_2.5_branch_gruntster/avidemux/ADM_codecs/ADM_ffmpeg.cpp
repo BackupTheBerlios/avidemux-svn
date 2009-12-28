@@ -194,128 +194,11 @@ ffmpegEncoder::frameType (void)
 
 }
 
-/*
-	This is called for mpeg1/2 initContext
-	Set some specific stuff.
-
-*/
-uint8_t
-ffmpegEncoder::gopMpeg1 (void)
-{
-  // small gop, 2 b frames allowed
-  // min bitrate 500 max bitrate 2200
-  int rate;
-
-  rate = _context->time_base.den;
-  rate = rate * 1000;
-  rate /= _context->time_base.num;
-
-  _context->me_range = 255;	// Fix motion vector for picky players (pioneer)
-
-  if (_id == FF_MPEG2)
-    {
-      if (FRAME_FILM == identMovieType (rate))
-	{
-	  printf ("[LAVCODEC]Pulldown activated...\n");
-	  _context->flags2 |= CODEC_FLAG2_32_PULLDOWN;
-	}
-    }
-#ifdef  TEST_NOB		// disable B frames
-  _context->max_b_frames = 0;
-#else
-  _context->max_b_frames = 2;
-#endif
-  printf ("[LAVCODEC]Using 2 b frames\n");
-  if (_id == FF_MPEG2)
-    {
-      _context->mpeg_quant = 1;	//1; // Should be mpeg quant 
-    }
-  else
-    {
-      _context->mpeg_quant = 0;	//1; // Should be mpeg quant 
-    }
-  if (_settingsPresence)
-    {
-      if (_settings.widescreen)
-	{
-          printf("[LAVCODEC]WideScreen\n");
-	  _context->sample_aspect_ratio.num = 16;
-	  _context->sample_aspect_ratio.den = 9;
-	}
-      else
-	{
-	  _context->sample_aspect_ratio.num = 4;
-	  _context->sample_aspect_ratio.den = 3;
-	}
-
-      _context->rc_max_rate_header = _settings.maxBitrate * 1000;//1800*1000;// 2400 max, 700 min
-      _context->rc_buffer_size_header = _settings.bufferSize * 8 * 1024;
-      // If we don't have a maxrate, don't set buffer_size
-      if (1 && !_settings.override_ratecontrol)	// FIXME
-
-	{
-	  _context->rc_buffer_size = _context->rc_buffer_size_header;
-	  _context->rc_max_rate = _context->rc_max_rate_header;
-	}
-      else
-	{
-	  _context->rc_buffer_size = 0;	// for xvid, no VBV so no ratecontrol
-	  _context->rc_max_rate = 0;
-	}
-      _context->gop_size = _settings.gop_size;
-
-    }
-  else
-    {
-      _context->rc_buffer_size = 200 * 8 * 1024;	// 40 for VCD  & 200 for SVCD
-      _context->gop_size = _settings.gop_size;
-
-    }
-  _context->rc_buffer_aggressivity = 1.0;
-  _context->rc_initial_cplx = 3;
-  _context->qmin = 2;
-  _context->qmax = 31;
-
-  _context->scenechange_threshold = 0xfffffff;	// Don't insert I frame out of order
-
-  _frame.interlaced_frame = _settings.interlaced;
-  if (_settings.interlaced)
-    _frame.top_field_first = !_settings.bff;
-
-#if defined(CODEC_FLAG_INTERLACED_DCT)
-  _context->flags |= _settings.interlaced ? CODEC_FLAG_INTERLACED_DCT : 0;
-#endif
-#if defined(CODEC_FLAG_INTERLACED_ME)
-  _context->flags |= _settings.interlaced ? CODEC_FLAG_INTERLACED_ME : 0;
-#endif
-
-  //
-  //_context->dsp_mask= FF_MM_FORCE;
-  printf ("[LAVCODEC]Mpeg12 settings:\n____________\n");
-  printf ("[LAVCODEC]FF Max rate   (header) : %lu kbps\n",
-	  (_context->rc_max_rate_header) / 1000);
-  printf ("[LAVCODEC]FF Buffer Size(header) : %lu bits / %lu kB\n",
-	  (_context->rc_buffer_size_header),
-	  _context->rc_buffer_size_header / (8 * 1024));
-  printf ("[LAVCODEC]FF Max rate   (rc) : %lu kbps\n", (_context->rc_max_rate) / 1000);
-  printf ("[LAVCODEC]FF Buffer Size(rc) : %lu bits / %lu kB\n",
-	  (_context->rc_buffer_size), _context->rc_buffer_size / (8 * 1024));
-
-  printf ("[LAVCODEC]FF GOP Size    : %lu\n", _context->gop_size);
-  printf ("[LAVCODEC]FF Bitrate    : %lu (kb/s)\n", _context->bit_rate/1000);
-  
-  return 1;
-}
-
 uint8_t
 ffmpegEncoder::initContext (void)
 {
   int res = 0;
 
-  // set a gop size close to what's requested for most
-  // player compatiblity               
-  if (_id == FF_MPEG1 || _id == FF_MPEG2)
-    gopMpeg1 ();
   // if (_id == FF_HUFF || _id == FF_FFV1)
   _context->strict_std_compliance = -1;
   
@@ -327,14 +210,6 @@ ffmpegEncoder::initContext (void)
       break;
     case FF_MSMP4V3:
       WRAP_Open (CODEC_ID_MSMPEG4V3);
-      break;
-    case FF_MPEG1:
-      encoderMT ();
-      WRAP_Open (CODEC_ID_MPEG1VIDEO);
-      break;
-    case FF_MPEG2:
-      encoderMT ();
-      WRAP_Open (CODEC_ID_MPEG2VIDEO);
       break;
     case FF_H263:
       WRAP_Open (CODEC_ID_H263);
@@ -663,7 +538,7 @@ ffmpegEncoder::mplayer_init (void)
     }
   else
     {
-      if (_id == FF_MPEG1 || _id == FF_MPEG2 || _id == FF_FLV1)
+      if (_id == FF_FLV1)
 	{
 	  _context->gop_size = _settings.gop_size;
 	}

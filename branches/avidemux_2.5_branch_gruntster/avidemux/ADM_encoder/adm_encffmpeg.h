@@ -56,34 +56,6 @@ public:
 
 };
 
-class EncoderFFMPEGMpeg1:public EncoderFFMPEG
-{
-private:
-  uint8_t setMatrix (void);
-  uint8_t _lastQz;
-  uint32_t _lastBitrate;
-
-public:
-
-
-    uint32_t _totalframe;
-  uint32_t _pass1Done;
-  uint8_t _use_xvid_ratecontrol;
-
-public:
-    EncoderFFMPEGMpeg1 (FF_CODEC_ID id, COMPRES_PARAMS * config);
-    virtual ~ EncoderFFMPEGMpeg1 ();	// can be called twice if needed ..
-  virtual int getRequirements (void);
-  virtual uint8_t isDualPass (void);
-  virtual uint8_t configure (AVDMGenericVideoStream * instream, int useExistingLogFile);
-  virtual uint8_t encode (uint32_t frame, ADMBitstream *out);
-  virtual uint8_t setLogFile (const char *p, uint32_t fr);
-  virtual uint8_t stop (void);
-  virtual uint8_t startPass2 (void);
-  virtual uint8_t startPass1 (void);
-          uint8_t verifyLog(const char *name,uint32_t nbFrame);
-};
-
 class EncoderFFMPEGFLV1:public EncoderFFMPEG
 {
 
