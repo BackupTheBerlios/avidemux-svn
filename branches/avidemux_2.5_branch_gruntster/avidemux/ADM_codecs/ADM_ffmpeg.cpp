@@ -384,9 +384,6 @@ uint8_t ffmpegEncoderCBR::init (uint32_t val, uint32_t fps1000)
   {
   1000, fps1000};
 
-  if(_id==FF_MPEG2 || _id==FF_MPEG1)
-	  _context->bit_rate = _br;
-  else
 	  _context->bit_rate = _br*1000;
 
   printf ("[LAVCODEC] Using  bitrate in context :%lu kbps",_context->bit_rate/1000);

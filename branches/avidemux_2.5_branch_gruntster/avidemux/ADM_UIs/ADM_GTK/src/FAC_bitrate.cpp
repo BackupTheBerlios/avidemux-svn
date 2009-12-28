@@ -168,7 +168,7 @@ void diaElemBitrate::setMe(void *dialog, void *opaque,uint32_t line)
   if((copy.capabilities & ADM_ENC_CAP_SAME))
 	  gtk_combo_box_append_text (GTK_COMBO_BOX (combo),QT_TR_NOOP("Single pass - same qz as input"));
   if((copy.capabilities & ADM_ENC_CAP_AQ))
-	  gtk_combo_box_append_text (GTK_COMBO_BOX (combo),QT_TR_NOOP("Single pass - Average quantizer"));
+	  gtk_combo_box_append_text (GTK_COMBO_BOX (combo),QT_TR_NOOP("Single pass - Average quantiser"));
 
   if((copy.capabilities & ADM_ENC_CAP_2PASS))
 	  gtk_combo_box_append_text (GTK_COMBO_BOX (combo),QT_TR_NOOP("Two pass - video size"));
@@ -282,12 +282,12 @@ void updateCombo(diaElemBitrateData *data)
           S(data->param->bitrate);
           break; 
     case COMPRESS_CQ:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Quantizer:"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("_Quantiser:"));
           M(data->minQ,data->maxQ);
           S(data->param->qz);
           break;
     case COMPRESS_AQ:
-          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("A_vg Quantizer:"));
+          gtk_label_set_text_with_mnemonic(GTK_LABEL(data->label2),QT_TR_NOOP("A_vg Quantiser:"));
           M(2,64);
           S(data->param->qz);
           break;

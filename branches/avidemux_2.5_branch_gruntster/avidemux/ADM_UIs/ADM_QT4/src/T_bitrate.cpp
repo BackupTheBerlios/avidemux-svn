@@ -165,7 +165,7 @@ void ADM_Qbitrate::updateCombo(COMPRESSION_MODE mode)
 			S(compress->bitrate);
 			break; 
 		case COMPRESS_CQ:// CQ
-			P(QT_TR_NOOP("Quantizer"));
+			P(QT_TR_NOOP("Quantiser"));
 			M(_minQ,maxQ);
 			S(compress->qz);
 			break;
@@ -184,7 +184,7 @@ void ADM_Qbitrate::updateCombo(COMPRESSION_MODE mode)
 			M(0,0);
 			break;
 		case COMPRESS_AQ : // AQ
-			P(QT_TR_NOOP("Quantizer"));
+			P(QT_TR_NOOP("Quantiser"));
 			M(_minQ,maxQ);
 			S(compress->qz);
 			break;
