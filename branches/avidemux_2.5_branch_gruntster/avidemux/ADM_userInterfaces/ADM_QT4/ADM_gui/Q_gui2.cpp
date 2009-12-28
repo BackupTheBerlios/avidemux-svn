@@ -683,6 +683,7 @@ int UI_Init(int nargc,char **nargv)
 QWidget *QuiMainWindows=NULL;
 QGraphicsView *drawWindow=NULL;
 uint8_t UI_updateRecentMenu( void );
+void UI_updateRecentProjectsMenu(void);
 
 void UI_refreshCustomMenu(void)
 {
@@ -767,6 +768,7 @@ int UI_RunApp(void)
 
 	UI_QT4VideoWidget(mw->ui.frame_video);  // Add the widget that will handle video display
 	UI_updateRecentMenu();
+	UI_updateRecentProjectsMenu();
 	setupMenus();
 	ADM_setCrashHook(&saveCrashProject, &FatalFunctionQt);
 	checkCrashFile();
@@ -825,6 +827,28 @@ uint8_t UI_updateRecentMenu( void )
 	}
 	return 1;
 }
+
+void UI_updateRecentProjectsMenu(void)
+{
+	const char **names = prefs->getLastProjects();
+	QAction *actions[6] = {WIDGET(actionRecentProject0), WIDGET(actionRecentProject1), WIDGET(actionRecentProject2),
+		WIDGET(actionRecentProject3), WIDGET(actionRecentProject4), WIDGET(actionRecentProject5)};
+
+	for(int index = 0; index < 6; index++)
+		actions[index]->setVisible(false);
+
+	for (int index = 0; index < 6; index++)
+	{
+		if (!names[index])
+			break;
+		else
+		{
+			actions[index]->setText(QString::fromUtf8(names[index]));
+			actions[index]->setVisible(true);
+		}
+	}
+}
+
 /** 
   \fn    setupMenus(void)
   \brief Fill in video & audio co

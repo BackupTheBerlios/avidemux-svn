@@ -207,16 +207,35 @@ int nw;
         case ACT_RECENT1:        
         case ACT_RECENT2:
         case ACT_RECENT3:
-                        const char **name;
-						char* fileName;
-                        int rank;
-                                name=prefs->get_lastfiles();
-                                rank=(int)action-ACT_RECENT0;
-                                ADM_assert(name[rank]);
-                                A_openAvi2 (name[rank], 0);
+		case ACT_RECENT4:
+		case ACT_RECENT5:
+		{
+			const char **name;
+			char* fileName;
+			int rank;
+			name=prefs->get_lastfiles();
+			rank=(int)action-ACT_RECENT0;
+			ADM_assert(name[rank]);
+			A_openAvi2 (name[rank], 0);
 
-                return;
-        case ACT_ViewMain: UI_toogleMain();return;
+			return;
+		}
+        case ACT_RECENTPROJECT0:
+        case ACT_RECENTPROJECT1:        
+        case ACT_RECENTPROJECT2:
+        case ACT_RECENTPROJECT3:
+		case ACT_RECENTPROJECT4:
+		case ACT_RECENTPROJECT5:
+		{
+			const char **name = prefs->getLastProjects();
+			int rank = (int)action - ACT_RECENTPROJECT0;
+
+			ADM_assert(name[rank]);
+			A_parseECMAScript(name[rank]);
+
+			return;
+		}
+		case ACT_ViewMain: UI_toogleMain();return;
         case ACT_ViewSide: UI_toogleSide();return;
         case ACT_DVB_Ocr:
         		DIA_ocrDvb();
@@ -1846,6 +1865,9 @@ void A_parseECMAScript(const char *name){
       if( actual_workbench_file )
          ADM_dealloc(actual_workbench_file);
       actual_workbench_file = ADM_strdup(longname);
+
+	  prefs->setLastProject(longname);
+	  UI_updateRecentProjectsMenu();
    }
    ADM_dealloc(longname);
 }

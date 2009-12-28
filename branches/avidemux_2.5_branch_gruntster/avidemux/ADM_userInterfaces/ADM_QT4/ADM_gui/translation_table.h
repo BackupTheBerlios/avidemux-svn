@@ -63,6 +63,14 @@ PROCESS(actionRecent0,ACT_RECENT0) \
 PROCESS(actionRecent1,ACT_RECENT1) \
 PROCESS(actionRecent2,ACT_RECENT2) \
 PROCESS(actionRecent3,ACT_RECENT3) \
+PROCESS(actionRecent4,ACT_RECENT4) \
+PROCESS(actionRecent5,ACT_RECENT5) \
+PROCESS(actionRecentProject0,ACT_RECENTPROJECT0) \
+PROCESS(actionRecentProject1,ACT_RECENTPROJECT1) \
+PROCESS(actionRecentProject2,ACT_RECENTPROJECT2) \
+PROCESS(actionRecentProject3,ACT_RECENTPROJECT3) \
+PROCESS(actionRecentProject4,ACT_RECENTPROJECT4) \
+PROCESS(actionRecentProject5,ACT_RECENTPROJECT5) \
 PROCESS(actionAdd_to_joblist,ACT_ADD_JOB) \
 PROCESS(actionShow_Joblist,ACT_HANDLE_JOB)  
 

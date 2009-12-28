@@ -53,6 +53,12 @@ typedef enum {
 	LASTFILES_FILE4,
 	LASTFILES_FILE5,
 	LASTFILES_FILE6,
+	LASTPROJECT_FILE1,
+	LASTPROJECT_FILE2,
+	LASTPROJECT_FILE3,
+	LASTPROJECT_FILE4,
+	LASTPROJECT_FILE5,
+	LASTPROJECT_FILE6,
 	LASTDIR_READ,
 	LASTDIR_WRITE,
 	MESSAGE_LEVEL,
@@ -87,6 +93,8 @@ typedef enum {
 class preferences {
 	private:
 		char *internal_lastfiles[7];
+		char *_lastProjects[7];
+
 		int save_xml_to_file();
 	public:
 		preferences();
@@ -117,6 +125,8 @@ class preferences {
                 int set(options option, const ADM_filename * val);
 		int set_lastfile(const char* file);
 		const char **get_lastfiles(void);
+		const char **getLastProjects(void);
+		int setLastProject(const char* file);
 };
 
 extern preferences *prefs;

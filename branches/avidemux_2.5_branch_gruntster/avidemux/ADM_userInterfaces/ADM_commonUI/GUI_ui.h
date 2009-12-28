@@ -44,6 +44,7 @@ uint8_t UI_getTimeShift(int *onoff,int *value);
 uint8_t UI_setTimeShift(int onoff,int value);
 
 uint8_t UI_updateRecentMenu( void );
+void UI_updateRecentProjectsMenu(void);
 
 uint8_t UI_arrow_enabled(void);
 uint8_t UI_arrow_disabled(void);

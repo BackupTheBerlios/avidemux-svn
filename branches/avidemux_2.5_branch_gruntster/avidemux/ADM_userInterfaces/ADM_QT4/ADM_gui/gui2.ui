@@ -1410,6 +1410,17 @@
      <addaction name="actionSave_jpeg" />
      <addaction name="actionSave_Selection" />
     </widget>
+    <widget class="QMenu" name="menuRecent_Projects" >
+     <property name="title" >
+      <string>Recent Projects</string>
+     </property>
+     <addaction name="actionRecentProject0" />
+     <addaction name="actionRecentProject1" />
+     <addaction name="actionRecentProject2" />
+     <addaction name="actionRecentProject3" />
+     <addaction name="actionRecentProject4" />
+     <addaction name="actionRecentProject5" />
+    </widget>
     <addaction name="actionOpen" />
     <addaction name="actionAppend" />
     <addaction name="menuSave" />
@@ -1427,6 +1438,7 @@
     <addaction name="actionConnect_to_AvsProxy" />
     <addaction name="separator" />
     <addaction name="menuRecent_Files" />
+    <addaction name="menuRecent_Projects" />
     <addaction name="separator" />
     <addaction name="actionQuit" />
    </widget>
@@ -2379,6 +2391,36 @@
   <action name="actionRecent5" >
    <property name="text" >
     <string>Recent5</string>
+   </property>
+  </action>
+  <action name="actionRecentProject0" >
+   <property name="text" >
+    <string>RecentProject0</string>
+   </property>
+  </action>
+  <action name="actionRecentProject1" >
+   <property name="text" >
+    <string>RecentProject1</string>
+   </property>
+  </action>
+  <action name="actionRecentProject2" >
+   <property name="text" >
+    <string>RecentProject2</string>
+   </property>
+  </action>
+  <action name="actionRecentProject3" >
+   <property name="text" >
+    <string>RecentProject3</string>
+   </property>
+  </action>
+  <action name="actionRecentProject4" >
+   <property name="text" >
+    <string>RecentProject4</string>
+   </property>
+  </action>
+  <action name="actionRecentProject5" >
+   <property name="text" >
+    <string>RecentProject5</string>
    </property>
   </action>
  </widget>
