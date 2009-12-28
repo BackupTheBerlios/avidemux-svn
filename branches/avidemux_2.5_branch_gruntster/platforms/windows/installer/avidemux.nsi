@@ -482,6 +482,10 @@ SectionGroup Plugins SecGrpPlugin
 			SetOverwrite on
 			SetOutPath $INSTDIR\plugins\videoEncoder
 			${File} plugins\videoEncoder\libADM_vidEnc_avcodec.dll
+			SetOutPath $INSTDIR\plugins\videoEncoder\avcodec
+			${File} plugins\videoEncoder\avcodec\Mpeg1Param.xsd
+			SetOutPath $INSTDIR\plugins\videoEncoder\avcodec\mpeg-1
+			${File} plugins\videoEncoder\avcodec\mpeg-1\*.xml
 		${MementoSectionEnd}
 		${MementoSection} "x264 (MPEG-4 AVC)" SecVidEncX264
 			SectionIn 1 2
