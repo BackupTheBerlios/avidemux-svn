@@ -9,15 +9,17 @@ else (WIN32)
 endif (WIN32)
 
 SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp
-							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  mpeg1Encoder.cpp
-							 ../common/PluginOptions.cpp  mpeg1EncoderOptions.cpp)
+							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  ../common/PluginOptions.cpp
+							 mpeg1Encoder.cpp  mpeg1EncoderOptions.cpp  mpeg2Encoder.cpp  mpeg2EncoderOptions.cpp)
 
 set(PLUGIN_SCHEMA_DIR "avcodec")
 set(MPEG1_PLUGIN_CONFIG_DIR "avcodec/mpeg-1")
+set(MPEG2_PLUGIN_CONFIG_DIR "avcodec/mpeg-2")
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR})
 ADD_DEFINITIONS(${LIBXML2_DEFINITIONS} -DPLUGIN_SCHEMA_DIR="${PLUGIN_SCHEMA_DIR}")
 set_property(SOURCE mpeg1EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DPLUGIN_CONFIG_DIR=\\\"${MPEG1_PLUGIN_CONFIG_DIR}\\\")
+set_property(SOURCE mpeg2EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DPLUGIN_CONFIG_DIR=\\\"${MPEG2_PLUGIN_CONFIG_DIR}\\\")
 
 getFfmpegLibNames(${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg)
 
@@ -33,3 +35,4 @@ TARGET_LINK_LIBRARIES(ADM_vidEnc_avcodec ${LIBXML2_LIBRARIES} ADM_xvidRateCtl AD
 INIT_VIDEO_ENCODER_PLUGIN(ADM_vidEnc_avcodec)
 INSTALL_VIDEO_ENCODER(ADM_vidEnc_avcodec)
 INSTALL(FILES Mpeg1Param.xsd DESTINATION "${VIDENC_INSTALL_DIR}${PLUGIN_SCHEMA_DIR}")
+INSTALL(FILES Mpeg2Param.xsd DESTINATION "${VIDENC_INSTALL_DIR}${PLUGIN_SCHEMA_DIR}")

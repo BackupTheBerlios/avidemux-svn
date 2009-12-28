@@ -1,5 +1,5 @@
 /***************************************************************************
-                            mpeg1EncoderOptions.h
+                            mpeg2EncoderOptions.h
 
     begin                : Sat Jul 4 2009
     copyright            : (C) 2009 by gruntster
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef mpeg1EncoderOptions_h
-#define mpeg1EncoderOptions_h
+#ifndef mpeg2EncoderOptions_h
+#define mpeg2EncoderOptions_h
 
 #include <vector>
 #include "../common/PluginOptions.h"
@@ -30,32 +30,32 @@ extern "C"
 
 typedef enum
 {
-	MPEG1_INTERLACED_NONE,
-	MPEG1_INTERLACED_BFF,
-	MPEG1_INTERLACED_TFF
-} Mpeg1InterlacedMode;
+	MPEG2_INTERLACED_NONE,
+	MPEG2_INTERLACED_BFF,
+	MPEG2_INTERLACED_TFF
+} Mpeg2InterlacedMode;
 
 typedef enum
 {
-	MPEG1_MATRIX_DEFAULT,
-	MPEG1_MATRIX_TMPGENC,
-	MPEG1_MATRIX_ANIME,
-	MPEG1_MATRIX_KVCD
-} Mpeg1MatrixMode;
+	MPEG2_MATRIX_DEFAULT,
+	MPEG2_MATRIX_TMPGENC,
+	MPEG2_MATRIX_ANIME,
+	MPEG2_MATRIX_KVCD
+} Mpeg2MatrixMode;
 
-class Mpeg1EncoderOptions : public PluginOptions
+class Mpeg2EncoderOptions : public PluginOptions
 {
 protected:
 	unsigned int _minBitrate, _maxBitrate, _bufferSize, _gopSize;
 	bool _xvidRateControl, _widescreen;
-	Mpeg1InterlacedMode _interlaced;
-	Mpeg1MatrixMode _matrix;
+	Mpeg2InterlacedMode _interlaced;
+	Mpeg2MatrixMode _matrix;
 
 	void addOptionsToXml(xmlNodePtr xmlNodeRoot);
 	void parseOptions(xmlNode *node);
 
 public:
-	Mpeg1EncoderOptions(void);
+	Mpeg2EncoderOptions(void);
 	void reset(void);
 
 	unsigned int getMinBitrate(void);
@@ -73,14 +73,14 @@ public:
 	bool getWidescreen(void);
 	void setWidescreen(bool widescreen);
 
-	Mpeg1InterlacedMode getInterlaced(void);
-	void setInterlaced(Mpeg1InterlacedMode interlaced);
+	Mpeg2InterlacedMode getInterlaced(void);
+	void setInterlaced(Mpeg2InterlacedMode interlaced);
 
-	Mpeg1MatrixMode getMatrix(void);
-	void setMatrix(Mpeg1MatrixMode matrix);
+	Mpeg2MatrixMode getMatrix(void);
+	void setMatrix(Mpeg2MatrixMode matrix);
 
 	unsigned int getGopSize(void);
 	void setGopSize(unsigned int gopSize);
 };
 
-#endif	// mpeg1EncoderOptions_h
+#endif	// mpeg2EncoderOptions_h

@@ -1,7 +1,7 @@
 /***************************************************************************
-                               mpeg1Encoder.cpp
+                               mpeg2Encoder.cpp
 
-    begin                : Sat Jul 4 2009
+    begin                : Mon Dec 28 2009
     copyright            : (C) 2009 by gruntster
  ***************************************************************************/
 
@@ -15,38 +15,39 @@
  ***************************************************************************/
 #include <libxml/tree.h>
 #include "ADM_inttype.h"
-#include "mpeg1Encoder.h"
+#include "mpeg2Encoder.h"
 #include "mpegMatrix.h"
 
 extern int _uiType;
 static bool changedConfig(const char* fileName, ConfigMenuType configType);
 static char *serializeConfig(void);
-static Mpeg1Encoder *encoder = NULL;
+static Mpeg2Encoder *encoder = NULL;
 
 #ifdef __WIN32
 extern void convertPathToAnsi(const char *path, char **ansiPath);
 #endif
 
-Mpeg1Encoder::Mpeg1Encoder(void)
+Mpeg2Encoder::Mpeg2Encoder(void)
 {
 	encoder = this;
 
-	init(CODEC_ID_MPEG1VIDEO, ADM_CSP_YV12);
+	init(CODEC_ID_MPEG2VIDEO, ADM_CSP_YV12);
 
 	_encodeOptions.structSize = sizeof(vidEncOptions);
 	_encodeOptions.encodeMode = DEFAULT_ENCODE_MODE;
 	_encodeOptions.encodeModeParameter = DEFAULT_ENCODE_MODE_PARAMETER;
 
-	_bitrateParam.capabilities = ADM_ENC_CAP_CQ | ADM_ENC_CAP_2PASS | ADM_ENC_CAP_2PASS_BR;
+	_bitrateParam.capabilities = ADM_ENC_CAP_CBR | ADM_ENC_CAP_CQ | ADM_ENC_CAP_2PASS | ADM_ENC_CAP_2PASS_BR;
 	_bitrateParam.qz = DEFAULT_ENCODE_MODE_PARAMETER;
 	_bitrateParam.avg_bitrate = 1000;
 	_bitrateParam.finalsize = 700;
+	_bitrateParam.bitrate = 1500;
 
 	_statFile = NULL;
 	_xvidRc = NULL;
 }
 
-int Mpeg1Encoder::initContext(const char* logFileName)
+int Mpeg2Encoder::initContext(const char* logFileName)
 {
 	AvcodecEncoder::initContext(logFileName);
 	int ret = ADM_VIDENC_ERR_SUCCESS;
@@ -66,18 +67,18 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 
 	switch (_options.getMatrix())
 	{
-		case MPEG1_MATRIX_TMPGENC:
+		case MPEG2_MATRIX_TMPGENC:
 			printf("using custom matrix: Tmpg\n");
 			_context->intra_matrix = tmpgenc_intra;
 			_context->inter_matrix = tmpgenc_inter;
 			break;
-		case MPEG1_MATRIX_ANIME:
+		case MPEG2_MATRIX_ANIME:
 			printf("using custom matrix: anim\n");
 			_context->intra_matrix = anime_intra;
 			_context->inter_matrix = anime_inter;
 
 			break;
-		case MPEG1_MATRIX_KVCD:
+		case MPEG2_MATRIX_KVCD:
 			printf("using custom matrix: kvcd\n");
 			_context->intra_matrix = kvcd_intra;
 			_context->inter_matrix = kvcd_inter;
@@ -86,13 +87,22 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 
 	switch (_options.getInterlaced())
 	{
-		case MPEG1_INTERLACED_TFF:
+		case MPEG2_INTERLACED_TFF:
 			_frame.top_field_first = true;
-		case MPEG1_INTERLACED_BFF:
+		case MPEG2_INTERLACED_BFF:
 			_frame.interlaced_frame = true;
 			break;
 	}
 
+	int fps = (_fpsDen * 1000) / _fpsNum;
+	int fpsTarget = 23976;
+
+	if ((fps > fpsTarget - 300) && (fps < fpsTarget + 300))
+		_context->flags2 |= CODEC_FLAG2_32_PULLDOWN;
+
+	_context->i_quant_factor = 0.8;
+	_context->rc_initial_cplx = 3;
+	_context->mpeg_quant = 1;
 	_context->max_b_frames = 2;
 	_context->luma_elim_threshold = -2;
 	_context->chroma_elim_threshold = -5;
@@ -107,9 +117,17 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 
 	if (_currentPass == 1)
 	{
-		_context->bit_rate = 0;
-		_context->bit_rate_tolerance = 1024 * 8 * 1000;
-		_context->flags |= CODEC_FLAG_QSCALE;
+		if (_encodeOptions.encodeMode == ADM_ENC_CAP_CBR)
+		{
+			_context->bit_rate = _encodeOptions.encodeModeParameter * 1000;
+			_context->bit_rate_tolerance = 8000000;
+		}
+		else
+		{
+			_context->bit_rate = 0;
+			_context->bit_rate_tolerance = 1024 * 8 * 1000;
+			_context->flags |= CODEC_FLAG_QSCALE;
+		}
 
 		if (_passCount > 1)
 			_context->flags |= CODEC_FLAG_PASS1;
@@ -182,7 +200,8 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 		}
 	}
 
-	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP || (_currentPass == 2 && !_options.getXvidRateControl()))
+	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP || _encodeOptions.encodeMode == ADM_VIDENC_MODE_CBR || 
+		(_currentPass == 2 && !_options.getXvidRateControl()))
 	{
 		_context->rc_max_rate = _context->rc_max_rate_header;
 		_context->rc_buffer_size = _context->rc_buffer_size_header;
@@ -191,32 +210,32 @@ int Mpeg1Encoder::initContext(const char* logFileName)
 	return ret;
 }
 
-const char* Mpeg1Encoder::getEncoderType(void)
+const char* Mpeg2Encoder::getEncoderType(void)
 {
-	return "MPEG-1";
+	return "MPEG-2";
 }
 
-const char* Mpeg1Encoder::getEncoderDescription(void)
+const char* Mpeg2Encoder::getEncoderDescription(void)
 {
-	return "MPEG-1 video encoder plugin for Avidemux (c) Mean/Gruntster";
+	return "MPEG-2 video encoder plugin for Avidemux (c) Mean/Gruntster";
 }
 
-const char* Mpeg1Encoder::getFourCC(void)
+const char* Mpeg2Encoder::getFourCC(void)
 {
-	return "mpg1";
+	return "mpg2";
 }
 
-const char* Mpeg1Encoder::getEncoderGuid(void)
+const char* Mpeg2Encoder::getEncoderGuid(void)
 {
-	return "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E";
+	return "DBAECD8B-CF29-4846-AF57-B596427FE7D3";
 }
 
-int Mpeg1Encoder::isConfigurable(void)
+int Mpeg2Encoder::isConfigurable(void)
 {
 	return (_uiType == ADM_UI_GTK || _uiType == ADM_UI_QT4);
 }
 
-int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
+int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
 {
 	loadSettings(&_encodeOptions, &_options);
 
@@ -255,7 +274,7 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	diaElemTabs tabGeneral("User Interface", 9, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("avcodec MPEG-1 Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs("avcodec MPEG-2 Configuration", 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);
@@ -266,7 +285,7 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	return 0;
 }
 
-void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
+void Mpeg2Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg2EncoderOptions *options)
 {
 	char *configurationName;
 
@@ -293,7 +312,7 @@ void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOption
 	}
 }
 
-void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOptions *options)
+void Mpeg2Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg2EncoderOptions *options)
 {
 	options->setPresetConfiguration(&configName[0], (PluginConfigType)configType);
 
@@ -302,6 +321,11 @@ void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOption
 		case COMPRESS_CQ:
 			encodeOptions->encodeMode = ADM_VIDENC_MODE_CQP;
 			encodeOptions->encodeModeParameter = _bitrateParam.qz;
+
+			break;
+		case COMPRESS_CBR:
+			encodeOptions->encodeMode = ADM_VIDENC_MODE_CBR;
+			encodeOptions->encodeModeParameter = _bitrateParam.bitrate;
 
 			break;
 		case COMPRESS_2PASS:
@@ -321,8 +345,8 @@ void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1EncoderOption
 	options->setXvidRateControl(_useXvidRateControl);
 	options->setBufferSize(_bufferSize);
 	options->setWidescreen(_widescreen);
-	options->setInterlaced((Mpeg1InterlacedMode)_interlaced);
-	options->setMatrix((Mpeg1MatrixMode)_userMatrix);
+	options->setInterlaced((Mpeg2InterlacedMode)_interlaced);
+	options->setMatrix((Mpeg2MatrixMode)_userMatrix);
 	options->setGopSize(_gopSize);
 }
 
@@ -332,7 +356,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 
 	if (configType == CONFIG_MENU_DEFAULT)
 	{
-		Mpeg1EncoderOptions defaultOptions;
+		Mpeg2EncoderOptions defaultOptions;
 		vidEncOptions *defaultEncodeOptions = defaultOptions.getEncodeOptions();
 
 		encoder->loadSettings(defaultEncodeOptions, &defaultOptions);
@@ -341,7 +365,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 	}
 	else
 	{
-		Mpeg1EncoderOptions options;
+		Mpeg2EncoderOptions options;
 
 		options.setPresetConfiguration(configName, (PluginConfigType)configType);
 
@@ -372,7 +396,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 char *serializeConfig(void)
 {
 	vidEncOptions encodeOptions;
-	Mpeg1EncoderOptions options;
+	Mpeg2EncoderOptions options;
 
 	encoder->saveSettings(&encodeOptions, &options);
 	options.setEncodeOptions(&encodeOptions);
@@ -380,7 +404,7 @@ char *serializeConfig(void)
 	return options.toXml(PLUGIN_XML_EXTERNAL);
 }
 
-int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
+int Mpeg2Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
 {
 	char* xml = _options.toXml(PLUGIN_XML_INTERNAL);
 	int xmlLength = strlen(xml);
@@ -398,7 +422,7 @@ int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, 
 	return xmlLength;
 }
 
-int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int Mpeg2Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;
@@ -424,7 +448,7 @@ int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
 		return ADM_VIDENC_ERR_FAILED;
 }
 
-int Mpeg1Encoder::beginPass(vidEncPassParameters *passParameters)
+int Mpeg2Encoder::beginPass(vidEncPassParameters *passParameters)
 {
 	int qz = 0;
 	int ret = AvcodecEncoder::beginPass(passParameters);
@@ -471,7 +495,7 @@ int Mpeg1Encoder::beginPass(vidEncPassParameters *passParameters)
 	return ret;
 }
 
-int Mpeg1Encoder::finishPass(void)
+int Mpeg2Encoder::finishPass(void)
 {
 	int ret = AvcodecEncoder::finishPass();
 
@@ -496,7 +520,7 @@ int Mpeg1Encoder::finishPass(void)
 	return ret;
 }
 
-int Mpeg1Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
+int Mpeg2Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 {
 	ADM_rframe rf;
 	uint32_t qz;
@@ -543,7 +567,7 @@ int Mpeg1Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	return ret;
 }
 
-void Mpeg1Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
+void Mpeg2Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
 {
 	switch (encodeOptions->encodeMode)
 	{
@@ -552,6 +576,13 @@ void Mpeg1Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
 
 			_bitrateParam.mode = COMPRESS_CQ;
 			_bitrateParam.qz = encodeOptions->encodeModeParameter;
+
+			break;
+		case ADM_VIDENC_MODE_CBR:
+			_passCount = 1;
+
+			_bitrateParam.mode = COMPRESS_CBR;
+			_bitrateParam.bitrate = encodeOptions->encodeModeParameter;
 
 			break;
 		case ADM_VIDENC_MODE_2PASS_SIZE:
@@ -571,7 +602,7 @@ void Mpeg1Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
 	}
 }
 
-unsigned int Mpeg1Encoder::calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb)
+unsigned int Mpeg2Encoder::calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb)
 {
 	double db, ti;
 

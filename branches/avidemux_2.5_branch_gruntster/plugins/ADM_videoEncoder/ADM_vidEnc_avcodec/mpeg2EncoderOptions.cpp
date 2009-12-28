@@ -1,5 +1,5 @@
  /***************************************************************************
-                               Mpeg1EncoderOptions.cpp
+                               Mpeg2EncoderOptions.cpp
 
 	These settings are intended for scripting and can contain a Preset 
 	Configuration block.  If this block exists then "internal" settings are
@@ -8,8 +8,8 @@
 	missing, internal settings have to be used and will reflect a snapshot
 	of the external configuration file at the time the script was generated.
 
-    begin                : Mon Apr 21 2008
-    copyright            : (C) 2008 by gruntster
+    begin                : Mon Dec 28 2009
+    copyright            : (C) 2009 by gruntster
  ***************************************************************************/
 
 /***************************************************************************
@@ -29,114 +29,114 @@
 #include "ADM_default.h"
 #include "ADM_files.h"
 
-#include "mpeg1EncoderOptions.h"
+#include "mpeg2EncoderOptions.h"
 
-Mpeg1EncoderOptions::Mpeg1EncoderOptions(void) : PluginOptions(PLUGIN_CONFIG_DIR, "Mpeg1", "Mpeg1Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
+Mpeg2EncoderOptions::Mpeg2EncoderOptions(void) : PluginOptions(PLUGIN_CONFIG_DIR, "Mpeg2", "Mpeg2Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }
 
-void Mpeg1EncoderOptions::reset(void)
+void Mpeg2EncoderOptions::reset(void)
 {
 	PluginOptions::reset();
 
-	setMinBitrate(600);
-	setMaxBitrate(2200);
-	setXvidRateControl(false);
-	setBufferSize(40);
+	setMinBitrate(0);
+	setMaxBitrate(2400);
+	setXvidRateControl(true);
+	setBufferSize(112);
 	setWidescreen(false);
-	setInterlaced(MPEG1_INTERLACED_NONE);
-	setMatrix(MPEG1_MATRIX_DEFAULT);
+	setInterlaced(MPEG2_INTERLACED_NONE);
+	setMatrix(MPEG2_MATRIX_DEFAULT);
 	setGopSize(12);
 }
 
-unsigned int Mpeg1EncoderOptions::getMinBitrate(void)
+unsigned int Mpeg2EncoderOptions::getMinBitrate(void)
 {
 	return _minBitrate;
 }
 
-void Mpeg1EncoderOptions::setMinBitrate(unsigned int minBitrate)
+void Mpeg2EncoderOptions::setMinBitrate(unsigned int minBitrate)
 {
 	if (minBitrate <= 9000)
 		_minBitrate = minBitrate;
 }
 
-unsigned int Mpeg1EncoderOptions::getMaxBitrate(void)
+unsigned int Mpeg2EncoderOptions::getMaxBitrate(void)
 {
 	return _maxBitrate;
 }
 
-void Mpeg1EncoderOptions::setMaxBitrate(unsigned int maxBitrate)
+void Mpeg2EncoderOptions::setMaxBitrate(unsigned int maxBitrate)
 {
 	if (maxBitrate >= 100 && maxBitrate <= 9000)
 		_maxBitrate = maxBitrate;
 }
 
-bool Mpeg1EncoderOptions::getXvidRateControl(void)
+bool Mpeg2EncoderOptions::getXvidRateControl(void)
 {
 	return _xvidRateControl;
 }
 
-void Mpeg1EncoderOptions::setXvidRateControl(bool xvidRateControl)
+void Mpeg2EncoderOptions::setXvidRateControl(bool xvidRateControl)
 {
 	_xvidRateControl = xvidRateControl;
 }
 
-unsigned int Mpeg1EncoderOptions::getBufferSize(void)
+unsigned int Mpeg2EncoderOptions::getBufferSize(void)
 {
 	return _bufferSize;
 }
 
-void Mpeg1EncoderOptions::setBufferSize(unsigned int bufferSize)
+void Mpeg2EncoderOptions::setBufferSize(unsigned int bufferSize)
 {
 	if (bufferSize >= 1 && bufferSize <= 1024)
 		_bufferSize = bufferSize;
 }
 
-bool Mpeg1EncoderOptions::getWidescreen(void)
+bool Mpeg2EncoderOptions::getWidescreen(void)
 {
 	return _widescreen;
 }
 
-void Mpeg1EncoderOptions::setWidescreen(bool widescreen)
+void Mpeg2EncoderOptions::setWidescreen(bool widescreen)
 {
 	_widescreen = widescreen;
 }
 
-Mpeg1InterlacedMode Mpeg1EncoderOptions::getInterlaced(void)
+Mpeg2InterlacedMode Mpeg2EncoderOptions::getInterlaced(void)
 {
 	return _interlaced;
 }
 
-void Mpeg1EncoderOptions::setInterlaced(Mpeg1InterlacedMode interlaced)
+void Mpeg2EncoderOptions::setInterlaced(Mpeg2InterlacedMode interlaced)
 {
-	if (interlaced == MPEG1_INTERLACED_NONE || interlaced == MPEG1_INTERLACED_BFF || interlaced == MPEG1_INTERLACED_TFF)
+	if (interlaced == MPEG2_INTERLACED_NONE || interlaced == MPEG2_INTERLACED_BFF || interlaced == MPEG2_INTERLACED_TFF)
 		_interlaced = interlaced;
 }
 
-Mpeg1MatrixMode Mpeg1EncoderOptions::getMatrix(void)
+Mpeg2MatrixMode Mpeg2EncoderOptions::getMatrix(void)
 {
 	return _matrix;
 }
 
-void Mpeg1EncoderOptions::setMatrix(Mpeg1MatrixMode matrix)
+void Mpeg2EncoderOptions::setMatrix(Mpeg2MatrixMode matrix)
 {
-	if (matrix == MPEG1_MATRIX_DEFAULT || matrix == MPEG1_MATRIX_TMPGENC || matrix == MPEG1_MATRIX_ANIME || matrix == MPEG1_MATRIX_KVCD)
+	if (matrix == MPEG2_MATRIX_DEFAULT || matrix == MPEG2_MATRIX_TMPGENC || matrix == MPEG2_MATRIX_ANIME || matrix == MPEG2_MATRIX_KVCD)
 		_matrix = matrix;
 }
 
-unsigned int Mpeg1EncoderOptions::getGopSize(void)
+unsigned int Mpeg2EncoderOptions::getGopSize(void)
 {
 	return _gopSize;
 }
 
-void Mpeg1EncoderOptions::setGopSize(unsigned int gopSize)
+void Mpeg2EncoderOptions::setGopSize(unsigned int gopSize)
 {
 	if (gopSize >= 1 && gopSize <= 30)
 		_gopSize = gopSize;
 }
 
-void Mpeg1EncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
+void Mpeg2EncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
 	xmlChar xmlBuffer[bufferSize + 1];
@@ -151,10 +151,10 @@ void Mpeg1EncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	switch (getInterlaced())
 	{
-		case MPEG1_INTERLACED_BFF:
+		case MPEG2_INTERLACED_BFF:
 			strcpy((char*)xmlBuffer, "bff");
 			break;
-		case MPEG1_INTERLACED_TFF:
+		case MPEG2_INTERLACED_TFF:
 			strcpy((char*)xmlBuffer, "tff");
 			break;
 		default:
@@ -166,13 +166,13 @@ void Mpeg1EncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	switch (getMatrix())
 	{
-		case MPEG1_MATRIX_TMPGENC:
+		case MPEG2_MATRIX_TMPGENC:
 			strcpy((char*)xmlBuffer, "tmpgenc");
 			break;
-		case MPEG1_MATRIX_ANIME:
+		case MPEG2_MATRIX_ANIME:
 			strcpy((char*)xmlBuffer, "anime");
 			break;
-		case MPEG1_MATRIX_KVCD:
+		case MPEG2_MATRIX_KVCD:
 			strcpy((char*)xmlBuffer, "kvcd");
 			break;
 		default:
@@ -183,7 +183,7 @@ void Mpeg1EncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopSize", number2String(xmlBuffer, bufferSize, getGopSize()));
 }
 
-void Mpeg1EncoderOptions::parseOptions(xmlNode *node)
+void Mpeg2EncoderOptions::parseOptions(xmlNode *node)
 {
 	for (xmlNode *xmlChild = node->children; xmlChild; xmlChild = xmlChild->next)
 	{
@@ -203,25 +203,25 @@ void Mpeg1EncoderOptions::parseOptions(xmlNode *node)
 				setWidescreen(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
 			{
-				Mpeg1InterlacedMode mode = MPEG1_INTERLACED_NONE;
+				Mpeg2InterlacedMode mode = MPEG2_INTERLACED_NONE;
 
 				if (strcmp(content, "bff") == 0)
-					mode = MPEG1_INTERLACED_BFF;
+					mode = MPEG2_INTERLACED_BFF;
 				else if (strcmp(content, "tff") == 0)
-					mode = MPEG1_INTERLACED_TFF;
+					mode = MPEG2_INTERLACED_TFF;
 
 				setInterlaced(mode);
 			}
 			else if (strcmp((char*)xmlChild->name, "matrix") == 0)
 			{
-				Mpeg1MatrixMode mode = MPEG1_MATRIX_DEFAULT;
+				Mpeg2MatrixMode mode = MPEG2_MATRIX_DEFAULT;
 
 				if (strcmp(content, "tmpgenc") == 0)
-					mode = MPEG1_MATRIX_TMPGENC;
+					mode = MPEG2_MATRIX_TMPGENC;
 				else if (strcmp(content, "anime") == 0)
-					mode = MPEG1_MATRIX_ANIME;
+					mode = MPEG2_MATRIX_ANIME;
 				else if (strcmp(content, "kvcd") == 0)
-					mode = MPEG1_MATRIX_KVCD;
+					mode = MPEG2_MATRIX_KVCD;
 
 				setMatrix(mode);
 			}

@@ -135,7 +135,8 @@ int reuse = 0;
                 audio_encoding=hdr->encoding;
 
                 if (videoCodecGetType() == CodecXVCD || videoCodecGetType() == CodecVCD ||
-					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0))	// MPEG-1 plugin
+					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) || // avcodec MPEG-1 plugin
+					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0)) // avcodec MPEG-2 plugin
                 {
                         if(hdr->frequency!=44100 ||  hdr->encoding != WAV_MP2)
                         {
