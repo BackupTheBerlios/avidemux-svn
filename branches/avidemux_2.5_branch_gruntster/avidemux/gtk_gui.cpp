@@ -2653,38 +2653,70 @@ uint8_t  ADMImage::saveAsBmp(const char *filename)
 */
 uint8_t  ADMImage::saveAsJpg(const char *filename)
 {
- ffmpegEncoderFFMjpeg *codec=NULL;
-  FILE *fd;
-  uint8_t *buffer=NULL;
-  uint32_t sz;
-  
+	AVCodecContext *context = avcodec_alloc_context();
+	AVCodec *codec = NULL;
+	uint8_t success = 0;
+	
+	if (context)
+	{
+		context->width = _width;
+		context->height = _height;
+		context->pix_fmt = PIX_FMT_YUVJ420P;
+		context->time_base = (AVRational){1, 25};
+		context->flags = CODEC_FLAG_QSCALE;
 
-        sz = _width*_height*3;
-        ADMBitstream bitstream(sz);
-        buffer=new uint8_t[sz];
-        bitstream.data=buffer;
-        codec=new  ffmpegEncoderFFMjpeg(_width,_height,FF_MJPEG)  ;
-        codec->init( 95,25000);
-        if(!codec->encode(this,&bitstream))
-        {
-                GUI_Error_HIG(QT_TR_NOOP("Cannot encode the frame"), NULL);
-                delete [] buffer;
-                delete codec;
-                return 0;
-        }
-        delete codec;
-        fd=fopen(filename,"wb");
-        if(!fd)
-        {
-                GUI_Error_HIG(QT_TR_NOOP("File error"),QT_TR_NOOP( "Cannot open \"%s\" for writing."), filename);
-                delete [] buffer;
-                return 0;
-        }
-        fwrite (buffer, bitstream.len, 1, fd);
-        fclose(fd);
-        delete [] buffer;
-        return 1;
+		codec = avcodec_find_encoder(CODEC_ID_MJPEG);
+
+		if (codec && avcodec_open(context, codec) < 0)
+			codec = NULL;
+
+		if (codec)
+		{
+			AVPicture picture;
+			int bufferSize = avpicture_fill(&picture, this->data, PIX_FMT_YUV420P, _width, _height);
+			uint8_t *buffer = new uint8_t[bufferSize];
+			AVFrame frame;
+
+			frame.quality = (int)floor(FF_QP2LAMBDA * 3 + 0.5);
+			frame.data[0] = picture.data[0];
+			frame.data[1] = picture.data[2];
+			frame.data[2] = picture.data[1];
+			frame.linesize[0] = picture.linesize[0];
+			frame.linesize[1] = picture.linesize[1];
+			frame.linesize[2] = picture.linesize[2];
+
+			int size = avcodec_encode_video(context, buffer, bufferSize, &frame);
+
+			if (size > 0)
+			{
+				FILE *fd = fopen(filename,"wb");
+
+				if (fd)
+				{
+					fwrite(buffer, size, 1, fd);
+					fclose(fd);
+
+					success = 1;
+				}
+				else
+					GUI_Error_HIG(QT_TR_NOOP("File error"), QT_TR_NOOP("Cannot open \"%s\" for writing."), filename);
+			}
+			else
+				GUI_Error_HIG(QT_TR_NOOP("Cannot encode the frame"), NULL);
+
+			delete [] buffer;
+		}
+	}
+
+	if (!context || !codec)
+		GUI_Error_HIG(QT_TR_NOOP("Cannot initialise JPEG encoder"), NULL);
+
+	if (context)
+		avcodec_close(context);
+	
+	return success;
 }
+
 /**
  *      \fn UI_getPreferredRender
  *      \brief Returns to render lib the user preferred rendering method
