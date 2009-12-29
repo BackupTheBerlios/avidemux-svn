@@ -21,6 +21,7 @@
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
 #include "huffyuvEncoder.h"
+#include "mjpegEncoder.h"
 #include "mpeg1Encoder.h"
 #include "mpeg2Encoder.h"
 #include "ADM_inttype.h"
@@ -32,11 +33,12 @@ static FLV1Encoder flv1;
 static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
+static MjpegEncoder mjpeg;
 static Mpeg1Encoder mpeg1;
 static Mpeg2Encoder mpeg2;
 
-static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6 };
-static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &huffyuv, &mpeg1, &mpeg2};
+static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
+static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &huffyuv, &mjpeg, &mpeg1, &mpeg2};
 
 extern "C"
 {

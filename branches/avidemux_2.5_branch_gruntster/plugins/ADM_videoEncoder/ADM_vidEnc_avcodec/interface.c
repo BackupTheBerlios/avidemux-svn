@@ -71,7 +71,7 @@ int vidEncGetEncoderApiVersion(int encoderId)
 void vidEncGetEncoderVersion(int encoderId, int* major, int* minor, int* patch)
 {
 	*major = 1;
-	*minor = 2;
+	*minor = 3;
 	*patch = 0;
 }
 
