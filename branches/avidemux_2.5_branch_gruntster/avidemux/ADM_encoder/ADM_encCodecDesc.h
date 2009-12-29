@@ -1,7 +1,6 @@
 #ifndef ADM_CODEC_CONFIG_
 #define ADM_CODEC_CONFIG_
 
-uint8_t DIA_DVDffParam (COMPRES_PARAMS * incoming);
 uint8_t DIA_flv1Param(COMPRES_PARAMS *incoming);
 #define REQUANT_AS_CODE
 #include "ADM_vidEncode.hxx"
