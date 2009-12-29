@@ -17,6 +17,7 @@
 
 #include "encoder.h"
 #include "dvEncoder.h"
+#include "flv1Encoder.h"
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
 #include "huffyuvEncoder.h"
@@ -27,14 +28,15 @@
 int uiType;
 
 static DVEncoder dv;
+static FLV1Encoder flv1;
 static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
 static HuffyuvEncoder huffyuv;
-static Mpeg1Encoder mpeg1Encoder;
-static Mpeg2Encoder mpeg2Encoder;
+static Mpeg1Encoder mpeg1;
+static Mpeg2Encoder mpeg2;
 
-static int encoderIds[] = { 0, 1, 2, 3, 4, 5 };
-static AvcodecEncoder* encoders[] = { &dv, &ffv1, &ffvhuff, &huffyuv, &mpeg1Encoder, &mpeg2Encoder};
+static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6 };
+static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &huffyuv, &mpeg1, &mpeg2};
 
 extern "C"
 {

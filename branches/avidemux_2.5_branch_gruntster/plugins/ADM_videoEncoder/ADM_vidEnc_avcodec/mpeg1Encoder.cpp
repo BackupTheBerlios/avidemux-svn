@@ -34,11 +34,11 @@ Mpeg1Encoder::Mpeg1Encoder(void)
 	init(CODEC_ID_MPEG1VIDEO, ADM_CSP_YV12);
 
 	_encodeOptions.structSize = sizeof(vidEncOptions);
-	_encodeOptions.encodeMode = DEFAULT_ENCODE_MODE;
-	_encodeOptions.encodeModeParameter = DEFAULT_ENCODE_MODE_PARAMETER;
+	_encodeOptions.encodeMode = MPEG1_DEFAULT_ENCODE_MODE;
+	_encodeOptions.encodeModeParameter = MPEG1_DEFAULT_ENCODE_MODE_PARAMETER;
 
 	_bitrateParam.capabilities = ADM_ENC_CAP_CQ | ADM_ENC_CAP_2PASS | ADM_ENC_CAP_2PASS_BR;
-	_bitrateParam.qz = DEFAULT_ENCODE_MODE_PARAMETER;
+	_bitrateParam.qz = MPEG1_DEFAULT_ENCODE_MODE_PARAMETER;
 	_bitrateParam.avg_bitrate = 1000;
 	_bitrateParam.finalsize = 700;
 
@@ -252,7 +252,7 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 		changedConfig, serializeConfig, elmGeneral, 9);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("User Interface", 9, elmGeneral);
+	diaElemTabs tabGeneral("Settings", 9, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
 	if (diaFactoryRunTabs("avcodec MPEG-1 Configuration", 1, elmHeader, 1, tabs))

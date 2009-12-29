@@ -483,6 +483,7 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\videoEncoder
 			${File} plugins\videoEncoder\libADM_vidEnc_avcodec.dll
 			SetOutPath $INSTDIR\plugins\videoEncoder\avcodec
+			${File} plugins\videoEncoder\avcodec\Flv1Param.xsd
 			${File} plugins\videoEncoder\avcodec\Mpeg1Param.xsd
 			${File} plugins\videoEncoder\avcodec\Mpeg2Param.xsd
 			SetOutPath $INSTDIR\plugins\videoEncoder\avcodec\mpeg-1
