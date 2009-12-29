@@ -51,8 +51,6 @@ static void encoderPrint(void);
 #include "ADM_codecs/ADM_ffmpeg.h"
 #include "adm_encffmpeg.h"
 
-#include "ADM_codecs/ADM_mjpegEncode.h"
-#include "adm_encmjpeg.h"
 #include "adm_encCopy.h"
 #include "adm_encyv12.h"
 #include "adm_encmpeg2enc.h"
@@ -597,9 +595,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 		break;
 	case CodecFF:
 		e = new EncoderFFMPEG (FF_MPEG4, desc);
-		break;
-	case CodecMjpeg:
-		e = new EncoderMjpeg (desc);
 		break;
 	case CodecH263:
 		if (!((w == 128) && (h == 96)) && !((w == 176) && (h == 144)))

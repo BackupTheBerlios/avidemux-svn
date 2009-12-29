@@ -53,7 +53,6 @@ void onexit( void );
 
 extern void registerVideoFilters( void );
 extern void filterCleanUp( void );
-extern void register_Encoders( void )  ;
 
 extern uint8_t initGUI( void );
 extern void destroyGUI(void);
@@ -178,8 +177,6 @@ int main(int argc, char *argv[])
 	initPrefs();
 	prefs->load();
     CpuCaps::init();
-
-	register_Encoders();
 
 #ifdef USE_SDL
 	uint32_t videoDevice = RENDER_LAST;

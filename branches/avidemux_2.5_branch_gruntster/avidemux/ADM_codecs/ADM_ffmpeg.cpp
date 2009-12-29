@@ -217,10 +217,6 @@ ffmpegEncoder::initContext (void)
     case FF_H263P:
       WRAP_Open (CODEC_ID_H263P);
       break;
-    case FF_MJPEG:
-      WRAP_Open (CODEC_ID_MJPEG);
-      break;
-
     default:
       ADM_assert (0);
     }
@@ -655,39 +651,4 @@ ffmpegEncoder::getExtraData (uint32_t * l, uint8_t ** d)
     return 0;
 }
 
-uint8_t
-  ffmpegEncoderFFMjpeg::init (uint32_t val, uint32_t fps1000, uint8_t vbr)
-{
-  UNUSED_ARG (val);
-  UNUSED_ARG (vbr);
-  mplayer_init ();
-
-  float f;
-
-  f = val;
-  f = 31. - (29. * f / 100.);
-
-  _qual = (uint32_t) floor (f);
-
-//   _context->frame_rate_base = 1000;
-//   _context->frame_rate = fps1000;
-  _context->time_base = (AVRational)
-  {
-  1000, fps1000};
-  _context->flags = CODEC_FLAG_QSCALE;
-  _context->bit_rate = 0;
-  _context->bit_rate_tolerance = 1024 * 8 * 1000;
-  _context->gop_size = 250;
-  printf ("[LAVCODEC]FF Mjpeg codec initializing %d %% -> q =%d...\n", val, _qual);
-  return initContext ();
-}
-
-
-
-uint8_t
-ffmpegEncoderFFMjpeg::encode (ADMImage * in, ADMBitstream * out)
-{
-  _frame.quality = (int) floor (FF_QP2LAMBDA * _qual + 0.5);
-  return ffmpegEncoder::encode(in,out);
-}
 

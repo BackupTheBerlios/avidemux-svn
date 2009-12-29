@@ -114,22 +114,6 @@ COMPRES_PARAMS ffmpegMpeg4 = {
   getFFCompressParams
 };
 
-static MJPEGConfig MjpegExtra = { 90, 0 };
-extern uint8_t DIA_mjpegCodecSetting (COMPRES_PARAMS * param);
-COMPRES_PARAMS MjpegCodec = {
-  CodecMjpeg,
-  QT_TR_NOOP("MJPEG (lavc)"),
-  "Mjpeg",
-  "Mjpeg (lavcodec)",
-  COMPRESS_CQ,
-  4, 1500, 700,1000, // AVG
-  ADM_ENC_CAP_CQ,
-  ADM_EXTRA_PARAM,
-  &MjpegExtra,
-  sizeof (MjpegExtra),
-  &DIA_mjpegCodecSetting
-};
-
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 // ************ Mpeg2enc VCD *************
 Mpeg2encParam VCDExtra = {
@@ -253,7 +237,6 @@ COMPRES_PARAMS *internalVideoCodec[] = {
   &RequantCodec,
   &yv12codec,
   &ffmpegH263Codec,
-  &MjpegCodec,
   &DUMMYONE
 };
 

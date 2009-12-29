@@ -16,7 +16,6 @@
 
   
 #include "DIA_factory.h"
-#include "../../ADM_encoder/adm_encmjpeg_param.h"
 
 /**
       \fn DIA_mjpegCodecSetting

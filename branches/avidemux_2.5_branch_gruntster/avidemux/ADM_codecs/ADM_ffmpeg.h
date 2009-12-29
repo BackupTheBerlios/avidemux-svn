@@ -28,7 +28,6 @@ typedef enum
   FF_MPEG4 = 2,
   FF_H263 = 4,
   FF_H263P = 5,
-  FF_MJPEG = 8,
 } FF_CODEC_ID;
 
 /*
@@ -149,27 +148,4 @@ public:
   virtual uint8_t encode (ADMImage * in, ADMBitstream * out);
   virtual ~ ffmpegEncoderVBRExternal ();
 };
-
-class ffmpegEncoderFFMjpeg:public ffmpegEncoder
-{
-protected:uint32_t _qual;
-
-public:ffmpegEncoderFFMjpeg (uint32_t width, uint32_t height,FF_CODEC_ID id)
-    :ffmpegEncoder (width, height,id)
-  {
-    _qual = 4;
-  };
-
-  virtual uint8_t init (uint32_t val, uint32_t fps1000, uint8_t vbr = 0);
-  virtual uint8_t encode (ADMImage * in, ADMBitstream * out);
-  virtual ~ ffmpegEncoderFFMjpeg ()
-  {
-    stopEncoder ();
-
-  }
-};
-
-
-
-
 #endif
