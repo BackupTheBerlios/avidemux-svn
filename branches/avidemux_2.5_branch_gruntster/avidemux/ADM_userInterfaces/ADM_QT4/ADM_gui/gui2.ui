@@ -177,6 +177,9 @@
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="maxVisibleItems" >
+                 <number>20</number>
+                </property>
                 <item>
                  <property name="text" >
                   <string>Copy</string>
@@ -337,6 +340,9 @@
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maxVisibleItems" >
+                 <number>20</number>
                 </property>
                 <item>
                  <property name="text" >
@@ -530,6 +536,9 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="maxVisibleItems" >
+               <number>20</number>
               </property>
              </widget>
             </item>
