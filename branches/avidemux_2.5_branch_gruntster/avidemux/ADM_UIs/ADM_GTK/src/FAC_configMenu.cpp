@@ -53,7 +53,7 @@ namespace ADM_GtkFactory
 	{
 #define MAX_CONFIG 100
 
-		uint32_t fileCount;
+		uint32_t fileCount = 0;
 		char *files[MAX_CONFIG];
 		map<string, int> *configs = new map<string, int>();
 		bool origDisableSignals = menuData->disableSignals;
@@ -68,6 +68,7 @@ namespace ADM_GtkFactory
 			ADM_dealloc(files[i]);
 		}
 
+		fileCount = 0;
 		buildDirectoryContent(&fileCount, menuData->systemConfigDir, files, MAX_CONFIG, "xml");
 
 		for (int i = 0; i < fileCount; i++)
