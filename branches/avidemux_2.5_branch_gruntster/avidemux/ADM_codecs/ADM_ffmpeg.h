@@ -29,7 +29,6 @@ typedef enum
   FF_H263 = 4,
   FF_H263P = 5,
   FF_MJPEG = 8,
-  FF_FLV1=13,
 } FF_CODEC_ID;
 
 /*

@@ -601,9 +601,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 	case CodecMjpeg:
 		e = new EncoderMjpeg (desc);
 		break;
-	case CodecFLV1:
-		e = new EncoderFFMPEGFLV1 (desc);
-		break;
 	case CodecH263:
 		if (!((w == 128) && (h == 96)) && !((w == 176) && (h == 144)))
 		{

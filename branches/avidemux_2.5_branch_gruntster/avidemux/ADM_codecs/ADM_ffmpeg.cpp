@@ -217,9 +217,6 @@ ffmpegEncoder::initContext (void)
     case FF_H263P:
       WRAP_Open (CODEC_ID_H263P);
       break;
-    case FF_FLV1:
-      WRAP_Open (CODEC_ID_FLV1);
-      break;
     case FF_MJPEG:
       WRAP_Open (CODEC_ID_MJPEG);
       break;
@@ -535,14 +532,8 @@ ffmpegEncoder::mplayer_init (void)
     }
   else
     {
-      if (_id == FF_FLV1)
-	{
-	  _context->gop_size = _settings.gop_size;
-	}
-      else
-	{
 	  _context->gop_size = 250;
-	}
+
 #define SETX(x) _context->x=_settings.x; printf("[LAVCODEC]"#x" : %d\n",_settings.x);
 #define SETX_COND(x) if(_settings.is_##x) {_context->x=_settings.x; printf("[LAVCODEC]"#x" : %d\n",_settings.x);} else\
 		{ printf(#x" is not activated\n");}

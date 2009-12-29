@@ -29,7 +29,6 @@ typedef enum
   CodecDVD,
   CodecYV12,
   CodecRequant,
-  CodecFLV1,
   CodecExternal,
   CodecDummy
 }SelectCodecType;

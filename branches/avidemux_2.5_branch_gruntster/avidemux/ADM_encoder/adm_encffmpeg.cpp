@@ -46,54 +46,6 @@ EncoderFFMPEG::EncoderFFMPEG (FF_CODEC_ID id, COMPRES_PARAMS * config)
   _id = id;
 };
 
-//********************* FLV1 **********************************************
-EncoderFFMPEGFLV1::EncoderFFMPEGFLV1 (COMPRES_PARAMS * config):
-EncoderFFMPEG (FF_FLV1, config)
-{
-  _id = FF_FLV1;
-  _frametogo = 0;
-
-
-}
-
-int EncoderFFMPEGFLV1::getRequirements (void) { return _codec->capabilities; }
-
-uint8_t
-EncoderFFMPEGFLV1::hasExtraHeaderData (uint32_t * l, uint8_t ** data)
-{
-  *l = 0;
-  *data = NULL;
-  return 0;
-
-}
-uint8_t
-EncoderFFMPEGFLV1::configure (AVDMGenericVideoStream * instream, int useExistingLogFile)
-{
-  ADM_assert (instream);
-  ADV_Info *info;
-
-
-
-  info = instream->getInfo ();
-  _fps = info->fps1000;
-  _w = info->width;
-  _h = info->height;
-  
-  _vbuffer = new ADMImage (_w, _h);
-  ADM_assert (_vbuffer);
-  _in = instream;
-
- 
-  _codec = new ffmpegEncoderCBR (_w, _h, _id);
-  _codec->setConfig (&_settings);
-  _codec->init (_param.bitrate, _fps, 0);
-  _state=enc_CQ;
-  return 1;
-
-
-
-}
-
 // return codec name as seen in avi header
 //
 const char *
@@ -108,10 +60,6 @@ EncoderFFMPEG::getCodecName (void)
     case FF_H263:
       return "H263";
       break;
-    case FF_FLV1:
-      return "FLV1";
-      break;
-
     default:
       ADM_assert (0);
 
