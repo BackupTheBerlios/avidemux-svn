@@ -25,6 +25,7 @@
 #include "mjpegEncoder.h"
 #include "mpeg1Encoder.h"
 #include "mpeg2Encoder.h"
+#include "mpeg4aspEncoder.h"
 #include "ADM_inttype.h"
 
 int uiType;
@@ -38,9 +39,10 @@ static HuffyuvEncoder huffyuv;
 static MjpegEncoder mjpeg;
 static Mpeg1Encoder mpeg1;
 static Mpeg2Encoder mpeg2;
+static Mpeg4aspEncoder mpeg4asp;
 
-static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &h263, &huffyuv, &mjpeg, &mpeg1, &mpeg2};
+static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &h263, &huffyuv, &mjpeg, &mpeg1, &mpeg2, &mpeg4asp};
 
 extern "C"
 {
