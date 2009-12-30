@@ -133,8 +133,6 @@ static opt_def opt_defs [] = {
 	{"feature.auto_rebuildindex",		UINT,	"0",	NULL,	"0",	"1"	},
 	{"feature.auto_unpack",		UINT,	"0",	NULL,	"0",	"1"	},
 	{"downmixing.prologic",		UINT,	"2",	NULL,	"0",	"2"	},
-	{"filters.autoload.path",		STRING,"/tmp/",NULL, NULL, NULL },
-	{"filters.autoload.active",		UINT,	"0",	NULL,	"0",	"1"	},
 	{"feature.alternate_mp3_tag",		UINT,	"1",	NULL,	"0",	"1"	},
 	{"feature.global_glyph.active",		UINT,	"1",	NULL,	"0",	"1"	},
 	{"feature.global_glyph.name",		STRING,"",	NULL, NULL, NULL },
@@ -143,7 +141,7 @@ static opt_def opt_defs [] = {
 	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	}
 };
 
-int num_opts = 79;
+int num_opts = 77;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2

@@ -96,8 +96,6 @@ feature.auto_rebuildindex,              UINT,   0,      0,      1
 feature.auto_unpack,                    UINT,   0,      0,      1
 # prologic 1/2
 downmixing.prologic,			UINT,	2,	0,	2
-filters.autoload.path,                  STRING, "/tmp/"
-filters.autoload.active,                UINT,   0,      0,      1
 feature.alternate_mp3_tag,              UINT,   1,      0,      1
 # Global glyphset file
 feature.global_glyph.active,            UINT,   1,      0,      1

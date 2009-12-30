@@ -57,9 +57,7 @@ uint32_t playbackPriority=0;
 uint32_t downmix;
 uint32_t mpeg_no_limit=0;
 uint32_t msglevel=2;
-uint32_t activeXfilter=0;
 uint32_t mixer=0;
-char     *filterPath=NULL;
 char     *alsaDevice=NULL;
 uint32_t autovbr=0;
 uint32_t autoindex=0;
@@ -162,8 +160,6 @@ char     *globalGlyphName=NULL;
                 useNuv=0;
         // Get level of message verbosity
         prefs->get(MESSAGE_LEVEL,&msglevel);
-        // External filter
-         prefs->get(FILTERS_AUTOLOAD_ACTIVE,&activeXfilter);
         // Downmix default
         if(prefs->get(DOWNMIXING_PROLOGIC,&downmix)!=RC_OK)
         {       
@@ -306,17 +302,6 @@ char     *globalGlyphName=NULL;
      framePP.swallow(&fdring);
      framePP.swallow(&postProcStrength);
      
-        // Filter path
-        if( prefs->get(FILTERS_AUTOLOAD_PATH, &filterPath) != RC_OK )
-#ifndef __WIN32
-               filterPath = ADM_strdup("/tmp");
-#else
-               filterPath = ADM_strdup("c:\\");
-#endif
-        diaElemDirSelect  entryFilterPath(&filterPath,QT_TR_NOOP("_Filter directory:"),QT_TR_NOOP("Select filter directory"));
-		diaElemToggle loadEx(&activeXfilter,QT_TR_NOOP("_Load external filters"));
-		loadEx.link(1, &entryFilterPath);
-
 		diaElemToggle togGlobalGlyph(&useGlobalGlyph, QT_TR_NOOP("Use _Global GlyphSet"));
 		diaElemFile  entryGLyphPath(0,&globalGlyphName,QT_TR_NOOP("Gl_yphSet:"), NULL, QT_TR_NOOP("Select GlyphSet file"));
 		togGlobalGlyph.link(1, &entryGLyphPath);
@@ -369,13 +354,9 @@ char     *globalGlyphName=NULL;
         diaElem *diaGlyph[]={&togGlobalGlyph,&entryGLyphPath};
         diaElemTabs tabGlyph(QT_TR_NOOP("Global GlyphSet"),2,(diaElem **)diaGlyph);
 
-        /* Xfilter tab */
-        diaElem *diaXFilter[]={&loadEx,&entryFilterPath};
-        diaElemTabs tabXfilter(QT_TR_NOOP("External Filters"),2,(diaElem **)diaXFilter);
-                                    
 // SET
-        diaElemTabs *tabs[]={&tabUser,&tabAuto,&tabInput,&tabOutput,&tabAudio,&tabVideo,&tabCpu,&tabThreading,&tabGlyph,&tabXfilter};
-        if( diaFactoryRunTabs(QT_TR_NOOP("Preferences"),10,tabs))
+        diaElemTabs *tabs[]={&tabUser,&tabAuto,&tabInput,&tabOutput,&tabAudio,&tabVideo,&tabCpu,&tabThreading,&tabGlyph};
+        if( diaFactoryRunTabs(QT_TR_NOOP("Preferences"),9,tabs))
 	{
         	
         	// cpu caps
@@ -465,11 +446,7 @@ char     *globalGlyphName=NULL;
                 prefs->set(FEATURE_DISABLE_NUV_RESYNC, useNuv);
                 // Use tray while encoding
                 prefs->set(FEATURE_USE_SYSTRAY,useTray);
-                // Filter directory
-				prefs->set(FILTERS_AUTOLOAD_ACTIVE, activeXfilter);
 
-                if(filterPath)
-                  prefs->set(FILTERS_AUTOLOAD_PATH, filterPath);
                 // Alternate mp3 tag (haali)
                 prefs->set(FEATURE_ALTERNATE_MP3_TAG,alternate_mp3_tag);
 
@@ -484,7 +461,6 @@ char     *globalGlyphName=NULL;
             delete audioDeviceItems[i];
         }
 
-	ADM_dealloc(filterPath);
 	ADM_dealloc(globalGlyphName);
 
 	return 1;
