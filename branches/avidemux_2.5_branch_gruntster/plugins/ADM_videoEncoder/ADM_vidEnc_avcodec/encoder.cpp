@@ -20,6 +20,7 @@
 #include "flv1Encoder.h"
 #include "ffv1Encoder.h"
 #include "ffvhuffEncoder.h"
+#include "h263Encoder.h"
 #include "huffyuvEncoder.h"
 #include "mjpegEncoder.h"
 #include "mpeg1Encoder.h"
@@ -32,13 +33,14 @@ static DVEncoder dv;
 static FLV1Encoder flv1;
 static FFV1Encoder ffv1;
 static FFVHuffEncoder ffvhuff;
+static H263Encoder h263;
 static HuffyuvEncoder huffyuv;
 static MjpegEncoder mjpeg;
 static Mpeg1Encoder mpeg1;
 static Mpeg2Encoder mpeg2;
 
-static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
-static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &huffyuv, &mjpeg, &mpeg1, &mpeg2};
+static int encoderIds[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+static AvcodecEncoder* encoders[] = { &dv, &flv1, &ffv1, &ffvhuff, &h263, &huffyuv, &mjpeg, &mpeg1, &mpeg2};
 
 extern "C"
 {
