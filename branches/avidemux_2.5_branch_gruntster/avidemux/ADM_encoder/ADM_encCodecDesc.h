@@ -65,38 +65,6 @@ FFcodecSetting ffmpeg4Extra = {
   0				// DUMMY 
 };
 
-COMPRES_PARAMS ffmpegH263Codec = {
-  CodecH263,
-  QT_TR_NOOP("H.263 (lavc)"),
-  "H263",
-  "Lavcodec H263",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_SAME,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  getFFCompressParams
-};
-COMPRES_PARAMS ffmpegH263PCodec = {
-  CodecH263P,
-  QT_TR_NOOP("H.263+ (lavc)"),
-  "H263P",
-  "Lavcodec H263+",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_SAME,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  getFFCompressParams
-};
 COMPRES_PARAMS ffmpegMpeg4 = {
   CodecFF,
   QT_TR_NOOP("MPEG-4 ASP (lavc)"),
@@ -236,7 +204,6 @@ COMPRES_PARAMS *internalVideoCodec[] = {
   &DVDCodec,
   &RequantCodec,
   &yv12codec,
-  &ffmpegH263Codec,
   &DUMMYONE
 };
 

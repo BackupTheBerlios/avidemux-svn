@@ -211,12 +211,6 @@ ffmpegEncoder::initContext (void)
     case FF_MSMP4V3:
       WRAP_Open (CODEC_ID_MSMPEG4V3);
       break;
-    case FF_H263:
-      WRAP_Open (CODEC_ID_H263);
-      break;
-    case FF_H263P:
-      WRAP_Open (CODEC_ID_H263P);
-      break;
     default:
       ADM_assert (0);
     }
@@ -592,10 +586,7 @@ ffmpegEncoder::mplayer_init (void)
 	}
 #undef SETX
     }
-  if ((_id == FF_H263) || (_id == FF_H263P))
-    _context->bit_rate_tolerance = 4000;
-  else
-    _context->bit_rate_tolerance = 8000000;
+    _context->bit_rate_tolerance = 1024 * 8 * 1000;
 
 
   _context->b_quant_factor = 1.25;

@@ -596,15 +596,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 	case CodecFF:
 		e = new EncoderFFMPEG (FF_MPEG4, desc);
 		break;
-	case CodecH263:
-		if (!((w == 128) && (h == 96)) && !((w == 176) && (h == 144)))
-		{
-			GUI_Error_HIG (QT_TR_NOOP("Only QCIF and subQCIF are allowed for H.263"), NULL);
-			return 0;
-		}
-
-		e = new EncoderFFMPEG (FF_H263, desc);
-		break;
 	case CodecDVD:
 		e=new EncoderMpeg2enc(MPEG2ENC_DVD, desc);
 		printf("\n Using mpeg2enc encoder (DVD)\n");

@@ -26,8 +26,6 @@ typedef enum
 {
   FF_MSMP4V3 = 1,
   FF_MPEG4 = 2,
-  FF_H263 = 4,
-  FF_H263P = 5,
 } FF_CODEC_ID;
 
 /*

@@ -56,10 +56,6 @@ EncoderFFMPEG::getCodecName (void)
     case FF_MPEG4:
       return "DX50";
       break;
-    case FF_H263P:
-    case FF_H263:
-      return "H263";
-      break;
     default:
       ADM_assert (0);
 
