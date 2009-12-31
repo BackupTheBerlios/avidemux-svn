@@ -102,7 +102,7 @@ uint8_t mkvHeader::videoIndexer(ADM_ebml_file *parser)
                                 //printf(">%s\n",ss);
                                 switch(id)
                                 {
-                                  default: blockGroup.skip(len);
+                                  default: blockGroup.skip(len);break;
                                   case MKV_BLOCK :
                                   case MKV_SIMPLE_BLOCK:
                                   {
@@ -475,7 +475,20 @@ uint8_t   mkvHeader::indexClusters(ADM_ebml_file *parser)
      _clusters[_nbClusters].size=alen;
 
      // Normally the timecode is the 1st one following
+tryAgain:
        segment.readElemId(&id,&len);
+
+       switch(id)
+        {
+            case MKV_CRC32:
+            case MKV_PREV_SIZE:
+            case MKV_POSITION:
+                segment.skip(len);
+                goto tryAgain;
+            default:break;
+        }
+
+
        int seekme=_nbClusters;
        if(id!=MKV_TIMECODE)
        {

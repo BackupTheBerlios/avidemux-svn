@@ -53,7 +53,7 @@ typedef struct
   uint32_t  _defaultFrameDuration; // Duration of ONE frame in us!
 }mkvTrak;
 
-#define MKV_MAX_LACES 20 // ?
+#define MKV_MAX_LACES 31 // ?
 //**********************************************
 class mkvAudio : public AVDMGenericAudioStream
 {
