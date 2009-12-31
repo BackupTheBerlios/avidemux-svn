@@ -21,7 +21,7 @@ set(MJPEG_PLUGIN_CONFIG_DIR "avcodec/mjpeg")
 set(H263_PLUGIN_CONFIG_DIR "avcodec/h263")
 set(MPEG4ASP_PLUGIN_CONFIG_DIR "avcodec/mpeg4asp")
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR} ../common/pluginOptions)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR} ../common/pluginOptions ../common/xvidRateCtl)
 ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
 set_property(SOURCE mpeg1EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DMPEG1_PLUGIN_CONFIG_DIR=\\\"${MPEG1_PLUGIN_CONFIG_DIR}\\\")
 set_property(SOURCE mpeg2EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DMPEG2_PLUGIN_CONFIG_DIR=\\\"${MPEG2_PLUGIN_CONFIG_DIR}\\\")
@@ -35,7 +35,6 @@ getFfmpegLibNames(${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg)
 add_library(ADM_libavcodec UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_INSTALL_DIR}/${LIBAVCODEC_LIB}")
 
-add_subdirectory(xvidRateCtl)
 add_subdirectory(xml)
 
 ADD_LIBRARY(ADM_vidEnc_avcodec SHARED ${ADM_vidEnc_avcodec_SRCS})

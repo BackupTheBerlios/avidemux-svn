@@ -26,7 +26,7 @@ extern "C"
 #include "encoder.h"
 #include "mpeg1EncoderOptions.h"
 #include "DIA_factory.h"
-#include "xvidRateCtl/xvidRateCtlVbv.h"
+#include "xvidRateCtlVbv.h"
 
 class Mpeg1Encoder : public AvcodecEncoder
 {
