@@ -32,7 +32,7 @@
 
 #include "x264Options.h"
 
-x264Options::x264Options(void) : PluginOptions(PLUGIN_CONFIG_DIR, "x264", "x264Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
+x264Options::x264Options(void) : PluginOptions(PLUGIN_CONFIG_DIR, "x264", "x264/x264Param.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	memset(&_param, 0, sizeof(x264_param_t));
 

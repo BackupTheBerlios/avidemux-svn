@@ -29,7 +29,7 @@
 
 #include "flv1EncoderOptions.h"
 
-FLV1EncoderOptions::FLV1EncoderOptions(void) : PluginOptions(FLV1_PLUGIN_CONFIG_DIR, "Flv1", "Flv1Param.xsd", FLV1_DEFAULT_ENCODE_MODE, FLV1_DEFAULT_ENCODE_MODE_PARAMETER)
+FLV1EncoderOptions::FLV1EncoderOptions(void) : PluginOptions(FLV1_PLUGIN_CONFIG_DIR, "Flv1", "avcodec/Flv1Param.xsd", FLV1_DEFAULT_ENCODE_MODE, FLV1_DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }

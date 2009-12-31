@@ -31,7 +31,7 @@
 
 #include "mpeg4aspEncoderOptions.h"
 
-Mpeg4aspEncoderOptions::Mpeg4aspEncoderOptions(void) : PluginOptions(MPEG4ASP_PLUGIN_CONFIG_DIR, "Mpeg4asp", "Mpeg4aspParam.xsd", MPEG4ASP_DEFAULT_ENCODE_MODE, MPEG4ASP_DEFAULT_ENCODE_MODE_PARAMETER)
+Mpeg4aspEncoderOptions::Mpeg4aspEncoderOptions(void) : PluginOptions(MPEG4ASP_PLUGIN_CONFIG_DIR, "Mpeg4asp", "avcodec/Mpeg4aspParam.xsd", MPEG4ASP_DEFAULT_ENCODE_MODE, MPEG4ASP_DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }

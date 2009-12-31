@@ -9,12 +9,11 @@ else (WIN32)
 endif (WIN32)
 
 SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp
-							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp  ../common/PluginOptions.cpp
+							 ffvhuffEncoder.cpp  ffv1Encoder.cpp  dvEncoder.cpp
 							 mpeg1Encoder.cpp  mpeg1EncoderOptions.cpp  mpeg2Encoder.cpp  mpeg2EncoderOptions.cpp
 							 flv1Encoder.cpp  flv1EncoderOptions.cpp  mjpegEncoder.cpp  mjpegEncoderOptions.cpp
 							 h263Encoder.cpp  h263EncoderOptions.cpp  mpeg4aspEncoder.cpp  mpeg4aspEncoderOptions.cpp)
 
-set(PLUGIN_SCHEMA_DIR "avcodec")
 set(MPEG1_PLUGIN_CONFIG_DIR "avcodec/mpeg-1")
 set(MPEG2_PLUGIN_CONFIG_DIR "avcodec/mpeg-2")
 set(FLV1_PLUGIN_CONFIG_DIR "avcodec/flv1")
@@ -22,8 +21,8 @@ set(MJPEG_PLUGIN_CONFIG_DIR "avcodec/mjpeg")
 set(H263_PLUGIN_CONFIG_DIR "avcodec/h263")
 set(MPEG4ASP_PLUGIN_CONFIG_DIR "avcodec/mpeg4asp")
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR})
-ADD_DEFINITIONS(${LIBXML2_DEFINITIONS} -DPLUGIN_SCHEMA_DIR="${PLUGIN_SCHEMA_DIR}")
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR} ../common/pluginOptions)
+ADD_DEFINITIONS(${LIBXML2_DEFINITIONS})
 set_property(SOURCE mpeg1EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DMPEG1_PLUGIN_CONFIG_DIR=\\\"${MPEG1_PLUGIN_CONFIG_DIR}\\\")
 set_property(SOURCE mpeg2EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DMPEG2_PLUGIN_CONFIG_DIR=\\\"${MPEG2_PLUGIN_CONFIG_DIR}\\\")
 set_property(SOURCE flv1EncoderOptions.cpp PROPERTY COMPILE_FLAGS -DFLV1_PLUGIN_CONFIG_DIR=\\\"${FLV1_PLUGIN_CONFIG_DIR}\\\")
@@ -40,7 +39,7 @@ add_subdirectory(xvidRateCtl)
 add_subdirectory(xml)
 
 ADD_LIBRARY(ADM_vidEnc_avcodec SHARED ${ADM_vidEnc_avcodec_SRCS})
-TARGET_LINK_LIBRARIES(ADM_vidEnc_avcodec ${LIBXML2_LIBRARIES} ADM_xvidRateCtl ADM_core ADM_coreUI ADM_libavcodec)
+TARGET_LINK_LIBRARIES(ADM_vidEnc_avcodec ${LIBXML2_LIBRARIES} ADM_xvidRateCtl ADM_core ADM_coreUI ADM_libavcodec ADM_vidEnc_pluginOptions)
 
 INIT_VIDEO_ENCODER_PLUGIN(ADM_vidEnc_avcodec)
 INSTALL_VIDEO_ENCODER(ADM_vidEnc_avcodec)

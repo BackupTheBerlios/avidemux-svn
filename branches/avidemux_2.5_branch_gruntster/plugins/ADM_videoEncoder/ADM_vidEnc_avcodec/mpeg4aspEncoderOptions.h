@@ -18,7 +18,7 @@
 #define mpeg4aspEncoderOptions_h
 
 #include <vector>
-#include "../common/PluginOptions.h"
+#include "PluginOptions.h"
 
 extern "C"
 {

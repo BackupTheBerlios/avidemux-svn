@@ -29,7 +29,7 @@
 
 #include "mjpegEncoderOptions.h"
 
-MjpegEncoderOptions::MjpegEncoderOptions(void) : PluginOptions(MJPEG_PLUGIN_CONFIG_DIR, "Mjpeg", "MjpegParam.xsd", MJPEG_DEFAULT_ENCODE_MODE, MJPEG_DEFAULT_ENCODE_MODE_PARAMETER) { }
+MjpegEncoderOptions::MjpegEncoderOptions(void) : PluginOptions(MJPEG_PLUGIN_CONFIG_DIR, "Mjpeg", "avcodec/MjpegParam.xsd", MJPEG_DEFAULT_ENCODE_MODE, MJPEG_DEFAULT_ENCODE_MODE_PARAMETER) { }
 
 void MjpegEncoderOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 { 

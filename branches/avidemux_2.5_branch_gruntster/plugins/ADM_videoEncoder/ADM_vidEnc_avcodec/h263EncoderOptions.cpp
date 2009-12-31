@@ -31,7 +31,7 @@
 
 #include "h263EncoderOptions.h"
 
-H263EncoderOptions::H263EncoderOptions(void) : PluginOptions(H263_PLUGIN_CONFIG_DIR, "H263", "H263Param.xsd", H263_DEFAULT_ENCODE_MODE, H263_DEFAULT_ENCODE_MODE_PARAMETER)
+H263EncoderOptions::H263EncoderOptions(void) : PluginOptions(H263_PLUGIN_CONFIG_DIR, "H263", "avcodec/H263Param.xsd", H263_DEFAULT_ENCODE_MODE, H263_DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }

@@ -121,13 +121,11 @@ char* PluginXmlOptions::dumpXmlDocToMemory(xmlDocPtr xmlDoc)
 bool PluginXmlOptions::validateXml(xmlDocPtr doc, const char *schemaFile)
 {
 	char *pluginDir = ADM_getPluginPath();
-	char schemaPath[strlen(pluginDir) + strlen(PLUGIN_SCHEMA_DIR) + 1 + strlen(schemaFile) + 1];
+	char schemaPath[strlen(pluginDir) + strlen(schemaFile) + 1];
 	bool success = false;
 
 	strcpy(schemaPath, pluginDir);
-	strcat(schemaPath, PLUGIN_SCHEMA_DIR);
-	strcat(schemaPath, "/");
-	strcat(schemaPath, schemaFile);
+		strcat(schemaPath, schemaFile);
 	delete [] pluginDir;
 
 	xmlSchemaParserCtxtPtr xmlSchemaParserCtxt = xmlSchemaNewParserCtxt(schemaPath);

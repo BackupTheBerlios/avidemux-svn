@@ -18,7 +18,7 @@
 #define MjpegEncoderOptions_h
 
 #include <vector>
-#include "../common/PluginOptions.h"
+#include "PluginOptions.h"
 
 extern "C"
 {

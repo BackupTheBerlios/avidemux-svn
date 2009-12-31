@@ -30,7 +30,7 @@
 
 #include "xvidOptions.h"
 
-XvidOptions::XvidOptions(void) : PluginOptions(PLUGIN_CONFIG_DIR, "Xvid", "XvidParam.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
+XvidOptions::XvidOptions(void) : PluginOptions(PLUGIN_CONFIG_DIR, "Xvid", "xvid/XvidParam.xsd", DEFAULT_ENCODE_MODE, DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }
