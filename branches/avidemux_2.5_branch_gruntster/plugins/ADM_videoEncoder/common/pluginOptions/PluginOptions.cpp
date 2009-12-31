@@ -19,7 +19,6 @@
 
 #include "ADM_inttype.h"
 #include "ADM_files.h"
-#include "PluginXmlOptions.cpp"
 #include "PluginOptions.h"
 
 #undef malloc

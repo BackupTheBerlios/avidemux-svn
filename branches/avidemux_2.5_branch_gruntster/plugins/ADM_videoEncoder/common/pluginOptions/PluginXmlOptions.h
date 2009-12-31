@@ -17,6 +17,8 @@
 #ifndef PluginXmlOptions_h
 #define PluginXmlOptions_h
 
+#include <libxml/parser.h>
+#include <libxml/xmlschemas.h>
 
 typedef enum
 {

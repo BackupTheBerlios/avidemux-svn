@@ -15,10 +15,9 @@
  ***************************************************************************/
 
 #include <sstream>
-#include <libxml/parser.h>
-#include <libxml/xmlschemas.h>
 
 #include "PluginXmlOptions.h"
+#include "ADM_inttype.h"
 #include "ADM_files.h"
 
 xmlChar* PluginXmlOptions::number2String(xmlChar *buffer, size_t size, int number)
