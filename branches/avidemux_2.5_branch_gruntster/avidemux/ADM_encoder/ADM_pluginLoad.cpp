@@ -17,6 +17,7 @@
 #include "config.h"
 #include "ADM_default.h"
 #include <list>
+#include <locale>
 
 #include "DIA_fileSel.h"
 #include "ADM_pluginLoad.h"
