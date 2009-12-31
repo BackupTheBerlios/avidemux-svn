@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include "ADM_default.h"
-#include <vector>
+#include <list>
 
 #include "DIA_fileSel.h"
 #include "ADM_pluginLoad.h"
@@ -60,7 +60,7 @@ ADM_vidEnc_plugin::ADM_vidEnc_plugin(const char *file) : ADM_LibWrapper()
 		&close, "vidEncClose"));
 }
 
-std::vector<ADM_vidEnc_plugin *> ADM_videoEncoderPlugins;
+std::list<ADM_vidEnc_plugin *> ADM_videoEncoderPlugins;
 /**
     \fn ADM_ve_getNbEncoders
     \brief get the number of encoder plugin loaded
@@ -83,7 +83,7 @@ bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,ui
 {
 	ADM_assert(filter >= 0 && filter < ADM_videoEncoderPlugins.size());
 
-	ADM_vidEnc_plugin *plugin = ADM_videoEncoderPlugins[filter];
+	ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(filter);
 	int ma, mi, pa;
 
 	plugin->getEncoderVersion(0, &ma, &mi, &pa);
@@ -96,7 +96,7 @@ bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,ui
 	return true;
 }
 
-static int loadVideoEncoderPlugin(int uiType, const char *file)
+static int loadVideoEncoderPlugin(std::list<ADM_vidEnc_plugin*>* pluginList, int uiType, const char *file)
 {
 	ADM_vidEnc_plugin *plugin = new ADM_vidEnc_plugin(file);
 	int* encoderIds;
@@ -127,7 +127,7 @@ static int loadVideoEncoderPlugin(int uiType, const char *file)
 
 				printf("[ADM_vidEnc_plugin] Plugin loaded version %d.%d.%d, filename %s, desc: %s\n", major, minor, patch, plugin->fileName, plugin->getEncoderDescription(encoderId));
 
-				ADM_videoEncoderPlugins.push_back(plugin);
+				pluginList->push_back(plugin);
 
 				plugin = NULL;
 				success = true;
@@ -160,6 +160,35 @@ void loadPlugins(void)
         delete [] pluginDir;
 }
 
+static bool comparePlugins(ADM_vidEnc_plugin* plugin1, ADM_vidEnc_plugin* plugin2)
+{
+	int firstLen = strlen(plugin1->getEncoderType(plugin1->encoderId)) + strlen(plugin1->getEncoderName(plugin1->encoderId));
+	int secondLen = strlen(plugin2->getEncoderType(plugin2->encoderId)) + strlen(plugin2->getEncoderName(plugin2->encoderId));
+	char first[firstLen];
+	char second[secondLen];
+	int i = 0;
+
+	strcpy(first, plugin1->getEncoderType(plugin1->encoderId));
+	strcat(first, plugin1->getEncoderName(plugin1->encoderId));
+	strcpy(second, plugin2->getEncoderType(plugin2->encoderId));
+	strcat(second, plugin2->getEncoderName(plugin2->encoderId));
+
+	while ((i < firstLen) && (i < secondLen))
+	{
+		if (tolower(first[i]) < tolower(second[i]))
+			return true;
+		else if (tolower(first[i]) > tolower(second[i]))
+			return false;
+
+		i++;
+	}
+
+	if (firstLen < secondLen)
+		return true;
+	else
+		return false;
+}
+
 /**
  * 	\fn ADM_vidEnc_loadPlugins
  *  \brief load all audio plugins
@@ -187,7 +216,7 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 
 	for (int i = 0; i < nbFile; i++)
 	{
-		loadVideoEncoderPlugin(uiType, files[i]);
+		loadVideoEncoderPlugin(&ADM_videoEncoderPlugins, uiType, files[i]);
 		ADM_dealloc(files[i]);
 	}
 
@@ -203,23 +232,56 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 		memcpy(&AllVideoCodec[i], internalVideoCodec[i], sizeof(COMPRES_PARAMS));
 
 	// Add external codecs
-	for (int i = 0; i < ADM_videoEncoderPlugins.size(); i++)
+	int counter = 0;
+
+	ADM_videoEncoderPlugins.sort(comparePlugins);
+
+	for (std::list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin(); it != ADM_videoEncoderPlugins.end(); it++)
 	{
-		ADM_vidEnc_plugin *plugin = ADM_videoEncoderPlugins[i];
+		ADM_vidEnc_plugin *plugin = *it;
 		ADM_assert(plugin);
 
 		const char* codecName = plugin->getEncoderName(plugin->encoderId);
 		const char* codecType = plugin->getEncoderType(plugin->encoderId);
-		char* displayName = new char[strlen(codecName) + strlen(codecType) + 4];
+		char* displayName;
+		const char *prevType, *nextType;
 
-		sprintf(displayName, "%s (%s)", codecType, codecName);
+		if (it == ADM_videoEncoderPlugins.begin())
+			prevType = NULL;
+		else
+		{
+			*it--;
+			prevType = (*it)->getEncoderType((*it)->encoderId);
+			*it++;
+		}
 
-		COMPRES_PARAMS *param = &AllVideoCodec[internalCodecCount + i];
+		*it++;
+
+		if (it == ADM_videoEncoderPlugins.end())
+			nextType = NULL;
+		else
+			nextType = (*it)->getEncoderType((*it)->encoderId);
+
+		*it--;
+
+		if ((prevType != NULL && strcmp(prevType, codecType) == 0) ||
+			(nextType != NULL && strcmp(nextType, codecType) == 0))
+		{
+			displayName = new char[strlen(codecName) + strlen(codecType) + 4];
+			sprintf(displayName, "%s (%s)", codecType, codecName);
+		}
+		else
+		{
+			displayName = new char[strlen(codecType) + 1];
+			sprintf(displayName, "%s", codecType);
+		}
+
+		COMPRES_PARAMS *param = &AllVideoCodec[internalCodecCount + counter];
 
 		param->codec = CodecExternal;
 		param->menuName = displayName;
 		param->tagName = codecName;
-		param->extra_param = i;
+		param->extra_param = counter;
 		param->extraSettings = NULL;
 		param->extraSettingsLen = 0;
 
@@ -231,6 +293,7 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 		pluginOptions[length] = 0;
 
 		updateCompressionParameters(param, encodeOptions.encodeMode, encodeOptions.encodeModeParameter, pluginOptions, length);
+		counter++;
 	}
 
 	return 1;
@@ -330,5 +393,10 @@ ADM_vidEnc_plugin* getVideoEncoderPlugin(int index)
 {
 	ADM_assert(index < ADM_videoEncoderPlugins.size());
 
-	return ADM_videoEncoderPlugins[index];
+	std::list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin();
+
+	if (index > 0)
+		advance(it, index);
+
+	return *it;
 }
