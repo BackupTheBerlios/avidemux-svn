@@ -14,6 +14,7 @@ SET(ADM_vidEnc_avcodec_SRCS  interface.c  encoder.cpp  huffyuvEncoder.cpp
 							 flv1Encoder.cpp  flv1EncoderOptions.cpp  mjpegEncoder.cpp  mjpegEncoderOptions.cpp
 							 h263Encoder.cpp  h263EncoderOptions.cpp  mpeg4aspEncoder.cpp  mpeg4aspEncoderOptions.cpp)
 
+set(PLUGIN_SCHEMA_DIR "avcodec")
 set(MPEG1_PLUGIN_CONFIG_DIR "avcodec/mpeg-1")
 set(MPEG2_PLUGIN_CONFIG_DIR "avcodec/mpeg-2")
 set(FLV1_PLUGIN_CONFIG_DIR "avcodec/flv1")
