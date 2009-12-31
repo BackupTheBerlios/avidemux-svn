@@ -55,7 +55,7 @@ uint32_t w,h,fps1000,fcc;
         _prestoring=1;
 	_incoming = getLastVideoFilter (frameStart,frameEnd-frameStart);
  	_togo=_incoming->getInfo()->nb_frames;
-  	_encode = getVideoEncoder (_incoming->getInfo()->width,_incoming->getInfo()->height);
+  	_encode = getVideoEncoder();
 	if (!_encode)
     		return 0;
  	

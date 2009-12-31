@@ -69,7 +69,7 @@ GenericAviSaveProcess::setupVideo (char *name)
 
 		}
 
-  _encode = getVideoEncoder (_incoming->getInfo()->width,_incoming->getInfo()->height);
+  _encode = getVideoEncoder();
   if (!_encode)
     return 0;
 

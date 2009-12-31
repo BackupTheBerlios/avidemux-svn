@@ -22,65 +22,6 @@ COMPRES_PARAMS yv12codec = {
   0,
   NULL
 };
-/********************** FFMPEG MPEG4*************************/
-uint8_t getFFCompressParams (COMPRES_PARAMS * incoming);
-
-FFcodecSetting ffmpeg4Extra = {
-  ME_EPZS,			//     ME
-  0,				//          GMC     
-  1,				// 4MV
-  0,				//           _QPEL;   
-  0,				//           _TREILLIS_QUANT
-  2,				//           qmin;
-  31,				//          qmax;
-  3,				//           max_qdiff;
-  0,				//           max_b_frames;
-  0,				//          mpeg_quant;
-  1,				//
-  -2,				//                 luma_elim_threshold;
-  1,				//
-  -5,				// chroma_elim_threshold;
-  0.05,				//lumi_masking;
-  1,				// is lumi
-  0.01,				//dark_masking; 
-  1,				// is dark
-  0.5,				// qcompress amount of qscale change between easy & hard scenes (0.0-1.0
-  0.5,				// qblur;    amount of qscale smoothing over time (0.0-1.0) 
-  0,				// min bitrate in kB/S
-  0,				// max bitrate
-  0,				// default matrix
-  0,				// no gop size
-  NULL,
-  NULL,
-  0,				// interlaced
-  0,				// WLA: bottom-field-first
-  0,				// wide screen
-  2,				// mb eval = distortion
-  8000,				// vratetol 8Meg
-  0,				// is temporal
-  0.0,				// temporal masking
-  0,				// is spatial
-  0.0,				// spatial masking
-  0,				// NAQ
-  0				// DUMMY 
-};
-
-COMPRES_PARAMS ffmpegMpeg4 = {
-  CodecFF,
-  QT_TR_NOOP("MPEG-4 ASP (lavc)"),
-  "FFMpeg4",
-  "Lavcodec Mpeg4",
-  COMPRESS_CQ,
-  4,
-  1500,
-  700,
-  1000, // AVG
-  ADM_ENC_CAP_CBR + ADM_ENC_CAP_CQ + ADM_ENC_CAP_2PASS+ADM_ENC_CAP_2PASS_BR+ADM_ENC_CAP_SAME,
-  ADM_EXTRA_PARAM,
-  &ffmpeg4Extra,
-  sizeof (ffmpeg4Extra),
-  getFFCompressParams
-};
 
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 // ************ Mpeg2enc VCD *************
@@ -198,7 +139,6 @@ COMPRES_PARAMS CopyCodec =
 
 COMPRES_PARAMS *internalVideoCodec[] = {
   &CopyCodec,
-  &ffmpegMpeg4,
   &VCDCodec,
   &SVCDCodec,
   &DVDCodec,

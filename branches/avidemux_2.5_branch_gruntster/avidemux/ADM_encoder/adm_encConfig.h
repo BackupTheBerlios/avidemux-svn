@@ -10,6 +10,7 @@ int videoCodecConfigure(char *cmdString, uint32_t optionSize, uint8_t * option);
 const char *videoCodecGetName(void);
 int videoCodecSelectByName (const char *name);
 int videoCodecPluginSelectByGuid(const char *guid);
+int videoCodecPluginGetIndexByGuid(const char *guid);
 
 SelectCodecType videoCodecGetType(void);
 const char* videoCodecPluginGetGuid(void);

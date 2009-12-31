@@ -29,7 +29,6 @@ extern "C" {
 };
 
 #include "ADM_editor/ADM_Video.h"
-//#include "ADM_colorspace/colorspace.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
@@ -37,9 +36,6 @@ extern "C" {
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_encoder/adm_encoder.h"
-
-#include "ADM_codecs/ADM_ffmpeg.h"
-#include "ADM_encoder/adm_encffmpeg.h"
 #include "../oplug_mpegFF/oplug_vcdff.h"
 
 #include "ADM_userInterfaces/ADM_commonUI/DIA_encoding.h"
@@ -116,7 +112,7 @@ uint32_t    totalAudioSize=0;
 
            videoBuffer=new uint8_t[_incoming->getInfo()->width*_incoming->getInfo()->height*3];
                 // Set global header encoding, needed for H264
-           _encode = getVideoEncoder (_incoming->getInfo()->width,  _incoming->getInfo()->height,1);
+           _encode = getVideoEncoder(1);
            total= _incoming->getInfo()->nb_frames;
 
            info.fcc=*(uint32_t *)_encode->getCodecName(); //FIXME

@@ -40,8 +40,6 @@ extern "C" {
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_encoder/adm_encoder.h"
 
-#include "ADM_codecs/ADM_ffmpeg.h"
-#include "ADM_encoder/adm_encffmpeg.h"
 #include "../oplug_mpegFF/oplug_vcdff.h"
 
 #include "ADM_userInterfaces/ADM_commonUI/DIA_encoding.h"
@@ -132,8 +130,7 @@ bool receivedFrame = false;
 
            videoBuffer=new uint8_t[_incoming->getInfo()->width*_incoming->getInfo()->height*3];
                 // Set global header encoding, needed for H264
-           _encode = getVideoEncoder (_incoming->getInfo()->width,
-                        _incoming->getInfo()->height,1);
+           _encode = getVideoEncoder(1);
            total= _incoming->getInfo()->nb_frames;
 
            encoding_gui=new DIA_encoding(_incoming->getInfo()->fps1000);

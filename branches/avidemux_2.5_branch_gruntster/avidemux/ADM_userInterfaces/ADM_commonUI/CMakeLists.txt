@@ -7,7 +7,6 @@ DIA_audioFilter.cpp
 DIA_gototime.cpp    
 DIA_postproc.cpp  
 DIA_bitrateHisto.cpp  
-DIA_lavcodec.cpp    
 DIA_prefs.cpp     
 DIA_SVCD.cpp       
 DIA_builtin.cpp       

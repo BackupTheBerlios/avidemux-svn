@@ -57,7 +57,6 @@
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
-#include "ADM_codecs/ADM_ffmpeg.h"
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_preview.h"

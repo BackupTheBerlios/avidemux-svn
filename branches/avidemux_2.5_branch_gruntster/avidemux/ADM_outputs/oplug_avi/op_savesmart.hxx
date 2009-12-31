@@ -17,24 +17,29 @@
  #ifndef __AVI_SAVESMT__
  #define   __AVI_SAVESMT__
 
+#include "ADM_encoder/ADM_pluginLoad.h"
+
  class GenericAviSaveSmart : public   GenericAviSave
  {
      protected :
                                 uint32_t        _hasBframe;
-     #warning HARDCODED MAX IMAGE SIZE
-     				
-				ADMImage	*aImage;
 				uint32_t	_nextip;
 				uint8_t 	initEncoder(uint32_t qz );
 				uint8_t 	stopEncoder(void  );
-       				uint32_t 	encoderReady;
               			uint32_t 	compEngaged;
 	virtual 		uint8_t 	setupVideo( char *name  );
  	virtual 		int 	writeVideoChunk(uint32_t frame );
 				int		 writeVideoChunk_recode (uint32_t frame);
 				int		 writeVideoChunk_copy (uint32_t frame,uint32_t first=0);
-              			encoder 	*_encoder;
               			uint8_t 	_cqReenc          ;
+
+		Encoder *_encoder;
+		int _encoderIndex;
+
+		vidEncOptions _origOptions;
+		char *_origSettings;
+		
+		void deleteEncoder(void);
 				
      public:
      							

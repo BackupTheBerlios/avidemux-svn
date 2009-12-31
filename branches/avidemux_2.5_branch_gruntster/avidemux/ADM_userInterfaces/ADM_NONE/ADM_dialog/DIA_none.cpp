@@ -36,7 +36,6 @@
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_coreAudio/include/audioencoder.h"
 #include "ADM_lavcodec.h"
-#include "ADM_codecs/ADM_ffmpegConfig.h"
 
 #include "ADM_ocr/ADM_ocr.h"
 #include "ADM_ocr/ADM_ocrInternal.h"
@@ -48,24 +47,8 @@ extern int automation(void);
 
 int SliderIsShifted = 0;
 
-
-
-
-#ifdef USE_XX_XVID 
-#include "xvid.h"
-int  DIA_getXvidCompressParams(COMPRESSION_MODE * mode, uint32_t * qz,
-		      uint32_t * br,uint32_t *fsize,xvidEncParam *param) {return 0;}
-#endif
-
-
-
-
-
 uint8_t DIA_getPartial(PARTIAL_CONFIG *param,AVDMGenericVideoStream *son,AVDMGenericVideoStream *previous) {return 0;}
-uint8_t DIA_pipe(char **cmd,char **param) {return 0;}
 uint8_t DIA_vobsub(vobSubParam *param) {return 0;}
-uint8_t DIA_XVCDParam(char *title,COMPRESSION_MODE * mode, uint32_t * qz,
-		   				   uint32_t * br,uint32_t *fsize,FFcodecSetting *conf) {return 0;}
 uint8_t DIA_quota(char *) {return 0;}
 const char * GUI_getCustomScript(uint32_t nb) {return 0;}
 uint8_t DIA_RecentFiles( char **name ) {return 0;}
@@ -78,14 +61,8 @@ void destroyGUI(void) {}
 uint8_t DIA_job(uint32_t nb,char **name) {return 0;}
 uint8_t DIA_resize(uint32_t *width,uint32_t *height,uint32_t *algo,uint32_t originalw, 
                         uint32_t originalh,uint32_t fps) {return 0;}
-uint8_t DIA_d3d(double *luma,double *chroma,double *temporal) {return 0;}
-uint8_t DIA_kerneldeint(uint32_t *order, uint32_t *threshold, uint32_t *sharp, 
-                          uint32_t *twoway, uint32_t *map) {return 0;}
-uint8_t DIA_4entries(char *title,uint32_t *left,uint32_t *right,uint32_t *top,uint32_t *bottom) {return 0;}
 uint8_t DIA_videoCodec(int *codecIndex) {return 0;}
 uint8_t DIA_audioCodec( int *codec ) {return 0;}
-uint8_t DIA_dnr(uint32_t *llock,uint32_t *lthresh, uint32_t *clock,
-			uint32_t *cthresh, uint32_t *scene) {return 0;}
 uint8_t DIA_glyphEdit(void) {return 0;}
 struct THRESHOLD_PARAM;
 struct ADMVideoThreshold;

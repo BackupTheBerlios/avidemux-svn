@@ -170,7 +170,7 @@ int reuse = 0;
             }
          }        
         // Create muxer
-       encoder = getVideoEncoder(_w, _h, 0);
+       encoder = getVideoEncoder(0);
 
 	   if (encoder == NULL)
 		   return 0;

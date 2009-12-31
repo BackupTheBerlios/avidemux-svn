@@ -31,10 +31,7 @@ extern "C"
 #undef BIG_ENDIAN
 #endif
 
-//#include "ADM_colorspace/colorspace.h"
-
 #include "ADM_codecs/ADM_codec.h"
-#include "ADM_codecs/ADM_mjpeg.h"
 #include "ADM_codecs/ADM_codecNull.h"
 #include "ADM_codecs/ADM_uyvy.h"
 
@@ -43,15 +40,6 @@ extern "C"
 #ifdef USE_FFMPEG
 #include "ADM_codecs/ADM_ffmp43.h"
 #endif
-
-#ifdef USE_DIVX
-#include "ADM_codecs/ADM_divx4.h"
-#endif
-
-#ifdef USE_THEORA
-#include "ADM_codecs/ADM_theora_dec.h"
-#endif
-
 
 #include "ADM_assert.h"
 #include "prefs.h"

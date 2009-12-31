@@ -101,8 +101,7 @@ public:
 
 
 };
-Encoder *getVideoEncoder (uint32_t w, uint32_t h, uint32_t globalHeader = 0);
-
+Encoder *getVideoEncoder (uint32_t globalHeader = 0);
 
 typedef enum
 {

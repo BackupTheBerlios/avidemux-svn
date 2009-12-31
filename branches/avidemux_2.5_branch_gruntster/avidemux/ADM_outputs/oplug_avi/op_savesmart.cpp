@@ -15,6 +15,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <sstream>
+#include <string>
+
 #include "config.h"
 #include "ADM_default.h"
 #include "ADM_threads.h"
@@ -37,26 +40,25 @@ extern "C" {
 #include "ADM_videoFilter_internal.h"
 
 #include "ADM_encoder/ADM_vidEncode.hxx"
+#include "ADM_encoder/adm_encConfig.h"
+#include "ADM_encoder/ADM_externalEncoder.h"
 
 #include "op_aviwrite.hxx"
 #include "op_avisave.h"
 #include "op_savesmart.hxx"
 
-#ifdef USE_FFMPEG		
-#include "ADM_codecs/ADM_ffmpeg.h"		
-#endif
-
 #include "ADM_osSupport/ADM_debugID.h"
 #define MODULE_NAME MODULE_SAVE_AVI
 #include "ADM_osSupport/ADM_debug.h"
+
+extern struct COMPRES_PARAMS *AllVideoCodec;
 
 GenericAviSaveSmart::GenericAviSaveSmart(uint32_t qf) : GenericAviSave()
 {
 	_cqReenc=qf;
 	ADM_assert(qf>=2 && qf<32);
 	_nextip=0;
-	encoderReady=0;
-        _hasBframe=0;
+    _hasBframe=0;
 }
 uint8_t	GenericAviSaveSmart::setupVideo (char *name)
 {
@@ -89,9 +91,7 @@ int value=4;;
       return 0;
     }
   compEngaged = 0;
-  encoderReady = 0;
   _encoder = NULL;
-  aImage=new ADMImage(_mainaviheader.dwWidth,_mainaviheader.dwHeight);
   _incoming = getFirstVideoFilter (frameStart,frameEnd-frameStart);
   encoding_gui->setFps(_incoming->getInfo()->fps1000);
   encoding_gui->setPhasis(QT_TR_NOOP("Smart Copy"));
@@ -113,17 +113,7 @@ int value=4;;
 GenericAviSaveSmart::~GenericAviSaveSmart ()
 {
   cleanupAudio();
-  if (encoderReady && _encoder)
-    {
-      _encoder->stopEncoder ();
-    }
-  if (_encoder)
-    delete      _encoder;
- if(aImage)
- {
- 	delete aImage;
-	aImage=NULL;
- }
+  deleteEncoder();
 }
 
 // copy mode
@@ -152,22 +142,18 @@ ADMBitstream bitstream(MAXIMUM_SIZE * MAXIMUM_SIZE * 3);
 	  aprintf("Smart: Stopping encoder\n");
 	  // It is a kf, go back to copy mode
 	  compEngaged = 0;
-	  stopEncoder ();	// Tobias F
-	  delete	    _encoder;
-	  _encoder = NULL;
+	  deleteEncoder();
+
 	  return writeVideoChunk_copy(frame,1);
 	}
 	// Else encode it ....
-	//1-Read it
-	if (! video_body->getUncompressedFrame (frame, aImage))
-		return -1;
-	// 2-encode it
+	// 1-encode it
         bitstream.data=vbuffer;
         bitstream.cleanup(frame);
-        if (!_encoder->encode (aImage, &bitstream))//vbuffer, &len, &_videoFlag))
+	    if (!_encoder->encode(frame, &bitstream))
 		return -1;
         _videoFlag=bitstream.flags;
-	// 3-write it
+	// 2-write it
         encoding_gui->setFrame(frame-frameStart,bitstream.len,bitstream.out_quantizer,frametogo);
 	if (writter->saveVideoFrame (bitstream.len, _videoFlag, vbuffer))
 		return bitstream.len;
@@ -344,104 +330,70 @@ uint32_t flags;
 	}
 	return 0;
 }
- //
- //
-uint8_t
-GenericAviSaveSmart::initEncoder (uint32_t qz)
+
+uint8_t GenericAviSaveSmart::initEncoder (uint32_t qz)
 {
-  aviInfo
-    info;
-  video_body->getVideoInfo (&info);
-  ADM_assert (0 == encoderReady);
-  encoderReady = 1;
-  uint8_t ret=0;
-  FFcodecSetting myConfig=
-	 {
-	 ME_EPZS,//	ME
-	 0, // 		GMC	
-	 0,	// 4MV
-	 0,//		_QPEL;	 
-	 0,//		_TREILLIS_QUANT
-	 2,//		qmin;
-	 31,//		qmax;
-	 3,//		max_qdiff;
-	 1,//		max_b_frames;
-	 0, //		mpeg_quant;
-	 1, //
-	 -2, // 		luma_elim_threshold;
-	 1,//
-	 -5, 		// chroma_elim_threshold;
-	 0.05,		//lumi_masking;
-	 1,		// is lumi
-	 0.01,		//dark_masking; 
-	 1,		// is dark
- 	 0.5,		// qcompress amount of qscale change between easy & hard scenes (0.0-1.0
-    	 0.5,		// qblur;    amount of qscale smoothing over time (0.0-1.0) 
-	0,		// min bitrate in kB/S
-	0,		// max bitrate
-	0, 		// default matrix
-	0, 		// no gop size
-	NULL,
-	NULL,
-	0,		// interlaced
-	0,		// WLA: bottom-field-first
-	0,		// wide screen
-	2,		// mb eval = distortion
-	8000,		// vratetol 8Meg
-	0,		// is temporal
-	0.0,		// temporal masking
-	0,		// is spatial
-	0.0,		// spatial masking
-	0,		// NAQ
-	0		// DUMMY 
- 	} ;
+	aviInfo info;
 
+	video_body->getVideoInfo (&info);
 
-  if(  isMpeg4Compatible(info.fcc) )
-  	{
-// 	uint8_t				setConfig(FFcodecSetting *set);	
-			ffmpegEncoderCQ *tmp;		
-			tmp = new ffmpegEncoderCQ (info.width, info.height,FF_MPEG4);					
-			myConfig.max_b_frames=_hasBframe; // In fact does the original have b frame ?
-			tmp->setConfig(&myConfig);
-			printf("\n init qz %ld\n",qz);
-	    		ret= tmp->init (qz,25000);
-			_encoder=tmp;
-		
-#warning 25 fps hardcoded
+	if (_encoder)
+		deleteEncoder();
 
-		 }
-		 else
-		 {
-#ifdef USE_FFMPEG			 
-			 if(isMSMpeg4Compatible(info.fcc) ) // DIV3
-			 {
-				 ffmpegEncoderCQ *tmp;
-				  tmp = new ffmpegEncoderCQ (info.width, info.height,FF_MSMP4V3);
-                                  myConfig.max_b_frames=0;
-				  tmp->setConfig(&myConfig);
-			    	  ret= tmp->init (qz,25000);
-			    	  _encoder=tmp;
-				}
-				else
-					{
-				       ADM_assert(0);
-					}			
-			}
-#else
-			ADM_assert(0);
-			}			
-#endif
+	if (isMpeg4Compatible(info.fcc))
+	{
+		std::stringstream out;
 
-		return ret;
+		out << "<?xml version='1.0'?><Mpeg4aspConfig><Mpeg4aspOptions><motionEstimationMethod>epzs</motionEstimationMethod><fourMotionVector>false</fourMotionVector><maximumBFrames>";
+		out << _hasBframe;
+		out << "</maximumBFrames><quarterPixel>false</quarterPixel><globalMotionCompensation>false</globalMotionCompensation><quantisationType>h263</quantisationType><macroblockDecisionMode>rateDistortion</macroblockDecisionMode><minimumQuantiser>2</minimumQuantiser><maximumQuantiser>31</maximumQuantiser><quantiserDifference>3</quantiserDifference><trellis>false</trellis><quantiserCompression>0.5</quantiserCompression><quantiserBlur>0.5</quantiserBlur></Mpeg4aspOptions></Mpeg4aspConfig>";
+		_encoderIndex = videoCodecPluginGetIndexByGuid("0E7C20E3-FF92-4bb2-A9A9-55B7F713C45A");
+
+		std::string settings = out.str();
+		COMPRES_PARAMS *param = &AllVideoCodec[_encoderIndex];
+		ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(param->extra_param);
+		int length = plugin->getOptions(plugin->encoderId, NULL, NULL, 0);
+		vidEncOptions options;
+
+		options.structSize = sizeof(vidEncOptions);
+		options.encodeMode = ADM_VIDENC_MODE_CQP;
+		options.encodeModeParameter = qz;
+
+		_origSettings = new char[length + 1];
+		plugin->getOptions(plugin->encoderId, &_origOptions, _origSettings, length);
+		plugin->setOptions(plugin->encoderId, &options, (char*)settings.c_str());
+
+		if (_encoderIndex > -1)
+		{
+			_encoder = new externalEncoder(param, 0);
+			_encoder->configure(_incoming, false);
+		}
+
+		return (_encoderIndex != -1);
+	}
+
+	return 1;
+}
+
+void GenericAviSaveSmart::deleteEncoder(void)
+{
+	if (_encoder)
+	{
+		COMPRES_PARAMS *param = &AllVideoCodec[_encoderIndex];
+		ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(param->extra_param);
+
+		delete [] _origSettings;
+		delete _encoder;
+		_encoder = NULL;
+
+		plugin->setOptions(plugin->encoderId, &_origOptions, _origSettings);
+	}
 }
 
 uint8_t
 GenericAviSaveSmart::stopEncoder (void)
 {
-  ADM_assert (1 == encoderReady);
-  encoderReady = 0;
-  return (_encoder->stopEncoder ());
+	return 1;
 }
 
 #endif

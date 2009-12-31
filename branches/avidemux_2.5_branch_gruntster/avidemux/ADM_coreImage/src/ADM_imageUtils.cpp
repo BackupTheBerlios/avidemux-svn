@@ -27,7 +27,7 @@
 
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_lavcodec.h"
-#include "ADM_codecs/ADM_ffmpeg.h"
+
 #define QT_TR_NOOP(x) x // No translation in core*
 static uint8_t tinyAverage(uint8_t *dst, uint8_t *src1, uint8_t *src2,uint32_t l)
 {

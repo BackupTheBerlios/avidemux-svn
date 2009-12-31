@@ -47,10 +47,6 @@ static void encoderPrint(void);
 
 #include "adm_encConfig.h"
 #include "adm_encoder.h"
-
-#include "ADM_codecs/ADM_ffmpeg.h"
-#include "adm_encffmpeg.h"
-
 #include "adm_encCopy.h"
 #include "adm_encyv12.h"
 #include "adm_encmpeg2enc.h"
@@ -363,6 +359,16 @@ int videoCodecSelectByName(const char *name)
 
 int videoCodecPluginSelectByGuid(const char *guid)
 {
+	int index = videoCodecPluginGetIndexByGuid(guid);
+
+	if (index != -1)
+		videoCodecSetCodec(index);
+
+	return (index != -1);
+}
+
+int videoCodecPluginGetIndexByGuid(const char *guid)
+{
 	int encoderCount = encoderGetEncoderCount();
 
 	for (int i = 0; i < encoderCount; i++)
@@ -375,14 +381,13 @@ int videoCodecPluginSelectByGuid(const char *guid)
 			if (strcmp(encoderGuid, guid) == 0)
 			{
 				printf ("Codec plugin %s (%s) found\n", plugin->getEncoderName(plugin->encoderId), encoderGuid);
-				videoCodecSetCodec(i);
-
-				return 1;
+				
+				return i;
 			}
 		}
 	}
 
-	return 0;
+	return -1;
 }
 
 const char* videoCodecPluginGetGuid(void)
@@ -580,7 +585,7 @@ void setVideoEncoderSettings(COMPRESSION_MODE mode, uint32_t param, uint32_t ext
 	}
 }
 
-Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
+Encoder *getVideoEncoder(uint32_t globalHeaderFlag)
 {
 	Encoder *e = NULL;
 	COMPRES_PARAMS *desc=getCodecParamFromTag(currentCodecType);
@@ -592,9 +597,6 @@ Encoder *getVideoEncoder(uint32_t w, uint32_t h, uint32_t globalHeaderFlag)
 	default:
 	case CodecYV12:
 		e = new EncoderYV12 ();
-		break;
-	case CodecFF:
-		e = new EncoderFFMPEG (FF_MPEG4, desc);
 		break;
 	case CodecDVD:
 		e=new EncoderMpeg2enc(MPEG2ENC_DVD, desc);
