@@ -95,7 +95,7 @@ int vidEncGetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOp
 	return avcodecEncoder_getOptions(encoderId, encodeOptions, pluginOptions, bufferSize);
 }
 
-int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions)
+int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return avcodecEncoder_setOptions(encoderId, encodeOptions, pluginOptions);
 }

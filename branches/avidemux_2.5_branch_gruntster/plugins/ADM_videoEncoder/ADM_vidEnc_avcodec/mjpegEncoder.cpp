@@ -198,7 +198,7 @@ int MjpegEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, 
 	return xmlLength;
 }
 
-int MjpegEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int MjpegEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

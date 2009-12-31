@@ -100,7 +100,7 @@ int DVEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int
 	return 0;
 }
 
-int DVEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int DVEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return 0;
 }

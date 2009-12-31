@@ -419,7 +419,7 @@ int H263Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, i
 	return xmlLength;
 }
 
-int H263Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int H263Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

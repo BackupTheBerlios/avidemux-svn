@@ -33,7 +33,7 @@ extern "C"
 	int XvidEncoder_isConfigurable(void) { return encoder.isConfigurable(); }
 	int XvidEncoder_configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties) { return encoder.configure(configParameters, properties); }
 	int XvidEncoder_getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize) { return encoder.getOptions(encodeOptions, pluginOptions, bufferSize); };
-	int XvidEncoder_setOptions(vidEncOptions *encodeOptions, char *pluginOptions) { return encoder.setOptions(encodeOptions, pluginOptions); };
+	int XvidEncoder_setOptions(vidEncOptions *encodeOptions, const char *pluginOptions) { return encoder.setOptions(encodeOptions, pluginOptions); };
 	int XvidEncoder_getPassCount(void) { return encoder.getPassCount(); }
 	int XvidEncoder_getCurrentPass(void) { return encoder.getCurrentPass(); }
 	int XvidEncoder_open(vidEncVideoProperties *properties) { return encoder.open(properties); }
@@ -178,7 +178,7 @@ int XvidEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, i
 	return xmlLength;
 }
 
-int XvidEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int XvidEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

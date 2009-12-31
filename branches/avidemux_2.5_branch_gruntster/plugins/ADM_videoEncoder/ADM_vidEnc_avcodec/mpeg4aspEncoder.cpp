@@ -419,7 +419,7 @@ int Mpeg4aspEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOption
 	return xmlLength;
 }
 
-int Mpeg4aspEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int Mpeg4aspEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

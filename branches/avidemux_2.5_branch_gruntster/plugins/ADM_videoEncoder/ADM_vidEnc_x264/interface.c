@@ -89,7 +89,7 @@ int vidEncGetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOp
 	return x264Encoder_getOptions(encodeOptions, pluginOptions, bufferSize);
 }
 
-int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions)
+int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return x264Encoder_setOptions(encodeOptions, pluginOptions);
 }

@@ -57,12 +57,12 @@ int FLV1Encoder::initContext(const char* logFileName)
 
 const char* FLV1Encoder::getEncoderType(void)
 {
-	return "FLV1";
+	return "Sorenson Spark";
 }
 
 const char* FLV1Encoder::getEncoderDescription(void)
 {
-	return "FLV1 video encoder plugin for Avidemux (c) Mean/Gruntster";
+	return "Sorenson Spark video encoder plugin for Avidemux (c) Mean/Gruntster";
 }
 
 const char* FLV1Encoder::getFourCC(void)
@@ -95,7 +95,7 @@ int FLV1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 	diaElemTabs tabGeneral("Settings", 2, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("avcodec FLV1 Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs("avcodec Sorenson Spark Configuration", 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);
@@ -208,7 +208,7 @@ int FLV1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, i
 	return xmlLength;
 }
 
-int FLV1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int FLV1Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

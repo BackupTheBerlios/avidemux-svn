@@ -73,7 +73,7 @@
 		int isConfigurable(void);
 		int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int getCurrentPass(void);
 		int getPassCount(void);
 		int open(vidEncVideoProperties *properties);
@@ -87,7 +87,7 @@
 	int x264Encoder_isConfigurable(void);
 	int x264Encoder_configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
 	int x264Encoder_getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-	int x264Encoder_setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+	int x264Encoder_setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 	int x264Encoder_getPassCount(void);
 	int x264Encoder_getCurrentPass(void);
 	int x264Encoder_open(vidEncVideoProperties *properties);

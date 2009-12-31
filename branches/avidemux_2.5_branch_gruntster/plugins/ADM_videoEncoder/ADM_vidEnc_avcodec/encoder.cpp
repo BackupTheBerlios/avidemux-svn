@@ -108,7 +108,7 @@ extern "C"
 		return encoder->getOptions(encodeOptions, pluginOptions, bufferSize);
 	}
 
-	int avcodecEncoder_setOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions)
+	int avcodecEncoder_setOptions(int encoderId, vidEncOptions *encodeOptions, const char *pluginOptions)
 	{
 		AvcodecEncoder *encoder = encoders[encoderId];
 		return encoder->setOptions(encodeOptions, pluginOptions);

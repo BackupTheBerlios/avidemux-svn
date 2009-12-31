@@ -52,7 +52,7 @@ class MjpegEncoder : public AvcodecEncoder
 		void loadSettings(vidEncOptions *encodeOptions, MjpegEncoderOptions *options);
 		void saveSettings(vidEncOptions *encodeOptions, MjpegEncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 };

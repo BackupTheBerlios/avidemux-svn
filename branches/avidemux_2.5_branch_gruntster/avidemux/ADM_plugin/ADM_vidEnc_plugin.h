@@ -125,7 +125,7 @@ int vidEncGetEncoderRequirements(int encoderId);
 int vidEncIsConfigurable(int encoderId);
 int vidEncConfigure(int encoderId, vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
 int vidEncGetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions);
+int vidEncSetOptions(int encoderId, vidEncOptions *encodeOptions, const char *pluginOptions);
 
 int vidEncGetPassCount(int encoderId);
 int vidEncGetCurrentPass(int encoderId);

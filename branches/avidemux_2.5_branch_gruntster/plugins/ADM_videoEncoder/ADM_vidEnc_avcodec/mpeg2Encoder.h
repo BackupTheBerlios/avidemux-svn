@@ -58,7 +58,7 @@ class Mpeg2Encoder : public AvcodecEncoder
 		void loadSettings(vidEncOptions *encodeOptions, Mpeg2EncoderOptions *options);
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg2EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 		int finishPass(void);

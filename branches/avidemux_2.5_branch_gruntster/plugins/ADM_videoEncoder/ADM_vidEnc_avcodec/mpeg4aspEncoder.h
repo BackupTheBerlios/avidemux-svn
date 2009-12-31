@@ -58,7 +58,7 @@ class Mpeg4aspEncoder : public AvcodecEncoder
 		void loadSettings(vidEncOptions *encodeOptions, Mpeg4aspEncoderOptions *options);
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg4aspEncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 		int finishPass(void);

@@ -361,7 +361,7 @@ uint8_t GenericAviSaveSmart::initEncoder (uint32_t qz)
 
 		_origSettings = new char[length + 1];
 		plugin->getOptions(plugin->encoderId, &_origOptions, _origSettings, length);
-		plugin->setOptions(plugin->encoderId, &options, (char*)settings.c_str());
+		plugin->setOptions(plugin->encoderId, &options, settings.c_str());
 
 		if (_encoderIndex > -1)
 		{

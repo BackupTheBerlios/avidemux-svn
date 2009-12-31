@@ -71,7 +71,7 @@ class H263Encoder : public AvcodecEncoder
 		void loadSettings(vidEncOptions *encodeOptions, H263EncoderOptions *options);
 		void saveSettings(vidEncOptions *encodeOptions, H263EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int open(vidEncVideoProperties *properties);
 		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);

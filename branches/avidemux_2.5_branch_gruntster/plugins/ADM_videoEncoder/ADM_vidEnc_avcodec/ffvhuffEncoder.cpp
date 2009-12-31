@@ -53,7 +53,7 @@ int FFVHuffEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions
 	return 0;
 }
 
-int FFVHuffEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int FFVHuffEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return 0;
 }

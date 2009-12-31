@@ -66,7 +66,7 @@ class AvcodecEncoder
 		virtual int isConfigurable(void);
 		virtual int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
 		virtual int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize) = 0;
-		virtual int setOptions(vidEncOptions *encodeOptions, char *pluginOptions) = 0;
+		virtual int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions) = 0;
 		virtual int getCurrentPass(void);
 		virtual int getPassCount(void);
 		virtual int open(vidEncVideoProperties *properties);
@@ -86,7 +86,7 @@ class AvcodecEncoder
 	int avcodecEncoder_isConfigurable(int encoderId);
 	int avcodecEncoder_configure(int encoderId, vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
 	int avcodecEncoder_getOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-	int avcodecEncoder_setOptions(int encoderId, vidEncOptions *encodeOptions, char *pluginOptions);
+	int avcodecEncoder_setOptions(int encoderId, vidEncOptions *encodeOptions, const char *pluginOptions);
 	int avcodecEncoder_getPassCount(int encoderId);
 	int avcodecEncoder_getCurrentPass(int encoderId);
 	int avcodecEncoder_open(int encoderId, vidEncVideoProperties *properties);

@@ -52,7 +52,7 @@ class FLV1Encoder : public AvcodecEncoder
 		void loadSettings(vidEncOptions *encodeOptions, FLV1EncoderOptions *options);
 		void saveSettings(vidEncOptions *encodeOptions, FLV1EncoderOptions *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 };
 #endif	// __cplusplus
 #endif	// FLV1Encoder_h

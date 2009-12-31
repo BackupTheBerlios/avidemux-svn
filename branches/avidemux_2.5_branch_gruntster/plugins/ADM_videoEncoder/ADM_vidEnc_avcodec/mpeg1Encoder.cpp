@@ -398,7 +398,7 @@ int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, 
 	return xmlLength;
 }
 
-int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	if (_opened)
 		return ADM_VIDENC_ERR_ALREADY_OPEN;

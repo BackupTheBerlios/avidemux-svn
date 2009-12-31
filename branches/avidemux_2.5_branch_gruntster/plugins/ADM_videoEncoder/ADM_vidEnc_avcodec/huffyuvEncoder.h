@@ -34,7 +34,7 @@ class HuffyuvEncoder : public AvcodecEncoder
 		const char* getFourCC(void);
 		const char* getEncoderGuid(void);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
-		int setOptions(vidEncOptions *encodeOptions, char *pluginOptions);
+		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 };
 #endif	// __cplusplus
 #endif	// HuffyuvEncoder_h

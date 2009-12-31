@@ -53,7 +53,7 @@ int HuffyuvEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions
 	return 0;
 }
 
-int HuffyuvEncoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int HuffyuvEncoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return 0;
 }

@@ -53,7 +53,7 @@ int FFV1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, i
 	return 0;
 }
 
-int FFV1Encoder::setOptions(vidEncOptions *encodeOptions, char *pluginOptions)
+int FFV1Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
 	return 0;
 }
