@@ -7,7 +7,7 @@ call "Get Revision Number"
 cd ..
 
 set curDir=%CD%
-set zipFile=avidemux_2.5_r%revisionNo%_full_win32.zip
+set zipFile=avidemux_2.5_r%revisionNo%_full_win%BuildBits%.zip
 set packageDir=%CD%\%revisionNo%
 
 echo %packageDir%
@@ -24,8 +24,8 @@ advzip -z -4 "%packageDir%\%zipFile%"
 
 cd %buildDir%
 echo -- Generating GTK+ Installer --
-"%nsisDir%\makensis" /V2 /NOCD /DINST_GTK /DNSIDIR="%curDir%\..\..\installer" /DEXEDIR="%packageDir%" "%curDir%\..\..\installer\avidemux.nsi"
+"%nsisDir%\makensis" /V2 /NOCD /DINST_GTK /DBUILD_BITS=%BuildBits% /DNSIDIR="%curDir%\..\..\installer" /DEXEDIR="%packageDir%" "%curDir%\..\..\installer\avidemux.nsi"
 echo -- Generating Qt Installer --
-"%nsisDir%\makensis" /V2 /NOCD /DINST_QT /DNSIDIR="%curDir%\..\..\installer" /DEXEDIR="%packageDir%" "%curDir%\..\..\installer\avidemux.nsi"
+"%nsisDir%\makensis" /V2 /NOCD /DINST_QT /DBUILD_BITS=%BuildBits% /DNSIDIR="%curDir%\..\..\installer" /DEXEDIR="%packageDir%" "%curDir%\..\..\installer\avidemux.nsi"
 
 pause
