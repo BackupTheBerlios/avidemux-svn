@@ -124,6 +124,8 @@ VF_FILTERS filterGetTagFromName(const char *inname)
 	const char *name;
 	int max = allfilters.size();
 	VF_FILTERS filter = VF_INVALID;
+    if(inname)
+        if(!strcasecmp(inname,"partial")) return VF_PARTIAL_FILTER;
 
 	for (uint32_t i = 0; i < max; i++)
 	{
@@ -416,6 +418,13 @@ const char  *filterGetNameFromTag(VF_FILTERS tag)
     const FilterDescriptor * entry = filterGetEntryFromTag (tag);
     ADM_assert(entry);
     return entry->name;
+}
+
+const char  *filterGetInternalNameFromTag(VF_FILTERS tag)
+{
+    const FilterDescriptor * entry = filterGetEntryFromTag (tag);
+    ADM_assert(entry);
+    return entry->filterName;
 }
 /*____________________________________
 	Save and load current set of filters

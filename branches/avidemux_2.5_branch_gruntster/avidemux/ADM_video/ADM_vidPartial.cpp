@@ -26,11 +26,12 @@
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
 #include "ADM_video/ADM_vidPartial.h"
+#include "DIA_coreToolkit.h"
 
 extern AVDMGenericVideoStream *filterCreateFromTag(VF_FILTERS tag,CONFcouple *couple, AVDMGenericVideoStream *in);
 
 
-static FILTER_PARAM partialParam={VARIABLE_PARAMS+3,{"_start","_end","_tag"}};
+static FILTER_PARAM partialParam={VARIABLE_PARAMS+3,{"_start","_end","_name"}};
 
 
 SCRIPT_CREATE(partial_script,ADMVideoPartial,partialParam);
@@ -50,6 +51,7 @@ char 						*ADMVideoPartial::printConf(void)
 ADMVideoPartial::ADMVideoPartial(   AVDMGenericVideoStream *in,
 							CONFcouple		*couples)
 {
+        char *name;
 		_param=NEW( PARTIAL_CONFIG);
 		_param->_start=0;
 		_param->_end=0;
@@ -57,7 +59,14 @@ ADMVideoPartial::ADMVideoPartial(   AVDMGenericVideoStream *in,
 
 			GET(_start);
 			GET(_end);
-			GET(_tag);
+            ADM_assert(couples->getCouple("_name",&name));
+            _param->_tag=filterGetTagFromName(name);
+            if(_param->_tag==VF_INVALID)
+            {
+                GUI_Error_HIG("Error","Cannot find the filter with name %s",name);
+                ADM_assert(0);
+            }
+//			GET(_tag);
 			// we share the same parameters
 			_son= filterCreateFromTag((VF_FILTERS)_param->_tag,couples,_in);
 		 	memcpy(&_info,_in->getInfo(),sizeof(_info));
@@ -91,7 +100,8 @@ uint8_t	ADMVideoPartial::getCoupledConf( CONFcouple **couples)
 				*couples=new CONFcouple(3);
 				CSET(_start);
 				CSET(_end);
-				CSET(_tag);
+                (*couples)->setCouple("_name",filterGetInternalNameFromTag(_param->_tag));
+				//CSET(_tag);
 				return 1;
 			}
 
@@ -101,7 +111,8 @@ uint8_t	ADMVideoPartial::getCoupledConf( CONFcouple **couples)
 			*couples=new CONFcouple(3+nbParam);
 			CSET(_start);
 			CSET(_end);
-			CSET(_tag);
+			//CSET(_tag);
+            (*couples)->setCouple("_name",filterGetNameFromTag(_param->_tag));
 
 	// then set the child ones
 	char *nm,*vl;

@@ -33,7 +33,7 @@ typedef enum
 }VF_CATEGORY;
 #define VF_INVALID 		  0
 
-#define VF_PARTIAL_FILTER  filterGetTagFromName( "partial" )
+#define VF_PARTIAL_FILTER 9 // filterGetTagFromName( "partial" )
 #define VF_START_TAG 	  10
 
 typedef uint32_t VF_FILTERS ;
@@ -98,6 +98,7 @@ public:
 FILTER      *getCurrentVideoFilterList (uint32_t * count);
 const FilterDescriptor * filterGetEntryFromTag (VF_FILTERS tag);
 const char *filterGetNameFromTag(VF_FILTERS tag);
+const char  *filterGetInternalNameFromTag(VF_FILTERS tag);
 VF_FILTERS 	filterGetTagFromName(const char *inname);
 uint8_t 	filterAddScript(VF_FILTERS tags,uint32_t n,Arg *args);
 
