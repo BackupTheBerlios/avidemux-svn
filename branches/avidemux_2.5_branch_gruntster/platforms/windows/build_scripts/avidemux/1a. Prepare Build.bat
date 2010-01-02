@@ -10,6 +10,7 @@ echo Cleaning build directory (%CD%\%BuildFolder%)
 rmdir /s /q %buildFolder% 2> NUL
 
 cd "%sourceDir%\plugins"
+echo Cleaning plugin build directory (%CD%\%BuildFolder%)
 rmdir /s /q %buildFolder% 2> NUL
 
 if exist %buildFolder% goto removalFailure

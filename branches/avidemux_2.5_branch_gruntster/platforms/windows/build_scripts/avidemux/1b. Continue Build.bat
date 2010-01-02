@@ -19,8 +19,13 @@ pause
 cd "%sourceDir%\%buildFolder%"
 make install
 
+if errorlevel 1 goto error
+
 cd "%sourceDir%\plugins\%buildFolder%"
+rmdir /s /q "%buildDir%\plugins" 2> NUL
 make install
+
+if errorlevel 1 goto error
 
 del /s "%buildDir%\*.a"
 
