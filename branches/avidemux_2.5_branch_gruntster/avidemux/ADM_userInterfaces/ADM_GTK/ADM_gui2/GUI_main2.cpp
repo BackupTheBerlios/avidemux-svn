@@ -59,7 +59,6 @@ create_mainWindow (void)
   GtkWidget *separator18;
   GtkWidget *video_informations1;
   GtkWidget *image8529;
-  GtkWidget *avi_muxer_options1;
   GtkWidget *separator4;
   GtkWidget *quit1;
   GtkWidget *image8530;
@@ -421,10 +420,6 @@ create_mainWindow (void)
   image8529 = gtk_image_new_from_stock ("gtk-properties", GTK_ICON_SIZE_MENU);
   gtk_widget_show (image8529);
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (video_informations1), image8529);
-
-  avi_muxer_options1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("AVI _Muxer Options"));
-  gtk_widget_show (avi_muxer_options1);
-  gtk_container_add (GTK_CONTAINER (menuitem1_menu), avi_muxer_options1);
 
   separator4 = gtk_separator_menu_item_new ();
   gtk_widget_show (separator4);
@@ -1527,7 +1522,6 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, separator18, "separator18");
   GLADE_HOOKUP_OBJECT (mainWindow, video_informations1, "video_informations1");
   GLADE_HOOKUP_OBJECT (mainWindow, image8529, "image8529");
-  GLADE_HOOKUP_OBJECT (mainWindow, avi_muxer_options1, "avi_muxer_options1");
   GLADE_HOOKUP_OBJECT (mainWindow, separator4, "separator4");
   GLADE_HOOKUP_OBJECT (mainWindow, quit1, "quit1");
   GLADE_HOOKUP_OBJECT (mainWindow, image8530, "image8530");

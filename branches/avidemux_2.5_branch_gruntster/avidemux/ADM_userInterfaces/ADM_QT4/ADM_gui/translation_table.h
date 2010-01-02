@@ -28,13 +28,11 @@ PROCESS(actionZoom_2_1,ACT_ZOOM_2_1) \
 PROCESS(actionDecoder_options,ACT_DecoderOption) \
 PROCESS(actionPostprocessing,ACT_SetPostProcessing) \
 PROCESS(actionFrame_rate,ACT_ChangeFPS) \
-PROCESS(actionEncoder,ACT_SelectEncoder) \
 PROCESS(actionFilters,ACT_VideoParameter) \
 PROCESS(actionMain_Track,ACT_SelectTrack1) \
 PROCESS(actionSecondary_Track,ACT_SecondAudioTrack) \
 PROCESS(actionBuild_VBR_time_map,ACT_AudioMap) \
 PROCESS(actionSave_2,ACT_SaveWave) \
-PROCESS(actionEncoder_2,ACT_SelectEncoder) \
 PROCESS(actionFilters_2,ACT_AudioFilters) \
 PROCESS(actionCalculator,ACT_Bitrate) \
 PROCESS(actionRebuild_I_B_Frames,ACT_RebuildKF) \
@@ -43,7 +41,6 @@ PROCESS(actionScan_for_black_frames,ACT_AllBlackFrames) \
 PROCESS(actionVob_to_vobsub,ACT_V2V) \
 PROCESS(actionOCR,ACT_Ocr) \
 PROCESS(action_Preferences, ACT_Pref) \
-PROCESS(actionPlay_Stop,ACT_StopAvi) \
 PROCESS(actionPrevious_Frame,ACT_PreviousFrame) \
 PROCESS(actionNext_Frame,ACT_NextFrame) \
 PROCESS(actionPrevious_black_frame,ACT_PrevBlackFrame) \
