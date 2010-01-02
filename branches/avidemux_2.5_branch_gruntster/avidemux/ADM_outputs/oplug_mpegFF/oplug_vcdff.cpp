@@ -54,6 +54,8 @@ extern SelectCodecType videoCodecGetType(void);
 static char *twoPass = NULL;
 static char *twoFake = NULL;
 
+ps_muxer psMuxerConfig = {PS_MUXER_DVD, 0};
+
 uint8_t oplug_mpegff(const char *name, ADM_OUT_FORMAT type)
 {
 AVDMGenericVideoStream *_incoming;
@@ -137,38 +139,49 @@ int reuse = 0;
                 if (videoCodecGetType() == CodecVCD ||
 					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) || // avcodec MPEG-1 plugin
 					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0)) // avcodec MPEG-2 plugin
-                {
-                        if(hdr->frequency!=44100 ||  hdr->encoding != WAV_MP2)
-                        {
-                            GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For VCD, audio must be 44.1 kHz MP2."));
-							goto finishvcdff;
-                        }
-                        mux=MUXER_VCD;
-                        printf("X*CD: Using VCD PS\n");
-                }else
-                {    
-                        aviInfo info;
-                        video_body->getVideoInfo(&info);
-                        if(hdr->frequency==44100 && _w==480&&hdr->encoding == WAV_MP2 ) // SVCD ?
-                        {
-                            mux=MUXER_SVCD;
-                            printf("X*VCD: Using SVCD PS\n");
-                        }
-                        else
-                        {
-                            // mpeg2, we do only DVD right now
-                            if(hdr->frequency!=48000 || 
-                                (hdr->encoding != WAV_MP2 && hdr->encoding!=WAV_AC3 && hdr->encoding!=WAV_LPCM))
-                            {
-                                GUI_Error_HIG(QT_TR_NOOP("Incompatible audio"), QT_TR_NOOP("For DVD, audio must be 48 kHz MP2, AC3 or LPCM."));
+				{
+					switch (psMuxerConfig.muxingType)
+					{
+						case PS_MUXER_VCD:
+						{
+							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 || hdr->encoding != WAV_MP2))
+							{
+								GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For VCD, audio must be 44.1 kHz MP2."));
 								goto finishvcdff;
-                            }
-                            mux=MUXER_DVD;
-                            printf("X*VCD: Using DVD PS\n");
-                        }
-                }
+							}
+
+							mux = MUXER_VCD;
+							printf("X*CD: Using VCD PS\n");
+							break;
+						}
+						case PS_MUXER_SVCD:
+						{
+							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 && hdr->encoding == WAV_MP2))
+							{
+								GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For SVCD, audio must be 44.1 kHz MP2."));
+								goto finishvcdff;
+							}
+
+							mux = MUXER_SVCD;
+							printf("X*VCD: Using SVCD PS\n");
+							break;
+						}
+						case PS_MUXER_DVD:
+						{
+							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 48000 || (hdr->encoding != WAV_MP2 && hdr->encoding != WAV_AC3 && hdr->encoding != WAV_LPCM)))
+							{
+								GUI_Error_HIG(("Incompatible audio"), QT_TR_NOOP("For DVD, audio must be 48 kHz MP2, AC3 or LPCM."));
+								goto finishvcdff;								
+							}
+
+							mux = MUXER_DVD;
+							printf("X*VCD: Using DVD PS\n");
+							break;
+						}
+					}
+				}
             }
-         }        
+         }
         // Create muxer
        encoder = getVideoEncoder(0);
 

@@ -216,7 +216,9 @@ create_mainWindow (void)
   GtkWidget *vbox13;
   GtkWidget *label20;
   GtkWidget *alignment14;
+  GtkWidget *vbox15;
   GtkWidget *comboboxFormat;
+  GtkWidget *buttonConfM;
   GtkWidget *guiDrawing;
   GtkWidget *table2;
   GtkWidget *hbox16;
@@ -1171,7 +1173,7 @@ create_mainWindow (void)
   gtk_widget_show (label23);
   gtk_box_pack_start (GTK_BOX (hbox19), label23, FALSE, FALSE, 0);
 
-  vbox13 = gtk_vbox_new (FALSE, 0);
+  vbox13 = gtk_vbox_new (FALSE, 4);
   gtk_widget_show (vbox13);
   gtk_box_pack_start (GTK_BOX (vbox9), vbox13, FALSE, FALSE, 0);
 
@@ -1186,9 +1188,17 @@ create_mainWindow (void)
   gtk_box_pack_start (GTK_BOX (vbox13), alignment14, TRUE, TRUE, 0);
   gtk_alignment_set_padding (GTK_ALIGNMENT (alignment14), 3, 0, 12, 0);
 
+  vbox15 = gtk_vbox_new (FALSE, 4);
+  gtk_widget_show (vbox15);
+  gtk_container_add (GTK_CONTAINER (alignment14), vbox15);
+
   comboboxFormat = gtk_combo_box_new_text ();
   gtk_widget_show (comboboxFormat);
-  gtk_container_add (GTK_CONTAINER (alignment14), comboboxFormat);
+  gtk_box_pack_start (GTK_BOX (vbox15), comboboxFormat, TRUE, TRUE, 0);
+
+  buttonConfM = gtk_button_new_with_mnemonic (QT_TR_NOOP("Configure"));
+  gtk_widget_show (buttonConfM);
+  gtk_box_pack_start (GTK_BOX (vbox15), buttonConfM, FALSE, FALSE, 0);
 
   guiDrawing = gtk_drawing_area_new ();
   gtk_widget_show (guiDrawing);
@@ -1474,7 +1484,8 @@ create_mainWindow (void)
   GTK_WIDGET_SET_FLAGS (labelMarkA, GTK_CAN_FOCUS);
   gtk_label_set_selectable (GTK_LABEL (labelMarkA), TRUE);
 
-  jogg = jog_shuttle_new ();gtk_widget_set_size_request (jogg, -1, 16); 
+  jogg = jog_shuttle_new ();
+  gtk_widget_set_size_request (jogg, -1, 16); 
   gtk_widget_show (jogg);
   gtk_table_attach (GTK_TABLE (table2), jogg, 1, 2, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
@@ -1670,7 +1681,9 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, vbox13, "vbox13");
   GLADE_HOOKUP_OBJECT (mainWindow, label20, "label20");
   GLADE_HOOKUP_OBJECT (mainWindow, alignment14, "alignment14");
+  GLADE_HOOKUP_OBJECT (mainWindow, vbox15, "vbox15");
   GLADE_HOOKUP_OBJECT (mainWindow, comboboxFormat, "comboboxFormat");
+  GLADE_HOOKUP_OBJECT (mainWindow, buttonConfM, "buttonConfM");
   GLADE_HOOKUP_OBJECT (mainWindow, guiDrawing, "guiDrawing");
   GLADE_HOOKUP_OBJECT (mainWindow, table2, "table2");
   GLADE_HOOKUP_OBJECT (mainWindow, hbox16, "hbox16");

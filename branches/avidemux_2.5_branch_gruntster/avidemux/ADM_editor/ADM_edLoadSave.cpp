@@ -41,6 +41,8 @@
 #include "ADM_encoder/adm_encConfig.h"
 #include "prefs.h"
 #include "avi_vars.h"
+#include "ADM_editor/ADM_outputfmt.h"
+#include "ADM_userInterfaces/ADM_commonUI/GUI_ui.h"
 
 // Ugly but sooo usefull
 extern uint32_t frameStart,frameEnd;
@@ -268,7 +270,29 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 
   // container
         
-  qfprintf(fd,"app.setContainer(\"%s\");\n",getCurrentContainerAsString());
+  qfprintf(fd, "app.setContainer(\"%s\"", getCurrentContainerAsString());
+  ADM_OUT_FORMAT format = UI_GetCurrentFormat();
+
+  for (int i = 0; i < ADM_FORMAT_MAX; i++)
+  {
+	  if (ADM_allOutputFormat[i].format == format)
+	  {
+		  if (ADM_allOutputFormat[i].configSize > 0)
+		  {
+			  const uint8_t* config = (uint8_t*)ADM_allOutputFormat[i].currentConfig;
+			  qfprintf(fd, ", \"");
+
+			  for (int j = 0; j < ADM_allOutputFormat[i].configSize; j++)
+				  qfprintf(fd, "%02x ", config[j]);
+		  }
+
+		  qfprintf(fd,"\"");
+		  break;
+	  }
+  }
+
+  qfprintf(fd,");\n");
+
   if(outputname)
   {
         char *o=ADM_cleanupPath(outputname);

@@ -140,6 +140,16 @@ void MainWindow::comboChanged(int z)
 		else
 		{
 			ui.comboBoxVideo->setEnabled(true);
+
+			for (int i = 0; i < ADM_FORMAT_MAX; i++)
+			{
+				if (ADM_allOutputFormat[i].format == fmt)
+				{
+					ui.pushButtonMuxerConf->setEnabled((ADM_allOutputFormat[i].muxerConfigure != NULL));
+
+					break;
+				}
+			}
 		}
 	}
 }

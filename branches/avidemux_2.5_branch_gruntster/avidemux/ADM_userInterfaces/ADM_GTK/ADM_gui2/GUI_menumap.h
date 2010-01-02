@@ -18,7 +18,6 @@ CALLBACK( open_video1         			,ACT_OpenAvi);
 CALLBACK( append_video1     			,ACT_AppendAvi);
 CALLBACK( save_audio1         			,ACT_SaveWave);
 CALLBACK( save_as_avi1       			,ACT_SaveAvi);
-CALLBACK(avi_muxer_options1 			,ACT_SetMuxParam);
 
 //CALLBACK(load_project         			,ACT_OpenAvi); 
 CALLBACK(save_project_as1              		,ACT_SaveWork);

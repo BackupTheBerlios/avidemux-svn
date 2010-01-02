@@ -43,7 +43,6 @@ PROCESS(actionScan_for_black_frames,ACT_AllBlackFrames) \
 PROCESS(actionVob_to_vobsub,ACT_V2V) \
 PROCESS(actionOCR,ACT_Ocr) \
 PROCESS(action_Preferences, ACT_Pref) \
-PROCESS(actionAVI_Muxer_Options, ACT_SetMuxParam) \
 PROCESS(actionPlay_Stop,ACT_StopAvi) \
 PROCESS(actionPrevious_Frame,ACT_PreviousFrame) \
 PROCESS(actionNext_Frame,ACT_NextFrame) \
@@ -85,6 +84,7 @@ PROCESS(actionA_V_toolbar,ACT_DUMMY)
 PROCESS(pushButtonVideoFilter, ACT_VideoParameter) \
 PROCESS(pushButtonAudioConf, ACT_AudioCodec) \
 PROCESS(pushButtonAudioFilter, ACT_AudioFilters) \
+PROCESS(pushButtonMuxerConf, ACT_SetMuxParam) \
 PROCESS(toolButtonPlay, ACT_PlayAvi) \
 PROCESS(toolButtonStop, ACT_StopAvi) \
 PROCESS(toolButtonPreviousFrame, ACT_PreviousFrame) \

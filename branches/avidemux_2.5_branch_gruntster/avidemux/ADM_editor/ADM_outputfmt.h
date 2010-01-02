@@ -11,7 +11,14 @@
 //
 #ifndef ADM_OUT_FMT
 #define ADM_OUT_FMT
+
 #include "config.h"
+#include "ADM_outputs/oplug_mpegFF/ps_muxer.h"
+
+extern ps_muxer psMuxerConfig;
+extern bool muxerMpegPsConfigure(void);
+extern bool ADM_aviUISetMuxer(void);
+
 typedef enum 
 {
 	ADM_AVI=0,
@@ -28,31 +35,35 @@ typedef enum
         ADM_MATROSKA,
 	ADM_DUMMY,
 	ADM_FORMAT_MAX,
-}ADM_OUT_FORMAT;
+} ADM_OUT_FORMAT;
 
 typedef struct 
 {
   ADM_OUT_FORMAT format;
   const char *text;
-}ADM_FORMAT_DESC;
+  bool (*muxerConfigure)(void);
+  int configSize;
+  const void *defaultConfig;
+  void *currentConfig;
+} ADM_FORMAT_DESC;
 /**
  * 	This is used to fill-in the menus in GUIs
  */
 const ADM_FORMAT_DESC ADM_allOutputFormat[]=
 {
-  {ADM_AVI,QT_TR_NOOP("AVI")},
-  {ADM_AVI_DUAL,QT_TR_NOOP("AVI, dual audio")},
-  {ADM_AVI_PAK,QT_TR_NOOP("AVI, pack VOP")},
-  {ADM_AVI_UNP,QT_TR_NOOP("AVI, unpack VOP")},  
-  {ADM_PS,QT_TR_NOOP("MPEG-PS (A+V)")},
-  {ADM_TS,QT_TR_NOOP("MPEG-TS (A+V)")},
-  {ADM_ES,QT_TR_NOOP("MPEG video")},
-  {ADM_MP4,QT_TR_NOOP("MP4")},
-  {ADM_PSP,QT_TR_NOOP("MP4 (PSP)")},
-  {ADM_OGM,QT_TR_NOOP("OGM")},
-  {ADM_FLV,QT_TR_NOOP("FLV")},
-  {ADM_MATROSKA,QT_TR_NOOP("MKV")},
-  {ADM_DUMMY,QT_TR_NOOP("DUMMY")}
+  {ADM_AVI, QT_TR_NOOP("AVI"), ADM_aviUISetMuxer, 0, NULL, NULL},
+  {ADM_AVI_DUAL, QT_TR_NOOP("AVI, dual audio"), ADM_aviUISetMuxer, 0, NULL, NULL},
+  {ADM_AVI_PAK, QT_TR_NOOP("AVI, pack VOP"), ADM_aviUISetMuxer, 0, NULL, NULL},
+  {ADM_AVI_UNP, QT_TR_NOOP("AVI, unpack VOP"), ADM_aviUISetMuxer, 0, NULL, NULL},
+  {ADM_PS, QT_TR_NOOP("MPEG-PS (A+V)"), muxerMpegPsConfigure, sizeof(ps_muxer), &ps_muxer_default, &psMuxerConfig},
+  {ADM_TS, QT_TR_NOOP("MPEG-TS (A+V)"), NULL, 0, NULL, NULL},
+  {ADM_ES, QT_TR_NOOP("MPEG video"), NULL, 0, NULL, NULL},
+  {ADM_MP4, QT_TR_NOOP("MP4"), NULL, 0, NULL, NULL},
+  {ADM_PSP, QT_TR_NOOP("MP4 (PSP)"), NULL, 0, NULL, NULL},
+  {ADM_OGM, QT_TR_NOOP("OGM"), NULL, 0, NULL, NULL},
+  {ADM_FLV, QT_TR_NOOP("FLV"), NULL, 0, NULL, NULL},
+  {ADM_MATROSKA, QT_TR_NOOP("MKV"), NULL, 0, NULL, NULL},
+  {ADM_DUMMY, QT_TR_NOOP("DUMMY"), NULL, 0, NULL, NULL}
 };
 
 #endif

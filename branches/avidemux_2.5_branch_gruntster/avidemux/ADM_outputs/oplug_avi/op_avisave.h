@@ -83,6 +83,6 @@
    };
 extern uint32_t muxSize;
 uint8_t ADM_aviSetSplitSize(uint32_t size);
-uint8_t ADM_aviUISetMuxer(  void );
+bool ADM_aviUISetMuxer(  void );
   #endif
 

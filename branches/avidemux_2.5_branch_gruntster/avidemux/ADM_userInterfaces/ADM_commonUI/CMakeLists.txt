@@ -16,6 +16,7 @@ DIA_ocr.cpp
 DIA_tsSub.cpp        
 DIA_jobs_save.cpp
 DIA_plugins.cpp
+DIA_muxerMpegPs.cpp
 )
 
 SET(OBSOLETE_SRCS

@@ -40,7 +40,6 @@
 #include "gtkgui.h"
 
 #include "ADM_outputs/oplug_avi/GUI_mux.h"
-#include "ADM_outputs/oplug_mpegFF/oplug_vcdff.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"
 #include "prefs.h"
 #include "ADM_encoder/adm_encConfig.h"
@@ -60,6 +59,7 @@
 #include "ADM_libraries/ADM_libmpeg2enc/ADM_mpeg2enc.h"
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_preview.h"
+
 AudioSource currentAudioSource = AudioAvi;
 AudioSource secondAudioSource = AudioNone;
 char *currentAudioName = NULL;
@@ -99,7 +99,6 @@ extern void saveMpegFile (char *name);
 //static void A_selectEncoder ( void );
 extern uint8_t A_SaveAudioDualAudio (const char *a);
 
-extern uint8_t ADM_aviUISetMuxer(  void );
 void A_Resync(void);
 void A_addJob(void);
 static void updateSecondAudioTrack (void);
@@ -314,10 +313,22 @@ int nw;
  #endif     
       prefs->save ();
       return;
-    case ACT_SetMuxParam:
-      ADM_aviUISetMuxer();
-      return;
-      break;
+	case ACT_SetMuxParam:
+	{
+		int index = UI_GetCurrentFormat();
+
+		for (int i = 0; i < ADM_FORMAT_MAX; i++)
+		{
+			if (ADM_allOutputFormat[index].format == index && ADM_allOutputFormat[index].muxerConfigure != NULL)
+			{
+				ADM_allOutputFormat[index].muxerConfigure();
+
+				break;
+			}
+		}
+
+		return;
+	}
     case ACT_Fast:
       ADM_assert(0);
       break;

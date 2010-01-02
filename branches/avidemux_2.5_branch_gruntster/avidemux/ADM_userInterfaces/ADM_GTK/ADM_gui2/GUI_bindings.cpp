@@ -177,6 +177,7 @@ buttonCallBack_S buttonCallback[]=
 	{"buttonAudioFilter"		,"clicked"		,ACT_AudioFilters},
 	{"buttonConfV"			,"clicked"		,ACT_VideoCodec},
 	{"buttonConfA"			,"clicked"		,ACT_AudioCodec},
+	{"buttonConfM"			,"clicked"		,ACT_SetMuxParam},
 
 	{"buttonPrevBlack"		,"clicked"		,ACT_PrevBlackFrame},
 	{"buttonNextBlack"		,"clicked"		,ACT_NextBlackFrame},
@@ -1044,9 +1045,20 @@ int enable;
         {
           gtk_widget_set_sensitive(lookup_widget(guiRootWindow,VIDEO_WIDGET),0);  
           
-        }else
+        }
+		else
         {
-          gtk_widget_set_sensitive(lookup_widget(guiRootWindow,VIDEO_WIDGET),1);  
+          gtk_widget_set_sensitive(lookup_widget(guiRootWindow,VIDEO_WIDGET),1);
+
+			for (int i = 0; i < ADM_FORMAT_MAX; i++)
+			{
+				if (ADM_allOutputFormat[i].format == fmt)
+				{
+					gtk_widget_set_sensitive(lookup_widget(guiRootWindow, "buttonConfM"), ADM_allOutputFormat[i].muxerConfigure != NULL);
+
+					break;
+				}
+			}
         }
 
 }
