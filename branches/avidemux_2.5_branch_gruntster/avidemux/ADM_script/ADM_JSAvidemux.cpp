@@ -558,21 +558,24 @@ ADM_JSAvidemux *p = (ADM_JSAvidemux *)JS_GetPrivate(cx, obj);
 				{
 					if (ADM_allOutputFormat[i].format == format)
 					{
-						int configLength = strlen(config);
-
-						if (ADM_allOutputFormat[i].configSize > 0 && configLength > 0)
+						if (ADM_allOutputFormat[i].configSize > 0)
 						{
-							uint8_t* currentConfig = (uint8_t*)ADM_allOutputFormat[i].currentConfig;
-							const char* configHexPtr = config;
-							int configByteCount = 0;
-
 							memcpy(ADM_allOutputFormat[i].currentConfig, ADM_allOutputFormat[i].defaultConfig, ADM_allOutputFormat[i].configSize);
 
-							while ((configHexPtr - config) < configLength && configByteCount < ADM_allOutputFormat[i].configSize)
+							int configLength = strlen(config);
+
+							if (configLength > 0)
 							{
-								currentConfig[configByteCount] = mk_hex(*configHexPtr, *(configHexPtr + 1));
-								configHexPtr += 3;
-								configByteCount += 1;
+								uint8_t* currentConfig = (uint8_t*)ADM_allOutputFormat[i].currentConfig;
+								const char* configHexPtr = config;
+								int configByteCount = 0;
+
+								while ((configHexPtr - config) < configLength && configByteCount < ADM_allOutputFormat[i].configSize)
+								{
+									currentConfig[configByteCount] = mk_hex(*configHexPtr, *(configHexPtr + 1));
+									configHexPtr += 3;
+									configByteCount += 1;
+								}
 							}
 						}
 
