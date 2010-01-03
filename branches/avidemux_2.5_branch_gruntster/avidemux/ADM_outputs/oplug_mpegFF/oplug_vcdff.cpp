@@ -136,48 +136,43 @@ int reuse = 0;
                 WAVHeader *hdr=audio->getInfo();	
                 audio_encoding=hdr->encoding;
 
-                if (videoCodecGetType() == CodecVCD ||
-					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) || // avcodec MPEG-1 plugin
-					(videoCodecGetType() == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0)) // avcodec MPEG-2 plugin
+				switch (psMuxerConfig.muxingType)
 				{
-					switch (psMuxerConfig.muxingType)
+					case PS_MUXER_VCD:
 					{
-						case PS_MUXER_VCD:
+						if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 || hdr->encoding != WAV_MP2))
 						{
-							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 || hdr->encoding != WAV_MP2))
-							{
-								GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For VCD, audio must be 44.1 kHz MP2."));
-								goto finishvcdff;
-							}
-
-							mux = MUXER_VCD;
-							printf("X*CD: Using VCD PS\n");
-							break;
+							GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For VCD, audio must be 44.1 kHz MP2."));
+							goto finishvcdff;
 						}
-						case PS_MUXER_SVCD:
+
+						mux = MUXER_VCD;
+						printf("X*CD: Using VCD PS\n");
+						break;
+					}
+					case PS_MUXER_SVCD:
+					{
+						if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 && hdr->encoding == WAV_MP2))
 						{
-							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 44100 && hdr->encoding == WAV_MP2))
-							{
-								GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For SVCD, audio must be 44.1 kHz MP2."));
-								goto finishvcdff;
-							}
-
-							mux = MUXER_SVCD;
-							printf("X*VCD: Using SVCD PS\n");
-							break;
+							GUI_Error_HIG(("Incompatible audio"),QT_TR_NOOP( "For SVCD, audio must be 44.1 kHz MP2."));
+							goto finishvcdff;
 						}
-						case PS_MUXER_DVD:
+
+						mux = MUXER_SVCD;
+						printf("X*VCD: Using SVCD PS\n");
+						break;
+					}
+					case PS_MUXER_DVD:
+					{
+						if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 48000 || (hdr->encoding != WAV_MP2 && hdr->encoding != WAV_AC3 && hdr->encoding != WAV_LPCM)))
 						{
-							if (!psMuxerConfig.acceptNonCompliant && (hdr->frequency != 48000 || (hdr->encoding != WAV_MP2 && hdr->encoding != WAV_AC3 && hdr->encoding != WAV_LPCM)))
-							{
-								GUI_Error_HIG(("Incompatible audio"), QT_TR_NOOP("For DVD, audio must be 48 kHz MP2, AC3 or LPCM."));
-								goto finishvcdff;								
-							}
-
-							mux = MUXER_DVD;
-							printf("X*VCD: Using DVD PS\n");
-							break;
+							GUI_Error_HIG(("Incompatible audio"), QT_TR_NOOP("For DVD, audio must be 48 kHz MP2, AC3 or LPCM."));
+							goto finishvcdff;								
 						}
+
+						mux = MUXER_DVD;
+						printf("X*VCD: Using DVD PS\n");
+						break;
 					}
 				}
             }
