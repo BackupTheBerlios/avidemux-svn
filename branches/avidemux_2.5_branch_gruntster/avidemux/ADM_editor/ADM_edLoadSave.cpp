@@ -284,9 +284,10 @@ for (uint32_t i = 0; i < _nb_segment; i++)
 
 			  for (int j = 0; j < ADM_allOutputFormat[i].configSize; j++)
 				  qfprintf(fd, "%02x ", config[j]);
+
+			  qfprintf(fd,"\"");
 		  }
 
-		  qfprintf(fd,"\"");
 		  break;
 	  }
   }
