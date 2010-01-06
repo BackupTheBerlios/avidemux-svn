@@ -238,7 +238,7 @@ MainWindow::MainWindow() : QMainWindow()
 
 #if defined(__APPLE__) && defined(USE_SDL)
 	ui.actionAbout_avidemux->setMenuRole(QAction::NoRole);
-	ui.actionPreferences->setMenuRole(QAction::NoRole);
+	ui.action_Preferences->setMenuRole(QAction::NoRole);
 	ui.actionQuit->setMenuRole(QAction::NoRole);
 #endif
 
