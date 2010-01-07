@@ -32,4 +32,4 @@ updatePatch libavformat isom.c
 updatePatch libavformat matroskaenc.c
 updatePatch libavformat movenc.c
 updatePatch libavutil avutil.h
-updatePatch libavutil internal.h
+

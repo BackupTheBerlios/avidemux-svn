@@ -1,8 +1,8 @@
-*** libavformat/movenc.c.old	Sat Dec 19 22:16:15 2009
---- libavformat/movenc.c	Sat Dec 19 22:16:15 2009
+*** libavformat/movenc.c.old	Thu Jan  7 19:26:12 2010
+--- libavformat/movenc.c	Thu Jan  7 19:26:12 2010
 ***************
-*** 2135,2137 ****
---- 2135,2149 ----
+*** 2138,2140 ****
+--- 2138,2152 ----
       .codec_tag = (const AVCodecTag* const []){codec_ipod_tags, 0},
   };
   #endif
