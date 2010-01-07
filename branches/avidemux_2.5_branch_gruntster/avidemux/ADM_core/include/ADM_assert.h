@@ -18,8 +18,16 @@
 #include <assert.h>
 #include "ADM_inttype.h"
 
-#if defined(__WIN64)
-#include <intrin.h>
+#if defined(__MINGW32__)
+	#include <_mingw.h>
+
+	#if defined(__MINGW64_VERSION_STR)
+		#if defined (__WIN64)
+			#include <intrin.h>
+		#else
+			#include <wchar.h>
+		#endif
+	#endif
 #endif
 
 #define ADM_assert(x) { if(!(x)) {ADM_backTrack("Assert failed :"#x,__LINE__,__FILE__);  }}
