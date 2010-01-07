@@ -283,8 +283,8 @@ Section "Avidemux Core" SecCore
     ${File} avutil-*.dll
     ${File} postproc-*.dll
     ${File} swscale-*.dll
-    ${File} libgcc_sjlj_*.dll
-    ${File} libstdc++_sjlj_*.dll
+    ${File} libgcc_s_sjlj-*.dll
+    ${File} libstdc++.dll
     SetOutPath $INSTDIR\scripts
     ${Folder} scripts
 SectionEnd
@@ -352,7 +352,6 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} avidemux2_qt4.exe
         ${File} libADM_render_qt4.dll
         ${File} libADM_UIQT4.dll
-        ${File} mingwm10.dll
         ${File} QtCore4.dll
     ${MementoSectionEnd}
 !endif
