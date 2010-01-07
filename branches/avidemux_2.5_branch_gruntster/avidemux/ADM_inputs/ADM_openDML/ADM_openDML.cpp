@@ -446,6 +446,24 @@ uint32_t rd;
                 {
                         // build audio stream
                         odmlAudioTrack *track;
+                        // Check it is not a weird DV file
+                        if(fourCC::check(_video_bih.biCompression,(uint8_t *)"dvsd"))
+                        {
+                             for(int i=0;i<_nbAudioTracks;i++)
+                             {
+                                    track=&(_audioTracks[i]);
+                                    WAVHeader *hdr=  track->wavHeader;
+                                    if(!hdr->frequency)
+                                    {
+                                            printf("Fixing audio track to be PCM\n");
+                                            hdr->frequency=48000;
+                                            //hdr->channels=2;
+                                            hdr->byterate=48000*hdr->channels*2;
+                                            hdr->blockalign=2*hdr->channels;
+                                    }
+                             }
+
+                        }
                         for(int i=0;i<_nbAudioTracks;i++)
                         {
                                 track=&(_audioTracks[i]);
