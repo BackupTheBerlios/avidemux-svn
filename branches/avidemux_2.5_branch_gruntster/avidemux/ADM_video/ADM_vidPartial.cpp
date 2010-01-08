@@ -100,7 +100,7 @@ uint8_t	ADMVideoPartial::getCoupledConf( CONFcouple **couples)
 				*couples=new CONFcouple(3);
 				CSET(_start);
 				CSET(_end);
-                (*couples)->setCouple("_name",filterGetInternalNameFromTag(_param->_tag));
+                                (*couples)->setCouple("_name",filterGetInternalNameFromTag(_param->_tag));
 				//CSET(_tag);
 				return 1;
 			}
@@ -112,7 +112,7 @@ uint8_t	ADMVideoPartial::getCoupledConf( CONFcouple **couples)
 			CSET(_start);
 			CSET(_end);
 			//CSET(_tag);
-            (*couples)->setCouple("_name",filterGetNameFromTag(_param->_tag));
+                        (*couples)->setCouple("_name",filterGetInternalNameFromTag(_param->_tag));
 
 	// then set the child ones
 	char *nm,*vl;
