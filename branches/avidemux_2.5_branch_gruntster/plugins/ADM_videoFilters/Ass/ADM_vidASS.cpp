@@ -287,7 +287,7 @@ uint8_t ADMVideoSubASS::getFrameNumberNoAlloc(uint32_t frame, uint32_t *len, ADM
           return 1; 
         }
         int changed=0;
-        ass_image_t *img = ass_render_frame(_ass_rend, _ass_track, where,&changed);
+        ASS_Image *img = ass_render_frame(_ass_rend, _ass_track, where,&changed);
         
 
         while(img) {

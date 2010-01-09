@@ -10,6 +10,7 @@ IF(USE_FREETYPE)
 
         SET(${ADM_LIB}_SRCS 
         ass_bitmap.c  ass.c  ass_cache.c  ass_drawing.c  ass_font.c    ass_library.c  ass_render.c  ass_utils.c
+        ass_parse.c ass_strtod.c
         )
     IF (FONTCONFIG_FOUND)
         ADD_DEFINITIONS(${FONTCONFIG_CFLAGS} "-DHAVE_FONTCONFIG=1" "-DCONFIG_FONTCONFIG=1")

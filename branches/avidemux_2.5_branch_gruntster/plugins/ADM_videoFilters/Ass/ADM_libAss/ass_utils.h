@@ -49,15 +49,18 @@ int mystrtoi(char **p, int *res);
 int mystrtoll(char **p, long long *res);
 int mystrtou32(char **p, int base, uint32_t *res);
 int mystrtod(char **p, double *res);
-int strtocolor(ass_library_t *library, char **q, uint32_t *res);
+int strtocolor(ASS_Library *library, char **q, uint32_t *res, int hex);
 char parse_bool(char *str);
 unsigned ass_utf8_get_char(char **str);
-void ass_msg(ass_library_t *priv, int lvl, char *fmt, ...);
+void ass_msg(ASS_Library *priv, int lvl, char *fmt, ...);
 #ifdef CONFIG_ENCA
-void *ass_guess_buffer_cp(ass_library_t *library, unsigned char *buffer,
+void *ass_guess_buffer_cp(ASS_Library *library, unsigned char *buffer,
                           int buflen, char *preferred_language,
                           char *fallback);
 #endif
+
+/* defined in ass_strtod.c */
+double ass_strtod(const char *string, char **endPtr);
 
 static inline int d6_to_int(int x)
 {
@@ -98,6 +101,21 @@ static inline double d16_to_double(int x)
 static inline int double_to_d16(double x)
 {
     return (int) (x * 0x10000);
+}
+static inline double d22_to_double(int x)
+{
+    return ((double) x) / 0x400000;
+}
+static inline int double_to_d22(double x)
+{
+    return (int) (x * 0x400000);
+}
+
+// Calculate cache key for a rotational angle in degrees
+static inline int rot_key(double a)
+{
+    const int m = double_to_d22(360.0);
+    return double_to_d22(a) % m;
 }
 
 #define FNV1_32A_INIT (unsigned)0x811c9dc5

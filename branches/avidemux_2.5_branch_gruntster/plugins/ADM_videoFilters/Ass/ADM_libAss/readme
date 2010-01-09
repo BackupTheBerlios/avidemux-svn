@@ -1,2 +1,12 @@
 checkout http://repo.or.cz/w/libass.git
-done august first 8h36 AM, paris time, last commit      Do not round karaoke timing coordinates  
+Done 9 Jan 2010 at 1104
+Last commit
+commit 8db4a5b1b5ab6598b96092e08586f2bed8ab8f39
+Author: Grigori Goronzy <greg@blackbox>
+Date:   Fri Jan 8 18:23:34 2010 +0100
+
+    Remove support for freetype < 2.2.1
+
+    Get rid of compatibility #ifdefs and some code to support very old
+    versions of freetype. libass now requires at least version 2.2.1.
+

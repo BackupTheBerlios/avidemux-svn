@@ -22,9 +22,9 @@ class ADMVideoSubASS : public AVDMGenericVideoStream
 protected:
         virtual char* printConf(void);
         ASSParams* _params;
-        ass_library_t *_ass_lib;
-        ass_renderer_t *_ass_rend;
-        ass_track_t *_ass_track;
+        ASS_Library *_ass_lib;
+        ASS_Renderer *_ass_rend;
+        ASS_Track *_ass_track;
         uint8_t init(void);
 public:
         ADMVideoSubASS(AVDMGenericVideoStream *in, CONFcouple *conf);
