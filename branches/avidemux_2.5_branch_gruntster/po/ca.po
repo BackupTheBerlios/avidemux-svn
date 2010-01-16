@@ -1,11 +1,11 @@
 # translation of ca.po to catala
-# Joan Farrerons <jfarrerons@economistes.com>, 2007, 2008.
+# Joan Farrerons <jfarrerons@economistes.com>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-02 22:05+0100\n"
-"PO-Revision-Date: 2008-08-27 23:11+0200\n"
+"PO-Revision-Date: 2009-12-27 12:57+0100\n"
 "Last-Translator: Joan Farrerons <jfarrerons@economistes.com>\n"
 "Language-Team: catala <ca@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,7 +306,7 @@ msgstr "_Qualitat: "
 
 #: avidemux/ADM_audiofilter/audioencoder_lame.cpp:252
 msgid "_Disable reservoir"
-msgstr ""
+msgstr "_Desactiva bit reserva"
 
 #: avidemux/ADM_audiofilter/audioencoder_lame.cpp:256
 msgid "LAME Configuration"
@@ -640,11 +640,11 @@ msgstr "Reprodueix el vídeo a l'inrevés."
 #: avidemux/ADM_filter/filter_declaration.cpp:64
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:78
 msgid "Fade"
-msgstr "Efecte de fusió"
+msgstr "Efecte de fosa"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:64
 msgid "Fade in/out."
-msgstr "Fusió entrant/sortint "
+msgstr "Fosa en blanc/en negre "
 
 #: avidemux/ADM_filter/filter_declaration.cpp:70
 #: avidemux/ADM_videoFilter/ADM_vidYadif.cpp:184
@@ -2744,7 +2744,7 @@ msgstr "Eliminac. _oscil·lac. paràsit."
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:38
 msgid "Postprocessing"
-msgstr ""
+msgstr "Postprocessament"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:190
 msgid "_Use systray while encoding"
@@ -2890,11 +2890,11 @@ msgstr "Xv (millor)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:268
 msgid "SDL (MS Windows GDI)"
-msgstr ""
+msgstr "SDL (MS Windows GDI)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:269
 msgid "SDL (MS Windows DirectX)"
-msgstr ""
+msgstr "SDL (MS Windows DirectX)"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:271
 msgid "SDL (good)"
@@ -4105,7 +4105,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Joan Farrerons i Herrero.\n"
-"<jfarrerons@economistes.com>"
+"<jfarrerons@economistes.cat>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_acodec.cpp:141
 msgid "AudioCodec"
@@ -5164,7 +5164,7 @@ msgstr "Configs. VobSub"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:219
 msgid "Select .idx"
-msgstr "Seleccioneu .IDX"
+msgstr "Seleccioneu l'.IDX"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:233
 msgid "Select Language :"
@@ -5196,43 +5196,43 @@ msgstr "<b>Temps restant:</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:113
 msgid "1 - QPel SAD (Fastest)"
-msgstr ""
+msgstr "1 - QPel SAD (el més ràpid)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:114
 msgid "2 - QPel SATD"
-msgstr ""
+msgstr "2 - QPel SATD"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:115
 msgid "3 - HPel on MB then QPel"
-msgstr ""
+msgstr "3 - HPel sobre MB després QPel"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:116
 msgid "4 - Always QPel"
-msgstr ""
+msgstr "4 - Sempre QPel"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:117
 msgid "5 - QPel + Bidirectional ME"
-msgstr ""
+msgstr "5 - QPel + ME Bidireccional"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:118
 msgid "6 - RD on I/P frames (Default)"
-msgstr ""
+msgstr "6 - RD sobre fotog. I/P (predeterm.)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:119
 msgid "7 - RD on all frames"
-msgstr ""
+msgstr "7 - RD sobre tots els fotogrames"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:120
 msgid "8 - RD refinement on I/P frames"
-msgstr ""
+msgstr "8 - Refinament RD sobre els fotog. I/P"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:121
 msgid "9 - RD refinement on all frames"
-msgstr ""
+msgstr "9 - Refinament RD sobre tots els fotog."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:125
 msgid "1  - Extremely Low (Fastest)"
-msgstr "1  - Extremadament baixa (més ràpid)"
+msgstr "1  - Extremadament baixa (la més ràpida)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:126
 msgid "2  - Very Low"
@@ -5248,11 +5248,11 @@ msgstr "4  - Mitjana"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:129
 msgid "5  - High"
-msgstr ""
+msgstr "5  - Alta"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:130
 msgid "6  - High (Default)"
-msgstr ""
+msgstr "6  - Alta (predeterminada)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:131
 msgid "6B - Very High (RDO on B-frames)"
@@ -5625,7 +5625,7 @@ msgstr "Weighted Biprediction"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1176
 msgid "Enables weighting of B-frames to help fades"
 msgstr ""
-"Habilita la ponderació de fotogrames-B per facilitar els efectes de fusió "
+"Habilita la ponderació de fotogrames-B per facilitar els efectes de fosa "
 "(fades)."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_x264.cpp:1179
@@ -7214,7 +7214,7 @@ msgstr "Desplaçament de temps àudio/vídeo (ms)."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1168
 msgid "ms"
-msgstr ""
+msgstr "ms"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1176
 msgid "<b>Format</b>"
@@ -7406,7 +7406,7 @@ msgstr "Avís"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ui_support.cpp:37
 msgid "GTK+"
-msgstr ""
+msgstr "GTK+"
 
 #: avidemux/ADM_video/ADM_vidFieldUnblend.cpp:81
 msgid "Metrics"
@@ -7873,23 +7873,23 @@ msgstr "Configuració de l'esborrador"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:65
 msgid "Out"
-msgstr "Sortint"
+msgstr "En negre"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:65
 msgid "Fade out"
-msgstr "Fusió sortint "
+msgstr "Fosa en negre"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:65
 msgid "In"
-msgstr "Entrant"
+msgstr "En blanc"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:65
 msgid "Fade in"
-msgstr "Fusió entrant"
+msgstr "Fosa en blanc"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:71
 msgid "_Fade type:"
-msgstr "Tipus _fusió:"
+msgstr "_Tipus de fosa:"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:72
 msgid "_Start frame:"
@@ -7901,7 +7901,7 @@ msgstr "Fotogr. _final:"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:74
 msgid "Fade to _black"
-msgstr "Fusió al _negre"
+msgstr "Fosa en _negre"
 
 #: avidemux/ADM_videoFilter/ADM_vidFade.cpp:83
 msgid "Parameter Error"
@@ -8499,6 +8499,8 @@ msgid ""
 "An invalid frame range has been selected.  Make sure marker A is placed "
 "before marker B."
 msgstr ""
+"S'ha seleccionat un rang invàlid.  Assegureu-vos que el marcador A està "
+"posicionat abans del marcador B."
 
 #: avidemux/gtk_gui.cpp:705
 msgid "Cannot copy."
@@ -8567,12 +8569,12 @@ msgstr "\"%s\" no existeix."
 
 #: avidemux/gtk_gui.cpp:908
 msgid "Error opening file"
-msgstr ""
+msgstr "S'ha produït un error en obrir el fitxer"
 
 #: avidemux/gtk_gui.cpp:908
 #, c-format
 msgid "Error opening \"%s\"."
-msgstr ""
+msgstr "S'ha produït un error en obrir \"%s\"."
 
 #: avidemux/gtk_gui.cpp:952
 msgid "Cannot open project using the video loader."
