@@ -37,6 +37,7 @@ avsAudio::avsAudio(avsNet *net, WAVHeader *wav,uint64_t duration)
     this->duration=duration;
     nextSample=0;
     audioBuffer=new uint8_t[AVS_AUDIO_BUFFER_SIZE];
+    _wavheader=wavHeader;
 }
 /**
     \fn ~ADM_avsAccess
@@ -125,5 +126,46 @@ bool      avsAudio::getPacket(uint8_t *buffer, uint32_t *size, uint32_t maxSize,
     memcpy(buffer,audioBuffer+sizeof(aFrame),out.size-sizeof(aFrame));
   return true;
 };
+
+//**************** 2.5****************
+uint32_t            avsAudio::read(uint32_t len,uint8_t *buffer)
+{
+    uint32_t size;
+    uint64_t dts;
+    if(true==getPacket(buffer,&size,len,&dts))
+    {
+        return size;
+    }
+    return 0;
+}
+uint8_t             avsAudio::goTo(uint32_t newoffset)
+{
+    uint32_t f=newoffset;
+    f/=(2*wavHeader->channels); 
+    nextSample=f;
+    return 1;
+}
+uint8_t             avsAudio::getPacket(uint8_t *dest, uint32_t *len, uint32_t *samples)
+{
+    uint64_t dts;
+    if(true==getPacket(dest, len, (wavHeader->channels*wavHeader->frequency*2)/10,&dts)) // 50 ms chunk
+    {
+        *samples=*len/(2*wavHeader->channels);
+        return true;
+    }
+    return false;
+}
+uint8_t             avsAudio::goToTime(uint32_t mstime)
+{
+uint64_t t=mstime;
+            t=t*1000;
+            return goToTime(t);
+}
+uint8_t             avsAudio::extraData(uint32_t *l,uint8_t **d)
+{
+        *l=0;
+        *d=NULL;
+        return 1;
+}
 //EOF
 

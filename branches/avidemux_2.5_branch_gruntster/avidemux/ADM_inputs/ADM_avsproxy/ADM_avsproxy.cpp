@@ -120,7 +120,7 @@ uint8_t avsHeader::open(const char *name)
     _video_bih.biWidth = _mainaviheader.dwWidth = info.width;
     _video_bih.biHeight = _mainaviheader.dwHeight = info.height;
     _video_bih.biCompression = _videostream.fccHandler =  fourCC::get((uint8_t *) "YV12");
-#if 0   
+
     //
     if(info.frequency)
     {
@@ -133,8 +133,8 @@ uint8_t avsHeader::open(const char *name)
         audioStream=new avsAudio(&network,&wavHeader,10000);
         _isaudiopresent=1;
         haveAudio=true;
+        printf("Audio present\n");
     }
-#endif
     printf("Connection to avsproxy succeed\n");
     return 1;
 }
@@ -276,7 +276,6 @@ uint8_t                 avsHeader::getFrameSize(uint32_t frame,uint32_t *size)
     if(haveAudio)
     {
         *audio=audioStream;
-        return 1;
     }
     return 1;
 
