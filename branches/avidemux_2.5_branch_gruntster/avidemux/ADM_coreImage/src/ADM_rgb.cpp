@@ -153,7 +153,7 @@ uint8_t r,g,b,a;
 */
  uint8_t ColYuvRgb::scale(uint8_t *src, uint8_t *target)
  {
-    uint8_t *srd[3];
+    const uint8_t *srd[3];
 	uint8_t *dst[3];
 	int ssrc[3];
 	int ddst[3];
@@ -218,7 +218,7 @@ uint8_t r,g,b,a;
 */
  uint8_t ColYuvRgb::scale(uint8_t *src, uint8_t *target,uint32_t startx,uint32_t starty, uint32_t tw,uint32_t th,uint32_t totalW,uint32_t totalH)
  {
-    uint8_t *srd[3];
+    const uint8_t *srd[3];
     uint8_t *dst[3];
     int ssrc[3];
     int ddst[3];
@@ -299,7 +299,7 @@ uint8_t ColYv12Rgb24::reset(uint32_t ww, uint32_t hh)
 }
   uint8_t ColYv12Rgb24::scale(uint8_t *src, uint8_t *target)
  {
-    uint8_t *srd[3];
+    const uint8_t *srd[3];
 	uint8_t *dst[3];
 	int ssrc[3];
 	int ddst[3];
@@ -369,7 +369,7 @@ uint8_t ColRgbToYV12::setBmpMode(void)
 //***********************************************
  uint8_t ColRgbToYV12::scale(uint8_t *src, uint8_t *target)
  {
-    uint8_t *srd[3];
+    const uint8_t *srd[3];
         uint8_t *dst[3];
         int ssrc[3];
         int ddst[3];
@@ -529,7 +529,7 @@ uint8_t COL_Generic2YV12::clean(void)
 
 uint8_t COL_Generic2YV12::transform(uint8_t **planes, uint32_t *strides,uint8_t *target)
 {
-	uint8_t *srd[3];
+	const uint8_t *srd[3];
 	uint8_t *dst[3];
 	int ssrc[3];
 	int ddst[3];

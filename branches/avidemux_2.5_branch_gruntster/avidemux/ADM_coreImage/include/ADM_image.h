@@ -172,7 +172,7 @@ class ADMImageResizer
 		uint32_t destWidth, destHeight;
 
 		void init(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat dstFormat);
-		void getYuvPlanes(uint8_t *source, uint32_t width, uint32_t height, uint8_t*& yPlane, uint8_t*& uPlane, uint8_t*& vPlane);
+		void getYuvPlanes(const uint8_t *source, uint32_t width, uint32_t height, const uint8_t*& yPlane, const uint8_t*& uPlane, const uint8_t*& vPlane);
 	public:
 		ADMImageResizer(uint32_t ow,uint32_t oh, uint32_t dw, uint32_t dh);
 		ADMImageResizer(uint32_t ow, uint32_t oh, uint32_t dw, uint32_t dh, PixelFormat srcFormat, PixelFormat dstFormat);
@@ -181,7 +181,7 @@ class ADMImageResizer
 		uint8_t resize(ADMImage *src, ADMImage *dest);
 		uint8_t resize(uint8_t *src, ADMImage *dest);
 		uint8_t resize(ADMImage *src, uint8_t *dest);
-		uint8_t resize(uint8_t *src, uint8_t *dest);
+		uint8_t resize(const uint8_t *src, uint8_t *dest);
 };
 
 // Misc utilities

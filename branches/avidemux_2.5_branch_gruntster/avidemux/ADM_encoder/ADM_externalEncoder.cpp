@@ -186,7 +186,7 @@ uint8_t externalEncoder::encode(uint32_t frame, ADMBitstream *out)
 			sourcePicture.data[2] = tmpPlane;
 
 			sws_scale(
-				_swsContext, sourcePicture.data, sourcePicture.linesize, 0,
+				_swsContext, (const uint8_t**)sourcePicture.data, sourcePicture.linesize, 0,
 				_h, resamplePicture.data, resamplePicture.linesize);
 
 			inputPicture = &resamplePicture;

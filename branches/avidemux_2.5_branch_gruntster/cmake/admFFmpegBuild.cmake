@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 21066)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=9de84cea40e10210b102d85736695d67a468fc06;sf=tgz
-set(SWSCALE_VERSION 30236)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=aa49d64093654ce136015962fcd0b9bb37249f69;sf=tgz
+set(FFMPEG_VERSION 21328)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=6cb2817bfe7271b43edfee3c139952318dc49184;sf=tgz
+set(SWSCALE_VERSION 30376)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=f88913c5b4e9ec1c729aa289411627d4510db354;sf=tgz
 
 set(LIBRARY_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries")
 set(FFMPEG_SOURCE_DIR "${LIBRARY_SOURCE_DIR}/ffmpeg")
@@ -113,6 +113,12 @@ if (FFMPEG_PERFORM_BUILD)
 	execute_process(COMMAND sh ${FFMPEG_SOURCE_DIR}/configure ${FFMPEG_FLAGS}
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}"
 					${ffmpegBuildOutput})
+
+	execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "libavutil"
+					WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/config")
+
+	execute_process(COMMAND ${CMAKE_COMMAND} -E copy "./libavutil/avconfig.h" "${CMAKE_BINARY_DIR}/config/libavutil"
+					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}")
 
 	if (UNIX AND NOT APPLE)
 		find_patch()

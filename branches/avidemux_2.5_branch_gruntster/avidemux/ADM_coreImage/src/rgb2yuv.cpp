@@ -228,7 +228,7 @@ uint8_t COL_RGB24_to_YV12_revert(uint32_t w,uint32_t h,uint8_t *rgb, uint8_t *yu
 	    									  flags, NULL, NULL,NULL);
 	    ADM_assert(context);
 	
-	    uint8_t *src[3]={rgb+w*h*3-w*3,NULL,NULL};
+	    const uint8_t *src[3]={rgb+w*h*3-w*3,NULL,NULL};
 	    int srcStride[3]={-w*3,0,0};
 	    int dstStride[3]={w,w>>1,w>>1};
 	    uint8_t *dst[3]={yuv,yuv+w*h,yuv+((w*h*5)>>2)};
@@ -265,7 +265,7 @@ uint8_t COL_RGB24_to_YV12(uint32_t w,uint32_t h,uint8_t *rgb, uint8_t *yuv)
 	    									  flags, NULL, NULL,NULL);
 	    ADM_assert(context);
 	
-	    uint8_t *src[3]={rgb,NULL,NULL};
+	    const uint8_t *src[3]={rgb,NULL,NULL};
 	    int srcStride[3]={w*3,0,0};
 	    int dstStride[3]={w,w>>1,w>>1};
 	    uint8_t *dst[3]={yuv,yuv+((w*h*5)>>2),yuv+w*h};

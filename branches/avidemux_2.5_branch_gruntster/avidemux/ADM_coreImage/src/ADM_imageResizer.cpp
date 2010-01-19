@@ -97,10 +97,10 @@ uint8_t ADMImageResizer::resize(uint8_t *source, ADMImage *dest)
 	return resize(source, dest->data);
 }
 
-uint8_t ADMImageResizer::resize(uint8_t *source, uint8_t *dest)
+uint8_t ADMImageResizer::resize(const uint8_t *source, uint8_t *dest)
 {
-	uint8_t *src[3];
-	uint8_t *dst[3];
+	const uint8_t *src[3];
+	const uint8_t *dst[3];
 	int ssrc[3];
 	int ddst[3];
 
@@ -140,12 +140,12 @@ uint8_t ADMImageResizer::resize(uint8_t *source, uint8_t *dest)
 		ddst[2] = 0;
 	}
 
-    sws_scale((SwsContext*)_context, src, ssrc, 0, orgHeight, dst, ddst);
+    sws_scale((SwsContext*)_context, (const uint8_t**)src, ssrc, 0, orgHeight, (uint8_t **)dst, ddst);
 
     return 1;
 }
 
-void ADMImageResizer::getYuvPlanes(uint8_t *source, uint32_t width, uint32_t height, uint8_t*& yPlane, uint8_t*& uPlane, uint8_t*& vPlane)
+void ADMImageResizer::getYuvPlanes(const uint8_t *source, uint32_t width, uint32_t height, const uint8_t*& yPlane, const uint8_t*& uPlane, const uint8_t*& vPlane)
 {
 	// Unfortunately xPLANE macros expect an ADMImage object so doubling up on logic.
 	yPlane = source;

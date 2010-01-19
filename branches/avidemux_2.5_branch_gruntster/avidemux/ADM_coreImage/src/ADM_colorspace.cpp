@@ -102,7 +102,7 @@ uint8_t ADMColorspace::convert(uint8_t  *from, uint8_t *to)
   
   getStrideAndPointers(from,fromColor,srcData,srcStride);
   getStrideAndPointers(to,toColor,dstData,dstStride);
-  sws_scale(CONTEXT,srcData,srcStride,0,height,dstData,dstStride);
+  sws_scale(CONTEXT,(const uint8_t**)srcData,srcStride,0,height,dstData,dstStride);
   return 1;
   
 }
