@@ -114,20 +114,22 @@ if (FFMPEG_PERFORM_BUILD)
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}"
 					${ffmpegBuildOutput})
 
-	file(READ ${FFMPEG_BINARY_DIR}/config.h FF_CONFIG_H)
-	string(REGEX MATCH "#define[ ]+HAVE_YASM[ ]+1" FF_YASM "${FF_CONFIG_H}")
+	if (ADM_CPU_X86)
+		file(READ ${FFMPEG_BINARY_DIR}/config.h FF_CONFIG_H)
+		string(REGEX MATCH "#define[ ]+HAVE_YASM[ ]+1" FF_YASM "${FF_CONFIG_H}")
 
-	if (NOT FF_YASM)
-		message(FATAL_ERROR "Yasm was not found.")
-	endif (NOT FF_YASM)
+		if (NOT FF_YASM)
+			message(FATAL_ERROR "Yasm was not found.")
+		endif (NOT FF_YASM)
 
-	if (WIN32)
-		string(REGEX MATCH "#define[ ]+CONFIG_DXVA2[ ]+1" FF_DXVA2 "${FF_CONFIG_H}")
-		
-		if (NOT FF_DXVA2)
-			message(FATAL_ERROR "DXVA2 not detected.  Ensure the dxva2api.h system header exists (available from Microsoft or http://downloads.videolan.org/pub/videolan/testing/contrib/dxva2api.h).")
-		endif (NOT FF_DXVA2)			
-	endif (WIN32)
+		if (WIN32)
+			string(REGEX MATCH "#define[ ]+CONFIG_DXVA2[ ]+1" FF_DXVA2 "${FF_CONFIG_H}")
+			
+			if (NOT FF_DXVA2)
+				message(FATAL_ERROR "DXVA2 not detected.  Ensure the dxva2api.h system header exists (available from Microsoft or http://downloads.videolan.org/pub/videolan/testing/contrib/dxva2api.h).")
+			endif (NOT FF_DXVA2)
+		endif (WIN32)
+	endif (ADM_CPU_X86)
 
 	execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "libavutil"
 					WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/config")
