@@ -1,5 +1,5 @@
-*** libavcodec/avcodec.h.old	Sun Jan 17 19:05:10 2010
---- libavcodec/avcodec.h	Sun Jan 17 19:05:10 2010
+*** libavcodec/avcodec.h.old	Sat Jan 23 11:31:04 2010
+--- libavcodec/avcodec.h	Sat Jan 23 11:31:05 2010
 ***************
 *** 584,589 ****
 --- 584,591 ----
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1442,1447 ****
---- 1444,1450 ----
+*** 1450,1455 ****
+--- 1452,1458 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1456,1461 ****
---- 1459,1466 ----
+*** 1464,1469 ****
+--- 1467,1474 ----
        * - decoding: unused
        */
       int rc_buffer_size;

@@ -1,5 +1,5 @@
-*** libavformat/matroskaenc.c.old	Sun Oct 18 17:15:09 2009
---- libavformat/matroskaenc.c	Sun Oct 18 17:15:10 2009
+*** libavformat/matroskaenc.c.old	Sat Jan 23 11:31:16 2010
+--- libavformat/matroskaenc.c	Sat Jan 23 11:31:16 2010
 ***************
 *** 395,400 ****
 --- 395,401 ----
@@ -42,34 +42,36 @@
   
   static void get_aac_sample_rates(AVFormatContext *s, AVCodecContext *codec, int *sample_rate, int *output_sample_rate)
 ***************
-*** 534,539 ****
---- 557,579 ----
-          put_ebml_uint (pb, MATROSKA_ID_TRACKNUMBER     , i + 1);
-          put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
+*** 536,541 ****
+--- 559,583 ----
           put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
-+ /**  MEANX : Add a default duration for video **/
-+         if(codec->codec_type==CODEC_TYPE_VIDEO)
-+         {
-+           if(codec->time_base.den && codec->time_base.num)
-+           {
-+             int num=codec->time_base.num;
-+             int den=codec->time_base.den;
-+             unsigned int default_duration;
-+             float period=num;
-+                   period/=den;
-+                   period*=1000*1000*1000; // in ns
-+                   default_duration=(unsigned int)floor(period);
-+                   put_ebml_uint (pb, MATROSKA_ID_TRACKDEFAULTDURATION ,default_duration);
-+           }
-+         }
-+         
-+ /**  MEANX : Add a default duration for video **/
+          put_ebml_float(pb, MATROSKA_ID_TRACKTIMECODESCALE, 1.0);
   
++ 		/**  MEANX : Add a default duration for video **/
++ 		if(codec->codec_type==CODEC_TYPE_VIDEO)
++ 		{
++ 			if(codec->time_base.den && codec->time_base.num)
++ 			{
++ 				int num = codec->time_base.num;
++ 				int den = codec->time_base.den;
++ 				unsigned int default_duration;
++ 				float period = num;
++ 
++ 				period /= den;
++ 				period *= 1000*1000*1000; // in ns
++ 				default_duration = (unsigned int)floor(period);
++ 				put_ebml_uint(pb, MATROSKA_ID_TRACKDEFAULTDURATION, default_duration);
++ 			}
++ 		}
++ 
++ 		/**  MEANX : Add a default duration for video **/
++ 
           if ((tag = av_metadata_get(st->metadata, "description", NULL, 0)))
               put_ebml_string(pb, MATROSKA_ID_TRACKNAME, tag->value);
+          tag = av_metadata_get(st->metadata, "language", NULL, 0);
 ***************
-*** 954,956 ****
---- 994,1006 ----
+*** 955,957 ****
+--- 997,1009 ----
       .flags = AVFMT_GLOBALHEADER,
       .codec_tag = (const AVCodecTag* const []){ff_codec_wav_tags, 0},
   };

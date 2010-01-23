@@ -624,7 +624,7 @@ uint8_t vobSubBitmap::subResize(vobSubBitmap **tgt,uint32_t newx,uint32_t newy,u
   ADM_assert(ctx);
     
   //************************
-  uint8_t *src[3];
+  const uint8_t *src[3];
   uint8_t *dst[3];
   int ssrc[3];
   int ddst[3];
