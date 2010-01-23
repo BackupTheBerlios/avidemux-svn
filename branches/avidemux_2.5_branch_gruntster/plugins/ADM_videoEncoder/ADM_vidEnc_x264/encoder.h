@@ -52,10 +52,8 @@
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
 
-#if X264_BUILD < 76
 		uint8_t *_seiUserData;
 		uint32_t _seiUserDataLen;
-#endif
 
 		uint8_t *_extraData;
 		int _extraDataSize;
@@ -64,6 +62,7 @@
 		void printCqm(const uint8_t cqm[], int size);
 		void updateEncodeParameters(vidEncVideoProperties *properties);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
+		int encodeNals(uint8_t *buf, int size, x264_nal_t *nals, int nnal, bool skipSei);
 		bool createHeader(void);
 
 	public:
