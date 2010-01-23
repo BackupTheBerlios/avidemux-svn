@@ -115,28 +115,28 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 	switch(_type)
 	{
 	case MUXER_TS:
-		fmt=guess_format("mpegts", NULL, NULL);
+		fmt = av_guess_format("mpegts", NULL, NULL);
 		break;
 	case MUXER_DVD:
-		fmt = guess_format("dvd", NULL, NULL);
+		fmt = av_guess_format("dvd", NULL, NULL);
 		break;
 	case MUXER_VCD:
-		fmt = guess_format("vcd", NULL, NULL);
+		fmt = av_guess_format("vcd", NULL, NULL);
 		break;
 	case MUXER_SVCD:
-		fmt = guess_format("svcd", NULL, NULL);
+		fmt = av_guess_format("svcd", NULL, NULL);
 		break;
 	case MUXER_MP4:
-		fmt = guess_format("mp4", NULL, NULL);
+		fmt = av_guess_format("mp4", NULL, NULL);
 		break;
 	case MUXER_PSP:
-		fmt = guess_format("psp", NULL, NULL);
+		fmt = av_guess_format("psp", NULL, NULL);
 		break;
 	case MUXER_FLV:
-		fmt = guess_format("flv", NULL, NULL);
+		fmt = av_guess_format("flv", NULL, NULL);
 		break;
 	case MUXER_MATROSKA:
-		fmt = guess_format("matroska", NULL, NULL);
+		fmt = av_guess_format("matroska", NULL, NULL);
 		break;
 
 	default:
