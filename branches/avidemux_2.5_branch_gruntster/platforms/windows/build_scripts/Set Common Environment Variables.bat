@@ -27,7 +27,7 @@ set CMAKE_INCLUDE_PATH=%usrLocalDir%/include
 set CMAKE_LIBRARY_PATH=%usrLocalDir%/lib
 set PKG_CONFIG_PATH=%usrLocalDir%\lib\pkgconfig
 set SDLDIR=%usrLocalDir%
-set CFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
+set CFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH% -I%mingwDir:\=/%/i686-w64-mingw32/include/directx
 set CXXFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
 set LDFLAGS=-L%CMAKE_LIBRARY_PATH%
 
