@@ -135,7 +135,9 @@ class ADM_Composer
 					uint32_t	max_seg;
   					_SEGMENT 		*_segments;
 					_SEGMENT 		_clipboard[MAX_SEG];
-					_VIDEOS 		_videos[MAX_VIDEO];
+
+					int max_videos;
+					_VIDEOS 		*_videos;
                                         ADMImage                *_scratch;
 						uint8_t  	convFrame2Seg(uint32_t framenum,uint32_t *seg,
 																			uint32_t *relframe);
@@ -160,6 +162,7 @@ class ADM_Composer
 
   public:
                                                 uint8_t hasVBRVideos(void);
+												void extendSegmentBuffer();
                                                 uint8_t addSegment(uint32_t source,uint32_t start, uint32_t nb);
                                                 uint8_t deleteAllSegments(void);
   						uint8_t 	getExtraHeaderData(uint32_t *len, uint8_t **data);

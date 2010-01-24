@@ -17,11 +17,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_default.h"
-
-
 #include "DIA_busy.h"
-
+#include "ADM_toolkitQt.h"
 
 void DIA_StartBusy( void )
 {
@@ -35,6 +32,7 @@ void DIA_StopBusy( void )
 
 void DIA_StartBusyDialog( void )
 {
+	UI_purge();
 }
 
 void DIA_StopBusyDialog( void )
@@ -43,4 +41,5 @@ void DIA_StopBusyDialog( void )
 
 void DIA_runBusy( void )
 {
+	UI_purge();
 }

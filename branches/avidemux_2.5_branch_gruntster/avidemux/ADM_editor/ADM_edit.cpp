@@ -100,11 +100,16 @@ uint32_t type,value;
   updatePostProc(&_pp);
   _imageBuffer=NULL;    
   _internalFlags=0;
-  // Start with a clean base
-  memset (_videos, 0, sizeof (_videos));
+
+  // Start with a clean base  
   max_seg = MAX_SEG;
   _segments = new _SEGMENT[max_seg];
   memset (_segments, 0, sizeof (_segments));
+
+  max_videos = MAX_VIDEO;
+  _videos = new _VIDEOS[max_videos];
+  memset(_videos, 0, sizeof(_VIDEOS) * max_videos);
+  
   _scratch=NULL;
   
 }
@@ -206,7 +211,7 @@ ADM_Composer::deleteAllVideos (void)
       _videos[vid]._videoCache=NULL;
     }
 
-  memset (_videos, 0, sizeof (_videos));
+  memset(_videos, 0, sizeof(_VIDEOS) * max_videos);
   
   
   if(_imageBuffer)
@@ -261,8 +266,26 @@ uint8_t ADM_Composer::addFile (const char *name, uint8_t mode,fileType forcedTyp
 
 UNUSED_ARG(mode);
 	_haveMarkers=0; // by default no markers are present
+
+  if (_nb_video == (max_videos - 1))
+  {
+	  max_videos += MAX_VIDEO;
+	  printf("extending max_videos: %i\n", max_videos);
+
+	  _VIDEOS *vid = new _VIDEOS[max_videos];
+
+	  memset(vid, 0, sizeof(_VIDEOS) * max_videos);
+	  memcpy(vid, _videos, sizeof(_VIDEOS) * (max_videos - MAX_VIDEO));
+
+	  delete _videos;
+	  _videos = vid;
+  }
+
+  if (_nb_segment == max_seg - 1)
+	  extendSegmentBuffer();
+
   ADM_assert (_nb_segment < max_seg);
-  ADM_assert (_nb_video < MAX_VIDEO);
+  ADM_assert (_nb_video < max_videos);
 
   // Autodetect file type ?
   if(Unknown_FileType==type)
@@ -853,6 +876,20 @@ uint8_t ADM_Composer::cleanup (void)
 
   return 1;
 }
+
+void ADM_Composer::extendSegmentBuffer()
+{
+	max_seg += MAX_SEG;
+
+	_SEGMENT *s = new _SEGMENT[max_seg];
+
+	memset(s, 0, sizeof(_SEGMENT) * max_seg);
+	memcpy(s, _segments, sizeof(_SEGMENT) * (max_seg - MAX_SEG));
+
+	delete _segments;
+	_segments = s;
+}
+
 /*
         param:
                 source : source #
@@ -862,16 +899,9 @@ uint8_t ADM_Composer::cleanup (void)
 uint8_t ADM_Composer::addSegment(uint32_t source,uint32_t start, uint32_t nb)
 {
         // do some sanity check
-        if(_nb_segment==max_seg-1)
-	{
-	   _SEGMENT *s;
-            max_seg += MAX_SEG;
-            s = new _SEGMENT[max_seg];
-            memset (s, 0, sizeof(_SEGMENT)*max_seg);
-            memcpy(s,_segments,sizeof(_SEGMENT)*(max_seg-MAX_SEG));
-            delete _segments;
-            _segments = s;
-        }
+        if (_nb_segment == max_seg - 1)
+			extendSegmentBuffer();
+
         if(_nb_video<=source)
         {
                 printf("[editor]: No such source %d/%d\n",source,_nb_video);
