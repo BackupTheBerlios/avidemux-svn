@@ -1,8 +1,8 @@
-*** libavcodec/avcodec.h.old	Sat Jan 23 11:31:04 2010
---- libavcodec/avcodec.h	Sat Jan 23 11:31:05 2010
+*** libavcodec/avcodec.h.old	Mon Feb 15 19:01:58 2010
+--- libavcodec/avcodec.h	Mon Feb 15 19:01:58 2010
 ***************
-*** 584,589 ****
---- 584,591 ----
+*** 589,594 ****
+--- 589,596 ----
   #define CODEC_FLAG2_NON_LINEAR_QUANT 0x00010000 ///< Use MPEG-2 nonlinear quantizer.
   #define CODEC_FLAG2_BIT_RESERVOIR 0x00020000 ///< Use a bit reservoir when encoding if possible
   #define CODEC_FLAG2_MBTREE        0x00040000 ///< Use macroblock tree ratecontrol (x264 only)
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1450,1455 ****
---- 1452,1458 ----
+*** 1457,1462 ****
+--- 1459,1465 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1464,1469 ****
---- 1467,1474 ----
+*** 1471,1476 ****
+--- 1474,1481 ----
        * - decoding: unused
        */
       int rc_buffer_size;
