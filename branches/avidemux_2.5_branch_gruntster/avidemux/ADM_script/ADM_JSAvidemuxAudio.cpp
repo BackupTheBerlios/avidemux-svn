@@ -33,8 +33,8 @@ JSPropertySpec ADM_JSAvidemuxAudio::properties[] = {
         { "process", audioprocess_prop, JSPROP_ENUMERATE },        // process audio when saving
         { "resample", resample_prop, JSPROP_ENUMERATE },	// resample
         { "delay", delay_prop, JSPROP_ENUMERATE },	// set audio delay
-        { "film2Pal", film2pal_prop, JSPROP_ENUMERATE },	// convert film to pal
-        { "pal2Film", pal2film_prop, JSPROP_ENUMERATE },	// convert pal to film
+        { "film2pal", film2pal_prop, JSPROP_ENUMERATE },	// convert film to pal
+        { "pal2film", pal2film_prop, JSPROP_ENUMERATE },	// convert pal to film
         { "normalizeMode", normalizemode_prop, JSPROP_ENUMERATE },	//
         { "drc", drc_prop, JSPROP_ENUMERATE },	//
         { "normalizeValue", normalizevalue_prop, JSPROP_ENUMERATE },	//
