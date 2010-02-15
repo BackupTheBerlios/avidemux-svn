@@ -1,5 +1,29 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="5869" date="2010-01-23">
+    <comment>Updated GLib to version 2.22.4-1.</comment>
+    <comment>Updated Qt to version 4.6.1.</comment>
+    <comment>Updated x264 to r1400.</comment>
+  </buildentry>
+  <buildentry revision="5830" date="2010-01-07">
+    <comment>Compiled with GCC 4.4.3 pre-release (r155431).</comment>
+  </buildentry>
+  <buildentry revision="5810" date="2010-01-02">
+  </buildentry>
+  <buildentry revision="5801" date="2009-12-31">
+  </buildentry>
+  <buildentry revision="5775" date="2009-12-29">
+  </buildentry>
+  <buildentry revision="5747" date="2009-12-28">
+  </buildentry>
+  <buildentry revision="5676" date="2009-12-20">
+    <comment>Packaged using NSIS 2.46.</comment>
+    <comment>Updated GTK+ to version 2.18.5-1.</comment>
+    <comment>Updated libpng to version 1.2.40-1.</comment>
+    <comment>Updated Pango to version 1.26.1-1.</comment>
+    <comment>Updated Qt to version 4.6.0.</comment>
+    <comment>Updated x264 to r1376.</comment>
+  </buildentry>
   <buildentry revision="5660 [2.5.2 Final]" date="2009-12-19">
   </buildentry>
   <buildentry revision="5636 [2.5.2 RC1]" date="2009-12-12">
