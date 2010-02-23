@@ -540,7 +540,7 @@ int Mpeg2Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 
 	int ret = AvcodecEncoder::encodeFrame(encodeParams);
 
-	if (_context->stats_out)
+	if (_context->stats_out && _statFile)
 		fprintf (_statFile, "%s", _context->stats_out);
 
 	if (_options.getXvidRateControl() && encodeParams->encodedDataSize && (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR))
