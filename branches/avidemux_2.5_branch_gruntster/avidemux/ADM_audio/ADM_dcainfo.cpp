@@ -10,15 +10,15 @@
 //
 //
 
-#include "config.h"
 #include <stdio.h>
 #include "ADM_default.h"
 #include "ADM_audio/ADM_dcainfo.h"
 
 extern "C"
 {
-#define INT_BIT (CHAR_BIT * sizeof(int))
+#include "ADM_libraries/ffmpeg/config.h"
 #include "libavcodec/get_bits.h"
+#undef printf
 }
 
 #include "ADM_assert.h"

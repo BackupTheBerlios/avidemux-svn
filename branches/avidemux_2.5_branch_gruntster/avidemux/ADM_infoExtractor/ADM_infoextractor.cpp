@@ -11,8 +11,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
-
 #include "ADM_default.h"
 #include "ADM_editor/ADM_Video.h"
 
@@ -26,9 +24,10 @@
 
 extern "C"
 {
-#define INT_BIT (CHAR_BIT * sizeof(int))
+#include "ADM_libraries/ffmpeg/config.h"
 #include "libavcodec/get_bits.h"
 #include "libavcodec/golomb.h"
+#undef printf
 }
 
 #include "ADM_infoExtractor/ADM_h264_tag.h"

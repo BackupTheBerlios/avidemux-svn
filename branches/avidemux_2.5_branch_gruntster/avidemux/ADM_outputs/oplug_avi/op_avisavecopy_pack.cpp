@@ -16,11 +16,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 #include "config.h"
+
+extern "C"
+{
+#include "ADM_libraries/ffmpeg/config.h"
+#include "libavcodec/put_bits.h"
+#undef printf
+}
+
 #include "ADM_default.h"
 #include "ADM_threads.h"
-
 
 #include "fourcc.h"
 #include "avi_vars.h"
@@ -330,13 +336,6 @@ void updateUserData(uint8_t *start, uint32_t len)
         1*0 : Vop coded
 
 */
-extern "C"
-{
-#undef av_always_inline
-#define av_always_inline inline
-#define INT_BIT (CHAR_BIT * sizeof(int))
-#include "libavcodec/put_bits.h"
-}
 void putNvop(ADMBitstream *data,uint32_t timebits, uint32_t timeincval)
 {
   ADM_assert(data->data[0]==0);

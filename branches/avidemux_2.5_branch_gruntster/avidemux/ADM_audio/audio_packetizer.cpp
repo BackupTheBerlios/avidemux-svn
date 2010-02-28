@@ -17,8 +17,6 @@ Split a stream into packet(s)
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

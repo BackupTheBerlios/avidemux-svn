@@ -5,3 +5,4 @@ SET(ADM_oplug_avi_SRCS
 include_directories("${PTHREAD_INCLUDE_DIR}")
 
 ADD_ADM_LIB_ALL_TARGETS(oplug_avi ${ADM_oplug_avi_SRCS})
+ADD_SOURCE_CFLAGS(op_avisavecopy_pack.cpp "-I${CMAKE_BINARY_DIR}/avidemux -DHAVE_AV_CONFIG_H")

@@ -18,21 +18,15 @@
 #include <sstream>
 #include <string>
 
-#include "config.h"
 #include "ADM_default.h"
 #include "ADM_threads.h"
 
-#ifdef USE_FFMPEG
 extern "C" {
 	#include "ADM_lavcodec.h"
-};
-#endif
+}
 
 #include "fourcc.h"
 #include "avi_vars.h"
-#ifdef HAVE_ENCODER
-
-
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_audiofilter/audioprocess.hxx"
 
@@ -396,4 +390,3 @@ GenericAviSaveSmart::stopEncoder (void)
 	return 1;
 }
 
-#endif

@@ -21,7 +21,6 @@
 //#include <stream.h>
 #include "ADM_assert.h"
 #include <math.h>
-#include "config.h"
 
 #include "avifmt.h"
 #include "aviaudio.hxx"

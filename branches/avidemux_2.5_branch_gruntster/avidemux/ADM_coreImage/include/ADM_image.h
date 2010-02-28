@@ -26,7 +26,7 @@
 #include "ADM_rgb.h"
 
 extern "C" {
-#include "libavutil/avutil.h"
+#include "libavutil/pixfmt.h"
 }
 
 typedef enum 
