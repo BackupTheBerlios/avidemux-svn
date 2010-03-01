@@ -88,6 +88,33 @@ AUDMEncoder_Aften::AUDMEncoder_Aften(AUDMAudioFilter * instream)  :AUDMEncoder  
 #else
   _HANDLE->system.n_threads=1;
 #endif
+
+#define ADM_CH_(XX) CHTYP_##XX
+  switch(channels)
+  {
+    case 1:
+        outputChannelMapping[1] = ADM_CH_(FRONT_LEFT);
+        break;
+    case 2:
+        outputChannelMapping[0] = ADM_CH_(FRONT_LEFT);
+        outputChannelMapping[1] = ADM_CH_(FRONT_RIGHT);
+      break;
+    default :
+
+    CHANNEL_TYPE *f=outputChannelMapping;
+
+        *f++ = ADM_CH_(FRONT_LEFT);
+        *f++ = ADM_CH_(FRONT_CENTER);
+        *f++ = ADM_CH_(FRONT_RIGHT);
+
+        *f++ = ADM_CH_(REAR_LEFT);
+        *f++ = ADM_CH_(REAR_RIGHT);
+
+        *f++ = ADM_CH_(LFE);
+        break;
+  }
+
+
 };
 
 /**
@@ -176,13 +203,7 @@ _again:
         }
         ptr=(void *)&(tmpbuffer[tmphead]);
         ADM_assert(tmptail>=tmphead);
-
-#ifdef USE_AFTEN_05
-		aften_remap_wav_to_a52(ptr, 256*6, _wavheader->channels, A52_SAMPLE_FMT_FLT, _HANDLE->acmod, _HANDLE->lfe);
-#else
-		aften_remap_wav_to_a52(ptr, 256*6, _wavheader->channels, A52_SAMPLE_FMT_FLT, _HANDLE->acmod);
-#endif
-
+        reorderChannels(&(tmpbuffer[tmphead]),256*6,_incoming->getChannelMapping(),outputChannelMapping);
         r=aften_encode_frame(_HANDLE, dest,(void *)ptr
 #ifdef USE_AFTEN_08_SVN
             ,256*6
