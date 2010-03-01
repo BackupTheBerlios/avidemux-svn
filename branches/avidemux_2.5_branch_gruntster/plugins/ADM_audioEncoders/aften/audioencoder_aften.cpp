@@ -183,7 +183,11 @@ _again:
 		aften_remap_wav_to_a52(ptr, 256*6, _wavheader->channels, A52_SAMPLE_FMT_FLT, _HANDLE->acmod);
 #endif
 
-        r=aften_encode_frame(_HANDLE, dest,(void *)ptr);
+        r=aften_encode_frame(_HANDLE, dest,(void *)ptr
+#ifdef USE_AFTEN_08_SVN
+            ,256*6
+#endif
+        );
         if(r<0)
         {
           printf("[Aften] Encoding error %d\n",r);

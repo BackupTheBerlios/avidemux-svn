@@ -36,6 +36,7 @@
 #cmakedefine USE_AFTEN
 #cmakedefine USE_AFTEN_07	// 0.07
 #cmakedefine USE_AFTEN_08	// 0.0.8
+#cmakedefine USE_AFTEN_08_SVN	// 0.0.8_svn
 
 #if ${CONFIG_HEADER_TYPE} == ADM_BUILD_GTK || ${CONFIG_HEADER_TYPE} == ADM_BUILD_QT4
 /* aRts detected */

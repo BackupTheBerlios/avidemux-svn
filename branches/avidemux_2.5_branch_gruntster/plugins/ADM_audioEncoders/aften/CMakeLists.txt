@@ -7,6 +7,12 @@
 	TARGET_LINK_LIBRARIES(ADM_ae_aften ${AFTEN_LIBRARY_DIR} ADM_core ADM_coreAudio ADM_coreUI)
 
 	ADD_TARGET_CFLAGS(ADM_ae_aften "-I${AFTEN_INCLUDE_DIR}")
+        if(USE_AFTEN_08_SVN)
+                ADD_DEFINITIONS(-DUSE_AFTEN_08_SVN)
+        endif(USE_AFTEN_08_SVN)
+        if(USE_AFTEN_08)
+                ADD_DEFINITIONS(-DUSE_AFTEN_08)
+        endif(USE_AFTEN_08)
 
 	INIT_AUDIO_ENCODER(ADM_ae_aften)
 	INSTALL_AUDIOENCODER(ADM_ae_aften)
