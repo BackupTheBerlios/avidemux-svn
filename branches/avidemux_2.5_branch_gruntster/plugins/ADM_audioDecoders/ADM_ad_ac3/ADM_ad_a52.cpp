@@ -136,6 +136,7 @@ uint8_t ADM_AudiocodecAC3::run(uint8_t *inptr, uint32_t nbIn, float *outptr,   u
 			*(p_ch_type++) = CHTYP_LFE;
 		}
 		switch (flags & A52_CHANNEL_MASK) {
+			case A52_CHANNEL:
 			case A52_MONO:
 				*(p_ch_type++) = CHTYP_MONO;
 			break;
