@@ -1,5 +1,5 @@
-*** libavformat/flvenc.c.old	Tue Nov 24 18:58:08 2009
---- libavformat/flvenc.c	Tue Nov 24 18:58:08 2009
+*** libavformat/flvenc.c.old	Sat Mar 27 20:05:43 2010
+--- libavformat/flvenc.c	Sat Mar 27 20:05:43 2010
 ***************
 *** 406,412 ****
       "video/x-flv",
@@ -20,11 +20,13 @@
       CODEC_ID_ADPCM_SWF,
 ***************
 *** 418,420 ****
---- 419,427 ----
+--- 419,429 ----
       .codec_tag= (const AVCodecTag* const []){flv_video_codec_ids, flv_audio_codec_ids, 0},
       .flags= AVFMT_GLOBALHEADER | AVFMT_VARIABLE_FPS,
   };
 + // MEANX
++ int flvenc_init(void);
++ 
 + int flvenc_init(void)
 + {
 +     av_register_output_format(&flv_muxer);

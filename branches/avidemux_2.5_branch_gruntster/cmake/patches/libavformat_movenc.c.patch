@@ -1,12 +1,14 @@
-*** libavformat/movenc.c.old	Thu Jan  7 19:26:12 2010
---- libavformat/movenc.c	Thu Jan  7 19:26:12 2010
+*** libavformat/movenc.c.old	Sat Mar 27 20:05:46 2010
+--- libavformat/movenc.c	Sat Mar 27 20:05:46 2010
 ***************
-*** 2138,2140 ****
---- 2138,2152 ----
+*** 2140,2142 ****
+--- 2140,2156 ----
       .codec_tag = (const AVCodecTag* const []){codec_ipod_tags, 0},
   };
   #endif
 + /* MEANX */
++ int movenc_init(void);
++ 
 + int movenc_init(void)
 + {
 +     av_register_output_format(&mov_muxer);

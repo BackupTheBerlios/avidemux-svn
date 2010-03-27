@@ -1,12 +1,14 @@
-*** libavcodec/h263dec.c.old	Sun Jan 17 19:05:15 2010
---- libavcodec/h263dec.c	Sun Jan 17 19:05:15 2010
+*** libavcodec/h263dec.c.old	Sat Mar 27 20:05:34 2010
+--- libavcodec/h263dec.c	Sat Mar 27 20:05:34 2010
 ***************
 *** 119,124 ****
---- 119,141 ----
+--- 119,143 ----
   
       return 0;
   }
 + /* MeanX : Ugly patch to detect vo ppacked stuff ... */
++ int av_is_voppacked(AVCodecContext *avctx, int *vop_packed, int *gmc, int *qpel);
++ 
 + int av_is_voppacked(AVCodecContext *avctx, int *vop_packed, int *gmc, int *qpel)
 + {
 +     MpegEncContext *s = avctx->priv_data;
@@ -28,7 +30,7 @@
   {
 ***************
 *** 414,419 ****
---- 431,442 ----
+--- 433,444 ----
       } else {
           ret = h263_decode_picture_header(s);
       }
@@ -43,7 +45,7 @@
   
 ***************
 *** 707,712 ****
---- 730,743 ----
+--- 732,745 ----
   
   assert(s->current_picture.pict_type == s->current_picture_ptr->pict_type);
   assert(s->current_picture.pict_type == s->pict_type);

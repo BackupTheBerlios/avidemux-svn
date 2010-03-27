@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 22111)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=35b04ac6a5ed6d7e4c7db1945dae4d061ca5000b;sf=tgz
-set(SWSCALE_VERSION 30800)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=9f92a66140e3ecd928be9f3359a4560c491c5047;sf=tgz
+set(FFMPEG_VERSION 22703)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=bb116bdcfc2d1059af8475e861c6998c688cb55b;sf=tgz
+set(SWSCALE_VERSION 30970)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=efc190382dc560b47ab559ff6ecdce77dbc0c1e7;sf=tgz
 
 set(LIBRARY_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries")
 set(FFMPEG_SOURCE_DIR "${LIBRARY_SOURCE_DIR}/ffmpeg")

@@ -1,8 +1,8 @@
-*** libavcodec/mpeg12.c.old	Sat Dec 19 22:15:50 2009
---- libavcodec/mpeg12.c	Sat Dec 19 22:15:50 2009
+*** libavcodec/mpeg12.c.old	Sat Mar 27 20:05:36 2010
+--- libavcodec/mpeg12.c	Sat Mar 27 20:05:36 2010
 ***************
-*** 1946,1951 ****
---- 1946,1956 ----
+*** 1948,1953 ****
+--- 1948,1958 ----
           ff_er_frame_end(s);
   
           MPV_frame_end(s);
