@@ -18,6 +18,7 @@
 
 #include "ADM_inttype.h"
 #include "mpeg2Encoder.h"
+#include "format_codes.h"
 
 extern int _uiType;
 static bool changedConfig(const char* fileName, ConfigMenuType configType);
@@ -72,6 +73,10 @@ int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 {
 	loadSettings(&_encodeOptions, &_options);
 
+	diaMenuEntry streamM[] = {		
+		{0, "DVD"},
+		{1, "Super Video CD"}};
+
 	diaMenuEntry wideM[] = {
 		{0, "4:3"},
 		{1, "16:9"}};
@@ -91,11 +96,11 @@ int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
 	diaElemUInteger ctlMaxb(&_maxBitrate, "Ma_x. bitrate:", 100, 9000);
+	diaElemMenu ctlStreamType(&_streamType, "Stream _type:", 2, streamM);
 	diaElemMenu ctlWidescreen(&_widescreen, "Aspect _ratio:", 2, wideM);
 	diaElemMenu ctlMatrix(&_userMatrix, "_Matrices:", 4, matrixM);
-	diaElemUInteger ctlGop(&_gopSize, "_GOP size:", 1, 30);
 	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
-	diaElem *elmGeneral[6]= {&ctlBitrate, &ctlMaxb, &ctlWidescreen, &ctlInterW, &ctlMatrix, &ctlGop};
+	diaElem *elmGeneral[6] = {&ctlBitrate, &ctlMaxb, &ctlStreamType, &ctlWidescreen, &ctlInterW, &ctlMatrix};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 6);
@@ -133,7 +138,7 @@ void Mpeg2Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg2Options *opti
 		_widescreen = options->getWidescreen();
 		_interlaced = options->getInterlaced();
 		_userMatrix = options->getMatrix();
-		_gopSize = options->getGopSize();
+		_streamType = options->getStreamType();
 
 		updateEncodeProperties(encodeOptions);
 	}
@@ -171,7 +176,7 @@ void Mpeg2Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg2Options *opti
 	options->setWidescreen(_widescreen);
 	options->setInterlaced((Mpeg2InterlacedMode)_interlaced);
 	options->setMatrix((Mpeg2MatrixMode)_userMatrix);
-	options->setGopSize(_gopSize);
+	options->setStreamType((Mpeg2StreamTypeMode)_streamType);
 }
 
 bool changedConfig(const char* configName, ConfigMenuType configType)
@@ -272,19 +277,80 @@ int Mpeg2Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOpt
 		return ADM_VIDENC_ERR_FAILED;
 }
 
+int Mpeg2Encoder::open(vidEncVideoProperties *properties)
+{
+	int ret = Mpeg2encEncoder::open(properties);
+
+	switch (_options.getMatrix())
+	{
+		case MPEG2_MATRIX_TMPGENC:
+			_param.hf_quant = 4;
+			break;
+		case MPEG2_MATRIX_KVCD:
+			_param.hf_quant = 3;
+			break;
+		default:
+			_param.hf_quant = 0;
+	}
+
+	if(_options.getWidescreen())
+		_param.aspect_ratio = 3;
+	else
+		_param.aspect_ratio = 2;
+
+	if (_options.getInterlaced() == MPEG2_INTERLACED_NONE)
+	{
+		_param.fieldenc = 0;
+	}
+	else
+	{
+		_param.fieldenc = 1;
+
+		if (_options.getInterlaced() == MPEG2_INTERLACED_BFF)
+			_param.input_interlacing = 2;
+		else
+			_param.input_interlacing = 1;
+	}
+
+	if (_options.getMaxBitrate() == 0)
+	{
+		_param.bitrate = 50000000;
+		_param.ignore_constraints = 1;
+	}
+	else
+		_param.bitrate = _options.getMaxBitrate() * 1000;
+
+	if (_options.getStreamType() == MPEG2_STREAMTYPE_SVCD)
+		_param.format = MPEG_FORMAT_SVCD;
+	else
+		_param.format = MPEG_FORMAT_DVD;
+
+	if (((_fpsNum * 1000) / _fpsDen) == 25000) // PAL
+		_param.min_GOP_size = _param.max_GOP_size = 15;
+	else
+		_param.min_GOP_size = _param.max_GOP_size = 18;
+
+	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
+		_param.quant = _encodeOptions.encodeModeParameter;
+	else
+		_param.quant = 0;
+
+	return ret;
+}
+
 int Mpeg2Encoder::beginPass(vidEncPassParameters *passParameters)
 {
-
+	return Mpeg2encEncoder::beginPass(passParameters);
 }
 
 int Mpeg2Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 {
-
+	return Mpeg2encEncoder::encodeFrame(encodeParams);
 }
 
 int Mpeg2Encoder::finishPass(void)
 {
-
+	return Mpeg2encEncoder::finishPass();
 }
 
 void Mpeg2Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)

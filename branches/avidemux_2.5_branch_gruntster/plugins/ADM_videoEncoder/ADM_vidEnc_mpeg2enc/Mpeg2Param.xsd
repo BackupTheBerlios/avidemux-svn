@@ -48,6 +48,14 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="widescreen" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="streamType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="dvd"/>
+                    <xs:enumeration value="svcd"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="interlaced" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -62,16 +70,7 @@
                   <xs:restriction base="xs:string">
                     <xs:enumeration value="default"/>
                     <xs:enumeration value="tmpgenc"/>
-                    <xs:enumeration value="anime"/>
                     <xs:enumeration value="kvcd"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="gopSize" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:integer">
-                    <xs:minInclusive value="1"/>
-                    <xs:maxInclusive value="30"/>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -39,17 +39,23 @@ typedef enum
 {
 	MPEG2_MATRIX_DEFAULT,
 	MPEG2_MATRIX_TMPGENC,
-	MPEG2_MATRIX_ANIME,
 	MPEG2_MATRIX_KVCD
 } Mpeg2MatrixMode;
+
+typedef enum
+{
+	MPEG2_STREAMTYPE_DVD,
+	MPEG2_STREAMTYPE_SVCD
+} Mpeg2StreamTypeMode;
 
 class Mpeg2Options : public PluginOptions
 {
 protected:
-	unsigned int _maxBitrate, _gopSize;
+	unsigned int _maxBitrate;
 	bool _widescreen;
 	Mpeg2InterlacedMode _interlaced;
 	Mpeg2MatrixMode _matrix;
+	Mpeg2StreamTypeMode _streamType;
 
 	void addOptionsToXml(xmlNodePtr xmlNodeRoot);
 	void parseOptions(xmlNode *node);
@@ -70,8 +76,8 @@ public:
 	Mpeg2MatrixMode getMatrix(void);
 	void setMatrix(Mpeg2MatrixMode matrix);
 
-	unsigned int getGopSize(void);
-	void setGopSize(unsigned int gopSize);
+	Mpeg2StreamTypeMode getStreamType(void);
+	void setStreamType(Mpeg2StreamTypeMode streamType);
 };
 
 #endif	// mpeg2Options_h

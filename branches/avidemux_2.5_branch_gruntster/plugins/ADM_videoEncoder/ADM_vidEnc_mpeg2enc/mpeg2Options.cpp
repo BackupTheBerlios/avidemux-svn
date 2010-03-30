@@ -41,10 +41,10 @@ void Mpeg2Options::reset(void)
 	PluginOptions::reset();
 
 	setMaxBitrate(2500);
+	setStreamType(MPEG2_STREAMTYPE_DVD);
 	setWidescreen(false);
 	setInterlaced(MPEG2_INTERLACED_NONE);
 	setMatrix(MPEG2_MATRIX_DEFAULT);
-	setGopSize(12);
 }
 
 unsigned int Mpeg2Options::getMaxBitrate(void)
@@ -86,19 +86,19 @@ Mpeg2MatrixMode Mpeg2Options::getMatrix(void)
 
 void Mpeg2Options::setMatrix(Mpeg2MatrixMode matrix)
 {
-	if (matrix == MPEG2_MATRIX_DEFAULT || matrix == MPEG2_MATRIX_TMPGENC || matrix == MPEG2_MATRIX_ANIME || matrix == MPEG2_MATRIX_KVCD)
+	if (matrix == MPEG2_MATRIX_DEFAULT || matrix == MPEG2_MATRIX_TMPGENC || matrix == MPEG2_MATRIX_KVCD)
 		_matrix = matrix;
 }
 
-unsigned int Mpeg2Options::getGopSize(void)
+Mpeg2StreamTypeMode Mpeg2Options::getStreamType(void)
 {
-	return _gopSize;
+	return _streamType;
 }
 
-void Mpeg2Options::setGopSize(unsigned int gopSize)
+void Mpeg2Options::setStreamType(Mpeg2StreamTypeMode streamType)
 {
-	if (gopSize >= 1 && gopSize <= 30)
-		_gopSize = gopSize;
+	if (streamType == MPEG2_STREAMTYPE_DVD || streamType == MPEG2_STREAMTYPE_SVCD)
+		_streamType = streamType;
 }
 
 void Mpeg2Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
@@ -110,6 +110,18 @@ void Mpeg2Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxBitrate", number2String(xmlBuffer, bufferSize, getMaxBitrate()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"widescreen", boolean2String(xmlBuffer, bufferSize, getWidescreen()));
+
+	switch (getStreamType())
+	{
+		case MPEG2_STREAMTYPE_SVCD:
+			strcpy((char*)xmlBuffer, "svcd");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "dvd");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"streamType", xmlBuffer);
 
 	switch (getInterlaced())
 	{
@@ -131,9 +143,6 @@ void Mpeg2Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 		case MPEG2_MATRIX_TMPGENC:
 			strcpy((char*)xmlBuffer, "tmpgenc");
 			break;
-		case MPEG2_MATRIX_ANIME:
-			strcpy((char*)xmlBuffer, "anime");
-			break;
 		case MPEG2_MATRIX_KVCD:
 			strcpy((char*)xmlBuffer, "kvcd");
 			break;
@@ -141,8 +150,6 @@ void Mpeg2Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 			strcpy((char*)xmlBuffer, "default");
 			break;
 	}
-
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopSize", number2String(xmlBuffer, bufferSize, getGopSize()));
 }
 
 void Mpeg2Options::parseOptions(xmlNode *node)
@@ -157,6 +164,15 @@ void Mpeg2Options::parseOptions(xmlNode *node)
 				setMaxBitrate(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "widescreen") == 0)
 				setWidescreen(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "streamType") == 0)
+			{
+				Mpeg2StreamTypeMode mode = MPEG2_STREAMTYPE_DVD;
+
+				if (strcmp(content, "svcd") == 0)
+					mode = MPEG2_STREAMTYPE_SVCD;
+
+				setStreamType(mode);
+			}
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
 			{
 				Mpeg2InterlacedMode mode = MPEG2_INTERLACED_NONE;
@@ -174,15 +190,11 @@ void Mpeg2Options::parseOptions(xmlNode *node)
 
 				if (strcmp(content, "tmpgenc") == 0)
 					mode = MPEG2_MATRIX_TMPGENC;
-				else if (strcmp(content, "anime") == 0)
-					mode = MPEG2_MATRIX_ANIME;
 				else if (strcmp(content, "kvcd") == 0)
 					mode = MPEG2_MATRIX_KVCD;
 
 				setMatrix(mode);
 			}
-			else if (strcmp((char*)xmlChild->name, "gopSize") == 0)
-				setGopSize(atoi(content));
 
 			xmlFree(content);
 		}

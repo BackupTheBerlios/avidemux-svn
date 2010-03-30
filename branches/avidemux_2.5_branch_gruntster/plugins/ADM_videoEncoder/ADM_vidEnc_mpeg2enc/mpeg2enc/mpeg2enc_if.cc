@@ -104,6 +104,55 @@ void feedOneFrame(char *y, char *u,char *v);
 static  int fedPictures=0;
 /* MeanX stuff */
  unsigned char *mpeg2enc_buffer=NULL;
+
+void printParams(mpeg2parm *param)
+{
+	printf("format: %d\n", param->format);
+	printf("bitrate: %d\n", param->bitrate);
+	printf("nonvid_bitrate: %d\n", param->nonvid_bitrate);
+	printf("quant: %d\n", param->quant);
+	printf("searchrad: %d\n", param->searchrad);
+	printf("mpeg: %d\n", param->mpeg);
+	printf("aspect_ratio: %d\n", param->aspect_ratio);
+	printf("frame_rate: %d\n", param->frame_rate);
+	printf("fieldenc: %d\n", param->fieldenc);
+
+	printf("norm: %d\n", param->norm);
+	printf("_44_red: %d\n", param->_44_red);
+	printf("_22_red: %d\n", param->_22_red);
+	printf("hf_quant: %d\n", param->hf_quant);
+	printf("hf_q_boost: %f\n", param->hf_q_boost);
+	printf("act_boost: %f\n", param->act_boost);
+	printf("boost_var_ceil: %f\n", param->boost_var_ceil);
+	printf("video_buffer_size: %d\n", param->video_buffer_size);
+	printf("seq_length_limit: %d\n", param->seq_length_limit);
+	printf("min_GOP_size: %d\n", param->min_GOP_size);
+	printf("max_GOP_size: %d\n", param->max_GOP_size);
+	printf("closed_GOPs: %d\n", param->closed_GOPs);
+	printf("preserve_B: %d\n", param->preserve_B);
+	printf("Bgrp_size: %d\n", param->Bgrp_size);
+	printf("num_cpus: %d\n", param->num_cpus);
+	printf("_32_pulldown: %d\n", param->_32_pulldown);
+	printf("svcd_scan_data: %d\n", param->svcd_scan_data);
+	printf("seq_hdr_every_gop: %d\n", param->seq_hdr_every_gop);
+	printf("seq_end_every_gop: %d\n", param->seq_end_every_gop);
+	printf("still_size: %d\n", param->still_size);
+	printf("pad_stills_to_vbv_buffer_size: %d\n", param->pad_stills_to_vbv_buffer_size);
+	printf("vbv_buffer_still_size: %d\n", param->vbv_buffer_still_size);
+	printf("force_interlacing: %d\n", param->force_interlacing);
+
+	printf("input_interlacing: %d\n", param->input_interlacing);
+	printf("hack_svcd_hds_bug: %d\n", param->hack_svcd_hds_bug);
+	printf("hack_altscan_bug: %d\n", param->hack_altscan_bug);
+	printf("mpeg2_dc_prec: %d\n", param->mpeg2_dc_prec);
+	printf("ignore_constraints: %d\n", param->ignore_constraints);
+	
+	//printf("custom_intra_quantizer_matrix[64];
+	//printf("custom_nonintra_quantizer_matrix[64];
+
+	printf("noPadding: %d\n", param->noPadding);
+}
+
 int mpegenc_init(mpeg2parm *incoming,int  width, int  height, int  fps1000)
 {
 /*
@@ -230,6 +279,9 @@ mb_per_pict=0;
 	putseq_init();
 	aprintf("opt->enc_height2 :%d opt->enc_width: %d opt->enc_height2:%d \n",
 		opt->enc_height2,opt->enc_width,opt->enc_height);
+
+	//printParams(param);
+
 	return 1;
 }
 int mpegenc_encode(  char *in,   char *out, int *size,int *flags,int *quant)
@@ -258,18 +310,8 @@ int mpegenc_encode(  char *in,   char *out, int *size,int *flags,int *quant)
 		#warning : Approximate..
 		*quant=map_non_linear_mquant[*quant];
 		*size=mpeg2enc_buffer-(unsigned char *)out;
-		switch(type)
-		{
-			case I_TYPE:
-						*flags=AVI_KEY_FRAME;
-						break;
-			case B_TYPE:
-						*flags=AVI_B_FRAME;
-						break;
-			default:
-						*flags=0;
-						break;
-		}
+		*flags = type;
+
 		return 1;
 
 }

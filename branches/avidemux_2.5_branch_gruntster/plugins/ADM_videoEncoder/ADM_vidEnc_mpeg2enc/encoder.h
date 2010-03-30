@@ -25,6 +25,8 @@ extern "C"
 	#include "ADM_vidEnc_plugin.h"
 }
 
+#include "mpeg2parm.h"
+
 class Mpeg2encEncoder
 {
 	protected:
@@ -34,6 +36,14 @@ class Mpeg2encEncoder
 
 		int _currentPass, _passCount;
 		bool _opened, _openPass;
+
+		uint8_t *_buffer;
+		int _bufferSize;
+
+		vidEncOptions _encodeOptions;
+		mpeg2parm _param;
+
+		int getFrameType(int flags);
 
 	public:
 		virtual ~Mpeg2encEncoder(void);

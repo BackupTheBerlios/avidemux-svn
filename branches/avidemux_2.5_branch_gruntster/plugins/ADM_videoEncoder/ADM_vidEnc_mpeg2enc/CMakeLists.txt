@@ -4,7 +4,7 @@ INCLUDE(admPluginVideoEncoder)
 add_subdirectory(mpeg2enc)
 SET(ADM_vidEnc_mpeg2enc_SRCS  interface.c  encoder.cpp  mpeg2Encoder.cpp  mpeg2Options.cpp)
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR} ../common/pluginOptions ../common/xvidRateCtl)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${LIBXML2_INCLUDE_DIR} ../common/pluginOptions ../common/xvidRateCtl mpeg2enc)
 ADD_DEFINITIONS(${LIBXML2_DEFINITIONS} -DMPEG2_PLUGIN_CONFIG_DIR="mpegenc")
 
 ADD_LIBRARY(ADM_vidEnc_mpeg2enc SHARED ${ADM_vidEnc_mpeg2enc_SRCS})

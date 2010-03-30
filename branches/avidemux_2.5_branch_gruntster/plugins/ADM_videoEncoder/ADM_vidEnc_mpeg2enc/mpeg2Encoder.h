@@ -31,13 +31,12 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 {
 	private:
 		COMPRES_PARAMS _bitrateParam;
-		unsigned int _maxBitrate, _widescreen, _interlaced, _userMatrix, _gopSize;
+		unsigned int _maxBitrate, _streamType, _widescreen, _interlaced, _userMatrix;
 
 		char configName[PATH_MAX];
 		ConfigMenuType configType;
 
 		Mpeg2Options _options;
-		vidEncOptions _encodeOptions;
 		vidEncVideoProperties _properties;
 
 		int _bufferSize;
@@ -58,6 +57,7 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg2Options *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
+		int open(vidEncVideoProperties *properties);
 		int beginPass(vidEncPassParameters *passParameters);
 		int encodeFrame(vidEncEncodeParameters *encodeParams);
 		int finishPass(void);
