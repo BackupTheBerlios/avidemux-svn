@@ -654,7 +654,8 @@ dmxIndex *idx;
 
         if(framenum>=_nbFrames) return 0;
         
-        img->flags=getFlags(framenum,&f);
+        if(!getFlags(framenum,&f)) return 0;
+        img->flags=f;
 
         idx=&(_index[framenum]);
         img->dataLength=idx->size;
