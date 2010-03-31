@@ -441,7 +441,8 @@ char     *globalGlyphName=NULL;
                 prefs->set(FEATURE_TRYAUTOIDX, useAutoIndex);
                 // Auto swap A/B
                 prefs->set(FEATURE_SWAP_IF_A_GREATER_THAN_B, useSwap);
-
+                //
+                prefs->set(MESSAGE_LEVEL,msglevel);
                 // Disable nuv sync
                 prefs->set(FEATURE_DISABLE_NUV_RESYNC, useNuv);
                 // Use tray while encoding
