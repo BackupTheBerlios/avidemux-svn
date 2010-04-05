@@ -81,11 +81,19 @@ static COMPRES_PARAMS* getCodecParamFromTag(    SelectCodecType tag)
 }
 CodecFamilty videoCodecGetFamily(void)
 {
-	if ((currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0) ||
-		(currentCodecType == CodecExternal && strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0))
+	if (currentCodecType == CodecExternal && (
+		strcmp(videoCodecPluginGetGuid(), "85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E") == 0 || // avcodec MPEG-1 plugin
+		strcmp(videoCodecPluginGetGuid(), "DBAECD8B-CF29-4846-AF57-B596427FE7D3") == 0))  // avcodec MPEG-2 plugin
+	{
 		return CodecFamilyXVCD;
-	if (currentCodecType == CodecVCD || currentCodecType == CodecSVCD || currentCodecType == CodecDVD || currentCodecType == CodecRequant)
+	}
+	else if ((currentCodecType == CodecExternal && (
+		strcmp(videoCodecPluginGetGuid(), "056FE919-C1D3-4450-A812-A767EAB07786") == 0 || // mpeg2enc MPEG-1 plugin
+		strcmp(videoCodecPluginGetGuid(), "C16E9CCE-D9B3-4fbe-B0C5-8B1BEBF2178E") == 0)) || // mpeg2enc MPEG-2 plugin
+		currentCodecType == CodecVCD || currentCodecType == CodecSVCD || currentCodecType == CodecDVD || currentCodecType == CodecRequant)
+	{
 		return CodecFamilyMpeg;
+	}
 
 	return CodecFamilyAVI;
 }
