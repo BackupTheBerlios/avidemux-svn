@@ -198,6 +198,8 @@ int Mpeg2Encoder::initContext(const char* logFileName)
 			else
 				ret = ADM_VIDENC_ERR_FAILED;
 		}
+
+		delete [] log;
 	}
 
 	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP || _encodeOptions.encodeMode == ADM_VIDENC_MODE_CBR || 

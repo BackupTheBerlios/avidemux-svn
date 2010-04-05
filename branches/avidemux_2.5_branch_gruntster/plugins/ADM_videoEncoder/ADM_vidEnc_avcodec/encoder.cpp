@@ -159,6 +159,9 @@ extern "C"
 
 void AvcodecEncoder::init(enum CodecID id, int targetColourSpace)
 {
+	avcodec_init();
+    avcodec_register_all();
+
 	_codecId = id;
 	_opened = false;
 
@@ -182,7 +185,12 @@ int AvcodecEncoder::initContext(const char* logFileName)
 
 AVCodec *AvcodecEncoder::getAvCodec(void)
 {
-	return avcodec_find_encoder(_codecId);
+	AVCodec *codec = avcodec_find_encoder(_codecId);
+
+	if (codec == NULL)
+		printf("Unable to initialise encoder: %d\n", _codecId);
+
+	return codec;
 }
 
 enum PixelFormat AvcodecEncoder::getAvCodecColourSpace(int colourSpace)

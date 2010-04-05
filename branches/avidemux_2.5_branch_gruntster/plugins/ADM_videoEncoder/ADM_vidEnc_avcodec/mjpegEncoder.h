@@ -54,7 +54,6 @@ class MjpegEncoder : public AvcodecEncoder
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 		int beginPass(vidEncPassParameters *passParameters);
-		int encodeFrame(vidEncEncodeParameters *encodeParams);
 };
 #endif	// __cplusplus
 #endif	// MjpegEncoder_h

@@ -233,15 +233,6 @@ int MjpegEncoder::beginPass(vidEncPassParameters *passParameters)
 	return ret;
 }
 
-int MjpegEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
-{
-	int ret = AvcodecEncoder::encodeFrame(encodeParams);
-
-	printf("_frame.quality: %d\n", _frame.quality);
-
-	return ret;
-}
-
 void MjpegEncoder::updateEncodeProperties(vidEncOptions *encodeOptions)
 {
 	_passCount = 1;
