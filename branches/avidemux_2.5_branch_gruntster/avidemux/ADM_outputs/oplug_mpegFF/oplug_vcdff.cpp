@@ -18,7 +18,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
+#define __STDC_LIMIT_MACROS
 #include "config.h"
 
 #ifdef USE_FFMPEG
@@ -78,6 +78,8 @@ ADMBitstream bitstream(0);
 uint32_t audioSum=0;
 DIA_encoding  *encoding = NULL;
 int reuse = 0;
+int r = 0;
+int frameDelay = 0;
 
         twoPass=new char[strlen(name)+6];
         twoFake=new char[strlen(name)+6];
@@ -234,32 +236,66 @@ int reuse = 0;
                 ADM_assert(0);
           }
 
+		// pass 1
+		if(encoder->isDualPass()) //Cannot be requant
+		{
+			if (!reuse)
+			{
+				encoding->setPhasis(QT_TR_NOOP("Pass 1/2"));
+				encoder->startPass1();
 
+				bitstream.data = _buffer;
+				bitstream.bufferSize = _page;
 
-        // pass 1
-        if(encoder->isDualPass()) //Cannot be requant
-        {
-                        if(!reuse)
-                        {
-                                encoding->setPhasis (QT_TR_NOOP("Pass 1/2"));
-                                encoder->startPass1();
-                                bitstream.data=_buffer;
-                                bitstream.bufferSize=_page;
-                                for(uint32_t i=0;i<total;i++)
-                                {
-                                        bitstream.cleanup(i);
-                                        if(!encoder->encode( i, &bitstream))//&len,(uint8_t *) _buffer,&flags))
-                                        {
-                                          GUI_Error_HIG(QT_TR_NOOP("Error in pass 1"), NULL);
-                                        }
-                                        encoding->setFrame(i,bitstream.len,bitstream.out_quantizer,total);
-                                        if(!encoding->isAlive())
-                                              goto finishvcdff;
-                                }
-                        }
-                        encoder->startPass2();
-                        encoding->reset();
-                }
+				for(uint32_t frame = 0; frame < total; frame++)
+				{
+					if (!encoding->isAlive())
+					{
+						r = 0;
+						break;
+					}
+
+					for (;;)
+					{
+						bitstream.cleanup(frame);
+
+						if (frame + frameDelay >= total)
+						{
+							if (encoder->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+								r = encoder->encode(UINT32_MAX, &bitstream);
+							else
+								r = 0;
+						}
+						else
+							r = encoder->encode(frame + frameDelay, &bitstream);
+
+						if (!r)
+						{
+							printf("Encoding of frame %lu failed!\n", frame);
+							GUI_Error_HIG(QT_TR_NOOP("Error while encoding"), NULL);
+
+							break;
+						}
+
+						if (bitstream.len == 0 && (encoder->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+						{
+							printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+							frameDelay++;
+						}
+						else
+							break;
+					}
+
+					if (!r)
+						goto finishvcdff;
+
+					encoding->setFrame(frame, bitstream.len, bitstream. out_quantizer, total);
+				}
+			}
+
+			encoder->startPass2();
+			encoding->reset();
+		}
                 
               switch(type)
               {
@@ -387,54 +423,82 @@ int reuse = 0;
 
       bitstream.data=_outbuffer;
       bitstream.bufferSize=_page;
-      for(uint32_t i=0;i<total;i++)
-      {
-       	// get frame
-                bitstream.cleanup(i);
-                if(!encoder->encode( i,&bitstream))// &len,(uint8_t *) _outbuffer,&flags))
-                {
-                  GUI_Error_HIG(QT_TR_NOOP("Error in pass 2"), NULL);
-                        goto finishvcdff;
-                }
-                if(!bitstream.len) continue;
-                
-                if(file)
-                {
-                    fwrite(_outbuffer,bitstream.len,1,file);
-                }
-                else
-                {
-                        uint32_t samples; 
-                        
-                        //printf("%lu %lu\n",i,dts);
-                        
-                        muxer->writeVideoPacket(&bitstream);
-                        real_framenum++;
-                        // _muxer->writeVideoPacket(len,_buffer_out,
-                        //i-MPEG_PREFILL,_codec->getCodedPictureNumber());
-                        if(total_sample<sample_target)
-                        {
-                            while(muxer->needAudio() && total_sample<sample_target) 
-                            {				
-                                if(!audio->getPacket(audioBuffer, &audioLen, &samples))	
-                                { 
-                                        break; 
-                                }
-                                if(audioLen) 
-                                {
-                                        muxer->writeAudioPacket(audioLen,audioBuffer); 
-                                        total_sample+=samples;
-                                        audioSum+=audioLen;
-                                }
-                            }
-                        }
-                
-                }
-                encoding->setFrame(i,bitstream.len,bitstream.out_quantizer,total);
-                encoding->setAudioSize(audioSum);
-                if(!encoding->isAlive ())
-                                  goto finishvcdff;
-        }
+	  r = frameDelay = 0;
+
+	  for(uint32_t frame = 0; frame < total; frame++)
+	  {
+		  if (!encoding->isAlive())
+		  {
+			  r = 0;
+			  break;
+		  }
+
+		  for (;;)
+		  {
+			  bitstream.cleanup(frame);
+
+			  if (frame + frameDelay >= total)
+			  {
+				  if (encoder->getRequirements() & ADM_ENC_REQ_NULL_FLUSH)
+					  r = encoder->encode(UINT32_MAX, &bitstream);
+				  else
+					  r = 0;
+			  }
+			  else
+				  r = encoder->encode(frame + frameDelay, &bitstream);
+
+			  if (!r)
+			  {
+				  printf("Encoding of frame %lu failed!\n", frame);
+				  GUI_Error_HIG(QT_TR_NOOP("Error while encoding"), NULL);
+				  break;
+			  }
+
+			  if (bitstream.len == 0 && (encoder->getRequirements() & ADM_ENC_REQ_NULL_FLUSH))
+			  {
+				  printf("skipping frame: %u size: %i\n", frame + frameDelay, bitstream.len);
+				  frameDelay++;
+			  }
+			  else
+				  break;
+		  }
+
+		  if (!r)
+			  goto finishvcdff;
+
+		  if(file)
+		  {
+			  fwrite(_outbuffer,bitstream.len,1,file);
+		  }
+		  else
+		  {
+			  muxer->writeVideoPacket(&bitstream);
+			  real_framenum++;
+
+			  if(total_sample < sample_target)
+			  {
+				  uint32_t samples;
+
+				  while(muxer->needAudio() && total_sample < sample_target) 
+				  {				
+					  if (!audio->getPacket(audioBuffer, &audioLen, &samples))	
+						  break; 
+
+					  if(audioLen) 
+					  {
+						  muxer->writeAudioPacket(audioLen, audioBuffer); 
+						  total_sample += samples;
+						  audioSum += audioLen;
+					  }
+				  }
+			  }
+
+		  }
+
+		  encoding->setFrame(frame, bitstream.len, bitstream.out_quantizer, total);
+		  encoding->setAudioSize(audioSum);
+	  }
+
         ret=1;
 finishvcdff:
         printf("[MPEGFF] Finishing..\n");
