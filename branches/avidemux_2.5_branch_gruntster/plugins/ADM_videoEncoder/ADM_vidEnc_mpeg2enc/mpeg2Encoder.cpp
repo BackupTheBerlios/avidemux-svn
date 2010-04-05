@@ -51,7 +51,7 @@ const char* Mpeg2Encoder::getEncoderType(void)
 
 const char* Mpeg2Encoder::getEncoderDescription(void)
 {
-	return "mpeg2enc video encoder plugin for Avidemux (c) Mean/Gruntster";
+	return "MPEG-2 video encoder plugin for Avidemux (c) Mean/Gruntster";
 }
 
 const char* Mpeg2Encoder::getFourCC(void)

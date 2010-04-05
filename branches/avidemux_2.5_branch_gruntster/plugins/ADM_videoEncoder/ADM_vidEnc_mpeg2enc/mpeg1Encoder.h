@@ -1,8 +1,8 @@
  /***************************************************************************
-                                mpeg2Encoder.h
+                                mpeg1Encoder.h
 
-    begin                : Thu Dec 31 2009
-    copyright            : (C) 2009 by gruntster
+    begin                : Mon Apr 5 2010
+    copyright            : (C) 2010 by gruntster
  ***************************************************************************/
 
 /***************************************************************************
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef mpeg2Encoder_h
-#define mpeg2Encoder_h
+#ifndef mpeg1Encoder_h
+#define mpeg1Encoder_h
 
 extern "C"
 {
@@ -25,38 +25,25 @@ extern "C"
 #include <limits.h>
 
 #include "encoder.h"
-#include "mpeg2Options.h"
 #include "DIA_factory.h"
 
-class Mpeg2Encoder : public Mpeg2encEncoder
+class Mpeg1Encoder : public Mpeg2encEncoder
 {
 	private:
-		COMPRES_PARAMS _bitrateParam;
-		unsigned int _maxBitrate, _streamType, _widescreen, _interlaced, _userMatrix;
-
-		char configName[PATH_MAX];
-		ConfigMenuType configType;
-
-		Mpeg2Options _options;
 		vidEncVideoProperties _properties;
 
 		int _bufferSize;
 		uint8_t *_buffer;
 
-		void updateEncodeProperties(vidEncOptions *encodeOptions);
 		int initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
 
 	public:
-		Mpeg2Encoder(void);
+		Mpeg1Encoder(void);
 		const char* getEncoderType(void);
 		const char* getEncoderDescription(void);
 		const char* getFourCC(void);
 		const char* getEncoderGuid(void);
-		int isConfigurable(void);
-		int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
-		void loadSettings(vidEncOptions *encodeOptions, Mpeg2Options *options);
-		void saveSettings(vidEncOptions *encodeOptions, Mpeg2Options *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 };
-#endif	// mpeg2Encoder_h
+#endif	// mpeg1Encoder_h

@@ -17,16 +17,18 @@
 #include <libxml/tree.h>
 
 #include "encoder.h"
+#include "mpeg1Encoder.h"
 #include "mpeg2Encoder.h"
 #include "ADM_inttype.h"
 #include "mpeg2enc.h"
 
 int uiType;
 
+static Mpeg1Encoder mpeg1;
 static Mpeg2Encoder mpeg2;
 
-static int encoderIds[] = { 0 };
-static Mpeg2encEncoder* encoders[] = {&mpeg2};
+static int encoderIds[] = { 0, 1 };
+static Mpeg2encEncoder* encoders[] = {&mpeg1, &mpeg2};
 static int supportedCsps[] = { ADM_CSP_YV12 };
 
 extern int mpegenc_encode(char *in, char *out, int *size, int *flags, int *quant);
