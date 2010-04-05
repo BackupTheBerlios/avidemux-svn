@@ -40,7 +40,7 @@ void Mpeg2Options::reset(void)
 {
 	PluginOptions::reset();
 
-	setMaxBitrate(2500);
+	setMaxBitrate(9000);
 	setStreamType(MPEG2_STREAMTYPE_DVD);
 	setWidescreen(false);
 	setInterlaced(MPEG2_INTERLACED_NONE);

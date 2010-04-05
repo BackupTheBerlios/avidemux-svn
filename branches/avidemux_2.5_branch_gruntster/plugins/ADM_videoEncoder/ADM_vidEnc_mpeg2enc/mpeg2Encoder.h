@@ -22,6 +22,8 @@ extern "C"
 	#include "ADM_vidEnc_plugin.h"
 }
 
+#include <limits.h>
+
 #include "encoder.h"
 #include "mpeg2Options.h"
 #include "DIA_factory.h"
@@ -43,7 +45,7 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 		uint8_t *_buffer;
 
 		void updateEncodeProperties(vidEncOptions *encodeOptions);
-		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
+		int initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
 
 	public:
 		Mpeg2Encoder(void);
@@ -57,9 +59,5 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 		void saveSettings(vidEncOptions *encodeOptions, Mpeg2Options *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
-		int open(vidEncVideoProperties *properties);
-		int beginPass(vidEncPassParameters *passParameters);
-		int encodeFrame(vidEncEncodeParameters *encodeParams);
-		int finishPass(void);
 };
 #endif	// mpeg2Encoder_h

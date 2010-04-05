@@ -277,10 +277,8 @@ int Mpeg2Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOpt
 		return ADM_VIDENC_ERR_FAILED;
 }
 
-int Mpeg2Encoder::open(vidEncVideoProperties *properties)
+int Mpeg2Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
 {
-	int ret = Mpeg2encEncoder::open(properties);
-
 	switch (_options.getMatrix())
 	{
 		case MPEG2_MATRIX_TMPGENC:
@@ -293,7 +291,7 @@ int Mpeg2Encoder::open(vidEncVideoProperties *properties)
 			_param.hf_quant = 0;
 	}
 
-	if(_options.getWidescreen())
+	if (_options.getWidescreen())
 		_param.aspect_ratio = 3;
 	else
 		_param.aspect_ratio = 2;
@@ -312,14 +310,6 @@ int Mpeg2Encoder::open(vidEncVideoProperties *properties)
 			_param.input_interlacing = 1;
 	}
 
-	if (_options.getMaxBitrate() == 0)
-	{
-		_param.bitrate = 50000000;
-		_param.ignore_constraints = 1;
-	}
-	else
-		_param.bitrate = _options.getMaxBitrate() * 1000;
-
 	if (_options.getStreamType() == MPEG2_STREAMTYPE_SVCD)
 		_param.format = MPEG_FORMAT_SVCD;
 	else
@@ -330,27 +320,13 @@ int Mpeg2Encoder::open(vidEncVideoProperties *properties)
 	else
 		_param.min_GOP_size = _param.max_GOP_size = 18;
 
-	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
-		_param.quant = _encodeOptions.encodeModeParameter;
+	*encodeModeParameter = _encodeOptions.encodeModeParameter;
+	*maxBitrate = _options.getMaxBitrate();
+
+	if (_options.getStreamType() == MPEG2_STREAMTYPE_SVCD)
+		*vbv = 122 * 1024;
 	else
-		_param.quant = 0;
-
-	return ret;
-}
-
-int Mpeg2Encoder::beginPass(vidEncPassParameters *passParameters)
-{
-	return Mpeg2encEncoder::beginPass(passParameters);
-}
-
-int Mpeg2Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
-{
-	return Mpeg2encEncoder::encodeFrame(encodeParams);
-}
-
-int Mpeg2Encoder::finishPass(void)
-{
-	return Mpeg2encEncoder::finishPass();
+		*vbv = 224 * 1024;
 }
 
 void Mpeg2Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
@@ -386,21 +362,4 @@ void Mpeg2Encoder::updateEncodeProperties(vidEncOptions *encodeOptions)
 
 			break;
 	}
-}
-
-unsigned int Mpeg2Encoder::calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb)
-{
-	double db, ti;
-
-	db = sizeInMb;
-	db = db * 1024. * 1024. * 8.;
-	// now db is in bits
-
-	// compute duration
-	ti = frameCount;
-	ti *= fpsDen;
-	ti /= fpsNum;	// nb sec
-	db = db / ti;
-
-	return (unsigned int)floor(db);
 }

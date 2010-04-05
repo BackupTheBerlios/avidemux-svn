@@ -42,3 +42,7 @@ ELSEIF (ADM_CPU_ALTIVEC)
 ENDIF (ADM_CPU_X86)
 
 add_library(${ADM_LIB} ${${ADM_LIB}_SRCS})
+
+if (UNIX)
+	add_target_cflags(mpeg2enc -fPIC)
+endif (UNIX)
