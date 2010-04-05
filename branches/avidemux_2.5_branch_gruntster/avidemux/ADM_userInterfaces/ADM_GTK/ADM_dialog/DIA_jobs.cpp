@@ -18,14 +18,14 @@ typedef enum
 }JOB_STATUS;
 
 
-typedef struct ADM_Job_Descriptor
+struct ADM_Job_Descriptor
 {
   JOB_STATUS  status;
   ADM_date    startDate;
   ADM_date    endDate;
 };
 
-typedef enum 
+enum 
 {
         COMMAND_DELETE_ALL=1,
         COMMAND_DELETE=2,

@@ -9,7 +9,7 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
-typedef struct DECIMATE_PARAM
+struct DECIMATE_PARAM
 {
 	uint32_t    cycle; // Integer 2..40
         uint32_t    mode;  // 0..3

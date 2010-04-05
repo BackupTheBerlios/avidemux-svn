@@ -59,8 +59,6 @@ int DVEncoder::open(vidEncVideoProperties *properties)
 			if (properties->height == dvProfiles[i].height && properties->width == dvProfiles[i].width && 
 				((int)(properties->fpsNum * 1000.0 / properties->fpsDen) == (int)(dvProfiles[i].timeBase.num * 1000.0 / dvProfiles[i].timeBase.den)))
 			{
-#warning not sure it fixes all
-				//_context->pix_fmt = getAvCodecColourSpace(dvProfiles[i].pixFmt);
 				_supportedCsps[0] = dvProfiles[i].pixFmt;
 				validProfile = true;
 				break;
