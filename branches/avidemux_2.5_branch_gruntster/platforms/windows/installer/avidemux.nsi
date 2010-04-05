@@ -17,7 +17,7 @@ SetCompressorDictSize 96
 ##########################
 !define DISPLAYNAME "Avidemux 2.5"
 
-!if BUILD_BITS == 64
+!if ${BUILD_BITS} == 64
 !define INTERNALNAME "Avidemux 2.5 (64-bit)"
 !else
 !define INTERNALNAME "Avidemux 2.5"
@@ -271,13 +271,13 @@ Section "Avidemux Core" SecCore
     ${File} "Change Log.html"
     ${File} zlib1.dll
     
-!if BUILD_BITS == 32
+!if ${BUILD_BITS} == 32
     ${File} freetype6.dll
     ${File} libnspr4.dll
     ${File} libstdc++.dll
 !endif
 
-!if BUILD_BITS == 64
+!if ${BUILD_BITS} == 64
 	${File} libfreetype-6.dll
 	${File} libstdc++-6.dll
 !endif
@@ -503,6 +503,14 @@ SectionGroup Plugins SecGrpPlugin
 			${File} plugins\videoEncoder\avcodec\mpeg-1\*.xml
 			SetOutPath $INSTDIR\plugins\videoEncoder\avcodec\mpeg-2
 			${File} plugins\videoEncoder\avcodec\mpeg-2\*.xml
+		${MementoSectionEnd}
+		${MementoSection} "mpeg2enc (MPEG-1/MPEG-2)" SecVidEncMpeg2Enc
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\videoEncoder
+			${File} plugins\videoEncoder\libADM_vidEnc_mpeg2enc.dll
+			SetOutPath $INSTDIR\plugins\videoEncoder\mpeg2enc
+			${File} plugins\videoEncoder\avcodec\*.xsd
 		${MementoSectionEnd}
 		${MementoSection} "x264 (MPEG-4 AVC)" SecVidEncX264
 			SectionIn 1 2
