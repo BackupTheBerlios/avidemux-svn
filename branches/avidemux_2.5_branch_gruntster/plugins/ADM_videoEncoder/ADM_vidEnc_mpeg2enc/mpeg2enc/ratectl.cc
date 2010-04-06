@@ -355,7 +355,7 @@ void OnTheFlyRateCtl::InitSeq(bool reinit)
 		if( undershoot_carry < 0 )
                 {
                         printf("Buffer %d buffer_size %d\n",buffer_safe,ctl->video_buffer_size);
-                        printf("Avg bitrate : %d  framerate %d\n",opt->bit_rate,ctl->decode_frame_rate);
+                        printf("Avg bitrate : %f  framerate %f\n",opt->bit_rate,ctl->decode_frame_rate);
 			mjpeg_error_exit1("Rate control can't cope with a video buffer smaller 4 frame intervals");
                 }
 		overshoot_gain =  opt->bit_rate / (ctl->video_buffer_size-buffer_safe);
@@ -841,7 +841,7 @@ void OnTheFlyRateCtl::UpdatePict(Picture &picture)
 	bits_used += (bitcount()-prev_bitcount);
 	prev_bitcount = bitcount();
 	bits_transported += per_pict_bits;
-	mjpeg_debug( "TR=%llu USD=%llu ", bits_transported/8, bits_used/8);
+	//mjpeg_debug( "TR=%llu USD=%llu ", bits_transported/8, bits_used/8);
 	buffer_variation  = (int32_t)(bits_transported - bits_used);
 
 	if( buffer_variation > 0 )

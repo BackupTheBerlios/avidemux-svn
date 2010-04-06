@@ -42,7 +42,7 @@ class Mpeg1Encoder : public Mpeg2encEncoder
 		int _bufferSize;
 		uint8_t *_buffer;
 
-		int initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
+		void initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
 
 	public:
 		Mpeg1Encoder(void);

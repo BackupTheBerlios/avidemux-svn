@@ -300,7 +300,7 @@ int mpegenc_encode(  char *in,   char *out, int *size,int *flags,int *quant)
 
 		fedPictures++;
 
-		if(fedPictures<PREFILL)
+		if(fedPictures<MPEG2ENC_PREFILL)
 		{
 			*size=mpeg2enc_buffer-(unsigned char *)out;
 			*quant=2;
@@ -330,7 +330,6 @@ int mpegenc_end(void)
 */
 int  mpeg_cleanup( void )
 {
-int n,i;
 	if(!frame_buffers)
 	{
 		printf("Trying to clean already cleaned frame_buffers!!!\n");

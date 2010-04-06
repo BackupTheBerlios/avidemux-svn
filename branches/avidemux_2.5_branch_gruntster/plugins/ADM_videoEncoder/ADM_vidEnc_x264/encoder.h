@@ -90,7 +90,9 @@
 	int x264Encoder_getPassCount(void);
 	int x264Encoder_getCurrentPass(void);
 	int x264Encoder_open(vidEncVideoProperties *properties);
-	void x264Encoder_close(void);
+	int x264Encoder_beginPass(vidEncPassParameters *passParameters);
 	int x264Encoder_encodeFrame(vidEncEncodeParameters *encodeParams);
+	int x264Encoder_finishPass(void);
+	void x264Encoder_close(void);
 #endif	// __cplusplus
 #endif	// encoder_h

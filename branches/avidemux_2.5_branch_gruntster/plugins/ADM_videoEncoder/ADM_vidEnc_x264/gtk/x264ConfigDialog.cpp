@@ -215,14 +215,14 @@ void updateDeblockingFilter(GtkWidget *dialog)
 	gtk_widget_set_sensitive(WID(table8), toggled);
 }
 
-int signalReceiver(GtkObject* object, gpointer user_data)
+void signalReceiver(GtkObject* object, gpointer user_data)
 {
 	GtkWidget *dialog = (GtkWidget*)user_data;
 
 	if (object == GTK_OBJECT(WID(comboboxMode)))
 	{
 		int modeIndex = gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxMode)));
-		int encodeModeParameter;
+		int encodeModeParameter = 0;
 
 		switch (modeIndex)
 		{
@@ -249,7 +249,7 @@ int signalReceiver(GtkObject* object, gpointer user_data)
 		updateDeblockingFilter(dialog);
 }
 
-int entryTarget_changed(GtkObject* object, gpointer user_data)
+void entryTarget_changed(GtkObject* object, gpointer user_data)
 {
 	GtkWidget *dialog = (GtkWidget*)user_data;
 

@@ -494,7 +494,7 @@ void AvcodecEncoder::printContext(void)
 	printf("dark_masking: %f\n", _context->dark_masking);
 	printf("idct_algo: %d\n", _context->idct_algo);
 	printf("slice_count: %d\n", _context->slice_count);
-	printf("*slice_offset: %d\n", _context->slice_offset);
+	printf("slice_offset: %p\n", _context->slice_offset);
 	printf("error_concealment: %d\n", _context->error_concealment);
 	printf("dsp_mask: %d\n", _context->dsp_mask);
 	printf("bits_per_coded_sample: %d\n", _context->bits_per_coded_sample);

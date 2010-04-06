@@ -149,8 +149,8 @@ EXTERN t_control *ctl;
 #define PUSH
 
 EXTERN void feedframe_buffer(int num_frame);
-#warning duplicate define -> bad!
-#define PREFILL 6
+
+#define MPEG2ENC_PREFILL 6
 
 // to be easily free-ed
 EXTERN int *lum_mean

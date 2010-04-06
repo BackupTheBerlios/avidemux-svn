@@ -78,7 +78,6 @@ extern "C" int showXvidConfigDialog(vidEncConfigParameters *configParameters, vi
 
 _again:
 	int code = gtk_dialog_run(GTK_DIALOG(dialog));
-	int b;
 
 	if (code == XVID4_RESPONSE_EDIT_MATRIX)
 	{
@@ -437,7 +436,7 @@ int cb_mod(GtkObject *object, gpointer user_data)
 {
 	GtkWidget *dialog = (GtkWidget*)user_data;
 	int r = getRangeInMenu(WID(optionmenuType));
-	int encodeModeParameter;
+	int encodeModeParameter = 0;
 
 	switch (r)
 	{
@@ -458,7 +457,7 @@ int cb_mod(GtkObject *object, gpointer user_data)
 	return 0;
 }
 
-int entryEntry_changed(GtkObject* object, gpointer user_data)
+void entryEntry_changed(GtkObject* object, gpointer user_data)
 {
 	GtkWidget *dialog = (GtkWidget*)user_data;
 

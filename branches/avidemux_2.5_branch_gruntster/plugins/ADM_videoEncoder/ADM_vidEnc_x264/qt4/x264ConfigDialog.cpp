@@ -434,10 +434,12 @@ void x264ConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && checked && !ui.aqVarianceCheckBox->isChecked())
+	{
 		if (GUI_Question(QT_TR_NOOP("Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.\n\nDo you wish to continue?")))
 			ui.aqVarianceCheckBox->setChecked(true);
 		else
 			ui.mbTreeCheckBox->setChecked(false);
+	}
 }
 #endif
 
@@ -480,20 +482,24 @@ void x264ConfigDialog::loopFilterCheckBox_toggled(bool checked)
 void x264ConfigDialog::cabacCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && !checked && ui.trellisCheckBox->isChecked())
+	{
 		if (GUI_Question(QT_TR_NOOP("Trellis optimisation isn't possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.\n\n Do you wish to continue?")))
 			ui.trellisCheckBox->setChecked(false);
 		else
 			ui.cabacCheckBox->setChecked(true);
+	}
 }
 
 // Analysis tab
 void x264ConfigDialog::trellisCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && checked && !ui.cabacCheckBox->isChecked())
+	{
 		if (GUI_Question(QT_TR_NOOP("Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.\n\nDo you wish to continue?")))
 			ui.cabacCheckBox->setChecked(true);
 		else
 			ui.trellisCheckBox->setChecked(false);
+	}
 }
 
 void x264ConfigDialog::matrixCustomEditButton_pressed()
@@ -512,10 +518,12 @@ void x264ConfigDialog::matrixCustomEditButton_pressed()
 void x264ConfigDialog::aqVarianceCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && !checked && ui.mbTreeCheckBox->isChecked())
+	{
 		if (GUI_Question(QT_TR_NOOP("Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.\n\nDo you wish to continue?")))
 			ui.mbTreeCheckBox->setChecked(false);
 		else
 			ui.aqVarianceCheckBox->setChecked(true);
+	}
 }
 #endif
 

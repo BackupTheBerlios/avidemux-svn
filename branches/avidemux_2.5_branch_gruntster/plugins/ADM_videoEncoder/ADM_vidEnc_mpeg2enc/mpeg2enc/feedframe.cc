@@ -121,7 +121,7 @@ int frame_lum_mean( int num_frame )
 }
 void feedOneFrame(char *y, char *u,char *vv)
 {
-	int n,v,h,i;
+	int n,v,h;
       	n = frames_read % frame_buffer_size;
 
       	v = opt->vertical_size;

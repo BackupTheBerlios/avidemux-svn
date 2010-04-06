@@ -203,7 +203,7 @@ int Mpeg2encEncoder::open(vidEncVideoProperties *properties)
 	_fpsDen = properties->fpsDen;
 
 	_frameCount = properties->frameCount;
-	_bufferSize = (properties->width * properties->height) + 2 * ((properties->width + 1 >> 1) * (properties->height + 1 >> 1));
+	_bufferSize = (properties->width * properties->height) + 2 * (((properties->width + 1) >> 1) * ((properties->height + 1) >> 1));
 	_buffer = new uint8_t[_bufferSize];
 	_xvidRc = NULL;
 
@@ -277,7 +277,7 @@ int Mpeg2encEncoder::beginPass(vidEncPassParameters *passParameters)
 
 				d *= 1000.;
 				d /= (_fpsNum * 1000) / _fpsDen;   // D is a duration in second
-				d *= bitrate;   // * bitrate = total bits
+				d *= encodeModeParameter;   // * bitrate = total bits
 				d /= 8;   // Byte
 				d /= 1024 * 1024;   // MB
 

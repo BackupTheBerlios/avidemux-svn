@@ -18,6 +18,6 @@ static int getCurrentEncodeMode(GtkWidget *dialog);
 
 static int cb_mod(GtkObject *object, gpointer user_data);
 static int ch_par_asinput(GtkObject *object, gpointer user_data);
-static int entryEntry_changed(GtkObject* object, gpointer user_data);
+static void entryEntry_changed(GtkObject* object, gpointer user_data);
 
 #endif	// xvidConfigDialog_h

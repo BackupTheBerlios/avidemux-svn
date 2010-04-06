@@ -730,7 +730,7 @@ void XvidOptions::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
 	xmlChar xmlBuffer[bufferSize + 1];
-	xmlNodePtr xmlNodeChild, xmlNodeChild2;
+	xmlNodePtr xmlNodeChild;
 
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));

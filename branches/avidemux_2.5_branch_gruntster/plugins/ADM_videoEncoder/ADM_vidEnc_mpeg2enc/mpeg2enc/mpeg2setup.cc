@@ -251,7 +251,7 @@ void set_format_presets(mpeg2parm *param,Mpeg2Settings *opt)
 		if( param->quant == 0 )
 			param->quant = 8;
 		param->seq_hdr_every_gop = 1;
-		printf("Br: %ld\n",param->bitrate);
+		printf("Br: %d\n",param->bitrate);
 		break;
 	}
 

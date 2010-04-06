@@ -118,15 +118,14 @@ int x264Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 		delete [] configGuiPath;
 	}
 
-	if (_loader->isAvailable())
-		if (_loader->showX264ConfigDialog(configParameters, properties, &_encodeOptions, &_options))
-		{
-			updateEncodeParameters(NULL);
+	if (_loader->isAvailable() && _loader->showX264ConfigDialog(configParameters, properties, &_encodeOptions, &_options))
+	{
+		updateEncodeParameters(NULL);
 
-			return 1;
-		}
-	else
-		return 0;
+		return 1;
+	}
+
+	return 0;
 }
 
 int x264Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
@@ -190,7 +189,7 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 
 	_opened = true;
 	_currentPass = 0;
-	_bufferSize = (properties->width * properties->height) + 2 * ((properties->width + 1 >> 1) * (properties->height + 1 >> 1));
+	_bufferSize = (properties->width * properties->height) + 2 * (((properties->width + 1) >> 1) * ((properties->height + 1) >> 1));
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));

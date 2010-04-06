@@ -528,7 +528,7 @@ void      diaElemUSlider::enable(uint32_t onoff)
 		ADM_assert(internalPointer); 
 		internalPointer->enable(onoff); 
 	}
-uint8_t   diaElemUSlider::setDigits(uint32_t digits)
+void   diaElemUSlider::setDigits(uint32_t digits)
 {
 	diaElemSliderBase *cast=(diaElemSliderBase *)internalPointer;
 			cast->setDigits(digits);	
@@ -553,7 +553,7 @@ void      diaElemSlider::enable(uint32_t onoff)
 		ADM_assert(internalPointer); 
 		internalPointer->enable(onoff); 
 	}
-uint8_t   diaElemSlider::setDigits(uint32_t digits)
+void   diaElemSlider::setDigits(uint32_t digits)
 {
 	diaElemSliderBase *cast=(diaElemSliderBase *)internalPointer;
 			cast->setDigits(digits);	

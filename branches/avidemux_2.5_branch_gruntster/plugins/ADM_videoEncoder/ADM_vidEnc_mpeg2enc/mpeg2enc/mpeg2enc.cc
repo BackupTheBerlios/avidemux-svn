@@ -559,7 +559,7 @@ int main( int argc,	char *argv[] )
 	
 		fedPictures++;
 	
-		if(fedPictures<PREFILL) continue;
+		if(fedPictures<MPEG2ENC_PREFILL) continue;
 
 		printf(">> %d / 100 \n",i);
 		putseq_next();

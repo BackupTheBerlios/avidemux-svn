@@ -58,7 +58,6 @@ void Mpeg1Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
 	xmlChar xmlBuffer[bufferSize + 1];
-	xmlNodePtr xmlNodeChild, xmlNodeChild2;
 
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"fileSplit", number2String(xmlBuffer, bufferSize, getFileSplit()));

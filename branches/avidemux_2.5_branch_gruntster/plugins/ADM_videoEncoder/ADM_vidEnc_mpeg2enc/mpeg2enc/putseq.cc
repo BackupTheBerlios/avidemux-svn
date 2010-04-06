@@ -811,7 +811,7 @@ typedef Picture * pict_data_ptr;
 
 volatile static pict_data_ptr picture_to_encode;
 
-
+#if 0
 static void *parencodeworker(void *start_arg)
 {
 	pict_data_ptr picture;
@@ -909,7 +909,7 @@ static void *parencodeworker(void *start_arg)
 
 	return NULL;
 }
-
+#endif
 
 static void parencodepict( Picture *picture )
 {
@@ -1062,7 +1062,7 @@ void putseq(void)
         bits_after_mux = (uint64_t)((frame_periods / opt->frame_rate) *
                                     (ctl->nonvid_bit_rate + opt->bit_rate));
 
-    mjpeg_info( "Guesstimated final muxed size = %lld\n", bits_after_mux/8 );
+    //mjpeg_info( "Guesstimated final muxed size = %lld\n", bits_after_mux/8 );
     /* END DEBUG */
 
 }
@@ -1138,7 +1138,7 @@ void putseq_init(void)
 	memset(&ss,0,sizeof(ss));	
 	ss.seq_split_length = ((int64_t)ctl->seq_length_limit)*(8*1024*1024);
 	ss.next_split_point = BITCOUNT_OFFSET + ss.seq_split_length;
-	mjpeg_debug( "Split len = %%llu", ss.seq_split_length );
+	//mjpeg_debug( "Split len = %%llu", ss.seq_split_length );
 
 	frame_num = 0;              /* Encoding number */
 
@@ -1241,7 +1241,7 @@ void putseq_end( void )
         bits_after_mux = (uint64_t)((frame_periods / opt->frame_rate) *
                                     (ctl->nonvid_bit_rate + opt->bit_rate));
 
-    mjpeg_info( "Guesstimated final muxed size = %lld\n", bits_after_mux/8 );
+    //mjpeg_info( "Guesstimated final muxed size = %lld\n", bits_after_mux/8 );
     /* END DEBUG */
 
     for(int i=0;i<B_PICS;i++)

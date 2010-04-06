@@ -88,7 +88,6 @@
 
 
 static volatile int frames_read = 0;
-static int last_frame = -1;
 
 
 /* Buffers for frame luminance means */

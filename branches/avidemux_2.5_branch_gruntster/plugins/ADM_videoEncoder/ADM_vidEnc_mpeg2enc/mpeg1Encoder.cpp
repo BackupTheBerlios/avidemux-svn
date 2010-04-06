@@ -179,7 +179,7 @@ int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOpt
 		return ADM_VIDENC_ERR_FAILED;
 }
 
-int Mpeg1Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
+void Mpeg1Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
 {
 	_param.fieldenc = 0;
 	_param.format = MPEG_FORMAT_VCD;

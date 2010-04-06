@@ -366,7 +366,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 		}
 	}
 
-	return configType == CONFIG_MENU_CUSTOM | !failure;
+	return (configType == CONFIG_MENU_CUSTOM) | !failure;
 }
 
 char *serializeConfig(void)

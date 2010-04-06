@@ -44,7 +44,7 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 		uint8_t *_buffer;
 
 		void updateEncodeProperties(vidEncOptions *encodeOptions);
-		int initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
+		void initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv);
 
 	public:
 		Mpeg2Encoder(void);

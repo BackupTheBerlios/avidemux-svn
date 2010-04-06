@@ -410,7 +410,7 @@ uint8_t ADM_newXvidRc::getInfo(uint32_t framenum, uint32_t *qz, uint32_t *size,A
 			*type=RF_B;
 			break;
 		default:
-			printf("f:%lu Type : %d\n",framenum,rc->stats[framenum].type);
+			printf("f:%u Type : %d\n",framenum,rc->stats[framenum].type);
 			assert(0);
 	}
 
@@ -441,7 +441,7 @@ uint8_t ADM_newXvidRc::startPass2( uint32_t final_size,uint32_t nbFrame )
 
 	//avg/=1000; //bps / kbps
 
-	printf("Xvidr: pass2 : %lu MB, avg:%d, nbframe:%lu\n",final_size,0,_nbFrames);
+	printf("Xvidr: pass2 : %u MB, avg:%d, nbframe:%u\n",final_size,0,_nbFrames);
 
 	create.version=FAKE_VERSION;
 	create.param=&data;	
@@ -1098,7 +1098,6 @@ rc_2pass2_before(rc_2pass2_t * rc, xvid_plg_data_t * data)
 int
 rc_2pass2_after(rc_2pass2_t * rc, xvid_plg_data_t * data)
 {
-	const char frame_type[4] = { 'i', 'p', 'b', 's'};
 	twopass_stat_t * s = &rc->stats[data->frame_num];
 
 	/* Insufficent stats data */

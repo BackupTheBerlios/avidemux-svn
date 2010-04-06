@@ -222,7 +222,7 @@ bool changedConfig(const char* configName, ConfigMenuType configType)
 		}
 	}
 
-	return configType == CONFIG_MENU_CUSTOM | !failure;
+	return (configType == CONFIG_MENU_CUSTOM) | !failure;
 }
 
 char *serializeConfig(void)
@@ -280,7 +280,7 @@ int Mpeg2Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOpt
 		return ADM_VIDENC_ERR_FAILED;
 }
 
-int Mpeg2Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
+void Mpeg2Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
 {
 	switch (_options.getMatrix())
 	{

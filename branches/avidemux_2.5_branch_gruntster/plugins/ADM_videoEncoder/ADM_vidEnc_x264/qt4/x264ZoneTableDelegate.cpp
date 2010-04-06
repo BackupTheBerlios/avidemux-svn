@@ -60,6 +60,8 @@ QWidget *x264ZoneTableDelegate::createEditor(QWidget *parent, const QStyleOption
 
 			return spinBox;
 	}
+
+	return NULL;
 }
 
 void x264ZoneTableDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const

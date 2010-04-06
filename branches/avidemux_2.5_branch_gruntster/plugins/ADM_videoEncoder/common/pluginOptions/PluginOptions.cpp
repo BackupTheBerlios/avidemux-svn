@@ -297,7 +297,7 @@ int PluginOptions::fromXml(const char *xml, PluginXmlType xmlType)
 
 	xmlDocPtr doc = xmlReadMemory(xml, strlen(xml), "options.xml", NULL, 0);
 
-	if (success = validateXml(doc, getSchemaFile()))
+	if ((success = validateXml(doc, getSchemaFile())))
 	{
 		xmlNode *xmlNodeRoot = xmlDocGetRootElement(doc);
 

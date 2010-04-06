@@ -150,14 +150,16 @@ int XvidEncoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 	}
 
 	if (_loader->isAvailable())
+	{
 		if (_loader->showXvidConfigDialog(configParameters, properties, &_encodeOptions, &_options))
 		{
 			updateEncodeParameters(NULL);
 
 			return 1;
 		}
-	else
-		return 0;
+	}
+
+	return 0;
 }
 
 int XvidEncoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
@@ -221,7 +223,7 @@ int XvidEncoder::open(vidEncVideoProperties *properties)
 
 	_opened = true;
 	_currentPass = 0;
-	_bufferSize = (properties->width * properties->height) + 2 * ((properties->width + 1 >> 1) * (properties->height + 1 >> 1));
+	_bufferSize = (properties->width * properties->height) + 2 * (((properties->width + 1) >> 1) * ((properties->height + 1) >> 1));
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
@@ -393,6 +395,8 @@ int XvidEncoder::finishPass(void)
 		xvid_encore(_xvid_enc_create.handle, XVID_ENC_DESTROY, NULL, NULL);
 		_xvid_enc_create.handle = NULL;
 	}
+
+	return ADM_VIDENC_ERR_SUCCESS;
 }
 
 void XvidEncoder::close(void)

@@ -47,7 +47,7 @@ class Mpeg2encEncoder
 
 		int getFrameType(int flags);
 		unsigned int calculateBitrate(unsigned int fpsNum, unsigned int fpsDen, unsigned int frameCount, unsigned int sizeInMb);
-		virtual int initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv) = 0;
+		virtual void initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv) = 0;
 
 	public:
 		virtual ~Mpeg2encEncoder(void);

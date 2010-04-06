@@ -54,9 +54,9 @@ uint8_t ADM_newXvidRcVBV::setVBVInfo(uint32_t maxbr,uint32_t minbr, uint32_t vbv
 	_minbr=minbr*1000;
 	_vbvsize=vbvsize*1024;
 	printf("RC: Initializing vbv buffer \n");
-	printf("RC: with min br= %lu kbps\n",(minbr)/1000);
-	printf("RC:      max br= %lu kbps\n",(maxbr)/1000);
-	printf("Rc:      VBV   = %lu kB\n",_vbvsize/1024);
+	printf("RC: with min br= %u kbps\n",(minbr)/1000);
+	printf("RC:      max br= %u kbps\n",(maxbr)/1000);
+	printf("Rc:      VBV   = %u kB\n",_vbvsize/1024);
 
 	return 1;
 }
@@ -67,7 +67,7 @@ uint8_t ADM_newXvidRcVBV::startPass1( void )
 }
 uint8_t ADM_newXvidRcVBV::startPass2( uint32_t size,uint32_t nbFrame )
 {
-	printf("Starting Xvid VBV with %lu frames, target size :%lu MB\n",nbFrame,size);
+	printf("Starting Xvid VBV with %u frames, target size :%u MB\n",nbFrame,size);
 	_nbFrames=nbFrame;
 	if(! rc->startPass2(size,nbFrame)) return 0;
 	// Built pass 1 stat file in memory
@@ -95,7 +95,7 @@ uint8_t ADM_newXvidRcVBV::startPass2( uint32_t size,uint32_t nbFrame )
 		_compr[1][i]=1.0;
 		_compr[2][i]=1.0;
 	}
-	printf("Rc: Byte per image : %lu \n",_byte_per_image);
+	printf("Rc: Byte per image : %u \n",_byte_per_image);
 	return 1;
 }
 uint8_t ADM_newXvidRcVBV::logPass1(uint32_t qz, ADM_rframe ftype,uint32_t size)
@@ -110,7 +110,7 @@ uint8_t ADM_newXvidRcVBV::logPass2(uint32_t qz, ADM_rframe ftype,uint32_t size)
 	_vbv_fullness+=_byte_per_image;
 	if(_vbv_fullness<size)
 	{
-		printf("VBV buffer underflow :frame %lu, underflow : %lu\n",_frame,size-_vbv_fullness);
+		printf("VBV buffer underflow :frame %u, underflow : %u\n",_frame,size-_vbv_fullness);
 	}
 	else
 	{
@@ -212,7 +212,7 @@ uint8_t ADM_newXvidRcVBV::checkVBV(uint32_t framenum, uint32_t q, ADM_rframe fra
 
 		// Q increase ratio
 
-		float compI=0,compP=0,compB=0,comp=0,size,qr;
+		float compI=0,compP=0,compB=0,comp=0,size;
 		float ratioI,ratioP,ratioB,ratio;
 
 		for(uint32_t i=0;i<AVG_LOOKUP;i++)

@@ -168,6 +168,8 @@ bool x264ZoneTableModel::removeRows(void)
 {
 	if (_zoneData.size())
 		return removeRows(0, _zoneData.size(), QModelIndex());
+
+	return false;
 }
 
 bool x264ZoneTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
