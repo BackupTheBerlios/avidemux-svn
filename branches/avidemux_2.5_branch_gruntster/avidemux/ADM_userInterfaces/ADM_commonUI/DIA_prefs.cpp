@@ -43,7 +43,6 @@ uint8_t DIA_Preferences(void)
 uint32_t olddevice,newdevice;
 
 uint32_t        use_odml=0;
-uint32_t	autosplit=0;
 uint32_t render;
 uint32_t useTray=0;
 uint32_t useMaster=0;
@@ -136,10 +135,6 @@ char     *globalGlyphName=NULL;
 		if(!prefs->get(PRIORITY_PLAYBACK, &playbackPriority))
                 playbackPriority=0;
 
-        // VCD/SVCD split point		
-        if(!prefs->get(SETTINGS_MPEGSPLIT, &autosplit))
-                autosplit=690;		
-                        
         // Open DML (Gmv)
         if(!prefs->get(FEATURE_USE_ODML, &use_odml))
           use_odml=0;
@@ -231,8 +226,6 @@ char     *globalGlyphName=NULL;
 		framePriority.swallow(&menuIndexPriority);
 		framePriority.swallow(&menuPlaybackPriority);
 
-        diaElemUInteger autoSplit(&autosplit,QT_TR_NOOP("_Split MPEG files every (MB):"),10,4096);
-        
         diaElemToggle   togTagMp3(&alternate_mp3_tag,QT_TR_NOOP("_Use alternative tag for MP3 in .mp4"));
         diaMenuEntry videoMode[]={
                              {RENDER_GTK, getNativeRendererDesc(), NULL}
@@ -319,24 +312,12 @@ char     *globalGlyphName=NULL;
         diaElemTabs tabInput(QT_TR_NOOP("Input"),1,(diaElem **)diaInput);
         
         /* Output */
-        diaElem *diaOutput[]={&autoSplit,&openDml,&allowAnyMpeg,&togTagMp3};
-        diaElemTabs tabOutput(QT_TR_NOOP("Output"),4,(diaElem **)diaOutput);
+        diaElem *diaOutput[]={&openDml,&allowAnyMpeg,&togTagMp3};
+        diaElemTabs tabOutput(QT_TR_NOOP("Output"),3,(diaElem **)diaOutput);
         
         /* Audio */
-
-#if 0 //defined(ALSA_SUPPORT)
-        diaElem *diaAudio[]={&menuMixer,&menuVolume,&menuAudio,&entryAlsaDevice};
-        diaElemTabs tabAudio(QT_TR_NOOP("Audio"),4,(diaElem **)diaAudio);
-//#elif defined(OSS_SUPPORT)
-        diaElem *diaAudio[]={&menuMixer,&menuVolume,&menuAudio};
-        diaElemTabs tabAudio(QT_TR_NOOP("Audio"),3,(diaElem **)diaAudio);
-#endif
-
-#if 1
         diaElem *diaAudio[]={&menuMixer,&menuAudio};
         diaElemTabs tabAudio(QT_TR_NOOP("Audio"),2,(diaElem **)diaAudio);
-#endif
-
         
         /* Video */
         diaElem *diaVideo[]={&menuVideoMode,&framePP};
@@ -424,8 +405,6 @@ char     *globalGlyphName=NULL;
                 prefs->set(DEVICE_VIDEODEVICE,render);
                 // Odml
                 prefs->set(FEATURE_USE_ODML, use_odml);
-				// Split
-                prefs->set(SETTINGS_MPEGSPLIT, autosplit);
                 
                 // number of threads
                 prefs->set(FEATURE_THREADING_LAVC, lavcThreads);

@@ -91,7 +91,6 @@ static opt_def opt_defs [] = {
 	{"filters.avsfilter.avs_loader",		FILENAME,"",	NULL, NULL, NULL },
 	{"filters.avsfilter.pipe_timeout",		UINT,	"10",	NULL,	"1",	"30"	},
 	{"filters.avsfilter.debug_msg",		UINT,	"1",	NULL,	"0",	"1"	},
-	{"settings.mpegsplit",	UINT,	"790",	NULL,	"400",	"5000"	},
 #ifdef __WIN32
 	{"device.audiodevice",		STRING,"WIN32",NULL, NULL, NULL },
 #else
@@ -141,7 +140,7 @@ static opt_def opt_defs [] = {
 	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	}
 };
 
-int num_opts = 77;
+int num_opts = 76;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2
