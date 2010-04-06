@@ -51,7 +51,7 @@ typedef enum
 class Mpeg2Options : public PluginOptions
 {
 protected:
-	unsigned int _maxBitrate;
+	unsigned int _maxBitrate, _fileSplit;
 	bool _widescreen;
 	Mpeg2InterlacedMode _interlaced;
 	Mpeg2MatrixMode _matrix;
@@ -66,6 +66,9 @@ public:
 
 	unsigned int getMaxBitrate(void);
 	void setMaxBitrate(unsigned int maxBitrate);
+
+	unsigned int getFileSplit(void);
+	void setFileSplit(unsigned int mb);
 
 	bool getWidescreen(void);
 	void setWidescreen(bool widescreen);

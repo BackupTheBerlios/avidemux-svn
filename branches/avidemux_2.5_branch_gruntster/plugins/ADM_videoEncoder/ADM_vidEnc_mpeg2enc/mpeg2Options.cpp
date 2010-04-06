@@ -31,7 +31,7 @@
 
 #include "mpeg2Options.h"
 
-Mpeg2Options::Mpeg2Options(void) : PluginOptions(MPEG2_PLUGIN_CONFIG_DIR, "Mpeg2", "mpeg2enc/Mpeg2Param.xsd", MPEG2_DEFAULT_ENCODE_MODE, MPEG2_DEFAULT_ENCODE_MODE_PARAMETER)
+Mpeg2Options::Mpeg2Options(void) : PluginOptions(MPEG2ENC_PLUGIN_CONFIG_DIR, "Mpeg2", "mpeg2enc/Mpeg2Param.xsd", MPEG2_DEFAULT_ENCODE_MODE, MPEG2_DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }
@@ -41,6 +41,7 @@ void Mpeg2Options::reset(void)
 	PluginOptions::reset();
 
 	setMaxBitrate(9000);
+	setFileSplit(4096);
 	setStreamType(MPEG2_STREAMTYPE_DVD);
 	setWidescreen(false);
 	setInterlaced(MPEG2_INTERLACED_NONE);
@@ -56,6 +57,17 @@ void Mpeg2Options::setMaxBitrate(unsigned int maxBitrate)
 {
 	if (maxBitrate >= 100 && maxBitrate <= 9000)
 		_maxBitrate = maxBitrate;
+}
+
+unsigned int Mpeg2Options::getFileSplit(void)
+{
+	return _fileSplit;
+}
+
+void Mpeg2Options::setFileSplit(unsigned int mb)
+{
+	if (mb >= 400 && mb <= 4096)
+		_fileSplit = mb;
 }
 
 bool Mpeg2Options::getWidescreen(void)
@@ -109,6 +121,7 @@ void Mpeg2Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"maxBitrate", number2String(xmlBuffer, bufferSize, getMaxBitrate()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"fileSplit", number2String(xmlBuffer, bufferSize, getFileSplit()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"widescreen", boolean2String(xmlBuffer, bufferSize, getWidescreen()));
 
 	switch (getStreamType())
@@ -162,6 +175,8 @@ void Mpeg2Options::parseOptions(xmlNode *node)
 
 			if (strcmp((char*)xmlChild->name, "maxBitrate") == 0)
 				setMaxBitrate(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "fileSplit") == 0)
+				setFileSplit(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "widescreen") == 0)
 				setWidescreen(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "streamType") == 0)

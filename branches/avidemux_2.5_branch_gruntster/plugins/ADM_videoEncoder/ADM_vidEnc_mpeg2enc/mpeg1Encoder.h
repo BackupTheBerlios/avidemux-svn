@@ -25,11 +25,18 @@ extern "C"
 #include <limits.h>
 
 #include "encoder.h"
+#include "mpeg1Options.h"
 #include "DIA_factory.h"
 
 class Mpeg1Encoder : public Mpeg2encEncoder
 {
 	private:
+		unsigned int _splitFile;
+		
+		char configName[PATH_MAX];
+		ConfigMenuType configType;
+
+		Mpeg1Options _options;
 		vidEncVideoProperties _properties;
 
 		int _bufferSize;
@@ -43,6 +50,10 @@ class Mpeg1Encoder : public Mpeg2encEncoder
 		const char* getEncoderDescription(void);
 		const char* getFourCC(void);
 		const char* getEncoderGuid(void);
+		int isConfigurable(void);
+		int configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties);
+		void loadSettings(vidEncOptions *encodeOptions, Mpeg1Options *options);
+		void saveSettings(vidEncOptions *encodeOptions, Mpeg1Options *options);
 		int getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize);
 		int setOptions(vidEncOptions *encodeOptions, const char *pluginOptions);
 };

@@ -96,17 +96,18 @@ int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
 	diaElemUInteger ctlMaxb(&_maxBitrate, "Ma_x. bitrate:", 100, 9000);
+	diaElemUInteger ctlSplitFile(&_splitFile, "New sequence every (MB):", 400, 4096);
 	diaElemMenu ctlStreamType(&_streamType, "Stream _type:", 2, streamM);
 	diaElemMenu ctlWidescreen(&_widescreen, "Aspect _ratio:", 2, wideM);
 	diaElemMenu ctlMatrix(&_userMatrix, "_Matrices:", 4, matrixM);
 	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
-	diaElem *elmGeneral[6] = {&ctlBitrate, &ctlMaxb, &ctlStreamType, &ctlWidescreen, &ctlInterW, &ctlMatrix};
+	diaElem *elmGeneral[7] = {&ctlBitrate, &ctlMaxb, &ctlSplitFile, &ctlStreamType, &ctlWidescreen, &ctlInterW, &ctlMatrix};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
-		changedConfig, serializeConfig, elmGeneral, 6);
+		changedConfig, serializeConfig, elmGeneral, 7);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 6, elmGeneral);
+	diaElemTabs tabGeneral("Settings", 7, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
 	if (diaFactoryRunTabs("mpeg2enc Configuration", 1, elmHeader, 1, tabs))
@@ -135,6 +136,7 @@ void Mpeg2Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg2Options *opti
 	if (encodeOptions)
 	{
 		_maxBitrate = options->getMaxBitrate();
+		_splitFile = options->getFileSplit();
 		_widescreen = options->getWidescreen();
 		_interlaced = options->getInterlaced();
 		_userMatrix = options->getMatrix();
@@ -173,6 +175,7 @@ void Mpeg2Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg2Options *opti
 	}
 
 	options->setMaxBitrate(_maxBitrate);
+	options->setFileSplit(_splitFile);
 	options->setWidescreen(_widescreen);
 	options->setInterlaced((Mpeg2InterlacedMode)_interlaced);
 	options->setMatrix((Mpeg2MatrixMode)_userMatrix);
@@ -319,6 +322,8 @@ int Mpeg2Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int 
 		_param.min_GOP_size = _param.max_GOP_size = 15;
 	else
 		_param.min_GOP_size = _param.max_GOP_size = 18;
+
+	_param.seq_length_limit = _options.getFileSplit();
 
 	*encodeModeParameter = _encodeOptions.encodeModeParameter;
 	*maxBitrate = _options.getMaxBitrate();

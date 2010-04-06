@@ -22,6 +22,8 @@
 
 extern int _uiType;
 static bool changedConfig(const char* fileName, ConfigMenuType configType);
+static char *serializeConfig(void);
+static Mpeg1Encoder *encoder = NULL;
 
 #ifdef __WIN32
 extern void convertPathToAnsi(const char *path, char **ansiPath);
@@ -29,8 +31,11 @@ extern void convertPathToAnsi(const char *path, char **ansiPath);
 
 Mpeg1Encoder::Mpeg1Encoder(void)
 {
+	encoder = this;
+
 	_passCount = 1;
-	_encodeOptions.encodeMode == ADM_VIDENC_MODE_CBR;
+	_encodeOptions.encodeMode = MPEG1_DEFAULT_ENCODE_MODE;
+	_encodeOptions.encodeModeParameter = MPEG1_DEFAULT_ENCODE_MODE_PARAMETER;
 }
 
 const char* Mpeg1Encoder::getEncoderType(void)
@@ -53,20 +58,125 @@ const char* Mpeg1Encoder::getEncoderGuid(void)
 	return "056FE919-C1D3-4450-A812-A767EAB07786";
 }
 
-int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
+int Mpeg1Encoder::isConfigurable(void)
 {
-	if (encodeOptions)
+	return (_uiType == ADM_UI_GTK || _uiType == ADM_UI_QT4);
+}
+
+int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties)
+{
+	loadSettings(NULL, &_options);
+
+	diaElemUInteger ctlSplitFile(&_splitFile, "New sequence every (MB):", 400, 4096);
+	diaElem *elmGeneral[1] = {&ctlSplitFile};
+
+	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
+		changedConfig, serializeConfig, elmGeneral, 1);
+	diaElem *elmHeader[1] = {&ctlConfigMenu};
+
+	diaElemTabs tabGeneral("Settings", 1, elmGeneral);
+	diaElemTabs *tabs[] = {&tabGeneral};
+
+	if (diaFactoryRunTabs("mpeg2enc Configuration", 1, elmHeader, 1, tabs))
 	{
-		encodeOptions->encodeMode = ADM_VIDENC_MODE_CBR;
-		encodeOptions->encodeModeParameter = 1000;
+		saveSettings(NULL, &_options);
+
+		return 1;
 	}
 
 	return 0;
 }
 
+void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1Options *options)
+{
+	char *configurationName;
+
+	options->getPresetConfiguration(&configurationName, (PluginConfigType*)&configType);
+
+	if (configurationName)
+	{
+		strcpy(this->configName, configurationName);
+		delete [] configurationName;
+	}
+
+	if ((int)encodeOptions != -1)
+		_splitFile = options->getFileSplit();
+}
+
+void Mpeg1Encoder::saveSettings(vidEncOptions *encodeOptions, Mpeg1Options *options)
+{
+	options->setPresetConfiguration(&configName[0], (PluginConfigType)configType);
+	options->setFileSplit(_splitFile);
+}
+
+bool changedConfig(const char* configName, ConfigMenuType configType)
+{
+	if (configType == CONFIG_MENU_DEFAULT)
+	{
+		Mpeg1Options defaultOptions;
+
+		encoder->loadSettings(NULL, &defaultOptions);
+	}
+	else
+	{
+		Mpeg1Options options;
+
+		options.setPresetConfiguration(configName, (PluginConfigType)configType);
+
+		if (configType == CONFIG_MENU_CUSTOM)
+			encoder->loadSettings((vidEncOptions*)-1, &options);
+		else
+			encoder->loadSettings(NULL, &options);
+	}
+
+	return true;
+}
+
+char *serializeConfig(void)
+{
+	Mpeg1Options options;
+
+	encoder->saveSettings(NULL, &options);
+
+	return options.toXml(PLUGIN_XML_EXTERNAL);
+}
+
+int Mpeg1Encoder::getOptions(vidEncOptions *encodeOptions, char *pluginOptions, int bufferSize)
+{
+	char* xml = _options.toXml(PLUGIN_XML_INTERNAL);
+	int xmlLength = strlen(xml);
+
+	if (bufferSize >= xmlLength)
+	{
+		memcpy(pluginOptions, xml, xmlLength);
+		memcpy(encodeOptions, &_encodeOptions, sizeof(vidEncOptions));
+	}
+	else if (bufferSize != 0)
+		xmlLength = 0;
+
+	delete [] xml;
+
+	return xmlLength;
+}
+
 int Mpeg1Encoder::setOptions(vidEncOptions *encodeOptions, const char *pluginOptions)
 {
-	return ADM_VIDENC_ERR_SUCCESS;
+	if (_opened)
+		return ADM_VIDENC_ERR_ALREADY_OPEN;
+
+	bool success = true;
+
+	if (pluginOptions)
+	{
+		success = _options.fromXml(pluginOptions, PLUGIN_XML_INTERNAL);
+
+		_options.loadPresetConfiguration();
+	}
+
+	if (success)
+		return ADM_VIDENC_ERR_SUCCESS;
+	else
+		return ADM_VIDENC_ERR_FAILED;
 }
 
 int Mpeg1Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int *vbv)
@@ -75,6 +185,8 @@ int Mpeg1Encoder::initParameters(int *encodeModeParameter, int *maxBitrate, int 
 	_param.format = MPEG_FORMAT_VCD;
 	_param.aspect_ratio = 2;
 	_param.min_GOP_size = _param.max_GOP_size = 18;
+	_param.seq_length_limit = _options.getFileSplit();
+
 	*encodeModeParameter = 1000;
 	*maxBitrate = 9216000;
 	*vbv = 0;

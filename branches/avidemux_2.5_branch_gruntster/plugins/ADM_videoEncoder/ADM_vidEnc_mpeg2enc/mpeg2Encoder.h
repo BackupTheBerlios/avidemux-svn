@@ -32,7 +32,7 @@ class Mpeg2Encoder : public Mpeg2encEncoder
 {
 	private:
 		COMPRES_PARAMS _bitrateParam;
-		unsigned int _maxBitrate, _streamType, _widescreen, _interlaced, _userMatrix;
+		unsigned int _maxBitrate, _splitFile, _streamType, _widescreen, _interlaced, _userMatrix;
 
 		char configName[PATH_MAX];
 		ConfigMenuType configType;
