@@ -31,9 +31,6 @@
 
 /* ************* Encoder *********** */
 
-#include "ADM_audiocodec/ADM_audiocodeclist.h"
-
-
 #include "prefs.h"
 
 

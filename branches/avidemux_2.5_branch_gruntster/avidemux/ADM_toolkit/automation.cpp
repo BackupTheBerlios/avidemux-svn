@@ -397,10 +397,8 @@ void call_audiocodec(char *p)
 {
 	if(!strcasecmp(p,"MP2"))
 		audio_selectCodecByTag(WAV_MP2);
-#ifdef USE_FAAC
 	else if(!strcasecmp(p,"AAC"))
-		audioCodecSetcodec( AUDIOENC_FAAC );
-#endif
+		audio_selectCodecByTag( WAV_AAC );
 	else if(!strcasecmp(p,"AC3"))
 		audio_selectCodecByTag( WAV_AC3 );
 	else if(!strcasecmp(p,"MP3"))

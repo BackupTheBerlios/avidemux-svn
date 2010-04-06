@@ -26,10 +26,6 @@
 
 
 #include "audioencoder.h"
-
-#include "ADM_audiocodec/ADM_audiocodeclist.h"
-
-
 #include "audiofilter_bridge.h"
 #include "audiofilter_mixer.h"
 #include "audiofilter_normalize.h"

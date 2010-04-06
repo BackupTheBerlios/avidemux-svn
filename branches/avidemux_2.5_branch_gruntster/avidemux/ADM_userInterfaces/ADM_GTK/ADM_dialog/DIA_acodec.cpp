@@ -6,7 +6,6 @@
 
 #include "ADM_audiofilter/audioprocess.hxx"
 #include "ADM_audiofilter/audioeng_buildfilters.h"
-//#include "ADM_audiocodec/ADM_audiocodeclist.h"
 
 extern uint32_t audioEncoderGetNumberOfEncoders(void);
 extern const char  *audioEncoderGetDisplayName(uint32_t i);
@@ -93,20 +92,6 @@ GtkWidget	*create_dialogAudioCodec (void)
   GtkWidget *vbox1;
   GtkWidget *optionmenu_CodecList;
   GtkWidget *menu1;
-  GtkWidget *uncompressed;
-  GtkWidget *ffmpeg_mpeg_audio;
-  GtkWidget *ffmpeg_ac3_2_channels1;
-  #ifdef HAVE_LIBMP3LAME
-  GtkWidget *lame_mp1;
-  #endif
-    #ifdef USE_VORBIS
-  GtkWidget *vorbis;
-  #endif
-
-#ifdef USE_FAAC
-  GtkWidget *faac;
-#endif
-  GtkWidget *toolame,*libtoolame;
   GtkWidget *buttonConfigure;
   GtkWidget *dialog_action_area1;
   GtkWidget *cancelbutton1;
