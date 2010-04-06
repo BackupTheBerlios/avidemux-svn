@@ -31,7 +31,7 @@
 
 #include "mpeg2Options.h"
 
-Mpeg2Options::Mpeg2Options(void) : PluginOptions(MPEG2ENC_PLUGIN_CONFIG_DIR, "Mpeg2", "mpeg2enc/Mpeg2Param.xsd", MPEG2_DEFAULT_ENCODE_MODE, MPEG2_DEFAULT_ENCODE_MODE_PARAMETER)
+Mpeg2Options::Mpeg2Options(void) : PluginOptions(MPEG2_PLUGIN_CONFIG_DIR, "Mpeg2", "mpeg2enc/Mpeg2Param.xsd", MPEG2_DEFAULT_ENCODE_MODE, MPEG2_DEFAULT_ENCODE_MODE_PARAMETER)
 {
 	reset();
 }

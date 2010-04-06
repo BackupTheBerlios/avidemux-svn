@@ -99,7 +99,7 @@ void Mpeg1Encoder::loadSettings(vidEncOptions *encodeOptions, Mpeg1Options *opti
 		delete [] configurationName;
 	}
 
-	if ((int)encodeOptions != -1)
+	if ((intptr_t)encodeOptions != -1)
 		_splitFile = options->getFileSplit();
 }
 
