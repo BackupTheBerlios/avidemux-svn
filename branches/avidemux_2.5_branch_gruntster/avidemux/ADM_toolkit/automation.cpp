@@ -207,17 +207,7 @@ AUTOMATON reaction_table[]=
 
 }  ;
 #define NB_AUTO (sizeof(reaction_table)/sizeof(AUTOMATON))
-//_________________________________________________________________________
 
-typedef enum {
-	SOME_UNKNOWN,
-	MPEG2ENC_VCD,    // pseudo codec with profile
-	MPEG2ENC_SVCD,   // pseudo codec with profile
-	MPEG2ENC_DVD     // pseudo codec with profile
-} codec_t;
-static codec_t codec = SOME_UNKNOWN;
-
-//void automation(int argc, char **argv)
 int automation(void )
 
 {

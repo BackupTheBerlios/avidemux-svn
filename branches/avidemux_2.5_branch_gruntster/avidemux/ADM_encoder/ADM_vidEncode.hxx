@@ -20,9 +20,6 @@
 typedef enum 
 {
   CodecCopy,
-  CodecVCD,
-  CodecSVCD,
-  CodecDVD,
   CodecYV12,
   CodecRequant,
   CodecExternal,

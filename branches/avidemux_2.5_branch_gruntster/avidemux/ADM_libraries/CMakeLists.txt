@@ -1,4 +1,3 @@
-add_subdirectory(ADM_libmpeg2enc)
 add_subdirectory(ADM_lvemux)
 add_subdirectory(ADM_mplex)
 
@@ -7,7 +6,6 @@ if (NOT USE_SYSTEM_SPIDERMONKEY)
 endif (NOT USE_SYSTEM_SPIDERMONKEY)
 
 add_subdirectory(ADM_utilities)
-add_subdirectory(ADM_xvidratectl)
 
 if (ADM_DEBUG AND FIND_LEAKS)
 	add_subdirectory(ADM_nvwa)

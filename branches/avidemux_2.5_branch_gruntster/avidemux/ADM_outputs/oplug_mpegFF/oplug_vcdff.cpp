@@ -207,15 +207,6 @@ int frameDelay = 0;
       encoding =new DIA_encoding(_fps1000);
       switch (videoCodecGetType())
       {
-          case CodecVCD:
-            encoding->setCodec(QT_TR_NOOP("libmpeg2enc VCD"));
-            break;
-          case CodecSVCD:
-            encoding->setCodec(QT_TR_NOOP("libmpeg2enc SVCD"));
-            break;
-          case CodecDVD:
-            encoding->setCodec(QT_TR_NOOP("libmpeg2enc DVD"));
-            break;
           case CodecRequant:
             encoding->setCodec(QT_TR_NOOP("MPEG Requantizer"));
             break;

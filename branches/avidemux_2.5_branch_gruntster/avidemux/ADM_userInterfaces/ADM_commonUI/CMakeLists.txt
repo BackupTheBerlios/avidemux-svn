@@ -8,7 +8,6 @@ DIA_gototime.cpp
 DIA_postproc.cpp  
 DIA_bitrateHisto.cpp  
 DIA_prefs.cpp     
-DIA_SVCD.cpp       
 DIA_builtin.cpp       
 DIA_lavDecoder.cpp  
 DIA_requant.cpp   

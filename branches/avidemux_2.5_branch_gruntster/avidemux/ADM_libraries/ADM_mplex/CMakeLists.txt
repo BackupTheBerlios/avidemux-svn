@@ -4,7 +4,7 @@ SET(${ADM_LIB}_SRCS
 	ac3strm_in.cpp      ADM_mplexout.cpp   audiostrm_out.cpp  dtsstrm_in.cpp  lpcmstrm_in.cpp   multiplexor.cpp   stream_params.cpp  videostrm_in.cpp
 	ADM_mplexin.cpp     ADM_mthread.cpp    bits.cpp           inputstrm.cpp   padstrm.cpp       systems.cpp       videostrm_out.cpp
 	ADM_mplexmuxer.cpp  ADM_transfert.cpp  interact.cpp       mpastrm_in.cpp  stillsstream.cpp  mpegconsts.c      mjpeg_logging.c    decodebufmodel.cpp
-	yuv4mpeg.c          cpu_accel.c)
+	yuv4mpeg.c          yuv4mpeg_ratio.c   cpu_accel.c)
 
 include_directories("${PTHREAD_INCLUDE_DIR}")
 ADD_ADM_LIB_ALL_TARGETS(${ADM_LIB} ${${ADM_LIB}_SRCS})

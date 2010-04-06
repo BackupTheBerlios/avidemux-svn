@@ -101,7 +101,7 @@ IF (APPLE)
 	SET(MACOSX_BUNDLE_SHORT_VERSION_STRING "${ADM_OSX_VERSION}")
 	SET(MACOSX_BUNDLE_VERSION "${ADM_OSX_VERSION}")
 	SET(MACOSX_BUNDLE_BUNDLE_NAME "Avidemux" )
-	SET(MACOSX_BUNDLE_COPYRIGHT "Copyright 2001-2009 Mean" )
+	SET(MACOSX_BUNDLE_COPYRIGHT "Copyright 2001-2010 Mean" )
 	SET(MACOSX_BUNDLE_SIGNATURE "Avdx" )
 	SET(MACOSX_BUNDLE_GUI_IDENTIFIER www.avidemux.org)
 
@@ -259,10 +259,8 @@ ADD_SUBDIRECTORY(ADM_libraries)
 
 ADD_ADMLIB_ALL_TARGETS(
 	ADM_mplex
-	ADM_libmpeg2enc
 	ADM_lvemux
 	ADM_utilities
-	ADM_xvidratectl
 )
 
 ADD_LIB_ALL_TARGETS(
@@ -483,5 +481,3 @@ IF (UNIX AND NOT APPLE)
                       WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
                       COMMENT "Creating temporary lib directory for proper plugins linking")
 ENDIF (UNIX AND NOT APPLE)
-
-
