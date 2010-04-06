@@ -510,7 +510,11 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\videoEncoder
 			${File} plugins\videoEncoder\libADM_vidEnc_mpeg2enc.dll
 			SetOutPath $INSTDIR\plugins\videoEncoder\mpeg2enc
-			${File} plugins\videoEncoder\avcodec\*.xsd
+			${File} plugins\videoEncoder\mpeg2enc\*.xsd
+			SetOutPath $INSTDIR\plugins\videoEncoder\mpeg2enc\mpeg-1
+			${File} plugins\videoEncoder\mpeg2enc\mpeg-1\*.xml
+			SetOutPath $INSTDIR\plugins\videoEncoder\mpeg2enc\mpeg-2
+			${File} plugins\videoEncoder\mpeg2enc\mpeg-2\*.xml
 		${MementoSectionEnd}
 		${MementoSection} "x264 (MPEG-4 AVC)" SecVidEncX264
 			SectionIn 1 2
