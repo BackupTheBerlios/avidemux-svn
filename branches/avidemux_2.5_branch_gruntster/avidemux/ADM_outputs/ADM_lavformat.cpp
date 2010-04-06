@@ -699,21 +699,35 @@ uint8_t lavMuxer::audioEmpty( void)
 {
 	return 0;
 }
-extern "C"
-{
-     extern  int        mpegps_init(void );
-     extern  int        movenc_init(void );
-     extern  int        flvenc_init(void );
-     extern  int        matroskaenc_init(void );
-};
-extern URLProtocol file_protocol ;
+
 uint8_t lavformat_init(void)
 {
-                movenc_init();
-                flvenc_init();
-                matroskaenc_init();
-                av_register_protocol(&file_protocol);
+	av_register_all();
+
+	// Make sure avformat is correctly configured
+	const char* formats[] = {"mpegts", "dvd", "vcd", "svcd", "mp4", "psp", "flv", "matroska"};
+	AVOutputFormat *avfmt;
+
+	for (int i = 0; i < 8; i++)
+	{
+		avfmt = av_guess_format(formats[i], NULL, NULL);
+
+		if (avfmt == NULL)
+		{
+			printf("Error: %s muxer isn't registered\n", formats[i]);
+			ADM_assert(0);
+		}
+	}
+
+	URLProtocol *up = av_protocol_next(NULL);
+
+	if (strcmp(up->name, "file") != 0)
+	{
+		printf("Error: file protocol isn't registered\n");
+		ADM_assert(0);
+	}
 }
+
 extern "C"
 {
 /**

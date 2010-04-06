@@ -27,9 +27,7 @@ updatePatch libavcodec mpegvideo.c
 updatePatch libavcodec mpegvideo_enc.c
 updatePatch libavcodec utils.c
 updatePatch libavformat file.c
-updatePatch libavformat flvenc.c
 updatePatch libavformat isom.c
 updatePatch libavformat matroskaenc.c
-updatePatch libavformat movenc.c
 updatePatch libavutil avutil.h
 
