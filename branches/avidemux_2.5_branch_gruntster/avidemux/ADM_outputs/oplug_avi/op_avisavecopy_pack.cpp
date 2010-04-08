@@ -21,6 +21,9 @@
 extern "C"
 {
 #include "ADM_libraries/ffmpeg/config.h"
+#ifdef __APPLE__
+#define restrict
+#endif
 #include "libavcodec/put_bits.h"
 #undef printf
 }
