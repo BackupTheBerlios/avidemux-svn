@@ -521,8 +521,8 @@ int H263Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 {
 	int ret = AvcodecEncoder::encodeFrame(encodeParams);
 
-	if (_context->stats_out)
-		fprintf (_statFile, "%s", _context->stats_out);
+	if (_context->stats_out && _statFile)
+		fprintf(_statFile, "%s", _context->stats_out);
 
 	return ret;
 }
