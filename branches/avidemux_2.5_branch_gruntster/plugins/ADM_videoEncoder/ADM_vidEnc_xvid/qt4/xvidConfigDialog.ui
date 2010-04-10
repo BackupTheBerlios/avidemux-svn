@@ -144,17 +144,6 @@
             </property>
             <item row="1" column="0" >
              <widget class="QLabel" name="targetRateControlLabel1" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Target Video Size:</string>
               </property>
@@ -170,17 +159,6 @@
               </property>
               <item>
                <widget class="QComboBox" name="encodingModeComboBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="currentIndex" >
                  <number>2</number>
                 </property>
@@ -223,17 +201,6 @@
             </item>
             <item row="0" column="0" >
              <widget class="QLabel" name="label" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Encoding Mode:</string>
               </property>
@@ -249,17 +216,6 @@
               </property>
               <item>
                <widget class="QSpinBox" name="targetRateControlSpinBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="prefix" >
                  <string/>
                 </property>
@@ -273,17 +229,6 @@
               </item>
               <item>
                <widget class="QLabel" name="targetRateControlLabel2" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="text" >
                  <string>MB</string>
                 </property>

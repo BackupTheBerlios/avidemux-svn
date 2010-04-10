@@ -144,17 +144,6 @@
             </property>
             <item row="1" column="0" >
              <widget class="QLabel" name="targetRateControlLabel1" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Target Video Size:</string>
               </property>
@@ -170,17 +159,6 @@
               </property>
               <item>
                <widget class="QComboBox" name="encodingModeComboBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="currentIndex" >
                  <number>3</number>
                 </property>
@@ -228,17 +206,6 @@
             </item>
             <item row="0" column="0" >
              <widget class="QLabel" name="label" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Encoding Mode:</string>
               </property>
@@ -254,17 +221,6 @@
               </property>
               <item>
                <widget class="QSpinBox" name="targetRateControlSpinBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="prefix" >
                  <string/>
                 </property>
@@ -278,17 +234,6 @@
               </item>
               <item>
                <widget class="QLabel" name="targetRateControlLabel2" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="text" >
                  <string>MB</string>
                 </property>
@@ -3030,17 +2975,6 @@
             </property>
             <item row="0" column="0" >
              <widget class="QLabel" name="label_9" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Maximum VBV Bitrate:</string>
               </property>
@@ -3048,17 +2982,6 @@
             </item>
             <item row="2" column="0" >
              <widget class="QLabel" name="label_14" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>Initial VBV Buffer Occupancy:</string>
               </property>
@@ -3074,17 +2997,6 @@
               </property>
               <item>
                <widget class="QSpinBox" name="vbvBufferSizeSpinBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="maximum" >
                  <number>99999</number>
                 </property>
@@ -3092,17 +3004,6 @@
               </item>
               <item>
                <widget class="QLabel" name="label_12" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="text" >
                  <string>kbit</string>
                 </property>
@@ -3133,17 +3034,6 @@
               </property>
               <item>
                <widget class="QSpinBox" name="vbvBufferOccupancySpinBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="maximum" >
                  <number>100</number>
                 </property>
@@ -3154,17 +3044,6 @@
               </item>
               <item>
                <widget class="QLabel" name="label_13" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="text" >
                  <string>%</string>
                 </property>
@@ -3195,17 +3074,6 @@
               </property>
               <item>
                <widget class="QSpinBox" name="vbvMaxBitrateSpinBox" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="maximum" >
                  <number>99999</number>
                 </property>
@@ -3213,17 +3081,6 @@
               </item>
               <item>
                <widget class="QLabel" name="label_10" >
-                <property name="font" >
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>8</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
                 <property name="text" >
                  <string>kbit/s</string>
                 </property>
@@ -3246,17 +3103,6 @@
             </item>
             <item row="1" column="0" >
              <widget class="QLabel" name="label_11" >
-              <property name="font" >
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>8</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-                <underline>false</underline>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
               <property name="text" >
                <string>VBV Buffer Size:</string>
               </property>
