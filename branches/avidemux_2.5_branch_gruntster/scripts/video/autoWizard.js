@@ -7,8 +7,11 @@ function videoAutoWizard(title, resolutions, codecs)
     var dlgWizard = new DialogFactory(title);
     var i;
 
-    for (i = 0; i < resolutions.length; i++)
-        mnuResolution.addItem(resolutions[i][0].toString() + " x " + resolutions[i][1].toString());
+    if (resolutions != null)
+    {
+        for (i = 0; i < resolutions.length; i++)
+            mnuResolution.addItem(resolutions[i][0].toString() + " x " + resolutions[i][1].toString());
+    }
 
     for (i = 0; i < aspectRatios.length; i++)
     {
@@ -26,12 +29,14 @@ function videoAutoWizard(title, resolutions, codecs)
             mnuCodec.addItem(codecs[i]);
     }
 
-    dlgWizard.addControl(mnuResolution);
+    if (resolutions != null)
+        dlgWizard.addControl(mnuResolution);
+
     dlgWizard.addControl(mnuSourceRatio);
     dlgWizard.addControl(mnuDestinationRatio);
 
     if (dlgWizard.show())
-        return [[resolutions[mnuResolution.index][0], resolutions[mnuResolution.index][1]],
+        return [[resolutions == null ? -1 : resolutions[mnuResolution.index][0], resolutions == null ? -1 : resolutions[mnuResolution.index][1]],
             [aspectRatios[mnuSourceRatio.index][0], aspectRatios[mnuSourceRatio.index][1]],
             [aspectRatios[mnuDestinationRatio.index][0], aspectRatios[mnuDestinationRatio.index][1]], codecs == null ? -1 : mnuCodec.index];
     else

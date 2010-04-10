@@ -36,3 +36,26 @@ function getColourEncodingSystem(fps1000)
 
     return encodingSystem;
 }
+
+function getVideoProperties(video)
+{
+    var filters = video.appliedFilters;
+    var width, height, fps1000;
+
+    if (filters.length > 0)
+    {
+        var lastFilter = video.appliedFilters[filters.length - 1];
+
+        width = lastFilter.width;
+        height = lastFilter.height;
+        fps1000 = lastFilter.fps1000;
+    }
+    else
+    {
+        width = video.width;
+        height = video.height;
+        fps1000 = video.fps1000;
+    }
+
+    return [width, height, fps1000];
+}
