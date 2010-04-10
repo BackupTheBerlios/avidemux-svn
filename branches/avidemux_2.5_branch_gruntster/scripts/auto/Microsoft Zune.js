@@ -23,7 +23,9 @@ else
 
         if (app.audio.targetTrackInfo.length > 0)
         {
-            if (app.audio.targetTrackInfo[0].codec != "AAC" || app.audio.targetTrackInfo[0].channelCount != 2)
+            if (app.audio.targetTrackInfo[0].codec == "AAC" && app.audio.targetTrackInfo[0].channelCount == 2)
+                app.video.codec("Copy", "CQ=4", "0 ");
+            else
             {
                 app.audio.codec("Faac", 128, 4, "80 00 00 00 ");
 
