@@ -1,8 +1,8 @@
-*** libavformat/file.c.old	Sat Mar 27 20:05:42 2010
---- libavformat/file.c	Sat Mar 27 20:05:42 2010
+*** libavformat/file.c.old	Sun Apr 11 11:34:11 2010
+--- libavformat/file.c	Sun Apr 11 11:34:11 2010
 ***************
-*** 30,35 ****
---- 30,104 ----
+*** 31,36 ****
+--- 31,105 ----
   #include <stdlib.h>
   #include "os_support.h"
   

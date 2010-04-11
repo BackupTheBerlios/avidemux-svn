@@ -1,8 +1,8 @@
-*** libavcodec/avcodec.h.old	Sat Mar 27 20:05:32 2010
---- libavcodec/avcodec.h	Sat Mar 27 20:05:32 2010
+*** libavcodec/avcodec.h.old	Sun Apr 11 11:34:06 2010
+--- libavcodec/avcodec.h	Sun Apr 11 11:34:06 2010
 ***************
-*** 594,599 ****
---- 594,601 ----
+*** 597,602 ****
+--- 597,604 ----
   #define CODEC_FLAG2_MBTREE        0x00040000 ///< Use macroblock tree ratecontrol (x264 only)
   #define CODEC_FLAG2_PSY           0x00080000 ///< Use psycho visual optimizations.
   #define CODEC_FLAG2_SSIM          0x00100000 ///< Compute SSIM during encoding, error[] values are undefined.
@@ -12,8 +12,8 @@
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1464,1469 ****
---- 1466,1472 ----
+*** 1467,1472 ****
+--- 1469,1475 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1478,1483 ****
---- 1481,1488 ----
+*** 1481,1486 ****
+--- 1484,1491 ----
        * - decoding: unused
        */
       int rc_buffer_size;

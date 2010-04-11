@@ -1,13 +1,13 @@
-*** libavcodec/ffv1.c.old	Sat Mar 27 20:05:33 2010
---- libavcodec/ffv1.c	Sat Mar 27 20:05:33 2010
+*** libavcodec/ffv1.c.old	Sun Apr 11 11:34:07 2010
+--- libavcodec/ffv1.c	Sun Apr 11 11:34:07 2010
 ***************
-*** 1070,1075 ****
---- 1070,1077 ----
+*** 1107,1112 ****
+--- 1107,1114 ----
           clear_state(f);
       }else{
           p->key_frame= 0;
 +          p->pict_type= FF_P_TYPE; // MEANX : looks more like a P to me as user
 + 
       }
-      if(!f->plane[0].state && !f->plane[0].vlc_state)
-          return -1;
+      if(f->ac>1){
+          int i;
