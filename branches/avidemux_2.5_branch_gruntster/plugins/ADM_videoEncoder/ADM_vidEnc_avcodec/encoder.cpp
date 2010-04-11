@@ -358,31 +358,28 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	_frame.key_frame = 0;
 	_frame.pict_type = 0;
 
-	if (encodeParams->frameData[0])
+	if (_supportedCsps[0] == ADM_CSP_YV12)
 	{
-		if (_supportedCsps[0] == ADM_CSP_YV12)
-		{
-			// Swap planes so YV12 looks like YUV420P
-			uint8_t *tmpPlane = encodeParams->frameData[1];
+		// Swap planes so YV12 looks like YUV420P
+		uint8_t *tmpPlane = encodeParams->frameData[1];
 
-			encodeParams->frameData[1] = encodeParams->frameData[2];
-			encodeParams->frameData[2] = tmpPlane;
-		}
-
-		_frame.data[0] = encodeParams->frameData[0];
-		_frame.data[1] = encodeParams->frameData[1];
-		_frame.data[2] = encodeParams->frameData[2];
-		_frame.linesize[0] = encodeParams->frameLineSize[0];
-		_frame.linesize[1] = encodeParams->frameLineSize[1];
-		_frame.linesize[2] = encodeParams->frameLineSize[2];
-
-		int size = avcodec_encode_video(_context, _buffer, _bufferSize, &_frame);
-
-		if (size < 0)
-			return ADM_VIDENC_ERR_FAILED;
-
-		updateEncodeParameters(encodeParams, _buffer, size);
+		encodeParams->frameData[1] = encodeParams->frameData[2];
+		encodeParams->frameData[2] = tmpPlane;
 	}
+
+	_frame.data[0] = encodeParams->frameData[0];
+	_frame.data[1] = encodeParams->frameData[1];
+	_frame.data[2] = encodeParams->frameData[2];
+	_frame.linesize[0] = encodeParams->frameLineSize[0];
+	_frame.linesize[1] = encodeParams->frameLineSize[1];
+	_frame.linesize[2] = encodeParams->frameLineSize[2];
+
+	int size = avcodec_encode_video(_context, _buffer, _bufferSize, _frame.data[0] == NULL ? NULL : &_frame);
+
+	if (size < 0)
+		return ADM_VIDENC_ERR_FAILED;
+
+	updateEncodeParameters(encodeParams, _buffer, size);
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
