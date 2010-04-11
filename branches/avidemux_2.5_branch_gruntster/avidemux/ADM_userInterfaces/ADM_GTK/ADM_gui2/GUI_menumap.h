@@ -89,14 +89,6 @@ CALLBACK(sidebar1                              ,ACT_ViewSide);
 //CALLBACK(display_output1                       ,ACT_OutputToggle);
 CALLBACK(second_audio_track1                   ,ACT_SecondAudioTrack);
 
-CALLBACK(vcd1                                   ,ACT_AUTO_VCD);
-CALLBACK(svcd1                                  ,ACT_AUTO_SVCD);
-CALLBACK(dvd1                                   ,ACT_AUTO_DVD);
-CALLBACK(psp1                                   ,ACT_AUTO_PSP);
-CALLBACK(psp__h264_1,                           ACT_AUTO_PSP_H264);
-CALLBACK(flv1,                                  ACT_AUTO_FLV);
-CALLBACK(Ipod,                                  ACT_AUTO_IPOD);
-
 CALLBACK(add_to_joblist1                       ,ACT_ADD_JOB);
 CALLBACK(joblist1                              ,ACT_HANDLE_JOB);
 CALLBACK(v2v                                   ,ACT_V2V);

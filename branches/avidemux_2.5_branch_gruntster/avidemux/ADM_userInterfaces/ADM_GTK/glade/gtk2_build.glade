@@ -853,67 +853,6 @@
 	      <property name="visible">True</property>
 	      <property name="label" translatable="yes">A_uto</property>
 	      <property name="use_underline">True</property>
-
-	      <child>
-		<widget class="GtkMenu" id="help1_menu">
-
-		  <child>
-		    <widget class="GtkMenuItem" id="vcd1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_VCD</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="svcd1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_SVCD</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="dvd1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_DVD</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="psp1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">_PSP</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="psp_(h264)1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">PSP (_H.264)</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="flv1">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">F_LV</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-
-		  <child>
-		    <widget class="GtkMenuItem" id="Ipod">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">IPOD (mpeg4)</property>
-		      <property name="use_underline">True</property>
-		    </widget>
-		  </child>
-		</widget>
-	      </child>
 	    </widget>
 	  </child>
 

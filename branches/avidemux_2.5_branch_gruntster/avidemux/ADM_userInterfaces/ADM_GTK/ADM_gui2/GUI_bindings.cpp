@@ -15,6 +15,8 @@
  ***************************************************************************/
 
 #include <math.h>
+#include <stack>
+
 #include "ADM_toolkitGtk.h"
 
 #include "../ADM_render/GUI_render.h"
@@ -65,15 +67,17 @@ static  GtkAdjustment *sliderAdjustment;
 
 static int keyPressHandlerId=0;
 
-//static gint	  guiCursorEvtMask=0;
 static gint       jogChange( void );
 static void volumeChange( void );
+
 static char     *customNames[ADM_MAC_CUSTOM_SCRIPT];
+static std::stack<gchar*> autoWizardStack;
+
 static uint32_t ADM_nbCustom=0;
 // Needed for DND
 // extern int A_openAvi (char *name);
 extern int A_appendAvi (const char *name);
-
+extern bool A_parseECMAScript(const char *name);
 
 static void on_audio_change(void);
 static void on_video_change(void);
@@ -82,6 +86,7 @@ static void on_format_change(void);
 static int update_ui=0;
 void GUI_gtk_grow_off(int onff);
 static void GUI_initCustom(void);
+static void GUI_buildAutoMenu(void);
 const char * GUI_getCustomScript(uint32_t nb);
 uint32_t audioEncoderGetNumberOfEncoders(void);
 const char  *audioEncoderGetDisplayName(uint32_t i);
@@ -338,6 +343,13 @@ void destroyGUI(void)
 
 	for(int i=0;i<ADM_nbCustom;i++)
 		delete(customNames[i]);
+
+	while (!autoWizardStack.empty())
+	{
+		g_free(autoWizardStack.top());
+		autoWizardStack.pop();
+	}
+
 #ifdef USE_JOG
         physical_jog_shuttle->deregisterCBs (NULL);
         delete physical_jog_shuttle;
@@ -585,6 +597,7 @@ uint8_t  bindGUI( void )
    UI_arrow_enabled();
   // Add custom menu
  GUI_initCustom();
+ GUI_buildAutoMenu();
     return 1;
 
 }
@@ -637,6 +650,75 @@ void GUI_initCustom(void )
   #undef CALLBACK
   printf("Menu built\n");
 }
+
+static void autoMenuCallback(GtkMenuItem* menuitem, gpointer user_data)
+{
+	A_parseECMAScript((char*)user_data);
+}
+
+static void addDirEntryToMenu(GtkWidget *parentMenu, const gchar *parentPath)
+{
+	GDir *dir = g_dir_open(parentPath, 0, NULL);
+
+	if (!dir)
+		return;
+
+	const gchar *name = g_dir_read_name(dir);
+
+	while (name != NULL)
+	{
+		gchar *path, *display_name;
+
+		path = g_build_filename(parentPath, name, NULL);
+		display_name = g_filename_to_utf8(name, -1, NULL, NULL, NULL);
+
+		if (g_file_test(path, G_FILE_TEST_IS_DIR))
+		{
+			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(display_name);
+			gtk_widget_show(menuItem);
+			gtk_container_add(GTK_CONTAINER(parentMenu), menuItem);
+
+			GtkWidget *menu = gtk_menu_new();
+			gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuItem), menu);
+
+			addDirEntryToMenu(menu, path);
+		}
+		else
+		{
+			gchar *pathCopy = g_strdup(path);
+
+			*(strrchr(display_name, '.')) = 0;
+			autoWizardStack.push(pathCopy);
+
+			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(display_name);
+			gtk_widget_show(menuItem);
+			gtk_container_add(GTK_CONTAINER(parentMenu), menuItem);
+			gtk_signal_connect(GTK_OBJECT(menuItem), "activate", GTK_SIGNAL_FUNC(autoMenuCallback), (gpointer)pathCopy);
+		}
+
+		g_free(path);
+		g_free(display_name);
+
+		name = g_dir_read_name(dir);      
+	}
+
+	g_dir_close(dir);
+}
+
+void GUI_buildAutoMenu(void)
+{
+	GtkWidget *menuItem = lookup_widget(guiRootWindow, "help1");
+	GtkWidget *menu = gtk_menu_new();
+	char *scriptDir = ADM_getScriptPath();
+	gchar *autoDir = g_build_filename(scriptDir, "auto", NULL);
+
+	delete scriptDir;
+	gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuItem), menu);
+	addDirEntryToMenu(menu, autoDir);
+
+	g_free(autoDir);
+}
+
 gboolean  on_drawingarea1_expose_event(GtkWidget * widget,  GdkEventExpose * event, gpointer user_data)
 {
 UNUSED_ARG(widget);

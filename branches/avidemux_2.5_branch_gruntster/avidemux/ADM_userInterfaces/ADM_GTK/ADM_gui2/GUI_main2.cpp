@@ -128,14 +128,6 @@ create_mainWindow (void)
   GtkWidget *separator17;
   GtkWidget *see_hex1;
   GtkWidget *help1;
-  GtkWidget *help1_menu;
-  GtkWidget *vcd1;
-  GtkWidget *svcd1;
-  GtkWidget *dvd1;
-  GtkWidget *psp1;
-  GtkWidget *psp__h264_1;
-  GtkWidget *flv1;
-  GtkWidget *Ipod;
   GtkWidget *go1;
   GtkWidget *go1_menu;
   GtkWidget *play_video1;
@@ -765,37 +757,6 @@ create_mainWindow (void)
   help1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("A_uto"));
   gtk_widget_show (help1);
   gtk_container_add (GTK_CONTAINER (menuBar), help1);
-
-  help1_menu = gtk_menu_new ();
-  gtk_menu_item_set_submenu (GTK_MENU_ITEM (help1), help1_menu);
-
-  vcd1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("_VCD"));
-  gtk_widget_show (vcd1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), vcd1);
-
-  svcd1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("_SVCD"));
-  gtk_widget_show (svcd1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), svcd1);
-
-  dvd1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("_DVD"));
-  gtk_widget_show (dvd1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), dvd1);
-
-  psp1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("_PSP"));
-  gtk_widget_show (psp1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), psp1);
-
-  psp__h264_1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("PSP (_H.264)"));
-  gtk_widget_show (psp__h264_1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), psp__h264_1);
-
-  flv1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("F_LV"));
-  gtk_widget_show (flv1);
-  gtk_container_add (GTK_CONTAINER (help1_menu), flv1);
-
-  Ipod = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("IPOD (mpeg4)"));
-  gtk_widget_show (Ipod);
-  gtk_container_add (GTK_CONTAINER (help1_menu), Ipod);
 
   go1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("_Go"));
   gtk_widget_show (go1);
@@ -1591,14 +1552,6 @@ create_mainWindow (void)
   GLADE_HOOKUP_OBJECT (mainWindow, separator17, "separator17");
   GLADE_HOOKUP_OBJECT (mainWindow, see_hex1, "see_hex1");
   GLADE_HOOKUP_OBJECT (mainWindow, help1, "help1");
-  GLADE_HOOKUP_OBJECT (mainWindow, help1_menu, "help1_menu");
-  GLADE_HOOKUP_OBJECT (mainWindow, vcd1, "vcd1");
-  GLADE_HOOKUP_OBJECT (mainWindow, svcd1, "svcd1");
-  GLADE_HOOKUP_OBJECT (mainWindow, dvd1, "dvd1");
-  GLADE_HOOKUP_OBJECT (mainWindow, psp1, "psp1");
-  GLADE_HOOKUP_OBJECT (mainWindow, psp__h264_1, "psp__h264_1");
-  GLADE_HOOKUP_OBJECT (mainWindow, flv1, "flv1");
-  GLADE_HOOKUP_OBJECT (mainWindow, Ipod, "Ipod");
   GLADE_HOOKUP_OBJECT (mainWindow, go1, "go1");
   GLADE_HOOKUP_OBJECT (mainWindow, go1_menu, "go1_menu");
   GLADE_HOOKUP_OBJECT (mainWindow, play_video1, "play_video1");
