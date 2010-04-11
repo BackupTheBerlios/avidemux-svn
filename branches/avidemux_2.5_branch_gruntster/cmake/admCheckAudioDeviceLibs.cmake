@@ -103,23 +103,6 @@ ELSE (UNIX)
 ENDIF (UNIX)
 
 ########################################
-# Secret Rabbit Code
-########################################
-IF (JACK_FOUND)
-	MESSAGE(STATUS "Checking for Secret Rabbit Code")
-	MESSAGE(STATUS "*******************************")
-
-	FIND_HEADER_AND_LIB(SRC samplerate.h samplerate src_get_version)
-	PRINT_LIBRARY_INFO("Secret Rabbit Code" SRC_FOUND "${SRC_INCLUDE_DIR}" "${SRC_LIBRARY_DIR}")
-
-	IF (SRC_FOUND)
-		SET(USE_SRC 1)
-	ENDIF (SRC_FOUND)
-
-	MESSAGE("")
-ENDIF (JACK_FOUND)
-
-########################################
 # OSS
 ########################################
 IF (UNIX AND NOT APPLE)
@@ -143,14 +126,15 @@ IF (UNIX AND NOT APPLE)
 ELSE (UNIX AND NOT APPLE)
 	SET(OSS_CAPABLE FALSE)
 ENDIF (UNIX AND NOT APPLE)
+
 ########################################
 # PulseAudioSimple
 ########################################
 IF (UNIX AND NOT APPLE)
 	OPTION(PULSEAUDIOSIMPLE "" ON)
 
-	MESSAGE(STATUS "Checking for PULSEAUDIOSIMPLE")
-	MESSAGE(STATUS "*****************************")
+	MESSAGE(STATUS "Checking for PulseAudio Simple")
+	MESSAGE(STATUS "******************************")
         IF (PULSEAUDIOSIMPLE_INCLUDE_DIR AND PULSEAUDIOSIMPLE_LIBRARIES)
         # in cache already
          SET(PULSEAUDIOSIMPLE_FIND_QUIETLY TRUE)
