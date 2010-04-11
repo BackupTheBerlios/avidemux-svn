@@ -42,10 +42,6 @@ public:
 	QListWidget *activeList;
 
 public slots:
-	void VCD(bool b);
-	void DVD(bool b);
-	void SVCD(bool b);
-	void halfD1(bool b);
 	void add(bool b);
 	void up(bool b);
 	void down(bool b);

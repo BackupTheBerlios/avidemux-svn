@@ -6,27 +6,14 @@ ACT(Exit)
 ACT(PlayAvi)
 ACT(StopAvi)
 ACT(SaveImg)
-ACT(SaveOGM)
 ACT(SaveJPG)
 ACT(SaveBunchJPG)
-ACT(SaveDVDPS)
-ACT(SaveUnpackedMpeg4)
 ACT(RecentFiles)
 
 ACT(SaveDualAudio)
 ACT(SaveAvi)
 ACT(SaveWave)
-ACT(Pipe2Lame)
-ACT(PipeLame)
-ACT(Pipe2Other)
-
-ACT(SaveMpeg1vcd)
-ACT(SaveMpeg2svcd)
-ACT(SaveMpeg2dvd)
-
 ACT(SaveRaw)
-
-ACT(XVCD)
 
 ACT(SetPostProcessing)
 ACT(NextFrame)
@@ -91,11 +78,6 @@ ACT(Fast)
 
 ACT(SecondAudioTrack)
 
-ACT(SelectDevOSS)
-ACT(SelectDevDummy)
-ACT(SelectDevArts)
-ACT(SelectDevALSA)
-
 ACT(CutWizard)
 
 ACT(MpegIndex)
@@ -146,14 +128,6 @@ ACT(RECENTPROJECT2)
 ACT(RECENTPROJECT3)
 ACT(RECENTPROJECT4)
 ACT(RECENTPROJECT5)
-
-ACT(AUTO_VCD)
-ACT(AUTO_SVCD)
-ACT(AUTO_DVD)
-ACT(AUTO_PSP)
-ACT(AUTO_PSP_H264)
-ACT(AUTO_IPOD)
-ACT(AUTO_FLV)
 
 ACT(ADD_JOB)
 ACT(HANDLE_JOB)

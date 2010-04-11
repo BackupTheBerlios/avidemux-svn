@@ -120,7 +120,6 @@ extern uint8_t mpeg_passthrough(const char *name,ADM_OUT_FORMAT format );
 static void A_videoCheck( void);
 extern uint8_t parseScript(char *scriptname);
 static void	A_setPostproc( void );
-extern uint8_t ogmSave(const char  *name);
 //
 static uint8_t A_pass(char *name);
 uint8_t A_jumpToTime(uint32_t hh,uint32_t mm,uint32_t ss,uint32_t ms);
@@ -133,7 +132,6 @@ extern void videoCodecConfigureUI(int codecIndex = -1);
 extern void audioCodecChanged(int newcodec);
 extern void videoCodecChanged(int newcodec);
 extern void DIA_Calculator(uint32_t *sizeInMeg, uint32_t *avgBitrate );
-extern uint8_t A_autoDrive(Action action);
 int ignore_change;
 
 extern uint8_t DIA_ocrGen(void);
@@ -417,16 +415,6 @@ int nw;
                 admPreview::update(curframe);
                 break;
 
-
-        case ACT_AUTO_VCD:
-        case ACT_AUTO_SVCD:
-        case ACT_AUTO_DVD:
-        case ACT_AUTO_PSP:
-        case ACT_AUTO_IPOD:
-        case ACT_AUTO_FLV:
-        case ACT_AUTO_PSP_H264:
-                A_autoDrive( action);
-                break;
      case ACT_TimeShift:
                 A_TimeShift();
                 break;
@@ -441,18 +429,7 @@ int nw;
 				DIA_Calculator(&a,&b );
 			}
     			break;
-    case ACT_SaveUnpackedMpeg4:
-      if(GUI_Question(QT_TR_NOOP("This is to be used to undo packed VOP on MPEG-4.\nContinue ?")))
-			{ 
-                          GUI_FileSelWrite (QT_TR_NOOP("Select AVI File to Write"), (SELFILE_CB *)A_SaveUnpackedVop);
-				
-			}
-    			break;
-			
-    case ACT_SaveOGM:
-                        GUI_FileSelWrite (QT_TR_NOOP("Select OGM File to Write"), (SELFILE_CB *)ogmSave);
-    			break;
-				
+
     case ACT_SaveWork:
       GUI_FileSelWrite (QT_TR_NOOP("Select Workbench to Save"), A_saveWorkbench);
 	  UI_refreshCustomMenu();

@@ -32,12 +32,8 @@ create_dialog1 (void)
   GtkWidget *table2;
   GtkWidget *scrolledwindowAvailable;
   GtkWidget *treeviewAvailable;
-  GtkWidget *buttonVCDRes;
-  GtkWidget *buttonSVCDRes;
-  GtkWidget *buttonHalfD1Res;
   GtkWidget *hbox2;
   GtkWidget *label1;
-  GtkWidget *buttonDVDRes;
   GtkWidget *frame1;
   GtkWidget *mainTree;
   GtkWidget *hboxActionAvailable;
@@ -136,33 +132,6 @@ create_dialog1 (void)
   gtk_table_set_col_spacings (GTK_TABLE(table2), 6);
   gtk_widget_show (table2);
   gtk_box_pack_start (GTK_BOX (vbox3), table2, FALSE, FALSE, 0);
-
-  buttonVCDRes = gtk_button_new_with_mnemonic (QT_TR_NOOP("_VCD"));
-  gtk_tooltips_set_tip (tooltips, buttonVCDRes, QT_TR_NOOP("VCD resolution"), NULL);
-  gtk_widget_show (buttonVCDRes);
-  gtk_table_attach_defaults (GTK_TABLE(table2), buttonVCDRes, 0, 1, 0, 1);
-
-  buttonSVCDRes = gtk_button_new_with_mnemonic (QT_TR_NOOP("_SVCD"));
-  gtk_tooltips_set_tip (tooltips, buttonSVCDRes, QT_TR_NOOP("SVCD resolution"), NULL);
-  gtk_widget_show (buttonSVCDRes);
-  gtk_table_attach_defaults (GTK_TABLE(table2), buttonSVCDRes, 1, 2, 0, 1);
-
-  buttonHalfD1Res = gtk_button_new ();
-  gtk_tooltips_set_tip (tooltips, buttonHalfD1Res, QT_TR_NOOP("Half D1 resolution"), NULL);
-  gtk_widget_show (buttonHalfD1Res);
-  hbox2 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox2);
-  gtk_container_add (GTK_CONTAINER (buttonHalfD1Res), hbox2);
-  label1 = gtk_label_new_with_mnemonic (QT_TR_NOOP("<sup>1</sup>/<sub>2</sub> D_1"));
-  gtk_label_set_use_markup (GTK_LABEL(label1), TRUE);
-  gtk_widget_show (label1);
-  gtk_box_pack_start (GTK_BOX (hbox2), label1, FALSE, FALSE, 0);
-  gtk_table_attach_defaults (GTK_TABLE(table2), buttonHalfD1Res, 0, 1, 1, 2);
-
-  buttonDVDRes = gtk_button_new_with_mnemonic (QT_TR_NOOP("_DVD"));
-  gtk_tooltips_set_tip (tooltips, buttonDVDRes, QT_TR_NOOP("DVD resolution"), NULL);
-  gtk_widget_show (buttonDVDRes);
-  gtk_table_attach_defaults (GTK_TABLE(table2), buttonDVDRes, 1, 2, 1, 2);
 
   scrolledwindowAvailable = gtk_scrolled_window_new (NULL, NULL);
   gtk_table_attach_defaults (GTK_TABLE(table1), scrolledwindowAvailable, 1, 2, 0, 1);
@@ -331,12 +300,8 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, table2, "table2");
   GLADE_HOOKUP_OBJECT (dialog1, scrolledwindowAvailable, "scrolledwindowAvailable");
   GLADE_HOOKUP_OBJECT (dialog1, treeviewAvailable, "treeviewAvailable");
-  GLADE_HOOKUP_OBJECT (dialog1, buttonVCDRes, "buttonVCDRes");
-  GLADE_HOOKUP_OBJECT (dialog1, buttonSVCDRes, "buttonSVCDRes");
-  GLADE_HOOKUP_OBJECT (dialog1, buttonHalfD1Res, "buttonHalfD1Res");
   GLADE_HOOKUP_OBJECT (dialog1, hbox2, "hbox2");
   GLADE_HOOKUP_OBJECT (dialog1, label1, "label1");
-  GLADE_HOOKUP_OBJECT (dialog1, buttonDVDRes, "buttonDVDRes");
   GLADE_HOOKUP_OBJECT (dialog1, frame1, "frame1");
   GLADE_HOOKUP_OBJECT (dialog1, mainTree, "mainTree");
   GLADE_HOOKUP_OBJECT (dialog1, hboxActionAvailable, "hboxActionAvailable");

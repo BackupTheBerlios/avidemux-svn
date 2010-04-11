@@ -19,8 +19,7 @@
 
 #include "ADM_video/ADM_vidPartial.h"
 #include "avi_vars.h"
-#include "ADM_filter/vidVCD.h"
-//___________________________________________
+
 typedef enum 
 {
   A_BEGIN = 10,
@@ -30,10 +29,6 @@ typedef enum
   A_DOWN,
   A_REMOVE,
   A_DONE,
-  A_VCD,
-  A_SVCD,
-  A_DVD,
-  A_HALFD1,
   A_LOAD,
   A_SAVE,
   A_PREVIEW,
@@ -177,31 +172,6 @@ void on_action (gui_act action)
         updateFilterList ();
         setSelectionNumber(nb_active_filter-1, WID(treeviewActive), stores[0], nb_active_filter-2);
         break;
-
-    case A_VCD:
-        setVCD ();
-        updateFilterList ();
-        setSelectionNumber(nb_active_filter-1, WID(treeviewActive), stores[0], nb_active_filter-2);
-        break;
-
-    case A_SVCD:
-        setSVCD ();
-        updateFilterList ();
-        setSelectionNumber(nb_active_filter-1, WID(treeviewActive), stores[0], nb_active_filter-2);
-        break;
-
-    case A_DVD:
-        setDVD ();
-        updateFilterList ();
-        setSelectionNumber(nb_active_filter-1, WID(treeviewActive), stores[0], nb_active_filter-2);
-        break;
-
-    case A_HALFD1:
-        setHalfD1 ();
-        updateFilterList ();
-        setSelectionNumber(nb_active_filter-1, WID(treeviewActive), stores[0], nb_active_filter-2);
-        break;
-
     default:
     case A_DOUBLECLICK:
         printf ("Double clicked..");
@@ -415,10 +385,6 @@ createFilterDialog (void)
 	CONNECT (buttonDown, A_DOWN)
 	CONNECT (buttonPreview, A_PREVIEW)
 	CONNECT (buttonPartial, A_PARTIAL)
-	CONNECT (buttonVCDRes, A_VCD)
-	CONNECT (buttonSVCDRes, A_SVCD)
-	CONNECT (buttonHalfD1Res, A_HALFD1)
-	CONNECT (buttonDVDRes, A_DVD)
 	CONNECT (buttonOpen, A_LOAD)
 	CONNECT (buttonSave, A_SAVE)
 

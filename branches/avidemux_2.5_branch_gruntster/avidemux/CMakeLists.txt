@@ -150,7 +150,7 @@ ENDIF (WIN32)
 ########################################
 # Our exectuables
 ########################################
-SET(ADM_EXE_SRCS ${ADM_EXE_SRCS} ADM_preview.cpp  gtk_gui.cpp  gui_autodrive.cpp  GUI_jobs.cpp  gui_navigate.cpp  guiplay.cpp  gui_savenew.cpp  main.cpp  gui_action.cpp)
+SET(ADM_EXE_SRCS ${ADM_EXE_SRCS} ADM_preview.cpp  gtk_gui.cpp  GUI_jobs.cpp  gui_navigate.cpp  guiplay.cpp  gui_savenew.cpp  main.cpp  gui_action.cpp)
 
 ADD_EXECUTABLE(avidemux2_cli MACOSX_BUNDLE ${ADM_EXE_SRCS} ${MO_FILES} ${WIN_RES_GTK})
 ADD_TARGET_CFLAGS(avidemux2_cli "-I${CMAKE_BINARY_DIR}/config/cli")

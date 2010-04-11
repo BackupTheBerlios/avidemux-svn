@@ -40,7 +40,6 @@
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
 #include "ADM_video/ADM_vidPartial.h"
-#include "ADM_filter/vidVCD.h"
 #include "DIA_factory.h"
 #include "ADM_toolkitQt.h"
 
@@ -283,26 +282,7 @@ void filtermainWindow::remove( bool b)
 			if (previewDialogOpen)
 				preview(true);
 }
-#define MAKE_BUTTON(button,call) \
-void filtermainWindow::button( bool b) \
-{ \
-    if (call()) \
-	{ \
-		bool previewDialogOpen = (previewDialog != NULL); \
-\
-		closePreview(); \
-		getFirstVideoFilter (); \
-		buildActiveFilterList ();  \
-		setSelected(nb_active_filter - 1); \
-\
-		if (previewDialogOpen) \
-			preview(true); \
-	} \
-}
-MAKE_BUTTON(DVD,setDVD)
-MAKE_BUTTON(VCD,setVCD)
-MAKE_BUTTON(SVCD,setSVCD)
-MAKE_BUTTON(halfD1,setHalfD1)
+
 /**
         \fn     configure( bool b)
         \brief  Configure the selected active filter
@@ -655,10 +635,6 @@ filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
 	connect(ui.toolButtonLoad, SIGNAL(clicked(bool)), this, SLOT(loadScript(bool)));
 	connect(ui.toolButtonSaveScript, SIGNAL(clicked(bool)), this, SLOT(saveScript(bool)));
 
-    connect(ui.pushButtonDVD, SIGNAL(clicked(bool)), this, SLOT(DVD(bool)));
-    connect(ui.pushButtonVCD, SIGNAL(clicked(bool)), this, SLOT(VCD(bool)));
-    connect(ui.pushButtonSVCD, SIGNAL(clicked(bool)), this, SLOT(SVCD(bool)));
-    connect(ui.pushButtonHalfDVD, SIGNAL(clicked(bool)), this, SLOT(halfD1(bool)));
 	connect(ui.pushButtonPreview, SIGNAL(clicked(bool)), this, SLOT(preview(bool)));
 
 	activeList->setItemDelegate(new FilterItemDelegate(activeList));

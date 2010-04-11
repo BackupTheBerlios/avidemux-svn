@@ -42,7 +42,6 @@
 #include "ADM_osSupport/ADM_debug.h"
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
 
-#include "ADM_filter/vidVCD.h"
 #include "ADM_video/ADM_vidMisc.h"
 
 extern void filterListAll(void );
@@ -98,7 +97,6 @@ extern uint8_t ogmSave(const char *fd);
 static void set_autoindex(char *p);
 extern int A_SaveUnpackedVop(const char *name);
 extern int A_SavePackedVop(const char *name);
-extern int A_saveDVDPS(char *name);
 extern void A_saveWorkbench (const char *name);
 extern uint8_t A_rebuildKeyFrame (void);
 extern uint8_t A_setContainer(const char *cont);
@@ -150,10 +148,6 @@ AUTOMATON reaction_table[]=
         {"audio-resample",	1,"resample to x hz",			call_resample},
         {"filters",		1,"load a filter preset",		(one_arg_type)filterLoadXml}   ,
         {"codec-conf",		1,"load a codec configuration",		(one_arg_type )loadVideoCodecConf}   ,
-        {"vcd-res",		0,"set VCD resolution",			(one_arg_type)setVCD}              ,
-        {"svcd-res",		0,"set SVCD resolution",		(one_arg_type)setSVCD}              ,
-        {"dvd-res",		0,"set DVD resolution",			(one_arg_type)setDVD}  ,
-        {"halfd1-res",		0,"set 1/2 DVD resolution",		(one_arg_type)setHalfD1} ,  
         {"save-jpg",		1,"save JPEG images",			(one_arg_type)A_saveBunchJpg},
         {"begin",		1,"set start frame",			setBegin},
         {"end",			1,"set end frame",			setEnd},
@@ -185,7 +179,7 @@ AUTOMATON reaction_table[]=
         {"fps",	                1,"set frames per second",	call_fps},
         {"audio-codec",		1,"set audio codec (AAC/AC3/COPY/MP2/MP3/NONE (WAV PCM)/TWOLAME)",call_audiocodec},
         
-        {"video-codec",		1,"set video codec (COPY/DV/DVD/FFHUFF/FFmpeg4/FFV1/FLV1/H263/HUFF/MJPEG/REQUANT/SVCD/VCD/x264/XDVD/Xvid4/XVCD/XSVCD/Y800/YV12)", call_videocodec},
+        {"video-codec",		1,"set video codec (COPY/DV/FFHUFF/FFmpeg4/FFV1/FLV1/H263/HUFF/MJPEG/REQUANT/x264/XDVD/Xvid4/YV12)", call_videocodec},
         {"video-conf",		1	,"set video codec conf (cq=q|cbr=br|2pass=size)[,mbr=br][,matrix=(0|1|2|3)]",				call_videoconf},
         {"reuse-2pass-log",	0	,"reuse 2pass logfile if it exists",	set_reuse_2pass_log},
         {"set-pp",		2	,"set post processing default value, value(1=hdeblok|2=vdeblock|4=dering) and strength (0-5)",
