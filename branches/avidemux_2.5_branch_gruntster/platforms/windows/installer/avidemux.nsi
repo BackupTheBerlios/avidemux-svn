@@ -365,7 +365,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         SetOutPath $INSTDIR
         SetOverwrite on
         ${File} QtGui4.dll
-        ${File} avidemux2_qt4.exe
+        ${File} avidemux2.exe
         ${File} libADM_render_qt4.dll
         ${File} libADM_UIQT4.dll
         ${File} QtCore4.dll
@@ -1340,7 +1340,7 @@ ${MementoSection} "-Start menu Qt" SecStartMenuQt
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
     !insertmacro MUI_STARTMENU_WRITE_END
 !endif
 ${MementoSectionEnd}
@@ -1363,7 +1363,7 @@ ${MementoSectionEnd}
 ${MementoSection} "-Quick Launch Qt" SecQuickLaunchQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$QUICKLAUNCH\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$QUICKLAUNCH\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
 !endif
 ${MementoSectionEnd}
 
@@ -1377,7 +1377,7 @@ ${MementoSectionEnd}
 ${MementoSection} "-Desktop Qt" SecDesktopQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$DESKTOP\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2_qt4.exe
+    CreateShortcut "$DESKTOP\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
 !endif
 ${MementoSectionEnd}
 
@@ -1714,7 +1714,7 @@ Function RunAvidemux
     IntOp $0 $0 & ${SF_SELECTED}
 
     StrCmp $0 ${SF_SELECTED} 0 GTK
-        Exec "$INSTDIR\avidemux2_qt4.exe"
+        Exec "$INSTDIR\avidemux2.exe"
 
     Goto end
 GTK:

@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="6121" date="2010-04-11">
+    <comment>Updated ATK to version 1.30.0-1.</comment>
+    <comment>Updated Cairo to version 1.8.10-3.</comment>
+    <comment>Updated GLib to version 2.24.0-2.</comment>
+    <comment>Updated GTK+ to version 2.20.0-1.</comment>
+    <comment>Updated Libxml2 to version 2.7.7-1.</comment>
+    <comment>Updated Pango to version 1.28.0-1.</comment>
+    <comment>Updated x264 to r1523.</comment>
+    <comment>Updated zlib to version 1.2.4-2.</comment>
+  </buildentry>
+  <buildentry revision="6083" date="2010-04-06">
+  </buildentry>
   <buildentry revision="6064" date="2010-04-05">
     <comment>Updated x264 to r1510.</comment>
   </buildentry>

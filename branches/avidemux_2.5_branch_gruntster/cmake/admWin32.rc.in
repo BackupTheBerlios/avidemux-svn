@@ -15,7 +15,7 @@ BEGIN
             VALUE "FileDescription",  "Avidemux ${PRODUCTVERSION_STRING}"
             VALUE "FileVersion",      "${FILEVERSION_STRING}"
             VALUE "InternalName",     "avidemux"
-            VALUE "LegalCopyright",   "Copyright © 2001-2009 Free Software Foundation"
+            VALUE "LegalCopyright",   "Copyright © 2001-2010 Free Software Foundation"
             VALUE "OriginalFilename", ""
             VALUE "ProductName",      "Avidemux"
             VALUE "ProductVersion",   "${PRODUCTVERSION_STRING}"
