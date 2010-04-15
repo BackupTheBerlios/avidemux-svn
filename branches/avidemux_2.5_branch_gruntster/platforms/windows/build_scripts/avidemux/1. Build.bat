@@ -25,6 +25,24 @@ if errorlevel 4 goto end
 verify >nul
 echo.
 
-call "1a. Prepare Build"
+set curDir=%CD%
+
+call "Set Avidemux Environment Variables"
+if errorlevel 1 goto end
+
+cd "%curDir%"
+call "1a. Pre-build"
+if errorlevel 1 goto end
+
+cd "%curDir%"
+call "1b. Perform Build"
+if errorlevel 1 goto end
+
+cd "%curDir%"
+call "1c. Post-build"
+if errorlevel 1 goto end
+
+echo Finished!
 
 :end
+pause

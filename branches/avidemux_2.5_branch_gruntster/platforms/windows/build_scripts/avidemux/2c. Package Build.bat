@@ -1,18 +1,5 @@
-@echo off
-
-call "Set Avidemux Environment Variables"
-
-cd Tools
-call "Get Revision Number"
-cd ..
-
-set curDir=%CD%
 set baseFile=avidemux_2.5_r%revisionNo%_win%BuildBits%
 set zipFile=%baseFile%.zip
-set packageDir=%CD%\%revisionNo%
-
-echo %packageDir%
-mkdir %packageDir%
 
 copy "%buildDir%\Change Log.html" "%packageDir%"
 move "Tools\Package Notes.html" "%packageDir%"
@@ -39,5 +26,3 @@ zip -r "%packageDir%\%zipFile%" *
 cd %curDir%
 advzip -z -4 "%packageDir%\%zipFile%"
 rmdir /s/q "%packageDir%\temp"
-
-pause

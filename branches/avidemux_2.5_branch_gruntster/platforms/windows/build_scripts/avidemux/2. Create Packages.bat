@@ -16,11 +16,29 @@ if errorlevel 3 goto end
 verify >nul
 echo.
 
-call "2a. Update Notes.bat"
+set curDir=%CD%
 
+call "Set Avidemux Environment Variables"
 if errorlevel 1 goto error
 
-call "2b. Package Build.bat"
+cd "%curDir%"
+call "2a. Update Notes.bat"
+if errorlevel 1 goto error
+
+cd "%curDir%\Tools"
+call "Get Revision Number"
+cd ..
+
+set packageDir=%CD%\%revisionNo%
+mkdir %packageDir%
+
+cd "%curDir%"
+call "2b. Package SDK.bat"
+if errorlevel 1 goto error
+
+cd "%curDir%"
+call "2c. Package Build.bat"
+if errorlevel 1 goto error
 
 goto end
 
@@ -28,3 +46,4 @@ goto end
 set ERRORLEVEL 1
 
 :end
+pause

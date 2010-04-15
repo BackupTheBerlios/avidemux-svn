@@ -37,6 +37,8 @@ if "%BuildBits%" == "32" (set buildFolder=build)
 if "%BuildBits%" == "64" (set buildFolder=build64)
 
 set buildDir=%devDir%\avidemux_2.5_%buildFolder%
+set sdkBuildDir=%devDir%\avidemux_2.5_%buildFolder%_sdk
+
 set curDir=%CD%
 cd ..\..\..\..
 set sourceDir=%CD%

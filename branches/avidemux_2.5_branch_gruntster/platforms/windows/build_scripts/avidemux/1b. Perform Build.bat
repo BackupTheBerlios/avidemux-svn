@@ -1,8 +1,3 @@
-@echo off
-
-call "Set Avidemux Environment Variables"
-if errorlevel 1 goto error
-
 cd "%sourceDir%\%buildFolder%"
 cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" -DCMAKE_EXE_LINKER_FLAGS="-shared-libgcc" -DCMAKE_SHARED_LINKER_FLAGS="-shared-libgcc" -DUSE_SYSTEM_SPIDERMONKEY=ON -DCMAKE_INCLUDE_PATH="%SpiderMonkeySourceDir%" -DCMAKE_LIBRARY_PATH="%SpiderMonkeyLibDir%" %DebugFlags% ..
 
@@ -26,14 +21,7 @@ rmdir /s /q "%buildDir%\plugins" 2> NUL
 make install
 
 if errorlevel 1 goto error
-
-del /s "%buildDir%\*.a"
-
-echo Finished!
-goto end
+goto :EOF
 
 :error
 set ERRORLEVEL=1
-
-:end
-pause

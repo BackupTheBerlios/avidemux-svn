@@ -1,10 +1,4 @@
-@echo off
-
-call "Set Avidemux Environment Variables"
-if errorlevel 1 goto error
-
 set PATH=%msysDir%\bin;%PATH%
-set curDir=%CD%
 
 echo -- Generating Change Log.html --
 cd "..\..\installer"
@@ -21,7 +15,6 @@ echo -- Generating avidemux.pot --
 cd "%sourceDir%\po"
 sh update_pot.bash
 
-cd "%curDir%"
 goto end
 
 :error
