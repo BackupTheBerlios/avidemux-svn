@@ -44,7 +44,6 @@
 //#include "../utils/altivec/altivec_conf.h"
 #endif
 #include "mpeg2parm.h"
-#include "ADM_codec.h"
 //int verbose = 1;
 #define aprintf printf
 /* private prototypes */
