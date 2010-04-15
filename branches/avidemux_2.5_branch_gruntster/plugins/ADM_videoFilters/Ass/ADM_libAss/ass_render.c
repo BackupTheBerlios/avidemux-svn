@@ -123,9 +123,11 @@ ASS_Renderer *ass_renderer_init(ASS_Library *library)
         calloc(MAX_GLYPHS_INITIAL, sizeof(GlyphInfo));
     priv->text_info.lines = calloc(MAX_LINES_INITIAL, sizeof(LineInfo));
 
+    priv->settings.font_size_coeff = 1.;
+
   ass_init_exit:
     if (priv)
-        ass_msg(library, MSGL_INFO, "Init");
+        ass_msg(library, MSGL_V, "Init");
     else
         ass_msg(library, MSGL_ERR, "Init failed");
 
@@ -538,7 +540,7 @@ static void blend_vector_clip(ASS_Renderer *render_priv,
     FT_Glyph_Copy((FT_Glyph) drawing->glyph, &glyph);
     error = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_NORMAL, 0, 1);
     if (error) {
-        ass_msg(render_priv->library, MSGL_V,
+        ass_msg(render_priv->library, MSGL_WARN,
             "Clip vector rasterization failed: %d. Skipping.", error);
         goto blend_vector_exit;
     }
@@ -1158,8 +1160,9 @@ get_outline_glyph(ASS_Renderer *render_priv, int symbol, GlyphInfo *info,
                                          render_priv->border_scale),
                             double_to_d6(render_priv->state.border_y *
                                          render_priv->border_scale));
-        } else if (render_priv->state.border_x > 0 ||
-                   render_priv->state.border_y > 0) {
+        } else if ((render_priv->state.border_x > 0
+                    || render_priv->state.border_y > 0)
+                   && key.scale_x && key.scale_y) {
 
             FT_Glyph_Copy(info->glyph, &info->outline_glyph);
             stroke_outline_glyph(render_priv,
@@ -2072,7 +2075,7 @@ ass_render_event(ASS_Renderer *render_priv, ASS_Event *event,
             double scr_y;
             if (valign != VALIGN_SUB)
                 ass_msg(render_priv->library, MSGL_V,
-                       "Invalid valign, supposing 0 (subtitle)");
+                       "Invalid valign, assuming 0 (subtitle)");
             scr_y =
                 y2scr_sub(render_priv,
                           render_priv->track->PlayResY - MarginV);
@@ -2211,6 +2214,8 @@ static void ass_free_images(ASS_Image *img)
 
 static void ass_reconfigure(ASS_Renderer *priv)
 {
+    ASS_Settings *settings = &priv->settings;
+
     priv->render_id++;
     priv->cache.glyph_cache =
         ass_glyph_cache_reset(priv->cache.glyph_cache);
@@ -2220,6 +2225,19 @@ static void ass_reconfigure(ASS_Renderer *priv)
         ass_composite_cache_reset(priv->cache.composite_cache);
     ass_free_images(priv->prev_images_root);
     priv->prev_images_root = 0;
+
+    priv->width = settings->frame_width;
+    priv->height = settings->frame_height;
+    priv->orig_width = settings->frame_width - settings->left_margin -
+        settings->right_margin;
+    priv->orig_height = settings->frame_height - settings->top_margin -
+        settings->bottom_margin;
+    priv->orig_width_nocrop =
+        settings->frame_width - FFMAX(settings->left_margin, 0) -
+        FFMAX(settings->right_margin, 0);
+    priv->orig_height_nocrop =
+        settings->frame_height - FFMAX(settings->top_margin, 0) -
+        FFMAX(settings->bottom_margin, 0);
 }
 
 void ass_set_frame_size(ASS_Renderer *priv, int w, int h)
@@ -2323,27 +2341,14 @@ ass_start_frame(ASS_Renderer *render_priv, ASS_Track *track,
     if (render_priv->library != track->library)
         return 1;
 
+    if (!render_priv->fontconfig_priv)
+        return 1;
+
     free_list_clear(render_priv);
 
     if (track->n_events == 0)
         return 1;               // nothing to do
 
-    render_priv->width = settings_priv->frame_width;
-    render_priv->height = settings_priv->frame_height;
-    render_priv->orig_width =
-        settings_priv->frame_width - settings_priv->left_margin -
-        settings_priv->right_margin;
-    render_priv->orig_height =
-        settings_priv->frame_height - settings_priv->top_margin -
-        settings_priv->bottom_margin;
-    render_priv->orig_width_nocrop =
-        settings_priv->frame_width - FFMAX(settings_priv->left_margin,
-                                           0) -
-        FFMAX(settings_priv->right_margin, 0);
-    render_priv->orig_height_nocrop =
-        settings_priv->frame_height - FFMAX(settings_priv->top_margin,
-                                            0) -
-        FFMAX(settings_priv->bottom_margin, 0);
     render_priv->track = track;
     render_priv->time = now;
 
@@ -2505,7 +2510,7 @@ fix_collisions(ASS_Renderer *render_priv, EventImages *imgs, int cnt)
             s.hb = priv->left + priv->width;
             if (priv->height != imgs[i].height) {       // no, it's not
                 ass_msg(render_priv->library, MSGL_WARN,
-                        "Warning! Event height has changed");
+                        "Event height has changed");
                 priv->top = 0;
                 priv->height = 0;
                 priv->left = 0;
