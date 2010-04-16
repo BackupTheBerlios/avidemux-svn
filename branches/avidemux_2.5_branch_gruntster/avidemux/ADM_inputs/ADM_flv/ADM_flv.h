@@ -105,6 +105,7 @@ class flvHeader         :public vidHeader
     
     uint8_t     getFrameSize (uint32_t frame, uint32_t * size);
     uint8_t     parseMetaData(uint32_t remaining);
+    bool        parseOneMeta(const char *s,uint64_t endPos);
     void        setProperties(const char *name,float value);
     char        *readFlvString(void);
  
