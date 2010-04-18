@@ -178,7 +178,7 @@ JSBool ADM_JSAvidemuxAudio::JSGetProperty(JSContext *cx, JSObject *obj, jsval id
 void ADM_JSAvidemuxAudio::AddAudioSourceToJSArray(JSContext *cx, JSObject *obj, int trackIndex, AudioSource audioSource, 
 												  AVDMGenericAudioStream *audioStream, JSObject *tracks)
 {
-	if (audioSource != AudioNone)
+	if (audioStream != NULL)
 	{
 		WAVHeader *trackHeader = audioStream->getInfo();
 
