@@ -431,7 +431,7 @@ int Mpeg1Encoder::beginPass(vidEncPassParameters *passParameters)
 
 	if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_CQP)
 		qz = _encodeOptions.encodeModeParameter;
-	else if (_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR)
+	else if ((_encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_SIZE || _encodeOptions.encodeMode == ADM_VIDENC_MODE_2PASS_ABR) && ret == ADM_VIDENC_ERR_SUCCESS)
 	{
 		if (_currentPass == 1)
 		{
