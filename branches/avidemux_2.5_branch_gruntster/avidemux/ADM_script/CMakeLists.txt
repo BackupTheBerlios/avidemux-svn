@@ -1,7 +1,13 @@
 SET(ADM_script_SRCS
 	ADM_AvidemuxAudio.cpp  ADM_AvidemuxVideo.cpp    ADM_JSAvidemux.cpp       ADM_JSDirectorySearch.cpp  ADM_JSGlobal.cpp
 	ADM_Avidemux.cpp       ADM_JSAvidemuxAudio.cpp  ADM_JSAvidemuxVideo.cpp  ADM_JSFunctions.cpp        DirectorySearch.cpp
-	ADM_JSDialogFactory.cpp  ADM_JSDFMenu.cpp  ADM_JSAppliedVideoFilter.cpp  ADM_JSAudioTrackInfo.cpp)
+        ADM_JSAppliedVideoFilter.cpp  ADM_JSAudioTrackInfo.cpp
+        dialogFactory/ADM_JSDFMenu.cpp
+        dialogFactory/ADM_JSDFToggle.cpp
+        dialogFactory/ADM_JSDialogFactory.cpp
+        dialogFactory/ADM_JSDialogFactory_if.cpp
+        dialogFactory/ADM_JSDFInteger.cpp
+)
 
 include_directories("${PTHREAD_INCLUDE_DIR}")
 ADD_ADM_LIB_ALL_TARGETS(ADM_script ${ADM_script_SRCS})

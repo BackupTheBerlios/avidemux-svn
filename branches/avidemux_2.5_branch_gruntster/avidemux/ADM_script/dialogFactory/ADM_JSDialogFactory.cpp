@@ -1,3 +1,18 @@
+/**
+    \file   ADM_JSDialogFactory.cpp
+    \brief  JS / DF binding
+    \author gruntster 2010
+
+
+*/
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
 #include "ADM_JSDialogFactory.h"
 
 ADM_JSDialogFactoryHelper::ADM_JSDialogFactoryHelper(const char *title)
@@ -13,7 +28,7 @@ ADM_JSDialogFactoryHelper::~ADM_JSDialogFactoryHelper(void)
 	_title = NULL;
 }
 
-void ADM_JSDialogFactoryHelper::addControl(ADM_JSDFMenuHelper* control)
+void ADM_JSDialogFactoryHelper::addControl(ADM_JSDFBaseHelper* control)
 {
 	_controls.push_back(control);
 }
@@ -22,7 +37,7 @@ diaElem** ADM_JSDialogFactoryHelper::getControls(int *controlCount)
 {
 	*controlCount = (int)_controls.size();
 
-	std::vector<ADM_JSDFMenuHelper*>::iterator it;
+	std::vector<ADM_JSDFBaseHelper*>::iterator it;
 	int i = 0;
 	diaElem **elems = new diaElem*[*controlCount];
 
