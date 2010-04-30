@@ -42,8 +42,18 @@ IF (NOT AVIDEMUX_INSTALL_PREFIX)
 ELSE (NOT AVIDEMUX_INSTALL_PREFIX)
 	SET(AVIDEMUX_INSTALL_PREFIX "${AVIDEMUX_INSTALL_PREFIX}" CACHE STRING "")
 ENDIF (NOT AVIDEMUX_INSTALL_PREFIX)
+########################################
+# If avidemux_lib_dir is set, use it
+# else use prefix
+########################################
+IF (AVIDEMUX_LIB_DIR)
+	SET(AVIDEMUX_LIB_DIR "${AVIDEMUX_LIB_DIR}" CACHE STRING "")
+ELSE (AVIDEMUX_LIB_DIR)
+	SET(AVIDEMUX_LIB_DIR "${AVIDEMUX_INSTALL_PREFIX}/lib${LIB_SUFFIX}" CACHE STRING "")
+ENDIF (AVIDEMUX_LIB_DIR)
 
-LINK_DIRECTORIES(${AVIDEMUX_INSTALL_PREFIX}/lib${LIB_SUFFIX})
+MESSAGE(STATUS "Using ${AVIDEMUX_LIB_DIR} to look for avidemux libraries")
+LINK_DIRECTORIES(${AVIDEMUX_LIB_DIR})
 
 ########################################
 # Where is coreConfig ?
@@ -98,7 +108,7 @@ IF (WIN32)
 	ENDIF (CMAKE_BUILD_TYPE STREQUAL "Release")
 ELSE (WIN32)
 	SET(BIN_DIR bin)
-	set(FFMPEG_LIB_DIR ${AVIDEMUX_INSTALL_PREFIX}/lib${LIB_SUFFIX})
+	set(FFMPEG_LIB_DIR ${AVIDEMUX_LIB_DIR})
 ENDIF (WIN32)
 
 ########################################

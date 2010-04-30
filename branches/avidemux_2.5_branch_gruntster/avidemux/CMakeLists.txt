@@ -478,11 +478,17 @@ ELSE (APPLE)
 	INSTALL(TARGETS ${ADM_EXES} RUNTIME DESTINATION ${BIN_DIR} LIBRARY DESTINATION lib${LIB_SUFFIX})
 ENDIF (APPLE)
 
-IF (UNIX AND NOT APPLE)
-   ADD_CUSTOM_COMMAND(TARGET ffmpeg
+MACRO (ADM_SYMLINK_LIBS)
+       FOREACH (t ${ARGV})
+             ADD_CUSTOM_COMMAND(TARGET ${t}
                       POST_BUILD
                       COMMAND mkdir -p ${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}
                       COMMAND find ${CMAKE_BINARY_DIR}/avidemux -name '*.so*' | xargs ln -sft ${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}
                       WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
                       COMMENT "Creating temporary lib directory for proper plugins linking")
-ENDIF (UNIX AND NOT APPLE)
+       ENDFOREACH (t )
+ENDMACRO (ADM_SYMLINK_LIBS)
+IF (UNIX AND NOT APPLE)
+   # Some plugins link to ADM_coreImage (e.g., ADM_vf_addborders) and thus need the symlink in ${CMAKE_BINARY_DIR}/lib${LIB_SUFFIX}
+   ADM_SYMLINK_LIBS(ffmpeg ADM_coreImage)
+ENDIF(UNIX AND NOT APPLE)

@@ -34,7 +34,8 @@ set_property(SOURCE mpeg4aspEncoderOptions.cpp PROPERTY COMPILE_FLAGS -DMPEG4ASP
 getFfmpegLibNames(${AVIDEMUX_SOURCE_DIR}/avidemux/ADM_libraries/ffmpeg)
 
 add_library(ADM_libavcodec UNKNOWN IMPORTED)
-set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_INSTALL_DIR}/${LIBAVCODEC_LIB}")
+#set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_INSTALL_DIR}/${LIBAVCODEC_LIB}")
+set_property(TARGET ADM_libavcodec PROPERTY IMPORTED_LOCATION "${FFMPEG_LIB_DIR}/${LIBAVCODEC_LIB}")
 
 add_subdirectory(xml)
 
