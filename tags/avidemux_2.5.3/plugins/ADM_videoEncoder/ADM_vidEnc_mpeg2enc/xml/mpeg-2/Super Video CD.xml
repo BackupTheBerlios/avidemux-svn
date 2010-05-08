@@ -1,0 +1,1 @@
+<?xml version='1.0'?><Mpeg2Config><encodeOptions><mode>CQP</mode><parameter>4</parameter></encodeOptions><Mpeg2Options><maxBitrate>2500</maxBitrate><fileSplit>790</fileSplit><widescreen>false</widescreen><streamType>svcd</streamType><interlaced>none</interlaced></Mpeg2Options></Mpeg2Config>

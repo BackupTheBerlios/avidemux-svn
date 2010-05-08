@@ -1,0 +1,10 @@
+*~
+*.rej
+*.orig
+[tT]ags
+Doxyfile
+*.kdev*
+avidemux/ADM_libraries/ffmpeg/
+build*/
+*.sw*
+

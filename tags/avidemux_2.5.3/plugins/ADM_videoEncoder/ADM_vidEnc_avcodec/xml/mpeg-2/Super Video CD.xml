@@ -1,0 +1,1 @@
+<?xml version='1.0'?><Mpeg2Config><encodeOptions><mode>CQP</mode><parameter>4</parameter></encodeOptions><Mpeg2Options><minBitrate>0</minBitrate><maxBitrate>2400</maxBitrate><xvidRateControl>true</xvidRateControl><bufferSize>112</bufferSize><widescreen>false</widescreen><interlaced>none</interlaced><gopSize>12</gopSize></Mpeg2Options></Mpeg2Config>

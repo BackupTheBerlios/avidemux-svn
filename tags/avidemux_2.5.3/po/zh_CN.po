@@ -1,0 +1,6518 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-17 19:36+0800 \n"
+"PO-Revision-Date: 2009-11-17 19:36+0800\n"
+"Last-Translator: Dewei Zhu <zdw163@hotmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese (Simplified)\n"
+"X-Poedit-Country: CHINA\n"
+
+msgid ""
+"\n"
+" Reuse the existing log-file ?"
+msgstr ""
+"\n"
+" 重新使用现有的日志文件？"
+
+msgid " "
+msgstr " "
+
+msgid "  Job Name  "
+msgstr "  工作名称  "
+
+msgid " 0000000"
+msgstr " 0000000"
+
+msgid " Error X:"
+msgstr "错误 X:"
+
+msgid " Error Y:"
+msgstr "错误 Y:"
+
+msgid " Height "
+msgstr "高"
+
+msgid " Text:"
+msgstr "文字:"
+
+msgid " Width "
+msgstr "宽"
+
+msgid "\"%s\" does not exist."
+msgstr "\"%s\" 不存在"
+
+msgid "\"Erase\" arbitrary areas of each frame"
+msgstr "\"擦除\" 每个画格的任意范围"
+
+msgid "# of Glyphs :"
+msgstr "文字图形的 #:"
+
+msgid "# of lines"
+msgstr "线的 #"
+
+msgid "%.2f MB"
+msgstr "%.2f MB"
+
+msgid "%02d:%02d:%02d.%03d"
+msgstr "%02d:%02d:%02d.%03d"
+
+msgid "%2.3f fps"
+msgstr "%2.3f fps"
+
+msgid "%d%%"
+msgstr "%d%%"
+
+msgid "%ld frames"
+msgstr "%ld 画格"
+
+msgid "%lu Bps / %lu kbps"
+msgstr "%lu Bps / %lu kbps"
+
+msgid "%lu Hz"
+msgstr "%lu Hz"
+
+msgid "%lu MB"
+msgstr "%lu MB"
+
+msgid "%lu minute"
+msgstr "%lu 分"
+
+msgid "%lu minutes"
+msgstr "%lu 分钟"
+
+msgid "%lu second"
+msgstr "%lu 秒"
+
+msgid "%lu seconds"
+msgstr "%lu 秒"
+
+msgid "%lu x %lu"
+msgstr "%lu x %lu"
+
+msgid "%s (%u:%u)"
+msgstr "%s (%u:%u)"
+
+msgid ""
+"%s already exists.\n"
+"\n"
+"Do you want to replace it?"
+msgstr ""
+"%s 已经存在。\n"
+"\n"
+"要覆盖它吗？"
+
+msgid "-"
+msgstr "-"
+
+msgid "---"
+msgstr "---"
+
+msgid "...are reduced by (%):"
+msgstr "...被减少靠 (%):"
+
+msgid "/ 0000000"
+msgstr "/ 0000000"
+
+msgid "/ 00:00:00,000"
+msgstr "/ 00:00:00,000"
+
+msgid "/dev/null"
+msgstr "/dev/null"
+
+msgid "0"
+msgstr "0"
+
+msgid "0 - None"
+msgstr "0 - 无"
+
+msgid "0 - Off"
+msgstr "0 - 关闭"
+
+msgid ""
+"0 = default from core (let XviD decide), else overflow payback percent per "
+"frame"
+msgstr "0 = 核心预设(让 XviD 决定)，其他的溢出每画格回收率"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "0 kB/s"
+msgstr "0 kB/s"
+
+msgid "0.0"
+msgstr "0.0"
+
+msgid "00:00:00"
+msgstr "00:00:00"
+
+msgid "00:00:00.000"
+msgstr "00:00:00.000"
+
+msgid "0:0:0"
+msgstr "0:0:0"
+
+msgid "1"
+msgstr "1"
+
+msgid "1  - Extremely Low (Fastest)"
+msgstr "1  - 极致的低 (最快)"
+
+msgid "1 - Mode decision"
+msgstr "1 - 模式判定"
+
+msgid "1 - Very low"
+msgstr "1 - 非常低"
+
+msgid "1- Very low"
+msgstr "1- 非常低"
+
+msgid "11x11"
+msgstr "11x11"
+
+msgid "15x15"
+msgstr "15x15"
+
+msgid "16 round up"
+msgstr "16 进位"
+
+msgid "16:9"
+msgstr "16:9"
+
+msgid "180 degrees"
+msgstr "180 度"
+
+msgid "180°"
+msgstr "180°"
+
+msgid "1:1"
+msgstr "1:1"
+
+msgid "1st Pass"
+msgstr "第一次运算"
+
+msgid "1x 74 min. CD"
+msgstr "1x 74 分钟 CD"
+
+msgid "1x 80 min. CD"
+msgstr "1x 80 分钟 CD"
+
+msgid "1x1"
+msgstr "1x1"
+
+msgid "2"
+msgstr "2"
+
+msgid "2  - Very Low"
+msgstr "2  - 非常低"
+
+msgid "2 - Limited search"
+msgstr "2 - 限度搜寻"
+
+msgid "2 - Low"
+msgstr "2 - 低"
+
+msgid "2- Low"
+msgstr "2- 低"
+
+msgid "21x21"
+msgstr "21x21"
+
+msgid "270 degrees"
+msgstr "270 度"
+
+msgid "270°"
+msgstr "270°"
+
+msgid "2nd Pass"
+msgstr "第二次运算"
+
+msgid "2x 74 min. CD"
+msgstr "2x 74 分钟 CD"
+
+msgid "2x 80 min. CD"
+msgstr "2x 80 分钟 CD"
+
+msgid "3  - Low"
+msgstr "3  - 低"
+
+msgid "3 - Medium"
+msgstr "3 - 中等"
+
+msgid "3 - Medium search"
+msgstr "3 - 中间搜寻"
+
+msgid "3- Medium"
+msgstr "3- 中等"
+
+msgid "3:2 Pulldown"
+msgstr "3:2 Pulldown"
+
+msgid "3:2 pulldown"
+msgstr "3:2 pulldown"
+
+msgid "3x3"
+msgstr "3x3"
+
+msgid "4  - Medium"
+msgstr "4  - 中"
+
+msgid "4 - High"
+msgstr "4 - 高"
+
+msgid "4 - Wide search"
+msgstr "4 - 广泛搜寻"
+
+msgid "4 fields check"
+msgstr "4 图场检查"
+
+msgid "4 fields check (no avg)"
+msgstr "4 图场检查 (no avg)"
+
+msgid "4- High"
+msgstr "4- 高"
+
+msgid "4:3"
+msgstr "4:3"
+
+msgid "4_MV"
+msgstr "4_MV"
+
+msgid "4x4 Intra search"
+msgstr "4x4 内部搜寻"
+
+msgid "4x4, 4x8 and 8x4 P-frame search"
+msgstr "4x4, 4x8 和 8x4 P-frame 搜寻"
+
+msgid "5  - High (Default)"
+msgstr "5  - 高 (预设)"
+
+msgid "5 - Very high"
+msgstr "5 - 非常高"
+
+msgid "5 channels"
+msgstr "5 声道"
+
+msgid "5 fields check"
+msgstr "5 图场检查"
+
+msgid "5 fields check (no avg)"
+msgstr "5 图场检查 (no avg)"
+
+msgid "5- Very High"
+msgstr "5- 非常高"
+
+msgid "5.1"
+msgstr "5.1"
+
+msgid "5x5"
+msgstr "5x5"
+
+msgid "6  - Very High"
+msgstr "6  - 非常高"
+
+msgid "6 - Ultra high"
+msgstr "6 - 极高"
+
+msgid "6- Ultra High"
+msgstr "6- 极高"
+
+msgid "6B - Very High (RDO on B-frames)"
+msgstr "6B - 非常高 (在 B-画格上 RDO)"
+
+msgid "7  - Ultra High"
+msgstr "7 - 极高"
+
+msgid "7B - Ultra High (RDO on B-frames)"
+msgstr "7B - 极高 (在 B-画格上 RDO)"
+
+msgid "7x7"
+msgstr "7x7"
+
+msgid "8-bit PCM"
+msgstr "8-位元 PCM"
+
+msgid "8x8 Intra search"
+msgstr "8x8 内部搜寻"
+
+msgid "8x8 Transform"
+msgstr "8x8 转换"
+
+msgid "8x8, 8x16 and 16x8 B-frame search"
+msgstr "8x8, 8x16 和 16x8 B-画格搜寻"
+
+msgid "8x8, 8x16 and 16x8 P-frame search"
+msgstr "8x8, 8x16 和 16x8 P-frame 搜寻"
+
+msgid "90 degrees"
+msgstr "90 度"
+
+msgid "90°"
+msgstr "90°"
+
+msgid "9x9"
+msgstr "9x9"
+
+msgid ":"
+msgstr ":"
+
+msgid "<b >Active Filters</b>"
+msgstr "<b >有效的滤镜</b>"
+
+msgid "<b>Audio Bitrate</b>"
+msgstr "<b>音频位元率</b>"
+
+msgid "<b>Audio Codec:</b>"
+msgstr "<b>音频解码器:</b>"
+
+msgid "<b>Audio Size:</b>"
+msgstr "<b>音频大小:</b>"
+
+msgid "<b>Audio</b>"
+msgstr "<b>音频</b>"
+
+msgid "<b>Available Filters</b>"
+msgstr "<b>可用的滤镜</b>"
+
+msgid "<b>Average Bitrate:</b>"
+msgstr "<b>平均位元率:</b>"
+
+msgid "<b>B-Frames</b>"
+msgstr "<b>B-画格</b>"
+
+msgid "<b>Bitmap</b>"
+msgstr "<b>点阵图</b>"
+
+msgid "<b>Bitrate</b>"
+msgstr "<b>位元率</b>"
+
+msgid "<b>Color Correction Matrix</b>"
+msgstr "<b>色彩校正矩阵</b>"
+
+msgid "<b>Container:</b>"
+msgstr "<b>容器:</b>"
+
+msgid "<b>Elapsed:</b>"
+msgstr "<b>已经过的时间:</b>"
+
+msgid ""
+"<b>Encoding is paused.</b>\n"
+"\n"
+"You can either resume or Abort it."
+msgstr ""
+"<b>编码已暂停。</b>\n"
+"\n"
+"你可以继续或中止。"
+
+msgid "<b>Extra Video Properties</b>"
+msgstr "<b>额外的视频属性</b>"
+
+msgid "<b>Format</b>"
+msgstr "<b>格式</b>"
+
+msgid "<b>Frames/sec:</b>"
+msgstr "<b>画格/秒:</b>"
+
+msgid "<b>Gamma</b>"
+msgstr "<b>Gamma</b>"
+
+msgid "<b>Hue:</b>"
+msgstr "<b>色相:</b>"
+
+msgid "<b>Inter Matrix</b>"
+msgstr "<b>中间矩阵</b>"
+
+msgid "<b>Intra Matrix</b>"
+msgstr "<b>内部矩阵</b>"
+
+msgid ""
+"<b>Matrix Warning :</b>\n"
+"all above values are normalized to 256!"
+msgstr ""
+"<b>矩阵警告 :</b>\n"
+"所有超过的数值将被标准化为 256!"
+
+msgid "<b>Misc. Options</b>"
+msgstr "<b>杂项. 选择项</b>"
+
+msgid "<b>Misc</b>"
+msgstr "<b>杂项</b>"
+
+msgid "<b>Mode</b>"
+msgstr "<b>模式</b>"
+
+msgid "<b>More Rate Settings</b>"
+msgstr "<b>更多比率设定</b>"
+
+msgid "<b>Motion Estimation</b>"
+msgstr "<b>移动估测</b>"
+
+msgid "<b>Partition Macroblocks</b>"
+msgstr "<b>分割运算区块</b>"
+
+msgid "<b>Phase:</b>"
+msgstr "<b>阶段:</b>"
+
+msgid "<b>Preview</b>"
+msgstr "<b>预览</b>"
+
+msgid "<b>Processed Frames:</b>"
+msgstr "<b>处理过的画格数</b>"
+
+msgid "<b>Quantiser:</b>"
+msgstr "<b>量化值:</b>"
+
+msgid "<b>Quantization Limits</b>"
+msgstr "<b>量化编码限制</b>"
+
+msgid "<b>Quantization Matrices</b>"
+msgstr "<b>量化编码矩阵</b>"
+
+msgid "<b>Quantizers</b>"
+msgstr "<b>量化值</b>"
+
+msgid "<b>Result</b>"
+msgstr "<b>结果</b>"
+
+msgid "<b>Sample Aspect Ratio</b>"
+msgstr "<b>样品外观比列</b>"
+
+msgid "<b>Saturation:</b>"
+msgstr "<b>饱和度:</b>"
+
+msgid "<b>Scene change Treshold</b>"
+msgstr "<b>场景切换执行绪</b>"
+
+msgid "<b>Selection</b>"
+msgstr "<b>选取范围</b>"
+
+msgid "<b>Settings</b>"
+msgstr "<b>设定</b>"
+
+msgid "<b>Stats</b>"
+msgstr "<b>状态</b>"
+
+msgid "<b>Target</b>"
+msgstr "<b>目标</b>"
+
+msgid "<b>Time Remaining:</b>"
+msgstr "<b>剩余的时间:</b>"
+
+msgid "<b>Time remaining:</b>"
+msgstr "<b>剩余的时间:</b>"
+
+msgid "<b>Total Frames:</b>"
+msgstr "<b>总画格数:</b>"
+
+msgid "<b>Total Size:</b>"
+msgstr "<b>总大小:</b>"
+
+msgid "<b>Video Buffer Verifier</b>"
+msgstr "<b>视频缓冲校对机</b>"
+
+msgid "<b>Video Codec:</b>"
+msgstr "<b>视频解码器:</b>"
+
+msgid "<b>Video Size:</b>"
+msgstr "<b>影片大小:</b>"
+
+msgid "<b>Video</b>"
+msgstr "<b>视频</b>"
+
+msgid "<b>frame2</b>"
+msgstr "<b>画格2</b>"
+
+msgid "A = convolve(P); Load convolution kernel from file"
+msgstr "A = 卷积(P); 从文件载入卷积内核"
+
+msgid "A = floating point constant value"
+msgstr "A = 浮动点固定值"
+
+msgid "A = pixel from image file as float; Load image from file"
+msgstr "A = 图像文件的像素作为浮动的; 从文件载入图像"
+
+msgid "A = pixel from image file as integer; Load image from file"
+msgstr "A = 图像文件的像素作为整数; 从文件载入图像"
+
+msgid "A = rolling average of pixel: A = A*(1-alpha)+(P*alpha)"
+msgstr "A = 像素的可变动范围: A = A*(1-alpha)+(P*alpha)"
+
+msgid ""
+"A fatal error has occurred.\n"
+"\n"
+"Click OK to generate debug information. This may take a few minutes to "
+"complete."
+msgstr ""
+"发生一个重大的错误。\n"
+"\n"
+"点击 确定 来生成除错资讯。需花费几分钟来完成。"
+
+msgid "A value of 20 will give 20% more bits to every I-frame"
+msgstr "20 的值将取得多 2 成的位元给每个 I-画格"
+
+msgid "A variant of stabilize."
+msgstr "稳定的一个变体。"
+
+msgid "A:"
+msgstr "A:"
+
+msgid "AAC"
+msgstr "AAC"
+
+msgid "AB@ODU format (includes shape info)"
+msgstr "AB@ODU 格式 (包含形状资讯)"
+
+msgid "ABR"
+msgstr "ABR"
+
+msgid "AC3"
+msgstr "AC3"
+
+msgid "ALSA"
+msgstr "ALSA"
+
+msgid "ALSA _device:"
+msgstr "ALSA设备(_D):"
+
+msgid "AMR-NB"
+msgstr "AMR-NB"
+
+msgid "ASHARP"
+msgstr "ASHARP"
+
+msgid "ASS"
+msgstr "ASS"
+
+msgid "ASharp by MarcFD"
+msgstr "ASharp 作者为 MarcFD"
+
+msgid "AVI"
+msgstr "AVI"
+
+msgid "AVI Muxer Options"
+msgstr "AVI 合成器选项"
+
+msgid "AVI _Muxer Options"
+msgstr "AVI 合成器选项(_M)"
+
+msgid "AVI, dual audio"
+msgstr "AVI, 双音轨"
+
+msgid "AVI, pack VOP"
+msgstr "AVI, 打包好的VOP"
+
+msgid "AVI, unpack VOP"
+msgstr "AVI, 拆开打包好的VOP"
+
+msgid "A_dd to Joblist..."
+msgstr "增加到工作列表...(_D)"
+
+msgid "A_uto"
+msgstr "自动(_U)"
+
+msgid "A_vg Quantizer:"
+msgstr "平均量化值:"
+
+msgid "Abort"
+msgstr "中止"
+
+msgid "Abort Requested"
+msgstr "中止被要求的"
+
+msgid "Aborted"
+msgstr "被中止"
+
+msgid "Aborting"
+msgstr "正在中止"
+
+msgid "Aborting."
+msgstr "正在中止"
+
+msgid "Above Normal"
+msgstr "高于一般"
+
+msgid "Above normal"
+msgstr "高于一般"
+
+msgid "Adaptative DCT"
+msgstr "改写的 DCT"
+
+msgid "Adaptative sharpener by MarcFD."
+msgstr "适应性锐利化器作者为 MarcFD"
+
+msgid "Add ASS/SSA subtitles to the picture."
+msgstr "加入 ASS/SSA 字幕到图片。"
+
+msgid "Add Borders"
+msgstr "加入边框"
+
+msgid "Add Framenumber"
+msgstr "加入画格数目"
+
+msgid "Add Video Filter"
+msgstr "增加视频滤镜"
+
+msgid "Add a png as logo."
+msgstr "加入一个 png 作为图标。"
+
+msgid "Add black borders"
+msgstr "加入黑边"
+
+msgid "Add pure black border(s). Enlarges the picture."
+msgstr "加入黑色边框。扩大图像。"
+
+msgid "Add selected filter to the Active Filters list"
+msgstr "增加选择的滤镜到动作滤镜列表里"
+
+msgid "Add srt/sub subtitles to the picture."
+msgstr "加入 srt/sub 字幕到图片。"
+
+msgid "Adjust contrast, brightness and colors."
+msgstr "调整对比、亮度和色彩。"
+
+msgid "Adjust contrast, brightness, saturation and gamma."
+msgstr "调整对比、亮度、饱和度和伽马。"
+
+msgid "Adjust hue and saturation."
+msgstr "调整色相和饱和度。"
+
+msgid "Advanced"
+msgstr "进阶"
+
+msgid "Advanced Simple Profile"
+msgstr "进阶的简述"
+
+msgid "Aften"
+msgstr "Aften"
+
+msgid "Alert"
+msgstr "警告"
+
+msgid "All"
+msgstr "全部"
+
+msgid "All FFmpeg deinterlace filters (bicubic, median, ...)."
+msgstr "所有 FFmpeg 去交错滤镜 (双立方、中值、...)。"
+
+msgid "All parameters must be even and within range."
+msgstr "所有的参数必须是偶数且在范围内。"
+
+msgid ""
+"Allow B-frames to make references non-linearly to another B-frame (instead "
+"of creating a duplicate copy)"
+msgstr "允许 B-画格成为另一个 B-画格的非线性参考(作为一个重复复制的替代)"
+
+msgid ""
+"Allowed variance of average bitrate. Lower values mean less variance. Higher "
+"values mean more variance."
+msgstr ""
+"被允许的平均位元率变动。较低的值表示较少的变动。较高的值表示较多的变动。"
+
+msgid ""
+"Allowed variance of average quantizer or quality. Lower values mean less "
+"variance. Higher values mean more variance. Note that 0 means constant "
+"quality while 1 means constant fluctuation. Recommended 0.6."
+msgstr ""
+"平均量化值或画质被允许的变动。较低的值表示较少的变动。较高的值表示较多的变"
+"动。注意值为0表示固定的画质，当值为1表示固定变动。建议设为 0.6。"
+
+msgid "Alter colors (auto white balance etc...). Ported from Avisynth."
+msgstr "变更色彩 (自动白平衡等...)。由 Avisynth 转来。"
+
+msgid "AltiVec"
+msgstr "AltiVec"
+
+msgid "Always"
+msgstr "总是"
+
+msgid "An audio track is necessary to create such file"
+msgstr "要建立这样的文件，音轨是必须的"
+
+msgid "Animated Menu"
+msgstr "动画式选单"
+
+msgid "Anime"
+msgstr "动画"
+
+msgid "Application path/name (/usr/bin/sox...)"
+msgstr "应用程式的路径/名称 (/usr/bin/sox...)"
+
+msgid "Apply blind postprocessing."
+msgstr "套用盲目后置处理。"
+
+msgid ""
+"Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling "
+"average, image from file, or constant"
+msgstr "套用运算像 P'=P*A, P-A, P+A 等。使用卷积、波动平均数、文件的映像或常数"
+
+msgid "Apply the current filter only to a part of the file"
+msgstr "只套用当前的滤镜到文件的一个区段"
+
+msgid "Arabic"
+msgstr "阿拉伯"
+
+msgid "Are you sure you want to delete %s job ?"
+msgstr "确定要删除 %s 工作 ?"
+
+msgid "Are you sure you want to delete all jobs ?"
+msgstr "确定要删除所有工作"
+
+msgid "Are you sure?"
+msgstr "确定吗？"
+
+msgid "Area com_bing threshold:"
+msgstr "范围梳形滤波门槛值:"
+
+msgid "Artefact _protection threshold:"
+msgstr "人工保护门槛值(_P):"
+
+msgid "As Input"
+msgstr "另输出为"
+
+msgid "Aspect Ratio:"
+msgstr "外观比列:"
+
+msgid "Aspect _ratio:"
+msgstr "外观比例(_R):"
+
+msgid "At the moment, the DV codec only accepts 720*576@25"
+msgstr "在这阶段 DV 编解码器只接受 720*576@25"
+
+msgid "Attempt to open %s failed!"
+msgstr "尝试去打开 %s 失败！"
+
+msgid "Audio"
+msgstr "音频"
+
+msgid "Audio Codecs"
+msgstr "音频解码器"
+
+msgid "Audio Configuration"
+msgstr "音频设置"
+
+msgid "Audio Filters"
+msgstr "音频滤镜"
+
+msgid "Audio bitrate in kb/s for track 1 (0 for no audio)"
+msgstr "轨道 1  的音频位元率 kb/s (0 为无音频)"
+
+msgid "Audio bitrate in kb/s for track 2 (optional)"
+msgstr "轨道 2  的音频位元率 kb/s (可选择的)"
+
+msgid "Audio filters"
+msgstr "音频滤镜"
+
+msgid "Audio must be mp3 for flv output."
+msgstr "flv 的音频必须是 mp3"
+
+msgid "Audio size (MB):"
+msgstr "音频大小 (MB):"
+
+msgid "Audio track is not suitable"
+msgstr "音频轨道不合"
+
+msgid "Audio/video file information"
+msgstr "音频/视频 资讯"
+
+msgid "Audio/video time shift (ms)"
+msgstr "音频/视频 时间移动 (ms)"
+
+msgid "AudioCodec"
+msgstr "音频解码器"
+
+msgid "Auto"
+msgstr "自动"
+
+msgid "Auto (might not work)"
+msgstr "自动 (可能无效)"
+
+msgid "Auto Crop"
+msgstr "自动修剪"
+
+msgid "Auto Wizard"
+msgstr "自动精灵"
+
+msgid "Auto-detect"
+msgstr "自动检测"
+
+msgid "AutoGain"
+msgstr "自动增益"
+
+msgid "AutoWhite"
+msgstr "自动反白"
+
+msgid "Automatic (max -3 dB)"
+msgstr "自动 (max -3 dB)"
+
+msgid "Automatically _build VBR map"
+msgstr "自动建立变动位元率(VBR)对应(_B)"
+
+msgid "Automatically _index MPEG files"
+msgstr "自动索引 MPEG 文件(_I)"
+
+msgid "Automatically _rebuild index"
+msgstr "自动重新建立索引(_R)"
+
+msgid "Automatically _swap A and B if A>B"
+msgstr "如果 A>B ，则自动置换 A 和 B(_S)"
+
+msgid "Automatically remove _packed bitstream"
+msgstr "自动地移除打包好的位元流(_P)"
+
+msgid "Automation"
+msgstr "自动化"
+
+msgid "Average bitrate (kb/s):"
+msgstr "平均位元率 (kb/s):"
+
+msgid "Average bitrate:"
+msgstr "平均位元率:"
+
+msgid "Average so far"
+msgstr "目前为止的平均值"
+
+msgid "Avidemux"
+msgstr "Avidemux"
+
+msgid ""
+"Avidemux detected VBR MP3 audio in this file. For keeping audio/video in "
+"sync, time map is needed. Build it now?\n"
+"\n"
+"You can do it later with \"Audio -> Build VBR Time Map\"."
+msgstr ""
+"Avidemux 检测到这个文件含有 VBR MP3 音频。为了维持影音同步，时间对应是必须"
+"的。现在建立吗？\n"
+"\n"
+"你可稍候选择 \"音频 -> 建立 VBR 时间对应\" 来建立。"
+
+msgid ""
+"Avidemux is free software; you can redistribute it and/or modify it\n"
+"under the terms of the GNU General Public License version 2\n"
+"as published by the Free Software Foundation.\n"
+"\n"
+"\t\t    GNU GENERAL PUBLIC LICENSE\n"
+"\t\t       Version 2, June 1991\n"
+"\n"
+" Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
+"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
+" Everyone is permitted to copy and distribute verbatim copies\n"
+" of this license document, but changing it is not allowed.\n"
+"\n"
+"\t\t\t    Preamble\n"
+"\n"
+"  The licenses for most software are designed to take away your\n"
+"freedom to share and change it.  By contrast, the GNU General Public\n"
+"License is intended to guarantee your freedom to share and change free\n"
+"software--to make sure the software is free for all its users.  This\n"
+"General Public License applies to most of the Free Software\n"
+"Foundation's software and to any other program whose authors commit to\n"
+"using it.  (Some other Free Software Foundation software is covered by\n"
+"the GNU Library General Public License instead.)  You can apply it to\n"
+"your programs, too.\n"
+"\n"
+"  When we speak of free software, we are referring to freedom, not\n"
+"price.  Our General Public Licenses are designed to make sure that you\n"
+"have the freedom to distribute copies of free software (and charge for\n"
+"this service if you wish), that you receive source code or can get it\n"
+"if you want it, that you can change the software or use pieces of it\n"
+"in new free programs; and that you know you can do these things.\n"
+"\n"
+"  To protect your rights, we need to make restrictions that forbid\n"
+"anyone to deny you these rights or to ask you to surrender the rights.\n"
+"These restrictions translate to certain responsibilities for you if you\n"
+"distribute copies of the software, or if you modify it.\n"
+"\n"
+"  For example, if you distribute copies of such a program, whether\n"
+"gratis or for a fee, you must give the recipients all the rights that\n"
+"you have.  You must make sure that they, too, receive or can get the\n"
+"source code.  And you must show them these terms so they know their\n"
+"rights.\n"
+"\n"
+"  We protect your rights with two steps: (1) copyright the software, and\n"
+"(2) offer you this license which gives you legal permission to copy,\n"
+"distribute and/or modify the software.\n"
+"\n"
+"  Also, for each author's protection and ours, we want to make certain\n"
+"that everyone understands that there is no warranty for this free\n"
+"software.  If the software is modified by someone else and passed on, we\n"
+"want its recipients to know that what they have is not the original, so\n"
+"that any problems introduced by others will not reflect on the original\n"
+"authors' reputations.\n"
+"\n"
+"  Finally, any free program is threatened constantly by software\n"
+"patents.  We wish to avoid the danger that redistributors of a free\n"
+"program will individually obtain patent licenses, in effect making the\n"
+"program proprietary.  To prevent this, we have made it clear that any\n"
+"patent must be licensed for everyone's free use or not licensed at all.\n"
+"\n"
+"  The precise terms and conditions for copying, distribution and\n"
+"modification follow.\n"
+"\n"
+"\t\t    GNU GENERAL PUBLIC LICENSE\n"
+"   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\n"
+"\n"
+"  0. This License applies to any program or other work which contains\n"
+"a notice placed by the copyright holder saying it may be distributed\n"
+"under the terms of this General Public License.  The \"Program\", below,\n"
+"refers to any such program or work, and a \"work based on the Program\"\n"
+"means either the Program or any derivative work under copyright law:\n"
+"that is to say, a work containing the Program or a portion of it,\n"
+"either verbatim or with modifications and/or translated into another\n"
+"language.  (Hereinafter, translation is included without limitation in\n"
+"the term \"modification\".)  Each licensee is addressed as \"you\".\n"
+"\n"
+"Activities other than copying, distribution and modification are not\n"
+"covered by this License; they are outside its scope.  The act of\n"
+"running the Program is not restricted, and the output from the Program\n"
+"is covered only if its contents constitute a work based on the\n"
+"Program (independent of having been made by running the Program).\n"
+"Whether that is true depends on what the Program does.\n"
+"\n"
+"  1. You may copy and distribute verbatim copies of the Program's\n"
+"source code as you receive it, in any medium, provided that you\n"
+"conspicuously and appropriately publish on each copy an appropriate\n"
+"copyright notice and disclaimer of warranty; keep intact all the\n"
+"notices that refer to this License and to the absence of any warranty;\n"
+"and give any other recipients of the Program a copy of this License\n"
+"along with the Program.\n"
+"\n"
+"You may charge a fee for the physical act of transferring a copy, and\n"
+"you may at your option offer warranty protection in exchange for a fee.\n"
+"\n"
+"  2. You may modify your copy or copies of the Program or any portion\n"
+"of it, thus forming a work based on the Program, and copy and\n"
+"distribute such modifications or work under the terms of Section 1\n"
+"above, provided that you also meet all of these conditions:\n"
+"\n"
+"    a) You must cause the modified files to carry prominent notices\n"
+"    stating that you changed the files and the date of any change.\n"
+"\n"
+"    b) You must cause any work that you distribute or publish, that in\n"
+"    whole or in part contains or is derived from the Program or any\n"
+"    part thereof, to be licensed as a whole at no charge to all third\n"
+"    parties under the terms of this License.\n"
+"\n"
+"    c) If the modified program normally reads commands interactively\n"
+"    when run, you must cause it, when started running for such\n"
+"    interactive use in the most ordinary way, to print or display an\n"
+"    announcement including an appropriate copyright notice and a\n"
+"    notice that there is no warranty (or else, saying that you provide\n"
+"    a warranty) and that users may redistribute the program under\n"
+"    these conditions, and telling the user how to view a copy of this\n"
+"    License.  (Exception: if the Program itself is interactive but\n"
+"    does not normally print such an announcement, your work based on\n"
+"    the Program is not required to print an announcement.)\n"
+"\n"
+"These requirements apply to the modified work as a whole.  If\n"
+"identifiable sections of that work are not derived from the Program,\n"
+"and can be reasonably considered independent and separate works in\n"
+"themselves, then this License, and its terms, do not apply to those\n"
+"sections when you distribute them as separate works.  But when you\n"
+"distribute the same sections as part of a whole which is a work based\n"
+"on the Program, the distribution of the whole must be on the terms of\n"
+"this License, whose permissions for other licensees extend to the\n"
+"entire whole, and thus to each and every part regardless of who wrote it.\n"
+"\n"
+"Thus, it is not the intent of this section to claim rights or contest\n"
+"your rights to work written entirely by you; rather, the intent is to\n"
+"exercise the right to control the distribution of derivative or\n"
+"collective works based on the Program.\n"
+"\n"
+"In addition, mere aggregation of another work not based on the Program\n"
+"with the Program (or with a work based on the Program) on a volume of\n"
+"a storage or distribution medium does not bring the other work under\n"
+"the scope of this License.\n"
+"\n"
+"  3. You may copy and distribute the Program (or a work based on it,\n"
+"under Section 2) in object code or executable form under the terms of\n"
+"Sections 1 and 2 above provided that you also do one of the following:\n"
+"\n"
+"    a) Accompany it with the complete corresponding machine-readable\n"
+"    source code, which must be distributed under the terms of Sections\n"
+"    1 and 2 above on a medium customarily used for software interchange; "
+"or,\n"
+"\n"
+"    b) Accompany it with a written offer, valid for at least three\n"
+"    years, to give any third party, for a charge no more than your\n"
+"    cost of physically performing source distribution, a complete\n"
+"    machine-readable copy of the corresponding source code, to be\n"
+"    distributed under the terms of Sections 1 and 2 above on a medium\n"
+"    customarily used for software interchange; or,\n"
+"\n"
+"    c) Accompany it with the information you received as to the offer\n"
+"    to distribute corresponding source code.  (This alternative is\n"
+"    allowed only for noncommercial distribution and only if you\n"
+"    received the program in object code or executable form with such\n"
+"    an offer, in accord with Subsection b above.)\n"
+"\n"
+"The source code for a work means the preferred form of the work for\n"
+"making modifications to it.  For an executable work, complete source\n"
+"code means all the source code for all modules it contains, plus any\n"
+"associated interface definition files, plus the scripts used to\n"
+"control compilation and installation of the executable.  However, as a\n"
+"special exception, the source code distributed need not include\n"
+"anything that is normally distributed (in either source or binary\n"
+"form) with the major components (compiler, kernel, and so on) of the\n"
+"operating system on which the executable runs, unless that component\n"
+"itself accompanies the executable.\n"
+"\n"
+"If distribution of executable or object code is made by offering\n"
+"access to copy from a designated place, then offering equivalent\n"
+"access to copy the source code from the same place counts as\n"
+"distribution of the source code, even though third parties are not\n"
+"compelled to copy the source along with the object code.\n"
+"\n"
+"  4. You may not copy, modify, sublicense, or distribute the Program\n"
+"except as expressly provided under this License.  Any attempt\n"
+"otherwise to copy, modify, sublicense or distribute the Program is\n"
+"void, and will automatically terminate your rights under this License.\n"
+"However, parties who have received copies, or rights, from you under\n"
+"this License will not have their licenses terminated so long as such\n"
+"parties remain in full compliance.\n"
+"\n"
+"  5. You are not required to accept this License, since you have not\n"
+"signed it.  However, nothing else grants you permission to modify or\n"
+"distribute the Program or its derivative works.  These actions are\n"
+"prohibited by law if you do not accept this License.  Therefore, by\n"
+"modifying or distributing the Program (or any work based on the\n"
+"Program), you indicate your acceptance of this License to do so, and\n"
+"all its terms and conditions for copying, distributing or modifying\n"
+"the Program or works based on it.\n"
+"\n"
+"  6. Each time you redistribute the Program (or any work based on the\n"
+"Program), the recipient automatically receives a license from the\n"
+"original licensor to copy, distribute or modify the Program subject to\n"
+"these terms and conditions.  You may not impose any further\n"
+"restrictions on the recipients' exercise of the rights granted herein.\n"
+"You are not responsible for enforcing compliance by third parties to\n"
+"this License.\n"
+"\n"
+"  7. If, as a consequence of a court judgment or allegation of patent\n"
+"infringement or for any other reason (not limited to patent issues),\n"
+"conditions are imposed on you (whether by court order, agreement or\n"
+"otherwise) that contradict the conditions of this License, they do not\n"
+"excuse you from the conditions of this License.  If you cannot\n"
+"distribute so as to satisfy simultaneously your obligations under this\n"
+"License and any other pertinent obligations, then as a consequence you\n"
+"may not distribute the Program at all.  For example, if a patent\n"
+"license would not permit royalty-free redistribution of the Program by\n"
+"all those who receive copies directly or indirectly through you, then\n"
+"the only way you could satisfy both it and this License would be to\n"
+"refrain entirely from distribution of the Program.\n"
+"\n"
+"If any portion of this section is held invalid or unenforceable under\n"
+"any particular circumstance, the balance of the section is intended to\n"
+"apply and the section as a whole is intended to apply in other\n"
+"circumstances.\n"
+"\n"
+"It is not the purpose of this section to induce you to infringe any\n"
+"patents or other property right claims or to contest validity of any\n"
+"such claims; this section has the sole purpose of protecting the\n"
+"integrity of the free software distribution system, which is\n"
+"implemented by public license practices.  Many people have made\n"
+"generous contributions to the wide range of software distributed\n"
+"through that system in reliance on consistent application of that\n"
+"system; it is up to the author/donor to decide if he or she is willing\n"
+"to distribute software through any other system and a licensee cannot\n"
+"impose that choice.\n"
+"\n"
+"This section is intended to make thoroughly clear what is believed to\n"
+"be a consequence of the rest of this License.\n"
+"\n"
+"  8. If the distribution and/or use of the Program is restricted in\n"
+"certain countries either by patents or by copyrighted interfaces, the\n"
+"original copyright holder who places the Program under this License\n"
+"may add an explicit geographical distribution limitation excluding\n"
+"those countries, so that distribution is permitted only in or among\n"
+"countries not thus excluded.  In such case, this License incorporates\n"
+"the limitation as if written in the body of this License.\n"
+"\n"
+"  9. The Free Software Foundation may publish revised and/or new versions\n"
+"of the General Public License from time to time.  Such new versions will\n"
+"be similar in spirit to the present version, but may differ in detail to\n"
+"address new problems or concerns.\n"
+"\n"
+"Each version is given a distinguishing version number.  If the Program\n"
+"specifies a version number of this License which applies to it and \"any\n"
+"later version\", you have the option of following the terms and conditions\n"
+"either of that version or of any later version published by the Free\n"
+"Software Foundation.  If the Program does not specify a version number of\n"
+"this License, you may choose any version ever published by the Free "
+"Software\n"
+"Foundation.\n"
+"\n"
+"  10. If you wish to incorporate parts of the Program into other free\n"
+"programs whose distribution conditions are different, write to the author\n"
+"to ask for permission.  For software which is copyrighted by the Free\n"
+"Software Foundation, write to the Free Software Foundation; we sometimes\n"
+"make exceptions for this.  Our decision will be guided by the two goals\n"
+"of preserving the free status of all derivatives of our free software and\n"
+"of promoting the sharing and reuse of software generally.\n"
+"\n"
+"\t\t\t    NO WARRANTY\n"
+"\n"
+"  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
+"FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
+"OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
+"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER "
+"EXPRESSED\n"
+"OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
+"MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
+"TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
+"PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\n"
+"REPAIR OR CORRECTION.\n"
+"\n"
+"  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING\n"
+"WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR\n"
+"REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,\n"
+"INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING\n"
+"OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED\n"
+"TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY\n"
+"YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER\n"
+"PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE\n"
+"POSSIBILITY OF SUCH DAMAGES.\n"
+"\n"
+"\t\t     END OF TERMS AND CONDITIONS\n"
+"\n"
+"\t    How to Apply These Terms to Your New Programs\n"
+"\n"
+"  If you develop a new program, and you want it to be of the greatest\n"
+"possible use to the public, the best way to achieve this is to make it\n"
+"free software which everyone can redistribute and change under these terms.\n"
+"\n"
+"  To do so, attach the following notices to the program.  It is safest\n"
+"to attach them to the start of each source file to most effectively\n"
+"convey the exclusion of warranty; and each file should have at least\n"
+"the \"copyright\" line and a pointer to where the full notice is found.\n"
+"\n"
+"    <one line to give the program's name and a brief idea of what it does.>\n"
+"    Copyright (C) <year>  <name of author>\n"
+"\n"
+"    This program is free software; you can redistribute it and/or modify\n"
+"    it under the terms of the GNU General Public License as published by\n"
+"    the Free Software Foundation; either version 2 of the License, or\n"
+"    (at your option) any later version.\n"
+"\n"
+"    This program is distributed in the hope that it will be useful,\n"
+"    but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"    GNU General Public License for more details.\n"
+"\n"
+"    You should have received a copy of the GNU General Public License\n"
+"    along with this program; if not, write to the Free Software\n"
+"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
+"\n"
+"\n"
+"Also add information on how to contact you by electronic and paper mail.\n"
+"\n"
+"If the program is interactive, make it output a short notice like this\n"
+"when it starts in an interactive mode:\n"
+"\n"
+"    Gnomovision version 69, Copyright (C) year name of author\n"
+"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show "
+"w'.\n"
+"    This is free software, and you are welcome to redistribute it\n"
+"    under certain conditions; type `show c' for details.\n"
+"\n"
+"The hypothetical commands `show w' and `show c' should show the appropriate\n"
+"parts of the General Public License.  Of course, the commands you use may\n"
+"be called something other than `show w' and `show c'; they could even be\n"
+"mouse-clicks or menu items--whatever suits your program.\n"
+"\n"
+"You should also get your employer (if you work as a programmer) or your\n"
+"school, if any, to sign a \"copyright disclaimer\" for the program, if\n"
+"necessary.  Here is a sample; alter the names:\n"
+"\n"
+"  Yoyodyne, Inc., hereby disclaims all copyright interest in the program\n"
+"  `Gnomovision' (which makes passes at compilers) written by James Hacker.\n"
+"\n"
+"  <signature of Ty Coon>, 1 April 1989\n"
+"  Ty Coon, President of Vice\n"
+"\n"
+"This General Public License does not permit incorporating your program into\n"
+"proprietary programs.  If your program is a subroutine library, you may\n"
+"consider it more useful to permit linking proprietary applications with the\n"
+"library.  If this is what you want to do, use the GNU Library General\n"
+"Public License instead of this License."
+msgstr ""
+"Avidemux 是自由软体；您可以遵照自由软体基金会/(Free Software Foundation)/\n"
+"出版的 GNU 通用公共许可证条款 (GNU General Public License) 第二版来修改\n"
+"和重新发布这一程式。\n"
+"\n"
+"\t\t    GNU GENERAL PUBLIC LICENSE\n"
+"\t\t       Version 2, June 1991\n"
+"\n"
+" Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
+"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
+" Everyone is permitted to copy and distribute verbatim copies\n"
+" of this license document, but changing it is not allowed.\n"
+"\n"
+"\t\t\t    Preamble\n"
+"\n"
+"  The licenses for most software are designed to take away your\n"
+"freedom to share and change it.  By contrast, the GNU General Public\n"
+"License is intended to guarantee your freedom to share and change free\n"
+"software--to make sure the software is free for all its users.  This\n"
+"General Public License applies to most of the Free Software\n"
+"Foundation's software and to any other program whose authors commit to\n"
+"using it.  (Some other Free Software Foundation software is covered by\n"
+"the GNU Library General Public License instead.)  You can apply it to\n"
+"your programs, too.\n"
+"\n"
+"  When we speak of free software, we are referring to freedom, not\n"
+"price.  Our General Public Licenses are designed to make sure that you\n"
+"have the freedom to distribute copies of free software (and charge for\n"
+"this service if you wish), that you receive source code or can get it\n"
+"if you want it, that you can change the software or use pieces of it\n"
+"in new free programs; and that you know you can do these things.\n"
+"\n"
+"  To protect your rights, we need to make restrictions that forbid\n"
+"anyone to deny you these rights or to ask you to surrender the rights.\n"
+"These restrictions translate to certain responsibilities for you if you\n"
+"distribute copies of the software, or if you modify it.\n"
+"\n"
+"  For example, if you distribute copies of such a program, whether\n"
+"gratis or for a fee, you must give the recipients all the rights that\n"
+"you have.  You must make sure that they, too, receive or can get the\n"
+"source code.  And you must show them these terms so they know their\n"
+"rights.\n"
+"\n"
+"  We protect your rights with two steps: (1) copyright the software, and\n"
+"(2) offer you this license which gives you legal permission to copy,\n"
+"distribute and/or modify the software.\n"
+"\n"
+"  Also, for each author's protection and ours, we want to make certain\n"
+"that everyone understands that there is no warranty for this free\n"
+"software.  If the software is modified by someone else and passed on, we\n"
+"want its recipients to know that what they have is not the original, so\n"
+"that any problems introduced by others will not reflect on the original\n"
+"authors' reputations.\n"
+"\n"
+"  Finally, any free program is threatened constantly by software\n"
+"patents.  We wish to avoid the danger that redistributors of a free\n"
+"program will individually obtain patent licenses, in effect making the\n"
+"program proprietary.  To prevent this, we have made it clear that any\n"
+"patent must be licensed for everyone's free use or not licensed at all.\n"
+"\n"
+"  The precise terms and conditions for copying, distribution and\n"
+"modification follow.\n"
+"\n"
+"\t\t    GNU GENERAL PUBLIC LICENSE\n"
+"   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\n"
+"\n"
+"  0. This License applies to any program or other work which contains\n"
+"a notice placed by the copyright holder saying it may be distributed\n"
+"under the terms of this General Public License.  The \"Program\", below,\n"
+"refers to any such program or work, and a \"work based on the Program\"\n"
+"means either the Program or any derivative work under copyright law:\n"
+"that is to say, a work containing the Program or a portion of it,\n"
+"either verbatim or with modifications and/or translated into another\n"
+"language.  (Hereinafter, translation is included without limitation in\n"
+"the term \"modification\".)  Each licensee is addressed as \"you\".\n"
+"\n"
+"Activities other than copying, distribution and modification are not\n"
+"covered by this License; they are outside its scope.  The act of\n"
+"running the Program is not restricted, and the output from the Program\n"
+"is covered only if its contents constitute a work based on the\n"
+"Program (independent of having been made by running the Program).\n"
+"Whether that is true depends on what the Program does.\n"
+"\n"
+"  1. You may copy and distribute verbatim copies of the Program's\n"
+"source code as you receive it, in any medium, provided that you\n"
+"conspicuously and appropriately publish on each copy an appropriate\n"
+"copyright notice and disclaimer of warranty; keep intact all the\n"
+"notices that refer to this License and to the absence of any warranty;\n"
+"and give any other recipients of the Program a copy of this License\n"
+"along with the Program.\n"
+"\n"
+"You may charge a fee for the physical act of transferring a copy, and\n"
+"you may at your option offer warranty protection in exchange for a fee.\n"
+"\n"
+"  2. You may modify your copy or copies of the Program or any portion\n"
+"of it, thus forming a work based on the Program, and copy and\n"
+"distribute such modifications or work under the terms of Section 1\n"
+"above, provided that you also meet all of these conditions:\n"
+"\n"
+"    a) You must cause the modified files to carry prominent notices\n"
+"    stating that you changed the files and the date of any change.\n"
+"\n"
+"    b) You must cause any work that you distribute or publish, that in\n"
+"    whole or in part contains or is derived from the Program or any\n"
+"    part thereof, to be licensed as a whole at no charge to all third\n"
+"    parties under the terms of this License.\n"
+"\n"
+"    c) If the modified program normally reads commands interactively\n"
+"    when run, you must cause it, when started running for such\n"
+"    interactive use in the most ordinary way, to print or display an\n"
+"    announcement including an appropriate copyright notice and a\n"
+"    notice that there is no warranty (or else, saying that you provide\n"
+"    a warranty) and that users may redistribute the program under\n"
+"    these conditions, and telling the user how to view a copy of this\n"
+"    License.  (Exception: if the Program itself is interactive but\n"
+"    does not normally print such an announcement, your work based on\n"
+"    the Program is not required to print an announcement.)\n"
+"\n"
+"These requirements apply to the modified work as a whole.  If\n"
+"identifiable sections of that work are not derived from the Program,\n"
+"and can be reasonably considered independent and separate works in\n"
+"themselves, then this License, and its terms, do not apply to those\n"
+"sections when you distribute them as separate works.  But when you\n"
+"distribute the same sections as part of a whole which is a work based\n"
+"on the Program, the distribution of the whole must be on the terms of\n"
+"this License, whose permissions for other licensees extend to the\n"
+"entire whole, and thus to each and every part regardless of who wrote it.\n"
+"\n"
+"Thus, it is not the intent of this section to claim rights or contest\n"
+"your rights to work written entirely by you; rather, the intent is to\n"
+"exercise the right to control the distribution of derivative or\n"
+"collective works based on the Program.\n"
+"\n"
+"In addition, mere aggregation of another work not based on the Program\n"
+"with the Program (or with a work based on the Program) on a volume of\n"
+"a storage or distribution medium does not bring the other work under\n"
+"the scope of this License.\n"
+"\n"
+"  3. You may copy and distribute the Program (or a work based on it,\n"
+"under Section 2) in object code or executable form under the terms of\n"
+"Sections 1 and 2 above provided that you also do one of the following:\n"
+"\n"
+"    a) Accompany it with the complete corresponding machine-readable\n"
+"    source code, which must be distributed under the terms of Sections\n"
+"    1 and 2 above on a medium customarily used for software interchange; "
+"or,\n"
+"\n"
+"    b) Accompany it with a written offer, valid for at least three\n"
+"    years, to give any third party, for a charge no more than your\n"
+"    cost of physically performing source distribution, a complete\n"
+"    machine-readable copy of the corresponding source code, to be\n"
+"    distributed under the terms of Sections 1 and 2 above on a medium\n"
+"    customarily used for software interchange; or,\n"
+"\n"
+"    c) Accompany it with the information you received as to the offer\n"
+"    to distribute corresponding source code.  (This alternative is\n"
+"    allowed only for noncommercial distribution and only if you\n"
+"    received the program in object code or executable form with such\n"
+"    an offer, in accord with Subsection b above.)\n"
+"\n"
+"The source code for a work means the preferred form of the work for\n"
+"making modifications to it.  For an executable work, complete source\n"
+"code means all the source code for all modules it contains, plus any\n"
+"associated interface definition files, plus the scripts used to\n"
+"control compilation and installation of the executable.  However, as a\n"
+"special exception, the source code distributed need not include\n"
+"anything that is normally distributed (in either source or binary\n"
+"form) with the major components (compiler, kernel, and so on) of the\n"
+"operating system on which the executable runs, unless that component\n"
+"itself accompanies the executable.\n"
+"\n"
+"If distribution of executable or object code is made by offering\n"
+"access to copy from a designated place, then offering equivalent\n"
+"access to copy the source code from the same place counts as\n"
+"distribution of the source code, even though third parties are not\n"
+"compelled to copy the source along with the object code.\n"
+"\n"
+"  4. You may not copy, modify, sublicense, or distribute the Program\n"
+"except as expressly provided under this License.  Any attempt\n"
+"otherwise to copy, modify, sublicense or distribute the Program is\n"
+"void, and will automatically terminate your rights under this License.\n"
+"However, parties who have received copies, or rights, from you under\n"
+"this License will not have their licenses terminated so long as such\n"
+"parties remain in full compliance.\n"
+"\n"
+"  5. You are not required to accept this License, since you have not\n"
+"signed it.  However, nothing else grants you permission to modify or\n"
+"distribute the Program or its derivative works.  These actions are\n"
+"prohibited by law if you do not accept this License.  Therefore, by\n"
+"modifying or distributing the Program (or any work based on the\n"
+"Program), you indicate your acceptance of this License to do so, and\n"
+"all its terms and conditions for copying, distributing or modifying\n"
+"the Program or works based on it.\n"
+"\n"
+"  6. Each time you redistribute the Program (or any work based on the\n"
+"Program), the recipient automatically receives a license from the\n"
+"original licensor to copy, distribute or modify the Program subject to\n"
+"these terms and conditions.  You may not impose any further\n"
+"restrictions on the recipients' exercise of the rights granted herein.\n"
+"You are not responsible for enforcing compliance by third parties to\n"
+"this License.\n"
+"\n"
+"  7. If, as a consequence of a court judgment or allegation of patent\n"
+"infringement or for any other reason (not limited to patent issues),\n"
+"conditions are imposed on you (whether by court order, agreement or\n"
+"otherwise) that contradict the conditions of this License, they do not\n"
+"excuse you from the conditions of this License.  If you cannot\n"
+"distribute so as to satisfy simultaneously your obligations under this\n"
+"License and any other pertinent obligations, then as a consequence you\n"
+"may not distribute the Program at all.  For example, if a patent\n"
+"license would not permit royalty-free redistribution of the Program by\n"
+"all those who receive copies directly or indirectly through you, then\n"
+"the only way you could satisfy both it and this License would be to\n"
+"refrain entirely from distribution of the Program.\n"
+"\n"
+"If any portion of this section is held invalid or unenforceable under\n"
+"any particular circumstance, the balance of the section is intended to\n"
+"apply and the section as a whole is intended to apply in other\n"
+"circumstances.\n"
+"\n"
+"It is not the purpose of this section to induce you to infringe any\n"
+"patents or other property right claims or to contest validity of any\n"
+"such claims; this section has the sole purpose of protecting the\n"
+"integrity of the free software distribution system, which is\n"
+"implemented by public license practices.  Many people have made\n"
+"generous contributions to the wide range of software distributed\n"
+"through that system in reliance on consistent application of that\n"
+"system; it is up to the author/donor to decide if he or she is willing\n"
+"to distribute software through any other system and a licensee cannot\n"
+"impose that choice.\n"
+"\n"
+"This section is intended to make thoroughly clear what is believed to\n"
+"be a consequence of the rest of this License.\n"
+"\n"
+"  8. If the distribution and/or use of the Program is restricted in\n"
+"certain countries either by patents or by copyrighted interfaces, the\n"
+"original copyright holder who places the Program under this License\n"
+"may add an explicit geographical distribution limitation excluding\n"
+"those countries, so that distribution is permitted only in or among\n"
+"countries not thus excluded.  In such case, this License incorporates\n"
+"the limitation as if written in the body of this License.\n"
+"\n"
+"  9. The Free Software Foundation may publish revised and/or new versions\n"
+"of the General Public License from time to time.  Such new versions will\n"
+"be similar in spirit to the present version, but may differ in detail to\n"
+"address new problems or concerns.\n"
+"\n"
+"Each version is given a distinguishing version number.  If the Program\n"
+"specifies a version number of this License which applies to it and \"any\n"
+"later version\", you have the option of following the terms and conditions\n"
+"either of that version or of any later version published by the Free\n"
+"Software Foundation.  If the Program does not specify a version number of\n"
+"this License, you may choose any version ever published by the Free "
+"Software\n"
+"Foundation.\n"
+"\n"
+"  10. If you wish to incorporate parts of the Program into other free\n"
+"programs whose distribution conditions are different, write to the author\n"
+"to ask for permission.  For software which is copyrighted by the Free\n"
+"Software Foundation, write to the Free Software Foundation; we sometimes\n"
+"make exceptions for this.  Our decision will be guided by the two goals\n"
+"of preserving the free status of all derivatives of our free software and\n"
+"of promoting the sharing and reuse of software generally.\n"
+"\n"
+"\t\t\t    NO WARRANTY\n"
+"\n"
+"  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
+"FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
+"OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
+"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER "
+"EXPRESSED\n"
+"OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
+"MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
+"TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
+"PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\n"
+"REPAIR OR CORRECTION.\n"
+"\n"
+"  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING\n"
+"WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR\n"
+"REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,\n"
+"INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING\n"
+"OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED\n"
+"TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY\n"
+"YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER\n"
+"PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE\n"
+"POSSIBILITY OF SUCH DAMAGES.\n"
+"\n"
+"\t\t     END OF TERMS AND CONDITIONS\n"
+"\n"
+"\t    How to Apply These Terms to Your New Programs\n"
+"\n"
+"  If you develop a new program, and you want it to be of the greatest\n"
+"possible use to the public, the best way to achieve this is to make it\n"
+"free software which everyone can redistribute and change under these terms.\n"
+"\n"
+"  To do so, attach the following notices to the program.  It is safest\n"
+"to attach them to the start of each source file to most effectively\n"
+"convey the exclusion of warranty; and each file should have at least\n"
+"the \"copyright\" line and a pointer to where the full notice is found.\n"
+"\n"
+"    <one line to give the program's name and a brief idea of what it does.>\n"
+"    Copyright (C) <year>  <name of author>\n"
+"\n"
+"    This program is free software; you can redistribute it and/or modify\n"
+"    it under the terms of the GNU General Public License as published by\n"
+"    the Free Software Foundation; either version 2 of the License, or\n"
+"    (at your option) any later version.\n"
+"\n"
+"    This program is distributed in the hope that it will be useful,\n"
+"    but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"    GNU General Public License for more details.\n"
+"\n"
+"    You should have received a copy of the GNU General Public License\n"
+"    along with this program; if not, write to the Free Software\n"
+"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
+"\n"
+"\n"
+"Also add information on how to contact you by electronic and paper mail.\n"
+"\n"
+"If the program is interactive, make it output a short notice like this\n"
+"when it starts in an interactive mode:\n"
+"\n"
+"    Gnomovision version 69, Copyright (C) year name of author\n"
+"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show "
+"w'.\n"
+"    This is free software, and you are welcome to redistribute it\n"
+"    under certain conditions; type `show c' for details.\n"
+"\n"
+"The hypothetical commands `show w' and `show c' should show the appropriate\n"
+"parts of the General Public License.  Of course, the commands you use may\n"
+"be called something other than `show w' and `show c'; they could even be\n"
+"mouse-clicks or menu items--whatever suits your program.\n"
+"\n"
+"You should also get your employer (if you work as a programmer) or your\n"
+"school, if any, to sign a \"copyright disclaimer\" for the program, if\n"
+"necessary.  Here is a sample; alter the names:\n"
+"\n"
+"  Yoyodyne, Inc., hereby disclaims all copyright interest in the program\n"
+"  `Gnomovision' (which makes passes at compilers) written by James Hacker.\n"
+"\n"
+"  <signature of Ty Coon>, 1 April 1989\n"
+"  Ty Coon, President of Vice\n"
+"\n"
+"This General Public License does not permit incorporating your program into\n"
+"proprietary programs.  If your program is a subroutine library, you may\n"
+"consider it more useful to permit linking proprietary applications with the\n"
+"library.  If this is what you want to do, use the GNU Library General\n"
+"Public License instead of this License."
+
+msgid "Avisynth ColorYUV"
+msgstr "Avisynth ColorYUV"
+
+msgid "AvsProxy"
+msgstr "AvsProxy"
+
+msgid "B Frames"
+msgstr "B 画格"
+
+msgid "B-Frame Direct Mode"
+msgstr "B-画格正向模式"
+
+msgid "B-frame Reduction (%)"
+msgstr "减少 B-画格 (%)"
+
+msgid "B-frame quantizer - Min:"
+msgstr "B-画格量化值 - 最小:"
+
+msgid "B:"
+msgstr "B:"
+
+msgid "BMP op failed"
+msgstr "BMP 运算失败"
+
+msgid "Baltic"
+msgstr "波罗的海"
+
+msgid "Band"
+msgstr "波段"
+
+msgid "Basic"
+msgstr "基本"
+
+msgid "Below Normal"
+msgstr "低于一般"
+
+msgid "Below normal"
+msgstr "低于一般"
+
+msgid "Bias"
+msgstr "偏向"
+
+msgid "Bicubic"
+msgstr "双立方"
+
+msgid "Bidirectional ME"
+msgstr "双向的 ME"
+
+msgid "Bilinear"
+msgstr "双线性"
+
+msgid "Bit_rate mode:"
+msgstr "位元率模式:"
+
+msgid "Bitmap source failed"
+msgstr "点阵图来源失败"
+
+msgid "Bitrate"
+msgstr "位元率"
+
+msgid "Bitrate (kb/s):"
+msgstr "位元率 (kb/s):"
+
+msgid "Bitrate Histogram"
+msgstr "位元率分布图"
+
+msgid "Bitrate Variability (%)"
+msgstr "位元率可变性 (%)"
+
+msgid "Bitrate Variance"
+msgstr "位元率变动"
+
+msgid "Bitrate/size calculator"
+msgstr "位元率/大小 计算器"
+
+msgid "Bitrate:"
+msgstr "位元率:"
+
+msgid "Bits per pixel:"
+msgstr "每像素几位元:"
+
+msgid "Bl_end"
+msgstr "混合(_E)"
+
+msgid "Blacken Borders"
+msgstr "变暗边缘"
+
+msgid "Blacken borders"
+msgstr "变暗边缘"
+
+msgid "Blend Removal"
+msgstr "去除混合"
+
+msgid "Blend Threshold"
+msgstr "混合门槛值"
+
+msgid "Blend a logo by interpolating its surrounding box."
+msgstr "利用插值它的包围框来混合一个图标。"
+
+msgid "Blend remover"
+msgstr "混合移除器"
+
+msgid "Block Adaptative :"
+msgstr "区块适性:"
+
+msgid "Bob, skip spatial temporal check"
+msgstr "Bob，略过空间时间检查"
+
+msgid "Bob, temporal & spatial check"
+msgstr "Bob，时间和空间检查"
+
+msgid "Bobber - convert each field into a full sized frame."
+msgstr "Bobber - 转换每个图场到一个完整大小的画格中。"
+
+msgid "Botto_m margin"
+msgstr "底部边界"
+
+msgid "Bottom"
+msgstr "按钮"
+
+msgid "Bottom field (keep top)"
+msgstr "底部图场(保持顶部)"
+
+msgid "Bottom field first"
+msgstr "底部图场第一"
+
+msgid "Brigh_tness:"
+msgstr "亮度:"
+
+msgid "Brightness"
+msgstr "亮度"
+
+msgid "Brush _Mode:"
+msgstr "笔刷模式(_M):"
+
+msgid "Brush _Size:"
+msgstr "笔刷大小(_S):"
+
+msgid "Build Time Map"
+msgstr "建立时间对应"
+
+msgid "Build VBR time map?"
+msgstr "要建立变动位元率(VBR)时间对应？"
+
+msgid "Building VBR map"
+msgstr "正在建立变动位元率(VBR)对应"
+
+msgid "Built-in Support"
+msgstr "内建的支援"
+
+msgid "Busy"
+msgstr "忙碌"
+
+msgid "CABAC"
+msgstr "CABAC"
+
+msgid "CBR"
+msgstr "CBR"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "C_hannel mode:"
+msgstr "通道模式:"
+
+msgid "C_heck Frames (slow)"
+msgstr "检查画格 (慢)(_H)"
+
+msgid "C_hroma lock:"
+msgstr "色度锁定:"
+
+msgid "C_hroma motion"
+msgstr "色度动作"
+
+msgid "C_hroma optimizer"
+msgstr "色度优化器"
+
+msgid "C_hroma threshold:"
+msgstr "色度门槛值:"
+
+msgid "C_onfigure"
+msgstr "设置(_O)"
+
+msgid "C_ycle:"
+msgstr "循环(_Y):"
+
+msgid "Ca_rtoon mode"
+msgstr "卡通模式"
+
+msgid "Calculate referencing individually based on each partition"
+msgstr "计算引用个别的基准样式在每个区段"
+
+msgid "Calculator"
+msgstr "计算器"
+
+msgid "Can't determine aspect ratio"
+msgstr "无法决定外观比列"
+
+msgid "Can't determine the Application Data folder."
+msgstr "无法决定应用程式数据文件夹。"
+
+msgid "Cannot copy."
+msgstr "无法复制"
+
+msgid "Cannot create the .avidemux directory"
+msgstr "无法建立 .avidemux 文件夹"
+
+msgid "Cannot decode frame"
+msgstr "无法解码画格"
+
+msgid "Cannot decode keyframe."
+msgstr "无法解码关键画格"
+
+msgid "Cannot decode next frame."
+msgstr "无法解码下一个画格"
+
+msgid "Cannot decode the frame."
+msgstr "无法解码此画格"
+
+msgid "Cannot decompress audio frame"
+msgstr "无法解压音频框架"
+
+msgid "Cannot decompress the audio stream"
+msgstr "无法解压此音频串流"
+
+msgid "Cannot delete the selection."
+msgstr "无法删除此选取范围"
+
+msgid "Cannot encode the frame"
+msgstr "无法编码此画格"
+
+msgid "Cannot get this frame to save"
+msgstr "无法取得此画格进行储存"
+
+msgid "Cannot identify subtitle format"
+msgstr "无法识别字幕的格式"
+
+msgid "Cannot initialize the audio stream"
+msgstr "无法初始化音频串流"
+
+msgid "Cannot initialize the video stream"
+msgstr "无法初始化视频串流"
+
+msgid "Cannot initiate save"
+msgstr "无法开始储存"
+
+msgid "Cannot load"
+msgstr "无法读取"
+
+msgid "Cannot load the glyphset file."
+msgstr "无法载入此文字图形设定文件"
+
+msgid "Cannot open \"%s\" for writing."
+msgstr "无法打开 \"%s\" 执行写入"
+
+msgid "Cannot open \"%s\"."
+msgstr "无法打开 \"%s\"."
+
+msgid "Cannot open AMR codec."
+msgstr "无法打开 AMR 解码器"
+
+msgid "Cannot open WMA2 codec."
+msgstr "无法打开 WMA2 解码器"
+
+msgid "Cannot open directory as a file"
+msgstr "无法将文件夹当成一个文件打开"
+
+msgid "Cannot open project using the video loader."
+msgstr "使用视频载入器时无法打开专案。"
+
+msgid "Cannot save the audio in copy mode"
+msgstr "无法在 复制来源 模式储存此音频"
+
+msgid "Cannot select FLV1  codec."
+msgstr "无法选择 FLV1  解码器"
+
+msgid "Cannot select mpeg4 sp codec."
+msgstr "无法选择 mpeg4 sp 解码器"
+
+msgid "Cannot select the MPEG-4 SP codec."
+msgstr "无法选择此 MPEG-4 SP 编解码器。"
+
+msgid "Cannot write .idx"
+msgstr "无法写入 .idx"
+
+msgid "Cannot write .sub"
+msgstr "无法写入 .sub"
+
+msgid "Cannot write the file"
+msgstr "无法写入文件"
+
+msgid "Ch_roma temporal threshold:"
+msgstr "色度时间门槛值:"
+
+msgid "Ch_roma threshold:"
+msgstr "彩_度门槛值:"
+
+msgid "Change FrameRate"
+msgstr "改变画格率"
+
+msgid "Change framerate while keeping duration."
+msgstr "当维持连续时间时改变画格率。"
+
+msgid "Change image size. Faster than Avisynth's Resize."
+msgstr "改变图像大小。比 Avisynth 的调整大小快速。"
+
+msgid "Channels:"
+msgstr "声道:"
+
+msgid "Check the permissions for /dev/dsp."
+msgstr "检查 /dev/dsp 的权限"
+
+msgid "Checking video"
+msgstr "正在检查影片"
+
+msgid "Chinese Simplified (GB2312)"
+msgstr "简体中文 (GB2312)"
+
+msgid "Chinese Traditional (Big5)"
+msgstr "繁体中文 (Big5)"
+
+msgid "Chroma ME"
+msgstr "色度 ME"
+
+msgid "Chroma Noise Reduction 2"
+msgstr "色度杂讯削减 2"
+
+msgid "Chroma QP Offset"
+msgstr "色度 QP 偏移量"
+
+msgid "Chroma Shift"
+msgstr "色度变化"
+
+msgid "Chroma U"
+msgstr "色度 U"
+
+msgid "Chroma U :"
+msgstr "色度 U :"
+
+msgid "Chroma U only"
+msgstr "只有色度 U"
+
+msgid "Chroma V"
+msgstr "色度 V"
+
+msgid "Chroma V :"
+msgstr "色度 V :"
+
+msgid "Chroma V only"
+msgstr "只有色度 V"
+
+msgid "Chroma noise reduction filter by MarcFD/Tritical."
+msgstr "明度杂讯减少滤镜作者为 MarcFD/Tritical。"
+
+msgid "Chroma shift"
+msgstr "色度变化"
+
+msgid "Chroma v"
+msgstr "色度 v"
+
+msgid "ChromaShift"
+msgstr "色度变化"
+
+msgid "Cnr2"
+msgstr "Cnr2"
+
+msgid "Co_nnect to avsproxy"
+msgstr "连上 avsproxy(_N)"
+
+msgid "Codec 4CC:"
+msgstr "解码器 4CC:"
+
+msgid "Codec Error"
+msgstr "编解码器错误"
+
+msgid "Codec:"
+msgstr "解码器:"
+
+msgid "Codecs"
+msgstr "解码器"
+
+msgid "ColorYuv (From avisynth)"
+msgstr "颜色亮度范围(由 avisynth)"
+
+msgid "Colors"
+msgstr "色彩"
+
+msgid "Combe_d threshold:"
+msgstr "梳形滤波门槛值:"
+
+msgid "Compute Average"
+msgstr "计算平均值"
+
+msgid ""
+"Compute average luma value for each pixel throughout all frames, and save to "
+"file"
+msgstr "计算重头到尾所有画格的每个像素的平均明度值，并且储存到文件"
+
+msgid "ComputeAverage"
+msgstr "计算平均值"
+
+msgid "Configure"
+msgstr "设置"
+
+msgid "Configure audio encoder"
+msgstr "设置音频编码"
+
+msgid "Configure codec"
+msgstr "设置编码器"
+
+msgid "Configure filter"
+msgstr "设置滤镜"
+
+msgid "Configure partialized filter"
+msgstr "设置区段的滤镜"
+
+msgid "Configure video encoder"
+msgstr "设置视频编码"
+
+msgid "Constant Bitrate (kbps)"
+msgstr "固定值位元率 (kbps)"
+
+msgid "Constant Quantizer"
+msgstr "固定量化值"
+
+msgid ""
+"Constant Quantizer - Each frame will have the same compression. Low numbers "
+"equal higher quality while high numbers equal lower quality."
+msgstr ""
+"固定量化值 - 每个画格的压缩程度都相同。数值低等于高画质即数值高等于较低的画"
+"质。"
+
+msgid "Constant quantizer - each frame will get the same compression"
+msgstr "固定量化值 - 每个画格将有相同的压缩"
+
+msgid "Continue indexing"
+msgstr "继续编索引"
+
+msgid "Contrast"
+msgstr "对比"
+
+msgid "Convert 24 fps to 30 fps by repeating fields."
+msgstr "用重复图场来将 24 fps 转成 30 fps。"
+
+msgid "Convert picture to grey, keeping only chroma U."
+msgstr "转换图片为灰色，只保留色度 U。"
+
+msgid "Convert picture to grey, keeping only chroma V."
+msgstr "转换图片为灰色，只保留色度 V。"
+
+msgid "Convert picture to greyscale (black and white)."
+msgstr "转换图片为灰阶 (黑色和白色)。"
+
+msgid "Copy"
+msgstr "复制来源"
+
+msgid "Core Audio"
+msgstr "Core Audio"
+
+msgid "Coring"
+msgstr "去核中"
+
+msgid "Could not find a filter"
+msgstr "无法找到滤镜"
+
+msgid "Could not get tracks info"
+msgstr "无法获得轨道资讯"
+
+msgid "Could not initialize audio"
+msgstr "无法初始化音频"
+
+msgid "Could not initialize video"
+msgstr "无法初始化视频"
+
+msgid "Could not open \"%s\" for writing."
+msgstr "无法打开正在写入的 \"%s\""
+
+msgid "Could not open OSS audio device"
+msgstr "无法打开 OSS 音频设备"
+
+msgid "Could not open subtitle file"
+msgstr "无法打开字幕文件"
+
+msgid "Could not open the file"
+msgstr "无法打开文件"
+
+msgid "Could not read \"%s\"."
+msgstr "无法读取 \"%s\"."
+
+msgid "Could not save all images."
+msgstr "无法储存所有图像"
+
+msgid "Could not unpack the video"
+msgstr "不能打开此视频的包装"
+
+msgid "Could not write the file"
+msgstr "无法写入文件"
+
+msgid "Couldn't find pixmap file: %s"
+msgstr "无法找到图片文件: %s"
+
+msgid "Crash file"
+msgstr "崩溃文件"
+
+msgid "Create _OpenDML files"
+msgstr "建立_OpenDML 文件"
+
+msgid "Create a video made of 6 mini windows, very useful to do DVD menus."
+msgstr "以 6 个小视窗建立一个影片，对于制作 DVD 选单非常有用。"
+
+msgid "Crop"
+msgstr "修剪"
+
+msgid "Crop Bottom:"
+msgstr "修剪底部:"
+
+msgid "Crop Left:"
+msgstr "修剪左侧:"
+
+msgid "Crop Right:"
+msgstr "修剪右侧:"
+
+msgid "Crop Settings"
+msgstr "修剪设定"
+
+msgid "Crop Top:"
+msgstr "修剪顶部:"
+
+msgid "Cu_t"
+msgstr "剪下(_T)"
+
+msgid "Cubic interpolate"
+msgstr "立方插值"
+
+msgid "Cubic interpolation"
+msgstr "立方内插法"
+
+msgid "Current Glyph"
+msgstr "目前文字图形"
+
+msgid "Current frame"
+msgstr "当前画格"
+
+msgid "Current frame minus average so far"
+msgstr "目前为止当前画格的负差平均值"
+
+msgid "Current time"
+msgstr "当前时间"
+
+msgid "Curve compression"
+msgstr "曲线压缩法"
+
+msgid "Custom"
+msgstr "自订"
+
+msgid "Custom Matrix"
+msgstr "自订矩阵"
+
+msgid "Cyrillic"
+msgstr "斯拉夫字母"
+
+msgid "DCT Decimate"
+msgstr "离散余弦变换(DCT)成批编码"
+
+msgid "DG@UWA format (includes shape info & bounding box)"
+msgstr "DG@UWA 格式 (包含形状资讯和范围边界)"
+
+msgid "DGBob"
+msgstr "DGBob"
+
+msgid "DTS"
+msgstr "DTS"
+
+msgid "DUMMY"
+msgstr "虚拟"
+
+msgid "DV (lavc)"
+msgstr "DV (lavc)"
+
+msgid "DVB sub"
+msgstr "DVB sub"
+
+msgid "DVD"
+msgstr "DVD"
+
+msgid "DVD (lavc)"
+msgstr "DVD (lavc)"
+
+msgid "DVD (mpeg2enc)"
+msgstr "DVD (mpeg2enc)"
+
+msgid "DVD 224 kB"
+msgstr "DVD 224 kB"
+
+msgid "DVD Res"
+msgstr "DVD 解析度"
+
+msgid "DVD half D1"
+msgstr "DVD half D1"
+
+msgid "DVD res"
+msgstr "DVD 解析度"
+
+msgid "DVD resolution [Ctrl-1]"
+msgstr "DVD 解析度 [Ctrl-1]"
+
+msgid "DVD5"
+msgstr "DVD5"
+
+msgid "De_ringing"
+msgstr "去环状色斑(_R)"
+
+msgid "Deblocking Filter"
+msgstr "去区块滤镜"
+
+msgid "Debu_g"
+msgstr "除错(_D)"
+
+msgid "Debug:"
+msgstr "除错:"
+
+msgid "Debugging settings (bits):   "
+msgstr "除错设定 (位元):"
+
+msgid "Decoder Options"
+msgstr "解码器选项"
+
+msgid "Decomb Decimate"
+msgstr "Decomb 成批编码器"
+
+msgid "Decomb Telecide"
+msgstr "Decomb 电视电影"
+
+msgid "Decompressing error"
+msgstr "解压错误"
+
+msgid "Default"
+msgstr "预设"
+
+msgid "Default Postprocessing"
+msgstr "预设的后置处理"
+
+msgid ""
+"Define how many pixels are analysed for motion estimation. The higher the "
+"range the more accurate the analysis but the slower the encoding time."
+msgstr "定义多少像素被分析。较高的范围会有叫精确的分析但编码时间较长。"
+
+msgid ""
+"Define how much the bitrate can fluctuate over the entire video. 0% results "
+"in a constant bitrate stream, while 100% results in a pure quality based "
+"bitrate stream."
+msgstr ""
+"定义整个视频从头到尾多少位元率可变动。一个固定位元率流的结果为 0%，一个纯位元"
+"率流提高画质的结果为 100%。"
+
+msgid ""
+"Define how much the quantizer rate can change between two consecutive frames"
+msgstr "定义在两个连续的画格之间可改变多少量化率"
+
+msgid "Deinterlace"
+msgstr "去交错"
+
+msgid "Delete ALL jobs"
+msgstr "删除所有工作"
+
+msgid "Delete All Jobs"
+msgstr "删除所有工作"
+
+msgid "Delete Job"
+msgstr "删除工作"
+
+msgid "Delete job"
+msgstr "删除工作"
+
+msgid "Deleted"
+msgstr "删除"
+
+msgid "Denoise"
+msgstr "减少杂讯"
+
+msgid "Destination"
+msgstr "目标文件"
+
+msgid "Diamond Search"
+msgstr "菱形搜寻"
+
+msgid "Difference between current and previous picture."
+msgstr "目前图片与上一个图片之间的差异。"
+
+msgid "Disable"
+msgstr "关闭"
+
+msgid "Discard closer"
+msgstr "丢弃较靠近的"
+
+msgid "Discard longer dupe (animes)"
+msgstr "丢弃 longer dupe (animes)"
+
+msgid "Display Stats"
+msgstr "显示状态"
+
+msgid "Display _Mode:"
+msgstr "显示模式(_M):"
+
+msgid "Display _Output"
+msgstr "显示输出(_O)"
+
+msgid "Display all alerts"
+msgstr "显示所有警告"
+
+msgid "Display nothing (fast for batch processing)"
+msgstr "无任何显示 (对批次处理是快速的)"
+
+msgid "Display only error alerts"
+msgstr "只显示错误的警告"
+
+msgid "DivX"
+msgstr "DivX"
+
+msgid "DivX 5 + packed?"
+msgstr "DivX 5 + 打包的?"
+
+msgid "Do you want me to unpack it ?"
+msgstr "确定要拆开打包？"
+
+msgid "Do you want to abort indexing ?"
+msgstr "确定要中止编索引？"
+
+msgid "Do you want to print metrics on screen ?"
+msgstr "确定要将矩阵显示在荧幕上？"
+
+msgid "Do you want to save an index ?"
+msgstr "要储存一个索引吗 ?"
+
+msgid "Dolby Pro Logic"
+msgstr "杜比定向逻辑"
+
+msgid "Dolby Pro Logic II"
+msgstr "第二代杜比定向逻辑"
+
+msgid "Done"
+msgstr "完成"
+
+msgid "Double nb of frames (slow motion)"
+msgstr "双倍画格的数量(慢动作)"
+
+msgid "Double nb of frames and fps"
+msgstr "双倍画格和 fps 的数目"
+
+msgid "Drop"
+msgstr "降低"
+
+msgid "Drop Out"
+msgstr "退出"
+
+msgid "Drop damaged fields (e.g. from VHS capture)."
+msgstr "降低损坏的图场 (例如，由 VHS 抓取)。"
+
+msgid "DropOut Threshold"
+msgstr "退出门槛值"
+
+msgid "Dual audio can only be used in copy mode"
+msgstr "双音轨只能使用在 复制来源 的模式"
+
+msgid "Dual pass (MBytes)"
+msgstr "二次运算 (MBytes)"
+
+msgid "Dummy"
+msgstr "虚拟"
+
+msgid "Duration:"
+msgstr "持续时间:"
+
+msgid "EPZS"
+msgstr "EPZS"
+
+msgid "ESD"
+msgstr "ESD"
+
+msgid "Each field becomes full picture, half sized."
+msgstr "每个图场变为完整图像，只有原来一半的大小。"
+
+msgid ""
+"Early skip detection on P-frames to speedup encoding. Quality will be "
+"slightly reduced."
+msgstr "在 P-画格上提早略过检测来提升编码速度。品质会些微减少。"
+
+msgid "Edit Custom Matrix"
+msgstr "编辑自订矩阵"
+
+msgid "Edit loaded custom quantization matrix file"
+msgstr "编辑载入的自订量化编码矩阵文件"
+
+msgid "Embed DVB-T subtitle."
+msgstr "嵌入 DVB-T 字幕。"
+
+msgid "Embed VobSub subtitles into picture."
+msgstr "嵌入 VobSub 字幕到图片中。"
+
+msgid "Enable 3DNOW"
+msgstr "打开 3DNOW"
+
+msgid "Enable 3DNOWEXT"
+msgstr "打开 3DNOWEXT"
+
+msgid "Enable DCT Intra block search to improve quality"
+msgstr "打开 DCT 内部区块搜寻来改善画质"
+
+msgid "Enable MMX"
+msgstr "打开 MMX"
+
+msgid "Enable MMXEXT"
+msgstr "打开 MMXEXT"
+
+msgid "Enable SSE"
+msgstr "打开 SSE"
+
+msgid "Enable SSE2"
+msgstr "打开 SSE2"
+
+msgid "Enable SSE3"
+msgstr "打开 SSE3"
+
+msgid "Enable SSSE3"
+msgstr "打开 SSSE3"
+
+msgid ""
+"Enable a better prediction of AC component. Turns on Lumi masking - applies "
+"more compression to dark/light areas that the eye cannot notice easily"
+msgstr ""
+"打开一个较好的 AC 组成预测。打开 Lumi  屏蔽  - 对 暗/明 区(肉眼不易看见的地"
+"方)使用更多压缩"
+
+msgid "Enable all SIMD"
+msgstr "打开所有 SIMD"
+
+msgid "Enable in-loop deblocking to filter the video"
+msgstr "打开循环去除方块来过滤视频"
+
+msgid "Enable time shift"
+msgstr "启动时间移动"
+
+msgid "Enables Divx like packed vop, DO NOT SET, it is ugly"
+msgstr "打开 Divx 像打包好的 VOP。若不设定，它会很难看"
+
+msgid "Enables a chroma optimizer prefilter"
+msgstr "启用色度优化器的前置过滤器"
+
+msgid "Enables fast 1st pass encoding"
+msgstr "打开快速单次运算编码"
+
+msgid ""
+"Enables interlaced frame support - use only if your source contains "
+"interlacing artifacts (i.e. fields instead of progressive frames)"
+msgstr ""
+"打开交错式的画格支援 - 如果你的来源包含交错式的处理才使用(即场景渐进式画格的"
+"替代)"
+
+msgid "Enables special motion estimation features for cartoons/anime"
+msgstr "打开对 卡通/动画 特殊动态补偿技术"
+
+msgid "Enables weighting of B-frames to help fades"
+msgstr "打开 B-画格的加权来协助淡入、淡出"
+
+msgid "Encode in black & white"
+msgstr "使用黑白编码"
+
+msgid "Encoder initialization failed"
+msgstr "初始化编解码器失败"
+
+msgid "Encoding"
+msgstr "编码中"
+
+msgid "Encoding Mode"
+msgstr "编码模式"
+
+msgid "Encoding type:"
+msgstr "编码方式:"
+
+msgid "Encoding..."
+msgstr "编码中..."
+
+msgid "End frame for partial :"
+msgstr "区段的结束画格:"
+
+msgid "End reached"
+msgstr "已到结束点"
+
+msgid "Enforce a maximum quantizer level"
+msgstr "强制量化等级为最大值"
+
+msgid "Enforce a minimum quantizer level"
+msgstr "强制量化等级为最小值"
+
+msgid ""
+"Enforce the size of a decoded pixel decoded to a certain value. Set this to "
+"1:1 for non-anamorphic video."
+msgstr ""
+"强制一个解码像素的大小解码成一个确定的值。对于非不正常的 1:1 影片设定这个。"
+
+msgid "Enhance difference between near pixels."
+msgstr "加强像素间的差异。"
+
+msgid "Enter parameters (i.e. -b 192 -m s ...)"
+msgstr "输入参数 (i.e. -b 192 -m s ...)"
+
+msgid "Equalizer"
+msgstr "等化器"
+
+msgid "Erase"
+msgstr "橡皮擦"
+
+msgid "Eraser"
+msgstr "橡皮擦"
+
+msgid "Eraser Configuration"
+msgstr "橡皮擦设置"
+
+msgid "Eraser _Data File:"
+msgstr "橡皮擦数据文件(_D):"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Error Loading"
+msgstr "载入错误"
+
+msgid "Error Writing"
+msgstr "写入错误"
+
+msgid "Error converting to BMP"
+msgstr "转成 BMP 错误"
+
+msgid "Error in pass 1"
+msgstr "在 pass 1 出现错误"
+
+msgid "Error in pass 2"
+msgstr "在 pass 2 出现错误"
+
+msgid "Error initalizing audio filters"
+msgstr "初始化音频滤镜发生错误"
+
+msgid "Error initalizing video filters"
+msgstr "初始化视频滤镜发生错误"
+
+msgid "Error loadind the custom matrix file."
+msgstr "载入自订矩阵文件时发生错误"
+
+msgid "Error loading the AC3 file"
+msgstr "载入 AC3 文件错误"
+
+msgid "Error loading the MP3 file"
+msgstr "载入 MP3 文件错误"
+
+msgid "Error loading the WAV file"
+msgstr "载入 WAV 文件错误"
+
+msgid "Error reading ifo file, aborting."
+msgstr "中止时读取 ifo 文件发生错误"
+
+msgid "Error while encoding"
+msgstr "当编码时发生错误"
+
+msgid "Error writing the custom matrix file."
+msgstr "写入自订矩阵文件发生错误"
+
+msgid "Errors found in %u frames"
+msgstr "在 %u 画格发现错误"
+
+msgid "Exhaustive Search"
+msgstr "彻底搜寻"
+
+msgid "Expect a crash."
+msgstr "预期一个崩溃"
+
+msgid "External"
+msgstr "外部的"
+
+msgid "External AC3"
+msgstr "外部的 AC3"
+
+msgid "External Filters"
+msgstr "外部的滤镜"
+
+msgid "External MP3"
+msgstr "外部的 MP3"
+
+msgid "External WAV"
+msgstr "外部的 WAV"
+
+msgid "Extra Settings"
+msgstr "额外的设定"
+
+msgid "Extra Shrink Factor :"
+msgstr "额外的收缩因子:"
+
+msgid "Extra check, avoid using it"
+msgstr "额外的检查，避免使用它"
+
+msgid "Extra slow (same as 3+multiple reference frames)"
+msgstr "特别慢 (同于3或3倍数以上的参考画格数)"
+
+msgid "Extrapolate better (better not to use it)"
+msgstr "推算较好的(最好不使用它)"
+
+msgid "Extreme"
+msgstr "极致"
+
+msgid "FAAC"
+msgstr "FAAC"
+
+msgid "FAAD2"
+msgstr "FAAD2"
+
+msgid "FF Huffyuv (lavc)"
+msgstr "FF Huffyuv (lavc)"
+
+msgid "FFV1 (lavc)"
+msgstr "FFV1 (lavc)"
+
+msgid "FFmpeg MPEG-1 VBR"
+msgstr "FFmpeg MPEG-1 VBR"
+
+msgid "FFmpeg MPEG-2 DVD VBR"
+msgstr "FFmpeg MPEG-2 DVD VBR"
+
+msgid "FFmpeg MPEG-2 SVCD VBR"
+msgstr "FFmpeg MPEG-2 SVCD VBR"
+
+msgid "FFmpeg deint"
+msgstr "FFmpeg 解交错"
+
+msgid "FILM- 24 FPS"
+msgstr "FILM- 24 FPS"
+
+msgid "FLV"
+msgstr "FLV"
+
+msgid "FLV1 (lavc)"
+msgstr "FLV1 (lavc)"
+
+msgid "FLV1 Configuration"
+msgstr "FLV1 设置"
+
+msgid "F_LV"
+msgstr "F_LV"
+
+msgid "Factor between I and P-frame Quants"
+msgstr "I-画格和 P-画格之间的量化因子"
+
+msgid "Factor between P and B-frame Quants"
+msgstr "P-画格和 B-画格之间的量化因子"
+
+msgid "Fade"
+msgstr "淡化"
+
+msgid "Fade in"
+msgstr "淡入"
+
+msgid "Fade in/out."
+msgstr "淡入/出。"
+
+msgid "Fade out"
+msgstr "淡出"
+
+msgid "Fade to _black"
+msgstr "逐渐消失成黑色(_B)"
+
+msgid "Failed"
+msgstr "失败"
+
+msgid ""
+"Failed to connect to avsproxy.\n"
+"Is it running ?"
+msgstr ""
+"连线 avsproxy 失败。\n"
+"要继续执行吗？"
+
+msgid "Failed to open the file"
+msgstr "打开文件失败"
+
+msgid "Fast"
+msgstr "快速"
+
+msgid "Fast (partial luma and chroma)"
+msgstr "快 (部份的明度和色度)"
+
+msgid "Fast Convolution"
+msgstr "快速卷积"
+
+msgid "Fast P-Skip"
+msgstr "快速 P-Skip"
+
+msgid "Fastest (no chroma, partial luma)"
+msgstr "最快 (没有色度，部份的明度)"
+
+msgid "Fatal Error"
+msgstr "重大的错误"
+
+msgid "Fatal error"
+msgstr "重大的错误"
+
+msgid "Fewest bits (vhq)"
+msgstr "最少位元数 (vhq)"
+
+msgid "Fil_ters"
+msgstr "滤镜(_F)"
+
+msgid "File %s has been successfully saved."
+msgstr "文件%s已经成功地储存"
+
+msgid "File %s was NOT saved correctly."
+msgstr "文件 %s 储存不正确。"
+
+msgid "File Size:"
+msgstr "文件大小:"
+
+msgid "File error"
+msgstr "文件错误"
+
+msgid "File type identified but no loader support detected..."
+msgstr "文件类型经鉴定，但是没有检测到支援的载入程式"
+
+msgid "Filesystem full / quota exceeded"
+msgstr "文件系统已满 / 配额已超过"
+
+msgid "Fill borders with pure black. Doesn't alter size."
+msgstr "用黑色填入边缘。不变更大小。"
+
+msgid "Film to PAL"
+msgstr "Film to PAL"
+
+msgid "Filter init failed"
+msgstr "滤镜初始化失败"
+
+msgid "Filters"
+msgstr "滤镜"
+
+msgid "Finding black frames"
+msgstr "正在寻找黑画面"
+
+msgid "Finished at"
+msgstr "结束于"
+
+msgid "First frame"
+msgstr "第一格"
+
+msgid "Flat Matrix"
+msgstr "扁平矩阵"
+
+msgid "Float"
+msgstr "浮动"
+
+msgid "FluxSmooth"
+msgstr "融熔平滑"
+
+msgid "Font Size:"
+msgstr "字型大小:"
+
+msgid "Fontconfig"
+msgstr "Fontconfig"
+
+msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
+msgstr "DVD的音频必须是 48 kHz MP2(立体), AC3, DTS 或 LPCM (立体)。"
+
+msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
+msgstr "DVD的音频必须是 48 kHz MP2, AC3 或 LPCM。"
+
+msgid "For DVD, audio must be MP2 or AC3."
+msgstr "DVD 的音频必须是 MP2 或 AC3"
+
+msgid "For VCD, audio must be 44.1 kHz MP2."
+msgstr "VCD的音频必须是 44.1 kHz MP2。"
+
+msgid "Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa"
+msgstr "强制 过亮/过暗 的像素为 0 且重新设定成 255 或者反过来"
+
+msgid "Forced Postprocessing"
+msgstr "强制的后置处理"
+
+msgid "Forced postprocessing"
+msgstr "强制的后置处理"
+
+msgid "Frame Count:"
+msgstr "画格数:"
+
+msgid "Frame Hex Dump"
+msgstr "画格16 进位倾印"
+
+msgid "Frame Rate"
+msgstr "画格率"
+
+msgid "Frame Rate:"
+msgstr "画格率:"
+
+msgid "Frame size:"
+msgstr "画格大小:"
+
+msgid "Frame type:"
+msgstr "画格类型:"
+
+msgid "Frame: "
+msgstr "画格:"
+
+msgid "Frame: ?"
+msgstr "画格:？"
+
+msgid "Frame:%c(%02d)"
+msgstr "画格:%c(%02d)"
+
+msgid "FreeType 2"
+msgstr "FreeType 2"
+
+msgid "Frequency must be 44100, 22050 or 11025 Hz."
+msgstr "频率必须是 44100, 22050 或 11025 Hz."
+
+msgid "Frequency:"
+msgstr "频率:"
+
+msgid "Full"
+msgstr "全部"
+
+msgid "Full link"
+msgstr "完整连结"
+
+msgid "Full parameter line"
+msgstr "完整参考线"
+
+msgid "Further enable DCT Intra block search to improve quality"
+msgstr "进一步打开 DCT 内部区块搜寻来改善画质"
+
+msgid "Further improve the P-frame quality"
+msgstr "更进一步改善 P-frame 的画质"
+
+msgid "GTK+ (slow)"
+msgstr "GTK+ (慢)"
+
+msgid "G_ain value:"
+msgstr "增益值:"
+
+msgid "Gain"
+msgstr "增益"
+
+msgid "Gamma"
+msgstr "Gamma"
+
+msgid "Gauss smooth"
+msgstr "高斯平滑"
+
+msgid "Gaussian smooth. Blur the picture."
+msgstr "高斯平滑。模糊图片。"
+
+msgid "General block breakdown transformation"
+msgstr "通用区块损坏转换"
+
+msgid "Generating VobSub file"
+msgstr "生成 VobSub 文件"
+
+msgid "Get Frame"
+msgstr "取得画格"
+
+msgid "Get PAR from input video file"
+msgstr "从输入的视频文件取得 PAR"
+
+msgid "Gettext"
+msgstr "Gettext"
+
+msgid "Gl_yphSet:"
+msgstr "文字图形设定:"
+
+msgid "Global GlyphSet"
+msgstr "整体的文字图形设定"
+
+msgid ""
+"Global Motion Compensation can save bits on camera pans, zooming and rotation"
+msgstr "整体动态补偿可储存成数位在照像机的转动镜头、缩放和旋转"
+
+msgid "Global Motion Compensation:"
+msgstr "整体动态补偿:"
+
+msgid "GlyphSet filename"
+msgstr "文字图形设定文件名"
+
+msgid "Go to Fra_me..."
+msgstr "前往画格...(_M)"
+
+msgid "Go to Frame"
+msgstr "前往画格"
+
+msgid "Go to Marker _A"
+msgstr "前往记号 _A"
+
+msgid "Go to Marker _B"
+msgstr "前往记号 _B"
+
+msgid "Go to Time"
+msgstr "前往时间"
+
+msgid "Go to _Time..."
+msgstr "前往时间...(_T)"
+
+msgid "Go to marker A"
+msgstr "前往记号A"
+
+msgid "Go to marker B"
+msgstr "前往记号B"
+
+msgid "Great deinterlacing package including IVTC."
+msgstr "生成包含 IVTC 的去交错套件。"
+
+msgid "Greek"
+msgstr "希腊"
+
+msgid "H"
+msgstr "H"
+
+msgid "H.263"
+msgstr "H.263"
+
+msgid "H.263 (lavc)"
+msgstr "H.263 (lavc)"
+
+msgid "H.263 quantizers smooth the picture (useful at lower bitrates)"
+msgstr "H.263 量化值使图片平滑 (用于较低的位元率)"
+
+msgid "H.263+ (lavc)"
+msgstr "H.263+ (lavc)"
+
+msgid "H.264 detected"
+msgstr "检测到 H.264"
+
+msgid "H263 Quantizer"
+msgstr "H263 量化值"
+
+msgid "HQ _AC"
+msgstr "HQ _AC"
+
+msgid "Hadamard Exhaustive Search"
+msgstr "哈达马德彻底搜寻"
+
+msgid "Half D1 Res"
+msgstr "Half D1 解析度"
+
+msgid "Half D1 res"
+msgstr "Half D1 解析度"
+
+msgid "Half D1 resolution [Ctrl-2]"
+msgstr "Half D1 解析度 [Ctrl-2]"
+
+msgid "Hard IVTC Removal"
+msgstr "硬去除 IVTC"
+
+msgid "Hard pulldown removal"
+msgstr "硬式去除 Pulldown"
+
+msgid "Head reached"
+msgstr "最前的部分被延伸"
+
+msgid "Hebrew"
+msgstr "希伯来"
+
+msgid "Hexagonal Search"
+msgstr "六角形搜寻"
+
+msgid "High"
+msgstr "高"
+
+msgid "High bitrate scenes (%):"
+msgstr "高位元率场景(%):"
+
+msgid "High quality version of denoise3d. Slower but more precise."
+msgstr "denoise3d 的高品质版本。 较慢但更精确。"
+
+msgid ""
+"Higher settings give higher quality results, at the cost of slower encoding"
+msgstr "较高的设定值会得较好的画质结果，在较慢编码的代价下"
+
+msgid ""
+"How much of the overflow the codec can eat into during oversized sections - "
+"larger values will bridge the gap faster"
+msgstr "在特大的区段期间编解码器可以消耗多少溢出 - 较大的数值将快速跨越间隔"
+
+msgid ""
+"How much of the overflow the codec can eat into during undersized sections - "
+"larger values will bridge the gap faster"
+msgstr "在较小的区段期间编解码器可以消耗多少溢出 - 较大的数值将快速跨越间隔"
+
+msgid "Hue"
+msgstr "色相"
+
+msgid "Hue/Saturation"
+msgstr "色相/饱和度"
+
+msgid "Huffyuv (lavc)"
+msgstr "Huffyuv (lavc)"
+
+msgid "Hz Stack fields"
+msgstr "Hz 堆叠图场"
+
+msgid ""
+"I have detected a crash file. \n"
+"Do you want to load it  ?\n"
+"(It will be deleted in all cases, you should save it if you want to keep it)"
+msgstr ""
+"检测到一个崩溃文件. \n"
+"是否要载入 ?\n"
+"(在所有的案例都将被检测，若要保存它你必须执行储存。)"
+
+msgid "I-frame boost (%):"
+msgstr "I-画格推进 (%):"
+
+msgid "I-frame interval - Min:"
+msgstr "I-画格间隔 - 最小值:"
+
+msgid "I-frame quantizer - Min:"
+msgstr "I-画格量化值 - 最小:"
+
+msgid ""
+"I-frames appearing in the range below this value will be treated as "
+"consecutive keyframes"
+msgstr "在范围中出现的 I-画格数低于这个值，那么将被当成连续的关键画格处理"
+
+msgid "I-frames closer than ... frames..."
+msgstr "I-画格更靠近于 ... 画格..."
+
+msgid "IMA ADPCM"
+msgstr "IMA ADPCM"
+
+msgid "IPOD (mpeg4)"
+msgstr "IPOD (mpeg4)"
+
+msgid "I_dentical:"
+msgstr "相同:"
+
+msgid "Identify 'particles' (groups of pixels)"
+msgstr "识别 '区段' (像素的群组)"
+
+msgid "If metric is less than identical, images are considered identical"
+msgstr "如果公制单位不到完全相等，图像被视为完全相等"
+
+msgid "If pixels are closer than noise, they are considered to be the same"
+msgstr "如果像素太接近杂讯，它们被视为一样"
+
+msgid "If still combed"
+msgstr "如果仍然有梳形杂讯"
+
+msgid ""
+"If the file is using B-frames as reference it can lead to a crash or "
+"stuttering.\n"
+"Avidemux can use another mode which is safe but YOU WILL LOSE FRAME "
+"ACCURACY.\n"
+"Do you want to use that mode?"
+msgstr ""
+"假如这个文件使用 B-画格为参考，那么会导致崩溃或影片断断续续。\n"
+"Avidemux 能使用其他的方式来储存，但是<b>你将失去画格的精确度</b>。\n"
+"你要使用这个方式吗 ?"
+
+msgid "If the glyphs are too thin, enter a lower value here"
+msgstr "如果文字图形太细，这里输入一个较低的值"
+
+msgid ""
+"If value is smaller than threshold it is considered valid. Smaller value "
+"might mean more false positive"
+msgstr "如果数值小于门槛值，它被视为有效的。较小的值可能意味着更多的误判"
+
+msgid ""
+"If value is smaller than threshold it is considered valid.Smaller value "
+"might mean more false positive."
+msgstr "如果数值小于门槛值，它被视为有效的。较小的值可能意味着更多的误判。"
+
+msgid "Ifo error"
+msgstr "Ifo 错误"
+
+msgid "Ignore"
+msgstr "忽略"
+
+msgid "Image Size:"
+msgstr "图片大小:"
+
+msgid "Images"
+msgstr "图像"
+
+msgid "Improve the B-frame quality"
+msgstr "改善 B-画格的画质"
+
+msgid "Improve the P-frame quality"
+msgstr "改善 P-frame 的画质"
+
+msgid "In"
+msgstr "进"
+
+msgid "In-range values go black, out-of-range go white"
+msgstr "数值在范围内会变黑，在范围外会变白"
+
+msgid "In-range values go black, out-of-range values go white"
+msgstr "数值在范围内会变黑，在范围外会变白"
+
+msgid "In-range values go white, out-of-range go black"
+msgstr "数值在范围内会变白，在范围外会变黑"
+
+msgid "In-range values go white, out-of-range values go black"
+msgstr "数值在范围内会变白，在范围外会变黑"
+
+msgid "Incompatible audio"
+msgstr "不相容的音频"
+
+msgid "Incompatible frame rate"
+msgstr "不相容的画格率"
+
+msgid "Incompatible output format"
+msgstr "不相容的输出格式"
+
+msgid "Incompatible settings"
+msgstr "不相容设定"
+
+msgid "Incorrect parameters"
+msgstr "不正确的参数"
+
+msgid ""
+"Increase / decrease probability for how often B-frames are used. It will not "
+"violate the maximum consecutive frame limit."
+msgstr ""
+"增加 / 减少 对于如何经常使用 B-画格的可能性。将不违反连续画格限度的最大值。"
+
+msgid ""
+"Increase / decrease sensitivity for detecting scene changes. Improves I-"
+"frame usage and quality."
+msgstr ""
+"增加/减少 对检测场景切换来补偿的灵敏度。改善 I-画格的使用和有助于画质。"
+
+msgid "Index is not up to date"
+msgstr "索引不是最新的"
+
+msgid "Indexing"
+msgstr "编索引"
+
+msgid "Indexing :"
+msgstr "正在编索引:"
+
+msgid "Indexing failed"
+msgstr "编索引失败"
+
+msgid "Indexing..."
+msgstr "编索引中..."
+
+msgid ""
+"Init By _Rolling (compute head start using a rolling average rather than a "
+"straight average)"
+msgstr "依据变动初始化(_R)(计算开端使用一个波动平均数更精确于直接平均数)"
+
+msgid "Init _End Frame (last frame # to use for head start):"
+msgstr "初始化结束画格 (最后画格 # 使用在开端)(_E):"
+
+msgid "Init _Start Frame (first frame # to use for head start):"
+msgstr "初始化起始画格 (第一个画格 # 使用在开端)(_S):"
+
+msgid "Initial VBV Buffer (%)"
+msgstr "初始 VBV 缓冲 (%)"
+
+msgid "Input"
+msgstr "输入"
+
+msgid "Input TS:"
+msgstr "输入 TS:"
+
+msgid "Input _Constant:"
+msgstr "输入固定值(_C):"
+
+msgid "Input _File (image or convolution kernel):"
+msgstr "输入文件 (图像或卷积内核)(_F):"
+
+msgid "Input _Type:"
+msgstr "输入类型(_T):"
+
+msgid "Input file error"
+msgstr "输入文件错误"
+
+msgid "Input video is interlaced"
+msgstr "交错式编码"
+
+msgid "Interlaced"
+msgstr "交错的"
+
+msgid "Interlaced BFF"
+msgstr "交错的 BFF"
+
+msgid "Interlaced TFF"
+msgstr "交错的 TFF"
+
+msgid "Interlacing"
+msgstr "交错"
+
+msgid "Interleave top and bottom part of the picture."
+msgstr "让图像的顶部和底部交错。"
+
+msgid "Internal error"
+msgstr "网际网路错误"
+
+msgid "Internal error finding codec '"
+msgstr "寻找编解码器时发生内部错误"
+
+msgid "Internal error opening codec"
+msgstr "从网际网路正在打开解码器发生错误"
+
+msgid "Internal error with context for  codec"
+msgstr "当前后关联解码器时网际网路发生错误"
+
+msgid "Invalid audio stream detected"
+msgstr "已删除无效的音频流"
+
+msgid "Invert chroma U and chroma V."
+msgstr "反相 U 和 V 的色度。"
+
+msgid "It is not MPEG-4 video. File will not be saved."
+msgstr "不是 MPEG-4 视频。文件将不会储存。"
+
+msgid "It is possible that you are trying to overwrite an input file!"
+msgstr "你可能正在尝试覆写一个输入文件!"
+
+msgid "JACK"
+msgstr "JACK"
+
+msgid "JVT Matrix"
+msgstr "JVT 矩阵"
+
+msgid "Jobs"
+msgstr "工作"
+
+msgid "Joint stereo"
+msgstr "连接立体"
+
+msgid "KVCD"
+msgstr "KVCD"
+
+msgid "Keep bottom fileds. Gives a half height picture."
+msgstr "保留底部图场。会获得一半高度的图像。"
+
+msgid "Keep even fields"
+msgstr "保留偶数图场"
+
+msgid "Keep nb of frames and fps"
+msgstr "保持画格和 fps 的数目"
+
+msgid "Keep odd fields"
+msgstr "保留奇数图场"
+
+msgid "Keep top fields. Gives a half height picture."
+msgstr "保留顶部图场。会获得一半高度的图像。"
+
+msgid "Kernel deinterlacer by Donald Graft."
+msgstr "核心去交错器作者为 Donald Graft。"
+
+msgid "Kernel interpolation"
+msgstr "内核内插法"
+
+msgid "KernelDeint"
+msgstr "核心去交错(KernelDeint)"
+
+msgid "KeyFrame error"
+msgstr "关键画格错误"
+
+msgid "Keyframe Boost (%)"
+msgstr "关键画格推进 (%)"
+
+msgid "LAME"
+msgstr "LAME"
+
+msgid "LAME Configuration"
+msgstr "LAME 设置"
+
+msgid "LPCM"
+msgstr "LPCM"
+
+msgid "L_uma threshold:"
+msgstr "明度门槛值:"
+
+msgid "Lame command"
+msgstr "Lame 命令"
+
+msgid "Lanczos3"
+msgstr "Lanczos3"
+
+msgid "Large Median 5x5"
+msgstr "巨大中值 5x5"
+
+msgid "Last frame"
+msgstr "最后一格"
+
+msgid "Latin-1 (Western European)"
+msgstr "Latin-1 (西欧)"
+
+msgid "Latin-2 (Central European)"
+msgstr "Latin-2 (中欧)"
+
+msgid "LavCodec"
+msgstr "Lav 编解码器"
+
+msgid "Level"
+msgstr "色阶"
+
+msgid "Libraries"
+msgstr "函式库"
+
+msgid "Light denoiser."
+msgstr "明亮去杂讯器。"
+
+msgid "Linear blend"
+msgstr "线性混合"
+
+msgid "Linear interpolate"
+msgstr "线性插值"
+
+msgid "Load Custom Matrix:  "
+msgstr "载入自订矩阵  "
+
+msgid ""
+"Load _Multiplier (each pixel in\n"
+"file image mult. by this when loaded):"
+msgstr ""
+"载入乘法器 (当载入时\n"
+"在文件图像的每像素靠这个倍增)(_M):"
+
+msgid "Load it"
+msgstr "载入它"
+
+msgid "Load set of filters"
+msgstr "载入滤镜的设定"
+
+msgid "Log"
+msgstr "日志"
+
+msgid "Logo"
+msgstr "图标"
+
+msgid "Look ahead _N frames:"
+msgstr "预见的 _N 画格:"
+
+msgid ""
+"Lossless compression technique that reduces bitrate by approximately 10%. "
+"Increases encoding and decoding time."
+msgstr "无损压缩技术会减少接近 10% 的位元率。编码与解码时间较长。"
+
+msgid "Low"
+msgstr "低"
+
+msgid "Low bitrate scenes (%):"
+msgstr "低位元率场景(%):"
+
+msgid "Luma"
+msgstr "明度"
+
+msgid "Luma :"
+msgstr "明度:"
+
+msgid "Luma Y"
+msgstr "明度 Y"
+
+msgid "Luma correction filter with histogram."
+msgstr "分布图校正明度滤镜。"
+
+msgid "Luma delta"
+msgstr "明度差值"
+
+msgid "Luma equalizer"
+msgstr "明度量化值"
+
+msgid "Luma only"
+msgstr "只有明度"
+
+msgid "MAD"
+msgstr "MAD"
+
+msgid "MB comparison"
+msgstr "MB 对照"
+
+msgid "MJPEG"
+msgstr "MJPEG"
+
+msgid "MJPEG (lavc)"
+msgstr "MJPEG (lavc)"
+
+msgid "MJPEG Configuration"
+msgstr "MJPEG 设置"
+
+msgid "MKV"
+msgstr "MKV"
+
+msgid "MP2"
+msgstr "MP2"
+
+msgid "MP3"
+msgstr "MP3"
+
+msgid "MP4"
+msgstr "MP4"
+
+msgid "MPEG"
+msgstr "MPEG"
+
+msgid "MPEG DVD"
+msgstr "MPEG DVD"
+
+msgid "MPEG ES"
+msgstr "MPEG ES"
+
+msgid "MPEG Quantizer"
+msgstr "MPEG 量化值"
+
+msgid "MPEG Requantizer"
+msgstr "MPEG 重复量化值"
+
+msgid "MPEG SVCD"
+msgstr "MPEG SVCD"
+
+msgid "MPEG TS"
+msgstr "MPEG TS"
+
+msgid "MPEG VCD"
+msgstr "MPEG VCD"
+
+msgid ""
+"MPEG quantizers (slightly slower) produce sharper picture (useful at higher "
+"bitrates)"
+msgstr "MPEG 量化值 (稍微慢些) 产生较锐利的图片 (用于较高的位元率)"
+
+msgid "MPEG renumbering error"
+msgstr "MPEG 重编号错误"
+
+msgid "MPEG video"
+msgstr "MPEG 视频"
+
+msgid "MPEG-2 Configuration"
+msgstr "MPEG-2 设置"
+
+msgid "MPEG-2 requant"
+msgstr "MPEG-2 重复量化"
+
+msgid "MPEG-4 ASP (Xvid4)"
+msgstr "MPEG-4 ASP (Xvid4)"
+
+msgid "MPEG-4 ASP (lavc)"
+msgstr "MPEG-4 ASP (lavc)"
+
+msgid "MPEG-4 AVC (x264)"
+msgstr "MPEG-4 AVC (x264)"
+
+msgid "MPEG-PS (A+V)"
+msgstr "MPEG-PS (A+V)"
+
+msgid "MPEG-TS (A+V)"
+msgstr "MPEG-TS (A+V)"
+
+msgid "MPlayer delogo"
+msgstr "Mplayer 去除图标"
+
+msgid "MPlayer denoise3d"
+msgstr "MPlayer denoise3d"
+
+msgid "MPlayer eq2"
+msgstr "MPlayer eq2"
+
+msgid "MPlayer hqdn3d"
+msgstr "MPlayer hqdn3d"
+
+msgid "MPlayer hue"
+msgstr "MPlayer 色相"
+
+msgid "MPlayer resize"
+msgstr "MPlayer 调整大小"
+
+msgid "MSADPCM"
+msgstr "MSADPCM"
+
+msgid "MSharpen"
+msgstr "M锐利化"
+
+msgid "MSmooth"
+msgstr "MSmooth 平滑"
+
+msgid "MSmooth by Donald Graft"
+msgstr "MSmooth 平滑作者为 Donald Graft"
+
+msgid "Ma_x. bitrate:"
+msgstr "最大位元率:"
+
+msgid "Ma_x. quantizer:"
+msgstr "最大量化值:"
+
+msgid "Ma_ximum area for a particle to be detected:"
+msgstr "一个区段被检测的最大范围:"
+
+msgid "Ma_ximum value to be in-range:"
+msgstr "在范围中的最大值:"
+
+msgid "Main"
+msgstr "主要"
+
+msgid "Main Audio Track"
+msgstr "主要音轨"
+
+msgid "Malformed header"
+msgstr "不正常的标头"
+
+msgid "Manual"
+msgstr "手动"
+
+msgid "Mark A > B"
+msgstr "标记 A > B"
+
+msgid "Marker A > B"
+msgstr "记号 A > B"
+
+msgid "Mask interlacing artifacts. Port of Smart deinterlace."
+msgstr "屏蔽交错加工。由智慧型去交错转来。"
+
+msgid "Master"
+msgstr "主要"
+
+msgid "Matrices"
+msgstr "矩阵"
+
+msgid "Matrix"
+msgstr "矩阵"
+
+msgid "Matrix Loaded"
+msgstr "矩阵已载入"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Max Consecutive"
+msgstr "最大连续的"
+
+msgid "Max I Frame Qzer"
+msgstr "最大的 I 画格量化值"
+
+msgid "Max I frame interval "
+msgstr "最大 I 画格隔间"
+
+msgid "Max IDR Frame Interval"
+msgstr "最大 IDR 画格时间间隔"
+
+msgid "Max P Frame Qzer"
+msgstr "最大的 P 画格量化值"
+
+msgid "Max QP"
+msgstr "最大 Qp"
+
+msgid "Max QP Step"
+msgstr "最大 QP 步骤"
+
+msgid "Max overflow degradation (%):"
+msgstr "最大溢位降级(%):"
+
+msgid "Max overflow improvement (%):"
+msgstr "最大溢位改善(%):"
+
+msgid "Max. B frames:"
+msgstr "最大 B 画格数:"
+
+msgid "Max. Ref. Frames"
+msgstr "最大参考画格数"
+
+msgid "Max. bitrate:"
+msgstr "最大位元率:"
+
+msgid "Max. quantizer _difference:"
+msgstr "最大量化差值(_D):"
+
+msgid "Max:"
+msgstr "最大:"
+
+msgid "Maximum Local Bitrate"
+msgstr "局部位元率最大值"
+
+msgid "Maximum number of frames allowed between I-frames"
+msgstr "被允许在 I-画格之间的最大画格数"
+
+msgid ""
+"Maximum number of sequential B-frames (when set to 0, the original I/P "
+"encoder is used)"
+msgstr "连续的 B-画格的最大数目 (当设定成 0，则使用原来的 I/P 编码器)"
+
+msgid "Maximum quantizer allowed for B-frames"
+msgstr "B-画格被允许的最大量化值"
+
+msgid "Maximum quantizer allowed for I-frames"
+msgstr "I-画格被允许的最大量化值"
+
+msgid "Maximum quantizer allowed for P-frames"
+msgstr "P-画格被允许的最大量化值"
+
+msgid "Maximum value to be in-range:"
+msgstr "在范围中的最大值:"
+
+msgid "May be related to an old index file."
+msgstr "可能被关联至旧的索引文件"
+
+msgid "Mean"
+msgstr "主要"
+
+msgid "Mean (blur) kernel."
+msgstr "平均 (模糊) 内和。"
+
+msgid "Median"
+msgstr "中值"
+
+msgid "Median (5x5)"
+msgstr "中值 (5x5)"
+
+msgid "Median interpolate"
+msgstr "中位插值"
+
+msgid "Median kernel 3x3. Remove high frequency noise."
+msgstr "中值内核 3x3。移除高频率杂讯。"
+
+msgid "Median kernel 5x5. Good for reducing chroma noise."
+msgstr "中值内核 5x5。可有效减少色度杂讯。"
+
+msgid "Medium"
+msgstr "中等"
+
+msgid "Medium (full luma, no chroma)"
+msgstr "中等 (全部的明度，没有色度)"
+
+msgid "Memory Error"
+msgstr "记忆体错误"
+
+msgid ""
+"Memory constant _alpha\n"
+"(where A = (1-alpha)*A + alpha*(curr_frame + lookahead)):"
+msgstr ""
+"记忆体固定 _alpha 的分母\n"
+"(这里 A = (1-alpha)*A + alpha*(目前画格+预先看见的)):"
+
+msgid "Memory error"
+msgstr "记忆体错误"
+
+msgid "Merge fields"
+msgstr "合并图场"
+
+msgid "Merge two pictures as if they were two fields."
+msgstr "合并两个图像就像是两个图场一样。"
+
+msgid "Method"
+msgstr "方法"
+
+msgid "Metrics"
+msgstr "矩阵"
+
+msgid "Mi_n. bitrate:"
+msgstr "最小位元率:"
+
+msgid "Mi_n. quantizer:"
+msgstr "最小量化值:"
+
+msgid "Mi_nimum area for a particle to be detected:"
+msgstr "一个区段被检测的最小范围:"
+
+msgid "Mi_nimum value to be in-range:"
+msgstr "在范围中的最小值:"
+
+msgid "Min I Frame Qzer"
+msgstr "最小的 I 画格量化值"
+
+msgid "Min I frame interval"
+msgstr "最小 I 画格隔间"
+
+msgid "Min IDR Frame Interval"
+msgstr "最小 IDR 画格时间间隔"
+
+msgid "Min P Frame Qzer"
+msgstr "最小的 P 画格量化值"
+
+msgid "Min QP"
+msgstr "最小 Qp"
+
+msgid "Mini OCR"
+msgstr "Mini OCR"
+
+msgid "Minimum quantizer allowed for B-frames"
+msgstr "B-画格被允许的最小量化值"
+
+msgid "Minimum quantizer allowed for I-frames"
+msgstr "I-画格被允许的最小量化值"
+
+msgid "Minimum quantizer allowed for P-frames"
+msgstr "P-画格被允许的最小量化值"
+
+msgid "Minimum space between I-frames, 1 will disable forced I-frame spacing"
+msgstr "I-画格之间的最小间隔，1 将关闭强制的 I-画格间隔"
+
+msgid "Minimum value to be in-range:"
+msgstr "在范围中的最小值:"
+
+msgid "Misc"
+msgstr "杂项"
+
+msgid "Miscellaneous"
+msgstr "多方面的"
+
+msgid "Mixed Refs"
+msgstr "混合参考"
+
+msgid "Modified ELA"
+msgstr "改良的 ELA"
+
+msgid "Modified ELA-2"
+msgstr "改良的 ELA-2"
+
+msgid "Mono"
+msgstr "单音"
+
+msgid "More"
+msgstr "更多"
+
+msgid "Mosaic"
+msgstr "马赛克"
+
+msgid "Motion & Misc"
+msgstr "动作 & 杂项"
+
+msgid "Motion Estimation"
+msgstr "动作估测"
+
+msgid "Motion Search"
+msgstr "动态搜寻"
+
+msgid "Motion Threshold"
+msgstr "动作门槛值"
+
+msgid "Motion adaptative deinterlacer by Tritical."
+msgstr "动态适应去交错器作者为 Tritical。"
+
+msgid "Motion compensation deinterlacer. Ported from MPlayer."
+msgstr "动作补偿去交错器。由 MPlayer 转来。"
+
+msgid "Motion search precision:"
+msgstr "动态搜寻精确度:"
+
+msgid "Motion threshold, c_hroma:"
+msgstr "动态门槛值，色度:"
+
+msgid "Motion threshold, l_uma:"
+msgstr "动态门槛值，明度:"
+
+msgid "Move filter down"
+msgstr "滤镜下移"
+
+msgid "Move filter up"
+msgstr "滤镜上移"
+
+msgid "Mplayer Delogo"
+msgstr "Mplayer Delogo"
+
+msgid "Multi-platform Video Editor"
+msgstr "跨平台影片编辑软体"
+
+msgid "Multi-threading"
+msgstr "多线程"
+
+msgid "Multiple Audio Tracks"
+msgstr "多音轨"
+
+msgid "Mux _every x video frames:"
+msgstr "合成每个 x 视频画格(_E):"
+
+msgid "Mux by packet size"
+msgstr "利用分组尺寸来合成"
+
+msgid "Mux every N video frames"
+msgstr "合成每个 N 视频画格"
+
+msgid "Mux in _blocks of x bytes:"
+msgstr "在 x 位元的区块数目最大值(_B):"
+
+msgid "Muxing _type:"
+msgstr "合成方式(_T):"
+
+msgid "NTSC 16:9"
+msgstr "NTSC 16:9"
+
+msgid "NTSC 4:3"
+msgstr "NTSC 4:3"
+
+msgid "NTSC converted from PAL"
+msgstr "从 PAL 转成 NTSC"
+
+msgid "NTSC- 30 FPS"
+msgstr "NTSC- 30 FPS"
+
+msgid "Narrow"
+msgstr "狭道"
+
+msgid "Nb pictures seen :"
+msgstr "被识别图片数:"
+
+msgid "Ne_xt Black Frame"
+msgstr "下一黑画面(_X)"
+
+msgid "Never"
+msgstr "绝不"
+
+msgid "New format, preferred, good for Tracker3D"
+msgstr "新格式，对 Tracker3D 来说是首选"
+
+msgid "Next Empty"
+msgstr "下一个是空的"
+
+msgid "Next _Intra Frame"
+msgstr "下一内部画格(_I)"
+
+msgid "Next black frame"
+msgstr "下一黑画面"
+
+msgid "Next frame"
+msgstr "下一格"
+
+msgid "Next keyframe"
+msgstr "下一关键画格"
+
+msgid "No"
+msgstr "否"
+
+msgid "No Strategy"
+msgstr "无策略"
+
+msgid "No alerts"
+msgstr "没有任何警告"
+
+msgid "No audio"
+msgstr "没有音频"
+
+msgid "No audio decoder found for this file"
+msgstr "没有找到可对应这个文件的音频解码器"
+
+msgid "No audio track"
+msgstr "没有音轨"
+
+msgid "No change"
+msgstr "没有改变"
+
+msgid "No data"
+msgstr "没有数据"
+
+msgid "No downmixing"
+msgstr "没有降混"
+
+msgid "No error found"
+msgstr "没有发现错误"
+
+msgid "No filter found"
+msgstr "没有找到任何滤镜"
+
+msgid "No frames to encode"
+msgstr "没有任何画格进行编码"
+
+msgid "No link"
+msgstr "没有连结"
+
+msgid "No more glyphs"
+msgstr "不能再增多文字图形"
+
+msgid "No more supported."
+msgstr "不再支援。"
+
+msgid "No strategy"
+msgstr "没有策略"
+
+msgid "No stts table"
+msgstr "没有 stts 表"
+
+msgid "No subs"
+msgstr "没有 sub"
+
+msgid "No tag found"
+msgstr "没有找到任何标签"
+
+msgid "No video loaded"
+msgstr "没有视频被载入"
+
+msgid "No write access to \"%s\"."
+msgstr "没有任何写入动作存取到 \"%s\"。"
+
+msgid "Node not found"
+msgstr "没有发现节点"
+
+msgid "Noise"
+msgstr "杂讯"
+
+msgid "Noise Reduction"
+msgstr "杂讯减少"
+
+msgid "None"
+msgstr "无"
+
+msgid "None but compute"
+msgstr "无但计算"
+
+msgid "Normal"
+msgstr "一般"
+
+msgid "Not Yet!"
+msgstr "还没有！"
+
+msgid "Not a WAV file?"
+msgstr "不是一个 WAV 文件？"
+
+msgid "Not activated."
+msgstr "没有启动。"
+
+msgid "Not coded in this version"
+msgstr "没有编进这个版本"
+
+msgid "Not indexable"
+msgstr "不可加索引的"
+
+msgid "Nothing to save"
+msgstr "没有任何变更可以储存"
+
+msgid "Number of B frames:"
+msgstr "B 画格的数目:"
+
+msgid "Number of B-frames:"
+msgstr "B-画格的数目:"
+
+msgid "Number of I frames:"
+msgstr "I 画格的数目:"
+
+msgid "Number of P frames:"
+msgstr "P 画格的数目:"
+
+msgid "OCR (TS->srt)"
+msgstr "OCR (TS 转成 srt)"
+
+msgid "OGM"
+msgstr "OGM"
+
+msgid "OSS"
+msgstr "OSS"
+
+msgid "Obsolete"
+msgstr "丢弃"
+
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+msgid "Ok"
+msgstr "确定"
+
+msgid "Old format project file"
+msgstr "旧格式的专案"
+
+msgid "Old format that Tracker3D can't read directly"
+msgstr "旧格式 Tracker3D 无法正确读取"
+
+msgid "Only FLV1 and VP6 video are supported"
+msgstr "仅支援 FLV1 和 VP6 视频"
+
+msgid "Only QCIF and subQCIF are allowed for H.263"
+msgstr "H.263 仅允许 QCIF 和 subQCIF"
+
+msgid "Only YV12/I420 or YUY2/I422 JPegs are supported"
+msgstr "仅支援 YV12/I420 或 YUY2/I422 JPegs"
+
+msgid "Oops"
+msgstr "Oops"
+
+msgid "Open Avidemux"
+msgstr "打开 Avidemux"
+
+msgid "Open CQM file"
+msgstr "打开 CQM 文件"
+
+msgid "Open a file"
+msgstr "打开文件"
+
+msgid "Open filter list [Ctrl-O]"
+msgstr "打开滤镜列表 [Ctrl-O]"
+
+msgid "Opening MPEG"
+msgstr "打开 MPEG 中"
+
+msgid "Opening Nuppel video"
+msgstr "打开 Nuppel 视频"
+
+msgid "Opt"
+msgstr "选择"
+
+msgid ""
+"Optimise both motion vectors in B-frames. This will improve quality but take "
+"more time for encoding."
+msgstr ""
+"在 B-画格同时使用最佳化和移动向量。这将改善画质但需花费较多的时间来编码。"
+
+msgid "Out"
+msgstr "出"
+
+msgid "Out of bounds"
+msgstr "超过边界"
+
+msgid "Out of memory"
+msgstr "记忆体外漏"
+
+msgid "Output"
+msgstr "输出"
+
+msgid "Output \"_Color\" for all masked pixels:"
+msgstr "对所有被屏蔽的像素输出 \"颜色\" (_C):"
+
+msgid "Output SRT file"
+msgstr "输出 SRT 文件"
+
+msgid "Output _File:"
+msgstr "输出文件(_F):"
+
+msgid "Output _Format:"
+msgstr "输出格式(_F):"
+
+msgid "Output container format"
+msgstr "输出容器格式"
+
+msgid "Output file error"
+msgstr "输出文件错误"
+
+msgid "Output values:"
+msgstr "输出值:"
+
+msgid "Output values:   "
+msgstr "输出值:"
+
+msgid "Overflow control strength (%):"
+msgstr "溢位控制强度 (%):"
+
+msgid "P' = A"
+msgstr "P' = A"
+
+msgid "P' = A - P"
+msgstr "P' = A - P"
+
+msgid "P' = A / P"
+msgstr "P' = A / P"
+
+msgid "P' = P"
+msgstr "P' = P"
+
+msgid "P' = P * A"
+msgstr "P' = P * A"
+
+msgid "P' = P + A"
+msgstr "P' = P + A"
+
+msgid "P' = P - A"
+msgstr "P' = P - A"
+
+msgid "P' = P / A"
+msgstr "P' = P / A"
+
+msgid "P' = max (P, A)"
+msgstr "P' = max (P, A)"
+
+msgid "P' = min (P, A)"
+msgstr "P' = min (P, A)"
+
+msgid "P-frame quantizer - Min:"
+msgstr "P-frame 量化值 - 最小:"
+
+msgid "PAL - 25 FPS"
+msgstr "PAL - 25 FPS"
+
+msgid "PAL 16:9"
+msgstr "PAL 16:9"
+
+msgid "PAL 4:3"
+msgstr "PAL 4:3"
+
+msgid "PAL field shift"
+msgstr "PAL 图场变更"
+
+msgid "PAL smart"
+msgstr "PAL 智慧型"
+
+msgid "PAL to Film"
+msgstr "PAL to Film"
+
+msgid "PAL/SECAM"
+msgstr "PAL/SECAM"
+
+msgid "PC->TV"
+msgstr "PC 转成 TV"
+
+msgid "PC->TV.Y"
+msgstr "PC 转成 TV.Y"
+
+msgid "PCM"
+msgstr "PCM"
+
+msgid "PSP"
+msgstr "PSP"
+
+msgid "PSP (_H.264)"
+msgstr "PSP (_H.264)"
+
+msgid "PSP 480*272"
+msgstr "PSP 480*272"
+
+msgid "PSP full res (720*480"
+msgstr "PSP 完整解析度 (720*480"
+
+msgid "P_artial"
+msgstr "区段(_A)"
+
+msgid "P_review"
+msgstr "预览(_R)"
+
+msgid "P_revious Frame"
+msgstr "上一格(_R)"
+
+msgid "P_rocess chroma"
+msgstr "处理色度(_R)"
+
+msgid "Packed Bitstream detected"
+msgstr "发现被打包好的位元流"
+
+msgid "Packed Bitstream:"
+msgstr "打包好的位元流:"
+
+msgid "Packed bitstream"
+msgstr "打包好的位元率"
+
+msgid "Pal Field Shift"
+msgstr "Pal 场移动"
+
+msgid "Pal/Secam"
+msgstr "Pal/Secam"
+
+msgid "Parameter Error"
+msgstr "参数错误"
+
+msgid "Partial"
+msgstr "区段"
+
+msgid "Particle Analysis Configuration"
+msgstr "区段分析设置"
+
+msgid "Particle List"
+msgstr "区段列表"
+
+msgid "Partition Decision"
+msgstr "分割判定"
+
+msgid "Partitions & Frames"
+msgstr "分割数和画格数"
+
+msgid "Pass 1/2"
+msgstr "Pass 1/2"
+
+msgid "Pass 2"
+msgstr "Pass 2"
+
+msgid "Pass 2/2"
+msgstr "Pass 2/2"
+
+msgid "Pass one"
+msgstr "Pass 1"
+
+msgid "Pause / Abort"
+msgstr "暂停 / 中止"
+
+msgid "Paused"
+msgstr "暂停"
+
+msgid "Permission error"
+msgstr "权限许可错误"
+
+msgid "Phods"
+msgstr "Phods"
+
+msgid "Picture resizer ported from Avisynth."
+msgstr "图像调整大小器从 Avisynth 转来。"
+
+msgid "Pipe to"
+msgstr "输送到"
+
+msgid "Pixel Aspect Ratio"
+msgstr "像素外观比例"
+
+msgid "Pixel Height"
+msgstr "像素高"
+
+msgid "Pixel Width"
+msgstr "像素宽"
+
+msgid "Play"
+msgstr "播放"
+
+msgid "Play video backward."
+msgstr "倒带播放影片。"
+
+msgid "Please Select a valid TS file."
+msgstr "请选择一个有效的 TS 文件"
+
+msgid "Please Select a valid output SRT file."
+msgstr "请选择一个可输出的 SRT 文件"
+
+msgid "Please check markers. Is \"A>\" == \">B\"?"
+msgstr "请检查标记。 是 \"A>\" == \">B\"?"
+
+msgid "Please select a correct VobSub path/dir"
+msgstr "请选择一个正确的 VobSub 路径/文件夹"
+
+msgid "Port of Transcode DNR."
+msgstr "由 DNR 译码转来。"
+
+msgid "Positive values will soften the video, negative values will sharpen"
+msgstr "正值将会让影片变柔合，负值则会变锐利"
+
+msgid "Postp_rocessing threshold:"
+msgstr "后置处理门槛值:"
+
+msgid "Postproc and show zones (debug)"
+msgstr "后置处理和显示区域 (除错)"
+
+msgid "Postproc on best match"
+msgstr "后置处理在最佳比较"
+
+msgid "PowerPC"
+msgstr "PowerPC"
+
+msgid "Pr_evious Intra Frame"
+msgstr "上一内部画格(_E)"
+
+msgid "Pre_ferences"
+msgstr "首选项(_F)"
+
+msgid "Predefined Aspect Ratio"
+msgstr "预先定义外观比例"
+
+msgid "Preferences"
+msgstr "首选项"
+
+msgid "Prev. Empty"
+msgstr "前一个是空的"
+
+msgid "Preview"
+msgstr "预览"
+
+msgid "Previou_s Black Frame"
+msgstr "上一黑画面(_S)"
+
+msgid "Previous black frame"
+msgstr "上一黑画面"
+
+msgid "Previous frame"
+msgstr "上一格"
+
+msgid "Previous keyframe"
+msgstr "上一关键画格"
+
+msgid "Print frame number directly in image"
+msgstr "直接将画格数印在图像上"
+
+msgid "Prioritisation"
+msgstr "优化"
+
+msgid "Priority:"
+msgstr "优先权:"
+
+msgid "Privileges Required"
+msgstr "需要特殊权限"
+
+msgid "Pro Logic"
+msgstr "定向逻辑"
+
+msgid "Pro Logic II"
+msgstr "第二代定向逻辑"
+
+msgid "Problem loading sub"
+msgstr "载入 sub 时发生问题"
+
+msgid "Problem opening the mpeg files"
+msgstr "打开 mpeg 文件时发生问题"
+
+msgid "Problem reading SVQ3 headers"
+msgstr "读取 SVQ3 文件头时发生问题"
+
+msgid "Problem reading XML filters"
+msgstr "读取 XML 滤镜时发生问题"
+
+msgid "Process image (not fields)"
+msgstr "处理图像 (非图场)"
+
+msgid "Process image (not fields), debug"
+msgstr "处理图像 (非图场)，除错"
+
+msgid "Process luma plane"
+msgstr "处理明度平面"
+
+msgid "Processing"
+msgstr "处理中"
+
+msgid "Produces nicer-looking B-frames"
+msgstr "制作观看较流畅的 B-画格"
+
+msgid "Progressive"
+msgstr "渐进"
+
+msgid "Proper_ties"
+msgstr "属性(_T)"
+
+msgid "Properties"
+msgstr "属性"
+
+msgid "Pulldown"
+msgstr "Pulldown"
+
+msgid "Pulldown dupe removal"
+msgstr "去除 Pulldown 伪装"
+
+msgid "Pulse Audio"
+msgstr "Pulse Audio"
+
+msgid "Put botj fields side by side."
+msgstr "把 botj 图场并排摆放。"
+
+msgid "Put two fields on top of one another."
+msgstr "把两个图场放在另一个上。"
+
+msgid "QDM2"
+msgstr "QDM2"
+
+msgid "Quality based"
+msgstr "基本画质"
+
+msgid "Quantization"
+msgstr "量化编码"
+
+msgid "Quantization difference between chroma (color) and luma (brightness)"
+msgstr "对色度 (颜色) 和 明度 (亮度)之间做量化编码差分"
+
+msgid "Quantization factors used between I and P-frames"
+msgstr "I-画格和 P-画格 之间使用量化编码因子"
+
+msgid "Quantization type:"
+msgstr "量化编码方式:"
+
+msgid "Quantization used between P and B-frames"
+msgstr "P-画格和 B-画格之间使用量化编码"
+
+msgid "Quantizer"
+msgstr "量化值"
+
+msgid "Quantizer Compression"
+msgstr "量化值压缩"
+
+msgid "Quantizer _blur:"
+msgstr "量化值平滑(_B):"
+
+msgid "Quantizer restrictions"
+msgstr "量化值限制"
+
+msgid "Quantizer:"
+msgstr "量化值:"
+
+msgid "Quarter Pixel:"
+msgstr "四分之一像素:"
+
+msgid "R_esampling (Hz):"
+msgstr "取样 (Hz):"
+
+msgid "Range"
+msgstr "范围"
+
+msgid "Rate Control"
+msgstr "比率控制"
+
+msgid "Rate distortion"
+msgstr "比率失真度"
+
+msgid "Rate distortion quantization, will find optimal encoding for each block"
+msgstr "比率失真度量化编码，将对每个区块寻找最理想的编码"
+
+msgid "Ready"
+msgstr "准备"
+
+msgid "Rebuild all Keyframes?"
+msgstr "重新建立所有的关键画格"
+
+msgid "Rebuilding Frames"
+msgstr "重新建立画格"
+
+msgid "Rec.709"
+msgstr "Rec.709"
+
+msgid "Recent files"
+msgstr "最近的文件"
+
+msgid "Reduce noise, smooth image, increase compressibility."
+msgstr "减少杂讯、平滑图像、增加压缩率。"
+
+msgid "Reduced fluctuations in Quantizer (before curve compression)"
+msgstr "量化值缩小变动 (在曲线压缩之前)"
+
+msgid ""
+"Reduction of bitrate for the first consecutive I-frames. The last I-frame "
+"will get treated normally"
+msgstr "对最初的连续 I-画格降低位元率。最后的 I-画格将会正常处理"
+
+msgid "Remove IVTC that has been analog captured or resized."
+msgstr "移除 IVTC 来模拟捕捉或调整大小。"
+
+msgid "Remove blend between previous and next picture."
+msgstr "移除前后图像间的混合。"
+
+msgid "Remove filter"
+msgstr "移除滤镜"
+
+msgid "Remove lines from top/bottom/left/right."
+msgstr "由顶部/底部/左侧/右侧移除线。"
+
+msgid "Replace (interpolate)"
+msgstr "替换 (插入)"
+
+msgid "Requant"
+msgstr "重复量化"
+
+msgid "Requant Configuration"
+msgstr "重复量化设置"
+
+msgid "Resample fps"
+msgstr "重复取样 fps"
+
+msgid "Resampling frequency (Hz)"
+msgstr "取样频率 (Hz)"
+
+msgid "Resize"
+msgstr "调整大小"
+
+msgid ""
+"Result _Multiplier (each result pixel\n"
+"multiplied by this):"
+msgstr ""
+"乘法器 (当载入时\n"
+"在文件图像的每像素靠这个倍增)(_M):"
+
+msgid "Resume"
+msgstr "返回"
+
+msgid "Retry"
+msgstr "重试"
+
+msgid "Reuse log file ?"
+msgstr "重复使用日志文件？"
+
+msgid "Reverse"
+msgstr "反相"
+
+msgid "Root privileges are required to perform this operation."
+msgstr "需要 Root 权限来实行这项操作"
+
+msgid "Rotate"
+msgstr "旋转"
+
+msgid "Rotate the picture by 90, 180 or 270 degrees."
+msgstr "旋转图像 90、180 或 270 度。"
+
+msgid "Run Job"
+msgstr "执行工作"
+
+msgid "Run all jobs"
+msgstr "执行所有工作"
+
+msgid "Running"
+msgstr "执行中"
+
+msgid "SDL"
+msgstr "SDL"
+
+msgid "SDL (DirectX)"
+msgstr "SDL (DirectX)"
+
+msgid "SDL (GDI)"
+msgstr "SDL (GDI)"
+
+msgid "SDL (good)"
+msgstr "SDL (佳)"
+
+msgid "SIMD"
+msgstr "SIMD"
+
+msgid "SVCD"
+msgstr "SVCD"
+
+msgid "SVCD (lavc)"
+msgstr "SVCD (lavc)"
+
+msgid "SVCD (mpeg2enc)"
+msgstr "SVCD (mpeg2enc)"
+
+msgid "SVCD 112 kB"
+msgstr "SVCD 112 kB"
+
+msgid "SVCD Res"
+msgstr "SVCD 解析度"
+
+msgid "SVCD res"
+msgstr "SVCD 解析度"
+
+msgid "SVCD resolution [Ctrl-3]"
+msgstr "SVCD 解析度 [Ctrl-3]"
+
+msgid "S_ave..."
+msgstr "储存...(_A)"
+
+msgid "S_elect C_olor"
+msgstr "选择颜色"
+
+msgid "S_kip all"
+msgstr "略过全部"
+
+msgid "S_patial chroma strength:"
+msgstr "空间的色度强度(_P):"
+
+msgid "Same Quantizer as Input"
+msgstr "当输入时量化值不变"
+
+msgid "Save (A+V) will generate bad AVI. Save audio will work."
+msgstr "储存 (A+V) 将会生成坏的 AVI。储存音频将会进行。"
+
+msgid "Save Glyph"
+msgstr "储存文字图形"
+
+msgid "Save GlyphSet"
+msgstr "储存文字图形设定"
+
+msgid "Save GlyphSet file"
+msgstr "储存文字图形设定文件"
+
+msgid "Save Job"
+msgstr "储存工作"
+
+msgid "Save P_roject As..."
+msgstr "另存专案为...(_R)"
+
+msgid "Save SRT file"
+msgstr "储存 SRT 文件"
+
+msgid "Save Script"
+msgstr "储存脚本"
+
+msgid "Save _BMP Image..."
+msgstr "储存成BMP 图片...(_B)"
+
+msgid "Save _JPEG Image..."
+msgstr "储存成JPEG 图片...(_J)"
+
+msgid "Save _Project"
+msgstr "储存专案(_P)"
+
+msgid "Save _Selection as JPEG Images..."
+msgstr "将取选范围另存成JPEG 图片...(_S)"
+
+msgid "Save _Video..."
+msgstr "储存影片...(_V)"
+
+msgid "Save as script"
+msgstr "另存为脚本"
+
+msgid "Save as script [Ctrl-J]"
+msgstr "另存脚本为 [Ctrl-J]"
+
+msgid "Save filter list [Ctrl-S]"
+msgstr "储存滤镜列表 [Ctrl-S]"
+
+msgid "Save set of filters"
+msgstr "储存滤镜的设定"
+
+msgid "Save the file"
+msgstr "储存文件"
+
+msgid "Saved \"%s\"."
+msgstr "已储存 \"%s\"."
+
+msgid "Saved %d images."
+msgstr "已储存 %d 图像"
+
+msgid "Saving"
+msgstr "储存中"
+
+msgid "Saving %s as a BMP file failed."
+msgstr "另存 %s 为 BMP 文件失败。"
+
+msgid "Saving as set of jpegs"
+msgstr "另存为整套 jpeg 文件"
+
+msgid "Saving audio"
+msgstr "储存音频中"
+
+msgid "Saving failed"
+msgstr "储存失败"
+
+msgid "Saving raw video stream"
+msgstr "储存待处理的视频串流"
+
+msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
+msgstr "储存工作失败。可能你没有权限来写入 ~/.avidemux"
+
+msgid "Saving..."
+msgstr "储存..."
+
+msgid "Scanning OGM"
+msgstr "正在扫描 OGM"
+
+msgid "Scene Cut Threshold"
+msgstr "场景裁剪门槛值"
+
+msgid "Search string"
+msgstr "搜寻字串"
+
+msgid "Second Audio Track"
+msgstr "第二音轨"
+
+msgid "Second Pass"
+msgstr "第二次运算"
+
+msgid "Second track loaded"
+msgstr "载入次轨道"
+
+msgid "Seeking"
+msgstr "搜寻中"
+
+msgid "Select .idx"
+msgstr "选择 .idx"
+
+msgid "Select .idx file"
+msgstr "选择 .idx 文件"
+
+msgid "Select 1-pass or 2-pass encoding"
+msgstr "选择 1-pass 或 2-pass 编码"
+
+msgid "Select AC3 to Load"
+msgstr "选择 AC3 进行载入"
+
+msgid "Select AVI File to Append..."
+msgstr "选择 AVI 文件进行添加..."
+
+msgid "Select AVI File to Write"
+msgstr "选择 AVI 文件进行写入"
+
+msgid "Select AVI File..."
+msgstr "选择 AVI 文件..."
+
+msgid "Select BMP to Save"
+msgstr "选择 BMP 进行储存"
+
+msgid "Select Color"
+msgstr "选择颜色"
+
+msgid "Select Copy as the video codec."
+msgstr "选择 复制来源 当成视频的解码器。"
+
+msgid "Select Custom Matrix File to write"
+msgstr "选择自订的矩阵文件进行写入"
+
+msgid "Select DVD as the video codec for MPEG TS output."
+msgstr "选择 DVD 当成视频的解码器来输出 MPEG TS"
+
+msgid "Select ECMAScript to Run"
+msgstr "选择 ECMAScript 来执行"
+
+msgid "Select File to Save"
+msgstr "选择文件进行储存"
+
+msgid "Select File to Save Audio"
+msgstr "选择文件进行储存音频"
+
+msgid "Select GlyphFile to edit"
+msgstr "选择文字图形文件进行编辑"
+
+msgid "Select GlyphSet file"
+msgstr "选择文字图形设定文件"
+
+msgid "Select IFO file"
+msgstr "选择 IFO 文件:"
+
+msgid "Select JPEG Sequence to Save"
+msgstr "选择 JPEG 顺序进行储存"
+
+msgid "Select JPEG file"
+msgstr "选择 JPEG 文件"
+
+msgid "Select JPEG to Save"
+msgstr "选择 JPG 进行储存"
+
+msgid "Select Language :"
+msgstr "选择语言 :"
+
+msgid "Select MP3 to Load"
+msgstr "选择 MP3 进行载入"
+
+msgid "Select MPEG as the output."
+msgstr "输出 MPEG"
+
+msgid "Select OGM File to Write"
+msgstr "选择 OGM 文件进行写入"
+
+msgid "Select Raw File to Save"
+msgstr "选择 RAW 文件进行储存"
+
+msgid "Select Sub"
+msgstr "选择 Sub"
+
+msgid "Select Subtitle file"
+msgstr "选择字幕文件"
+
+msgid "Select TS file"
+msgstr "选择 TS 文件"
+
+msgid "Select TTF file"
+msgstr "选择 TTF 文件"
+
+msgid "Select VOB file(s)"
+msgstr "选择 VOB 文件"
+
+msgid "Select Video To Write"
+msgstr "选择影片来写入"
+
+msgid "Select VobSub file"
+msgstr "选择 VobSub 文件"
+
+msgid ""
+"Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
+msgstr "选择 WAV PCM 作为音频编解码器，另外音频文件是未处理过的 PCM。"
+
+msgid "Select WAV to Load"
+msgstr "选择 WAV 进行载入"
+
+msgid "Select Workbench to Save"
+msgstr "选择工作台进行储存"
+
+msgid "Select Xvid matrix file to load"
+msgstr "选择 Xvid 矩阵文件进行载入"
+
+msgid "Select _Operation on each pixel P and input A:"
+msgstr "选择在每个像素 P 的操作和输入 A(_O):"
+
+msgid "Select a directory"
+msgstr "选择文件夹"
+
+msgid "Select a second audio track in the Audio menu."
+msgstr "在音频选单选择一个第二音轨。"
+
+msgid "Select background image"
+msgstr "选择背景图像"
+
+msgid "Select data file"
+msgstr "选择数据文件"
+
+msgid "Select dual audio AVI to write"
+msgstr "选择双音轨的 AVI 进行写入"
+
+msgid "Select file"
+msgstr "选择文件"
+
+msgid "Select filter directory"
+msgstr "选择滤镜文件夹"
+
+msgid "Select idx file:"
+msgstr "选择 idx 文件:"
+
+msgid "Select input and ouput files"
+msgstr "选择输入和输出的文件"
+
+msgid "Select output file"
+msgstr "选择输出文件"
+
+msgid "Select postprocessing level"
+msgstr "选择后置处理等级"
+
+msgid "Selection: end"
+msgstr "选取范围:结束"
+
+msgid "Selection: start"
+msgstr "选取范围:开始"
+
+msgid "Sensibility"
+msgstr "敏锐度"
+
+msgid "Separate"
+msgstr "分离视窗"
+
+msgid "Separate fields"
+msgstr "分离图场"
+
+msgid "Set Marker _A"
+msgstr "设定记号 _A"
+
+msgid "Set Marker _B"
+msgstr "设定记号 _B"
+
+msgid "Set Size and _Position"
+msgstr "设定大小与位置(_P)"
+
+msgid "Set a common predefined aspect ratio"
+msgstr "设定一个共同的预先定义的外观比例"
+
+msgid ""
+"Set a custom aspect ratio. The default 1:1 is recommended for most video."
+msgstr "设定自订的外观比例。大部份的影片推荐使用预设的1:1。"
+
+msgid ""
+"Set how many previous frames can be referenced by a P/B-frame. Numbers above "
+"5 do not seem to improve quality greatly. Numbers 3 to 5 are recommended."
+msgstr ""
+"设定多少前面的画格可被一个 P/B-画格参考。数目超过 5 并不意味着能改善更多画"
+"质。建议设定 3 到 5。"
+
+msgid "Set how much \"bitrate bonus\" a keyframe can get"
+msgstr "设定一个关键画格能取得多少 \"额外的位元率\""
+
+msgid ""
+"Set how much bitrate is deducted from a B-frame as compared to the previous "
+"P-frame"
+msgstr "设定减少多少位元率从一个 B-画格作为比较上一个 P-画格"
+
+msgid ""
+"Set maximum frame interval between IDR frames. Defines the maximum amount a "
+"frame can be reused and referenced by other frames before a new IDR frame is "
+"established."
+msgstr ""
+"设定在 IDR 画格之间的最大画格间隔。定义一个画格可被其他画格重新使用和参考的最"
+"大数量在一个清除它建立新的之前。"
+
+msgid ""
+"Set minimum frame interval between IDR frames. Defines the minimum amount a "
+"frame can be reused and referenced by other frames before a new IDR frame is "
+"established."
+msgstr ""
+"设定在 IDR 画格之间的最小画格间隔。定义一个画格可被其他画格重新使用和参考的最"
+"小数量在一个清除它建立新的之前。"
+
+msgid "Set the amount of noise reduction"
+msgstr "设定降低杂讯的量"
+
+msgid ""
+"Set the maximum number of consecutive B-frames. This defines how many "
+"duplicate frames can be dropped. Numbers 2 to 5 are recommended. This "
+"greatly improves the use of bitrate and quality."
+msgstr ""
+"设定连续 B-画格的最大数目。这个定义可降低多少复制的画格数。建议数目设在 2 到 "
+"5。这大大的改善位元率和画质的使用。"
+
+msgid "Set your markers correctly."
+msgstr "正确地设定你的遮罩"
+
+msgid "Sharpen"
+msgstr "锐利化"
+
+msgid "Sharpen edges without amplifying noise. By Donald Graft."
+msgstr "没有放大杂讯下锐利化边缘。作者为 Donald Graft。"
+
+msgid "Sharpen/Blur"
+msgstr "锐利/平滑"
+
+msgid "Sharpness"
+msgstr "清晰度"
+
+msgid "Shift (ms) :"
+msgstr "移动 (ms) :"
+
+msgid "Shift chroma U/V to fix badly synced luma/chroma."
+msgstr "改变色度 U/V 来修复糟糕的明度/色度同步。"
+
+msgid "Shift fields by one. Useful for some PAL movies."
+msgstr "根据一个图场来移动图场。用于一些 PAL 电影。"
+
+msgid "Shift:"
+msgstr "移动:"
+
+msgid "Sho_w info"
+msgstr "显示资讯(_W)"
+
+msgid "Show _Joblist"
+msgstr "显示工作列表(_J)"
+
+msgid "Show _frame"
+msgstr "显示画格(_F)"
+
+msgid "Show _mask"
+msgstr "显示屏蔽(_m)"
+
+msgid "Show interlaced areas (for test!)"
+msgstr "显示交错的范围(测试用！)"
+
+msgid "Show metric in image (debug)"
+msgstr "图像显示矩阵 (除错)"
+
+msgid "Show motion _vectors"
+msgstr "显示运动方向(_V)"
+
+msgid "Shut down computer when finished"
+msgstr "完成时关闭电脑"
+
+msgid "Shutting down"
+msgstr "关机中"
+
+msgid "Side"
+msgstr "左右并排"
+
+msgid "Single Pass - Bitrate"
+msgstr "单次运算 - 位元率"
+
+msgid "Single Pass - Bitrate (Average)"
+msgstr "单次运算 - 位元率(平均值)"
+
+msgid "Single Pass - Quality Quantizer (Average)"
+msgstr "单次运算 - 画质的量化值 (平均值)"
+
+msgid "Single Pass - Quality Quantizer (Constant)"
+msgstr "单次运算 - 画质的量化值 (固定值)"
+
+msgid "Single Pass - Quantizer"
+msgstr "单次运算 - 量化值"
+
+msgid "Single pass - Average quantizer"
+msgstr "单次运算 - 平均量化值"
+
+msgid "Single pass - bitrate"
+msgstr "单次运算 - 位元率"
+
+msgid "Single pass - constant quality"
+msgstr "单次运算 - 固定画质"
+
+msgid "Single pass - same qz as input"
+msgstr "单次运算 - 输入时相同量化值"
+
+msgid "Size (MBytes):"
+msgstr "大小 (MBytes):"
+
+msgid "Size is not (s)QCIF"
+msgstr "尺寸不是 (s)QCIF"
+
+msgid "Size mismatch"
+msgstr "大小不匹配"
+
+msgid "Skip Glyph"
+msgstr "略过文字图形"
+
+msgid "Skip spatial temporal check"
+msgstr "略过空间时间检查"
+
+msgid "Skip the current letter/glyph"
+msgstr "略过当前 字母/文字图形"
+
+msgid "Skip the whole image"
+msgstr "略过整个图像"
+
+msgid "Slovene"
+msgstr "斯洛凡尼亚"
+
+msgid "Slow (full luma and chroma)"
+msgstr "慢 (全部的明度和色度)"
+
+msgid "Slow iterative motion search"
+msgstr "缓慢反复动态搜寻"
+
+msgid "Smaller means more deinterlacing"
+msgstr "越小表示更多的解交错"
+
+msgid "Smart Copy"
+msgstr "智慧型复制"
+
+msgid "Smart swap fields"
+msgstr "智慧型替换图场"
+
+msgid "Smartly revert non constant PAL field shift."
+msgstr "自动还原非固定的 PAL 图场移动。"
+
+msgid "Smartly swap fields. Needed when field order changes."
+msgstr "当图场次序需要改变时自动置换图场。"
+
+msgid "Smooth the image, don't blur edges. Useful on anime."
+msgstr "平滑此图像但不模糊边缘。用于动漫上。"
+
+msgid "Snow (lavc)"
+msgstr "Snow (lavc)"
+
+msgid "Soften"
+msgstr "Soften"
+
+msgid "Something bad happened"
+msgstr "发生某些事情不好的情形"
+
+msgid "Something bad happened (II)"
+msgstr "发生某些事情不好的情形 (II)"
+
+msgid "Something bad happened (II))"
+msgstr "发生某些事情不好的情形 (II))"
+
+msgid "Something failed when appending"
+msgstr "当添加时某些事情失败"
+
+msgid "Something very wrong happened when building joblist."
+msgstr "建立工作列表时发生某些大错误。"
+
+msgid "Source :"
+msgstr "来源 :"
+
+msgid "Spatial"
+msgstr "占空间的"
+
+msgid "Spatio-temporal cleaner by Ross Thomas."
+msgstr "时空清除器作者为 Ross Thomas。"
+
+msgid "Split the picture into tiny thumbnails."
+msgstr "将图片分割成一堆微小的图片。"
+
+msgid "Stabilize"
+msgstr "稳定"
+
+msgid "Stabilize Threshold"
+msgstr "稳定门槛值"
+
+msgid "Stack fields"
+msgstr "堆叠图场"
+
+msgid "Standard FrameRate:"
+msgstr "标准画格率:"
+
+msgid "Start frame for partial :"
+msgstr "区段的起始画格:"
+
+msgid "Start must be before end, and both within video # of frames."
+msgstr "在结束前必须开始，并且两者在画格的视频 # 之内。"
+
+msgid "Started at"
+msgstr "开始于"
+
+msgid "Stereo"
+msgstr "立体"
+
+msgid "Stereo front+stereo rear"
+msgstr "前段立体+后段立体"
+
+msgid "Stereo+center"
+msgstr "立体+中央"
+
+msgid "Stereo+center+surround"
+msgstr "立体+中央+环绕"
+
+msgid "Stereo+surround"
+msgstr "立体+环绕"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Strength"
+msgstr "强度"
+
+msgid "Strength :"
+msgstr "强度:"
+
+msgid "String"
+msgstr "字串"
+
+msgid "Subtitle PID:"
+msgstr "字幕 PID:"
+
+msgid "Subtitle Size and Position"
+msgstr "字幕大小及位置"
+
+msgid "Subtitler"
+msgstr "字幕员"
+
+msgid "Subtitles"
+msgstr "字幕"
+
+msgid "Succeeded"
+msgstr "成功"
+
+msgid "Sure ?"
+msgstr "确定？"
+
+msgid "Sure you want to abort ?"
+msgstr "确定要中止？"
+
+msgid "Sure!"
+msgstr "确定！"
+
+msgid "Swap U and V"
+msgstr "置换 U 和 V"
+
+msgid "Swap fields"
+msgstr "置换图场"
+
+msgid "Swap top and bottom fields."
+msgstr "置换图场的顶部和底部。"
+
+msgid "Swiss Army Knife"
+msgstr "瑞士军刀"
+
+msgid "Swiss Army Knife Configuration"
+msgstr "瑞士军刀设置"
+
+msgid "Switch audio codec to Copy."
+msgstr "切换音频的解码器成 复制来源"
+
+msgid "TDeint"
+msgstr "TDeint"
+
+msgid "TMPGEnc"
+msgstr "TMPGEnc"
+
+msgid "TV->PC"
+msgstr "TV 转成 PC"
+
+msgid "T_hreshold 2:"
+msgstr "门槛值 2:"
+
+msgid "T_woway"
+msgstr "双向(_W)"
+
+msgid "Take audio from external AC3 file"
+msgstr "从外部的 AC3 文件取得音频"
+
+msgid "Take audio from external MP3 file"
+msgstr "从外部的 MP3 文件取得音频"
+
+msgid "Take audio from external WAV file"
+msgstr "从外部的 WAV 文件取得音频"
+
+msgid "Take audio from video file"
+msgstr "从影片取得音频"
+
+msgid "Take second track ?"
+msgstr "采取次轨道吗？"
+
+msgid "Target Size"
+msgstr "目标大小"
+
+msgid "Target bitrate (kb/s):"
+msgstr "目标的位元率 (kb/s):"
+
+msgid "Target bitrate or file size"
+msgstr "目标的位元率或文件大小"
+
+msgid "Target video bitrate"
+msgstr "目标视频位元率"
+
+msgid "Target video size (MB):"
+msgstr "目标视频大小 (MBytes):"
+
+msgid "Temp. Blur of Est. Frame Complexity"
+msgstr "根据相邻画格平滑量化值比例的最大值"
+
+msgid "Temp. Blur of Quant. after CC"
+msgstr "对统计文件结果平滑量化值比例的最大值"
+
+msgid "Temporal"
+msgstr "短暂的"
+
+msgid "Temporal & spatial check"
+msgstr "时间和空间检查"
+
+msgid "Temporal Cleaner"
+msgstr "暂时清理器"
+
+msgid "Test uinteger"
+msgstr "测试非整数"
+
+msgid ""
+"The audio stream may be invalid for this container.\n"
+"\n"
+"Continue anyway?"
+msgstr ""
+"对这容器此音频流可能是无效的。\n"
+"\n"
+"无论如何都要继续吗？"
+
+msgid ""
+"The beginning frame is not a key frame.\n"
+"Please move the A marker."
+msgstr ""
+"开始的画格不是一个关键画格。\n"
+"请移动标记 A 。"
+
+msgid "The custom matrix file has been successfully loaded."
+msgstr "自订的矩阵文件已成功载入"
+
+msgid ""
+"The file you just loaded contains several audio tracks.\n"
+"Go to Audio->MainTrack to select the active one."
+msgstr ""
+"这文件刚刚载入包含一些音频轨道。\n"
+"前往 音频->主要轨道 来选择作用的轨道。"
+
+msgid "The filter is already partial"
+msgstr "此滤镜已经是不完全的"
+
+msgid "The first frame is not intra frame"
+msgstr "第一个画格不是内部画格"
+
+msgid ""
+"The higher this value, the more bits get assigned to frames below the "
+"average frame size"
+msgstr "高于这个值，更多的位元被指定到低于平均画格大小的画格"
+
+msgid ""
+"The higher this value, the more bits get taken from frames larger than the "
+"average size, and redistributed to others"
+msgstr "高于这个值，从画格取得的更多位元大于平均大小，并重新分配到其他。"
+
+msgid "The idx/sub file does not exist."
+msgstr "idx/sub 文件不存在"
+
+msgid "The idx/sub file does not set."
+msgstr "此 idx/sub 文件未设定。"
+
+msgid ""
+"The number of channels is greater than what the selected audio codec can "
+"do.\n"
+"Either change codec or use the mixer filter to have less channels."
+msgstr ""
+"通道的数目大于什么可用的音频编解码器被选择。\n"
+"改变编解码器或使用混合式的滤镜来拥有较少的通道。"
+
+msgid "The selected audio file does not exist."
+msgstr "选取的音频文件不存在"
+
+msgid "The selected vobfile does not exist"
+msgstr "选择的 vob 文件不存在"
+
+msgid "The unpacking succeedeed but the index is still not up to date."
+msgstr "拆开打包成功但是索引仍不是最新的"
+
+msgid "There are no jobs stored"
+msgstr "没有储存任何工作"
+
+msgid "There is no audio track"
+msgstr "没有音轨"
+
+msgid "There is no second track"
+msgstr "没有第二音轨"
+
+msgid "There is several mpeg file, append them ?"
+msgstr "有一些 mpeg 文件，添加它们吗？"
+
+msgid "This a VOP packed AVI."
+msgstr "这是有打包 VOP 的 AVI"
+
+msgid "This cannot have packed VOP"
+msgstr "不能有打包好的 VOP"
+
+msgid "This glyph will be ignored from now on"
+msgstr "从这里开始此文字图形将会被忽略"
+
+msgid "This is not MPEG compatible"
+msgstr "不相容的 MPEG"
+
+msgid ""
+"This is to be used to undo packed VOP on MPEG-4.\n"
+"Continue ?"
+msgstr ""
+"在 MPEG-4 将使用拆开被打包好的 VOP .\n"
+"继续吗?"
+
+msgid ""
+"This looks like mpeg\n"
+" Do you want to index it?"
+msgstr ""
+"这看起来是 mpeg\n"
+" 要索引它吗?"
+
+msgid "This will make trouble for AVI files."
+msgstr "这将会对 AVI 文件造成故障。"
+
+msgid "Threading"
+msgstr "执行绪"
+
+msgid "Threshold"
+msgstr "门槛值"
+
+msgid "Threshold :"
+msgstr "门槛值:"
+
+msgid "Threshold Configuration"
+msgstr "门槛值设置"
+
+msgid ""
+"Threshold for block detection. Positive values will detect more blocks, "
+"negative values will detect less."
+msgstr "区块侦测的门槛值。正值将会侦测较多的区块，负值则较少。"
+
+msgid "Time left :"
+msgstr "剩下的时间:"
+
+msgid "Time shift value (ms)"
+msgstr "时间移动值 (ms)"
+
+msgid "Time: "
+msgstr "时间:"
+
+msgid "TimeCode:"
+msgstr "时间码:"
+
+msgid "Timecode :"
+msgstr "时间码:"
+
+msgid "Timecode:"
+msgstr "时间码:"
+
+msgid "Toggle"
+msgstr "切换"
+
+msgid "Top"
+msgstr "上下排列"
+
+msgid "Top field (keep bottom)"
+msgstr "顶部图场(保持底部)"
+
+msgid "Top field first"
+msgstr "顶部图场第一"
+
+msgid "Total Duration:"
+msgstr "总持续时间:"
+
+msgid "Total size"
+msgstr "总大小"
+
+msgid "Total size (MB):"
+msgstr "总大小 (MB):"
+
+msgid "Total size (custom)"
+msgstr "总大小(自订)"
+
+msgid "Track _1:"
+msgstr "轨道 _1:"
+
+msgid "Track _2: "
+msgstr "轨道 _2: "
+
+msgid "Transform"
+msgstr "转换"
+
+msgid "Transformation"
+msgstr "转换"
+
+msgid "Trellis"
+msgstr "格架"
+
+msgid "Trouble initializing audio device"
+msgstr "起始化音频设备发生故障"
+
+msgid "Troubles ahead"
+msgstr "在故障前"
+
+msgid "Try 'File' -> 'Load/Run Project...'"
+msgstr "尝试 '文件' -> '载入/执行 专案...'"
+
+msgid "Try _weave"
+msgstr "尝试编排(_W)"
+
+msgid "Turbo Mode"
+msgstr "涡轮加速模式"
+
+msgid "Turkish"
+msgstr "土耳其"
+
+msgid "Two Pass - Average Bitrate"
+msgstr "二次运算 - 平均位元率"
+
+msgid "Two Pass - Video Size"
+msgstr "二次运算 - 影片大小"
+
+msgid "Two pass - average bitrate"
+msgstr "二次运算 - 平均位元率"
+
+msgid "Two pass - video size"
+msgstr "二次运算 - 视频大小"
+
+msgid "Two pass tuning"
+msgstr "二次运算调整"
+
+msgid "U Shift :"
+msgstr "U 位移:"
+
+msgid "ULAW"
+msgstr "ULAW"
+
+msgid "UTF-16"
+msgstr "UTF-16"
+
+msgid "UTF-8"
+msgstr "UTF-8"
+
+msgid "UV to Y"
+msgstr "UV to Y"
+
+msgid "Uinteger"
+msgstr "不带正负号整数"
+
+msgid "Un-Erase"
+msgstr "取消橡皮擦"
+
+msgid "Uneven Multi-hexagon"
+msgstr "不均匀的多六边形"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Unknown codec"
+msgstr "未知的编解码器"
+
+msgid "Unknown event"
+msgstr "未知的事件"
+
+msgid "Unknown flag :"
+msgstr "未知的标记:"
+
+msgid "Unknown source type"
+msgstr "未知的来源类型"
+
+msgid "Unpacking bitstream"
+msgstr "拆开打包好的位元流"
+
+msgid "Unstack fields"
+msgstr "非堆叠图场"
+
+msgid "Unsupported"
+msgstr "未被支援"
+
+msgid "Unsupported audio"
+msgstr "不支援的音频"
+
+msgid "Unsupported video"
+msgstr "不支援的视频"
+
+msgid "Use 4 motion vectors per macroblock, might give better compression"
+msgstr "每个运算区块使用4个移动向量，可能得到较好的压缩"
+
+msgid "Use GlyphSet (optional):"
+msgstr "使用文字图形设定 (可选择):"
+
+msgid "Use Quarter pixel resolution for a more precise motion estimation"
+msgstr "使用四分之一像素判定对于一个更精确的动作估测"
+
+msgid ""
+"Use Trellis Rate Distortion Optimisation to find optimal encoding for each "
+"block. Level 0 equals disabled, level 1 equals normal and level 2 equals "
+"high."
+msgstr ""
+"使用格架式比率失真度来寻找对每一个区块最理想的编码。等级 0 等于关闭，等级 1 "
+"表示一般而等级 2 表示高。"
+
+msgid "Use _Global GlyphSet"
+msgstr "使用整体的文字图形设定(_G)"
+
+msgid "Use also chroma to detect scene change"
+msgstr "也使用色度来检测场景切换"
+
+msgid "Use as Reference"
+msgstr "另用为参考"
+
+msgid "Use ch_roma to evalute"
+msgstr "使用色度来估算(_R)"
+
+msgid "Use chroma information to estimate motion"
+msgstr "使用色度资讯来预估动作"
+
+msgid "Use color information for detecting motion to improve quality"
+msgstr "使用色彩资讯来预估动作以增进画质"
+
+msgid "Use custom value"
+msgstr "使用自订值"
+
+msgid ""
+"Use fewer B-frames if needed. This is always recommended. If not enabled, "
+"the codec will always use the maximum number of consecutive B-frames."
+msgstr ""
+"必要时使用较少量的 B-画格。建议打开此功能。假如不打开。编解码器将总是使用连续"
+"的 B-画格最大数量。"
+
+msgid "Use glyphset (optional):"
+msgstr "使用文字图形设定 (可选择):"
+
+msgid "Use safe mode"
+msgstr "使用安全模式"
+
+msgid "Use the &lt;&lt; and the &gt;&gt; buttons to move using Intra frames."
+msgstr "使用 &lt;&lt; 和 &gt;&gt; 按钮来移动正在使用的内部画格。"
+
+msgid "Useful to remove dupes left by Telecide."
+msgstr "电视电影用于移除伪装左面。"
+
+msgid "Useless whirlwind effect."
+msgstr "无效的旋风效果。"
+
+msgid "User Interface"
+msgstr "使用者介面"
+
+msgid "Using backup decoder - not frame accurate."
+msgstr "使用备份解码器 - 非正确的画格"
+
+msgid "V Shift :"
+msgstr "V 位移:"
+
+msgid "VBR"
+msgstr "VBR"
+
+msgid "VBV Buffer Size"
+msgstr "VBV 缓冲大小"
+
+msgid "VCD"
+msgstr "VCD"
+
+msgid "VCD (lavc)"
+msgstr "VCD (lavc)"
+
+msgid "VCD (mpeg2enc)"
+msgstr "VCD (mpeg2enc)"
+
+msgid "VCD 40 kB"
+msgstr "VCD 40 kB"
+
+msgid "VCD Res"
+msgstr "VCD 解析度"
+
+msgid "VCD res"
+msgstr "VCD 解析度"
+
+msgid "VCD resolution [Ctrl-4]"
+msgstr "VCD 解析度 [Ctrl-4]"
+
+msgid "VHQ enables an additional search process to increase quality"
+msgstr "VHQ 打开一个额外的搜寻过程来增进画质"
+
+msgid "VHQ mode:"
+msgstr "VHQ 模式:"
+
+msgid "VOB to VobSub"
+msgstr "VOB 转成 VobSub"
+
+msgid "Variable Bitrate:"
+msgstr "变量位元率:"
+
+msgid "Variable bitrate mode"
+msgstr "变动位元率模式"
+
+msgid "Vertical flip"
+msgstr "垂直翻转"
+
+msgid "Vertically flip the picture."
+msgstr "垂直翻转图像。"
+
+msgid "Vi_deo"
+msgstr "视频(_D)"
+
+msgid "Video"
+msgstr "视频"
+
+msgid "Video Codecs"
+msgstr "视频解码器"
+
+msgid "Video Filter Manager"
+msgstr "视频滤镜管理器"
+
+msgid "Video Filters"
+msgstr "视频滤镜"
+
+msgid "Video _display:"
+msgstr "视频显示(_D):"
+
+msgid "Video bitrate:"
+msgstr "视频位元率:"
+
+msgid "Video encoder"
+msgstr "视频编码器"
+
+msgid "Video filters"
+msgstr "视频滤镜"
+
+msgid "Video size (MB):"
+msgstr "视频大小 (MB):"
+
+msgid "Vignette _Height:"
+msgstr "小插曲高(_H):"
+
+msgid "Vignette _Width:"
+msgstr "小插曲宽(_W):"
+
+msgid "Vignette frame number"
+msgstr "小插曲画格数目"
+
+msgid "Vlad59's Avisynth port of Jim Casaburi's denoiser."
+msgstr "Vlad59 的 Avisynth 由 Jim Casaburi 的去杂讯器转来。"
+
+msgid "VobSub"
+msgstr "VobSub"
+
+msgid "VobSub Settings"
+msgstr "VobSub 设定"
+
+msgid "VobSub file:"
+msgstr "VobSub 文件:"
+
+msgid "Vorbis"
+msgstr "Vorbis"
+
+msgid "Vorbis Configuration"
+msgstr "Vorbis 设置"
+
+msgid "W"
+msgstr "W"
+
+msgid "WAV open file failed..."
+msgstr "WAV 打开文件失败..."
+
+msgid "WMA"
+msgstr "WMA"
+
+msgid "Weighted Biprediction"
+msgstr "加权的双预测"
+
+msgid "Weird"
+msgstr "奇特的"
+
+msgid "Whirl"
+msgstr "漩涡"
+
+msgid "Width and height cannot be 0"
+msgstr "宽和高不能为 0"
+
+msgid "Width and height cannot be odd"
+msgstr "宽和高不能是奇数"
+
+msgid "Width is not a multiple of 8"
+msgstr "宽不是 8 的倍数"
+
+msgid ""
+"Width is not a multiple of 8\n"
+" continue anyway ?"
+msgstr ""
+"宽不是 8 的倍数\n"
+" 不管如何还是要继续吗 ?"
+
+msgid "Win32"
+msgstr "Win32"
+
+msgid "Wrong Colorspace"
+msgstr "错误的色位"
+
+msgid "Wrong VobSub parametering"
+msgstr "错误的 VobSub 参数"
+
+msgid "Wrong output format"
+msgstr "错误的输出格式"
+
+msgid "Wrong video codec"
+msgstr "错误的视频解码器"
+
+msgid "X"
+msgstr "X"
+
+msgid "X1"
+msgstr "X1"
+
+msgid "XVideo"
+msgstr "XVideo"
+
+msgid "XVideo (best)"
+msgstr "XVideo (最佳)"
+
+msgid "X_vid threads:"
+msgstr "X_vid 讯息串:"
+
+msgid "XviD encoding options"
+msgstr "XviD 编码选项"
+
+msgid "Xvid"
+msgstr "Xvid"
+
+msgid "Xvid Encoder"
+msgstr "Xvid 编码器"
+
+msgid "Xvid4"
+msgstr "Xvid4"
+
+msgid "Xvid4 and FAAC support is required for the iPod profile."
+msgstr "iPod 描述需要有支援 Xvid4 和 FAAC。"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Y to UV"
+msgstr "Y to UV"
+
+msgid "Y800"
+msgstr "Y800"
+
+msgid "Y800 (lavc)"
+msgstr "Y800 (lavc)"
+
+msgid "YV12"
+msgstr "YV12"
+
+msgid "YV12 (raw)"
+msgstr "YV12 (raw)"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Yet Another DeInterlacer. Ported from MPlayer."
+msgstr "另一个去交错器。由 MPlayer 转来。"
+
+msgid "You can't remove all frames"
+msgstr "你不能移除所有的画格"
+
+msgid "You can't use the Copy codec."
+msgstr "你无法使用这个专利解码器"
+
+msgid ""
+"You cannot mix different video dimensions yet. Using the partial video "
+"filter later, will not work around this problem. The workaround is:\n"
+"1.) \"resize\" / \"add border\" / \"crop\" each stream to the same "
+"resolution\n"
+"2.) concatinate them together"
+msgstr ""
+"你还不能掺入不同的视频大小。 随后使用的局部视频滤镜将会失效。 工作区是:\n"
+"1.) \"调整大小\" / \"增加边框\" / \"修剪\" 每个串流对应相同的解析度\n"
+"2.) 一起连结它们"
+
+msgid ""
+"You don't have FAAC!.\n"
+"It is needed to create PSP compatible video."
+msgstr ""
+"你没有安装 FAAC！.\n"
+"制作 PSP 相容影片时需要它。"
+
+msgid ""
+"You don't have LAME!.\n"
+"It is needed to create FLV  video."
+msgstr ""
+"你没有安装 LAME！.\n"
+"制作 FLV 影片时需要它。"
+
+msgid ""
+"You may need smart copy.\n"
+" Enable it ?"
+msgstr ""
+"你也许需要智慧复制\n"
+" 要启动吗 ?"
+
+msgid "You should use Tool->Rebuild frame. Do it now ?"
+msgstr "你应该使用 工具->重新建立画格。现在执行吗？"
+
+msgid "Z_oom 1:2"
+msgstr "缩放成 1:2(_O)"
+
+msgid "Zoom _1:1"
+msgstr "缩放成 _1:1"
+
+msgid "Zoom _2:1"
+msgstr "缩放成 _2:1"
+
+msgid "_4MV"
+msgstr "4MV"
+
+msgid "_A/V Sidebar"
+msgstr "音频/视频 侧栏(_A)"
+
+msgid "_AP type:"
+msgstr "AP 类型:"
+
+msgid "_About"
+msgstr "关于(_A)"
+
+msgid "_Accept non-standard audio frequency for DVD"
+msgstr "同意在 DVD 使用非标准的音频频率"
+
+msgid "_Alpha:"
+msgstr "透明:"
+
+msgid "_Angle:"
+msgstr "角度:"
+
+msgid "_Append..."
+msgstr "添加...(_A)"
+
+msgid "_Audio"
+msgstr "音频(_A)"
+
+msgid "_Audio output:"
+msgstr "音频输出:"
+
+msgid "_Audio source:"
+msgstr "音频来源:"
+
+msgid "_Auto split"
+msgstr "自动分割"
+
+msgid "_Autolevel"
+msgstr "自动色阶(_A)"
+
+msgid "_Average bitrate (kb/s):"
+msgstr "平均位元率 (kb/s):"
+
+msgid "_BVHQ"
+msgstr "BVHQ"
+
+msgid "_Background Image:"
+msgstr "背景图片:"
+
+msgid "_Backward threshold:"
+msgstr "反向门槛值:"
+
+msgid ""
+"_Bias (only for display; use 0 for average, 128 for frame minus average):"
+msgstr "偏向 (仅用于显示；使用 0 于平均值，128 于画格减去平均值):"
+
+msgid "_Bias (will be added to result):"
+msgstr "偏向 (将会被增加到结果):"
+
+msgid "_Bitrate (kb/s):"
+msgstr "比特率 (kb/s):"
+
+msgid "_Bitrate Histogram"
+msgstr "位元率分布图(_B)"
+
+msgid "_Bitrate:"
+msgstr "位元率:"
+
+msgid "_Blend"
+msgstr "混合(_B)"
+
+msgid "_Blue:"
+msgstr "蓝:"
+
+msgid "_Bottom border:"
+msgstr "底部边界(_B):"
+
+msgid "_Bottom crop (ignore particles in):"
+msgstr "修剪底部 (忽略 particles in ):"
+
+msgid "_Browse..."
+msgstr "浏览...(_B)"
+
+msgid "_Buffer size:"
+msgstr "缓冲大小:"
+
+msgid "_Build VBR Time Map"
+msgstr "建立变动位元率(VBR)时间对应(_B)"
+
+msgid "_Built-in Support"
+msgstr "内建的支援(_B)"
+
+msgid "_Calculator"
+msgstr "计算器(_C)"
+
+msgid "_Calibrate"
+msgstr "校准(_C)"
+
+msgid "_Camera number:"
+msgstr "照相机数目:"
+
+msgid "_Contrast:"
+msgstr "对比:"
+
+msgid "_Copy"
+msgstr "复制(_C)"
+
+msgid "_Custom"
+msgstr "自订(_C)"
+
+msgid "_Custom Matrix"
+msgstr "自订矩阵(_C)"
+
+msgid "_Custom size (MB):"
+msgstr "自订大小 (MB):"
+
+msgid "_DVD"
+msgstr "_DVD"
+
+msgid "_Debugging settings (bits):"
+msgstr "除错设置 (bits):"
+
+msgid "_Decoder Options"
+msgstr "解码器选项(_D)"
+
+msgid "_Defaults"
+msgstr "预设(_D)"
+
+msgid "_Deinterlacing:"
+msgstr "解交错(_D):"
+
+msgid "_Delay (ms):"
+msgstr "延迟 (ms):"
+
+msgid "_Delete"
+msgstr "删除(_D)"
+
+msgid "_Denoise"
+msgstr "减少杂讯(_D)"
+
+msgid "_Deringing"
+msgstr "去除环状色斑(_D)"
+
+msgid "_Destination aspect ratio:"
+msgstr "目的文件的外观比例:"
+
+msgid "_Direct threshold:"
+msgstr "正向门槛值:"
+
+msgid "_Disable NUV audio sync"
+msgstr "关闭 NUV 音频同步(_D)"
+
+msgid "_Disable reservoir:"
+msgstr "关闭储存槽:"
+
+msgid "_Dynamic range compression"
+msgstr "动态范围压缩"
+
+msgid "_Edit"
+msgstr "编辑(_E)"
+
+msgid "_Edit Glyph"
+msgstr "编辑文字图形(_E)"
+
+msgid "_Encoder"
+msgstr "编码器(_E)"
+
+msgid "_Encoding mode:"
+msgstr "正在编码的模式"
+
+msgid "_Encoding priority:"
+msgstr "编码优先次序:"
+
+msgid "_Encoding:"
+msgstr "正在编码:"
+
+msgid "_End Frame (last frame # to include), -1 = last:"
+msgstr "结束画格 (包含最后一个画格 #), -1 = 最后:"
+
+msgid "_End frame:"
+msgstr "结束画格:"
+
+msgid "_Evalute all frames"
+msgstr "估算所有的画格(_E)"
+
+msgid "_External file:"
+msgstr "外部的文件:"
+
+msgid "_Extra"
+msgstr "额外的(_E)"
+
+msgid "_Fade type:"
+msgstr "淡出、淡出方式:"
+
+msgid "_Field dominance:"
+msgstr "图场控制:"
+
+msgid "_Field order:"
+msgstr "图场优先顺序:"
+
+msgid "_File"
+msgstr "文件(_F)"
+
+msgid "_Filesize tolerance (kb):"
+msgstr "文件大小的容许误差 (kb):"
+
+msgid "_Filter directory:"
+msgstr "滤镜文件夹:"
+
+msgid "_Filter strength:"
+msgstr "滤镜强度:"
+
+msgid "_Filters"
+msgstr "滤镜(_F)"
+
+msgid "_First Frame"
+msgstr "第一格(_F)"
+
+msgid "_Font (TTF):"
+msgstr "字型 (TTF):"
+
+msgid "_Font scale:"
+msgstr "字型缩放:"
+
+msgid "_Format:"
+msgstr "格式:"
+
+msgid "_Frame Hex Dump"
+msgstr "画格十六进位转出(_F)"
+
+msgid "_Frame Rate"
+msgstr "画格率(_F)"
+
+msgid "_Frame rate change:"
+msgstr "画格率更改:"
+
+msgid "_Frames per second"
+msgstr "每秒画格数(_F)"
+
+msgid "_GMC"
+msgstr "_GMC"
+
+msgid "_GOP size:"
+msgstr "GOP 大小:"
+
+msgid "_Gain mode:"
+msgstr "增益模式:"
+
+msgid "_Go"
+msgstr "前往(_G)"
+
+msgid "_Go to frame:"
+msgstr "前往画格(_G):"
+
+msgid "_Green:"
+msgstr "绿:"
+
+msgid "_Greyscale"
+msgstr "灰阶(_G)"
+
+msgid "_H.263"
+msgstr "H.263"
+
+msgid "_Help"
+msgstr "帮助(_H)"
+
+msgid "_High Q"
+msgstr "高 Q(_H)"
+
+msgid "_High quality"
+msgstr "高画质(_H)"
+
+msgid "_Histogram every N frames (0 to disable):"
+msgstr "每 N 个画格的分布图 (0 为关闭)(_H):"
+
+msgid "_Horizontal deblocking"
+msgstr "去除水平方向方块(_H)"
+
+msgid "_Horizontal stacking:"
+msgstr "水平层叠:"
+
+msgid "_Hours:"
+msgstr "小时:"
+
+msgid "_IFO file:"
+msgstr "IFO 文件:"
+
+msgid "_Identical:"
+msgstr "相同:"
+
+msgid "_Ignore glyph"
+msgstr "忽略文字图形(_I)"
+
+msgid "_Indexing/unpacking priority:"
+msgstr "索引/拆开打包的优先次序:"
+
+msgid "_Initial:"
+msgstr "初始:"
+
+msgid "_Interlaced"
+msgstr "交错(_I)"
+
+msgid "_Interlacing:"
+msgstr "交错:"
+
+msgid "_Interpolate:"
+msgstr "插入:"
+
+msgid "_Job name:"
+msgstr "工作名称:"
+
+msgid "_Last Frame"
+msgstr "最后一格(_L)"
+
+msgid "_Left border:"
+msgstr "左边框(_L):"
+
+msgid "_Left side crop (ignore particles in):"
+msgstr "修剪左侧 (忽略particles in ):"
+
+msgid "_Line spacing:"
+msgstr "线间隔:"
+
+msgid "_Link:"
+msgstr "连结:"
+
+msgid ""
+"_Load Bias (added to each pixel\n"
+"in file image when loaded):"
+msgstr ""
+"载入偏向(当载入时\n"
+"在文件映像增加至每个像素):"
+
+msgid "_Load external filters"
+msgstr "载入外部的滤镜"
+
+msgid "_Load/Run Project..."
+msgstr "载入/执行 专案...(_L)"
+
+msgid "_Local playback downmixing:"
+msgstr "局部倒带降混:"
+
+msgid "_Logo (jpg file):"
+msgstr "_图标 (jpg 文件):"
+
+msgid "_Luma lock:"
+msgstr "明度锁定:"
+
+msgid "_Luma temporal threshold:"
+msgstr "明度时间门槛值:"
+
+msgid "_Luma threshold:"
+msgstr "明度门槛值:"
+
+msgid "_MPEG"
+msgstr "MPEG"
+
+msgid "_Macroblock decision:"
+msgstr "运算区块判定:"
+
+msgid "_Main Toolbar"
+msgstr "主工具列(_M)"
+
+msgid "_Main Track"
+msgstr "主轨道(_M)"
+
+msgid "_Map"
+msgstr "对应(_M)"
+
+msgid "_Mask"
+msgstr "屏蔽(_M)"
+
+msgid "_Matrices:"
+msgstr "矩阵:"
+
+msgid "_Medium:"
+msgstr "中:"
+
+msgid "_Message level:"
+msgstr "讯息等级:"
+
+msgid "_Minutes:"
+msgstr "分钟:"
+
+msgid "_Mixer:"
+msgstr "混合器:"
+
+msgid "_MntMode:"
+msgstr "_MntMode:"
+
+msgid "_Mode:"
+msgstr "模式:"
+
+msgid "_NTSC(default is Pal):"
+msgstr "NTSC(预设是 PAL):"
+
+msgid "_New frame rate:"
+msgstr "新画格率:"
+
+msgid "_Next"
+msgstr "下一步(_N)"
+
+msgid "_Next Frame"
+msgstr "下一格(_N)"
+
+msgid "_Noise threshold:"
+msgstr "杂讯门槛值:"
+
+msgid "_Noise:"
+msgstr "杂讯:"
+
+msgid "_Number of B frames:"
+msgstr "B 画格的数目(_N):"
+
+msgid "_OCR (VobSub -> srt)"
+msgstr "_OCR (VobSub 转成 srt)"
+
+msgid "_Open..."
+msgstr "打开...(_O)"
+
+msgid "_Order:"
+msgstr "命令:"
+
+msgid "_Output File:"
+msgstr "输出文件:"
+
+msgid "_PSP"
+msgstr "_PSP"
+
+msgid "_Paste"
+msgstr "贴上(_P)"
+
+msgid "_Play/Stop"
+msgstr "播放/停止(_P)"
+
+msgid "_Playback priority:"
+msgstr "倒带优先次序"
+
+msgid "_Postprocessing"
+msgstr "后置处理(_P)"
+
+msgid "_Postprocessing:"
+msgstr "后置处理:"
+
+msgid "_Preview"
+msgstr "预览(_P)"
+
+msgid "_Previous"
+msgstr "上一步(_P)"
+
+msgid "_Process luma"
+msgstr "处理明度(_P)"
+
+msgid "_Qp:"
+msgstr "_Qp:"
+
+msgid "_Qpel"
+msgstr "Qpel"
+
+msgid "_Quality:"
+msgstr "画质:"
+
+msgid "_Quantization type:"
+msgstr "量化编码方式:"
+
+msgid "_Quantizer compression:"
+msgstr "量化值压缩:"
+
+msgid "_Quantizer:"
+msgstr "量化值:"
+
+msgid "_Quarter pixel"
+msgstr "四分之一像素(_Q)"
+
+msgid "_Quit"
+msgstr "退出(_Q)"
+
+msgid "_Radius:"
+msgstr "半径:"
+
+msgid "_Rebuild Frames (I & B)"
+msgstr "重新建立画格 (I & B)"
+
+msgid "_Red:"
+msgstr "红:"
+
+msgid "_Reset Edits"
+msgstr "回复编辑(_R)"
+
+msgid "_Result Bias (added to each result pixel):"
+msgstr "产生偏向 (将会被增加到结果)(_R):"
+
+msgid "_Right border:"
+msgstr "右边框(_R):"
+
+msgid "_Right side crop (ignore particles in):"
+msgstr "修剪右侧 (忽略 particles in ):"
+
+msgid "_SVCD"
+msgstr "_SVCD"
+
+msgid "_Saturation:"
+msgstr "饱和度:"
+
+msgid "_Save"
+msgstr "储存(_S)"
+
+msgid "_Scan for Black Frames..."
+msgstr "扫描黑画面...(_S)"
+
+msgid "_Scene change:"
+msgstr "场景切换:"
+
+msgid "_Second Track"
+msgstr "次轨道(_S)"
+
+msgid "_Seconds:"
+msgstr "秒:"
+
+msgid "_Sharp"
+msgstr "升音"
+
+msgid "_Sharper engine:"
+msgstr "清晰化引擎:"
+
+msgid "_Show metrics"
+msgstr "显示矩阵"
+
+msgid "_Shrink Factor:"
+msgstr "收缩因子:"
+
+msgid "_Shrink factor:"
+msgstr "收缩因子:"
+
+msgid "_Source aspect ratio:"
+msgstr "来源的外观比例:"
+
+msgid "_Spatial luma strength:"
+msgstr "空间的明度强度(_S):"
+
+msgid "_Spatial threshold:"
+msgstr "空间门槛值(_S):"
+
+msgid "_Split MPEG files every (MB):"
+msgstr "MPEG 文件分割成每一个文件 (MB):"
+
+msgid "_Split every MB:"
+msgstr "分割成每一个文件几MB:"
+
+msgid "_Start Frame (first frame # to include in average):"
+msgstr "起始画格(在平均值包含第一个画格 #):"
+
+msgid "_Start frame:"
+msgstr "起始画格:"
+
+msgid "_Strategy:"
+msgstr "策略:"
+
+msgid "_Strength:"
+msgstr "强度:"
+
+msgid "_Subtitle file (ASS/SSA):"
+msgstr "字幕文件 (ASS/SSA):"
+
+msgid "_Subtitle file:"
+msgstr "字幕文件:"
+
+msgid "_Swap U and V"
+msgstr "置换 U 和 V (_S)"
+
+msgid "_Swap U&V"
+msgstr "置换 U&V(_S)"
+
+msgid "_Target type:"
+msgstr "目标类型:"
+
+msgid "_Temporal strength:"
+msgstr "时间强度:"
+
+msgid "_Temporal threshold:"
+msgstr "时间门槛值(_T):"
+
+msgid "_Threshold 1:"
+msgstr "门槛值 1:"
+
+msgid "_Threshold:"
+msgstr "门槛值:"
+
+msgid "_Time shift (ms):"
+msgstr "时间移动 (ms):"
+
+msgid "_Tools"
+msgstr "工具(_T)"
+
+msgid "_Top border:"
+msgstr "顶部边框(_T):"
+
+msgid "_Top crop (ignore particles in):"
+msgstr "修剪顶部 (忽略 particles in ):"
+
+msgid "_Top margin:"
+msgstr "顶部边界:"
+
+msgid "_Track from video:"
+msgstr "轨道来自影片:"
+
+msgid "_Trellis quantization"
+msgstr "框架量化编码(_T)"
+
+msgid "_Try backward:"
+msgstr "尝试倒推:"
+
+msgid "_Try reverse"
+msgstr "尝试反转(_T)"
+
+msgid "_Type:"
+msgstr "类型:"
+
+msgid "_Use Xvid rate control"
+msgstr "使用 Xvid 比率控制器"
+
+msgid "_Use alternative tag for MP3 in .mp4"
+msgstr "在 .mp4 对 MP3 使用选择对象标记"
+
+msgid "_Use chroma to decide"
+msgstr "使用色度来判定(_U)"
+
+msgid "_Use libavcodec MPEG-2 decoder"
+msgstr "使用 libavcodec MPEG-2 解码器(_U)"
+
+msgid "_Use systray while encoding"
+msgstr "当编码时使用工作栏(_U)"
+
+msgid "_VCD"
+msgstr "_VCD"
+
+msgid "_VOB -> VobSub"
+msgstr "_VOB 转成 VobSub"
+
+msgid "_VOB file(s):"
+msgstr "VOB 文件:"
+
+msgid "_Vertical deblocking"
+msgstr "去除垂直方向方块(_V)"
+
+msgid "_Vertical stacking:"
+msgstr "垂直层叠:"
+
+msgid "_Video size (MB):"
+msgstr "视频大小 (MB):"
+
+msgid "_View"
+msgstr "检视(_V)"
+
+msgid "_Volume control:"
+msgstr "音量控制:"
+
+msgid "_Weight:"
+msgstr "宽:"
+
+msgid "_X Position:"
+msgstr "_X 位置:"
+
+msgid "_Y Position:"
+msgstr "_Y 位置:"
+
+msgid "_Zoom 1:4"
+msgstr "缩放成 1:4(_Z)"
+
+msgid "_lavc threads:"
+msgstr "_lavc 讯息串:"
+
+msgid "_x264 threads:"
+msgstr "_x264 讯息串:"
+
+msgid "aRts"
+msgstr "aRts"
+
+msgid "amrnb"
+msgstr "amrnb"
+
+msgid "and all the others."
+msgstr "和全部其他。"
+
+msgid "asharp"
+msgstr "适性锐利化"
+
+msgid "avsproxy"
+msgstr "avsproxy"
+
+msgid "can't create custom directory (%s)."
+msgstr "无法建立自订的文件夹 (%s)."
+
+msgid "can't create job directory (%s)."
+msgstr "无法建立工作文件夹 (%s)"
+
+msgid "can't determine $HOME."
+msgstr "无法指定 $HOME."
+
+msgid "dialog1"
+msgstr "对话1"
+
+msgid "dummy"
+msgstr "虚拟"
+
+msgid "label1"
+msgstr "标签1"
+
+msgid "liba52"
+msgstr "liba52"
+
+msgid "libavcodec MPEG-2 Configuration"
+msgstr "libavcodec MPEG-2 设置"
+
+msgid "libavcodec MPEG-4 configuration"
+msgstr "libavcodec MPEG-4 配置"
+
+msgid "libavcodec deinterlacer"
+msgstr "libavcodec 去交错器"
+
+msgid "libdca"
+msgstr "libdca"
+
+msgid "libmpeg2enc DVD"
+msgstr "libmpeg2enc DVD"
+
+msgid "libmpeg2enc SVCD"
+msgstr "libmpeg2enc SVCD"
+
+msgid "libmpeg2enc VCD"
+msgstr "libmpeg2enc VCD"
+
+msgid "lvemux init failed"
+msgstr "lvemux 初始化失败"
+
+msgid "mcDeinterlace"
+msgstr "mc 去交错"
+
+msgid "menu"
+msgstr "选单"
+
+msgid "none"
+msgstr "无"
+
+msgid "translator-credits"
+msgstr "ZDW (zdw163@hotmail.com)"
+
+msgid "x264"
+msgstr "x264"
+
+msgid "x264 Configuration"
+msgstr "x264 设置"
+
+msgid "x86"
+msgstr "x86"
+
+msgid "x86-64"
+msgstr "x86-64"
+
+msgid "yadif"
+msgstr "yadif"
