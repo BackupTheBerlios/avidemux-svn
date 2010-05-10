@@ -97,7 +97,7 @@ ENDIF (APPLE)
 ########################################
 # Standard Avidemux defines
 ########################################
-SET(VERSION 2.5.2)
+SET(VERSION 2.5.3)
 
 # Define internal flags for GTK+ and Qt4 builds.  These are turned off
 # if a showstopper is found.  CLI is automatically assumed as possible
