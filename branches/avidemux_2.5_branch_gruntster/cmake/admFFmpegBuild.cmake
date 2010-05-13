@@ -145,13 +145,13 @@ if (FFMPEG_PERFORM_BUILD)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E copy "./libavutil/avconfig.h" "${CMAKE_BINARY_DIR}/config/libavutil"
 					WORKING_DIRECTORY "${FFMPEG_BINARY_DIR}")
 
-	if (UNIX)
-		find_patch()
-		patch_file("${FFMPEG_BINARY_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/config.mak.diff")
-	elseif (APPLE)
+	if (APPLE)
 		find_patch()
 		patch_file("${FFMPEG_BINARY_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/config_macosx.mak.diff")
-	endif (UNIX)
+	elseif (UNIX)
+		find_patch()
+		patch_file("${FFMPEG_BINARY_DIR}" "${CMAKE_SOURCE_DIR}/cmake/patches/config.mak.diff")
+	endif (APPLE)
 
 	message("")
 endif (FFMPEG_PERFORM_BUILD)
