@@ -11,9 +11,9 @@ MACRO (getFfmpegLibNames sourceDir)
 	getFfmpegVersionFromHeader("libpostproc" "${sourceDir}/libpostproc/postprocess.h" LIBPOSTPROC_VERSION_MAJOR LIBPOSTPROC_VERSION)
 	getFfmpegVersionFromHeader("libswscale" "${sourceDir}/libswscale/swscale.h" LIBSWSCALE_VERSION_MAJOR LIBSWSCALE_VERSION)
 
-	if (UNIX AND NOT APPLE)
+	if (UNIX)
 		set(LIBAVCODEC_ADM ADM5)
-	endif (UNIX AND NOT APPLE)
+	endif (UNIX)
 
 	if (APPLE)
 		set(LIBAVCODEC_LIB lib${LIBAVCODEC_ADM}avcodec.${LIBAVCODEC_VERSION}${CMAKE_SHARED_LIBRARY_SUFFIX})
