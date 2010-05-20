@@ -638,6 +638,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 			ui.threadCustomSpinBox->setValue(options->getThreads());
 	}
 
+	ui.repeatabilityCheckBox->setChecked(options->getDeterministic());
+	ui.sliceThreadingCheckBox->setChecked(options->getSliceThreading());
+
 	int threadedLookahead = options->getThreadedLookahead();
 
 	ui.threadedLookaheadCheckBox->setChecked(threadedLookahead > -1);
@@ -783,7 +786,6 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	strSpsId.setNum(options->getSpsIdentifier());
 	ui.spsiComboBox->setCurrentIndex(ui.spsiComboBox->findText(strSpsId));
-	ui.repeatabilityCheckBox->setChecked(options->getDeterministic());
 	ui.accessUnitCheckBox->setChecked(options->getAccessUnitDelimiters());
 	ui.overscanComboBox->setCurrentIndex(options->getOverscan());
 	ui.videoFormatComboBox->setCurrentIndex(getValueIndexInArray(options->getVideoFormat(), videoFormat, videoFormatCount));
@@ -856,6 +858,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 		options->setThreads(1);
 	else
 		options->setThreads(ui.threadCustomSpinBox->value());
+
+	options->setSliceThreading(ui.sliceThreadingCheckBox->isChecked());
+	options->setDeterministic(ui.repeatabilityCheckBox->isChecked());
 
 	if (ui.threadedLookaheadCheckBox->isChecked())
 		options->setThreadedLookahead(ui.threadedLookaheadSpinBox->value());
@@ -974,7 +979,6 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Output tab
 	options->setIdcLevel(idcLevel[ui.idcLevelComboBox->currentIndex()]);
 	options->setSpsIdentifier(ui.spsiComboBox->currentText().toInt());
-	options->setDeterministic(ui.repeatabilityCheckBox->isChecked());
 	options->setAccessUnitDelimiters(ui.accessUnitCheckBox->isChecked());
 	options->setOverscan(ui.overscanComboBox->currentIndex());
 	options->setVideoFormat(videoFormat[ui.videoFormatComboBox->currentIndex()]);

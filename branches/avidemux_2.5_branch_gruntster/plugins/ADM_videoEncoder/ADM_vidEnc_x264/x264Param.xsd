@@ -42,6 +42,7 @@
             <xs:sequence>
               <xs:element name="threads" type="uint" minOccurs="0"/>
               <xs:element name="deterministic" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="sliceThreading" type="xs:boolean" minOccurs="0"/>
               <xs:element name="threadedLookahead" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:integer">

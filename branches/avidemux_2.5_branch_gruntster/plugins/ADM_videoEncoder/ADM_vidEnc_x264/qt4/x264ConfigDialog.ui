@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>523</width>
-    <height>590</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -562,6 +562,13 @@
            <widget class="QCheckBox" name="repeatabilityCheckBox" >
             <property name="text" >
              <string>Enforce Repeatability</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="sliceThreadingCheckBox" >
+            <property name="text" >
+             <string>Slice-based Threading</string>
             </property>
            </widget>
           </item>
@@ -4237,6 +4244,7 @@
   <tabstop>threadCustomRadioButton</tabstop>
   <tabstop>threadCustomSpinBox</tabstop>
   <tabstop>repeatabilityCheckBox</tabstop>
+  <tabstop>sliceThreadingCheckBox</tabstop>
   <tabstop>threadedLookaheadCheckBox</tabstop>
   <tabstop>threadedLookaheadSpinBox</tabstop>
   <tabstop>meMethodComboBox</tabstop>

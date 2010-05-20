@@ -64,6 +64,9 @@ public:
 	bool getDeterministic(void);
 	void setDeterministic(bool deterministic);
 
+	bool getSliceThreading(void);
+	void setSliceThreading(bool sliceThreading);
+
 	int getThreadedLookahead(void);
 	void setThreadedLookahead(int frames);
 

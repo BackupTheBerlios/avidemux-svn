@@ -96,6 +96,16 @@ void x264Options::setDeterministic(bool deterministic)
 	_param.b_deterministic = deterministic;
 }
 
+bool x264Options::getSliceThreading(void)
+{
+	return _param.b_sliced_threads;
+}
+
+void x264Options::setSliceThreading(bool sliceThreading)
+{
+	_param.b_sliced_threads = sliceThreading;
+}
+
 int x264Options::getThreadedLookahead(void)
 {
 	return _param.i_sync_lookahead;
@@ -1002,6 +1012,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"deterministic", boolean2String(xmlBuffer, bufferSize, getDeterministic()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceThreading", boolean2String(xmlBuffer, bufferSize, getSliceThreading()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threadedLookahead", number2String(xmlBuffer, bufferSize, getThreadedLookahead()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"idcLevel", number2String(xmlBuffer, bufferSize, getIdcLevel()));
 
@@ -1393,6 +1404,8 @@ void x264Options::parseOptions(xmlNode *node)
 				setThreads(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "deterministic") == 0)
 				setDeterministic(string2Boolean(content));
+			else if (strcmp((char*)xmlChild->name, "sliceThreading") == 0)
+				setSliceThreading(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "threadedLookahead") == 0)
 				setThreadedLookahead(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "idcLevel") == 0)
