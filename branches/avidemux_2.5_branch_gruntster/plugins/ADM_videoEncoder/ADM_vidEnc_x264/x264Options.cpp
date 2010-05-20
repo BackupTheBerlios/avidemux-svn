@@ -96,7 +96,6 @@ void x264Options::setDeterministic(bool deterministic)
 	_param.b_deterministic = deterministic;
 }
 
-#if X264_BUILD >= 75
 int x264Options::getThreadedLookahead(void)
 {
 	return _param.i_sync_lookahead;
@@ -107,7 +106,6 @@ void x264Options::setThreadedLookahead(int frames)
 	if (frames >= -1 && frames <= 250)
 		_param.i_sync_lookahead = frames;
 }
-#endif
 
 int x264Options::getIdcLevel(void)
 {
@@ -323,21 +321,13 @@ void x264Options::setBFrameBias(int bFrameBias)
 
 unsigned int x264Options::getBFrameReferences(void)
 {
-#if X264_BUILD >= 78
 	return _param.i_bframe_pyramid;
-#else
-	return _param.b_bframe_pyramid;
-#endif
 }
 
 void x264Options::setBFrameReferences(unsigned int bFrameReferences)
 {
-#if X264_BUILD >= 78
 	if (bFrameReferences <= 2)
 		_param.i_bframe_pyramid = bFrameReferences;
-#else
-	_param.b_bframe_pyramid = !!bFrameReferences;
-#endif
 }
 
 bool x264Options::getLoopFilter(void)
@@ -392,7 +382,6 @@ void x264Options::setInterlaced(bool interlaced)
 	_param.b_interlaced = interlaced;
 }
 
-#if X264_BUILD >= 77
 bool x264Options::getConstrainedIntraPrediction(void)
 {
 	return _param.b_constrained_intra;
@@ -402,7 +391,6 @@ void x264Options::setConstrainedIntraPrediction(bool constrainedIntra)
 {
 	_param.b_constrained_intra = constrainedIntra;
 }
-#endif
 
 unsigned int x264Options::getCqmPreset(void)
 {
@@ -550,7 +538,6 @@ void x264Options::setDct8x8(bool dct8x8)
 	_param.analyse.b_transform_8x8 = dct8x8;
 }
 
-#if X264_BUILD >= 79
 unsigned int x264Options::getWeightedPredictionPFrames(void)
 {
 	return _param.analyse.i_weighted_pred;
@@ -560,7 +547,6 @@ void x264Options::setWeightedPredictionPFrames(unsigned int weightedPrediction)
 {
 	_param.analyse.i_weighted_pred = weightedPrediction;
 }
-#endif
 
 bool x264Options::getWeightedPrediction(void)
 {
@@ -863,7 +849,6 @@ void x264Options::setAdaptiveQuantiserStrength(float adaptiveQuantiserStrength)
 	_param.rc.f_aq_strength = adaptiveQuantiserStrength;
 }
 
-#if X264_BUILD >= 69
 bool x264Options::getMbTree(void)
 {
 	return _param.rc.b_mb_tree;
@@ -884,7 +869,6 @@ void x264Options::setFrametypeLookahead(unsigned int frames)
 	if (frames <= 250)
 		_param.rc.i_lookahead = frames;
 }
-#endif
 
 float x264Options::getQuantiserCurveCompression(void)
 {
@@ -979,7 +963,6 @@ void x264Options::setSpsIdentifier(unsigned int spsIdentifier)
 	}
 }
 
-#if X264_BUILD >= 73
 unsigned int x264Options::getSliceMaxSize(void)
 {
 	return _param.i_slice_max_size;
@@ -1009,7 +992,6 @@ void x264Options::setSliceCount(unsigned int sliceCount)
 {
 	_param.i_slice_count = sliceCount;
 }
-#endif
 
 void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
@@ -1020,9 +1002,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"deterministic", boolean2String(xmlBuffer, bufferSize, getDeterministic()));
-#if X264_BUILD >= 75
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threadedLookahead", number2String(xmlBuffer, bufferSize, getThreadedLookahead()));
-#endif
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"idcLevel", number2String(xmlBuffer, bufferSize, getIdcLevel()));
 
 	xmlNodeChild = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"vui", NULL);
@@ -1168,7 +1148,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
 
-#if X264_BUILD >= 78
 	switch (getBFrameReferences())
 	{
 		case 0:
@@ -1183,19 +1162,12 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	}
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", xmlBuffer);
-#else
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameReferences", boolean2String(xmlBuffer, bufferSize, (bool)getBFrameReferences()));
-#endif
-
-
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilter", boolean2String(xmlBuffer, bufferSize, getLoopFilter()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterAlphaC0", number2String(xmlBuffer, bufferSize, getLoopFilterAlphaC0()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cabac", boolean2String(xmlBuffer, bufferSize, getCabac()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", boolean2String(xmlBuffer, bufferSize, getInterlaced()));
-#if X264_BUILD >= 77
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"constrainedIntraPrediction", boolean2String(xmlBuffer, bufferSize, getConstrainedIntraPrediction()));
-#endif
 
 	switch (getCqmPreset())
 	{
@@ -1257,7 +1229,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"partitionB8x8", boolean2String(xmlBuffer, bufferSize, getPartitionB8x8()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"dct8x8", boolean2String(xmlBuffer, bufferSize, getDct8x8()));
 
-#if X264_BUILD >= 79
 	switch (getWeightedPredictionPFrames())
 	{
 		case X264_WEIGHTP_NONE:
@@ -1272,8 +1243,6 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	}
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"weightedPredictionPframes", xmlBuffer);
-#endif
-
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"weightedPrediction", boolean2String(xmlBuffer, bufferSize, getWeightedPrediction()));
 
 	switch (getDirectPredictionMode())
@@ -1367,12 +1336,8 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserMode", xmlBuffer);
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"adaptiveQuantiserStrength", number2String(xmlBuffer, bufferSize, getAdaptiveQuantiserStrength()));
-
-#if X264_BUILD >= 69
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"mbTree", boolean2String(xmlBuffer, bufferSize, getMbTree()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"frametypeLookahead", number2String(xmlBuffer, bufferSize, getFrametypeLookahead()));
-#endif
-
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserCurveCompression", number2String(xmlBuffer, bufferSize, getQuantiserCurveCompression()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reduceFluxBeforeCurveCompression", number2String(xmlBuffer, bufferSize, getReduceFluxBeforeCurveCompression()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"reduceFluxAfterCurveCompression", number2String(xmlBuffer, bufferSize, getReduceFluxAfterCurveCompression()));
@@ -1404,12 +1369,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"accessUnitDelimiters", boolean2String(xmlBuffer, bufferSize, getAccessUnitDelimiters()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"spsIdentifier", number2String(xmlBuffer, bufferSize, getSpsIdentifier()));
-
-#if X264_BUILD >= 73
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxSize", number2String(xmlBuffer, bufferSize, getSliceMaxSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxMacroblocks", number2String(xmlBuffer, bufferSize, getSliceMaxMacroblocks()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceCount", number2String(xmlBuffer, bufferSize, getSliceCount()));
-#endif
 }
 
 int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
@@ -1431,10 +1393,8 @@ void x264Options::parseOptions(xmlNode *node)
 				setThreads(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "deterministic") == 0)
 				setDeterministic(string2Boolean(content));
-#if X264_BUILD >= 75
 			else if (strcmp((char*)xmlChild->name, "threadedLookahead") == 0)
 				setThreadedLookahead(atoi(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "idcLevel") == 0)
 				setIdcLevel(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "vui") == 0)
@@ -1460,11 +1420,7 @@ void x264Options::parseOptions(xmlNode *node)
 				if (strcmp(content, "strict") == 0)
 					bFrameReferences = 1;
 				else if (strcmp(content, "normal") == 0 || strcmp(content, "1") == 0 || strcmp(content, "true") == 0)
-#if X264_BUILD >= 78
 					bFrameReferences = 2;
-#else
-					bFrameReferences = 1;
-#endif
 
 				setBFrameReferences(bFrameReferences);
 			}
@@ -1478,10 +1434,8 @@ void x264Options::parseOptions(xmlNode *node)
 				setCabac(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
 				setInterlaced(string2Boolean(content));
-#if X264_BUILD >= 77
 			else if (strcmp((char*)xmlChild->name, "constrainedIntraPrediction") == 0)
 				setConstrainedIntraPrediction(string2Boolean(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "cqmPreset") == 0)
 			{
 				int cqmPreset = 0;
@@ -1545,14 +1499,12 @@ void x264Options::parseOptions(xmlNode *node)
 				setAccessUnitDelimiters(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "spsIdentifier") == 0)
 				setSpsIdentifier(atoi(content));
-#if X264_BUILD >= 73
 			else if (strcmp((char*)xmlChild->name, "sliceMaxSize") == 0)
 				setSliceMaxSize(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "sliceMaxMacroblocks") == 0)
 				setSliceMaxMacroblocks(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "sliceCount") == 0)
 				setSliceCount(atoi(content));
-#endif
 
 			xmlFree(content);
 		}
@@ -1722,7 +1674,6 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setPartitionB8x8(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "dct8x8") == 0)
 				setDct8x8(string2Boolean(content));
-#if X264_BUILD >= 79
 			else if (strcmp((char*)xmlChild->name, "weightedPredictionPframes") == 0)
 			{
 				int weightedPredPFrames = X264_WEIGHTP_NONE;
@@ -1734,7 +1685,6 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 
 				setWeightedPredictionPFrames(weightedPredPFrames);
 			}
-#endif
 			else if (strcmp((char*)xmlChild->name, "weightedPrediction") == 0)
 				setWeightedPrediction(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "directPredictionMode") == 0)
@@ -1853,12 +1803,10 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 			}
 			else if (strcmp((char*)xmlChild->name, "adaptiveQuantiserStrength") == 0)
 				setAdaptiveQuantiserStrength(string2Float(content));
-#if X264_BUILD >= 69
 			else if (strcmp((char*)xmlChild->name, "mbTree") == 0)
 				setMbTree(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "frametypeLookahead") == 0)
 				setFrametypeLookahead(atoi(content));
-#endif
 			else if (strcmp((char*)xmlChild->name, "quantiserCurveCompression") == 0)
 				setQuantiserCurveCompression(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "reduceFluxBeforeCurveCompression") == 0)

@@ -327,7 +327,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 		_picture.img.i_plane = 3;
 	}
 
-#if X264_BUILD > 75
 	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData[0] ? &_picture : NULL, &picture_out) < 0)
 	{
 		printf("[x264] Error encoding\n");
@@ -343,39 +342,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	}
 
 	encodeParams->encodedDataSize = size;
-#else
-	if (x264_encoder_encode(_handle, &nal, &nalCount, encodeParams->frameData[0] ? &_picture : NULL, &picture_out) < 0)
-	{
-		printf("[x264] Error encoding\n");
-		return ADM_VIDENC_ERR_FAILED;
-	}
-
-	int size = 0;
-	int currentNal, sizemax;
-
-	for (int i = 0; i < nalCount; i++)
-	{
-		sizemax = 0xfffffff;
-
-		if (!_param.b_repeat_headers)
-			size += 4;
-
-		currentNal = x264_nal_encode(_buffer + size, &sizemax, _param.b_repeat_headers, &nal[i]);
-
-		if (!_param.b_repeat_headers)
-		{
-			// Need to put size (assuming nal_size=4)
-			_buffer[size + 0 - 4] = (currentNal >> 24) & 0xff;
-			_buffer[size + 1 - 4] = (currentNal >> 16) & 0xff;
-			_buffer[size + 2 - 4] = (currentNal >> 8) & 0xff;
-			_buffer[size + 3 - 4] = (currentNal >> 0) & 0xff;
-		}
-
-		size += currentNal;
-	}
-
-	encodeParams->encodedDataSize = size;
-#endif
 
 	_currentFrame++;
 	encodeParams->ptsFrame = picture_out.i_pts;	// In fact it is the picture number in out case
@@ -384,28 +350,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	{
 		case X264_TYPE_IDR:
 			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_IDR;
-#if X264_BUILD < 76
-			if(!_param.b_repeat_headers && _seiUserData && !picture_out.i_pts)
-			{
-				// Put our SEI front...
-				// first a temp location...
-				uint8_t tmpBuffer[size];
-				memcpy(tmpBuffer, _buffer, size);
-
-				// Put back out SEI and add Size
-				_buffer[0] = (_seiUserDataLen >> 24) & 0xff;
-				_buffer[1] = (_seiUserDataLen >> 16) & 0xff;
-				_buffer[2] = (_seiUserDataLen >> 8) & 0xff;
-				_buffer[3] = (_seiUserDataLen >> 0) & 0xff;
-
-				memcpy(_buffer + 4, _seiUserData, _seiUserDataLen);
-				memcpy(_buffer + 4 + _seiUserDataLen, tmpBuffer, size);
-
-				size += 4 + _seiUserDataLen;
-				encodeParams->encodedDataSize = size; // update total size
-			}
-#endif
-
 			break;
 		case X264_TYPE_I:
 		case X264_TYPE_P:
@@ -425,7 +369,6 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	return ADM_VIDENC_ERR_SUCCESS;
 }
 
-#if X264_BUILD > 75
 int x264Encoder::encodeNals(uint8_t *buf, int size, x264_nal_t *nals, int nalCount, bool skipSei)
 {
     uint8_t *p = buf;
@@ -454,7 +397,6 @@ int x264Encoder::encodeNals(uint8_t *buf, int size, x264_nal_t *nals, int nalCou
 
     return p - buf;
 }
-#endif
 
 bool x264Encoder::createHeader(void)
 {
@@ -467,98 +409,9 @@ bool x264Encoder::createHeader(void)
 	if (_extraData)
 		delete _extraData;
 
-#if X264_BUILD > 75
 	_extraDataSize = x264_encoder_headers(_handle, &nal, &nalCount);
 	_extraData = new uint8_t[_extraDataSize];
 	_extraDataSize = encodeNals(_extraData, _extraDataSize, nal, nalCount, true);
-#else
-	uint32_t offset = 0;
-	uint8_t buffer[X264_MAX_HEADER_SIZE];
-	uint8_t picParam[X264_MAX_HEADER_SIZE];
-	uint8_t seqParam[X264_MAX_HEADER_SIZE];
-	uint8_t sei[X264_MAX_HEADER_SIZE];
-	int picParamLen = 0, seqParamLen = 0, seiParamLen = 0, len;
-	int sz;
-
-	_extraData = new uint8_t[X264_MAX_HEADER_SIZE];
-	_extraDataSize = 0;
-
-	x264_encoder_headers(_handle, &nal, &nalCount);
-
-	printf("[x264] Nal count: %d\n", nalCount);
-
-	// Now encode them
-	for (int i = 0; i < nalCount; i++)
-	{
-		switch (nal[i].i_type)
-		{
-		case H264_NAL_TYPE_SEQ_PARAM:
-			sz = x264_nal_encode(seqParam, &seqParamLen, 0, &nal[i]);
-			break;
-		case H264_NAL_TYPE_PIC_PARAM:
-			sz = x264_nal_encode(picParam, &picParamLen, 0, &nal[i]);
-			break;
-		case H264_NAL_TYPE_SEI:
-			sz = x264_nal_encode(sei, &seiParamLen, 0, &nal[i]);
-			break;
-		default:
-			printf("[x264] Unknown type %d in nal %d\n", nal[i].i_type, i);
-			sz = x264_nal_encode(buffer, &len, 0, &nal[i]);
-		}
-
-		if (sz <= 0)
-		{
-			printf("[x264] Cannot encode nal header %d\n", i);
-
-			return false;
-		}
-	}
-
-	// Now that we got all the nals encoded, time to build the avcC atom
-	// Check we have everything we want
-	if (!picParamLen || !seqParamLen)
-	{
-		printf("[x264] Seqparam or PicParam not found\n");
-		return false;
-	}
-
-	// Fill header
-	_extraData[0] = 1;		// Version
-	_extraData[1] = seqParam[1];	//0x42; // AVCProfileIndication
-	_extraData[2] = seqParam[2];	//0x00; // profile_compatibility
-	_extraData[3] = seqParam[3];	//0x0D; // AVCLevelIndication
-	_extraData[4] = 0xFC + 3;	// lengthSizeMinusOne 
-	_extraData[5] = 0xE0 + 1;	// nonReferenceDegredationPriorityLow
-
-	offset = 6;
-	_extraData[offset] = seqParamLen >> 8;
-	_extraData[offset + 1] = seqParamLen & 0xff;
-
-	offset += 2;
-	memcpy(_extraData + offset, seqParam, seqParamLen);
-
-	offset += seqParamLen;
-	_extraData[offset] = 1;	// numOfPictureParameterSets
-
-	offset++;
-	_extraData[offset] = picParamLen >> 8;
-	_extraData[offset + 1] = picParamLen & 0xff;
-
-	offset += 2;
-	memcpy(_extraData + offset, picParam, picParamLen);
-
-	offset += picParamLen;
-
-	// Where x264 stores all its header, save it for later use
-	if (seiParamLen)
-	{
-		_seiUserDataLen = seiParamLen;
-		_seiUserData = new uint8_t[_seiUserDataLen];
-		memcpy(_seiUserData, sei, _seiUserDataLen);
-	}
-
-	_extraDataSize = offset;
-#endif
 
 	printf("[x264] generated %d extra bytes for header\n", _extraDataSize);
 
@@ -646,11 +499,7 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] i_bframe = %d\n", x264Param->i_bframe);
 	printf("[x264] i_bframe_bias = %d\n", x264Param->i_bframe_bias);
 	printf("[x264] i_frame_reference = %d\n", x264Param->i_frame_reference);
-#if X264_BUILD >= 78
 	printf("[x264] i_bframe_pyramid = %d\n", x264Param->i_bframe_pyramid);
-#else
-	printf("[x264] b_bframe_pyramid = %d\n", x264Param->b_bframe_pyramid);
-#endif
 	printf("[x264] i_bframe_adaptive = %d\n", x264Param->i_bframe_adaptive);
 	printf("[x264] i_keyint_max = %d\n", x264Param->i_keyint_max);
 	printf("[x264] i_keyint_min = %d\n", x264Param->i_keyint_min);

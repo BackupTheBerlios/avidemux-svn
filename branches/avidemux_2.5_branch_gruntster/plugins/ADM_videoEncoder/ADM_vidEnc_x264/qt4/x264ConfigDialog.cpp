@@ -69,21 +69,7 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.quantiserSlider, SIGNAL(valueChanged(int)), this, SLOT(quantiserSlider_valueChanged(int)));
 	connect(ui.quantiserSpinBox, SIGNAL(valueChanged(int)), this, SLOT(quantiserSpinBox_valueChanged(int)));
 	connect(ui.targetRateControlSpinBox, SIGNAL(valueChanged(int)), this, SLOT(targetRateControlSpinBox_valueChanged(int)));
-
-#if X264_BUILD >= 69
 	connect(ui.mbTreeCheckBox, SIGNAL(toggled(bool)), this, SLOT(mbTreeCheckBox_toggled(bool)));
-#else
-	ui.mbTreeCheckBox->setVisible(false);
-	ui.lblLookahead->setVisible(false);
-	ui.lookaheadSpinBox->setVisible(false);
-	ui.lblLookaheadFrames->setVisible(false);
-#endif
-
-#if X264_BUILD < 75
-	ui.threadedLookaheadCheckBox->setVisible(false);
-	ui.threadedLookaheadSpinBox->setVisible(false);
-	ui.lblThreadedFrames->setVisible(false);
-#endif
 
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
 
@@ -95,33 +81,16 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 
 	ui.scenecutDetectionCheckBox->setVisible(false);
 
-#if X264_BUILD < 79
-	ui.lblWeightedPPredict->setVisible(false);
-	ui.weightedPPredictComboBox->setVisible(false);
-#endif
-
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
-
-#if X264_BUILD < 77
-	ui.constrainedIntraCheckBox->setVisible(false);
-#endif
-
-#if X264_BUILD < 78
-	ui.bFrameRefComboBox->clear();
-	ui.bFrameRefComboBox->addItem(QT_TR_NOOP("Disabled"));
-	ui.bFrameRefComboBox->addItem(QT_TR_NOOP("Enabled"));
-#endif
 
 	// Analysis tab
 	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
 
 	// Quantiser tab
-#if X264_BUILD >= 69
 	connect(ui.aqVarianceCheckBox, SIGNAL(toggled(bool)), this, SLOT(aqVarianceCheckBox_toggled(bool)));
-#endif
 
 	// Advanced tab
 	ui.zoneTableView->sortByColumn(0, Qt::AscendingOrder);
@@ -136,10 +105,6 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.zoneAddButton, SIGNAL(pressed()), this, SLOT(zoneAddButton_pressed()));
 	connect(ui.zoneEditButton, SIGNAL(pressed()), this, SLOT(zoneEditButton_pressed()));
 	connect(ui.zoneDeleteButton, SIGNAL(pressed()), this, SLOT(zoneDeleteButton_pressed()));
-
-#if X264_BUILD < 73
-	ui.slicingGroupBox->setEnabled(false);
-#endif
 
 	QWidgetList widgetList = QApplication::allWidgets();
 
@@ -430,7 +395,6 @@ void x264ConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 		lastBitrate = value;
 }
 
-#if X264_BUILD >= 69
 void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && checked && !ui.aqVarianceCheckBox->isChecked())
@@ -441,7 +405,6 @@ void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
 			ui.mbTreeCheckBox->setChecked(false);
 	}
 }
-#endif
 
 // Motion Estimation tab
 void x264ConfigDialog::meSlider_valueChanged(int value)
@@ -514,7 +477,6 @@ void x264ConfigDialog::matrixCustomEditButton_pressed()
 }
 
 // Quantiser tab
-#if X264_BUILD >= 69
 void x264ConfigDialog::aqVarianceCheckBox_toggled(bool checked)
 {
 	if (!disableGenericSlots && !checked && ui.mbTreeCheckBox->isChecked())
@@ -525,7 +487,6 @@ void x264ConfigDialog::aqVarianceCheckBox_toggled(bool checked)
 			ui.aqVarianceCheckBox->setChecked(true);
 	}
 }
-#endif
 
 // Advanced tab
 void x264ConfigDialog::zoneAddButton_pressed()
@@ -636,10 +597,8 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 			break;
 	}
 
-#if X264_BUILD >= 69
 	ui.mbTreeCheckBox->setChecked(options->getMbTree());
 	ui.lookaheadSpinBox->setValue(options->getFrametypeLookahead());
-#endif
 
 	if (options->getSarAsInput())
 		ui.sarAsInputRadioButton->setChecked(true);
@@ -679,14 +638,12 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 			ui.threadCustomSpinBox->setValue(options->getThreads());
 	}
 
-#if X264_BUILD >= 75
 	int threadedLookahead = options->getThreadedLookahead();
 
 	ui.threadedLookaheadCheckBox->setChecked(threadedLookahead > -1);
 
 	if (threadedLookahead > -1)
 		ui.threadedLookaheadSpinBox->setValue(threadedLookahead);
-#endif
 
 	// Motion Estimation tab
 	ui.meSpinBox->setValue(options->getSubpixelRefinement());
@@ -711,10 +668,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	ui.predictModeComboBox->setCurrentIndex(options->getDirectPredictionMode());
 
-#if X264_BUILD >= 79
 	ui.weightedPPredictComboBox->setCurrentIndex(options->getWeightedPredictionPFrames());
-#endif
-
 	ui.weightedPredictCheckBox->setChecked(options->getWeightedPrediction());
 
 	// Partition tab
@@ -729,10 +683,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Frame tab
 	ui.cabacCheckBox->setChecked(options->getCabac());
 	ui.interlacedCheckBox->setChecked(options->getInterlaced());
-
-#if X264_BUILD >= 77
 	ui.constrainedIntraCheckBox->setChecked(options->getConstrainedIntraPrediction());
-#endif
 
 	ui.loopFilterCheckBox->setChecked(options->getLoopFilter());
 	ui.alphaC0SpinBox->setValue(options->getLoopFilterAlphaC0());
@@ -805,11 +756,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.vbvBufferSizeSpinBox->setValue(options->getVbvBufferSize());
 	ui.vbvBufferOccupancySpinBox->setValue((int)floor(options->getVbvInitialOccupancy() * 100 + .5));
 
-#if X264_BUILD >= 73
 	ui.maxSliceSizeSpinBox->setValue(options->getSliceMaxSize());
 	ui.maxSliceMbSpinBox->setValue(options->getSliceMaxMacroblocks());
 	ui.slicesPerFrameSpinBox->setValue(options->getSliceCount());
-#endif
 
 	zoneTableModel.removeRows();
 
@@ -880,11 +829,8 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
 
-#if X264_BUILD >= 69
 	options->setMbTree(ui.mbTreeCheckBox->isChecked());
 	options->setFrametypeLookahead(ui.lookaheadSpinBox->value());
-#endif
-
 	options->setSarAsInput(ui.sarAsInputRadioButton->isChecked());
 
 	if (ui.sarCustomRadioButton->isChecked())
@@ -911,12 +857,10 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	else
 		options->setThreads(ui.threadCustomSpinBox->value());
 
-#if X264_BUILD >= 75
 	if (ui.threadedLookaheadCheckBox->isChecked())
 		options->setThreadedLookahead(ui.threadedLookaheadSpinBox->value());
 	else
 		options->setThreadedLookahead(-1);
-#endif
 
 	// Motion Estimation tab
 	options->setSubpixelRefinement(ui.meSpinBox->value());
@@ -935,10 +879,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	options->setDirectPredictionMode(ui.predictModeComboBox->currentIndex());
 
-#if X264_BUILD >= 79
 	options->setWeightedPredictionPFrames(ui.weightedPPredictComboBox->currentIndex());
-#endif
-
 	options->setWeightedPrediction(ui.weightedPredictCheckBox->isChecked());
 	options->setDct8x8(ui.dct8x8CheckBox->isChecked());
 	options->setPartitionP8x8(ui.p8x8CheckBox->isChecked());
@@ -951,10 +892,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setCabac(ui.cabacCheckBox->isChecked());
 	options->setInterlaced(ui.interlacedCheckBox->isChecked());
 
-#if X264_BUILD >= 77
 	options->setConstrainedIntraPrediction(ui.constrainedIntraCheckBox->isChecked());
-#endif
-
 	options->setLoopFilter(ui.loopFilterCheckBox->isChecked());
 	options->setLoopFilterAlphaC0(ui.alphaC0SpinBox->value());
 	options->setLoopFilterBeta(ui.betaSpinBox->value());
@@ -1022,12 +960,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setVbvMaximumBitrate(ui.vbvMaxBitrateSpinBox->value());
 	options->setVbvBufferSize(ui.vbvBufferSizeSpinBox->value());
 	options->setVbvInitialOccupancy((float)ui.vbvBufferOccupancySpinBox->value() / 100);
-
-#if X264_BUILD >= 73
 	options->setSliceMaxSize(ui.maxSliceSizeSpinBox->value());
 	options->setSliceMaxMacroblocks(ui.maxSliceMbSpinBox->value());
 	options->setSliceCount(ui.slicesPerFrameSpinBox->value());
-#endif
 
 	options->clearZones();
 
