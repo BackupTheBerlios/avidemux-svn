@@ -23,7 +23,7 @@ else
 
         if (app.audio.targetTrackInfo.length > 0)
         {
-            if (app.audio.targetTrackInfo[0].codec == "AAC" && app.audio.targetTrackInfo[0].channelCount == 2)A
+            if (app.audio.targetTrackInfo[0].codec == "AAC" && app.audio.targetTrackInfo[0].channelCount == 2)
                 app.audio.codec("copy",0,0,"");
             else
             {
