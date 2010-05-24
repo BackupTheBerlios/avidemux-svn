@@ -32,7 +32,7 @@ else
         if (app.audio.targetTrackInfo.length > 0)
         {
             if ((app.audio.targetTrackInfo[0].codec == "MP2" || app.audio.targetTrackInfo[0].codec == "AC3" || app.audio.targetTrackInfo[0].codec == "LPCM") && app.audio.targetTrackInfo[0].frequency == 48000)
-                app.video.codec("Copy", "CQ=4", "0 ");
+                app.audio.codec("copy",0,0,"");
             else
             {
                 app.audio.codec("TwoLame", 160, 8, "a0 00 00 00 01 00 00 00 ");

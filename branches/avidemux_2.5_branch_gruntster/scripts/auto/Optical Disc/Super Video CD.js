@@ -32,7 +32,7 @@ else
         if (app.audio.targetTrackInfo.length > 0)
         {
             if (app.audio.targetTrackInfo[0].codec == "MP2" && app.audio.targetTrackInfo[0].frequency == 44100 && app.audio.targetTrackInfo[0].channelCount == 2)
-                app.video.codec("Copy", "CQ=4", "0 ");
+                app.audio.codec("copy",0,0,"");
             else
             {
                 app.audio.codec("TwoLame", 160, 8, "a0 00 00 00 01 00 00 00 ");
