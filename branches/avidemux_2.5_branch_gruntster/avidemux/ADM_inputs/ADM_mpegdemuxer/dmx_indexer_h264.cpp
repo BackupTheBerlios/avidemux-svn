@@ -141,12 +141,13 @@ int frameType;
               if(!seq_found && streamid!=NAL_SPS) continue;
               if(!seq_found)
               {
-                    // Our firt frame is here
+                    // Our first frame is here
                     // Important to initialize the mpeg decoder !
                       uint8_t buffer[60] ; // should be enough
                       uint64_t xA,xR;
                       _run->demuxer->getPos(&xA,&xR);
                       _run->demuxer->read(buffer,60);
+                      memset(&spsInfo,0,sizeof(spsInfo));
                       if (extractSPSInfo(buffer, 60, &spsInfo))
                       {
 						  _run->imageW = spsInfo.width;
