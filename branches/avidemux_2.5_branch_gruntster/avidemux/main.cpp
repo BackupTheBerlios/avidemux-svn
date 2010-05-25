@@ -123,13 +123,13 @@ int main(int argc, char *argv[])
 
     printf("\n*************************\n");
     printf(" http://www.avidemux.org\n");
-    printf(" Code      : Mean, JSC, Gruntster \n");
-    printf(" GFX       : Nestor Di , nestordi@augcyl.org\n");
+    printf(" Code      : Mean, JSC, Grant Pedersen\n");
+    printf(" GFX       : Nestor Di, nestordi@augcyl.org\n");
     printf(" Design    : Jakub Misak\n");
     printf(" FreeBSD   : Anish Mistry, amistry@am-productions.biz\n");
     printf(" Audio     : Mihail Zenkov\n");
-    printf(" MacOsX    : Kuisathaverat\n");
-    printf(" Win32     : Gruntster\n\n");
+    printf(" Mac OS X  : Kuisathaverat, Harry van der Wolf\n");
+    printf(" Win32     : Grant Pedersen\n\n");
 
 #ifdef __GNUC__
 	printf("Compiler: GCC %s\n", __VERSION__);
@@ -199,7 +199,6 @@ int main(int argc, char *argv[])
     InitFactory();
     InitCoreToolkit();
     initFileSelector();
-
 
 	// Load .avidemuxrc
     quotaInit();
