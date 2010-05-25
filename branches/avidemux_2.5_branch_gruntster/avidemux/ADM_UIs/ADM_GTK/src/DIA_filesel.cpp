@@ -12,10 +12,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include "ADM_plugin/ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_factory.h"
 #include "DIA_fileSel.h"
-//#include "prefs.h"
+
 namespace ADM_GtkFactory
 {
 class diaElemFile : public diaElemFileBase

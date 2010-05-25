@@ -18,10 +18,13 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "prefs.h"
 #include "DIA_coreToolkit.h"
 #include "DIA_coreUI_internal.h"
+
 #define GLADE_HOOKUP_OBJECT(component,widget,name) \
   g_object_set_data_full (G_OBJECT (component), name, \
     gtk_widget_ref (widget), (GDestroyNotify) gtk_widget_unref)

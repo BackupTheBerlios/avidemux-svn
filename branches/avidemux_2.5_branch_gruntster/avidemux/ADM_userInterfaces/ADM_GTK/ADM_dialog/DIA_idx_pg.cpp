@@ -17,14 +17,15 @@ Indexer progress dialog
  ***************************************************************************/
 #include <math.h>
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_coreToolkit.h"
-
 #include "ADM_videoFilter.h"
 #include "ADM_encoder/ADM_vidEncode.hxx"
 #include "ADM_encoder/adm_encoder.h"
 #include "DIA_idx_pg.h"
 #include "ADM_video/ADM_vidMisc.h"
+
 static GtkWidget *dialog=NULL;
 static GtkWidget       *create_dialog1 (void);
 static int abted;

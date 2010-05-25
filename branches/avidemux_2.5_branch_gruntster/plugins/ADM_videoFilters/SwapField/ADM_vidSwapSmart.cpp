@@ -19,8 +19,7 @@ Swap each line  (shift up for odd, down for even)
  ***************************************************************************/
 
 #include "ADM_default.h"
-
-
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidSwapSmart.h"
 #include "ADM_interlaced.h"

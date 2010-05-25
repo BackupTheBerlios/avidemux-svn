@@ -14,13 +14,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
 #include "ADM_vidConvolution.hxx"
-
-
-
 
 uint8_t	AVDMFastVideoConvolution::getCoupledConf( CONFcouple **couples)
 {
@@ -170,13 +169,10 @@ uint32_t stride,page;
 }
 uint8_t AVDMFastVideoConvolution::configure(AVDMGenericVideoStream * instream)
 {
-  
-  //return DIA_getLumaChroma(&(_param->luma),&(_param->chroma)) ; 
   diaElemToggle luma(&(_param->luma),QT_TR_NOOP("_Process luma"),QT_TR_NOOP("Process luma plane"));
   diaElemToggle chroma(&(_param->chroma),QT_TR_NOOP("P_rocess chroma"));
-  
   diaElem *elems[2]={&luma,&chroma};
-  
+
   return diaFactoryRun(QT_TR_NOOP("Fast Convolution"),2,elems);
 }
 

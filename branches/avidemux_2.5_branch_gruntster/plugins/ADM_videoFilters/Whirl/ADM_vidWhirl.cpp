@@ -20,15 +20,14 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_default.h"
-#include "ADM_videoFilterDynamic.h"
-#include <math.h>
-//#define LOOP
 
+#include <math.h>
+
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
+#include "ADM_videoFilterDynamic.h"
 
 static void Process(uint8_t *src,uint8_t *data, uint32_t width, uint32_t height,double frac);
-
-
 static FILTER_PARAM whirlParam={0,{"ythresholdMask","cthresholdMask"}};
 
 #define STEP_SIZE 150

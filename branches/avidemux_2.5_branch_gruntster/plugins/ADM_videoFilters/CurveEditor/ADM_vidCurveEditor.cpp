@@ -21,6 +21,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "ADM_plugin_translate.h"
 #include "ADM_Utils.h"
 #include "ADM_PointArrayList.h"
 #include "ADM_vidCurveEditor.h"

@@ -7,12 +7,13 @@
    GPL version 2
 
  ***************************************************************************/
-#include "ADM_default.h"
+
 #include <math.h>
 
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidEqualizer.h"
-
 
 static FILTER_PARAM equalizer_template={256,
 {

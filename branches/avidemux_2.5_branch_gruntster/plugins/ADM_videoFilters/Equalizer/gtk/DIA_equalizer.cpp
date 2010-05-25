@@ -21,12 +21,13 @@
  ***************************************************************************/
 #include <math.h>
 
+#include "ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
-
 #include "ADM_image.h"
 #include "ADM_videoFilter.h"
 #include "ADM_vidEqualizer.h"
 #include "ADM_colorspace.h"
+
 extern "C" {
 #include "libavcodec/avcodec.h"
 }

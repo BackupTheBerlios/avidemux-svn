@@ -30,22 +30,19 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_toolkitGtk.h"
 
+#include "config.h"
+#include "ADM_toolkitGtk.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_editor/ADM_edit.hxx"
 #include "ADM_videoFilter.h"
 #include "DIA_fileSel.h"
-
-
 #include "ADM_videoFilter/ADM_vobsubinfo.h"
 #include "ADM_videoFilter/ADM_vidVobSub.h"
 #include "ADM_ocr/ADM_leftturn.h"
 #include "DIA_enter.h"
-
 #include "ADM_ocr/ADM_ocr.h"
 #include "ADM_ocr/ADM_ocrInternal.h"
-/******************************/
 
 #define TESTSUB "/home/fx/usbstick/subs/vts_01_0.idx"
 #define CONNECT(x,y,z) 	gtk_signal_connect(GTK_OBJECT(WID(x)), #y,GTK_SIGNAL_FUNC(z),   NULL);

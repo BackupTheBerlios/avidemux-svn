@@ -47,9 +47,9 @@
 #include <math.h>
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidColorYuv.h"
-
 
 extern int DIA_coloryuv(COLOR_YUV_PARAM *param);
 

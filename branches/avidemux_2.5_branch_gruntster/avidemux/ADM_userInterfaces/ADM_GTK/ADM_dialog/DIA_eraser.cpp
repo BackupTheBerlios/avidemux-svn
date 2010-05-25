@@ -15,6 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "prefs.h"
 
@@ -37,9 +38,6 @@
 
 
 using namespace std;
-
-#undef _
-#define _(_s) QT_TR_NOOP(_s)
 
 /********************************************************************/
 static GtkWidget * create_eraser_dialog (void);
@@ -814,12 +812,12 @@ uint8_t DIA_eraser (AVDMGenericVideoStream * in, ADMVideoEraser * eraserp,
 
     gtk_tree_view_append_column
         (GTK_TREE_VIEW(WID(rangeListTreeview)),
-         gtk_tree_view_column_new_with_attributes (_("First Frame"),
+         gtk_tree_view_column_new_with_attributes (QT_TR_NOOP("First Frame"),
                                                    renderer, "text", 0,
                                                    NULL));
     gtk_tree_view_append_column
         (GTK_TREE_VIEW(WID(rangeListTreeview)),
-         gtk_tree_view_column_new_with_attributes (_("Last Frame"),
+         gtk_tree_view_column_new_with_attributes (QT_TR_NOOP("Last Frame"),
                                                    renderer, "text", 1,
                                                    NULL));
 
@@ -1179,9 +1177,8 @@ create_eraser_dialog (void)
   tooltips = gtk_tooltips_new ();
 
   eraser_dialog = gtk_dialog_new ();
-  //                                                NO NEED TO "FIX" THAT _("...")!!
-  //                                                see handy macros near top of file.
-  gtk_window_set_title (GTK_WINDOW (eraser_dialog), _("Eraser Configuration"));
+  
+  gtk_window_set_title (GTK_WINDOW (eraser_dialog), QT_TR_NOOP("Eraser Configuration"));
   gtk_window_set_type_hint (GTK_WINDOW (eraser_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialogVbox = GTK_DIALOG (eraser_dialog)->vbox;
@@ -1212,7 +1209,7 @@ create_eraser_dialog (void)
   gtk_widget_show (brushModeHbox);
   gtk_box_pack_start (GTK_BOX (brushSettingsHbox), brushModeHbox, TRUE, TRUE, 0);
 
-  brushModeLabel = gtk_label_new_with_mnemonic (_("Brush _Mode:  "));
+  brushModeLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Brush _Mode:  "));
   gtk_widget_show (brushModeLabel);
   gtk_box_pack_start (GTK_BOX (brushModeHbox), brushModeLabel, FALSE, FALSE, 0);
 
@@ -1224,7 +1221,7 @@ create_eraser_dialog (void)
   gtk_widget_show (brushSizeHbox);
   gtk_box_pack_start (GTK_BOX (brushSettingsHbox), brushSizeHbox, TRUE, TRUE, 0);
 
-  brushSizeLabel = gtk_label_new_with_mnemonic (_("Brush _Size:  "));
+  brushSizeLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Brush _Size:  "));
   gtk_widget_show (brushSizeLabel);
   gtk_box_pack_start (GTK_BOX (brushSizeHbox), brushSizeLabel, FALSE, FALSE, 0);
 
@@ -1236,7 +1233,7 @@ create_eraser_dialog (void)
   gtk_widget_show (colorVbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), colorVbox, FALSE, TRUE, 0);
 
-  colorLabel = gtk_label_new_with_mnemonic (_("Output \"_Color\" for all masked pixels:"));
+  colorLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Output \"_Color\" for all masked pixels:"));
   gtk_widget_show (colorLabel);
   gtk_box_pack_start (GTK_BOX (colorVbox), colorLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (colorLabel), 0, 0.5);
@@ -1262,14 +1259,14 @@ create_eraser_dialog (void)
   gtk_widget_show (eraserDataFileHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), eraserDataFileHbox, FALSE, TRUE, 0);
 
-  eraserDataFileLabel = gtk_label_new_with_mnemonic (_("Eraser _Data File:"));
+  eraserDataFileLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Eraser _Data File:"));
   gtk_widget_show (eraserDataFileLabel);
   gtk_box_pack_start (GTK_BOX (eraserDataFileHbox), eraserDataFileLabel, FALSE, FALSE, 0);
 
   eraserDataFileEntry = gtk_entry_new ();
   gtk_widget_show (eraserDataFileEntry);
   gtk_box_pack_start (GTK_BOX (eraserDataFileHbox), eraserDataFileEntry, TRUE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, eraserDataFileEntry, _("File in which eraser mask information (the list below and the pixels erased for each range) will be stored"), NULL);
+  gtk_tooltips_set_tip (tooltips, eraserDataFileEntry, QT_TR_NOOP("File in which eraser mask information (the list below and the pixels erased for each range) will be stored"), NULL);
   gtk_entry_set_invisible_char (GTK_ENTRY (eraserDataFileEntry), 8226);
   gtk_entry_set_width_chars (GTK_ENTRY (eraserDataFileEntry), 35);
 
@@ -1277,7 +1274,7 @@ create_eraser_dialog (void)
   gtk_widget_show (debugHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), debugHbox, FALSE, TRUE, 0);
 
-  eraserDataFileBrowseButton = gtk_button_new_with_mnemonic (_("_Browse..."));
+  eraserDataFileBrowseButton = gtk_button_new_with_mnemonic (QT_TR_NOOP("_Browse..."));
   gtk_widget_show (eraserDataFileBrowseButton);
   gtk_box_pack_start (GTK_BOX (debugHbox), eraserDataFileBrowseButton, FALSE, FALSE, 0);
 
@@ -1285,7 +1282,7 @@ create_eraser_dialog (void)
   gtk_widget_show (browse_debug_spacer);
   gtk_box_pack_start (GTK_BOX (debugHbox), browse_debug_spacer, TRUE, FALSE, 0);
 
-  debugLabel = gtk_label_new_with_mnemonic (_("_Debugging settings (bits):   "));
+  debugLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Debugging settings (bits):   "));
   gtk_widget_show (debugLabel);
   gtk_box_pack_start (GTK_BOX (debugHbox), debugLabel, FALSE, FALSE, 0);
 
@@ -1303,7 +1300,7 @@ create_eraser_dialog (void)
   gtk_widget_show (frameRangeStartHbox);
   gtk_box_pack_start (GTK_BOX (frameRangeHbox), frameRangeStartHbox, TRUE, TRUE, 0);
 
-  frameRangeStartLabel = gtk_label_new_with_mnemonic (_("_First frame:   "));
+  frameRangeStartLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_First frame:   "));
   gtk_widget_show (frameRangeStartLabel);
   gtk_box_pack_start (GTK_BOX (frameRangeStartHbox), frameRangeStartLabel, FALSE, FALSE, 0);
 
@@ -1311,14 +1308,14 @@ create_eraser_dialog (void)
   frameRangeFirstSpinButton = gtk_spin_button_new (GTK_ADJUSTMENT (frameRangeFirstSpinButton_adj), 1, 0);
   gtk_widget_show (frameRangeFirstSpinButton);
   gtk_box_pack_start (GTK_BOX (frameRangeStartHbox), frameRangeFirstSpinButton, TRUE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, frameRangeFirstSpinButton, _("First frame to which currently selected eraser mask applies; 0 means first frame of video"), NULL);
+  gtk_tooltips_set_tip (tooltips, frameRangeFirstSpinButton, QT_TR_NOOP("First frame to which currently selected eraser mask applies; 0 means first frame of video"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (frameRangeFirstSpinButton), TRUE);
 
   frameRangeLastHbox = gtk_hbox_new (FALSE, 0);
   gtk_widget_show (frameRangeLastHbox);
   gtk_box_pack_start (GTK_BOX (frameRangeHbox), frameRangeLastHbox, TRUE, TRUE, 0);
 
-  frameRangeLastLabel = gtk_label_new_with_mnemonic (_("_Last frame:   "));
+  frameRangeLastLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Last frame:   "));
   gtk_widget_show (frameRangeLastLabel);
   gtk_box_pack_start (GTK_BOX (frameRangeLastHbox), frameRangeLastLabel, FALSE, FALSE, 0);
 
@@ -1326,7 +1323,7 @@ create_eraser_dialog (void)
   frameRangeLastSpinButton = gtk_spin_button_new (GTK_ADJUSTMENT (frameRangeLastSpinButton_adj), 1, 0);
   gtk_widget_show (frameRangeLastSpinButton);
   gtk_box_pack_start (GTK_BOX (frameRangeLastHbox), frameRangeLastSpinButton, TRUE, TRUE, 0);
-  gtk_tooltips_set_tip (tooltips, frameRangeLastSpinButton, _("Last frame to which currently selected eraser mask applies; use e.g. 99999999 to represent the last frame of video"), NULL);
+  gtk_tooltips_set_tip (tooltips, frameRangeLastSpinButton, QT_TR_NOOP("Last frame to which currently selected eraser mask applies; use e.g. 99999999 to represent the last frame of video"), NULL);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (frameRangeLastSpinButton), TRUE);
 
   rangeListScrolledWindow = gtk_scrolled_window_new (NULL, NULL);
@@ -1351,11 +1348,11 @@ create_eraser_dialog (void)
   GTK_WIDGET_SET_FLAGS (insertButton, GTK_CAN_DEFAULT);
   gtk_button_set_focus_on_click (GTK_BUTTON (insertButton), FALSE);
 
-  duplicateButton = gtk_button_new_with_mnemonic (_("Duplicate"));
+  duplicateButton = gtk_button_new_with_mnemonic (QT_TR_NOOP("Duplicate"));
   gtk_widget_show (duplicateButton);
   gtk_container_add (GTK_CONTAINER (rangeListHButtonBox), duplicateButton);
   GTK_WIDGET_SET_FLAGS (duplicateButton, GTK_CAN_DEFAULT);
-  gtk_tooltips_set_tip (tooltips, duplicateButton, _("Make a copy of the currently selected eraser mask and insert it as the following row"), NULL);
+  gtk_tooltips_set_tip (tooltips, duplicateButton, QT_TR_NOOP("Make a copy of the currently selected eraser mask and insert it as the following row"), NULL);
   gtk_button_set_focus_on_click (GTK_BUTTON (duplicateButton), FALSE);
 
   deleteButton = gtk_button_new_from_stock ("gtk-delete");
@@ -1372,17 +1369,17 @@ create_eraser_dialog (void)
   gtk_widget_show (previewJumpButtonHbox);
   gtk_box_pack_start (GTK_BOX (previewVboxOuter), previewJumpButtonHbox, FALSE, TRUE, 5);
 
-  previewJumpLastButton = gtk_button_new_with_mnemonic (_("Last Frame in Range"));
+  previewJumpLastButton = gtk_button_new_with_mnemonic (QT_TR_NOOP("Last Frame in Range"));
   gtk_widget_show (previewJumpLastButton);
   gtk_box_pack_end (GTK_BOX (previewJumpButtonHbox), previewJumpLastButton, FALSE, FALSE, 0);
   gtk_button_set_focus_on_click (GTK_BUTTON (previewJumpLastButton), FALSE);
 
-  previewJumpFirstButton = gtk_button_new_with_mnemonic (_("First Frame in Range"));
+  previewJumpFirstButton = gtk_button_new_with_mnemonic (QT_TR_NOOP("First Frame in Range"));
   gtk_widget_show (previewJumpFirstButton);
   gtk_box_pack_end (GTK_BOX (previewJumpButtonHbox), previewJumpFirstButton, FALSE, FALSE, 0);
   gtk_button_set_focus_on_click (GTK_BUTTON (previewJumpFirstButton), FALSE);
 
-  previewJumpLabel = gtk_label_new (_("Jump to:  "));
+  previewJumpLabel = gtk_label_new (QT_TR_NOOP("Jump to:  "));
   gtk_widget_show (previewJumpLabel);
   gtk_box_pack_end (GTK_BOX (previewJumpButtonHbox), previewJumpLabel, FALSE, FALSE, 0);
 
@@ -1418,7 +1415,7 @@ create_eraser_dialog (void)
   gtk_widget_set_size_request (previewVideo, 30, 30);
   gtk_widget_set_events (previewVideo, GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK);
 
-  previewLabel = gtk_label_new (_("Preview"));
+  previewLabel = gtk_label_new (QT_TR_NOOP("Preview"));
   gtk_widget_show (previewLabel);
   gtk_frame_set_label_widget (GTK_FRAME (previewFrame), previewLabel);
 

@@ -16,14 +16,11 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "ADM_vidChroma.h"
 
-
 static FILTER_PARAM nullParam={0,{""}};
-
-
 
 VF_DEFINE_FILTER(ADMVideoChromaU,nullParam,
 				chromau,

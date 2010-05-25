@@ -54,6 +54,7 @@
 #include "avspipecomm.h"
 #include "avsfilter.h"
 #include "cdebug.h"
+#include "ADM_plugin_translate.h"
 
 static FILTER_PARAM avsParam={3,{"avs_script", "avs_loader","pipe_timeout"}};
 static WINE_LOADER *first_loader = NULL;

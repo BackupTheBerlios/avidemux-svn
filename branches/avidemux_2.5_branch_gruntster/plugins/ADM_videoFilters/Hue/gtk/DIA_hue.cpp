@@ -18,15 +18,14 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_toolkitGtk.h"
 
+#include "ADM_plugin_translate.h"
+#include "ADM_toolkitGtk.h"
 #include "DIA_flyDialog.h"
 #include "ADM_image.h"
 #include "ADM_videoFilter.h"
 #include "ADM_vidHue.h"
-
 #include "DIA_flyHue.h"
-
 
 static GtkWidget	*create_dialog1 (void);
 static void  		update ( void);

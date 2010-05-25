@@ -23,7 +23,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
 #include <vector>
 
 #include "Q_mainfilter.h"
@@ -531,11 +530,7 @@ void filtermainWindow::loadScript(bool)
 
 	closePreview();
 
-#ifdef USE_LIBXML2
 	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoadXml);
-#else
-	GUI_FileSelRead (QT_TR_NOOP("Load set of filters"), filterLoad);
-#endif
 
 	getFirstVideoFilter ();
 	buildActiveFilterList ();
@@ -552,11 +547,7 @@ void filtermainWindow::saveScript(bool)
 		GUI_Error_HIG (QT_TR_NOOP("Nothing to save"), NULL);
 	}
 	else
-#ifdef USE_LIBXML2
 		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSaveXml);
-#else
-		GUI_FileSelWrite(QT_TR_NOOP("Save set of filters"), filterSave);
-#endif
 }
 
 /**

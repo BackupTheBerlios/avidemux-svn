@@ -13,8 +13,8 @@
 //
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "ADM_vidForcedPP.h"
 #include "DIA_enter.h"
 #include "DIA_factory.h"

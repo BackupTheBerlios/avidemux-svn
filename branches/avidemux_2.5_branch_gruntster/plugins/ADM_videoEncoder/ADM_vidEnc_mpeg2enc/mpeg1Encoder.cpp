@@ -17,6 +17,7 @@
 #include <libxml/tree.h>
 
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "mpeg1Encoder.h"
 #include "format_codes.h"
 
@@ -67,17 +68,17 @@ int Mpeg1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 {
 	loadSettings(NULL, &_options);
 
-	diaElemUInteger ctlSplitFile(&_splitFile, "New sequence every (MB):", 400, 4096);
+	diaElemUInteger ctlSplitFile(&_splitFile, QT_TR_NOOP("New sequence every (MB):"), 400, 4096);
 	diaElem *elmGeneral[1] = {&ctlSplitFile};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 1);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 1, elmGeneral);
+	diaElemTabs tabGeneral(QT_TR_NOOP("Settings"), 1, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("mpeg2enc Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("mpeg2enc Configuration"), 1, elmHeader, 1, tabs))
 	{
 		saveSettings(NULL, &_options);
 

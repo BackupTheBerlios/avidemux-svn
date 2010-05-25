@@ -17,13 +17,13 @@ Daniel Moreno <comac@comac.darktech.org>
  *                                                                         *
  ***************************************************************************/
 #include <math.h>
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "ADM_vidMPLD3Dlow.h"
-
-
 #include "DIA_factory.h"
+
 #define aprintf(...) {}
 static FILTER_PARAM mp3Param={3,{"param1","param2","param3"}};
 

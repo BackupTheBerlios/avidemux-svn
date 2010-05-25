@@ -16,6 +16,7 @@ Handle dialog factory element : Config Menu
 #include <string>
 #include <map>
 
+#include "ADM_plugin/ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"

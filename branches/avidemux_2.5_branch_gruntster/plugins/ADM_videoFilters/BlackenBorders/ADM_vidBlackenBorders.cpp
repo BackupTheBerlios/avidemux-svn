@@ -24,10 +24,11 @@
 
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "DIA_factory.h"
+
 typedef struct
 {
         uint32_t left,right;

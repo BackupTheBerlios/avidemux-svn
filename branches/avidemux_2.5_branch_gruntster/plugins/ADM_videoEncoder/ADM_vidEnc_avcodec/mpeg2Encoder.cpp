@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include <libxml/tree.h>
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "mpeg2Encoder.h"
 #include "mpegMatrix.h"
 
@@ -242,41 +243,41 @@ int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	loadSettings(&_encodeOptions, &_options);
 
 	diaMenuEntry wideM[] = {
-		{0, "4:3"},
-		{1, "16:9"}};
+		{0, QT_TR_NOOP("4:3")},
+		{1, QT_TR_NOOP("16:9")}};
 
 	diaMenuEntry matrixM[]={
-		{0, "Default"},
-		{1, "TMPGEnc"},
-		{2, "Anime"},
-		{3, "KVCD"}
+		{0, QT_TR_NOOP("Default")},
+		{1, QT_TR_NOOP("TMPGEnc")},
+		{2, QT_TR_NOOP("Anime")},
+		{3, QT_TR_NOOP("KVCD")}
 	};
 
 	diaMenuEntry interM[]={
-		{0, "Progressive"},
-		{1, "Interlaced BFF"},
-		{2, "Interlaced TFF"}
+		{0, QT_TR_NOOP("Progressive")},
+		{1, QT_TR_NOOP("Interlaced BFF")},
+		{2, QT_TR_NOOP("Interlaced TFF")}
 	};
 
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
-	diaElemUInteger ctlMaxb(&_maxBitrate, "Ma_x. bitrate:", 100, 9000);
-	diaElemUInteger ctlMinb(&_minBitrate, "Mi_n. bitrate:", 0, 9000);
-	diaElemToggle ctlXvid(&_useXvidRateControl, "_Use Xvid rate control");
-	diaElemUInteger ctlVbv(&_bufferSize, "_Buffer size:", 1, 1024);
-	diaElemMenu ctlWidescreen(&_widescreen, "Aspect _ratio:", 2, wideM);
-	diaElemMenu ctlMatrix(&_userMatrix, "_Matrices:", 4, matrixM);
-	diaElemUInteger ctlGop(&_gopSize, "_GOP size:", 1, 30);
-	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
+	diaElemUInteger ctlMaxb(&_maxBitrate, QT_TR_NOOP("Ma_x. bitrate:"), 100, 9000);
+	diaElemUInteger ctlMinb(&_minBitrate, QT_TR_NOOP("Mi_n. bitrate:"), 0, 9000);
+	diaElemToggle ctlXvid(&_useXvidRateControl, QT_TR_NOOP("_Use Xvid rate control"));
+	diaElemUInteger ctlVbv(&_bufferSize, QT_TR_NOOP("_Buffer size:"), 1, 1024);
+	diaElemMenu ctlWidescreen(&_widescreen, QT_TR_NOOP("Aspect _ratio:"), 2, wideM);
+	diaElemMenu ctlMatrix(&_userMatrix, QT_TR_NOOP("_Matrices:"), 4, matrixM);
+	diaElemUInteger ctlGop(&_gopSize, QT_TR_NOOP("_GOP size:"), 1, 30);
+	diaElemMenu ctlInterW(&_interlaced, QT_TR_NOOP("_Interlacing:"), 3, interM);
 	diaElem *elmGeneral[9]= {&ctlBitrate, &ctlMinb, &ctlMaxb, &ctlXvid, &ctlVbv, &ctlWidescreen, &ctlInterW, &ctlMatrix, &ctlGop};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 9);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 9, elmGeneral);
+	diaElemTabs tabGeneral(QT_TR_NOOP("Settings"), 9, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("avcodec MPEG-2 Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("avcodec MPEG-2 Configuration"), 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);

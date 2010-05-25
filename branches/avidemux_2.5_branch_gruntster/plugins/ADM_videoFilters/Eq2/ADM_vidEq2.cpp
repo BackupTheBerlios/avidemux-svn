@@ -16,13 +16,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_default.h"
-#include "ADM_videoFilterDynamic.h"
-#include "DIA_factory.h"
 
 #include <math.h>
 
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
+#include "ADM_videoFilterDynamic.h"
+#include "DIA_factory.h"
 #include "ADM_vidEq2.h"
+
 static FILTER_PARAM Eq2Param={8,{"contrast","brightness","saturation",
                                 "gamma","gamma_weight","rgamma","ggamma","bgamma"}};
 

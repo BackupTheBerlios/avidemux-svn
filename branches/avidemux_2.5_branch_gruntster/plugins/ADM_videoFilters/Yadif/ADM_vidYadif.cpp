@@ -27,9 +27,10 @@
 */
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
-//************************************************
+
 #define MIN(a,b) ((a) > (b) ? (b) : (a))
 #define MAX(a,b) ((a) < (b) ? (b) : (a))
 #define ABS(a) ((a) > 0 ? (a) : (-(a)))

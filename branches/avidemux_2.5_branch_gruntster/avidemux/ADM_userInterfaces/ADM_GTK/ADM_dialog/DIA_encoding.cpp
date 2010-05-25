@@ -9,9 +9,9 @@
 
 #include <math.h>
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "prefs.h"
-
 #include "DIA_coreToolkit.h"
 #include "ADM_libraries/ADM_utilities/avidemutils.h"
 #include "ADM_userInterfaces/ADM_commonUI/DIA_working.h"

@@ -36,9 +36,10 @@
 //         20/07/2002 - ver 2.0  - Avisynth filter coded (from scratch)
 
 #include <math.h>
-#include "ADM_default.h"
-#include "ADM_videoFilterDynamic.h"
 
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
+#include "ADM_videoFilterDynamic.h"
 #include "ADM_vidCNR2_param.h"
 
 //#define SUBST 1

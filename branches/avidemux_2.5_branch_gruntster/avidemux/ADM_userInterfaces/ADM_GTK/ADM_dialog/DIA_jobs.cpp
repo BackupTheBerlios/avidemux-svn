@@ -1,3 +1,4 @@
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_coreToolkit.h"
 

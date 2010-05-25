@@ -42,6 +42,7 @@
 */
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 
 #define aprintf(...) {}

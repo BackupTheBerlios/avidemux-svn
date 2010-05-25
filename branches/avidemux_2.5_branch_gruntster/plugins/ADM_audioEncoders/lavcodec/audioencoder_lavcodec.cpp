@@ -17,16 +17,12 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
 #include "audioencoder.h"
 #include "audioencoderInternal.h"
-//
-
-
 #include "ADM_lavcodec.h"
-
-
 
 #define Join(x,y) x##_##y
 #if defined(ADM_LAV_MP2) && !defined(ADM_LAV_AC3)
@@ -208,28 +204,23 @@ uint8_t	AUDMEncoder_Lavcodec::getPacket(uint8_t *dest, uint32_t *len, uint32_t *
 */
 uint8_t configure (void)
 {
- int ret=0;
+	diaMenuEntry bitrateM[]={
+		BITRATE(56),
+		BITRATE(64),
+		BITRATE(80),
+		BITRATE(96),
+		BITRATE(112),
+		BITRATE(128),
+		BITRATE(160),
+		BITRATE(192),
+		BITRATE(224),
+		BITRATE(384)
+	};
 
-    diaMenuEntry bitrateM[]={
-                              BITRATE(56),
-                              BITRATE(64),
-                              BITRATE(80),
-                              BITRATE(96),
-                              BITRATE(112),
-                              BITRATE(128),
-                              BITRATE(160),
-                              BITRATE(192),
-                              BITRATE(224),
-                              BITRATE(384)
-                          };
-    diaElemMenu bitrate(&(lavConfig.bitrate),   QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
-  
-    
+	diaElemMenu bitrate(&(lavConfig.bitrate), QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
+	diaElem *elems[] = {&bitrate};
 
-    diaElem *elems[]={&bitrate};
-    
-    return ( diaFactoryRun(QT_TR_NOOP("Aften Configuration"),1,elems));
-    
+	return diaFactoryRun(QT_TR_NOOP("Aften Configuration"), 1, elems);
 }	
 // EOF
 

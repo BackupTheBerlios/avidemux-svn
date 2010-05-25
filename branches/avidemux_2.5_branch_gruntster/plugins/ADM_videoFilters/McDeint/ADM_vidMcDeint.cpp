@@ -22,6 +22,7 @@
 */
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_lavcodec.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidMcDeint_param.h"

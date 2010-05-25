@@ -13,8 +13,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "ADM_plugin/ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_factory.h"
+
 namespace ADM_GtkFactory
 {
 struct diaElemBitrateData

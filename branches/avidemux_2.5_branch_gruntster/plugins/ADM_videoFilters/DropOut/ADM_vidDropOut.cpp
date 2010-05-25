@@ -16,9 +16,11 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidDropOut.h"
 #include "DIA_factory.h"
+
 #define aprintf(...) {}
 static FILTER_PARAM dropParam={1,{"threshold"}};
 

@@ -21,10 +21,10 @@ Same idea as for avisynth separatefield
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidFieldUtil.h"
 #include "ADM_vidSeparateField.h"
-
 
 static FILTER_PARAM swapParam={0,{""}};
 

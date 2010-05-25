@@ -17,6 +17,7 @@
  ***************************************************************************/
 #include <math.h>
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
 #include "audioencoder.h"

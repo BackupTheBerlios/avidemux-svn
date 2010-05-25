@@ -16,8 +16,9 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-//********** Class Definition ************
+
  class ADMVideoFlipV : public AVDMGenericVideoStream 
  {
 

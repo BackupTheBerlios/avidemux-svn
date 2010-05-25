@@ -14,11 +14,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
 #include "ADM_vidConvolution.hxx"
-
 
 static FILTER_PARAM convParam={2,{"luma","chroma"}};
 VF_DEFINE_FILTER(AVDMFastVideoSharpen,convParam,

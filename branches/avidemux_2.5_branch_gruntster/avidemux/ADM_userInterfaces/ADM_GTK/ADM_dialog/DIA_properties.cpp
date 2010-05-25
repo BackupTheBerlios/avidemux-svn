@@ -3,12 +3,12 @@
  */
 #include <math.h>
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
-
 #include "avidemutils.h"
 #include "ADM_video/ADM_vidMisc.h"
-
 #include "avi_vars.h"
+
 #define FILL_ENTRY(x) gtk_label_set_text((GtkLabel *) lookup_widget(dialog,#x),text);
 #define SET_YES(x,y) gtk_label_set_text((GtkLabel *) lookup_widget(dialog,#x),yesno[y])
 #define DISABLE_WIDGET(x) gtk_widget_set_sensitive(lookup_widget(dialog,#x), false);

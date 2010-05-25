@@ -31,11 +31,13 @@
 **   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#include "ADM_default.h"
-#include "ADM_videoFilterDynamic.h"
 #include <math.h>
 
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
+#include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
+
 #define aprintf(...) {}
 
 #define min MIN

@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidPalShift.h"
 #include "DIA_factory.h"

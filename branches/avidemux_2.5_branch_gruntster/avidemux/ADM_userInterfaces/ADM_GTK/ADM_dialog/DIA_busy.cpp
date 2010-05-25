@@ -18,9 +18,8 @@
  *                                                                         *
  ***************************************************************************/
 
-
+#include "config.h"
 #include "ADM_toolkitGtk.h"
-
 #include "DIA_busy.h"
 
 static GtkWidget	*create_dialog1 (void);

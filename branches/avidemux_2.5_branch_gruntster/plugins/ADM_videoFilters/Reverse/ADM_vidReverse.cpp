@@ -8,8 +8,8 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 
 class AVDM_Reverse : public AVDMGenericVideoStream
 {

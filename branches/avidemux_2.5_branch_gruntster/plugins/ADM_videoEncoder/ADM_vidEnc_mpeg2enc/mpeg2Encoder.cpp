@@ -17,6 +17,7 @@
 #include <libxml/tree.h>
 
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "mpeg2Encoder.h"
 #include "format_codes.h"
 
@@ -74,43 +75,43 @@ int Mpeg2Encoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 	loadSettings(&_encodeOptions, &_options);
 
 	diaMenuEntry streamM[] = {		
-		{0, "DVD"},
-		{1, "Super Video CD"}};
+		{0, QT_TR_NOOP("DVD")},
+		{1, QT_TR_NOOP("Super Video CD")}};
 
 	diaMenuEntry wideM[] = {
-		{0, "4:3"},
-		{1, "16:9"}};
+		{0, QT_TR_NOOP("4:3")},
+		{1, QT_TR_NOOP("16:9")}};
 
 	diaMenuEntry matrixM[]={
-		{0, "Default"},
-		{1, "TMPGEnc"},
-		{2, "Anime"},
-		{3, "KVCD"}
+		{0, QT_TR_NOOP("Default")},
+		{1, QT_TR_NOOP("TMPGEnc")},
+		{2, QT_TR_NOOP("Anime")},
+		{3, QT_TR_NOOP("KVCD")}
 	};
 
 	diaMenuEntry interM[]={
-		{0, "Progressive"},
-		{1, "Interlaced BFF"},
-		{2, "Interlaced TFF"}
+		{0, QT_TR_NOOP("Progressive")},
+		{1, QT_TR_NOOP("Interlaced BFF")},
+		{2, QT_TR_NOOP("Interlaced TFF")}
 	};
 
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
-	diaElemUInteger ctlMaxb(&_maxBitrate, "Ma_x. bitrate:", 100, 9000);
-	diaElemUInteger ctlSplitFile(&_splitFile, "New sequence every (MB):", 400, 4096);
-	diaElemMenu ctlStreamType(&_streamType, "Stream _type:", 2, streamM);
-	diaElemMenu ctlWidescreen(&_widescreen, "Aspect _ratio:", 2, wideM);
-	diaElemMenu ctlMatrix(&_userMatrix, "_Matrices:", 4, matrixM);
-	diaElemMenu ctlInterW(&_interlaced, "_Interlacing:", 3, interM);
+	diaElemUInteger ctlMaxb(&_maxBitrate, QT_TR_NOOP("Ma_x. bitrate:"), 100, 9000);
+	diaElemUInteger ctlSplitFile(&_splitFile, QT_TR_NOOP("New sequence every (MB):"), 400, 4096);
+	diaElemMenu ctlStreamType(&_streamType, QT_TR_NOOP("Stream _type:"), 2, streamM);
+	diaElemMenu ctlWidescreen(&_widescreen, QT_TR_NOOP("Aspect _ratio:"), 2, wideM);
+	diaElemMenu ctlMatrix(&_userMatrix, QT_TR_NOOP("_Matrices:"), 4, matrixM);
+	diaElemMenu ctlInterW(&_interlaced, QT_TR_NOOP("_Interlacing:"), 3, interM);
 	diaElem *elmGeneral[7] = {&ctlBitrate, &ctlMaxb, &ctlSplitFile, &ctlStreamType, &ctlWidescreen, &ctlInterW, &ctlMatrix};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 7);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 7, elmGeneral);
+	diaElemTabs tabGeneral(QT_TR_NOOP("Settings"), 7, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("mpeg2enc Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("mpeg2enc Configuration"), 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);

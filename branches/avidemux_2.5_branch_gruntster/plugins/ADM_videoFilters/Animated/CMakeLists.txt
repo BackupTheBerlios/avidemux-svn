@@ -1,9 +1,9 @@
 INCLUDE(vf_plugin)
 
 
-SET(ADM_vf_vflip_SRCS ADM_vidFlipV.cpp)
+SET(ADM_vf_animated_SRCS ADM_vidAnimated.cpp)
 
-ADD_LIBRARY(ADM_vf_vflip SHARED ${ADM_vf_vflip_SRCS})
+ADD_LIBRARY(ADM_vf_animated SHARED ${ADM_vf_animated_SRCS})
 
-INIT_VIDEOFILTER_PLUGIN(ADM_vf_vflip)
-INSTALL_VIDEOFILTER(ADM_vf_vflip)
+INIT_VIDEOFILTER_PLUGIN(ADM_vf_animated)
+INSTALL_VIDEOFILTER(ADM_vf_animated)

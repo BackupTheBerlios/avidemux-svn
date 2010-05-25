@@ -18,6 +18,7 @@
 #include <iomanip>
 
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "dvEncoder.h"
 #include "DIA_coreToolkit.h"
 
@@ -70,7 +71,7 @@ int DVEncoder::open(vidEncVideoProperties *properties)
 			std::string msg;
 			std::stringstream out;
 			
-			out << "The DV encoder only accepts the following profiles:";
+			out << QT_TR_NOOP("The DV encoder only accepts the following profiles:");
 
 			for (int i = 0; i < profileCount; i++)
 			{
@@ -81,7 +82,7 @@ int DVEncoder::open(vidEncVideoProperties *properties)
 			ret = ADM_VIDENC_ERR_FAILED;
 			msg = out.str();
 
-			GUI_Error_HIG("Incompatible settings", msg.c_str());
+			GUI_Error_HIG(QT_TR_NOOP("Incompatible settings"), msg.c_str());
 		}
 	}
 

@@ -11,6 +11,7 @@
 //
 //
 
+#include "ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "ADM_vidCNR2_param.h"
 

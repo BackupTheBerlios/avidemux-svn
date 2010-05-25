@@ -19,17 +19,13 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
 #include "ADM_toolkitGtk.h"
-
-
+#include "ADM_plugin_translate.h"
 #include "ADM_image.h"
 #include "ADM_videoFilter.h"
 #include "ADM_vidASharp_param.h"
 #include "DIA_flyDialog.h"
 #include "DIA_flyAsharp.h"
-
 
 uint8_t DIA_getASharp(ASHARP_PARAM *param, AVDMGenericVideoStream *in);
 

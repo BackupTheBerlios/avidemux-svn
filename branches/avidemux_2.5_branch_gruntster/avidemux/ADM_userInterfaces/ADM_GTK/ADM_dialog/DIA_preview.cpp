@@ -19,10 +19,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "ADM_videoFilter.h"
-
-
 #include "DIA_flyDialog.h"
 #include "DIA_flyPreview.h"
 

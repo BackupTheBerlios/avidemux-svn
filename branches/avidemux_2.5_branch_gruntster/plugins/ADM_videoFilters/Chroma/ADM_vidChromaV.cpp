@@ -16,14 +16,11 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "ADM_vidChroma.h"
 
-
 static FILTER_PARAM nullParam={0,{""}};
-
-
 
 VF_DEFINE_FILTER ( ADMVideoChromaV,nullParam,
                    chromav,
@@ -32,12 +29,9 @@ VF_DEFINE_FILTER ( ADMVideoChromaV,nullParam,
                    VF_COLORS,
                    QT_TR_NOOP ( "Keep chroma V only." ) );
 
-
-
 char *ADMVideoChromaV::printConf( void )
 {
- 	ADM_FILTER_DECLARE_CONF(" chroma v only");
-        
+ 	ADM_FILTER_DECLARE_CONF(" chroma v only");        
 }
 
 //_______________________________________________________________

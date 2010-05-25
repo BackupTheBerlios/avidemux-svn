@@ -13,9 +13,8 @@
  ***************************************************************************/
 #include <math.h>
 
-#include <math.h>
-
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
 
@@ -23,8 +22,6 @@
 #include "audioencoderInternal.h"
 #include "audioencoder_vorbis_param.h"
 #include "audioencoder_vorbis.h"
-
-
 #include "vorbis/vorbisenc.h"
 
 #define OPTIONS (twolame_options_struct *)_twolameOptions
@@ -287,50 +284,40 @@ uint8_t	AUDMEncoder_Vorbis::getPacket(uint8_t *dest, uint32_t *len, uint32_t *sa
 
 uint8_t configure(void)
 {
-    
-    uint32_t mmode,ppreset;
-    ELEM_TYPE_FLOAT qqual;
-    
-    
-   VORBIS_encoderParam *vParam=&vorbisParam;
-  
-    mmode=vParam->mode;
-    qqual=(ELEM_TYPE_FLOAT)vParam->quality;
-    
-    diaMenuEntry channelMode[]={
-                             {ADM_VORBIS_VBR,      QT_TR_NOOP("VBR"),NULL},
-                             {ADM_VORBIS_QUALITY,   QT_TR_NOOP("Quality based"),NULL}};
-          
-    diaElemMenu menuMode(&mmode,   QT_TR_NOOP("_Mode:"), SZT(channelMode),channelMode);
-    
+	uint32_t mmode,ppreset;
+	ELEM_TYPE_FLOAT qqual;
+	VORBIS_encoderParam *vParam=&vorbisParam;
 
-    diaMenuEntry bitrateM[]={
-                              BITRATE(56),
-                              BITRATE(64),
-                              BITRATE(80),
-                              BITRATE(96),
-                              BITRATE(112),
-                              BITRATE(128),
-                              BITRATE(160),
-                              BITRATE(192),
-                              BITRATE(224)
-                          };
-    diaElemMenu bitrate(&(vParam->bitrate),   QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
-    
-    diaElemFloat quality(&qqual,QT_TR_NOOP("_Quality:"),-1.,10.);
-    
-    
-    
-  
-      diaElem *elems[]={&menuMode,&bitrate,&quality};
-    
-  if( diaFactoryRun(QT_TR_NOOP("Vorbis Configuration"),3,elems))
-  {
-    vParam->mode=(ADM_VORBIS_MODE)mmode;
-    vParam->quality=(float)qqual;
-    return 1;
-  }
-  return 0;
-}  
+	mmode=vParam->mode;
+	qqual=(ELEM_TYPE_FLOAT)vParam->quality;
 
+	diaMenuEntry channelMode[]={
+		{ADM_VORBIS_VBR,      QT_TR_NOOP("VBR"),NULL},
+		{ADM_VORBIS_QUALITY,   QT_TR_NOOP("Quality based"),NULL}};
+
+		diaElemMenu menuMode(&mmode, QT_TR_NOOP("_Mode:"), SZT(channelMode),channelMode);
+		diaMenuEntry bitrateM[]={
+			BITRATE(56),
+			BITRATE(64),
+			BITRATE(80),
+			BITRATE(96),
+			BITRATE(112),
+			BITRATE(128),
+			BITRATE(160),
+			BITRATE(192),
+			BITRATE(224)
+		};
+		diaElemMenu bitrate(&(vParam->bitrate), QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
+		diaElemFloat quality(&qqual,QT_TR_NOOP("_Quality:"),-1.,10.);
+		diaElem *elems[]={&menuMode,&bitrate,&quality};
+
+		if (diaFactoryRun(QT_TR_NOOP("Vorbis Configuration"),3,elems))
+		{
+			vParam->mode=(ADM_VORBIS_MODE)mmode;
+			vParam->quality=(float)qqual;
+			return 1;
+		}
+
+		return 0;
+}
 // EOF

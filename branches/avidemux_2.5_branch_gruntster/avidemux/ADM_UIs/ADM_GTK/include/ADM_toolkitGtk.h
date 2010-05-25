@@ -48,12 +48,4 @@ void  UI_centreCanvasWindow(GtkWindow *window, GtkWidget *canvas, int newCanvasW
 #define RADIO_GET(widget_name) gtk_toggle_button_get_active \
 	(GTK_TOGGLE_BUTTON (WID(widget_name)))
 
-#ifdef QT_TR_NOOP
-#undef QT_TR_NOOP
-#endif
-
-#define QT_TR_NOOP(String) String // FIXME
-#warning FIXME TRANSLATE
-
-
 #endif

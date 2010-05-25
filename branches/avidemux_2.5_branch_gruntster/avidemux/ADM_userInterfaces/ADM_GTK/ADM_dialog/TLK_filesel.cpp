@@ -17,19 +17,17 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "ADM_toolkitGtk.h"
-#include "DIA_coreToolkit.h"
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
 
+#include "config.h"
+#include "ADM_toolkitGtk.h"
+#include "DIA_coreToolkit.h"
 #include "ADM_default.h"
-//#include "avi_vars.h"
-
 #include "DIA_fileSel.h"
 #include "DIA_coreUI_internal.h"
-#include "DIA_coreToolkit.h"
 #include "prefs.h"
 
 #define TH_READ 1

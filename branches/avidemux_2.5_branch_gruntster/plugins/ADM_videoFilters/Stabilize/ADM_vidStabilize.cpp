@@ -17,9 +17,9 @@
 #include <math.h>
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidStabilize.h"
-
 #include "DIA_factory.h"
 
 static FILTER_PARAM stabParam={1,{"param"}};

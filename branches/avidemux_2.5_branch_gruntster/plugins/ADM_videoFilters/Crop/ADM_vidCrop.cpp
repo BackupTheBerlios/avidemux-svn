@@ -19,12 +19,13 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
-
-
 #include "ADM_vidCrop_param.h"
+
 class  AVDMVideoStreamCrop:public AVDMGenericVideoStream
  {
 

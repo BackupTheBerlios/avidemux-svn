@@ -18,6 +18,7 @@
 #include <libxml/tree.h>
 
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_coreToolkit.h"
 #include "h263Encoder.h"
 
@@ -193,49 +194,49 @@ int H263Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 	loadSettings(&_encodeOptions, &_options);
 
 	diaMenuEntry meE[] = {
-		{0, "None"},
-		{1, "Full"},
-		{2, "Log"},
-		{3, "Phods"},
-		{4, "EPZS"}};
+		{0, QT_TR_NOOP("None")},
+		{1, QT_TR_NOOP("Full")},
+		{2, QT_TR_NOOP("Log")},
+		{3, QT_TR_NOOP("Phods")},
+		{4, QT_TR_NOOP("EPZS")}};
 
 	diaMenuEntry qzE[] = {
-		{0, "H.263"},
-		{1, "MPEG"}};
+		{0, QT_TR_NOOP("H.263")},
+		{1, QT_TR_NOOP("MPEG")}};
 
 	diaMenuEntry rdE[] = {
-		{0, "Sum of Absolute Differences"},
-		{1, "Fewest Bits"},
-		{2, "Rate Distortion"}};
+		{0, QT_TR_NOOP("Sum of Absolute Differences")},
+		{1, QT_TR_NOOP("Fewest Bits")},
+		{2, QT_TR_NOOP("Rate Distortion")}};
 
 	// Encoding mode
 	diaElemBitrate ctlBitrate(&_bitrateParam, NULL);
 		
 	diaElem *diamode[] = {&ctlBitrate};
-	diaElemTabs tabMode("Encoding Mode", 1, diamode);
+	diaElemTabs tabMode(QT_TR_NOOP("Encoding Mode"), 1, diamode);
 
 	// Motion Estimation
-	diaElemMenu ctlMatrices(&_motionEst, "Motion Estimation Method:", 5, meE);
-	diaElemUInteger ctlMaxBFrames(&_maxBFrames, "_Maximum Consecutive B-frames:", 0, 32);
-	diaElemToggle ctl4MV(&_4MV, "4 _Motion Vector");
-	diaElemToggle ctlQpel(&_qpel, "_Quarter Pixel");
-	diaElemToggle ctlGmc(&_gmc, "_Global Motion Compensation");
+	diaElemMenu ctlMatrices(&_motionEst, QT_TR_NOOP("Motion Estimation Method:"), 5, meE);
+	diaElemUInteger ctlMaxBFrames(&_maxBFrames, QT_TR_NOOP("_Maximum Consecutive B-frames:"), 0, 32);
+	diaElemToggle ctl4MV(&_4MV, QT_TR_NOOP("4 _Motion Vector"));
+	diaElemToggle ctlQpel(&_qpel, QT_TR_NOOP("_Quarter Pixel"));
+	diaElemToggle ctlGmc(&_gmc, QT_TR_NOOP("_Global Motion Compensation"));
 
 	diaElem *diaME[] = {&ctlMatrices, &ctlMaxBFrames, &ctl4MV, &ctlQpel, &ctlGmc};
-	diaElemTabs tabME("Motion Estimation", 5, diaME);
+	diaElemTabs tabME(QT_TR_NOOP("Motion Estimation"), 5, diaME);
 
 	// Quantisation
-	diaElemMenu ctlQuantType(&_quantType, "_Quantisation Type:", 2, qzE);
-	diaElemMenu ctlMbDecision(&_mbDecision, "_Macroblock Decision Mode:", 3, rdE);
-	diaElemUInteger ctlQuantMin(&_minQuantiser, "Mi_nimum Quantiser:", 1, 31);
-	diaElemUInteger ctlQuantMax(&_maxQuantiser, "Ma_ximum Quantiser:", 1, 31);
-	diaElemUInteger ctlQuantDiff(&_maxQuantiserDiff, "Maximum Quantiser _Difference:", 1, 31);
-	diaElemFloat ctlQuantCompression(&_quantCompression, "_Quantiser Compression:", 0, 1);
-	diaElemFloat ctlQuantBlur(&_quantBlur, "Quantiser _Blur:", 0, 1);
-	diaElemToggle ctlTrellis(&_trellis, "_Trellis Quantisation");
+	diaElemMenu ctlQuantType(&_quantType, QT_TR_NOOP("_Quantisation Type:"), 2, qzE);
+	diaElemMenu ctlMbDecision(&_mbDecision, QT_TR_NOOP("_Macroblock Decision Mode:"), 3, rdE);
+	diaElemUInteger ctlQuantMin(&_minQuantiser, QT_TR_NOOP("Mi_nimum Quantiser:"), 1, 31);
+	diaElemUInteger ctlQuantMax(&_maxQuantiser, QT_TR_NOOP("Ma_ximum Quantiser:"), 1, 31);
+	diaElemUInteger ctlQuantDiff(&_maxQuantiserDiff, QT_TR_NOOP("Maximum Quantiser _Difference:"), 1, 31);
+	diaElemFloat ctlQuantCompression(&_quantCompression, QT_TR_NOOP("_Quantiser Compression:"), 0, 1);
+	diaElemFloat ctlQuantBlur(&_quantBlur, QT_TR_NOOP("Quantiser _Blur:"), 0, 1);
+	diaElemToggle ctlTrellis(&_trellis, QT_TR_NOOP("_Trellis Quantisation"));
 
 	diaElem *diaQze[] = {&ctlQuantType, &ctlMbDecision, &ctlQuantMin, &ctlQuantMax, &ctlQuantDiff, &ctlQuantCompression, &ctlQuantBlur, &ctlTrellis};
-	diaElemTabs tabQz("Quantisation", 8, diaQze);
+	diaElemTabs tabQz(QT_TR_NOOP("Quantisation"), 8, diaQze);
 
 	diaElemTabs *tabs[] = {&tabMode, &tabME, &tabQz};
 	int controlCount = 0;
@@ -259,7 +260,7 @@ int H263Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 		changedConfig, serializeConfig, diaAll, controlCount);
 	diaElem *elmHeader[] = {&ctlConfigMenu};
 
-	if (diaFactoryRunTabs("avcodec H.263 Configuration", 1, elmHeader, 3, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("avcodec H.263 Configuration"), 1, elmHeader, 3, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);
@@ -467,7 +468,7 @@ int H263Encoder::open(vidEncVideoProperties *properties)
 			std::string msg;
 			std::stringstream out;
 			
-			out << "The H.263 encoder only accepts the following resolutions:";
+			out << QT_TR_NOOP("The H.263 encoder only accepts the following resolutions:");
 
 			for (int i = 0; i < profileCount; i++)
 				out << "\n" << h263Profiles[i].width << " x " << h263Profiles[i].height;
@@ -475,7 +476,7 @@ int H263Encoder::open(vidEncVideoProperties *properties)
 			ret = ADM_VIDENC_ERR_FAILED;
 			msg = out.str();
 
-			GUI_Error_HIG("Incompatible settings", msg.c_str());
+			GUI_Error_HIG(QT_TR_NOOP("Incompatible settings"), msg.c_str());
 		}
 	}
 

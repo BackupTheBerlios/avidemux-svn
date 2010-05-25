@@ -14,20 +14,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include "ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "DIA_flyDialog.h"
-
-
 #include "DIA_fileSel.h"
-
 #include "ADM_videoFilter.h"
 
 class ADMfont;
 #include "ADM_vidSRT.h"
 #include "DIA_flySrtPos.h"
 #include "ADM_colorspace.h"
-
-
 
 static void read( void );
 static void upload ( void );

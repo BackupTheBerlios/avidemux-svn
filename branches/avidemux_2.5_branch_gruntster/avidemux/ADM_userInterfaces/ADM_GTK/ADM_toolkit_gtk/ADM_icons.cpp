@@ -8,9 +8,9 @@
 
 #include <string.h>
 #include <stdio.h>
-
 #include <gtk/gtk.h>
 
+#include "config.h"
 #include "ADM_gladeSupport.h"
 #include "ADM_toolkitGtk.h"
 #include "ADM_default.h"

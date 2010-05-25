@@ -14,7 +14,9 @@
  *                                                                         *
  ***************************************************************************/
 #include <libxml/tree.h>
+
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "flv1Encoder.h"
 
 extern int _uiType;
@@ -84,18 +86,18 @@ int FLV1Encoder::configure(vidEncConfigParameters *configParameters, vidEncVideo
 {
 	loadSettings(&_encodeOptions, &_options);
 
-	diaElemUInteger ctlBitrate(&_bitrate, "_Bitrate (kb/s):", 100, 9000);
-	diaElemUInteger ctlGop(&_gopSize, "_GOP size:", 1, 250);
+	diaElemUInteger ctlBitrate(&_bitrate, QT_TR_NOOP("_Bitrate (kb/s):"), 100, 9000);
+	diaElemUInteger ctlGop(&_gopSize, QT_TR_NOOP("_GOP size:"), 1, 250);
 	diaElem *elmGeneral[2] = {&ctlBitrate, &ctlGop};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 2);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 2, elmGeneral);
+	diaElemTabs tabGeneral(QT_TR_NOOP("Settings"), 2, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("avcodec Sorenson Spark Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("avcodec Sorenson Spark Configuration"), 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);

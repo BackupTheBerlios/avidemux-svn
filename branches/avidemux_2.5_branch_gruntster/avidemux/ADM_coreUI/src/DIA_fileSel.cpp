@@ -16,6 +16,7 @@
 
 #include <sys/stat.h>
 
+#include "ADM_plugin/ADM_plugin_translate.h"
 #include "ADM_default.h"
 #include "DIA_coreToolkit.h"
 #include "DIA_coreUI_internal.h"
@@ -109,9 +110,6 @@ uint8_t FileSel_SelectDir(const char *title,char *target,uint32_t max, const cha
 	ADM_assert(fileSelDescriptor);
 	return fileSelDescriptor->fileSelectDirectory(title,target,max, source);
 }
-
-#warning QT_TR_NOOP
-#define QT_TR_NOOP
 
 void FileSel_ReadWrite(SELFILE_CB *cb, int rw, const char *name, const char *actual_workbench_file)
 {

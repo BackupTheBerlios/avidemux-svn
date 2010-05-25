@@ -13,6 +13,7 @@ extern "C" int getMainNSWindow(void);
 #include "ADM_inttype.h"
 #include "ADM_files.h"
 #include "ADM_encoder/ADM_pluginLoad.h"
+#include "ADM_translate.h"
 
 extern GtkWidget *guiRootWindow;
 
@@ -21,21 +22,25 @@ extern GtkWidget *guiRootWindow;
 
 extern void initGetText(void);
 
-void initTranslator(void)
-{
-	initGetText();
-}
-
 const char* translate(const char *__domainname, const char *__msgid)
 {
 	return (const char*)dgettext(PACKAGE, __msgid);
 }
-#else
-void initTranslator(void) {}
 
+void initTranslator(void)
+{
+	initGetText();
+	ADM_translateInit(translate);
+}
+#else
 const char* translate(const char *__domainname, const char *__msgid)
 {
 	return __msgid;
+}
+
+void initTranslator(void)
+{
+	ADM_translateInit(translate);
 }
 #endif
 

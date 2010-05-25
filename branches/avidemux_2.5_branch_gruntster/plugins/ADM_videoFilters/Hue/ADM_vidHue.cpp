@@ -11,11 +11,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include <math.h>
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_factory.h"
 #include "ADM_vidHue.h"
-#include "math.h"
+
 static FILTER_PARAM HueParam={2,{"hue","saturation"}};
 
 extern uint8_t DIA_getHue(Hue_Param *param, AVDMGenericVideoStream *in);

@@ -9,8 +9,9 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
-#include "ADM_toolkitGtk.h"
 
+#include "config.h"
+#include "ADM_toolkitGtk.h"
 
 static GtkWidget	*create_dialog1 (const char *);
 //	Return 1 if resume, 0 if ignore

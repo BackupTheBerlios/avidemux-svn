@@ -15,6 +15,7 @@
 #include <math.h>
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
 
@@ -201,40 +202,38 @@ uint8_t	AUDMEncoder_Twolame::getPacket(uint8_t *dest, uint32_t *len, uint32_t *s
 */
 uint8_t configure (void)
 {
- int ret=0;
-  
-  uint32_t m=(uint32_t)twolameParam.mode;  
-    
-    diaMenuEntry channelMode[] = 
-    {
-        {ADM_STEREO, QT_TR_NOOP ("Stereo"), NULL},
-        {ADM_JSTEREO, QT_TR_NOOP ("Joint stereo"), NULL},
-        {ADM_MONO, QT_TR_NOOP ("Mono"), NULL}
-    };
-    diaMenuEntry bitrateM[]={
-                              BITRATE(56),
-                              BITRATE(64),
-                              BITRATE(80),
-                              BITRATE(96),
-                              BITRATE(112),
-                              BITRATE(128),
-                              BITRATE(160),
-                              BITRATE(192),
-                              BITRATE(224),
-                              BITRATE(384)
-                          };
-    diaElemMenu bitrate(&(twolameParam.bitrate),   QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
-  
-    diaElemMenu menuMode (&m, QT_TR_NOOP ("C_hannel mode:"),SZT (channelMode), channelMode);
+	int ret=0;
 
-    diaElem *elems[]={&bitrate,&menuMode};
-    
-    if( diaFactoryRun(QT_TR_NOOP("TwoLame Configuration"),2,elems))
-    {
-        twolameParam.mode=(ADM_mode)m;
-        return 1;
-    }
+	uint32_t m=(uint32_t)twolameParam.mode;  
 
-    return 0;
+	diaMenuEntry channelMode[] = 
+	{
+		{ADM_STEREO, QT_TR_NOOP ("Stereo"), NULL},
+		{ADM_JSTEREO, QT_TR_NOOP ("Joint stereo"), NULL},
+		{ADM_MONO, QT_TR_NOOP ("Mono"), NULL}
+	};
+	diaMenuEntry bitrateM[]={
+		BITRATE(56),
+		BITRATE(64),
+		BITRATE(80),
+		BITRATE(96),
+		BITRATE(112),
+		BITRATE(128),
+		BITRATE(160),
+		BITRATE(192),
+		BITRATE(224),
+		BITRATE(384)
+	};
+	diaElemMenu bitrate(&(twolameParam.bitrate),   QT_TR_NOOP("_Bitrate:"), SZT(bitrateM),bitrateM);
+	diaElemMenu menuMode (&m, QT_TR_NOOP ("C_hannel mode:"),SZT (channelMode), channelMode);
+	diaElem *elems[]={&bitrate,&menuMode};
+
+	if( diaFactoryRun(QT_TR_NOOP("TwoLame Configuration"),2,elems))
+	{
+		twolameParam.mode=(ADM_mode)m;
+		return 1;
+	}
+
+	return 0;
 }
 // EOF

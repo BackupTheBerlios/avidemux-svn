@@ -15,12 +15,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "ADM_toolkitGtk.h"
 #include <cmath>
 
+#include "config.h"
+#include "ADM_toolkitGtk.h"
 #include "fourcc.h"
-
-
 #include "avi_vars.h"
 
 #ifdef HAVE_ENCODER
@@ -33,9 +32,6 @@
 #include "DIA_flySwissArmyKnife.h"
 #include "DIA_factory.h"
 #include "ADM_videoFilter_internal.h"
-
-#undef _
-#define _(_s) QT_TR_NOOP(_s)
 
 /********************************************************************/
 
@@ -1084,9 +1080,8 @@ create_swiss_army_knife_dialog (void)
   GtkWidget *okButton;
 
   swiss_army_knife_dialog = gtk_dialog_new ();
-  //                                                NO NEED TO "FIX" THAT _("...")!!
-  //                                                see handy macro near top of file.
-  gtk_window_set_title (GTK_WINDOW (swiss_army_knife_dialog), _("Swiss Army Knife"));
+ 
+  gtk_window_set_title (GTK_WINDOW (swiss_army_knife_dialog), QT_TR_NOOP("Swiss Army Knife"));
   gtk_window_set_type_hint (GTK_WINDOW (swiss_army_knife_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialogVbox = GTK_DIALOG (swiss_army_knife_dialog)->vbox;
@@ -1113,7 +1108,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (operationHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), operationHbox, TRUE, TRUE, 0);
 
-  operationLabel = gtk_label_new_with_mnemonic (_("Select _Operation on each pixel P and input A:   "));
+  operationLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Select _Operation on each pixel P and input A:   "));
   gtk_widget_show (operationLabel);
   gtk_box_pack_start (GTK_BOX (operationHbox), operationLabel, FALSE, FALSE, 0);
 
@@ -1125,7 +1120,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (inputTypeHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), inputTypeHbox, TRUE, TRUE, 0);
 
-  inputTypeLabel = gtk_label_new_with_mnemonic (_("Input _Type:   "));
+  inputTypeLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Input _Type:   "));
   gtk_widget_show (inputTypeLabel);
   gtk_box_pack_start (GTK_BOX (inputTypeHbox), inputTypeLabel, FALSE, FALSE, 0);
 
@@ -1144,11 +1139,11 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (convolutionInputFileHbox);
   gtk_box_pack_start (GTK_BOX (convolutionSettingsVbox), convolutionInputFileHbox, TRUE, TRUE, 0);
 
-  convolutionInputFileLabel = gtk_label_new_with_mnemonic (_("Input _File (convolution kernel):   "));
+  convolutionInputFileLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Input _File (convolution kernel):   "));
   gtk_widget_show (convolutionInputFileLabel);
   gtk_box_pack_start (GTK_BOX (convolutionInputFileHbox), convolutionInputFileLabel, FALSE, FALSE, 0);
 
-  convolutionInputFileChooser = gtk_file_chooser_button_new (_("Select Convolution Kernel File"), GTK_FILE_CHOOSER_ACTION_OPEN);
+  convolutionInputFileChooser = gtk_file_chooser_button_new (QT_TR_NOOP("Select Convolution Kernel File"), GTK_FILE_CHOOSER_ACTION_OPEN);
   gtk_widget_show (convolutionInputFileChooser);
   gtk_box_pack_start (GTK_BOX (convolutionInputFileHbox), convolutionInputFileChooser, TRUE, TRUE, 0);
 
@@ -1159,11 +1154,11 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (imageInputFileHbox);
   gtk_box_pack_start (GTK_BOX (imageFileSettingsVbox), imageInputFileHbox, TRUE, TRUE, 0);
 
-  imageInputFileLabel = gtk_label_new_with_mnemonic (_("Input _File (image file):   "));
+  imageInputFileLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Input _File (image file):   "));
   gtk_widget_show (imageInputFileLabel);
   gtk_box_pack_start (GTK_BOX (imageInputFileHbox), imageInputFileLabel, FALSE, FALSE, 0);
 
-  imageInputFileChooser = gtk_file_chooser_button_new (_("Select Convolution Kernel File"), GTK_FILE_CHOOSER_ACTION_OPEN);
+  imageInputFileChooser = gtk_file_chooser_button_new (QT_TR_NOOP("Select Convolution Kernel File"), GTK_FILE_CHOOSER_ACTION_OPEN);
   gtk_widget_show (imageInputFileChooser);
   gtk_box_pack_start (GTK_BOX (imageInputFileHbox), imageInputFileChooser, TRUE, TRUE, 0);
 
@@ -1185,7 +1180,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (imageFileScalingAddHbox);
   gtk_box_pack_start (GTK_BOX (imageFileScalingVbox), imageFileScalingAddHbox, TRUE, TRUE, 0);
 
-  imageFileScalingAddLabel = gtk_label_new_with_mnemonic (_("First, _add to each float pixel value:   "));
+  imageFileScalingAddLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("First, _add to each float pixel value:   "));
   gtk_widget_show (imageFileScalingAddLabel);
   gtk_box_pack_start (GTK_BOX (imageFileScalingAddHbox), imageFileScalingAddLabel, FALSE, FALSE, 0);
 
@@ -1199,7 +1194,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (imageFileScalingMultHbox);
   gtk_box_pack_start (GTK_BOX (imageFileScalingVbox), imageFileScalingMultHbox, TRUE, TRUE, 0);
 
-  imageFileScalingMultLabel = gtk_label_new_with_mnemonic (_("Then, _multiply each float pixel value by:   "));
+  imageFileScalingMultLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Then, _multiply each float pixel value by:   "));
   gtk_widget_show (imageFileScalingMultLabel);
   gtk_box_pack_start (GTK_BOX (imageFileScalingMultHbox), imageFileScalingMultLabel, FALSE, FALSE, 0);
 
@@ -1213,7 +1208,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (imageFileScalingMinVbox);
   gtk_box_pack_start (GTK_BOX (imageFileScalingVbox), imageFileScalingMinVbox, TRUE, TRUE, 0);
 
-  imageFileScalingMinLabel = gtk_label_new_with_mnemonic (_("Mi_nimum loaded pixel value (will be scaled to 0):"));
+  imageFileScalingMinLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Mi_nimum loaded pixel value (will be scaled to 0):"));
   gtk_widget_show (imageFileScalingMinLabel);
   gtk_box_pack_start (GTK_BOX (imageFileScalingMinVbox), imageFileScalingMinLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (imageFileScalingMinLabel), 0, 0.5);
@@ -1239,7 +1234,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (imageFileScalingMaxVbox);
   gtk_box_pack_start (GTK_BOX (imageFileScalingVbox), imageFileScalingMaxVbox, TRUE, TRUE, 0);
 
-  imageFileScalingMaxLabel = gtk_label_new_with_mnemonic (_("Ma_ximum loaded pixel value (will be scaled to 255):"));
+  imageFileScalingMaxLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Ma_ximum loaded pixel value (will be scaled to 255):"));
   gtk_widget_show (imageFileScalingMaxLabel);
   gtk_box_pack_start (GTK_BOX (imageFileScalingMaxVbox), imageFileScalingMaxLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (imageFileScalingMaxLabel), 0, 0.5);
@@ -1261,7 +1256,7 @@ create_swiss_army_knife_dialog (void)
   gtk_box_pack_start (GTK_BOX (imageFileScalingMaxHbox), imageFileScalingMaxSpinner, FALSE, TRUE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (imageFileScalingMaxSpinner), TRUE);
 
-  imageFileScalingFrameLabel = gtk_label_new (_("Pixel Value Scaling as Image File is Loaded"));
+  imageFileScalingFrameLabel = gtk_label_new (QT_TR_NOOP("Pixel Value Scaling as Image File is Loaded"));
   gtk_widget_show (imageFileScalingFrameLabel);
   gtk_frame_set_label_widget (GTK_FRAME (imageFileScalingFrame), imageFileScalingFrameLabel);
   gtk_label_set_use_markup (GTK_LABEL (imageFileScalingFrameLabel), TRUE);
@@ -1273,7 +1268,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (constantValueHbox);
   gtk_box_pack_start (GTK_BOX (constantSettingsVbox), constantValueHbox, TRUE, TRUE, 0);
 
-  constantValueLabel = gtk_label_new_with_mnemonic (_("Input _Constant:      "));
+  constantValueLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Input _Constant:      "));
   gtk_widget_show (constantValueLabel);
   gtk_box_pack_start (GTK_BOX (constantValueHbox), constantValueLabel, FALSE, FALSE, 0);
 
@@ -1290,7 +1285,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (rollingAvgAlphaHbox);
   gtk_box_pack_start (GTK_BOX (rollingAvgSettingsVbox), rollingAvgAlphaHbox, TRUE, TRUE, 0);
 
-  rollingAvgAlphaLabel = gtk_label_new_with_mnemonic (_("Memory constant _alpha:   "));
+  rollingAvgAlphaLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Memory constant _alpha:   "));
   gtk_widget_show (rollingAvgAlphaLabel);
   gtk_box_pack_start (GTK_BOX (rollingAvgAlphaHbox), rollingAvgAlphaLabel, FALSE, TRUE, 0);
 
@@ -1300,7 +1295,7 @@ create_swiss_army_knife_dialog (void)
   gtk_box_pack_start (GTK_BOX (rollingAvgAlphaHbox), rollingAvgAlphaSpinButton, FALSE, TRUE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (rollingAvgAlphaSpinButton), TRUE);
 
-  rollingAvgAlphaEqualsLabel = gtk_label_new (_(" = 1 / "));
+  rollingAvgAlphaEqualsLabel = gtk_label_new (QT_TR_NOOP(" = 1 / "));
   gtk_widget_show (rollingAvgAlphaEqualsLabel);
   gtk_box_pack_start (GTK_BOX (rollingAvgAlphaHbox), rollingAvgAlphaEqualsLabel, FALSE, FALSE, 0);
 
@@ -1314,7 +1309,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (rollingAvgLookaheadHbox);
   gtk_box_pack_start (GTK_BOX (rollingAvgSettingsVbox), rollingAvgLookaheadHbox, TRUE, TRUE, 0);
 
-  rollingAvgLookaheadLabel1 = gtk_label_new_with_mnemonic (_("_Look ahead "));
+  rollingAvgLookaheadLabel1 = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Look ahead "));
   gtk_widget_show (rollingAvgLookaheadLabel1);
   gtk_box_pack_start (GTK_BOX (rollingAvgLookaheadHbox), rollingAvgLookaheadLabel1, FALSE, FALSE, 0);
   gtk_label_set_justify (GTK_LABEL (rollingAvgLookaheadLabel1), GTK_JUSTIFY_RIGHT);
@@ -1325,7 +1320,7 @@ create_swiss_army_knife_dialog (void)
   gtk_box_pack_start (GTK_BOX (rollingAvgLookaheadHbox), rollingAvgLookaheadSpinButton, FALSE, TRUE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (rollingAvgLookaheadSpinButton), TRUE);
 
-  rollingAvgLookaheadLabel2 = gtk_label_new_with_mnemonic (_(" frames.  (Anything > 0 will be slower.)"));
+  rollingAvgLookaheadLabel2 = gtk_label_new_with_mnemonic (QT_TR_NOOP(" frames.  (Anything > 0 will be slower.)"));
   gtk_widget_show (rollingAvgLookaheadLabel2);
   gtk_box_pack_start (GTK_BOX (rollingAvgLookaheadHbox), rollingAvgLookaheadLabel2, FALSE, FALSE, 0);
 
@@ -1337,17 +1332,17 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (rollingAvgInitHbox1);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitVbox), rollingAvgInitHbox1, TRUE, TRUE, 0);
 
-  rollingAvgInitLabel1 = gtk_label_new_with_mnemonic (_("_Initial average (\"head start\") is "));
+  rollingAvgInitLabel1 = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Initial average (\"head start\") is "));
   gtk_widget_show (rollingAvgInitLabel1);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox1), rollingAvgInitLabel1, FALSE, FALSE, 0);
 
   rollingAvgInitTypeMenu = gtk_combo_box_new_text ();
   gtk_widget_show (rollingAvgInitTypeMenu);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox1), rollingAvgInitTypeMenu, FALSE, TRUE, 0);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (rollingAvgInitTypeMenu), _("straight"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (rollingAvgInitTypeMenu), _("rolling"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (rollingAvgInitTypeMenu), QT_TR_NOOP("straight"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (rollingAvgInitTypeMenu), QT_TR_NOOP("rolling"));
 
-  rollingAvgInitLabel2 = gtk_label_new (_(" average"));
+  rollingAvgInitLabel2 = gtk_label_new (QT_TR_NOOP(" average"));
   gtk_widget_show (rollingAvgInitLabel2);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox1), rollingAvgInitLabel2, FALSE, FALSE, 0);
 
@@ -1355,7 +1350,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (rollingAvgInitHbox2);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitVbox), rollingAvgInitHbox2, TRUE, TRUE, 0);
 
-  rollingAvgInitLabel3 = gtk_label_new (_("      of frames "));
+  rollingAvgInitLabel3 = gtk_label_new (QT_TR_NOOP("      of frames "));
   gtk_widget_show (rollingAvgInitLabel3);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox2), rollingAvgInitLabel3, FALSE, FALSE, 0);
 
@@ -1365,7 +1360,7 @@ create_swiss_army_knife_dialog (void)
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox2), rollingAvgInitStartSpinButton, FALSE, TRUE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (rollingAvgInitStartSpinButton), TRUE);
 
-  rollingAvgInitLabel4 = gtk_label_new (_(" through "));
+  rollingAvgInitLabel4 = gtk_label_new (QT_TR_NOOP(" through "));
   gtk_widget_show (rollingAvgInitLabel4);
   gtk_box_pack_start (GTK_BOX (rollingAvgInitHbox2), rollingAvgInitLabel4, FALSE, FALSE, 0);
 
@@ -1383,7 +1378,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (biasVbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), biasVbox, TRUE, TRUE, 0);
 
-  biasLabel = gtk_label_new_with_mnemonic (_("Integer _Bias (will be added to result of selected operation):"));
+  biasLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Integer _Bias (will be added to result of selected operation):"));
   gtk_widget_show (biasLabel);
   gtk_box_pack_start (GTK_BOX (biasVbox), biasLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (biasLabel), 0, 0.5);
@@ -1423,7 +1418,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (resultScalingAddHbox);
   gtk_box_pack_start (GTK_BOX (resultScalingVbox), resultScalingAddHbox, TRUE, TRUE, 0);
 
-  resultScalingAddLabel = gtk_label_new_with_mnemonic (_("First, _add to each pixel result value:   "));
+  resultScalingAddLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("First, _add to each pixel result value:   "));
   gtk_widget_show (resultScalingAddLabel);
   gtk_box_pack_start (GTK_BOX (resultScalingAddHbox), resultScalingAddLabel, FALSE, FALSE, 0);
 
@@ -1437,7 +1432,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (resultScalingMultHbox);
   gtk_box_pack_start (GTK_BOX (resultScalingVbox), resultScalingMultHbox, TRUE, TRUE, 0);
 
-  resultScalingMultLabel = gtk_label_new_with_mnemonic (_("Then, _multiply each pixel result value by:   "));
+  resultScalingMultLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Then, _multiply each pixel result value by:   "));
   gtk_widget_show (resultScalingMultLabel);
   gtk_box_pack_start (GTK_BOX (resultScalingMultHbox), resultScalingMultLabel, FALSE, FALSE, 0);
 
@@ -1451,7 +1446,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (resultScalingMinVbox);
   gtk_box_pack_start (GTK_BOX (resultScalingVbox), resultScalingMinVbox, TRUE, TRUE, 0);
 
-  resultScalingMinLabel = gtk_label_new_with_mnemonic (_("Mi_nimum result value (will be scaled to 0):"));
+  resultScalingMinLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Mi_nimum result value (will be scaled to 0):"));
   gtk_widget_show (resultScalingMinLabel);
   gtk_box_pack_start (GTK_BOX (resultScalingMinVbox), resultScalingMinLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (resultScalingMinLabel), 0, 0.5);
@@ -1477,7 +1472,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (resultScalingMaxVbox);
   gtk_box_pack_start (GTK_BOX (resultScalingVbox), resultScalingMaxVbox, TRUE, TRUE, 0);
 
-  resultScalingMaxLabel = gtk_label_new_with_mnemonic (_("Ma_ximum result value (will be scaled to 255):"));
+  resultScalingMaxLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Ma_ximum result value (will be scaled to 255):"));
   gtk_widget_show (resultScalingMaxLabel);
   gtk_box_pack_start (GTK_BOX (resultScalingMaxVbox), resultScalingMaxLabel, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (resultScalingMaxLabel), 0, 0.5);
@@ -1499,7 +1494,7 @@ create_swiss_army_knife_dialog (void)
   gtk_box_pack_start (GTK_BOX (resultScalingMaxHbox), resultScalingMaxSpinner, FALSE, TRUE, 0);
   gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (resultScalingMaxSpinner), TRUE);
 
-  resultScalingFrameLabel = gtk_label_new (_("Pixel Value Scaling on Result of Selected Operation"));
+  resultScalingFrameLabel = gtk_label_new (QT_TR_NOOP("Pixel Value Scaling on Result of Selected Operation"));
   gtk_widget_show (resultScalingFrameLabel);
   gtk_frame_set_label_widget (GTK_FRAME (resultScalingFrame), resultScalingFrameLabel);
   gtk_label_set_use_markup (GTK_LABEL (resultScalingFrameLabel), TRUE);
@@ -1508,7 +1503,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (hseparator2);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), hseparator2, TRUE, TRUE, 0);
 
-  currentConfigDescription = gtk_label_new (_("(description of current config will go here)"));
+  currentConfigDescription = gtk_label_new (QT_TR_NOOP("(description of current config will go here)"));
   gtk_widget_show (currentConfigDescription);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), currentConfigDescription, FALSE, FALSE, 0);
   GTK_WIDGET_SET_FLAGS (currentConfigDescription, GTK_CAN_FOCUS);
@@ -1525,7 +1520,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (histogramHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), histogramHbox, TRUE, TRUE, 0);
 
-  histogramLabel = gtk_label_new_with_mnemonic (_("_Histogram every N frames (0 to disable):   "));
+  histogramLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Histogram every N frames (0 to disable):   "));
   gtk_widget_show (histogramLabel);
   gtk_box_pack_start (GTK_BOX (histogramHbox), histogramLabel, FALSE, FALSE, 0);
 
@@ -1539,7 +1534,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (debugHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), debugHbox, TRUE, TRUE, 0);
 
-  debugLabel = gtk_label_new_with_mnemonic (_("_Debugging settings (bits):   "));
+  debugLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Debugging settings (bits):   "));
   gtk_widget_show (debugLabel);
   gtk_box_pack_start (GTK_BOX (debugHbox), debugLabel, FALSE, FALSE, 0);
 
@@ -1588,7 +1583,7 @@ create_swiss_army_knife_dialog (void)
   previewDisabled = gtk_drawing_area_new ();
   gtk_box_pack_start (GTK_BOX (previewVbox), previewDisabled, TRUE, TRUE, 0);
 
-  previewLabel = gtk_label_new (_("Preview"));
+  previewLabel = gtk_label_new (QT_TR_NOOP("Preview"));
   gtk_widget_show (previewLabel);
   gtk_frame_set_label_widget (GTK_FRAME (previewFrame), previewLabel);
 
@@ -1596,7 +1591,7 @@ create_swiss_army_knife_dialog (void)
   gtk_widget_show (previewEnableButtonHbox);
   gtk_box_pack_start (GTK_BOX (previewVboxOuter), previewEnableButtonHbox, FALSE, TRUE, 5);
 
-  previewEnableButton = gtk_toggle_button_new_with_mnemonic (_("Enable Preview"));
+  previewEnableButton = gtk_toggle_button_new_with_mnemonic (QT_TR_NOOP("Enable Preview"));
   gtk_widget_show (previewEnableButton);
   gtk_box_pack_end (GTK_BOX (previewEnableButtonHbox), previewEnableButton, FALSE, FALSE, 0);
 

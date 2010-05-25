@@ -21,13 +21,12 @@
 //
 //
 
-
+#include "config.h"
 #include "ADM_toolkitGtk.h"
-
-
 #include "ADM_video/ADM_vidPartial_param.h"
 #include "ADM_videoFilter.h"
 #include "DIA_coreToolkit.h"
+
 #define SPIN_GET(x,y) {param->y= gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(x))) ;}
 #define SPIN_SET(x,y)  {gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(x)),(gfloat)param->y) ;}
 #define SGET(x) gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(WID(x))) 

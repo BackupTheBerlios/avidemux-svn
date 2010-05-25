@@ -16,12 +16,10 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_vidAddBorder.h"
-
-
-
 #include "DIA_factory.h"
 
 static FILTER_PARAM cropParam={4,{"left","right","top","bottom"}};

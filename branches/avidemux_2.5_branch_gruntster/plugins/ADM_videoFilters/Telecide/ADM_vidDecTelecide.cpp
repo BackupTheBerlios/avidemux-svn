@@ -30,9 +30,10 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include "ADM_default.h"
-#include "ADM_videoFilterDynamic.h"
 
+#include "ADM_default.h"
+#include "ADM_plugin_translate.h"
+#include "ADM_videoFilterDynamic.h"
 #include "ADM_vidDecTelecide.h"
 #include "DIA_factory.h"
 

@@ -14,11 +14,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+#include "ADM_plugin_translate.h"
 #include "ADM_toolkitGtk.h"
 #include "ADM_videoFilter.h"
 #include "ADM_vidContrast.h"
-
-
 #include "DIA_flyDialog.h"
 #include "DIA_flyContrast.h"
 

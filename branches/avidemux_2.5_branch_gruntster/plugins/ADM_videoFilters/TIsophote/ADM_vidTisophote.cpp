@@ -34,12 +34,12 @@
 */
 
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidTisophote.h"
-
 #include "DIA_factory.h"
-static FILTER_PARAM kdintParam={4,{"iterations","tStep","type","chroma"}};
 
+static FILTER_PARAM kdintParam={4,{"iterations","tStep","type","chroma"}};
 
 VF_DEFINE_FILTER(ADMVideoTIsophote,kdintParam,
     tisophote,

@@ -21,19 +21,20 @@
  ***************************************************************************/
 
 #include <math.h>
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
-
 #include "DIA_fileSel.h"
-
 #include "ADM_colorspace.h"
-
 #include "ADM_lavpp_deintparam.h"
+#include "DIA_factory.h"
+
 extern "C"
 {
 #include "libpostproc/postprocess.h"
 };
-#include "DIA_factory.h"
+
 /*
 {"al", "autolevels",            0, 1, 2, LEVEL_FIX},
 {"lb", "linblenddeint",         1, 1, 4, LINEAR_BLEND_DEINT_FILTER},

@@ -14,7 +14,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "config.h"
 #include "Q_glypheditor.h"
 #include "DIA_fileSel.h"
 #include "DIA_coreToolkit.h"

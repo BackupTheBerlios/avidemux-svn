@@ -12,16 +12,15 @@
  *                                                                         *
  ***************************************************************************/
 #include <math.h>
-
-#include "ADM_toolkitGtk.h"
-#include "ADM_default.h"
-#define aprintf(...) {}
-
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-
+#include "ADM_plugin_translate.h"
+#include "ADM_toolkitGtk.h"
+#include "ADM_default.h"
 #include "ADM_gladeSupport.h"
+
+#define aprintf(...) {}
 
 #define FILL_ENTRY(widget_name,string) 		{r=-1;   \
 gtk_editable_delete_text(GTK_EDITABLE(lookup_widget(dialog,#widget_name)), 0,-1);\

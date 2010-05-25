@@ -11,14 +11,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "ADM_toolkitGtk.h"
 
+#include "config.h"
+#include "ADM_toolkitGtk.h"
 #include "DIA_coreToolkit.h"
 #include "DIA_fileSel.h"
-
-
 #include "ADM_ocr/adm_glyph.h"
 #include "DIA_factory.h"
+#include "ADM_default.h"
+
 static GtkWidget *create_dialog1 (void);
 static admGlyph *currentGlyph=NULL;
 static GtkWidget *dialog;

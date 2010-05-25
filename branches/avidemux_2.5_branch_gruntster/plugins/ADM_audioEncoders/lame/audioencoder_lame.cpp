@@ -12,10 +12,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <lame/lame.h>
+
 #include "ADM_default.h"
+#include "ADM_plugin_translate.h"
 #include "DIA_factory.h"
 #include "DIA_coreToolkit.h"
-#include <lame/lame.h>
 #include "audioencoder.h"
 #include "audioencoderInternal.h"
 #include "audioencoder_lame_param.h"
@@ -271,8 +273,6 @@ uint8_t AUDMEncoder_Lame::getPacket (uint8_t * dest, uint32_t * len,
       @return 1 on success, 0 on failure
 
 */
-#define QT_TR_NOOP(x) x
-
 uint8_t configure (void)
 {
   int ret = 0;

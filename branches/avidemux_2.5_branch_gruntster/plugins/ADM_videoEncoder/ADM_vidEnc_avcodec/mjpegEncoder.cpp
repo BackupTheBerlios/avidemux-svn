@@ -15,6 +15,7 @@
  ***************************************************************************/
 #include <libxml/tree.h>
 #include "ADM_inttype.h"
+#include "ADM_plugin_translate.h"
 #include "mjpegEncoder.h"
 
 extern int _uiType;
@@ -81,17 +82,17 @@ int MjpegEncoder::configure(vidEncConfigParameters *configParameters, vidEncVide
 {
 	loadSettings(&_encodeOptions, &_options);
 
-	diaElemUInteger ctlQuantiser(&_quantiser, "_Quantiser:", 2, 31);
+	diaElemUInteger ctlQuantiser(&_quantiser, QT_TR_NOOP("_Quantiser:"), 2, 31);
 	diaElem *elmGeneral[1] = {&ctlQuantiser};
 
 	diaElemConfigMenu ctlConfigMenu(configName, &configType, _options.getUserConfigDirectory(), _options.getSystemConfigDirectory(),
 		changedConfig, serializeConfig, elmGeneral, 1);
 	diaElem *elmHeader[1] = {&ctlConfigMenu};
 
-	diaElemTabs tabGeneral("Settings", 1, elmGeneral);
+	diaElemTabs tabGeneral(QT_TR_NOOP("Settings"), 1, elmGeneral);
 	diaElemTabs *tabs[] = {&tabGeneral};
 
-	if (diaFactoryRunTabs("avcodec M-JPEG Configuration", 1, elmHeader, 1, tabs))
+	if (diaFactoryRunTabs(QT_TR_NOOP("avcodec M-JPEG Configuration"), 1, elmHeader, 1, tabs))
 	{
 		saveSettings(&_encodeOptions, &_options);
 		updateEncodeProperties(&_encodeOptions);

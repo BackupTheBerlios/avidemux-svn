@@ -15,11 +15,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "config.h"
 #include "ADM_toolkitGtk.h"
 #include "fourcc.h"
-
 #include "prefs.h"
-
 #include "avi_vars.h"
 
 #ifdef HAVE_ENCODER
@@ -35,9 +34,6 @@
 #include "DIA_flyParticle.h"
 #include "DIA_factory.h"
 
-
-#undef _
-#define _(_s) QT_TR_NOOP(_s)
 
 /********************************************************************/
 static GtkWidget *create_particle_dialog (void);
@@ -537,9 +533,7 @@ create_particle_dialog (void)
   GtkWidget *okButton;
 
   particle_dialog = gtk_dialog_new ();
-  //                                                NO NEED TO "FIX" THAT _("...")!!
-  //                                                see handy macro near top of file.
-  gtk_window_set_title (GTK_WINDOW (particle_dialog), _("Particle Detection"));
+  gtk_window_set_title (GTK_WINDOW (particle_dialog), QT_TR_NOOP("Particle Detection"));
   gtk_window_set_type_hint (GTK_WINDOW (particle_dialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
   dialogVbox = GTK_DIALOG (particle_dialog)->vbox;
@@ -566,7 +560,7 @@ create_particle_dialog (void)
   gtk_widget_show (minAreaHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), minAreaHbox, FALSE, TRUE, 0);
 
-  minAreaLabel = gtk_label_new_with_mnemonic (_("Mi_nimum area for a particle to be detected:    "));
+  minAreaLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Mi_nimum area for a particle to be detected:    "));
   gtk_widget_show (minAreaLabel);
   gtk_box_pack_start (GTK_BOX (minAreaHbox), minAreaLabel, FALSE, FALSE, 0);
 
@@ -580,7 +574,7 @@ create_particle_dialog (void)
   gtk_widget_show (maxAreaHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), maxAreaHbox, FALSE, TRUE, 0);
 
-  maxAreaLabel = gtk_label_new_with_mnemonic (_("Ma_ximum area for a particle to be detected:   "));
+  maxAreaLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Ma_ximum area for a particle to be detected:   "));
   gtk_widget_show (maxAreaLabel);
   gtk_box_pack_start (GTK_BOX (maxAreaHbox), maxAreaLabel, FALSE, FALSE, 0);
 
@@ -598,7 +592,7 @@ create_particle_dialog (void)
   gtk_widget_show (leftCropHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), leftCropHbox, FALSE, TRUE, 0);
 
-  leftCropLabel = gtk_label_new_with_mnemonic (_("_Left side crop (ignore this many pixels on the left):        "));
+  leftCropLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Left side crop (ignore this many pixels on the left):        "));
   gtk_widget_show (leftCropLabel);
   gtk_box_pack_start (GTK_BOX (leftCropHbox), leftCropLabel, FALSE, FALSE, 0);
 
@@ -612,7 +606,7 @@ create_particle_dialog (void)
   gtk_widget_show (rightCropHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), rightCropHbox, FALSE, TRUE, 0);
 
-  rightCropLabel = gtk_label_new_with_mnemonic (_("_Right side crop (ignore this many pixels on the right):     "));
+  rightCropLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Right side crop (ignore this many pixels on the right):     "));
   gtk_widget_show (rightCropLabel);
   gtk_box_pack_start (GTK_BOX (rightCropHbox), rightCropLabel, FALSE, FALSE, 0);
 
@@ -626,7 +620,7 @@ create_particle_dialog (void)
   gtk_widget_show (topCropHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), topCropHbox, FALSE, TRUE, 0);
 
-  topCropLabel = gtk_label_new_with_mnemonic (_("_Top crop (ignore this many pixels on the top):                  "));
+  topCropLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Top crop (ignore this many pixels on the top):                  "));
   gtk_widget_show (topCropLabel);
   gtk_box_pack_start (GTK_BOX (topCropHbox), topCropLabel, FALSE, FALSE, 0);
 
@@ -640,7 +634,7 @@ create_particle_dialog (void)
   gtk_widget_show (bottomCropHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), bottomCropHbox, FALSE, TRUE, 0);
 
-  bottomCropLabel = gtk_label_new_with_mnemonic (_("_Bottom crop (ignore this many pixels on the bottom):   "));
+  bottomCropLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Bottom crop (ignore this many pixels on the bottom):   "));
   gtk_widget_show (bottomCropLabel);
   gtk_box_pack_start (GTK_BOX (bottomCropHbox), bottomCropLabel, FALSE, FALSE, 0);
 
@@ -658,7 +652,7 @@ create_particle_dialog (void)
   gtk_widget_show (outputFormatHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), outputFormatHbox, FALSE, TRUE, 0);
 
-  outputFormatLabel = gtk_label_new_with_mnemonic (_("Output _Format:   "));
+  outputFormatLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("Output _Format:   "));
   gtk_widget_show (outputFormatLabel);
   gtk_box_pack_start (GTK_BOX (outputFormatHbox), outputFormatLabel, FALSE, FALSE, 0);
 
@@ -670,7 +664,7 @@ create_particle_dialog (void)
   gtk_widget_show (outputFileHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), outputFileHbox, FALSE, TRUE, 0);
 
-  outputFileLabel = gtk_label_new_with_mnemonic (_("_Output File:"));
+  outputFileLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Output File:"));
   gtk_widget_show (outputFileLabel);
   gtk_box_pack_start (GTK_BOX (outputFileHbox), outputFileLabel, FALSE, FALSE, 0);
 
@@ -680,7 +674,7 @@ create_particle_dialog (void)
   gtk_entry_set_invisible_char (GTK_ENTRY (outputFileEntry), 8226);
   gtk_entry_set_width_chars (GTK_ENTRY (outputFileEntry), 40);
 
-  outputFileBrowseButton = gtk_button_new_with_mnemonic (_("_Browse..."));
+  outputFileBrowseButton = gtk_button_new_with_mnemonic (QT_TR_NOOP("_Browse..."));
   gtk_widget_show (outputFileBrowseButton);
   gtk_box_pack_start (GTK_BOX (outputFileHbox), outputFileBrowseButton, FALSE, FALSE, 0);
 
@@ -688,7 +682,7 @@ create_particle_dialog (void)
   gtk_widget_show (cameraNumberHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), cameraNumberHbox, FALSE, TRUE, 0);
 
-  cameraNumberLabel = gtk_label_new_with_mnemonic (_("_Camera Number for output file:      "));
+  cameraNumberLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Camera Number for output file:      "));
   gtk_widget_show (cameraNumberLabel);
   gtk_box_pack_start (GTK_BOX (cameraNumberHbox), cameraNumberLabel, FALSE, FALSE, 0);
 
@@ -702,7 +696,7 @@ create_particle_dialog (void)
   gtk_widget_show (debugHbox);
   gtk_box_pack_start (GTK_BOX (settingsOuterVbox), debugHbox, FALSE, TRUE, 0);
 
-  debugLabel = gtk_label_new_with_mnemonic (_("_Debugging settings (bits):   "));
+  debugLabel = gtk_label_new_with_mnemonic (QT_TR_NOOP("_Debugging settings (bits):   "));
   gtk_widget_show (debugLabel);
   gtk_box_pack_start (GTK_BOX (debugHbox), debugLabel, FALSE, FALSE, 0);
 
@@ -748,7 +742,7 @@ create_particle_dialog (void)
   gtk_widget_set_size_request (previewVideo, 30, 30);
   gtk_widget_set_events (previewVideo, GDK_BUTTON1_MOTION_MASK | GDK_BUTTON_PRESS_MASK);
 
-  previewLabel = gtk_label_new (_("Preview"));
+  previewLabel = gtk_label_new (QT_TR_NOOP("Preview"));
   gtk_widget_show (previewLabel);
   gtk_frame_set_label_widget (GTK_FRAME (previewFrame), previewLabel);
 

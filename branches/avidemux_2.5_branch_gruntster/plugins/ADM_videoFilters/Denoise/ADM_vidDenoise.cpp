@@ -23,11 +23,9 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
-
+#include "ADM_plugin_translate.h"
 #include "ADM_videoFilterDynamic.h"
 #include "ADM_vidDenoise.h"
-
-
 #include "DIA_factory.h"
 
 static FILTER_PARAM denoiseParam={5,{"lumaLock","lumaThreshold","chromaLock","chromaThreshold",
