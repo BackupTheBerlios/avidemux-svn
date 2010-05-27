@@ -24,6 +24,5 @@ echo "" >> avidemux.pro
 echo "Finding TRANSLATIONS..."
 echo "TRANSLATIONS = \\" >> avidemux.pro
 find . -iname 'avidemux_*.ts' -printf "%p \\\ \n" >> avidemux.pro
-echo "" >> avidemux.pro
 
 echo "DONE."
