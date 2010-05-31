@@ -1214,16 +1214,11 @@ SectionGroup "Additional languages" SecGrpLang
         !insertmacro InstallQtLanguage French fr
     ${MementoSectionEnd}
 
-!ifdef INST_BOTH | INST_GTK
-!ifdef INST_BOTH
-    ${MementoUnselectedSection} "German (GTK+ only)" SecLangGerman
-!else ifdef INST_GTK
 	${MementoUnselectedSection} "German" SecLangGerman
-!endif
         SectionIn 2
         !insertmacro InstallGtkLanguage German de
+		!insertmacro InstallQtLanguage German de
     ${MementoSectionEnd}
-!endif
 
 !ifdef INST_BOTH | INST_GTK
 !ifdef INST_BOTH
