@@ -1,29 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="xml" encoding="utf-8" />
-	
-	<xsl:template match="TS">
-		<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE TS>]]></xsl:text>
-		
-		<TS>
-			<xsl:copy-of select="@*" />
+  <xsl:output method="xml" encoding="utf-8" indent="yes"/>
+  <xsl:template match="TS">
+    <xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE TS>]]></xsl:text>
+    <TS>
+      <xsl:copy-of select="@*"/>
+      <xsl:for-each select="context">
+        <xsl:call-template name="processContext"/>
+      </xsl:for-each>
+    </TS>
+  </xsl:template>
 
-			<xsl:for-each select="context/message[not(source = preceding::message/source)]">
-				<xsl:variable name="location" select="location/@filename" />
+  <xsl:template name="processContext">
+    <xsl:variable name="filename" select="message[1]/location[1]/@filename"/>
+    <xsl:variable name="ext" select="substring($filename, string-length($filename) - 2)"/>
 
-				<context>
-					<name>
-						<xsl:if test ="substring($location, string-length($location) - 2) = '.ui'">
-							<xsl:value-of select="../name" />
-						</xsl:if>
-					</name>
+    <context>
+      <xsl:for-each select="name">
+        <name>
+          <xsl:if test="$ext = '.ui'">
+            <xsl:value-of select="../name"/>
+          </xsl:if>
+        </name>
+      </xsl:for-each>
 
-					<message>
-						<xsl:copy-of select="*" />
-					</message>
-				</context>
-			</xsl:for-each>
-		</TS>
-	</xsl:template>
+      <xsl:for-each select="message[not(source = preceding::message/source and $ext != '.ui')]">
+        <message>
+          <xsl:copy-of select="*"/>
+        </message>
+      </xsl:for-each>
+    </context>
+  </xsl:template>
 </xsl:stylesheet>
