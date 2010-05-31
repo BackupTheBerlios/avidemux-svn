@@ -2,6 +2,2845 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name></name>
+    <message>
+        <source>Codec Error</source>
+        <translation type="unfinished">Błąd kodeka</translation>
+    </message>
+    <message>
+        <source>The number of channels is greater than what the selected audio codec can do.
+Either change codec or use the mixer filter to have less channels.</source>
+        <translation type="unfinished">Liczba kanałów jest wyższa od obsługiwanej przez wybrany kodek dźwięku.
+Zmień kodek lub użyj filtr miksera aby zmniejszyć liczbę kanałów.</translation>
+    </message>
+    <message>
+        <source>[BuildChain] Encoder initialization failed</source>
+        <translation type="unfinished">[BuildChain] Nie udało się uruchomić kodera</translation>
+    </message>
+    <message>
+        <source>Not activated, make sure number of channels and bitrate are compatible with encoder!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Internal error finding codec</source>
+        <translation type="unfinished">Błąd wewnętrzny przy wyszukiwaniu kodeka</translation>
+    </message>
+    <message>
+        <source>File error</source>
+        <translation type="unfinished">Błąd podczas otwierania pliku</translation>
+    </message>
+    <message>
+        <source>Cannot open &quot;%s&quot;.</source>
+        <translation type="unfinished">Nie można otworzyć &quot;%s&quot;.</translation>
+    </message>
+    <message>
+        <source>%s already exists.
+
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is possible that you are trying to overwrite an input file!</source>
+        <translation type="unfinished">Możliwe, że starasz się nadpisać plik wejściowy!</translation>
+    </message>
+    <message>
+        <source>Cannot write the file</source>
+        <translation type="unfinished">Nie można zapisać pliku</translation>
+    </message>
+    <message>
+        <source>No write access to &quot;%s&quot;.</source>
+        <translation type="unfinished">Brak prawa zapisu do &quot;%s&quot;.</translation>
+    </message>
+    <message>
+        <source>Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?
+
+You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AVI</source>
+        <translation type="unfinished">AVI</translation>
+    </message>
+    <message>
+        <source>AVI, dual audio</source>
+        <translation type="unfinished">AVI, 2x audio</translation>
+    </message>
+    <message>
+        <source>AVI, pack VOP</source>
+        <translation type="unfinished">AVI, spakowany VOP</translation>
+    </message>
+    <message>
+        <source>AVI, unpack VOP</source>
+        <translation type="unfinished">AVI, niespakowany VOP</translation>
+    </message>
+    <message>
+        <source>MPEG-PS (A+V)</source>
+        <translation type="unfinished">MPEG-PS (A+V)</translation>
+    </message>
+    <message>
+        <source>MPEG-TS (A+V)</source>
+        <translation type="unfinished">MPEG-TS (A+V)</translation>
+    </message>
+    <message>
+        <source>MPEG video</source>
+        <translation type="unfinished">MPEG video</translation>
+    </message>
+    <message>
+        <source>MP4</source>
+        <translation type="unfinished">MP4</translation>
+    </message>
+    <message>
+        <source>MP4 (PSP)</source>
+        <translation type="unfinished">MP4 (PSP)</translation>
+    </message>
+    <message>
+        <source>OGM</source>
+        <translation type="unfinished">OGM</translation>
+    </message>
+    <message>
+        <source>FLV</source>
+        <translation type="unfinished">FLV</translation>
+    </message>
+    <message>
+        <source>MKV</source>
+        <translation type="unfinished">MKV</translation>
+    </message>
+    <message>
+        <source>DUMMY</source>
+        <translation type="unfinished">PUSTY</translation>
+    </message>
+    <message>
+        <source>YV12 (raw)</source>
+        <translation type="unfinished">YV12 (raw)</translation>
+    </message>
+    <message>
+        <source>MPEG-2 requant</source>
+        <translation type="unfinished">MPEG-2 requant</translation>
+    </message>
+    <message>
+        <source>dummy</source>
+        <translation type="unfinished">pusty</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopiuj</translation>
+    </message>
+    <message>
+        <source>VobSub</source>
+        <translation type="unfinished">Parser napisów Vobsub</translation>
+    </message>
+    <message>
+        <source>Embed VobSub subtitles into picture.</source>
+        <translation type="unfinished">Osadź napisy VobSub w obrazie</translation>
+    </message>
+    <message>
+        <source>DVB sub</source>
+        <translation type="unfinished">Napisy DVB</translation>
+    </message>
+    <message>
+        <source>Embed DVB-T subtitle.</source>
+        <translation type="unfinished">Osadź napisy DVB-T.</translation>
+    </message>
+    <message>
+        <source>Compute Average</source>
+        <translation type="unfinished">Oblicz średnią</translation>
+    </message>
+    <message>
+        <source>Compute average luma value for each pixel throughout all frames, and save to file</source>
+        <translation type="unfinished">Oblicz średnią wartość luminancji dla każdego piksela w wszystkich klatkach i zapisz do pliku</translation>
+    </message>
+    <message>
+        <source>Threshold</source>
+        <translation type="unfinished">Próg</translation>
+    </message>
+    <message>
+        <source>Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa</source>
+        <translation type="unfinished">Wymuś zmianę wartości zbyt jasnych/zbyt ciemnych pikseli na 0 a reszty na 255 lub na odwrót</translation>
+    </message>
+    <message>
+        <source>Particle List</source>
+        <translation type="unfinished">Lista cząstek</translation>
+    </message>
+    <message>
+        <source>Identify &apos;particles&apos; (groups of pixels)</source>
+        <translation type="unfinished">Rozpoznaj &apos;cząstki&apos; (grupy pikseli)</translation>
+    </message>
+    <message>
+        <source>Eraser</source>
+        <translation type="unfinished">Gumka</translation>
+    </message>
+    <message>
+        <source>&quot;Erase&quot; arbitrary areas of each frame</source>
+        <translation type="unfinished">&quot;Wymarz&quot; dowolne obszary każdej klatki</translation>
+    </message>
+    <message>
+        <source>Swiss Army Knife</source>
+        <translation type="unfinished">Szwajcarski nóż wojskowy</translation>
+    </message>
+    <message>
+        <source>Apply operation like P&apos;=P*A, P-A, P+A, etc. using a convolution, rolling average, image from file, or constant</source>
+        <translation type="unfinished">Zastosuj operację typu P&apos;=P*A, P-A, P+A, itd. przy użyciu splotu, zwijanej średniej, obrazu z pliku, lub stałej.</translation>
+    </message>
+    <message>
+        <source>Partial</source>
+        <translation type="unfinished">Częściowo</translation>
+    </message>
+    <message>
+        <source>Add Framenumber</source>
+        <translation type="unfinished">Dodaj numer klatki</translation>
+    </message>
+    <message>
+        <source>Print frame number directly in image</source>
+        <translation type="unfinished">Drukuj liczbę klatek bezpośrednio w obrazie</translation>
+    </message>
+    <message>
+        <source>Problem reading XML filters</source>
+        <translation type="unfinished">Błąd odczytywania filtrów XML</translation>
+    </message>
+    <message>
+        <source>No filter found</source>
+        <translation type="unfinished">Nie znaleziono filtra</translation>
+    </message>
+    <message>
+        <source>Could not find a filter</source>
+        <translation type="unfinished">Nie znaleziono filtra</translation>
+    </message>
+    <message>
+        <source>No tag found</source>
+        <translation type="unfinished">Nie znaleziono etykiety</translation>
+    </message>
+    <message>
+        <source>Node not found</source>
+        <translation type="unfinished">Nie znaleziono węzła</translation>
+    </message>
+    <message>
+        <source>There is several mpeg file, append them ?</source>
+        <translation type="unfinished">Znaleziono dodatkowe pliki MPEG, dołączyć je?</translation>
+    </message>
+    <message>
+        <source>Can&apos;t determine aspect ratio</source>
+        <translation type="unfinished">Nie można określić proporcji obrazu</translation>
+    </message>
+    <message>
+        <source>Wrong Colorspace</source>
+        <translation type="unfinished">Niewłaściwa przestrzeń barw</translation>
+    </message>
+    <message>
+        <source>Only YV12/I420 or YUY2/I422 JPegs are supported</source>
+        <translation type="unfinished">Wspierane są tylko formaty jpeg YV12/I420 lub YUY2/I422</translation>
+    </message>
+    <message>
+        <source>NTSC 4:3</source>
+        <translation type="unfinished">NTSC 4:3</translation>
+    </message>
+    <message>
+        <source>NTSC 16:9</source>
+        <translation type="unfinished">NTSC 16:9</translation>
+    </message>
+    <message>
+        <source>PAL 4:3</source>
+        <translation type="unfinished">PAL 4:3</translation>
+    </message>
+    <message>
+        <source>PAL 16:9</source>
+        <translation type="unfinished">PAL 16:9</translation>
+    </message>
+    <message>
+        <source>1:1</source>
+        <translation type="unfinished">1:1</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">Nieznany</translation>
+    </message>
+    <message>
+        <source>Output file error</source>
+        <translation type="unfinished">Błąd pliku wyjściowego</translation>
+    </message>
+    <message>
+        <source>Could not open &quot;%s&quot; for writing.</source>
+        <translation type="unfinished">Nie można otworzyć pliku &quot;%s&quot; do zapisu.</translation>
+    </message>
+    <message>
+        <source>Input file error</source>
+        <translation type="unfinished">Błąd podczas otwierania pliku</translation>
+    </message>
+    <message>
+        <source>Unknown source type</source>
+        <translation type="unfinished">Nieznany typ źródła</translation>
+    </message>
+    <message>
+        <source>Bitmap source failed</source>
+        <translation type="unfinished">Wczytanie mapy bitowej nie powiodło się.</translation>
+    </message>
+    <message>
+        <source>Problem loading sub</source>
+        <translation type="unfinished">Wystąpił problem podczas wczytywania pliku napisów</translation>
+    </message>
+    <message>
+        <source>No subs</source>
+        <translation type="unfinished">Brak napisów</translation>
+    </message>
+    <message>
+        <source>Ifo error</source>
+        <translation type="unfinished">Błąd IFO</translation>
+    </message>
+    <message>
+        <source>Error reading ifo file, aborting.</source>
+        <translation type="unfinished">Nie można odczytać pliku IFO, przerwanie.</translation>
+    </message>
+    <message>
+        <source>Cannot write .idx</source>
+        <translation type="unfinished">Nie można zapisać pliku .idx</translation>
+    </message>
+    <message>
+        <source>Cannot write .sub</source>
+        <translation type="unfinished">Nie można zapisać pliku .sub</translation>
+    </message>
+    <message>
+        <source>Problem opening the mpeg files</source>
+        <translation type="unfinished">Wystąpił problem podczas otwierania plików mpeg</translation>
+    </message>
+    <message>
+        <source>Generating VobSub file</source>
+        <translation type="unfinished">Tworzenie pliku VobSub</translation>
+    </message>
+    <message>
+        <source>Could not write the file</source>
+        <translation type="unfinished">Nie można zapisywać pliku</translation>
+    </message>
+    <message>
+        <source>Could not read &quot;%s&quot;.</source>
+        <translation type="unfinished">Nie można otworzyć &quot;%s&quot;.</translation>
+    </message>
+    <message>
+        <source>Load it</source>
+        <translation type="unfinished">Wczytaj</translation>
+    </message>
+    <message>
+        <source>Crash file</source>
+        <translation type="unfinished">Plik awarii</translation>
+    </message>
+    <message>
+        <source>I have detected a crash file. 
+Do you want to load it  ?
+(It will be deleted in all cases, you should save it if you want to keep it)</source>
+        <translation type="unfinished">Wykryto plik awarii. 
+Czy chcesz go wczytać ? 
+(Zostanie on później usunięty, powinieneś go zapisać jeśli chcesz go zachować)</translation>
+    </message>
+    <message>
+        <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished">Zwykły</translation>
+    </message>
+    <message>
+        <source>Mux every N video frames</source>
+        <translation type="unfinished">Muksuj każdą n-tą klatkę obrazu wideo</translation>
+    </message>
+    <message>
+        <source>Mux by packet size</source>
+        <translation type="unfinished">Muksuj według rozmiaru pakietu</translation>
+    </message>
+    <message>
+        <source>Muxing _type:</source>
+        <translation type="unfinished">_Typ muksowania:</translation>
+    </message>
+    <message>
+        <source>_Split every MB:</source>
+        <translation type="unfinished">_Podziel na pliki MB:</translation>
+    </message>
+    <message>
+        <source>Mux _every x video frames:</source>
+        <translation type="unfinished">Muksuj _każdą n-tą klatkę obrazu:</translation>
+    </message>
+    <message>
+        <source>Mux in _blocks of x bytes:</source>
+        <translation type="unfinished">Muksuj w _blokach po x bajtów:</translation>
+    </message>
+    <message>
+        <source>AVI Muxer Options</source>
+        <translation type="unfinished">Opcje muksera AVI</translation>
+    </message>
+    <message>
+        <source>DTS</source>
+        <translation type="unfinished">DTS</translation>
+    </message>
+    <message>
+        <source>PCM</source>
+        <translation type="unfinished">PCM</translation>
+    </message>
+    <message>
+        <source>MP2</source>
+        <translation type="unfinished">MP2</translation>
+    </message>
+    <message>
+        <source>MP3</source>
+        <translation type="unfinished">MP3</translation>
+    </message>
+    <message>
+        <source>WMA</source>
+        <translation type="unfinished">WMA</translation>
+    </message>
+    <message>
+        <source>LPCM</source>
+        <translation type="unfinished">LPCM</translation>
+    </message>
+    <message>
+        <source>AC3</source>
+        <translation type="unfinished">AC3</translation>
+    </message>
+    <message>
+        <source>Ogg Vorbis</source>
+        <translation type="unfinished">Ogg Vorbis</translation>
+    </message>
+    <message>
+        <source>AAC</source>
+        <translation type="unfinished">AAC</translation>
+    </message>
+    <message>
+        <source>QDM2</source>
+        <translation type="unfinished">QDM2</translation>
+    </message>
+    <message>
+        <source>AMR-NB</source>
+        <translation type="unfinished">AMR-NB</translation>
+    </message>
+    <message>
+        <source>AMR-WB</source>
+        <translation type="unfinished">AMR-WB</translation>
+    </message>
+    <message>
+        <source>MSADPCM</source>
+        <translation type="unfinished">MSADPCM</translation>
+    </message>
+    <message>
+        <source>ULAW</source>
+        <translation type="unfinished">ULAW</translation>
+    </message>
+    <message>
+        <source>IMA ADPCM</source>
+        <translation type="unfinished">IMA ADPCM</translation>
+    </message>
+    <message>
+        <source>8-bit PCM</source>
+        <translation type="unfinished">8-bit PCM</translation>
+    </message>
+    <message>
+        <source>Unknown codec</source>
+        <translation type="unfinished">Nieznany kodek</translation>
+    </message>
+    <message>
+        <source>Cannot initialize the video stream</source>
+        <translation type="unfinished">Nie można uruchomić strumienia wideo</translation>
+    </message>
+    <message>
+        <source>Dummy</source>
+        <translation type="unfinished">Pusty</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">Brak</translation>
+    </message>
+    <message>
+        <source>Filter init failed</source>
+        <translation type="unfinished">Nie udało się uruchomić filtra</translation>
+    </message>
+    <message>
+        <source>Encoding</source>
+        <translation type="unfinished">Kodowanie</translation>
+    </message>
+    <message>
+        <source>Error while encoding</source>
+        <translation type="unfinished">Błąd podczas kodowania</translation>
+    </message>
+    <message>
+        <source>KeyFrame error</source>
+        <translation type="unfinished">Błąd klatki typu I</translation>
+    </message>
+    <message>
+        <source>The beginning frame is not a key frame.
+Please move the A marker.</source>
+        <translation type="unfinished">Rozpoczynająca klatka nie jest klatką typu I.
+Proszę przesunąć znacznik A.</translation>
+    </message>
+    <message>
+        <source>Unsupported video</source>
+        <translation type="unfinished">Niewspierany format wideo</translation>
+    </message>
+    <message>
+        <source>Only FLV1 and VP6 video are supported</source>
+        <translation type="unfinished">Wspierany jest tylko formaty wideo FLV1 i VP6</translation>
+    </message>
+    <message>
+        <source>Unsupported audio</source>
+        <translation type="unfinished">Niewspierany format dźwięku</translation>
+    </message>
+    <message>
+        <source>Audio must be mp3 for flv output.</source>
+        <translation type="unfinished">FLV wymaga użycia pliku dźwiękowego w formacie mp3.</translation>
+    </message>
+    <message>
+        <source>Frequency must be 44100, 22050 or 11025 Hz.</source>
+        <translation type="unfinished">Częstotliwość musi być na poziomie 44100, 22050 lub 11025 Hz.</translation>
+    </message>
+    <message>
+        <source>Cannot initialize the audio stream</source>
+        <translation type="unfinished">Nie można uruchomić strumienia dźwięku</translation>
+    </message>
+    <message>
+        <source>PSP</source>
+        <translation type="unfinished">PSP</translation>
+    </message>
+    <message>
+        <source>Reuse the existing log file?</source>
+        <translation type="unfinished">Użyć istniejącego pliku dziennika ponownie?</translation>
+    </message>
+    <message>
+        <source>Invalid audio stream detected</source>
+        <translation type="unfinished">Wykryto niewłaściwy strumień dźwięku</translation>
+    </message>
+    <message>
+        <source>The audio stream may be invalid for this container.
+
+Continue anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1st Pass</source>
+        <translation type="unfinished">Pierwszy</translation>
+    </message>
+    <message>
+        <source>2nd Pass</source>
+        <translation type="unfinished">Drugi</translation>
+    </message>
+    <message>
+        <source>This is not MPEG compatible</source>
+        <translation type="unfinished">Niezgodne z MPEG</translation>
+    </message>
+    <message>
+        <source>You can&apos;t use the Copy codec.</source>
+        <translation type="unfinished">Nie można użyć opcji Kopiuj.</translation>
+    </message>
+    <message>
+        <source>There is no audio track</source>
+        <translation type="unfinished">Brak ścieżki dźwiękowej</translation>
+    </message>
+    <message>
+        <source>The first frame is not intra frame</source>
+        <translation type="unfinished">Pierwsza klatka nie jest klatką typu I</translation>
+    </message>
+    <message>
+        <source>Use the &amp;lt;&amp;lt; and the &amp;gt;&amp;gt; buttons to move using Intra frames.</source>
+        <translation type="unfinished">Użyj przycisków &amp;lt;&amp;lt; oraz &amp;gt;&amp;gt; aby poruszać się między klatkami typu I.</translation>
+    </message>
+    <message>
+        <source>Audio track is not suitable</source>
+        <translation type="unfinished">Ścieżka dźwiękowa jest niewłaściwa</translation>
+    </message>
+    <message>
+        <source>For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo).</source>
+        <translation type="unfinished">DVD wymaga dźwięku o częstotliwości 48 kHz w formacie MP2(stereo), AC3, DTS lub LPCM (stereo).</translation>
+    </message>
+    <message>
+        <source>---</source>
+        <translation type="unfinished">---</translation>
+    </message>
+    <message>
+        <source>Saving</source>
+        <translation type="unfinished">Zapisywanie</translation>
+    </message>
+    <message>
+        <source>MPEG TS</source>
+        <translation type="unfinished">MPEG TS</translation>
+    </message>
+    <message>
+        <source>MPEG VCD</source>
+        <translation type="unfinished">MPEG VCD</translation>
+    </message>
+    <message>
+        <source>MPEG SVCD</source>
+        <translation type="unfinished">MPEG SVCD</translation>
+    </message>
+    <message>
+        <source>MPEG DVD</source>
+        <translation type="unfinished">MPEG DVD</translation>
+    </message>
+    <message>
+        <source>For VCD, audio must be 44.1 kHz MP2.</source>
+        <translation type="unfinished">VCD wymaga dźwięku o częstotliwości 44,1 kHz w formacie MP2.</translation>
+    </message>
+    <message>
+        <source>For SVCD, audio must be 44.1 kHz MP2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For DVD, audio must be 48 kHz MP2, AC3 or LPCM.</source>
+        <translation type="unfinished">DVD wymaga dźwięku o częstotliwości 48 kHz w formacie MP2, AC3 lub LPCM.</translation>
+    </message>
+    <message>
+        <source>MPEG Requantizer</source>
+        <translation type="unfinished">Rekwantyzator MPEG</translation>
+    </message>
+    <message>
+        <source>MPEG ES</source>
+        <translation type="unfinished">MPEG ES</translation>
+    </message>
+    <message>
+        <source>Pass 1/2</source>
+        <translation type="unfinished">Etap 1/2</translation>
+    </message>
+    <message>
+        <source>Cannot open &quot;%s&quot; for writing.</source>
+        <translation type="unfinished">Nie można otworzyć pliku &quot;%s&quot; do zapisu.</translation>
+    </message>
+    <message>
+        <source>Pass 2/2</source>
+        <translation type="unfinished">Etap 2/2</translation>
+    </message>
+    <message>
+        <source>Select a directory</source>
+        <translation type="unfinished">Wybierz katalog</translation>
+    </message>
+    <message>
+        <source>Uinteger</source>
+        <translation type="unfinished">Uinteger</translation>
+    </message>
+    <message>
+        <source>Test uinteger</source>
+        <translation type="unfinished">Testuj uninteger</translation>
+    </message>
+    <message>
+        <source>Float</source>
+        <translation type="unfinished">Oderwij</translation>
+    </message>
+    <message>
+        <source>Toggle</source>
+        <translation type="unfinished">Przełącz</translation>
+    </message>
+    <message>
+        <source>No Strategy</source>
+        <translation type="unfinished">Brak strategii</translation>
+    </message>
+    <message>
+        <source>3:2 Pulldown</source>
+        <translation type="unfinished">Konwersja telecine 3:2</translation>
+    </message>
+    <message>
+        <source>Pal/Secam</source>
+        <translation type="unfinished">Pal/Secam</translation>
+    </message>
+    <message>
+        <source>NTSC converted from PAL</source>
+        <translation type="unfinished">NTSC przekonwertowane z PAL</translation>
+    </message>
+    <message>
+        <source>menu</source>
+        <translation type="unfinished">menu</translation>
+    </message>
+    <message>
+        <source>Ready</source>
+        <translation type="unfinished">Gotowe</translation>
+    </message>
+    <message>
+        <source>Succeeded</source>
+        <translation type="unfinished">Sukces!</translation>
+    </message>
+    <message>
+        <source>Failed</source>
+        <translation type="unfinished">Błąd</translation>
+    </message>
+    <message>
+        <source>Deleted</source>
+        <translation type="unfinished">Usunięte</translation>
+    </message>
+    <message>
+        <source>Running</source>
+        <translation type="unfinished">Uruchomiony</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Nie</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Tak</translation>
+    </message>
+    <message>
+        <source>Alert</source>
+        <translation type="unfinished">Powiadom mnie</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Question</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Question ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Partial Start Frame:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Partial End Frame:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure child</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Partial Video Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%c (%02d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select GlyphFile to edit</source>
+        <translation type="unfinished">Wybierz plik glifów do edycji</translation>
+    </message>
+    <message>
+        <source>Qt (X11)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (MS Windows GDI)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (Mac OS X Quartz 2D)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (Mac OS X QuickDraw)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (OpenGL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (MS Windows Direct3D)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qt (Default Raster)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>_Dynamic range compression</source>
+        <translation type="unfinished">Kompresja _dynamicznego zakresu</translation>
+    </message>
+    <message>
+        <source>_Time shift (ms):</source>
+        <translation type="unfinished">Przesunięcie _czasu (ms)</translation>
+    </message>
+    <message>
+        <source>Time shift value (ms)</source>
+        <translation type="unfinished">Wartość przesunięcia czasu (ms)</translation>
+    </message>
+    <message>
+        <source>R_esampling (Hz):</source>
+        <translation type="unfinished">Zmiana częstotliwości próbkowania (Hz)</translation>
+    </message>
+    <message>
+        <source>Resampling frequency (Hz)</source>
+        <translation type="unfinished">Zmiana częstotliwości próbkowania (Hz)</translation>
+    </message>
+    <message>
+        <source>Film to PAL</source>
+        <translation type="unfinished">Film na PAL</translation>
+    </message>
+    <message>
+        <source>PAL to Film</source>
+        <translation type="unfinished">PAL na Film</translation>
+    </message>
+    <message>
+        <source>_Frame rate change:</source>
+        <translation type="unfinished">Zmiana liczby _klatek na sekundę:</translation>
+    </message>
+    <message>
+        <source>Automatic (max -3 dB)</source>
+        <translation type="unfinished">Automatyczny (maks. -3 dB)</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished">Ręczny</translation>
+    </message>
+    <message>
+        <source>_Gain mode:</source>
+        <translation type="unfinished">Tryb normalizacji _głośności</translation>
+    </message>
+    <message>
+        <source>G_ain value:</source>
+        <translation type="unfinished">W_artość normalizacji głośności:</translation>
+    </message>
+    <message>
+        <source>Gain</source>
+        <translation type="unfinished">Normalizacja głośności</translation>
+    </message>
+    <message>
+        <source>No change</source>
+        <translation type="unfinished">Bez zmian</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished">Mono</translation>
+    </message>
+    <message>
+        <source>Stereo</source>
+        <translation type="unfinished">Stereo</translation>
+    </message>
+    <message>
+        <source>Stereo+surround</source>
+        <translation type="unfinished">Stereo+przestrzenny</translation>
+    </message>
+    <message>
+        <source>Stereo+center</source>
+        <translation type="unfinished">Stereo+centralny</translation>
+    </message>
+    <message>
+        <source>Stereo+center+surround</source>
+        <translation type="unfinished">Stereo+centralny+przestrzenny</translation>
+    </message>
+    <message>
+        <source>Stereo front+stereo rear</source>
+        <translation type="unfinished">Stereo przednie+stereo tylne</translation>
+    </message>
+    <message>
+        <source>5 channels</source>
+        <translation type="unfinished">5 kanałów</translation>
+    </message>
+    <message>
+        <source>5.1</source>
+        <translation type="unfinished">5.1</translation>
+    </message>
+    <message>
+        <source>Dolby Pro Logic</source>
+        <translation type="unfinished">Dolby Pro Logic</translation>
+    </message>
+    <message>
+        <source>Dolby Pro Logic II</source>
+        <translation type="unfinished">Dolby Pro Logic II</translation>
+    </message>
+    <message>
+        <source>_Mixer:</source>
+        <translation type="unfinished">_Mikser dźwięku:</translation>
+    </message>
+    <message>
+        <source>Audio Filters</source>
+        <translation type="unfinished">Filtry dźwięku</translation>
+    </message>
+    <message>
+        <source>No data</source>
+        <translation type="unfinished">Brak danych</translation>
+    </message>
+    <message>
+        <source>Max. bitrate:</source>
+        <translation type="unfinished">Maks. przepływność:</translation>
+    </message>
+    <message>
+        <source>Average bitrate:</source>
+        <translation type="unfinished">Średnia przepływność:</translation>
+    </message>
+    <message>
+        <source>Number of I frames:</source>
+        <translation type="unfinished">Ilość klatek typu I</translation>
+    </message>
+    <message>
+        <source>Number of P frames:</source>
+        <translation type="unfinished">Ilość klatek typu P</translation>
+    </message>
+    <message>
+        <source>Number of B frames:</source>
+        <translation type="unfinished">Ilość klatek typu B</translation>
+    </message>
+    <message>
+        <source>Max. B frames:</source>
+        <translation type="unfinished">Maksymalna ilość klatek typu B:</translation>
+    </message>
+    <message>
+        <source>Bitrate Histogram</source>
+        <translation type="unfinished">Histogram przepływności</translation>
+    </message>
+    <message>
+        <source>Fontconfig</source>
+        <translation type="unfinished">Konfiguracja czcionki</translation>
+    </message>
+    <message>
+        <source>Gettext</source>
+        <translation type="unfinished">Gettext</translation>
+    </message>
+    <message>
+        <source>SDL</source>
+        <translation type="unfinished">SDL</translation>
+    </message>
+    <message>
+        <source>XVideo</source>
+        <translation type="unfinished">XVideo</translation>
+    </message>
+    <message>
+        <source>AltiVec</source>
+        <translation type="unfinished">AltiVec</translation>
+    </message>
+    <message>
+        <source>PowerPC</source>
+        <translation type="unfinished">PowerPC</translation>
+    </message>
+    <message>
+        <source>x86</source>
+        <translation type="unfinished">x86</translation>
+    </message>
+    <message>
+        <source>x86-64</source>
+        <translation type="unfinished">x86-64</translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation type="unfinished">Biblioteki</translation>
+    </message>
+    <message>
+        <source>CPU</source>
+        <translation type="unfinished">Procesor</translation>
+    </message>
+    <message>
+        <source>Built-in Support</source>
+        <translation type="unfinished">Wbudowane wsparcie</translation>
+    </message>
+    <message>
+        <source>_Hours:</source>
+        <translation type="unfinished">_Godziny:</translation>
+    </message>
+    <message>
+        <source>_Minutes:</source>
+        <translation type="unfinished">_Minuty:</translation>
+    </message>
+    <message>
+        <source>_Seconds:</source>
+        <translation type="unfinished">_Sekundy:</translation>
+    </message>
+    <message>
+        <source>Go to Time</source>
+        <translation type="unfinished">Przejdź do czasu</translation>
+    </message>
+    <message>
+        <source>_Job name:</source>
+        <translation type="unfinished">Nazwa _zadania:</translation>
+    </message>
+    <message>
+        <source>Output _File:</source>
+        <translation type="unfinished">_Plik wyjściowy:</translation>
+    </message>
+    <message>
+        <source>Select Video To Write</source>
+        <translation type="unfinished">Wybierz obraz wideo do zapisu</translation>
+    </message>
+    <message>
+        <source>Save Job</source>
+        <translation type="unfinished">Zapisz zadanie</translation>
+    </message>
+    <message>
+        <source>_Swap U and V</source>
+        <translation type="unfinished">_Zamień U i V</translation>
+    </message>
+    <message>
+        <source>Show motion _vectors</source>
+        <translation type="unfinished">Pokaż _wektory ruchu</translation>
+    </message>
+    <message>
+        <source>Decoder Options</source>
+        <translation type="unfinished">Opcje dekodera</translation>
+    </message>
+    <message>
+        <source>Select idx file:</source>
+        <translation type="unfinished">Wybierz plik idx:</translation>
+    </message>
+    <message>
+        <source>Use GlyphSet (optional):</source>
+        <translation type="unfinished">Użyj zestawu glifów (opcjonalne):</translation>
+    </message>
+    <message>
+        <source>Select GlyphSet file</source>
+        <translation type="unfinished">Wybierz plik z zestawem glifów</translation>
+    </message>
+    <message>
+        <source>Output SRT file</source>
+        <translation type="unfinished">Plik wyjściowy napisów SRT</translation>
+    </message>
+    <message>
+        <source>Save SRT file</source>
+        <translation type="unfinished">Zapisz plik napisów SRT</translation>
+    </message>
+    <message>
+        <source>Select input and ouput files</source>
+        <translation type="unfinished">Wybierz pliki wejściowe i wyjściowe</translation>
+    </message>
+    <message>
+        <source>The idx/sub file does not exist.</source>
+        <translation type="unfinished">Plik idx/sub nie istnieje.</translation>
+    </message>
+    <message>
+        <source>Please Select a valid output SRT file.</source>
+        <translation type="unfinished">Proszę wybrać poprawny wyjściowy plik SRT.</translation>
+    </message>
+    <message>
+        <source>Cannot load the glyphset file.</source>
+        <translation type="unfinished">Nie można wczytać pliku z zestawem glifów.</translation>
+    </message>
+    <message>
+        <source>GlyphSet filename</source>
+        <translation type="unfinished">Nazwa pliku zestawu glifów</translation>
+    </message>
+    <message>
+        <source>Save GlyphSet file</source>
+        <translation type="unfinished">Zapisz plik z zestawem glifów</translation>
+    </message>
+    <message>
+        <source>Save Glyph</source>
+        <translation type="unfinished">Zapisz glif</translation>
+    </message>
+    <message>
+        <source>Input TS:</source>
+        <translation type="unfinished">Wejście TS:</translation>
+    </message>
+    <message>
+        <source>Select TS file</source>
+        <translation type="unfinished">Wybierz plik TS</translation>
+    </message>
+    <message>
+        <source>Subtitle PID:</source>
+        <translation type="unfinished">PID napisów:</translation>
+    </message>
+    <message>
+        <source>Please Select a valid TS file.</source>
+        <translation type="unfinished">Proszę wybrać poprawny plik TS.</translation>
+    </message>
+    <message>
+        <source>Save GlyphSet</source>
+        <translation type="unfinished">Zapisz zestaw glifów</translation>
+    </message>
+    <message>
+        <source>Audio Plugins</source>
+        <translation type="unfinished">Wtyczki dźwięku</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">Dźwięk</translation>
+    </message>
+    <message>
+        <source>Video Encoder Plugins</source>
+        <translation type="unfinished">Wtyczki koderów obrazu</translation>
+    </message>
+    <message>
+        <source>Video Encoder</source>
+        <translation type="unfinished">Koder obrazu</translation>
+    </message>
+    <message>
+        <source>Audio Device Plugins</source>
+        <translation type="unfinished">Wtyczki urządzenia dźwiękowego</translation>
+    </message>
+    <message>
+        <source>Audio Device</source>
+        <translation type="unfinished">Urządzenie dźwiękowe</translation>
+    </message>
+    <message>
+        <source>Audio Encoder Plugins</source>
+        <translation type="unfinished">Wtyczki koderów dźwięku</translation>
+    </message>
+    <message>
+        <source>Audio Encoders</source>
+        <translation type="unfinished">Kodery dźwięku</translation>
+    </message>
+    <message>
+        <source>Plugins Info</source>
+        <translation type="unfinished">Informacje o wtyczkach</translation>
+    </message>
+    <message>
+        <source>_Filter strength:</source>
+        <translation type="unfinished">Natężenie _filtra:</translation>
+    </message>
+    <message>
+        <source>_Horizontal deblocking</source>
+        <translation type="unfinished">Rozblokowanie _poziome</translation>
+    </message>
+    <message>
+        <source>_Vertical deblocking</source>
+        <translation type="unfinished">Rozblokowanie pi_onowe</translation>
+    </message>
+    <message>
+        <source>_Deringing</source>
+        <translation type="unfinished">Usuwanie pie_rścienia</translation>
+    </message>
+    <message>
+        <source>Postprocessing</source>
+        <translation type="unfinished">Przetwarzanie dodatkowe</translation>
+    </message>
+    <message>
+        <source>_Use systray while encoding</source>
+        <translation type="unfinished">Użyj tacki systemowej podczas kodowania</translation>
+    </message>
+    <message>
+        <source>_Accept non-standard audio frequency for DVD</source>
+        <translation type="unfinished">_Akceptuj niestandardową częstotliwość dźwięku dla DVD</translation>
+    </message>
+    <message>
+        <source>Create _OpenDML files</source>
+        <translation type="unfinished">Utwórz pliki _OpenDML</translation>
+    </message>
+    <message>
+        <source>Automatically _index MPEG files</source>
+        <translation type="unfinished">Automatycznie _indeksuj pliki MPEG</translation>
+    </message>
+    <message>
+        <source>Automatically _swap A and B if A&gt;B</source>
+        <translation type="unfinished">Automatycznie _zamień A i B jeśli A&gt;B</translation>
+    </message>
+    <message>
+        <source>_Disable NUV audio sync</source>
+        <translation type="unfinished">W_yłącz synchronizację dźwięku NUV</translation>
+    </message>
+    <message>
+        <source>Automatically _build VBR map</source>
+        <translation type="unfinished">Automatycznie utwórz mapę V_BR</translation>
+    </message>
+    <message>
+        <source>Automatically _rebuild index</source>
+        <translation type="unfinished">Automatycznie utwó_rz index</translation>
+    </message>
+    <message>
+        <source>Automatically remove _packed bitstream</source>
+        <translation type="unfinished">Automatycznie usuń s_pakowany strumień bitów</translation>
+    </message>
+    <message>
+        <source>SIMD</source>
+        <translation type="unfinished">SIMD</translation>
+    </message>
+    <message>
+        <source>Enable all SIMD</source>
+        <translation type="unfinished">Włącz obsługę wszystkich instrukcji SIMD procesora</translation>
+    </message>
+    <message>
+        <source>Enable MMX</source>
+        <translation type="unfinished">Włącz obsługę instrukcji MMX procesora</translation>
+    </message>
+    <message>
+        <source>Enable MMXEXT</source>
+        <translation type="unfinished">Włącz obsługę instrukcji MMXEXT procesora</translation>
+    </message>
+    <message>
+        <source>Enable 3DNOW</source>
+        <translation type="unfinished">Włącz obsługę instrukcji 3DNOW procesora</translation>
+    </message>
+    <message>
+        <source>Enable 3DNOWEXT</source>
+        <translation type="unfinished">Włącz obsługę instrukcji 3DNOWEXT procesora</translation>
+    </message>
+    <message>
+        <source>Enable SSE</source>
+        <translation type="unfinished">Włącz obsługę instrukcji SSE procesora</translation>
+    </message>
+    <message>
+        <source>Enable SSE2</source>
+        <translation type="unfinished">Włącz obsługę instrukcji SSE2 procesora</translation>
+    </message>
+    <message>
+        <source>Enable SSE3</source>
+        <translation type="unfinished">Włącz obsługę instrukcji SSE3 procesora</translation>
+    </message>
+    <message>
+        <source>Enable SSSE3</source>
+        <translation type="unfinished">Włącz obsługę instrukcji SSSE3 procesora</translation>
+    </message>
+    <message>
+        <source>_lavc threads:</source>
+        <translation type="unfinished">Wątki _lavc:</translation>
+    </message>
+    <message>
+        <source>Multi-threading</source>
+        <translation type="unfinished">Wielowątkowość</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished">Wysoki</translation>
+    </message>
+    <message>
+        <source>Above normal</source>
+        <translation type="unfinished">Powyżej standardowej</translation>
+    </message>
+    <message>
+        <source>Below normal</source>
+        <translation type="unfinished">Poniżej standardowej</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation type="unfinished">Niski</translation>
+    </message>
+    <message>
+        <source>_Encoding priority:</source>
+        <translation type="unfinished">Prioryt_et kodowania:</translation>
+    </message>
+    <message>
+        <source>_Indexing/unpacking priority:</source>
+        <translation type="unfinished">Priorytet _indeksowania/rozpakowywania:</translation>
+    </message>
+    <message>
+        <source>_Playback priority:</source>
+        <translation type="unfinished">_Priorytet odtwarzania:</translation>
+    </message>
+    <message>
+        <source>Prioritisation</source>
+        <translation type="unfinished">Priorytetyzacja</translation>
+    </message>
+    <message>
+        <source>_Use alternative tag for MP3 in .mp4</source>
+        <translation type="unfinished">_Użyj alternatywnej etykiety dla pliku MP3 w .mp4</translation>
+    </message>
+    <message>
+        <source>XVideo (best)</source>
+        <translation type="unfinished">XVideo (najlepszy)</translation>
+    </message>
+    <message>
+        <source>SDL (MS Windows GDI)</source>
+        <translation type="unfinished">SDL (MS Windows GDI)</translation>
+    </message>
+    <message>
+        <source>SDL (MS Windows DirectX)</source>
+        <translation type="unfinished">SDL (MS Windows DirectX)</translation>
+    </message>
+    <message>
+        <source>SDL (good)</source>
+        <translation type="unfinished">SDL (dobry)</translation>
+    </message>
+    <message>
+        <source>Video _display:</source>
+        <translation type="unfinished">Wyświetlanie _obrazu:</translation>
+    </message>
+    <message>
+        <source>No alerts</source>
+        <translation type="unfinished">Bez komunikatów</translation>
+    </message>
+    <message>
+        <source>Display only error alerts</source>
+        <translation type="unfinished">Wyświetlaj tylko komunikaty błędów</translation>
+    </message>
+    <message>
+        <source>Display all alerts</source>
+        <translation type="unfinished">Wyświetlaj wszystkie komunikaty</translation>
+    </message>
+    <message>
+        <source>_Message level:</source>
+        <translation type="unfinished">Pozio_m komunikatów:</translation>
+    </message>
+    <message>
+        <source>Master</source>
+        <translation type="unfinished">Główny</translation>
+    </message>
+    <message>
+        <source>_Volume control:</source>
+        <translation type="unfinished">_Kontrola głośności:</translation>
+    </message>
+    <message>
+        <source>No downmixing</source>
+        <translation type="unfinished">Bez redukcji kanałów</translation>
+    </message>
+    <message>
+        <source>Pro Logic</source>
+        <translation type="unfinished">Pro Logic</translation>
+    </message>
+    <message>
+        <source>Pro Logic II</source>
+        <translation type="unfinished">Pro Logic II</translation>
+    </message>
+    <message>
+        <source>_Local playback downmixing:</source>
+        <translation type="unfinished">Redukcja kanałów dla odtwarzania _lokalnego:</translation>
+    </message>
+    <message>
+        <source>_AudioDevice</source>
+        <translation type="unfinished">_Urządzenie dźwięku</translation>
+    </message>
+    <message>
+        <source>De_ringing</source>
+        <translation type="unfinished">Usuwanie pie_rścienia</translation>
+    </message>
+    <message>
+        <source>_Strength:</source>
+        <translation type="unfinished">_Natężenie</translation>
+    </message>
+    <message>
+        <source>Default Postprocessing</source>
+        <translation type="unfinished">Przetwarzanie domyślne</translation>
+    </message>
+    <message>
+        <source>Use _Global GlyphSet</source>
+        <translation type="unfinished">Użyj _globalnego zestawu glifów</translation>
+    </message>
+    <message>
+        <source>Gl_yphSet:</source>
+        <translation type="unfinished">Zestaw gl_ifów</translation>
+    </message>
+    <message>
+        <source>User Interface</source>
+        <translation type="unfinished">Interfejs użytkownika</translation>
+    </message>
+    <message>
+        <source>Automation</source>
+        <translation type="unfinished">Zautomatyzowanie</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="unfinished">Wejście</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished">Wyjscie</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">Obraz</translation>
+    </message>
+    <message>
+        <source>Threading</source>
+        <translation type="unfinished">Wątkowanie</translation>
+    </message>
+    <message>
+        <source>Global GlyphSet</source>
+        <translation type="unfinished">Globalny zestaw glifów</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished">Preferencje</translation>
+    </message>
+    <message>
+        <source>_Shrink Factor:</source>
+        <translation type="unfinished">Współczynnik zmniej_szenia:</translation>
+    </message>
+    <message>
+        <source>Requant Configuration</source>
+        <translation type="unfinished">Konfiguracja rekwantyzacji</translation>
+    </message>
+    <message>
+        <source>_VOB file(s):</source>
+        <translation type="unfinished">Plik(i) _VOB:</translation>
+    </message>
+    <message>
+        <source>Select VOB file(s)</source>
+        <translation type="unfinished">Wybierz plik(i) VOB</translation>
+    </message>
+    <message>
+        <source>_IFO file:</source>
+        <translation type="unfinished">Plik _IFO:</translation>
+    </message>
+    <message>
+        <source>Select IFO file</source>
+        <translation type="unfinished">Wybierz plik IFO</translation>
+    </message>
+    <message>
+        <source>VobSub file:</source>
+        <translation type="unfinished">Plik napisów VobSub:</translation>
+    </message>
+    <message>
+        <source>Select VobSub file</source>
+        <translation type="unfinished">Wybierz plik napisów VobSub</translation>
+    </message>
+    <message>
+        <source>VOB to VobSub</source>
+        <translation type="unfinished">Parser napisów VobSub z pliku VOB</translation>
+    </message>
+    <message>
+        <source>The selected vobfile does not exist</source>
+        <translation type="unfinished">Wybrany plik VOB nie istnieje</translation>
+    </message>
+    <message>
+        <source>Please select a correct VobSub path/dir</source>
+        <translation type="unfinished">Proszę wybrać poprawną ścieżkę do pliku VobSub</translation>
+    </message>
+    <message>
+        <source>Oops</source>
+        <translation type="unfinished">Oops</translation>
+    </message>
+    <message>
+        <source>Something very wrong happened when building joblist.</source>
+        <translation type="unfinished">Coś bardzo złego stało się podczas tworzenia listy zadań.</translation>
+    </message>
+    <message>
+        <source>There are no jobs stored</source>
+        <translation type="unfinished">Nie ma więcej zadań</translation>
+    </message>
+    <message>
+        <source>Select ECMAScript to Run</source>
+        <translation type="unfinished">Wybierz ECMAScript do uruchomienia</translation>
+    </message>
+    <message>
+        <source>Audio filters cannot be applied in Copy mode</source>
+        <translation type="unfinished">Nie można zastosować filtrów dźwięku w trybie kopiowania</translation>
+    </message>
+    <message>
+        <source>To apply filters the audio must be transcoded.</source>
+        <translation type="unfinished">Aby zastosować filtry należy przekodować dźwięk.</translation>
+    </message>
+    <message>
+        <source>Obsolete</source>
+        <translation type="unfinished">Przestarzałe</translation>
+    </message>
+    <message>
+        <source>Not coded in this version</source>
+        <translation type="unfinished">Nie zaimplementowane w tej wersji</translation>
+    </message>
+    <message>
+        <source>Select Video/Image File...</source>
+        <translation type="unfinished">Wybierz plik wideo/obrazu</translation>
+    </message>
+    <message>
+        <source>Select Workbench to Save</source>
+        <translation type="unfinished">Wybierz narzędzia do zapisania</translation>
+    </message>
+    <message>
+        <source>Select Raw File to Save</source>
+        <translation type="unfinished">Wybierz plik Raw do zapisu</translation>
+    </message>
+    <message>
+        <source>Select AVI File...</source>
+        <translation type="unfinished">Wybierz plik AVI...</translation>
+    </message>
+    <message>
+        <source>Select AVI File to Append...</source>
+        <translation type="unfinished">Wybierz plik AVI aby dołączyć...</translation>
+    </message>
+    <message>
+        <source>Select File to Save Audio</source>
+        <translation type="unfinished">Wybierz plik aby zapisać dźwięk</translation>
+    </message>
+    <message>
+        <source>Select JPEG Sequence to Save</source>
+        <translation type="unfinished">Wybierz kolejność JPEG do zapisania</translation>
+    </message>
+    <message>
+        <source>Select BMP to Save</source>
+        <translation type="unfinished">Wybierz plik BMP do zapisu</translation>
+    </message>
+    <message>
+        <source>Select JPEG to Save</source>
+        <translation type="unfinished">Wybierz plik JPEG do zapisu</translation>
+    </message>
+    <message>
+        <source>Select File to Save</source>
+        <translation type="unfinished">Wybiez plik do zapisu</translation>
+    </message>
+    <message>
+        <source>Select MP3 to Load</source>
+        <translation type="unfinished">Wybierz plik MP3 do wczytania</translation>
+    </message>
+    <message>
+        <source>Select AC3 to Load</source>
+        <translation type="unfinished">Wybierz plik AC3 do wczytania</translation>
+    </message>
+    <message>
+        <source>Select WAV to Load</source>
+        <translation type="unfinished">Wybierz plik WAV do wczytania</translation>
+    </message>
+    <message>
+        <source>Go to Frame</source>
+        <translation type="unfinished">Przejdź do klatki</translation>
+    </message>
+    <message>
+        <source>_Go to frame:</source>
+        <translation type="unfinished">_Przejdź do klatki:</translation>
+    </message>
+    <message>
+        <source>Out of bounds</source>
+        <translation type="unfinished">Poza zakresem</translation>
+    </message>
+    <message>
+        <source>Marker A &gt; B</source>
+        <translation type="unfinished">Znacznik A &gt; B</translation>
+    </message>
+    <message>
+        <source>An invalid frame range has been selected.  Make sure marker A is placed before marker B.</source>
+        <translation type="unfinished">Wybrano niewłaściwy zakres klatek. Upewnij się że znacznik A jest umieszczony przed znacznikiem B.</translation>
+    </message>
+    <message>
+        <source>Cannot copy.</source>
+        <translation type="unfinished">Skopiowanie nie powiodło się.</translation>
+    </message>
+    <message>
+        <source>Something bad happened (II))</source>
+        <translation type="unfinished">Stało się coś złego (II))</translation>
+    </message>
+    <message>
+        <source>Are you sure?</source>
+        <translation type="unfinished">Na pewno?</translation>
+    </message>
+    <message>
+        <source>Cannot cut.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use custom value</source>
+        <translation type="unfinished">Użyj własnej wartości</translation>
+    </message>
+    <message>
+        <source>Frame Rate</source>
+        <translation type="unfinished">Liczba klatek na sekundę</translation>
+    </message>
+    <message>
+        <source>_Frames per second</source>
+        <translation type="unfinished">Liczba _klatek na sekundę</translation>
+    </message>
+    <message>
+        <source>PAL - 25 FPS</source>
+        <translation type="unfinished">PAL - 25 kl./s</translation>
+    </message>
+    <message>
+        <source>FILM - 24 FPS</source>
+        <translation type="unfinished">FILM- 24 kl./s</translation>
+    </message>
+    <message>
+        <source>NTSC - 30 FPS</source>
+        <translation type="unfinished">NTSC- 30 kl./s</translation>
+    </message>
+    <message>
+        <source>Standard Frame Rate:</source>
+        <translation type="unfinished">Standardowa liczba klatek na sekundę:</translation>
+    </message>
+    <message>
+        <source>Change Frame Rate</source>
+        <translation type="unfinished">Zmień liczbę klatek na sekundę</translation>
+    </message>
+    <message>
+        <source>Width is not a multiple of 8</source>
+        <translation type="unfinished">Szerokość nie jest wielokrotnością liczby 8</translation>
+    </message>
+    <message>
+        <source>This will make trouble for AVI files.</source>
+        <translation type="unfinished">Spowoduje to problemy z plikiem AVI.</translation>
+    </message>
+    <message>
+        <source>Video filters cannot be applied in Copy mode</source>
+        <translation type="unfinished">Nie można zastosować filtrów w trybie kopiowania</translation>
+    </message>
+    <message>
+        <source>To apply filters the video must be transcoded.</source>
+        <translation type="unfinished">Aby zastosować filtry należy przekodować obraz.</translation>
+    </message>
+    <message>
+        <source>Rebuild all Keyframes?</source>
+        <translation type="unfinished">Ponownie utworzyć wszystkie klatki kluczowe?</translation>
+    </message>
+    <message>
+        <source>Permission error</source>
+        <translation type="unfinished">Błąd: Brak uprawnień</translation>
+    </message>
+    <message>
+        <source>&quot;%s&quot; does not exist.</source>
+        <translation type="unfinished">&quot;%s&quot; nie istnieje.</translation>
+    </message>
+    <message>
+        <source>Error opening file</source>
+        <translation type="unfinished">Błąd podczas otwierania pliku</translation>
+    </message>
+    <message>
+        <source>Error opening &quot;%s&quot;.</source>
+        <translation type="unfinished">Błąd podczas otwierania &quot;%s&quot;.</translation>
+    </message>
+    <message>
+        <source>Cannot open project using the video loader.</source>
+        <translation type="unfinished">Nie można otworzyć projektu przy użyciu modułu wczytującego obraz wideo.</translation>
+    </message>
+    <message>
+        <source>Try &apos;File&apos; -&gt; &apos;Load/Run Project...&apos;</source>
+        <translation type="unfinished">Spróbuj &apos;Plik&quot; -&gt; &apos;Wczytaj/Uruchom projekt...&apos;</translation>
+    </message>
+    <message>
+        <source>Could not open the file</source>
+        <translation type="unfinished">Nie można otworzyć pliku</translation>
+    </message>
+    <message>
+        <source>Multiple Audio Tracks</source>
+        <translation type="unfinished">Wiele ścieżek dźwięku</translation>
+    </message>
+    <message>
+        <source>The file you just loaded contains several audio tracks.
+Go to Audio-&gt;MainTrack to select the active one.</source>
+        <translation type="unfinished">Wczytany plik zawiera więcej ścieżek dźwięku.
+Przejdź do Dźwięk-&gt;Główna ścieżka aby wybrać aktywną ścieżkę.</translation>
+    </message>
+    <message>
+        <source>No audio decoder found for this file</source>
+        <translation type="unfinished">Brak dekodera dźwięku dla tego pliku</translation>
+    </message>
+    <message>
+        <source>Save (A+V) will generate bad AVI. Save audio will work.</source>
+        <translation type="unfinished">Zapisanie (A+V) utworzy wadliwy plik AVI. Zapisanie dźwięku będzie działać.</translation>
+    </message>
+    <message>
+        <source>Something failed when appending</source>
+        <translation type="unfinished">Dołączanie się nie powiodło</translation>
+    </message>
+    <message>
+        <source>Something bad happened (II)</source>
+        <translation type="unfinished">Stało się coś złego (II)</translation>
+    </message>
+    <message>
+        <source>Cannot save the audio in copy mode</source>
+        <translation type="unfinished">Nie można zapisać dźwięku w trybie kopiuj</translation>
+    </message>
+    <message>
+        <source>Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.</source>
+        <translation type="unfinished">Wybierz WAV PCM jako kodek dźwięku, w innym wypadku plik dźwięku będzie surowym PCM.</translation>
+    </message>
+    <message>
+        <source>Saving audio</source>
+        <translation type="unfinished">Zapisywanie dźwięku</translation>
+    </message>
+    <message>
+        <source>Get Frame</source>
+        <translation type="unfinished">Pobierz klatkę</translation>
+    </message>
+    <message>
+        <source>Cannot get this frame to save</source>
+        <translation type="unfinished">Nie można pobrać klatki do zapisu</translation>
+    </message>
+    <message>
+        <source>Mark A &gt; B</source>
+        <translation type="unfinished">Zaznacz A &gt; B</translation>
+    </message>
+    <message>
+        <source>Set your markers correctly.</source>
+        <translation type="unfinished">Ustaw poprawnie swoje znaczniki.</translation>
+    </message>
+    <message>
+        <source>Saving as set of jpegs</source>
+        <translation type="unfinished">Zapisywanie w postaci zestawu plików jpeg</translation>
+    </message>
+    <message>
+        <source>Cannot decode frame</source>
+        <translation type="unfinished">Nie można dekodować klatki</translation>
+    </message>
+    <message>
+        <source>Aborting.</source>
+        <translation type="unfinished">Przerywanie.</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">Zrobione</translation>
+    </message>
+    <message>
+        <source>Saved %d images.</source>
+        <translation type="unfinished">Zapisano %d obrazów.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Błąd</translation>
+    </message>
+    <message>
+        <source>Could not save all images.</source>
+        <translation type="unfinished">Nie można było zapisać wszystkich obrazów</translation>
+    </message>
+    <message>
+        <source>Saved &quot;%s&quot;.</source>
+        <translation type="unfinished">Zapisano &quot;%s&quot;.</translation>
+    </message>
+    <message>
+        <source>BMP op failed</source>
+        <translation type="unfinished">Nie udało się otworzyć pliku BMP</translation>
+    </message>
+    <message>
+        <source>Saving %s as a BMP file failed.</source>
+        <translation type="unfinished">Zapisywanie %s jako pliku BMP nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Failed to open the file</source>
+        <translation type="unfinished">Nie udało się otworzyć pliku</translation>
+    </message>
+    <message>
+        <source>Not a WAV file?</source>
+        <translation type="unfinished">To nie jest plik WAV?</translation>
+    </message>
+    <message>
+        <source>WAV open file failed...</source>
+        <translation type="unfinished">Nie udało się otworzyć pliku WAV</translation>
+    </message>
+    <message>
+        <source>Cannot decompress audio frame</source>
+        <translation type="unfinished">Nie można wykonać dekompresji klatki dźwięku</translation>
+    </message>
+    <message>
+        <source>Memory Error</source>
+        <translation type="unfinished">Błąd alokacji pamięci</translation>
+    </message>
+    <message>
+        <source>No frames to encode</source>
+        <translation type="unfinished">Brak klatek do kodowania</translation>
+    </message>
+    <message>
+        <source>Please check markers. Is &quot;A&gt;&quot; == &quot;&gt;B&quot;?</source>
+        <translation type="unfinished">Proszę sprawdź znaczniki. Czy &quot;A&gt;&quot; == &quot;&gt;B&quot;?</translation>
+    </message>
+    <message>
+        <source>Saving raw video stream</source>
+        <translation type="unfinished">Zapisywanie surowego strumienia obrazu wideo</translation>
+    </message>
+    <message>
+        <source>Checking video</source>
+        <translation type="unfinished">Sprawdzanie obrazu wideo</translation>
+    </message>
+    <message>
+        <source>No error found</source>
+        <translation type="unfinished">Nie znaleziono błędu</translation>
+    </message>
+    <message>
+        <source>Errors found in %u frames</source>
+        <translation type="unfinished">Znaleziono błędy w %u klatkach</translation>
+    </message>
+    <message>
+        <source>Cannot decompress the audio stream</source>
+        <translation type="unfinished">Nie można wykonać dekompresji strumienia dźwięku</translation>
+    </message>
+    <message>
+        <source>Switch audio codec to Copy.</source>
+        <translation type="unfinished">Przełącz kodek dźwięku na opcję Kopiuj</translation>
+    </message>
+    <message>
+        <source>Cannot delete the selection.</source>
+        <translation type="unfinished">Nie można usunąć zaznaczenia.</translation>
+    </message>
+    <message>
+        <source>You can&apos;t remove all frames</source>
+        <translation type="unfinished">Nie możesz usunąć wszystkich klatek.</translation>
+    </message>
+    <message>
+        <source>Something bad happened</source>
+        <translation type="unfinished">Stało się coś złego</translation>
+    </message>
+    <message>
+        <source>Could not get tracks info</source>
+        <translation type="unfinished">Nie udało się uzyskać informacji o ścieżkach</translation>
+    </message>
+    <message>
+        <source>Take audio from video file</source>
+        <translation type="unfinished">Pobierz dźwięk z pliku obrazu wideo</translation>
+    </message>
+    <message>
+        <source>No audio</source>
+        <translation type="unfinished">Brak dźwięku</translation>
+    </message>
+    <message>
+        <source>External AC3</source>
+        <translation type="unfinished">Zewnętrzny plik AC3</translation>
+    </message>
+    <message>
+        <source>Take audio from external AC3 file</source>
+        <translation type="unfinished">Pobierz dźwięk z zewnętrznego pliku AC3</translation>
+    </message>
+    <message>
+        <source>External MP3</source>
+        <translation type="unfinished">Zewnętrzny plik MP3</translation>
+    </message>
+    <message>
+        <source>Take audio from external MP3 file</source>
+        <translation type="unfinished">Pobierz dźwięk z zewnętrznego pliku MP3</translation>
+    </message>
+    <message>
+        <source>External WAV</source>
+        <translation type="unfinished">Zewnętrzny plik WAV</translation>
+    </message>
+    <message>
+        <source>Take audio from external WAV file</source>
+        <translation type="unfinished">Pobierz dźwięk z zewnętrznego pliku WAV</translation>
+    </message>
+    <message>
+        <source>_Audio source:</source>
+        <translation type="unfinished">Źródło _dźwięku:</translation>
+    </message>
+    <message>
+        <source>_External file:</source>
+        <translation type="unfinished">Plik _zewnętrzny:</translation>
+    </message>
+    <message>
+        <source>Select file</source>
+        <translation type="unfinished">Wybierz plik</translation>
+    </message>
+    <message>
+        <source>Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)</source>
+        <translation type="unfinished">Ścieżka dźwiękowa %d (%s/%d kanałów/%d kbit na s/%d ms zmiana)</translation>
+    </message>
+    <message>
+        <source>_Track from video:</source>
+        <translation type="unfinished">Ścieżka z _obrazu wideo:</translation>
+    </message>
+    <message>
+        <source>Main Audio Track</source>
+        <translation type="unfinished">Główna ścieżka dźwiękowa</translation>
+    </message>
+    <message>
+        <source>Cannot load</source>
+        <translation type="unfinished">Nie można wczytać</translation>
+    </message>
+    <message>
+        <source>The selected audio file does not exist.</source>
+        <translation type="unfinished">Wybrany plik dźwiękowy nie istnieje.</translation>
+    </message>
+    <message>
+        <source>Second Audio Track</source>
+        <translation type="unfinished">Druga ścieżka dźwiękowa</translation>
+    </message>
+    <message>
+        <source>Error loading the MP3 file</source>
+        <translation type="unfinished">Błąd podczas wczytywania pliku MP3</translation>
+    </message>
+    <message>
+        <source>Second track loaded</source>
+        <translation type="unfinished">Wczytano drugą ścieżkę</translation>
+    </message>
+    <message>
+        <source>Error loading the AC3 file</source>
+        <translation type="unfinished">Błąd podczas wczytywania pliku AC3</translation>
+    </message>
+    <message>
+        <source>Error loading the WAV file</source>
+        <translation type="unfinished">Błąd podczas wczytywania pliku WAV</translation>
+    </message>
+    <message>
+        <source>Saving failed</source>
+        <translation type="unfinished">Zapisywanie nie udało się</translation>
+    </message>
+    <message>
+        <source>Saving the job failed. Maybe you have permission issue with ~/.avidemux</source>
+        <translation type="unfinished">Zapisanie zadania nie powiodło się. Możesz mieć problem z prawami dostępu do ~/.avidemux</translation>
+    </message>
+    <message>
+        <source>File %s has been successfully saved.</source>
+        <translation type="unfinished">Plik %s został pomyślnie zapisany</translation>
+    </message>
+    <message>
+        <source>File %s was NOT saved correctly.</source>
+        <translation type="unfinished">Plik %s NIE został prawidłowo zapisany.</translation>
+    </message>
+    <message>
+        <source>AvsProxy</source>
+        <translation type="unfinished">AvsProxy</translation>
+    </message>
+    <message>
+        <source>Failed to connect to avsproxy.
+Is it running ?</source>
+        <translation type="unfinished">Nie udało się połączyć z avsproxy.
+Czy jest on uruchomiony?</translation>
+    </message>
+    <message>
+        <source>avsproxy</source>
+        <translation type="unfinished">avsproxy</translation>
+    </message>
+    <message>
+        <source>Frame type:</source>
+        <translation type="unfinished">Typ klatki:</translation>
+    </message>
+    <message>
+        <source>Frame size:</source>
+        <translation type="unfinished">Rozmiar klatki:</translation>
+    </message>
+    <message>
+        <source>Frame Hex Dump</source>
+        <translation type="unfinished">Zrzut szesnastkowy klatki</translation>
+    </message>
+    <message>
+        <source>Decompressing error</source>
+        <translation type="unfinished">Błąd dekompresji</translation>
+    </message>
+    <message>
+        <source>Cannot decode next frame.</source>
+        <translation type="unfinished">Nie można odkodować następnej klatki.</translation>
+    </message>
+    <message>
+        <source>Cannot decode keyframe.</source>
+        <translation type="unfinished">Nie można odkodować klatki kluczowej</translation>
+    </message>
+    <message>
+        <source>Seeking</source>
+        <translation type="unfinished">Przeszukiwanie</translation>
+    </message>
+    <message>
+        <source>Finding black frames</source>
+        <translation type="unfinished">Odszukiwanie czarnych klatek</translation>
+    </message>
+    <message>
+        <source>Cannot decode the frame.</source>
+        <translation type="unfinished">Nie można odkodować klatki.</translation>
+    </message>
+    <message>
+        <source>Dual audio can only be used in copy mode</source>
+        <translation type="unfinished">Dźwięk dwukanałowy może być użyty jedynie w trybie kopiowania</translation>
+    </message>
+    <message>
+        <source>Select Copy as the video codec.</source>
+        <translation type="unfinished">Wybierz &quot;Kopiuj&quot; jako kodek obrazu.</translation>
+    </message>
+    <message>
+        <source>Incompatible output format</source>
+        <translation type="unfinished">Niezgodny format wyjściowy</translation>
+    </message>
+    <message>
+        <source>There is no second track</source>
+        <translation type="unfinished">Nie ma drugiej ścieżki</translation>
+    </message>
+    <message>
+        <source>Select a second audio track in the Audio menu.</source>
+        <translation type="unfinished">Wybierz drugą ścieżkę dźwiękową w menu dźwięku</translation>
+    </message>
+    <message>
+        <source>Select dual audio AVI to write</source>
+        <translation type="unfinished">Wybierz dźwięk dwukanałowy do zapisania</translation>
+    </message>
+    <message>
+        <source>This cannot have packed VOP</source>
+        <translation type="unfinished">W ten sposób VOP nie został spakowany</translation>
+    </message>
+    <message>
+        <source>It is not MPEG-4 video. File will not be saved.</source>
+        <translation type="unfinished">To nie jest plik MPEG-4. Plik nie zostanie zapisany.</translation>
+    </message>
+    <message>
+        <source>You may need smart copy.
+Enable it?</source>
+        <translation type="unfinished">Możesz potrzebować inteligentnej kopii.
+Włączyć ją?</translation>
+    </message>
+    <message>
+        <source>Smart Copy</source>
+        <translation type="unfinished">Inteligentna kopia</translation>
+    </message>
+    <message>
+        <source>_Q factor (set 4):</source>
+        <translation type="unfinished">Czynnik _Q (ustawiony 4):</translation>
+    </message>
+    <message>
+        <source>Trouble initializing audio device</source>
+        <translation type="unfinished">Urządzenie dźwiękowe jest nie skonfigurowane</translation>
+    </message>
+    <message>
+        <source>_Bitrate:</source>
+        <translation type="unfinished">_Przepływność:</translation>
+    </message>
+    <message>
+        <source>Aften Configuration</source>
+        <translation type="unfinished">Konfiguracja Aften</translation>
+    </message>
+    <message>
+        <source>Joint stereo</source>
+        <translation type="unfinished">Połączone stereo</translation>
+    </message>
+    <message>
+        <source>C_hannel mode:</source>
+        <translation type="unfinished">Tryb k_anałowy:</translation>
+    </message>
+    <message>
+        <source>CBR</source>
+        <translation type="unfinished">CBR</translation>
+    </message>
+    <message>
+        <source>ABR</source>
+        <translation type="unfinished">ABR</translation>
+    </message>
+    <message>
+        <source>Extreme</source>
+        <translation type="unfinished">Ekstrymalny</translation>
+    </message>
+    <message>
+        <source>Bit_rate mode:</source>
+        <translation type="unfinished">T_ryb przepływności:</translation>
+    </message>
+    <message>
+        <source>_Quality:</source>
+        <translation type="unfinished">_Jakość:</translation>
+    </message>
+    <message>
+        <source>_Disable reservoir</source>
+        <translation type="unfinished">W_yłącz zasób</translation>
+    </message>
+    <message>
+        <source>LAME Configuration</source>
+        <translation type="unfinished">Konfiguracja LAME</translation>
+    </message>
+    <message>
+        <source>TwoLame Configuration</source>
+        <translation type="unfinished">Konfiguracja TwoLame</translation>
+    </message>
+    <message>
+        <source>VBR</source>
+        <translation type="unfinished">VBR</translation>
+    </message>
+    <message>
+        <source>Quality based</source>
+        <translation type="unfinished">Na podstawie jakości</translation>
+    </message>
+    <message>
+        <source>_Mode:</source>
+        <translation type="unfinished">_Tryb:</translation>
+    </message>
+    <message>
+        <source>Vorbis Configuration</source>
+        <translation type="unfinished">Konfiguracja Vorbis</translation>
+    </message>
+    <message>
+        <source>asharp</source>
+        <translation type="unfinished">asharp</translation>
+    </message>
+    <message>
+        <source>Adaptative sharpener by MarcFD.</source>
+        <translation type="unfinished">Inteligentne wyostrzanie od MarcFD.</translation>
+    </message>
+    <message>
+        <source>Add black borders</source>
+        <translation type="unfinished">Dodaj czarne obramowanie</translation>
+    </message>
+    <message>
+        <source>Add pure black border(s).</source>
+        <translation type="unfinished">Dodaj czarne obramowanie.</translation>
+    </message>
+    <message>
+        <source>Animated Menu</source>
+        <translation type="unfinished">Animowane menu</translation>
+    </message>
+    <message>
+        <source>Create a video made of 6 mini windows, very useful to do DVD menus.</source>
+        <translation type="unfinished">Utwórz obraz wideo składający się z 6 małych okienek, bardzo przydatne w menu DVD.</translation>
+    </message>
+    <message>
+        <source>_Background Image:</source>
+        <translation type="unfinished">O_braz w tle:</translation>
+    </message>
+    <message>
+        <source>Select background image</source>
+        <translation type="unfinished">Wybierz obraz tła</translation>
+    </message>
+    <message>
+        <source>_NTSC (default is PAL):</source>
+        <translation type="unfinished">_NTSC (domyślnie PAL):</translation>
+    </message>
+    <message>
+        <source>Vignette _Width:</source>
+        <translation type="unfinished">_Szerokość winiety:</translation>
+    </message>
+    <message>
+        <source>Vignette _Height:</source>
+        <translation type="unfinished">_Wysokość winiety:</translation>
+    </message>
+    <message>
+        <source>Vignette frame number</source>
+        <translation type="unfinished">Liczbka klatek z winietą</translation>
+    </message>
+    <message>
+        <source>Timecode:</source>
+        <translation type="unfinished">Kod czasu:</translation>
+    </message>
+    <message>
+        <source>ASS</source>
+        <translation type="unfinished">ASS</translation>
+    </message>
+    <message>
+        <source>Add ASS/SSA subtitles to the picture.</source>
+        <translation type="unfinished">Dodaj napisy ASS/SSA do obrazu.</translation>
+    </message>
+    <message>
+        <source>Resize</source>
+        <translation type="unfinished">Zmień rozmiar</translation>
+    </message>
+    <message>
+        <source>Picture resizer ported from Avisynth (C Version, slow).</source>
+        <translation type="unfinished">Narzędzie zmiany rozmiaru obrazu przeniesione z Avisynth (wersja C, wolna).</translation>
+    </message>
+    <message>
+        <source>Width and height cannot be 0</source>
+        <translation type="unfinished">Szerokość i wysokość nie mogą wynosić 0</translation>
+    </message>
+    <message>
+        <source>Width and height cannot be odd</source>
+        <translation type="unfinished">Szerokość i wysokość nie mogą być nieparzyste</translation>
+    </message>
+    <message>
+        <source>Avisynth script filter (avsfilter), ver 0.7a(internal)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use avisynth script as video filter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacken borders</source>
+        <translation type="unfinished">Przyciemnij krawędzie</translation>
+    </message>
+    <message>
+        <source>Fill borders with pure black. Doesn&apos;t alter size.</source>
+        <translation type="unfinished">Wypełnij obramowanie całkowitą czernią. Nie zmienia rozmiaru obrazu.</translation>
+    </message>
+    <message>
+        <source>Blend Removal</source>
+        <translation type="unfinished">Usuwanie przenikania</translation>
+    </message>
+    <message>
+        <source>Try to remove blending.</source>
+        <translation type="unfinished">Spróbuj usunąć przenikanie</translation>
+    </message>
+    <message>
+        <source>Remove IVTC that has been analog captured or resized.</source>
+        <translation type="unfinished">Usuń IVTC, których zostały nagrane analogowo lub ich rozmiar został zmieniony.</translation>
+    </message>
+    <message>
+        <source>Cnr2</source>
+        <translation type="unfinished">Cnr2</translation>
+    </message>
+    <message>
+        <source>Chroma noise reduction filter by MarcFD/Tritical..</source>
+        <translation type="unfinished">Filtr redukcji szumu chrominancji od MarcFD/Tritical..</translation>
+    </message>
+    <message>
+        <source>Chroma U</source>
+        <translation type="unfinished">Chrominancja U</translation>
+    </message>
+    <message>
+        <source>Keep chroma U only.</source>
+        <translation type="unfinished">Zatrzymaj tylko chrominancję U</translation>
+    </message>
+    <message>
+        <source>Chroma V</source>
+        <translation type="unfinished">Chrominancja V</translation>
+    </message>
+    <message>
+        <source>Keep chroma V only.</source>
+        <translation type="unfinished">Zatrzymaj tylko chrominancję V</translation>
+    </message>
+    <message>
+        <source>Chroma shift</source>
+        <translation type="unfinished">Przesuń chrominancję</translation>
+    </message>
+    <message>
+        <source>Shift chroma U/V to fix badly synced luma/chroma.</source>
+        <translation type="unfinished">Zamień chrominancję U/V aby naprawić źle zsynchronizowane luminancję/chrominancję.</translation>
+    </message>
+    <message>
+        <source>Contrast</source>
+        <translation type="unfinished">Kontrast</translation>
+    </message>
+    <message>
+        <source>Adjust contrast, brightness and colors.</source>
+        <translation type="unfinished">Dostosuj kontrast, jasność i kolory.</translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">Kadrowanie</translation>
+    </message>
+    <message>
+        <source>Remove lines from top/bottom/left/right.</source>
+        <translation type="unfinished">Usuń linie z góry/dołu/lewej/prawej</translation>
+    </message>
+    <message>
+        <source>Color Curve Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color adjustment by color curves in YUV color space.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decomb Decimate</source>
+        <translation type="unfinished">Decomb Decimate</translation>
+    </message>
+    <message>
+        <source>Useful to remove dupes left by Telecide.</source>
+        <translation type="unfinished">Przydatne do usuwania duplikatów pozostawionych przez Telecide</translation>
+    </message>
+    <message>
+        <source>Deinterlace</source>
+        <translation type="unfinished">Usuwanie przeplotu</translation>
+    </message>
+    <message>
+        <source>Mask interlacing artifacts. Port of Smart deinterlace.</source>
+        <translation type="unfinished">Maska elementów przeplotu. Przeniesiona ze Smart deinterlace.</translation>
+    </message>
+    <message>
+        <source>Luma delta</source>
+        <translation type="unfinished">Delta luminancji</translation>
+    </message>
+    <message>
+        <source>Difference between current and previous picture.</source>
+        <translation type="unfinished">Różnica między bieżącym i poprzednim obrazem</translation>
+    </message>
+    <message>
+        <source>Denoise</source>
+        <translation type="unfinished">Usuń szum</translation>
+    </message>
+    <message>
+        <source>Port of Transcode DNR.</source>
+        <translation type="unfinished">Przeniesiony filtr Transcode DNR</translation>
+    </message>
+    <message>
+        <source>DG Bob</source>
+        <translation type="unfinished">DG Bob</translation>
+    </message>
+    <message>
+        <source>Donald Graft Bob.</source>
+        <translation type="unfinished">Bob od Donalda Grafta</translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation type="unfinished">Pomiń</translation>
+    </message>
+    <message>
+        <source>Drop damaged fields (e.g. from VHS capture).</source>
+        <translation type="unfinished">Pomijanie uszkodzonych pól (np. z nagrań VHS).</translation>
+    </message>
+    <message>
+        <source>MPlayer eq2</source>
+        <translation type="unfinished">MPlayer eq2</translation>
+    </message>
+    <message>
+        <source>Adjust contrast, brightness, saturation and gamma.</source>
+        <translation type="unfinished">Dostosuj kontrast, jasność, nasycenie i gammę.</translation>
+    </message>
+    <message>
+        <source>Luma equalizer</source>
+        <translation type="unfinished">Korektor luminancji</translation>
+    </message>
+    <message>
+        <source>Luma correction filter with histogram.</source>
+        <translation type="unfinished">Filtr korekcji luminancji z histogramem.</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation type="unfinished">Zanikanie</translation>
+    </message>
+    <message>
+        <source>Fade in/out.</source>
+        <translation type="unfinished">Zanikanie/wyłanianie</translation>
+    </message>
+    <message>
+        <source>Gauss smooth</source>
+        <translation type="unfinished">Wygładzanie gaussa</translation>
+    </message>
+    <message>
+        <source>Gaussian smooth. Blur the picture.</source>
+        <translation type="unfinished">Wygładzanie Gaussa. Rozmycie obrazu.</translation>
+    </message>
+    <message>
+        <source>Median</source>
+        <translation type="unfinished">Mediana</translation>
+    </message>
+    <message>
+        <source>Median kernel 3x3. Remove high frequency noise.</source>
+        <translation type="unfinished">Filtr mediana o kernelu 3x3. Usuń szum wysokiej częstotliwości.</translation>
+    </message>
+    <message>
+        <source>Mean</source>
+        <translation type="unfinished">Średnia</translation>
+    </message>
+    <message>
+        <source>Mean (blur) kernel.</source>
+        <translation type="unfinished">Filtr (rozmycia) o średnim krenelu.</translation>
+    </message>
+    <message>
+        <source>Sharpen</source>
+        <translation type="unfinished">Wyostrz</translation>
+    </message>
+    <message>
+        <source>Enhance difference between near pixels.</source>
+        <translation type="unfinished">Uwydatnij różnice między bliskimi pikselami.</translation>
+    </message>
+    <message>
+        <source>FluxSmooth</source>
+        <translation type="unfinished">FluxSmooth</translation>
+    </message>
+    <message>
+        <source>Spatio-temporal cleaner by Ross Thomas.</source>
+        <translation type="unfinished">Oczyszczanie przestrzenno-czasowe od Rossa Thomasa.</translation>
+    </message>
+    <message>
+        <source>Forced postprocessing</source>
+        <translation type="unfinished">Wymuszono przetwarzanie dodatkowe</translation>
+    </message>
+    <message>
+        <source>Apply blind postprocessing..</source>
+        <translation type="unfinished">Zastosuj ślepe przetwarzanie..</translation>
+    </message>
+    <message>
+        <source>MPlayer hue</source>
+        <translation type="unfinished">Odcień MPlayer</translation>
+    </message>
+    <message>
+        <source>Adjust hue and saturation.</source>
+        <translation type="unfinished">Dostosuj odcień i nasycenie</translation>
+    </message>
+    <message>
+        <source>Horizontal Stack Field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put both fields side by side.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge fields</source>
+        <translation type="unfinished">Połącz pola</translation>
+    </message>
+    <message>
+        <source>Merge two pictures as if they were two fields.</source>
+        <translation type="unfinished">Połącz dwa obrazy jakby były dwoma polami.</translation>
+    </message>
+    <message>
+        <source>Separate Fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each field becomes full picture, half sized.</source>
+        <translation type="unfinished">Każde pole staje się pełnym obrazem 1/2 rozmiaru.</translation>
+    </message>
+    <message>
+        <source>Stack fields</source>
+        <translation type="unfinished">Pola stosu.</translation>
+    </message>
+    <message>
+        <source>Put two fields on top of one another.</source>
+        <translation type="unfinished">Ułóż dwa pola jeden na drugim.</translation>
+    </message>
+    <message>
+        <source>Unstack fields</source>
+        <translation type="unfinished">Zdejmij pola ze stosu</translation>
+    </message>
+    <message>
+        <source>Interleave top and bottom part of the picture.</source>
+        <translation type="unfinished">Dodaj przeplot do górnej i dolnej części obrazu.</translation>
+    </message>
+    <message>
+        <source>KernelDeint</source>
+        <translation type="unfinished">KernelDeint</translation>
+    </message>
+    <message>
+        <source>Kernel deinterlacer by Donald Graft.</source>
+        <translation type="unfinished">Narzędzie usuwania przeplotu kernela od Donalda Grafta.</translation>
+    </message>
+    <message>
+        <source>Median (5x5)</source>
+        <translation type="unfinished">Mediana (5x5)</translation>
+    </message>
+    <message>
+        <source>Median kernel 5x5. Good for reducing chroma noise.</source>
+        <translation type="unfinished">Filtr mediana o kernelu 5x5. Dobry do redukcji szumu chrominancji.</translation>
+    </message>
+    <message>
+        <source>Logo</source>
+        <translation type="unfinished">Logo</translation>
+    </message>
+    <message>
+        <source>Add a png as logo.</source>
+        <translation type="unfinished">Dodaj plik obrazu png jako logo.</translation>
+    </message>
+    <message>
+        <source>Luma only</source>
+        <translation type="unfinished">Tylko luminancja</translation>
+    </message>
+    <message>
+        <source>Convert picture to greyscale (black and white).</source>
+        <translation type="unfinished">Konwertuj obraz do odcieni szarości (czarno-biały)</translation>
+    </message>
+    <message>
+        <source>MPlayer delogo</source>
+        <translation type="unfinished">MPlayer delogo</translation>
+    </message>
+    <message>
+        <source>Blend a logo by interpolating its surrounding box.</source>
+        <translation type="unfinished">Nanieś logo przez interpolowanie jego otaczających krawędzi.</translation>
+    </message>
+    <message>
+        <source>MSharpen</source>
+        <translation type="unfinished">MSharpen</translation>
+    </message>
+    <message>
+        <source>Sharpen edges without amplifying noise. By Donald Graft.</source>
+        <translation type="unfinished">Wyostrz krawędzie bez zwiększania szumu. Od Donalda Grafta</translation>
+    </message>
+    <message>
+        <source>MSmooth by Donald Graft</source>
+        <translation type="unfinished">MSmooth od Donalda Grafta</translation>
+    </message>
+    <message>
+        <source>Smooth the image, don&apos;t blur edges. Useful on anime.</source>
+        <translation type="unfinished">Wygładź obraz, nie rozmywaj krawędzi. Przydatne do anime.</translation>
+    </message>
+    <message>
+        <source>mcDeinterlace</source>
+        <translation type="unfinished">mcDeinterlace</translation>
+    </message>
+    <message>
+        <source>Motion compensation deinterlacer. Ported from MPlayer.</source>
+        <translation type="unfinished">Narzędzie usuwania przeplotu z kompensacją ruchu. Przeniesione z MPlayera</translation>
+    </message>
+    <message>
+        <source>mosaic</source>
+        <translation type="unfinished">Mozaika</translation>
+    </message>
+    <message>
+        <source>Split the picture into tiny thumbnails.</source>
+        <translation type="unfinished">Podziel obraz na maleńkie miniaturki.</translation>
+    </message>
+    <message>
+        <source>MPlayer hqdn3d</source>
+        <translation type="unfinished">MPlayer hqdn3d</translation>
+    </message>
+    <message>
+        <source>High quality version of denoise3d. Slower but more precise.</source>
+        <translation type="unfinished">Wersja denoise3d wysokiej jakości. Wolniejsza, ale bardziej dokładna.</translation>
+    </message>
+    <message>
+        <source>MPlayer denoise3d</source>
+        <translation type="unfinished">MPlayer denoise3d</translation>
+    </message>
+    <message>
+        <source>Reduce noise, smooth image, increase compressibility.</source>
+        <translation type="unfinished">Redukuj szum, wygładź obraz, zwiększ kompresyjność.</translation>
+    </message>
+    <message>
+        <source>MPlayer resize</source>
+        <translation type="unfinished">Zmiana rozmiaru MPlayer</translation>
+    </message>
+    <message>
+        <source>Change image size. Faster than Avisynth&apos;s Resize.</source>
+        <translation type="unfinished">Zmień rozmiar obrazu. Szybsze od zmiany obrazu przez Avisynth</translation>
+    </message>
+    <message>
+        <source>PAL field shift</source>
+        <translation type="unfinished">Zamiana pól PAL</translation>
+    </message>
+    <message>
+        <source>Shift fields by one. Useful for some PAL movies.</source>
+        <translation type="unfinished">Zamień pola o jedno. Przydatne do niektórych filmów PAL.</translation>
+    </message>
+    <message>
+        <source>PAL smart</source>
+        <translation type="unfinished">PAL smart</translation>
+    </message>
+    <message>
+        <source>Smartly revert non constant PAL field shift.</source>
+        <translation type="unfinished">Inteligentne odwrócenie niestałej zamiany pól PAL.</translation>
+    </message>
+    <message>
+        <source>Pulldown</source>
+        <translation type="unfinished">Konwersja pulldown</translation>
+    </message>
+    <message>
+        <source>Convert 24 fps to 30 fps by repeating fields.</source>
+        <translation type="unfinished">Przelicz 24 na 30 kl./s przez powtarzanie pól.</translation>
+    </message>
+    <message>
+        <source>Resample fps</source>
+        <translation type="unfinished">Zmień liczbę kl./s</translation>
+    </message>
+    <message>
+        <source>Change framerate while keeping duration.</source>
+        <translation type="unfinished">Zmień częstotliwość klatek zachowując czas trwania.</translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation type="unfinished">Odwróć</translation>
+    </message>
+    <message>
+        <source>Play video backward.</source>
+        <translation type="unfinished">Odtwórz plik wstecz</translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished">Obróć</translation>
+    </message>
+    <message>
+        <source>Rotate the picture by 90, 180 or 270 degrees.</source>
+        <translation type="unfinished">Obróć obraz o 90, 180 lub 270 stopni.</translation>
+    </message>
+    <message>
+        <source>Soften</source>
+        <translation type="unfinished">Rozmiękcz</translation>
+    </message>
+    <message>
+        <source>A variant of stabilize.</source>
+        <translation type="unfinished">Wariant stabilizacji</translation>
+    </message>
+    <message>
+        <source>Subtitler</source>
+        <translation type="unfinished">Narzędzie napisów</translation>
+    </message>
+    <message>
+        <source>Add srt/sub subtitles to the picture.</source>
+        <translation type="unfinished">Dodaj napisy srt/sub do obrazu</translation>
+    </message>
+    <message>
+        <source>Arabic</source>
+        <translation type="unfinished">Arabski</translation>
+    </message>
+    <message>
+        <source>Baltic</source>
+        <translation type="unfinished">Bałtycki</translation>
+    </message>
+    <message>
+        <source>Chinese Simplified (GB2312)</source>
+        <translation type="unfinished">Chiński uproszczony (GB2312)</translation>
+    </message>
+    <message>
+        <source>Chinese Traditional (Big5)</source>
+        <translation type="unfinished">Chiński tradycyjny (Big5)</translation>
+    </message>
+    <message>
+        <source>Cyrillic</source>
+        <translation type="unfinished">Cyrylica</translation>
+    </message>
+    <message>
+        <source>Latin-1 (Western European)</source>
+        <translation type="unfinished">Latin-1 (Zachodnioeuropejski)</translation>
+    </message>
+    <message>
+        <source>Latin-2 (Central European)</source>
+        <translation type="unfinished">Latin-2 (Środkowoeuropejski)</translation>
+    </message>
+    <message>
+        <source>Greek</source>
+        <translation type="unfinished">Grecki</translation>
+    </message>
+    <message>
+        <source>Hebrew</source>
+        <translation type="unfinished">Hebrajski</translation>
+    </message>
+    <message>
+        <source>Slovene</source>
+        <translation type="unfinished">Słoweński</translation>
+    </message>
+    <message>
+        <source>Turkish</source>
+        <translation type="unfinished">Turecki</translation>
+    </message>
+    <message>
+        <source>UTF-8</source>
+        <translation type="unfinished">Unicode (UTF-8)</translation>
+    </message>
+    <message>
+        <source>UTF-16</source>
+        <translation type="unfinished">Unicode (UTF-16)</translation>
+    </message>
+    <message>
+        <source>_Subtitle file:</source>
+        <translation type="unfinished">Plik napi_sów:</translation>
+    </message>
+    <message>
+        <source>Select Subtitle file</source>
+        <translation type="unfinished">Wybierz plik z napisami</translation>
+    </message>
+    <message>
+        <source>_Font (TTF):</source>
+        <translation type="unfinished">Czcionka (TT_F):</translation>
+    </message>
+    <message>
+        <source>Select TTF file</source>
+        <translation type="unfinished">Wybierz plik TTF</translation>
+    </message>
+    <message>
+        <source>_Encoding:</source>
+        <translation type="unfinished">Z_estaw znaków:</translation>
+    </message>
+    <message>
+        <source>S_elect C_olor</source>
+        <translation type="unfinished">Wybi_erz k_olor</translation>
+    </message>
+    <message>
+        <source>Set Size and _Position</source>
+        <translation type="unfinished">Ustaw rozmiar i _położenie</translation>
+    </message>
+    <message>
+        <source>_Auto split</source>
+        <translation type="unfinished">_Automatyczny podział</translation>
+    </message>
+    <message>
+        <source>_Delay (ms):</source>
+        <translation type="unfinished">_Opóźnienie (ms):</translation>
+    </message>
+    <message>
+        <source>Light denoiser.</source>
+        <translation type="unfinished">Łagodne usuwanie szumu.</translation>
+    </message>
+    <message>
+        <source>Keep even fields</source>
+        <translation type="unfinished">Zachowaj pola parzyste</translation>
+    </message>
+    <message>
+        <source>Keep top fields. Gives a half height picture..</source>
+        <translation type="unfinished">Zachowaj górne pola. Zostaje obraz połowy wysokości.</translation>
+    </message>
+    <message>
+        <source>Keep odd fields</source>
+        <translation type="unfinished">Zachowaj pola nieparzyste</translation>
+    </message>
+    <message>
+        <source>Keep bottom fields. Gives a half height picture..</source>
+        <translation type="unfinished">Zachowaj dolne pola. Zostaje obraz połowy wysokości..</translation>
+    </message>
+    <message>
+        <source>Swap fields</source>
+        <translation type="unfinished">Zamień pola</translation>
+    </message>
+    <message>
+        <source>Swap top and bottom fields.</source>
+        <translation type="unfinished">Zamień pola górne i dolne.</translation>
+    </message>
+    <message>
+        <source>Smart swap fields</source>
+        <translation type="unfinished">Inteligentna zamiana pól</translation>
+    </message>
+    <message>
+        <source>Smartly swap fields. Needed when field order changes.</source>
+        <translation type="unfinished">Inteligentna zamiana pól. Potrzebne przy zmianach kolejności pól.</translation>
+    </message>
+    <message>
+        <source>Swap U and V</source>
+        <translation type="unfinished">Zamień U i V</translation>
+    </message>
+    <message>
+        <source>Invert chroma U and chroma V.</source>
+        <translation type="unfinished">Odwróć chrominancję U i chrominancję V</translation>
+    </message>
+    <message>
+        <source>TIsophote</source>
+        <translation type="unfinished">TIsophote</translation>
+    </message>
+    <message>
+        <source>Port of TIsophote by tritical .</source>
+        <translation type="unfinished">Port TIsophote od triticala .</translation>
+    </message>
+    <message>
+        <source>TDeint</source>
+        <translation type="unfinished">TDeint</translation>
+    </message>
+    <message>
+        <source>Motion adaptative deinterlacer by Tritical.</source>
+        <translation type="unfinished">Inteligentne narzędzie usuwania przeplotu ruchu od Triticala.</translation>
+    </message>
+    <message>
+        <source>Auto (might not work)</source>
+        <translation type="unfinished">Automatycznie (może nie działać)</translation>
+    </message>
+    <message>
+        <source>Top field first</source>
+        <translation type="unfinished">Najpierw obszar górny</translation>
+    </message>
+    <message>
+        <source>Bottom field first</source>
+        <translation type="unfinished">Najpierw obszar dolny</translation>
+    </message>
+    <message>
+        <source>Bottom field (keep top)</source>
+        <translation type="unfinished">Obszar dolny (zostaw górę)</translation>
+    </message>
+    <message>
+        <source>Top field (keep bottom)</source>
+        <translation type="unfinished">Obszar górny (zostaw dół)</translation>
+    </message>
+    <message>
+        <source>Cubic interpolation</source>
+        <translation type="unfinished">Interpolacja sześcienna</translation>
+    </message>
+    <message>
+        <source>Modified ELA</source>
+        <translation type="unfinished">Zmodyfikowany ELA</translation>
+    </message>
+    <message>
+        <source>Kernel interpolation</source>
+        <translation type="unfinished">Interpolacja kernela</translation>
+    </message>
+    <message>
+        <source>Modified ELA-2</source>
+        <translation type="unfinished">Zmodyfikowany ELA-2</translation>
+    </message>
+    <message>
+        <source>4 fields check</source>
+        <translation type="unfinished">Sprawdź 4 pola</translation>
+    </message>
+    <message>
+        <source>5 fields check</source>
+        <translation type="unfinished">Sprawdź 5 pól</translation>
+    </message>
+    <message>
+        <source>4 fields check (no avg)</source>
+        <translation type="unfinished">Sprawdź 4 pola (bez średniej)</translation>
+    </message>
+    <message>
+        <source>5 fields check (no avg)</source>
+        <translation type="unfinished">Sprawdź 5 pól (bez średniej)</translation>
+    </message>
+    <message>
+        <source>No link</source>
+        <translation type="unfinished">Brak odnośnika</translation>
+    </message>
+    <message>
+        <source>Full link</source>
+        <translation type="unfinished">Pełen odnośnik</translation>
+    </message>
+    <message>
+        <source>Y to UV</source>
+        <translation type="unfinished">Y na UV</translation>
+    </message>
+    <message>
+        <source>UV to Y</source>
+        <translation type="unfinished">UV na Y</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation type="unfinished">1</translation>
+    </message>
+    <message>
+        <source>2</source>
+        <translation type="unfinished">2</translation>
+    </message>
+    <message>
+        <source>_Field order:</source>
+        <translation type="unfinished">Kolejność _pól:</translation>
+    </message>
+    <message>
+        <source>_Interpolate:</source>
+        <translation type="unfinished">_Interpolowanie:</translation>
+    </message>
+    <message>
+        <source>_Type:</source>
+        <translation type="unfinished">_Typ:</translation>
+    </message>
+    <message>
+        <source>_MntMode:</source>
+        <translation type="unfinished">Tryb _Mnt:</translation>
+    </message>
+    <message>
+        <source>_Link:</source>
+        <translation type="unfinished">_Odnośnik:</translation>
+    </message>
+    <message>
+        <source>_AP type:</source>
+        <translation type="unfinished">Typ _AP:</translation>
+    </message>
+    <message>
+        <source>Use ch_roma to evalute</source>
+        <translation type="unfinished">Użyj ch_rominancji do analizy</translation>
+    </message>
+    <message>
+        <source>Try _weave</source>
+        <translation type="unfinished">_Wypróbuj falę</translation>
+    </message>
+    <message>
+        <source>_Denoise</source>
+        <translation type="unfinished">Usuń _szum</translation>
+    </message>
+    <message>
+        <source>_Sharp</source>
+        <translation type="unfinished">O_stry</translation>
+    </message>
+    <message>
+        <source>_Evalute all frames</source>
+        <translation type="unfinished">Analizuj wszystki_e klatki</translation>
+    </message>
+    <message>
+        <source>Motion threshold, l_uma:</source>
+        <translation type="unfinished">Próg ruchu, l_uminancja:</translation>
+    </message>
+    <message>
+        <source>Motion threshold, c_hroma:</source>
+        <translation type="unfinished">Próg ruchu, c_hrominancja:</translation>
+    </message>
+    <message>
+        <source>Area com_bing threshold:</source>
+        <translation type="unfinished">Próg obszaru grze_bienia:</translation>
+    </message>
+    <message>
+        <source>Combe_d threshold:</source>
+        <translation type="unfinished">Próg _grzebienia:</translation>
+    </message>
+    <message>
+        <source>Artefact _protection threshold:</source>
+        <translation type="unfinished">_Próg ochrony elementu:</translation>
+    </message>
+    <message>
+        <source>Debug:</source>
+        <translation type="unfinished">Śledzenie:</translation>
+    </message>
+    <message>
+        <source>Decomb Telecide</source>
+        <translation type="unfinished">Decomb Telecide</translation>
+    </message>
+    <message>
+        <source>Great deinterlacing package including IVTC.</source>
+        <translation type="unfinished">Wspaniała paczka usuwająca przeplot włącznie z IVTC</translation>
+    </message>
+    <message>
+        <source>Temporal Cleaner</source>
+        <translation type="unfinished">Tymczasowe oczyszczanie</translation>
+    </message>
+    <message>
+        <source>Vlad59&apos;s Avisynth port of Jim Casaburi&apos;s denoiser.</source>
+        <translation type="unfinished">Narzędzie do usuwania szumu od Jima Casburi przeniesione do AviSynth przez Vlad59</translation>
+    </message>
+    <message>
+        <source>Unblend by Bach</source>
+        <translation type="unfinished">Usywanie przenikania od Bacha</translation>
+    </message>
+    <message>
+        <source>Vertical flip</source>
+        <translation type="unfinished">Obrót pionowy</translation>
+    </message>
+    <message>
+        <source>Vertically flip the picture.</source>
+        <translation type="unfinished">Obróć obraz w pionie</translation>
+    </message>
+    <message>
+        <source>Whirl</source>
+        <translation type="unfinished">Wir</translation>
+    </message>
+    <message>
+        <source>Useless whirlwind effect.</source>
+        <translation type="unfinished">Bezużyteczny efekt wirującego wiatru.</translation>
+    </message>
+    <message>
+        <source>yadif</source>
+        <translation type="unfinished">yadif</translation>
+    </message>
+    <message>
+        <source>Yet Another DeInterlacer. Ported from MPlayer.</source>
+        <translation type="unfinished">Kolejne narzędzie do usuwania przeplotu. Przeniesione z MPlayera.</translation>
+    </message>
+    <message>
+        <source>Avisynth ColorYUV</source>
+        <translation type="unfinished">Avisynth ColorYUV</translation>
+    </message>
+    <message>
+        <source>Alter colors (auto white balance etc...). Ported from Avisynth.</source>
+        <translation type="unfinished">Zmień kolory (automatyczny balans bieli, itd...). Przeniesione z Avisynth</translation>
+    </message>
+    <message>
+        <source>libavcodec deinterlacer</source>
+        <translation type="unfinished">Narzędzie usuwania przeplotu libavcodec</translation>
+    </message>
+    <message>
+        <source>All FFmpeg deinterlace filters (bicubic, median, ...).</source>
+        <translation type="unfinished">Wszystkie filtry usuwania przeplotu dostarczane przez FFmpeg (dwusześcienny, środkowy, ...).</translation>
+    </message>
+</context>
+<context>
     <name>ADMImage</name>
     <message>
         <source>Memory error</source>
@@ -1050,25 +3889,6 @@ Chcesz go zindeksować?</translation>
     </message>
 </context>
 <context>
-    <name>ADM_Qt4CoreUIToolkit</name>
-    <message>
-        <source>Info</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Confirmation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Question</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Question ?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ADM_Qt4Factory::ADM_Qbitrate</name>
     <message>
         <source>Constant Bitrate</source>
@@ -1561,7 +4381,7 @@ Chcesz go zindeksować?</translation>
     </message>
     <message>
         <source>0%</source>
-        <translation type="unfinished">0%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scene Change Threshold</source>
@@ -1569,7 +4389,7 @@ Chcesz go zindeksować?</translation>
     </message>
     <message>
         <source>100%</source>
-        <translation type="unfinished">100%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use chroma to also detect scene change</source>
@@ -1943,7 +4763,7 @@ Chcesz go zindeksować?</translation>
     </message>
     <message>
         <source>00:00:00/000</source>
-        <translation type="unfinished">00:00:00/000</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Timecode:</source>
@@ -1951,7 +4771,7 @@ Chcesz go zindeksować?</translation>
     </message>
     <message>
         <source>0/0</source>
-        <translation type="unfinished">0/0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nb Lines :</source>
@@ -2380,7 +5200,7 @@ chcesz kontynuować mimo to?</translation>
     </message>
     <message>
         <source>/ 0</source>
-        <translation type="unfinished">/ 0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time:</source>
@@ -2392,7 +5212,7 @@ chcesz kontynuować mimo to?</translation>
     </message>
     <message>
         <source>/ 00:00:00.000</source>
-        <translation type="unfinished">/ 00:00:00.000</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Frame Type:</source>
@@ -2412,7 +5232,7 @@ chcesz kontynuować mimo to?</translation>
     </message>
     <message>
         <source>000000</source>
-        <translation type="unfinished">000000</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>B:</source>
@@ -3539,16 +6359,56 @@ chcesz kontynuować mimo to?</translation>
 <context>
     <name>XvidConfigDialog</name>
     <message>
+        <source>&lt;default&gt;</source>
+        <translation type="unfinished">&lt;domyślna&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;custom&gt;</source>
+        <translation type="unfinished">&lt;własna&gt;</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Zapisz jako</translation>
+    </message>
+    <message>
+        <source>Xvid Configuration File (*.xml)</source>
+        <translation type="unfinished">Plik konfiguracyjny Xvid (*.xml)</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to delete the selected configuration?</source>
+        <translation type="unfinished">Na pewno chcesz usunąć wybraną konfigurację</translation>
+    </message>
+    <message>
+        <source>Target Bitrate:</source>
+        <translation type="unfinished">Przepływność docelowa:</translation>
+    </message>
+    <message>
+        <source>kbit/s</source>
+        <translation type="unfinished">kbit/s</translation>
+    </message>
+    <message>
+        <source>Quantiser:</source>
+        <translation type="unfinished">Kwantyzator:</translation>
+    </message>
+    <message>
+        <source>Target Video Size:</source>
+        <translation type="unfinished">Rozmiar docelowego obrazu wideo:</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished">MB</translation>
+    </message>
+    <message>
+        <source>Average Bitrate:</source>
+        <translation type="unfinished">Średnia przepływność:</translation>
+    </message>
+    <message>
         <source>Xvid Configuraton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configuration:</source>
         <translation type="unfinished">Konfiguracja:</translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation type="unfinished">Zapisz jako</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -3561,10 +6421,6 @@ chcesz kontynuować mimo to?</translation>
     <message>
         <source>Rate Control</source>
         <translation type="unfinished">Kontrola przepływności</translation>
-    </message>
-    <message>
-        <source>Target Video Size:</source>
-        <translation type="unfinished">Rozmiar docelowego obrazu wideo:</translation>
     </message>
     <message>
         <source>Constant Bitrate (Single Pass)</source>
@@ -3585,10 +6441,6 @@ chcesz kontynuować mimo to?</translation>
     <message>
         <source>Encoding Mode:</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="unfinished">MB</translation>
     </message>
     <message>
         <source>1 (High Quality)</source>
@@ -3934,41 +6786,21 @@ chcesz kontynuować mimo to?</translation>
         <source>Peak Bitrate Over 1 Second:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>&lt;default&gt;</source>
-        <translation type="unfinished">&lt;domyślna&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;custom&gt;</source>
-        <translation type="unfinished">&lt;własna&gt;</translation>
-    </message>
-    <message>
-        <source>Xvid Configuration File (*.xml)</source>
-        <translation type="unfinished">Plik konfiguracyjny Xvid (*.xml)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to delete the selected configuration?</source>
-        <translation type="unfinished">Na pewno chcesz usunąć wybraną konfigurację</translation>
-    </message>
-    <message>
-        <source>Target Bitrate:</source>
-        <translation type="unfinished">Przepływność docelowa:</translation>
-    </message>
-    <message>
-        <source>kbit/s</source>
-        <translation type="unfinished">kbit/s</translation>
-    </message>
-    <message>
-        <source>Quantiser:</source>
-        <translation type="unfinished">Kwantyzator:</translation>
-    </message>
-    <message>
-        <source>Average Bitrate:</source>
-        <translation type="unfinished">Średnia przepływność:</translation>
-    </message>
 </context>
 <context>
     <name>XvidCustomMatrixDialog</name>
+    <message>
+        <source>Select Matrix File</source>
+        <translation type="unfinished">Wybierz plik matrycy</translation>
+    </message>
+    <message>
+        <source>Read Error</source>
+        <translation type="unfinished">Błąd odczytu</translation>
+    </message>
+    <message>
+        <source>Error reading custom matrix file.</source>
+        <translation type="unfinished">Błąd podczas wczytywania własnego pliku matrycy.</translation>
+    </message>
     <message>
         <source>Xvid Custom Matrix</source>
         <translation type="unfinished"></translation>
@@ -3996,18 +6828,6 @@ chcesz kontynuować mimo to?</translation>
     <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Matrix File</source>
-        <translation type="unfinished">Wybierz plik matrycy</translation>
-    </message>
-    <message>
-        <source>Read Error</source>
-        <translation type="unfinished">Błąd odczytu</translation>
-    </message>
-    <message>
-        <source>Error reading custom matrix file.</source>
-        <translation type="unfinished">Błąd podczas wczytywania własnego pliku matrycy.</translation>
     </message>
 </context>
 <context>
@@ -19178,7 +21998,7 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     </message>
     <message>
         <source>1%</source>
-        <translation type="unfinished">1%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Percent</source>
@@ -19186,7 +22006,7 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished">200%</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error X / Y:</source>
@@ -19365,16 +22185,88 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
 <context>
     <name>x264ConfigDialog</name>
     <message>
+        <source>&lt;default&gt;</source>
+        <translation type="unfinished">&lt;domyślna&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;custom&gt;</source>
+        <translation type="unfinished">&lt;własna&gt;</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Zapisz jako</translation>
+    </message>
+    <message>
+        <source>x264 Configuration File (*.xml)</source>
+        <translation type="unfinished">Plik konfiguracji x264 (*.xml)</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to delete the selected configuration?</source>
+        <translation type="unfinished">Na pewno chcesz usunąć wybraną konfigurację</translation>
+    </message>
+    <message>
+        <source>Target Bitrate:</source>
+        <translation type="unfinished">Przepływność docelowa:</translation>
+    </message>
+    <message>
+        <source>kbit/s</source>
+        <translation type="unfinished">kbit/s</translation>
+    </message>
+    <message>
+        <source>Quantiser:</source>
+        <translation type="unfinished">Kwantyzator:</translation>
+    </message>
+    <message>
+        <source>Quality:</source>
+        <translation type="unfinished">Jakość:</translation>
+    </message>
+    <message>
+        <source>Target Video Size:</source>
+        <translation type="unfinished">Rozmiar docelowego obrazu wideo:</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished">MB</translation>
+    </message>
+    <message>
+        <source>Average Bitrate:</source>
+        <translation type="unfinished">Średnia przepływność:</translation>
+    </message>
+    <message>
+        <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.
+
+Do you wish to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trellis optimisation isn&apos;t possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.
+
+ Do you wish to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.
+
+Do you wish to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.
+
+Do you wish to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to delete the selected zone?</source>
+        <translation type="unfinished">Na pewno chcesz usunąć wybraną strefę?</translation>
+    </message>
+    <message>
         <source>x264 Configuraton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configuration:</source>
         <translation type="unfinished">Konfiguracja:</translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation type="unfinished">Zapisz jako</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -19387,10 +22279,6 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     <message>
         <source>Rate Control</source>
         <translation type="unfinished">Kontrola przepływności</translation>
-    </message>
-    <message>
-        <source>Target Video Size:</source>
-        <translation type="unfinished">Rozmiar docelowego obrazu wideo:</translation>
     </message>
     <message>
         <source>Constant Bitrate (Single Pass)</source>
@@ -19415,10 +22303,6 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     <message>
         <source>Encoding Mode:</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation type="unfinished">MB</translation>
     </message>
     <message>
         <source>0 (High Quality)</source>
@@ -19853,10 +22737,6 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>kbit/s</source>
-        <translation type="unfinished">kbit/s</translation>
-    </message>
-    <message>
         <source>VBV Buffer Size:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19898,15 +22778,15 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     </message>
     <message>
         <source>1.1</source>
-        <translation type="unfinished">1.1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.2</source>
-        <translation type="unfinished">1.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.3</source>
-        <translation type="unfinished">1.3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2</source>
@@ -19914,39 +22794,39 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     </message>
     <message>
         <source>2.1</source>
-        <translation type="unfinished">2.1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.2</source>
-        <translation type="unfinished">2.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3</source>
-        <translation type="unfinished">3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3.1</source>
-        <translation type="unfinished">3.1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>3.2</source>
-        <translation type="unfinished">3.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>4</source>
-        <translation type="unfinished">4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>4.1</source>
-        <translation type="unfinished">4.1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>4.2</source>
-        <translation type="unfinished">4.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>5</source>
-        <translation type="unfinished">5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>5.1</source>
@@ -19966,15 +22846,15 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
     </message>
     <message>
         <source>7</source>
-        <translation type="unfinished">7</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>15</source>
-        <translation type="unfinished">15</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>31</source>
-        <translation type="unfinished">31</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Generate Access Unit Delimiters</source>
@@ -20132,69 +23012,21 @@ wszystkie powyższe wartości zostaną znormalizowane do 256!</translation>
         <source>Full Range Samples</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>&lt;default&gt;</source>
-        <translation type="unfinished">&lt;domyślna&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;custom&gt;</source>
-        <translation type="unfinished">&lt;własna&gt;</translation>
-    </message>
-    <message>
-        <source>x264 Configuration File (*.xml)</source>
-        <translation type="unfinished">Plik konfiguracji x264 (*.xml)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to delete the selected configuration?</source>
-        <translation type="unfinished">Na pewno chcesz usunąć wybraną konfigurację</translation>
-    </message>
-    <message>
-        <source>Target Bitrate:</source>
-        <translation type="unfinished">Przepływność docelowa:</translation>
-    </message>
-    <message>
-        <source>Quantiser:</source>
-        <translation type="unfinished">Kwantyzator:</translation>
-    </message>
-    <message>
-        <source>Quality:</source>
-        <translation type="unfinished">Jakość:</translation>
-    </message>
-    <message>
-        <source>Average Bitrate:</source>
-        <translation type="unfinished">Średnia przepływność:</translation>
-    </message>
-    <message>
-        <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.
-
-Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trellis optimisation isn&apos;t possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.
-
- Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.
-
-Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.
-
-Do you wish to continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to delete the selected zone?</source>
-        <translation type="unfinished">Na pewno chcesz usunąć wybraną strefę?</translation>
-    </message>
 </context>
 <context>
     <name>x264CustomMatrixDialog</name>
+    <message>
+        <source>Select Matrix File</source>
+        <translation type="unfinished">Wybierz plik matrycy</translation>
+    </message>
+    <message>
+        <source>Read Error</source>
+        <translation type="unfinished">Błąd odczytu</translation>
+    </message>
+    <message>
+        <source>Error reading custom matrix file.</source>
+        <translation type="unfinished">Błąd podczas wczytywania własnego pliku matrycy.</translation>
+    </message>
     <message>
         <source>x264 Custom Matrix</source>
         <translation type="unfinished"></translation>
@@ -20234,18 +23066,6 @@ Do you wish to continue?</source>
     <message>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Matrix File</source>
-        <translation type="unfinished">Wybierz plik matrycy</translation>
-    </message>
-    <message>
-        <source>Read Error</source>
-        <translation type="unfinished">Błąd odczytu</translation>
-    </message>
-    <message>
-        <source>Error reading custom matrix file.</source>
-        <translation type="unfinished">Błąd podczas wczytywania własnego pliku matrycy.</translation>
     </message>
 </context>
 <context>

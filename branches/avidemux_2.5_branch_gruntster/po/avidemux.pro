@@ -1218,12 +1218,10 @@ SOURCES = \
 ../avidemux/ADM_toolkit/ADM_packetQueue.cpp \ 
 ../avidemux/ADM_toolkit/automation.cpp \ 
 ../avidemux/ADM_toolkit/filesel.cpp \ 
-../avidemux/ADM_UIs/ADM_CLI/src/ADM_translate.cpp \ 
 ../avidemux/ADM_UIs/ADM_CLI/src/DIA_dialogFactory.cpp \ 
 ../avidemux/ADM_UIs/ADM_CLI/src/DIA_flyDialogCli.cpp \ 
 ../avidemux/ADM_UIs/ADM_CLI/src/DIA_none.cpp \ 
 ../avidemux/ADM_UIs/ADM_CLI/src/FAC_toggle.cpp \ 
-../avidemux/ADM_UIs/ADM_QT4/src/ADM_translate.cpp \ 
 ../avidemux/ADM_UIs/ADM_QT4/src/DIA_color.cpp \ 
 ../avidemux/ADM_UIs/ADM_QT4/src/FAC_aspectRatio.cpp \ 
 ../avidemux/ADM_UIs/ADM_QT4/src/FAC_bar.cpp \ 
@@ -1562,4 +1560,3 @@ TRANSLATIONS = \
 ./avidemux_sr@latin.ts \ 
 ./avidemux_tr.ts \ 
 ./avidemux_zh_TW.ts \ 
-
