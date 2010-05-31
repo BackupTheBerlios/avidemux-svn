@@ -79,8 +79,6 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.dct8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(dct8x8CheckBox_toggled(bool)));
 	connect(ui.p8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(p8x8CheckBox_toggled(bool)));
 
-	ui.scenecutDetectionCheckBox->setVisible(false);
-
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
@@ -699,6 +697,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.maxGopSizeSpinBox->setValue(options->getGopMaximumSize());
 	ui.minGopSizeSpinBox->setValue(options->getGopMinimumSize());
 	ui.IFrameThresholdSpinBox->setValue(options->getScenecutThreshold());
+	ui.intraRefreshCheckBox->setChecked(options->getIntraRefresh());
 
 	// Analysis tab
 	ui.mixedRefsCheckBox->setChecked(options->getMixedReferences());
@@ -909,6 +908,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setGopMaximumSize(ui.maxGopSizeSpinBox->value());
 	options->setGopMinimumSize(ui.minGopSizeSpinBox->value());
 	options->setScenecutThreshold(ui.IFrameThresholdSpinBox->value());
+	options->setIntraRefresh(ui.intraRefreshCheckBox->isChecked());
 
 	// Analysis tab
 	options->setMixedReferences(ui.mixedRefsCheckBox->isChecked());

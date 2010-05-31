@@ -504,6 +504,7 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] i_keyint_max = %d\n", x264Param->i_keyint_max);
 	printf("[x264] i_keyint_min = %d\n", x264Param->i_keyint_min);
 	printf("[x264] i_scenecut_threshold = %d\n", x264Param->i_scenecut_threshold);
+	printf("[x264] b_intra_refresh = %d\n", x264Param->b_intra_refresh);
 	printf("[x264] analyse.b_mixed_references = %d\n", x264Param->analyse.b_mixed_references);
 	printf("[x264] analyse.b_chroma_me = %d\n", x264Param->analyse.b_chroma_me);
 	printf("[x264] analyse.i_trellis = %d\n", x264Param->analyse.i_trellis);

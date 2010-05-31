@@ -1912,9 +1912,9 @@
              </spacer>
             </item>
             <item>
-             <widget class="QCheckBox" name="scenecutDetectionCheckBox" >
+             <widget class="QCheckBox" name="intraRefreshCheckBox" >
               <property name="text" >
-               <string>Pre-scenecut Detection</string>
+               <string>Periodic Intra Refresh</string>
               </property>
              </widget>
             </item>
@@ -4278,7 +4278,7 @@
   <tabstop>minGopSizeSpinBox</tabstop>
   <tabstop>maxGopSizeSpinBox</tabstop>
   <tabstop>IFrameThresholdSpinBox</tabstop>
-  <tabstop>scenecutDetectionCheckBox</tabstop>
+  <tabstop>intraRefreshCheckBox</tabstop>
   <tabstop>mixedRefsCheckBox</tabstop>
   <tabstop>chromaMotionEstCheckBox</tabstop>
   <tabstop>trellisCheckBox</tabstop>

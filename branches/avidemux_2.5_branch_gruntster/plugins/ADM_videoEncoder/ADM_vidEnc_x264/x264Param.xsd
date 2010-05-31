@@ -186,6 +186,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="periodicIntraRefresh" type="xs:boolean" minOccurs="0"/>
               <!-- preScenecutDetection deprecated core 67 -->
               <xs:element name="preScenecutDetection" type="xs:boolean" minOccurs="0"/>
               <xs:element name="bFrames" minOccurs="0">

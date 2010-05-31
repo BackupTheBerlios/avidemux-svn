@@ -296,6 +296,16 @@ void x264Options::setScenecutThreshold(unsigned int scenecutThreshold)
 		_param.i_scenecut_threshold = scenecutThreshold;
 }
 
+bool x264Options::getIntraRefresh(void)
+{
+	return _param.b_intra_refresh;
+}
+
+void x264Options::setIntraRefresh(bool intraRefresh)
+{
+	_param.b_intra_refresh = intraRefresh;
+}
+
 unsigned int x264Options::getBFrames(void)
 {
 	return _param.i_bframe;
@@ -1155,6 +1165,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMaximumSize", number2String(xmlBuffer, bufferSize, getGopMaximumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"gopMinimumSize", number2String(xmlBuffer, bufferSize, getGopMinimumSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"scenecutThreshold", number2String(xmlBuffer, bufferSize, getScenecutThreshold()));
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"periodicIntraRefresh", boolean2String(xmlBuffer, bufferSize, getIntraRefresh()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrames", number2String(xmlBuffer, bufferSize, getBFrames()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"adaptiveBframeDecision", number2String(xmlBuffer, bufferSize, getAdaptiveBFrameDecision()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"bFrameBias", number2String(xmlBuffer, bufferSize, getBFrameBias()));
@@ -1420,6 +1431,8 @@ void x264Options::parseOptions(xmlNode *node)
 				setGopMinimumSize(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "scenecutThreshold") == 0)
 				setScenecutThreshold(atoi(content));
+			else if (strcmp((char*)xmlChild->name, "periodicIntraRefresh") == 0)
+				setIntraRefresh(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "bFrames") == 0)
 				setBFrames(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "adaptiveBframeDecision") == 0)

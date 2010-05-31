@@ -115,6 +115,9 @@ public:
 	unsigned int getScenecutThreshold(void);
 	void setScenecutThreshold(unsigned int scenecutThreshold);
 
+	bool getIntraRefresh(void);
+	void setIntraRefresh(bool intraRefresh);
+
 	unsigned int getBFrames(void);
 	void setBFrames(unsigned int bFrames);
 
