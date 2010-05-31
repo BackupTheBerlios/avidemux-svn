@@ -61,7 +61,7 @@ MACRO(COMPILE_AVIDEMUX_TS_FILES ts_subdir _sources)
                 COMMAND ${XSLTPROC_EXECUTABLE}
                     ${ts_subdir}/qt_filter_context.xslt ${_in}
                     > ${_outXml}
-                DEPENDS ${_in}
+                DEPENDS ${_in} "${ts_subdir}/qt_filter_context.xslt"
             )
             
             ADD_CUSTOM_COMMAND(
