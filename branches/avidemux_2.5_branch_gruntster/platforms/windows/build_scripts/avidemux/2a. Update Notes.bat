@@ -11,10 +11,6 @@ sh gennotes.sh
 echo -- Generating Touch Files.html --
 sh gentouch.sh
 
-echo -- Generating avidemux.pot --
-cd "%sourceDir%\po"
-sh update_pot.bash
-
 goto end
 
 :error

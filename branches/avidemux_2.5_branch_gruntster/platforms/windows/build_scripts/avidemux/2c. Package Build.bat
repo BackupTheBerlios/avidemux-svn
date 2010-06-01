@@ -3,7 +3,6 @@ set zipFile=%baseFile%.zip
 
 copy "%buildDir%\Change Log.html" "%packageDir%"
 move "Tools\Package Notes.html" "%packageDir%"
-copy "%sourceDir%\po\avidemux.pot" "%packageDir%"
 
 cd %buildDir%
 echo -- Generating GTK+ Installer --

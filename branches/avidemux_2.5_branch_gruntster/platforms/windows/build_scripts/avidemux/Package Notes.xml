@@ -1,5 +1,20 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="6261" date="2010-05-27">
+    <comment>Updated x264 to r1613.</comment>
+  </buildentry>
+  <buildentry revision="6195" date="2010-05-16">
+    <comment>Updated Freetype to version 2.3.12-1.</comment>
+    <comment>Updated GLib to version 2.24.1-1.</comment>
+    <comment>Updated GTK+ to version 2.20.1-1.</comment>
+    <comment>Updated x264 to r1583.</comment>
+  </buildentry>
+  <buildentry revision="6161 [2.5.3 Final]" date="2010-05-16">
+    <comment>Updated Avisynth Proxy GUI to version 2.12.</comment>
+  </buildentry>
+  <buildentry revision="6129" date="2010-04-15">
+    <comment>Updated x264 to r1542.</comment>
+  </buildentry>
   <buildentry revision="6121" date="2010-04-11">
     <comment>Updated ATK to version 1.30.0-1.</comment>
     <comment>Updated Cairo to version 1.8.10-3.</comment>
