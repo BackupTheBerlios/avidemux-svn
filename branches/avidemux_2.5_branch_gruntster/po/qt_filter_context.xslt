@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output method="xml" encoding="utf-8" indent="yes"/>
+  <xsl:output method="xml" encoding="utf-8" indent="yes" doctype-public=""/>
   <xsl:template match="TS">
-    <xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE TS>]]></xsl:text>
     <TS>
       <xsl:copy-of select="@*"/>
       <xsl:for-each select="context">
