@@ -193,28 +193,9 @@ int x264Encoder::open(vidEncVideoProperties *properties)
 	_buffer = new uint8_t[_bufferSize];
 
 	memcpy(&_properties, properties, sizeof(vidEncVideoProperties));
-	updateEncodeParameters(&_properties);
-
-	_param.i_width = _properties.width;
-	_param.i_height = _properties.height;
-	_param.i_fps_num = _properties.fpsNum;
-	_param.i_fps_den = _properties.fpsDen;
-
-	if (_options.getSarAsInput())
-	{
-		_param.vui.i_sar_width = _properties.parWidth;
-		_param.vui.i_sar_height = _properties.parHeight;
-	}
-
-	if (properties->flags & ADM_VIDENC_FLAG_GLOBAL_HEADER)
-		_param.b_repeat_headers = 0;
-	else
-		_param.b_repeat_headers = 1;
 
 	properties->supportedCspsCount = 1;
 	properties->supportedCsps = supportedCsps;
-
-	printParam(&_param);
 
 	return ADM_VIDENC_ERR_SUCCESS;
 }
@@ -245,6 +226,7 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 	char *logFileName = NULL;
 
 	printf("[x264] begin pass %d/%d\n", _currentPass, _passCount);
+	updateEncodeParameters(&_properties);
 
 	if (_passCount > 1)
 	{
@@ -278,6 +260,12 @@ int x264Encoder::beginPass(vidEncPassParameters *passParameters)
 		_param.rc.b_stat_read = 0;
 	}
 
+#if X264_BUILD > 85
+	if (_passCount > 1 && _currentPass == 1 && _options.getFastFirstPass())
+		x264_param_apply_fastfirstpass(&_param);
+#endif
+
+	printParam(&_param);
 	_handle = x264_encoder_open(&_param);
 
 	if (logFileName)
@@ -601,6 +589,25 @@ void x264Encoder::updateEncodeParameters(vidEncVideoProperties *properties)
 			_param.rc.i_rc_method = X264_RC_ABR;
 			_param.rc.i_bitrate = _encodeOptions.encodeModeParameter;
 			break;
+	}
+
+	if (properties)
+	{
+		_param.i_width = properties->width;
+		_param.i_height = properties->height;
+		_param.i_fps_num = properties->fpsNum;
+		_param.i_fps_den = properties->fpsDen;
+
+		if (_options.getSarAsInput())
+		{
+			_param.vui.i_sar_width = properties->parWidth;
+			_param.vui.i_sar_height = properties->parHeight;
+		}
+
+		if (properties->flags & ADM_VIDENC_FLAG_GLOBAL_HEADER)
+			_param.b_repeat_headers = 0;
+		else
+			_param.b_repeat_headers = 1;
 	}
 }
 

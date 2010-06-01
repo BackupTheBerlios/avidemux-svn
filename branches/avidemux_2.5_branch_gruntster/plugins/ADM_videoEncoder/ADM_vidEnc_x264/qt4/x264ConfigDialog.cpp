@@ -71,6 +71,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.targetRateControlSpinBox, SIGNAL(valueChanged(int)), this, SLOT(targetRateControlSpinBox_valueChanged(int)));
 	connect(ui.mbTreeCheckBox, SIGNAL(toggled(bool)), this, SLOT(mbTreeCheckBox_toggled(bool)));
 
+#if X264_BUILD < 86
+	ui.fastFirstPassCheckBox->setVisible(false);
+#endif
+
 	ui.sarAsInputLabel->setText(QString("%1:%2").arg(properties->parWidth).arg(properties->parHeight));
 
 	// Motion Estimation tab
@@ -596,6 +600,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	}
 
 	ui.mbTreeCheckBox->setChecked(options->getMbTree());
+#if X264_BUILD > 85
+	ui.fastFirstPassCheckBox->setChecked(options->getFastFirstPass());
+#endif
 	ui.lookaheadSpinBox->setValue(options->getFrametypeLookahead());
 
 	if (options->getSarAsInput())
@@ -831,6 +838,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
 
 	options->setMbTree(ui.mbTreeCheckBox->isChecked());
+#if X264_BUILD > 85
+	options->setFastFirstPass(ui.fastFirstPassCheckBox->isChecked());
+#endif
 	options->setFrametypeLookahead(ui.lookaheadSpinBox->value());
 	options->setSarAsInput(ui.sarAsInputRadioButton->isChecked());
 

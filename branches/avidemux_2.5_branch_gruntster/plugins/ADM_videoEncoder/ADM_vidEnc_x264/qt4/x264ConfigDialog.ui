@@ -423,9 +423,16 @@
            </layout>
           </item>
           <item>
+           <widget class="QCheckBox" name="fastFirstPassCheckBox" >
+            <property name="text" >
+             <string>Fast First Pass</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="mbTreeCheckBox" >
             <property name="text" >
-             <string>Macroblock-Tree Rate Control</string>
+             <string>Macroblock-tree Rate Control</string>
             </property>
            </widget>
           </item>
@@ -4237,6 +4244,7 @@
   <tabstop>targetRateControlSpinBox</tabstop>
   <tabstop>quantiserSlider</tabstop>
   <tabstop>quantiserSpinBox</tabstop>
+  <tabstop>fastFirstPassCheckBox</tabstop>
   <tabstop>mbTreeCheckBox</tabstop>
   <tabstop>lookaheadSpinBox</tabstop>
   <tabstop>threadDisableRadioButton</tabstop>

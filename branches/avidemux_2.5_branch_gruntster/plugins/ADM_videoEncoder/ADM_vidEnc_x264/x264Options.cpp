@@ -52,9 +52,12 @@ void x264Options::reset(void)
 	x264_param_default(&_param);
 	_param.vui.i_sar_height = 1;
 	_param.vui.i_sar_width = 1;
-	_param.i_threads = 0;	// set to auto-detect; default is disabled
 
 	_sarAsInput = false;
+
+#if X264_BUILD > 85
+	_fastFirstPast = true;
+#endif
 }
 
 x264_param_t* x264Options::getParameters(void)
@@ -74,6 +77,18 @@ x264_param_t* x264Options::getParameters(void)
 
 	return param;
 }
+
+#if X264_BUILD > 85
+bool x264Options::getFastFirstPass(void)
+{
+	return _fastFirstPast;
+}
+
+void x264Options::setFastFirstPass(bool fastFirstPass)
+{
+	_fastFirstPast = fastFirstPass;
+}
+#endif
 
 int x264Options::getThreads(void)
 {
@@ -1020,6 +1035,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNodePtr xmlNodeChild, xmlNodeChild2;
 
 	xmlNodeRoot = xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)getOptionsTagRoot(), NULL);
+#if X264_BUILD > 85
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"fastFirstPass", boolean2String(xmlBuffer, bufferSize, getFastFirstPass()));
+#endif
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"threads", number2String(xmlBuffer, bufferSize, getThreads()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"deterministic", boolean2String(xmlBuffer, bufferSize, getDeterministic()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceThreading", boolean2String(xmlBuffer, bufferSize, getSliceThreading()));
@@ -1413,6 +1431,10 @@ void x264Options::parseOptions(xmlNode *node)
 
 			if (strcmp((char*)xmlChild->name, "threads") == 0)
 				setThreads(atoi(content));
+#if X264_BUILD > 85
+			else if (strcmp((char*)xmlChild->name, "fastFirstPass") == 0)
+				setFastFirstPass(string2Boolean(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "deterministic") == 0)
 				setDeterministic(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "sliceThreading") == 0)

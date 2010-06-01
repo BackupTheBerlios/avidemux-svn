@@ -39,6 +39,9 @@ protected:
 	std::vector<x264ZoneOptions*> _zoneOptions;
 
 	bool _sarAsInput;
+#if X264_BUILD > 85
+	bool _fastFirstPast;
+#endif
 
 	void cleanUp(void);
 
@@ -57,6 +60,11 @@ public:
 
 	void reset(void);
 	x264_param_t* getParameters(void);
+
+#if X264_BUILD > 85
+	bool getFastFirstPass(void);
+	void setFastFirstPass(bool fastFirstPass);
+#endif
 
 	int getThreads(void);
 	void setThreads(int threads);
