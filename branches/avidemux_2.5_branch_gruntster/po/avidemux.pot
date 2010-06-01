@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-25 21:24+0100\n"
+"POT-Creation-Date: 2010-05-31 20:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Internal error finding codec"
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:129
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127
 #: avidemux/ADM_ocr/adm_glyph.cpp:217
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:326
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
@@ -171,12 +171,12 @@ msgstr ""
 msgid "File error"
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:129 avidemux/gtk_gui.cpp:941
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127 avidemux/gtk_gui.cpp:941
 #, possible-c-format
 msgid "Cannot open \"%s\"."
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:142
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:140
 #, possible-c-format
 msgid ""
 "%s already exists.\n"
@@ -184,16 +184,16 @@ msgid ""
 "Do you want to replace it?"
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:169
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:183
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:167
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:181
 msgid "It is possible that you are trying to overwrite an input file!"
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:194
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:192
 msgid "Cannot write the file"
 msgstr ""
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:194
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:192
 #, possible-c-format
 msgid "No write access to \"%s\"."
 msgstr ""
@@ -521,8 +521,6 @@ msgid "lvemux init failed"
 msgstr ""
 
 #: avidemux/ADM_libraries/ADM_utilities/ADM_gettext.cpp:46
-#: avidemux/ADM_UIs/ADM_CLI/src/ADM_translate.cpp:54
-#: avidemux/ADM_UIs/ADM_GTK/src/ADM_translate.cpp:50
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:283
 msgid "_File"
 msgstr ""
