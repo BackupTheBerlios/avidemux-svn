@@ -14,9 +14,11 @@ Handle dialog factory element : Thread Count
 ***************************************************************************/
 
 #include "T_threadCount.h"
-#include "ADM_default.h"
 #include "DIA_factory.h"
 #include "ADM_dialogFactoryQt4.h"
+
+#undef QT_TR_NOOP
+#include "ADM_plugin/ADM_plugin_translate.h"
 
 extern const char* shortkey(const char*);
 

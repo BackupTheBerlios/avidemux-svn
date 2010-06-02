@@ -21,12 +21,13 @@ Handle dialog factory element : Config Menu
 #include "ADM_files.h"
 #include "DIA_coreToolkit.h"
 
+#undef QT_TR_NOOP
+#include "ADM_plugin/ADM_plugin_translate.h"
+
 extern "C"
 {
 #include "ADM_plugin/ADM_vidEnc_plugin.h"
 }
-
-extern const char* shortkey(const char*);
 
 namespace ADM_Qt4Factory
 {

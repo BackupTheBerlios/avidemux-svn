@@ -18,7 +18,8 @@
 #include "DIA_factory.h"
 #include "ADM_dialogFactoryQt4.h"
 
-extern const char *shortkey(const char *);
+#undef QT_TR_NOOP
+#include "ADM_plugin/ADM_plugin_translate.h"
 
 namespace ADM_Qt4Factory
 {
