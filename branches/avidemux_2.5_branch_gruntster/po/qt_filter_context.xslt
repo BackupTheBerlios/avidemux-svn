@@ -11,19 +11,18 @@
   </xsl:template>
 
   <xsl:template name="processContext">
-    <xsl:variable name="filename" select="message[1]/location[1]/@filename"/>
-    <xsl:variable name="ext" select="substring($filename, string-length($filename) - 2)"/>
+    <xsl:variable name="hasUiNodes" select="count(message/location[substring(@filename, string-length(@filename) - 2) = '.ui']) > 0"/>
 
     <context>
       <xsl:for-each select="name">
         <name>
-          <xsl:if test="$ext = '.ui'">
+          <xsl:if test="$hasUiNodes = 'true'">
             <xsl:value-of select="../name"/>
           </xsl:if>
         </name>
       </xsl:for-each>
 
-      <xsl:for-each select="message[not(source = preceding::message/source and $ext != '.ui')]">
+      <xsl:for-each select="message[not(source = preceding::message/source) or $hasUiNodes = 'true']">
         <message>
           <xsl:copy-of select="*"/>
         </message>
