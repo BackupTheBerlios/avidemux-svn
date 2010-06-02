@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="it">
-<defaultcodec></defaultcodec>
+<!DOCTYPE TS>
+<TS version="2.0" language="it">
 <context>
     <name>PPDOptionsModel</name>
     <message>
@@ -773,7 +773,7 @@ in
     <message>
         <location filename="../src/plugins/accessible/widgets/simplewidgets.cpp" line="88"/>
         <source>Toggle</source>
-        <translation>Inverti</translation>
+        <translation>Commuta</translation>
     </message>
 </context>
 <context>
@@ -816,7 +816,7 @@ in
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1410"/>
         <source>&amp;Basic colors</source>
-        <translation>Colori di %base</translation>
+        <translation>Colori di &amp;base</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qcolordialog.cpp" line="1411"/>
@@ -1012,7 +1012,7 @@ in
     <message>
         <location filename="../src/gui/widgets/qdialogbuttonbox.cpp" line="543"/>
         <source>Reset</source>
-        <translation>Annulla</translation>
+        <translation>Azzera</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qdialogbuttonbox.cpp" line="546"/>
@@ -1302,7 +1302,7 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/dialogs/qfiledialog.cpp" line="418"/>
         <source>Save As</source>
-        <translation>Salva come</translation>
+        <translation>Salva con nome</translation>
     </message>
     <message>
         <location filename="../src/gui/itemviews/qfileiconprovider.cpp" line="332"/>
@@ -1485,7 +1485,7 @@ Vuoi eliminarlo comunque?</translation>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="793"/>
         <source>Wr&amp;iting System</source>
-        <translation>Sistema di scrittura</translation>
+        <translation>S&amp;istema di scrittura</translation>
     </message>
     <message>
         <location filename="../src/gui/dialogs/qfontdialog.cpp" line="449"/>
@@ -3881,7 +3881,7 @@ Scegliere un nome diverso.</translation>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1879"/>
         <source>Copy &amp;Link Location</source>
-        <translation>Copia indirizzo</translation>
+        <translation>C&amp;opia indirizzo</translation>
     </message>
     <message>
         <location filename="../src/gui/text/qtextcontrol.cpp" line="1885"/>
