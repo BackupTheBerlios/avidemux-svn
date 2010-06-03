@@ -631,9 +631,29 @@ filtermainWindow::filtermainWindow(QWidget* parent) : QDialog(parent)
 	activeList->setItemDelegate(new FilterItemDelegate(activeList));
 	availableList->setItemDelegate(new FilterItemDelegate(availableList));
 
+    //____________________
+    //  Context Menu
+    //____________________
+    QAction *add = new  QAction(QString("Add"),this);
+    availableList->setContextMenuPolicy(Qt::ActionsContextMenu);
+    availableList->addAction(add );
+    connect(add,SIGNAL(activated()),this,SLOT(add()));
+
+	//previewFrameIndex = curframe;
+    QAction *remove = new  QAction(QString("Remove"),this);
+    QAction *configure = new  QAction(QString("Configure"),this);
+    activeList->setContextMenuPolicy(Qt::ActionsContextMenu);
+    activeList->addAction(remove);
+    activeList->addAction(configure);
+    connect(remove,SIGNAL(activated()),this,SLOT(remove()));
+    connect(configure,SIGNAL(activated()),this,SLOT(configure()));
+
+
+
     displayFamily(0);
     buildActiveFilterList();
 	setSelected(nb_active_filter - 1);
+
  }
 
 filtermainWindow::~filtermainWindow()
@@ -695,5 +715,30 @@ uint8_t DIA_getPartial(PARTIAL_CONFIG *param,AVDMGenericVideoStream *son,AVDMGen
          
          diaElem *tabs[]={&start,&end,&button};
         return diaFactoryRun(QT_TR_NOOP("Partial Video Filter"),3,tabs);
+}
+
+/**
+    \fn    Add
+    \brief Right click on an available filer
+*/
+void filtermainWindow::add(void)
+{
+    add(true);
+}
+/**
+    \fn    Add
+    \brief Right click on an available filer
+*/
+void filtermainWindow::remove(void)
+{
+    remove(true);
+}
+/**
+    \fn    Add
+    \brief Right click on an available filer
+*/
+void filtermainWindow::configure(void)
+{
+    configure(true);
 }
 //EOF

@@ -56,6 +56,10 @@ public slots:
 	void filterFamilyItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 	void preview(bool b);
 	void closePreview();
+    // right click
+    void add(void);
+    void remove(void);
+    void configure(void);
 
 private:
 	uint32_t previewFrameIndex;
