@@ -7,6 +7,10 @@
 #include "DIA_coreToolkit.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 static void updateStatus(void);
 extern bool parseECMAScript(const char *name);
 static const char *StringStatus[]={QT_TR_NOOP("Ready"),QT_TR_NOOP("Succeeded"),QT_TR_NOOP("Failed"),QT_TR_NOOP("Deleted"),QT_TR_NOOP("Running")};
@@ -21,30 +25,30 @@ ADM_Job_Descriptor::ADM_Job_Descriptor(void)
  /**
           \fn jobsWindow
  */
-jobsWindow::jobsWindow(QWidget *parent, uint32_t n,char **j)     : QDialog(parent)
- {
-     ui.setupUi(this);
-     _nbJobs=n;
-     _jobsName=j;
-     desc=new ADM_Job_Descriptor[n];
-     // Setup display
-	 ui.tableWidget->setRowCount(_nbJobs);
-     ui.tableWidget->setColumnCount(4);
+jobsWindow::jobsWindow(QWidget *parent, uint32_t n,char **j) : QDialog(parent)
+{
+	ui.setupUi(this);
+	_nbJobs=n;
+	_jobsName=j;
+	desc=new ADM_Job_Descriptor[n];
+	// Setup display
+	ui.tableWidget->setRowCount(_nbJobs);
+	ui.tableWidget->setColumnCount(4);
 
-     // Set headers
-      QStringList headers;
-     headers << QT_TR_NOOP("Job Name") << QT_TR_NOOP("Status") << QT_TR_NOOP("Start Time") << QT_TR_NOOP("End Time"); 
-     
-     ui.tableWidget->setVerticalHeaderLabels(headers);
-     updateRows();
-    
+	// Set headers
+	QStringList headers;
+	headers << QT_TR_NOOP("Job Name") << QT_TR_NOOP("Status") << QT_TR_NOOP("Start Time") << QT_TR_NOOP("End Time"); 
+
+	ui.tableWidget->setVerticalHeaderLabels(headers);
+	updateRows();
+
 #define CNX(x) connect( ui.pushButton##x,SIGNAL(clicked(bool)),this,SLOT(x(bool)))
-           //connect( ui.pushButtonRunOne,SIGNAL(buttonPressed(const char *)),this,SLOT(runOne(const char *)));
-      CNX(RunOne);
-      CNX(RunAll);
-      CNX(DeleteAll);
-      CNX(DeleteOne);
- }
+	//connect( ui.pushButtonRunOne,SIGNAL(buttonPressed(const char *)),this,SLOT(runOne(const char *)));
+	CNX(RunOne);
+	CNX(RunAll);
+	CNX(DeleteAll);
+	CNX(DeleteOne);
+}
  /**
     \fn ~jobsWindow
  */

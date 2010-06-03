@@ -21,6 +21,10 @@
 #include "prefs.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 static int beQuiet=0;
 extern QWidget *QuiMainWindows;
 namespace ADM_Qt4CoreUIToolkit

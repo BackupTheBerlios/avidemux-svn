@@ -19,6 +19,10 @@
 #include "ADM_default.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 Ui_licenseWindow::Ui_licenseWindow(QWidget *parent) : QDialog(parent)
 {
 	ui.setupUi(this);

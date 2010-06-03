@@ -28,6 +28,10 @@ Indexer progress dialog
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 extern void UI_purge( void );
 
 void Ui_iDialog::setupUi(QDialog *Dialog)

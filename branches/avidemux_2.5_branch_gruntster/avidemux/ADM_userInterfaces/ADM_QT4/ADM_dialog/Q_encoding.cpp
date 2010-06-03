@@ -24,6 +24,10 @@
 #include "../ADM_gui/ADM_qtray.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 extern void UI_iconify(void);
 extern void UI_deiconify(void);
 extern void UI_purge(void);

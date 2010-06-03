@@ -20,6 +20,10 @@
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_toolkitQt.h"
 
+#undef QT_TR_NOOP
+extern const char* translate(const char *__domainname, const char *__msgid);
+#define QT_TR_NOOP(x) translate("", x)
+
 static const char *yesno[2]={QT_TR_NOOP("No"),QT_TR_NOOP("Yes")};
 extern const char *getStrFromAudioCodec( uint32_t codec);
 
