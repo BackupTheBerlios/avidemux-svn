@@ -584,7 +584,7 @@
     <message>
         <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="30"/>
         <source>MPEG-2 requant</source>
-        <translation type="unfinished">MPEG-2 requant</translation>
+        <translation>MPEG-2 Requantisierung</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="47"/>
@@ -1152,12 +1152,12 @@ Bitte die Marke A verschieben.</translation>
         <translation type="obsolete">Quantization</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="23"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="23"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
@@ -1885,7 +1885,7 @@ Bitte die Marke A verschieben.</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="40"/>
         <source>Requant Configuration</source>
-        <translation type="unfinished">Requant Konfiguration</translation>
+        <translation>Requantisierung</translation>
     </message>
     <message>
         <source>VCD</source>
@@ -3274,48 +3274,48 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
         <translation type="unfinished">Großes Halbbildmodus-Paket, beinhaltet IVTC.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="692"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="712"/>
         <source>Partial Start Frame:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="693"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="713"/>
         <source>Partial End Frame:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="694"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="714"/>
         <source>Configure child</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="697"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="717"/>
         <source>Partial Video Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="16"/>
         <source>Ready</source>
         <translation type="unfinished">Fertig</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="16"/>
         <source>Succeeded</source>
         <translation type="unfinished">Gelungen</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="16"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2334"/>
         <source>Failed</source>
         <translation type="unfinished">Fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="16"/>
         <source>Deleted</source>
         <translation type="unfinished">Gelöscht</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="16"/>
         <source>Running</source>
         <translation type="unfinished">Läuft gerade</translation>
     </message>
@@ -3870,7 +3870,7 @@ Wollen Sie trotzdem fortfahren?</translation>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="211"/>
         <source>MPEG Requantizer</source>
-        <translation type="unfinished">MPEG Requantizer</translation>
+        <translation>MPEG Requantisierer</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="221"/>
@@ -3944,31 +3944,31 @@ Wollen Sie trotzdem fortfahren?</translation>
         <translation type="unfinished">Menü</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="32"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="36"/>
         <source>Alert</source>
         <translation type="unfinished">Meldung</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="40"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="69"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="96"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="44"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="73"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="100"/>
         <source>Info</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="120"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="150"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="124"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="154"/>
         <source>Confirmation</source>
         <translation>Bestätigung</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="167"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="195"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="171"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="199"/>
         <source>Question</source>
         <translation>Frage</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="188"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="192"/>
         <source>Question ?</source>
         <translation>Frage ?</translation>
     </message>
@@ -4272,7 +4272,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="231"/>
         <source>TwoLame Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>TwoLame Konfiguration</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="295"/>
@@ -4292,7 +4292,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="314"/>
         <source>Vorbis Configuration</source>
-        <translation type="unfinished">Vorbis Konfiguration</translation>
+        <translation>Vorbis Konfiguration</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="60"/>
@@ -5007,7 +5007,7 @@ Either change codec or use the mixer filter to have less channels.</source>
     </message>
     <message>
         <source>MPEG-2 requant</source>
-        <translation type="obsolete">MPEG-2 requant</translation>
+        <translation type="obsolete">MPEG-2 Requantisierung</translation>
     </message>
     <message>
         <source>DVD (mpeg2enc)</source>
@@ -10083,17 +10083,17 @@ der Halbbilder (deinterlaceing)</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="72"/>
         <source>_New frame rate:</source>
-        <translation type="unfinished">_Neue Bildrate:</translation>
+        <translation>_Neue Bildrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="73"/>
         <source>_Blend</source>
-        <translation type="unfinished">_Mischen</translation>
+        <translation>die Bilder _mischen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="77"/>
         <source>Resample fps</source>
-        <translation type="unfinished">Resample Bilder/s (Hz)</translation>
+        <translation>Resample Bilder/s (Hz)</translation>
     </message>
 </context>
 <context>
@@ -10381,7 +10381,7 @@ wird damit multipliziert):</translation>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="385"/>
         <source>Swiss Army Knife Configuration</source>
-        <translation type="unfinished">&quot;Swiss Army Knife&quot; Konfiguration</translation>
+        <translation>Swiss Army Knife Konfiguration</translation>
     </message>
 </context>
 <context>
@@ -10478,7 +10478,7 @@ der Halbbilder (deinterlaceing)</translation>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="152"/>
         <source>Threshold Configuration</source>
-        <translation type="unfinished">Schwellen-Konfiguration</translation>
+        <translation>Schwellwert-Einstellung</translation>
     </message>
 </context>
 <context>
@@ -10486,47 +10486,47 @@ der Halbbilder (deinterlaceing)</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="137"/>
         <source>Temporal &amp; spatial check</source>
-        <translation type="unfinished">Zeitliche &amp; räumliche Prüfung</translation>
+        <translation>Zeitliche &amp; räumliche Prüfung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="138"/>
         <source>Bob, temporal &amp; spatial check</source>
-        <translation type="unfinished">Bob, zeitliche &amp; räumliche Prüfung</translation>
+        <translation>Bob, zeitliche &amp; räumliche Prüfung (Frameverdopplung)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="139"/>
         <source>Skip spatial temporal check</source>
-        <translation>Ohne räumliche &amp;&amp; zeitliche Prüfung</translation>
+        <translation>Ohne räumliche &amp; zeitliche Prüfung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="140"/>
         <source>Bob, skip spatial temporal check</source>
-        <translation>Bob, ohne räumliche &amp;&amp; zeitliche Prüfung</translation>
+        <translation>Bob, ohne räumliche &amp; zeitliche Prüfung (Frameverdopplung)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="143"/>
         <source>Bottom field first</source>
-        <translation type="unfinished">Unteres Feld zuerst</translation>
+        <translation>Unteres Feld zuerst (BFF)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="144"/>
         <source>Top field first</source>
-        <translation type="unfinished">Oberes Feld zuerst</translation>
+        <translation>Oberes Feld zuerst (TFF)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="147"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Modus:</translation>
+        <translation>_Modus:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="148"/>
         <source>_Order:</source>
-        <translation type="unfinished">Reihenf_olge:</translation>
+        <translation>Reihenf_olge:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="152"/>
         <source>yadif</source>
-        <translation type="unfinished">yadif (Yet Another DeInterlacing Filter)</translation>
+        <translation>yadif (Yet Another DeInterlacing Filter)</translation>
     </message>
 </context>
 <context>
@@ -10665,22 +10665,25 @@ Soll dieser Modus verwendet werden ?</translation>
         <source>If the file is using B-frames as reference it can lead to a crash or stuttering.
 Avidemux can use another mode which is safe but YOU WILL LOSE FRAME ACCURACY.
 Do you want to use that mode?</source>
-        <translation></translation>
+        <translation>Wenn die Datei B-Bilder als Referenz verwendet, kann das zum Absturz oder Stottern 
+führen. Avidemux kann einen anderen Modus verwenden, der sicher ist, aber 
+&lt;b&gt;DAMIT GEHT DIE BILD-GENAUIGKEIT VERLOREN&lt;/b&gt;.
+Soll dieser sichere Modus verwendet werden ?</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="719"/>
         <source>Packed Bitstream detected</source>
-        <translation type="unfinished">Gepackten Bitstrom gefunden</translation>
+        <translation>Gepackten Bitstrom gefunden</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="720"/>
         <source>Do you want me to unpack it ?</source>
-        <translation type="unfinished">Soll es entpackt werden ?</translation>
+        <translation>Soll er entpackt werden ?</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="740"/>
         <source>Could not unpack the video</source>
-        <translation type="unfinished">Video konnte nicht entpackt werden</translation>
+        <translation>Das Video konnte nicht entpackt werden</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="740"/>
@@ -10695,7 +10698,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="744"/>
         <source>The unpacking succeedeed but the index is still not up to date.</source>
-        <translation type="unfinished">Das Entpacken war erfolgreich, aber der Index ist nicht aktuell.</translation>
+        <translation>Das Entpacken war erfolgreich, aber der Index ist nicht aktuell.</translation>
     </message>
     <message>
         <source>Troubles ahead</source>
@@ -10708,24 +10711,24 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="757"/>
         <source>Index is not up to date</source>
-        <translation type="unfinished">Index ist nicht aktuell</translation>
+        <translation>Der Index ist nicht aktuell</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="757"/>
         <source>You should use Tool-&gt;Rebuild frame. Do it now ?</source>
-        <translation type="unfinished">Werkzeuge -&gt; Bilder neu erstellen sollte verwendet werden. Starten ?</translation>
+        <translation>Werkzeuge -&gt; Bilder neu erstellen sollte verwendet werden. Starten ?</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="1526"/>
         <source>This looks like mpeg
  Do you want to index it?</source>
-        <translation type="unfinished">Dies schaut wie Mpeg aus
+        <translation>Dies sieht wie Mpeg aus
 Soll ein Index erstellt werden ?</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="1578"/>
         <source>Indexing failed</source>
-        <translation type="unfinished">Indizierung gescheitert</translation>
+        <translation>Indexerstellung fehlgeschlagen</translation>
     </message>
 </context>
 <context>
@@ -10758,68 +10761,68 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>ADM_Qt4Factory::ADM_Qbitrate</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="50"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="51"/>
         <source>Constant Bitrate</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="51"/>
-        <source>Constant Quantiser</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="52"/>
-        <source>Same Quantiser as Input</source>
-        <translation></translation>
+        <source>Constant Quantiser</source>
+        <translation>konstante Quantisierung</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="53"/>
+        <source>Same Quantiser as Input</source>
+        <translation>gleiche Quantisierung wie Quelle</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="54"/>
         <source>Constant Rate Factor</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="54"/>
-        <source>Two Pass - Video Size</source>
-        <translation type="unfinished">Zweifach-Durchlauf - Videogröße</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="55"/>
+        <source>Two Pass - Video Size</source>
+        <translation>Videogröße (2 Durchläufe)</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="56"/>
         <source>Two Pass - Average Bitrate</source>
-        <translation type="unfinished">Zweifach-Durchlauf - Durchschnittsbitrate</translation>
+        <translation>durchschnittl. Bitrate (2 Durchläufe)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="57"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="58"/>
         <source>Encoding mode</source>
-        <translation></translation>
+        <translation>Kodiermodus</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="62"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="63"/>
         <source>Bitrate</source>
-        <translation type="unfinished">Bitrate</translation>
+        <translation>Bitrate</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="163"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="164"/>
         <source>Target bitrate (kb/s)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="168"/>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="187"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="169"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="188"/>
         <source>Quantiser</source>
-        <translation></translation>
+        <translation>Quantisierung</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="173"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="174"/>
         <source>Target video size (MB)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="178"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="179"/>
         <source>Average bitrate (kb/s)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="183"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="184"/>
         <source>-</source>
         <translation type="unfinished">-</translation>
     </message>
@@ -10827,40 +10830,40 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>ADM_Qt4Factory::ADM_QconfigMenu</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="48"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="49"/>
         <source>Configuration:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="50"/>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="198"/>
-        <source>Save As</source>
-        <translation></translation>
+        <translation>Konfiguration:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="51"/>
-        <source>Delete</source>
-        <translation></translation>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="199"/>
+        <source>Save As</source>
+        <translation>speichern unter</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="122"/>
-        <source>&lt;default&gt;</source>
-        <translation></translation>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="52"/>
+        <source>Delete</source>
+        <translation>löschen</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="123"/>
+        <source>&lt;default&gt;</source>
+        <translation>&lt;Voreinstellung&gt;</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="124"/>
         <source>&lt;custom&gt;</source>
-        <translation>&lt;individuell&gt;</translation>
+        <translation>&lt;benutzerdefiniert&gt;</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="183"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="184"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
-        <translation></translation>
+        <translation>Möchten Sie die ausgewählte Konfiguration wirklich löschen?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="198"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="199"/>
         <source>Configuration File (*.xml)</source>
-        <translation></translation>
+        <translation>Konfigurationsdatei (*.xml)</translation>
     </message>
 </context>
 <context>
@@ -10962,17 +10965,17 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>ADM_qt4Factory::ADM_QthreadCount</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="46"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="48"/>
         <source>Disabled</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="47"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="49"/>
         <source>Auto-detect</source>
         <translation type="unfinished">Auto-Erkennung</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="48"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="50"/>
         <source>Custom</source>
         <translation>Individuell</translation>
     </message>
@@ -11423,7 +11426,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="150"/>
         <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="339"/>
         <source>Settings</source>
-        <translation></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="171"/>
@@ -11747,7 +11750,7 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>DIA_encoding</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="208"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="212"/>
         <source>Shutting down</source>
         <translation>Herunter fahren</translation>
     </message>
@@ -11760,17 +11763,17 @@ Soll ein Index erstellt werden ?</translation>
         <translation type="obsolete">%lu MB</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="500"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="504"/>
         <source>The encoding is paused. Do you want to resume or abort?</source>
         <translation>Der Kodierungvorgang wurde angehalten. Möchten Sie den Vorgang fortsetzen oder abbrechen?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="505"/>
         <source>Resume</source>
         <translation>Fortfahren</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="505"/>
         <source>Abort</source>
         <translation>Abbruch</translation>
     </message>
@@ -11778,12 +11781,12 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>DIA_progressIndexing</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="123"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="127"/>
         <source># Images :%0lu</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="141"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="145"/>
         <source>Time Left :%02d:%02d:%02d</source>
         <translation></translation>
     </message>
@@ -11884,17 +11887,17 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="67"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="71"/>
         <source>Indexing</source>
         <translation type="unfinished">Indizierung</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="68"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="72"/>
         <source>Time Left : Infinity</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="69"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="73"/>
         <source># Images :</source>
         <translation></translation>
     </message>
@@ -12300,7 +12303,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="41"/>
         <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="349"/>
         <source>Settings</source>
-        <translation></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="255"/>
@@ -12324,12 +12327,12 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="97"/>
         <source>Settings</source>
-        <translation></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="100"/>
         <source>avcodec Sorenson Spark Configuration</source>
-        <translation></translation>
+        <translation>avcodec Sorenson Spark Einstellung</translation>
     </message>
 </context>
 <context>
@@ -12588,22 +12591,26 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="216"/>
         <source>Encoding Mode</source>
-        <translation type="unfinished">Kodier-Modus</translation>
+        <translation>Kodiermodus</translation>
+    </message>
+    <message>
+        <source>Motion _Estimation Method:</source>
+        <translation type="obsolete">Methode zur _Bewegungseinschätzung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="219"/>
         <source>Motion Estimation Method:</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="220"/>
         <source>_Maximum Consecutive B-frames:</source>
-        <translation></translation>
+        <translation>_max. aufeinanderfolgende B-Frames:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="221"/>
         <source>4 _Motion Vector</source>
-        <translation></translation>
+        <translation>4 Motion _Vector</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="222"/>
@@ -12613,72 +12620,72 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="223"/>
         <source>_Global Motion Compensation</source>
-        <translation></translation>
+        <translation>globale Bewegungskompensation (_GMC)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="226"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Abschätzung der Bewegung</translation>
+        <translation>Bewegungabschätzung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="229"/>
         <source>_Quantisation Type:</source>
-        <translation></translation>
+        <translation>_Quantisierungstyp:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="230"/>
         <source>_Macroblock Decision Mode:</source>
-        <translation></translation>
+        <translation>_Makroblock Entscheidungsmodus:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="231"/>
         <source>Mi_nimum Quantiser:</source>
-        <translation></translation>
+        <translation>mi_nimale Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="232"/>
         <source>Ma_ximum Quantiser:</source>
-        <translation></translation>
+        <translation>max_imale Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="233"/>
         <source>Maximum Quantiser _Difference:</source>
-        <translation></translation>
+        <translation>max. Quantisierungs_differenz:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="234"/>
         <source>_Quantiser Compression:</source>
-        <translation></translation>
+        <translation>Quantisierungs_kompression:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="235"/>
         <source>Quantiser _Blur:</source>
-        <translation></translation>
+        <translation>Quantisierungs_unschärfe:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="236"/>
         <source>_Trellis Quantisation</source>
-        <translation></translation>
+        <translation>_Trellis Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="239"/>
         <source>Quantisation</source>
-        <translation></translation>
+        <translation>Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="263"/>
         <source>avcodec H.263 Configuration</source>
-        <translation></translation>
+        <translation>avcodec H.263 Konfiguration</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="471"/>
         <source>The H.263 encoder only accepts the following resolutions:</source>
-        <translation></translation>
+        <translation>Der H.263 Kodierer akzeptiert lediglich die folgenden Bildauflösungen:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="479"/>
         <source>Incompatible settings</source>
-        <translation type="unfinished">Inkompatible Einstellungen</translation>
+        <translation>Inkompatible Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -13675,17 +13682,17 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp" line="85"/>
         <source>_Quantiser:</source>
-        <translation type="unfinished"></translation>
+        <translation>_Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp" line="92"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp" line="95"/>
         <source>avcodec M-JPEG Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>M-JPEG Konfiguration</translation>
     </message>
 </context>
 <context>
@@ -13779,22 +13786,22 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="256"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp" line="78"/>
         <source>Settings</source>
-        <translation></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="259"/>
         <source>avcodec MPEG-1 Configuration</source>
-        <translation></translation>
+        <translation>avcodec MPEG-1 Konfiguration</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp" line="71"/>
         <source>New sequence every (MB):</source>
-        <translation></translation>
+        <translation>teilen nach (MB):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp" line="81"/>
         <source>mpeg2enc Configuration</source>
-        <translation></translation>
+        <translation>mpeg2enc Konfiguration</translation>
     </message>
 </context>
 <context>
@@ -13815,7 +13822,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="250"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="86"/>
         <source>Default</source>
-        <translation type="unfinished">Voreinstellung</translation>
+        <translation>Voreinstellung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="251"/>
@@ -13839,74 +13846,74 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="257"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="93"/>
         <source>Progressive</source>
-        <translation type="unfinished">Progressiv (Vollbilder)</translation>
+        <translation>Progressiv (Vollbilder)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="258"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="94"/>
         <source>Interlaced BFF</source>
-        <translation type="unfinished">BBF-Halbbildmodus (interlaced)</translation>
+        <translation>BBF-Halbbildmodus (interlaced)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="259"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="95"/>
         <source>Interlaced TFF</source>
-        <translation type="unfinished">TTF- Halbbildmodus (interlaced)</translation>
+        <translation>TTF- Halbbildmodus (interlaced)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="263"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="99"/>
         <source>Ma_x. bitrate:</source>
-        <translation type="unfinished">Ma_x. Bitrate:</translation>
+        <translation>Ma_x. Bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="264"/>
         <source>Mi_n. bitrate:</source>
-        <translation type="unfinished">Mi_n. Bitrate:</translation>
+        <translation>Mi_n. Bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="265"/>
         <source>_Use Xvid rate control</source>
-        <translation type="unfinished">_Xvid Bitratenprüfung verwenden</translation>
+        <translation>ben-utze die Xvid Bitratenkontrolle</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="266"/>
         <source>_Buffer size:</source>
-        <translation type="unfinished">_Puffergröße:</translation>
+        <translation>_Puffergröße:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="267"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="102"/>
         <source>Aspect _ratio:</source>
-        <translation type="unfinished">Seitenve_rhältnis:</translation>
+        <translation>Seitenve_rhältnis:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="268"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="103"/>
         <source>_Matrices:</source>
-        <translation type="unfinished">_Matrizen:</translation>
+        <translation>_Matrizen:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="269"/>
         <source>_GOP size:</source>
-        <translation type="unfinished">_GOP Größe:</translation>
+        <translation>_GOP Größe (Bildanzahl zwischen zwei Vollbildern-Frames):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="270"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="104"/>
         <source>_Interlacing:</source>
-        <translation type="unfinished">_Interlacing:</translation>
+        <translation>Halbb_ildmodus:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="277"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="111"/>
         <source>Settings</source>
-        <translation></translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="280"/>
         <source>avcodec MPEG-2 Configuration</source>
-        <translation></translation>
+        <translation>avcodec MPEG-2 Konfiguration</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="78"/>
@@ -13931,7 +13938,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="114"/>
         <source>mpeg2enc Configuration</source>
-        <translation></translation>
+        <translation>mpeg2enc Konfiguration</translation>
     </message>
 </context>
 <context>
@@ -13989,12 +13996,12 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="216"/>
         <source>Encoding Mode</source>
-        <translation type="unfinished">Kodier-Modus</translation>
+        <translation>Kodiermodus</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="219"/>
         <source>Motion Estimation Method:</source>
-        <translation></translation>
+        <translation>Methode zur Bewegungsabschätzung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="220"/>
@@ -14034,32 +14041,32 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="231"/>
         <source>Mi_nimum Quantiser:</source>
-        <translation></translation>
+        <translation>mi_n. Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="232"/>
         <source>Ma_ximum Quantiser:</source>
-        <translation></translation>
+        <translation>ma_x. Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="233"/>
         <source>Maximum Quantiser _Difference:</source>
-        <translation></translation>
+        <translation>max. Quantisierungsunterschied:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="234"/>
         <source>_Quantiser Compression:</source>
-        <translation></translation>
+        <translation>_Quantisierungskompression:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="235"/>
         <source>Quantiser _Blur:</source>
-        <translation></translation>
+        <translation>Quantisierungs_unschärfe:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="236"/>
         <source>_Trellis Quantisation</source>
-        <translation></translation>
+        <translation>_Trellis Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="239"/>
@@ -14069,7 +14076,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="263"/>
         <source>avcodec H.263 Configuration</source>
-        <translation></translation>
+        <translation>avcodec H.263 Konfiguration</translation>
     </message>
 </context>
 <context>
@@ -14312,7 +14319,7 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>Ui_licenseWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_license.cpp" line="26"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_license.cpp" line="30"/>
         <source>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;&lt;html&gt;&lt;head&gt;  &lt;title&gt;Avidemux is free software; you can redistribute it and/or  modify it under the terms of the GNU General Public License  version 2 as published by the Free Software Foundation&lt;/title&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;!-- /* Style Definitions */ p.licenseStyle, li.licenseStyle, div.licenseStyle        {margin:0cm;        margin-bottom:.0001pt;        font-size:12.0pt;        font-family:&quot;Times New Roman&quot;;} /* Page Definitions */ @page Section1        {size:612.0pt 792.0pt;        margin:72.0pt 90.0pt 72.0pt 90.0pt;}div.Section1        {page:Section1;}--&gt;&lt;/style&gt;&lt;/head&gt;&lt;body lang=&quot;EN-GB&quot; style=&apos;text-justify-trim:punctuation&apos;&gt;  &lt;div class=&quot;Section1&quot;&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt;Avidemux is    free software; you can redistribute it and/or modify it under    the terms of the GNU General Public License version 2 as    published by the Free Software Foundation.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;b&gt;&lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt;    &lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;GNU GENERAL PUBLIC    LICENSE&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Version 2, June    1991&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Copyright (C) 1989, 1991    Free Software Foundation, Inc.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;span lang=&quot;FR&quot; style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;59 Temple Place, Suite    330, Boston, MA  02111-1307  USA&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;span lang=&quot;FR&quot; style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Everyone is permitted to    copy and distribute verbatim copies of this license document,    but changing it is not allowed.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Preamble&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;The licenses for most    software are designed to take away your freedom to share and    change it.  By contrast, the GNU General Public License is    intended to guarantee your freedom to share and change free    software--to make sure the software is free for all its users.     This General Public License applies to most of the Free    Software Foundation&apos;s software and to any other program whose    authors commit to using it.  (Some other Free Software    Foundation software is covered by the GNU Library General    Public License instead.)  You can apply it to your programs,    too.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;When we speak of free    software, we are referring to freedom, not price.  Our General    Public Licenses are designed to make sure that you have the    freedom to distribute copies of free software (and charge for    this service if you wish), that you receive source code or can    get it if you want it, that you can change the software or use    pieces of it in new free programs; and that you know you can do    these things.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;To protect your rights, we    need to make restrictions that forbid anyone to deny you these    rights or to ask you to surrender the rights. These    restrictions translate to certain responsibilities for you if    you distribute copies of the software, or if you modify    it.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;For example, if you    distribute copies of such a program, whether gratis or for a    fee, you must give the recipients all the rights that you have.     You must make sure that they, too, receive or can get the    source code.  And you must show them these terms so they know    their rights.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;We protect your rights    with two steps: (1) copyright the software, and (2) offer you    this license which gives you legal permission to copy,    distribute and/or modify the software.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Also, for each author&apos;s    protection and ours, we want to make certain that everyone    understands that there is no warranty for this free software.     If the software is modified by someone else and passed on, we    want its recipients to know that what they have is not the    original, so that any problems introduced by others will not    reflect on the original authors&apos; reputations.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Finally, any free program    is threatened constantly by software patents.  We wish to avoid    the danger that redistributors of a free program will    individually obtain patent licenses, in effect making the    program proprietary.  To prevent this, we have made it clear    that any patent must be licensed for everyone&apos;s free use or not    licensed at all.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;The precise terms and    conditions for copying, distribution and modification    follow.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;GNU GENERAL PUBLIC    LICENSE&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;TERMS AND CONDITIONS FOR    COPYING, DISTRIBUTION AND MODIFICATION&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;0. This License applies to    any program or other work which contains a notice placed by the    copyright holder saying it may be distributed under the terms    of this General Public License.  The &quot;Program&quot;, below, refers    to any such program or work, and a &quot;work based on the Program&quot;    means either the Program or any derivative work under copyright    law: that is to say, a work containing the Program or a portion    of it, either verbatim or with modifications and/or translated    into another language.  (Hereinafter, translation is included    without limitation in the term &quot;modification&quot;.)  Each licensee    is addressed as &quot;you&quot;.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Activities other than    copying, distribution and modification are not covered by this    License; they are outside its scope.  The act of running the    Program is not restricted, and the output from the Program is    covered only if its contents constitute a work based on the    Program (independent of having been made by running the    Program). Whether that is true depends on what the Program    does.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;1. You may copy and    distribute verbatim copies of the Program&apos;s source code as you    receive it, in any medium, provided that you conspicuously and    appropriately publish on each copy an appropriate copyright    notice and disclaimer of warranty; keep intact all the notices    that refer to this License and to the absence of any warranty;    and give any other recipients of the Program a copy of this    License along with the Program.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;You may charge a fee for    the physical act of transferring a copy, and you may at your    option offer warranty protection in exchange for a    fee.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;2. You may modify your    copy or copies of the Program or any portion of it, thus    forming a work based on the Program, and copy and distribute    such modifications or work under the terms of Section 1 above,    provided that you also meet all of these conditions:&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;a) You must cause the    modified files to carry prominent notices stating that you    changed the files and the date of any change.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;b) You must cause any work    that you distribute or publish, that in whole or in part    contains or is derived from the Program or any part thereof, to    be licensed as a whole at no charge to all third parties under    the terms of this License.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;c) If the modified program    normally reads commands interactively when run, you must cause    it, when started running for such interactive use in the most    ordinary way, to print or display an announcement including an    appropriate copyright notice and a notice that there is no    warranty (or else, saying that you provide a warranty) and that    users may redistribute the program under these conditions, and    telling the user how to view a copy of this License.     (Exception: if the Program itself is interactive but does not    normally print such an announcement, your work based on the    Program is not required to print an announcement.)&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;These requirements apply    to the modified work as a whole.  If identifiable sections of    that work are not derived from the Program, and can be    reasonably considered independent and separate works in    themselves, then this License, and its terms, do not apply to    those sections when you distribute them as separate works.  But    when you distribute the same sections as part of a whole which    is a work based on the Program, the distribution of the whole    must be on the terms of this License, whose permissions for    other licensees extend to the entire whole, and thus to each    and every part regardless of who wrote it.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Thus, it is not the intent    of this section to claim rights or contest your rights to work    written entirely by you; rather, the intent is to exercise the    right to control the distribution of derivative or collective    works based on the Program.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;In addition, mere    aggregation of another work not based on the Program with the    Program (or with a work based on the Program) on a volume of a    storage or distribution medium does not bring the other work    under the scope of this License.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;3. You may copy and    distribute the Program (or a work based on it, under Section 2)    in object code or executable form under the terms of Sections 1    and 2 above provided that you also do one of the    following:&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;a) Accompany it with the    complete corresponding machine-readable source code, which must    be distributed under the terms of Sections 1 and 2 above on a    medium customarily used for software interchange;    or,&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;b) Accompany it with a    written offer, valid for at least three years, to give any    third party, for a charge no more than your cost of physically    performing source distribution, a complete machine-readable    copy of the corresponding source code, to be distributed under    the terms of Sections 1 and 2 above on a medium customarily    used for software interchange; or,&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;c) Accompany it with the    information you received as to the offer to distribute    corresponding source code.  (This alternative is allowed only    for noncommercial distribution and only if you received the    program in object code or executable form with such an offer,    in accord with Subsection b above.)&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;The source code for a work    means the preferred form of the work for making modifications    to it.  For an executable work, complete source code means all    the source code for all modules it contains, plus any    associated interface definition files, plus the scripts used to    control compilation and installation of the executable.     However, as a special exception, the source code distributed    need not include anything that is normally distributed (in    either source or binary form) with the major components    (compiler, kernel, and so on) of the operating system on which    the executable runs, unless that component itself accompanies    the executable.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;If distribution of    executable or object code is made by offering access to copy    from a designated place, then offering equivalent access to    copy the source code from the same place counts as distribution    of the source code, even though third parties are not compelled    to copy the source along with the object code.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;4. You may not copy,    modify, sublicense, or distribute the Program except as    expressly provided under this License.  Any attempt otherwise    to copy, modify, sublicense or distribute the Program is void,    and will automatically terminate your rights under this    License. However, parties who have received copies, or rights,    from you under this License will not have their licenses    terminated so long as such parties remain in full    compliance.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;5. You are not required to    accept this License, since you have not signed it.  However,    nothing else grants you permission to modify or distribute the    Program or its derivative works.  These actions are prohibited    by law if you do not accept this License.  Therefore, by    modifying or distributing the Program (or any work based on the    Program), you indicate your acceptance of this License to do    so, and all its terms and conditions for copying, distributing    or modifying the Program or works based on it.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;6. Each time you    redistribute the Program (or any work based on the Program),    the recipient automatically receives a license from the    original licensor to copy, distribute or modify the Program    subject to these terms and conditions.  You may not impose any    further restrictions on the recipients&apos; exercise of the rights    granted herein. You are not responsible for enforcing    compliance by third parties to this License.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;7. If, as a consequence of    a court judgment or allegation of patent infringement or for    any other reason (not limited to patent issues), conditions are    imposed on you (whether by court order, agreement or otherwise)    that contradict the conditions of this License, they do not    excuse you from the conditions of this License.  If you cannot    distribute so as to satisfy simultaneously your obligations    under this License and any other pertinent obligations, then as    a consequence you may not distribute the Program at all.  For    example, if a patent license would not permit royalty-free    redistribution of the Program by all those who receive copies    directly or indirectly through you, then the only way you could    satisfy both it and this License would be to refrain entirely    from distribution of the Program.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;If any portion of this    section is held invalid or unenforceable under any particular    circumstance, the balance of the section is intended to apply    and the section as a whole is intended to apply in other    circumstances.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;It is not the purpose of    this section to induce you to infringe any patents or other    property right claims or to contest validity of any such    claims; this section has the sole purpose of protecting the    integrity of the free software distribution system, which is    implemented by public license practices.  Many people have made    generous contributions to the wide range of software    distributed through that system in reliance on consistent    application of that system; it is up to the author/donor to    decide if he or she is willing to distribute software through    any other system and a licensee cannot impose that    choice.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;This section is intended    to make thoroughly clear what is believed to be a consequence    of the rest of this License.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;8. If the distribution    and/or use of the Program is restricted in certain countries    either by patents or by copyrighted interfaces, the original    copyright holder who places the Program under this License may    add an explicit geographical distribution limitation excluding    those countries, so that distribution is permitted only in or    among countries not thus excluded.  In such case, this License    incorporates the limitation as if written in the body of this    License.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;9. The Free Software    Foundation may publish revised and/or new versions of the    General Public License from time to time.  Such new versions    will be similar in spirit to the present version, but may    differ in detail to address new problems or    concerns.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;Each version is given a    distinguishing version number.  If the Program specifies a    version number of this License which applies to it and &quot;any    later version&quot;, you have the option of following the terms and    conditions either of that version or of any later version    published by the Free Software Foundation.  If the Program does    not specify a version number of this License, you may choose    any version ever published by the Free Software    Foundation.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;10. If you wish to    incorporate parts of the Program into other free programs whose    distribution conditions are different, write to the author to    ask for permission.  For software which is copyrighted by the    Free Software Foundation, write to the Free Software    Foundation; we sometimes make exceptions for this.  Our    decision will be guided by the two goals of preserving the free    status of all derivatives of our free software and of promoting    the sharing and reuse of software generally.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;NO WARRANTY&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;11. BECAUSE THE PROGRAM IS    LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM,    TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN    OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER    PARTIES PROVIDE THE PROGRAM &quot;AS IS&quot; WITHOUT WARRANTY OF ANY    KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED    TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A    PARTICULAR PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND    PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM    PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY    SERVICING, REPAIR OR CORRECTION.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=    &apos;text-align:justify;text-autospace:none&apos;&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;12. IN NO EVENT UNLESS    REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY    COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR    REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU    FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR    CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO    USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR    DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR    THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY    OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; align=&quot;center&quot; style=    &apos;text-align:center;text-autospace:none&apos;&gt;&lt;b&gt;&lt;span style=    &apos;font-size:10.0pt;font-family:Arial&apos;&gt;END OF TERMS AND    CONDITIONS&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;    &lt;p class=&quot;licenseStyle&quot; style=&apos;text-autospace:none&apos;&gt;    &lt;span style=&apos;font-size:10.0pt; font-family:Arial&apos;&gt; &lt;/span&gt;&lt;/p&gt;  &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
@@ -14320,7 +14327,7 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>Ui_vobsubWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_vobsub.cpp" line="88"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_vobsub.cpp" line="92"/>
         <source>Select Idx File</source>
         <translation></translation>
     </message>
@@ -14399,7 +14406,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="205"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1979"/>
         <source>Encoding Mode:</source>
-        <translation>Kodier-Modus:</translation>
+        <translation>Kodiermodus:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="285"/>
@@ -14420,7 +14427,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1983"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2059"/>
         <source>Quantiser</source>
-        <translation></translation>
+        <translation>Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="354"/>
@@ -14494,7 +14501,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="640"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1999"/>
         <source>Disable</source>
-        <translation>abschalten (nur einen Prozessorkern benutzen)</translation>
+        <translation>nur einen Prozessorkern nutzen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="647"/>
@@ -14752,7 +14759,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1652"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2053"/>
         <source>Trellis Quantisation</source>
-        <translation>gitterartige Quantisierung</translation>
+        <translation>Trellis Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1662"/>
@@ -14930,13 +14937,13 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2419"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2087"/>
         <source>VBV Buffer Size:</source>
-        <translation></translation>
+        <translation>VBV Puffergröße:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2426"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2088"/>
         <source>Maximum VBV Bitrate:</source>
-        <translation></translation>
+        <translation>max. VBV Bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2433"/>
@@ -14947,7 +14954,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="118"/>
         <source>&lt;default&gt;</source>
-        <translation></translation>
+        <translation>&lt;Voreinstellung&gt;</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="119"/>
@@ -14962,7 +14969,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="251"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
-        <translation></translation>
+        <translation>Möchten Sie die ausgewählte Konfiguration wirklich löschen?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="271"/>
@@ -15492,21 +15499,21 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>encodingWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="46"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="50"/>
         <source>Pause / Abort</source>
         <translation>Pause / Abbruch</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="111"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="129"/>
         <source>Privileges Required</source>
-        <translation type="unfinished">Rechte erforderlich</translation>
+        <translation>Rechte erforderlich</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="111"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="129"/>
         <source>Root privileges are required to perform this operation.</source>
-        <translation type="unfinished">Für diese Operation sind Root-Rechte erforderlich.</translation>
+        <translation>Für diese Operation sind Root-Rechte erforderlich.</translation>
     </message>
 </context>
 <context>
@@ -15651,58 +15658,58 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>jobsWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="40"/>
         <source>Job Name</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="40"/>
         <source>Status</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="40"/>
         <source>Start Time</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="40"/>
         <source>End Time</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="104"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="118"/>
         <source>Sure!</source>
         <translation type="unfinished">Sicher!</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="104"/>
         <source>Delete job</source>
         <translation type="unfinished">Job löschen</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="104"/>
         <source>Are you sure you want to delete %s job?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="118"/>
         <source>Delete *all* job</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="118"/>
         <source>Are you sure you want to delete ALL jobs?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="138"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="142"/>
         <source>Already done</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="138"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="142"/>
         <source>This script has already been successfully executed.</source>
         <translation></translation>
     </message>
@@ -15803,7 +15810,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="254"/>
         <source>Add</source>
-        <translation></translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="302"/>
@@ -15920,53 +15927,53 @@ Soll ein Index erstellt werden ?</translation>
 <context>
     <name>propWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="50"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="54"/>
         <source>%lu x %lu</source>
         <translation type="unfinished">%lu x %lu</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="51"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="55"/>
         <source>%2.3f fps</source>
         <translation type="unfinished">%2.3f Bilder/s</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="52"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="56"/>
         <source>%ld frames</source>
         <translation type="unfinished">%ld Bilder</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="58"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="106"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="62"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="110"/>
         <source>%02d:%02d:%02d.%03d</source>
         <translation type="unfinished">%02d:%02d:%02d.%03d</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="64"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="68"/>
         <source>%s (%u:%u)</source>
         <translation type="unfinished">%s (%u:%u)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="79"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="83"/>
         <source>Mono</source>
         <translation type="unfinished">Mono</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="82"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="86"/>
         <source>Stereo</source>
         <translation type="unfinished">Stereo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="90"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="94"/>
         <source>%lu Hz</source>
         <translation type="unfinished">%lu Hz</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="91"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="95"/>
         <source>%lu Bps / %lu kbps</source>
         <translation type="unfinished">%lu Byte/s,  %lu kb/s</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="109"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="113"/>
         <source>%.2f MB</source>
         <translation type="unfinished">%.2f MB</translation>
     </message>
@@ -16462,14 +16469,14 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="50"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3087"/>
         <source>Configuration:</source>
-        <translation></translation>
+        <translation>Konfiguration:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="294"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="67"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3088"/>
         <source>Save As</source>
-        <translation></translation>
+        <translation>speichern unter</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="74"/>
@@ -16477,7 +16484,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3089"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3248"/>
         <source>Delete</source>
-        <translation></translation>
+        <translation>löschen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="116"/>
@@ -16532,7 +16539,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="210"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3100"/>
         <source>Encoding Mode:</source>
-        <translation>Kodier-Modus:</translation>
+        <translation>Kodiermodus:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="361"/>
@@ -16553,7 +16560,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3104"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3232"/>
         <source>Quantiser</source>
-        <translation></translation>
+        <translation>Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="359"/>
@@ -16573,25 +16580,25 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3109"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3117"/>
         <source>frames</source>
-        <translation></translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="489"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3110"/>
         <source>Multithreading</source>
-        <translation>Mehrkernprozessoren</translation>
+        <translation>den Kodiervorgang für Mehrkernprozessoren auf mehrere Aufgabenstränge aufteilen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="509"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3111"/>
         <source>Disable</source>
-        <translation type="unfinished">Deaktivieren</translation>
+        <translation>nein, nicht aufteilen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="516"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3112"/>
         <source>Auto-detect</source>
-        <translation type="unfinished">Auto-Erkennung</translation>
+        <translation>automatische Erkennung und ideale Nutzung der vorhandenen Prozessorkerne/-leistung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="534"/>
@@ -16599,7 +16606,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3113"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3283"/>
         <source>Custom:</source>
-        <translation>individuelles Seitenverhältnis:</translation>
+        <translation>die Anzahl der Aufgabenstränge manuell festlegen:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="571"/>
@@ -16629,61 +16636,61 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="664"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3119"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Abschätzung der Bewegung</translation>
+        <translation>Abschätzung der Bildbewegungen im Video</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="684"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3120"/>
         <source>Motion Estimation Method:</source>
-        <translation></translation>
+        <translation>Suchraster zur Bewegungsabschätzung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="703"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3123"/>
         <source>Diamond Search</source>
-        <translation type="unfinished">Sternförmig suchen</translation>
+        <translation>sternförmig (schnell/schlecht)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="708"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3124"/>
         <source>Hexagonal Search</source>
-        <translation type="unfinished">Hexagonal suchen</translation>
+        <translation>hexagonal / Sechseck (normal)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="713"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3125"/>
         <source>Uneven Multi-hexagonal Search</source>
-        <translation></translation>
+        <translation>viele ungleiche Sechsecke (sehr gut)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="718"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3126"/>
         <source>Exhaustive Search</source>
-        <translation type="unfinished">Vollständige Suche</translation>
+        <translation>vollständige Suche (sehr langsam)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="723"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3127"/>
         <source>Hadamard Exhaustive Search</source>
-        <translation type="unfinished">&quot;Hadamard&quot; vollständige Suche</translation>
+        <translation>&quot;Hadamard&quot; vollständige Suche (sehr langsam)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="780"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3129"/>
         <source>1 (Fast)</source>
-        <translation></translation>
+        <translation>1 (Schnell)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="800"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3130"/>
         <source>Subpixel Refinement</source>
-        <translation></translation>
+        <translation>Verfeinerung auf Sub-Pixel-Ebene (normal = 5)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="820"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3131"/>
         <source>9 (Best)</source>
-        <translation></translation>
+        <translation>9 (am Besten)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="900"/>
@@ -16794,12 +16801,6 @@ Soll ein Index erstellt werden ?</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1228"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3155"/>
-        <source>Partition Search</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1248"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3156"/>
         <source>8x8 DCT Spatial Transform</source>
@@ -16851,19 +16852,19 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1333"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3164"/>
         <source>CABAC</source>
-        <translation type="unfinished">CABAC</translation>
+        <translation>CABAC (verlustfreie Entropiekodierung)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1340"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3165"/>
         <source>Pure Interlaced Mode</source>
-        <translation></translation>
+        <translation>im Zeilensprungverfahren kodieren (interlaced mode)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1355"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3166"/>
         <source>Loop Filter</source>
-        <translation></translation>
+        <translation>Blockartefakte verhindern --&gt;</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1397"/>
@@ -16871,31 +16872,31 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3167"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3231"/>
         <source>Strength:</source>
-        <translation></translation>
+        <translation>Stärke:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1436"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3168"/>
         <source>Threshold:</source>
-        <translation></translation>
+        <translation>Schwellwert:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1502"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3169"/>
         <source>Maximum Reference Frames:</source>
-        <translation></translation>
+        <translation>maximale Anzahl durchsuchbarer Referenzbilder:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1550"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3170"/>
         <source>B-frames</source>
-        <translation>B-Bilder</translation>
+        <translation>B-Frames (bidirectionale Bildberechnung)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1562"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3171"/>
         <source>B-frames as References:</source>
-        <translation></translation>
+        <translation>B-Frames als Referenzen (nicht mit MB-Tree verwenden):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1583"/>
@@ -16925,43 +16926,43 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1722"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3184"/>
         <source>B-frame Bias:</source>
-        <translation></translation>
+        <translation>Gewichtung der B-Frames (0 = normal):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1729"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3185"/>
         <source>Maximum Consecutive B-frames:</source>
-        <translation>max. aufeinanderfolgende B-Bilder:</translation>
+        <translation>maximale Anzahl aufeinanderfolgender B-Frames:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1736"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3186"/>
         <source>Adaptive B-frame Decision:</source>
-        <translation></translation>
+        <translation>an die Bildinformation angepasste B-Frame Entscheidung (DCT):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1746"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3187"/>
         <source>I-frames</source>
-        <translation>I-Bilder</translation>
+        <translation>I-Frames (unabhängige Vollbilder, u.a.wichtig für einen späteren Videoschnitt)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1810"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3188"/>
         <source>Maximum GOP Size:</source>
-        <translation></translation>
+        <translation>Anzahl der Bilder nachdem ein I-Frame gesetzt werden muß:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1817"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3189"/>
         <source>I-frame Threshold:</source>
-        <translation></translation>
+        <translation>Bildveränderungsschwellwert der zum Setzen eines I-Frames führt (%):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1863"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3190"/>
         <source>Minimum GOP Size:</source>
-        <translation></translation>
+        <translation>einen I-Frame frühestens nach der folgenden Bildanzahl setzen:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1950"/>
@@ -16987,7 +16988,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1996"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3196"/>
         <source>Trellis Quantization:</source>
-        <translation></translation>
+        <translation>Trellis Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2007"/>
@@ -17017,19 +17018,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2057"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3204"/>
         <source>Psychovisual Rate Distortion Optimisation:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2097"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3205"/>
-        <source>Noise Reduction:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2129"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3206"/>
-        <source>Luma Quantisation Deadzone</source>
-        <translation></translation>
+        <translation>psychovisuell optimierte Abstimmung der Bitrate auf die Bildqualität (Psy RDO):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2149"/>
@@ -17085,13 +17074,13 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2395"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3216"/>
         <source>Maximum Quantiser:</source>
-        <translation></translation>
+        <translation>max. Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2402"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3217"/>
         <source>I and P-frame Quantiser Ratio:</source>
-        <translation></translation>
+        <translation>I und P-Fram Quantisierungsverhältnis:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2505"/>
@@ -17107,31 +17096,31 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2527"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3219"/>
         <source>Maximum Quantiser Step:</source>
-        <translation></translation>
+        <translation>max. Quantisierungsschritt:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2567"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3220"/>
         <source>P and B-frame Quantiser Ratio:</source>
-        <translation></translation>
+        <translation>P und B-Frame Quantisierungsverhältnis:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2574"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3221"/>
         <source>Average Bitrate Tolerance:</source>
-        <translation></translation>
+        <translation>durchschnittl. Bitratenabweichung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2581"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3222"/>
         <source>Chroma to Luma Quantiser Offset:</source>
-        <translation></translation>
+        <translation>Farb- zu Helligkeitsquantisierungsversatz:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2624"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3223"/>
         <source>Minimum Quantiser:</source>
-        <translation></translation>
+        <translation>min. Quantisierung:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2678"/>
@@ -17161,13 +17150,13 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2849"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3229"/>
         <source>Adaptive Quantisation</source>
-        <translation></translation>
+        <translation>angepaßte Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2869"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3230"/>
         <source>Variance AQ</source>
-        <translation></translation>
+        <translation>abweichende angepaßte Quantisierung</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2953"/>
@@ -17179,19 +17168,13 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2973"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3233"/>
         <source>Video Buffer Verifier</source>
-        <translation></translation>
+        <translation>Überwachung des Videopuffers</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2993"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3234"/>
         <source>Maximum VBV Bitrate:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3000"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3235"/>
-        <source>Initial VBV Buffer Occupancy:</source>
-        <translation></translation>
+        <translation>max. VBV Bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3022"/>
@@ -17211,25 +17194,49 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="428"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3106"/>
         <source>Fast First Pass</source>
-        <translation type="unfinished"></translation>
+        <translation>ersten Durchlauf schnell ausführen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="435"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3107"/>
         <source>Macroblock-tree Rate Control</source>
+        <translation>Macroblock-tree Rate Control (beachte: B-Frames dürfen dann nicht als Referenz benutzt werden)</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1228"/>
+        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3155"/>
+        <source>Partition Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1924"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3191"/>
         <source>Periodic Intra Refresh</source>
+        <translation>erzeuge statt eines einzigen Vollbildes eine Bildabfolge (Periodic intra refresh)</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2097"/>
+        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3205"/>
+        <source>Noise Reduction:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2129"/>
+        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3206"/>
+        <source>Luma Quantisation Deadzone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3000"/>
+        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3235"/>
+        <source>Initial VBV Buffer Occupancy:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3121"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3239"/>
         <source>VBV Buffer Size:</source>
-        <translation></translation>
+        <translation>VBV Puffergröße:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3133"/>
@@ -17271,7 +17278,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3304"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3246"/>
         <source>Add</source>
-        <translation></translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3346"/>
@@ -17279,7 +17286,7 @@ Soll ein Index erstellt werden ?</translation>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3250"/>
         <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3352"/>
         <source>Output</source>
-        <translation type="unfinished">Ausgabe</translation>
+        <translation>Ausgabe</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3395"/>
@@ -17672,7 +17679,7 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="166"/>
         <source>&lt;default&gt;</source>
-        <translation></translation>
+        <translation>&lt;Voreinstellung&gt;</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="167"/>
@@ -17682,12 +17689,12 @@ Soll ein Index erstellt werden ?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="294"/>
         <source>x264 Configuration File (*.xml)</source>
-        <translation></translation>
+        <translation>x264 Konfigurationsdatei (*.xml)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="329"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
-        <translation></translation>
+        <translation>Möchten Sie die ausgewählte Konfiguration wirklich löschen?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="347"/>
@@ -17721,7 +17728,9 @@ Do you wish to continue?</source>
         <source>Trellis optimisation isn&apos;t possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.
 
  Do you wish to continue?</source>
-        <translation></translation>
+        <translation>Die Trellisoptimierung nicht durchführbar, wenn CABAC nicht eingeschaltet wurde. Trellis wird daher jetzt abgeschaltet.
+		
+		Wollen Sie fortfahren?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="463"/>
