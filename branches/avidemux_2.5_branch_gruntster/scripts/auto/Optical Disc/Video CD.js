@@ -19,9 +19,9 @@ else
         var targetY;
 
         if (getColourEncodingSystem(fps1000) == "NTSC")
-            targetY = 288;
-        else
             targetY = 240;
+        else
+            targetY = 288;
 
         var sourceRatio = result[1][0] + ":" + result[1][1];
         var destinationRatio = result[2][0] + ":" + result[2][1];
