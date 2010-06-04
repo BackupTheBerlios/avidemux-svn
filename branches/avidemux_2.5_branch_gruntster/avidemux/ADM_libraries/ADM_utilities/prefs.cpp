@@ -1077,7 +1077,7 @@ int preferences::setLastProject(const char* file)
 		xmlNodePtr q;
 		
 		p = xdoc->children;				// ->avidemux (should be there)
-		p = goto_node_with_create(p, "lastfiles");	// ->avidemux->lastfile
+		p = goto_node_with_create(p, "lastproject");	// ->avidemux->lastfile
 
 		q = goto_node_with_create(p, "file1");
 		xmlNodeSetContent(q, (xmlChar*)(opt_defs[LASTPROJECT_FILE1].current_val ? opt_defs[LASTPROJECT_FILE1].current_val : ""));
