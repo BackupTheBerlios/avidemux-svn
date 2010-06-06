@@ -24,10 +24,6 @@
 #include "../ADM_gui/ADM_qtray.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
 extern void UI_iconify(void);
 extern void UI_deiconify(void);
 extern void UI_purge(void);
@@ -47,7 +43,7 @@ encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, 
 	}
 #endif
 
-	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText(QString::fromUtf8(QT_TR_NOOP("Pause / Abort")));
+	ui.buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Pause / Abort"));
 
 	connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
 	connect(ui.buttonBox, SIGNAL(rejected()), this, SLOT(buttonPressed()));
@@ -108,7 +104,7 @@ void encodingWindow::priorityChanged(int priorityLevel)
 		ui.comboBoxPriority->setCurrentIndex(2);
 		connect(ui.checkBoxShutdown, SIGNAL(currentIndexChanged(int)), this, SLOT(priorityChanged(int)));
 
-		GUI_Error_HIG(QT_TR_NOOP("Privileges Required"), QT_TR_NOOP( "Root privileges are required to perform this operation."));
+		GUI_Error_HIG(tr("Privileges Required").toUtf().constData(), tr("Root privileges are required to perform this operation.").toUtf().constData());
 
 		return;
 	}
@@ -126,7 +122,7 @@ void encodingWindow::shutdownChanged(int state)
 		ui.checkBoxShutdown->setCheckState(Qt::Unchecked);
 		connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
 
-		GUI_Error_HIG(QT_TR_NOOP("Privileges Required"), QT_TR_NOOP( "Root privileges are required to perform this operation."));
+		GUI_Error_HIG(tr("Privileges Required").toUtf().constData(), tr("Root privileges are required to perform this operation.").toUtf().constData());
 	}
 #endif
 }
@@ -209,7 +205,7 @@ DIA_encoding::~DIA_encoding( )
 
 	if (shutdownRequired && !stopReq)
 	{
-		DIA_working *work=new DIA_working(QT_TR_NOOP("Shutting down"));
+		DIA_working *work=new DIA_working(encodingWindow::tr("Shutting down").toUtf8().constData());
 		bool performShutdown=true;
 
 		for(int i = 0; i <= 30; i++)
@@ -501,8 +497,8 @@ uint8_t DIA_encoding::isAlive( void )
 
         if(stopReq)
         {
-          if(GUI_Alternate((char*)QT_TR_NOOP("The encoding is paused. Do you want to resume or abort?"),
-                              (char*)QT_TR_NOOP("Resume"),(char*)QT_TR_NOOP("Abort")))
+          if(GUI_Alternate((char*)encodingWindow::tr("The encoding is paused. Do you want to resume or abort?").toUtf8().constData(),
+                              (char*)encodingWindow::tr("Resume").toUtf8().constData(), (char*)encodingWindow::tr("Abort").toUtf8().constData()))
                  {
                          stopReq=0;
                  }

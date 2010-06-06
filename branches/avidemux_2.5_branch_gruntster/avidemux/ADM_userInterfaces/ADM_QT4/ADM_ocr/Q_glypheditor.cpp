@@ -148,7 +148,7 @@ void GlyphEditorWindow::prevEmptyButton_clicked(bool checked)
 			} 
 		}
 
-		GUI_Error_HIG(QT_TR_NOOP("Head reached"), QT_TR_NOOP("No more glyphs"));
+		GUI_Error_HIG(GlyphEditorWindow::tr("Head reached").toUtf8().constData(), GlyphEditorWindow::tr("No more glyphs").toUtf8().constData());
 		break;
 	}
 }
@@ -167,7 +167,7 @@ void GlyphEditorWindow::nextEmptyButton_clicked(bool checked)
 		}
 		else 
 		{
-			GUI_Error_HIG(QT_TR_NOOP("End reached"), QT_TR_NOOP("No more glyphs"));
+			GUI_Error_HIG(GlyphEditorWindow::tr("End reached").toUtf8().constData(), GlyphEditorWindow::tr("No more glyphs").toUtf8().constData());
 			break;
 		}
 	}
@@ -182,10 +182,10 @@ void GlyphEditorWindow::homeButton_clicked(bool checked)
 void GlyphEditorWindow::findButton_clicked(bool checked)
 {
 	char *tomatch = NULL;
-	diaElemText txt(&tomatch, QT_TR_NOOP("String"), NULL);
+	diaElemText txt(&tomatch, GlyphEditorWindow::tr("String").toUtf8().constData(), NULL);
 	diaElem *elems[] = {&txt};
 
-	if (!diaFactoryRun(QT_TR_NOOP("Search string"), 1, elems))
+	if (!diaFactoryRun(GlyphEditorWindow::tr("Search string").toUtf8().constData(), 1, elems))
 		return;
 
 	printf("Searched string <%s>\n", tomatch);
@@ -209,7 +209,7 @@ void GlyphEditorWindow::findButton_clicked(bool checked)
 	delete [] tomatch;
 
 	if (!currentGlyph->next)
-		GUI_Error_HIG(QT_TR_NOOP("End reached"), QT_TR_NOOP("No more glyphs"));
+		GUI_Error_HIG(GlyphEditorWindow::tr("End reached").toUtf8().constData(), GlyphEditorWindow::tr("No more glyphs").toUtf8().constData());
 }
 
 void GlyphEditorWindow::deleteButton_clicked(bool checked)
@@ -245,7 +245,7 @@ uint8_t DIA_glyphEdit(void)
 	uint8_t ret = 0;
 
 	// First select a file
-	GUI_FileSelRead(QT_TR_NOOP("Select GlyphFile to edit"), &glyphName);
+	GUI_FileSelRead(GlyphEditorWindow::tr("Select GlyphFile to edit").toUtf8().constData(), &glyphName);
 
 	if (!glyphName)
 		return 0;

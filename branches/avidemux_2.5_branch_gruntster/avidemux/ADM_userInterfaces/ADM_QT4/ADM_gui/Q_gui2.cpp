@@ -12,6 +12,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "config.h"
+#undef QT_TR_NOOP
 
 #include <QtCore/QUrl>
 #include <QtCore/QDir>
@@ -1013,9 +1014,8 @@ void UI_setFrameType( uint32_t frametype,uint32_t qp)
 	default:c='?';break;
 
 	}
-	sprintf(string,QT_TR_NOOP("%c (%02d)"),c,qp);
-	WIDGET(label_8)->setText(QString::fromUtf8(string));
 
+	WIDGET(label_8)->setText(MainWindow::tr("%1 (%2)").arg(c).arg(qp, 2, 10, QLatin1Char('0')));
 }
 
 /**

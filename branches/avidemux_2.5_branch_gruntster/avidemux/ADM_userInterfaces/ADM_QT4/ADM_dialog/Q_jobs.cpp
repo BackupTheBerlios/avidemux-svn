@@ -7,13 +7,9 @@
 #include "DIA_coreToolkit.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
 static void updateStatus(void);
 extern bool parseECMAScript(const char *name);
-static const char *StringStatus[]={QT_TR_NOOP("Ready"),QT_TR_NOOP("Succeeded"),QT_TR_NOOP("Failed"),QT_TR_NOOP("Deleted"),QT_TR_NOOP("Running")};
+static QString StringStatus[]={jobsWindow::tr("Ready"), jobsWindow::tr("Succeeded"), jobsWindow::tr("Failed"), jobsWindow::tr("Deleted"), jobsWindow::tr("Running")};
 
 ADM_Job_Descriptor::ADM_Job_Descriptor(void) 
 {
@@ -37,7 +33,7 @@ jobsWindow::jobsWindow(QWidget *parent, uint32_t n,char **j) : QDialog(parent)
 
 	// Set headers
 	QStringList headers;
-	headers << QT_TR_NOOP("Job Name") << QT_TR_NOOP("Status") << QT_TR_NOOP("Start Time") << QT_TR_NOOP("End Time"); 
+	headers << tr("Job Name") << tr("Status") << tr("Start Time") << tr("End Time"); 
 
 	ui.tableWidget->setVerticalHeaderLabels(headers);
 	updateRows();
@@ -56,15 +52,12 @@ jobsWindow::~jobsWindow()
 {
 	delete [] desc;
 }
- /*
-    There is maybe a huge mem leak here
- */
-static void ADM_setText(const char *txt,uint32_t col, uint32_t row,QTableWidget *w)
+ 
+static void ADM_setText(QString txt,uint32_t col, uint32_t row,QTableWidget *w)
 {
-	QString str = QString::fromUtf8(txt);
-        QTableWidgetItem *newItem = new QTableWidgetItem(str);//GetFileName(_jobsName[i]));
-        w->setItem(row, col, newItem);
-  
+	QTableWidgetItem *newItem = new QTableWidgetItem(txt);
+
+	w->setItem(row, col, newItem);  
 }
  /**
       \fn updateRaw
@@ -78,14 +71,10 @@ void jobsWindow::updateRows(void)
    for(int i=0;i<_nbJobs;i++)
    {
       j=&(desc[i]);
-      ADM_setText(ADM_GetFileName(_jobsName[i]),0,i,ui.tableWidget);
+      ADM_setText(QString(ADM_GetFileName(_jobsName[i])),0,i,ui.tableWidget);
       ADM_setText(StringStatus[j->status],1,i,ui.tableWidget);
-      
-      sprintf(str,"%02u:%02u:%02u",j->startDate.hours,j->startDate.minutes,j->startDate.seconds);
-      ADM_setText(str,2,i,ui.tableWidget);
-      
-      sprintf(str,"%02u:%02u:%02u",j->endDate.hours,j->endDate.minutes,j->endDate.seconds);
-      ADM_setText(str,3,i,ui.tableWidget);
+      ADM_setText(tr("%1:%2:%3").arg((uint)j->startDate.hours, 2, 10, QLatin1Char('0')).arg((uint)j->startDate.minutes, 2, 10, QLatin1Char('0')).arg((uint)j->startDate.seconds, 2, 10, QLatin1Char('0')), 2, i, ui.tableWidget);
+	  ADM_setText(tr("%1:%2:%3").arg((uint)j->endDate.hours, 2, 10, QLatin1Char('0')).arg((uint)j->endDate.minutes, 2, 10, QLatin1Char('0')).arg((uint)j->endDate.seconds, 2, 10, QLatin1Char('0')), 3, i, ui.tableWidget);
    }
 }
 
@@ -101,7 +90,7 @@ void jobsWindow::DeleteOne(bool b)
 
 	if (sel >= 0 && sel < _nbJobs)
 	{
-		if (GUI_Confirmation_HIG(QT_TR_NOOP("Sure!"), QT_TR_NOOP("Delete job"), QT_TR_NOOP("Are you sure you want to delete %s job?"), ADM_GetFileName(_jobsName[sel])))
+		if (GUI_Confirmation_HIG(tr("Sure!").toUtf8().constData(), tr("Delete job").toUtf8().constData(), tr("Are you sure you want to delete %s job?").toUtf8().constData(), ADM_GetFileName(_jobsName[sel])))
 		{
 			desc[sel].status = STATUS_DELETED;
 			unlink(_jobsName[sel]);
@@ -115,7 +104,7 @@ void jobsWindow::DeleteOne(bool b)
 */
 void jobsWindow::DeleteAll(bool b)
 {
-	if (GUI_Confirmation_HIG(QT_TR_NOOP("Sure!"), QT_TR_NOOP("Delete *all* job"), QT_TR_NOOP("Are you sure you want to delete ALL jobs?")))
+	if (GUI_Confirmation_HIG(tr("Sure!").toUtf8().constData(), tr("Delete *all* job").toUtf8().constData(), tr("Are you sure you want to delete ALL jobs?").toUtf8().constData()))
 	{
 		for(int sel = 0; sel < _nbJobs; sel++)
 		{
@@ -139,7 +128,7 @@ void jobsWindow::RunOne(bool b)
 	if(sel >= 0 && sel < _nbJobs)
 	{
 		if(desc[sel].status == STATUS_SUCCEED)
-			GUI_Info_HIG(ADM_LOG_INFO,QT_TR_NOOP("Already done"),QT_TR_NOOP("This script has already been successfully executed."));
+			GUI_Info_HIG(ADM_LOG_INFO,tr("Already done").toUtf8().constData(),tr("This script has already been successfully executed.").toUtf8().constData());
 		else
 		{
 			desc[sel].status=STATUS_RUNNING;

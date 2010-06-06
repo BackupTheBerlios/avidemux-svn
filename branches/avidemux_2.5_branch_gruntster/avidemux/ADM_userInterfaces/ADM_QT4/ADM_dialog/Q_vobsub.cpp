@@ -20,10 +20,6 @@
 #include "DIA_fileSel.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
 //
 //	Video is in YV12 Colorspace
 //
@@ -89,7 +85,7 @@ void Ui_vobsubWindow::idxSel()
 {
 	char fileIdx[1024];
 	
-	if(FileSel_SelectRead(QT_TR_NOOP("Select Idx File"),fileIdx,1023, NULL) && ADM_fileExist(fileIdx))
+	if(FileSel_SelectRead(tr("Select Idx File").toUtf8().constData(),fileIdx,1023, NULL) && ADM_fileExist(fileIdx))
 	{
 		// Set entry
 		ui.lineEditIdx->setText(fileIdx);

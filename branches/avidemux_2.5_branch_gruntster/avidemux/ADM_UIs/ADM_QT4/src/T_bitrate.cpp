@@ -18,9 +18,6 @@
 #include "DIA_factory.h"
 #include "ADM_dialogFactoryQt4.h"
 
-#undef QT_TR_NOOP
-#include "ADM_plugin/ADM_plugin_translate.h"
-
 namespace ADM_Qt4Factory
 {
 class diaElemBitrate : public diaElemBitrateBase
@@ -44,23 +41,23 @@ ADM_Qbitrate::ADM_Qbitrate(COMPRES_PARAMS *p,uint32_t minQ, uint32_t mq,QGridLay
 	_minQ=minQ;
 	maxQ=mq;
 	int index=0,set=-1;
-#define add(x,z,y) if(compress->capabilities & ADM_ENC_CAP_##x) {combo->addItem(QString::fromUtf8(y), COMPRESS_##z);\
+#define add(x,z,y) if(compress->capabilities & ADM_ENC_CAP_##x) {combo->addItem(y, COMPRESS_##z);\
 	if(p->mode==COMPRESS_##z) set=index;\
 	index++;}
 
-	add(CBR,CBR,QT_TR_NOOP("Constant Bitrate"));
-	add(CQ,CQ,QT_TR_NOOP("Constant Quantiser"));
-	add(SAME,SAME,QT_TR_NOOP("Same Quantiser as Input"));
-	add(AQ,AQ,QT_TR_NOOP("Constant Rate Factor"));
-	add(2PASS,2PASS,QT_TR_NOOP("Two Pass - Video Size"));
-	add(2PASS_BR,2PASS_BITRATE,QT_TR_NOOP("Two Pass - Average Bitrate"));
+	add(CBR,CBR,tr("Constant Bitrate"));
+	add(CQ,CQ,tr("Constant Quantiser"));
+	add(SAME,SAME,tr("Same Quantiser as Input"));
+	add(AQ,AQ,tr("Constant Rate Factor"));
+	add(2PASS,2PASS,tr("Two Pass - Video Size"));
+	add(2PASS_BR,2PASS_BITRATE,tr("Two Pass - Average Bitrate"));
 
-	text1=new QLabel( QString::fromUtf8(QT_TR_NOOP("Encoding mode")));
+	text1=new QLabel(tr("Encoding mode"));
 	text1->setBuddy(combo);
 
 	box=new QSpinBox();
 
-	text2=new QLabel( QString::fromUtf8(QT_TR_NOOP("Bitrate")));
+	text2=new QLabel(tr("Bitrate"));
 	text2->setBuddy(combo);
 
 	QHBoxLayout *hboxLayout = new QHBoxLayout();
@@ -143,7 +140,7 @@ void ADM_Qbitrate::updateMe()
 
 void ADM_Qbitrate::updateCombo(COMPRESSION_MODE mode)
 {
-#define P(x) text2->setText(QString::fromUtf8(x))
+#define P(x) text2->setText(x)
 #define M(x,y) box->setMinimum  (x);box->setMaximum  (y);
 #define S(x)   box->setValue(x);
 
@@ -161,31 +158,31 @@ void ADM_Qbitrate::updateCombo(COMPRESSION_MODE mode)
 	switch(mode)
 	{
 		case COMPRESS_CBR: //CBR
-			P(QT_TR_NOOP("Target bitrate (kb/s)"));
+			P(tr("Target bitrate (kb/s)"));
 			M(0,20000);
 			S(compress->bitrate);
 			break; 
 		case COMPRESS_CQ:// CQ
-			P(QT_TR_NOOP("Quantiser"));
+			P(tr("Quantiser"));
 			M(_minQ,maxQ);
 			S(compress->qz);
 			break;
 		case COMPRESS_2PASS : // 2pass Filesize
-			P(QT_TR_NOOP("Target video size (MB)"));
+			P(tr("Target video size (MB)"));
 			M(1,8000);
 			S(compress->finalsize);
 			break;
 		case COMPRESS_2PASS_BITRATE : // 2pass Avg
-			P(QT_TR_NOOP("Average bitrate (kb/s)"));
+			P(tr("Average bitrate (kb/s)"));
 			M(0,20000);
 			S(compress->avg_bitrate);
 			break;
 		case COMPRESS_SAME : // Same Qz as input
-			P(QT_TR_NOOP("-"));
+			P(tr("-"));
 			M(0,0);
 			break;
 		case COMPRESS_AQ : // AQ
-			P(QT_TR_NOOP("Quantiser"));
+			P(tr("Quantiser"));
 			M(_minQ,maxQ);
 			S(compress->qz);
 			break;

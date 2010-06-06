@@ -21,9 +21,6 @@ Handle dialog factory element : Config Menu
 #include "ADM_files.h"
 #include "DIA_coreToolkit.h"
 
-#undef QT_TR_NOOP
-#include "ADM_plugin/ADM_plugin_translate.h"
-
 extern "C"
 {
 #include "ADM_plugin/ADM_vidEnc_plugin.h"
@@ -46,10 +43,10 @@ namespace ADM_Qt4Factory
 		this->controls = controls;
 		this->controlCount = controlCount;
 
-		label = new QLabel(QString::fromUtf8(QT_TR_NOOP("Configuration:")), widget);
+		label = new QLabel(tr("Configuration:"), widget);
 		combobox = new QComboBox(widget);
-		saveAsButton = new QPushButton(QString::fromUtf8(QT_TR_NOOP("Save As")), widget);
-		deleteButton = new QPushButton(QString::fromUtf8(QT_TR_NOOP("Delete")), widget);
+		saveAsButton = new QPushButton(tr("Save As"), widget);
+		deleteButton = new QPushButton(tr("Delete"), widget);
 
 		QSpacerItem *spacer1 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 		QSpacerItem *spacer2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -120,8 +117,8 @@ namespace ADM_Qt4Factory
 			configs.insert(QFileInfo(list[item]).completeBaseName(), CONFIG_MENU_SYSTEM);
 
 		combobox->clear();
-		combobox->addItem(QT_TR_NOOP("<default>"), CONFIG_MENU_DEFAULT);
-		combobox->addItem(QT_TR_NOOP("<custom>"), CONFIG_MENU_CUSTOM);
+		combobox->addItem(tr("<default>"), CONFIG_MENU_DEFAULT);
+		combobox->addItem(tr("<custom>"), CONFIG_MENU_CUSTOM);
 
 		QMap<QString, int>::const_iterator mapIterator = configs.constBegin();
 
@@ -181,7 +178,7 @@ namespace ADM_Qt4Factory
 			QString configFileName = QFileInfo(QString(this->userConfigDir), combobox->currentText() + ".xml").filePath();
 			QFile configFile(configFileName);
 
-			if (GUI_Question(QT_TR_NOOP("Are you sure you wish to delete the selected configuration?")) && configFile.exists())
+			if (GUI_Question(tr("Are you sure you wish to delete the selected configuration?").toUtf8().constData()) && configFile.exists())
 			{
 				configFile.remove();
 				combobox->removeItem(combobox->currentIndex());
@@ -196,7 +193,7 @@ namespace ADM_Qt4Factory
 		{
 			ADM_mkdir(this->userConfigDir);
 
-			QString configFileName = QFileDialog::getSaveFileName(this, QT_TR_NOOP("Save As"), this->userConfigDir, QT_TR_NOOP("Configuration File (*.xml)"));
+			QString configFileName = QFileDialog::getSaveFileName(this, tr("Save As"), this->userConfigDir, tr("Configuration File (*.xml)"));
 
 			if (!configFileName.isNull())
 			{

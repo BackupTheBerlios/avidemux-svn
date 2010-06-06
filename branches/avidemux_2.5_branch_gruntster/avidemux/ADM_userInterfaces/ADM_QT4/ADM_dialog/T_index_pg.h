@@ -36,9 +36,9 @@ public:
 	Ui_iDialog ui;
 	Ui_indexingDialog(QWidget *parent, const char *name);
 	~Ui_indexingDialog();
-	void setTime(const char *f);
-	void setImage(const char *f);
-	void setETA(const char *f);
+	void setTime(QString f);
+	void setImage(QString f);
+	void setETA(QString f);
 	void setPercent(float f);    
 };
 #endif	// T_index_pg_h

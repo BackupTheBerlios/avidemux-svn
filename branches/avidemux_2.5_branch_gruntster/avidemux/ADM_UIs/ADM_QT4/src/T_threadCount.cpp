@@ -17,9 +17,6 @@ Handle dialog factory element : Thread Count
 #include "DIA_factory.h"
 #include "ADM_dialogFactoryQt4.h"
 
-#undef QT_TR_NOOP
-#include "ADM_plugin/ADM_plugin_translate.h"
-
 extern const char* shortkey(const char*);
 
 namespace ADM_qt4Factory
@@ -45,9 +42,9 @@ void ADM_QthreadCount::radioGroupChanged(QAbstractButton *s)
 
 ADM_QthreadCount::ADM_QthreadCount(QWidget *widget, const char *title, uint32_t value, QGridLayout *layout, int line) : QWidget(widget) 
 {
-	radiobutton1 = new QRadioButton(QString::fromUtf8(QT_TR_NOOP("Disabled")), widget);
-	radiobutton2 = new QRadioButton(QString::fromUtf8(QT_TR_NOOP("Auto-detect")), widget);
-	radiobutton3 = new QRadioButton(QString::fromUtf8(QT_TR_NOOP("Custom")), widget);
+	radiobutton1 = new QRadioButton(tr("Disabled"), widget);
+	radiobutton2 = new QRadioButton(tr("Auto-detect"), widget);
+	radiobutton3 = new QRadioButton(tr("Custom"), widget);
 
 	buttonGroup = new QButtonGroup;
 	buttonGroup->addButton(radiobutton1);

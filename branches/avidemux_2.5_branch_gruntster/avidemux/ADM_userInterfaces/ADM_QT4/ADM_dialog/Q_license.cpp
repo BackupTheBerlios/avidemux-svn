@@ -19,15 +19,11 @@
 #include "ADM_default.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
 Ui_licenseWindow::Ui_licenseWindow(QWidget *parent) : QDialog(parent)
 {
 	ui.setupUi(this);
 
-	ui.licenseTextEdit->setHtml(QString::fromUtf8(QT_TR_NOOP("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">" \
+	ui.licenseTextEdit->setHtml(tr("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">" \
 	"" \
 	"<html>" \
 	"<head>" \
@@ -698,7 +694,7 @@ Ui_licenseWindow::Ui_licenseWindow(QWidget *parent) : QDialog(parent)
 	"    <span style='font-size:10.0pt; font-family:Arial'> </span></p>" \
 	"  </div>" \
 	"</body>" \
-	"</html>")));
+	"</html>"));
 }
 
 uint8_t DIA_license(void)

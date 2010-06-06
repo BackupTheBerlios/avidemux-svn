@@ -20,11 +20,7 @@
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
-static const char *yesno[2]={QT_TR_NOOP("No"),QT_TR_NOOP("Yes")};
+static QString yesno[2] = {propWindow::tr("No"), propWindow::tr("Yes")};
 extern const char *getStrFromAudioCodec( uint32_t codec);
 
 propWindow::propWindow(QWidget *parent) : QDialog(parent)
@@ -34,11 +30,9 @@ propWindow::propWindow(QWidget *parent) : QDialog(parent)
  uint32_t info=0;
  uint32_t war,har;
  uint16_t hh, mm, ss, ms;
- char text[80];
  const char *s;
   
-    text[0] = 0;
-    if (!avifileinfo)
+     if (!avifileinfo)
         return;
   
         // Fetch info
@@ -47,55 +41,51 @@ propWindow::propWindow(QWidget *parent) : QDialog(parent)
         qpel=!!(info & ADM_QPEL_ON);
         gmc=!!(info & ADM_GMC_ON);
 
-#define FILLTEXT(a,b,c) {snprintf(text,79,b,c);ui.a->setText(QString::fromUtf8(text));}
-#define FILLTEXT4(a,b,c,d) {snprintf(text,79,b,c,d);ui.a->setText(QString::fromUtf8(text));}
-#define FILLTEXT5(a,b,c,d,e) {snprintf(text,79,b,c,d,e);ui.a->setText(QString::fromUtf8(text));}
-        
-        FILLTEXT4(labeImageSize,QT_TR_NOOP("%lu x %lu"), avifileinfo->width,avifileinfo->height);
-        FILLTEXT(labelFrameRate, QT_TR_NOOP("%2.3f fps"), (float) avifileinfo->fps1000 / 1000.F);
-        FILLTEXT(labelNbOfFrames,QT_TR_NOOP("%ld frames"), avifileinfo->nb_frames);
-        FILLTEXT(label4CC, "%s",      fourCC::tostring(avifileinfo->fcc));
-        if (avifileinfo->nb_frames)
-          {
-                frame2time(avifileinfo->nb_frames, avifileinfo->fps1000,
-                          &hh, &mm, &ss, &ms);
-                snprintf(text,79, QT_TR_NOOP("%02d:%02d:%02d.%03d"), hh, mm, ss, ms);
-                ui.labelVideoDuration->setText(QString::fromUtf8(text));
-          }
+		ui.labeImageSize->setText(tr("%1 x %2").arg(avifileinfo->width).arg(avifileinfo->height));
+		ui.labelFrameRate->setText(tr("%1 fps").arg(avifileinfo->fps1000 / 1000.F, 2, 'f', 3));
+        ui.labelNbOfFrames->setText(tr("%1 frames").arg(avifileinfo->nb_frames));
+        ui.label4CC->setText(fourCC::tostring(avifileinfo->fcc));
+
+		if (avifileinfo->nb_frames)
+		{
+			frame2time(avifileinfo->nb_frames, avifileinfo->fps1000,
+				&hh, &mm, &ss, &ms);
+
+			ui.labelVideoDuration->setText(tr("%1:%2:%3.%4").arg(hh, 2, 10, QLatin1Char('0')).arg(mm, 2, 10, QLatin1Char('0')).arg(ss, 2, 10, QLatin1Char('0')).arg(ms, 3, 10, QLatin1Char('0')));
+		}
+
         war=video_body->getPARWidth();
         har=video_body->getPARHeight();
         getAspectRatioFromAR(war,har, &s);
-		FILLTEXT5(LabelAspectRatio,QT_TR_NOOP("%s (%u:%u)"), s,war,har);
-#define SET_YES(a,b) ui.a->setText(QString::fromUtf8(yesno[b]))
-#define FILLQT_TR_NOOP(q) ui.q->setText(QString::fromUtf8(text));
+		ui.LabelAspectRatio->setText(tr("%1 (%2:%3)").arg(s).arg(war).arg(har));
+
+#define SET_YES(a,b) ui.a->setText(yesno[b])
+
         SET_YES(LabelPackedBitstream,vop);
         SET_YES(LabelQuarterPixel,qpel);
         SET_YES(LabelGMC,gmc);
         
          WAVHeader *wavinfo=NULL;
         if (currentaudiostream) wavinfo=currentaudiostream->getInfo();
-          if(wavinfo)
-          {
-              
-              switch (wavinfo->channels)
-                {
-                case 1:
-		  sprintf(text, "%s", QT_TR_NOOP("Mono"));
-                    break;
-                case 2:
-                    sprintf(text, "%s", QT_TR_NOOP("Stereo"));
-                    break;
-                default:
-                    sprintf(text, "%d",wavinfo->channels);
-                    break;
-                }
 
-                FILLQT_TR_NOOP(labelChannels);
-                FILLTEXT(labelFrequency, QT_TR_NOOP("%lu Hz"), wavinfo->frequency);
-                FILLTEXT4(labelBitrate, QT_TR_NOOP("%lu Bps / %lu kbps"), wavinfo->byterate,wavinfo->byterate * 8 / 1000);
-                
-                sprintf(text, "%s", getStrFromAudioCodec(wavinfo->encoding));
-                FILLQT_TR_NOOP(labelACodec);
+		if (wavinfo)
+		{              
+			switch (wavinfo->channels)
+			{
+				case 1:
+					ui.labelChannels->setText(tr("Mono"));
+					break;
+				case 2:
+					ui.labelChannels->setText(tr("Stereo"));
+					break;
+				default:
+					ui.labelChannels->setText(QString("%1").arg(wavinfo->channels));
+					break;
+				}
+
+                ui.labelFrequency->setText(tr("%1 Hz").arg(wavinfo->frequency));
+                ui.labelBitrate->setText(tr("%1 Bps / %2 kbps").arg(wavinfo->byterate).arg(wavinfo->byterate * 8 / 1000));
+                ui.labelACodec->setText(getStrFromAudioCodec(wavinfo->encoding));
 
                 // Duration in seconds too
                 if(currentaudiostream && wavinfo->byterate>1)
@@ -107,11 +97,8 @@ propWindow::propWindow(QWidget *parent) : QDialog(parent)
                         du/=wavinfo->byterate;
                         ms2time((uint32_t)floor(du), &hh, &mm, &ss, &ms);
 
-						sprintf(text, QT_TR_NOOP("%02d:%02d:%02d.%03d"), hh, mm, ss, ms);
-						FILLQT_TR_NOOP(labelAudioDuration);
-
-						sprintf(text, QT_TR_NOOP("%.2f MB"), l / 1048576.F);
-						FILLQT_TR_NOOP(labelFileSize);
+						ui.labelAudioDuration->setText(tr("%1:%2:%3.%4").arg(hh, 2, 10, QLatin1Char('0')).arg(mm, 2, 10, QLatin1Char('0')).arg(ss, 2, 10, QLatin1Char('0')).arg(ms, 3, 10, QLatin1Char('0')));
+						ui.labelFileSize->setText(tr("%1 MB").arg(l / 1048576.F, 0, 'f', 2));
                 }
 
                 SET_YES(labelVBR,currentaudiostream->isVBR());

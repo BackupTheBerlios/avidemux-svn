@@ -28,10 +28,6 @@ Indexer progress dialog
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_toolkitQt.h"
 
-#undef QT_TR_NOOP
-extern const char* translate(const char *__domainname, const char *__msgid);
-#define QT_TR_NOOP(x) translate("", x)
-
 extern void UI_purge( void );
 
 void Ui_iDialog::setupUi(QDialog *Dialog)
@@ -68,9 +64,8 @@ void Ui_iDialog::setupUi(QDialog *Dialog)
 
 void Ui_iDialog::retranslateUi(QDialog *Dialog)
 {
-	Dialog->setWindowTitle(QApplication::translate("Dialog", "Indexing", 0, QApplication::UnicodeUTF8));
-	labelTimeLeft->setText(QApplication::translate("Dialog", "Time Left : Infinity", 0, QApplication::UnicodeUTF8));
-	labelImages->setText(QApplication::translate("Dialog", "# Images :", 0, QApplication::UnicodeUTF8));
+	Dialog->setWindowTitle(QApplication::translate("IndexDialog", "Indexing", 0, QApplication::UnicodeUTF8));
+	labelTimeLeft->setText(QApplication::translate("IndexDialog", "Time Left:", 0, QApplication::UnicodeUTF8));
 
 	Q_UNUSED(Dialog);
 }
@@ -115,17 +110,12 @@ uint8_t       DIA_progressIndexing::update(uint32_t done,uint32_t total, uint32_
 	tim=clock.getElapsedMS();
 	if(tim>_nextUpdate)
 	{
-        char string[256];
         double f;
         	uint32_t   tom,zhh,zmm,zss;
 
 		_nextUpdate=tim+GUI_UPDATE_RATE;
-        sprintf(string,"%02d:%02d:%02d",hh,mm,ss);
-        dialog->setTime(string);
-        
-
-        sprintf(string,QT_TR_NOOP("# Images :%0lu"),nbImage);
-        dialog->setImage(string);
+        dialog->setTime(QString(QApplication::translate("IndexDialog", "%1:%2:%3").arg(hh, 2, 10, QLatin1Char('0')).arg(mm, 2, 10, QLatin1Char('0')).arg(ss, 2, 10, QLatin1Char('0'))));
+		dialog->setImage(QString(QApplication::translate("IndexDialog", "# Images: %1")).arg(nbImage));
 
         f=done;
         f/=total;
@@ -142,8 +132,8 @@ uint8_t       DIA_progressIndexing::update(uint32_t done,uint32_t total, uint32_
         if(tim>tom) return 1;
         tom=tom-tim;
         ms2time(tom,&zhh,&zmm,&zss);
-        sprintf(string,QT_TR_NOOP("Time Left :%02d:%02d:%02d"),zhh,zmm,zss);
-        dialog->setETA(string);
+
+        dialog->setETA(QString(QApplication::translate("IndexDialog", "Time Left: %1:%2:%3")).arg(zhh, 2, 10, QLatin1Char('0')).arg(zmm, 2, 10, QLatin1Char('0')).arg(zss, 2, 10, QLatin1Char('0')));
         UI_purge();
         }
         return 1;
@@ -158,26 +148,20 @@ Ui_indexingDialog::~Ui_indexingDialog()
 {
     
 }
-void Ui_indexingDialog::setTime(const char *f)
+void Ui_indexingDialog::setTime(QString f)
 {
-    //printf("Time:%s\n",f);
+
 }
-void Ui_indexingDialog::setImage(const char *f)
+void Ui_indexingDialog::setImage(QString f)
 {
-	dialog->ui.labelImages->setText(QString::fromUtf8(f));
+	dialog->ui.labelImages->setText(f);
 }
 
-void Ui_indexingDialog::setETA(const char *f)
+void Ui_indexingDialog::setETA(QString f)
 {
-   // printf("Eta:%s\n",f);
-  dialog->ui.labelTimeLeft->setText(QString::fromUtf8(f));
+  dialog->ui.labelTimeLeft->setText(f);
 }
 void Ui_indexingDialog::setPercent(float f)
 {
     dialog->ui.progressBar->setValue((int)(100.*f));
-    
 }
-
-
-
-// EOF
