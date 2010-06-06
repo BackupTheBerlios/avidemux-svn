@@ -73,9 +73,9 @@ QVariant x264ZoneTableModel::data(const QModelIndex &index, int role) const
 				switch (zoneOptions->getZoneMode())
 				{
 					case ZONE_MODE_QUANTISER:
-						return QT_TR_NOOP("Quantiser");
+						return tr("Quantiser");
 					case ZONE_MODE_BITRATE_FACTOR:
-						return QT_TR_NOOP("Bitrate Factor");
+						return tr("Bitrate Factor");
 				}
 			}
 			else if (role == Qt::EditRole)
@@ -107,13 +107,13 @@ QVariant x264ZoneTableModel::headerData(int section, Qt::Orientation orientation
 		switch (section)
 		{
 			case 0:
-				return QT_TR_NOOP("Frame Start");    
+				return tr("Frame Start");    
 			case 1:
-				return QT_TR_NOOP("Frame End");
+				return tr("Frame End");
 			case 2:
-				return QT_TR_NOOP("Mode");
+				return tr("Mode");
 			case 3:
-				return QT_TR_NOOP("Value");
+				return tr("Value");
 			default:
 				return QVariant();
 		}

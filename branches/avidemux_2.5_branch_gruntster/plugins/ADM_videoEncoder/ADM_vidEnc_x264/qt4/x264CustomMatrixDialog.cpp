@@ -46,7 +46,7 @@ void x264CustomMatrixDialog::loadFileButton_pressed()
 	uint8_t inter4x4Luma[16], inter4x4Chroma[16];
 	uint8_t intra8x8Luma[64], inter8x8Luma[64];
 
-	if (FileSel_SelectRead(QT_TR_NOOP("Select Matrix File"), cqmFileName, 1023, NULL) && ADM_fileExist(cqmFileName))
+	if (FileSel_SelectRead(tr("Select Matrix File").toUtf8().constData(), cqmFileName, 1023, NULL) && ADM_fileExist(cqmFileName))
 	{
 		if (x264_cqm_parse_file(cqmFileName, intra4x4Luma, intra4x4Chroma, inter4x4Luma, inter4x4Chroma, intra8x8Luma, inter8x8Luma) == 0)
 		{
@@ -58,7 +58,7 @@ void x264CustomMatrixDialog::loadFileButton_pressed()
 			setInter8x8Luma(inter8x8Luma);
 		}
 		else
-			GUI_Error_HIG(QT_TR_NOOP("Read Error"), QT_TR_NOOP("Error reading custom matrix file."));
+			GUI_Error_HIG(tr("Read Error").toUtf8().constData(), tr("Error reading custom matrix file.").toUtf8().constData());
 	}
 }
 

@@ -115,8 +115,8 @@ void XvidConfigDialog::fillConfigurationComboBox(void)
 		configs.insert(QFileInfo(list[item]).completeBaseName(), PLUGIN_CONFIG_SYSTEM);
 
 	ui.configurationComboBox->clear();
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<default>"), PLUGIN_CONFIG_DEFAULT);
-	ui.configurationComboBox->addItem(QT_TR_NOOP("<custom>"), PLUGIN_CONFIG_CUSTOM);
+	ui.configurationComboBox->addItem(tr("<default>"), PLUGIN_CONFIG_DEFAULT);
+	ui.configurationComboBox->addItem(tr("<custom>"), PLUGIN_CONFIG_CUSTOM);
 
 	QMap<QString, int>::const_iterator mapIterator = configs.constBegin();
 
@@ -213,7 +213,7 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 
 	ADM_mkdir(configDirectory);
 
-	QString configFileName = QFileDialog::getSaveFileName(this, QT_TR_NOOP("Save As"), configDirectory, QT_TR_NOOP("Xvid Configuration File (*.xml)"));
+	QString configFileName = QFileDialog::getSaveFileName(this, tr("Save As"), configDirectory, tr("Xvid Configuration File (*.xml)"));
 
 	if (!configFileName.isNull())
 	{
@@ -248,7 +248,7 @@ void XvidConfigDialog::deleteButton_pressed(void)
 
 	delete [] configDir;
 
-	if (GUI_Question(QT_TR_NOOP("Are you sure you wish to delete the selected configuration?")) && configFile.exists())
+	if (GUI_Question(tr("Are you sure you wish to delete the selected configuration?").toUtf8().constData()) && configFile.exists())
 	{
 		disableGenericSlots = true;
 		configFile.remove();
@@ -268,28 +268,28 @@ void XvidConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 		case 0: // Constant Bitrate - 1 pass
 			ui.singlePassTab->setEnabled(true);
 			ui.twoPassTab->setEnabled(false);
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Bitrate:"));
-			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
+			ui.targetRateControlLabel1->setText(tr("Target Bitrate:"));
+			ui.targetRateControlLabel2->setText(tr("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
 			break;
 		case 1: // Constant Quantiser - 1 pass
 			ui.singlePassTab->setEnabled(true);
 			ui.twoPassTab->setEnabled(false);
-			ui.quantiserLabel2->setText(QT_TR_NOOP("Quantiser:"));
+			ui.quantiserLabel2->setText(tr("Quantiser:"));
 			enable = true;
 			break;
 		case 2: // Video Size - 2 pass
 			ui.singlePassTab->setEnabled(false);
 			ui.twoPassTab->setEnabled(true);
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Target Video Size:"));
-			ui.targetRateControlLabel2->setText(QT_TR_NOOP("MB"));
+			ui.targetRateControlLabel1->setText(tr("Target Video Size:"));
+			ui.targetRateControlLabel2->setText(tr("MB"));
 			ui.targetRateControlSpinBox->setValue(lastVideoSize);
 			break;
 		case 3: // Average Bitrate - 2 pass
 			ui.singlePassTab->setEnabled(false);
 			ui.twoPassTab->setEnabled(true);
-			ui.targetRateControlLabel1->setText(QT_TR_NOOP("Average Bitrate:"));
-			ui.targetRateControlLabel2->setText(QT_TR_NOOP("kbit/s"));
+			ui.targetRateControlLabel1->setText(tr("Average Bitrate:"));
+			ui.targetRateControlLabel2->setText(tr("kbit/s"));
 			ui.targetRateControlSpinBox->setValue(lastBitrate);
 			break;
 	}

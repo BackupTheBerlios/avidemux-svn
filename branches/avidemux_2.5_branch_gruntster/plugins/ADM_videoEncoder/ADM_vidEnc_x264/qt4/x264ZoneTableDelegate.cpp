@@ -48,8 +48,8 @@ QWidget *x264ZoneTableDelegate::createEditor(QWidget *parent, const QStyleOption
 		case 2:
 			comboBox = new QComboBox(parent);
 
-			comboBox->addItem(QT_TR_NOOP("Quantiser"));
-			comboBox->addItem(QT_TR_NOOP("Bitrate Factor"));
+			comboBox->addItem(tr("Quantiser"));
+			comboBox->addItem(tr("Bitrate Factor"));
 
 			return comboBox;
 		case 3:
