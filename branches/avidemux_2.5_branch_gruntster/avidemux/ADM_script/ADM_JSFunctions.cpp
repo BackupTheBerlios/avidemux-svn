@@ -87,7 +87,7 @@ JSBool facThreadCount(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsv
 JSBool facSlider(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 JSBool crashTest(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 JSBool assertTest(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
-
+JSBool translate(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval);
 
 static JSFunctionSpec adm_functions[] = {
   /*    name          native          nargs    */
@@ -124,6 +124,7 @@ static JSFunctionSpec adm_functions[] = {
   {"dialogFactoryThreadCount", facThreadCount,		  0},
   {"crashTest",               crashTest,          0},
   {"assertTest",               assertTest,        0},
+  {"QT_TR_NOOP",               translate,        1},
   {0}
 };
 
@@ -879,6 +880,18 @@ JSBool assertTest(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *
   
   ADM_assert(0);
   return JS_TRUE;
+}
+
+JSBool translate(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *rval)
+{
+	if (argc == 1 && JSVAL_IS_STRING(argv[0]))
+	{
+		*rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx, QT_TR_NOOP(JS_GetStringBytes(JSVAL_TO_STRING(argv[0])))));
+
+		return JS_TRUE;
+	}
+
+	return JS_FALSE;
 }
 
 //EOF 
