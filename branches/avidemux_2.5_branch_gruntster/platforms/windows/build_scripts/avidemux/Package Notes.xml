@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="6303" date="2010-06-04">
+  </buildentry>
+  <buildentry revision="6288" date="2010-06-01">
+  </buildentry>
   <buildentry revision="6261" date="2010-05-27">
     <comment>Updated x264 to r1613.</comment>
   </buildentry>

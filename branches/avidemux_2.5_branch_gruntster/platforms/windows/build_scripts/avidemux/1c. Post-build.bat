@@ -75,6 +75,7 @@ copy "%sourceDir%\avidemux\ADM_coreUI\include\DIA_uiTypes.h"
 copy "%sourceDir%\avidemux\ADM_encoder\ADM_vidEncode.hxx" ADM_encoder
 copy "%sourceDir%\avidemux\ADM_libraries\ffmpeg\libavutil\pixfmt.h" libavutil
 copy "%sourceDir%\avidemux\ADM_plugin\ADM_vidEnc_plugin.h"
+copy "%sourceDir%\avidemux\ADM_plugin\ADM_plugin_translate.h"
 
 cd "%sourceDir%\po"
 svn revert -R .
