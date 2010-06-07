@@ -104,7 +104,7 @@ void encodingWindow::priorityChanged(int priorityLevel)
 		ui.comboBoxPriority->setCurrentIndex(2);
 		connect(ui.checkBoxShutdown, SIGNAL(currentIndexChanged(int)), this, SLOT(priorityChanged(int)));
 
-		GUI_Error_HIG(tr("Privileges Required").toUtf().constData(), tr("Root privileges are required to perform this operation.").toUtf().constData());
+		GUI_Error_HIG(tr("Privileges Required").toUtf8().constData(), tr("Root privileges are required to perform this operation.").toUtf8().constData());
 
 		return;
 	}
@@ -122,7 +122,7 @@ void encodingWindow::shutdownChanged(int state)
 		ui.checkBoxShutdown->setCheckState(Qt::Unchecked);
 		connect(ui.checkBoxShutdown, SIGNAL(stateChanged(int)), this, SLOT(shutdownChanged(int)));
 
-		GUI_Error_HIG(tr("Privileges Required").toUtf().constData(), tr("Root privileges are required to perform this operation.").toUtf().constData());
+		GUI_Error_HIG(tr("Privileges Required").toUtf8().constData(), tr("Root privileges are required to perform this operation.").toUtf8().constData());
 	}
 #endif
 }
