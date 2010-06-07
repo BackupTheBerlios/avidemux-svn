@@ -63,7 +63,7 @@ static FILTER_PARAM field_unblend_template =
 
 VF_DEFINE_FILTER ( vidHardPDRemoval,field_unblend_template,
                    hardivtcremove,
-                   QT_TR_NOOP ( ""Hard pulldown removal"" ),
+                   QT_TR_NOOP ( "Hard pulldown removal" ),
                    1,
                    VF_ITERLACING,
                    QT_TR_NOOP ( "Remove IVTC that has been analog captured or resized.") );
