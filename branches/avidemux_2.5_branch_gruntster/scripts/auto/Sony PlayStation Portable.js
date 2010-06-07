@@ -5,10 +5,10 @@ include("video/filter.js");
 var app = new Avidemux();
 
 if (app.video == null)
-    displayError("A video file must be open to use this Auto Wizard.");
+    displayError(QT_TR_NOOP("A video file must be open to use this Auto Wizard."));
 else
 {
-    var result = videoAutoWizard("Sony PSP Auto Wizard", [[480, 272], [720, 480]]);
+    var result = videoAutoWizard(QT_TR_NOOP("Sony PSP Auto Wizard"), [[480, 272], [720, 480]]);
 
     if (result)
     {

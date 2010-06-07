@@ -1,9 +1,9 @@
 function videoAutoWizard(title, resolutions, codecs)
 {
     var aspectRatios = [[1, 1], [4, 3], [16, 9]];
-    var mnuResolution = new DFMenu("Resolution:");
-    var mnuSourceRatio = new DFMenu("Source Aspect Ratio:");
-    var mnuDestinationRatio = new DFMenu("Destination Aspect Ratio:");
+    var mnuResolution = new DFMenu(QT_TR_NOOP("Resolution:"));
+    var mnuSourceRatio = new DFMenu(QT_TR_NOOP("Source Aspect Ratio:"));
+    var mnuDestinationRatio = new DFMenu(QT_TR_NOOP("Destination Aspect Ratio:"));
     var dlgWizard = new DialogFactory(title);
     var i;
 
@@ -21,7 +21,7 @@ function videoAutoWizard(title, resolutions, codecs)
     
     if (codecs != null)
     {
-        var mnuCodec = new DFMenu("Codec:");
+        var mnuCodec = new DFMenu(QT_TR_NOOP("Codec:"));
                
         dlgWizard.addControl(mnuCodec);
         
