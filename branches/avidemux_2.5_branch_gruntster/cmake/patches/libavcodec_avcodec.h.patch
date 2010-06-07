@@ -1,19 +1,19 @@
-*** libavcodec/avcodec.h.old	Sun Apr 11 11:34:06 2010
---- libavcodec/avcodec.h	Sun Apr 11 11:34:06 2010
+*** libavcodec/avcodec.h.old	Mon Jun  7 19:34:55 2010
+--- libavcodec/avcodec.h	Mon Jun  7 19:34:55 2010
 ***************
-*** 597,602 ****
---- 597,604 ----
-  #define CODEC_FLAG2_MBTREE        0x00040000 ///< Use macroblock tree ratecontrol (x264 only)
+*** 599,604 ****
+--- 599,606 ----
   #define CODEC_FLAG2_PSY           0x00080000 ///< Use psycho visual optimizations.
   #define CODEC_FLAG2_SSIM          0x00100000 ///< Compute SSIM during encoding, error[] values are undefined.
+  #define CODEC_FLAG2_INTRA_REFRESH 0x00200000 ///< Use periodic insertion of intra blocks instead of keyframes.
 + //MEANX: NEVER EVER USE CLOSED GOP ?
 + #define CODEC_FLAG2_32_PULLDOWN   0x80000000
   
   /* Unsupported options :
    *              Syntax Arithmetic coding (SAC)
 ***************
-*** 1467,1472 ****
---- 1469,1475 ----
+*** 1474,1479 ****
+--- 1476,1482 ----
        * - decoding: unused
        */
       int rc_max_rate;
@@ -22,8 +22,8 @@
       /**
        * minimum bitrate
 ***************
-*** 1481,1486 ****
---- 1484,1491 ----
+*** 1488,1493 ****
+--- 1491,1498 ----
        * - decoding: unused
        */
       int rc_buffer_size;

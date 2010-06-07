@@ -17,6 +17,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "config.h"
+#include "ADM_default.h"
 
 extern "C"
 {
@@ -28,7 +29,7 @@ extern "C"
 #undef printf
 }
 
-#include "ADM_default.h"
+
 #include "ADM_threads.h"
 
 #include "fourcc.h"

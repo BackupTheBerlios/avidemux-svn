@@ -24,10 +24,10 @@
 #include <sys/time.h>
 #include <errno.h>
 
+#include "ADM_assert.h"
 #include "ADM_lavcodec.h"
 #include "fourcc.h"
 #include "avi_vars.h"
-#include "ADM_assert.h"
 #include "DIA_fileSel.h"
 #include "prototype.h"
 #include "DIA_coreToolkit.h"

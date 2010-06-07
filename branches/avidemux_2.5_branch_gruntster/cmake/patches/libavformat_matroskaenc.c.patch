@@ -1,8 +1,8 @@
-*** libavformat/matroskaenc.c.old	Sat Mar 27 20:05:45 2010
---- libavformat/matroskaenc.c	Sat Mar 27 20:05:45 2010
+*** libavformat/matroskaenc.c.old	Mon Jun  7 19:35:07 2010
+--- libavformat/matroskaenc.c	Mon Jun  7 19:35:07 2010
 ***************
-*** 403,408 ****
---- 403,409 ----
+*** 408,413 ****
+--- 408,414 ----
   
   static int put_xiph_codecpriv(AVFormatContext *s, ByteIOContext *pb, AVCodecContext *codec)
   {
@@ -11,8 +11,8 @@
       int header_len[3];
       int first_header_size;
 ***************
-*** 427,432 ****
---- 428,455 ----
+*** 432,437 ****
+--- 433,460 ----
           put_buffer(pb, header_start[j], header_len[j]);
   
       return 0;
@@ -42,10 +42,10 @@
   
   static void get_aac_sample_rates(AVFormatContext *s, AVCodecContext *codec, int *sample_rate, int *output_sample_rate)
 ***************
-*** 546,551 ****
---- 569,592 ----
+*** 550,555 ****
+--- 573,596 ----
+          put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
           put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
-          put_ebml_float(pb, MATROSKA_ID_TRACKTIMECODESCALE, 1.0);
   
 +  		/**  MEANX : Add a default duration for video **/
 +  		if(codec->codec_type==CODEC_TYPE_VIDEO)

@@ -1,5 +1,5 @@
-*** libavcodec/h263dec.c.old	Sat Mar 27 20:05:34 2010
---- libavcodec/h263dec.c	Sat Mar 27 20:05:34 2010
+*** libavcodec/h263dec.c.old	Mon Jun  7 19:34:58 2010
+--- libavcodec/h263dec.c	Mon Jun  7 19:34:58 2010
 ***************
 *** 119,124 ****
 --- 119,143 ----
@@ -44,8 +44,8 @@
       if(ret==FRAME_SKIPPED) return get_consumed_bytes(s, buf_size);
   
 ***************
-*** 707,712 ****
---- 732,745 ----
+*** 709,714 ****
+--- 734,747 ----
   
   assert(s->current_picture.pict_type == s->current_picture_ptr->pict_type);
   assert(s->current_picture.pict_type == s->pict_type);

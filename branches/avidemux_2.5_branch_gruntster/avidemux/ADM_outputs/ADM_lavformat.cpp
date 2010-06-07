@@ -21,10 +21,7 @@
 #define __STDC_LIMIT_MACROS
 
 #include "config.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
+#include "ADM_default.h"
 
 extern "C"
 {
@@ -35,7 +32,6 @@ extern "C"
 #undef realloc
 #undef free
 
-#include "ADM_default.h"
 #include "DIA_coreToolkit.h"
 
 #include "ADM_audiofilter/audioprocess.hxx"

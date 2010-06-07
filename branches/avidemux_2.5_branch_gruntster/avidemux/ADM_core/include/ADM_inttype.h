@@ -11,11 +11,6 @@
 
 #include "ADM_coreConfig.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
 /*
    	The maximum width/height is MAXIMUM_SIZE 768*768 for now
 */
@@ -24,6 +19,8 @@
 typedef unsigned char ADM_filename;
 
 #ifdef HAVE_STDINT_H
+#define __STDC_LIMIT_MACROS
+#define __STDC_CONSTANT_MACROS
 #include <stdint.h>
 #define GOT_TYPES
 #endif
@@ -67,4 +64,8 @@ typedef unsigned char ADM_filename;
 #define ADM_OK 	1
 #define ADM_IGN 2
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 #endif

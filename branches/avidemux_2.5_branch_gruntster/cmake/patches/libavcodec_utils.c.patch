@@ -1,5 +1,5 @@
-*** libavcodec/utils.c.old	Sun Apr 11 11:34:10 2010
---- libavcodec/utils.c	Sun Apr 11 11:34:10 2010
+*** libavcodec/utils.c.old	Mon Jun  7 19:35:04 2010
+--- libavcodec/utils.c	Mon Jun  7 19:35:04 2010
 ***************
 *** 643,652 ****
 --- 643,654 ----
@@ -16,7 +16,7 @@
           *frame_size_ptr < avctx->channels * avctx->frame_size * sizeof(int16_t)){
               av_log(avctx, AV_LOG_ERROR, "buffer %d too small\n", *frame_size_ptr);
 ***************
-*** 1085,1091 ****
+*** 1091,1097 ****
           return -1;
       }
   #if !HAVE_MKSTEMP
@@ -24,7 +24,7 @@
   #else
       snprintf(*filename, len, "/tmp/%sXXXXXX", prefix);
       fd = mkstemp(*filename);
---- 1087,1093 ----
+--- 1093,1099 ----
           return -1;
       }
   #if !HAVE_MKSTEMP

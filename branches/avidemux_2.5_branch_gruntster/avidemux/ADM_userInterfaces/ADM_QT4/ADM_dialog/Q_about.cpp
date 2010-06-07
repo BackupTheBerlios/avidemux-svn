@@ -16,6 +16,8 @@
  ***************************************************************************/
 
 #include "config.h"
+#undef QT_TR_NOOP
+
 #include "Q_about.h"
 #include "ADM_inttype.h"
 #include "ADM_toolkitQt.h"

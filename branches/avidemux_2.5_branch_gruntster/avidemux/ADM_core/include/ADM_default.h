@@ -19,11 +19,6 @@
 #ifndef ADM_DEFAULT_H
 #define ADM_DEFAULT_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "ADM_coreConfig.h"
 #include "ADM_inttype.h"
 #include "ADM_assert.h"
 

@@ -16,16 +16,13 @@
  ***************************************************************************/
 #include "config.h"
 
-#include <math.h>
-
-#include "ADM_lavcodec.h"
 #include "ADM_default.h"
+#include "ADM_lavcodec.h"
 
 #include "DIA_fileSel.h"
 #include "DIA_factory.h"
 #include "ADM_inputs/ADM_mpegdemuxer/dmx_mpegstartcode.h"
 #include "ADM_inputs/ADM_mpegdemuxer/dmx_demuxerTS.h"
-
 
 #include "ADM_codecs/ADM_codec.h"
 #include "ADM_codecs/ADM_ffmp43.h"

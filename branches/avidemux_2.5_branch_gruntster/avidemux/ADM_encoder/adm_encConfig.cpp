@@ -16,9 +16,9 @@
  ***************************************************************************/
 #include "config.h"
 
+#include "ADM_assert.h"
 #include "ADM_lavcodec.h"
 
-#include "ADM_assert.h"
 #include "fourcc.h"
 #include "ADM_osSupport/ADM_quota.h"
 #include "ADM_editor/ADM_edit.hxx"

@@ -21,16 +21,10 @@
 
 
 #include "config.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "ADM_lavcodec.h"
-#include "ADM_assert.h"
 #include "ADM_default.h"
+#include "ADM_lavcodec.h"
 #include "ADM_videoFilterDynamic.h"
 #include "fourcc.h"
-
 
 #include "ADM_videoFilter.h"
 #include "ADM_colorspace.h"

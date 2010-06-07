@@ -1,7 +1,7 @@
-*** libavformat/isom.c.old	Sun Jan 17 19:05:32 2010
---- libavformat/isom.c	Sun Jan 17 19:05:32 2010
+*** libavformat/isom.c.old	Mon Jun  7 19:35:06 2010
+--- libavformat/isom.c	Mon Jun  7 19:35:06 2010
 ***************
-*** 205,211 ****
+*** 213,219 ****
       { CODEC_ID_MP1, MKTAG('.', 'm', 'p', '1') }, /* MPEG layer 1 */
       { CODEC_ID_MP2, MKTAG('.', 'm', 'p', '2') }, /* MPEG layer 2 */
   
@@ -9,7 +9,7 @@
       { CODEC_ID_MP3, 0x6D730055 }, /* MPEG layer 3 */
   
   /*  { CODEC_ID_OGG_VORBIS, MKTAG('O', 'g', 'g', 'S') }, *//* sample files at http://heroinewarrior.com/xmovie.php3 use this tag */
---- 205,214 ----
+--- 213,222 ----
       { CODEC_ID_MP1, MKTAG('.', 'm', 'p', '1') }, /* MPEG layer 1 */
       { CODEC_ID_MP2, MKTAG('.', 'm', 'p', '2') }, /* MPEG layer 2 */
   

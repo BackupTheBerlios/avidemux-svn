@@ -17,10 +17,9 @@
 // strength between 0 and 5
 
 
-#include "ADM_lavcodec.h"
 #include "ADM_default.h"
+#include "ADM_lavcodec.h"
 #include "ADM_pp.h"
-
 
 #define aprintf printf
 

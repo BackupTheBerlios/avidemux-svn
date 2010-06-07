@@ -1,7 +1,7 @@
-*** libavcodec/mpegvideo.c.old	Sat Mar 27 20:05:38 2010
---- libavcodec/mpegvideo.c	Sat Mar 27 20:05:39 2010
+*** libavcodec/mpegvideo.c.old	Mon Jun  7 19:35:02 2010
+--- libavcodec/mpegvideo.c	Mon Jun  7 19:35:02 2010
 ***************
-*** 646,652 ****
+*** 641,647 ****
       FF_ALLOCZ_OR_GOTO(s->avctx, s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE, fail);
   
       s->parse_context.state= -1;
@@ -9,7 +9,7 @@
          s->visualization_buffer[0] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
          s->visualization_buffer[1] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
          s->visualization_buffer[2] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
---- 646,656 ----
+--- 641,651 ----
       FF_ALLOCZ_OR_GOTO(s->avctx, s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE, fail);
   
       s->parse_context.state= -1;
