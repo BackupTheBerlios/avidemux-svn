@@ -629,7 +629,7 @@ void MainWindow::addDirEntryToMenu(QMenu *parentMenu, QString path)
 
 				if (fileList[x].isDir())
 				{
-					menu = parentMenu->addMenu(QDir(fileList[x].filePath()).dirName());
+					menu = parentMenu->addMenu(tr(QDir(fileList[x].filePath()).dirName().toUtf8().constData()));
 
 					addDirEntryToMenu(menu, fileList[x].filePath() + QDir::separator());
 				}
@@ -640,7 +640,7 @@ void MainWindow::addDirEntryToMenu(QMenu *parentMenu, QString path)
 	}
 	else
 	{
-		QAction *action = new QAction(info.completeBaseName(), parentMenu);
+		QAction *action = new QAction(tr(info.completeBaseName().toUtf8().constData()), parentMenu);
 
 		parentMenu->addAction(action);
 		connect(action, SIGNAL(triggered()), this, SLOT(autoMenuHandler()));

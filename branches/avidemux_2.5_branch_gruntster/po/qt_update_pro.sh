@@ -14,6 +14,7 @@ echo "SOURCES = \\" >> avidemux.pro
 find ../avidemux -iname '*.cpp' -not -iwholename '*ADM_GTK*' -not -iwholename '*ADM_NONE*' -printf "\"%p\" \\\ \n" >> avidemux.pro
 find ../plugins -iname '*.cpp' -not -iwholename '*gtk*' -printf "\"%p\" \\\ \n" >> avidemux.pro
 find ../scripts -iname '*.js' -printf "\"%p\" \\\ \n" >> avidemux.pro
+find ../scripts -iname '*.cpp' -printf "\"%p\" \\\ \n" >> avidemux.pro
 echo "" >> avidemux.pro
 
 echo "Finding FORMS..."

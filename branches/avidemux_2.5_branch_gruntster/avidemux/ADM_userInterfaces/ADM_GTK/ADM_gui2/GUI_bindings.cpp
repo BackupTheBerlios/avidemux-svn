@@ -674,7 +674,7 @@ static void addDirEntryToMenu(GtkWidget *parentMenu, const gchar *parentPath)
 
 		if (g_file_test(path, G_FILE_TEST_IS_DIR))
 		{
-			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(display_name);
+			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(QT_TR_NOOP(display_name));
 			gtk_widget_show(menuItem);
 			gtk_container_add(GTK_CONTAINER(parentMenu), menuItem);
 
@@ -690,7 +690,7 @@ static void addDirEntryToMenu(GtkWidget *parentMenu, const gchar *parentPath)
 			*(strrchr(display_name, '.')) = 0;
 			autoWizardStack.push(pathCopy);
 
-			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(display_name);
+			GtkWidget *menuItem = gtk_menu_item_new_with_mnemonic(QT_TR_NOOP(display_name));
 			gtk_widget_show(menuItem);
 			gtk_container_add(GTK_CONTAINER(parentMenu), menuItem);
 			gtk_signal_connect(GTK_OBJECT(menuItem), "activate", GTK_SIGNAL_FUNC(autoMenuCallback), (gpointer)pathCopy);
