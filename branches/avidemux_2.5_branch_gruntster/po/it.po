@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: avidemux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-25 21:24+0100\n"
-"PO-Revision-Date: 2010-06-02 16:56+0100\n"
+"POT-Creation-Date: 2010-06-08 19:57+0100\n"
+"PO-Revision-Date: 2010-06-08 19:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: Avidemux Italian Translation\n"
 "MIME-Version: 1.0\n"
@@ -132,10 +132,12 @@ msgstr "Errore codec"
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:288
 msgid ""
-"The number of channels is greater than what the selected audio codec can do.\n"
+"The number of channels is greater than what the selected audio codec can "
+"do.\n"
 "Either change codec or use the mixer filter to have less channels."
 msgstr ""
-"Il numero di canali è maggiore di quello supportato dal codec audio selezionato.\n"
+"Il numero di canali è maggiore di quello supportato dal codec audio "
+"selezionato.\n"
 "Cambia il codec o usa il filtro mixer per ridurre i canali."
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:300
@@ -143,14 +145,18 @@ msgid "[BuildChain] Encoder initialization failed"
 msgstr "[BuildChain] Inizializzazione encoder fallita"
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:300
-msgid "Not activated, make sure number of channels and bitrate are compatible with encoder!"
-msgstr "Non attivo, assicurarsi che il numero di canali e il bitrate siano compatibili con l'encoder!"
+msgid ""
+"Not activated, make sure number of channels and bitrate are compatible with "
+"encoder!"
+msgstr ""
+"Non attivo, assicurarsi che il numero di canali e il bitrate siano "
+"compatibili con l'encoder!"
 
 #: avidemux/ADM_codecs/ADM_ffmp43.cpp:44
 msgid "Internal error finding codec"
 msgstr "Errore interno nel cercare il codec"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:129
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127
 #: avidemux/ADM_ocr/adm_glyph.cpp:217
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:326
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
@@ -162,19 +168,17 @@ msgstr "Errore interno nel cercare il codec"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:227
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:234
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:243
-#: avidemux/gtk_gui.cpp:944
-#: avidemux/gtk_gui.cpp:1554
+#: avidemux/gtk_gui.cpp:944 avidemux/gtk_gui.cpp:1554
 #: avidemux/gtk_gui.cpp:2688
 msgid "File error"
 msgstr "Errore file"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:129
-#: avidemux/gtk_gui.cpp:941
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127 avidemux/gtk_gui.cpp:941
 #, c-format
 msgid "Cannot open \"%s\"."
 msgstr "Impossibile aprire \"%s\"."
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:142
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:140
 #, c-format
 msgid ""
 "%s already exists.\n"
@@ -185,16 +189,16 @@ msgstr ""
 "\n"
 "Vuoi sostituirlo?"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:169
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:183
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:167
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:181
 msgid "It is possible that you are trying to overwrite an input file!"
 msgstr "È possibile che tu stia provando a sovrascrivere un file di ingresso!"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:194
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:192
 msgid "Cannot write the file"
 msgstr "Impossibile scrivere il file"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:194
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:192
 #, c-format
 msgid "No write access to \"%s\"."
 msgstr "Divieto di scrittura per \"%s\"."
@@ -221,11 +225,13 @@ msgstr "Annullato"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:71
 msgid ""
-"Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?\n"
+"Avidemux detected VBR MP3 audio in this file. For keeping audio/video in "
+"sync, time map is needed. Build it now?\n"
 "\n"
 "You can do it later with \"Audio -> Build VBR Time Map\"."
 msgstr ""
-"Avidemux ha rilevato un audio MP3 VBR in questo file. Per mantenere la sincronizzazione audio/video, è necessaria la time map. Crearla ora?\n"
+"Avidemux ha rilevato un audio MP3 VBR in questo file. Per mantenere la "
+"sincronizzazione audio/video, è necessaria la time map. Crearla ora?\n"
 "\n"
 "Puoi farlo successivamente con \"Audio -> Crea time map VBR\"."
 
@@ -248,14 +254,18 @@ msgstr "Le dimensioni video non corrispondono."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:443
 msgid ""
-"You cannot mix different video dimensions yet. Using the partial video filter later will not work around this problem. The workaround is:\n"
+"You cannot mix different video dimensions yet. Using the partial video "
+"filter later will not work around this problem. The workaround is:\n"
 "\n"
-"1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same resolution\n"
+"1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same "
+"resolution\n"
 "2) Concatenate them together"
 msgstr ""
-"Non è possibile unire video di dimensioni diverse. L'utilizzo del filtro video parziale non risolve il problema. La soluzione è la seguente:\n"
+"Non è possibile unire video di dimensioni diverse. L'utilizzo del filtro "
+"video parziale non risolve il problema. La soluzione è la seguente:\n"
 "\n"
-"1) ridimensiona, aggiungi bordi o ritaglia tutti i flussi alla stessa risoluzione\n"
+"1) ridimensiona, aggiungi bordi o ritaglia tutti i flussi alla stessa "
+"risoluzione\n"
 "2) concatenali insieme"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:555
@@ -276,12 +286,16 @@ msgstr "H.264 rilevato"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:589
 msgid ""
-"If the file is using B-frames as reference it can lead to a crash or stuttering.\n"
-"Avidemux can use another mode which is safe but YOU WILL LOSE FRAME ACCURACY.\n"
+"If the file is using B-frames as reference it can lead to a crash or "
+"stuttering.\n"
+"Avidemux can use another mode which is safe but YOU WILL LOSE FRAME "
+"ACCURACY.\n"
 "Do you want to use that mode?"
 msgstr ""
-"Se il file sta utilizzando fotogrammi B come riferimento, potrebbe causare un crash o una riproduzione a scatti.\n"
-"Avidemux può utilizzare un'altra modalità più sicura, ma PERDERAI PRECISIONE NEI FOTOGRAMMI.\n"
+"Se il file sta utilizzando fotogrammi B come riferimento, potrebbe causare "
+"un crash o una riproduzione a scatti.\n"
+"Avidemux può utilizzare un'altra modalità più sicura, ma PERDERAI PRECISIONE "
+"NEI FOTOGRAMMI.\n"
 "Vuoi usare questa modalità?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:719
@@ -365,8 +379,12 @@ msgid "Compute Average"
 msgstr "Calcolo media"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:50
-msgid "Compute average luma value for each pixel throughout all frames, and save to file"
-msgstr "Calcola il valore medio di luma per ogni pixel su tutti i fotogrammi, e salva su file."
+msgid ""
+"Compute average luma value for each pixel throughout all frames, and save to "
+"file"
+msgstr ""
+"Calcola il valore medio di luma per ogni pixel su tutti i fotogrammi, e "
+"salva su file."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:51
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:395
@@ -400,8 +418,12 @@ msgid "Swiss Army Knife"
 msgstr "Swiss Army Knife"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:54
-msgid "Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling average, image from file, or constant"
-msgstr "Applica operazioni come P'=P*A, P-A, P+A, ecc. usando convoluzione, media mobile, immagine da file, o costante."
+msgid ""
+"Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling "
+"average, image from file, or constant"
+msgstr ""
+"Applica operazioni come P'=P*A, P-A, P+A, ecc. usando convoluzione, media "
+"mobile, immagine da file, o costante."
 
 #: avidemux/ADM_filter/filter_declaration.cpp:57
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:109
@@ -525,8 +547,6 @@ msgid "lvemux init failed"
 msgstr "Avvio Ivemux fallito"
 
 #: avidemux/ADM_libraries/ADM_utilities/ADM_gettext.cpp:46
-#: avidemux/ADM_UIs/ADM_CLI/src/ADM_translate.cpp:54
-#: avidemux/ADM_UIs/ADM_GTK/src/ADM_translate.cpp:50
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:283
 msgid "_File"
 msgstr "_File"
@@ -590,8 +610,7 @@ msgstr "Errore file di uscita"
 msgid "Could not open \"%s\" for writing."
 msgstr "Impossibile aprire \"%s\" per la scrittura."
 
-#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:83
-#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:89
+#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:83 avidemux/ADM_ocr/ADM_ocrEngine.cpp:89
 msgid "Input file error"
 msgstr "Errore file di ingresso"
 
@@ -654,13 +673,26 @@ msgstr ""
 "(Sarà eliminato in ogni caso se non lo salvi)"
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:17
-#: avidemux/ADM_osSupport/ADM_misc.cpp:21
-#: avidemux/ADM_osSupport/ADM_misc.cpp:29
-#: avidemux/ADM_osSupport/ADM_misc.cpp:33
-msgid "%"
-msgstr "%"
+#, c-format
+msgid "%u minutes"
+msgstr "%u minuti"
 
-#: avidemux/ADM_outputs/ADM_lavformat.cpp:377
+#: avidemux/ADM_osSupport/ADM_misc.cpp:21
+#, c-format
+msgid "%u minute"
+msgstr "%u minuto"
+
+#: avidemux/ADM_osSupport/ADM_misc.cpp:29
+#, c-format
+msgid "%u second"
+msgstr "%u secondo"
+
+#: avidemux/ADM_osSupport/ADM_misc.cpp:33
+#, c-format
+msgid "%u seconds"
+msgstr "%u secondi"
+
+#: avidemux/ADM_outputs/ADM_lavformat.cpp:373
 msgid "Incompatible frame rate"
 msgstr "Frame rate incompatibile"
 
@@ -719,8 +751,7 @@ msgstr "Errore di inizializzazione filtri video"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:555
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:570
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:206
-#: avidemux/gtk_gui.cpp:2057
-#: avidemux/gtk_gui.cpp:2156
+#: avidemux/gtk_gui.cpp:2057 avidemux/gtk_gui.cpp:2156
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:197
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:197
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1182
@@ -735,7 +766,7 @@ msgstr "Nessuno"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:446
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:89
-#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:127
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:128
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:91
 msgid "Cannot initiate save"
 msgstr "Impossibile iniziare il salvataggio"
@@ -810,7 +841,7 @@ msgid "Unknown codec"
 msgstr "Codec sconosciuto"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:102
-#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:140
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:141
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:104
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:175
 msgid "Saving"
@@ -969,7 +1000,8 @@ msgstr "Il primo fotogramma non è un fotogramma chiave"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:91
 msgid "Use the &lt;&lt; and the &gt;&gt; buttons to move using Intra frames."
-msgstr "Usa i pulsanti &lt;&lt; e &gt;&gt; per spostarti sui fotogrammi chiave."
+msgstr ""
+"Usa i pulsanti &lt;&lt; e &gt;&gt; per spostarti sui fotogrammi chiave."
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:103
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:134
@@ -978,7 +1010,9 @@ msgstr "La traccia audio non è adatta"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:135
 msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
-msgstr "Per un DVD, l'audio deve essere MP2 (stereo), AC3, DTS o LPCM (stereo) a 48 kHz."
+msgstr ""
+"Per un DVD, l'audio deve essere MP2 (stereo), AC3, DTS o LPCM (stereo) a 48 "
+"kHz."
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:174
 msgid "---"
@@ -1029,8 +1063,7 @@ msgid "Pass 1/2"
 msgstr "Passata 1/2"
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:326
-#: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
-#: avidemux/gtk_gui.cpp:1554
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101 avidemux/gtk_gui.cpp:1554
 #: avidemux/gtk_gui.cpp:2688
 #, c-format
 msgid "Cannot open \"%s\" for writing."
@@ -1060,44 +1093,44 @@ msgstr "Passata 1"
 msgid "Pass 2"
 msgstr "Passata 2"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:242
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:243
 msgid "Select a directory"
 msgstr "Seleziona una cartella"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:513
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:514
 msgid "Uinteger"
 msgstr "Uinteger"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:516
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:517
 msgid "Test uinteger"
 msgstr "Prova uinteger"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:528
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:529
 msgid "Float"
 msgstr "Float"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:546
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:547
 msgid "Toggle"
 msgstr "Toggle"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:568
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:569
 msgid "No Strategy"
 msgstr "Nessuna strategia"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:569
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:570
 msgid "3:2 Pulldown"
 msgstr "3:2 Pulldown"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:570
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:571
 msgid "Pal/Secam"
 msgstr "Pal/Secam"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:571
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:572
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:79
 msgid "NTSC converted from PAL"
 msgstr "NTSC convertito da PAL"
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:573
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:574
 msgid "menu"
 msgstr "menu"
 
@@ -1839,11 +1872,11 @@ msgstr "Set di glifi globale"
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:37
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:32
 msgid "_Shrink Factor:"
 msgstr "Fattore di _compressione:"
 
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:40
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:35
 msgid "Requant Configuration"
 msgstr "Configurazione Requant"
 
@@ -1902,7 +1935,8 @@ msgid ""
 "\t\t       Version 2, June 1991\n"
 "\n"
 " Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
-"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
+"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
 " Everyone is permitted to copy and distribute verbatim copies\n"
 " of this license document, but changing it is not allowed.\n"
 "\n"
@@ -2037,7 +2071,8 @@ msgid ""
 "\n"
 "    a) Accompany it with the complete corresponding machine-readable\n"
 "    source code, which must be distributed under the terms of Sections\n"
-"    1 and 2 above on a medium customarily used for software interchange; or,\n"
+"    1 and 2 above on a medium customarily used for software interchange; "
+"or,\n"
 "\n"
 "    b) Accompany it with a written offer, valid for at least three\n"
 "    years, to give any third party, for a charge no more than your\n"
@@ -2144,7 +2179,8 @@ msgid ""
 "later version\", you have the option of following the terms and conditions\n"
 "either of that version or of any later version published by the Free\n"
 "Software Foundation.  If the Program does not specify a version number of\n"
-"this License, you may choose any version ever published by the Free Software\n"
+"this License, you may choose any version ever published by the Free "
+"Software\n"
 "Foundation.\n"
 "\n"
 "  10. If you wish to incorporate parts of the Program into other free\n"
@@ -2160,7 +2196,8 @@ msgid ""
 "  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
 "FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
 "OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
-"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED\n"
+"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER "
+"EXPRESSED\n"
 "OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
 "MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
 "TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
@@ -2205,7 +2242,8 @@ msgid ""
 "\n"
 "    You should have received a copy of the GNU General Public License\n"
 "    along with this program; if not, write to the Free Software\n"
-"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
+"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
+"USA\n"
 "\n"
 "\n"
 "Also add information on how to contact you by electronic and paper mail.\n"
@@ -2214,7 +2252,8 @@ msgid ""
 "when it starts in an interactive mode:\n"
 "\n"
 "    Gnomovision version 69, Copyright (C) year name of author\n"
-"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
+"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show "
+"w'.\n"
 "    This is free software, and you are welcome to redistribute it\n"
 "    under certain conditions; type `show c' for details.\n"
 "\n"
@@ -2243,346 +2282,400 @@ msgstr ""
 "modificarlo secondo i termini della Licenza Pubblica Generica GNU\n"
 "versione 2 come pubblicato dalla Free Software Foundation.\n"
 "\n"
-"\t\t    GNU GENERAL PUBLIC LICENSE\n"
-"\t\t       Version 2, June 1991\n"
+"Questa è una traduzione italiana non ufficiale della Licenza Pubblica\n"
+"Generica GNU. Non è pubblicata dalla Free Software Foundation e non\n"
+"ha valore legale nell'esprimere i termini di distribuzione del\n"
+"software che usa la licenza GPL. Solo la versione originale in inglese\n"
+"della licenza ha valore legale. Ad ogni modo, speriamo che questa\n"
+"traduzione aiuti le persone di lingua italiana a capire meglio il\n"
+"significato della licenza GPL.\n"
+"\n"
+"\t LICENZA PUBBLICA GENERICA (GPL) DEL PROGETTO GNU\n"
+"\t\t       Versione 2, Giugno 1991\n"
 "\n"
 " Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
-"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
-" Everyone is permitted to copy and distribute verbatim copies\n"
-" of this license document, but changing it is not allowed.\n"
+"                       59 Temple Place, Suite 330, Boston, MA 02111-1307 "
+"USA\n"
 "\n"
-"\t\t\t    Preamble\n"
+"Traduzione curata da gruppo Pluto, da ILS e dal gruppo italiano di\n"
+"traduzione GNU. Ultimo aggiornamento 19 aprile 2000.\n"
 "\n"
-"  The licenses for most software are designed to take away your\n"
-"freedom to share and change it.  By contrast, the GNU General Public\n"
-"License is intended to guarantee your freedom to share and change free\n"
-"software--to make sure the software is free for all its users.  This\n"
-"General Public License applies to most of the Free Software\n"
-"Foundation's software and to any other program whose authors commit to\n"
-"using it.  (Some other Free Software Foundation software is covered by\n"
-"the GNU Library General Public License instead.)  You can apply it to\n"
-"your programs, too.\n"
+"Chiunque può copiare e distribuire copie letterali di questo documento\n"
+"di licenza, ma non ne è permessa la modifica.\n"
 "\n"
-"  When we speak of free software, we are referring to freedom, not\n"
-"price.  Our General Public Licenses are designed to make sure that you\n"
-"have the freedom to distribute copies of free software (and charge for\n"
-"this service if you wish), that you receive source code or can get it\n"
-"if you want it, that you can change the software or use pieces of it\n"
-"in new free programs; and that you know you can do these things.\n"
+"\t\t\t    Preambolo\n"
 "\n"
-"  To protect your rights, we need to make restrictions that forbid\n"
-"anyone to deny you these rights or to ask you to surrender the rights.\n"
-"These restrictions translate to certain responsibilities for you if you\n"
-"distribute copies of the software, or if you modify it.\n"
+"  Le licenze della maggior parte dei programmi hanno lo scopo di\n"
+"togliere all'utente la libertà di condividere e modificare il\n"
+"programma stesso. Viceversa, la Licenza Pubblica Generica GNU è intesa\n"
+"a garantire la libertà di condividere e modificare il software libero,\n"
+"al fine di assicurare che i programmi siano liberi per tutti i loro\n"
+"utenti. Questa Licenza si applica alla maggioranza dei programmi\n"
+"della Free Software Foundation e ad ogni altro programma i cui autori\n"
+"hanno deciso di usare questa Licenza. Alcuni altri programmi della\n"
+"Free Software Foundation sono invece coperti dalla Licenza Pubblica\n"
+"Generica Minore. Chiunque può usare questa Licenza per i propri\n"
+"programmi.\n"
 "\n"
-"  For example, if you distribute copies of such a program, whether\n"
-"gratis or for a fee, you must give the recipients all the rights that\n"
-"you have.  You must make sure that they, too, receive or can get the\n"
-"source code.  And you must show them these terms so they know their\n"
-"rights.\n"
+"  Quando si parla di software libero (free software), ci si riferisce\n"
+"alla libertà, non al prezzo. Le nostre Licenze (la GPL e la LGPL)\n"
+"sono progettate per assicurarsi che ciascuno abbia la libertà di\n"
+"distribuire copie del software libero (e farsi pagare per questo, se\n"
+"vuole), che ciascuno riceva il codice sorgente o che lo possa ottenere\n"
+"se lo desidera, che ciascuno possa modificare il programma o usarne\n"
+"delle parti in nuovi programmi liberi e che ciascuno sappia di potere\n"
+"fare queste cose.\n"
 "\n"
-"  We protect your rights with two steps: (1) copyright the software, and\n"
-"(2) offer you this license which gives you legal permission to copy,\n"
-"distribute and/or modify the software.\n"
+"  Per proteggere i diritti dell'utente, abbiamo bisogno di creare delle\n"
+"restrizioni che vietino a chiunque di negare questi diritti o di\n"
+"chiedere di rinunciarvi. Queste restrizioni si traducono in certe\n"
+"responsabilità per chi distribuisce copie del software e per chi lo\n"
+"modifica.\n"
 "\n"
-"  Also, for each author's protection and ours, we want to make certain\n"
-"that everyone understands that there is no warranty for this free\n"
-"software.  If the software is modified by someone else and passed on, we\n"
-"want its recipients to know that what they have is not the original, so\n"
-"that any problems introduced by others will not reflect on the original\n"
-"authors' reputations.\n"
+"  Per esempio, chi distribuisce copie di un programma coperto da GPL,\n"
+"sia gratis sia in cambio di un compenso, deve concedere ai destinatari\n"
+"tutti i diritti che ha ricevuto. Deve anche assicurarsi che i\n"
+"destinatari ricevano o possano ottenere il codice sorgente. E deve\n"
+"mostrar loro queste condizioni di licenza, in modo che essi conoscano\n"
+"i propri diritti.\n"
 "\n"
-"  Finally, any free program is threatened constantly by software\n"
-"patents.  We wish to avoid the danger that redistributors of a free\n"
-"program will individually obtain patent licenses, in effect making the\n"
-"program proprietary.  To prevent this, we have made it clear that any\n"
-"patent must be licensed for everyone's free use or not licensed at all.\n"
+"  Proteggiamo i diritti dell'utente in due modi: (1) proteggendo il\n"
+"software con un copyright, e (2) offrendo una licenza che dia il\n"
+"permesso legale di copiare, distribuire e modificare il Programma.\n"
 "\n"
-"  The precise terms and conditions for copying, distribution and\n"
-"modification follow.\n"
+"  Inoltre, per proteggere ogni autore e noi stessi, vogliamo assicurarci\n"
+"che ognuno capisca che non ci sono garanzie per i programmi coperti da\n"
+"GPL. Se il programma viene modificato da qualcun altro e\n"
+"ridistribuito, vogliamo che gli acquirenti sappiano che ciò che hanno\n"
+"non è l'originale, in modo che ogni problema introdotto da altri non\n"
+"si rifletta sulla reputazione degli autori originari.\n"
 "\n"
-"\t\t    GNU GENERAL PUBLIC LICENSE\n"
-"   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION\n"
+"  Infine, ogni programma libero è costantemente minacciato dai brevetti\n"
+"sui programmi. Vogliamo evitare il pericolo che chi ridistribuisce un\n"
+"programma libero ottenga la proprietà di brevetti, rendendo in pratica\n"
+"il programma cosa di sua proprietà. Per prevenire questa evenienza,\n"
+"abbiamo chiarito che ogni brevetto debba essere concesso in licenza\n"
+"d'uso a chiunque, o non avere alcuna restrizione di licenza d'uso.\n"
 "\n"
-"  0. This License applies to any program or other work which contains\n"
-"a notice placed by the copyright holder saying it may be distributed\n"
-"under the terms of this General Public License.  The \"Program\", below,\n"
-"refers to any such program or work, and a \"work based on the Program\"\n"
-"means either the Program or any derivative work under copyright law:\n"
-"that is to say, a work containing the Program or a portion of it,\n"
-"either verbatim or with modifications and/or translated into another\n"
-"language.  (Hereinafter, translation is included without limitation in\n"
-"the term \"modification\".)  Each licensee is addressed as \"you\".\n"
+"  Seguono i termini e le condizioni precisi per la copia, la\n"
+"distribuzione e la modifica.\n"
 "\n"
-"Activities other than copying, distribution and modification are not\n"
-"covered by this License; they are outside its scope.  The act of\n"
-"running the Program is not restricted, and the output from the Program\n"
-"is covered only if its contents constitute a work based on the\n"
-"Program (independent of having been made by running the Program).\n"
-"Whether that is true depends on what the Program does.\n"
+"\t\t    LICENZA PUBBLICA GENERICA GNU\n"
+"   TERMINI E CONDIZIONI PER LA COPIA, LA DISTRIBUZIONE E LA MODIFICA\n"
 "\n"
-"  1. You may copy and distribute verbatim copies of the Program's\n"
-"source code as you receive it, in any medium, provided that you\n"
-"conspicuously and appropriately publish on each copy an appropriate\n"
-"copyright notice and disclaimer of warranty; keep intact all the\n"
-"notices that refer to this License and to the absence of any warranty;\n"
-"and give any other recipients of the Program a copy of this License\n"
-"along with the Program.\n"
+"  0. Questa Licenza si applica a ogni programma o altra opera che\n"
+"contenga una nota da parte del detentore del copyright che dica che\n"
+"tale opera può essere distribuita sotto i termini di questa Licenza\n"
+"Pubblica Generica. Il termine \"Programma\" nel seguito si riferisce ad\n"
+"ogni programma o opera così definita, e l'espressione \"opera basata\n"
+"sul Programma\" indica sia il Programma sia ogni opera considerata\n"
+"\"derivata\" in base alla legge sul copyright; in altre parole, un'opera\n"
+"contenente il Programma o una porzione di esso, sia letteralmente sia\n"
+"modificato o tradotto in un'altra lingua. Da qui in avanti, la\n"
+"traduzione è in ogni caso considerata una \"modifica\". Vengono ora\n"
+"elencati i diritti dei beneficiari della licenza.\n"
 "\n"
-"You may charge a fee for the physical act of transferring a copy, and\n"
-"you may at your option offer warranty protection in exchange for a fee.\n"
+"Attività diverse dalla copiatura, distribuzione e modifica non sono\n"
+"coperte da questa Licenza e sono al di fuori della sua influenza.\n"
+"L'atto di eseguire il Programma non viene limitato, e l'output del\n"
+"programma è coperto da questa Licenza solo se il suo contenuto\n"
+"costituisce un'opera basata sul Programma (indipendentemente dal fatto\n"
+"che sia stato creato eseguendo il Programma). In base alla natura del\n"
+"Programma il suo output può essere o meno coperto da questa Licenza.\n"
 "\n"
-"  2. You may modify your copy or copies of the Program or any portion\n"
-"of it, thus forming a work based on the Program, and copy and\n"
-"distribute such modifications or work under the terms of Section 1\n"
-"above, provided that you also meet all of these conditions:\n"
+"  1. È lecito copiare e distribuire copie letterali del codice\n"
+"sorgente del Programma così come viene ricevuto, con qualsiasi mezzo,\n"
+"a condizione che venga riprodotta chiaramente su ogni copia una\n"
+"appropriata nota di copyright e di assenza di garanzia; che si\n"
+"mantengano intatti tutti i riferimenti a questa Licenza e all'assenza\n"
+"di ogni garanzia; che si dia a ogni altro destinatario del Programma\n"
+"una copia di questa Licenza insieme al Programma.\n"
 "\n"
-"    a) You must cause the modified files to carry prominent notices\n"
-"    stating that you changed the files and the date of any change.\n"
+"È possibile richiedere un pagamento per il trasferimento fisico di una\n"
+"copia del Programma, è anche possibile a propria discrezione\n"
+"richiedere un pagamento in cambio di una copertura assicurativa.\n"
 "\n"
-"    b) You must cause any work that you distribute or publish, that in\n"
-"    whole or in part contains or is derived from the Program or any\n"
-"    part thereof, to be licensed as a whole at no charge to all third\n"
-"    parties under the terms of this License.\n"
+"  2. È lecito modificare la propria copia o copie del Programma, o\n"
+"parte di esso, creando perciò un'opera basata sul Programma, e copiare\n"
+"o distribuire tali modifiche o tale opera secondo i termini del\n"
+"precedente comma 1, a patto che siano soddisfatte tutte le condizioni\n"
+"che seguono:\n"
 "\n"
-"    c) If the modified program normally reads commands interactively\n"
-"    when run, you must cause it, when started running for such\n"
-"    interactive use in the most ordinary way, to print or display an\n"
-"    announcement including an appropriate copyright notice and a\n"
-"    notice that there is no warranty (or else, saying that you provide\n"
-"    a warranty) and that users may redistribute the program under\n"
-"    these conditions, and telling the user how to view a copy of this\n"
-"    License.  (Exception: if the Program itself is interactive but\n"
-"    does not normally print such an announcement, your work based on\n"
-"    the Program is not required to print an announcement.)\n"
+"    a) Bisogna indicare chiaramente nei file che si tratta di copie\n"
+"    modificate e la data di ogni modifica.\n"
 "\n"
-"These requirements apply to the modified work as a whole.  If\n"
-"identifiable sections of that work are not derived from the Program,\n"
-"and can be reasonably considered independent and separate works in\n"
-"themselves, then this License, and its terms, do not apply to those\n"
-"sections when you distribute them as separate works.  But when you\n"
-"distribute the same sections as part of a whole which is a work based\n"
-"on the Program, the distribution of the whole must be on the terms of\n"
-"this License, whose permissions for other licensees extend to the\n"
-"entire whole, and thus to each and every part regardless of who wrote it.\n"
+"    b) Bisogna fare in modo che ogni opera distribuita o pubblicata,\n"
+"    che in parte o nella sua totalità derivi dal Programma o da parti\n"
+"    di esso, sia concessa nella sua interezza in licenza gratuita ad\n"
+"    ogni terza parte, secondo i termini di questa Licenza.\n"
 "\n"
-"Thus, it is not the intent of this section to claim rights or contest\n"
-"your rights to work written entirely by you; rather, the intent is to\n"
-"exercise the right to control the distribution of derivative or\n"
-"collective works based on the Program.\n"
+"    c) Se normalmente il programma modificato legge comandi\n"
+"    interattivamente quando viene eseguito, bisogna fare in modo che\n"
+"    all'inizio dell'esecuzione interattiva usuale, esso stampi un\n"
+"    messaggio contenente una appropriata nota di copyright e di\n"
+"    assenza di garanzia (oppure che specifichi il tipo di garanzia che\n"
+"    si offre). Il messaggio deve inoltre specificare che chiunque può\n"
+"    ridistribuire il programma alle condizioni qui descritte e deve\n"
+"    indicare come reperire questa Licenza. Se però il programma di\n"
+"    partenza è interattivo ma normalmente non stampa tale messaggio,\n"
+"    non occorre che un'opera basata sul Programma lo stampi.\n"
 "\n"
-"In addition, mere aggregation of another work not based on the Program\n"
-"with the Program (or with a work based on the Program) on a volume of\n"
-"a storage or distribution medium does not bring the other work under\n"
-"the scope of this License.\n"
+"Questi requisiti si applicano all'opera modificata nel suo complesso.\n"
+"Se sussistono parti identificabili dell'opera modificata che non siano\n"
+"derivate dal Programma e che possono essere ragionevolmente\n"
+"considerate lavori indipendenti, allora questa Licenza e i suoi\n"
+"termini non si applicano a queste parti quando queste vengono\n"
+"distribuite separatamente. Se però queste parti vengono distribuite\n"
+"all'interno di un prodotto che è un'opera basata sul Programma, la\n"
+"distribuzione di quest'opera nella sua interezza deve avvenire nei\n"
+"termini di questa Licenza, le cui norme nei confronti di altri utenti\n"
+"si estendono all'opera nella sua interezza, e quindi ad ogni sua\n"
+"parte, chiunque ne sia l'autore.\n"
 "\n"
-"  3. You may copy and distribute the Program (or a work based on it,\n"
-"under Section 2) in object code or executable form under the terms of\n"
-"Sections 1 and 2 above provided that you also do one of the following:\n"
+"Quindi, non è nelle intenzioni di questa sezione accampare diritti, né\n"
+"contestare diritti su opere scritte interamente da altri; l'intento è\n"
+"piuttosto quello di esercitare il diritto di controllare la\n"
+"distribuzione di opere derivati dal Programma o che lo contengano.\n"
 "\n"
-"    a) Accompany it with the complete corresponding machine-readable\n"
-"    source code, which must be distributed under the terms of Sections\n"
-"    1 and 2 above on a medium customarily used for software interchange; or,\n"
+"Inoltre, la semplice aggregazione di un'opera non derivata dal\n"
+"Programma col Programma o con un'opera da esso derivata su di un mezzo\n"
+"di memorizzazione o di distribuzione, non è sufficente a includere\n"
+"l'opera non derivata nell'ambito di questa Licenza.\n"
 "\n"
-"    b) Accompany it with a written offer, valid for at least three\n"
-"    years, to give any third party, for a charge no more than your\n"
-"    cost of physically performing source distribution, a complete\n"
-"    machine-readable copy of the corresponding source code, to be\n"
-"    distributed under the terms of Sections 1 and 2 above on a medium\n"
-"    customarily used for software interchange; or,\n"
+"  3. È lecito copiare e distribuire il Programma (o un'opera basata su\n"
+"di esso, come espresso al comma 2) sotto forma di codice oggetto o\n"
+"eseguibile secondo i termini dei precedenti commi 1 e 2, a patto che\n"
+"si applichi una delle seguenti condizioni:\n"
 "\n"
-"    c) Accompany it with the information you received as to the offer\n"
-"    to distribute corresponding source code.  (This alternative is\n"
-"    allowed only for noncommercial distribution and only if you\n"
-"    received the program in object code or executable form with such\n"
-"    an offer, in accord with Subsection b above.)\n"
+"    a) Il Programma sia corredato del codice sorgente completo, in una\n"
+"    forma leggibile da calcolatore, e tale sorgente sia fornito\n"
+"    secondo le regole dei precedenti commi 1 e 2 su di un mezzo\n"
+"    comunemente usato per lo scambio di programmi.\n"
 "\n"
-"The source code for a work means the preferred form of the work for\n"
-"making modifications to it.  For an executable work, complete source\n"
-"code means all the source code for all modules it contains, plus any\n"
-"associated interface definition files, plus the scripts used to\n"
-"control compilation and installation of the executable.  However, as a\n"
-"special exception, the source code distributed need not include\n"
-"anything that is normally distributed (in either source or binary\n"
-"form) with the major components (compiler, kernel, and so on) of the\n"
-"operating system on which the executable runs, unless that component\n"
-"itself accompanies the executable.\n"
+"    b) Il Programma sia accompagnato da un'offerta scritta, valida per\n"
+"    almeno tre anni, di fornire a chiunque ne faccia richiesta una\n"
+"    copia completa del codice sorgente, in una forma leggibile da\n"
+"    calcolatore, in cambio di un compenso non superiore al costo del\n"
+"    trasferimento fisico di tale copia, che deve essere fornita\n"
+"    secondo le regole dei precedenti commi 1 e 2 su di un mezzo\n"
+"    comunemente usato per lo scambio di programmi.\n"
 "\n"
-"If distribution of executable or object code is made by offering\n"
-"access to copy from a designated place, then offering equivalent\n"
-"access to copy the source code from the same place counts as\n"
-"distribution of the source code, even though third parties are not\n"
-"compelled to copy the source along with the object code.\n"
+"    c) Il Programma sia accompagnato dalle informazioni che sono state\n"
+"    ricevute riguardo alla possibilità di ottenere il codice sorgente.\n"
+"    Questa alternativa è permessa solo in caso di distribuzioni non\n"
+"    commerciali e solo se il programma è stato ottenuto sotto forma di\n"
+"    codice oggetto o eseguibile in accordo al precedente comma B.\n"
 "\n"
-"  4. You may not copy, modify, sublicense, or distribute the Program\n"
-"except as expressly provided under this License.  Any attempt\n"
-"otherwise to copy, modify, sublicense or distribute the Program is\n"
-"void, and will automatically terminate your rights under this License.\n"
-"However, parties who have received copies, or rights, from you under\n"
-"this License will not have their licenses terminated so long as such\n"
-"parties remain in full compliance.\n"
+"Per \"codice sorgente completo\" di un'opera si intende la forma\n"
+"preferenziale usata per modificare un'opera. Per un programma\n"
+"eseguibile, \"codice sorgente completo\" significa tutto il codice\n"
+"sorgente di tutti i moduli in esso contenuti, più ogni file associato\n"
+"che definisca le interfacce esterne del programma, più gli script\n"
+"usati per controllare la compilazione e l'installazione\n"
+"dell'eseguibile. In ogni caso non è necessario che il codice sorgente\n"
+"fornito includa nulla che sia normalmente distribuito (in forma\n"
+"sorgente o in formato binario) con i principali componenti del sistema\n"
+"operativo sotto cui viene eseguito il Programma (compilatore, kernel,\n"
+"e così via), a meno che tali componenti accompagnino l'eseguibile.\n"
 "\n"
-"  5. You are not required to accept this License, since you have not\n"
-"signed it.  However, nothing else grants you permission to modify or\n"
-"distribute the Program or its derivative works.  These actions are\n"
-"prohibited by law if you do not accept this License.  Therefore, by\n"
-"modifying or distributing the Program (or any work based on the\n"
-"Program), you indicate your acceptance of this License to do so, and\n"
-"all its terms and conditions for copying, distributing or modifying\n"
-"the Program or works based on it.\n"
+"Se la distribuzione dell'eseguibile o del codice oggetto è effettuata\n"
+"indicando un luogo dal quale sia possibile copiarlo, permettere la\n"
+"copia del codice sorgente dallo stesso luogo è considerata una valida\n"
+"forma di distribuzione del codice sorgente, anche se copiare il\n"
+"sorgente è facoltativo per l'acquirente.\n"
 "\n"
-"  6. Each time you redistribute the Program (or any work based on the\n"
-"Program), the recipient automatically receives a license from the\n"
-"original licensor to copy, distribute or modify the Program subject to\n"
-"these terms and conditions.  You may not impose any further\n"
-"restrictions on the recipients' exercise of the rights granted herein.\n"
-"You are not responsible for enforcing compliance by third parties to\n"
-"this License.\n"
+"  4. Non è lecito copiare, modificare, sublicenziare, o distribuire\n"
+"il Programma in modi diversi da quelli espressamente previsti da\n"
+"questa Licenza. Ogni tentativo di copiare, modificare, sublicenziare\n"
+"o distribuire altrimenti il Programma non è autorizzato, e farà\n"
+"terminare automaticamente i diritti garantiti da questa Licenza.\n"
+"D'altra parte ogni acquirente che abbia ricevuto copie, o diritti,\n"
+"coperti da questa Licenza da parte di persone che violano la Licenza\n"
+"come qui indicato non vedranno invalidata la loro Licenza, purché si\n"
+"comportino conformemente ad essa.\n"
 "\n"
-"  7. If, as a consequence of a court judgment or allegation of patent\n"
-"infringement or for any other reason (not limited to patent issues),\n"
-"conditions are imposed on you (whether by court order, agreement or\n"
-"otherwise) that contradict the conditions of this License, they do not\n"
-"excuse you from the conditions of this License.  If you cannot\n"
-"distribute so as to satisfy simultaneously your obligations under this\n"
-"License and any other pertinent obligations, then as a consequence you\n"
-"may not distribute the Program at all.  For example, if a patent\n"
-"license would not permit royalty-free redistribution of the Program by\n"
-"all those who receive copies directly or indirectly through you, then\n"
-"the only way you could satisfy both it and this License would be to\n"
-"refrain entirely from distribution of the Program.\n"
+"  5. L'acquirente non è tenuto ad accettare questa Licenza,\n"
+"poiché non l'ha firmata. D'altra parte nessun altro documento\n"
+"garantisce il permesso di modificare o distribuire il Programma o i\n"
+"lavori derivati da esso. Queste azioni sono proibite dalla legge per\n"
+"chi non accetta questa Licenza; perciò, modificando o distribuendo il\n"
+"Programma o un'opera basata sul programma, si indica nel fare ciò\n"
+"l'accettazione di questa Licenza e quindi di tutti i suoi termini e le\n"
+"condizioni poste sulla copia, la distribuzione e la modifica del\n"
+"Programma o di lavori basati su di esso.\n"
 "\n"
-"If any portion of this section is held invalid or unenforceable under\n"
-"any particular circumstance, the balance of the section is intended to\n"
-"apply and the section as a whole is intended to apply in other\n"
-"circumstances.\n"
+"  6. Ogni volta che il Programma o un'opera basata su di esso vengono\n"
+"distribuiti, l'acquirente riceve automaticamente una licenza d'uso da\n"
+"parte del licenziatario originale. Tale licenza regola la copia, la\n"
+"distribuzione e la modifica del Programma secondo questi termini e\n"
+"queste condizioni. Non è lecito imporre restrizioni ulteriori\n"
+"all'acquirente nel suo esercizio dei diritti qui garantiti. Chi\n"
+"distribuisce programmi coperti da questa Licenza non e' comunque\n"
+"tenuto a imporre il rispetto di questa Licenza a terzi.\n"
 "\n"
-"It is not the purpose of this section to induce you to infringe any\n"
-"patents or other property right claims or to contest validity of any\n"
-"such claims; this section has the sole purpose of protecting the\n"
-"integrity of the free software distribution system, which is\n"
-"implemented by public license practices.  Many people have made\n"
-"generous contributions to the wide range of software distributed\n"
-"through that system in reliance on consistent application of that\n"
-"system; it is up to the author/donor to decide if he or she is willing\n"
-"to distribute software through any other system and a licensee cannot\n"
-"impose that choice.\n"
+"  7. Se, come conseguenza del giudizio di un tribunale, o di una\n"
+"imputazione per la violazione di un brevetto o per ogni altra ragione\n"
+"(non limitatamente a questioni di brevetti), vengono imposte\n"
+"condizioni che contraddicono le condizioni di questa licenza, che\n"
+"queste condizioni siano dettate dalla corte, da accordi tra le parti o\n"
+"altro, queste condizioni non esimono nessuno dall'osservazione di\n"
+"questa Licenza. Se non è possibile distribuire un prodotto in un modo\n"
+"che soddisfi simultaneamente gli obblighi dettati da questa Licenza e\n"
+"altri obblighi pertinenti, il prodotto non può essere affatto\n"
+"distribuito. Per esempio, se un brevetto non permettesse a tutti\n"
+"quelli che lo ricevono di ridistribuire il Programma senza obbligare\n"
+"al pagamento di diritti, allora l'unico modo per soddisfare\n"
+"contemporaneamente il brevetto e questa Licenza e' di non distribuire\n"
+"affatto il Programma.\n"
 "\n"
-"This section is intended to make thoroughly clear what is believed to\n"
-"be a consequence of the rest of this License.\n"
+"Se una qualunque parte di questo comma è ritenuta non valida o non\n"
+"applicabile in una qualunque circostanza, deve comunque essere\n"
+"applicata l'idea espressa da questo comma; in ogni altra circostanza\n"
+"invece deve essere applicato questo comma nel suo complesso.\n"
 "\n"
-"  8. If the distribution and/or use of the Program is restricted in\n"
-"certain countries either by patents or by copyrighted interfaces, the\n"
-"original copyright holder who places the Program under this License\n"
-"may add an explicit geographical distribution limitation excluding\n"
-"those countries, so that distribution is permitted only in or among\n"
-"countries not thus excluded.  In such case, this License incorporates\n"
-"the limitation as if written in the body of this License.\n"
+"Non è nelle finalità di questo comma indurre gli utenti ad infrangere\n"
+"alcun brevetto né ogni altra rivendicazione di diritti di proprietà,\n"
+"né di contestare la validità di alcuna di queste rivendicazioni; lo\n"
+"scopo di questo comma è unicamente quello di proteggere l'integrità\n"
+"del sistema di distribuzione dei programmi liberi, che viene\n"
+"realizzato tramite l'uso di licenze pubbliche. Molte persone hanno\n"
+"contribuito generosamente alla vasta gamma di programmi distribuiti\n"
+"attraverso questo sistema, basandosi sull'applicazione fedele di tale\n"
+"sistema. L'autore/donatore può decidere di sua volontà se preferisce\n"
+"distribuire il software avvalendosi di altri sistemi, e l'acquirente\n"
+"non può imporre la scelta del sistema di distribuzione.\n"
 "\n"
-"  9. The Free Software Foundation may publish revised and/or new versions\n"
-"of the General Public License from time to time.  Such new versions will\n"
-"be similar in spirit to the present version, but may differ in detail to\n"
-"address new problems or concerns.\n"
+"Questo comma serve a rendere il più chiaro possibile ciò che crediamo\n"
+"sia una conseguenza del resto di questa Licenza.\n"
 "\n"
-"Each version is given a distinguishing version number.  If the Program\n"
-"specifies a version number of this License which applies to it and \"any\n"
-"later version\", you have the option of following the terms and conditions\n"
-"either of that version or of any later version published by the Free\n"
-"Software Foundation.  If the Program does not specify a version number of\n"
-"this License, you may choose any version ever published by the Free Software\n"
-"Foundation.\n"
+"  8. Se in alcuni paesi la distribuzione o l'uso del Programma sono\n"
+"limitati da brevetto o dall'uso di interfacce coperte da copyright, il\n"
+"detentore del copyright originale che pone il Programma sotto questa\n"
+"Licenza può aggiungere limiti geografici espliciti alla distribuzione,\n"
+"per escludere questi paesi dalla distribuzione stessa, in modo che il\n"
+"programma possa essere distribuito solo nei paesi non esclusi da\n"
+"questa regola. In questo caso i limiti geografici sono inclusi in\n"
+"questa Licenza e ne fanno parte a tutti gli effetti.\n"
 "\n"
-"  10. If you wish to incorporate parts of the Program into other free\n"
-"programs whose distribution conditions are different, write to the author\n"
-"to ask for permission.  For software which is copyrighted by the Free\n"
-"Software Foundation, write to the Free Software Foundation; we sometimes\n"
-"make exceptions for this.  Our decision will be guided by the two goals\n"
-"of preserving the free status of all derivatives of our free software and\n"
-"of promoting the sharing and reuse of software generally.\n"
+"  9. All'occorrenza la Free Software Foundation può pubblicare\n"
+"revisioni o nuove versioni di questa Licenza Pubblica Generica. Tali\n"
+"nuove versioni saranno simili a questa nello spirito, ma potranno\n"
+"differire nei dettagli al fine di coprire nuovi problemi e nuove\n"
+"situazioni.\n"
 "\n"
-"\t\t\t    NO WARRANTY\n"
+"Ad ogni versione viene dato un numero identificativo. Se il Programma\n"
+"asserisce di essere coperto da una particolare versione di questa\n"
+"Licenza e \"da ogni versione successiva\", l'acquirente può scegliere se\n"
+"seguire le condizioni della versione specificata o di una successiva.\n"
+"Se il Programma non specifica quale versione di questa Licenza deve\n"
+"applicarsi, l'acquirente può scegliere una qualsiasi versione tra\n"
+"quelle pubblicate dalla Free Software Foundation.\n"
 "\n"
-"  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
-"FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
-"OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
-"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED\n"
-"OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
-"MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
-"TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
-"PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,\n"
-"REPAIR OR CORRECTION.\n"
+"  10. Se si desidera incorporare parti del Programma in altri\n"
+"programmi liberi le cui condizioni di distribuzione differiscano da\n"
+"queste, è possibile scrivere all'autore del Programma per chiederne\n"
+"l'autorizzazione. Per il software il cui copyright è detenuto dalla\n"
+"Free Software Foundation, si scriva alla Free Software Foundation;\n"
+"talvolta facciamo eccezioni alle regole di questa Licenza. La nostra\n"
+"decisione sarà guidata da due finalità: preservare la libertà di tutti\n"
+"i prodotti derivati dal nostro software libero e promuovere la\n"
+"condivisione e il riutilizzo del software in generale.\n"
 "\n"
-"  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING\n"
-"WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR\n"
-"REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,\n"
-"INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING\n"
-"OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED\n"
-"TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY\n"
-"YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER\n"
-"PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE\n"
-"POSSIBILITY OF SUCH DAMAGES.\n"
+"\t\t\t    NON C'È GARANZIA\n"
 "\n"
-"\t\t     END OF TERMS AND CONDITIONS\n"
+"  11. POICHÉ IL PROGRAMMA È CONCESSO IN USO GRATUITAMENTE, NON C'È\n"
+"GARANZIA PER IL PROGRAMMA, NEI LIMITI PERMESSI DALLE VIGENTI LEGGI.\n"
+"SE NON INDICATO DIVERSAMENTE PER ISCRITTO, IL DETENTORE DEL COPYRIGHT\n"
+"E LE ALTRE PARTI FORNISCONO IL PROGRAMMA \"COSÌ COM'È\", SENZA ALCUN\n"
+"TIPO DI GARANZIA, NÉ ESPLICITA NÉ IMPLICITA; CIÒ COMPRENDE, SENZA\n"
+"LIMITARSI A QUESTO, LA GARANZIA IMPLICITA DI COMMERCIABILITÀ E\n"
+"UTILIZZABILITÀ PER UN PARTICOLARE SCOPO. L'INTERO RISCHIO CONCERNENTE\n"
+"LA QUALITÀ E LE PRESTAZIONI DEL PROGRAMMA È DELL'ACQUIRENTE. SE IL\n"
+"PROGRAMMA DOVESSE RIVELARSI DIFETTOSO, L'ACQUIRENTE SI ASSUME IL COSTO\n"
+"DI OGNI MANUTENZIONE, RIPARAZIONE O CORREZIONE NECESSARIA.\n"
 "\n"
-"\t    How to Apply These Terms to Your New Programs\n"
+"  12. NÉ IL DETENTORE DEL COPYRIGHT NÉ ALTRE PARTI CHE POSSONO\n"
+"MODIFICARE O RIDISTRIBUIRE IL PROGRAMMA COME PERMESSO IN QUESTA\n"
+"LICENZA SONO RESPONSABILI PER DANNI NEI CONFRONTI DELL'ACQUIRENTE, A\n"
+"MENO CHE QUESTO NON SIA RICHIESTO DALLE LEGGI VIGENTI O APPAIA IN UN\n"
+"ACCORDO SCRITTO. SONO INCLUSI DANNI GENERICI, SPECIALI O INCIDENTALI,\n"
+"COME PURE I DANNI CHE CONSEGUONO DALL'USO O DALL'IMPOSSIBILITÀ DI\n"
+"USARE IL PROGRAMMA; CIÒ COMPRENDE, SENZA LIMITARSI A QUESTO, LA\n"
+"PERDITA DI DATI, LA CORRUZIONE DEI DATI, LE PERDITE SOSTENUTE\n"
+"DALL'ACQUIRENTE O DA TERZI E L'INCAPACITÀ DEL PROGRAMMA A INTERAGIRE\n"
+"CON ALTRI PROGRAMMI, ANCHE SE IL DETENTORE O ALTRE PARTI SONO STATE\n"
+"AVVISATE DELLA POSSIBILITÀ DI QUESTI DANNI.\n"
 "\n"
-"  If you develop a new program, and you want it to be of the greatest\n"
-"possible use to the public, the best way to achieve this is to make it\n"
-"free software which everyone can redistribute and change under these terms.\n"
+"\t\t     FINE DEI TERMINI E DELLE CONDIZIONI\n"
 "\n"
-"  To do so, attach the following notices to the program.  It is safest\n"
-"to attach them to the start of each source file to most effectively\n"
-"convey the exclusion of warranty; and each file should have at least\n"
-"the \"copyright\" line and a pointer to where the full notice is found.\n"
+"\t    Come applicare questi termini a nuovi programmi\n"
 "\n"
-"    <one line to give the program's name and a brief idea of what it does.>\n"
-"    Copyright (C) <year>  <name of author>\n"
+"  Se si sviluppa un nuovo programma e lo si vuole rendere della maggiore\n"
+"utilità possibile per il pubblico, la cosa migliore da fare è rendere\n"
+"tale programma libero, cosicché ciascuno possa ridistribuirlo e\n"
+"modificarlo sotto questi termini.\n"
 "\n"
-"    This program is free software; you can redistribute it and/or modify\n"
-"    it under the terms of the GNU General Public License as published by\n"
-"    the Free Software Foundation; either version 2 of the License, or\n"
-"    (at your option) any later version.\n"
+"  Per fare questo, si inserisca nel programma la seguente nota. La cosa\n"
+"migliore da fare è mettere la nota all`inizio di ogni file sorgente,\n"
+"per chiarire nel modo più efficiente possibile l'assenza di garanzia;\n"
+"ogni file dovrebbe contenere almeno la nota di copyright e\n"
+"l'indicazione di dove trovare l'intera nota.\n"
 "\n"
-"    This program is distributed in the hope that it will be useful,\n"
-"    but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-"    GNU General Public License for more details.\n"
+"    <una riga per dire in breve il nome del programma e cosa fa>\n"
+"    Copyright (C) <anno> <nome dell'autore>\n"
 "\n"
-"    You should have received a copy of the GNU General Public License\n"
-"    along with this program; if not, write to the Free Software\n"
-"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
+"    Questo programma è software libero; è lecito redistribuirlo o\n"
+"    modificarlo secondo i termini della Licenza Pubblica Generica GNU\n"
+"    come è pubblicata dalla Free Software Foundation; o la versione 2\n"
+"    della licenza o (a propria scelta) una versione successiva.\n"
+"\n"
+"    Questo programma è distribuito nella speranza che sia utile, ma\n"
+"    SENZA ALCUNA GARANZIA; senza neppure la garanzia implicita di\n"
+"    NEGOZIABILITÀ o di APPLICABILITÀ PER UN PARTICOLARE SCOPO. Si\n"
+"    veda la Licenza Pubblica Generica GNU per avere maggiori dettagli.\n"
+"\n"
+"    Questo programma deve essere distribuito assieme ad una copia\n"
+"    della Licenza Pubblica Generica GNU; in caso contrario, se ne può\n"
+"    ottenere una scrivendo alla Free Software Foundation, Inc., 59\n"
+"    Temple Place, Suite 330, Boston, MA 02111-1307 USA\n"
 "\n"
 "\n"
-"Also add information on how to contact you by electronic and paper mail.\n"
+"Si aggiungano anche informazioni su come si può essere contattati\n"
+"tramite posta elettronica e cartacea.\n"
 "\n"
-"If the program is interactive, make it output a short notice like this\n"
-"when it starts in an interactive mode:\n"
+"Se il programma è interattivo, si faccia in modo che stampi una breve\n"
+"nota simile a questa quando viene usato interattivamente:\n"
 "\n"
-"    Gnomovision version 69, Copyright (C) year name of author\n"
-"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
-"    This is free software, and you are welcome to redistribute it\n"
-"    under certain conditions; type `show c' for details.\n"
+"    Orcaloca versione 69, Copyright (C) anno nome dell'autore\n"
+"    Orcaloca non ha ALCUNA GARANZIA; per dettagli usare il comando `show "
+"g'.\n"
+"    Questo è software libero, e ognuno è libero di ridistribuirlo secondo\n"
+"    certe condizioni; usare il comando `show c' per i dettagli.\n"
 "\n"
-"The hypothetical commands `show w' and `show c' should show the appropriate\n"
-"parts of the General Public License.  Of course, the commands you use may\n"
-"be called something other than `show w' and `show c'; they could even be\n"
-"mouse-clicks or menu items--whatever suits your program.\n"
+"Gli ipotetici comandi \"show g\" e \"show c\" mostreranno le parti\n"
+"appropriate della Licenza Pubblica Generica. Chiaramente, i comandi\n"
+"usati possono essere chiamati diversamente da \"show g\" e \"show c\" e\n"
+"possono anche essere selezionati con il mouse o attraverso un menù, o\n"
+"comunque sia pertinente al programma.\n"
 "\n"
-"You should also get your employer (if you work as a programmer) or your\n"
-"school, if any, to sign a \"copyright disclaimer\" for the program, if\n"
-"necessary.  Here is a sample; alter the names:\n"
+"Se necessario, si deve anche far firmare al proprio datore di lavoro\n"
+"(per chi lavora come programmatore) o alla propria scuola, per chi è\n"
+"studente, una \"rinuncia al copyright\" per il programma. Ecco un\n"
+"esempio con nomi fittizi:\n"
 "\n"
-"  Yoyodyne, Inc., hereby disclaims all copyright interest in the program\n"
-"  `Gnomovision' (which makes passes at compilers) written by James Hacker.\n"
+"  Yoyodinamica SPA rinuncia con questo documento ad ogni diritto sul\n"
+"  copyright del programma `Orcaloca' (che svolge dei passi di\n"
+"  compilazione) scritto da Giovanni Smanettone.\n"
 "\n"
-"  <signature of Ty Coon>, 1 April 1989\n"
-"  Ty Coon, President of Vice\n"
+"  <firma di Primo Tizio>, 1 April 3000\n"
+"  Primo Tizio, Presidente\n"
 "\n"
-"This General Public License does not permit incorporating your program into\n"
-"proprietary programs.  If your program is a subroutine library, you may\n"
-"consider it more useful to permit linking proprietary applications with the\n"
-"library.  If this is what you want to do, use the GNU Library General\n"
-"Public License instead of this License."
+"I programmi coperti da questa Licenza Pubblica Generica non possono\n"
+"essere incorporati all'interno di programmi proprietari. Se il\n"
+"proprio programma è una libreria di funzioni, può essere più utile\n"
+"permettere di collegare applicazioni proprietarie alla libreria. Se\n"
+"si ha questa intenzione consigliamo di usare la Licenza Pubblica\n"
+"Generica Minore GNU (LGPL) invece di questa Licenza."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_about.cpp:62
 msgid "translator-credits"
@@ -2749,7 +2842,8 @@ msgstr "Richiesti privilegi"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:148
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:170
 msgid "Root privileges are required to perform this operation."
-msgstr "Sono richesti i privilegi di amministratore per eseguire questa operazione."
+msgstr ""
+"Sono richesti i privilegi di amministratore per eseguire questa operazione."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:191
 msgid "Shutting down"
@@ -2891,8 +2985,12 @@ msgid "Eraser _Data File:"
 msgstr "_File dati Gomma:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1269
-msgid "File in which eraser mask information (the list below and the pixels erased for each range) will be stored"
-msgstr "File in cui verranno salvate le informazioni sulla maschera gomma (la lista sottostante e i pixel cancellati per ogni intervallo)"
+msgid ""
+"File in which eraser mask information (the list below and the pixels erased "
+"for each range) will be stored"
+msgstr ""
+"File in cui verranno salvate le informazioni sulla maschera gomma (la lista "
+"sottostante e i pixel cancellati per ogni intervallo)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1285
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:699
@@ -2905,24 +3003,37 @@ msgid "_First frame:   "
 msgstr "Primo _fotogramma:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1311
-msgid "First frame to which currently selected eraser mask applies; 0 means first frame of video"
-msgstr "Primo fotogramma al quale si applica la maschera gomma attualmente selezionata; 0 significa il primo fotogramma del video"
+msgid ""
+"First frame to which currently selected eraser mask applies; 0 means first "
+"frame of video"
+msgstr ""
+"Primo fotogramma al quale si applica la maschera gomma attualmente "
+"selezionata; 0 significa il primo fotogramma del video"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1318
 msgid "_Last frame:   "
 msgstr "U_ltimo fotogramma:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1326
-msgid "Last frame to which currently selected eraser mask applies; use e.g. 99999999 to represent the last frame of video"
-msgstr "Ultimo fotogramma al quale si applica la maschera gomma attualmente selezionata; utilizzare ad esempio 99999999 per indicare l'ultimo fotogramma del video"
+msgid ""
+"Last frame to which currently selected eraser mask applies; use e.g. "
+"99999999 to represent the last frame of video"
+msgstr ""
+"Ultimo fotogramma al quale si applica la maschera gomma attualmente "
+"selezionata; utilizzare ad esempio 99999999 per indicare l'ultimo fotogramma "
+"del video"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1351
 msgid "Duplicate"
 msgstr "Duplica"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1355
-msgid "Make a copy of the currently selected eraser mask and insert it as the following row"
-msgstr "Crea una copia della maschera gomma attualmente selezionata e la inserisce nella liga seguente"
+msgid ""
+"Make a copy of the currently selected eraser mask and insert it as the "
+"following row"
+msgstr ""
+"Crea una copia della maschera gomma attualmente selezionata e la inserisce "
+"nella liga seguente"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1372
 msgid "Last Frame in Range"
@@ -3320,6 +3431,7 @@ msgid "<b>Extra Video Properties</b>"
 msgstr "<b>Proprietà video supplementari</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:378
+#: scripts/video/autoWizard.js:24
 msgid "Codec:"
 msgstr "Codec:"
 
@@ -3567,7 +3679,9 @@ msgstr "Ma_ssimo valore risultato (sarà scalato a 255):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1497
 msgid "Pixel Value Scaling on Result of Selected Operation"
-msgstr "Ridimensionamento del valore di pixel al risultato dell'operazione selezionata"
+msgstr ""
+"Ridimensionamento del valore di pixel al risultato dell'operazione "
+"selezionata"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1506
 msgid "(description of current config will go here)"
@@ -4378,19 +4492,24 @@ msgstr "GTK+"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:171
 msgid "_Start Frame (first frame # to include in average):"
-msgstr "Fotogramma _iniziale (primo numero di fotogramma da includere nella media):"
+msgstr ""
+"Fotogramma _iniziale (primo numero di fotogramma da includere nella media):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:175
 msgid "_End Frame (last frame # to include), -1 = last:"
-msgstr "Fotogramma _finale (ultimo numero di fotogramma da includere), -1 = ultimo:"
+msgstr ""
+"Fotogramma _finale (ultimo numero di fotogramma da includere), -1 = ultimo:"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:179
 msgid "Select output file"
 msgstr "Seleziona il file in uscita"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:182
-msgid "_Bias (only for display; use 0 for average, 128 for frame minus average):"
-msgstr "_Bias (solo per la visualizzazione; usa 0 per una media, 128 per un fotogramma meno la media):"
+msgid ""
+"_Bias (only for display; use 0 for average, 128 for frame minus average):"
+msgstr ""
+"_Bias (solo per la visualizzazione; usa 0 per una media, 128 per un "
+"fotogramma meno la media):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:186
 msgid "Current frame minus average so far"
@@ -4517,8 +4636,7 @@ msgstr "Crop _inferiore (ignora questo numero di particelle):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:187
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:321
-#: avidemux/gtk_gui.cpp:2068
-#: avidemux/gtk_gui.cpp:2165
+#: avidemux/gtk_gui.cpp:2068 avidemux/gtk_gui.cpp:2165
 msgid "Select file"
 msgstr "Seleziona file"
 
@@ -4643,8 +4761,12 @@ msgstr ""
 "di fotogramma da usare per la partenza anticipata):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:356
-msgid "Init By _Rolling (compute head start using a rolling average rather than a straight average)"
-msgstr "Inizializza con media mobile (elabo_ra partenza anticipata usando una media mobile invece di una media diretta)"
+msgid ""
+"Init By _Rolling (compute head start using a rolling average rather than a "
+"straight average)"
+msgstr ""
+"Inizializza con media mobile (elabo_ra partenza anticipata usando una media "
+"mobile invece di una media diretta)"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:361
 msgid "_Bias (will be added to result):"
@@ -4710,8 +4832,7 @@ msgstr "Non incluso in questa versione"
 msgid "Select Video/Image File..."
 msgstr "Seleziona un file video/immagine..."
 
-#: avidemux/gtk_gui.cpp:434
-#: avidemux/gtk_gui.cpp:446
+#: avidemux/gtk_gui.cpp:434 avidemux/gtk_gui.cpp:446
 msgid "Select Workbench to Save"
 msgstr "Seleziona il progetto da salvare"
 
@@ -4743,8 +4864,7 @@ msgstr "Seleziona il file BMP da salvare"
 msgid "Select JPEG to Save"
 msgstr "Seleziona il file JPEG da salvare"
 
-#: avidemux/gtk_gui.cpp:599
-#: avidemux/gtk_gui.cpp:722
+#: avidemux/gtk_gui.cpp:599 avidemux/gtk_gui.cpp:722
 msgid "Select File to Save"
 msgstr "Seleziona il file da salvare"
 
@@ -4772,16 +4892,18 @@ msgstr "_Vai al fotogramma:"
 msgid "Out of bounds"
 msgstr "Oltre i limiti"
 
-#: avidemux/gtk_gui.cpp:720
-#: avidemux/gtk_gui.cpp:728
-#: avidemux/gtk_gui.cpp:775
+#: avidemux/gtk_gui.cpp:720 avidemux/gtk_gui.cpp:728 avidemux/gtk_gui.cpp:775
 #: avidemux/gtk_gui.cpp:1967
 msgid "Marker A > B"
 msgstr "Segnalibro A > B"
 
 #: avidemux/gtk_gui.cpp:720
-msgid "An invalid frame range has been selected.  Make sure marker A is placed before marker B."
-msgstr "L'intervallo di fotogrammi selezionato non è valido. Assicurati che il segnalibro A preceda il segnalibro B."
+msgid ""
+"An invalid frame range has been selected.  Make sure marker A is placed "
+"before marker B."
+msgstr ""
+"L'intervallo di fotogrammi selezionato non è valido. Assicurati che il "
+"segnalibro A preceda il segnalibro B."
 
 #: avidemux/gtk_gui.cpp:728
 msgid "Cannot copy."
@@ -4899,14 +5021,14 @@ msgstr "Nessun decoder trovato per questo file"
 
 #: avidemux/gtk_gui.cpp:1083
 msgid "Save (A+V) will generate bad AVI. Save audio will work."
-msgstr "Salvare (A+V) genererà un file AVI difettoso. Salvare l'audio funzionerà."
+msgstr ""
+"Salvare (A+V) genererà un file AVI difettoso. Salvare l'audio funzionerà."
 
 #: avidemux/gtk_gui.cpp:1142
 msgid "Something failed when appending"
 msgstr "Errore durante l'aggiunta"
 
-#: avidemux/gtk_gui.cpp:1153
-#: avidemux/gtk_gui.cpp:1986
+#: avidemux/gtk_gui.cpp:1153 avidemux/gtk_gui.cpp:1986
 msgid "Something bad happened (II)"
 msgstr "C'è stato qualche errore (II)"
 
@@ -4915,11 +5037,12 @@ msgid "Cannot save the audio in copy mode"
 msgstr "Impossibile salvare l'audio in modalità copia"
 
 #: avidemux/gtk_gui.cpp:1217
-msgid "Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
-msgstr "Seleziona il codec audio WAV PCM, altrimenti il file audio sarà PCM grezzo."
+msgid ""
+"Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
+msgstr ""
+"Seleziona il codec audio WAV PCM, altrimenti il file audio sarà PCM grezzo."
 
-#: avidemux/gtk_gui.cpp:1225
-#: avidemux/gtk_gui.cpp:1593
+#: avidemux/gtk_gui.cpp:1225 avidemux/gtk_gui.cpp:1593
 msgid "Saving audio"
 msgstr "Salvataggio audio in corso"
 
@@ -4951,8 +5074,7 @@ msgstr "Impossibile decodificare il fotogramma"
 msgid "Aborting."
 msgstr "Annullamento in corso."
 
-#: avidemux/gtk_gui.cpp:1366
-#: avidemux/gtk_gui.cpp:1385
+#: avidemux/gtk_gui.cpp:1366 avidemux/gtk_gui.cpp:1385
 #: avidemux/gtk_gui.cpp:2330
 msgid "Done"
 msgstr "Fatto"
@@ -4984,13 +5106,11 @@ msgstr "Op. BMP fallita"
 msgid "Saving %s as a BMP file failed."
 msgstr "Salvataggio di %s come file BMP fallito."
 
-#: avidemux/gtk_gui.cpp:1409
-#: avidemux/gtk_gui.cpp:1475
+#: avidemux/gtk_gui.cpp:1409 avidemux/gtk_gui.cpp:1475
 msgid "Failed to open the file"
 msgstr "L'apertura del file è fallita"
 
-#: avidemux/gtk_gui.cpp:1409
-#: avidemux/gtk_gui.cpp:1475
+#: avidemux/gtk_gui.cpp:1409 avidemux/gtk_gui.cpp:1475
 msgid "Not a WAV file?"
 msgstr "Non è un file WAV?"
 
@@ -5047,8 +5167,7 @@ msgstr "Impossibile eliminare la selezione."
 msgid "You can't remove all frames"
 msgstr "Non puoi rimuovere tutti i fotogrammi"
 
-#: avidemux/gtk_gui.cpp:1979
-#: avidemux/gtk_gui.cpp:2601
+#: avidemux/gtk_gui.cpp:1979 avidemux/gtk_gui.cpp:2601
 msgid "Something bad happened"
 msgstr "C'è stato qualche errore"
 
@@ -5060,48 +5179,39 @@ msgstr "Impossibile ottenere informazioni sulla traccia"
 msgid "Take audio from video file"
 msgstr "Recupera audio dal file video"
 
-#: avidemux/gtk_gui.cpp:2057
-#: avidemux/gtk_gui.cpp:2156
+#: avidemux/gtk_gui.cpp:2057 avidemux/gtk_gui.cpp:2156
 msgid "No audio"
 msgstr "Nessuna traccia audio"
 
-#: avidemux/gtk_gui.cpp:2058
-#: avidemux/gtk_gui.cpp:2157
+#: avidemux/gtk_gui.cpp:2058 avidemux/gtk_gui.cpp:2157
 msgid "External AC3"
 msgstr "AC3 esterno"
 
-#: avidemux/gtk_gui.cpp:2058
-#: avidemux/gtk_gui.cpp:2157
+#: avidemux/gtk_gui.cpp:2058 avidemux/gtk_gui.cpp:2157
 msgid "Take audio from external AC3 file"
 msgstr "Prendi l'audio da un file AC3 esterno"
 
-#: avidemux/gtk_gui.cpp:2059
-#: avidemux/gtk_gui.cpp:2158
+#: avidemux/gtk_gui.cpp:2059 avidemux/gtk_gui.cpp:2158
 msgid "External MP3"
 msgstr "MP3 esterno"
 
-#: avidemux/gtk_gui.cpp:2059
-#: avidemux/gtk_gui.cpp:2158
+#: avidemux/gtk_gui.cpp:2059 avidemux/gtk_gui.cpp:2158
 msgid "Take audio from external MP3 file"
 msgstr "Prendi l'audio da un file MP3 esterno"
 
-#: avidemux/gtk_gui.cpp:2060
-#: avidemux/gtk_gui.cpp:2159
+#: avidemux/gtk_gui.cpp:2060 avidemux/gtk_gui.cpp:2159
 msgid "External WAV"
 msgstr "WAV esterno"
 
-#: avidemux/gtk_gui.cpp:2060
-#: avidemux/gtk_gui.cpp:2159
+#: avidemux/gtk_gui.cpp:2060 avidemux/gtk_gui.cpp:2159
 msgid "Take audio from external WAV file"
 msgstr "Prendi l'audio da un file WAV esterno"
 
-#: avidemux/gtk_gui.cpp:2064
-#: avidemux/gtk_gui.cpp:2164
+#: avidemux/gtk_gui.cpp:2064 avidemux/gtk_gui.cpp:2164
 msgid "_Audio source:"
 msgstr "Sorgente _audio:"
 
-#: avidemux/gtk_gui.cpp:2068
-#: avidemux/gtk_gui.cpp:2165
+#: avidemux/gtk_gui.cpp:2068 avidemux/gtk_gui.cpp:2165
 msgid "_External file:"
 msgstr "File _esterno:"
 
@@ -5118,13 +5228,11 @@ msgstr "_Traccia dal video:"
 msgid "Main Audio Track"
 msgstr "Traccia audio principale"
 
-#: avidemux/gtk_gui.cpp:2099
-#: avidemux/gtk_gui.cpp:2177
+#: avidemux/gtk_gui.cpp:2099 avidemux/gtk_gui.cpp:2177
 msgid "Cannot load"
 msgstr "Impossibile caricare"
 
-#: avidemux/gtk_gui.cpp:2099
-#: avidemux/gtk_gui.cpp:2177
+#: avidemux/gtk_gui.cpp:2099 avidemux/gtk_gui.cpp:2177
 msgid "The selected audio file does not exist."
 msgstr "Il file audio selezionato non esiste."
 
@@ -5136,8 +5244,7 @@ msgstr "Traccia audio secondaria"
 msgid "Error loading the MP3 file"
 msgstr "Errore nel caricamento del file MP3"
 
-#: avidemux/gtk_gui.cpp:2215
-#: avidemux/gtk_gui.cpp:2237
+#: avidemux/gtk_gui.cpp:2215 avidemux/gtk_gui.cpp:2237
 #: avidemux/gtk_gui.cpp:2259
 msgid "Second track loaded"
 msgstr "Seconda traccia caricata"
@@ -5156,7 +5263,9 @@ msgstr "Salvataggio fallito"
 
 #: avidemux/gtk_gui.cpp:2318
 msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
-msgstr "Il salvataggio dell'attività è fallito. Forse c'è un problema di permesso con ~/.avidemux"
+msgstr ""
+"Il salvataggio dell'attività è fallito. Forse c'è un problema di permesso "
+"con ~/.avidemux"
 
 #: avidemux/gtk_gui.cpp:2330
 #, c-format
@@ -5228,10 +5337,8 @@ msgstr "Errore grave durante la costruzione della lista attività."
 msgid "There are no jobs stored"
 msgstr "Non ci sono attività immagazzinate"
 
-#: avidemux/gui_navigate.cpp:74
-#: avidemux/gui_navigate.cpp:112
-#: avidemux/gui_navigate.cpp:394
-#: avidemux/gui_navigate.cpp:430
+#: avidemux/gui_navigate.cpp:74 avidemux/gui_navigate.cpp:112
+#: avidemux/gui_navigate.cpp:394 avidemux/gui_navigate.cpp:430
 msgid "Decompressing error"
 msgstr "Errore decompressione"
 
@@ -5239,8 +5346,7 @@ msgstr "Errore decompressione"
 msgid "Cannot decode next frame."
 msgstr "Impossibile decodificare il prossimo fotogramma."
 
-#: avidemux/gui_navigate.cpp:112
-#: avidemux/gui_navigate.cpp:430
+#: avidemux/gui_navigate.cpp:112 avidemux/gui_navigate.cpp:430
 msgid "Cannot decode keyframe."
 msgstr "Impossibile decodificare il fotogramma chiave."
 
@@ -5264,8 +5370,7 @@ msgstr "Il doppio audio può essere usato solo in modalità copia"
 msgid "Select Copy as the video codec."
 msgstr "Seleziona Copia come codec video."
 
-#: avidemux/gui_savenew.cpp:198
-#: avidemux/gui_savenew.cpp:214
+#: avidemux/gui_savenew.cpp:198 avidemux/gui_savenew.cpp:214
 #: avidemux/gui_savenew.cpp:227
 msgid "Incompatible output format"
 msgstr "Formato in uscita incompatibile"
@@ -5282,13 +5387,11 @@ msgstr "Seleziona una seconda traccia nel menu Audio."
 msgid "Select dual audio AVI to write"
 msgstr "Seleziona il file AVI con doppio audio da scrivere"
 
-#: avidemux/gui_savenew.cpp:274
-#: avidemux/gui_savenew.cpp:292
+#: avidemux/gui_savenew.cpp:274 avidemux/gui_savenew.cpp:292
 msgid "This cannot have packed VOP"
 msgstr "Non può avere VOP compresso"
 
-#: avidemux/gui_savenew.cpp:274
-#: avidemux/gui_savenew.cpp:292
+#: avidemux/gui_savenew.cpp:274 avidemux/gui_savenew.cpp:292
 msgid "It is not MPEG-4 video. File will not be saved."
 msgstr "Non è un video MPEG-4. Il file non verrà salvato."
 
@@ -5645,10 +5748,12 @@ msgid "mpeg2enc Configuration"
 msgstr "Configurazione mpeg2enc"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:78
+#: scripts/auto/Optical Disc/translate_dummy.cpp:4
 msgid "DVD"
 msgstr "DVD"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:79
+#: scripts/auto/Optical Disc/translate_dummy.cpp:5
 msgid "Super Video CD"
 msgstr "Super Video CD"
 
@@ -5684,8 +5789,13 @@ msgid "Target Size"
 msgstr "Dimensione finale"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:647
-msgid "Constant Quantizer - Each frame will have the same compression. Low numbers equal higher quality while high numbers equal lower quality."
-msgstr "Quantizzatore costante - Ogni fotogramma avrà la stessa compressione. A valori minori corrisponde una maggiore qualità, a valori maggiori una qualità minore."
+msgid ""
+"Constant Quantizer - Each frame will have the same compression. Low numbers "
+"equal higher quality while high numbers equal lower quality."
+msgstr ""
+"Quantizzatore costante - Ogni fotogramma avrà la stessa compressione. A "
+"valori minori corrisponde una maggiore qualità, a valori maggiori una "
+"qualità minore."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:655
 msgid "Target bitrate or file size"
@@ -5792,12 +5902,21 @@ msgid "Range"
 msgstr "Intervallo"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:768
-msgid "Define how many pixels are analysed for motion estimation. The higher the range the more accurate the analysis but the slower the encoding time."
-msgstr "Definisci il numero di pixel da analizzare. Maggiore è l'intervallo, più accurata è l'analisi, ma più lenta è la codifica."
+msgid ""
+"Define how many pixels are analysed for motion estimation. The higher the "
+"range the more accurate the analysis but the slower the encoding time."
+msgstr ""
+"Definisci il numero di pixel da analizzare. Maggiore è l'intervallo, più "
+"accurata è l'analisi, ma più lenta è la codifica."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:777
-msgid "Set how many previous frames can be referenced by a P/B-frame. Numbers above 5 do not seem to improve quality greatly. Numbers 3 to 5 are recommended."
-msgstr "Imposta a quanti fotogrammi precedenti può riferirsi un fotogramma P/B. Valori superiori a 5 non sembrano migliorare molto la qualità. Sono consigliati i valori da 3 a 5."
+msgid ""
+"Set how many previous frames can be referenced by a P/B-frame. Numbers above "
+"5 do not seem to improve quality greatly. Numbers 3 to 5 are recommended."
+msgstr ""
+"Imposta a quanti fotogrammi precedenti può riferirsi un fotogramma P/B. "
+"Valori superiori a 5 non sembrano migliorare molto la qualità. Sono "
+"consigliati i valori da 3 a 5."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:780
 msgid "Chroma ME"
@@ -5805,7 +5924,9 @@ msgstr "Stima movimento croma"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:785
 msgid "Use color information for detecting motion to improve quality"
-msgstr "Usa informazioni cromatiche per la rilevazione del movimento per migliorare la qualità"
+msgstr ""
+"Usa informazioni cromatiche per la rilevazione del movimento per migliorare "
+"la qualità"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:788
 msgid "Mixed Refs"
@@ -5820,8 +5941,12 @@ msgid "Fast P-Skip"
 msgstr "Fast P-Skip"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:802
-msgid "Early skip detection on P-frames to speedup encoding. Quality will be slightly reduced."
-msgstr "Rilevamento sommario sui fotogrammi P per velocizzare la codifica. La qualità sarà leggermente ridotta."
+msgid ""
+"Early skip detection on P-frames to speedup encoding. Quality will be "
+"slightly reduced."
+msgstr ""
+"Rilevamento sommario sui fotogrammi P per velocizzare la codifica. La "
+"qualità sarà leggermente ridotta."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:805
 msgid "DCT Decimate"
@@ -5841,8 +5966,12 @@ msgstr "<b>Stima movimento</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:844
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:855
-msgid "Enforce the size of a decoded pixel decoded to a certain value. Set this to 1:1 for non-anamorphic video."
-msgstr "Forza le dimensioni di un pixel decodificato a un certo valore. Impostare su 1:1 per un video non anamorfico."
+msgid ""
+"Enforce the size of a decoded pixel decoded to a certain value. Set this to "
+"1:1 for non-anamorphic video."
+msgstr ""
+"Forza le dimensioni di un pixel decodificato a un certo valore. Impostare su "
+"1:1 per un video non anamorfico."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:845
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:856
@@ -5856,8 +5985,11 @@ msgid ":"
 msgstr ":"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:864
-msgid "Set a custom aspect ratio. The default 1:1 is recommended for most video."
-msgstr "Imposta proporzioni personalizzate. L'impostazione predefinita 1:1 è raccomandata per la maggior parte dei video."
+msgid ""
+"Set a custom aspect ratio. The default 1:1 is recommended for most video."
+msgstr ""
+"Imposta proporzioni personalizzate. L'impostazione predefinita 1:1 è "
+"raccomandata per la maggior parte dei video."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:869
 msgid "Predefined Aspect Ratio"
@@ -5881,16 +6013,25 @@ msgid "CABAC"
 msgstr "CABAC"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:929
-msgid "Lossless compression technique that reduces bitrate by approximately 10%. Increases encoding and decoding time."
-msgstr "Tecnica di compressione senza perdita che riduce il bitrate di circa il 10%. Aumenta il tempo di codifica e decodifica."
+msgid ""
+"Lossless compression technique that reduces bitrate by approximately 10%. "
+"Increases encoding and decoding time."
+msgstr ""
+"Tecnica di compressione senza perdita che riduce il bitrate di circa il 10%. "
+"Aumenta il tempo di codifica e decodifica."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:936
 msgid "Trellis"
 msgstr "Trellis"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:945
-msgid "Use Trellis Rate Distortion Optimisation to find optimal encoding for each block. Level 0 equals disabled, level 1 equals normal and level 2 equals high."
-msgstr "Usa l'ottimizzazione distorsione Trellis per trovare la codifica ottimale per ogni blocco. 0 significa disattivata, 1 normale e 2 alta."
+msgid ""
+"Use Trellis Rate Distortion Optimisation to find optimal encoding for each "
+"block. Level 0 equals disabled, level 1 equals normal and level 2 equals "
+"high."
+msgstr ""
+"Usa l'ottimizzazione distorsione Trellis per trovare la codifica ottimale "
+"per ogni blocco. 0 significa disattivata, 1 normale e 2 alta."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:952
 msgid "Noise Reduction"
@@ -5913,8 +6054,12 @@ msgid "Strength"
 msgstr "Intensità"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1002
-msgid "Threshold for block detection. Positive values will detect more blocks, negative values will detect less."
-msgstr "Soglia rilevamento blocchi. Valori positivi rileveranno più blocchi, negativi meno."
+msgid ""
+"Threshold for block detection. Positive values will detect more blocks, "
+"negative values will detect less."
+msgstr ""
+"Soglia rilevamento blocchi. Valori positivi rileveranno più blocchi, "
+"negativi meno."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1011
 msgid "Positive values will soften the video, negative values will sharpen"
@@ -5975,7 +6120,8 @@ msgstr "Ricerca Intra 4x4"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1077
 msgid "Further enable DCT Intra block search to improve quality"
-msgstr "Attiva ricerca blocchi Intra DCT per migliorare ulteriormente la qualità"
+msgstr ""
+"Attiva ricerca blocchi Intra DCT per migliorare ulteriormente la qualità"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1080
 msgid "<b>Partition Macroblocks</b>"
@@ -5990,12 +6136,22 @@ msgid "Max Consecutive"
 msgstr "Max consecutivi"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1124
-msgid "Increase / decrease probability for how often B-frames are used. It will not violate the maximum consecutive frame limit."
-msgstr "Aumenta / diminuisce la probabilità di utilizzo dei fotogrammi B. Non supererà il limite massimo di fotogrammi consecutivi."
+msgid ""
+"Increase / decrease probability for how often B-frames are used. It will not "
+"violate the maximum consecutive frame limit."
+msgstr ""
+"Aumenta / diminuisce la probabilità di utilizzo dei fotogrammi B. Non "
+"supererà il limite massimo di fotogrammi consecutivi."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1133
-msgid "Set the maximum number of consecutive B-frames. This defines how many duplicate frames can be dropped. Numbers 2 to 5 are recommended. This greatly improves the use of bitrate and quality."
-msgstr "Imposta il massimo numero di fotogrammi B consecutivi. Questa opzione definisce quanti fotogrammi duplicati possono essere eliminati. Sono consigliati i valori da 2 a 5. Migliora molto l'uso del bitrate e la qualità."
+msgid ""
+"Set the maximum number of consecutive B-frames. This defines how many "
+"duplicate frames can be dropped. Numbers 2 to 5 are recommended. This "
+"greatly improves the use of bitrate and quality."
+msgstr ""
+"Imposta il massimo numero di fotogrammi B consecutivi. Questa opzione "
+"definisce quanti fotogrammi duplicati possono essere eliminati. Sono "
+"consigliati i valori da 2 a 5. Migliora molto l'uso del bitrate e la qualità."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1147
 msgid "Weighted Biprediction"
@@ -6010,16 +6166,24 @@ msgid "Adaptative DCT"
 msgstr "DCT adattativo"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1160
-msgid "Use fewer B-frames if needed. This is always recommended. If not enabled, the codec will always use the maximum number of consecutive B-frames."
-msgstr "Usa meno fotogrammi B se necessario. Sempre consigliato. Se disattivato, il codec userà sempre il numero massimo di fotogrammi B consecutivi."
+msgid ""
+"Use fewer B-frames if needed. This is always recommended. If not enabled, "
+"the codec will always use the maximum number of consecutive B-frames."
+msgstr ""
+"Usa meno fotogrammi B se necessario. Sempre consigliato. Se disattivato, il "
+"codec userà sempre il numero massimo di fotogrammi B consecutivi."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1163
 msgid "Use as Reference"
 msgstr "Usa come riferimento"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1168
-msgid "Allow B-frames to make references non-linearly to another B-frame (instead of creating a duplicate copy)"
-msgstr "Consenti ai fotogrammi B di fare riferimento a un altro fotogramma B in modo non lineare"
+msgid ""
+"Allow B-frames to make references non-linearly to another B-frame (instead "
+"of creating a duplicate copy)"
+msgstr ""
+"Consenti ai fotogrammi B di fare riferimento a un altro fotogramma B in modo "
+"non lineare"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1174
 msgid "B-Frame Direct Mode"
@@ -6050,12 +6214,22 @@ msgid "Set how much \"bitrate bonus\" a keyframe can get"
 msgstr "Imposta quanti \"bonus di bitrate\" può avere un fotogramma chiave"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1236
-msgid "Set how much bitrate is deducted from a B-frame as compared to the previous P-frame"
-msgstr "Imposta quanto bitrate è dedotto dal fotogramma B rispetto al precedente fotogramma P"
+msgid ""
+"Set how much bitrate is deducted from a B-frame as compared to the previous "
+"P-frame"
+msgstr ""
+"Imposta quanto bitrate è dedotto dal fotogramma B rispetto al precedente "
+"fotogramma P"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1245
-msgid "Define how much the bitrate can fluctuate over the entire video. 0% results in a constant bitrate stream, while 100% results in a pure quality based bitrate stream."
-msgstr "Definisci quanto può fluttuare il bitrate sull'intero video. 0% significa un flusso a bitrate costante, mentre 100% significa un flusso bitrate basato sulla qualità."
+msgid ""
+"Define how much the bitrate can fluctuate over the entire video. 0% results "
+"in a constant bitrate stream, while 100% results in a pure quality based "
+"bitrate stream."
+msgstr ""
+"Definisci quanto può fluttuare il bitrate sull'intero video. 0% significa un "
+"flusso a bitrate costante, mentre 100% significa un flusso bitrate basato "
+"sulla qualità."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1248
 msgid "Keyframe Boost (%)"
@@ -6094,16 +6268,23 @@ msgid "Enforce a maximum quantizer level"
 msgstr "Imponi un livelo di quantizzatore massimo"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1335
-msgid "Define how much the quantizer rate can change between two consecutive frames"
-msgstr "Definisci quanto può cambiare la quantizzazione tra due fotogrammi consecutivi"
+msgid ""
+"Define how much the quantizer rate can change between two consecutive frames"
+msgstr ""
+"Definisci quanto può cambiare la quantizzazione tra due fotogrammi "
+"consecutivi"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1338
 msgid "<b>Quantization Limits</b>"
 msgstr "<b>Limiti di quantizzazione</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1365
-msgid "Increase / decrease sensitivity for detecting scene changes. Improves I-frame usage and quality."
-msgstr "Aumenta / diminuisci la sensibilita per rilevare cambiamenti di scena. Migliora l'uso dei fotogrammi I e la qualità."
+msgid ""
+"Increase / decrease sensitivity for detecting scene changes. Improves I-"
+"frame usage and quality."
+msgstr ""
+"Aumenta / diminuisci la sensibilita per rilevare cambiamenti di scena. "
+"Migliora l'uso dei fotogrammi I e la qualità."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1368
 msgid "Scene Cut Threshold"
@@ -6114,12 +6295,24 @@ msgid "Min IDR Frame Interval"
 msgstr "Intervallo minimo fotogrammi IDR"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1388
-msgid "Set minimum frame interval between IDR frames. Defines the minimum amount a frame can be reused and referenced by other frames before a new IDR frame is established."
-msgstr "Imposta l'intervallo minimo tra fotogrammi IDR. Definisce il minimo numero di volte che un fotogramma può essere riutilizzato o preso a riferimento da altri fotogrammi prima che sia stabilito un nuovo IDR."
+msgid ""
+"Set minimum frame interval between IDR frames. Defines the minimum amount a "
+"frame can be reused and referenced by other frames before a new IDR frame is "
+"established."
+msgstr ""
+"Imposta l'intervallo minimo tra fotogrammi IDR. Definisce il minimo numero "
+"di volte che un fotogramma può essere riutilizzato o preso a riferimento da "
+"altri fotogrammi prima che sia stabilito un nuovo IDR."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1397
-msgid "Set maximum frame interval between IDR frames. Defines the maximum amount a frame can be reused and referenced by other frames before a new IDR frame is established."
-msgstr "Imposta l'intervallo massimo tra fotogrammi IDR. Definisce il massimo numero di volte che un fotogramma può essere riutilizzato o preso a riferimento da altri fotogrammi prima che sia stabilito un nuovo IDR."
+msgid ""
+"Set maximum frame interval between IDR frames. Defines the maximum amount a "
+"frame can be reused and referenced by other frames before a new IDR frame is "
+"established."
+msgstr ""
+"Imposta l'intervallo massimo tra fotogrammi IDR. Definisce il massimo numero "
+"di volte che un fotogramma può essere riutilizzato o preso a riferimento da "
+"altri fotogrammi prima che sia stabilito un nuovo IDR."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1400
 msgid "Max IDR Frame Interval"
@@ -6154,12 +6347,22 @@ msgid "Bitrate Variance"
 msgstr "Varianza bitrate"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1518
-msgid "Allowed variance of average bitrate. Lower values mean less variance. Higher values mean more variance."
-msgstr "Varianza consentita del bitrate medio. Valori più alti significano maggiore varianza."
+msgid ""
+"Allowed variance of average bitrate. Lower values mean less variance. Higher "
+"values mean more variance."
+msgstr ""
+"Varianza consentita del bitrate medio. Valori più alti significano maggiore "
+"varianza."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1527
-msgid "Allowed variance of average quantizer or quality. Lower values mean less variance. Higher values mean more variance. Note that 0 means constant quality while 1 means constant fluctuation. Recommended 0.6."
-msgstr "Varianza consentita della qualità media. Valori più alti significano maggiore varianza. Nota che 0 significa qualità costante mentre 1 fluttuazione costante. 0,6 consigliato."
+msgid ""
+"Allowed variance of average quantizer or quality. Lower values mean less "
+"variance. Higher values mean more variance. Note that 0 means constant "
+"quality while 1 means constant fluctuation. Recommended 0.6."
+msgstr ""
+"Varianza consentita della qualità media. Valori più alti significano "
+"maggiore varianza. Nota che 0 significa qualità costante mentre 1 "
+"fluttuazione costante. 0,6 consigliato."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1536
 msgid "Reduced fluctuations in Quantizer (before curve compression)"
@@ -6325,8 +6528,12 @@ msgid "_Interlaced"
 msgstr "_Interlacciato"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:861
-msgid "Enables interlaced frame support - use only if your source contains interlacing artifacts (i.e. fields instead of progressive frames)"
-msgstr "Attiva supporto fotogrammi interlacciati - solo se la fonte contiene artefatti interlacciati (cioè semiquadri invece di fotogrammi progressivi)"
+msgid ""
+"Enables interlaced frame support - use only if your source contains "
+"interlacing artifacts (i.e. fields instead of progressive frames)"
+msgstr ""
+"Attiva supporto fotogrammi interlacciati - solo se la fonte contiene "
+"artefatti interlacciati (cioè semiquadri invece di fotogrammi progressivi)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:863
 msgid "_Greyscale"
@@ -6381,8 +6588,11 @@ msgid "VHQ mode:"
 msgstr "Modalità VHQ:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:932
-msgid "Higher settings give higher quality results, at the cost of slower encoding"
-msgstr "Impostazioni più alte danno migliori risultati, ma richiedono una codifica più lenta"
+msgid ""
+"Higher settings give higher quality results, at the cost of slower encoding"
+msgstr ""
+"Impostazioni più alte danno migliori risultati, ma richiedono una codifica "
+"più lenta"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:936
 msgid "0 - None"
@@ -6438,7 +6648,8 @@ msgstr "_4MV"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:995
 msgid "Use 4 motion vectors per macroblock, might give better compression"
-msgstr "Usa 4 vettori di movimento per macroblocco per migliorare la compressione"
+msgstr ""
+"Usa 4 vettori di movimento per macroblocco per migliorare la compressione"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1001
 msgid "Max I-frame interval:"
@@ -6453,8 +6664,12 @@ msgid "Number of B-frames:"
 msgstr "Numero di fotogrammi B:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1032
-msgid "Maximum number of sequential B-frames (when set to 0, the original I/P encoder is used)"
-msgstr "Massimo numero di fotogrammi B sequenziali (se impostato a 0, viene usato l'encoder I/P originale)"
+msgid ""
+"Maximum number of sequential B-frames (when set to 0, the original I/P "
+"encoder is used)"
+msgstr ""
+"Massimo numero di fotogrammi B sequenziali (se impostato a 0, viene usato "
+"l'encoder I/P originale)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1038
 msgid "_Qpel"
@@ -6462,15 +6677,19 @@ msgstr "_Qpel"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1041
 msgid "Use Quarter pixel resolution for a more precise motion estimation"
-msgstr "Usa la risoluzione Quarto di pixel per una stima del movimento più precisa"
+msgstr ""
+"Usa la risoluzione Quarto di pixel per una stima del movimento più precisa"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1043
 msgid "_GMC"
 msgstr "_GMC"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1046
-msgid "Global Motion Compensation can save bits on camera pans, zooming and rotation"
-msgstr "La compensazione del movimento globale può ridurre i bit su panoramiche, zoom e rotazioni"
+msgid ""
+"Global Motion Compensation can save bits on camera pans, zooming and rotation"
+msgstr ""
+"La compensazione del movimento globale può ridurre i bit su panoramiche, "
+"zoom e rotazioni"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1048
 msgid "_BVHQ"
@@ -6517,8 +6736,12 @@ msgid "_MPEG"
 msgstr "_MPEG"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1118
-msgid "MPEG quantizers (slightly slower) produce sharper picture (useful at higher bitrates)"
-msgstr "I quantizzatori MPEG (leggermente più lenti) producono immagini più nitide (utile a bitrate più alti)"
+msgid ""
+"MPEG quantizers (slightly slower) produce sharper picture (useful at higher "
+"bitrates)"
+msgstr ""
+"I quantizzatori MPEG (leggermente più lenti) producono immagini più nitide "
+"(utile a bitrate più alti)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1122
 msgid "_Custom Matrix"
@@ -6580,7 +6803,9 @@ msgstr "Quantizzazione _Trellis"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1263
 msgid "Rate distortion quantization, will find optimal encoding for each block"
-msgstr "Quantizzazione con distorsione bitrate, trova codifica ottimale per ogni blocco"
+msgstr ""
+"Quantizzazione con distorsione bitrate, trova codifica ottimale per ogni "
+"blocco"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1265
 msgid "Quantization"
@@ -6612,20 +6837,36 @@ msgid "A value of 20 will give 20% more bits to every I-frame"
 msgstr "Un valore di 20 darà il 20 percento di bit in più a ogni fotogramma I"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1331
-msgid "I-frames appearing in the range below this value will be treated as consecutive keyframes"
-msgstr "Fotogrammi I nell'intervallo al di sotto di questo valore saranno considerati fotogrammi chiave consecutivi"
+msgid ""
+"I-frames appearing in the range below this value will be treated as "
+"consecutive keyframes"
+msgstr ""
+"Fotogrammi I nell'intervallo al di sotto di questo valore saranno "
+"considerati fotogrammi chiave consecutivi"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1336
-msgid "Reduction of bitrate for the first consecutive I-frames. The last I-frame will get treated normally"
-msgstr "Riduzione del bitrate per i primi fotogrammi I consecutivi. L'ultimo fotogramma I verrà trattato normalmente"
+msgid ""
+"Reduction of bitrate for the first consecutive I-frames. The last I-frame "
+"will get treated normally"
+msgstr ""
+"Riduzione del bitrate per i primi fotogrammi I consecutivi. L'ultimo "
+"fotogramma I verrà trattato normalmente"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1341
-msgid "How much of the overflow the codec can eat into during undersized sections - larger values will bridge the gap faster"
-msgstr "Valore di eccesso che il codec può trattare per le sezioni sotto-dimensionate - valori più alti colmeranno l'intervallo più velocemente"
+msgid ""
+"How much of the overflow the codec can eat into during undersized sections - "
+"larger values will bridge the gap faster"
+msgstr ""
+"Valore di eccesso che il codec può trattare per le sezioni sotto-"
+"dimensionate - valori più alti colmeranno l'intervallo più velocemente"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1346
-msgid "How much of the overflow the codec can eat into during oversized sections - larger values will bridge the gap faster"
-msgstr "Valore di eccesso che il codec può trattare per le sezioni sovra-dimensionate - valori più alti colmeranno l'intervallo più velocemente"
+msgid ""
+"How much of the overflow the codec can eat into during oversized sections - "
+"larger values will bridge the gap faster"
+msgstr ""
+"Valore di eccesso che il codec può trattare per le sezioni sovra-"
+"dimensionate - valori più alti colmeranno l'intervallo più velocemente"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1348
 msgid "Two pass tuning"
@@ -6644,16 +6885,28 @@ msgid "Overflow control strength (%):"
 msgstr "Potenza di controllo sovrabbondanza (%):"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1387
-msgid "The higher this value, the more bits get taken from frames larger than the average size, and redistributed to others"
-msgstr "Maggiore è questo valore, più numerosi sono i bit presi dai fotogrammi di dimensioni maggiori di quelle medie, e ridistribuiti agli altri"
+msgid ""
+"The higher this value, the more bits get taken from frames larger than the "
+"average size, and redistributed to others"
+msgstr ""
+"Maggiore è questo valore, più numerosi sono i bit presi dai fotogrammi di "
+"dimensioni maggiori di quelle medie, e ridistribuiti agli altri"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1392
-msgid "The higher this value, the more bits get assigned to frames below the average frame size"
-msgstr "Maggiore è questo valore, più numerosi sono i bit assegnati ai fotogrammi al di sotto della dimensione media"
+msgid ""
+"The higher this value, the more bits get assigned to frames below the "
+"average frame size"
+msgstr ""
+"Maggiore è questo valore, più numerosi sono i bit assegnati ai fotogrammi al "
+"di sotto della dimensione media"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1397
-msgid "0 = default from core (let XviD decide), else overflow payback percent per frame"
-msgstr "0 = predefinito (lascia decidere XviD), altrimenti percentuale di eccesso per fotogramma"
+msgid ""
+"0 = default from core (let XviD decide), else overflow payback percent per "
+"frame"
+msgstr ""
+"0 = predefinito (lascia decidere XviD), altrimenti percentuale di eccesso "
+"per fotogramma"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1399
 msgid "Curve compression"
@@ -6720,7 +6973,8 @@ msgstr "Menu animato"
 
 #: plugins/ADM_videoFilters/Animated/ADM_vidAnimated.cpp:39
 msgid "Create a video made of 6 mini windows, very useful to do DVD menus."
-msgstr "Crea un video fatto di 6 piccole finestre, molto utile per fare menu di DVD."
+msgstr ""
+"Crea un video fatto di 6 piccole finestre, molto utile per fare menu di DVD."
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:37
 msgid "_Background Image:"
@@ -6750,11 +7004,11 @@ msgstr "Numero di fotogrammi vignetta"
 msgid "Timecode:"
 msgstr "Timecode:"
 
-#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:60
+#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:61
 msgid "asharp"
 msgstr "asharp"
 
-#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:63
+#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:64
 msgid "Adaptative sharpener by MarcFD."
 msgstr "Nitidizzatore adattativo di MarcFD."
 
@@ -6893,8 +7147,12 @@ msgid "_Threshold:"
 msgstr "_Soglia:"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:72
-msgid "If value is smaller than threshold it is considered valid.Smaller value might mean more false positive."
-msgstr "Se il valore è minore della soglia è considerato valido. Valori più piccoli potrebbero produrre più falsi positivi."
+msgid ""
+"If value is smaller than threshold it is considered valid.Smaller value "
+"might mean more false positive."
+msgstr ""
+"Se il valore è minore della soglia è considerato valido. Valori più piccoli "
+"potrebbero produrre più falsi positivi."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:74
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:81
@@ -6913,7 +7171,8 @@ msgstr "I_dentità:"
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:75
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
 msgid "If metric is less than identical, images are considered identical"
-msgstr "Se le misure minori dell'identità, le immagini sono considerate identiche"
+msgstr ""
+"Se le misure minori dell'identità, le immagini sono considerate identiche"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:76
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:83
@@ -6925,13 +7184,21 @@ msgstr "_Mostra misure"
 msgid "Show metric in image (debug)"
 msgstr "Mostra misure nell'immagine (debug)"
 
+#: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:66
+msgid "Hard pulldown removal"
+msgstr "Rimozione pulldown forte"
+
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:69
 msgid "Remove IVTC that has been analog captured or resized."
 msgstr "Rimouve IVTC che è stato catturato analogicamente o ridimensionato."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:79
-msgid "If value is smaller than threshold it is considered valid. Smaller value might mean more false positive"
-msgstr "Se il valore è più piccolo della soglia è considerato valido. Valori più piccoli potrebbero produrre più falsi positivi."
+msgid ""
+"If value is smaller than threshold it is considered valid. Smaller value "
+"might mean more false positive"
+msgstr ""
+"Se il valore è più piccolo della soglia è considerato valido. Valori più "
+"piccoli potrebbero produrre più falsi positivi."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
 msgid "_Identical:"
@@ -6960,11 +7227,11 @@ msgstr "Croma V"
 msgid "Keep chroma V only."
 msgstr "Mantiene solo croma V."
 
-#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:35
+#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:36
 msgid "Chroma shift"
 msgstr "Traslazione croma"
 
-#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:38
+#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:39
 msgid "Shift chroma U/V to fix badly synced luma/chroma."
 msgstr "Trasla croma U/V per correggere luma/croma mal sincronizzate."
 
@@ -7046,7 +7313,8 @@ msgstr "Avisynth ColorYUV"
 
 #: plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp:72
 msgid "Alter colors (auto white balance etc...). Ported from Avisynth."
-msgstr "Corregge colori (bilanciamento automatico del bianco, ecc.). Da Avisynth."
+msgstr ""
+"Corregge colori (bilanciamento automatico del bianco, ecc.). Da Avisynth."
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:139
 msgid "ColorYuv (From avisynth)"
@@ -7449,7 +7717,9 @@ msgstr "Errore parametro"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:70
 msgid "Start must be before end, and both within video # of frames."
-msgstr "L'inizio deve essere prima della fine, ed entrambi minori del numero totale di fotogrammi."
+msgstr ""
+"L'inizio deve essere prima della fine, ed entrambi minori del numero totale "
+"di fotogrammi."
 
 #: plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp:172
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:294
@@ -7867,7 +8137,9 @@ msgstr "Ridimensionamento MPlayer"
 
 #: plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp:86
 msgid "Change image size. Faster than Avisynth's Resize."
-msgstr "Cambia la dimensione dell'immagine. Più veloce del ridimensionamento di Avisynth."
+msgstr ""
+"Cambia la dimensione dell'immagine. Più veloce del ridimensionamento di "
+"Avisynth."
 
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:80
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:164
@@ -7928,7 +8200,8 @@ msgstr "PAL Smart"
 
 #: plugins/ADM_videoFilters/PalShift/ADM_vidPalSmart.cpp:44
 msgid "Smartly revert non constant PAL field shift."
-msgstr "Annulla intelligentemente le traslazioni di semiquadri Pal non costanti."
+msgstr ""
+"Annulla intelligentemente le traslazioni di semiquadri Pal non costanti."
 
 #: plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp:38
 msgid "Pulldown"
@@ -8182,7 +8455,9 @@ msgstr "Inversione semiquadri intelligente"
 
 #: plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp:38
 msgid "Smartly swap fields. Needed when field order changes."
-msgstr "Inverte semiquadri intelligentemente. Necessario quando l'ordine semiquadri cambia."
+msgstr ""
+"Inverte semiquadri intelligentemente. Necessario quando l'ordine semiquadri "
+"cambia."
 
 #: plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp:28
 msgid "Swap U and V"
@@ -8441,7 +8716,8 @@ msgstr "Temporal Cleaner"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:74
 msgid "Vlad59's Avisynth port of Jim Casaburi's denoiser."
-msgstr "Port Avisynth di Vlad59 del filtro di rimozione del rumore di Jim Casaburi."
+msgstr ""
+"Port Avisynth di Vlad59 del filtro di rimozione del rumore di Jim Casaburi."
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:90
 msgid "_Luma temporal threshold:"
@@ -8536,304 +8812,517 @@ msgstr "Bob, salta verifica temporale spaziale"
 msgid "_Order:"
 msgstr "_Ordine:"
 
+#: scripts/auto/Apple/Apple iPhone.js:8 iPod 5.5G.js:8 iPod.js:8
+#: scripts/auto/Microsoft Zune.js:8 scripts/auto/Optical Disc/DVD.js:9
+#: Disc/Super Video CD.js:9 Disc/Video scripts/auto/Sony PlayStation
+#: Portable.js:8
+msgid "A video file must be open to use this Auto Wizard."
+msgstr ""
+"Un file video deve essere aperto per usare questa conversione automatica."
+
+#: scripts/auto/Apple/Apple iPhone.js:11
+msgid "Apple iPhone Auto Wizard"
+msgstr "Apple iPhone - Conversione automatica"
+
+#: scripts/auto/Apple/Apple iPod 5.5G.js:11
+msgid "Apple iPod 5.5G Auto Wizard"
+msgstr "Apple iPod 5.5G - Conversione automatica"
+
+#: scripts/auto/Apple/Apple iPod.js:11
+msgid "Apple iPod Auto Wizard"
+msgstr "Apple iPod - Conversione automatica"
+
+#: scripts/auto/Microsoft Zune.js:11
+msgid "Microsoft Zune Auto Wizard"
+msgstr "Microsoft Zune - Conversione automatica"
+
+#: scripts/auto/Optical Disc/DVD.js:12
+msgid "DVD Auto Wizard"
+msgstr "DVD - Conversione automatica"
+
+#: scripts/auto/Optical Disc/Super Video CD.js:12
+msgid "Super Video CD Auto Wizard"
+msgstr "Super Video CD - Conversione automatica"
+
+#: scripts/auto/Optical Disc/Video CD.js:12
+msgid "Video CD Auto Wizard"
+msgstr "Video CD - Conversione automatica"
+
+#: scripts/auto/Sony PlayStation Portable.js:11
+msgid "Sony PSP Auto Wizard"
+msgstr "Sony PSP - Conversione automatica"
+
+#: scripts/video/autoWizard.js:4
+msgid "Resolution:"
+msgstr "Risoluzione:"
+
+#: scripts/video/autoWizard.js:5
+msgid "Source Aspect Ratio:"
+msgstr "Proporzioni sorgente:"
+
+#: scripts/video/autoWizard.js:6
+msgid "Destination Aspect Ratio:"
+msgstr "Proporzioni destinazione:"
+
+#: scripts/auto/Apple/translate_dummy.cpp:3
+#, fuzzy
+msgid "Apple"
+msgstr "Avviso"
+
+#: scripts/auto/Apple/translate_dummy.cpp:4
+#, fuzzy
+msgid "Apple iPhone"
+msgstr "Apple iPhone - Conversione automatica"
+
+#: scripts/auto/Apple/translate_dummy.cpp:5
+#, fuzzy
+msgid "Apple iPod 5.5G"
+msgstr "Apple iPod 5.5G - Conversione automatica"
+
+#: scripts/auto/Apple/translate_dummy.cpp:6
+#, fuzzy
+msgid "Apple iPod"
+msgstr "Apple iPod - Conversione automatica"
+
+#: scripts/auto/Optical Disc/translate_dummy.cpp:3
+msgid "Optical Disc"
+msgstr ""
+
+#: scripts/auto/Optical Disc/translate_dummy.cpp:6
+#, fuzzy
+msgid "Video CD"
+msgstr "Video"
+
+#: scripts/auto/translate_dummy.cpp:3
+#, fuzzy
+msgid "Microsoft Zune"
+msgstr "Microsoft Zune - Conversione automatica"
+
+#: scripts/auto/translate_dummy.cpp:4
+msgid "Sony PlayStation Portable"
+msgstr ""
+
+#~ msgid "%"
+#~ msgstr "%"
+
 #~ msgid "MJPEG"
 #~ msgstr "MJPEG"
+
 #~ msgid "Xvid"
 #~ msgstr "Xvid"
+
 #~ msgid "Xvid4"
 #~ msgstr "Xvid4"
+
 #~ msgid "LavCodec"
 #~ msgstr "LavCodec"
+
 #~ msgid "DivX"
 #~ msgstr "DivX"
+
 #~ msgid "H.263 (lavc)"
 #~ msgstr "H.263 (lavc)"
+
 #~ msgid "H.263+ (lavc)"
 #~ msgstr "H.263+ (lavc)"
+
 #~ msgid "MPEG-4 ASP (lavc)"
 #~ msgstr "MPEG-4 ASP (lavc)"
+
 #~ msgid "DV (lavc)"
 #~ msgstr "DV (lavc)"
+
 #~ msgid "FLV1 (lavc)"
 #~ msgstr "FLV1 (lavc)"
+
 #~ msgid "Snow (lavc)"
 #~ msgstr "Snow (lavc)"
+
 #~ msgid "FF Huffyuv (lavc)"
 #~ msgstr "FF Huffyuv (lavc)"
+
 #~ msgid "Huffyuv (lavc)"
 #~ msgstr "Huffyuv (lavc)"
+
 #~ msgid "FFV1 (lavc)"
 #~ msgstr "FFV1 (lavc)"
+
 #~ msgid "MJPEG (lavc)"
 #~ msgstr "MJPEG (lavc)"
+
 #~ msgid "VCD (lavc)"
 #~ msgstr "VCD (lavc)"
+
 #~ msgid "DVD (lavc)"
 #~ msgstr "DVD (lavc)"
+
 #~ msgid "SVCD (lavc)"
 #~ msgstr "SVCD (lavc)"
+
 #~ msgid "VCD (mpeg2enc)"
 #~ msgstr "VCD (mpeg2enc)"
+
 #~ msgid "SVCD (mpeg2enc)"
 #~ msgstr "SVCD (mpeg2enc)"
+
 #~ msgid "DVD (mpeg2enc)"
 #~ msgstr "DVD (mpeg2enc)"
+
 #~ msgid "MPEG-4 ASP (Xvid4)"
 #~ msgstr "MPEG-4 ASP (Xvid4)"
+
 #~ msgid "Not activated."
 #~ msgstr "Non attivato."
+
 #~ msgid "Pipe to"
 #~ msgstr "Invia a"
+
 #~ msgid "Application path/name (/usr/bin/sox...)"
 #~ msgstr "Percorso/nome applicazione (/usr/bin/sox...)"
+
 #~ msgid "Full parameter line"
 #~ msgstr "Linea parametri completa"
+
 #~ msgid "Extra Shrink Factor :"
 #~ msgstr "Fattore di compressione supplementare: "
+
 #~ msgid "Extra Settings"
 #~ msgstr "Impostazioni supplementari"
+
 #~ msgid "Lame command"
 #~ msgstr "Comando Lame"
+
 #~ msgid "Enter parameters (i.e. -b 192 -m s ...)"
 #~ msgstr "Immetti parametri (es. -b 192 -ms ...)"
+
 #~ msgid "AVI _Muxer Options"
 #~ msgstr "Opzioni _Muxer AVI"
+
 #~ msgid "_VCD"
 #~ msgstr "_VCD"
+
 #~ msgid "_SVCD"
 #~ msgstr "_SVCD"
+
 #~ msgid "_DVD"
 #~ msgstr "_DVD"
+
 #~ msgid "_PSP"
 #~ msgstr "_PSP"
+
 #~ msgid "PSP (_H.264)"
 #~ msgstr "PSP (_H.264)"
+
 #~ msgid "F_LV"
 #~ msgstr "F_LV"
+
 #~ msgid "IPOD (mpeg4)"
 #~ msgstr "IPOD (mpeg4)"
+
 #~ msgid "Save Script"
 #~ msgstr "Salva script"
+
 #~ msgid "Save as script [Ctrl-J]"
 #~ msgstr "Salva come script [Ctrl-J]"
+
 #~ msgid "DVD Res"
 #~ msgstr "Ris. DVD"
+
 #~ msgid "DVD resolution [Ctrl-1]"
 #~ msgstr "Risoluzione DVD [Ctrl-1]"
+
 #~ msgid "Half D1 Res"
 #~ msgstr "Ris. Half D1"
+
 #~ msgid "Half D1 resolution [Ctrl-2]"
 #~ msgstr "Risoluzione Half D1 [Ctrl-2]"
+
 #~ msgid "SVCD Res"
 #~ msgstr "Ris. SVCD"
+
 #~ msgid "SVCD resolution [Ctrl-3]"
 #~ msgstr "Risoluzione SVCD [Ctrl-3]"
+
 #~ msgid "VCD Res"
 #~ msgstr "Ris. VCD"
+
 #~ msgid "VCD resolution [Ctrl-4]"
 #~ msgstr "Risoluzione VCD [Ctrl-4]"
+
 #~ msgid "Transform"
 #~ msgstr "Trasforma"
+
 #~ msgid "Noise"
 #~ msgstr "Rumore"
+
 #~ msgid "Sharpness"
 #~ msgstr "Nitidezza"
+
 #~ msgid "Misc"
 #~ msgstr "Varie"
+
 #~ msgid "External"
 #~ msgstr "Esterni"
+
 #~ msgid "VCD 40 kB"
 #~ msgstr "VCD 40 kB"
+
 #~ msgid "SVCD 112 kB"
 #~ msgstr "SVCD 112 kB"
+
 #~ msgid "DVD 224 kB"
 #~ msgstr "DVD 224 kB"
+
 #~ msgid "_Swap U&V"
 #~ msgstr "_Inverti U e V"
+
 #~ msgid "MJPEG Configuration"
 #~ msgstr "Configurazione Mjpeg"
+
 #~ msgid "Video Codecs"
 #~ msgstr "Codec video"
+
 #~ msgid "x264"
 #~ msgstr "x264"
+
 #~ msgid "aRts"
 #~ msgstr "aRts"
+
 #~ msgid "ESD"
 #~ msgstr "ESD"
+
 #~ msgid "FreeType 2"
 #~ msgstr "FreeType 2"
+
 #~ msgid "ALSA"
 #~ msgstr "ALSA"
+
 #~ msgid "OSS"
 #~ msgstr "OSS"
+
 #~ msgid "Codecs"
 #~ msgstr "Codec"
+
 #~ msgid "VCD"
 #~ msgstr "VCD"
+
 #~ msgid "SVCD"
 #~ msgstr "SVCD"
+
 #~ msgid "DVD half D1"
 #~ msgstr "DVD half D1"
+
 #~ msgid "PSP (480 * 272)"
 #~ msgstr "PSP (480 * 272)"
+
 #~ msgid "PSP full res. (720 * 480)"
 #~ msgstr "PSP ris. completa (720 * 480)"
+
 #~ msgid "_Target type:"
 #~ msgstr "_Tipo:"
-#~ msgid "_Source aspect ratio:"
-#~ msgstr "Proporzioni _sorgente:"
-#~ msgid "_Destination aspect ratio:"
-#~ msgstr "Proporzioni _destinazione:"
-#~ msgid "Auto Wizard"
-#~ msgstr "Assistente automatico"
+
 #~ msgid "MPEG-2 Configuration"
 #~ msgstr "Configurazione MPEG-2"
+
 #~ msgid "_Split MPEG files every (MB):"
 #~ msgstr "_Dividi i file MPEG ogni (MB):"
+
 #~ msgid "_Filter directory:"
 #~ msgstr "Cartella _filtri:"
+
 #~ msgid "Select filter directory"
 #~ msgstr "Seleziona la cartella filtri"
+
 #~ msgid "_Load external filters"
 #~ msgstr "C_arica filtri esterni"
+
 #~ msgid "External Filters"
 #~ msgstr "Filtri esterni"
+
 #~ msgid "X1"
 #~ msgstr "X1"
+
 #~ msgid "MB comparison"
 #~ msgstr "Confronto MB"
+
 #~ msgid "Matrices"
 #~ msgstr "Matrici"
+
 #~ msgid "4_MV"
 #~ msgstr "4_MV"
+
 #~ msgid "_Quarter pixel"
 #~ msgstr "_Quarter pixel"
+
 #~ msgid "_Number of B frames:"
 #~ msgstr "Numero di fotogrammi _B:"
+
 #~ msgid "_Filesize tolerance (kb):"
 #~ msgstr "Tolleranza dimensione _file (kb):"
+
 #~ msgid "libavcodec MPEG-4 configuration"
 #~ msgstr "Configurazione libavcodec MPEG-4"
+
 #~ msgid "libmpeg2enc VCD"
 #~ msgstr "VCD libmpeg2enc"
+
 #~ msgid "libmpeg2enc SVCD"
 #~ msgstr "SVCD libmpeg2enc"
+
 #~ msgid "libmpeg2enc DVD"
 #~ msgstr "DVD libmpeg2enc"
+
 #~ msgid "FFmpeg MPEG-1 VBR"
 #~ msgstr "MPEG-1 VBR FFmpeg"
+
 #~ msgid "FFmpeg MPEG-2 SVCD VBR"
 #~ msgstr "MPEG-2 SVCD VBR FFmpeg"
+
 #~ msgid "FFmpeg MPEG-2 DVD VBR"
 #~ msgstr "MPEG-2 DVD VBR FFmpeg"
+
 #~ msgid "Error in pass 1"
 #~ msgstr "Errore nella passata 1"
+
 #~ msgid "Error in pass 2"
 #~ msgstr "Errore nella passata 2"
+
 #~ msgid "Troubles ahead"
 #~ msgstr "Problemi avanti"
+
 #~ msgid "This a VOP packed AVI."
 #~ msgstr "Questo è un AVI compresso con VOP."
+
 #~ msgid "Internal error opening codec"
 #~ msgstr "Errore interno nell'aprire i codec"
+
 #~ msgid "Internal error with context for  codec"
 #~ msgstr "Errore interno con il contesto per il codec"
-#~ msgid "%lu minutes"
-#~ msgstr "%lu minuti"
-#~ msgid "%lu minute"
-#~ msgstr "%lu minuto"
-#~ msgid "%lu second"
-#~ msgstr "%lu secondo"
-#~ msgid "%lu seconds"
-#~ msgstr "%lu secondi"
+
 #~ msgid "At the moment, the DV codec only accepts 720*576@25"
 #~ msgstr "Al momento, il codec DV accetta solo 720*576@25"
+
 #~ msgid "Only QCIF and subQCIF are allowed for H.263"
 #~ msgstr "Solo QCIF e subQCIF sono consentiti per H.263"
+
 #~ msgid ""
 #~ "This is to be used to undo packed VOP on MPEG-4.\n"
 #~ "Continue ?"
 #~ msgstr ""
 #~ "Questo deve essere usato per decomprimere il VOP su MPEG-4.\n"
 #~ "Continuare?"
+
 #~ msgid "Select AVI File to Write"
 #~ msgstr "Seleziona il file AVI da scrivere"
+
 #~ msgid "Select OGM File to Write"
 #~ msgstr "Seleziona il file OGM da scrivere"
+
 #~ msgid "No audio track"
 #~ msgstr "Nessuna traccia audio"
+
 #~ msgid "An audio track is necessary to create such file"
 #~ msgstr "È necessaria una traccia audio per creare questo tipo di file"
+
 #~ msgid "Cannot select the MPEG-4 SP codec."
 #~ msgstr "Impossibile selezionare il codec MPEG-4 SP."
+
 #~ msgid "No AAC audio encoder plugin found."
 #~ msgstr "Non è stato trovato nessun plugin per la codifica audio AAC."
+
 #~ msgid ""
 #~ "The MP3 codec does not allow disabling reservoir.\n"
 #~ "Install lame plugin"
 #~ msgstr ""
 #~ "Il codec MP3 non consente la disattivazione della riserva.\n"
 #~ "Installa il plugin lame"
+
 #~ msgid ""
 #~ "You don't have LAME!.\n"
 #~ "It is needed to create FLV  video."
 #~ msgstr ""
 #~ "Non disponi di LAME!\n"
 #~ "È necessario per creare video FLV."
+
 #~ msgid "Cannot select FLV1  codec."
 #~ msgstr "Impossibile selezionare il codec FLV1."
+
 #~ msgid "Cannot select mpeg4 sp codec."
 #~ msgstr "Impossibile selezionare il codec mpeg4 sp."
+
 #~ msgid ""
 #~ "You don't have FAAC!.\n"
 #~ "It is needed to create PSP compatible video."
 #~ msgstr ""
 #~ "Non disponi di FAAC.\n"
 #~ "È necessario per creare video compatibili con PSP."
+
 #~ msgid "Unknown flag :"
 #~ msgstr "Flag sconosciuto: "
+
 #~ msgid "separatefields"
 #~ msgstr "Separazione semiquadri"
+
 #~ msgid "Xvid Configuration File (*.xml)"
 #~ msgstr "File configurazione Xvid (*.xml)"
+
 #~ msgid "Target Bitrate:"
 #~ msgstr "Bitrate finale:"
+
 #~ msgid "kbit/s"
 #~ msgstr "kbit/s"
+
 #~ msgid "Target Video Size:"
 #~ msgstr "Dimensione video finale:"
+
 #~ msgid "MB"
 #~ msgstr "MB"
+
 #~ msgid "Average Bitrate:"
 #~ msgstr "Bitrate medio:"
+
 #~ msgid "Select Matrix File"
 #~ msgstr "Seleziona un file matrice"
+
 #~ msgid "Read Error"
 #~ msgstr "Errore di lettura"
+
 #~ msgid "Error reading custom matrix file."
 #~ msgstr "Errore nel caricamento della matrice personale."
+
 #~ msgid "Quantiser"
 #~ msgstr "Quantizzatore"
+
 #~ msgid "Bitrate Factor"
 #~ msgstr "Fattore bitrate"
+
 #~ msgid "Frame Start"
 #~ msgstr "Inizio fotogramma"
+
 #~ msgid "Frame End"
 #~ msgstr "Fine fotogramma"
+
 #~ msgid "Mode"
 #~ msgstr "Modalità"
+
 #~ msgid "Value"
 #~ msgstr "Valore"
+
 #~ msgid "9 (Best)"
 #~ msgstr "9 (migliore)"
+
 #~ msgid "Disabled"
 #~ msgstr "Disattiva"
+
 #~ msgid "Enabled"
 #~ msgstr "Attiva"
+
 #~ msgid "x264 Configuration File (*.xml)"
 #~ msgstr "File configurazione x264 (*.xml)"
+
 #~ msgid "Quality:"
 #~ msgstr "Qualità:"
+
 #~ msgid ""
 #~ "Trellis optimisation isn't possible without CABAC coding enabled.  "
 #~ "Trellis optimisation will automatically be disabled.\n"
@@ -8844,6 +9333,7 @@ msgstr "_Ordine:"
 #~ "disattivata. L'ottimizzazione Trellis sarà disattivata automaticamente.\n"
 #~ "\n"
 #~ "Vuoi continuare?"
+
 #~ msgid ""
 #~ "Trellis optimisation requires CABAC coding to be enabled.  CABAC coding "
 #~ "will automatically be enabled.\n"
@@ -8854,66 +9344,94 @@ msgstr "_Ordine:"
 #~ "CABAC sarà attivata automaticamente.\n"
 #~ "\n"
 #~ "Vuoi continuare?"
+
 #~ msgid "Are you sure you wish to delete the selected zone?"
 #~ msgstr "Sei sicuro di voler eliminare la zona selezionata?"
+
 #~ msgid "Y800 (lavc)"
 #~ msgstr "Y800 (lavc)"
+
 #~ msgid "MPEG-4 AVC (x264)"
 #~ msgstr "MPEG-4 AVC (x264)"
+
 #~ msgid "Y800"
 #~ msgstr "Y800"
+
 #~ msgid "Cannot open AMR codec."
 #~ msgstr "Impossibile aprire il codec AMR."
+
 #~ msgid "Could not open OSS audio device"
 #~ msgstr "Impossibile aprire il dispositivo audio OSS"
+
 #~ msgid "Check the permissions for /dev/dsp."
 #~ msgstr "Verifica i permessi per /dev/dsp."
+
 #~ msgid "Encoder initialization failed"
 #~ msgstr "Inizializzazione codificatore fallita"
+
 #~ msgid "Internal error finding codec '"
 #~ msgstr "Errore interno nel cercare il codec '"
+
 #~ msgid "Wrong output format"
 #~ msgstr "Formato in uscita errato"
+
 #~ msgid "Select MPEG as the output."
 #~ msgstr "Seleziona MPEG come output."
+
 #~ msgid "Wrong video codec"
 #~ msgstr "Codec video errato"
+
 #~ msgid "Select DVD as the video codec for MPEG TS output."
 #~ msgstr "Seleziona DVD come codec video per l'output MPEG TS."
+
 #~ msgid "Fatal error"
 #~ msgstr "Errore fatale"
+
 #~ msgid "Picture resizer ported from Avisynth."
 #~ msgstr "Ridimensionatore immagini di Avisynth."
+
 #~ msgid "Add pure black border(s). Enlarges the picture."
 #~ msgstr "Aggiunge bordi neri. Ingrandisce l'immagine."
+
 #~ msgid "Bobber - convert each field into a full sized frame."
 #~ msgstr "Bobber - converte ogni semiquadro in un fotogramma intero."
+
 #~ msgid "Keep top fields. Gives a half height picture."
 #~ msgstr "Mantiene i fotogrammi superiori. Restituisce un'immagine dimezzata."
+
 #~ msgid "Keep bottom fileds. Gives a half height picture."
 #~ msgstr "Mantiene i fotogrammi inferiori. Restituisce un'immagine dimezzata."
+
 #~ msgid "Hz Stack fields"
 #~ msgstr "Affiancamento semiquadri"
+
 #~ msgid "Chroma U only"
 #~ msgstr "Solo croma U"
+
 #~ msgid "Convert picture to grey, keeping only chroma U."
 #~ msgstr "Converte l'immagine in scala di grigi, mantenendo solo croma U."
+
 #~ msgid "Chroma V only"
 #~ msgstr "Solo croma V"
+
 #~ msgid "Convert picture to grey, keeping only chroma V."
 #~ msgstr "Converte l'immagine in scala di grigi, mantenendo solo croma V."
+
 #~ msgid "Chroma noise reduction filter by MarcFD/Tritical."
 #~ msgstr "Filtro di riduzione rumore croma di MarcFD/Tritical."
+
 #~ msgid "Apply blind postprocessing."
 #~ msgstr "Forza postprocessing."
+
 #~ msgid "Blend remover"
 #~ msgstr "Rimozione miscela"
+
 #~ msgid "Remove blend between previous and next picture."
 #~ msgstr "Rimuove miscela tra immagine precedente e successiva."
-#~ msgid "Hard pulldown removal"
-#~ msgstr "Rimozione pulldown forte"
+
 #~ msgid "Fatal Error"
 #~ msgstr "Errore fatale"
+
 #~ msgid ""
 #~ "A fatal error has occurred.\n"
 #~ "\n"
@@ -8924,148 +9442,216 @@ msgstr "_Ordine:"
 #~ "\n"
 #~ "Clicca OK per produrre le informazioni di debug. Potrebbe richiedere "
 #~ "alcuni minuti."
+
 #~ msgid "can't create custom directory (%s)."
 #~ msgstr "impossibile creare la cartella preferiti (%s)."
+
 #~ msgid "can't create job directory (%s)."
 #~ msgstr "impossibile creare la cartella attività (%s)."
+
 #~ msgid "Can't determine the Application Data folder."
 #~ msgstr "Impossibile determinare la cartella Application Data."
+
 #~ msgid "can't determine $HOME."
 #~ msgstr "impossibile determinare $HOME."
+
 #~ msgid "Cannot create the .avidemux directory"
 #~ msgstr "Impossibile creare la cartella .avidemux"
+
 #~ msgid ""
 #~ "\n"
 #~ " Reuse the existing log-file ?"
 #~ msgstr ""
 #~ "\n"
 #~ " Riutilizzare il file log esistente?"
+
 #~ msgid "Reuse log file ?"
 #~ msgstr "Riutilizzare il file log?"
+
 #~ msgid "Audio Codecs"
 #~ msgstr "Codec audio"
+
 #~ msgid "Aften"
 #~ msgstr "Aften"
+
 #~ msgid "amrnb"
 #~ msgstr "amrnb"
+
 #~ msgid "FAAC"
 #~ msgstr "FAAC"
+
 #~ msgid "FAAD2"
 #~ msgstr "FAAD2"
+
 #~ msgid "LAME"
 #~ msgstr "LAME"
+
 #~ msgid "liba52"
 #~ msgstr "liba52"
+
 #~ msgid "libdca"
 #~ msgstr "libdca"
+
 #~ msgid "MAD"
 #~ msgstr "MAD"
+
 #~ msgid "Vorbis"
 #~ msgstr "Vorbis"
+
 #~ msgid "Use glyphset (optional):"
 #~ msgstr "Usa set di glifi (opzionale):"
+
 #~ msgid "_Use libavcodec MPEG-2 decoder"
 #~ msgstr "_Usa libavcodec come decodificatore MPEG-2"
+
 #~ msgid "_x264 threads:"
 #~ msgstr "Thread _x264:"
+
 #~ msgid "X_vid threads:"
 #~ msgstr "Thread X_vid:"
+
 #~ msgid "Core Audio"
 #~ msgstr "Core Audio"
+
 #~ msgid "JACK"
 #~ msgstr "JACK"
+
 #~ msgid "Pulse Audio"
 #~ msgstr "Pulse Audio"
+
 #~ msgid "Win32"
 #~ msgstr "Win32"
+
 #~ msgid "_Audio output:"
 #~ msgstr "Output _audio:"
+
 #~ msgid "ALSA _device:"
 #~ msgstr "_Dispositivo ALSA:"
+
 #~ msgid "1  - Extremely Low (Fastest)"
 #~ msgstr "1  - Estremamente bassa (più veloce)"
+
 #~ msgid "2  - Very Low"
 #~ msgstr "2  - Molto bassa"
+
 #~ msgid "3  - Low"
 #~ msgstr "3  - Bassa"
+
 #~ msgid "4  - Medium"
 #~ msgstr "4  - Media"
+
 #~ msgid "5  - High"
 #~ msgstr "5  - Alta"
+
 #~ msgid "6  - High (Default)"
 #~ msgstr "6  - Alta (predefinito)"
+
 #~ msgid "6B - Very High (RDO on B-frames)"
 #~ msgstr "6B - Molto alta (RDO sui fotogrammi-B)"
+
 #~ msgid "7  - Ultra High"
 #~ msgstr "7  - Ultra"
+
 #~ msgid "7B - Ultra High (RDO on B-frames)"
 #~ msgstr "7B - Ultra (RDO sui fotogrammi-B)"
+
 #~ msgid "Bidirectional ME"
 #~ msgstr "Valutazione movimento bidirezionale"
+
 #~ msgid ""
 #~ "Optimise both motion vectors in B-frames. This will improve quality but "
 #~ "take more time for encoding."
 #~ msgstr ""
 #~ "Ottimizza entrambi i vettori movimento nei fotogrammi-B. Questo "
 #~ "migliorerà la qualità ma richiederà un maggior tempo di codifica."
+
 #~ msgid "Xvid Encoder"
 #~ msgstr "Codificatore Xvid"
+
 #~ msgid "Constant Quantizer"
 #~ msgstr "Quantizzatore costante"
+
 #~ msgid "Constant Bitrate (kbps)"
 #~ msgstr "Bitrate costante (kb/s)"
+
 #~ msgid "Dual pass (MBytes)"
 #~ msgstr "Doppia passata (MB)"
+
 #~ msgid "Basic"
 #~ msgstr "Basica"
+
 #~ msgid "Motion Search"
 #~ msgstr "Ricerca movimento"
+
 #~ msgid "Min I frame interval"
 #~ msgstr "Minimo intervallo fotogrammi I"
+
 #~ msgid "1- Very low"
 #~ msgstr "1 - Molto bassa"
+
 #~ msgid "2- Low"
 #~ msgstr "2 - Bassa"
+
 #~ msgid "3- Medium"
 #~ msgstr "3 - Media"
+
 #~ msgid "4- High"
 #~ msgstr "4 - Alta"
+
 #~ msgid "5- Very High"
 #~ msgstr "5 - Molto alta"
+
 #~ msgid "6- Ultra High"
 #~ msgstr "6 - Ultra"
+
 #~ msgid "H263 Quantizer"
 #~ msgstr "Quantizzatore H263"
+
 #~ msgid "MPEG Quantizer"
 #~ msgstr "Quantizzatore MPEG"
+
 #~ msgid "Advanced"
 #~ msgstr "Avanzato"
+
 #~ msgid "Min I Frame Qzer"
 #~ msgstr "Min. quantiz. fotogrammi I"
+
 #~ msgid "Max I Frame Qzer"
 #~ msgstr "Max. quantiz. fotogramma I"
+
 #~ msgid "Min P Frame Qzer"
 #~ msgstr "Min. quantiz. fotogramma P"
+
 #~ msgid "Max P Frame Qzer"
 #~ msgstr "Max. quantiz. fotogramma P"
+
 #~ msgid "Not Yet!"
 #~ msgstr "Non ancora!"
+
 #~ msgid "B Frames"
 #~ msgstr "Fotogrammi B"
+
 #~ msgid "Size (MBytes):"
 #~ msgstr "Dimensione (MB):"
+
 #~ msgid "XviD encoding options"
 #~ msgstr "Opzioni codifica XviD"
+
 #~ msgid "Same Quantizer as Input"
 #~ msgstr "Stesso quantizzatore dell'input"
+
 #~ msgid "1 - Very low"
 #~ msgstr "1 - Molto bassa"
+
 #~ msgid "5 - Very high"
 #~ msgstr "5 - Molto alta"
+
 #~ msgid "6 - Ultra high"
 #~ msgstr "6 - Ultra"
+
 #~ msgid "HQ _AC"
 #~ msgstr "HQ _AC"
+
 #~ msgid ""
 #~ "Enable a better prediction of AC component. Turns on Lumi masking - "
 #~ "applies more compression to dark/light areas that the eye cannot notice "
@@ -9074,17 +9660,21 @@ msgstr "_Ordine:"
 #~ "Migliora la previsione di componenti AC. Attiva il lumi-masking - applica "
 #~ "una maggiore compressione alle zone chiare/scure che l'occhio non nota "
 #~ "facilmente"
+
 #~ msgid "I-frame interval - Min:"
 #~ msgstr "Intervallo I-frame - Min:"
+
 #~ msgid ""
 #~ "Minimum space between I-frames, 1 will disable forced I-frame spacing"
 #~ msgstr ""
 #~ "Intervallo minimo tra due fotogrammi chiave, 1 disattiva lo spaziamento "
 #~ "forzato tra fotogrammi"
+
 #~ msgid "Motion Threshold"
 #~ msgstr "Soglia movimento"
+
 #~ msgid "Blend Threshold"
 #~ msgstr "Soglia miscela"
+
 #~ msgid "Xvid4 and FAAC support is required for the iPod profile."
 #~ msgstr "Il supporto di Xvid4 e FAAC è richiesto per il profilo iPod."
-
