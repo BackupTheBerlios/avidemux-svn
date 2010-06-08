@@ -20,11 +20,12 @@
 #include "ADM_video/ADM_vidMisc.h"
 #include "ADM_toolkitQt.h"
 
-static QString yesno[2] = {propWindow::tr("No"), propWindow::tr("Yes")};
 extern const char *getStrFromAudioCodec( uint32_t codec);
 
 propWindow::propWindow(QWidget *parent) : QDialog(parent)
  {
+	 QString yesno[2] = {propWindow::tr("No"), propWindow::tr("Yes")};
+
      ui.setupUi(this);
      uint8_t gmc, qpel,vop;
  uint32_t info=0;
