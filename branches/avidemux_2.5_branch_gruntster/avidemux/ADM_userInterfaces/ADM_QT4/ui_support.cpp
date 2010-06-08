@@ -83,8 +83,9 @@ void loadTranslator(void)
 	QString appdir = ADM_getInstallRelativePath("share","avidemux","i18n");
 #endif
 
-	loadTranslation(&qtTranslator, appdir + "qt_" + QLocale::system().name());
 	loadTranslation(&avidemuxTranslator, appdir + "avidemux_" + QLocale::system().name());
+	loadTranslation(&qtTranslator, appdir + "qt_" + QLocale::system().name());
+
 	translatorLoaded = true;
 
 	// Re-translate existing map (to take care of global strings already allocated)
