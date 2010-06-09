@@ -14,7 +14,7 @@ sh gentouch.sh
 goto end
 
 :error
-set ERRORLEVEL=1
+exit /b 1
 
 :end
 pause

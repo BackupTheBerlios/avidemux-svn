@@ -1,5 +1,3 @@
-rmdir /s/q "%sdkBuildDir%"
-mkdir "%sdkBuildDir%"
 mkdir "%sdkBuildDir%\lib"
 move "%buildDir%\lib\*.a" "%sdkBuildDir%\lib"
 del /s "%buildDir%\*.a"

@@ -1,5 +1,3 @@
-@echo off
-
 set ProgramFiles32=%ProgramFiles%
 if "%PROCESSOR_ARCHITECTURE%" == "AMD64" for /D %%d in ("%ProgramFiles(x86)%") do set ProgramFiles32=%%~fsd
 set nsisDir=%ProgramFiles32%\NSIS
@@ -84,6 +82,6 @@ set PATH=%cmakeDir%;%mingwDir%\bin;%usrLocalDir%\bin;%msysDir%\bin;%msysDir%\loc
 goto end
 
 :error
-set ERRORLEVEL=1
+exit /b 1
 
 :end
