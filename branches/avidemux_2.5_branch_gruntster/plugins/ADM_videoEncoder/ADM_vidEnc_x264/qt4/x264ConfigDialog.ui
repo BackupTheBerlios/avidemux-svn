@@ -531,7 +531,7 @@
               <item>
                <widget class="QRadioButton" name="threadCustomRadioButton" >
                 <property name="text" >
-                 <string>Custom:</string>
+                 <string comment="multithreading" >Custom:</string>
                 </property>
                </widget>
               </item>
@@ -3588,7 +3588,7 @@
             <item row="0" column="0" >
              <widget class="QRadioButton" name="sarCustomRadioButton" >
               <property name="text" >
-               <string>Custom:</string>
+               <string comment="PAR" >Custom:</string>
               </property>
               <property name="checked" >
                <bool>true</bool>
