@@ -12,6 +12,7 @@ class encodingWindow : public QDialog
 
  protected:
 	void changeEvent(QEvent *event);
+	void closeEvent(QCloseEvent *event);
 
  public:
      encodingWindow(QWidget *parent, bool useTray);

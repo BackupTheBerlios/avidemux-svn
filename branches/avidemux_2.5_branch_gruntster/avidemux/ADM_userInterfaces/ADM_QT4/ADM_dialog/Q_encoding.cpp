@@ -13,6 +13,7 @@
  ***************************************************************************/
 #include <math.h>
 #include <QtGui/QPushButton>
+#include <QtGui/QCloseEvent>
 
 #include "Q_encoding.h"
 #include "prefs.h"
@@ -30,7 +31,7 @@ extern void UI_purge(void);
 static int stopReq=0;
 
 encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint)
- {
+{
 	this->useTray = useTray;
 	ui.setupUi(this);
 
@@ -89,10 +90,24 @@ void encodingWindow::changeEvent(QEvent *event)
 	}
 }
 
+void encodingWindow::closeEvent(QCloseEvent *event)
+{
+	if (GUI_Alternate((char*)encodingWindow::tr("The encoding is paused. Do you want to resume or abort?").toUtf8().constData(),
+		(char*)encodingWindow::tr("Resume").toUtf8().constData(), (char*)encodingWindow::tr("Abort").toUtf8().constData()))
+	{
+		stopReq = 0;
+		event->ignore();
+	}
+	else
+	{
+		stopReq = 1;
+		event->accept();
+	}
+}
+
 void encodingWindow::buttonPressed(void)
 {
-	printf("StopReq\n");
-	stopReq=1;
+	this->close();
 }
 
 void encodingWindow::priorityChanged(int priorityLevel)
@@ -493,20 +508,10 @@ void DIA_encoding::setAudioSize(uint32_t size)
 */
 uint8_t DIA_encoding::isAlive( void )
 {
-        updateUI();
+	if (!stopReq)
+		updateUI();
 
-        if(stopReq)
-        {
-          if(GUI_Alternate((char*)encodingWindow::tr("The encoding is paused. Do you want to resume or abort?").toUtf8().constData(),
-                              (char*)encodingWindow::tr("Resume").toUtf8().constData(), (char*)encodingWindow::tr("Abort").toUtf8().constData()))
-                 {
-                         stopReq=0;
-                 }
-        }
-
-        if(!stopReq) return 1;		
-
-        return 0;
+	return !stopReq;
 }
 
 //********************************************
