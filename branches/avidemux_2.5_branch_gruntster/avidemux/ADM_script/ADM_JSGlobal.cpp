@@ -164,7 +164,11 @@ bool parseECMAScript(const char *name)
 	uintN lineno = 0;
 	g_bJSSuccess = 0;
 	printf("Spidermonkey compiling \"%s\"...",name);
-	JSScript *pJSScript = JS_CompileFile(g_pCx, g_pObject, name);
+
+	FILE *file = fopen(name, "r");
+	JSScript *pJSScript = JS_CompileFileHandle(g_pCx, g_pObject, name, file);;
+
+	fclose(file);
 	printf("Done.\n");
 
 	if(pJSScript != NULL)
