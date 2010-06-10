@@ -389,7 +389,7 @@ if (fourCC::check (fcc, (uint8_t *) "MJPG")
   if (fcc == 0 || fourCC::check(fcc, (uint8_t *) "RGB ") || fourCC::check(fcc, (uint8_t *) "DIB "))
   {
 	  printf ("\n using Rawvideo codec, BPP: %d\n", bpp);
-	  return (decoders *) (new decoderFFRaw(w, h, bpp));
+	  return (decoders *) (new decoderFFRaw(w, h, bpp, extraLen, extraData));
   }
 
   if (isMpeg12Compatible (fcc))

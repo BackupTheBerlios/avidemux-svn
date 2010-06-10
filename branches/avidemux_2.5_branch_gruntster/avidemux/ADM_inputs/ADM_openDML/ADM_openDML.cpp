@@ -475,12 +475,25 @@ uint32_t rd;
                                                 track->extraDataLen,track->extraData);
                         }
                 }
-                if(!_video_bih.biCompression && fourCC::check(_videostream.fccHandler,(uint8_t*)"DIB "))
-                  {
-                        _videostream.fccHandler=_video_bih.biCompression=fourCC::get((uint8_t*)"DIB ");
-                  }
-                else
-                _videostream.fccHandler=_video_bih.biCompression;
+
+				if (!_video_bih.biCompression && fourCC::check(_videostream.fccHandler,(uint8_t*)"DIB "))
+				{
+					// flip video
+					uint8_t *extraData = new uint8_t[_videoExtraLen + 9];
+
+					memcpy(extraData, _videoExtraData, _videoExtraLen);
+					memcpy(extraData + _videoExtraLen, "BottomUp", 9);
+										
+					delete [] _videoExtraData;
+
+					_videoExtraLen += 9;
+					_videoExtraData = extraData;
+
+					_videostream.fccHandler = _video_bih.biCompression = fourCC::get((uint8_t*)"DIB ");
+				}
+				else				
+					_videostream.fccHandler=_video_bih.biCompression;
+
                 printf("\nOpenDML file successfully read..\n");
                 return ret;
 }

@@ -261,7 +261,7 @@ public:
 class decoderFFRaw : public decoderFF
 {
 public:
-	decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp);
+	decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp, uint32_t l, uint8_t *d);
 };
 
 class decoderFFPng : public decoderFF

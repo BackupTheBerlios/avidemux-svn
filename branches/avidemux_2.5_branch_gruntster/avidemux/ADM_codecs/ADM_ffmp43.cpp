@@ -563,8 +563,10 @@ decoderFFBmp::decoderFFBmp(uint32_t w, uint32_t h, uint32_t l, uint8_t *d) : dec
 	WRAP_Open (CODEC_ID_BMP);
 }
 
-decoderFFRaw::decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp) : decoderFF (w, h)
+decoderFFRaw::decoderFFRaw(uint32_t w, uint32_t h, uint32_t bpp, uint32_t l, uint8_t *d) : decoderFF (w, h)
 {
+	_context->extradata_size = (int) l;
+	_context->extradata = (uint8_t *) d;
 	_context->bits_per_coded_sample = bpp;
 	WRAP_Open (CODEC_ID_RAWVIDEO);
 }
