@@ -6,14 +6,18 @@
   </encodeOptions>
   <x264Options>
     <idcLevel>13</idcLevel>
+    <referenceFrames>1</referenceFrames>
+    <bFrames>0</bFrames>
     <cabac>false</cabac>
+    <cqmPreset>flat</cqmPreset>
     <analyse>
       <partitionI4x4>true</partitionI4x4>
       <partitionI8x8>false</partitionI8x8>
       <partitionP8x8>true</partitionP8x8>
       <partitionP4x4>true</partitionP4x4>
-      <partitionB8x8>true</partitionB8x8>
-      <motionEstimationMethod>multi-hexagonal</motionEstimationMethod>
+      <partitionB8x8>false</partitionB8x8>
+      <dct8x8>false</dct8x8>
+      <weightedPredictionPframes>none</weightedPredictionPframes>
       <motionVectorSearchRange>12</motionVectorSearchRange>
       <trellis>disabled</trellis>
     </analyse>
