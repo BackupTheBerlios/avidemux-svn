@@ -6,7 +6,7 @@
   </encodeOptions>
   <x264Options>
     <idcLevel>30</idcLevel>
-    <referenceFrames>3</referenceFrames>
+    <referenceFrames>2</referenceFrames>
     <bFrames>3</bFrames>
     <adaptiveBframeDecision>2</adaptiveBframeDecision>
     <analyse>
@@ -15,6 +15,7 @@
       <partitionP8x8>true</partitionP8x8>
       <partitionP4x4>false</partitionP4x4>
       <partitionB8x8>true</partitionB8x8>
+      <dct8x8>false</dct8x8>
       <weightedPrediction>true</weightedPrediction>
       <directPredictionMode>auto</directPredictionMode>
       <motionEstimationMethod>multi-hexagonal</motionEstimationMethod>
