@@ -54,6 +54,7 @@ MKVCC mkvCC[]=
   {"A_MPEG/L1",0,WAV_MP2,""},
   
   // Video
+  {"V_VP8",1,0,"VP8 "}, // VP8
   {"V_MPEG2",1,0,"MPEG"}, // Mpeg2
   {"V_MPEG1",1,0,"MPEG"}, // Mpeg1
   {"V_MPEG4/MS/V3",1,0,"DIV3"}, // MS MPEG4 (Divx3)
