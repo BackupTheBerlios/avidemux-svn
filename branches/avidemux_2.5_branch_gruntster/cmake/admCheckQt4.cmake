@@ -6,11 +6,7 @@ MACRO(checkQt4)
 		MESSAGE(STATUS "*****************")
 
 		IF (QT4)
-			IF (APPLE)
-				SET(QT_MIN_VERSION 4.4.0)
-			ELSE (APPLE)
-				SET(QT_MIN_VERSION 4.2.0)
-			ENDIF (APPLE)
+			SET(QT_MIN_VERSION 4.5.0)
 			
 			FIND_PACKAGE(Qt4)	
 			STRING(REGEX REPLACE "[\\]" "/" QT_INCLUDES "${QT_INCLUDES}")	# backslashes aren't taken care of properly on Windows
