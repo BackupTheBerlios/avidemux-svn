@@ -145,6 +145,8 @@ checkQt4()
 #INCLUDE(admCheckAudioCodecLibs)
 #INCLUDE(admCheckAudioDeviceLibs)
 INCLUDE(admCheckMiscLibs)
+INCLUDE(admCheckVpx)
+checkVpxDec()
 
 ########################################
 # Check functions and includes

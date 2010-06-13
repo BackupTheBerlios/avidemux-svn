@@ -64,6 +64,7 @@
 #cmakedefine USE_XV
 #endif
 
+#cmakedefine USE_VPX
 /* Version number of package */
 #define VERSION "${VERSION}"
 
