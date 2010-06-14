@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: avidemux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-08 19:57+0100\n"
+"POT-Creation-Date: 2010-06-13 21:49+0100\n"
 "PO-Revision-Date: 2010-06-08 19:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: Avidemux Italian Translation\n"
@@ -522,7 +522,7 @@ msgstr "Analisi OGM"
 
 #: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:270
 #: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:352
-#: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:505
+#: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:518
 msgid "Malformed header"
 msgstr "Intestazione errata"
 
@@ -8812,29 +8812,10 @@ msgstr "Bob, salta verifica temporale spaziale"
 msgid "_Order:"
 msgstr "_Ordine:"
 
-#: scripts/auto/Apple/Apple iPhone.js:8 iPod 5.5G.js:8 iPod.js:8
-#: scripts/auto/Microsoft Zune.js:8 scripts/auto/Optical Disc/DVD.js:9
-#: Disc/Super Video CD.js:9 Disc/Video scripts/auto/Sony PlayStation
-#: Portable.js:8
+#: scripts/auto/Optical Disc/DVD.js:9 Disc/Super Video CD.js:9 Disc/Video
 msgid "A video file must be open to use this Auto Wizard."
 msgstr ""
 "Un file video deve essere aperto per usare questa conversione automatica."
-
-#: scripts/auto/Apple/Apple iPhone.js:11
-msgid "Apple iPhone Auto Wizard"
-msgstr "Apple iPhone - Conversione automatica"
-
-#: scripts/auto/Apple/Apple iPod 5.5G.js:11
-msgid "Apple iPod 5.5G Auto Wizard"
-msgstr "Apple iPod 5.5G - Conversione automatica"
-
-#: scripts/auto/Apple/Apple iPod.js:11
-msgid "Apple iPod Auto Wizard"
-msgstr "Apple iPod - Conversione automatica"
-
-#: scripts/auto/Microsoft Zune.js:11
-msgid "Microsoft Zune Auto Wizard"
-msgstr "Microsoft Zune - Conversione automatica"
 
 #: scripts/auto/Optical Disc/DVD.js:12
 msgid "DVD Auto Wizard"
@@ -8848,10 +8829,6 @@ msgstr "Super Video CD - Conversione automatica"
 msgid "Video CD Auto Wizard"
 msgstr "Video CD - Conversione automatica"
 
-#: scripts/auto/Sony PlayStation Portable.js:11
-msgid "Sony PSP Auto Wizard"
-msgstr "Sony PSP - Conversione automatica"
-
 #: scripts/video/autoWizard.js:4
 msgid "Resolution:"
 msgstr "Risoluzione:"
@@ -8864,26 +8841,6 @@ msgstr "Proporzioni sorgente:"
 msgid "Destination Aspect Ratio:"
 msgstr "Proporzioni destinazione:"
 
-#: scripts/auto/Apple/translate_dummy.cpp:3
-#, fuzzy
-msgid "Apple"
-msgstr "Avviso"
-
-#: scripts/auto/Apple/translate_dummy.cpp:4
-#, fuzzy
-msgid "Apple iPhone"
-msgstr "Apple iPhone - Conversione automatica"
-
-#: scripts/auto/Apple/translate_dummy.cpp:5
-#, fuzzy
-msgid "Apple iPod 5.5G"
-msgstr "Apple iPod 5.5G - Conversione automatica"
-
-#: scripts/auto/Apple/translate_dummy.cpp:6
-#, fuzzy
-msgid "Apple iPod"
-msgstr "Apple iPod - Conversione automatica"
-
 #: scripts/auto/Optical Disc/translate_dummy.cpp:3
 msgid "Optical Disc"
 msgstr ""
@@ -8893,14 +8850,40 @@ msgstr ""
 msgid "Video CD"
 msgstr "Video"
 
-#: scripts/auto/translate_dummy.cpp:3
-#, fuzzy
-msgid "Microsoft Zune"
-msgstr "Microsoft Zune - Conversione automatica"
+#~ msgid "Apple iPhone Auto Wizard"
+#~ msgstr "Apple iPhone - Conversione automatica"
 
-#: scripts/auto/translate_dummy.cpp:4
-msgid "Sony PlayStation Portable"
-msgstr ""
+#~ msgid "Apple iPod 5.5G Auto Wizard"
+#~ msgstr "Apple iPod 5.5G - Conversione automatica"
+
+#~ msgid "Apple iPod Auto Wizard"
+#~ msgstr "Apple iPod - Conversione automatica"
+
+#~ msgid "Microsoft Zune Auto Wizard"
+#~ msgstr "Microsoft Zune - Conversione automatica"
+
+#~ msgid "Sony PSP Auto Wizard"
+#~ msgstr "Sony PSP - Conversione automatica"
+
+#, fuzzy
+#~ msgid "Apple"
+#~ msgstr "Avviso"
+
+#, fuzzy
+#~ msgid "Apple iPhone"
+#~ msgstr "Apple iPhone - Conversione automatica"
+
+#, fuzzy
+#~ msgid "Apple iPod 5.5G"
+#~ msgstr "Apple iPod 5.5G - Conversione automatica"
+
+#, fuzzy
+#~ msgid "Apple iPod"
+#~ msgstr "Apple iPod - Conversione automatica"
+
+#, fuzzy
+#~ msgid "Microsoft Zune"
+#~ msgstr "Microsoft Zune - Conversione automatica"
 
 #~ msgid "%"
 #~ msgstr "%"

@@ -5342,45 +5342,6 @@ Vuoi usare questa modalità?</translation>
     </message>
 </context>
 <context>
-    <name>Apple iPhone</name>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPhone.js" line="8"/>
-        <source>A video file must be open to use this Auto Wizard.</source>
-        <translation>Un file video deve essere aperto per usare questa conversione automatica.</translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPhone.js" line="11"/>
-        <source>Apple iPhone Auto Wizard</source>
-        <translation>Apple iPhone - Conversione automatica</translation>
-    </message>
-</context>
-<context>
-    <name>Apple iPod</name>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPod.js" line="8"/>
-        <source>A video file must be open to use this Auto Wizard.</source>
-        <translation>Un file video deve essere aperto per usare questa conversione automatica.</translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPod.js" line="11"/>
-        <source>Apple iPod Auto Wizard</source>
-        <translation>Apple iPod - Conversione automatica</translation>
-    </message>
-</context>
-<context>
-    <name>Apple iPod 5</name>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPod 5.5G.js" line="8"/>
-        <source>A video file must be open to use this Auto Wizard.</source>
-        <translation>Un file video deve essere aperto per usare questa conversione automatica.</translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/Apple iPod 5.5G.js" line="11"/>
-        <source>Apple iPod 5.5G Auto Wizard</source>
-        <translation>Apple iPod 5.5G - Conversione automatica</translation>
-    </message>
-</context>
-<context>
     <name>CalculatorDialog</name>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="13"/>
@@ -5536,43 +5497,36 @@ Vuoi usare questa modalità?</translation>
     <name>Cnr2Dialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="333"/>
         <source>Chroma Noise Reducer 2</source>
         <translation>Chroma Noise Reducer 2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="334"/>
         <source>Scene Change</source>
         <translation>Cambiamento scena</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="61"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="335"/>
         <source>0%</source>
         <translation>0%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="81"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="336"/>
         <source>Scene Change Threshold</source>
         <translation>Soglia cambiamento di scena</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="101"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="337"/>
         <source>100%</source>
         <translation>100%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="140"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="338"/>
         <source>Use chroma to also detect scene change</source>
         <translation>Usa croma anche per rilevare cambiamenti di scena</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="150"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="339"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
@@ -5580,9 +5534,6 @@ Vuoi usare questa modalità?</translation>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="171"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="252"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="300"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="342"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="350"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="357"/>
         <source>Wide</source>
         <translation>Estesa</translation>
     </message>
@@ -5590,45 +5541,36 @@ Vuoi usare questa modalità?</translation>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="176"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="257"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="305"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="343"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="351"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="358"/>
         <source>Narrow</source>
         <translation>Limitata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="197"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="345"/>
         <source>Mode</source>
         <translation>Modalità</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="211"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="346"/>
         <source>Luma Y:</source>
         <translation>Luma Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="231"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="347"/>
         <source>Chroma V:</source>
         <translation>Croma V:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="285"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="353"/>
         <source>Maximum</source>
         <translation>Massimo</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="292"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="354"/>
         <source>Chroma U:</source>
         <translation>Croma U:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="334"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="360"/>
         <source>Sensibility</source>
         <translation>Sensibilità</translation>
     </message>
@@ -5637,73 +5579,61 @@ Vuoi usare questa modalità?</translation>
     <name>ColorYuvDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="377"/>
         <source>Avisynth ColorYUV</source>
         <translation>Avisynth ColorYUV</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="378"/>
         <source>Colour Correction Matrix</source>
         <translation>Matrice correzione colore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="55"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="379"/>
         <source>Contrast</source>
         <translation>Contrasto</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="92"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="380"/>
         <source>Chroma U:</source>
         <translation>Croma U:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="119"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="381"/>
         <source>Chroma V:</source>
         <translation>Croma V:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="176"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="382"/>
         <source>Luma Y:</source>
         <translation>Luma Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="183"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="383"/>
         <source>Brightness</source>
         <translation>Luminosità</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="200"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="384"/>
         <source>Gain</source>
         <translation>Amplificazione</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="207"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="385"/>
         <source>Gamma</source>
         <translation>Gamma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="268"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="386"/>
         <source>Note: all values are normalised to 256</source>
         <translation>Nota: tutti i valori sono normalizzati a 256</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="278"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="387"/>
         <source>Parameters</source>
         <translation>Parametri</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="298"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="388"/>
         <source>Matrix:</source>
         <translation>Matrice:</translation>
     </message>
@@ -5711,69 +5641,56 @@ Vuoi usare questa modalità?</translation>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="306"/>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="337"/>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="351"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="391"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="399"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="404"/>
         <source>None</source>
         <translation>Nessuna</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="311"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="392"/>
         <source>TV -&gt; PC</source>
         <translation>TV -&gt; PC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="316"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="393"/>
         <source>PC -&gt; TV</source>
         <translation>PC -&gt; TV</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="321"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="394"/>
         <source>PC -&gt; TV.Y</source>
         <translation>PC -&gt; TV.Y</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="329"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="396"/>
         <source>Level:</source>
         <translation>Direzione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="342"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="400"/>
         <source>Rec.709</source>
         <translation>Rec.709</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="356"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="405"/>
         <source>Coring</source>
         <translation>Coring</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="364"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="407"/>
         <source>Opt:</source>
         <translation>Opzioni:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="412"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="408"/>
         <source>Auto Gain</source>
         <translation>Amplificazione automatica</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="419"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="409"/>
         <source>Display Colour Statistics</source>
         <translation>Mostra statistiche colore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="426"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="410"/>
         <source>Centre Colour Offsets</source>
         <translation>Centra compensazione colore</translation>
     </message>
@@ -5782,49 +5699,41 @@ Vuoi usare questa modalità?</translation>
     <name>CurveDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="19"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="107"/>
         <source>Curve Editor</source>
         <translation>Editor curva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="27"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="115"/>
         <source>Choose channel for editing</source>
         <translation>Scegli il canale per la modifica</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="110"/>
         <source>Luma (Y)</source>
         <translation>Luma (Y)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="42"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="111"/>
         <source>Chroma (U)</source>
         <translation>Croma (U)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="47"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="112"/>
         <source>Chroma (V)</source>
         <translation>Croma (V)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="61"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="118"/>
         <source>Sets default curve</source>
         <translation>Imposta la curva predefinita</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="64"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="120"/>
         <source>Refresh</source>
         <translation>Azzera</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="93"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="121"/>
         <source>Help</source>
         <translation>Aiuto</translation>
     </message>
@@ -6080,19 +5989,16 @@ Vuoi usare questa modalità?</translation>
     <name>EqualiserDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="21"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="348"/>
         <source>Equaliser</source>
         <translation>Equalizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="349"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="255"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="350"/>
         <source>Histogram</source>
         <translation>Istogramma</translation>
     </message>
@@ -6513,37 +6419,31 @@ Vuoi usare questa modalità?</translation>
     <name>MPDelogoDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="188"/>
         <source>MPlayer Delogo</source>
         <translation>MPlayer Delogo</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="40"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="189"/>
         <source>Band:</source>
         <translation>Banda:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="47"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="190"/>
         <source>Height:</source>
         <translation>Altezza:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="54"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="191"/>
         <source>Width:</source>
         <translation>Larghezza:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="114"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="192"/>
         <source>Y:</source>
         <translation>Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="144"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="193"/>
         <source>X:</source>
         <translation>X:</translation>
     </message>
@@ -7467,26 +7367,6 @@ Vuoi usare questa modalità?</translation>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../scripts/auto/Apple/translate_dummy.cpp" line="3"/>
-        <source>Apple</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/translate_dummy.cpp" line="4"/>
-        <source>Apple iPhone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/translate_dummy.cpp" line="5"/>
-        <source>Apple iPod 5.5G</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Apple/translate_dummy.cpp" line="6"/>
-        <source>Apple iPod</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="3"/>
         <source>Optical Disc</source>
         <translation type="unfinished"></translation>
@@ -7505,29 +7385,6 @@ Vuoi usare questa modalità?</translation>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="6"/>
         <source>Video CD</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/translate_dummy.cpp" line="3"/>
-        <source>Microsoft Zune</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/translate_dummy.cpp" line="4"/>
-        <source>Sony PlayStation Portable</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Microsoft Zune</name>
-    <message>
-        <location filename="../scripts/auto/Microsoft Zune.js" line="8"/>
-        <source>A video file must be open to use this Auto Wizard.</source>
-        <translation>Un file video deve essere aperto per usare questa conversione automatica.</translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Microsoft Zune.js" line="11"/>
-        <source>Microsoft Zune Auto Wizard</source>
-        <translation>Microsoft Zune - Conversione automatica</translation>
     </message>
 </context>
 <context>
@@ -8011,7 +7868,7 @@ Vuoi usare questa modalità?</translation>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="270"/>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="352"/>
-        <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="505"/>
+        <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="518"/>
         <source>Malformed header</source>
         <translation>Intestazione errata</translation>
     </message>
@@ -8056,19 +7913,6 @@ Vuoi usare questa modalità?</translation>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="188"/>
         <source>Question?</source>
         <translation>Domanda?</translation>
-    </message>
-</context>
-<context>
-    <name>Sony PlayStation Portable</name>
-    <message>
-        <location filename="../scripts/auto/Sony PlayStation Portable.js" line="8"/>
-        <source>A video file must be open to use this Auto Wizard.</source>
-        <translation>Un file video deve essere aperto per usare questa conversione automatica.</translation>
-    </message>
-    <message>
-        <location filename="../scripts/auto/Sony PlayStation Portable.js" line="11"/>
-        <source>Sony PSP Auto Wizard</source>
-        <translation>Sony PSP - Conversione automatica</translation>
     </message>
 </context>
 <context>
@@ -8726,7 +8570,6 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="216"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="67"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1968"/>
         <source>Save As</source>
         <translation>Salva con nome</translation>
     </message>
@@ -8759,14 +8602,12 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="284"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="148"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1971"/>
         <source>Target Video Size:</source>
         <translation>Dimensione video finale:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="285"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="233"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1981"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
@@ -8777,481 +8618,399 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="14"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1966"/>
         <source>Xvid Configuraton</source>
         <translation>Configurazione Xvid</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="50"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1967"/>
         <source>Configuration:</source>
         <translation>Configurazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="74"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1969"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2002"/>
         <source>General</source>
         <translation>Generale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="128"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1970"/>
         <source>Rate Control</source>
         <translation>Controllo bitrate</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1974"/>
         <source>Constant Bitrate (Single Pass)</source>
         <translation>Bitrate costante (singola passata)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="172"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1975"/>
         <source>Constant Quantiser (Single Pass)</source>
         <translation>Quantizzatore costante (singola passata)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="177"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1976"/>
         <source>Video Size (Two Pass)</source>
         <translation>Dimensione video (due passate)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="182"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1977"/>
         <source>Average Bitrate (Two Pass)</source>
         <translation>Bitrate medio (due passate)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="205"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1979"/>
         <source>Encoding Mode:</source>
         <translation>Modalità di codifica:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="308"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1982"/>
         <source>1 (High Quality)</source>
         <translation>1 (Qualità alta)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="331"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1268"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1983"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2059"/>
         <source>Quantiser</source>
         <translation>Quantizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="354"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1984"/>
         <source>31 (Low Quality)</source>
         <translation>31 (Qualità bassa)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="432"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1985"/>
         <source>Pixel Aspect Ratio</source>
         <translation>Proporzioni pixel</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="452"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="665"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1986"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2001"/>
         <source>Custom:</source>
         <translation>Personalizzato:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="462"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1987"/>
         <source>As Input</source>
         <translation>Come in ingresso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="523"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1989"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="558"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1990"/>
         <source>Predefined Aspect Ratio:</source>
         <translation>Proporzioni predefinite:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="577"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1993"/>
         <source>16:15 (PAL 4:3)</source>
         <translation>16:15 (PAL 4:3)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="582"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1994"/>
         <source>64:45 (PAL 16:9)</source>
         <translation>64:45 (PAL 16:9)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="587"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1995"/>
         <source>8:9 (NTSC 4:3)</source>
         <translation>8:9 (NTSC 4:3)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="592"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1996"/>
         <source>32:27 (NTSC 16:9)</source>
         <translation>32:27 (NTSC 16:9)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="620"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1998"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="640"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1999"/>
         <source>Disable</source>
         <translation>Disattiva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="647"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2000"/>
         <source>Auto-detect</source>
         <translation>Rilevamento automatico</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="719"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2024"/>
         <source>Motion</source>
         <translation>Movimento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="731"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2003"/>
         <source>Motion Estimation</source>
         <translation>Stima movimento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="751"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2004"/>
         <source>Motion Estimation:</source>
         <translation>Stima movimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="773"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2007"/>
         <source>Low</source>
         <translation>Bassa</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="778"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2008"/>
         <source>Medium</source>
         <translation>Medio</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="783"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2009"/>
         <source>High</source>
         <translation>Alta</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="816"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2011"/>
         <source>Rate Distortion Optimisation:</source>
         <translation>Ottimizzazione distorsione bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="838"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2014"/>
         <source>No Search (DCT only)</source>
         <translation>Nessuna ricerca (solo DCT)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="843"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2015"/>
         <source>Limited Search</source>
         <translation>Ricerca limitata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="848"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2016"/>
         <source>Medium Search</source>
         <translation>Ricerca media</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="853"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2017"/>
         <source>Wide Search</source>
         <translation>Ricerca estesa</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="878"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2019"/>
         <source>Rate Distortion Optimisation for B-frames</source>
         <translation>Ottimizzazione distorsione bitrate per i fotogrammi B</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="888"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2020"/>
         <source>Chroma Motion Estimation</source>
         <translation>Stima movimento croma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="898"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2021"/>
         <source>Quarter Pixel Motion Estimation</source>
         <translation>Stima movimento quarto di pixel</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="905"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2022"/>
         <source>Global Motion Compensation</source>
         <translation>Compensazione movimento globale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="912"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2023"/>
         <source>Turbo Mode</source>
         <translation>Modalità turbo</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="936"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2043"/>
         <source>Frame</source>
         <translation>Fotogramma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="948"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2025"/>
         <source>Frame Encoding</source>
         <translation>Codifica fotogramma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="960"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2026"/>
         <source>Chroma Optimiser</source>
         <translation>Ottimizzatore croma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="967"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2027"/>
         <source>Four Motion Vectors per Macroblock</source>
         <translation>Quattro vettori di movimento per macroblocco</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="974"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2028"/>
         <source>Cartoon</source>
         <translation>Cartone animato</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="981"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2029"/>
         <source>Greyscale</source>
         <translation>Scala di grigi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="996"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2030"/>
         <source>Interlaced:</source>
         <translation>Interlacciato:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1015"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2033"/>
         <source>Bottom Field First</source>
         <translation>Prima il semiquadro inferiore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1020"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2034"/>
         <source>Top Field First</source>
         <translation>Prima il semiquadro superiore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1056"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2036"/>
         <source>Maximum I-frame Interval:</source>
         <translation>Massimo intervallo fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1093"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2037"/>
         <source>Frame Drop Ratio:</source>
         <translation>Rapporto di omissione fotogrammi:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1135"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2038"/>
         <source>B-frames</source>
         <translation>Fotogrammi B</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1188"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2039"/>
         <source>B-frame Sensitivity:</source>
         <translation>Sensibilità fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1228"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2040"/>
         <source>Maximum Consecutive B-frames:</source>
         <translation>Massimo numero di fotogrammi B consecutivi:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1237"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2041"/>
         <source>Closed GOP</source>
         <translation>Gruppo chiuso di immagini</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1244"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2042"/>
         <source>Packed Bitstream</source>
         <translation>Flusso di bit compresso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1280"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2044"/>
         <source>Quantiser Control</source>
         <translation>Controllo quantizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1300"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2045"/>
         <source>Maximum B-frame Quantiser:</source>
         <translation>Massimo quantizzatore fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1379"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2046"/>
         <source>B-frame Quantiser Offset:</source>
         <translation>Compensazione quantizzatore fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1422"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2047"/>
         <source>Minimum P-frame Quantiser:</source>
         <translation>Minimo quantizzatore fotogrammi P:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1429"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2048"/>
         <source>B-frame Quantiser Ratio:</source>
         <translation>Rapporto quantizzatore fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1436"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2049"/>
         <source>Minimum I-frame Quantiser:</source>
         <translation>Minimo quantizzatore fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1515"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2050"/>
         <source>Minimum B-frame Quantiser:</source>
         <translation>Minimo quantizzatore fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1522"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2051"/>
         <source>Maximum P-frame Quantiser:</source>
         <translation>Massimo quantizzatore fotogrammi P:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1643"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2052"/>
         <source>Maximum I-frame Quantiser:</source>
         <translation>Massimo quantizzatore fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1652"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2053"/>
         <source>Trellis Quantisation</source>
         <translation>Quantizzazione Trellis</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1662"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2054"/>
         <source>Quantisation Matrix</source>
         <translation>Matrice di quantizzazione</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1674"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2055"/>
         <source>H.263 Matrix</source>
         <translation>Matrice H.263</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1684"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2056"/>
         <source>MPEG Matrix</source>
         <translation>Matrice MPEG</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1699"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2057"/>
         <source>Custom Matrix</source>
         <translation>Matrice personalizzata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1709"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2058"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1748"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1760"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2060"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2064"/>
         <source>Single Pass</source>
         <translation>Singola passata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1772"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2061"/>
         <source>Smoother:</source>
         <translation>Livellamento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1779"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2062"/>
         <source>Averaging Quantiser Period:</source>
         <translation>Periodo di mediazione quantizzatore:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1786"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2063"/>
         <source>Reaction Delay Factor:</source>
         <translation>Fattore ritardo di reazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1900"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2091"/>
         <source>Two Pass</source>
         <translation>Due passate</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1912"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2065"/>
         <source>I-frames</source>
         <translation>Fotogrammi I</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1924"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2066"/>
         <source>I-frame Boost:</source>
         <translation>Amplifica fotogrammi I:</translation>
     </message>
@@ -9263,111 +9022,87 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2191"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2264"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2308"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2067"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2068"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2073"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2075"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2076"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2081"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2083"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2011"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2069"/>
         <source>I-frame Bitrate Reduction Threshold:</source>
         <translation>Soglia di riduzione bitrate fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2018"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2070"/>
         <source>Maximum I-frame Bitrate Reduction:</source>
         <translation>Massima riduzione bitrate fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2043"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2071"/>
         <source>frame(s)</source>
         <translation>fotogrammi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2068"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2072"/>
         <source>Overflow Control</source>
         <translation>Controllo eccesso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2120"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2074"/>
         <source>Maximum Overflow Degradation:</source>
         <translation>Massima diminuzione dell&apos;eccesso:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2213"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2077"/>
         <source>Maximum Overflow Improvement:</source>
         <translation>Massimo aumento dell&apos;eccesso:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2220"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2078"/>
         <source>Overflow Control Strength:</source>
         <translation>Intensità controllo eccesso:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2230"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2079"/>
         <source>Curve Compression</source>
         <translation>Compressione curva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2242"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2080"/>
         <source>Above Average Curve Compression:</source>
         <translation>Compressione curva al di sopra della media:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2286"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2082"/>
         <source>Below Average Curve Compression:</source>
         <translation>Compressione curva al di sotto della media:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2333"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2084"/>
         <source>Video Buffer Verifier</source>
         <translation>Verifica buffer video</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2360"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2455"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2085"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2090"/>
         <source>bit/s</source>
         <translation>bit/s</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2397"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2086"/>
         <source>bit(s)</source>
         <translation>bit</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2419"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2087"/>
         <source>VBV Buffer Size:</source>
         <translation>Dimensione buffer VBV:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2426"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2088"/>
         <source>Maximum VBV Bitrate:</source>
         <translation>Massimo bitrate VBV:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2433"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2089"/>
         <source>Peak Bitrate Over 1 Second:</source>
         <translation>Picco di bitrate su un secondo:</translation>
     </message>
@@ -9391,45 +9126,37 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1378"/>
         <source>Xvid Custom Matrix</source>
         <translation>Matrice Xvid personalizzata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="29"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1380"/>
         <source>Intra 8x8</source>
         <translation>Intra 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="57"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="760"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1379"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1381"/>
         <source>Luma:</source>
         <translation>Luma:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="732"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1382"/>
         <source>Inter 8x8</source>
         <translation>Inter 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1459"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1383"/>
         <source>Load File</source>
         <translation>Carica file</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1479"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1384"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1489"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1385"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
@@ -9471,31 +9198,26 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>asharpDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="139"/>
         <source>ASharp</source>
         <translation>ASharp</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="109"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="140"/>
         <source>Strength</source>
         <translation>Intensità</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="141"/>
         <source>Threshold</source>
         <translation>Soglia</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="142"/>
         <source>Block Adaptative</source>
         <translation>Adattativo a blocchi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="130"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="143"/>
         <source>High Quality Block Filtering</source>
         <translation>Filtro blocchi ad alta qualità</translation>
     </message>
@@ -9527,19 +9249,16 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>chromashiftDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="114"/>
         <source>ChromaShift</source>
         <translation>Traslazione croma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="115"/>
         <source>V Shift</source>
         <translation>Traslazione V</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="44"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="116"/>
         <source>U Shift</source>
         <translation>Traslazione U</translation>
     </message>
@@ -9548,43 +9267,36 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>contrastDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="267"/>
         <source>Contrast</source>
         <translation>Contrasto</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="268"/>
         <source>Contrast:</source>
         <translation>Contrasto:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="269"/>
         <source>Brightness:</source>
         <translation>Luminosità:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="195"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="270"/>
         <source>Colour Space</source>
         <translation>Spazio colore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="207"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="271"/>
         <source>Luma</source>
         <translation>Luma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="214"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="272"/>
         <source>ChromaU</source>
         <translation>Croma U</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="221"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="273"/>
         <source>ChromaV</source>
         <translation>Croma V</translation>
     </message>
@@ -9593,43 +9305,36 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>cropDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="184"/>
         <source>Crop</source>
         <translation>Crop</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="33"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="185"/>
         <source>Right:</source>
         <translation>Destra:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="40"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="186"/>
         <source>Top:</source>
         <translation>Alto:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="83"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="187"/>
         <source>Reset</source>
         <translation>Azzera</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="104"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="188"/>
         <source>Bottom:</source>
         <translation>Basso:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="111"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="189"/>
         <source>Left:</source>
         <translation>Sinistra:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="141"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="190"/>
         <source>Auto Crop</source>
         <translation>Crop automatico</translation>
     </message>
@@ -9806,39 +9511,39 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
 <context>
     <name>encodingWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Privileges Required</source>
         <translation>Richiesti privilegi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Root privileges are required to perform this operation.</source>
         <translation>Sono richesti i privilegi di amministratore per eseguire questa operazione.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="208"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="223"/>
         <source>Shutting down</source>
         <translation>Arresto in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="500"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="95"/>
         <source>The encoding is paused. Do you want to resume or abort?</source>
         <translation>La codifica è in pausa. Vuoi ripristinarla o annullarla?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
         <source>Resume</source>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
         <source>Abort</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="46"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="47"/>
         <source>Pause / Abort</source>
         <translation>Pausa / Annulla </translation>
     </message>
@@ -9847,61 +9552,51 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>eq2Dialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="484"/>
         <source>MPlayer eq2</source>
         <translation>MPlayer eq2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="485"/>
         <source>Contrast:</source>
         <translation>Contrasto:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="486"/>
         <source>Brightness:</source>
         <translation>Luminosità:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="153"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="487"/>
         <source>Saturation:</source>
         <translation>Saturazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="245"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="488"/>
         <source>Gamma</source>
         <translation>Gamma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="472"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="489"/>
         <source>Green</source>
         <translation>Verde</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="479"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="490"/>
         <source>Red</source>
         <translation>Rosso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="486"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="491"/>
         <source>Blue</source>
         <translation>Blu</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="493"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="492"/>
         <source>Weight</source>
         <translation>Peso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="500"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="493"/>
         <source>Initial</source>
         <translation>Iniziale</translation>
     </message>
@@ -9962,14 +9657,11 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="103"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="124"/>
         <source>Hue</source>
         <translation>Tonalità</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="125"/>
         <source>Saturation</source>
         <translation>Saturazione</translation>
     </message>
@@ -10472,32 +10164,24 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="387"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="387"/>
         <source>Resize</source>
         <translation>Ridimensionamento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="25"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="388"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="388"/>
         <source>Aspect Ratio</source>
         <translation>Proporzioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="37"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="389"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="389"/>
         <source>Lock Aspect Ratio</source>
         <translation>Blocca proporzioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="55"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="55"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="390"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="390"/>
         <source>Source:</source>
         <translation>Sorgente:</translation>
     </message>
@@ -10506,10 +10190,6 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="105"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="63"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="105"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="393"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="400"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="393"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="400"/>
         <source>1:1</source>
         <translation>1:1</translation>
     </message>
@@ -10518,10 +10198,6 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="110"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="68"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="110"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="394"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="401"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="394"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="401"/>
         <source>4:3</source>
         <translation>4:3</translation>
     </message>
@@ -10530,122 +10206,90 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="115"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="73"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="115"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="395"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="402"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="395"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="402"/>
         <source>16:9</source>
         <translation>16:9</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="97"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="397"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="397"/>
         <source>Destination:</source>
         <translation>Destinazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="141"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="141"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="404"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="404"/>
         <source>Resize Dimensions</source>
         <translation>Dimensioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="161"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="161"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="405"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="405"/>
         <source>Width:</source>
         <translation>Larghezza:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="197"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="197"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="406"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="406"/>
         <source>Height:</source>
         <translation>Altezza:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="232"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="232"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="407"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="407"/>
         <source>Round to the Nearest Multiple of 16</source>
         <translation>Arrotonda al multiplo di 16 più vicino</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="287"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="287"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="408"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="408"/>
         <source>1%</source>
         <translation>1%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="307"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="307"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="409"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="409"/>
         <source>Percent</source>
         <translation>Percentuale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="327"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="327"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="410"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="410"/>
         <source>200%</source>
         <translation>200%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="377"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="377"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="411"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="411"/>
         <source>Error X / Y:</source>
         <translation>Errore X / Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="384"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="384"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="412"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="412"/>
         <source>0.00 / 0.00</source>
         <translation>0.00 / 0.00</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="435"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="435"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="413"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="413"/>
         <source>Resize Method:</source>
         <translation>Metodo di ridimensionamento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="443"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="443"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="416"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="416"/>
         <source>Bilinear</source>
         <translation>Bilineare</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="448"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="448"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="417"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="417"/>
         <source>Bicubic</source>
         <translation>Bicubico</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="453"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="453"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="418"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="418"/>
         <source>Lanzcos3</source>
         <translation>Lanzcos3</translation>
     </message>
@@ -10671,13 +10315,11 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <name>srtDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/qt4/srt.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Srt/ui_srt.h" line="106"/>
         <source>Subtitle Font Size and Position</source>
         <translation>Dimensione e posizione sottotitoli</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/qt4/srt.ui" line="89"/>
-        <location filename="../plugins/build/ADM_videoFilters/Srt/ui_srt.h" line="107"/>
         <source>Font Size :</source>
         <translation>Dimensione carattere:</translation>
     </message>
@@ -10849,7 +10491,6 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="294"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="67"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3088"/>
         <source>Save As</source>
         <translation>Salva con nome</translation>
     </message>
@@ -10872,7 +10513,6 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="348"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="366"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3099"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3238"/>
         <source>kbit/s</source>
         <translation>kbit/s</translation>
     </message>
@@ -10889,14 +10529,12 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="360"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="148"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3091"/>
         <source>Target Video Size:</source>
         <translation>Dimensione video finale:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="361"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="238"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3102"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
@@ -10948,243 +10586,194 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="14"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3086"/>
         <source>x264 Configuraton</source>
         <translation>Configurazione x264</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="50"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3087"/>
         <source>Configuration:</source>
         <translation>Configurazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="74"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3318"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3089"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3248"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3118"/>
         <source>General</source>
         <translation>Generale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="128"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3090"/>
         <source>Rate Control</source>
         <translation>Controllo bitrate</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3094"/>
         <source>Constant Bitrate (Single Pass)</source>
         <translation>Bitrate costante (singola passata)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="172"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3095"/>
         <source>Constant Quantiser (Single Pass)</source>
         <translation>Quantizzatore costante (singola passata)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="177"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3096"/>
         <source>Constant Rate Factor (Single Pass)</source>
         <translation>Qualità costante (passata singola)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="182"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3097"/>
         <source>Video Size (Two Pass)</source>
         <translation>Dimensione video (due passate)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="187"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3098"/>
         <source>Average Bitrate (Two Pass)</source>
         <translation>Bitrate medio (due passate)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="210"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3100"/>
         <source>Encoding Mode:</source>
         <translation>Modalità di codifica:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="313"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3103"/>
         <source>0 (High Quality)</source>
         <translation>0 (Qualità alta)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="336"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2330"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3104"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3232"/>
         <source>Quantiser</source>
         <translation>Quantizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="359"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3105"/>
         <source>51 (Low Quality)</source>
         <translation>51 (Qualità bassa)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="450"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3108"/>
         <source>Frametype Lookahead:</source>
         <translation>Numero di fotogrammi successivi per il controllo:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="464"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="613"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3109"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3117"/>
         <source>frames</source>
         <translation>fotogrammi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="489"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3110"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="509"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3111"/>
         <source>Disable</source>
         <translation>Disattiva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="516"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3112"/>
         <source>Auto-detect</source>
         <translation>Rilevamento automatico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="534"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3591"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3113"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3283"/>
-        <source>Custom:</source>
-        <translation>Personalizzato:</translation>
-    </message>
-    <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="571"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3114"/>
         <source>Enforce Repeatability</source>
         <translation>Applica ripetibilità</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="578"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3115"/>
         <source>Slice-based Threading</source>
         <translation>Multithreading sulle fette</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="593"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3116"/>
         <source>Custom Threaded Lookahead Buffer:</source>
         <translation>Buffer suddiviso personalizzato sui successivi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="652"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3154"/>
         <source>Motion</source>
         <translation>Movimento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="664"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3119"/>
         <source>Motion Estimation</source>
         <translation>Stima movimento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="684"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3120"/>
         <source>Motion Estimation Method:</source>
         <translation>Metodo di stima del movimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="703"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3123"/>
         <source>Diamond Search</source>
         <translation>Ricerca a diamante</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="708"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3124"/>
         <source>Hexagonal Search</source>
         <translation>Ricerca esagonale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="713"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3125"/>
         <source>Uneven Multi-hexagonal Search</source>
         <translation>Ricerca multi-esagonale irregolare</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="718"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3126"/>
         <source>Exhaustive Search</source>
         <translation>Ricerca esaustiva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="723"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3127"/>
         <source>Hadamard Exhaustive Search</source>
         <translation>Ricerca esaustiva Hadamard</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="780"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3129"/>
         <source>1 (Fast)</source>
         <translation>1 (veloce)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="800"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3130"/>
         <source>Subpixel Refinement</source>
         <translation>Accuratezza sotto-pixel</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="820"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3131"/>
         <source>9 (Best)</source>
         <translation>9 (migliore)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="900"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3132"/>
         <source>Motion Vector</source>
         <translation>Vettori movimento</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="956"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3133"/>
         <source>Maximum Motion Vector Length:</source>
         <translation>Massima lunghezza del vettore movimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1038"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3134"/>
         <source>Minimum Buffer Between Threads:</source>
         <translation>Minimo buffer tra thread:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1045"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3135"/>
         <source>Maximum Motion Vector Search Range:</source>
         <translation>Massimo intervallo di ricerca dei vettori movimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1057"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3136"/>
         <source>Prediction</source>
         <translation>Previsione</translation>
     </message>
@@ -11192,395 +10781,331 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1086"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1578"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1620"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3139"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3174"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3180"/>
         <source>Disabled</source>
         <translation>Disattivata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1091"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3140"/>
         <source>Blind Offset</source>
         <translation>Compensazione alla cieca</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1096"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3141"/>
         <source>Smart Analysis</source>
         <translation>Analisi intelligente</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1119"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3143"/>
         <source>Direct Prediction Mode:</source>
         <translation>Modalità di previsione diretta:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1126"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3144"/>
         <source>Weighted Prediction for P-frames:</source>
         <translation>Previsione pesata per i fotogrammi P:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1145"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3147"/>
         <source>None</source>
         <translation>Nessuna</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1150"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3148"/>
         <source>Spatial</source>
         <translation>Spaziale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1155"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3149"/>
         <source>Temporal</source>
         <translation>Temporale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1160"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3390"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3150"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3253"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1185"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3152"/>
         <source>Weighted Prediction for B-frames</source>
         <translation>Previsione pesata per i fotogrammi B</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1192"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3153"/>
         <source>Constrained Intra Prediction</source>
         <translation>Previsione Intra limitata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1216"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3162"/>
         <source>Partition</source>
         <translation>Partizioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1228"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3155"/>
         <source>Partition Search</source>
         <translation>Ricerca partizioni</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1248"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3156"/>
         <source>8x8 DCT Spatial Transform</source>
         <translation>Trasformata DCT spaziale 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1255"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3157"/>
         <source>8x8, 8x16 and 16x8 P-frame Intra-predicted Blocks</source>
         <translation>Previsione Intra sui blocchi 8x8, 8x16 e 16x8 dei fotogrammi P</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1262"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3158"/>
         <source>8x8, 8x16 and 16x8 B-frame Intra-predicted Blocks</source>
         <translation>Previsione Intra sui blocchi 8x8, 8x16 e 16x8 dei fotogrammi B</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1269"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3159"/>
         <source>4x4, 4x8 and 8x4 P-frame Intra-predicted Blocks</source>
         <translation>Previsione Intra sui blocchi 4x4, 4x8 e 8x4 dei fotogrammi P</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1276"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3160"/>
         <source>8x8 Intra-predicted Blocks</source>
         <translation>Previsione Intra sui blocchi 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1283"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3161"/>
         <source>4x4 Intra-predicted Blocks</source>
         <translation>Previsione Intra sui blocchi 4x4</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1309"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3192"/>
         <source>Frame</source>
         <translation>Fotogramma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1321"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3163"/>
         <source>Frame Encoding</source>
         <translation>Codifica fotogramma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1333"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3164"/>
         <source>CABAC</source>
         <translation>CABAC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1340"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3165"/>
         <source>Pure Interlaced Mode</source>
         <translation>Modalità interlacciata pura</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1355"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3166"/>
         <source>Loop Filter</source>
         <translation>In-loop deblocking</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1397"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2895"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3231"/>
         <source>Strength:</source>
         <translation>Intensità:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1436"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3168"/>
         <source>Threshold:</source>
         <translation>Soglia:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1502"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3169"/>
         <source>Maximum Reference Frames:</source>
         <translation>Massimo numero di fotogrammi di riferimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1550"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3170"/>
         <source>B-frames</source>
         <translation>Fotogrammi B</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1562"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3171"/>
         <source>B-frames as References:</source>
         <translation>Fotogrammi B come riferimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1583"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3175"/>
         <source>Strictly Hierarchical Pyramid</source>
         <translation>Piramide rigorosamente gerarchica</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1588"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3176"/>
         <source>Non-strict (Not Blu-ray Compatible)</source>
         <translation>Non rigorosa (non compatibile con Blu-ray)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1625"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3181"/>
         <source>Fast</source>
         <translation>Veloce</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1630"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3182"/>
         <source>Optimal</source>
         <translation>Ottimale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1722"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3184"/>
         <source>B-frame Bias:</source>
         <translation>Bias fotogrammi B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1729"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3185"/>
         <source>Maximum Consecutive B-frames:</source>
         <translation>Massimo numero di fotogrammi B consecutivi:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1736"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3186"/>
         <source>Adaptive B-frame Decision:</source>
         <translation>Decisione fotogrammi B adattiva:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1746"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3187"/>
         <source>I-frames</source>
         <translation>Fotogrammi I</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1810"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3188"/>
         <source>Maximum GOP Size:</source>
         <translation>Dimensione massima del gruppo di immagini:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1817"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3189"/>
         <source>I-frame Threshold:</source>
         <translation>Soglia fotogrammi I:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1863"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3190"/>
         <source>Minimum GOP Size:</source>
         <translation>Dimensione minima del gruppo di immagini:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="428"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3106"/>
         <source>Fast First Pass</source>
         <translation>Prima passata veloce</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="435"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3107"/>
         <source>Macroblock-tree Rate Control</source>
         <translation>Controllo bitrate ramificato a macroblocchi</translation>
     </message>
     <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="534"/>
+        <source>Custom:</source>
+        <comment>multithreading</comment>
+        <translation type="unfinished">Personalizzato:</translation>
+    </message>
+    <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1924"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3191"/>
         <source>Periodic Intra Refresh</source>
         <translation>Aggiornamento periodico fotogrammi chiave</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1950"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1962"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3193"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3214"/>
         <source>Analysis</source>
         <translation>Analisi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1974"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3194"/>
         <source>Mixed References</source>
         <translation>Riferimenti misti</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1981"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3195"/>
         <source>Chroma Motion Estimation</source>
         <translation>Stima movimento croma</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1996"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3196"/>
         <source>Trellis Quantization:</source>
         <translation>Quantizzazione Trellis:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2007"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3199"/>
         <source>Final Macroblock Only</source>
         <translation>Solo macroblocco finale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2012"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3200"/>
         <source>Always On</source>
         <translation>Sempre attiva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2035"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3202"/>
         <source>Fast Skip Detection on P-frames</source>
         <translation>Rilevamento sommario sui fotogrammi P</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2042"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3203"/>
         <source>DCT Decimation on P-frames</source>
         <translation>Decimazione DCT sui fotogrammi P</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2057"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3204"/>
         <source>Psychovisual Rate Distortion Optimisation:</source>
         <translation>Ottimizzazione psicovisuale distorsione bitrate:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2097"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3205"/>
         <source>Noise Reduction:</source>
         <translation>Riduzione rumore:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2129"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3206"/>
         <source>Luma Quantisation Deadzone</source>
         <translation>Quantizzazione luma a zona morta</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2149"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3207"/>
         <source>Intra Luma Quantisation Deadzone:</source>
         <translation>Quantizzazione Intra luma a zona morta:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2156"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3208"/>
         <source>Inter Luma Quantisation Deadzone:</source>
         <translation>Quantizzazione Inter luma a zona morta:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2234"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3209"/>
         <source>Quantisation Matrix</source>
         <translation>Matrice di quantizzazione</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2254"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3210"/>
         <source>Flat Matrix</source>
         <translation>Matrice piana</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2264"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3211"/>
         <source>JVT Matrix</source>
         <translation>Matrice JVT</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2279"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3212"/>
         <source>Custom Matrix</source>
         <translation>Matrice personalizzata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2289"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3311"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3213"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3247"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2342"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3215"/>
         <source>Quantiser Control</source>
         <translation>Controllo quantizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2395"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3216"/>
         <source>Maximum Quantiser:</source>
         <translation>Quantizzatore massimo:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2402"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3217"/>
         <source>I and P-frame Quantiser Ratio:</source>
         <translation>Rapporto quantizzatore fotogrammi I e P:</translation>
     </message>
@@ -11588,357 +11113,300 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2505"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2723"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3062"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3218"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3226"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3237"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2527"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3219"/>
         <source>Maximum Quantiser Step:</source>
         <translation>Massima variazione quantizzatore:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2567"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3220"/>
         <source>P and B-frame Quantiser Ratio:</source>
         <translation>Rapporto quantizzatore fotogrammi P e B:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2574"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3221"/>
         <source>Average Bitrate Tolerance:</source>
         <translation>Tolleranza bitrate medio:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2581"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3222"/>
         <source>Chroma to Luma Quantiser Offset:</source>
         <translation>Compensazione quantizzatore croma rispetto a luma:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2624"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3223"/>
         <source>Minimum Quantiser:</source>
         <translation>Quantizzatore minimo:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2678"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3224"/>
         <source>Quantiser Curve Compression</source>
         <translation>Compressione curva quantizzatore</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2698"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3225"/>
         <source>Quantiser Curve Compression:</source>
         <translation>Compressione curva quantizzatore:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2755"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3227"/>
         <source>Reduce Fluctuation Before Curve Compression:</source>
         <translation>Riduci fluttuazioni prima di compressione curva:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2837"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3228"/>
         <source>Reduce Fluctuation After Curve Compression:</source>
         <translation>Riduci fluttuazioni dopo compressione curva:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2849"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3229"/>
         <source>Adaptive Quantisation</source>
         <translation>Quantizzazione adattiva</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2869"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3230"/>
         <source>Variance AQ</source>
         <translation>QA a varianza</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2953"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3249"/>
         <source>Advanced</source>
         <translation>Avanzate</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2973"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3233"/>
         <source>Video Buffer Verifier</source>
         <translation>Verifica buffer video</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2993"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3234"/>
         <source>Maximum VBV Bitrate:</source>
         <translation>Massimo bitrate VBV:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3000"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3235"/>
         <source>Initial VBV Buffer Occupancy:</source>
         <translation>Occupazione iniziale buffer VBV:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3022"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3236"/>
         <source>kbit</source>
         <translation>kbit</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3121"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3239"/>
         <source>VBV Buffer Size:</source>
         <translation>Dimensione buffer VBV:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3133"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3240"/>
         <source>Slicing</source>
         <translation>Suddivisione in fette</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3145"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3241"/>
         <source>Slices per Frame:</source>
         <translation>Fette per fotogramma:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3152"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3242"/>
         <source>Maximum Size per Slice:</source>
         <translation>Dimensione massima di una fetta:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3174"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3243"/>
         <source>bytes</source>
         <translation>byte</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3196"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3244"/>
         <source>Maximum Macroblocks per Slice:</source>
         <translation>Massimo numero di macroblocchi per fetta:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3266"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3245"/>
         <source>Zones</source>
         <translation>Zone</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3304"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3246"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3346"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3358"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3250"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3352"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3395"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3516"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3254"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3275"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3400"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3255"/>
         <source>1.1</source>
         <translation>1.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3405"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3256"/>
         <source>1.2</source>
         <translation>1.2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3410"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3257"/>
         <source>1.3</source>
         <translation>1.3</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3415"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3258"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3420"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3259"/>
         <source>2.1</source>
         <translation>2.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3425"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3260"/>
         <source>2.2</source>
         <translation>2.2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3430"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3521"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3261"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3276"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3435"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3262"/>
         <source>3.1</source>
         <translation>3.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3440"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3263"/>
         <source>3.2</source>
         <translation>3.2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3445"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3264"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3450"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3265"/>
         <source>4.1</source>
         <translation>4.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3455"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3266"/>
         <source>4.2</source>
         <translation>4.2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3460"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3267"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3465"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3268"/>
         <source>5.1</source>
         <translation>5.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3488"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3270"/>
         <source>Sequence Parameter Set Identifer:</source>
         <translation>Identificatore set di parametri di sequenza:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3495"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3271"/>
         <source>IDC Level:</source>
         <translation>Livello IDC:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3511"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3274"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3526"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3277"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3531"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3278"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3536"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3279"/>
         <source>31</source>
         <translation>31</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3561"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3281"/>
         <source>Generate Access Unit Delimiters</source>
         <translation>Genera delimitatori di unità di accesso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3571"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3282"/>
         <source>Pixel Aspect Ratio</source>
         <translation>Proporzioni pixel</translation>
     </message>
     <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3591"/>
+        <source>Custom:</source>
+        <comment>PAR</comment>
+        <translation type="unfinished">Personalizzato:</translation>
+    </message>
+    <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3601"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3284"/>
         <source>As Input</source>
         <translation>Come in ingresso</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3662"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3286"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3697"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3287"/>
         <source>Predefined Aspect Ratio:</source>
         <translation>Proporzioni predefinite:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3716"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3290"/>
         <source>16:15 (PAL 4:3)</source>
         <translation>16:15 (PAL 4:3)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3721"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3291"/>
         <source>64:45 (PAL 16:9)</source>
         <translation>64:45 (PAL 16:9)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3726"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3292"/>
         <source>8:9 (NTSC 4:3)</source>
         <translation>8:9 (NTSC 4:3)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3731"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3293"/>
         <source>32:27 (NTSC 16:9)</source>
         <translation>32:27 (NTSC 16:9)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3759"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3295"/>
         <source>Video Usability Information</source>
         <translation>Informazioni usabilità video</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3771"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3296"/>
         <source>These settings are only suggestions for the playback equipment.  Use at your own risk.</source>
         <translation>Queste impostazioni sono solo suggerimenti per il dispositivo di riproduzione. Utilizzarle a proprio rischio.</translation>
     </message>
@@ -11948,11 +11416,6 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3943"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4020"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4077"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3299"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3312"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3318"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3330"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3339"/>
         <source>Undefined</source>
         <translation>Non definito</translation>
     </message>
@@ -11960,17 +11423,12 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3827"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3948"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4082"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3300"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3319"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3340"/>
         <source>BT709</source>
         <translation>BT709</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3832"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4087"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3301"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3341"/>
         <source>BT470M</source>
         <translation>BT470M</translation>
     </message>
@@ -11978,33 +11436,26 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3837"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3958"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4092"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3302"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3321"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3342"/>
         <source>BT470BG</source>
         <translation>BT470BG</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3842"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3303"/>
         <source>Linear</source>
         <translation>Lineare</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3847"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3304"/>
         <source>LOG100</source>
         <translation>LOG100</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3852"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3305"/>
         <source>LOG316</source>
         <translation>LOG316</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3857"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3306"/>
         <source>SMPTEL170M</source>
         <translation>SMPTEL170M</translation>
     </message>
@@ -12012,125 +11463,102 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3862"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3968"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4102"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3307"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3323"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3344"/>
         <source>SMPTE240M</source>
         <translation>SMPTE240M</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3885"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3309"/>
         <source>Colour Primaries:</source>
         <translation>Colori primari:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3906"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3313"/>
         <source>Show</source>
         <translation>Mostra</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3911"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3314"/>
         <source>Crop</source>
         <translation>Crop</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3953"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3320"/>
         <source>FCC</source>
         <translation>FCC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3963"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4097"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3322"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3343"/>
         <source>SMPTE170M</source>
         <translation>SMPTE170M</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3973"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3324"/>
         <source>GBR</source>
         <translation>GBR</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3978"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3325"/>
         <source>YCgCo</source>
         <translation>YCgCo</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4001"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3327"/>
         <source>Colour Matrix:</source>
         <translation>Matrice colore:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4025"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3331"/>
         <source>Component</source>
         <translation>Component</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4030"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3332"/>
         <source>PAL</source>
         <translation>PAL</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4035"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3333"/>
         <source>NTSC</source>
         <translation>NTSC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4040"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3334"/>
         <source>SECAM</source>
         <translation>SECAM</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4045"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3335"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4107"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3345"/>
         <source>Film</source>
         <translation>Film</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4130"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3347"/>
         <source>Transfer Characteristics:</source>
         <translation>Caratteristiche di trasferimento:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4137"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3348"/>
         <source>Chroma Sample Location:</source>
         <translation>Posizione campione croma:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4174"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3349"/>
         <source>Video Format:</source>
         <translation>Formato video:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4181"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3350"/>
         <source>Overscan:</source>
         <translation>Overscan:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4190"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3351"/>
         <source>Full Range Samples</source>
         <translation>Campioni a gamma completa</translation>
     </message>
@@ -12154,13 +11582,11 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="16"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2166"/>
         <source>x264 Custom Matrix</source>
         <translation>Matrice x264 personalizzata</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="32"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2169"/>
         <source>Intra 4x4</source>
         <translation>Intra 4x4</translation>
     </message>
@@ -12169,54 +11595,42 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="506"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="952"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="1655"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2170"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2173"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2175"/>
         <source>Luma:</source>
         <translation>Luma:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="270"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="716"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2168"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2171"/>
         <source>Chroma U/V:</source>
         <translation>Croma U/V:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="478"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2172"/>
         <source>Inter 4x4</source>
         <translation>Inter 4x4</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="924"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2174"/>
         <source>Intra 8x8</source>
         <translation>Intra 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="1627"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2176"/>
         <source>Inter 8x8</source>
         <translation>Inter 8x8</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2354"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2177"/>
         <source>Load File</source>
         <translation>Carica file</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2374"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2178"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2384"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2179"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>

@@ -28,6 +28,7 @@
 ./avidemux/ADM_codecs/ADM_codecNull.h
 ./avidemux/ADM_codecs/ADM_ffmp43.h
 ./avidemux/ADM_codecs/ADM_uyvy.h
+./avidemux/ADM_codecs/ADM_vpx.h
 ./avidemux/ADM_core/include/ADM_assert.h
 ./avidemux/ADM_core/include/ADM_clock.h
 ./avidemux/ADM_core/include/ADM_cpuCap.h
@@ -235,6 +236,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/alpha/regdef.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/amrnbdata.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/arm/aac.h
+./avidemux/ADM_libraries/ffmpeg/libavcodec/arm/asm-offsets.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/arm/dsputil_arm.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/arm/mathops.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/arm/mpegvideo_arm.h
@@ -264,6 +266,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/cookdata.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dca.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dcadata.h
+./avidemux/ADM_libraries/ffmpeg/libavcodec/dcadsp.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dcahuff.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dctref.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dirac.h
@@ -278,7 +281,6 @@
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/dxva2_internal.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/eac3dec_data.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/elbg.h
-./avidemux/ADM_libraries/ffmpeg/libavcodec/eval.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/faandct.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/faanidct.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/faxcompr.h
@@ -427,6 +429,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/vp3data.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/vp56.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/vp56data.h
+./avidemux/ADM_libraries/ffmpeg/libavcodec/vp56dsp.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/vp5data.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/vp6data.h
 ./avidemux/ADM_libraries/ffmpeg/libavcodec/wma.h
@@ -454,6 +457,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavfilter/avfiltergraph.h
 ./avidemux/ADM_libraries/ffmpeg/libavfilter/graphparser.h
 ./avidemux/ADM_libraries/ffmpeg/libavfilter/parseutils.h
+./avidemux/ADM_libraries/ffmpeg/libavfilter/vsrc_buffer.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/adts.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/aiff.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/apetag.h
@@ -478,6 +482,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavformat/isom.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/matroska.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/metadata.h
+./avidemux/ADM_libraries/ffmpeg/libavformat/movenc.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/mpeg.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/mpegts.h
 ./avidemux/ADM_libraries/ffmpeg/libavformat/mxf.h
@@ -528,6 +533,7 @@
 ./avidemux/ADM_libraries/ffmpeg/libavutil/crc_data.h
 ./avidemux/ADM_libraries/ffmpeg/libavutil/des.h
 ./avidemux/ADM_libraries/ffmpeg/libavutil/error.h
+./avidemux/ADM_libraries/ffmpeg/libavutil/eval.h
 ./avidemux/ADM_libraries/ffmpeg/libavutil/fifo.h
 ./avidemux/ADM_libraries/ffmpeg/libavutil/integer.h
 ./avidemux/ADM_libraries/ffmpeg/libavutil/internal.h
@@ -643,11 +649,6 @@
 ./avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/gtkmarkscale.h
 ./avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/jogshuttle.h
 ./avidemux/ADM_userInterfaces/ADM_GTK/ADM_toolkit_gtk/mediactrl.h
-./avidemux/ADM_userInterfaces/ADM_GTK/glade/devcpp/config.h
-./avidemux/ADM_userInterfaces/ADM_GTK/glade/msvc/config.h
-./avidemux/ADM_userInterfaces/ADM_GTK/glade/src/callbacks.h
-./avidemux/ADM_userInterfaces/ADM_GTK/glade/src/interface.h
-./avidemux/ADM_userInterfaces/ADM_GTK/glade/src/support.h
 ./avidemux/ADM_userInterfaces/ADM_render/GUI_accelRender.h
 ./avidemux/ADM_userInterfaces/ADM_render/GUI_render.h
 ./avidemux/ADM_userInterfaces/ADM_render/GUI_renderInternal.h
@@ -915,22 +916,6 @@
 ./plugins/ADM_videoFilters/TIsophote/original/resource.h
 ./plugins/ADM_videoFilters/TIsophote/original/TIsophote.h
 ./plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.h
-./plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/config.h
-./plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/config.h
-./plugins/build/ADM_videoFilters/ASharp/ui_asharp.h
-./plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h
-./plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h
-./plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h
-./plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h
-./plugins/build/ADM_videoFilters/Contrast/ui_contrast.h
-./plugins/build/ADM_videoFilters/Crop/ui_crop.h
-./plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h
-./plugins/build/ADM_videoFilters/Eq2/ui_eq2.h
-./plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h
-./plugins/build/ADM_videoFilters/Hue/ui_hue.h
-./plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h
-./plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h
-./plugins/build/ADM_videoFilters/Srt/ui_srt.h
 ./avidemux/ADM_audio/ADM_a52info.cpp
 ./avidemux/ADM_audio/ADM_aacinfo.cpp
 ./avidemux/ADM_audio/ADM_dcainfo.cpp
@@ -969,6 +954,7 @@
 ./avidemux/ADM_codecs/ADM_codecs.cpp
 ./avidemux/ADM_codecs/ADM_ffmp43.cpp
 ./avidemux/ADM_codecs/ADM_uyvy.cpp
+./avidemux/ADM_codecs/ADM_vpx.cpp
 ./avidemux/ADM_core/src/ADM_cpuCap.cpp
 ./avidemux/ADM_core/src/ADM_crashdump.cpp
 ./avidemux/ADM_core/src/ADM_dynamicLoading.cpp
@@ -1174,13 +1160,11 @@
 ./avidemux/ADM_toolkit/ADM_packetQueue.cpp
 ./avidemux/ADM_toolkit/automation.cpp
 ./avidemux/ADM_toolkit/filesel.cpp
-./avidemux/ADM_UIs/ADM_CLI/src/ADM_translate.cpp
 ./avidemux/ADM_UIs/ADM_CLI/src/DIA_dialogFactory.cpp
 ./avidemux/ADM_UIs/ADM_CLI/src/DIA_flyDialogCli.cpp
 ./avidemux/ADM_UIs/ADM_CLI/src/DIA_none.cpp
 ./avidemux/ADM_UIs/ADM_CLI/src/FAC_toggle.cpp
 ./avidemux/ADM_UIs/ADM_GTK/src/ADM_gladeSupport.cpp
-./avidemux/ADM_UIs/ADM_GTK/src/ADM_translate.cpp
 ./avidemux/ADM_UIs/ADM_GTK/src/choice.cpp
 ./avidemux/ADM_UIs/ADM_GTK/src/DIA_color.cpp
 ./avidemux/ADM_UIs/ADM_GTK/src/DIA_dialogFactory.cpp
@@ -1485,4 +1469,10 @@
 ./plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp
 ./plugins/ADM_videoFilters/Whirl/ADM_vidWhirl.cpp
 ./plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp
-./plugins/build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
+./scripts/auto/Optical Disc/DVD.js
+./scripts/auto/Optical Disc/Super Video CD.js
+./scripts/auto/Optical Disc/Video CD.js
+./scripts/video/autoWizard.js
+./scripts/video/filter.js
+./scripts/video/functions.js
+./scripts/auto/Optical Disc/translate_dummy.cpp

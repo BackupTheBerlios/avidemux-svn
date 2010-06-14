@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:66
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-31 20:30+0100\n"
+"POT-Creation-Date: 2010-06-14 19:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -496,7 +495,7 @@ msgstr ""
 
 #: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:270
 #: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:352
-#: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:505
+#: avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp:518
 msgid "Malformed header"
 msgstr ""
 
@@ -644,13 +643,26 @@ msgid ""
 msgstr ""
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:17
-#: avidemux/ADM_osSupport/ADM_misc.cpp:21
-#: avidemux/ADM_osSupport/ADM_misc.cpp:29
-#: avidemux/ADM_osSupport/ADM_misc.cpp:33
-msgid "%"
+#, possible-c-format
+msgid "%u minutes"
 msgstr ""
 
-#: avidemux/ADM_outputs/ADM_lavformat.cpp:377
+#: avidemux/ADM_osSupport/ADM_misc.cpp:21
+#, possible-c-format
+msgid "%u minute"
+msgstr ""
+
+#: avidemux/ADM_osSupport/ADM_misc.cpp:29
+#, possible-c-format
+msgid "%u second"
+msgstr ""
+
+#: avidemux/ADM_osSupport/ADM_misc.cpp:33
+#, possible-c-format
+msgid "%u seconds"
+msgstr ""
+
+#: avidemux/ADM_outputs/ADM_lavformat.cpp:373
 msgid "Incompatible frame rate"
 msgstr ""
 
@@ -724,7 +736,7 @@ msgstr ""
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:446
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:89
-#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:127
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:128
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:91
 msgid "Cannot initiate save"
 msgstr ""
@@ -799,7 +811,7 @@ msgid "Unknown codec"
 msgstr ""
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp:102
-#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:140
+#: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp:141
 #: avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp:104
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:175
 msgid "Saving"
@@ -1041,44 +1053,44 @@ msgstr ""
 msgid "Pass 2"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:242
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:243
 msgid "Select a directory"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:513
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:514
 msgid "Uinteger"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:516
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:517
 msgid "Test uinteger"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:528
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:529
 msgid "Float"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:546
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:547
 msgid "Toggle"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:568
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:569
 msgid "No Strategy"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:569
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:570
 msgid "3:2 Pulldown"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:570
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:571
 msgid "Pal/Secam"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:571
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:572
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:79
 msgid "NTSC converted from PAL"
 msgstr ""
 
-#: avidemux/ADM_script/ADM_JSFunctions.cpp:573
+#: avidemux/ADM_script/ADM_JSFunctions.cpp:574
 msgid "menu"
 msgstr ""
 
@@ -1820,11 +1832,11 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:37
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:32
 msgid "_Shrink Factor:"
 msgstr ""
 
-#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:40
+#: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp:35
 msgid "Requant Configuration"
 msgstr ""
 
@@ -2968,6 +2980,7 @@ msgid "<b>Extra Video Properties</b>"
 msgstr ""
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:378
+#: scripts/video/autoWizard.js:24
 msgid "Codec:"
 msgstr ""
 
@@ -5252,10 +5265,12 @@ msgid "mpeg2enc Configuration"
 msgstr ""
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:78
+#: scripts/auto/Optical Disc/translate_dummy.cpp:4
 msgid "DVD"
 msgstr ""
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:79
+#: scripts/auto/Optical Disc/translate_dummy.cpp:5
 msgid "Super Video CD"
 msgstr ""
 
@@ -6423,11 +6438,11 @@ msgstr ""
 msgid "Timecode:"
 msgstr ""
 
-#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:60
+#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:61
 msgid "asharp"
 msgstr ""
 
-#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:63
+#: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:64
 msgid "Adaptative sharpener by MarcFD."
 msgstr ""
 
@@ -6600,6 +6615,10 @@ msgstr ""
 msgid "Show metric in image (debug)"
 msgstr ""
 
+#: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:66
+msgid "Hard pulldown removal"
+msgstr ""
+
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:69
 msgid "Remove IVTC that has been analog captured or resized."
 msgstr ""
@@ -6637,11 +6656,11 @@ msgstr ""
 msgid "Keep chroma V only."
 msgstr ""
 
-#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:35
+#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:36
 msgid "Chroma shift"
 msgstr ""
 
-#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:38
+#: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:39
 msgid "Shift chroma U/V to fix badly synced luma/chroma."
 msgstr ""
 
@@ -8209,4 +8228,42 @@ msgstr ""
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:148
 msgid "_Order:"
+msgstr ""
+
+#: scripts/auto/Optical Disc/DVD.js:9
+#: scripts/auto/Optical Disc/Super Video CD.js:9
+#: scripts/auto/Optical Disc/Video CD.js:9
+msgid "A video file must be open to use this Auto Wizard."
+msgstr ""
+
+#: scripts/auto/Optical Disc/DVD.js:12
+msgid "DVD Auto Wizard"
+msgstr ""
+
+#: scripts/auto/Optical Disc/Super Video CD.js:12
+msgid "Super Video CD Auto Wizard"
+msgstr ""
+
+#: scripts/auto/Optical Disc/Video CD.js:12
+msgid "Video CD Auto Wizard"
+msgstr ""
+
+#: scripts/video/autoWizard.js:4
+msgid "Resolution:"
+msgstr ""
+
+#: scripts/video/autoWizard.js:5
+msgid "Source Aspect Ratio:"
+msgstr ""
+
+#: scripts/video/autoWizard.js:6
+msgid "Destination Aspect Ratio:"
+msgstr ""
+
+#: scripts/auto/Optical Disc/translate_dummy.cpp:3
+msgid "Optical Disc"
+msgstr ""
+
+#: scripts/auto/Optical Disc/translate_dummy.cpp:6
+msgid "Video CD"
 msgstr ""

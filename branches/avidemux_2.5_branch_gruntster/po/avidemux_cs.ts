@@ -1016,11 +1016,6 @@ Můžete to udělat později z nabídky Audio -&gt; Sestavit časovou mapu VBR.<
         <translation type="unfinished">Neznámý kodek</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="248"/>
-        <source>Select GlyphFile to edit</source>
-        <translation type="unfinished">Zvolte soubor s glyfem k editaci</translation>
-    </message>
-    <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="80"/>
         <source>MSharpen</source>
         <translation type="unfinished">MSharpen</translation>
@@ -1051,60 +1046,9 @@ Můžete to udělat později z nabídky Audio -&gt; Sestavit časovou mapu VBR.<
         <translation type="unfinished">Výborný balík filtrů prokládaného obrazu včetně IVTC.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="692"/>
-        <source>Partial Start Frame:</source>
-        <translation type="unfinished">Počáteční snímek:</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="693"/>
-        <source>Partial End Frame:</source>
-        <translation type="unfinished">Konečný snímek:</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="694"/>
-        <source>Configure child</source>
-        <translation type="unfinished">Nastavit filtr</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="697"/>
-        <source>Partial Video Filter</source>
-        <translation type="unfinished">Částečný video filtr</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
-        <source>Ready</source>
-        <translation type="unfinished">Připraven</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
-        <source>Succeeded</source>
-        <translation type="unfinished">Dokončen</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2334"/>
         <source>Failed</source>
         <translation type="unfinished">Chyba</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
-        <source>Deleted</source>
-        <translation type="unfinished">Smazáno</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
-        <source>Running</source>
-        <translation type="unfinished">Běží</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="23"/>
-        <source>No</source>
-        <translation type="unfinished">Ne</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="23"/>
-        <source>Yes</source>
-        <translation type="unfinished">Ano</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="59"/>
@@ -1554,14 +1498,6 @@ Přejete si jej načíst?
 (V každém případě bude smazán, chcete-li jej uchovat, musíte jej uložit.)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="17"/>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="21"/>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="29"/>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="33"/>
-        <source>%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="124"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="172"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="140"/>
@@ -1811,122 +1747,53 @@ Chcete přesto pokračovat?</translation>
         <translation type="unfinished">Průchod 2/2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="242"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="243"/>
         <source>Select a directory</source>
         <translation type="unfinished">Zvolte adresář</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="513"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="514"/>
         <source>Uinteger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="516"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="517"/>
         <source>Test uinteger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="528"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="529"/>
         <source>Float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="546"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="547"/>
         <source>Toggle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="568"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="569"/>
         <source>No Strategy</source>
         <translation type="unfinished">Žádná strategie</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="569"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="570"/>
         <source>3:2 Pulldown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="570"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="571"/>
         <source>Pal/Secam</source>
         <translation type="unfinished">PAL/SECAM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="571"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="572"/>
         <source>NTSC converted from PAL</source>
         <translation type="unfinished">NTSC konvertované z PAL</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="573"/>
+        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="574"/>
         <source>menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="32"/>
-        <source>Alert</source>
-        <translation type="unfinished">Upozornění</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="40"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="69"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="96"/>
-        <source>Info</source>
-        <translation type="unfinished">Informace</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="120"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="150"/>
-        <source>Confirmation</source>
-        <translation type="unfinished">Potvrzení</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="167"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="195"/>
-        <source>Question</source>
-        <translation type="unfinished">Otázka</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="188"/>
-        <source>Question ?</source>
-        <translation type="unfinished">Otázka</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp" line="1015"/>
-        <source>%c (%02d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="156"/>
-        <source>Qt (X11)</source>
-        <translation type="unfinished">Qt (X11)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="158"/>
-        <source>Qt (MS Windows GDI)</source>
-        <translation type="unfinished">Qt (MS Windows GDI)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="160"/>
-        <source>Qt (Mac OS X Quartz 2D)</source>
-        <translation type="unfinished">Qt (Mac OS X Quartz 2D)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="162"/>
-        <source>Qt (Mac OS X QuickDraw)</source>
-        <translation type="unfinished">Qt (Mac OS X QuickDraw)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="164"/>
-        <source>Qt (OpenGL)</source>
-        <translation type="unfinished">Qt (OpenGL)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="167"/>
-        <source>Qt (MS Windows Direct3D)</source>
-        <translation type="unfinished">Qt (MS Windows Direct3D)</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ui_support.cpp" line="170"/>
-        <source>Qt (Default Raster)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2684,12 +2551,12 @@ Chcete přesto pokračovat?</translation>
         <translation type="unfinished">Předvolby</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="37"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="32"/>
         <source>_Shrink Factor:</source>
         <translation type="unfinished">_Faktor smrštění:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="40"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="35"/>
         <source>Requant Configuration</source>
         <translation type="unfinished">Nastavení rekvantizace</translation>
     </message>
@@ -2944,12 +2811,12 @@ Enable it?</source>
         <translation type="unfinished">Nastavení kodeku Vorbis</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="60"/>
+        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="61"/>
         <source>asharp</source>
         <translation type="unfinished">asharp</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="63"/>
+        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="64"/>
         <source>Adaptative sharpener by MarcFD.</source>
         <translation type="unfinished">Adaptivní doostření, napsal MarcFD.</translation>
     </message>
@@ -3062,12 +2929,12 @@ Enable it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="35"/>
+        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="36"/>
         <source>Chroma shift</source>
         <translation type="unfinished">Chroma shift</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="38"/>
+        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="39"/>
         <source>Shift chroma U/V to fix badly synced luma/chroma.</source>
         <translation type="unfinished">Posun U/V chrominance pro opravu špatně synchronizované luminance/chrominance.</translation>
     </message>
@@ -3707,3866 +3574,30 @@ Enable it?</source>
         <source>Alter colors (auto white balance etc...). Ported from Avisynth.</source>
         <translation type="unfinished">Změna barev (automatické vyvážení bílé atd.) Portováno z Avisynthu.</translation>
     </message>
-</context>
-<context>
-    <name>@default</name>
     <message>
-        <source>0</source>
-        <translation type="obsolete">0</translation>
-    </message>
-    <message>
-        <source>Transform</source>
-        <translation type="obsolete">Transformace</translation>
-    </message>
-    <message>
-        <source>Misc</source>
-        <translation type="obsolete">Různé</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation type="obsolete">Kopie</translation>
-    </message>
-    <message>
-        <source>_Interlaced</source>
-        <translation type="obsolete">_Prokládaný</translation>
-    </message>
-    <message>
-        <source>Ca_rtoon mode</source>
-        <translation type="obsolete">_Režim kreslených seriálů</translation>
-    </message>
-    <message>
-        <source>_Greyscale</source>
-        <translation type="obsolete">_Odstíny šedi</translation>
-    </message>
-    <message>
-        <source>Turbo mode</source>
-        <translation type="obsolete">Turbo režim</translation>
-    </message>
-    <message>
-        <source>C_hroma optimizer</source>
-        <translation type="obsolete">Opti_malizace chrominance</translation>
-    </message>
-    <message>
-        <source>Main</source>
-        <translation type="obsolete">Hlavní</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="obsolete">Nic</translation>
-    </message>
-    <message>
-        <source>Very Low</source>
-        <translation type="obsolete">Velmi nízká</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="obsolete">Nízká</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="obsolete">Střední</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="obsolete">Vysoká</translation>
-    </message>
-    <message>
-        <source>Very High</source>
-        <translation type="obsolete">Velmi vysoká</translation>
-    </message>
-    <message>
-        <source>Ultra High</source>
-        <translation type="obsolete">Ultra vysoká</translation>
-    </message>
-    <message>
-        <source>Motion Search Precision</source>
-        <translation type="obsolete">Přesnost vyhledávání pohybu</translation>
-    </message>
-    <message>
-        <source>Off</source>
-        <translation type="obsolete">Vypnuto</translation>
-    </message>
-    <message>
-        <source>Mode Decision</source>
-        <translation type="obsolete">Rozhodování režimu</translation>
-    </message>
-    <message>
-        <source>Limited Search</source>
-        <translation type="obsolete">Omezené vyhledávání</translation>
-    </message>
-    <message>
-        <source>Medium Search</source>
-        <translation type="obsolete">Střední vyhledávání</translation>
-    </message>
-    <message>
-        <source>Wide Search</source>
-        <translation type="obsolete">Široké vyhledávání</translation>
-    </message>
-    <message>
-        <source>VHQ Mode</source>
-        <translation type="obsolete">VHQ režim</translation>
-    </message>
-    <message>
-        <source>Max B Frames</source>
-        <translation type="obsolete">Max počet B snímků</translation>
-    </message>
-    <message>
-        <source>Quarter Pixel</source>
-        <translation type="obsolete">Qpel</translation>
-    </message>
-    <message>
-        <source>GMC</source>
-        <translation type="obsolete">GMC</translation>
-    </message>
-    <message>
-        <source>Advanced Simple Profile</source>
-        <translation type="obsolete">Advanced Simple Profile</translation>
-    </message>
-    <message>
-        <source>Chroma ME</source>
-        <translation type="obsolete">Chrominance pro odhad pohybu</translation>
-    </message>
-    <message>
-        <source>More Search</source>
-        <translation type="obsolete">Další možnosti</translation>
-    </message>
-    <message>
-        <source>Min Gop Size</source>
-        <translation type="obsolete">Min. velikost GOP</translation>
-    </message>
-    <message>
-        <source>Max Gop Size</source>
-        <translation type="obsolete">Max. velikost GOP</translation>
-    </message>
-    <message>
-        <source>GOP Size</source>
-        <translation type="obsolete">Velikost GOP</translation>
-    </message>
-    <message>
-        <source>Motion</source>
-        <translation type="obsolete">Pohyb</translation>
-    </message>
-    <message>
-        <source>Quantization Matrix</source>
-        <translation type="obsolete">Kvantizační matice</translation>
-    </message>
-    <message>
-        <source>Trellis Quantization</source>
-        <translation type="obsolete">Síťová (trellis) kvantizace</translation>
-    </message>
-    <message>
-        <source>Quantization</source>
-        <translation type="obsolete">Kvantizace</translation>
-    </message>
-    <message>
-        <source>Two Pass Tuning</source>
-        <translation type="obsolete">Vyladění druhého průchodu</translation>
-    </message>
-    <message>
-        <source>Key Frame Boost(%)</source>
-        <translation type="obsolete">Vylepšení klíčových snímků (%)</translation>
-    </message>
-    <message>
-        <source>I-frames closer than...</source>
-        <translation type="obsolete">I snímky bližší než...</translation>
-    </message>
-    <message>
-        <source>.. are reduced by(%)</source>
-        <translation type="obsolete">...jsou redukovány o (%)</translation>
-    </message>
-    <message>
-        <source>Max Overflow Improvement(%)</source>
-        <translation type="obsolete">Max. zlepšení přetečení (%)</translation>
-    </message>
-    <message>
-        <source>Max Overglow Degradation(%)</source>
-        <translation type="obsolete">Max. zhoršení přetečení (%)</translation>
-    </message>
-    <message>
-        <source>Curve Compression</source>
-        <translation type="obsolete">Komprese křivky</translation>
-    </message>
-    <message>
-        <source>High Bitrate Scenes (%)</source>
-        <translation type="obsolete">Scény s vysokým datovým tokem (%)</translation>
-    </message>
-    <message>
-        <source>Low Bitrate Scenes (%)</source>
-        <translation type="obsolete">Scény s nízkým datovým tokem (%)</translation>
-    </message>
-    <message>
-        <source>Overflow Control Strength</source>
-        <translation type="obsolete">Síla kontroly přetečení</translation>
-    </message>
-    <message>
-        <source>Two Pass</source>
-        <translation type="obsolete">Druhý průchod</translation>
-    </message>
-    <message>
-        <source>Xvid4 Configuration</source>
-        <translation type="obsolete">Nastavení Xvid4</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="obsolete">Ne</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="obsolete">Ano</translation>
-    </message>
-    <message>
-        <source>4:3</source>
-        <translation type="obsolete">4:3</translation>
-    </message>
-    <message>
-        <source>16:9</source>
-        <translation type="obsolete">16:9</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="obsolete">Výchozí</translation>
-    </message>
-    <message>
-        <source>TMPGEnc</source>
-        <translation type="obsolete">TMPGEnc</translation>
-    </message>
-    <message>
-        <source>Anime</source>
-        <translation type="obsolete">Anime</translation>
-    </message>
-    <message>
-        <source>KVCD</source>
-        <translation type="obsolete">KVCD</translation>
-    </message>
-    <message>
-        <source>Progressive</source>
-        <translation type="obsolete">Progresivní</translation>
-    </message>
-    <message>
-        <source>Interlaced TFF</source>
-        <translation type="obsolete">Prokládaný, nejdřív horní půlsnímek</translation>
-    </message>
-    <message>
-        <source>Interlaced BFF</source>
-        <translation type="obsolete">Prokládaný, nejdřív spodní půlsnímek</translation>
-    </message>
-    <message>
-        <source>VCD 40 kB</source>
-        <translation type="obsolete">VCD 40 kB</translation>
-    </message>
-    <message>
-        <source>SVCD 112 kB</source>
-        <translation type="obsolete">SVCD 112 kB</translation>
-    </message>
-    <message>
-        <source>DVD 224 kB</source>
-        <translation type="obsolete">DVD 224 kB</translation>
-    </message>
-    <message>
-        <source>Ma_x. bitrate:</source>
-        <translation type="obsolete">Ma_x. datový tok:</translation>
-    </message>
-    <message>
-        <source>Mi_n. bitrate:</source>
-        <translation type="obsolete">Mi_n. datový tok:</translation>
-    </message>
-    <message>
-        <source>_Use Xvid rate control</source>
-        <translation type="obsolete">Řízení _datového toku z kodeku Xvid</translation>
-    </message>
-    <message>
-        <source>_Buffer size:</source>
-        <translation type="obsolete">_Velikost bufferu:</translation>
-    </message>
-    <message>
-        <source>Aspect _ratio:</source>
-        <translation type="obsolete">_Poměr stran:</translation>
-    </message>
-    <message>
-        <source>_Matrices:</source>
-        <translation type="obsolete">_Matice:</translation>
-    </message>
-    <message>
-        <source>_GOP size:</source>
-        <translation type="obsolete">Velikost _GOP:</translation>
-    </message>
-    <message>
-        <source>_Interlacing:</source>
-        <translation type="obsolete">Pr_okládání:</translation>
-    </message>
-    <message>
-        <source>libavcodec MPEG-2 Configuration</source>
-        <translation type="obsolete">Nastavení libavcodec MPEG-2</translation>
-    </message>
-    <message>
-        <source>MPEG-2 Configuration</source>
-        <translation type="obsolete">Nastavení MPEG-2</translation>
-    </message>
-    <message>
-        <source>_Background Image:</source>
-        <translation type="obsolete">_Obrázek pozadí:</translation>
-    </message>
-    <message>
-        <source>Select background image</source>
-        <translation type="obsolete">Zvolte obrázek s pozadím</translation>
-    </message>
-    <message>
-        <source>_NTSC(default is Pal):</source>
-        <translation type="obsolete">_NTSC (výchozí je PAL):</translation>
-    </message>
-    <message>
-        <source>Vignette _Width:</source>
-        <translation type="obsolete">Šíř_ka:</translation>
-    </message>
-    <message>
-        <source>Vignette _Height:</source>
-        <translation type="obsolete">_Výška:</translation>
-    </message>
-    <message>
-        <source>Vignette frame number</source>
-        <translation type="obsolete">Číslo snímku</translation>
-    </message>
-    <message>
-        <source>Timecode:</source>
-        <translation type="obsolete">Časový kód:</translation>
-    </message>
-    <message>
-        <source>_Dynamic range compression</source>
-        <translation type="obsolete">_Komprese dynamického rozsahu</translation>
-    </message>
-    <message>
-        <source>_Time shift (ms):</source>
-        <translation type="obsolete">Č_asový posun (ms):</translation>
-    </message>
-    <message>
-        <source>Time shift value (ms)</source>
-        <translation type="obsolete">Hodnota časového posunu (ms)</translation>
-    </message>
-    <message>
-        <source>R_esampling (Hz):</source>
-        <translation type="obsolete">_Převzorkování (Hz):</translation>
-    </message>
-    <message>
-        <source>Resampling frequency (Hz)</source>
-        <translation type="obsolete">Frekvence převzorkování (Hz)</translation>
-    </message>
-    <message>
-        <source>Film to PAL</source>
-        <translation type="obsolete">Film -&gt; PAL</translation>
-    </message>
-    <message>
-        <source>PAL to Film</source>
-        <translation type="obsolete">PAL -&gt; Film</translation>
-    </message>
-    <message>
-        <source>_Frame rate change:</source>
-        <translation type="obsolete">Změna _snímkové frekvence:</translation>
-    </message>
-    <message>
-        <source>Automatic (max -3 dB)</source>
-        <translation type="obsolete">Automatické (max. -3 dB)</translation>
-    </message>
-    <message>
-        <source>Manual</source>
-        <translation type="obsolete">Ruční</translation>
-    </message>
-    <message>
-        <source>_Gain mode:</source>
-        <translation type="obsolete">Z_výšení hlasitosti:</translation>
-    </message>
-    <message>
-        <source>G_ain value:</source>
-        <translation type="obsolete">_Hodnota zvýšení:</translation>
-    </message>
-    <message>
-        <source>Gain</source>
-        <translation type="obsolete">Zvýšení</translation>
-    </message>
-    <message>
-        <source>No change</source>
-        <translation type="obsolete">Beze změny</translation>
-    </message>
-    <message>
-        <source>Mono</source>
-        <translation type="obsolete">Mono</translation>
-    </message>
-    <message>
-        <source>Stereo</source>
-        <translation type="obsolete">Stereo           </translation>
-    </message>
-    <message>
-        <source>Stereo+surround</source>
-        <translation type="obsolete">Stereo+surround</translation>
-    </message>
-    <message>
-        <source>Stereo+center</source>
-        <translation type="obsolete">Stereo+střed</translation>
-    </message>
-    <message>
-        <source>Stereo+center+surround</source>
-        <translation type="obsolete">Stereo+střed+surround</translation>
-    </message>
-    <message>
-        <source>Stereo front+stereo rear</source>
-        <translation type="obsolete">Stereo přední+stereo zadní</translation>
-    </message>
-    <message>
-        <source>5 channels</source>
-        <translation type="obsolete">5 kanálů</translation>
-    </message>
-    <message>
-        <source>5.1</source>
-        <translation type="obsolete">5.1</translation>
-    </message>
-    <message>
-        <source>Dolby Pro Logic</source>
-        <translation type="obsolete">Dolby Pro Logic</translation>
-    </message>
-    <message>
-        <source>Dolby Pro Logic II</source>
-        <translation type="obsolete">Dolby Pro Logic II</translation>
-    </message>
-    <message>
-        <source>_Mixer:</source>
-        <translation type="obsolete">_Mixér:</translation>
-    </message>
-    <message>
-        <source>Audio Filters</source>
-        <translation type="obsolete">Audio filtry</translation>
-    </message>
-    <message>
-        <source>_Bitrate:</source>
-        <translation type="obsolete">_Datový tok:</translation>
-    </message>
-    <message>
-        <source>Audio Configuration</source>
-        <translation type="obsolete">Nastavení zvuku</translation>
-    </message>
-    <message>
-        <source>No data</source>
-        <translation type="obsolete">Žádná data</translation>
-    </message>
-    <message>
-        <source>Max. bitrate:</source>
-        <translation type="obsolete">Max. datový tok:</translation>
-    </message>
-    <message>
-        <source>Average bitrate:</source>
-        <translation type="obsolete">Průměrný datový tok:</translation>
-    </message>
-    <message>
-        <source>Number of I frames:</source>
-        <translation type="obsolete">Počet I snímků:</translation>
-    </message>
-    <message>
-        <source>Number of P frames:</source>
-        <translation type="obsolete">Počet P snímků:</translation>
-    </message>
-    <message>
-        <source>Number of B frames:</source>
-        <translation type="obsolete">Počet B snímků:</translation>
-    </message>
-    <message>
-        <source>Max. B frames:</source>
-        <translation type="obsolete">Max. B snímků:</translation>
-    </message>
-    <message>
-        <source>Bitrate Histogram</source>
-        <translation type="obsolete">Histogram datového toku</translation>
-    </message>
-    <message>
-        <source>Video Codecs</source>
-        <translation type="obsolete">Video kodeky</translation>
-    </message>
-    <message>
-        <source>Xvid</source>
-        <translation type="obsolete">Xvid</translation>
-    </message>
-    <message>
-        <source>x264</source>
-        <translation type="obsolete">x264</translation>
-    </message>
-    <message>
-        <source>Audio Codecs</source>
-        <translation type="obsolete">Audio kodeky</translation>
-    </message>
-    <message>
-        <source>Aften</source>
-        <translation type="obsolete">Aften</translation>
-    </message>
-    <message>
-        <source>amrnb</source>
-        <translation type="obsolete">amrnb</translation>
-    </message>
-    <message>
-        <source>FAAC</source>
-        <translation type="obsolete">FAAC</translation>
-    </message>
-    <message>
-        <source>FAAD2</source>
-        <translation type="obsolete">FAAD2</translation>
-    </message>
-    <message>
-        <source>LAME</source>
-        <translation type="obsolete">LAME</translation>
-    </message>
-    <message>
-        <source>liba52</source>
-        <translation type="obsolete">liba52</translation>
-    </message>
-    <message>
-        <source>libdca</source>
-        <translation type="obsolete">libdca</translation>
-    </message>
-    <message>
-        <source>MAD</source>
-        <translation type="obsolete">MAD</translation>
-    </message>
-    <message>
-        <source>Vorbis</source>
-        <translation type="obsolete">Vorbis</translation>
-    </message>
-    <message>
-        <source>aRts</source>
-        <translation type="obsolete">aRts</translation>
-    </message>
-    <message>
-        <source>ESD</source>
-        <translation type="obsolete">ESD</translation>
-    </message>
-    <message>
-        <source>Fontconfig</source>
-        <translation type="obsolete">Fontconfig</translation>
-    </message>
-    <message>
-        <source>FreeType 2</source>
-        <translation type="obsolete">FreeType 2</translation>
-    </message>
-    <message>
-        <source>Gettext</source>
-        <translation type="obsolete">Gettext</translation>
-    </message>
-    <message>
-        <source>ALSA</source>
-        <translation type="obsolete">ALSA</translation>
-    </message>
-    <message>
-        <source>OSS</source>
-        <translation type="obsolete">OSS</translation>
-    </message>
-    <message>
-        <source>SDL</source>
-        <translation type="obsolete">SDL</translation>
-    </message>
-    <message>
-        <source>XVideo</source>
-        <translation type="obsolete">XVideo</translation>
-    </message>
-    <message>
-        <source>AltiVec</source>
-        <translation type="obsolete">AltiVec</translation>
-    </message>
-    <message>
-        <source>PowerPC</source>
-        <translation type="obsolete">PowerPC</translation>
-    </message>
-    <message>
-        <source>x86</source>
-        <translation type="obsolete">x86</translation>
-    </message>
-    <message>
-        <source>x86-64</source>
-        <translation type="obsolete">x86-64</translation>
-    </message>
-    <message>
-        <source>Codecs</source>
-        <translation type="obsolete">Kodeky</translation>
-    </message>
-    <message>
-        <source>Libraries</source>
-        <translation type="obsolete">Knihovny</translation>
-    </message>
-    <message>
-        <source>CPU</source>
-        <translation type="obsolete">CPU</translation>
-    </message>
-    <message>
-        <source>Built-in Support</source>
-        <translation type="obsolete">Vestavěná podpora</translation>
-    </message>
-    <message>
-        <source>_Bitrate (kb/s):</source>
-        <translation type="obsolete">_Datový tok (kb/s):</translation>
-    </message>
-    <message>
-        <source>FLV1 Configuration</source>
-        <translation type="obsolete">Nastavení FLV1</translation>
-    </message>
-    <message>
-        <source>_Hours:</source>
-        <translation type="obsolete">_Hodiny:</translation>
-    </message>
-    <message>
-        <source>_Minutes:</source>
-        <translation type="obsolete">_Minuty:</translation>
-    </message>
-    <message>
-        <source>_Seconds:</source>
-        <translation type="obsolete">_Sekundy:</translation>
-    </message>
-    <message>
-        <source>Go to Time</source>
-        <translation type="obsolete">Přejít na čas</translation>
-    </message>
-    <message>
-        <source>_Job name:</source>
-        <translation type="obsolete">_Název úlohy:</translation>
-    </message>
-    <message>
-        <source>Output _File:</source>
-        <translation type="obsolete">_Výstupní soubor:</translation>
-    </message>
-    <message>
-        <source>Select Video To Write</source>
-        <translation type="obsolete">Zvolte video k uložení</translation>
-    </message>
-    <message>
-        <source>Save Job</source>
-        <translation type="obsolete">Uložit úlohu</translation>
-    </message>
-    <message>
-        <source>_Swap U and V</source>
-        <translation type="obsolete">_Prohodit U a V</translation>
-    </message>
-    <message>
-        <source>Show motion _vectors</source>
-        <translation type="obsolete">Zobrazovat _vektory pohybu</translation>
-    </message>
-    <message>
-        <source>Decoder Options</source>
-        <translation type="obsolete">Nastavení dekodéru</translation>
-    </message>
-    <message>
-        <source>Full</source>
-        <translation type="obsolete">Plná</translation>
-    </message>
-    <message>
-        <source>Log</source>
-        <translation type="obsolete">Log</translation>
-    </message>
-    <message>
-        <source>Phods</source>
-        <translation type="obsolete">Phods</translation>
-    </message>
-    <message>
-        <source>EPZS</source>
-        <translation type="obsolete">EPZS</translation>
-    </message>
-    <message>
-        <source>X1</source>
-        <translation type="obsolete">X1</translation>
-    </message>
-    <message>
-        <source>H.263</source>
-        <translation type="obsolete">H.263</translation>
-    </message>
-    <message>
-        <source>MPEG</source>
-        <translation type="obsolete">MPEG</translation>
-    </message>
-    <message>
-        <source>MB comparison</source>
-        <translation type="obsolete">Porovnání MB</translation>
-    </message>
-    <message>
-        <source>Fewest bits (vhq)</source>
-        <translation type="obsolete">Nejméně bitů (vhq)</translation>
-    </message>
-    <message>
-        <source>Matrices</source>
-        <translation type="obsolete">Matice</translation>
-    </message>
-    <message>
-        <source>Mi_n. quantizer:</source>
-        <translation type="obsolete">Mi_n. kvantizér:</translation>
-    </message>
-    <message>
-        <source>Ma_x. quantizer:</source>
-        <translation type="obsolete">Ma_x. kvantizér:</translation>
-    </message>
-    <message>
-        <source>Max. quantizer _difference:</source>
-        <translation type="obsolete">Max. r_ozdíl kvantizérů:</translation>
-    </message>
-    <message>
-        <source>_Trellis quantization</source>
-        <translation type="obsolete">_Síťová (trellis) kvantizace</translation>
-    </message>
-    <message>
-        <source>_Quarter pixel</source>
-        <translation type="obsolete">_Qpel</translation>
-    </message>
-    <message>
-        <source>_GMC</source>
-        <translation type="obsolete">_GMC</translation>
-    </message>
-    <message>
-        <source>_Number of B frames:</source>
-        <translation type="obsolete">_Počet B snímků:</translation>
-    </message>
-    <message>
-        <source>_Quantization type:</source>
-        <translation type="obsolete">_Typ kvantizace:</translation>
-    </message>
-    <message>
-        <source>_Macroblock decision:</source>
-        <translation type="obsolete">_Rozhodování makrobloků:</translation>
-    </message>
-    <message>
-        <source>_Filesize tolerance (kb):</source>
-        <translation type="obsolete">_Tolerance velikosti souboru (kb):</translation>
-    </message>
-    <message>
-        <source>_Quantizer compression:</source>
-        <translation type="obsolete">_Komprese kvantizérů:</translation>
-    </message>
-    <message>
-        <source>Quantizer _blur:</source>
-        <translation type="obsolete">_Rozmazání kvantizérů:</translation>
-    </message>
-    <message>
-        <source>User Interface</source>
-        <translation type="obsolete">Uživatelské prostředí</translation>
-    </message>
-    <message>
-        <source>Motion Estimation</source>
-        <translation type="obsolete">Odhad pohybu</translation>
-    </message>
-    <message>
-        <source>Rate Control</source>
-        <translation type="obsolete">Řízení datového toku</translation>
-    </message>
-    <message>
-        <source>libavcodec MPEG-4 configuration</source>
-        <translation type="obsolete">Nastavení libavcodec MPEG-4</translation>
-    </message>
-    <message>
-        <source>_Quality:</source>
-        <translation type="obsolete">_Kvalita:</translation>
-    </message>
-    <message>
-        <source>_Swap U&amp;V</source>
-        <translation type="obsolete">_Prohodit U&amp;V</translation>
-    </message>
-    <message>
-        <source>MJPEG Configuration</source>
-        <translation type="obsolete">Nastavení MJPEG</translation>
-    </message>
-    <message>
-        <source>_Filter strength:</source>
-        <translation type="obsolete">_Síla filtru:</translation>
-    </message>
-    <message>
-        <source>_Horizontal deblocking</source>
-        <translation type="obsolete">_Horizontální deblocking</translation>
-    </message>
-    <message>
-        <source>_Vertical deblocking</source>
-        <translation type="obsolete">V_ertikální deblocking</translation>
-    </message>
-    <message>
-        <source>_Deringing</source>
-        <translation type="obsolete">_Deringing</translation>
-    </message>
-    <message>
-        <source>_Shrink Factor:</source>
-        <translation type="obsolete">_Faktor smrštění:</translation>
-    </message>
-    <message>
-        <source>Requant Configuration</source>
-        <translation type="obsolete">Nastavení rekvantizace</translation>
-    </message>
-    <message>
-        <source>VCD</source>
-        <translation type="obsolete">VCD</translation>
-    </message>
-    <message>
-        <source>SVCD</source>
-        <translation type="obsolete">SVCD</translation>
-    </message>
-    <message>
-        <source>DVD</source>
-        <translation type="obsolete">DVD</translation>
-    </message>
-    <message>
-        <source>DVD half D1</source>
-        <translation type="obsolete">DVD poloviční D1</translation>
-    </message>
-    <message>
-        <source>PSP full res (720*480</source>
-        <translation type="obsolete">PSP plné rozlišení (720*480)</translation>
-    </message>
-    <message>
-        <source>1:1</source>
-        <translation type="obsolete">1:1</translation>
-    </message>
-    <message>
-        <source>_Target type:</source>
-        <translation type="obsolete">_Cílový formát:</translation>
-    </message>
-    <message>
-        <source>_Source aspect ratio:</source>
-        <translation type="obsolete">Zdrojový _poměr stran:</translation>
-    </message>
-    <message>
-        <source>_Destination aspect ratio:</source>
-        <translation type="obsolete">Cílový poměr _stran:</translation>
-    </message>
-    <message>
-        <source>Auto Wizard</source>
-        <translation type="obsolete">Automatický průvodce</translation>
-    </message>
-    <message>
-        <source>Auto (might not work)</source>
-        <translation type="obsolete">Automatické (nemusí fugovat)</translation>
-    </message>
-    <message>
-        <source>Top field first</source>
-        <translation type="obsolete">Nejdřív horní půlsnímek</translation>
-    </message>
-    <message>
-        <source>Bottom field first</source>
-        <translation type="obsolete">Nejdřív spodní půlsnímek</translation>
-    </message>
-    <message>
-        <source>Bottom field (keep top)</source>
-        <translation type="obsolete">Spodní půlsnímek (horní nechat)</translation>
-    </message>
-    <message>
-        <source>Top field (keep bottom)</source>
-        <translation type="obsolete">Horní půlsnímek (spodní nechat)</translation>
-    </message>
-    <message>
-        <source>Cubic interpolation</source>
-        <translation type="obsolete">Kubická interpolace</translation>
-    </message>
-    <message>
-        <source>Modified ELA</source>
-        <translation type="obsolete">Modifikovaná ELA</translation>
-    </message>
-    <message>
-        <source>Kernel interpolation</source>
-        <translation type="obsolete">Jádrová interpolace</translation>
-    </message>
-    <message>
-        <source>Modified ELA-2</source>
-        <translation type="obsolete">Modifikovaná ELA-2</translation>
-    </message>
-    <message>
-        <source>4 fields check</source>
-        <translation type="obsolete">4půlsnímková kontrola</translation>
-    </message>
-    <message>
-        <source>5 fields check</source>
-        <translation type="obsolete">5půlsnímková kontrola</translation>
-    </message>
-    <message>
-        <source>4 fields check (no avg)</source>
-        <translation type="obsolete">4půlsnímková kontrola (bez průměru)</translation>
-    </message>
-    <message>
-        <source>5 fields check (no avg)</source>
-        <translation type="obsolete">5půlsnímková kontrola (bez průměru)</translation>
-    </message>
-    <message>
-        <source>No link</source>
-        <translation type="obsolete">Žádná</translation>
-    </message>
-    <message>
-        <source>Full link</source>
-        <translation type="obsolete">Plná</translation>
-    </message>
-    <message>
-        <source>Y to UV</source>
-        <translation type="obsolete">Y na UV</translation>
-    </message>
-    <message>
-        <source>UV to Y</source>
-        <translation type="obsolete">UV na Y</translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>_Field order:</source>
-        <translation type="obsolete">Poř_adí půlsnímků:</translation>
-    </message>
-    <message>
-        <source>_Interpolate:</source>
-        <translation type="obsolete">_Interpolovat:</translation>
-    </message>
-    <message>
-        <source>_Type:</source>
-        <translation type="obsolete">_Typ:</translation>
-    </message>
-    <message>
-        <source>_Link:</source>
-        <translation type="obsolete">_Vazba:</translation>
-    </message>
-    <message>
-        <source>_AP type:</source>
-        <translation type="obsolete">Typ ochrany před art_efakty:</translation>
-    </message>
-    <message>
-        <source>Use ch_roma to evalute</source>
-        <translation type="obsolete">Použít _chrominanci</translation>
-    </message>
-    <message>
-        <source>Try _weave</source>
-        <translation type="obsolete">Z_kusit spojení</translation>
-    </message>
-    <message>
-        <source>_Denoise</source>
-        <translation type="obsolete">_Redukce šumu</translation>
-    </message>
-    <message>
-        <source>_Sharp</source>
-        <translation type="obsolete">_Ostrý</translation>
-    </message>
-    <message>
-        <source>_Evalute all frames</source>
-        <translation type="obsolete">V_yhodnotit všechny snímky</translation>
-    </message>
-    <message>
-        <source>Motion threshold, l_uma:</source>
-        <translation type="obsolete">Práh pohybu, _luma:</translation>
-    </message>
-    <message>
-        <source>Motion threshold, c_hroma:</source>
-        <translation type="obsolete">Práh pohybu, c_hroma:</translation>
-    </message>
-    <message>
-        <source>Area com_bing threshold:</source>
-        <translation type="obsolete">Práh prokla_du oblasti:</translation>
-    </message>
-    <message>
-        <source>Combe_d threshold:</source>
-        <translation type="obsolete">Práh proklad_u:</translation>
-    </message>
-    <message>
-        <source>Artefact _protection threshold:</source>
-        <translation type="obsolete">Práh ochrany před arte_fakty:</translation>
-    </message>
-    <message>
-        <source>Debug:</source>
-        <translation type="obsolete">Ladění:</translation>
-    </message>
-    <message>
-        <source>TDeint</source>
-        <translation type="obsolete">TDeint</translation>
-    </message>
-    <message>
-        <source>_VOB file(s):</source>
-        <translation type="obsolete">_VOB soubor(y):</translation>
-    </message>
-    <message>
-        <source>Select VOB file(s)</source>
-        <translation type="obsolete">Zvolte VOB soubor(y)</translation>
-    </message>
-    <message>
-        <source>_IFO file:</source>
-        <translation type="obsolete">_IFO soubor:</translation>
-    </message>
-    <message>
-        <source>Select IFO file</source>
-        <translation type="obsolete">Zvolte IFO soubor</translation>
-    </message>
-    <message>
-        <source>VobSub file:</source>
-        <translation type="obsolete">VobSub soubor:</translation>
-    </message>
-    <message>
-        <source>Select VobSub file</source>
-        <translation type="obsolete">Zvolte VobSub soubor</translation>
-    </message>
-    <message>
-        <source>VOB to VobSub</source>
-        <translation type="obsolete">VOB do VobSub</translation>
-    </message>
-    <message>
-        <source>The selected vobfile does not exist</source>
-        <translation type="obsolete">Zvolený VOB soubor neexistuje</translation>
-    </message>
-    <message>
-        <source>Please select a correct VobSub path/dir</source>
-        <translation type="obsolete">Prosím vyberte platný soubor/adresář VobSub</translation>
-    </message>
-    <message>
-        <source>Joint stereo</source>
-        <translation type="obsolete">Joint stereo</translation>
-    </message>
-    <message>
-        <source>C_hannel mode:</source>
-        <translation type="obsolete">_Režim kanálů:</translation>
-    </message>
-    <message>
-        <source>CBR</source>
-        <translation type="obsolete">CBR</translation>
-    </message>
-    <message>
-        <source>ABR</source>
-        <translation type="obsolete">ABR</translation>
-    </message>
-    <message>
-        <source>Bit_rate mode:</source>
-        <translation type="obsolete">_Typ datového toku:</translation>
-    </message>
-    <message>
-        <source>LAME Configuration</source>
-        <translation type="obsolete">Nastavení LAME</translation>
-    </message>
-    <message>
-        <source>VBR</source>
-        <translation type="obsolete">VBR</translation>
-    </message>
-    <message>
-        <source>Quality based</source>
-        <translation type="obsolete">Režim kvality</translation>
-    </message>
-    <message>
-        <source>_Mode:</source>
-        <translation type="obsolete">_Režim:</translation>
-    </message>
-    <message>
-        <source>Vorbis Configuration</source>
-        <translation type="obsolete">Nastavení kodeku Vorbis</translation>
-    </message>
-    <message>
-        <source>Codec Error</source>
-        <translation type="obsolete">Chyba kodeku</translation>
-    </message>
-    <message>
-        <source>The number of channels is greater than what the selected audio codec can do.
-Either change codec or use the mixer filter to have less channels.</source>
-        <translation type="obsolete">Počet kanálů je větší než zvládne zvolený audio kodek.
-Buď změňte kodek, nebo mixérem v audio filtrech snižte počet kanálů.</translation>
-    </message>
-    <message>
-        <source>Encoder initialization failed</source>
-        <translation type="obsolete">Selhala inicializace kodéru</translation>
-    </message>
-    <message>
-        <source>Not activated.</source>
-        <translation type="obsolete">Není aktivován.</translation>
-    </message>
-    <message>
-        <source>Internal error opening codec</source>
-        <translation type="obsolete">Vnitřní chyba otevírání kodeku</translation>
-    </message>
-    <message>
-        <source>Internal error with context for  codec.
- Did you use too low / too high target for 2 pass ?</source>
-        <translation type="obsolete">Vnitřní chyba kontextu kodeku.
-Nepoužili jste příliš nízký/vysoký datový tok pro 2. průchod?</translation>
-    </message>
-    <message>
-        <source>Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?
-
-You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
-        <translation type="obsolete">Avidemux v tomto souboru detekoval VBR MP3 audio. Pro udržení synchronizace zvuku a obrazu je potřeba časová mapa. Mám ji teď sestavit?
-Můžete to udělat později z nabídky Audio -&gt; Sestavit časovou mapu VBR.</translation>
-    </message>
-    <message>
-        <source>AVI</source>
-        <translation type="obsolete">AVI</translation>
-    </message>
-    <message>
-        <source>AVI, dual audio</source>
-        <translation type="obsolete">AVI, duální zvuk</translation>
-    </message>
-    <message>
-        <source>AVI, pack VOP</source>
-        <translation type="obsolete">AVI, zabalený VOP</translation>
-    </message>
-    <message>
-        <source>AVI, unpack VOP</source>
-        <translation type="obsolete">AVI, rozbalený VOP</translation>
-    </message>
-    <message>
-        <source>MPEG-PS (A+V)</source>
-        <translation type="obsolete">MPEG-PS (A+V)</translation>
-    </message>
-    <message>
-        <source>MPEG-TS (A+V)</source>
-        <translation type="obsolete">MPEG-TS (A+V)</translation>
-    </message>
-    <message>
-        <source>MPEG video</source>
-        <translation type="obsolete">MPEG video</translation>
-    </message>
-    <message>
-        <source>MP4</source>
-        <translation type="obsolete">MP4</translation>
-    </message>
-    <message>
-        <source>OGM</source>
-        <translation type="obsolete">OGM</translation>
-    </message>
-    <message>
-        <source>PSP</source>
-        <translation type="obsolete">PSP</translation>
-    </message>
-    <message>
-        <source>FLV</source>
-        <translation type="obsolete">FLV</translation>
-    </message>
-    <message>
-        <source>MKV</source>
-        <translation type="obsolete">MKV</translation>
-    </message>
-    <message>
-        <source>YV12 (raw)</source>
-        <translation type="obsolete">YV12 (raw)</translation>
-    </message>
-    <message>
-        <source>H.263 (lavc)</source>
-        <translation type="obsolete">H.263 (lavc)</translation>
-    </message>
-    <message>
-        <source>H.263+ (lavc)</source>
-        <translation type="obsolete">H.263+ (lavc)</translation>
-    </message>
-    <message>
-        <source>MPEG-4 ASP (lavc)</source>
-        <translation type="obsolete">MPEG-4 ASP (lavc)</translation>
-    </message>
-    <message>
-        <source>DV (lavc)</source>
-        <translation type="obsolete">DV (lavc)</translation>
-    </message>
-    <message>
-        <source>FLV1 (lavc)</source>
-        <translation type="obsolete">FLV1 (lavc)</translation>
-    </message>
-    <message>
-        <source>Snow (lavc)</source>
-        <translation type="obsolete">Snow (lavc)</translation>
-    </message>
-    <message>
-        <source>FF Huffyuv (lavc)</source>
-        <translation type="obsolete">FF Huffyuv (lavc)</translation>
-    </message>
-    <message>
-        <source>Huffyuv (lavc)</source>
-        <translation type="obsolete">Huffyuv (lavc)</translation>
-    </message>
-    <message>
-        <source>FFV1 (lavc)</source>
-        <translation type="obsolete">FFV1 (lavc)</translation>
-    </message>
-    <message>
-        <source>MJPEG (lavc)</source>
-        <translation type="obsolete">MJPEG (lavc)</translation>
-    </message>
-    <message>
-        <source>VCD (lavc)</source>
-        <translation type="obsolete">VCD (lavc)</translation>
-    </message>
-    <message>
-        <source>DVD (lavc)</source>
-        <translation type="obsolete">DVD (lavc)</translation>
-    </message>
-    <message>
-        <source>SVCD (lavc)</source>
-        <translation type="obsolete">SVCD (lavc)</translation>
-    </message>
-    <message>
-        <source>VCD (mpeg2enc)</source>
-        <translation type="obsolete">VCD (mpeg2enc)</translation>
-    </message>
-    <message>
-        <source>SVCD (mpeg2enc)</source>
-        <translation type="obsolete">SVCD (mpeg2enc)</translation>
-    </message>
-    <message>
-        <source>MPEG-2 requant</source>
-        <translation type="obsolete">MPEG-2 rekvantizace</translation>
-    </message>
-    <message>
-        <source>DVD (mpeg2enc)</source>
-        <translation type="obsolete">DVD (mpeg2enc)</translation>
-    </message>
-    <message>
-        <source>MPEG-4 ASP (Xvid4)</source>
-        <translation type="obsolete">MPEG-4 ASP (Xvid4)</translation>
-    </message>
-    <message>
-        <source>MPEG-4 AVC (x264)</source>
-        <translation type="obsolete">MPEG-4 AVC (x264)</translation>
-    </message>
-    <message>
-        <source>Wrong output format</source>
-        <translation type="obsolete">Špatný výstupní formát</translation>
-    </message>
-    <message>
-        <source>Select MPEG as the output.</source>
-        <translation type="obsolete">Jako výstupní formát zvolte MPEG.</translation>
-    </message>
-    <message>
-        <source>Wrong video codec</source>
-        <translation type="obsolete">Nesprávný video kodek</translation>
-    </message>
-    <message>
-        <source>Select DVD as the video codec for MPEG TS output.</source>
-        <translation type="obsolete">Pro MPEG TS výstup zvolte jako video kodek DVD.</translation>
-    </message>
-    <message>
-        <source>Only QCIF and subQCIF are allowed for H.263</source>
-        <translation type="obsolete">Pro H.263 je povoleno pouze QCIF a subQCIF</translation>
-    </message>
-    <message>
-        <source>Fatal error</source>
-        <translation type="obsolete">Fatální chyba</translation>
-    </message>
-    <message>
-        <source>Crop</source>
-        <translation type="obsolete">Crop</translation>
-    </message>
-    <message>
-        <source>Remove lines from top/bottom/left/right.</source>
-        <translation type="obsolete">Ořez pruhů nahoře/dole/vlevo/vpravo.</translation>
-    </message>
-    <message>
-        <source>MPlayer resize</source>
-        <translation type="obsolete">MPlayer resize</translation>
-    </message>
-    <message>
-        <source>Change image size. Faster than Avisynth&apos;s Resize.</source>
-        <translation type="obsolete">Změna velikosti obrazu. Rychlejší než filtr Resize z Avisynthu.</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation type="obsolete">Resize</translation>
-    </message>
-    <message>
-        <source>Picture resizer ported from Avisynth.</source>
-        <translation type="obsolete">Filtr, který změní velikost obrazu, portovaný z Avisynthu.</translation>
-    </message>
-    <message>
-        <source>Add black borders</source>
-        <translation type="obsolete">Add black borders</translation>
-    </message>
-    <message>
-        <source>Add pure black border(s). Enlarges the picture.</source>
-        <translation type="obsolete">Přidá černé okraje. Zvětší obraz.</translation>
-    </message>
-    <message>
-        <source>Blacken borders</source>
-        <translation type="obsolete">Blacken borders</translation>
-    </message>
-    <message>
-        <source>Fill borders with pure black. Doesn&apos;t alter size.</source>
-        <translation type="obsolete">Vyplní okraje černou barvou. Nemění velikost.</translation>
-    </message>
-    <message>
-        <source>Vertical flip</source>
-        <translation type="obsolete">Vertical flip</translation>
-    </message>
-    <message>
-        <source>Vertically flip the picture.</source>
-        <translation type="obsolete">Vertikální otočení obrazu.</translation>
-    </message>
-    <message>
-        <source>Rotate</source>
-        <translation type="obsolete">Rotate</translation>
-    </message>
-    <message>
-        <source>Rotate the picture by 90, 180 or 270 degrees.</source>
-        <translation type="obsolete">Otočí obraz o 90, 180 nebo 270 stupňů.</translation>
-    </message>
-    <message>
-        <source>Resample fps</source>
-        <translation type="obsolete">Resample fps</translation>
-    </message>
-    <message>
-        <source>Change framerate while keeping duration.</source>
-        <translation type="obsolete">Změní snímkovou frekvenci při zachování délky.</translation>
-    </message>
-    <message>
-        <source>Reverse</source>
-        <translation type="obsolete">Reverse</translation>
-    </message>
-    <message>
-        <source>Play video backward.</source>
-        <translation type="obsolete">Přehraje video pozpátku.</translation>
-    </message>
-    <message>
-        <source>Fade</source>
-        <translation type="obsolete">Fade</translation>
-    </message>
-    <message>
-        <source>Fade in/out.</source>
-        <translation type="obsolete">Postupný náběh/do ztracena.</translation>
-    </message>
-    <message>
-        <source>yadif</source>
-        <translation type="obsolete">yadif</translation>
-    </message>
-    <message>
-        <source>Yet Another DeInterlacer. Ported from MPlayer.</source>
-        <translation type="obsolete">Filtr na prokládaný obraz portovaný z MPlayeru.</translation>
-    </message>
-    <message>
-        <source>mcDeinterlace</source>
-        <translation type="obsolete">mcDeinterlace</translation>
-    </message>
-    <message>
-        <source>Motion compensation deinterlacer. Ported from MPlayer.</source>
-        <translation type="obsolete">Filtr na proklad s kompenzací pohybu. Portovaný z MPlayeru.</translation>
-    </message>
-    <message>
-        <source>Deinterlace</source>
-        <translation type="obsolete">Deinterlace</translation>
-    </message>
-    <message>
-        <source>Mask interlacing artifacts. Port of Smart deinterlace.</source>
-        <translation type="obsolete">Maskuje artefakty prokládání. Port filtru Smart deinterlace.</translation>
-    </message>
-    <message>
-        <source>KernelDeint</source>
-        <translation type="obsolete">KernelDeint</translation>
-    </message>
-    <message>
-        <source>Kernel deinterlacer by Donald Graft.</source>
-        <translation type="obsolete">Filtr na prokládaný obraz od Donalda Grafta.</translation>
-    </message>
-    <message>
-        <source>Motion adaptative deinterlacer by Tritical.</source>
-        <translation type="obsolete">Filtr prokládaného obrazu s pohybovou adaptací. Autorem je Tritical.</translation>
-    </message>
-    <message>
-        <source>libavcodec deinterlacer</source>
-        <translation type="obsolete">libavcodec deinterlacer</translation>
-    </message>
-    <message>
-        <source>All FFmpeg deinterlace filters (bicubic, median, ...).</source>
-        <translation type="obsolete">Všechny filtry prokladu z FFmpegu (bikubický, median...)</translation>
-    </message>
-    <message>
-        <source>Decomb Telecide</source>
-        <translation type="obsolete">Decomb Telecide</translation>
-    </message>
-    <message>
-        <source>Great deinterlacing package including IVTC.</source>
-        <translation type="obsolete">Výborný balík filtrů prokládaného obrazu včetně IVTC.</translation>
-    </message>
-    <message>
-        <source>Decomb Decimate</source>
-        <translation type="obsolete">Decomb Decimate</translation>
-    </message>
-    <message>
-        <source>Useful to remove dupes left by Telecide.</source>
-        <translation type="obsolete">Užitečný k odstranění duplikátů zanechaných filtrem Telecide.</translation>
-    </message>
-    <message>
-        <source>Pulldown</source>
-        <translation type="obsolete">Pulldown</translation>
-    </message>
-    <message>
-        <source>Convert 24 fps to 30 fps by repeating fields.</source>
-        <translation type="obsolete">Změna z 24 na 30 snímků za sekundu opakováním půlsnímků.</translation>
-    </message>
-    <message>
-        <source>Bobber - convert each field into a full sized frame.</source>
-        <translation type="obsolete">Bobber - převede každý půlsnímek na snímek plné velikosti.</translation>
-    </message>
-    <message>
-        <source>PAL field shift</source>
-        <translation type="obsolete">PAL field shift</translation>
-    </message>
-    <message>
-        <source>Shift fields by one. Useful for some PAL movies.</source>
-        <translation type="obsolete">Posune půlsnímky o jeden. Užitečné u některých PAL filmů.</translation>
-    </message>
-    <message>
-        <source>PAL smart</source>
-        <translation type="obsolete">PAL smart</translation>
-    </message>
-    <message>
-        <source>Smartly revert non constant PAL field shift.</source>
-        <translation type="obsolete">Chytré napravení nekonstantního posunu půlsnímků v PAL.</translation>
-    </message>
-    <message>
-        <source>Drop</source>
-        <translation type="obsolete">Drop</translation>
-    </message>
-    <message>
-        <source>Drop damaged fields (e.g. from VHS capture).</source>
-        <translation type="obsolete">Zahodí poškozené půlsnímky (např. z VHS nahrávky).</translation>
-    </message>
-    <message>
-        <source>Swap fields</source>
-        <translation type="obsolete">Swap fields</translation>
-    </message>
-    <message>
-        <source>Swap top and bottom fields.</source>
-        <translation type="obsolete">Prohodí horní a dolní půlsnímky.</translation>
-    </message>
-    <message>
-        <source>Smart swap fields</source>
-        <translation type="obsolete">Smart swap fields</translation>
-    </message>
-    <message>
-        <source>Smartly swap fields. Needed when field order changes.</source>
-        <translation type="obsolete">Chytré prohození půlsnímků. Je potřeba, když se mění pořadí půlsnímků.</translation>
-    </message>
-    <message>
-        <source>Keep even fields</source>
-        <translation type="obsolete">Keep even fields</translation>
-    </message>
-    <message>
-        <source>Keep top fields. Gives a half height picture.</source>
-        <translation type="obsolete">Zachová horní půlsnímky. Výsledkem je obraz poloviční výšky.</translation>
-    </message>
-    <message>
-        <source>Keep odd fields</source>
-        <translation type="obsolete">Keep odd fields</translation>
-    </message>
-    <message>
-        <source>Keep bottom fileds. Gives a half height picture.</source>
-        <translation type="obsolete">Zachová spodní půlsnímky. Výsledkem je obraz poloviční výšky.</translation>
-    </message>
-    <message>
-        <source>Separate fields</source>
-        <translation type="obsolete">Separate fields</translation>
-    </message>
-    <message>
-        <source>Each field becomes full picture, half sized.</source>
-        <translation type="obsolete">Každý půlsnímek se stane plným snímkem s poloviční velikostí.</translation>
-    </message>
-    <message>
-        <source>Merge fields</source>
-        <translation type="obsolete">Merge fields</translation>
-    </message>
-    <message>
-        <source>Merge two pictures as if they were two fields.</source>
-        <translation type="obsolete">Spojí dva obrazy tak, jako by to byly dva půlsnímky.</translation>
-    </message>
-    <message>
-        <source>Hz Stack fields</source>
-        <translation type="obsolete">Hz Stack fields</translation>
-    </message>
-    <message>
-        <source>Put botj fields side by side.</source>
-        <translation type="obsolete">Umístí oba půlsnímky vedle sebe.</translation>
-    </message>
-    <message>
-        <source>Stack fields</source>
-        <translation type="obsolete">Stack fields</translation>
-    </message>
-    <message>
-        <source>Put two fields on top of one another.</source>
-        <translation type="obsolete">Umístí jeden půlsnímek nad druhý.</translation>
-    </message>
-    <message>
-        <source>Unstack fields</source>
-        <translation type="obsolete">Unstack fields</translation>
-    </message>
-    <message>
-        <source>Interleave top and bottom part of the picture.</source>
-        <translation type="obsolete">Proloží vrchní a spodní část obrazu.</translation>
-    </message>
-    <message>
-        <source>MPlayer eq2</source>
-        <translation type="obsolete">MPlayer eq2</translation>
-    </message>
-    <message>
-        <source>Adjust contrast, brightness, saturation and gamma.</source>
-        <translation type="obsolete">Úprava kontrastu, jasu, sytosti a gama.</translation>
-    </message>
-    <message>
-        <source>MPlayer hue</source>
-        <translation type="obsolete">MPlayer hue</translation>
-    </message>
-    <message>
-        <source>Adjust hue and saturation.</source>
-        <translation type="obsolete">Úprava odstínu a sytosti.</translation>
-    </message>
-    <message>
-        <source>Contrast</source>
-        <translation type="obsolete">Contrast</translation>
-    </message>
-    <message>
-        <source>Adjust contrast, brightness and colors.</source>
-        <translation type="obsolete">Úprava kontrastu, jasu a barev.</translation>
-    </message>
-    <message>
-        <source>Luma equalizer</source>
-        <translation type="obsolete">Luma equalizer</translation>
-    </message>
-    <message>
-        <source>Luma correction filter with histogram.</source>
-        <translation type="obsolete">Korekce luminance s histogramem.</translation>
-    </message>
-    <message>
-        <source>Swap U and V</source>
-        <translation type="obsolete">Swap U and V</translation>
-    </message>
-    <message>
-        <source>Invert chroma U and chroma V.</source>
-        <translation type="obsolete">Inverze chroma U a chroma V.</translation>
-    </message>
-    <message>
-        <source>Chroma shift</source>
-        <translation type="obsolete">Chroma shift</translation>
-    </message>
-    <message>
-        <source>Shift chroma U/V to fix badly synced luma/chroma.</source>
-        <translation type="obsolete">Posun U/V chrominance pro opravu špatně synchronizované luminance/chrominance.</translation>
-    </message>
-    <message>
-        <source>Luma only</source>
-        <translation type="obsolete">Luma only</translation>
-    </message>
-    <message>
-        <source>Convert picture to greyscale (black and white).</source>
-        <translation type="obsolete">Převede obraz na odstíny šedi (černobílý).</translation>
-    </message>
-    <message>
-        <source>Chroma U only</source>
-        <translation type="obsolete">Chroma U only</translation>
-    </message>
-    <message>
-        <source>Convert picture to grey, keeping only chroma U.</source>
-        <translation type="obsolete">Převede obraz na šedý, zachová pouze chroma U.</translation>
-    </message>
-    <message>
-        <source>Chroma V only</source>
-        <translation type="obsolete">Chroma V only</translation>
-    </message>
-    <message>
-        <source>Convert picture to grey, keeping only chroma V.</source>
-        <translation type="obsolete">Převede obraz na šedý, zachová pouze chroma V.</translation>
-    </message>
-    <message>
-        <source>Luma delta</source>
-        <translation type="obsolete">Luma delta</translation>
-    </message>
-    <message>
-        <source>Difference between current and previous picture.</source>
-        <translation type="obsolete">Rozdíl mezi současným a předchozím obrázkem.</translation>
-    </message>
-    <message>
-        <source>Avisynth ColorYUV</source>
-        <translation type="obsolete">Avisynth ColorYUV</translation>
-    </message>
-    <message>
-        <source>Alter colors (auto white balance etc...). Ported from Avisynth.</source>
-        <translation type="obsolete">Změna barev (automatické vyvážení bílé atd.) Portováno z Avisynthu.</translation>
-    </message>
-    <message>
-        <source>MPlayer denoise3d</source>
-        <translation type="obsolete">MPlayer denoise3d</translation>
-    </message>
-    <message>
-        <source>Reduce noise, smooth image, increase compressibility.</source>
-        <translation type="obsolete">Redukce šumu, vyhlazení obrazu, zvětší kompresibilitu.</translation>
-    </message>
-    <message>
-        <source>MPlayer hqdn3d</source>
-        <translation type="obsolete">MPlayer hqdn3d</translation>
-    </message>
-    <message>
-        <source>High quality version of denoise3d. Slower but more precise.</source>
-        <translation type="obsolete">Vysokokvalitní verze denoise3d. Pomalejší, ale přesnější.</translation>
-    </message>
-    <message>
-        <source>FluxSmooth</source>
-        <translation type="obsolete">FluxSmooth</translation>
-    </message>
-    <message>
-        <source>Spatio-temporal cleaner by Ross Thomas.</source>
-        <translation type="obsolete">Prostorovo-časové vyhlazení obrazu od Rosse Thomase.</translation>
-    </message>
-    <message>
-        <source>Temporal Cleaner</source>
-        <translation type="obsolete">Temporal Cleaner</translation>
-    </message>
-    <message>
-        <source>Vlad59&apos;s Avisynth port of Jim Casaburi&apos;s denoiser.</source>
-        <translation type="obsolete">Vlad59 vytvořil port pro Avisynth filtru šumu od Jima Casaburiho.</translation>
-    </message>
-    <message>
-        <source>Denoise</source>
-        <translation type="obsolete">Denoise</translation>
-    </message>
-    <message>
-        <source>Port of Transcode DNR.</source>
-        <translation type="obsolete">Port filtru DNR z Transcode.</translation>
-    </message>
-    <message>
-        <source>Stabilize</source>
-        <translation type="obsolete">Stabilize</translation>
-    </message>
-    <message>
-        <source>Light denoiser.</source>
-        <translation type="obsolete">Lehká redukce šumu.</translation>
-    </message>
-    <message>
-        <source>Cnr2</source>
-        <translation type="obsolete">Cnr2</translation>
-    </message>
-    <message>
-        <source>Chroma noise reduction filter by MarcFD/Tritical.</source>
-        <translation type="obsolete">Redukce chrominančního šumu, napsali MarcFD aTritical.</translation>
-    </message>
-    <message>
-        <source>MSmooth by Donald Graft</source>
-        <translation type="obsolete">MSmooth by Donald Graft</translation>
-    </message>
-    <message>
-        <source>Smooth the image, don&apos;t blur edges. Useful on anime.</source>
-        <translation type="obsolete">Vyhlazení obrazu, bez rozmazání obrysů. Užitečné na kreslené filmy.</translation>
-    </message>
-    <message>
-        <source>Soften</source>
-        <translation type="obsolete">Soften</translation>
-    </message>
-    <message>
-        <source>A variant of stabilize.</source>
-        <translation type="obsolete">Varianta filtru Stabilize.</translation>
-    </message>
-    <message>
-        <source>Sharpen</source>
-        <translation type="obsolete">Sharpen</translation>
-    </message>
-    <message>
-        <source>Enhance difference between near pixels.</source>
-        <translation type="obsolete">Zaostří obraz zvětšením rozdílu mezi blízkými pixely.</translation>
-    </message>
-    <message>
-        <source>MSharpen</source>
-        <translation type="obsolete">MSharpen</translation>
-    </message>
-    <message>
-        <source>Sharpen edges without amplifying noise. By Donald Graft.</source>
-        <translation type="obsolete">Zaostří obrysy, aniž by zvětšil šum. Od Donalda Grafta.</translation>
-    </message>
-    <message>
-        <source>asharp</source>
-        <translation type="obsolete">asharp</translation>
-    </message>
-    <message>
-        <source>Adaptative sharpener by MarcFD.</source>
-        <translation type="obsolete">Adaptivní doostření, napsal MarcFD.</translation>
-    </message>
-    <message>
-        <source>Gauss smooth</source>
-        <translation type="obsolete">Gauss smooth</translation>
-    </message>
-    <message>
-        <source>Gaussian smooth. Blur the picture.</source>
-        <translation type="obsolete">Gaussovo rozostření obrazu.</translation>
-    </message>
-    <message>
-        <source>Mean</source>
-        <translation type="obsolete">Mean</translation>
-    </message>
-    <message>
-        <source>Mean (blur) kernel.</source>
-        <translation type="obsolete">Rozostření obrazu.</translation>
-    </message>
-    <message>
-        <source>Median</source>
-        <translation type="obsolete">Median</translation>
-    </message>
-    <message>
-        <source>Median kernel 3x3. Remove high frequency noise.</source>
-        <translation type="obsolete">Mediánové jádro 3x3. Odstraní vysokofrekvenční šum.</translation>
-    </message>
-    <message>
-        <source>Median (5x5)</source>
-        <translation type="obsolete">Median (5x5)</translation>
-    </message>
-    <message>
-        <source>Median kernel 5x5. Good for reducing chroma noise.</source>
-        <translation type="obsolete">Mediánové jádro 5x5. Dobré pro redukci chrominančního šumu.</translation>
-    </message>
-    <message>
-        <source>Forced postprocessing</source>
-        <translation type="obsolete">Forced postprocessing</translation>
-    </message>
-    <message>
-        <source>Apply blind postprocessing.</source>
-        <translation type="obsolete">Aplikuje dodatečné zpracování naslepo.</translation>
-    </message>
-    <message>
-        <source>Subtitler</source>
-        <translation type="obsolete">Subtitler</translation>
-    </message>
-    <message>
-        <source>Add srt/sub subtitles to the picture.</source>
-        <translation type="obsolete">Přidá srt/sub titulky do obrazu.</translation>
-    </message>
-    <message>
-        <source>ASS</source>
-        <translation type="obsolete">ASS</translation>
-    </message>
-    <message>
-        <source>Add ASS/SSA subtitles to the picture.</source>
-        <translation type="obsolete">Přidá ASS/SSA titulky do obrazu.</translation>
-    </message>
-    <message>
-        <source>VobSub</source>
-        <translation type="obsolete">VobSub</translation>
-    </message>
-    <message>
-        <source>Embed VobSub subtitles into picture.</source>
-        <translation type="obsolete">Vložení VobSub titulků do obrazu.</translation>
-    </message>
-    <message>
-        <source>DVB sub</source>
-        <translation type="obsolete">DVB sub</translation>
-    </message>
-    <message>
-        <source>Embed DVB-T subtitle.</source>
-        <translation type="obsolete">Vložení DVB-T titulků.</translation>
-    </message>
-    <message>
-        <source>Blend remover</source>
-        <translation type="obsolete">Blend remover</translation>
-    </message>
-    <message>
-        <source>Remove blend between previous and next picture.</source>
-        <translation type="obsolete">Odstraní směs předchozího a následujícího obrazu.</translation>
-    </message>
-    <message>
+        <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="66"/>
         <source>Hard pulldown removal</source>
-        <translation type="obsolete">Hard pulldown removal</translation>
+        <translation type="unfinished">Hard pulldown removal</translation>
     </message>
     <message>
-        <source>Remove IVTC that has been analog captured or resized.</source>
-        <translation type="obsolete">Odstraní IVTC, které bylo zachyceno analogově nebo byla změněna velikost.</translation>
+        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="17"/>
+        <source>%u minutes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Whirl</source>
-        <translation type="obsolete">Whirl</translation>
+        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="21"/>
+        <source>%u minute</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Useless whirlwind effect.</source>
-        <translation type="obsolete">Bezúčelný efekt víru.</translation>
+        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="29"/>
+        <source>%u second</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mosaic</source>
-        <translation type="obsolete">Mosaic</translation>
-    </message>
-    <message>
-        <source>Split the picture into tiny thumbnails.</source>
-        <translation type="obsolete">Rozdělí obraz do malých náhledů.</translation>
-    </message>
-    <message>
-        <source>MPlayer delogo</source>
-        <translation type="obsolete">MPlayer delogo</translation>
-    </message>
-    <message>
-        <source>Blend a logo by interpolating its surrounding box.</source>
-        <translation type="obsolete">Vymaže logo interpolací jeho okolí.</translation>
-    </message>
-    <message>
-        <source>Logo</source>
-        <translation type="obsolete">Logo</translation>
-    </message>
-    <message>
-        <source>Add a png as logo.</source>
-        <translation type="obsolete">Přidá PNG obrázek jako logo.</translation>
-    </message>
-    <message>
-        <source>Animated Menu</source>
-        <translation type="obsolete">Animated Menu</translation>
-    </message>
-    <message>
-        <source>Create a video made of 6 mini windows, very useful to do DVD menus.</source>
-        <translation type="obsolete">Vytvoří video z 6 mini oken, velmi užitečné pro DVD menu.</translation>
-    </message>
-    <message>
-        <source>Compute Average</source>
-        <translation type="obsolete">Compute Average</translation>
-    </message>
-    <message>
-        <source>Compute average luma value for each pixel throughout all frames, and save to file</source>
-        <translation type="obsolete">Spočítá průměrnou hodnotu luminance pro každý pixel ve všech snímcích a uloží ji do souboru.</translation>
-    </message>
-    <message>
-        <source>Eraser</source>
-        <translation type="obsolete">Eraser</translation>
-    </message>
-    <message>
-        <source>&quot;Erase&quot; arbitrary areas of each frame</source>
-        <translation type="obsolete">„Vymaže“ libovolné oblasti z každého snímku</translation>
-    </message>
-    <message>
-        <source>Swiss Army Knife</source>
-        <translation type="obsolete">Swiss Army Knife</translation>
-    </message>
-    <message>
-        <source>Threshold</source>
-        <translation type="obsolete">Práh</translation>
-    </message>
-    <message>
-        <source>Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa</source>
-        <translation type="obsolete">Změní příliš světlé/tmavé pixely na 0 a zbytek na 255 nebo naopak.</translation>
-    </message>
-    <message>
-        <source>Particle List</source>
-        <translation type="obsolete">Particle List</translation>
-    </message>
-    <message>
-        <source>Identify &apos;particles&apos; (groups of pixels)</source>
-        <translation type="obsolete">Identifikuje „částice“ (skupiny pixelů).</translation>
-    </message>
-    <message>
-        <source>Partial</source>
-        <translation type="obsolete">Částečný</translation>
-    </message>
-    <message>
-        <source>Problem reading XML filters</source>
-        <translation type="obsolete">Chyba čtení XML filtrů</translation>
-    </message>
-    <message>
-        <source>No filter found</source>
-        <translation type="obsolete">Nenalezen žádný filtr</translation>
-    </message>
-    <message>
-        <source>Could not find a filter</source>
-        <translation type="obsolete">Nemohu nalézt filtr</translation>
-    </message>
-    <message>
-        <source>No tag found</source>
-        <translation type="obsolete">Nenalezena značka</translation>
-    </message>
-    <message>
-        <source>Node not found</source>
-        <translation type="obsolete">Nenalezen uzel</translation>
-    </message>
-    <message>
-        <source>There is several mpeg file, append them ?</source>
-        <translation type="obsolete">Je tu několik MPEG souborů, mám je připojit?</translation>
-    </message>
-    <message>
-        <source>Can&apos;t determine aspect ratio</source>
-        <translation type="obsolete">Nelze určit poměr stran</translation>
-    </message>
-    <message>
-        <source>Wrong Colorspace</source>
-        <translation type="obsolete">Nesprávný barevný model</translation>
-    </message>
-    <message>
-        <source>Only YV12/I420 or YUY2/I422 JPegs are supported</source>
-        <translation type="obsolete">Podporován je jen  YV12/I420 nebo YUY2/I422 JPEG.</translation>
-    </message>
-    <message>
-        <source>NTSC 4:3</source>
-        <translation type="obsolete">NTSC 4:3</translation>
-    </message>
-    <message>
-        <source>NTSC 16:9</source>
-        <translation type="obsolete">NTSC 16:9</translation>
-    </message>
-    <message>
-        <source>PAL 4:3</source>
-        <translation type="obsolete">PAL 4:3</translation>
-    </message>
-    <message>
-        <source>PAL 16:9</source>
-        <translation type="obsolete">PAL 16:9</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="obsolete">Neznámý</translation>
-    </message>
-    <message>
-        <source>Output file error</source>
-        <translation type="obsolete">Chyba výstupního souboru</translation>
-    </message>
-    <message>
-        <source>Could not open &quot;%s&quot; for writing.</source>
-        <translation type="obsolete">Nelze otevřít &quot;%s&quot; pro zápis.</translation>
-    </message>
-    <message>
-        <source>Input file error</source>
-        <translation type="obsolete">Chyba vstupního souboru</translation>
-    </message>
-    <message>
-        <source>Unknown source type</source>
-        <translation type="obsolete">Neznámý typ zdroje</translation>
-    </message>
-    <message>
-        <source>Bitmap source failed</source>
-        <translation type="obsolete">Selhal zdroj bitmapy</translation>
-    </message>
-    <message>
-        <source>Problem loading sub</source>
-        <translation type="obsolete">Chyba načítání titulků</translation>
-    </message>
-    <message>
-        <source>No subs</source>
-        <translation type="obsolete">Žádné titulky</translation>
-    </message>
-    <message>
-        <source>Ifo error</source>
-        <translation type="obsolete">Chyba IFO</translation>
-    </message>
-    <message>
-        <source>Error reading ifo file, aborting.</source>
-        <translation type="obsolete">Chyba čtení IFO souboru.</translation>
-    </message>
-    <message>
-        <source>Cannot write .idx</source>
-        <translation type="obsolete">Nelze zapsat .idx</translation>
-    </message>
-    <message>
-        <source>Cannot write .sub</source>
-        <translation type="obsolete">Nelze zapsat .sub</translation>
-    </message>
-    <message>
-        <source>Problem opening the mpeg files</source>
-        <translation type="obsolete">Chyba otvírání MPEG souborů</translation>
-    </message>
-    <message>
-        <source>Generating VobSub file</source>
-        <translation type="obsolete">Vytvářím VobSub soubor</translation>
-    </message>
-    <message>
-        <source>Could not write the file</source>
-        <translation type="obsolete">Nelze zapsat soubor</translation>
-    </message>
-    <message>
-        <source>File error</source>
-        <translation type="obsolete">Chyba souboru</translation>
-    </message>
-    <message>
-        <source>Could not read &quot;%s&quot;.</source>
-        <translation type="obsolete">Nelze otevřít &quot;%s&quot;.</translation>
-    </message>
-    <message>
-        <source>Fatal Error</source>
-        <translation type="obsolete">Fatální chyba</translation>
-    </message>
-    <message>
-        <source>A fatal error has occurred.
-
-Click OK to generate debug information. This may take a few minutes to complete.</source>
-        <translation type="obsolete">Nastala fatální chyba.
-Klikněte na OK k vytvoření ladících informací. To může chvíli trvat.</translation>
-    </message>
-    <message>
-        <source>Load it</source>
-        <translation type="obsolete">Načíst</translation>
-    </message>
-    <message>
-        <source>Crash file</source>
-        <translation type="obsolete">Uložený soubor po havárii</translation>
-    </message>
-    <message>
-        <source>I have detected a crash file. 
-Do you want to load it  ?
-(It will be deleted in all cases, you should save it if you want to keep it)</source>
-        <translation type="obsolete">Byl nalezen soubor uložený při pádu aplikace. 
-Přejete si jej načíst?
-(V každém případě bude smazán, chcete-li jej uchovat, musíte jej uložit.)</translation>
-    </message>
-    <message>
-        <source>Oops</source>
-        <translation type="obsolete">Ouha</translation>
-    </message>
-    <message>
-        <source>can&apos;t create custom directory (%s).</source>
-        <translation type="obsolete">Nelze vytvořit adresář (%s).</translation>
-    </message>
-    <message>
-        <source>can&apos;t create job directory (%s).</source>
-        <translation type="obsolete">Nelze vytvořit adresář úloh (%s).</translation>
-    </message>
-    <message>
-        <source>can&apos;t determine $HOME.</source>
-        <translation type="obsolete">Nelze určit $HOME.</translation>
-    </message>
-    <message>
-        <source>Cannot create the .avidemux directory</source>
-        <translation type="obsolete">Nelze vytvořit adresář .avidemux</translation>
-    </message>
-    <message>
-        <source>Cannot open &quot;%s&quot;.</source>
-        <translation type="obsolete">Nelze otevřít &quot;%s&quot;.</translation>
-    </message>
-    <message>
-        <source>%s already exists.
-
-Do you want to replace it?</source>
-        <translation type="obsolete">%s již existuje.
-
-Chcete jej nahradit?</translation>
-    </message>
-    <message>
-        <source>It is possible that you are trying to overwrite an input file!</source>
-        <translation type="obsolete">Je možné, že se snažíte přepsat vstupní soubor!</translation>
-    </message>
-    <message>
-        <source>Cannot write the file</source>
-        <translation type="obsolete">Nelze zapsat soubor</translation>
-    </message>
-    <message>
-        <source>No write access to &quot;%s&quot;.</source>
-        <translation type="obsolete">Není povolen zápis do &quot;%s&quot;.</translation>
-    </message>
-    <message>
-        <source>%lu minutes</source>
-        <translation type="obsolete">%lu m</translation>
-    </message>
-    <message>
-        <source>%lu minute</source>
-        <translation type="obsolete">%lu m</translation>
-    </message>
-    <message>
-        <source>%lu second</source>
-        <translation type="obsolete">%lu s</translation>
-    </message>
-    <message>
-        <source>%lu seconds</source>
-        <translation type="obsolete">%lu s</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="obsolete">Normální</translation>
-    </message>
-    <message>
-        <source>Mux every N video frames</source>
-        <translation type="obsolete">Multiplexovat každých N video snímků</translation>
-    </message>
-    <message>
-        <source>Mux by packet size</source>
-        <translation type="obsolete">Multiplexovat podle velikosti paketu</translation>
-    </message>
-    <message>
-        <source>Muxing _type:</source>
-        <translation type="obsolete">_Typ multiplexace:</translation>
-    </message>
-    <message>
-        <source>_Split every MB:</source>
-        <translation type="obsolete">_Rozdělit každých x MB:</translation>
-    </message>
-    <message>
-        <source>Mux _every x video frames:</source>
-        <translation type="obsolete">_Multiplexovat každých x video snímků:</translation>
-    </message>
-    <message>
-        <source>Mux in _blocks of x bytes:</source>
-        <translation type="obsolete">Multiplexovat po blocích x _bajtů:</translation>
-    </message>
-    <message>
-        <source>AVI Muxer Options</source>
-        <translation type="obsolete">Nastavení zápisu AVI</translation>
-    </message>
-    <message>
-        <source>DTS</source>
-        <translation type="obsolete">DTS</translation>
-    </message>
-    <message>
-        <source>PCM</source>
-        <translation type="obsolete">PCM</translation>
-    </message>
-    <message>
-        <source>MP2</source>
-        <translation type="obsolete">MP2</translation>
-    </message>
-    <message>
-        <source>MP3</source>
-        <translation type="obsolete">MP3</translation>
-    </message>
-    <message>
-        <source>WMA</source>
-        <translation type="obsolete">WMA</translation>
-    </message>
-    <message>
-        <source>LPCM</source>
-        <translation type="obsolete">LPCM</translation>
-    </message>
-    <message>
-        <source>AC3</source>
-        <translation type="obsolete">AC3</translation>
-    </message>
-    <message>
-        <source>Ogg Vorbis</source>
-        <translation type="obsolete">Ogg Vorbis</translation>
-    </message>
-    <message>
-        <source>AAC</source>
-        <translation type="obsolete">AAC</translation>
-    </message>
-    <message>
-        <source>QDM2</source>
-        <translation type="obsolete">QDM2</translation>
-    </message>
-    <message>
-        <source>AMR-NB</source>
-        <translation type="obsolete">AMR-NB</translation>
-    </message>
-    <message>
-        <source>MSADPCM</source>
-        <translation type="obsolete">MSADPCM</translation>
-    </message>
-    <message>
-        <source>ULAW</source>
-        <translation type="obsolete">ULAW</translation>
-    </message>
-    <message>
-        <source>IMA ADPCM</source>
-        <translation type="obsolete">IMA ADPCM</translation>
-    </message>
-    <message>
-        <source>8-bit PCM</source>
-        <translation type="obsolete">8-bit PCM</translation>
-    </message>
-    <message>
-        <source>Unknown codec</source>
-        <translation type="obsolete">Neznámý kodek</translation>
-    </message>
-    <message>
-        <source>Cannot initialize the video stream</source>
-        <translation type="obsolete">Nelze inicializovat video stream</translation>
-    </message>
-    <message>
-        <source>Filter init failed</source>
-        <translation type="obsolete">Selhala inicializace filtrů</translation>
-    </message>
-    <message>
-        <source>Encoding</source>
-        <translation type="obsolete">Kódování</translation>
-    </message>
-    <message>
-        <source>Error while encoding</source>
-        <translation type="obsolete">Chyba při kódování</translation>
-    </message>
-    <message>
-        <source>KeyFrame error</source>
-        <translation type="obsolete">Chyba klíčového snímku</translation>
-    </message>
-    <message>
-        <source>The beginning frame is not a key frame.
-Please move the A marker.</source>
-        <translation type="obsolete">Úvodní snímek není klíčový.
-Posuňte prosím značku A.</translation>
-    </message>
-    <message>
-        <source>Unsupported video</source>
-        <translation type="obsolete">Nepodporované video</translation>
-    </message>
-    <message>
-        <source>Only FLV1 and VP6 video are supported</source>
-        <translation type="obsolete">Podporováno je jen FLV1 a VP6 video.</translation>
-    </message>
-    <message>
-        <source>Unsupported audio</source>
-        <translation type="obsolete">Nepodporované audio</translation>
-    </message>
-    <message>
-        <source>Audio must be mp3 for flv output.</source>
-        <translation type="obsolete">Pro FLV výstup musí být audio MP3.</translation>
-    </message>
-    <message>
-        <source>Frequency must be 44100, 22050 or 11025 Hz.</source>
-        <translation type="obsolete">Frekvence musí být 44100, 22050 nebo 11025 Hz.</translation>
-    </message>
-    <message>
-        <source>Cannot initialize the audio stream</source>
-        <translation type="obsolete">Nelze inicializovat audio stream</translation>
-    </message>
-    <message>
-        <source>
- Reuse the existing log-file ?</source>
-        <translation type="obsolete">
-Má se znovu použít log soubor?</translation>
-    </message>
-    <message>
-        <source>1st Pass</source>
-        <translation type="obsolete">1. průchod</translation>
-    </message>
-    <message>
-        <source>2nd Pass</source>
-        <translation type="obsolete">2. průchod</translation>
-    </message>
-    <message>
-        <source>This is not MPEG compatible</source>
-        <translation type="obsolete">To není kompatibilní s MPEG</translation>
-    </message>
-    <message>
-        <source>You can&apos;t use the Copy codec.</source>
-        <translation type="obsolete">Nemůžete použít kodek Kopie.</translation>
-    </message>
-    <message>
-        <source>There is no audio track</source>
-        <translation type="obsolete">Chybí zvuková stopa</translation>
-    </message>
-    <message>
-        <source>The first frame is not intra frame</source>
-        <translation type="obsolete">První snímek není I snímek</translation>
-    </message>
-    <message>
-        <source>Use the &amp;lt;&amp;lt; and the &amp;gt;&amp;gt; buttons to move using Intra frames.</source>
-        <translation type="obsolete">Použijte tlačítka &amp;lt;&amp;lt; a &amp;gt;&amp;gt; k pohybu mezi I snímky.</translation>
-    </message>
-    <message>
-        <source>Audio track is not suitable</source>
-        <translation type="obsolete">Zvuková stopa není vyhovující</translation>
-    </message>
-    <message>
-        <source>Incompatible audio</source>
-        <translation type="obsolete">Nekompatibilní audio</translation>
-    </message>
-    <message>
-        <source>For VCD, audio must be 44.1 kHz MP2.</source>
-        <translation type="obsolete">Pro VCD musí být audio 44.1kHz MP2.</translation>
-    </message>
-    <message>
-        <source>For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo).</source>
-        <translation type="obsolete">Pro DVD musí být audio 48kHz MP2 (stereo), AC3, DTS nebo LPCM (stereo).</translation>
-    </message>
-    <message>
-        <source>Saving</source>
-        <translation type="obsolete">Ukládání</translation>
-    </message>
-    <message>
-        <source>MPEG TS</source>
-        <translation type="obsolete">MPEG TS</translation>
-    </message>
-    <message>
-        <source>MPEG VCD</source>
-        <translation type="obsolete">MPEG VCD</translation>
-    </message>
-    <message>
-        <source>MPEG SVCD</source>
-        <translation type="obsolete">MPEG SVCD</translation>
-    </message>
-    <message>
-        <source>MPEG DVD</source>
-        <translation type="obsolete">MPEG DVD</translation>
-    </message>
-    <message>
-        <source>For DVD, audio must be 48 kHz MP2, AC3 or LPCM.</source>
-        <translation type="obsolete">Pro DVD musí být audio 48kHz MP2, AC3 nebo LPCM.</translation>
-    </message>
-    <message>
-        <source>libmpeg2enc VCD</source>
-        <translation type="obsolete">libmpeg2enc VCD</translation>
-    </message>
-    <message>
-        <source>libmpeg2enc SVCD</source>
-        <translation type="obsolete">libmpeg2enc SVCD</translation>
-    </message>
-    <message>
-        <source>libmpeg2enc DVD</source>
-        <translation type="obsolete">libmpeg2enc DVD</translation>
-    </message>
-    <message>
-        <source>FFmpeg MPEG-1 VBR</source>
-        <translation type="obsolete">FFmpeg MPEG-1 VBR</translation>
-    </message>
-    <message>
-        <source>FFmpeg MPEG-2 SVCD VBR</source>
-        <translation type="obsolete">FFmpeg MPEG-2 SVCD VBR</translation>
-    </message>
-    <message>
-        <source>FFmpeg MPEG-2 DVD VBR</source>
-        <translation type="obsolete">FFmpeg MPEG-2 DVD VBR</translation>
-    </message>
-    <message>
-        <source>MPEG Requantizer</source>
-        <translation type="obsolete">MPEG rekvantizér</translation>
-    </message>
-    <message>
-        <source>MPEG ES</source>
-        <translation type="obsolete">MPEG ES</translation>
-    </message>
-    <message>
-        <source>Reuse log file ?</source>
-        <translation type="obsolete">Použít existující log soubor?</translation>
-    </message>
-    <message>
-        <source>Pass 1/2</source>
-        <translation type="obsolete">Průchod 1/2</translation>
-    </message>
-    <message>
-        <source>Error in pass 1</source>
-        <translation type="obsolete">Chyba v prvním průchodu</translation>
-    </message>
-    <message>
-        <source>Cannot open &quot;%s&quot; for writing.</source>
-        <translation type="obsolete">Nelze otevřít soubor &quot;%s&quot; k zápisu.</translation>
-    </message>
-    <message>
-        <source>Pass 2/2</source>
-        <translation type="obsolete">Průchod 2/2</translation>
-    </message>
-    <message>
-        <source>Error in pass 2</source>
-        <translation type="obsolete">Chyba ve druhém průchodu</translation>
-    </message>
-    <message>
-        <source>Select a directory</source>
-        <translation type="obsolete">Zvolte adresář</translation>
-    </message>
-    <message>
-        <source>No Strategy</source>
-        <translation type="obsolete">Žádná strategie</translation>
-    </message>
-    <message>
-        <source>Pal/Secam</source>
-        <translation type="obsolete">PAL/SECAM</translation>
-    </message>
-    <message>
-        <source>NTSC converted from PAL</source>
-        <translation type="obsolete">NTSC konvertované z PAL</translation>
-    </message>
-    <message>
-        <source>Ready</source>
-        <translation type="obsolete">Připraven</translation>
-    </message>
-    <message>
-        <source>Succeeded</source>
-        <translation type="obsolete">Dokončen</translation>
-    </message>
-    <message>
-        <source>Failed</source>
-        <translation type="obsolete">Chyba</translation>
-    </message>
-    <message>
-        <source>Deleted</source>
-        <translation type="obsolete">Smazáno</translation>
-    </message>
-    <message>
-        <source>Running</source>
-        <translation type="obsolete">Běží</translation>
-    </message>
-    <message>
-        <source>Aspect Ratio:</source>
-        <translation type="obsolete">Poměr stran pixelu:</translation>
-    </message>
-    <message>
-        <source>Hadamard Exhaustive Search</source>
-        <translation type="obsolete">Hadamardovo důkladné vyhledávání</translation>
-    </message>
-    <message>
-        <source>x264 Configuration</source>
-        <translation type="obsolete">Nastavení x264</translation>
-    </message>
-    <message>
-        <source>Bitrate</source>
-        <translation type="obsolete">Datový tok</translation>
-    </message>
-    <message>
-        <source>Partition Decision</source>
-        <translation type="obsolete">Rozhodování částí</translation>
-    </message>
-    <message>
-        <source>1  - Extremely Low (Fastest)</source>
-        <translation type="obsolete">1 - extrémně nízké (nejrychlejší)</translation>
-    </message>
-    <message>
-        <source>2  - Very Low</source>
-        <translation type="obsolete">2 - velmi nízké</translation>
-    </message>
-    <message>
-        <source>3  - Low</source>
-        <translation type="obsolete">3 - nízké</translation>
-    </message>
-    <message>
-        <source>4  - Medium</source>
-        <translation type="obsolete">4 - střední</translation>
-    </message>
-    <message>
-        <source>5  - High (Default)</source>
-        <translation type="obsolete">5 - vysoké (výchozí)</translation>
-    </message>
-    <message>
-        <source>6  - Very High</source>
-        <translation type="obsolete">6 - velmi vysoké</translation>
-    </message>
-    <message>
-        <source>6B - Very High (RDO on B-frames)</source>
-        <translation type="obsolete">6B - velmi vysoké (RDO na B snímcích)</translation>
-    </message>
-    <message>
-        <source>7  - Ultra High</source>
-        <translation type="obsolete">7  - ultra vysoké</translation>
-    </message>
-    <message>
-        <source>7B - Ultra High (RDO on B-frames)</source>
-        <translation type="obsolete">7B - ultra vysoké (RDO na  B snímcích)</translation>
-    </message>
-    <message>
-        <source>Diamond Search</source>
-        <translation type="obsolete">Vyhledávání čtyřúhelníku</translation>
-    </message>
-    <message>
-        <source>Hexagonal Search</source>
-        <translation type="obsolete">Hexagonální vyhledávání</translation>
-    </message>
-    <message>
-        <source>Uneven Multi-hexagon</source>
-        <translation type="obsolete">Nerovnoměrné multihexagonální</translation>
-    </message>
-    <message>
-        <source>Exhaustive Search</source>
-        <translation type="obsolete">Důkladné vyhledávání</translation>
-    </message>
-    <message>
-        <source>Range</source>
-        <translation type="obsolete">Rozsah</translation>
-    </message>
-    <message>
-        <source>Mixed Refs</source>
-        <translation type="obsolete">Smíšené reference</translation>
-    </message>
-    <message>
-        <source>DCT Decimate</source>
-        <translation type="obsolete">DCT decimace</translation>
-    </message>
-    <message>
-        <source>Interlaced</source>
-        <translation type="obsolete">Prokládaný</translation>
-    </message>
-    <message>
-        <source>As Input</source>
-        <translation type="obsolete">Jako vstup</translation>
-    </message>
-    <message>
-        <source>CABAC</source>
-        <translation type="obsolete">CABAC</translation>
-    </message>
-    <message>
-        <source>Noise Reduction</source>
-        <translation type="obsolete">Redukce šumu</translation>
-    </message>
-    <message>
-        <source>Deblocking Filter</source>
-        <translation type="obsolete">Filtr pro deblocking</translation>
-    </message>
-    <message>
-        <source>Strength</source>
-        <translation type="obsolete">Síla</translation>
-    </message>
-    <message>
-        <source>8x8 Transform</source>
-        <translation type="obsolete">8x8 transformace</translation>
-    </message>
-    <message>
-        <source>8x8, 8x16 and 16x8 P-frame search</source>
-        <translation type="obsolete">8x8, 8x16 a 16x8 vyhledávání P snímků</translation>
-    </message>
-    <message>
-        <source>8x8, 8x16 and 16x8 B-frame search</source>
-        <translation type="obsolete">8x8, 8x16 a 16x8 vyhledávání B snímků</translation>
-    </message>
-    <message>
-        <source>4x4, 4x8 and 8x4 P-frame search</source>
-        <translation type="obsolete">4x4, 4x8 a 8x4 vyhledávání P snímků</translation>
-    </message>
-    <message>
-        <source>8x8 Intra search</source>
-        <translation type="obsolete">8x8 vnitřní hledání</translation>
-    </message>
-    <message>
-        <source>4x4 Intra search</source>
-        <translation type="obsolete">4x4 vnitřní vyhledávání</translation>
-    </message>
-    <message>
-        <source>Bias</source>
-        <translation type="obsolete">Míra B snímků</translation>
-    </message>
-    <message>
-        <source>Bidirectional ME</source>
-        <translation type="obsolete">Obousměrný odhad pohybu</translation>
-    </message>
-    <message>
-        <source>Weighted Biprediction</source>
-        <translation type="obsolete">Vyvážená obousměrná predikce</translation>
-    </message>
-    <message>
-        <source>Use as Reference</source>
-        <translation type="obsolete">Použít jako referenci</translation>
-    </message>
-    <message>
-        <source>Spatial</source>
-        <translation type="obsolete">Prostorový</translation>
-    </message>
-    <message>
-        <source>Temporal</source>
-        <translation type="obsolete">Časový</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation type="obsolete">Automatický</translation>
-    </message>
-    <message>
-        <source>Keyframe Boost (%)</source>
-        <translation type="obsolete">Podpoření klíčových snímků (%)</translation>
-    </message>
-    <message>
-        <source>B-frame Reduction (%)</source>
-        <translation type="obsolete">Redukce B snímků (%)</translation>
-    </message>
-    <message>
-        <source>Bitrate Variability (%)</source>
-        <translation type="obsolete">Variabilita datového toku (%)</translation>
-    </message>
-    <message>
-        <source>Min QP</source>
-        <translation type="obsolete">Min. QP</translation>
-    </message>
-    <message>
-        <source>Max QP</source>
-        <translation type="obsolete">Max. QP</translation>
-    </message>
-    <message>
-        <source>Max QP Step</source>
-        <translation type="obsolete">Max. kvantizační krok</translation>
-    </message>
-    <message>
-        <source>Scene Cut Threshold</source>
-        <translation type="obsolete">Práh střihu scény</translation>
-    </message>
-    <message>
-        <source>Min IDR Frame Interval</source>
-        <translation type="obsolete">Min. interval IDR snímků</translation>
-    </message>
-    <message>
-        <source>Max IDR Frame Interval</source>
-        <translation type="obsolete">Max. interval IDR snímků</translation>
-    </message>
-    <message>
-        <source>VBV Buffer Size</source>
-        <translation type="obsolete">Velikost VBV bufferu</translation>
-    </message>
-    <message>
-        <source>Initial VBV Buffer (%)</source>
-        <translation type="obsolete">Počáteční VBV buffer (%)</translation>
-    </message>
-    <message>
-        <source>Maximum Local Bitrate</source>
-        <translation type="obsolete">Maximální lokální datový tok</translation>
-    </message>
-    <message>
-        <source>B Frames</source>
-        <translation type="obsolete">B snímky</translation>
-    </message>
-    <message>
-        <source>Pixel Aspect Ratio</source>
-        <translation type="obsolete">Poměr stran pixelu</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation type="obsolete">Vstup</translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation type="obsolete">Výstup</translation>
-    </message>
-    <message>
-        <source>Select GlyphFile to edit</source>
-        <translation type="obsolete">Zvolte soubor s glyfem k editaci</translation>
-    </message>
-    <message>
-        <source>Alert</source>
-        <translation type="obsolete">Upozornění</translation>
-    </message>
-    <message>
-        <source>6B - Very High (RDO on Bframes)</source>
-        <translation type="obsolete">6B - velmi vysoké (RDO na B snímcích)</translation>
-    </message>
-    <message>
-        <source>7 - Ultra High</source>
-        <translation type="obsolete">7 - ultra vysoké</translation>
-    </message>
-    <message>
-        <source>7B - Ultra High (RDO on Bframes)</source>
-        <translation type="obsolete">7B - ultra vysoké (RDO na B snímcích)</translation>
-    </message>
-    <message>
-        <source>Diamond search</source>
-        <translation type="obsolete">Vyhledávání čtyřúhelníku</translation>
-    </message>
-    <message>
-        <source>Hexagonal search</source>
-        <translation type="obsolete">Hexagonální</translation>
-    </message>
-    <message>
-        <source>Uneven multi hexagon</source>
-        <translation type="obsolete">Nerovnoměrné multihexagonální</translation>
-    </message>
-    <message>
-        <source>Exhaustive search</source>
-        <translation type="obsolete">Důkladné vyhledávání</translation>
-    </message>
-    <message>
-        <source>Max Ref Frames</source>
-        <translation type="obsolete">Max. počet referenčních snímků</translation>
-    </message>
-    <message>
-        <source>Fast P Skip</source>
-        <translation type="obsolete">Rychlé přeskočení u P snímků</translation>
-    </message>
-    <message>
-        <source>Disabled</source>
-        <translation type="obsolete">Vypnuto</translation>
-    </message>
-    <message>
-        <source>8x8P Transform</source>
-        <translation type="obsolete">8x8P transformace</translation>
-    </message>
-    <message>
-        <source>8x8B Transform</source>
-        <translation type="obsolete">8x8B transformace</translation>
-    </message>
-    <message>
-        <source>_4x4 Transform</source>
-        <translation type="obsolete">_4x4 transformace</translation>
-    </message>
-    <message>
-        <source>_8x8I Transform</source>
-        <translation type="obsolete">_8x8I transformace</translation>
-    </message>
-    <message>
-        <source>_4x4I Transform</source>
-        <translation type="obsolete">_4x4I transformace</translation>
-    </message>
-    <message>
-        <source>X264 Configuration</source>
-        <translation type="obsolete">Nastavení x264</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="obsolete">Informace</translation>
-    </message>
-    <message>
-        <source>Confirmation</source>
-        <translation type="obsolete">Potvrzení</translation>
-    </message>
-    <message>
-        <source>Question</source>
-        <translation type="obsolete">Otázka</translation>
-    </message>
-    <message>
-        <source>Question ?</source>
-        <translation type="obsolete">Otázka</translation>
-    </message>
-    <message>
-        <source>Partial Start Frame:</source>
-        <translation type="obsolete">Počáteční snímek:</translation>
-    </message>
-    <message>
-        <source>Partial End Frame:</source>
-        <translation type="obsolete">Konečný snímek:</translation>
-    </message>
-    <message>
-        <source>Configure child</source>
-        <translation type="obsolete">Nastavit filtr</translation>
-    </message>
-    <message>
-        <source>Partial Video Filter</source>
-        <translation type="obsolete">Částečný video filtr</translation>
-    </message>
-    <message>
-        <source>Select idx file:</source>
-        <translation type="obsolete">Zvolte idx soubor:</translation>
-    </message>
-    <message>
-        <source>Use GlyphSet (optional):</source>
-        <translation type="obsolete">Použít sadu glyfů (volitelné):</translation>
-    </message>
-    <message>
-        <source>Select GlyphSet file</source>
-        <translation type="obsolete">Zvolte soubor se sadou glyfů</translation>
-    </message>
-    <message>
-        <source>Output SRT file</source>
-        <translation type="obsolete">Výstupní SRT soubor</translation>
-    </message>
-    <message>
-        <source>Save SRT file</source>
-        <translation type="obsolete">Uložit SRT soubor</translation>
-    </message>
-    <message>
-        <source>Select input and ouput files</source>
-        <translation type="obsolete">Zvolte vstupní a výstupní soubory</translation>
-    </message>
-    <message>
-        <source>The idx/sub file does not exist.</source>
-        <translation type="obsolete">idx/sub soubor neexistuje.</translation>
-    </message>
-    <message>
-        <source>Please Select a valid output SRT file.</source>
-        <translation type="obsolete">Prosím zvolte správný SRT soubor.</translation>
-    </message>
-    <message>
-        <source>Cannot load the glyphset file.</source>
-        <translation type="obsolete">Nelze načíst soubor se sadou glyfů.</translation>
-    </message>
-    <message>
-        <source>GlyphSet filename</source>
-        <translation type="obsolete">Název souboru se sadou glyfů</translation>
-    </message>
-    <message>
-        <source>Save GlyphSet file</source>
-        <translation type="obsolete">Uložit soubor se sadou glyfů</translation>
-    </message>
-    <message>
-        <source>Save Glyph</source>
-        <translation type="obsolete">Uložit glyf</translation>
-    </message>
-    <message>
-        <source>Input TS:</source>
-        <translation type="obsolete">Vstupní TS:</translation>
-    </message>
-    <message>
-        <source>Select TS file</source>
-        <translation type="obsolete">Zvolte TS soubor</translation>
-    </message>
-    <message>
-        <source>Subtitle PID:</source>
-        <translation type="obsolete">PID titulků:</translation>
-    </message>
-    <message>
-        <source>Use glyphset (optional):</source>
-        <translation type="obsolete">Použít sadu glyfů (volitelné):</translation>
-    </message>
-    <message>
-        <source>Please Select a valid TS file.</source>
-        <translation type="obsolete">Prosím vyberte platný TS soubor.</translation>
-    </message>
-    <message>
-        <source>Save GlyphSet</source>
-        <translation type="obsolete">Uložit sadu glyfů</translation>
-    </message>
-    <message>
-        <source>_Use systray while encoding</source>
-        <translation type="obsolete">_Pohltit do panelu při kódování</translation>
-    </message>
-    <message>
-        <source>_Accept non-standard audio frequency for DVD</source>
-        <translation type="obsolete">P_ovolit nestandardní frekvenci zvuku pro DVD</translation>
-    </message>
-    <message>
-        <source>_Use libavcodec MPEG-2 decoder</source>
-        <translation type="obsolete">_Používat libavcodec MPEG-2 dekodér</translation>
-    </message>
-    <message>
-        <source>Create _OpenDML files</source>
-        <translation type="obsolete">_Vytvářet OpenDML soubory</translation>
-    </message>
-    <message>
-        <source>Automatically _index MPEG files</source>
-        <translation type="obsolete">Automaticky indexovat _MPEG soubory</translation>
-    </message>
-    <message>
-        <source>Automatically _swap A and B if A&gt;B</source>
-        <translation type="obsolete">Automaticky _prohodit značky A a B pokud je A &gt; B</translation>
-    </message>
-    <message>
-        <source>_Disable NUV audio sync</source>
-        <translation type="obsolete">_Vypnout synchronizaci zvuku pro NuppelVideo</translation>
-    </message>
-    <message>
-        <source>Automatically _build VBR map</source>
-        <translation type="obsolete">Automaticky sestavit mapu _VBR</translation>
-    </message>
-    <message>
-        <source>Automatically _rebuild index</source>
-        <translation type="obsolete">Automaticky _sestavit index</translation>
-    </message>
-    <message>
-        <source>Automatically remove _packed bitstream</source>
-        <translation type="obsolete">Automaticky _odstranit zabalený bitstream</translation>
-    </message>
-    <message>
-        <source>SIMD</source>
-        <translation type="obsolete">SIMD</translation>
-    </message>
-    <message>
-        <source>Enable all SIMD</source>
-        <translation type="obsolete">Aktivovat všechny SIMD</translation>
-    </message>
-    <message>
-        <source>Enable MMX</source>
-        <translation type="obsolete">Aktivovat MMX</translation>
-    </message>
-    <message>
-        <source>Enable MMXEXT</source>
-        <translation type="obsolete">Aktivovat MMXEXT</translation>
-    </message>
-    <message>
-        <source>Enable 3DNOW</source>
-        <translation type="obsolete">Aktivovat 3DNOW</translation>
-    </message>
-    <message>
-        <source>Enable 3DNOWEXT</source>
-        <translation type="obsolete">Aktivovat 3DNOWEXT</translation>
-    </message>
-    <message>
-        <source>Enable SSE</source>
-        <translation type="obsolete">Aktivovat SSE</translation>
-    </message>
-    <message>
-        <source>Enable SSE2</source>
-        <translation type="obsolete">Aktivovat SSE2</translation>
-    </message>
-    <message>
-        <source>Enable SSE3</source>
-        <translation type="obsolete">Aktivovat SSE3</translation>
-    </message>
-    <message>
-        <source>Enable SSSE3</source>
-        <translation type="obsolete">Aktivovat SSSE3</translation>
-    </message>
-    <message>
-        <source>_lavc threads:</source>
-        <translation type="obsolete">Vlákna _libavcodecu:</translation>
-    </message>
-    <message>
-        <source>_x264 threads:</source>
-        <translation type="obsolete">Vlákna _x264:</translation>
-    </message>
-    <message>
-        <source>X_vid threads:</source>
-        <translation type="obsolete">Vlákna X_vidu:</translation>
-    </message>
-    <message>
-        <source>Above normal</source>
-        <translation type="obsolete">Vyšší</translation>
-    </message>
-    <message>
-        <source>Below normal</source>
-        <translation type="obsolete">Nižší</translation>
-    </message>
-    <message>
-        <source>_Encoding priority:</source>
-        <translation type="obsolete">Priorita _kódování:</translation>
-    </message>
-    <message>
-        <source>_Indexing/unpacking priority:</source>
-        <translation type="obsolete">Priorita i_ndexace/rozbalování:</translation>
-    </message>
-    <message>
-        <source>_Playback priority:</source>
-        <translation type="obsolete">Priorita př_ehrávání:</translation>
-    </message>
-    <message>
-        <source>Prioritisation</source>
-        <translation type="obsolete">Priority</translation>
-    </message>
-    <message>
-        <source>_Split MPEG files every (MB):</source>
-        <translation type="obsolete">_Rozdělovat MPEG soubory každých (MB):</translation>
-    </message>
-    <message>
-        <source>_Use alternative tag for MP3 in .mp4</source>
-        <translation type="obsolete">_Používat alternativní značku pro MP3 v .mp4</translation>
-    </message>
-    <message>
-        <source>XVideo (best)</source>
-        <translation type="obsolete">XVideo (nejlepší)</translation>
-    </message>
-    <message>
-        <source>SDL (good)</source>
-        <translation type="obsolete">SDL (dobré)</translation>
-    </message>
-    <message>
-        <source>Video _display:</source>
-        <translation type="obsolete">_Video výstup:</translation>
-    </message>
-    <message>
-        <source>No alerts</source>
-        <translation type="obsolete">Žádné</translation>
-    </message>
-    <message>
-        <source>Display only error alerts</source>
-        <translation type="obsolete">Pouze chybové hlášky</translation>
-    </message>
-    <message>
-        <source>Display all alerts</source>
-        <translation type="obsolete">Všechny</translation>
-    </message>
-    <message>
-        <source>_Message level:</source>
-        <translation type="obsolete">Z_obrazovat zprávy:</translation>
-    </message>
-    <message>
-        <source>_Volume control:</source>
-        <translation type="obsolete">_Ovladač hlasitosti ovládá:</translation>
-    </message>
-    <message>
-        <source>No downmixing</source>
-        <translation type="obsolete">Žádné smixování</translation>
-    </message>
-    <message>
-        <source>Pro Logic</source>
-        <translation type="obsolete">Pro Logic</translation>
-    </message>
-    <message>
-        <source>Pro Logic II</source>
-        <translation type="obsolete">Pro Logic II</translation>
-    </message>
-    <message>
-        <source>_Local playback downmixing:</source>
-        <translation type="obsolete">_Lokální smixování přehrávání:</translation>
-    </message>
-    <message>
-        <source>Core Audio</source>
-        <translation type="obsolete">Core Audio</translation>
-    </message>
-    <message>
-        <source>JACK</source>
-        <translation type="obsolete">JACK</translation>
-    </message>
-    <message>
-        <source>Win32</source>
-        <translation type="obsolete">Win32</translation>
-    </message>
-    <message>
-        <source>_Audio output:</source>
-        <translation type="obsolete">_Audio výstup:</translation>
-    </message>
-    <message>
-        <source>ALSA _device:</source>
-        <translation type="obsolete">AL_SA zařízení:</translation>
-    </message>
-    <message>
-        <source>De_ringing</source>
-        <translation type="obsolete">De_ringing</translation>
-    </message>
-    <message>
-        <source>_Strength:</source>
-        <translation type="obsolete">_Síla:</translation>
-    </message>
-    <message>
-        <source>Default Postprocessing</source>
-        <translation type="obsolete">Výchozí dodatečné zpracování</translation>
-    </message>
-    <message>
-        <source>_Filter directory:</source>
-        <translation type="obsolete">_Adresář s filtry:</translation>
-    </message>
-    <message>
-        <source>Select filter directory</source>
-        <translation type="obsolete">Zvolte adresář s filtry</translation>
-    </message>
-    <message>
-        <source>_Load external filters</source>
-        <translation type="obsolete">_Načíst externí filtry</translation>
-    </message>
-    <message>
-        <source>Use _Global GlyphSet</source>
-        <translation type="obsolete">Použít _globální sadu glyfů</translation>
-    </message>
-    <message>
-        <source>Gl_yphSet:</source>
-        <translation type="obsolete">_Sada glyfů:</translation>
-    </message>
-    <message>
-        <source>Automation</source>
-        <translation type="obsolete">Automatizace</translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">Audio</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">Video</translation>
-    </message>
-    <message>
-        <source>Threading</source>
-        <translation type="obsolete">Vlákna</translation>
-    </message>
-    <message>
-        <source>Global GlyphSet</source>
-        <translation type="obsolete">Globální sada glyfů</translation>
-    </message>
-    <message>
-        <source>External Filters</source>
-        <translation type="obsolete">Externí filtry</translation>
-    </message>
-    <message>
-        <source>Preferences</source>
-        <translation type="obsolete">Předvolby</translation>
-    </message>
-    <message>
-        <source>Chinese Simplified (GB2312)</source>
-        <translation type="obsolete">Čínské zjednodušené (GB2312)</translation>
-    </message>
-    <message>
-        <source>Chinese Traditional (Big5)</source>
-        <translation type="obsolete">Čínské tradiční (Big5)</translation>
-    </message>
-    <message>
-        <source>Cyrillic</source>
-        <translation type="obsolete">Cyrilice</translation>
-    </message>
-    <message>
-        <source>Slovene</source>
-        <translation type="obsolete">Slovinština</translation>
-    </message>
-    <message>
-        <source>UTF-8</source>
-        <translation type="obsolete">UTF-8</translation>
-    </message>
-    <message>
-        <source>UTF-16</source>
-        <translation type="obsolete">UTF-16</translation>
-    </message>
-    <message>
-        <source>_Subtitle file:</source>
-        <translation type="obsolete">_Soubor s titulky:</translation>
-    </message>
-    <message>
-        <source>Select Subtitle file</source>
-        <translation type="obsolete">Zvolte soubor s titulky</translation>
-    </message>
-    <message>
-        <source>_Font (TTF):</source>
-        <translation type="obsolete">Pís_mo (TTF):</translation>
-    </message>
-    <message>
-        <source>Select TTF file</source>
-        <translation type="obsolete">Zvolte TTF soubor</translation>
-    </message>
-    <message>
-        <source>_Encoding:</source>
-        <translation type="obsolete">_Kódování:</translation>
-    </message>
-    <message>
-        <source>S_elect C_olor</source>
-        <translation type="obsolete">Zvolte ba_rvu</translation>
-    </message>
-    <message>
-        <source>Set Size and _Position</source>
-        <translation type="obsolete">Zvolte _velikost a umístění</translation>
-    </message>
-    <message>
-        <source>_Auto split</source>
-        <translation type="obsolete">_Automatické rozdělování</translation>
-    </message>
-    <message>
-        <source>_Delay (ms):</source>
-        <translation type="obsolete">Zp_oždění (ms):</translation>
-    </message>
-    <message>
-        <source>Width and height cannot be 0</source>
-        <translation type="obsolete">Šířka a výška nemohou být 0</translation>
-    </message>
-    <message>
-        <source>Width and height cannot be odd</source>
-        <translation type="obsolete">Šířka a výška nemohou být liché</translation>
-    </message>
-    <message>
-        <source>Something very wrong happened when building joblist.</source>
-        <translation type="obsolete">Při sestavování seznamu úloh se stalo něco velmi zlého.</translation>
-    </message>
-    <message>
-        <source>There are no jobs stored</source>
-        <translation type="obsolete">Nejsou uloženy žádné úlohy</translation>
-    </message>
-    <message>
-        <source>Select ECMAScript to Run</source>
-        <translation type="obsolete">Vybrat ECMAScript ke spuštění</translation>
-    </message>
-    <message>
-        <source>Obsolete</source>
-        <translation type="obsolete">Zastaralé</translation>
-    </message>
-    <message>
-        <source>Not coded in this version</source>
-        <translation type="obsolete">Nepodporováno v této verzi</translation>
-    </message>
-    <message>
-        <source>Select AVI File...</source>
-        <translation type="obsolete">Zvolte AVI soubor...</translation>
-    </message>
-    <message>
-        <source>This is to be used to undo packed VOP on MPEG-4.
-Continue ?</source>
-        <translation type="obsolete">Tímto se odstraní zabalený VOP v MPEG-4 videu.
-Chcete pokračovat? </translation>
-    </message>
-    <message>
-        <source>Select AVI File to Write</source>
-        <translation type="obsolete">Zvolte AVI soubor k zápisu</translation>
-    </message>
-    <message>
-        <source>Select OGM File to Write</source>
-        <translation type="obsolete">Vyberte OGM soubor k zápisu</translation>
-    </message>
-    <message>
-        <source>Select Workbench to Save</source>
-        <translation type="obsolete">Zvolte projekt k uložení</translation>
-    </message>
-    <message>
-        <source>Select Raw File to Save</source>
-        <translation type="obsolete">Zvolte soubor k zápisu</translation>
-    </message>
-    <message>
-        <source>Select AVI File to Append...</source>
-        <translation type="obsolete">Vyberte AVI soubor k připojení...</translation>
-    </message>
-    <message>
-        <source>Select File to Save Audio</source>
-        <translation type="obsolete">Zvolte soubor k uložení zvuku</translation>
-    </message>
-    <message>
-        <source>Select JPEG Sequence to Save</source>
-        <translation type="obsolete">Vyberte sled JPEG souborů k uložení</translation>
-    </message>
-    <message>
-        <source>Select BMP to Save</source>
-        <translation type="obsolete">Vyberte BMP soubor k uložení</translation>
-    </message>
-    <message>
-        <source>Select JPEG to Save</source>
-        <translation type="obsolete">Vyberte JPEG soubor k uložení</translation>
-    </message>
-    <message>
-        <source>Select File to Save</source>
-        <translation type="obsolete">Zvolte soubor k uložení</translation>
-    </message>
-    <message>
-        <source>Select MP3 to Load</source>
-        <translation type="obsolete">Vyberte MP3 soubor k načtení</translation>
-    </message>
-    <message>
-        <source>Select AC3 to Load</source>
-        <translation type="obsolete">Vyberte AC3 soubor k načtení</translation>
-    </message>
-    <message>
-        <source>Select WAV to Load</source>
-        <translation type="obsolete">Vyberte WAV soubor k načtení</translation>
-    </message>
-    <message>
-        <source>Go to Frame</source>
-        <translation type="obsolete">Přejít na snímek</translation>
-    </message>
-    <message>
-        <source>_Go to frame:</source>
-        <translation type="obsolete">_Přejít na snímek:</translation>
-    </message>
-    <message>
-        <source>Out of bounds</source>
-        <translation type="obsolete">Mimo meze</translation>
-    </message>
-    <message>
-        <source>Marker A &gt; B</source>
-        <translation type="obsolete">Značka A &gt; B</translation>
-    </message>
-    <message>
-        <source>Cannot copy.</source>
-        <translation type="obsolete">Nelze kopírovat.</translation>
-    </message>
-    <message>
-        <source>Something bad happened (II))</source>
-        <translation type="obsolete">Přihodilo se něco zlého (II)</translation>
-    </message>
-    <message>
-        <source>Are you sure?</source>
-        <translation type="obsolete">Určitě?</translation>
-    </message>
-    <message>
-        <source>Frame Rate</source>
-        <translation type="obsolete">Snímková frekvence</translation>
-    </message>
-    <message>
-        <source>Width is not a multiple of 8</source>
-        <translation type="obsolete">Šířka není násobkem 8</translation>
-    </message>
-    <message>
-        <source>This will make trouble for AVI files.</source>
-        <translation type="obsolete">To bude problém u AVI souborů.</translation>
-    </message>
-    <message>
-        <source>Rebuild all Keyframes?</source>
-        <translation type="obsolete">Sestavit všechny klíčové snímky?</translation>
-    </message>
-    <message>
-        <source>Permission error</source>
-        <translation type="obsolete">Chyba oprávnění</translation>
-    </message>
-    <message>
-        <source>&quot;%s&quot; does not exist.</source>
-        <translation type="obsolete">&quot;%s&quot; neexistuje.</translation>
-    </message>
-    <message>
-        <source>Cannot open project using the video loader.</source>
-        <translation type="obsolete">Otevřením videa nelze otevřít projekt.</translation>
-    </message>
-    <message>
-        <source>Try &apos;File&apos; -&gt; &apos;Load/Run Project...&apos;</source>
-        <translation type="obsolete">Zkuste &apos;Soubor&apos; -&gt; &apos;Načíst/spustit projekt...&apos;</translation>
-    </message>
-    <message>
-        <source>Could not open the file</source>
-        <translation type="obsolete">Nelze otevřít soubor</translation>
-    </message>
-    <message>
-        <source>Multiple Audio Tracks</source>
-        <translation type="obsolete">Více zvukových stop</translation>
-    </message>
-    <message>
-        <source>The file you just loaded contains several audio tracks.
-Go to Audio-&gt;MainTrack to select the active one.</source>
-        <translation type="obsolete">Načtený soubor obsahuje několik zvukových stop.
-V nabídce Audio-&gt;Hlavní stopa vyberte tu aktivní.</translation>
-    </message>
-    <message>
-        <source>No audio decoder found for this file</source>
-        <translation type="obsolete">Nenalezen audio dekodér pro tento soubor</translation>
-    </message>
-    <message>
-        <source>Save (A+V) will generate bad AVI. Save audio will work.</source>
-        <translation type="obsolete">Uložení souboru vytvoří špatný AVI soubor. Uložení zvuku bude fungovat.</translation>
-    </message>
-    <message>
-        <source>Something failed when appending</source>
-        <translation type="obsolete">Při připojování něco selhalo</translation>
-    </message>
-    <message>
-        <source>Something bad happened (II)</source>
-        <translation type="obsolete">Přihodilo se něco zlého (II)</translation>
-    </message>
-    <message>
-        <source>Cannot save the audio in copy mode</source>
-        <translation type="obsolete">V kopírovacím režimu toto audio nelze uložit</translation>
-    </message>
-    <message>
-        <source>Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.</source>
-        <translation type="obsolete">Jako audio kodek vyberte WAV PCM, jinak by zvukový soubor byl čistý PCM.</translation>
-    </message>
-    <message>
-        <source>Saving audio</source>
-        <translation type="obsolete">Ukládá se zvuk</translation>
-    </message>
-    <message>
-        <source>Get Frame</source>
-        <translation type="obsolete">_Následující snímek</translation>
-    </message>
-    <message>
-        <source>Cannot get this frame to save</source>
-        <translation type="obsolete">Tento snímek nelze uložit</translation>
-    </message>
-    <message>
-        <source>Mark A &gt; B</source>
-        <translation type="obsolete">Značka A &gt; B</translation>
-    </message>
-    <message>
-        <source>Set your markers correctly.</source>
-        <translation type="obsolete">Nastavte značky správně.</translation>
-    </message>
-    <message>
-        <source>Saving as set of jpegs</source>
-        <translation type="obsolete">Ukládám jako sadu JPEG souborů</translation>
-    </message>
-    <message>
-        <source>Cannot decode frame</source>
-        <translation type="obsolete">Nelze dekódovat snímek</translation>
-    </message>
-    <message>
-        <source>Aborting.</source>
-        <translation type="obsolete">Ukončeno.</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="obsolete">Hotovo</translation>
-    </message>
-    <message>
-        <source>Saved %d images.</source>
-        <translation type="obsolete">Počet uložených obrázků: %d.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="obsolete">Chyba</translation>
-    </message>
-    <message>
-        <source>Could not save all images.</source>
-        <translation type="obsolete">Nelze uložit všechny obrázky.</translation>
-    </message>
-    <message>
-        <source>Saved &quot;%s&quot;.</source>
-        <translation type="obsolete">Uloženo &quot;%s&quot;.</translation>
-    </message>
-    <message>
-        <source>BMP op failed</source>
-        <translation type="obsolete">BMP operace selhala</translation>
-    </message>
-    <message>
-        <source>Saving %s as a BMP file failed.</source>
-        <translation type="obsolete">Uložení %s jako BMP souboru selhalo.</translation>
-    </message>
-    <message>
-        <source>Failed to open the file</source>
-        <translation type="obsolete">Nelze otevřít soubor</translation>
-    </message>
-    <message>
-        <source>Not a WAV file?</source>
-        <translation type="obsolete">Není to WAV soubor?</translation>
-    </message>
-    <message>
-        <source>WAV open file failed...</source>
-        <translation type="obsolete">Selhalo otevření WAV souboru...</translation>
-    </message>
-    <message>
-        <source>Cannot decompress audio frame</source>
-        <translation type="obsolete">Nelze dekomprimovat audio</translation>
-    </message>
-    <message>
-        <source>Memory Error</source>
-        <translation type="obsolete">Chyba paměti</translation>
-    </message>
-    <message>
-        <source>No frames to encode</source>
-        <translation type="obsolete">Nejsou žádné snímky k zakódování</translation>
-    </message>
-    <message>
-        <source>Please check markers. Is &quot;A&gt;&quot; == &quot;&gt;B&quot;?</source>
-        <translation type="obsolete">Zkontrolujte prosím značky. Je &quot;A&gt;&quot; == &quot;&gt;B&quot;?</translation>
-    </message>
-    <message>
-        <source>Saving raw video stream</source>
-        <translation type="obsolete">Ukládám čistý video proud</translation>
-    </message>
-    <message>
-        <source>Checking video</source>
-        <translation type="obsolete">Kontroluji video</translation>
-    </message>
-    <message>
-        <source>No error found</source>
-        <translation type="obsolete">Nenalezena žádná chyba</translation>
-    </message>
-    <message>
-        <source>Errors found in %u frames</source>
-        <translation type="obsolete">Počet snímků s nalezenou chybou: %u</translation>
-    </message>
-    <message>
-        <source>Cannot decompress the audio stream</source>
-        <translation type="obsolete">Nelze dekomprimovat audio stopu</translation>
-    </message>
-    <message>
-        <source>Switch audio codec to Copy.</source>
-        <translation type="obsolete">Změňte audio kodek na Kopie.</translation>
-    </message>
-    <message>
-        <source>Cannot delete the selection.</source>
-        <translation type="obsolete">Nelze smazat výběr.</translation>
-    </message>
-    <message>
-        <source>You can&apos;t remove all frames</source>
-        <translation type="obsolete">Nemůžete odstranit všechny snímky</translation>
-    </message>
-    <message>
-        <source>Something bad happened</source>
-        <translation type="obsolete">Přihodilo se něco zlého</translation>
-    </message>
-    <message>
-        <source>Could not get tracks info</source>
-        <translation type="obsolete">Nelze získat informaci o stopách</translation>
-    </message>
-    <message>
-        <source>Take audio from video file</source>
-        <translation type="obsolete">Vzít audio z video souboru</translation>
-    </message>
-    <message>
-        <source>No audio</source>
-        <translation type="obsolete">Chybí zvuková stopa</translation>
-    </message>
-    <message>
-        <source>External AC3</source>
-        <translation type="obsolete">Externí AC3</translation>
-    </message>
-    <message>
-        <source>Take audio from external AC3 file</source>
-        <translation type="obsolete">Vezme audio z externího AC3 souboru</translation>
-    </message>
-    <message>
-        <source>External MP3</source>
-        <translation type="obsolete">Externí MP3</translation>
-    </message>
-    <message>
-        <source>Take audio from external MP3 file</source>
-        <translation type="obsolete">Vezme audio z externího MP3 souboru</translation>
-    </message>
-    <message>
-        <source>External WAV</source>
-        <translation type="obsolete">Externí WAV</translation>
-    </message>
-    <message>
-        <source>Take audio from external WAV file</source>
-        <translation type="obsolete">Vezme audio z externího WAV souboru</translation>
-    </message>
-    <message>
-        <source>_Audio source:</source>
-        <translation type="obsolete">Z_droj zvuku:</translation>
-    </message>
-    <message>
-        <source>_External file:</source>
-        <translation type="obsolete">_Externí soubor:</translation>
-    </message>
-    <message>
-        <source>Select file</source>
-        <translation type="obsolete">Zvolte soubor</translation>
-    </message>
-    <message>
-        <source>_Track from video:</source>
-        <translation type="obsolete">_Stopa z videa:</translation>
-    </message>
-    <message>
-        <source>Main Audio Track</source>
-        <translation type="obsolete">Hlavní audio stopa</translation>
-    </message>
-    <message>
-        <source>Cannot load</source>
-        <translation type="obsolete">Nelze načíst</translation>
-    </message>
-    <message>
-        <source>The selected audio file does not exist.</source>
-        <translation type="obsolete">Vybraný audio soubor neexistuje.</translation>
-    </message>
-    <message>
-        <source>Second Audio Track</source>
-        <translation type="obsolete">Druhá audio stopa</translation>
-    </message>
-    <message>
-        <source>Error loading the MP3 file</source>
-        <translation type="obsolete">Chyba načtení MP3 souboru</translation>
-    </message>
-    <message>
-        <source>Second track loaded</source>
-        <translation type="obsolete">Načtena druhá stopa</translation>
-    </message>
-    <message>
-        <source>Error loading the AC3 file</source>
-        <translation type="obsolete">Chyba načtení AC3 souboru</translation>
-    </message>
-    <message>
-        <source>Error loading the WAV file</source>
-        <translation type="obsolete">Chyba načtení WAV souboru</translation>
-    </message>
-    <message>
-        <source>Saving failed</source>
-        <translation type="obsolete">Uložení se nezdařilo</translation>
-    </message>
-    <message>
-        <source>Saving the job failed. Maybe you have permission issue with ~/.avidemux</source>
-        <translation type="obsolete">Selhalo uložení úlohy. Možná je problém s přístupovými právy ~/.avidemux</translation>
-    </message>
-    <message>
-        <source>File %s has been successfully saved.</source>
-        <translation type="obsolete">Soubor %s byl úspěšně uložen.</translation>
-    </message>
-    <message>
-        <source>File %s was NOT saved correctly.</source>
-        <translation type="obsolete">Soubor %s nebyl řádně uložen.</translation>
-    </message>
-    <message>
-        <source>AvsProxy</source>
-        <translation type="obsolete">AvsProxy</translation>
-    </message>
-    <message>
-        <source>Failed to connect to avsproxy.
-Is it running ?</source>
-        <translation type="obsolete">Nelze se připojit k avsproxy.
-Je spuštěno?</translation>
-    </message>
-    <message>
-        <source>avsproxy</source>
-        <translation type="obsolete">avsproxy</translation>
-    </message>
-    <message>
-        <source>Frame type:</source>
-        <translation type="obsolete">Typ snímku:</translation>
-    </message>
-    <message>
-        <source>Frame size:</source>
-        <translation type="obsolete">Velikost snímku:</translation>
-    </message>
-    <message>
-        <source>Frame Hex Dump</source>
-        <translation type="obsolete">Hex výpis snímků</translation>
-    </message>
-    <message>
-        <source>No audio track</source>
-        <translation type="obsolete">Chybí zvuková stopa</translation>
-    </message>
-    <message>
-        <source>An audio track is necessary to create such file</source>
-        <translation type="obsolete">Pro vytvoření takovéhoto souboru je zvuková stopa nutná.</translation>
-    </message>
-    <message>
-        <source>Xvid4 and FAAC support is required for the iPod profile.</source>
-        <translation type="obsolete">Pro profil iPod je nutná podpora Xvid4 a FAAC.</translation>
-    </message>
-    <message>
-        <source>Cannot select the MPEG-4 SP codec.</source>
-        <translation type="obsolete">Nelze vybrat MPEG-4 SP kodek.</translation>
-    </message>
-    <message>
-        <source>You don&apos;t have LAME!.
-It is needed to create FLV  video.</source>
-        <translation type="obsolete">Nemáte LAME!
-Je potřeba k vytvoření FLV videa.</translation>
-    </message>
-    <message>
-        <source>Cannot select FLV1  codec.</source>
-        <translation type="obsolete">Nelze vybrat FLV1 kodek.</translation>
-    </message>
-    <message>
-        <source>Cannot select mpeg4 sp codec.</source>
-        <translation type="obsolete">Nelze vybrat MPEG-4 SP kodek.</translation>
-    </message>
-    <message>
-        <source>You don&apos;t have FAAC!.
-It is needed to create PSP compatible video.</source>
-        <translation type="obsolete">Nemáte FAAC!
-To je potřeba k vytvoření PSP kompatibilního videa.</translation>
-    </message>
-    <message>
-        <source>Decompressing error</source>
-        <translation type="obsolete">Dekomprimační chyba</translation>
-    </message>
-    <message>
-        <source>Cannot decode next frame.</source>
-        <translation type="obsolete">Nelze dekódovat další snímek.</translation>
-    </message>
-    <message>
-        <source>Cannot decode keyframe.</source>
-        <translation type="obsolete">Nelze dekódovat klíčový snímek.</translation>
-    </message>
-    <message>
-        <source>Seeking</source>
-        <translation type="obsolete">Vyhledávám</translation>
-    </message>
-    <message>
-        <source>Finding black frames</source>
-        <translation type="obsolete">Vyhledávám černé snímky</translation>
-    </message>
-    <message>
-        <source>Cannot decode the frame.</source>
-        <translation type="obsolete">Nelze dekódovat snímek.</translation>
-    </message>
-    <message>
-        <source>Dual audio can only be used in copy mode</source>
-        <translation type="obsolete">Duální zvuk lze používat jen v kopírovacím režimu</translation>
-    </message>
-    <message>
-        <source>Select Copy as the video codec.</source>
-        <translation type="obsolete">Jako video kodek zvolte Kopie.</translation>
-    </message>
-    <message>
-        <source>Incompatible output format</source>
-        <translation type="obsolete">Nekompatibilní výstupní formát</translation>
-    </message>
-    <message>
-        <source>There is no second track</source>
-        <translation type="obsolete">Chybí druhá stopa</translation>
-    </message>
-    <message>
-        <source>Select a second audio track in the Audio menu.</source>
-        <translation type="obsolete">V nabídce Audio vyberte druhou zvukovou stopu.</translation>
-    </message>
-    <message>
-        <source>Select dual audio AVI to write</source>
-        <translation type="obsolete">Zvolte duální AVI k uložení</translation>
-    </message>
-    <message>
-        <source>This cannot have packed VOP</source>
-        <translation type="obsolete">Toto nemůže mít zabalený VOP</translation>
-    </message>
-    <message>
-        <source>It is not MPEG-4 video. File will not be saved.</source>
-        <translation type="obsolete">Není to MPEG-4 video. Soubor se neuloží.</translation>
-    </message>
-    <message>
-        <source>You may need smart copy.
- Enable it ?</source>
-        <translation type="obsolete">Možná bude potřeba Smart Copy.
-Má se aktivovat?</translation>
-    </message>
-    <message>
-        <source>Trouble initializing audio device</source>
-        <translation type="obsolete">Chyba inicializace zvukového zařízení</translation>
-    </message>
-    <message>
-        <source>Internal error finding codec &apos;&apos;</source>
-        <translation type="obsolete">Interní chyba při hledání kodeku</translation>
-    </message>
-    <message>
-        <source>Y800 (lavc)</source>
-        <translation type="obsolete">Y800 (lavc)</translation>
-    </message>
-    <message>
-        <source>Add Framenumber</source>
-        <translation type="obsolete">Add Framenumber</translation>
-    </message>
-    <message>
-        <source>Print frame number directly in image</source>
-        <translation type="obsolete">Zobrazení čísla snímku přímo v obrazu.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t determine the Application Data folder.</source>
-        <translation type="obsolete">Nelze určit složku dat aplikací.</translation>
-    </message>
-    <message>
-        <source>Invalid audio stream detected</source>
-        <translation type="obsolete">Detekován neplatný audio stream</translation>
-    </message>
-    <message>
-        <source>The audio stream may be invalid for this container.
-
-Continue anyway?</source>
-        <translation type="obsolete">Audio stream může být pro tento kontejner neplatný.
-
-Chcete přesto pokračovat?</translation>
-    </message>
-    <message>
-        <source>1 - QPel SAD (Fastest)</source>
-        <translation type="obsolete">1 - QPel SAD (nejrychlejší)</translation>
-    </message>
-    <message>
-        <source>2 - QPel SATD</source>
-        <translation type="obsolete">2 - QPel SATD</translation>
-    </message>
-    <message>
-        <source>3 - HPel on MB then QPel</source>
-        <translation type="obsolete">3 - HPel na MB, potom QPel</translation>
-    </message>
-    <message>
-        <source>4 - Always QPel</source>
-        <translation type="obsolete">4 - vždy QPel</translation>
-    </message>
-    <message>
-        <source>5 - QPel + Bidirectional ME</source>
-        <translation type="obsolete">5 - QPel + obousměrný odhad pohybu</translation>
-    </message>
-    <message>
-        <source>6 - RD on I/P frames (Default)</source>
-        <translation type="obsolete">6 - RD na I/P snímcích (výchozí)</translation>
-    </message>
-    <message>
-        <source>7 - RD on all frames</source>
-        <translation type="obsolete">7 - RD na všech snímcích</translation>
-    </message>
-    <message>
-        <source>8 - RD refinement on I/P frames</source>
-        <translation type="obsolete">8 - RD vylepšení na I/P snímcích</translation>
-    </message>
-    <message>
-        <source>9 - RD refinement on all frames</source>
-        <translation type="obsolete">9 - RD vylepšení na všech snímcích</translation>
-    </message>
-    <message>
-        <source>5  - High</source>
-        <translation type="obsolete">5  - vysoké</translation>
-    </message>
-    <message>
-        <source>6  - High (Default)</source>
-        <translation type="obsolete">6  - vysoké (výchozí)</translation>
-    </message>
-    <message>
-        <source>Adaptive Quantisation</source>
-        <translation type="obsolete">Adaptivní kvantizace</translation>
-    </message>
-    <message>
-        <source>Partition Macroblocks</source>
-        <translation type="obsolete">Makrobloky částí</translation>
-    </message>
-    <message>
-        <source>Max. Consecutive</source>
-        <translation type="obsolete">Max. následných</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation type="obsolete">Rychlé</translation>
-    </message>
-    <message>
-        <source>Optimal</source>
-        <translation type="obsolete">Optimální</translation>
-    </message>
-    <message>
-        <source>Adaptive DCT</source>
-        <translation type="obsolete">Adaptivní DCT</translation>
-    </message>
-    <message>
-        <source>Direct Mode</source>
-        <translation type="obsolete">Přímý režim</translation>
-    </message>
-    <message>
-        <source>B-Frames</source>
-        <translation type="obsolete">B snímky</translation>
-    </message>
-    <message>
-        <source>Partitions &amp;&amp; Frames</source>
-        <translation type="obsolete">Rozdělení a snímky</translation>
-    </message>
-    <message>
-        <source>Quantisation Limits</source>
-        <translation type="obsolete">Kvantizační limity</translation>
-    </message>
-    <message>
-        <source>More Rate Settings</source>
-        <translation type="obsolete">Další nastavení</translation>
-    </message>
-    <message>
-        <source>Video Buffer Verifier</source>
-        <translation type="obsolete">Kontrola video bufferu</translation>
-    </message>
-    <message>
-        <source>Qt (X11)</source>
-        <translation type="obsolete">Qt (X11)</translation>
-    </message>
-    <message>
-        <source>Qt (MS Windows GDI)</source>
-        <translation type="obsolete">Qt (MS Windows GDI)</translation>
-    </message>
-    <message>
-        <source>Qt (Mac OS X Quartz 2D)</source>
-        <translation type="obsolete">Qt (Mac OS X Quartz 2D)</translation>
-    </message>
-    <message>
-        <source>Qt (Mac OS X QuickDraw)</source>
-        <translation type="obsolete">Qt (Mac OS X QuickDraw)</translation>
-    </message>
-    <message>
-        <source>Qt (OpenGL)</source>
-        <translation type="obsolete">Qt (OpenGL)</translation>
-    </message>
-    <message>
-        <source>Qt (MS Windows Direct3D)</source>
-        <translation type="obsolete">Qt (MS Windows Direct3D)</translation>
-    </message>
-    <message>
-        <source>Postprocessing</source>
-        <translation type="obsolete">Dodatečné zpracování</translation>
-    </message>
-    <message>
-        <source>SDL (MS Windows GDI)</source>
-        <translation type="obsolete">SDL (MS Windows GDI)</translation>
-    </message>
-    <message>
-        <source>SDL (MS Windows DirectX)</source>
-        <translation type="obsolete">SDL (MS Windows DirectX)</translation>
-    </message>
-    <message>
-        <source>Pulse Audio</source>
-        <translation type="obsolete">Pulse Audio</translation>
-    </message>
-    <message>
-        <source>Arabic</source>
-        <translation type="obsolete">Arabské</translation>
-    </message>
-    <message>
-        <source>Baltic</source>
-        <translation type="obsolete">Baltské</translation>
-    </message>
-    <message>
-        <source>Latin-1 (Western European)</source>
-        <translation type="obsolete">Latin-1 (západoevropské)</translation>
-    </message>
-    <message>
-        <source>Latin-2 (Central European)</source>
-        <translation type="obsolete">Latin-2 (středoevropské)</translation>
-    </message>
-    <message>
-        <source>Greek</source>
-        <translation type="obsolete">Řecké</translation>
-    </message>
-    <message>
-        <source>Hebrew</source>
-        <translation type="obsolete">Hebrejské</translation>
-    </message>
-    <message>
-        <source>Turkish</source>
-        <translation type="obsolete">Turecké</translation>
-    </message>
-    <message>
-        <source>An invalid frame range has been selected.  Make sure marker A is placed before marker B.</source>
-        <translation type="obsolete">Byl vybrán neplatný rozsah snímků. Ujistěte se, že značka A je umístěna před značkou B.</translation>
-    </message>
-    <message>
-        <source>Use custom value</source>
-        <translation type="obsolete">Použít vlastní hodnotu</translation>
-    </message>
-    <message>
-        <source>_Frames per second</source>
-        <translation type="obsolete">_Snímků za sekundu</translation>
-    </message>
-    <message>
-        <source>PAL - 25 FPS</source>
-        <translation type="obsolete">PAL - 25 snímků/s</translation>
-    </message>
-    <message>
-        <source>Standard FrameRate:</source>
-        <translation type="obsolete">Standardní snímková frekvence:</translation>
-    </message>
-    <message>
-        <source>Change FrameRate</source>
-        <translation type="obsolete">Změnit snímkovou frekvenci</translation>
-    </message>
-    <message>
-        <source>Error opening file</source>
-        <translation type="obsolete">Chyba otevření souboru</translation>
-    </message>
-    <message>
-        <source>Error opening &quot;%s&quot;.</source>
-        <translation type="obsolete">Chyba otevření &quot;%s&quot;.</translation>
-    </message>
-    <message>
-        <source>MP4 (PSP)</source>
-        <translation type="obsolete">MP4 (PSP)</translation>
-    </message>
-    <message>
-        <source>PSP (480 * 272)</source>
-        <translation type="obsolete">PSP (480 * 272)</translation>
-    </message>
-    <message>
-        <source>PSP full res. (720 * 480)</source>
-        <translation type="obsolete">PSP plné rozlišení. (720 * 480)</translation>
-    </message>
-    <message>
-        <source>Select Video/Image File...</source>
-        <translation type="obsolete">Vyberte soubor s videem/obrázkem...</translation>
-    </message>
-    <message>
-        <source>FILM - 24 FPS</source>
-        <translation type="obsolete">FILM - 24 snímků/s</translation>
-    </message>
-    <message>
-        <source>NTSC - 30 FPS</source>
-        <translation type="obsolete">NTSC - 30 snímků/s</translation>
-    </message>
-    <message>
-        <source>Standard Frame Rate:</source>
-        <translation type="obsolete">Standardní snímková frekvence:</translation>
-    </message>
-    <message>
-        <source>Change Frame Rate</source>
-        <translation type="obsolete">Změna snímkové frekvence</translation>
-    </message>
-    <message>
-        <source>Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)</source>
-        <translation type="obsolete">Audio stopa %d (%s/%dkanálová/%d kb/s/%dms posun)</translation>
-    </message>
-    <message>
-        <source>_NTSC (default is PAL):</source>
-        <translation type="obsolete">_NTSC (výchozí je PAL):</translation>
+        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="33"/>
+        <source>%u seconds</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7825,17 +3856,6 @@ Chcete přesto pokračovat?</translation>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="257"/>
         <source>Eraser Configuration</source>
         <translation>Eraser</translation>
-    </message>
-</context>
-<context>
-    <name>ADMVideoFields</name>
-    <message>
-        <source>Motion Threshold</source>
-        <translation type="obsolete">Práh pohybu</translation>
-    </message>
-    <message>
-        <source>Blend Threshold</source>
-        <translation type="obsolete">Práh prolnutí</translation>
     </message>
 </context>
 <context>
@@ -8696,17 +4716,6 @@ multiplied by this):</source>
     </message>
 </context>
 <context>
-    <name>ADM_AudiocodecAMR</name>
-    <message>
-        <source>Internal error</source>
-        <translation type="obsolete">Vnitřní chyba</translation>
-    </message>
-    <message>
-        <source>Cannot open AMR codec.</source>
-        <translation type="obsolete">Nelze otevřít kodek AMR.</translation>
-    </message>
-</context>
-<context>
     <name>ADM_AudiocodecWMA</name>
     <message>
         <location filename="../avidemux/ADM_audiocodec/ADM_codecwma.cpp" line="93"/>
@@ -8777,14 +4786,6 @@ multiplied by this):</source>
         <translation>Selhalo otevření %s!</translation>
     </message>
     <message>
-        <source>You cannot mix different video dimensions yet. Using the partial video filter later, will not work around this problem. The workaround is:
-1.) &quot;resize&quot; / &quot;add border&quot; / &quot;crop&quot; each stream to the same resolution
-2.) concatinate them together</source>
-        <translation type="obsolete">Zatím nemůžete míchat různé rozměry obrazu. Pozdější použití částečného filtru tento problém neobejde. Dočasné řešení tedy je:
-1) Změna velikosti, přidání černých okrajů nebo ořez každého souboru na stejné rozlišení
-2) Spojit je dohromady</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="443"/>
         <source>Video dimensions don&apos;t match.</source>
         <translation type="unfinished"></translation>
@@ -8848,14 +4849,6 @@ multiplied by this):</source>
         <translation>Rozbalení se zdařilo, ale index stále není aktuální.</translation>
     </message>
     <message>
-        <source>Troubles ahead</source>
-        <translation type="obsolete">Přijdou problémy</translation>
-    </message>
-    <message>
-        <source>This a VOP packed AVI.</source>
-        <translation type="obsolete">Toto je AVI se zabaleným VOP.</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="757"/>
         <source>Index is not up to date</source>
         <translation>Index není aktuální</translation>
@@ -8887,121 +4880,70 @@ Chcete ten režim použít?</translation>
     </message>
 </context>
 <context>
-    <name>ADM_Qbitrate</name>
-    <message>
-        <source>Constant Bitrate</source>
-        <translation type="obsolete">Konstantní datový tok</translation>
-    </message>
-    <message>
-        <source>Two Pass - Video Size</source>
-        <translation type="obsolete">Dva průchody - velikost videa</translation>
-    </message>
-    <message>
-        <source>Two Pass - Average Bitrate</source>
-        <translation type="obsolete">Dva průchody - průměrný datový tok</translation>
-    </message>
-    <message>
-        <source>Encoding mode</source>
-        <translation type="obsolete">Režim kódování</translation>
-    </message>
-    <message>
-        <source>Bitrate</source>
-        <translation type="obsolete">Datový tok</translation>
-    </message>
-    <message>
-        <source>Target bitrate (kb/s)</source>
-        <translation type="obsolete">Cílový datový tok (kb/s)</translation>
-    </message>
-    <message>
-        <source>Quantizer</source>
-        <translation type="obsolete">Kvantizér</translation>
-    </message>
-    <message>
-        <source>Target video size (MB)</source>
-        <translation type="obsolete">Cílová velikost videa (MB)</translation>
-    </message>
-    <message>
-        <source>Average bitrate (kb/s)</source>
-        <translation type="obsolete">Průměrný datový tok (kb/s)</translation>
-    </message>
-    <message>
-        <source>Constant Quantiser</source>
-        <translation type="obsolete">Konstantní kvantizér</translation>
-    </message>
-    <message>
-        <source>Same Quantiser as Input</source>
-        <translation type="obsolete">Stejný kvantizér jako vstup</translation>
-    </message>
-    <message>
-        <source>Constant Rate Factor</source>
-        <translation type="obsolete">Faktor konstantního toku</translation>
-    </message>
-</context>
-<context>
     <name>ADM_Qt4Factory::ADM_Qbitrate</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="50"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="48"/>
         <source>Constant Bitrate</source>
         <translation type="unfinished">Konstantní datový tok</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="51"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="49"/>
         <source>Constant Quantiser</source>
         <translation type="unfinished">Konstantní kvantizér</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="52"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="50"/>
         <source>Same Quantiser as Input</source>
         <translation type="unfinished">Stejný kvantizér jako vstup</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="53"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="51"/>
         <source>Constant Rate Factor</source>
         <translation type="unfinished">Faktor konstantního toku</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="54"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="52"/>
         <source>Two Pass - Video Size</source>
         <translation type="unfinished">Dva průchody - velikost videa</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="55"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="53"/>
         <source>Two Pass - Average Bitrate</source>
         <translation type="unfinished">Dva průchody - průměrný datový tok</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="57"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="55"/>
         <source>Encoding mode</source>
         <translation type="unfinished">Režim kódování</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="62"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="60"/>
         <source>Bitrate</source>
         <translation type="unfinished">Datový tok</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="163"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="161"/>
         <source>Target bitrate (kb/s)</source>
         <translation type="unfinished">Cílový datový tok (kb/s)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="168"/>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="187"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="166"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="185"/>
         <source>Quantiser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="173"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="171"/>
         <source>Target video size (MB)</source>
         <translation type="unfinished">Cílová velikost videa (MB)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="178"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="176"/>
         <source>Average bitrate (kb/s)</source>
         <translation type="unfinished">Průměrný datový tok (kb/s)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="183"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="181"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9009,55 +4951,40 @@ Chcete ten režim použít?</translation>
 <context>
     <name>ADM_Qt4Factory::ADM_QconfigMenu</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="48"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="46"/>
         <source>Configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="50"/>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="198"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="48"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="196"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="51"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="49"/>
         <source>Delete</source>
         <translation type="unfinished">Odstranit</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="122"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="120"/>
         <source>&lt;default&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="123"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="121"/>
         <source>&lt;custom&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="183"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="181"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="198"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_configMenu.cpp" line="196"/>
         <source>Configuration File (*.xml)</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ADM_QthreadCount</name>
-    <message>
-        <source>Disabled</source>
-        <translation type="obsolete">Vypnuto</translation>
-    </message>
-    <message>
-        <source>Auto-detect</source>
-        <translation type="obsolete">Automatická detekce</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="obsolete">Vlastní</translation>
     </message>
 </context>
 <context>
@@ -9119,12 +5046,6 @@ Chcete ten režim použít?</translation>
         <translation>Selhala inicializace filtrů</translation>
     </message>
     <message>
-        <source>
- Reuse the existing log-file ?</source>
-        <translation type="obsolete">
-Má se znovu použít log soubor?</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp" line="78"/>
         <source>Reuse the existing log file?</source>
         <translation type="unfinished"></translation>
@@ -9148,17 +5069,17 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>ADM_qt4Factory::ADM_QthreadCount</name>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="46"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="45"/>
         <source>Disabled</source>
         <translation type="unfinished">Vypnuto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="47"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="46"/>
         <source>Auto-detect</source>
         <translation type="unfinished">Automatická detekce</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="48"/>
+        <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="47"/>
         <source>Custom</source>
         <translation type="unfinished">Vlastní</translation>
     </message>
@@ -9330,13 +5251,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="223"/>
         <source>All parameters must be even and within range.</source>
         <translation>Všechny parametry musí být sudé a v platném rozsahu.</translation>
-    </message>
-</context>
-<context>
-    <name>AVDMVideoStreamCrop</name>
-    <message>
-        <source>Crop Settings</source>
-        <translation type="obsolete">Nastavení ořezu</translation>
     </message>
 </context>
 <context>
@@ -9571,43 +5485,36 @@ Má se znovu použít log soubor?</translation>
     <name>Cnr2Dialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="333"/>
         <source>Chroma Noise Reducer 2</source>
         <translation>Chroma Noise Reducer 2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="334"/>
         <source>Scene Change</source>
         <translation>Změna scény</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="61"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="335"/>
         <source>0%</source>
         <translation>0 %</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="81"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="336"/>
         <source>Scene Change Threshold</source>
         <translation>Práh změny scény</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="101"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="337"/>
         <source>100%</source>
         <translation>100 %</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="140"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="338"/>
         <source>Use chroma to also detect scene change</source>
         <translation>Použít i chrominanci k detekci změny scény</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="150"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="339"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
@@ -9615,9 +5522,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="171"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="252"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="300"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="342"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="350"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="357"/>
         <source>Wide</source>
         <translation>Široký</translation>
     </message>
@@ -9625,45 +5529,36 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="176"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="257"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="305"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="343"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="351"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="358"/>
         <source>Narrow</source>
         <translation>Úzký</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="197"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="345"/>
         <source>Mode</source>
         <translation>Režim</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="211"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="346"/>
         <source>Luma Y:</source>
         <translation>Luma Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="231"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="347"/>
         <source>Chroma V:</source>
         <translation>Chroma V:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="285"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="353"/>
         <source>Maximum</source>
         <translation>Maximum</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="292"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="354"/>
         <source>Chroma U:</source>
         <translation>Chroma U:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="334"/>
-        <location filename="../plugins/build/ADM_videoFilters/CNR2/ui_cnr2.h" line="360"/>
         <source>Sensibility</source>
         <translation>Citlivost</translation>
     </message>
@@ -9672,73 +5567,61 @@ Má se znovu použít log soubor?</translation>
     <name>ColorYuvDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="377"/>
         <source>Avisynth ColorYUV</source>
         <translation>Avisynth ColorYUV</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="378"/>
         <source>Colour Correction Matrix</source>
         <translation>Matice korekce barev</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="55"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="379"/>
         <source>Contrast</source>
         <translation>Kontrast</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="92"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="380"/>
         <source>Chroma U:</source>
         <translation>Chroma U:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="119"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="381"/>
         <source>Chroma V:</source>
         <translation>Chroma V:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="176"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="382"/>
         <source>Luma Y:</source>
         <translation>Luma Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="183"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="383"/>
         <source>Brightness</source>
         <translation>Jas</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="200"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="384"/>
         <source>Gain</source>
         <translation>Zvýšení</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="207"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="385"/>
         <source>Gamma</source>
         <translation>Gama</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="268"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="386"/>
         <source>Note: all values are normalised to 256</source>
         <translation>Všechny hodnoty jsou normalizovány na 256</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="278"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="387"/>
         <source>Parameters</source>
         <translation>Parametry</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="298"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="388"/>
         <source>Matrix:</source>
         <translation>Matice:</translation>
     </message>
@@ -9746,69 +5629,56 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="306"/>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="337"/>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="351"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="391"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="399"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="404"/>
         <source>None</source>
         <translation>Nic</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="311"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="392"/>
         <source>TV -&gt; PC</source>
         <translation>TV -&gt; PC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="316"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="393"/>
         <source>PC -&gt; TV</source>
         <translation>PC -&gt; TV</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="321"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="394"/>
         <source>PC -&gt; TV.Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="329"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="396"/>
         <source>Level:</source>
         <translation>Úroveň:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="342"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="400"/>
         <source>Rec.709</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="356"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="405"/>
         <source>Coring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="364"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="407"/>
         <source>Opt:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="412"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="408"/>
         <source>Auto Gain</source>
         <translation>Automatické zvýšení</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="419"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="409"/>
         <source>Display Colour Statistics</source>
         <translation>Zobrazovat statistiku barev</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="426"/>
-        <location filename="../plugins/build/ADM_videoFilters/colorYUV/ui_coloryuv.h" line="410"/>
         <source>Centre Colour Offsets</source>
         <translation>Vycentrovat barevné odchylky</translation>
     </message>
@@ -9817,49 +5687,41 @@ Má se znovu použít log soubor?</translation>
     <name>CurveDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="19"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="107"/>
         <source>Curve Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="27"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="115"/>
         <source>Choose channel for editing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="110"/>
         <source>Luma (Y)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="42"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="111"/>
         <source>Chroma (U)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="47"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="112"/>
         <source>Chroma (V)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="61"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="118"/>
         <source>Sets default curve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="64"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="120"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="93"/>
-        <location filename="../plugins/build/ADM_videoFilters/CurveEditor/ui_CurveDialog.h" line="121"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9931,39 +5793,16 @@ Má se znovu použít log soubor?</translation>
     </message>
 </context>
 <context>
-    <name>DIA_encoding</name>
+    <name>DVD</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="208"/>
-        <source>Shutting down</source>
-        <translation>Vypínání</translation>
+        <location filename="../scripts/auto/Optical Disc/DVD.js" line="9"/>
+        <source>A video file must be open to use this Auto Wizard.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="500"/>
-        <source>The encoding is paused. Do you want to resume or abort?</source>
-        <translation>Kódování je pozastaveno. Chcete v něm pokračovat, nebo jej ukončit?</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
-        <source>Resume</source>
-        <translation>Pokračovat</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="501"/>
-        <source>Abort</source>
-        <translation>Ukončit</translation>
-    </message>
-</context>
-<context>
-    <name>DIA_progressIndexing</name>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="123"/>
-        <source># Images :%0lu</source>
-        <translation>Počet snímků: %0lu</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="141"/>
-        <source>Time Left :%02d:%02d:%02d</source>
-        <translation>Zbývající čas: %02d:%02d:%02d</translation>
+        <location filename="../scripts/auto/Optical Disc/DVD.js" line="12"/>
+        <source>DVD Auto Wizard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10053,635 +5892,6 @@ Má se znovu použít log soubor?</translation>
     </message>
 </context>
 <context>
-    <name>Dialog</name>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="67"/>
-        <source>Indexing</source>
-        <translation>Indexuji</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="68"/>
-        <source>Time Left : Infinity</source>
-        <translation>Zbývající čas: nekonečno</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="69"/>
-        <source># Images :</source>
-        <translation>Počet snímků: </translation>
-    </message>
-    <message>
-        <source>Strength</source>
-        <translation type="obsolete">Síla</translation>
-    </message>
-    <message>
-        <source>Threshold</source>
-        <translation type="obsolete">Práh</translation>
-    </message>
-    <message>
-        <source>Block Adaptative</source>
-        <translation type="obsolete">Blokově adaptivní</translation>
-    </message>
-    <message>
-        <source>Unknown flag</source>
-        <translation type="obsolete">Neznámá volba</translation>
-    </message>
-    <message>
-        <source>V Shift</source>
-        <translation type="obsolete">Posun V</translation>
-    </message>
-    <message>
-        <source>U Shift</source>
-        <translation type="obsolete">Posun U</translation>
-    </message>
-    <message>
-        <source>Contrast</source>
-        <translation type="obsolete">Kontrast</translation>
-    </message>
-    <message>
-        <source>Luma</source>
-        <translation type="obsolete">Luminance</translation>
-    </message>
-    <message>
-        <source>ChromaU</source>
-        <translation type="obsolete">Chrominance U</translation>
-    </message>
-    <message>
-        <source>ChromaV</source>
-        <translation type="obsolete">Chrominance V</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="obsolete">Jas</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation type="obsolete">Vrátit</translation>
-    </message>
-    <message>
-        <source>Left:</source>
-        <translation type="obsolete">Vlevo:</translation>
-    </message>
-    <message>
-        <source>Top:</source>
-        <translation type="obsolete">Nahoře:</translation>
-    </message>
-    <message>
-        <source>Bottom:</source>
-        <translation type="obsolete">Dole:</translation>
-    </message>
-    <message>
-        <source>Right:</source>
-        <translation type="obsolete">Vpravo:</translation>
-    </message>
-    <message>
-        <source>Encoding...</source>
-        <translation type="obsolete">Probíhá kódování...</translation>
-    </message>
-    <message>
-        <source>Phase:</source>
-        <translation type="obsolete">Fáze:</translation>
-    </message>
-    <message>
-        <source>Video Codec:</source>
-        <translation type="obsolete">Video kodek:</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="obsolete">Nic</translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="obsolete">Neznámý</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Container:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Kontejner:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Audio Codec:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Audio kodek:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation type="obsolete">0</translation>
-    </message>
-    <message>
-        <source>00:00:00</source>
-        <translation type="obsolete">00:00:00</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Elapsed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Uplynulý čas:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Time Remaining:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Zbývající čas:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Frames/sec:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Snímků za sekundu:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>0 MB</source>
-        <translation type="obsolete">0 MB</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Total Size:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Celková velikost:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Audio Size:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Velikost audia:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Video Size:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Velikost videa:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Processed Frames:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Zpracované snímky:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Total Frames:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Celkový počet snímků:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>0 kB/s</source>
-        <translation type="obsolete">0 kB/s</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Average Bitrate:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Průměrný datový tok:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Quantiser:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;Kvantizér:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Shut down computer when finished</source>
-        <translation type="obsolete">Po ukončení vypnout počítač</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation type="obsolete">Priorita:</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="obsolete">Vysoká</translation>
-    </message>
-    <message>
-        <source>Above Normal</source>
-        <translation type="obsolete">Vyšší</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="obsolete">Normální</translation>
-    </message>
-    <message>
-        <source>Below Normal</source>
-        <translation type="obsolete">Nižší</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="obsolete">Nízká</translation>
-    </message>
-    <message>
-        <source>Hue</source>
-        <translation type="obsolete">Odstín</translation>
-    </message>
-    <message>
-        <source>Saturation</source>
-        <translation type="obsolete">Sytost</translation>
-    </message>
-    <message>
-        <source>Properties</source>
-        <translation type="obsolete">Vlastnosti</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="obsolete">Video</translation>
-    </message>
-    <message>
-        <source>Frame Rate:</source>
-        <translation type="obsolete">Snímková frekvence:</translation>
-    </message>
-    <message>
-        <source>Frame Count: </source>
-        <translation type="obsolete">Počet snímků:</translation>
-    </message>
-    <message>
-        <source>Total Duration:</source>
-        <translation type="obsolete">Celková délka:</translation>
-    </message>
-    <message>
-        <source>Aspect Ratio:</source>
-        <translation type="obsolete">Poměr stran pixelu:</translation>
-    </message>
-    <message>
-        <source>Image Size:</source>
-        <translation type="obsolete">Velikost obrazu:</translation>
-    </message>
-    <message>
-        <source>Codec 4CC:</source>
-        <translation type="obsolete">FourCC kodeku:</translation>
-    </message>
-    <message>
-        <source>Extra Video Properties</source>
-        <translation type="obsolete">Extra vlastnosti videa</translation>
-    </message>
-    <message>
-        <source>Global Motion Compensation:</source>
-        <translation type="obsolete">Global Motion Compensation:</translation>
-    </message>
-    <message>
-        <source>Packed Bitstream:</source>
-        <translation type="obsolete">Zabalený bitstream:</translation>
-    </message>
-    <message>
-        <source>Quarter Pixel:</source>
-        <translation type="obsolete">Qpel:</translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation type="obsolete">Audio</translation>
-    </message>
-    <message>
-        <source>File Size:</source>
-        <translation type="obsolete">Velikost souboru:</translation>
-    </message>
-    <message>
-        <source>Frequency:</source>
-        <translation type="obsolete">Frekvence:</translation>
-    </message>
-    <message>
-        <source>Variable Bitrate:</source>
-        <translation type="obsolete">Variabilní datový tok:</translation>
-    </message>
-    <message>
-        <source>Bitrate:</source>
-        <translation type="obsolete">Datový tok:</translation>
-    </message>
-    <message>
-        <source>Channels:</source>
-        <translation type="obsolete">Počet kanálů:</translation>
-    </message>
-    <message>
-        <source>Codec:</source>
-        <translation type="obsolete">Kodek:</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation type="obsolete">Změna velikosti</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="obsolete">Procent</translation>
-    </message>
-    <message>
-        <source>Bilinear</source>
-        <translation type="obsolete">Bilineární</translation>
-    </message>
-    <message>
-        <source>Bicubic</source>
-        <translation type="obsolete">Bikubická</translation>
-    </message>
-    <message>
-        <source>Lanzcos3</source>
-        <translation type="obsolete">Lanzcos3</translation>
-    </message>
-    <message>
-        <source>Subtitle Font Size and Position</source>
-        <translation type="obsolete">Velikost písma a pozice titulků</translation>
-    </message>
-    <message>
-        <source>Font Size :</source>
-        <translation type="obsolete">Velikost písma:</translation>
-    </message>
-    <message>
-        <source>Processing</source>
-        <translation type="obsolete">Zpracovávání</translation>
-    </message>
-    <message>
-        <source>Elapsed:</source>
-        <translation type="obsolete">Uplynulý čas:</translation>
-    </message>
-    <message>
-        <source>Time Remaining:</source>
-        <translation type="obsolete">Zbývající čas:</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="obsolete">Zrušit</translation>
-    </message>
-    <message>
-        <source>Video Filter Manager</source>
-        <translation type="obsolete">Správce video filtrů</translation>
-    </message>
-    <message>
-        <source>Transform</source>
-        <translation type="obsolete">Transformace</translation>
-    </message>
-    <message>
-        <source>Interlacing</source>
-        <translation type="obsolete">Prokládání</translation>
-    </message>
-    <message>
-        <source>Colors</source>
-        <translation type="obsolete">Barvy</translation>
-    </message>
-    <message>
-        <source>Noise</source>
-        <translation type="obsolete">Šum</translation>
-    </message>
-    <message>
-        <source>Sharpness</source>
-        <translation type="obsolete">Ostrost</translation>
-    </message>
-    <message>
-        <source>Subtitles</source>
-        <translation type="obsolete">Titulky</translation>
-    </message>
-    <message>
-        <source>Miscellaneous</source>
-        <translation type="obsolete">Různé</translation>
-    </message>
-    <message>
-        <source>External</source>
-        <translation type="obsolete">Externí</translation>
-    </message>
-    <message>
-        <source>&lt;big&gt;&lt;b&gt;Active Filters&lt;/b&gt;&lt;/big&gt;</source>
-        <translation type="obsolete">&lt;big&gt;&lt;b&gt;Aktivní filtry&lt;/b&gt;&lt;/big&gt;</translation>
-    </message>
-    <message>
-        <source>C&amp;onfigure</source>
-        <translation type="obsolete">N&amp;astavit</translation>
-    </message>
-    <message>
-        <source>P&amp;artial</source>
-        <translation type="obsolete">Čá&amp;stečný</translation>
-    </message>
-    <message>
-        <source>Load</source>
-        <translation type="obsolete">Načíst</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation type="obsolete">Uložit skript</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Odstranit</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="obsolete">Přidat</translation>
-    </message>
-    <message>
-        <source>&lt;big&gt;&lt;b&gt;Available Filters&lt;/b&gt;&lt;/big&gt;</source>
-        <translation type="obsolete">&lt;big&gt;&lt;b&gt;Dostupné filtry&lt;/b&gt;&lt;/big&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;Preview</source>
-        <translation type="obsolete">&amp;Náhled</translation>
-    </message>
-    <message>
-        <source>Crop</source>
-        <translation type="obsolete">Crop</translation>
-    </message>
-    <message>
-        <source>Auto Crop</source>
-        <translation type="obsolete">Automatický ořez</translation>
-    </message>
-    <message>
-        <source>Aspect Ratio</source>
-        <translation type="obsolete">Poměr stran</translation>
-    </message>
-    <message>
-        <source>Lock Aspect Ratio</source>
-        <translation type="obsolete">Zamknout poměr stran</translation>
-    </message>
-    <message>
-        <source>Source:</source>
-        <translation type="obsolete">Zdroj:</translation>
-    </message>
-    <message>
-        <source>Destination:</source>
-        <translation type="obsolete">Cíl:</translation>
-    </message>
-    <message>
-        <source>Resize Dimensions</source>
-        <translation type="obsolete">Velikost</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="obsolete">Šířka:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="obsolete">Výška:</translation>
-    </message>
-    <message>
-        <source>Round to the Nearest Multiple of 16</source>
-        <translation type="obsolete">Zaokrouhlit na nejbližší násobek 16</translation>
-    </message>
-    <message>
-        <source>1%</source>
-        <translation type="obsolete">1 %</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="obsolete">200 %</translation>
-    </message>
-    <message>
-        <source>Error X / Y:</source>
-        <translation type="obsolete">Chyba X/Y:</translation>
-    </message>
-    <message>
-        <source>0.00 / 0.00</source>
-        <translation type="obsolete">0,00/0,00</translation>
-    </message>
-    <message>
-        <source>Resize Method:</source>
-        <translation type="obsolete">Metoda převzorkování:</translation>
-    </message>
-    <message>
-        <source>Open Script</source>
-        <translation type="obsolete">Otevřít skript</translation>
-    </message>
-    <message>
-        <source>Save Script As</source>
-        <translation type="obsolete">Uložit skript jako</translation>
-    </message>
-    <message>
-        <source>Move Filter Down</source>
-        <translation type="obsolete">Posunout filtr dolů</translation>
-    </message>
-    <message>
-        <source>Move Filter Up</source>
-        <translation type="obsolete">Posunout filtr nahoru</translation>
-    </message>
-    <message>
-        <source>Remove Filter</source>
-        <translation type="obsolete">Odstranit filtr</translation>
-    </message>
-    <message>
-        <source>Add Filter</source>
-        <translation type="obsolete">Přidat filtr</translation>
-    </message>
-    <message>
-        <source>Container:</source>
-        <translation type="obsolete">Kontejner:</translation>
-    </message>
-    <message>
-        <source>Audio Codec:</source>
-        <translation type="obsolete">Audio kodek:</translation>
-    </message>
-    <message>
-        <source>Frames/sec:</source>
-        <translation type="obsolete">Snímků za sekundu:</translation>
-    </message>
-    <message>
-        <source>Total Size:</source>
-        <translation type="obsolete">Celková velikost:</translation>
-    </message>
-    <message>
-        <source>Audio Size:</source>
-        <translation type="obsolete">Velikost zvuku:</translation>
-    </message>
-    <message>
-        <source>Video Size:</source>
-        <translation type="obsolete">Velikost videa:</translation>
-    </message>
-    <message>
-        <source>Processed Frames:</source>
-        <translation type="obsolete">Zpracované snímky:</translation>
-    </message>
-    <message>
-        <source>Total Frames:</source>
-        <translation type="obsolete">Celkový počet snímků:</translation>
-    </message>
-    <message>
-        <source>Average Bitrate:</source>
-        <translation type="obsolete">Průměrný datový tok:</translation>
-    </message>
-    <message>
-        <source>Quantiser:</source>
-        <translation type="obsolete">Kvantizér:</translation>
-    </message>
-</context>
-<context>
-    <name>DialogEq2</name>
-    <message>
-        <source>Contrast</source>
-        <translation type="obsolete">Kontrast</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Gamma&lt;/b&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Gama&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Saturation</source>
-        <translation type="obsolete">Sytost</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="obsolete">Jas</translation>
-    </message>
-    <message>
-        <source>Blue</source>
-        <translation type="obsolete">Modrá</translation>
-    </message>
-    <message>
-        <source>Red</source>
-        <translation type="obsolete">Červená</translation>
-    </message>
-    <message>
-        <source>Initial</source>
-        <translation type="obsolete">Výchozí</translation>
-    </message>
-    <message>
-        <source>Weight</source>
-        <translation type="obsolete">Váha</translation>
-    </message>
-    <message>
-        <source>Green</source>
-        <translation type="obsolete">Zelená</translation>
-    </message>
-</context>
-<context>
     <name>DialogOcr</name>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="13"/>
@@ -10740,25 +5950,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>DialogVobSub</name>
-    <message>
-        <source>Subtitle Font Size and Position</source>
-        <translation type="obsolete">Velikost písma a pozice titulků</translation>
-    </message>
-    <message>
-        <source>Language:</source>
-        <translation type="obsolete">Jazyk:</translation>
-    </message>
-    <message>
-        <source>Idx File:</source>
-        <translation type="obsolete">Idx soubor:</translation>
-    </message>
-    <message>
-        <source>Delay:</source>
-        <translation type="obsolete">Zpoždění:</translation>
-    </message>
-</context>
-<context>
     <name>EncoderCopy</name>
     <message>
         <location filename="../avidemux/ADM_encoder/adm_encCopy.cpp" line="85"/>
@@ -10767,43 +5958,11 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>EncoderFFMPEGDV</name>
-    <message>
-        <source>Incompatible settings</source>
-        <translation type="obsolete">Nekompatibilní nastavení</translation>
-    </message>
-    <message>
-        <source>At the moment, the DV codec only accepts 720*576@25</source>
-        <translation type="obsolete">DV kodek momentálně akceptuje pouze 720*576 při 25 snímcích za sekundu</translation>
-    </message>
-</context>
-<context>
-    <name>EncoderMpeg2enc</name>
-    <message>
-        <source>MPEG</source>
-        <translation type="obsolete">MPEG</translation>
-    </message>
-</context>
-<context>
     <name>EncoderRequant</name>
     <message>
         <location filename="../avidemux/ADM_encoder/adm_encRequant.cpp" line="93"/>
         <source>Requant</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EncoderX264</name>
-    <message>
-        <source>x264</source>
-        <translation type="obsolete">x264</translation>
-    </message>
-</context>
-<context>
-    <name>EncoderXvid</name>
-    <message>
-        <source>Xvid</source>
-        <translation type="obsolete">Xvid</translation>
     </message>
 </context>
 <context>
@@ -10818,19 +5977,16 @@ p, li { white-space: pre-wrap; }
     <name>EqualiserDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="21"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="348"/>
         <source>Equaliser</source>
         <translation>Ekvalizér</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="349"/>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/qt4/equaliser.ui" line="255"/>
-        <location filename="../plugins/build/ADM_videoFilters/Equalizer/ui_equaliser.h" line="350"/>
         <source>Histogram</source>
         <translation>Histogram</translation>
     </message>
@@ -10908,12 +6064,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GenericAviSaveCopyPack</name>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="127"/>
+        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="128"/>
         <source>Cannot initiate save</source>
         <translation>Nelze inicializovat uložení</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="140"/>
+        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="141"/>
         <source>Saving</source>
         <translation>Ukládání</translation>
     </message>
@@ -10949,12 +6105,6 @@ Chcete přesto pokračovat?</translation>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="100"/>
         <source>Filter init failed</source>
         <translation>Selhala inicializace filtrů</translation>
-    </message>
-    <message>
-        <source>
- Reuse the existing log-file ?</source>
-        <translation type="obsolete">
-Má se znovu použít log soubor?</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="131"/>
@@ -11057,6 +6207,11 @@ Má se znovu použít log soubor?</translation>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="188"/>
         <source>Search string</source>
         <translation>Vyhledat řetězec</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="248"/>
+        <source>Select GlyphFile to edit</source>
+        <translation type="unfinished">Zvolte soubor s glyfem k editaci</translation>
     </message>
 </context>
 <context>
@@ -11208,26 +6363,31 @@ Má se znovu použít log soubor?</translation>
     </message>
 </context>
 <context>
-    <name>Jobs</name>
+    <name>IndexDialog</name>
     <message>
-        <source>Jobs</source>
-        <translation type="obsolete">Úlohy</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="67"/>
+        <source>Indexing</source>
+        <translation type="unfinished">Indexuji</translation>
     </message>
     <message>
-        <source>Delete Sel. Job</source>
-        <translation type="obsolete">Odstranit vybranou úlohu</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="68"/>
+        <source>Time Left:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete All Jobs</source>
-        <translation type="obsolete">Odstranit všechny úlohy</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="117"/>
+        <source>%1:%2:%3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Run All Jobs</source>
-        <translation type="obsolete">Spustit všechny úlohy</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="118"/>
+        <source># Images: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Run Selected Job</source>
-        <translation type="obsolete">Spustit vybranou úlohu</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="136"/>
+        <source>Time Left: %1:%2:%3</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11247,37 +6407,31 @@ Má se znovu použít log soubor?</translation>
     <name>MPDelogoDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="188"/>
         <source>MPlayer Delogo</source>
         <translation>MPlayer Delogo</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="40"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="189"/>
         <source>Band:</source>
         <translation>Pruh:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="47"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="190"/>
         <source>Height:</source>
         <translation>Výška:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="54"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="191"/>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="114"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="192"/>
         <source>Y:</source>
         <translation>Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/qt4/mpdelogo.ui" line="144"/>
-        <location filename="../plugins/build/ADM_videoFilters/MPDelogo/ui_mpdelogo.h" line="193"/>
         <source>X:</source>
         <translation>X:</translation>
     </message>
@@ -11483,10 +6637,6 @@ Má se znovu použít log soubor?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Quit</source>
-        <translation type="obsolete">U&amp;končit</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1501"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Vyjmout</translation>
@@ -11549,10 +6699,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1562"/>
         <source>]</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pre&amp;ferences...</source>
-        <translation type="obsolete">&amp;Předvolby...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1570"/>
@@ -11636,14 +6782,6 @@ Má se znovu použít log soubor?</translation>
         <translation>Uložit projekt jako</translation>
     </message>
     <message>
-        <source>Main toolbar</source>
-        <translation type="obsolete">Hlavní nástrojová lišta</translation>
-    </message>
-    <message>
-        <source>A/V toolbar</source>
-        <translation type="obsolete">A/V nástrojová lišta</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1662"/>
         <source>&amp;Zoom 1:4</source>
         <translation>&amp;Velikost 1:4</translation>
@@ -11684,10 +6822,6 @@ Má se znovu použít log soubor?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Zoom 4:1</source>
-        <translation type="obsolete">Velikost 4:1</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1706"/>
         <source>&amp;Decoder Options...</source>
         <translation>&amp;Nastavení dekodéru...</translation>
@@ -11723,10 +6857,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1734"/>
         <source>Frame Rate</source>
         <translation>Snímková frekvence</translation>
-    </message>
-    <message>
-        <source>Encoder</source>
-        <translation type="obsolete">Kodér</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1739"/>
@@ -11834,10 +6964,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1851"/>
         <source>OCR (VobSub -&gt; srt)</source>
         <translation>OCR (VobSub -&gt; srt)</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="obsolete">Stop</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2046"/>
@@ -12142,10 +7268,6 @@ Má se znovu použít log soubor?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation type="obsolete">Uložit</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2112"/>
         <source>OCR (&amp;TS -&gt; srt)...</source>
         <translation>OCR (&amp;TS -&gt; srt)...</translation>
@@ -12223,45 +7345,34 @@ Má se znovu použít log soubor?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Video CD...</source>
-        <translation type="obsolete">&amp;Video CD...</translation>
-    </message>
-    <message>
-        <source>&amp;Super Video CD...</source>
-        <translation type="obsolete">&amp;Super Video CD...</translation>
-    </message>
-    <message>
-        <source>&amp;DVD...</source>
-        <translation type="obsolete">&amp;DVD...</translation>
-    </message>
-    <message>
-        <source>&amp;PlayStation Portable...</source>
-        <translation type="obsolete">&amp;PlayStation Portable...</translation>
-    </message>
-    <message>
-        <source>PlayStation Portable (&amp;H.264)...</source>
-        <translation type="obsolete">PlayStation Portable (&amp;H.264)...</translation>
-    </message>
-    <message>
-        <source>PlayStation Portable (H.264)</source>
-        <translation type="obsolete">PlayStation Portable (H.264)</translation>
-    </message>
-    <message>
-        <source>&amp;Flash Video</source>
-        <translation type="obsolete">&amp;Flash Video</translation>
-    </message>
-    <message>
-        <source>&amp;iPod (MPEG-4 ASP)...</source>
-        <translation type="obsolete">&amp;iPod (MPEG-4 ASP)...</translation>
-    </message>
-    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2205"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Předvolby...</translation>
     </message>
     <message>
-        <source>&amp;AVI Muxer Options...</source>
-        <translation type="obsolete">N&amp;astavení zápisu AVI...</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp" line="1018"/>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="3"/>
+        <source>Optical Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="4"/>
+        <source>DVD</source>
+        <translation type="unfinished">DVD</translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="5"/>
+        <source>Super Video CD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="6"/>
+        <source>Video CD</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12745,7 +7856,7 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="270"/>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="352"/>
-        <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="505"/>
+        <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="518"/>
         <source>Malformed header</source>
         <translation>Špatná hlavička</translation>
     </message>
@@ -12758,6 +7869,51 @@ Má se znovu použít log soubor?</translation>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_opendml_reindex.cpp" line="60"/>
         <source>Indexing</source>
         <translation>Indexuji</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="32"/>
+        <source>Alert</source>
+        <translation type="unfinished">Upozornění</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="40"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="69"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="96"/>
+        <source>Info</source>
+        <translation type="unfinished">Informace</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="120"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="150"/>
+        <source>Confirmation</source>
+        <translation type="unfinished">Potvrzení</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="167"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="195"/>
+        <source>Question</source>
+        <translation type="unfinished">Otázka</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="188"/>
+        <source>Question?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Super Video CD</name>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/Super Video CD.js" line="9"/>
+        <source>A video file must be open to use this Auto Wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/Super Video CD.js" line="12"/>
+        <source>Super Video CD Auto Wizard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12920,6 +8076,19 @@ Má se znovu použít log soubor?</translation>
     </message>
 </context>
 <context>
+    <name>Video CD</name>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/Video CD.js" line="9"/>
+        <source>A video file must be open to use this Auto Wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/auto/Optical Disc/Video CD.js" line="12"/>
+        <source>Video CD Auto Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>XvidConfigDialog</name>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="118"/>
@@ -12934,7 +8103,6 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="216"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="67"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1968"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12967,14 +8135,12 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="284"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="148"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1971"/>
         <source>Target Video Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="285"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="233"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1981"/>
         <source>MB</source>
         <translation type="unfinished">MB</translation>
     </message>
@@ -12985,481 +8151,399 @@ Má se znovu použít log soubor?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="14"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1966"/>
         <source>Xvid Configuraton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="50"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1967"/>
         <source>Configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="74"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1969"/>
         <source>Delete</source>
         <translation type="unfinished">Odstranit</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2002"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="128"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1970"/>
         <source>Rate Control</source>
         <translation type="unfinished">Řízení datového toku</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1974"/>
         <source>Constant Bitrate (Single Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="172"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1975"/>
         <source>Constant Quantiser (Single Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="177"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1976"/>
         <source>Video Size (Two Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="182"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1977"/>
         <source>Average Bitrate (Two Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="205"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1979"/>
         <source>Encoding Mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="308"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1982"/>
         <source>1 (High Quality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="331"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1268"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1983"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2059"/>
         <source>Quantiser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="354"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1984"/>
         <source>31 (Low Quality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="432"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1985"/>
         <source>Pixel Aspect Ratio</source>
         <translation type="unfinished">Poměr stran pixelu</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="452"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="665"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1986"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2001"/>
         <source>Custom:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="462"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1987"/>
         <source>As Input</source>
         <translation type="unfinished">Jako vstup</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="523"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1989"/>
         <source>:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="558"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1990"/>
         <source>Predefined Aspect Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="577"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1993"/>
         <source>16:15 (PAL 4:3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="582"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1994"/>
         <source>64:45 (PAL 16:9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="587"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1995"/>
         <source>8:9 (NTSC 4:3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="592"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1996"/>
         <source>32:27 (NTSC 16:9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="620"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1998"/>
         <source>Multithreading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="640"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="1999"/>
         <source>Disable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="647"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2000"/>
         <source>Auto-detect</source>
         <translation type="unfinished">Automatická detekce</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="719"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2024"/>
         <source>Motion</source>
         <translation type="unfinished">Pohyb</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="731"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2003"/>
         <source>Motion Estimation</source>
         <translation type="unfinished">Odhad pohybu</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="751"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2004"/>
         <source>Motion Estimation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="773"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2007"/>
         <source>Low</source>
         <translation type="unfinished">Nízká</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="778"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2008"/>
         <source>Medium</source>
         <translation type="unfinished">Střední</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="783"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2009"/>
         <source>High</source>
         <translation type="unfinished">Vysoká</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="816"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2011"/>
         <source>Rate Distortion Optimisation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="838"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2014"/>
         <source>No Search (DCT only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="843"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2015"/>
         <source>Limited Search</source>
         <translation type="unfinished">Omezené vyhledávání</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="848"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2016"/>
         <source>Medium Search</source>
         <translation type="unfinished">Střední vyhledávání</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="853"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2017"/>
         <source>Wide Search</source>
         <translation type="unfinished">Široké vyhledávání</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="878"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2019"/>
         <source>Rate Distortion Optimisation for B-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="888"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2020"/>
         <source>Chroma Motion Estimation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="898"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2021"/>
         <source>Quarter Pixel Motion Estimation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="905"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2022"/>
         <source>Global Motion Compensation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="912"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2023"/>
         <source>Turbo Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="936"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2043"/>
         <source>Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="948"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2025"/>
         <source>Frame Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="960"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2026"/>
         <source>Chroma Optimiser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="967"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2027"/>
         <source>Four Motion Vectors per Macroblock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="974"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2028"/>
         <source>Cartoon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="981"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2029"/>
         <source>Greyscale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="996"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2030"/>
         <source>Interlaced:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1015"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2033"/>
         <source>Bottom Field First</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1020"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2034"/>
         <source>Top Field First</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1056"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2036"/>
         <source>Maximum I-frame Interval:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1093"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2037"/>
         <source>Frame Drop Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1135"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2038"/>
         <source>B-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1188"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2039"/>
         <source>B-frame Sensitivity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1228"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2040"/>
         <source>Maximum Consecutive B-frames:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1237"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2041"/>
         <source>Closed GOP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1244"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2042"/>
         <source>Packed Bitstream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1280"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2044"/>
         <source>Quantiser Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1300"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2045"/>
         <source>Maximum B-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1379"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2046"/>
         <source>B-frame Quantiser Offset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1422"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2047"/>
         <source>Minimum P-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1429"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2048"/>
         <source>B-frame Quantiser Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1436"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2049"/>
         <source>Minimum I-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1515"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2050"/>
         <source>Minimum B-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1522"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2051"/>
         <source>Maximum P-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1643"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2052"/>
         <source>Maximum I-frame Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1652"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2053"/>
         <source>Trellis Quantisation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1662"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2054"/>
         <source>Quantisation Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1674"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2055"/>
         <source>H.263 Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1684"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2056"/>
         <source>MPEG Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1699"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2057"/>
         <source>Custom Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1709"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2058"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1748"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1760"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2060"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2064"/>
         <source>Single Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1772"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2061"/>
         <source>Smoother:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1779"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2062"/>
         <source>Averaging Quantiser Period:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1786"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2063"/>
         <source>Reaction Delay Factor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1900"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2091"/>
         <source>Two Pass</source>
         <translation type="unfinished">Druhý průchod</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1912"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2065"/>
         <source>I-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1924"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2066"/>
         <source>I-frame Boost:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13471,111 +8555,87 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2191"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2264"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2308"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2067"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2068"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2073"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2075"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2076"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2081"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2083"/>
         <source>%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2011"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2069"/>
         <source>I-frame Bitrate Reduction Threshold:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2018"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2070"/>
         <source>Maximum I-frame Bitrate Reduction:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2043"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2071"/>
         <source>frame(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2068"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2072"/>
         <source>Overflow Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2120"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2074"/>
         <source>Maximum Overflow Degradation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2213"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2077"/>
         <source>Maximum Overflow Improvement:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2220"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2078"/>
         <source>Overflow Control Strength:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2230"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2079"/>
         <source>Curve Compression</source>
         <translation type="unfinished">Komprese křivky</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2242"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2080"/>
         <source>Above Average Curve Compression:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2286"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2082"/>
         <source>Below Average Curve Compression:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2333"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2084"/>
         <source>Video Buffer Verifier</source>
         <translation type="unfinished">Kontrola video bufferu</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2360"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2455"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2085"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2090"/>
         <source>bit/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2397"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2086"/>
         <source>bit(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2419"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2087"/>
         <source>VBV Buffer Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2426"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2088"/>
         <source>Maximum VBV Bitrate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="2433"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidConfigDialog.h" line="2089"/>
         <source>Peak Bitrate Over 1 Second:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13599,45 +8659,37 @@ Má se znovu použít log soubor?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1378"/>
         <source>Xvid Custom Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="29"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1380"/>
         <source>Intra 8x8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="57"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="760"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1379"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1381"/>
         <source>Luma:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="732"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1382"/>
         <source>Inter 8x8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1459"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1383"/>
         <source>Load File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1479"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1384"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidCustomMatrixDialog.ui" line="1489"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/ui_xvidCustomMatrixDialog.h" line="1385"/>
         <source>Cancel</source>
         <translation type="unfinished">Zrušit</translation>
     </message>
@@ -13679,52 +8731,67 @@ Má se znovu použít log soubor?</translation>
     <name>asharpDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="139"/>
         <source>ASharp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="109"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="140"/>
         <source>Strength</source>
         <translation type="unfinished">Síla</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="141"/>
         <source>Threshold</source>
         <translation type="unfinished">Práh</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="142"/>
         <source>Block Adaptative</source>
         <translation type="unfinished">Blokově adaptivní</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="130"/>
-        <location filename="../plugins/build/ADM_videoFilters/ASharp/ui_asharp.h" line="143"/>
         <source>High Quality Block Filtering</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>autoWizard</name>
+    <message>
+        <location filename="../scripts/video/autoWizard.js" line="4"/>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/video/autoWizard.js" line="5"/>
+        <source>Source Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/video/autoWizard.js" line="6"/>
+        <source>Destination Aspect Ratio:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/video/autoWizard.js" line="24"/>
+        <source>Codec:</source>
+        <translation type="unfinished">Kodek:</translation>
     </message>
 </context>
 <context>
     <name>chromashiftDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="114"/>
         <source>ChromaShift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="115"/>
         <source>V Shift</source>
         <translation type="unfinished">Posun V</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/qt4/chromashift.ui" line="44"/>
-        <location filename="../plugins/build/ADM_videoFilters/ChromaShift/ui_chromashift.h" line="116"/>
         <source>U Shift</source>
         <translation type="unfinished">Posun U</translation>
     </message>
@@ -13733,43 +8800,36 @@ Má se znovu použít log soubor?</translation>
     <name>contrastDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="267"/>
         <source>Contrast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="268"/>
         <source>Contrast:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="269"/>
         <source>Brightness:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="195"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="270"/>
         <source>Colour Space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="207"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="271"/>
         <source>Luma</source>
         <translation type="unfinished">Luminance</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="214"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="272"/>
         <source>ChromaU</source>
         <translation type="unfinished">Chrominance U</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="221"/>
-        <location filename="../plugins/build/ADM_videoFilters/Contrast/ui_contrast.h" line="273"/>
         <source>ChromaV</source>
         <translation type="unfinished">Chrominance V</translation>
     </message>
@@ -13778,43 +8838,36 @@ Má se znovu použít log soubor?</translation>
     <name>cropDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="184"/>
         <source>Crop</source>
         <translation type="unfinished">Crop</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="33"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="185"/>
         <source>Right:</source>
         <translation type="unfinished">Vpravo:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="40"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="186"/>
         <source>Top:</source>
         <translation type="unfinished">Nahoře:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="83"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="187"/>
         <source>Reset</source>
         <translation type="unfinished">Vrátit</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="104"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="188"/>
         <source>Bottom:</source>
         <translation type="unfinished">Dole:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="111"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="189"/>
         <source>Left:</source>
         <translation type="unfinished">Vlevo:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="141"/>
-        <location filename="../plugins/build/ADM_videoFilters/Crop/ui_crop.h" line="190"/>
         <source>Auto Crop</source>
         <translation type="unfinished">Automatický ořez</translation>
     </message>
@@ -13991,19 +9044,39 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>encodingWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="95"/>
+        <source>The encoding is paused. Do you want to resume or abort?</source>
+        <translation type="unfinished">Kódování je pozastaveno. Chcete v něm pokračovat, nebo jej ukončit?</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
+        <source>Resume</source>
+        <translation type="unfinished">Pokračovat</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
+        <source>Abort</source>
+        <translation type="unfinished">Ukončit</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Privileges Required</source>
         <translation>Uživatelská práva</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="107"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="125"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Root privileges are required to perform this operation.</source>
         <translation>K této akci jsou vyžadována práva roota.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="46"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="223"/>
+        <source>Shutting down</source>
+        <translation type="unfinished">Vypínání</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="47"/>
         <source>Pause / Abort</source>
         <translation>Pozastavit / Ukončit</translation>
     </message>
@@ -14012,61 +9085,51 @@ Má se znovu použít log soubor?</translation>
     <name>eq2Dialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="484"/>
         <source>MPlayer eq2</source>
         <translation type="unfinished">MPlayer eq2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="41"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="485"/>
         <source>Contrast:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="486"/>
         <source>Brightness:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="153"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="487"/>
         <source>Saturation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="245"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="488"/>
         <source>Gamma</source>
         <translation type="unfinished">Gama</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="472"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="489"/>
         <source>Green</source>
         <translation type="unfinished">Zelená</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="479"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="490"/>
         <source>Red</source>
         <translation type="unfinished">Červená</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="486"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="491"/>
         <source>Blue</source>
         <translation type="unfinished">Modrá</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="493"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="492"/>
         <source>Weight</source>
         <translation type="unfinished">Váha</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="500"/>
-        <location filename="../plugins/build/ADM_videoFilters/Eq2/ui_eq2.h" line="493"/>
         <source>Initial</source>
         <translation type="unfinished">Výchozí</translation>
     </message>
@@ -14074,24 +9137,44 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>filtermainWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="496"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="497"/>
         <source>The filter is already partial</source>
         <translation>Filtr již je částečný</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="533"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="534"/>
         <source>Load set of filters</source>
         <translation>Načíst sadu filtrů</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="547"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="548"/>
         <source>Nothing to save</source>
         <translation>Není nic k uložení</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="550"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="551"/>
         <source>Save set of filters</source>
         <translation>Uložit sadu filtrů</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="713"/>
+        <source>Partial Start Frame:</source>
+        <translation type="unfinished">Počáteční snímek:</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="714"/>
+        <source>Partial End Frame:</source>
+        <translation type="unfinished">Konečný snímek:</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="715"/>
+        <source>Configure child</source>
+        <translation type="unfinished">Nastavit filtr</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="718"/>
+        <source>Partial Video Filter</source>
+        <translation type="unfinished">Částečný video filtr</translation>
     </message>
 </context>
 <context>
@@ -14107,14 +9190,11 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="103"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="124"/>
         <source>Hue</source>
         <translation type="unfinished">Odstín</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="123"/>
-        <location filename="../plugins/build/ADM_videoFilters/Hue/ui_hue.h" line="125"/>
         <source>Saturation</source>
         <translation type="unfinished">Sytost</translation>
     </message>
@@ -14150,6 +9230,31 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>jobsWindow</name>
     <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <source>Ready</source>
+        <translation type="unfinished">Připraven</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <source>Succeeded</source>
+        <translation type="unfinished">Dokončen</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <source>Failed</source>
+        <translation type="unfinished">Chyba</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <source>Deleted</source>
+        <translation type="unfinished">Smazáno</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
+        <source>Running</source>
+        <translation type="unfinished">Běží</translation>
+    </message>
+    <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
         <source>Job Name</source>
         <translation>Název úlohy</translation>
@@ -14170,38 +9275,44 @@ Má se znovu použít log soubor?</translation>
         <translation>Konečný čas</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="76"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="77"/>
+        <source>%1:%2:%3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="107"/>
         <source>Sure!</source>
         <translation>Jistě!</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
         <source>Delete job</source>
         <translation>Smazat úlohu</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="100"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
         <source>Are you sure you want to delete %s job?</source>
         <translation>Opravdu chcete smazat úlohu %s?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="107"/>
         <source>Delete *all* job</source>
         <translation>Smazat všechny úlohy</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="114"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="107"/>
         <source>Are you sure you want to delete ALL jobs?</source>
         <translation>Opravdu chcete smazat všechny úlohy?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="138"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="131"/>
         <source>Already done</source>
         <translation>Už je to hotovo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="138"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="131"/>
         <source>This script has already been successfully executed.</source>
         <translation>Tento skript již byl úspěšně vykonán.</translation>
     </message>
@@ -14209,7 +9320,7 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>lavMuxer</name>
     <message>
-        <location filename="../avidemux/ADM_outputs/ADM_lavformat.cpp" line="377"/>
+        <location filename="../avidemux/ADM_outputs/ADM_lavformat.cpp" line="373"/>
         <source>Incompatible frame rate</source>
         <translation>Nekompatibilní snímková frekvence</translation>
     </message>
@@ -14398,17 +9509,6 @@ Má se znovu použít log soubor?</translation>
     </message>
 </context>
 <context>
-    <name>ossAudioDevice</name>
-    <message>
-        <source>Could not open OSS audio device</source>
-        <translation type="obsolete">Nelze otevřít zvukové zařízení OSS</translation>
-    </message>
-    <message>
-        <source>Check the permissions for /dev/dsp.</source>
-        <translation type="obsolete">Zkontrolujte přístupová práva /dev/dsp.</translation>
-    </message>
-</context>
-<context>
     <name>previewDialog</name>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/preview.ui" line="13"/>
@@ -14419,55 +9519,65 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>propWindow</name>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="50"/>
-        <source>%lu x %lu</source>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
+        <source>No</source>
+        <translation type="unfinished">Ne</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
+        <source>Yes</source>
+        <translation type="unfinished">Ano</translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="45"/>
+        <source>%1 x %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="51"/>
-        <source>%2.3f fps</source>
-        <translation>%2.3f snímků/s</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="52"/>
-        <source>%ld frames</source>
-        <translation>%ld snímků</translation>
-    </message>
-    <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="58"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="106"/>
-        <source>%02d:%02d:%02d.%03d</source>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="46"/>
+        <source>%1 fps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="64"/>
-        <source>%s (%u:%u)</source>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="47"/>
+        <source>%1 frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="79"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="55"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="101"/>
+        <source>%1:%2:%3.%4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="61"/>
+        <source>%1 (%2:%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="77"/>
         <source>Mono</source>
         <translation>Mono</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="82"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="80"/>
         <source>Stereo</source>
         <translation>Stereo           </translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="90"/>
-        <source>%lu Hz</source>
-        <translation>%lu Hz</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="87"/>
+        <source>%1 Hz</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="91"/>
-        <source>%lu Bps / %lu kbps</source>
-        <translation>%lu B/s / %lu kb/s</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="88"/>
+        <source>%1 Bps / %2 kbps</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="109"/>
-        <source>%.2f MB</source>
-        <translation>%.2f MB</translation>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="102"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14587,32 +9697,24 @@ Má se znovu použít log soubor?</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="387"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="387"/>
         <source>Resize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="25"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="25"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="388"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="388"/>
         <source>Aspect Ratio</source>
         <translation type="unfinished">Poměr stran</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="37"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="37"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="389"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="389"/>
         <source>Lock Aspect Ratio</source>
         <translation type="unfinished">Zamknout poměr stran</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="55"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="55"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="390"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="390"/>
         <source>Source:</source>
         <translation type="unfinished">Zdroj:</translation>
     </message>
@@ -14621,10 +9723,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="105"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="63"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="105"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="393"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="400"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="393"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="400"/>
         <source>1:1</source>
         <translation type="unfinished">1:1</translation>
     </message>
@@ -14633,10 +9731,6 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="110"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="68"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="110"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="394"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="401"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="394"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="401"/>
         <source>4:3</source>
         <translation type="unfinished">4:3</translation>
     </message>
@@ -14645,122 +9739,90 @@ Má se znovu použít log soubor?</translation>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="115"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="73"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="115"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="395"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="402"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="395"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="402"/>
         <source>16:9</source>
         <translation type="unfinished">16:9</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="97"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="97"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="397"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="397"/>
         <source>Destination:</source>
         <translation type="unfinished">Cíl:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="141"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="141"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="404"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="404"/>
         <source>Resize Dimensions</source>
         <translation type="unfinished">Velikost</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="161"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="161"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="405"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="405"/>
         <source>Width:</source>
         <translation type="unfinished">Šířka:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="197"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="197"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="406"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="406"/>
         <source>Height:</source>
         <translation type="unfinished">Výška:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="232"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="232"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="407"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="407"/>
         <source>Round to the Nearest Multiple of 16</source>
         <translation type="unfinished">Zaokrouhlit na nejbližší násobek 16</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="287"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="287"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="408"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="408"/>
         <source>1%</source>
         <translation type="unfinished">1 %</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="307"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="307"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="409"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="409"/>
         <source>Percent</source>
         <translation type="unfinished">Procent</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="327"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="327"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="410"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="410"/>
         <source>200%</source>
         <translation type="unfinished">200 %</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="377"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="377"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="411"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="411"/>
         <source>Error X / Y:</source>
         <translation type="unfinished">Chyba X/Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="384"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="384"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="412"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="412"/>
         <source>0.00 / 0.00</source>
         <translation type="unfinished">0,00/0,00</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="435"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="435"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="413"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="413"/>
         <source>Resize Method:</source>
         <translation type="unfinished">Metoda převzorkování:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="443"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="443"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="416"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="416"/>
         <source>Bilinear</source>
         <translation type="unfinished">Bilineární</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="448"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="448"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="417"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="417"/>
         <source>Bicubic</source>
         <translation type="unfinished">Bikubická</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="453"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="453"/>
-        <location filename="../plugins/build/ADM_videoFilters/AvisynthResize/ui_resizing.h" line="418"/>
-        <location filename="../plugins/build/ADM_videoFilters/MplayerResize/ui_resizing.h" line="418"/>
         <source>Lanzcos3</source>
         <translation type="unfinished">Lanzcos3</translation>
     </message>
@@ -14786,13 +9848,11 @@ Má se znovu použít log soubor?</translation>
     <name>srtDialog</name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/qt4/srt.ui" line="13"/>
-        <location filename="../plugins/build/ADM_videoFilters/Srt/ui_srt.h" line="106"/>
         <source>Subtitle Font Size and Position</source>
         <translation type="unfinished">Velikost písma a pozice titulků</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/qt4/srt.ui" line="89"/>
-        <location filename="../plugins/build/ADM_videoFilters/Srt/ui_srt.h" line="107"/>
         <source>Font Size :</source>
         <translation type="unfinished">Velikost písma:</translation>
     </message>
@@ -14952,1286 +10012,1078 @@ Má se znovu použít log soubor?</translation>
 <context>
     <name>x264ConfigDialog</name>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="164"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="166"/>
         <source>&lt;default&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="165"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="167"/>
         <source>&lt;custom&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="292"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="294"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="67"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3081"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="292"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="294"/>
         <source>x264 Configuration File (*.xml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="327"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="329"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="345"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="347"/>
         <source>Target Bitrate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="346"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="364"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3092"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3230"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="348"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="366"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3099"/>
         <source>kbit/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="350"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="352"/>
         <source>Quantiser:</source>
         <translation type="unfinished">Kvantizér:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="354"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="356"/>
         <source>Quality:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="358"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="360"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="148"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3084"/>
         <source>Target Video Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="359"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="361"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="238"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3095"/>
         <source>MB</source>
         <translation type="unfinished">MB</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="363"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="365"/>
         <source>Average Bitrate:</source>
         <translation type="unfinished">Průměrný datový tok:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="402"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="404"/>
         <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.
 
 Do you wish to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="449"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="451"/>
         <source>Trellis optimisation isn&apos;t possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.
 
- Do you wish to continue?</source>
+Do you wish to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="461"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="463"/>
         <source>Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.
 
 Do you wish to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="484"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="486"/>
         <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.
 
 Do you wish to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="508"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="510"/>
         <source>Are you sure you wish to delete the selected zone?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="14"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3079"/>
         <source>x264 Configuraton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="50"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3080"/>
         <source>Configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="74"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3311"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3082"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3240"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3318"/>
         <source>Delete</source>
         <translation type="unfinished">Odstranit</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="116"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3110"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="128"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3083"/>
         <source>Rate Control</source>
         <translation type="unfinished">Řízení datového toku</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3087"/>
         <source>Constant Bitrate (Single Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="172"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3088"/>
         <source>Constant Quantiser (Single Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="177"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3089"/>
         <source>Constant Rate Factor (Single Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="182"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3090"/>
         <source>Video Size (Two Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="187"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3091"/>
         <source>Average Bitrate (Two Pass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="210"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3093"/>
         <source>Encoding Mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="313"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3096"/>
         <source>0 (High Quality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="336"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2323"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3097"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3224"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2330"/>
         <source>Quantiser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="359"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3098"/>
         <source>51 (Low Quality)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="428"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3099"/>
-        <source>Macroblock-Tree Rate Control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="443"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3100"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="450"/>
         <source>Frametype Lookahead:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="457"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="606"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3101"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3109"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="464"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="613"/>
         <source>frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="482"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3102"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="489"/>
         <source>Multithreading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="502"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3103"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="509"/>
         <source>Disable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="509"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3104"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="516"/>
         <source>Auto-detect</source>
         <translation type="unfinished">Automatická detekce</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="527"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3584"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3105"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3275"/>
-        <source>Custom:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="564"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3106"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="571"/>
         <source>Enforce Repeatability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="571"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3107"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="578"/>
         <source>Slice-based Threading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="586"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3108"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="593"/>
         <source>Custom Threaded Lookahead Buffer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="645"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3146"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="652"/>
         <source>Motion</source>
         <translation type="unfinished">Pohyb</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="657"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3111"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="664"/>
         <source>Motion Estimation</source>
         <translation type="unfinished">Odhad pohybu</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="677"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3112"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="684"/>
         <source>Motion Estimation Method:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="696"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3115"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="703"/>
         <source>Diamond Search</source>
         <translation type="unfinished">Vyhledávání čtyřúhelníku</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="701"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3116"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="708"/>
         <source>Hexagonal Search</source>
         <translation type="unfinished">Hexagonální vyhledávání</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="706"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3117"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="713"/>
         <source>Uneven Multi-hexagonal Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="711"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3118"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="718"/>
         <source>Exhaustive Search</source>
         <translation type="unfinished">Důkladné vyhledávání</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="716"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3119"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="723"/>
         <source>Hadamard Exhaustive Search</source>
         <translation type="unfinished">Hadamardovo důkladné vyhledávání</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="773"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3121"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="780"/>
         <source>1 (Fast)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="793"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3122"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="800"/>
         <source>Subpixel Refinement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="813"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3123"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="820"/>
         <source>9 (Best)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="893"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3124"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="900"/>
         <source>Motion Vector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="949"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3125"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="956"/>
         <source>Maximum Motion Vector Length:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1031"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3126"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1038"/>
         <source>Minimum Buffer Between Threads:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1038"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3127"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1045"/>
         <source>Maximum Motion Vector Search Range:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1050"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3128"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1057"/>
         <source>Prediction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1079"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1571"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1613"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3131"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3166"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3172"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1086"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1578"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1620"/>
         <source>Disabled</source>
         <translation type="unfinished">Vypnuto</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1084"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3132"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1091"/>
         <source>Blind Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1089"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3133"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1096"/>
         <source>Smart Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1112"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3135"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1119"/>
         <source>Direct Prediction Mode:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1119"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3136"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1126"/>
         <source>Weighted Prediction for P-frames:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1138"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3139"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1145"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1143"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3140"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1150"/>
         <source>Spatial</source>
         <translation type="unfinished">Prostorový</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1148"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3141"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1155"/>
         <source>Temporal</source>
         <translation type="unfinished">Časový</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1153"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3383"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3142"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3245"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1160"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3390"/>
         <source>Auto</source>
         <translation type="unfinished">Automatický</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1178"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3144"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1185"/>
         <source>Weighted Prediction for B-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1185"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3145"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1192"/>
         <source>Constrained Intra Prediction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1209"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3154"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1216"/>
         <source>Partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1221"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3147"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1228"/>
         <source>Partition Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1241"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3148"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1248"/>
         <source>8x8 DCT Spatial Transform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1248"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3149"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1255"/>
         <source>8x8, 8x16 and 16x8 P-frame Intra-predicted Blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1255"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3150"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1262"/>
         <source>8x8, 8x16 and 16x8 B-frame Intra-predicted Blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1262"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3151"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1269"/>
         <source>4x4, 4x8 and 8x4 P-frame Intra-predicted Blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1269"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3152"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1276"/>
         <source>8x8 Intra-predicted Blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1276"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3153"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1283"/>
         <source>4x4 Intra-predicted Blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1302"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3184"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1309"/>
         <source>Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1314"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3155"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1321"/>
         <source>Frame Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1326"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3156"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1333"/>
         <source>CABAC</source>
         <translation type="unfinished">CABAC</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1333"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3157"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1340"/>
         <source>Pure Interlaced Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1348"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3158"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1355"/>
         <source>Loop Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1390"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2888"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3159"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3223"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1397"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2895"/>
         <source>Strength:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1429"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3160"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1436"/>
         <source>Threshold:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1495"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3161"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1502"/>
         <source>Maximum Reference Frames:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1543"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3162"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1550"/>
         <source>B-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1555"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3163"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1562"/>
         <source>B-frames as References:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1576"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3167"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1583"/>
         <source>Strictly Hierarchical Pyramid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1581"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3168"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1588"/>
         <source>Non-strict (Not Blu-ray Compatible)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1618"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3173"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1625"/>
         <source>Fast</source>
         <translation type="unfinished">Rychlé</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1623"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3174"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1630"/>
         <source>Optimal</source>
         <translation type="unfinished">Optimální</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1715"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3176"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1722"/>
         <source>B-frame Bias:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1722"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3177"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1729"/>
         <source>Maximum Consecutive B-frames:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1729"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3178"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1736"/>
         <source>Adaptive B-frame Decision:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1739"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3179"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1746"/>
         <source>I-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1803"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3180"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1810"/>
         <source>Maximum GOP Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1810"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3181"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1817"/>
         <source>I-frame Threshold:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1856"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3182"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1863"/>
         <source>Minimum GOP Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1917"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3183"/>
-        <source>Pre-scenecut Detection</source>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="428"/>
+        <source>Fast First Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1943"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1955"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3185"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3206"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="435"/>
+        <source>Macroblock-tree Rate Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="534"/>
+        <source>Custom:</source>
+        <comment>multithreading</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1924"/>
+        <source>Periodic Intra Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1950"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1962"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1967"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3186"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1974"/>
         <source>Mixed References</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1974"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3187"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1981"/>
         <source>Chroma Motion Estimation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1989"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3188"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1996"/>
         <source>Trellis Quantization:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2000"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3191"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2007"/>
         <source>Final Macroblock Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2005"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3192"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2012"/>
         <source>Always On</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2028"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3194"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2035"/>
         <source>Fast Skip Detection on P-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2035"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3195"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2042"/>
         <source>DCT Decimation on P-frames</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2050"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3196"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2057"/>
         <source>Psychovisual Rate Distortion Optimisation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2090"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3197"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2097"/>
         <source>Noise Reduction:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2122"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3198"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2129"/>
         <source>Luma Quantisation Deadzone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2142"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3199"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2149"/>
         <source>Intra Luma Quantisation Deadzone:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2149"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3200"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2156"/>
         <source>Inter Luma Quantisation Deadzone:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2227"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3201"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2234"/>
         <source>Quantisation Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2247"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3202"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2254"/>
         <source>Flat Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2257"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3203"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2264"/>
         <source>JVT Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2272"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3204"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2279"/>
         <source>Custom Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2282"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3304"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3205"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3239"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2289"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3311"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2335"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3207"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2342"/>
         <source>Quantiser Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2388"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3208"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2395"/>
         <source>Maximum Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2395"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3209"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2402"/>
         <source>I and P-frame Quantiser Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2498"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2716"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3055"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3210"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3218"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3229"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2505"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2723"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3062"/>
         <source>%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2520"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3211"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2527"/>
         <source>Maximum Quantiser Step:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2560"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3212"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2567"/>
         <source>P and B-frame Quantiser Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2567"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3213"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2574"/>
         <source>Average Bitrate Tolerance:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2574"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3214"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2581"/>
         <source>Chroma to Luma Quantiser Offset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2617"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3215"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2624"/>
         <source>Minimum Quantiser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2671"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3216"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2678"/>
         <source>Quantiser Curve Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2691"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3217"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2698"/>
         <source>Quantiser Curve Compression:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2748"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3219"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2755"/>
         <source>Reduce Fluctuation Before Curve Compression:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2830"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3220"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2837"/>
         <source>Reduce Fluctuation After Curve Compression:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2842"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3221"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2849"/>
         <source>Adaptive Quantisation</source>
         <translation type="unfinished">Adaptivní kvantizace</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2862"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3222"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2869"/>
         <source>Variance AQ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2946"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3241"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2953"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2966"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3225"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2973"/>
         <source>Video Buffer Verifier</source>
         <translation type="unfinished">Kontrola video bufferu</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2986"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3226"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2993"/>
         <source>Maximum VBV Bitrate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2993"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3227"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3000"/>
         <source>Initial VBV Buffer Occupancy:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3015"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3228"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3022"/>
         <source>kbit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3114"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3231"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3121"/>
         <source>VBV Buffer Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3126"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3232"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3133"/>
         <source>Slicing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3138"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3233"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3145"/>
         <source>Slices per Frame:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3145"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3234"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3152"/>
         <source>Maximum Size per Slice:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3235"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3174"/>
         <source>bytes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3189"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3236"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3196"/>
         <source>Maximum Macroblocks per Slice:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3259"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3237"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3266"/>
         <source>Zones</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3297"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3238"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3304"/>
         <source>Add</source>
         <translation type="unfinished">Přidat</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3339"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3351"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3242"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3344"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3346"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3358"/>
         <source>Output</source>
         <translation type="unfinished">Výstup</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3388"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3509"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3246"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3267"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3395"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3516"/>
         <source>1</source>
         <translation type="unfinished">1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3393"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3247"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3400"/>
         <source>1.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3398"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3248"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3405"/>
         <source>1.2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3403"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3249"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3410"/>
         <source>1.3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3408"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3250"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3415"/>
         <source>2</source>
         <translation type="unfinished">2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3413"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3251"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3420"/>
         <source>2.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3418"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3252"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3425"/>
         <source>2.2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3423"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3514"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3253"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3268"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3430"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3521"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3428"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3254"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3435"/>
         <source>3.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3433"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3255"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3440"/>
         <source>3.2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3438"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3256"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3445"/>
         <source>4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3443"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3257"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3450"/>
         <source>4.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3448"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3258"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3455"/>
         <source>4.2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3453"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3259"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3460"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3458"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3260"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3465"/>
         <source>5.1</source>
         <translation type="unfinished">5.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3481"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3262"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3488"/>
         <source>Sequence Parameter Set Identifer:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3488"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3263"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3495"/>
         <source>IDC Level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3504"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3266"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3511"/>
         <source>0</source>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3519"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3269"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3526"/>
         <source>7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3524"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3270"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3531"/>
         <source>15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3529"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3271"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3536"/>
         <source>31</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3554"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3273"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3561"/>
         <source>Generate Access Unit Delimiters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3564"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3274"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3571"/>
         <source>Pixel Aspect Ratio</source>
         <translation type="unfinished">Poměr stran pixelu</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3594"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3276"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3591"/>
+        <source>Custom:</source>
+        <comment>PAR</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3601"/>
         <source>As Input</source>
         <translation type="unfinished">Jako vstup</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3655"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3278"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3662"/>
         <source>:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3690"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3279"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3697"/>
         <source>Predefined Aspect Ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3709"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3282"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3716"/>
         <source>16:15 (PAL 4:3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3714"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3283"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3721"/>
         <source>64:45 (PAL 16:9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3719"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3284"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3726"/>
         <source>8:9 (NTSC 4:3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3724"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3285"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3731"/>
         <source>32:27 (NTSC 16:9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3752"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3287"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3759"/>
         <source>Video Usability Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3764"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3288"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3771"/>
         <source>These settings are only suggestions for the playback equipment.  Use at your own risk.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3815"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3894"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3936"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4013"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4070"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3291"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3304"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3310"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3322"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3331"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3822"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3901"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3943"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4020"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4077"/>
         <source>Undefined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3820"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3941"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4075"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3292"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3311"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3332"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3827"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3948"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4082"/>
         <source>BT709</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3825"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4080"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3293"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3333"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3832"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4087"/>
         <source>BT470M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3830"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3951"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4085"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3294"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3313"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3334"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3837"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3958"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4092"/>
         <source>BT470BG</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3835"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3295"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3842"/>
         <source>Linear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3840"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3296"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3847"/>
         <source>LOG100</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3845"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3297"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3852"/>
         <source>LOG316</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3850"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3298"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3857"/>
         <source>SMPTEL170M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3855"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3961"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4095"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3299"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3315"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3336"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3862"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3968"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4102"/>
         <source>SMPTE240M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3878"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3301"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3885"/>
         <source>Colour Primaries:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3899"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3305"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3906"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3904"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3306"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3911"/>
         <source>Crop</source>
         <translation type="unfinished">Crop</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3946"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3312"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3953"/>
         <source>FCC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3956"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4090"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3314"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3335"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3963"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4097"/>
         <source>SMPTE170M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3966"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3316"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3973"/>
         <source>GBR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3971"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3317"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3978"/>
         <source>YCgCo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3994"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3319"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4001"/>
         <source>Colour Matrix:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4018"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3323"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4025"/>
         <source>Component</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4023"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3324"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4030"/>
         <source>PAL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4028"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3325"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4035"/>
         <source>NTSC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4033"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3326"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4040"/>
         <source>SECAM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4038"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3327"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4045"/>
         <source>MAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4100"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3337"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4107"/>
         <source>Film</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4123"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3339"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4130"/>
         <source>Transfer Characteristics:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4130"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3340"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4137"/>
         <source>Chroma Sample Location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3341"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4174"/>
         <source>Video Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4174"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3342"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4181"/>
         <source>Overscan:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4183"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264ConfigDialog.h" line="3343"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4190"/>
         <source>Full Range Samples</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16255,13 +11107,11 @@ Do you wish to continue?</source>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="16"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2166"/>
         <source>x264 Custom Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="32"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2169"/>
         <source>Intra 4x4</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16270,54 +11120,42 @@ Do you wish to continue?</source>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="506"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="952"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="1655"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2167"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2170"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2173"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2175"/>
         <source>Luma:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="270"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="716"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2168"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2171"/>
         <source>Chroma U/V:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="478"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2172"/>
         <source>Inter 4x4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="924"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2174"/>
         <source>Intra 8x8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="1627"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2176"/>
         <source>Inter 8x8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2354"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2177"/>
         <source>Load File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2374"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2178"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264CustomMatrixDialog.ui" line="2384"/>
-        <location filename="../plugins/build/ADM_videoEncoder/ADM_vidEnc_x264/qt4/ui_x264CustomMatrixDialog.h" line="2179"/>
         <source>Cancel</source>
         <translation type="unfinished">Zrušit</translation>
     </message>
