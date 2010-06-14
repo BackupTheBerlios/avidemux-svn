@@ -113,6 +113,7 @@ char* PluginXmlOptions::dumpXmlDocToMemory(xmlDocPtr xmlDoc)
 	xml = new char[tempBufferSize + 1];
 	memcpy(xml, tempBuffer, tempBufferSize);
 	xml[tempBufferSize] = 0;
+	xmlFree(tempBuffer);
 
 	return xml;
 }
