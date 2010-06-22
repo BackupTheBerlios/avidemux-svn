@@ -21,15 +21,8 @@
 #include <stdlib.h>
 
 #include "ADM_default.h"
-
-#include "ADM_assert.h"
-
 #include "ADM_videoFilter.h"
-
-
 #include "ADM_video/ADM_vidPartial_param.h"
-
-
 #include "ADM_videoFilter/ADM_vobsubinfo.h"
 #include "ADM_videoFilter/ADM_vidVobSub.h"
 
@@ -40,6 +33,7 @@
 #include "ADM_ocr/ADM_ocr.h"
 #include "ADM_ocr/ADM_ocrInternal.h"
 #include "ADM_userInterfaces/ADM_render/GUI_renderInternal.h"
+
 extern int global_argc;
 extern char **global_argv;
 extern void initTranslator(void);
@@ -47,6 +41,7 @@ extern int automation(void);
 
 int SliderIsShifted = 0;
 
+uint8_t DIA_pluginManager(void) { return 0; }
 uint8_t DIA_getPartial(PARTIAL_CONFIG *param,AVDMGenericVideoStream *son,AVDMGenericVideoStream *previous) {return 0;}
 uint8_t DIA_vobsub(vobSubParam *param) {return 0;}
 uint8_t DIA_quota(char *) {return 0;}

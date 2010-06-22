@@ -17,6 +17,7 @@
 
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include "ADM_default.h"
 #include "ADM_threads.h"
@@ -45,7 +46,9 @@ extern "C" {
 #define MODULE_NAME MODULE_SAVE_AVI
 #include "ADM_osSupport/ADM_debug.h"
 
-extern struct COMPRES_PARAMS *AllVideoCodec;
+using namespace std;
+
+extern vector<COMPRES_PARAMS> AllVideoCodec;
 
 GenericAviSaveSmart::GenericAviSaveSmart(uint32_t qf) : GenericAviSave()
 {
@@ -336,14 +339,14 @@ uint8_t GenericAviSaveSmart::initEncoder (uint32_t qz)
 
 	if (isMpeg4Compatible(info.fcc))
 	{
-		std::stringstream out;
+		stringstream out;
 
 		out << "<?xml version='1.0'?><Mpeg4aspConfig><Mpeg4aspOptions><motionEstimationMethod>epzs</motionEstimationMethod><fourMotionVector>false</fourMotionVector><maximumBFrames>";
 		out << _hasBframe;
 		out << "</maximumBFrames><quarterPixel>false</quarterPixel><globalMotionCompensation>false</globalMotionCompensation><quantisationType>h263</quantisationType><macroblockDecisionMode>rateDistortion</macroblockDecisionMode><minimumQuantiser>2</minimumQuantiser><maximumQuantiser>31</maximumQuantiser><quantiserDifference>3</quantiserDifference><trellis>false</trellis><quantiserCompression>0.5</quantiserCompression><quantiserBlur>0.5</quantiserBlur></Mpeg4aspOptions></Mpeg4aspConfig>";
 		_encoderIndex = videoCodecPluginGetIndexByGuid("0E7C20E3-FF92-4bb2-A9A9-55B7F713C45A");
 
-		std::string settings = out.str();
+		string settings = out.str();
 		COMPRES_PARAMS *param = &AllVideoCodec[_encoderIndex];
 		ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(param->extra_param);
 		int length = plugin->getOptions(plugin->encoderId, NULL, NULL, 0);

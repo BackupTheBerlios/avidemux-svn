@@ -54,27 +54,6 @@ typedef struct {
 } opt_def;
 
 static opt_def opt_defs [] = {
-	{"codecs.svcd.enctype",		UINT,	"0",	NULL,	"0",	"99999"},
-	{"codecs.svcd.bitrate",		UINT,	"1500000",NULL,	"16000","2748000"},
-	{"codecs.svcd.quantizer",		UINT,	"4",	NULL,	"2",	"31"	},
-	{"codecs.svcd.finalsize",	UINT,	"700",	NULL,	"0",	"99999"},
-	{"codecs.svcd.interlaced",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.svcd.bff",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.svcd.widescreen",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.svcd.matrix",		UINT,	"0",	NULL,	"0",	"99999"},
-	{"codecs.svcd.gopsize",		UINT,	"12",	NULL,	"0",	"99999"},
-	{"codecs.svcd.maxbitrate",		UINT,	"2500",	NULL,	"0",	"2748"	},
-	{"codecs.dvd.enctype",		UINT,	"0",	NULL,	"0",	"99999"},
-	{"codecs.dvd.bitrate",		UINT,	"1500000",NULL,	"16000","9900000"},
-	{"codecs.dvd.quantizer",		UINT,	"4",	NULL,	"2",	"31"	},
-	{"codecs.dvd.finalsize",	UINT,	"700",	NULL,	"0",	"99999"},
-	{"codecs.dvd.interlaced",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.dvd.bff",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.dvd.widescreen",		UINT,	"0",	NULL,	"0",	"1"	},
-	{"codecs.dvd.matrix",		UINT,	"0",	NULL,	"0",	"99999"},
-	{"codecs.dvd.gopsize",		UINT,	"12",	NULL,	"0",	"99999"},
-	{"codecs.dvd.maxbitrate",		UINT,	"9000",	NULL,	"0",	"9900"	},
-	{"codecs.preferredcodec",		STRING,"FFmpeg4",NULL, NULL, NULL },
 #ifdef __WIN32
 	{"filters.subtitle.fontname",		FILENAME,"C:\\Windows\\Fonts\\arial.ttf",NULL, NULL, NULL },
 #else
@@ -137,10 +116,11 @@ static opt_def opt_defs [] = {
 	{"feature.global_glyph.name",		STRING,"",	NULL, NULL, NULL },
 	{"priority.encoding",		UINT,	"3",	NULL,	"0",	"4"	},
 	{"priority.indexing",		UINT,	"3",	NULL,	"0",	"4"	},
-	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	}
+	{"priority.playback",		UINT,	"0",	NULL,	"0",	"4"	},
+	{"plugin.order",	STRING,"<?xml version=\"1.0\"?><pluginOrder><videoEncoder><plugin id=\"Copy\" enabled=\"true\" default=\"true\"/><plugin id=\"32BCB447-21C9-4210-AE9A-4FCE6C8588AE\" enabled=\"true\" default=\"false\"/><plugin id=\"92B544BE-59A3-4720-86F0-6AD5A2526FD2\" enabled=\"true\" default=\"false\"/><plugin id=\"0E7C20E3-FF92-4bb2-A9A9-55B7F713C45A\" enabled=\"true\" default=\"false\"/><plugin id=\"DBAECD8B-CF29-4846-AF57-B596427FE7D3\" enabled=\"true\" default=\"false\"/><plugin id=\"C16E9CCE-D9B3-4fbe-B0C5-8B1BEBF2178E\" enabled=\"true\" default=\"false\"/><plugin id=\"REQUANT\" enabled=\"true\" default=\"false\"/><plugin id=\"85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E\" enabled=\"true\" default=\"false\"/><plugin id=\"056FE919-C1D3-4450-A812-A767EAB07786\" enabled=\"true\" default=\"false\"/><plugin id=\"075E8A4E-5B3D-47c6-9F70-853D6B855106\" enabled=\"true\" default=\"false\"/><plugin id=\"4279DF66-ECEF-4d3d-AFEA-1BFCCB79E219\" enabled=\"true\" default=\"false\"/><plugin id=\"134AA23B-A1FE-4d7b-AC99-85E440BA4595\" enabled=\"true\" default=\"false\"/><plugin id=\"D5118154-0B9A-4e9a-BEC6-95DA343E7215\" enabled=\"true\" default=\"false\"/><plugin id=\"970CB80B-5713-445c-A187-5C6F4A76FA76\" enabled=\"true\" default=\"false\"/><plugin id=\"E5D8EAC6-71C1-4f3e-A975-B655232271FB\" enabled=\"true\" default=\"false\"/><plugin id=\"4828D06D-B555-4d72-94EC-34F04F97E501\" enabled=\"true\" default=\"false\"/><plugin id=\"YV12\" enabled=\"true\" default=\"false\"/></videoEncoder></pluginOrder>",NULL, NULL, NULL }
 };
 
-int num_opts = 76;
+int num_opts = 56;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2

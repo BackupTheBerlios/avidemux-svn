@@ -22,7 +22,7 @@ bool     ADM_ad_getFilterInfo(int filter, const char **name, uint32_t *major,uin
 uint32_t ADM_av_getNbDevices(void);
 bool     ADM_av_getDeviceInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_ve_getNbEncoders(void);
-bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
+bool     ADM_ve_getEncoderInfo(int filter, const char **id, const char **name, const char **type, const char **desc, uint32_t *major, uint32_t *minor, uint32_t *patch);
 uint32_t ADM_ae_getPluginNbEncoders(void);
 bool     ADM_ae_getAPluginEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 
@@ -81,7 +81,7 @@ uint8_t DIA_pluginsInfo(void)
         char versionString[256];
         char infoString[256];
         char *end;
-            ADM_ve_getEncoderInfo(i, &name,&major,&minor,&patch);
+            ADM_ve_getEncoderInfo(i, NULL, NULL, NULL, &name, &major, &minor, &patch);
             snprintf(versionString,255,"%02d.%02d.%02d",major,minor,patch);
             strncpy(infoString,name,255);
             if(strlen(infoString))

@@ -17,6 +17,8 @@
 #ifndef ADM_VIDENCODE
 #define ADM_VIDENCODE
 
+#include <string>
+
 typedef enum 
 {
   CodecCopy,
@@ -50,17 +52,17 @@ typedef enum
 
 struct COMPRES_PARAMS
 {
-  SelectCodecType codec;
-  const char *menuName;
-  const char *tagName;
-  const char *descriptor;
-  COMPRESSION_MODE mode;
-  uint32_t qz, bitrate, finalsize,avg_bitrate;  // avg_bitrate is in kb/s!!
-  uint32_t capabilities;
-  uint32_t extra_param;
-  void *extraSettings;
-  uint32_t extraSettingsLen;
-  uint8_t (*configure) (struct COMPRES_PARAMS * par);
+	SelectCodecType codec;
+	std::string menuName;
+	const char *tagName;
+	const char *descriptor;
+	COMPRESSION_MODE mode;
+	uint32_t qz, bitrate, finalsize,avg_bitrate;  // avg_bitrate is in kb/s!!
+	uint32_t capabilities;
+	uint32_t extra_param;
+	void *extraSettings;
+	uint32_t extraSettingsLen;
+	uint8_t (*configure) (struct COMPRES_PARAMS * par);
 };
 
 //typedef struct COMPRES_PARAMS;

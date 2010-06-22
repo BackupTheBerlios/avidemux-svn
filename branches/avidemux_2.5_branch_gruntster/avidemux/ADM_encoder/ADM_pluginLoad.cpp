@@ -14,17 +14,21 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <locale>
+#include <vector>
+
 #include "config.h"
 #include "ADM_default.h"
-#include <list>
-#include <locale>
 
 #include "DIA_fileSel.h"
 #include "ADM_pluginLoad.h"
 #include "ADM_vidEncode.hxx"
+#include "ADM_userInterfaces/ADM_commonUI/UiPluginManager.h"
 
-struct COMPRES_PARAMS *AllVideoCodec = NULL;
-int AllVideoCodecCount = 0;
+using namespace std;
+
+vector<COMPRES_PARAMS> AllVideoCodec;
+int defaultVideoEncoder = 0;
 
 extern COMPRES_PARAMS *internalVideoCodec[];
 extern int getInternalVideoCodecCount();
@@ -61,7 +65,7 @@ ADM_vidEnc_plugin::ADM_vidEnc_plugin(const char *file) : ADM_LibWrapper()
 		&close, "vidEncClose"));
 }
 
-std::list<ADM_vidEnc_plugin *> ADM_videoEncoderPlugins;
+list<ADM_vidEnc_plugin *> ADM_videoEncoderPlugins;
 /**
     \fn ADM_ve_getNbEncoders
     \brief get the number of encoder plugin loaded
@@ -80,24 +84,40 @@ uint32_t ADM_ve_getNbEncoders(void)
      @param major,minor,patch [out] Version number of the encoder
      @return true
 */
-bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch)
+bool     ADM_ve_getEncoderInfo(int filter, const char **id, const char **name, const char **type, const char **desc, uint32_t *major, uint32_t *minor, uint32_t *patch)
 {
 	ADM_assert(filter >= 0 && filter < ADM_videoEncoderPlugins.size());
 
 	ADM_vidEnc_plugin *plugin = getVideoEncoderPlugin(filter);
 	int ma, mi, pa;
 
-	plugin->getEncoderVersion(0, &ma, &mi, &pa);
+	plugin->getEncoderVersion(plugin->encoderId, &ma, &mi, &pa);
 
-	*name = plugin->getEncoderDescription(plugin->encoderId);
-	*major = (uint32_t)ma;
-	*minor = (uint32_t)mi;
-	*patch = (uint32_t)pa;
+	if (id)
+		*id = plugin->getEncoderGuid(plugin->encoderId);
+
+	if (name)
+		*name = plugin->getEncoderName(plugin->encoderId);
+
+	if (type)
+		*type = plugin->getEncoderType(plugin->encoderId);
+
+	if (desc)
+		*desc = plugin->getEncoderDescription(plugin->encoderId);
+
+	if (major)
+		*major = (uint32_t)ma;
+
+	if (minor)
+		*minor = (uint32_t)mi;
+
+	if (patch)
+		*patch = (uint32_t)pa;
 
 	return true;
 }
 
-static int loadVideoEncoderPlugin(std::list<ADM_vidEnc_plugin*>* pluginList, int uiType, const char *file)
+static int loadVideoEncoderPlugin(list<ADM_vidEnc_plugin*>* pluginList, int uiType, const char *file)
 {
 	ADM_vidEnc_plugin *plugin = new ADM_vidEnc_plugin(file);
 	int* encoderIds;
@@ -208,6 +228,7 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 
 	char *files[MAX_EXTERNAL_FILTER];
 	uint32_t nbFile = 0;
+	set<string> pluginIds;
 
 	memset(files, 0, sizeof(char *)*MAX_EXTERNAL_FILTER);
 	printf("[ADM_vidEnc_plugin] Scanning directory %s\n", path);
@@ -223,78 +244,116 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 
 	printf("[ADM_vidEnc_plugin] Scanning done, found %d codec\n", ADM_videoEncoderPlugins.size());
 
-	AllVideoCodecCount = ADM_videoEncoderPlugins.size() + getInternalVideoCodecCount();
-	AllVideoCodec = new COMPRES_PARAMS[AllVideoCodecCount];
-
-	// Copy over internal codecs
+	// Get ranked list
 	int internalCodecCount = getInternalVideoCodecCount();
 
 	for (int i = 0; i < internalCodecCount; i++)
-		memcpy(&AllVideoCodec[i], internalVideoCodec[i], sizeof(COMPRES_PARAMS));
+		pluginIds.insert(internalVideoCodec[i]->tagName);
 
-	// Add external codecs
-	int counter = 0;
-
-	ADM_videoEncoderPlugins.sort(comparePlugins);
-
-	for (std::list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin(); it != ADM_videoEncoderPlugins.end(); it++)
+	for (list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin(); it != ADM_videoEncoderPlugins.end(); it++)
 	{
 		ADM_vidEnc_plugin *plugin = *it;
-		ADM_assert(plugin);
 
-		const char* codecName = plugin->getEncoderName(plugin->encoderId);
-		const char* codecType = plugin->getEncoderType(plugin->encoderId);
-		char* displayName;
-		const char *prevType, *nextType;
+		pluginIds.insert(plugin->getEncoderGuid(plugin->encoderId));
+	}
 
-		if (it == ADM_videoEncoderPlugins.begin())
-			prevType = NULL;
-		else
-		{
-			*it--;
-			prevType = (*it)->getEncoderType((*it)->encoderId);
-			*it++;
+	UiPluginManager manager;
+	list<UiPluginManager::UiPlugInfo> rankedList(manager.getRankedList(UiPluginManager::PLUGINTYPE_VIDEO_ENCODER, pluginIds));
+
+	// Build list according to rank
+	for (list<UiPluginManager::UiPlugInfo>::const_iterator itRankedPlugin = rankedList.begin(); itRankedPlugin != rankedList.end(); itRankedPlugin++)
+	{
+		bool found = false;
+
+		if (!itRankedPlugin->enabled)
+			continue;
+
+		if (itRankedPlugin->isDefault)
+			defaultVideoEncoder = AllVideoCodec.size();
+
+		// internal
+		for (int i = 0; i < internalCodecCount; i++)
+		{			
+			if (string(internalVideoCodec[i]->tagName) == itRankedPlugin->id)
+			{
+				COMPRES_PARAMS param;
+
+				param.codec = internalVideoCodec[i]->codec;
+				param.menuName = internalVideoCodec[i]->menuName;
+				param.tagName = internalVideoCodec[i]->tagName;
+				param.extra_param = internalVideoCodec[i]->extra_param;
+				param.extraSettings = internalVideoCodec[i]->extraSettings;
+				param.extraSettingsLen = internalVideoCodec[i]->extraSettingsLen;
+
+				AllVideoCodec.push_back(param);
+				found = true;
+
+				break;
+			}
 		}
 
-		*it++;
+		if (found)
+			continue;
 
-		if (it == ADM_videoEncoderPlugins.end())
-			nextType = NULL;
-		else
-			nextType = (*it)->getEncoderType((*it)->encoderId);
+		int counter = 0;
 
-		*it--;
+		// external
+		ADM_videoEncoderPlugins.sort(comparePlugins);
 
-		if ((prevType != NULL && strcmp(prevType, codecType) == 0) ||
-			(nextType != NULL && strcmp(nextType, codecType) == 0))
+		for (list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin(); it != ADM_videoEncoderPlugins.end(); it++)
 		{
-			displayName = new char[strlen(codecName) + strlen(codecType) + 4];
-			sprintf(displayName, "%s (%s)", codecType, codecName);
+			ADM_vidEnc_plugin *plugin = *it;
+
+			if (plugin->getEncoderGuid(plugin->encoderId) == itRankedPlugin->id)
+			{
+				const char* codecName = plugin->getEncoderName(plugin->encoderId);
+				const char* codecType = plugin->getEncoderType(plugin->encoderId);
+				const char *prevType, *nextType;
+
+				if (it == ADM_videoEncoderPlugins.begin())
+					prevType = NULL;
+				else
+				{
+					*it--;
+					prevType = (*it)->getEncoderType((*it)->encoderId);
+					*it++;
+				}
+
+				*it++;
+
+				if (it == ADM_videoEncoderPlugins.end())
+					nextType = NULL;
+				else
+					nextType = (*it)->getEncoderType((*it)->encoderId);
+
+				*it--;
+
+				COMPRES_PARAMS param;
+
+				if ((prevType != NULL && strcmp(prevType, codecType) == 0) || (nextType != NULL && strcmp(nextType, codecType) == 0))
+					param.menuName = string(codecType) + " (" + string(codecName) + ")";
+				else
+					param.menuName = codecType;
+
+				param.codec = CodecExternal;
+				param.tagName = codecName;
+				param.extra_param = counter;
+				param.extraSettings = NULL;
+				param.extraSettingsLen = 0;
+
+				AllVideoCodec.push_back(param);
+				int length = plugin->getOptions(plugin->encoderId, NULL, NULL, 0);
+				char *pluginOptions = new char[length + 1];
+				vidEncOptions encodeOptions;
+
+				plugin->getOptions(plugin->encoderId, &encodeOptions, pluginOptions, length);
+				pluginOptions[length] = 0;
+
+				updateCompressionParameters(&param, encodeOptions.encodeMode, encodeOptions.encodeModeParameter, pluginOptions, length);
+			}
+
+			counter++;
 		}
-		else
-		{
-			displayName = new char[strlen(codecType) + 1];
-			sprintf(displayName, "%s", codecType);
-		}
-
-		COMPRES_PARAMS *param = &AllVideoCodec[internalCodecCount + counter];
-
-		param->codec = CodecExternal;
-		param->menuName = displayName;
-		param->tagName = codecName;
-		param->extra_param = counter;
-		param->extraSettings = NULL;
-		param->extraSettingsLen = 0;
-
-		int length = plugin->getOptions(plugin->encoderId, NULL, NULL, 0);
-		char *pluginOptions = new char[length + 1];
-		vidEncOptions encodeOptions;
-
-		plugin->getOptions(plugin->encoderId, &encodeOptions, pluginOptions, length);
-		pluginOptions[length] = 0;
-
-		updateCompressionParameters(param, encodeOptions.encodeMode, encodeOptions.encodeModeParameter, pluginOptions, length);
-		counter++;
 	}
 
 	return 1;
@@ -394,7 +453,7 @@ ADM_vidEnc_plugin* getVideoEncoderPlugin(int index)
 {
 	ADM_assert(index < ADM_videoEncoderPlugins.size());
 
-	std::list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin();
+	list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin();
 
 	if (index > 0)
 		advance(it, index);

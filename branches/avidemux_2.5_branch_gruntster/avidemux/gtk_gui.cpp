@@ -157,6 +157,7 @@ uint8_t GUI_close(void);
 extern void A_jog(void);
 extern void DIA_glyphEdit(void);
 extern uint8_t DIA_pluginsInfo(void);
+extern uint8_t DIA_pluginManager(void);
 //___________________________________________
 // serialization of user event through gui
 //
@@ -256,6 +257,9 @@ int nw;
     case ACT_PLUGIN_INFO:
             DIA_pluginsInfo();
             return;
+	case ACT_PLUGIN_MANAGER:
+		DIA_pluginManager();
+		return;
     case ACT_RunScript:
                 GUI_FileSelRead (QT_TR_NOOP("Select ECMAScript to Run"),(SELFILE_CB *) A_parseECMAScript);
                         
@@ -296,7 +300,7 @@ int nw;
         if(playing) return;
     	if(DIA_Preferences())
 	{
-	saveEncoderConfig ();
+
  	#ifdef HAVE_AUDIO     
       		AVDM_audioSave();
  	#endif     
@@ -304,7 +308,6 @@ int nw;
 	}      
 	return;
     case ACT_SavePref:
-      saveEncoderConfig ();
  #ifdef HAVE_AUDIO     
       AVDM_audioSave();
  #endif     

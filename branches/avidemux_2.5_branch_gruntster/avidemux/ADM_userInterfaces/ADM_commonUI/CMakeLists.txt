@@ -15,6 +15,10 @@ DIA_tsSub.cpp
 DIA_jobs_save.cpp
 DIA_plugins.cpp
 DIA_muxerMpegPs.cpp
+UiPluginManager.cpp
 )
+
+add_definitions(${LIBXML2_DEFINITIONS})
+include_directories("${LIBXML2_INCLUDE_DIR}")
 
 ADD_ADM_LIB_ALL_TARGETS(${ADM_LIB} ${${ADM_LIB}_SRCS})

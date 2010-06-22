@@ -16,22 +16,7 @@
 #include "config.h"
 #include "ADM_default.h"
 #include "ADM_videoFilter.h"
-
-
-
-
-
 #include "ADM_encoder/ADM_vidEncode.hxx"
-//#include "ADM_audioEncoder/include/audioencoder_enum.h"
-
-
-#ifdef USE_XX_XVID 
-#include "xvid.h"
-int  DIA_getXvidCompressParams(COMPRESSION_MODE * mode, uint32_t * qz,
-		      uint32_t * br,uint32_t *fsize,xvidEncParam *param){return 0;}
-#endif
-
-
 
 uint8_t DIA_videoCodec(int *codecIndex) {return 0;}
 uint8_t DIA_audioCodec( int *codec ) {return 0;}

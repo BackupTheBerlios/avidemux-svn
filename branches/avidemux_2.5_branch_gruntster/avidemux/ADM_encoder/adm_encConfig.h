@@ -3,7 +3,6 @@
 
 #include "ADM_vidEncode.hxx"
 
-void saveEncoderConfig(void);
 void videoCodecSetCodec(int codecIndex);
 int videoCodecConfigure(char *cmdString, uint32_t optionSize, uint8_t * option);
 

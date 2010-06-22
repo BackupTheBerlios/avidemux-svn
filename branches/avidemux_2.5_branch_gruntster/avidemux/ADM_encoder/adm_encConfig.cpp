@@ -14,6 +14,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#include <vector>
+
 #include "config.h"
 
 #include "ADM_assert.h"
@@ -34,8 +36,7 @@
 #define MODULE_NAME MODULE_ENCODER
 #include "ADM_osSupport/ADM_debug.h"
 
-extern struct COMPRES_PARAMS *AllVideoCodec;
-extern int AllVideoCodecCount;
+extern std::vector<COMPRES_PARAMS> AllVideoCodec;
 extern uint8_t DIA_videoCodec(int *codecIndex);
 extern void UI_setVideoCodec(int i);
 extern void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle);
@@ -69,15 +70,20 @@ uint8_t mk_hex (uint8_t a, uint8_t b);
  */
 static COMPRES_PARAMS* getCodecParamFromTag(    SelectCodecType tag)
 {
-    if(tag==CodecExternal) return NULL;
-    for(int i=0;i<AllVideoCodecCount;i++)
-      {
-        COMPRES_PARAMS *r=&(AllVideoCodec[i]);
-        if(r->codec==tag) return r;
-      }
-    return NULL;
-  
+	if (tag == CodecExternal)
+		return NULL;
+
+	for (int i = 0; i < AllVideoCodec.size(); i++)
+	{
+		COMPRES_PARAMS *r = &(AllVideoCodec[i]);
+
+		if (r->codec == tag)
+			return r;
+	}
+
+	return NULL;
 }
+
 CodecFamilty videoCodecGetFamily(void)
 {
 	if (currentCodecType == CodecExternal && (
@@ -248,7 +254,7 @@ int videoCodecConfigure(char *cmdString, uint32_t optionSize, uint8_t * option)
 // Used to know the # of menu entries
 int encoderGetEncoderCount(void)
 {
-	return AllVideoCodecCount;
+	return AllVideoCodec.size();
 }
 
 // Return the name of the encoder #i, as displayer by a menu/combo box
@@ -258,7 +264,7 @@ const char *encoderGetIndexedName(uint32_t i)
 
 	ADM_assert(i < nb);
 
-	return AllVideoCodec[i].menuName;
+	return AllVideoCodec[i].menuName.c_str();
 }
 
 void videoCodecChanged(int newCodecIndex)
@@ -272,11 +278,6 @@ void videoCodecChanged(int newCodecIndex)
 void encoderPrint(void)
 {
 	UI_setVideoCodec(currentCodecIndex);
-}
-
-void saveEncoderConfig(void)
-{
-	prefs->set (CODECS_PREFERREDCODEC, AllVideoCodec[currentCodecIndex].tagName);
 }
 
 SelectCodecType videoCodecGetType(void)
