@@ -16,7 +16,6 @@
  ***************************************************************************/
 
 //#include "config.h"
-//#include "prefs.h"
 
 #ifdef VERSION_2_5
 #include "ADM_default.h"
@@ -24,6 +23,7 @@
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
 #include "DIA_factory.h"
+#include "../../prefs.h"
 #include "errno.h"
 //#include "ADM_vidComputeAverage.h"
 #else
@@ -566,7 +566,7 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
 
       print_objects();
       res = SetParameters(_param);
-#ifdef PREFSINCHANGE
+
       DEBUG_PRINTF("avsfilter : configure before save prefs [%s][%s]\n",
                    _param->avs_script, _param->avs_loader);
       // if setparameters are ok and (therefore) avs_script and avs_loader exist
@@ -578,7 +578,6 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
         prefs->set(FILTERS_AVSFILTER_PIPE_TIMEOUT, _param->pipe_timeout);
       }
       DEBUG_PRINTF("avsfilter : configure exit ok\n");
-#endif
       return res;
     }
   }
@@ -823,7 +822,6 @@ ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
     _param->script_ctime = 0;
     _param->script_mtime = 0;
 
-#ifdef PREFSINCHANGE
     if (prefs->get(FILTERS_AVSFILTER_AVS_SCRIPT, &tmp_str) == RC_OK &&
         strlen(tmp_str) > 0)
     {
@@ -853,7 +851,6 @@ ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
         _param->script_mtime = st.st_mtime; // store timestamp
         _param->script_ctime = st.st_ctime;
       }
-#endif
   }
   _uncompressed=new ADMImage(_in->getInfo()->width,_in->getInfo()->height);
   ADM_assert(_uncompressed);
