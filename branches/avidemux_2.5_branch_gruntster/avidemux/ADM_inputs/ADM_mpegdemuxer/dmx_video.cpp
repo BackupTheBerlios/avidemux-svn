@@ -501,7 +501,7 @@ char *start;
                                         printf("No seq header + extraction point\n");
                                         return false;
                                 }
-                                _extraDataLen=count-4;
+                                _extraDataLen=count-3;
                                 _extraData=new uint8_t[_extraDataLen];
                                 memcpy(_extraData,tmp,_extraDataLen);
                                 mixDump(tmp,50);
