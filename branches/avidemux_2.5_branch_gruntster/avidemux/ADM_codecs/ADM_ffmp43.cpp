@@ -659,7 +659,8 @@ decoderFFVC1::decoderFFVC1(uint32_t w, uint32_t h, uint32_t l, uint8_t * d) : de
 {
   _context->extradata = (uint8_t *) d;
   _context->extradata_size = (int) l;
-
+  _refCopy = 1;			// YUV420 only
+  LOWDELAY();
   WRAP_Open (CODEC_ID_VC1);
 }
 

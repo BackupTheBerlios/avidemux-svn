@@ -240,7 +240,10 @@ protected:
 
 public:
   decoderFFVC1 (uint32_t w, uint32_t h, uint32_t l, uint8_t * d);
-
+  virtual uint8_t bFramePossible (void)
+  {
+      return true;
+  }
 };
 
 class decoderFFV1:public decoderFF
