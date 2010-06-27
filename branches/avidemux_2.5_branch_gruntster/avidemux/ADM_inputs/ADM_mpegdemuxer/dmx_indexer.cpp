@@ -114,6 +114,7 @@ uint8_t dmx_indexer(const char *mpeg,const char *file,uint32_t preferedAudio,uin
                                 }
                                 switch(tracks[0].streamType)
                                   {
+                                    case ADM_STREAM_VC1:        payloadType=DMX_PAYLOAD_VC1;break;
                                     case ADM_STREAM_H264:       payloadType=DMX_PAYLOAD_H264;break;
                                     case ADM_STREAM_MPEG4:      payloadType=DMX_PAYLOAD_MPEG4;break;
                                     case ADM_STREAM_MPEG_VIDEO: payloadType=DMX_PAYLOAD_MPEG2;break;
@@ -220,6 +221,10 @@ uint8_t dmx_indexer(const char *mpeg,const char *file,uint32_t preferedAudio,uin
                             break;
                   }
           case DMX_PAYLOAD_MPEG4:ADM_assert(0);
+          case DMX_PAYLOAD_VC1:
+                            idxer=new dmx_videoIndexerVC1(&run);
+                            break;
+
           case DMX_PAYLOAD_H264:
                             idxer=new dmx_videoIndexerH264(&run);
                             break;
@@ -300,6 +305,8 @@ uint8_t dmx_indexer(const char *mpeg,const char *file,uint32_t preferedAudio,uin
                             break;
           case DMX_PAYLOAD_H264:
                             qfprintf(out,"Payload  : H264\n"); // MPEG,MP_4,H264
+          case DMX_PAYLOAD_VC1:
+                            qfprintf(out,"Payload  : VC1 \n"); // MPEG,MP_4,H264
                             break;
           default: ADM_assert(0);
         }                            

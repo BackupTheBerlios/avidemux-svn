@@ -28,7 +28,8 @@ typedef enum
   DMX_PAYLOAD_ERROR=0,
   DMX_PAYLOAD_MPEG2=1,
   DMX_PAYLOAD_MPEG4,
-  DMX_PAYLOAD_H264
+  DMX_PAYLOAD_H264,
+  DMX_PAYLOAD_VC1
 }dmx_payloadType;
 
 class dmx_demuxer

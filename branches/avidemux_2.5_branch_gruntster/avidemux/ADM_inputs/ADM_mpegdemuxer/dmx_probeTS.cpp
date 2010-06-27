@@ -322,7 +322,7 @@ uint8_t dmx_probeTsPatPmt(const char *file, uint32_t *nbTracks, MPEG_TRACK **tra
 	{
 		ADM_STREAM_TYPE type = xtracks[j].streamType;
 
-		if(type == ADM_STREAM_MPEG_VIDEO || type==ADM_STREAM_MPEG4 || type==ADM_STREAM_H264)
+		if(type == ADM_STREAM_MPEG_VIDEO || type==ADM_STREAM_MPEG4 || type==ADM_STREAM_H264 || type==ADM_STREAM_VC1)
 		{
 			found = j;
 			break;
@@ -587,6 +587,9 @@ int parseProgramDescriptors(uint8_t *progDescBuffer, int progDescLength, int *es
 
 				if (d[0] == 'A' && d[1] == 'C' && d[2] == '-' && d[3] == '3')	// AC3
 					*esType = 0x81;
+                else if (d[0] == 'V' && d[1] == 'C' && d[2] == '-' && d[3] == '1')	
+                            *esType = 0xea;
+                    else printf("Unkown registration : %c%c%c%c\n",d[0],d[1],d[2],d[3]);
 				//else if (d[0] == 'D' && d[1] == 'T' && d[2] == 'S' && d[3] == '1')	// DTS
 				//else if (d[0] == 'D' && d[1] == 'T' && d[2] == 'S' && d[3] == '2')	// DTS
 				//else if (d[0] == 'V' && d[1] == 'C' && d[2] == '-' && d[3] == '1')	// VC-1
@@ -610,6 +613,7 @@ const char *dmx_streamType(uint32_t type,ADM_STREAM_TYPE *streamType)
    case 0x10:        *streamType=ADM_STREAM_MPEG4;return "MP4 Video";
    case 0x1B: *streamType=ADM_STREAM_H264;return "H264";
    case 0x81: *streamType=ADM_STREAM_AC3;return "Private (AC3?)";
+   case 0xea: *streamType=ADM_STREAM_VC1;return "VC1";
  }
  *streamType=ADM_STREAM_UNKNOWN;
   return "???";
@@ -632,6 +636,7 @@ static const char *dmx_streamTypeAsString(ADM_STREAM_TYPE st)
   MST(ADM_STREAM_H264,H264)
   MST(ADM_STREAM_MPEG4,MPEG4)
   MST(ADM_STREAM_AAC,AAC)
+  MST(ADM_STREAM_VC1,VC1)
     
   }
   return "???";
