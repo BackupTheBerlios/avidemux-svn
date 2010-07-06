@@ -44,13 +44,13 @@ if exist "%qtDir%" (
 
 set qtDir=%qtDir%\%qtVer%
 
-if exist "%devDir%\CMake 2.6\bin" (
-	set cmakeDir=%devDir%\CMake 2.6\bin
+if exist "%devDir%\CMake 2.8\bin" (
+	set cmakeDir=%devDir%\CMake 2.8\bin
 	goto foundCMake
 )
 
-if exist "%ProgramFiles32%\CMake 2.6\bin" (
-	set cmakeDir=%ProgramFiles32%\CMake 2.6\bin
+if exist "%ProgramFiles32%\CMake 2.8\bin" (
+	set cmakeDir=%ProgramFiles32%\CMake 2.8\bin
 ) else (
 	echo CMake could not be found.  Please download from http://www.cmake.org
 	goto error
