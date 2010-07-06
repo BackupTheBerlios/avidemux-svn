@@ -41,6 +41,7 @@ extern uint8_t UI_getPhysicalScreenSize(void* window, uint32_t *w,uint32_t *h);
 extern int automation(void );
 extern void HandleAction(Action a);
 extern bool isVideoCodecConfigurable(void);
+extern int encoderGetDefaultIndex(void);
 extern int encoderGetEncoderCount (void);
 extern const char *encoderGetIndexedName (uint32_t i);
 uint32_t audioEncoderGetNumberOfEncoders(void);
@@ -877,6 +878,9 @@ void setupMenus(void)
 		name=encoderGetIndexedName(i);
 		WIDGET(comboBoxVideo)->addItem(name);
 	}
+
+	if (encoderGetDefaultIndex() > -1)
+		UI_setVideoCodec(encoderGetDefaultIndex());
 
 	// And A codec
 

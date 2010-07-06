@@ -28,7 +28,7 @@
 using namespace std;
 
 vector<COMPRES_PARAMS> AllVideoCodec;
-int defaultVideoEncoder = 0;
+int defaultVideoEncoder = -1;
 
 extern COMPRES_PARAMS *internalVideoCodec[];
 extern int getInternalVideoCodecCount();
@@ -268,9 +268,6 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 		if (!itRankedPlugin->enabled)
 			continue;
 
-		if (itRankedPlugin->isDefault)
-			defaultVideoEncoder = AllVideoCodec.size();
-
 		// internal
 		for (int i = 0; i < internalCodecCount; i++)
 		{			
@@ -287,6 +284,9 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 
 				AllVideoCodec.push_back(param);
 				found = true;
+
+				if (itRankedPlugin->isDefault)
+					defaultVideoEncoder = AllVideoCodec.size() - 1;
 
 				break;
 			}
@@ -350,6 +350,11 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 				pluginOptions[length] = 0;
 
 				updateCompressionParameters(&param, encodeOptions.encodeMode, encodeOptions.encodeModeParameter, pluginOptions, length);
+
+				if (itRankedPlugin->isDefault)
+					defaultVideoEncoder = AllVideoCodec.size() - 1;
+
+				break;
 			}
 
 			counter++;

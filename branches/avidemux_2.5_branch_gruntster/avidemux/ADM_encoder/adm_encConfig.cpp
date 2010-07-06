@@ -36,6 +36,7 @@
 #define MODULE_NAME MODULE_ENCODER
 #include "ADM_osSupport/ADM_debug.h"
 
+extern int defaultVideoEncoder;
 extern std::vector<COMPRES_PARAMS> AllVideoCodec;
 extern uint8_t DIA_videoCodec(int *codecIndex);
 extern void UI_setVideoCodec(int i);
@@ -44,7 +45,6 @@ extern uint8_t isMpeg12Compatible (uint32_t fourcc);
 
 // Some static stuff
 void setVideoEncoderSettings(COMPRESSION_MODE mode, uint32_t param, uint32_t extraConf, uint8_t *extraData);
-static void encoderPrint(void);
 
 #include "adm_encConfig.h"
 #include "adm_encoder.h"
@@ -257,6 +257,11 @@ int encoderGetEncoderCount(void)
 	return AllVideoCodec.size();
 }
 
+int encoderGetDefaultIndex(void)
+{
+	return defaultVideoEncoder;
+}
+
 // Return the name of the encoder #i, as displayer by a menu/combo box
 const char *encoderGetIndexedName(uint32_t i)
 {
@@ -273,11 +278,6 @@ void videoCodecChanged(int newCodecIndex)
 
 	currentCodecType = AllVideoCodec[newCodecIndex].codec;
 	currentCodecIndex = newCodecIndex;
-}
-
-void encoderPrint(void)
-{
-	UI_setVideoCodec(currentCodecIndex);
 }
 
 SelectCodecType videoCodecGetType(void)
@@ -399,7 +399,7 @@ const char *videoCodecGetName(void)
 void videoCodecSelect(void)
 {
   DIA_videoCodec(&currentCodecIndex);
-  encoderPrint ();
+  UI_setVideoCodec(currentCodecIndex);
   // HERE UI_PrintCurrentVCodec( (currentCodecType))
 
 }
@@ -408,7 +408,7 @@ void videoCodecSetCodec(int codecIndex)
 {
 	currentCodecIndex = codecIndex;
 	currentCodecType = AllVideoCodec[codecIndex].codec;
-	encoderPrint();
+	UI_setVideoCodec(currentCodecIndex);
 }
 
 void videoCodecConfigureUI(int codecIndex)
