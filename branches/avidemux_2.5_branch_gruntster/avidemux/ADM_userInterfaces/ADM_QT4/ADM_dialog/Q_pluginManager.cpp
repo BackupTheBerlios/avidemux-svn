@@ -65,6 +65,11 @@ Ui_pluginManagerWindow::Ui_pluginManagerWindow(QWidget* parent) : QDialog(parent
 
 	fillVideoEncoderList(manager);
 	ui.pluginTableView->resizeColumnsToContents();
+
+	connect(
+		ui.pluginTableView->model(),
+		SIGNAL(itemChanged(QStandardItem*)), this,
+		SLOT(pluginTableView_itemChanged(QStandardItem*)));
 }
 
 void Ui_pluginManagerWindow::fillVideoEncoderList(UiPluginManager manager)
@@ -113,7 +118,7 @@ void Ui_pluginManagerWindow::fillVideoEncoderList(UiPluginManager manager)
 			QString(id.c_str()), QString(itPlugin->second.name.c_str()), QString(itPlugin->second.version.c_str()),
 			QString(itPlugin->second.description.c_str()), itRankedPlugin->enabled, itRankedPlugin->isDefault);
 
-		if (itRankedPlugin->isDefault)
+		if (!defaultSet && itRankedPlugin->isDefault)
 			defaultSet = true;
 	}
 
@@ -122,7 +127,7 @@ void Ui_pluginManagerWindow::fillVideoEncoderList(UiPluginManager manager)
 		ui.pluginTableView->selectRow(0);
 
 		if (!defaultSet)
-			setDefault(0);
+			setDefaultRow(0);
 	}
 
 }
@@ -133,11 +138,17 @@ void Ui_pluginManagerWindow::pluginTableView_rowChanged(const QModelIndex curren
 	ui.moveDownButton->setEnabled((current.row() + 1) != ui.pluginTableView->model()->rowCount());
 }
 
+void Ui_pluginManagerWindow::pluginTableView_itemChanged(QStandardItem* item)
+{
+	if (item->column() == 0 && item->checkState() == Qt::Unchecked)
+		clearDefaultRow(item->row());
+}
+
 void Ui_pluginManagerWindow::setDefaultButton_clicked(bool)
 {
 	QStandardItemModel *model = (QStandardItemModel*)ui.pluginTableView->model();
 	
-	setDefault(ui.pluginTableView->selectionModel()->currentIndex().row());
+	setDefaultRow(ui.pluginTableView->selectionModel()->currentIndex().row());
 }
 
 void Ui_pluginManagerWindow::enableAllButton_clicked(bool)
@@ -180,10 +191,10 @@ void Ui_pluginManagerWindow::addRow(QString id, QString name, QString version, Q
 	model->setItem(row, 2, descItem);
 
 	if (isDefault)
-		setDefault(row);
+		setDefaultRow(row);
 }
 
-void Ui_pluginManagerWindow::setDefault(int defaultRow)
+void Ui_pluginManagerWindow::setDefaultRow(int defaultRow)
 {
 	QStandardItemModel *model = (QStandardItemModel*)ui.pluginTableView->model();
 
@@ -201,6 +212,23 @@ void Ui_pluginManagerWindow::setDefault(int defaultRow)
 			font.setBold(row == defaultRow);
 			item->setFont(font);
 		}
+	}
+}
+
+void Ui_pluginManagerWindow::clearDefaultRow(int defaultRow)
+{
+	QStandardItemModel *model = (QStandardItemModel*)ui.pluginTableView->model();
+	QStandardItem *item = model->item(defaultRow, 0);
+
+	item->setData(false, PLUGIN_IS_DEFAULT);
+
+	for (int column = 0; column < model->columnCount(); column++)
+	{
+		QStandardItem *item = model->item(defaultRow, column);
+		QFont font = item->font();
+
+		font.setBold(false);
+		item->setFont(font);
 	}
 }
 

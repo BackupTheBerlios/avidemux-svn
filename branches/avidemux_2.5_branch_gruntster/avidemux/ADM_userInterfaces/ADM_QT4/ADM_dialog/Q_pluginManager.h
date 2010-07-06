@@ -24,7 +24,8 @@ private:
 	void fillVideoEncoderList(UiPluginManager manager);
 	void addRow(QString id, QString name, QString version, QString desc, bool enabled, bool isDefault);
 	void checkAllItems(bool check);
-	void setDefault(int defaultRow);
+	void setDefaultRow(int defaultRow);
+	void clearDefaultRow(int defaultRow);
 	void moveSelectedItem(bool up);
 
 public:
@@ -33,6 +34,7 @@ public:
 
 private slots:
 	void pluginTableView_rowChanged(const QModelIndex current, const QModelIndex previous);
+	void pluginTableView_itemChanged(QStandardItem *item);
 	void setDefaultButton_clicked(bool);
 	void enableAllButton_clicked(bool);
 	void disableAllButton_clicked(bool);
