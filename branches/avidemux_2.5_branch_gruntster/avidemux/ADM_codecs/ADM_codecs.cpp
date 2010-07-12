@@ -163,8 +163,10 @@ isDVCompatible (uint32_t fourcc)
   uint8_t dv = 0;
 
   CHECK ("dvsd");
-  CHECK ("DVDS");
+  CHECK ("DVSD");
   CHECK ("dvpp");
+  CHECK ("CDVC");
+  CHECK ("cdvc");
 
   return dv;
 
