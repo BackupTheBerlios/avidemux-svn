@@ -569,8 +569,14 @@ uint8_t asfHeader::loadVideo(asfChunk *s)
               return 0; 
             }
             printBih(&_video_bih);
+#if 1
+            if(_video_bih.biSize>sizeof(ADM_BITMAPINFOHEADER))
+                {
+                        x=_video_bih.biSize;            
+#else
             if(x>sizeof(ADM_BITMAPINFOHEADER))
             {
+#endif
               _extraDataLen=x-sizeof(ADM_BITMAPINFOHEADER);
               _extraData=new uint8_t[_extraDataLen];
               s->read(_extraData,_extraDataLen);
