@@ -200,6 +200,7 @@ uint32_t   percent;
           setVideoSizeIn((_videoSize>>20));
 
           fprintf(stderr,"Done:%u%% Frames: %u/%u ETA: %02u:%02u:%02u\r",percent,_lastnb,_total,hh,mm,ss);
+          fflush(stderr);
 
 }
 void DIA_encoding::setQuantIn(int size)
