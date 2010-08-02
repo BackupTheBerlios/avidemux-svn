@@ -25,7 +25,7 @@
 #define PLUGIN_ID           Qt::UserRole
 #define PLUGIN_IS_DEFAULT   Qt::UserRole + 1
 
-extern COMPRES_PARAMS *internalVideoCodec[];
+extern CODEC_INFO *internalVideoCodecInfo[];
 extern uint32_t ADM_ve_getNbEncoders(void);
 extern bool ADM_ve_getEncoderInfo(int filter, const char **id, const char **name, const char **type, const char **desc, uint32_t *major, uint32_t *minor, uint32_t *patch);
 extern int getInternalVideoCodecCount();
@@ -82,12 +82,12 @@ void Ui_pluginManagerWindow::fillVideoEncoderList(UiPluginManager manager)
 	{
 		UiPlugVersionInfo versionInfo;
 
-		versionInfo.name = internalVideoCodec[i]->menuName;
+		versionInfo.name = internalVideoCodecInfo[i]->menuName;
 		versionInfo.version = QString("%1.0.%2").arg(VERSION).arg(ADM_SUBVERSION).toUtf8().constData();
 		versionInfo.description = tr("Internal video encoder").toUtf8().constData();
 
-		pluginIds.insert(internalVideoCodec[i]->tagName);
-		plugins[internalVideoCodec[i]->tagName] = versionInfo;
+		pluginIds.insert(internalVideoCodecInfo[i]->tagName);
+		plugins[internalVideoCodecInfo[i]->tagName] = versionInfo;
 	}
 
 	for (int i = 0; i < pluginCount; i++)
