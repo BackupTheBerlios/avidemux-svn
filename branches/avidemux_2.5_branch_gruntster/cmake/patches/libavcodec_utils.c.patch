@@ -1,8 +1,8 @@
-*** libavcodec/utils.c.old	Tue Jul  6 19:51:25 2010
---- libavcodec/utils.c	Tue Jul  6 19:51:25 2010
+*** libavcodec/utils.c.old	Mon Aug  2 20:19:56 2010
+--- libavcodec/utils.c	Mon Aug  2 20:19:56 2010
 ***************
-*** 636,645 ****
---- 636,647 ----
+*** 644,653 ****
+--- 644,655 ----
   
       if((avctx->codec->capabilities & CODEC_CAP_DELAY) || avpkt->size){
           //FIXME remove the check below _after_ ensuring that all audio check that the available space is enough
