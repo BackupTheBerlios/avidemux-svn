@@ -623,9 +623,6 @@ JSBool facBitrate(JSContext *cx, JSObject *obj, uintN argc, jsval *argv, jsval *
 {
    COMPRES_PARAMS test={
   CodecYV12,
-  "YV12 (raw)",
-  "YV12",
-  "YV12",
   COMPRESS_CQ,
   1,
   1500,

@@ -50,12 +50,16 @@ typedef enum
 #define ADM_EXTRA_PARAM_JS 0x100
 #define ADM_EXTRA_PARAM    0x200
 
-struct COMPRES_PARAMS
+struct CODEC_INFO
 {
-	SelectCodecType codec;
 	std::string menuName;
 	const char *tagName;
 	const char *descriptor;
+};
+
+struct COMPRES_PARAMS
+{
+	SelectCodecType codec;
 	COMPRESSION_MODE mode;
 	uint32_t qz, bitrate, finalsize,avg_bitrate;  // avg_bitrate is in kb/s!!
 	uint32_t capabilities;

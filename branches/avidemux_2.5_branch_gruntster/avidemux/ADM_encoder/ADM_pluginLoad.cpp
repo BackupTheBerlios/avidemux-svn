@@ -28,9 +28,13 @@
 using namespace std;
 
 vector<COMPRES_PARAMS> AllVideoCodec;
+vector<CODEC_INFO> AllVideoCodecInfo;
+
 int defaultVideoEncoder = -1;
 
 extern COMPRES_PARAMS *internalVideoCodec[];
+extern CODEC_INFO *internalVideoCodecInfo[];
+
 extern int getInternalVideoCodecCount();
 
 #if 1
@@ -248,7 +252,7 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 	int internalCodecCount = getInternalVideoCodecCount();
 
 	for (int i = 0; i < internalCodecCount; i++)
-		pluginIds.insert(internalVideoCodec[i]->tagName);
+		pluginIds.insert(internalVideoCodecInfo[i]->tagName);
 
 	for (list<ADM_vidEnc_plugin*>::iterator it = ADM_videoEncoderPlugins.begin(); it != ADM_videoEncoderPlugins.end(); it++)
 	{
@@ -271,18 +275,21 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 		// internal
 		for (int i = 0; i < internalCodecCount; i++)
 		{			
-			if (string(internalVideoCodec[i]->tagName) == itRankedPlugin->id)
+			if (string(internalVideoCodecInfo[i]->tagName) == itRankedPlugin->id)
 			{
 				COMPRES_PARAMS param;
+				CODEC_INFO info;
 
 				param.codec = internalVideoCodec[i]->codec;
-				param.menuName = internalVideoCodec[i]->menuName;
-				param.tagName = internalVideoCodec[i]->tagName;
 				param.extra_param = internalVideoCodec[i]->extra_param;
 				param.extraSettings = internalVideoCodec[i]->extraSettings;
 				param.extraSettingsLen = internalVideoCodec[i]->extraSettingsLen;
 
+				info.menuName = internalVideoCodecInfo[i]->menuName;
+				info.tagName = internalVideoCodecInfo[i]->tagName;
+
 				AllVideoCodec.push_back(param);
+				AllVideoCodecInfo.push_back(info);
 				found = true;
 
 				if (itRankedPlugin->isDefault)
@@ -329,19 +336,23 @@ int loadVideoEncoderPlugins(int uiType, const char *path)
 				*it--;
 
 				COMPRES_PARAMS param;
+				CODEC_INFO info;
 
 				if ((prevType != NULL && strcmp(prevType, codecType) == 0) || (nextType != NULL && strcmp(nextType, codecType) == 0))
-					param.menuName = string(codecType) + " (" + string(codecName) + ")";
+					info.menuName = string(codecType) + " (" + string(codecName) + ")";
 				else
-					param.menuName = codecType;
+					info.menuName = codecType;
 
-				param.codec = CodecExternal;
-				param.tagName = codecName;
+				info.tagName = codecName;
+
+				param.codec = CodecExternal;				
 				param.extra_param = counter;
 				param.extraSettings = NULL;
 				param.extraSettingsLen = 0;
 
 				AllVideoCodec.push_back(param);
+				AllVideoCodecInfo.push_back(info);
+
 				int length = plugin->getOptions(plugin->encoderId, NULL, NULL, 0);
 				char *pluginOptions = new char[length + 1];
 				vidEncOptions encodeOptions;

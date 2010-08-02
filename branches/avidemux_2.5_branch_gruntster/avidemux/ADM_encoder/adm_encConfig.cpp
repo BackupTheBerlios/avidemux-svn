@@ -38,6 +38,7 @@
 
 extern int defaultVideoEncoder;
 extern std::vector<COMPRES_PARAMS> AllVideoCodec;
+extern std::vector<CODEC_INFO> AllVideoCodecInfo;
 extern uint8_t DIA_videoCodec(int *codecIndex);
 extern void UI_setVideoCodec(int i);
 extern void getMainWindowHandles(intptr_t *handle, intptr_t *nativeHandle);
@@ -269,7 +270,7 @@ const char *encoderGetIndexedName(uint32_t i)
 
 	ADM_assert(i < nb);
 
-	return AllVideoCodec[i].menuName.c_str();
+	return AllVideoCodecInfo[i].menuName.c_str();
 }
 
 void videoCodecChanged(int newCodecIndex)
@@ -296,7 +297,7 @@ int videoCodecSelectByName(const char *name)
 
 	for (uint32_t i = 0; i < nb; i++)
 	{
-		if (!strcasecmp(name, AllVideoCodec[i].tagName))
+		if (!strcasecmp(name, AllVideoCodecInfo[i].tagName))
 		{
 			printf ("\n Codec %s found\n", name);
 			videoCodecSetCodec(i);
@@ -309,7 +310,7 @@ int videoCodecSelectByName(const char *name)
 	printf (" Available codec : %d\n", sizeof (AllVideoCodec) / sizeof (COMPRES_PARAMS));
 
 	for (uint32_t i = 0; i < nb; i++)
-		printf ("%s:%s\n", AllVideoCodec[i].tagName, AllVideoCodec[i].descriptor);
+		printf ("%s:%s\n", AllVideoCodecInfo[i].tagName, AllVideoCodecInfo[i].descriptor);
 
 	return 0;
 }
@@ -390,7 +391,7 @@ const char *videoCodecGetMode(void)
 
 const char *videoCodecGetName(void)
 {
-	return AllVideoCodec[currentCodecIndex].tagName;
+	return AllVideoCodecInfo[currentCodecIndex].tagName;
 }
 
 ///
@@ -731,7 +732,7 @@ void videoCodecSetConf(uint32_t extraLen, uint8_t *extraData)
 	{
 		if (extraLen != param->extraSettingsLen)
 		{
-			printf("Codec:%s\n", param->descriptor);
+			printf("Codec:%s\n", AllVideoCodecInfo[currentCodecIndex].descriptor);
 			printf("Expected :%d got:%d\n", param->extraSettingsLen, extraLen);
 			ADM_assert(0);
 		}
