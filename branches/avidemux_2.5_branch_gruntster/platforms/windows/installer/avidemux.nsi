@@ -297,6 +297,7 @@ Section "Avidemux Core" SecCore
     ${File} COPYING.
     ${File} README.
     ${File} avcodec-*.dll
+    ${File} avcore-*.dll
     ${File} avformat-*.dll
     ${File} avutil-*.dll
     ${File} postproc-*.dll

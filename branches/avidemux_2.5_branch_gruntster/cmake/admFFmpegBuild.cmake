@@ -198,6 +198,10 @@ add_library(ADM_libavformat UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavformat PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}")
 install(FILES "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
+add_library(ADM_libavcore UNKNOWN IMPORTED)
+set_property(TARGET ADM_libavcore PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavcore/${LIBAVCORE_LIB}")
+install(FILES "${FFMPEG_BINARY_DIR}/libavcore/${LIBAVCORE_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
+
 include_directories("${FFMPEG_SOURCE_DIR}")
 include_directories("${FFMPEG_SOURCE_DIR}/libavutil")
 include_directories("${FFMPEG_SOURCE_DIR}/libpostproc")
