@@ -305,6 +305,7 @@ uint8_t dmx_indexer(const char *mpeg,const char *file,uint32_t preferedAudio,uin
                             break;
           case DMX_PAYLOAD_H264:
                             qfprintf(out,"Payload  : H264\n"); // MPEG,MP_4,H264
+                            break;
           case DMX_PAYLOAD_VC1:
                             qfprintf(out,"Payload  : VC1 \n"); // MPEG,MP_4,H264
                             break;
