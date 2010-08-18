@@ -46,6 +46,10 @@ class entryDesc
           uint8_t *extraData;
 
           void dump(void);
+          uint32_t   headerRepeatSize;
+          uint8_t    headerRepeat[MKV_MAX_REPEAT_HEADER_SIZE];
+
+
 };
 /* Prototypes */
 static uint8_t entryWalk(ADM_ebml_file *head,uint32_t headlen,entryDesc *entry);
@@ -146,6 +150,13 @@ entryDesc entry;
         _tracks[0].extraData=entry.extraData;
         _tracks[0].extraDataLen=entry.extraDataLen;
         _tracks[0].streamIndex=entry.trackNo;
+         uint32_t hdr=entry.headerRepeatSize;
+        if(hdr)
+        {
+            _tracks[0].headerRepeatSize=entry.headerRepeatSize;
+            memcpy(_tracks[0].headerRepeat,entry.headerRepeat,hdr);
+            printf("video has %d bytes of repeated headers\n",hdr);
+        }
 
         return 1;
       }
@@ -166,6 +177,14 @@ entryDesc entry;
           t->_defaultFrameDuration=entry.defaultDuration;
          else
            t->_defaultFrameDuration=0;
+         uint32_t hdr=entry.headerRepeatSize;
+         if(hdr)
+         {
+            t->headerRepeatSize=entry.headerRepeatSize;
+            memcpy(t->headerRepeat,entry.headerRepeat,hdr);
+         }
+
+
         _nbAudioTrack++;
         return 1;
       }
@@ -196,6 +215,14 @@ uint8_t entryWalk(ADM_ebml_file *head,uint32_t headlen,entryDesc *entry)
       }
       switch(id)
       {
+        case  MKV_CONTENT_COMPRESSION_SETTINGS: 
+#warning todo: check it is stripping
+                    if(len<=MKV_MAX_REPEAT_HEADER_SIZE)
+                    {
+                        father.readBin(entry->headerRepeat,len);
+                        entry->headerRepeatSize=len;
+                    };
+                    break;
 
         case  MKV_TRACK_NUMBER: entry->trackNo=father.readUnsignedInt(len);break;
         case  MKV_TRACK_TYPE: entry->trackType=father.readUnsignedInt(len);break;
@@ -218,6 +245,10 @@ uint8_t entryWalk(ADM_ebml_file *head,uint32_t headlen,entryDesc *entry)
         }
         case  MKV_AUDIO_SETTINGS:
         case  MKV_VIDEO_SETTINGS:
+        case  MKV_CONTENT_ONE_ENCODING:
+        case  MKV_CONTENT_ENCODINGS:
+        case  MKV_CONTENT_COMPRESSION:
+
                   entryWalk(&father,len,entry);
                   break;
         case MKV_CODEC_ID:

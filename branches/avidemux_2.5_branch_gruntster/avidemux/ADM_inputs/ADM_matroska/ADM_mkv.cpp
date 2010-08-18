@@ -361,9 +361,7 @@ uint8_t  mkvHeader::getFrameNoAlloc(uint32_t framenum,ADMCompressedImage *img)
   mkvIndex *dx=&(_tracks[0]._index[framenum]);
 
   _parser->seek(dx->pos);
-  _parser->readBin(img->data,dx->size);
-  img->dataLength=dx->size;
-
+   img->dataLength=readAndRepeat(0,img->data,dx->size);
   img->flags=dx->flags;
 
   if(!framenum) img->flags=AVI_KEY_FRAME;

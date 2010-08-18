@@ -88,8 +88,9 @@ uint8_t             mkvAudio::getPacket(uint8_t *dest, uint32_t *packlen, uint32
     // Have we still lace to go ?
     if(_currentLace<_maxLace)
     {
-      _clusterParser->readBin(dest,_Laces[_currentLace]);
-      *packlen= _Laces[_currentLace];
+      
+      *packlen= readAndRepeat(dest, _Laces[_currentLace]);
+
       vprintf("Continuing lacing : %u bytes, lacing %u/%u\n",*packlen,_currentLace,_maxLace);
 
      
@@ -160,9 +161,7 @@ uint8_t             mkvAudio::getPacket(uint8_t *dest, uint32_t *packlen, uint32
                       case 0 : // no lacing
 
                               vprintf("No lacing :%d bytes\n",remaining);
-                              _clusterParser->readBin(dest,remaining);
-                              *packlen=remaining;
-                              
+                              *packlen= readAndRepeat(dest, remaining);          
                               _currentLace=_maxLace=0;
 
                               return 1;

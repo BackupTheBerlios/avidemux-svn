@@ -23,6 +23,7 @@
 #include "ADM_editor/ADM_Video.h"
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_inputs/ADM_matroska/ADM_ebml.h"
+#define MKV_MAX_REPEAT_HEADER_SIZE 16
 
 
 typedef struct
@@ -46,6 +47,11 @@ typedef struct
   /* Used for both */
   uint8_t    *extraData;
   uint32_t   extraDataLen;
+  /* */
+  uint32_t   headerRepeatSize;
+  uint8_t    headerRepeat[MKV_MAX_REPEAT_HEADER_SIZE];
+
+
   mkvIndex  *_index;
   uint32_t  _nbIndex;  // current size of the index
   uint32_t  _indexMax; // Max size of the index
@@ -73,6 +79,17 @@ class mkvAudio : public AVDMGenericAudioStream
     uint8_t                     goToCluster(uint32_t x);
     uint8_t                     getPacket(uint8_t *dest, uint32_t *packlen, uint32_t *samples,uint32_t *timecode);
     uint32_t                    _curTimeCode;
+
+  int                       readAndRepeat(uint8_t *buffer, uint32_t len)
+                            {
+                                 uint32_t rpt=_track->headerRepeatSize;
+                                  _parser->readBin(buffer+rpt,len);
+                                  if(rpt)
+                                    memcpy(buffer,_track->headerRepeat,rpt);
+                                  return len+rpt;
+                            }
+
+
   public:
                                 mkvAudio(const char *name,mkvTrak *track,mkvIndex *clust,uint32_t nbClusters);
 
@@ -125,6 +142,16 @@ class mkvHeader         :public vidHeader
     uint32_t                getCurrentAudioStreamNumber(void);
     uint8_t                 getAudioStreamsInfo(uint32_t *nbStreams, audioInfo **infos);
     uint8_t                 rescaleTrack(mkvTrak *track,uint32_t durationMs);
+    int                     readAndRepeat(int index,uint8_t *buffer, uint32_t len)
+                            {
+                                 uint32_t rpt=_tracks[index].headerRepeatSize;
+                                  _parser->readBin(buffer+rpt,len);
+                                  if(rpt)
+                                    memcpy(buffer,_tracks[index].headerRepeat,rpt);
+                                  return len+rpt;
+                            }
+   //__________________________
+
   public:
 
       uint8_t               hasPtsDts(void) {return 1;} // Return 1 if the container gives PTS & DTS info
