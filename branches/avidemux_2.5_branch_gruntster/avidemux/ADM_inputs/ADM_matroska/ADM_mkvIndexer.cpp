@@ -290,30 +290,35 @@ uint8_t mkvHeader::addIndexEntry(uint32_t track,ADM_ebml_file *parser,
   Track->_nbIndex++;
 
   if(track) return 1; // no 0 track = audio or subs, we are done here
+  uint32_t rpt=_tracks[0].headerRepeatSize;
 
     // Try to update frame type on the fly...
     // Only do it for Mpeg4 SP/ASP/AVC
     if( isMpeg4Compatible(_videostream.fccHandler))
     {
-        uint8_t buffer[size];
+        uint8_t buffer[size+rpt];
         
-        parser->readBin(buffer,size-3);
+        parser->readBin(buffer+rpt,size-3);
         // Search the frame type...
+        if(rpt)
+           memcpy(buffer,_tracks[0].headerRepeat,rpt);
 
          uint32_t nb,vopType,timeinc=16;
          ADM_vopS vops[10];
          vops[0].type=AVI_KEY_FRAME;
-         ADM_searchVop(buffer,buffer+size-3,&nb,vops, &timeinc);
+         ADM_searchVop(buffer,buffer+rpt+size-3,&nb,vops, &timeinc);
          index[x].flags=vops[0].type;
     
     }
     else
     if(isH264Compatible(_videostream.fccHandler))
     {
-        uint8_t buffer[size];
+        uint8_t buffer[size+rpt];
             uint32_t flags=AVI_KEY_FRAME;
-            parser->readBin(buffer,size-3);
-            extractH264FrameType(2,buffer,size-3,&flags); // Nal size is not used in that case
+            parser->readBin(buffer+rpt,size-3);
+            if(rpt)
+               memcpy(buffer,_tracks[0].headerRepeat,rpt);
+            extractH264FrameType(2,buffer,rpt+size-3,&flags); // Nal size is not used in that case
             if(flags & AVI_KEY_FRAME)
             {
                 //printf("[MKV/H264] Frame %"LU" is a keyframe\n",(uint32_t)Track->index.size());
