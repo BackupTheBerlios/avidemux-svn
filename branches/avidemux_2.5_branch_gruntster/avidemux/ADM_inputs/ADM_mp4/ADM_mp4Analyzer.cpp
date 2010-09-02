@@ -857,7 +857,16 @@ nextAtom:
                                                         audioCodec(AAC);
                                             if(left>10)
                                             {
-                                              adm_atom wave(&son);
+                                            nochan:
+                                                adm_atom wave(&son);
+                                                if(MKFCCR('c','h','a','n')==wave.getFCC())
+                                                {
+                                                        printf("Found chan atom, skipping\n");
+                                                        wave.skipAtom();
+                                                        goto nochan;
+                                                }
+                                              
+
                                               printf("Reading wave, got %s\n",fourCC::tostringBE(wave.getFCC()));
                                               if(MKFCCR('w','a','v','e')==wave.getFCC())
                                               {
