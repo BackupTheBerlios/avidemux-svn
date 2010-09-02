@@ -318,7 +318,9 @@ void onexit( void )
 #endif
 }
 extern void checkCrashFile(void);
+extern ADMImage *createImageFromFile(const char *filename);
 void dummyXref(void)
 {
     checkCrashFile();
+    createImageFromFile("foobar");
 }
