@@ -30,18 +30,7 @@ Skip factor=2
  ***************************************************************************/
 
 #include "ADM_default.h"
-
-//#include "ADM_editor/ADM_edit.hxx"
 #include "ADM_videoFilter.h"
-
-//#define MMX_TRACE
-#warning remove mmxmacro and debug asm
-//#define ASM_ILACING
-
-
-#include "ADM_mmxMacros.h"
-
-
 
 
 #define SKIP_FACTOR 2   // 2^SKIPFACTOR=SKIP_LINEAR+1
@@ -62,7 +51,7 @@ Skip factor=2
 */
 
 #if defined(ADM_CPU_X86) && defined(ASM_ILACING)
-
+#warning REWRITE IN PLAIN ASM
 static uint32_t      ADMVideo_interlaceCount_MMX( uint8_t *src ,uint32_t w, uint32_t h);
 static uint8_t * FUNNY_MANGLE(_l_p)  =NULL;
 static uint8_t * FUNNY_MANGLE(_l_c) =NULL;
