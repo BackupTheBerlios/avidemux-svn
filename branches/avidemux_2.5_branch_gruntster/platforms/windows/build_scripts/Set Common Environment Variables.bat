@@ -5,13 +5,14 @@ set nsisDir=%ProgramFiles32%\NSIS
 set devDir=E:\Dev
 
 if "%BuildBits%" == "32" (
-	set mingwDir=%devDir%\MinGW32
 	set msysDir=E:/Dev/MSYS
 	set qtDir=%devDir%\Qt
+	set CFLAGS=-m32 
+	set CXXFLAGS=-m32
+	set LDFLAGS=-m32
 	goto :setVars )
 
 if "%BuildBits%" == "64" (
-	set mingwDir=%devDir%\MinGW-w64
 	set msysDir=E:/Dev/MSYS-64
 	set qtDir=%devDir%\Qt-64
 	goto :setVars )
@@ -20,20 +21,15 @@ echo Error - BuildBits variable not set
 goto error
 
 :setVars
+set mingwDir=%devDir%\MinGW64
 set usrLocalDir=%msysDir%/local
 set CMAKE_INCLUDE_PATH=%usrLocalDir%/include
 set CMAKE_LIBRARY_PATH=%usrLocalDir%/lib
 set PKG_CONFIG_PATH=%usrLocalDir%\lib\pkgconfig
 set SDLDIR=%usrLocalDir%
-set CFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
-set CXXFLAGS=-I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
-set LDFLAGS=-L%CMAKE_LIBRARY_PATH%
-
-if "%BuildBits%" == "32" (
-	set CFLAGS=%CFLAGS% -I%mingwDir:\=/%/i686-w64-mingw32/include/directx )
-
-if "%BuildBits%" == "64" (
-	set CFLAGS=%CFLAGS% -I%mingwDir:\=/%/x86_64-w64-mingw32/include/directx )
+set CFLAGS=%CFLAGS% -I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
+set CXXFLAGS=%CXXFLAGS% -I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
+set LDFLAGS=%LDFLAGS% -shared-libgcc -shared-libstdc++ -L%CMAKE_LIBRARY_PATH%
 
 if exist "%qtDir%" (
 	for /f %%d in ('dir /b /ad /on %qtDir%') do set qtVer=%%d
