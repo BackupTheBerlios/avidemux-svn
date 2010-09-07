@@ -18,6 +18,7 @@
  ***************************************************************************/
 #include "config.h"
 #include "ADM_default.h"
+#include "ADM_encoder/ADM_vidEncode.hxx"
 
 extern "C"
 {
@@ -36,13 +37,8 @@ extern "C"
 #include "avi_vars.h"
 #include "DIA_coreToolkit.h"
 
-//#include "avilist.h"
-
 #include "ADM_videoFilter.h"
 #include "ADM_videoFilter_internal.h"
-
-#include "ADM_encoder/ADM_vidEncode.hxx"
-
 
 #include "ADM_audio/aviaudio.hxx"
 #include "ADM_audiofilter/audioprocess.hxx"
