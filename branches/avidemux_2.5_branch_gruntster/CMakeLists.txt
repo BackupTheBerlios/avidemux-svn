@@ -211,3 +211,5 @@ ADD_SUBDIRECTORY(scripts)
 ########################################
 INCLUDE(admConfigSummary)
 MESSAGE("")
+
+ADD_SUBDIRECTORY(addons/avsfilter)
