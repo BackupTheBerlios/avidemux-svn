@@ -39,7 +39,7 @@ extern "C" {
 #include "GUI_sdlRender.h"
 #include "ADM_assert.h"
 
-#ifdef __APPLE__
+#if defined(__APPLE__) && !defined(ADM_CPU_X86_64)
 extern "C"
 {
 	void initSdlCocoaView(void* parent, int x, int y, int width, int height, bool carbonParent);
@@ -77,7 +77,7 @@ uint8_t sdlAccelRender::end( void)
         {
                 SDL_QuitSubSystem(SDL_INIT_VIDEO);
 
-#ifdef __APPLE__
+#if defined(__APPLE__) && !defined(ADM_CPU_X86_64)
 				destroyCocoaView();
 #endif
         }
@@ -163,7 +163,7 @@ uint8_t sdlAccelRender::init( GUI_WindowInfo * window, uint32_t w, uint32_t h)
 	putenv(origin);
 #endif
 
-#ifdef __APPLE__
+#if defined(__APPLE__) && !defined(ADM_CPU_X86_64)
 	void* parent;
 
 	if (window->display)
