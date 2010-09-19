@@ -25,6 +25,7 @@ ADM_DISPLAY("Qt 4      " "${ADM_UI_QT4}")
 
 MESSAGE("*** Miscellaneous ***")
 ADM_DISPLAY("gettext   " "${HAVE_GETTEXT}")
+ADM_DISPLAY("OpenGL    " "${USE_OPENGL}")
 ADM_DISPLAY("SDL       " "${USE_SDL}")
 ADM_DISPLAY("XVideo    " "${USE_XV}" "${XVIDEO_CAPABLE}")
 

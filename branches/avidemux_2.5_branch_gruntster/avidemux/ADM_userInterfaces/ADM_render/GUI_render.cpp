@@ -17,9 +17,14 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 #include "config.h"
-#include "ADM_assert.h"
+#include "ADM_coreConfig.h"
+#include "DIA_uiTypes.h"
+
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+#	include "GUI_qtGlRender.h"
+#endif
+
 #include "GUI_render.h"
 #include "GUI_renderInternal.h"
 #include "GUI_accelRender.h"
@@ -32,14 +37,10 @@
 #include "GUI_sdlRender.h"
 #endif
 
-
 #include "ADM_colorspace.h"
 
-#include "DIA_uiTypes.h"
-
-
 static ColYuvRgb rgbConverter(640,480
-#if ADM_UI_TYPE_BUILD == ADM_UI_QT4 
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
     ,1
 #endif    
 );
@@ -288,6 +289,20 @@ uint8_t r=0;
 				}
 
                 break;
+#endif
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+			case RENDER_QT_OPENGL:
+				accel_mode = new QtGlAccelRender();
+
+				r = accel_mode->init(&xinfo, renderW, renderH);
+
+				if (!r)
+				{
+					delete accel_mode;
+					accel_mode = NULL;
+				}
+
+				break;
 #endif
 
             default:break;

@@ -230,13 +230,14 @@ void UI_getWindowInfo(void *draw, GUI_WindowInfo *xinfo)
 
 #if defined(__WIN32)
 	xinfo->display=videoWindow->winId();
+	xinfo->window = (int)videoWindow->winId();
 #elif defined(__APPLE__)
 	#if defined(ADM_CPU_X86_64)
 		xinfo->display = (void*)videoWindow->winId();
-		xinfo->window = 0;
+		xinfo->window = (int)videoWindow->winId();
 	#else
 		xinfo->display = HIViewGetWindow(HIViewRef(widget->winId()));
-		xinfo->window = 0;
+		xinfo->window = (int)videoWindow->winId();
 	#endif
 #else
     const QX11Info &info=videoWindow->x11Info();

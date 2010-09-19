@@ -75,14 +75,13 @@ typedef enum
 #endif
 #ifdef USE_SDL
         RENDER_SDL=2,
-
-#ifdef __WIN32
+#	ifdef __WIN32
 		RENDER_DIRECTX=3,
+#	endif
 #endif
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+		RENDER_QT_OPENGL = 4,
 #endif
-        RENDER_LAST       
-
-
-}ADM_RENDER_TYPE;
-
+        RENDER_LAST
+} ADM_RENDER_TYPE;
 #endif

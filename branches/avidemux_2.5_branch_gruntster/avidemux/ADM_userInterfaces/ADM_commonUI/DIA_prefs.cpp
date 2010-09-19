@@ -14,13 +14,11 @@
 
 #include "config.h"
 #include "ADM_default.h"
-# include "prefs.h"
+#include "prefs.h"
 
 #include "ADM_audiodevice/audio_out.h"
-#include "ADM_assert.h"
+#include "DIA_uiTypes.h"
 #include "ADM_userInterfaces/ADM_render/GUI_render.h"
-
-
 #include "DIA_factory.h"
 
 #ifdef __WIN32
@@ -229,6 +227,9 @@ char     *globalGlyphName=NULL;
         diaElemToggle   togTagMp3(&alternate_mp3_tag,QT_TR_NOOP("_Use alternative tag for MP3 in .mp4"));
         diaMenuEntry videoMode[]={
                              {RENDER_GTK, getNativeRendererDesc(), NULL}
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+							 ,{RENDER_QT_OPENGL, QT_TR_NOOP("Qt (OpenGL)"), NULL}
+#endif
 #ifdef USE_XV
                              ,{RENDER_XV,   QT_TR_NOOP("XVideo (best)"),NULL}
 #endif
@@ -240,10 +241,9 @@ char     *globalGlyphName=NULL;
 							 ,{RENDER_SDL,      QT_TR_NOOP("SDL (good)"),NULL}
 #endif
 #endif
-        };        
+        };
+
         diaElemMenu menuVideoMode(&render,QT_TR_NOOP("Video _display:"), sizeof(videoMode)/sizeof(diaMenuEntry),videoMode,"");
-        
-        
         
         diaMenuEntry msgEntries[]={
                              {0,       QT_TR_NOOP("No alerts"),NULL}
