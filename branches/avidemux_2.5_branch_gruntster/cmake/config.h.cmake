@@ -54,6 +54,11 @@
 /* Libxml2 is available */
 #cmakedefine USE_LIBXML2
 
+#if ${CONFIG_HEADER_TYPE} == ADM_BUILD_QT4
+/* OpenGL detected */
+#cmakedefine USE_OPENGL
+#endif
+
 #if ${CONFIG_HEADER_TYPE} == ADM_BUILD_GTK || ${CONFIG_HEADER_TYPE} == ADM_BUILD_QT4
 /* SDL detected */
 #cmakedefine USE_SDL

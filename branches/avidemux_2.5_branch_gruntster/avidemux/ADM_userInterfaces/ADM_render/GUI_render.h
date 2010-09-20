@@ -26,7 +26,8 @@ class AVDMGenericVideoStream;
 typedef struct
 {
     void *display;
-    int  window;
+	void *widget;
+    int window;
 	int x;
 	int y;
 	int width;

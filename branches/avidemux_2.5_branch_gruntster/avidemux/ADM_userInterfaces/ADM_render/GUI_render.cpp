@@ -18,10 +18,9 @@
  *                                                                         *
  ***************************************************************************/
 #include "config.h"
-#include "ADM_coreConfig.h"
 #include "DIA_uiTypes.h"
 
-#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4 && defined(USE_OPENGL)
 #	include "GUI_qtGlRender.h"
 #endif
 
@@ -290,7 +289,7 @@ uint8_t r=0;
 
                 break;
 #endif
-#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4 && defined(USE_OPENGL)
 			case RENDER_QT_OPENGL:
 				accel_mode = new QtGlAccelRender();
 

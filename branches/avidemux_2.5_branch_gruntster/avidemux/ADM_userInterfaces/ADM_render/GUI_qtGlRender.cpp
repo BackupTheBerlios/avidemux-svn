@@ -13,8 +13,15 @@
 #define GL_GLEXT_PROTOTYPES
 
 #include <QtGui/QPainter>
-#include <GL/gl.h>
-#include <GL/glext.h>
+
+#ifdef __APPLE__
+#	include <OpenGL/gl.h>
+#	include <OpenGL/glext.h>
+#	define GL_TEXTURE_RECTANGLE_NV GL_TEXTURE_RECTANGLE_EXT
+#else
+#	include <GL/gl.h>
+#	include <GL/glext.h>
+#endif
 
 #include "GUI_qtGlRender.h"
 
@@ -210,9 +217,7 @@ uint8_t QtGlAccelRender::init(GUI_WindowInfo *window, uint32_t w, uint32_t h)
 {
 	printf("[GL Render] Initialising renderer\n");
 
-	QWidget *widget = QWidget::find((WId)window->window);
-
-	glWidget = new QtGlAccelWidget(widget, w, h);
+	glWidget = new QtGlAccelWidget((QWidget*)window->widget, w, h);
 	glWidget->show();
 
 	return QGLFormat::hasOpenGL() && QGLShaderProgram::hasOpenGLShaderPrograms();

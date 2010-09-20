@@ -227,7 +227,7 @@ char     *globalGlyphName=NULL;
         diaElemToggle   togTagMp3(&alternate_mp3_tag,QT_TR_NOOP("_Use alternative tag for MP3 in .mp4"));
         diaMenuEntry videoMode[]={
                              {RENDER_GTK, getNativeRendererDesc(), NULL}
-#if ADM_UI_TYPE_BUILD == ADM_UI_QT4
+#if ADM_UI_TYPE_BUILD == ADM_UI_QT4 && defined(USE_OPENGL)
 							 ,{RENDER_QT_OPENGL, QT_TR_NOOP("Qt (OpenGL)"), NULL}
 #endif
 #ifdef USE_XV

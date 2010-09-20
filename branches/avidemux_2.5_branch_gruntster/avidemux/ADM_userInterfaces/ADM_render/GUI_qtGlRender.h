@@ -32,7 +32,7 @@ private:
 	uint8_t *textureOffsets[3];
 
 #ifndef QT_OPENGL_ES
-	typedef void (APIENTRY *_glActiveTexture) (GLenum);
+	typedef void (*_glActiveTexture) (GLenum);
 	_glActiveTexture glActiveTexture;
 #endif
 
