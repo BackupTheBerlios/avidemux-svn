@@ -364,11 +364,12 @@ SectionGroup /e "User interfaces" SecGrpUI
 !endif
         SetOutPath $INSTDIR
         SetOverwrite on
-        ${File} QtGui4.dll
         ${File} avidemux2.exe
         ${File} libADM_render_qt4.dll
         ${File} libADM_UIQT4.dll
         ${File} QtCore4.dll
+		${File} QtGui4.dll
+		${File} QtOpenGL4.dll
     ${MementoSectionEnd}
 !endif
 SectionGroupEnd

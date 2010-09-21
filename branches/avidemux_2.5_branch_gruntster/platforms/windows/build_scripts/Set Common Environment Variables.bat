@@ -29,7 +29,7 @@ set PKG_CONFIG_PATH=%usrLocalDir%\lib\pkgconfig
 set SDLDIR=%usrLocalDir%
 set CFLAGS=%CFLAGS% -I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
 set CXXFLAGS=%CXXFLAGS% -I%CMAKE_INCLUDE_PATH% -L%CMAKE_LIBRARY_PATH%
-set LDFLAGS=%LDFLAGS% -shared-libgcc -shared-libstdc++ -L%CMAKE_LIBRARY_PATH%
+set LDFLAGS=%LDFLAGS% -shared-libgcc -lstdc++ -L%CMAKE_LIBRARY_PATH%
 
 if exist "%qtDir%" (
 	for /f %%d in ('dir /b /ad /on %qtDir%') do set qtVer=%%d
