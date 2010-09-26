@@ -137,6 +137,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 
 	if (!loadPresetSettings(encodeOptions, options))
 		loadSettings(encodeOptions, options);
+
+	// Expand to see all tabs but still allow the window to be resized smaller
+	 ui.tabWidget->setUsesScrollButtons(false);
+	 this->adjustSize();
+	 ui.tabWidget->setUsesScrollButtons(true);
 }
 
 void x264ConfigDialog::fillConfigurationComboBox(void)
