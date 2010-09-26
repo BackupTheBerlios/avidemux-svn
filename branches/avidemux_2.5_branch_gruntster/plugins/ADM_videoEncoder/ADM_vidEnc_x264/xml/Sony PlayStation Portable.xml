@@ -9,6 +9,7 @@
     <referenceFrames>2</referenceFrames>
     <bFrames>3</bFrames>
     <adaptiveBframeDecision>2</adaptiveBframeDecision>
+    <bFrameReferences>none</bFrameReferences>
     <analyse>
       <partitionI4x4>true</partitionI4x4>
       <partitionI8x8>false</partitionI8x8>
