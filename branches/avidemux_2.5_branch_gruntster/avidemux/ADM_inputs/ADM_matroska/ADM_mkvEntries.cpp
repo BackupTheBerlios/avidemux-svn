@@ -136,8 +136,21 @@ entryDesc entry;
         // if it is vfw...
         if(fourCC::check(entry.fcc,(uint8_t *)"VFWX") && entry.extraData && entry.extraDataLen>=sizeof(ADM_BITMAPINFOHEADER))
         {
+          printf("VFW compatibility mode\n");
           memcpy(& _video_bih,entry.extraData,sizeof(ADM_BITMAPINFOHEADER));
           delete [] _tracks[0].extraData;
+          if(entry.extraDataLen>sizeof(ADM_BITMAPINFOHEADER))
+          {
+                 int l=entry.extraDataLen-sizeof(ADM_BITMAPINFOHEADER);
+                _tracks[0].extraData=new uint8_t[l];
+                _tracks[0].extraDataLen=l;
+                memcpy(_tracks[0].extraData,entry.extraData +sizeof(ADM_BITMAPINFOHEADER),l);
+                printf("VFW Header+%d bytes of extradata\n",l);
+                mixDump(_tracks[0].extraData,l);
+                printf("\n");
+ 
+          }
+          delete [] entry.extraData;
           entry.extraData=NULL;
           entry.extraDataLen=0;
 
@@ -145,10 +158,12 @@ entryDesc entry;
           _mainaviheader.dwWidth=  _video_bih.biWidth;
           _mainaviheader.dwHeight= _video_bih.biHeight;
 
-        } // FIXME there can be real extradata after bitmapinfoheader
-
-        _tracks[0].extraData=entry.extraData;
-        _tracks[0].extraDataLen=entry.extraDataLen;
+        } 
+        else // not VFWX
+        {
+            _tracks[0].extraData=entry.extraData;
+            _tracks[0].extraDataLen=entry.extraDataLen;
+        }
         _tracks[0].streamIndex=entry.trackNo;
          uint32_t hdr=entry.headerRepeatSize;
         if(hdr)
