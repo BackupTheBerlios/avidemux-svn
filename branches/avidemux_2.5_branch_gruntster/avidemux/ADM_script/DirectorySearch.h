@@ -38,14 +38,14 @@ at amistry@am-productions.biz
 #define _A_SUBDIR	0x10
 
 // we need to emulate the windows style directory searching
-struct _finddata_t {
+struct _wfinddata_t {
 	unsigned    attrib;
 	time_t      time_create;    /* -1 for FAT file systems */
 	time_t      time_access;    /* -1 for FAT file systems */
 	time_t      time_write;
 	int64_t     size;
 	char        name[260];
-	_finddata_t() : attrib(0), time_create(0), time_access(0), time_write(0), size(0) {name[0] = 0;}
+	_wfinddata_t() : attrib(0), time_create(0), time_access(0), time_write(0), size(0) {name[0] = 0;}
 };
 
 #endif
@@ -54,11 +54,11 @@ struct _finddata_t {
 class CDirectorySearch
 {
 public:
-	const char * GetExtension();
+	std::string GetExtension();
 	bool IsExtension(const char *pExtension);
 	inline bool NextFile()
 	{// begin NextFile
-		if(_findnext(m_hSearch,&m_fdData) == -1)
+		if(_wfindnext(m_hSearch,&m_fdData) == -1)
 			return false;
 		return true;
 	}// end NextFile
@@ -87,14 +87,7 @@ public:
 		return (bool)(m_fdData.attrib & _A_NONFILE);
 	}// end IsNotFile
 	std::string GetFileDirectory();
-	inline char * GetFileName(char *pBuffer)
-	{// begin GetFileName
-		return strcpy(pBuffer,m_fdData.name);
-	}// end GetFileName
-	inline const char * GetFileName()
-	{// begin GetFileName
-		return (const char *)m_fdData.name;
-	}// end GetFileName
+	std::string GetFileName();
 	std::string GetFilePath();
 	bool Close();
 	CDirectorySearch();
@@ -103,13 +96,13 @@ public:
 protected:
 	std::string GetFileDirectory(std::string sFilePath) const;
 	long m_hSearch;
-	_finddata_t m_fdData;
+	_wfinddata_t m_fdData;
 	std::string m_sDirectory;
 private:
 #if defined(__unix__) || defined(__APPLE__)
 	// prototypes
-	int _findfirst(const char *path,_finddata_t *pfdData);
-	int _findnext(unsigned long int hDir,_finddata_t *pfdData);
+	int _wfindfirst(const char *path,_wfinddata_t *pfdData);
+	int _wfindnext(unsigned long int hDir,_wfinddata_t *pfdData);
 	int _findclose(unsigned long int hDir);
 #endif
 };

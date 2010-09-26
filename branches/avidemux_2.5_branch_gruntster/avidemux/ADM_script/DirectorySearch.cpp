@@ -11,13 +11,18 @@ at amistry@am-productions.biz
 #include "config.h"
 #include "DirectorySearch.h"
 
+#ifdef __WIN32
+extern int wideCharStringToUtf8(const wchar_t *wideCharString, int wideCharStringLength, char *utf8String);
+extern int utf8StringToWideChar(const char *utf8String, int utf8StringLength, wchar_t *wideCharString);
+#endif
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
 #if defined(__unix__) || defined(__APPLE__)
-int CDirectorySearch::_findnext(unsigned long int hDir,_finddata_t *pfdData)
-{// begin _findnext
+int CDirectorySearch::_wfindnext(unsigned long int hDir,_wfinddata_t *pfdData)
+{// begin _wfindnext
 	if(!hDir || hDir == 0xFFFFFFFF)
 		return -1; // need to call opendir first
 	struct stat stInfo;
@@ -58,17 +63,17 @@ int CDirectorySearch::_findnext(unsigned long int hDir,_finddata_t *pfdData)
 	S_ISFIFO(stInfo.st_mode))
 		pfdData->attrib = _A_NONFILE;
 	return 0;
-}// end _findnext
+}// end _wfindnext
 
-int CDirectorySearch::_findfirst(const char *path,_finddata_t *pfdData)
-{// begin _findfirst
+int CDirectorySearch::_wfindfirst(const char *path,_wfinddata_t *pfdData)
+{// begin _wfindfirst
 	unsigned long int hDir = (unsigned long int)opendir(path);
 	if(!hDir)
 		return -1;
-	if(_findnext(hDir,pfdData) == -1)
+	if(_wfindnext(hDir,pfdData) == -1)
 		return -1;
 	return hDir;
-}// end _findfirst
+}// end _wfindfirst
 
 int CDirectorySearch::_findclose(unsigned long int hDir)
 {// begin _findclose
@@ -91,29 +96,39 @@ CDirectorySearch::~CDirectorySearch()
 
 bool CDirectorySearch::Init(std::string sDirectory)
 {// begin Init
-char *s;
 	// check for no search query
 	if(sDirectory[sDirectory.length()-1] == DIRECTORY_DELIMITOR)
 	{
 		printf("End with directory delimitor\n");
 		return false;
 	}
-	const char *old=sDirectory.c_str();
-	s=new char[strlen(old)+10];
-	strcpy(s,old);
-#ifdef __WIN32	
-	strcat(s,"\\*");
-#endif
-	
+
+#ifdef __WIN32
+	const char *old = sDirectory.c_str();
+
+	int len = utf8StringToWideChar(old, -1, NULL);
+	wchar_t s[len + 2];
+
+	utf8StringToWideChar(old, -1, s);
+	wcscat(s, L"\\*");
+
+	printf(">%ls<\n", s);
+#else
+	const char *s = sDirectory.c_str();
+
 	printf(">%s<\n",s);
-	m_hSearch = _findfirst(s,&m_fdData);
-	delete [] s;	
+#endif
+
+	m_hSearch = _wfindfirst(s,&m_fdData);
+
 	if(m_hSearch == -1)
 	{
 		printf("Find first failed\n");
 		return false;
 	}
+
 	m_sDirectory = sDirectory;
+
 	return true;
 }// end Init
 
@@ -130,13 +145,42 @@ bool CDirectorySearch::Close()
 	return bRtn;
 }// end Close
 
+std::string CDirectorySearch::GetFileName()
+{
+	std::string sBuffer;
+
+#if defined(__WIN32)
+	int len = wideCharStringToUtf8(m_fdData.name, -1, NULL);
+	char fileName[len];
+
+	wideCharStringToUtf8(m_fdData.name, -1, fileName);
+
+	sBuffer = fileName;
+#else
+	sBuffer = m_fdData.name;
+#endif
+
+	return sBuffer;
+}
+
 std::string CDirectorySearch::GetFilePath()
 {// begin GetFilePath
-	std::string sBuffer = "";
-	sBuffer = m_sDirectory;
+	std::string sBuffer = m_sDirectory;
+
 	if(sBuffer[sBuffer.length()-1] != DIRECTORY_DELIMITOR && m_fdData.name[0] != DIRECTORY_DELIMITOR)
 		sBuffer += DIRECTORY_DELIMITOR;
+
+#if defined(__WIN32)
+	int len = wideCharStringToUtf8(m_fdData.name, -1, NULL);
+	char filePath[len];
+
+	wideCharStringToUtf8(m_fdData.name, -1, filePath);
+
+	sBuffer += filePath;
+#else
 	sBuffer += m_fdData.name;
+#endif
+
 	return sBuffer;
 }// end GetFilePath
 
@@ -166,26 +210,30 @@ std::string CDirectorySearch::GetFileDirectory()
 
 bool CDirectorySearch::IsSingleDot()
 {// begin IsSingleDot
-	if(IsDirectory())
-		if(strcmp(".",m_fdData.name) == 0)
-			return true;
-	return false;
+#if defined(__WIN32)
+	return (IsDirectory() && wcscmp(L".", m_fdData.name) == 0);
+#else
+	return (IsDirectory() && strcmp(".",m_fdData.name) == 0);
+#endif
 }// end IsSingleDot
 
 bool CDirectorySearch::IsDoubleDot()
 {// begin IsDoubleDot
-	if(IsDirectory())
-		if(strcmp("..",m_fdData.name) == 0)
-			return true;
-	return false;
+#if defined(__WIN32)
+	return (IsDirectory() && wcscmp(L"..", m_fdData.name) == 0);
+#else
+	return (IsDirectory() && strcmp("..",m_fdData.name) == 0);
+#endif
 }// end IsDoubleDot
 
 bool CDirectorySearch::IsExtension(const char *pExtension)
 {// begin IsExtension
 	int nExtLen = strlen(pExtension);
 	char *pTempBuffer = new char[nExtLen+1];
-	const char *pFileExt = GetExtension();
-	strcpy(pTempBuffer,pExtension);
+	std::string fileExt = GetExtension();
+
+	strcpy(pTempBuffer, fileExt.c_str());
+
 	for(int i = 0,nCurrExtLen = 0;i < nExtLen;i++,nCurrExtLen++)
 	{
 		if(pTempBuffer[i+1] == '\0')
@@ -198,7 +246,7 @@ bool CDirectorySearch::IsExtension(const char *pExtension)
 		{
 			pTempBuffer[i] = '\0';
 			if(pTempBuffer[i-nCurrExtLen] == '*' || pTempBuffer[i-nCurrExtLen] == '?' 
-				|| (pFileExt && strcmp(&pTempBuffer[i-nCurrExtLen],pFileExt) == 0))
+				|| strcmp(&pTempBuffer[i-nCurrExtLen], fileExt.c_str()) == 0)
 			{
 				// free the buffer
 				delete []pTempBuffer;
@@ -212,13 +260,25 @@ bool CDirectorySearch::IsExtension(const char *pExtension)
 	return false;
 }// end IsExtension
 
-const char * CDirectorySearch::GetExtension()
+std::string CDirectorySearch::GetExtension()
 {// begin GetExtension
-	for(int i = strlen(m_fdData.name)-1;i >= 0;i--)
-	{// begin search
-		if(m_fdData.name[i] == '.')
-			return &m_fdData.name[i+1];
-	}// end search
-	return NULL;
+#if defined(__WIN32)
+	int len = wideCharStringToUtf8(m_fdData.name, -1, NULL);
+	char filePath[len];
+
+	wideCharStringToUtf8(m_fdData.name, -1, filePath);
+#else
+	char *filePath = m_fdData.name;
+#endif
+
+	std::string sBuffer;
+
+	for (int i = strlen(filePath) - 1; i >= 0; i--)
+	{
+		if (filePath[i] == '.')
+			sBuffer = &filePath[i + 1];
+	}
+
+	return sBuffer;
 }// end GetExtension
 

@@ -151,7 +151,7 @@ JSBool ADM_JSDirectorySearch::GetExtension(JSContext *cx, JSObject *obj, uintN a
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 0)
 		return JS_FALSE;
-	*rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx,p->getObject()->GetExtension()));
+	*rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx,p->getObject()->GetExtension().c_str()));
 	return JS_TRUE;
 }// end GetExtension
 
@@ -233,7 +233,7 @@ JSBool ADM_JSDirectorySearch::GetFileName(JSContext *cx, JSObject *obj, uintN ar
 	*rval = BOOLEAN_TO_JSVAL(false);
 	if(argc != 0)
 		return JS_FALSE;
-	*rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx,p->getObject()->GetFileName()));
+	*rval = STRING_TO_JSVAL(JS_NewStringCopyZ(cx,p->getObject()->GetFileName().c_str()));
 	return JS_TRUE;
 }// end GetFileName
 
