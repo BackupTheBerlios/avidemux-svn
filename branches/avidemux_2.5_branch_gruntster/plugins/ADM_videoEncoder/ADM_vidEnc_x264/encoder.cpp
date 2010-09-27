@@ -465,6 +465,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 
 	printf("\n[x264] i_width = %d, i_height = %d\n", x264Param->i_width, x264Param->i_height);
 	printf("[x264] i_csp = %d\n", x264Param->i_csp);	
+#if X264_BUILD > 88
+	printf("[x264] i_nal_hrd = %d\n", x264Param->i_nal_hrd);
+#endif
 	printf("[x264] i_fps_num = %d, i_fps_den = %d\n", x264Param->i_fps_num, x264Param->i_fps_den);
 	printf("[x264] rc.i_rc_method = %d\n", x264Param->rc.i_rc_method);
 	printf("[x264] rc.i_bitrate = %d\n", x264Param->rc.i_bitrate);
@@ -481,6 +484,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] analyse.inter = %d\n", x264Param->analyse.inter);
 	printf("[x264] b_cabac = %d\n", x264Param->b_cabac);
 	printf("[x264] b_interlaced = %d\n", x264Param->b_interlaced);
+#if X264_BUILD > 88
+	printf("[x264] b_tff = %d\n", x264Param->b_tff);
+#endif
 	printf("[x264] b_deblocking_filter = %d\n", x264Param->b_deblocking_filter);
 	printf("[x264] i_deblocking_filter_alphac0 = %d\n", x264Param->i_deblocking_filter_alphac0);
 	printf("[x264] i_deblocking_filter_beta = %d\n", x264Param->i_deblocking_filter_beta);

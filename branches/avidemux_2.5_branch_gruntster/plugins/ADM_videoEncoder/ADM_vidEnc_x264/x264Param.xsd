@@ -247,7 +247,19 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="cabac" type="xs:boolean" minOccurs="0"/>
-              <xs:element name="interlaced" type="xs:boolean" minOccurs="0"/>
+			  <xs:element name="interlaced" minOccurs="0">
+				  <xs:simpleType>
+					  <xs:restriction base="xs:string">
+						  <xs:enumeration value="disabled"/>
+						  <xs:enumeration value="bff"/>
+						  <xs:enumeration value="tff"/>
+
+						  <!-- boolean values deprecated core 89 -->
+						  <xs:enumeration value="false"/>
+						  <xs:enumeration value="true"/>
+					  </xs:restriction>
+				  </xs:simpleType>
+			  </xs:element>				
               <xs:element name="constrainedIntraPrediction" type="xs:boolean" minOccurs="0"/>
               <xs:element name="cqmPreset" minOccurs="0">
                 <xs:simpleType>
@@ -583,6 +595,15 @@
               <xs:element name="sliceMaxSize" type="uint" minOccurs="0"/>
               <xs:element name="sliceMaxMacroblocks" type="uint" minOccurs="0"/>
               <xs:element name="sliceCount" type="uint" minOccurs="0"/>
+			  <xs:element name="hrd" minOccurs="0">
+				  <xs:simpleType>
+					  <xs:restriction base="xs:string">
+						  <xs:enumeration value="none"/>
+						  <xs:enumeration value="vbr"/>
+						  <xs:enumeration value="cbr"/>
+					  </xs:restriction>
+				  </xs:simpleType>
+			  </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

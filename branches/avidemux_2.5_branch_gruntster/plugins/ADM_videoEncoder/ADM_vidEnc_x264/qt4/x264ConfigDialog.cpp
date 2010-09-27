@@ -87,6 +87,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
+#if X264_BUILD < 89
+	ui.interlacedComboBox->removeItem(1);
+#endif
+
 	// Analysis tab
 	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
@@ -132,6 +136,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 				connect(widget, SIGNAL(textEdited(QString)), this, SLOT(generic_textEdited(QString)));
 		}
 	}
+
+#if X264_BUILD < 89
+	ui.hrdLabel->setVisible(false);
+	ui.hrdComboBox->setVisible(false);
+#endif
 
 	fillConfigurationComboBox();
 
@@ -695,7 +704,15 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Frame tab
 	ui.cabacCheckBox->setChecked(options->getCabac());
-	ui.interlacedCheckBox->setChecked(options->getInterlaced());
+
+	if (options->getInterlaced() > 0)
+	{
+		ui.interlacedCheckBox->setChecked(true);
+		ui.interlacedComboBox->setCurrentIndex(options->getInterlaced() - 1);
+	}
+	else
+		ui.interlacedCheckBox->setChecked(false);
+
 	ui.constrainedIntraCheckBox->setChecked(options->getConstrainedIntraPrediction());
 
 	ui.loopFilterCheckBox->setChecked(options->getLoopFilter());
@@ -805,6 +822,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.colourMatrixComboBox->setCurrentIndex(getValueIndexInArray(options->getColorMatrix(), colourMatrix, colourMatrixCount));
 	ui.chromaSampleSpinBox->setValue(options->getChromaSampleLocation());
 	ui.fullRangeSamplesCheckBox->setChecked(options->getFullRangeSamples());
+#if X264_BUILD > 88
+	ui.hrdComboBox->setCurrentIndex(options->getHrdParameter());
+#endif
 
 	disableGenericSlots = origDisableGenericSlots;
 }
@@ -909,7 +929,11 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Frame tab
 	options->setCabac(ui.cabacCheckBox->isChecked());
-	options->setInterlaced(ui.interlacedCheckBox->isChecked());
+
+	if (ui.interlacedCheckBox->isChecked())
+		options->setInterlaced(ui.interlacedComboBox->currentIndex() + 1);
+	else
+		options->setInterlaced(0);
 
 	options->setConstrainedIntraPrediction(ui.constrainedIntraCheckBox->isChecked());
 	options->setLoopFilter(ui.loopFilterCheckBox->isChecked());
@@ -1002,6 +1026,9 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setColorMatrix(colourMatrix[ui.colourMatrixComboBox->currentIndex()]);
 	options->setChromaSampleLocation(ui.chromaSampleSpinBox->value());
 	options->setFullRangeSamples(ui.fullRangeSamplesCheckBox->isChecked());
+#if X264_BUILD > 88
+	options->setHrdParameter(ui.hrdComboBox->currentIndex());
+#endif
 }
 
 extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vidEncVideoProperties *properties, vidEncOptions *encodeOptions, x264Options *options)

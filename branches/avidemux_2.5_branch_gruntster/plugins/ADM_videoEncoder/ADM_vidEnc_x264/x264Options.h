@@ -150,8 +150,8 @@ public:
 	bool getCabac(void);
 	void setCabac(bool cabac);
 
-	bool getInterlaced(void);
-	void setInterlaced(bool interlaced);
+	unsigned int getInterlaced(void);
+	void setInterlaced(unsigned int interlaced);
 
 	bool getConstrainedIntraPrediction(void);
 	void setConstrainedIntraPrediction(bool constrainedIntra);
@@ -322,6 +322,11 @@ public:
 
 	unsigned int getSliceCount(void);
 	void setSliceCount(unsigned int sliceCount);
+
+#if X264_BUILD > 88
+	unsigned int getHrdParameter(void);
+	void setHrdParameter(unsigned int hrdParameter);
+#endif
 
 	int fromXml(const char *xml, PluginXmlType xmlType);
 };

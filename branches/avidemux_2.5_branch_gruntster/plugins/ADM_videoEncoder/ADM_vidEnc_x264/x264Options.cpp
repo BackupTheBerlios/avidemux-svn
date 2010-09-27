@@ -407,14 +407,30 @@ void x264Options::setCabac(bool cabac)
 	_param.b_cabac = cabac;
 }
 
-bool x264Options::getInterlaced(void)
+unsigned int x264Options::getInterlaced(void)
 {
+#if X264_BUILD > 88
+	if (_param.b_interlaced)
+	{
+		if (_param.b_tff)
+			return 2;
+		else
+			return 1;
+	}
+	else
+		return 0;
+#else
 	return _param.b_interlaced;
+#endif
 }
 
-void x264Options::setInterlaced(bool interlaced)
+void x264Options::setInterlaced(unsigned int interlaced)
 {
-	_param.b_interlaced = interlaced;
+	_param.b_interlaced = !!interlaced;
+
+#if X264_BUILD > 88
+	_param.b_tff = (interlaced == 2 ? 1 : 0);
+#endif
 }
 
 bool x264Options::getConstrainedIntraPrediction(void)
@@ -1028,6 +1044,19 @@ void x264Options::setSliceCount(unsigned int sliceCount)
 	_param.i_slice_count = sliceCount;
 }
 
+#if X264_BUILD > 88
+unsigned int x264Options::getHrdParameter(void)
+{
+	return _param.i_nal_hrd;
+}
+
+void x264Options::setHrdParameter(unsigned int hrdParameter)
+{
+	if (hrdParameter <= 2)
+		_param.i_nal_hrd = hrdParameter;
+}
+#endif
+
 void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 {
 	const int bufferSize = 100;
@@ -1206,7 +1235,21 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterAlphaC0", number2String(xmlBuffer, bufferSize, getLoopFilterAlphaC0()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cabac", boolean2String(xmlBuffer, bufferSize, getCabac()));
-	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", boolean2String(xmlBuffer, bufferSize, getInterlaced()));
+
+	switch (getInterlaced())
+	{
+		case 1:
+			strcpy((char*)xmlBuffer, "bff");
+			break;
+		case 2:
+			strcpy((char*)xmlBuffer, "tff");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "disabled");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"interlaced", xmlBuffer);
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"constrainedIntraPrediction", boolean2String(xmlBuffer, bufferSize, getConstrainedIntraPrediction()));
 
 	switch (getCqmPreset())
@@ -1412,6 +1455,23 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxSize", number2String(xmlBuffer, bufferSize, getSliceMaxSize()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceMaxMacroblocks", number2String(xmlBuffer, bufferSize, getSliceMaxMacroblocks()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"sliceCount", number2String(xmlBuffer, bufferSize, getSliceCount()));
+
+#if X264_BUILD > 88
+	switch (getHrdParameter())
+	{
+		case X264_NAL_HRD_VBR:
+			strcpy((char*)xmlBuffer, "vbr");
+			break;
+		case X264_NAL_HRD_CBR:
+			strcpy((char*)xmlBuffer, "cbr");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "none");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"hrd", xmlBuffer);
+#endif
 }
 
 int x264Options::fromXml(const char *xml, PluginXmlType xmlType)
@@ -1481,7 +1541,16 @@ void x264Options::parseOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "cabac") == 0)
 				setCabac(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
-				setInterlaced(string2Boolean(content));
+			{
+				int interlaced = 0;
+
+				if (strcmp(content, "bff") == 0)
+					interlaced = 1;
+				else if (strcmp(content, "tff") == 0)
+					interlaced = 2;
+
+				setInterlaced(interlaced);
+			}
 			else if (strcmp((char*)xmlChild->name, "constrainedIntraPrediction") == 0)
 				setConstrainedIntraPrediction(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "cqmPreset") == 0)
@@ -1553,6 +1622,21 @@ void x264Options::parseOptions(xmlNode *node)
 				setSliceMaxMacroblocks(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "sliceCount") == 0)
 				setSliceCount(atoi(content));
+#if X264_BUILD > 88
+			else if (strcmp((char*)xmlChild->name, "hdr") == 0)
+			{
+				unsigned int hdr = 0;
+
+				if (strcmp(content, "none") == 0)
+					hdr = X264_NAL_HRD_NONE;
+				else if (strcmp(content, "vbr") == 0)
+					hdr = X264_NAL_HRD_VBR;
+				else if (strcmp(content, "cbr") == 0)
+					hdr = X264_NAL_HRD_CBR;
+
+				setHrdParameter(hdr);
+			}
+#endif
 
 			xmlFree(content);
 		}
