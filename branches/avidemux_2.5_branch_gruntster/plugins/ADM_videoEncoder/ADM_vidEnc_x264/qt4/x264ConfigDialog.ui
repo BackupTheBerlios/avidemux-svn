@@ -1351,13 +1351,7 @@
       <attribute name="title">
        <string>Frame</string>
       </attribute>
-      <layout class="QVBoxLayout">
-       <property name="spacing">
-        <number>6</number>
-       </property>
-       <property name="margin">
-        <number>9</number>
-       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
         <widget class="QGroupBox" name="groupBox_6">
          <property name="title">
@@ -1758,178 +1752,134 @@
          <property name="title">
           <string>I-frames</string>
          </property>
-         <layout class="QVBoxLayout">
-          <property name="spacing">
-           <number>6</number>
-          </property>
-          <property name="margin">
-           <number>9</number>
-          </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <layout class="QVBoxLayout">
-            <property name="spacing">
-             <number>6</number>
-            </property>
-            <property name="margin">
-             <number>0</number>
-            </property>
-            <item>
-             <layout class="QGridLayout">
-              <property name="margin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>6</number>
-              </property>
-              <item row="0" column="1">
-               <layout class="QHBoxLayout">
-                <property name="spacing">
-                 <number>6</number>
-                </property>
-                <property name="margin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <widget class="QSpinBox" name="minGopSizeSpinBox">
-                  <property name="maximum">
-                   <number>100</number>
-                  </property>
-                  <property name="value">
-                   <number>25</number>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="spacer_29">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_26">
-                <property name="text">
-                 <string>Maximum GOP Size:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_27">
-                <property name="text">
-                 <string>I-frame Threshold:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <layout class="QHBoxLayout">
-                <property name="spacing">
-                 <number>6</number>
-                </property>
-                <property name="margin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <widget class="QSpinBox" name="maxGopSizeSpinBox">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>1000</number>
-                  </property>
-                  <property name="value">
-                   <number>250</number>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="spacer_30">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_28">
-                <property name="text">
-                 <string>Minimum GOP Size:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <layout class="QHBoxLayout">
-                <property name="spacing">
-                 <number>6</number>
-                </property>
-                <property name="margin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <widget class="QSpinBox" name="IFrameThresholdSpinBox">
-                  <property name="maximum">
-                   <number>100</number>
-                  </property>
-                  <property name="value">
-                   <number>40</number>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="spacer_31">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>362</width>
-                <height>2</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="intraRefreshCheckBox">
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_34">
               <property name="text">
-               <string>Periodic Intra Refresh</string>
+               <string>GOP Size:</string>
               </property>
              </widget>
             </item>
+            <item row="0" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="label_28">
+                <property name="text">
+                 <string>Minimum:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="minGopSizeSpinBox">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>25</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="spacer_29">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>10</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_26">
+                <property name="text">
+                 <string>Maximum:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="maxGopSizeSpinBox">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+                <property name="value">
+                 <number>250</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="spacer_30">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>168</width>
+                  <height>13</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_27">
+              <property name="text">
+               <string>I-frame Threshold:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <layout class="QHBoxLayout">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="IFrameThresholdSpinBox">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>40</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="spacer_31">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="intraRefreshCheckBox">
+            <property name="text">
+             <string>Periodic Intra Refresh</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
