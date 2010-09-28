@@ -98,6 +98,10 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
+#if X264_BUILD < 96
+	ui.interlacedComboBox->removeItem(2);
+#endif
+
 #if X264_BUILD < 89
 	ui.interlacedComboBox->removeItem(1);
 #endif

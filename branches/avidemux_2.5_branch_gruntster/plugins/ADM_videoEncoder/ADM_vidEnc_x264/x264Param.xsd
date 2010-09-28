@@ -253,6 +253,7 @@
 						  <xs:enumeration value="disabled"/>
 						  <xs:enumeration value="bff"/>
 						  <xs:enumeration value="tff"/>
+						  <xs:enumeration value="fake"/>
 
 						  <!-- boolean values deprecated core 89 -->
 						  <xs:enumeration value="false"/>

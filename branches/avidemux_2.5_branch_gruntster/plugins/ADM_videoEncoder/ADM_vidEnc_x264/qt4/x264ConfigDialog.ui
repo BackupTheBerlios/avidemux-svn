@@ -1397,6 +1397,11 @@
                   <string>Top Field First</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>Fake Interlaced</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>

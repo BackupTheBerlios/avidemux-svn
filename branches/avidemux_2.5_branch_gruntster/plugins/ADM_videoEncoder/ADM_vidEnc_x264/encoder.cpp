@@ -490,6 +490,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 #if X264_BUILD > 88
 	printf("[x264] b_tff = %d\n", x264Param->b_tff);
 #endif
+#if X264_BUILD > 95
+	printf("[x264] b_fake_interlaced = %d\n", x264Param->b_fake_interlaced);
+#endif
 	printf("[x264] b_deblocking_filter = %d\n", x264Param->b_deblocking_filter);
 	printf("[x264] i_deblocking_filter_alphac0 = %d\n", x264Param->i_deblocking_filter_alphac0);
 	printf("[x264] i_deblocking_filter_beta = %d\n", x264Param->i_deblocking_filter_beta);

@@ -418,7 +418,14 @@ unsigned int x264Options::getInterlaced(void)
 			return 1;
 	}
 	else
-		return 0;
+	{
+#	if X264_BUILD > 95
+		if (_param.b_fake_interlaced)
+			return 3;
+		else
+#endif
+			return 0;
+	}
 #else
 	return _param.b_interlaced;
 #endif
@@ -426,10 +433,14 @@ unsigned int x264Options::getInterlaced(void)
 
 void x264Options::setInterlaced(unsigned int interlaced)
 {
-	_param.b_interlaced = !!interlaced;
+	_param.b_interlaced = (interlaced == 1 || interlaced == 2);
 
 #if X264_BUILD > 88
 	_param.b_tff = (interlaced == 2 ? 1 : 0);
+#endif
+
+#if X264_BUILD > 95
+	_param.b_fake_interlaced = (interlaced == 3 ? 1 : 0);
 #endif
 }
 
@@ -1257,6 +1268,11 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 		case 2:
 			strcpy((char*)xmlBuffer, "tff");
 			break;
+#if X264_BUILD > 95
+		case 3:
+			strcpy((char*)xmlBuffer, "fake");
+			break;
+#endif
 		default:
 			strcpy((char*)xmlBuffer, "disabled");
 			break;
@@ -1564,6 +1580,8 @@ void x264Options::parseOptions(xmlNode *node)
 					interlaced = 1;
 				else if (strcmp(content, "tff") == 0)
 					interlaced = 2;
+				else if (strcmp(content, "fake") == 0)
+					interlaced = 3;
 
 				setInterlaced(interlaced);
 			}
