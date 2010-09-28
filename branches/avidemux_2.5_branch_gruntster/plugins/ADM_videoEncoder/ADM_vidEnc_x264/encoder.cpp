@@ -472,6 +472,9 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] rc.i_rc_method = %d\n", x264Param->rc.i_rc_method);
 	printf("[x264] rc.i_bitrate = %d\n", x264Param->rc.i_bitrate);
 	printf("[x264] rc.f_rf_constant = %f\n", x264Param->rc.f_rf_constant);
+#if X264_BUILD > 89
+	printf("[x264] rc.f_rf_constant_max = %f\n", x264Param->rc.f_rf_constant_max);
+#endif
 	printf("[x264] rc.i_qp_constant = %d\n", x264Param->rc.i_qp_constant);	
 	printf("[x264] analyse.i_subpel_refine = %d\n", x264Param->analyse.i_subpel_refine);
 	printf("[x264] analyse.i_me_method = %d\n", x264Param->analyse.i_me_method);

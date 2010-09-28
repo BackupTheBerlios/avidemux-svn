@@ -42,7 +42,6 @@ protected:
 #if X264_BUILD > 85
 	bool _fastFirstPast;
 #endif
-
 	void cleanUp(void);
 
 	void addOptionsToXml(xmlNodePtr xmlNodeRoot);
@@ -263,6 +262,11 @@ public:
 
 	unsigned int getQuantiserStep(void);
 	void setQuantiserStep(unsigned int quantiserStep);
+
+#if X264_BUILD > 89
+	unsigned int getMaximumConstantRateFactor(void);
+	void setMaximumConstantRateFactor(unsigned int maxCrf);
+#endif
 
 	float getAverageBitrateTolerance(void);
 	void setAverageBitrateTolerance(float averageBitrateTolerance);

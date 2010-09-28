@@ -813,6 +813,19 @@ void x264Options::setQuantiserStep(unsigned int quantiserStep)
 		_param.rc.i_qp_step = quantiserStep;
 }
 
+#if X264_BUILD > 89
+unsigned int x264Options::getMaximumConstantRateFactor(void)
+{
+	return (unsigned int)_param.rc.f_rf_constant_max;
+}
+
+void x264Options::setMaximumConstantRateFactor(unsigned int maxCrf)
+{
+	if (maxCrf <= 51)
+		_param.rc.f_rf_constant_max = maxCrf;
+}
+#endif
+
 float x264Options::getAverageBitrateTolerance(void)
 {
 	return _param.rc.f_rate_tolerance;
@@ -1400,6 +1413,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserMinimum", number2String(xmlBuffer, bufferSize, getQuantiserMinimum()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserMaximum", number2String(xmlBuffer, bufferSize, getQuantiserMaximum()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"quantiserStep", number2String(xmlBuffer, bufferSize, getQuantiserStep()));
+#if X264_BUILD > 89
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"maximumConstantRateFactor", number2String(xmlBuffer, bufferSize, getMaximumConstantRateFactor()));
+#endif
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"averageBitrateTolerance", number2String(xmlBuffer, bufferSize, getAverageBitrateTolerance()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"vbvMaximumBitrate", number2String(xmlBuffer, bufferSize, getVbvMaximumBitrate()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"vbvBufferSize", number2String(xmlBuffer, bufferSize, getVbvBufferSize()));
@@ -1910,6 +1926,10 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 				setQuantiserMaximum(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "quantiserStep") == 0)
 				setQuantiserStep(atoi(content));
+#if X264_BUILD > 89
+			else if (strcmp((char*)xmlChild->name, "maximumConstantRateFactor") == 0)
+				setMaximumConstantRateFactor(atoi(content));
+#endif
 			else if (strcmp((char*)xmlChild->name, "averageBitrateTolerance") == 0)
 				setAverageBitrateTolerance(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "vbvMaximumBitrate") == 0)

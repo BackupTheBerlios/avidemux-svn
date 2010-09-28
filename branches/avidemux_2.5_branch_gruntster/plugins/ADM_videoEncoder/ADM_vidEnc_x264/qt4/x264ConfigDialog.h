@@ -72,6 +72,8 @@ private slots:
 	void quantiserSlider_valueChanged(int value);
 	void quantiserSpinBox_valueChanged(int value);
 	void targetRateControlSpinBox_valueChanged(int value);
+	void maxCrfSlider_valueChanged(int value);
+	void maxCrfSpinBox_valueChanged(int value);
 	void mbTreeCheckBox_toggled(bool checked);
 
 	// Motion Estimation tab

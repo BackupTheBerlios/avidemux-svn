@@ -69,7 +69,18 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.quantiserSlider, SIGNAL(valueChanged(int)), this, SLOT(quantiserSlider_valueChanged(int)));
 	connect(ui.quantiserSpinBox, SIGNAL(valueChanged(int)), this, SLOT(quantiserSpinBox_valueChanged(int)));
 	connect(ui.targetRateControlSpinBox, SIGNAL(valueChanged(int)), this, SLOT(targetRateControlSpinBox_valueChanged(int)));
+	connect(ui.maxCrfSlider, SIGNAL(valueChanged(int)), this, SLOT(maxCrfSlider_valueChanged(int)));
+	connect(ui.maxCrfSpinBox, SIGNAL(valueChanged(int)), this, SLOT(maxCrfSpinBox_valueChanged(int)));
 	connect(ui.mbTreeCheckBox, SIGNAL(toggled(bool)), this, SLOT(mbTreeCheckBox_toggled(bool)));
+
+#if X264_BUILD < 90
+	ui.maxCrfCheckBox->setVisible(false);
+	ui.quantiserLabel1_2->setVisible(false);
+	ui.quantiserLabel2_2->setVisible(false);
+	ui.quantiserLabel3_2->setVisible(false);
+	ui.maxCrfSlider->setVisible(false);
+	ui.maxCrfSpinBox->setVisible(false);
+#endif
 
 #if X264_BUILD < 86
 	ui.fastFirstPassCheckBox->setVisible(false);
@@ -353,7 +364,7 @@ void x264ConfigDialog::deleteButton_pressed(void)
 // General tab
 void x264ConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 {
-	bool enable = false;
+	bool enableQp = false, enableMaxCrf = false;
 
 	switch (index)
 	{
@@ -364,11 +375,12 @@ void x264ConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 			break;
 		case 1: // Constant Quality - 1 pass
 			ui.quantiserLabel2->setText(tr("Quantiser:"));
-			enable = true;
+			enableQp = true;
 			break;
 		case 2: // Average Quantiser - 1 pass
 			ui.quantiserLabel2->setText(tr("Quality:"));
-			enable = true;
+			enableQp = true;
+			enableMaxCrf = true;
 			break;
 		case 3: // Video Size - 2 pass
 			ui.targetRateControlLabel1->setText(tr("Target Video Size:"));
@@ -382,15 +394,20 @@ void x264ConfigDialog::encodingModeComboBox_currentIndexChanged(int index)
 			break;
 	}
 
-	ui.quantiserLabel1->setEnabled(enable);
-	ui.quantiserLabel2->setEnabled(enable);
-	ui.quantiserLabel3->setEnabled(enable);
-	ui.quantiserSlider->setEnabled(enable);
-	ui.quantiserSpinBox->setEnabled(enable);
+	ui.quantiserLabel1->setEnabled(enableQp);
+	ui.quantiserLabel2->setEnabled(enableQp);
+	ui.quantiserLabel3->setEnabled(enableQp);
+	ui.quantiserSlider->setEnabled(enableQp);
+	ui.quantiserSpinBox->setEnabled(enableQp);
 
-	ui.targetRateControlLabel1->setEnabled(!enable);
-	ui.targetRateControlLabel2->setEnabled(!enable);
-	ui.targetRateControlSpinBox->setEnabled(!enable);
+	ui.targetRateControlLabel1->setEnabled(!enableQp);
+	ui.targetRateControlLabel2->setEnabled(!enableQp);
+	ui.targetRateControlSpinBox->setEnabled(!enableQp);
+
+	if (!enableMaxCrf)
+		ui.maxCrfCheckBox->setChecked(false);
+
+	ui.maxCrfCheckBox->setEnabled(enableMaxCrf);
 }
 
 void x264ConfigDialog::quantiserSlider_valueChanged(int value)
@@ -409,6 +426,16 @@ void x264ConfigDialog::targetRateControlSpinBox_valueChanged(int value)
 		lastVideoSize = value;
 	else
 		lastBitrate = value;
+}
+
+void x264ConfigDialog::maxCrfSlider_valueChanged(int value)
+{
+	ui.maxCrfSpinBox->setValue(value);
+}
+
+void x264ConfigDialog::maxCrfSpinBox_valueChanged(int value)
+{
+	ui.maxCrfSlider->setValue(value);
 }
 
 void x264ConfigDialog::mbTreeCheckBox_toggled(bool checked)
@@ -585,6 +612,9 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *options)
 {
 	bool origDisableGenericSlots = disableGenericSlots;
+#if X264_BUILD > 89
+	unsigned int maxCrf = options->getMaximumConstantRateFactor();
+#endif
 
 	disableGenericSlots = true;
 
@@ -602,6 +632,17 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 		case ADM_VIDENC_MODE_AQP:	// Average Quantizer (Single Pass)
 			ui.encodingModeComboBox->setCurrentIndex(2);
 			ui.quantiserSpinBox->setValue(encodeOptions->encodeModeParameter);
+
+#if X264_BUILD > 89
+			if (maxCrf == 0)
+				ui.maxCrfCheckBox->setChecked(false);
+			else
+			{
+				ui.maxCrfCheckBox->setChecked(true);
+				ui.maxCrfSlider->setValue(maxCrf);
+			}
+#endif
+
 			break;
 		case ADM_VIDENC_MODE_2PASS_SIZE:	// Video Size (Two Pass)
 			ui.encodingModeComboBox->setCurrentIndex(3);
@@ -861,6 +902,13 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	PluginConfigType configurationType = (PluginConfigType)ui.configurationComboBox->itemData(ui.configurationComboBox->currentIndex()).toInt();
 
 	options->setPresetConfiguration(ui.configurationComboBox->currentText().toUtf8().constData(), configurationType);
+
+#if X264_BUILD > 89
+	if (ui.encodingModeComboBox->currentIndex() == 2 && ui.maxCrfCheckBox->isChecked())
+		options->setMaximumConstantRateFactor(ui.maxCrfSlider->value());
+	else
+		options->setMaximumConstantRateFactor(0);
+#endif
 
 	options->setMbTree(ui.mbTreeCheckBox->isChecked());
 #if X264_BUILD > 85
