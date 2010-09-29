@@ -296,10 +296,6 @@ IF (APPLE AND USE_SDL)
 	IF (ADM_UI_GTK)
 		TARGET_LINK_LIBRARIES(avidemux2_gtk ADM_libsdl_gtk)
 	ENDIF (ADM_UI_GTK)
-
-	IF (ADM_UI_QT4)
-		TARGET_LINK_LIBRARIES(avidemux2_qt4 ADM_libsdl_qt4)
-	ENDIF (ADM_UI_QT4)
 ENDIF (APPLE AND USE_SDL)
 
 ###########################################
@@ -415,10 +411,6 @@ IF (USE_SDL)
 	IF (ADM_UI_GTK)
 		TARGET_LINK_LIBRARIES(avidemux2_gtk ${SDL_LIBRARY})
 	ENDIF (ADM_UI_GTK)
-
-	IF (ADM_UI_QT4)
-		TARGET_LINK_LIBRARIES(avidemux2_qt4 ${SDL_LIBRARY})
-	ENDIF (ADM_UI_QT4)
 ENDIF (USE_SDL)
 
 ###########################################

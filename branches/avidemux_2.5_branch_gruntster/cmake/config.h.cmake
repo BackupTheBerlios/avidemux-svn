@@ -59,7 +59,7 @@
 #cmakedefine USE_OPENGL
 #endif
 
-#if ${CONFIG_HEADER_TYPE} == ADM_BUILD_GTK || ${CONFIG_HEADER_TYPE} == ADM_BUILD_QT4
+#if ${CONFIG_HEADER_TYPE} == ADM_BUILD_GTK
 /* SDL detected */
 #cmakedefine USE_SDL
 #endif
