@@ -291,7 +291,6 @@ Section "Avidemux Core" SecCore
     ${File} libaften.dll
     ${File} libxml2-*.dll
     ${File} pthreadGC2.dll
-    ${File} SDL.dll
     ${File} AUTHORS.
     ${File} COPYING.
     ${File} README.
@@ -335,6 +334,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         SetOutPath $INSTDIR
         ${File} avidemux2_gtk.exe
         ${File} gtk2_prefs.exe
+		${File} intl.dll
         ${File} libADM_render_gtk.dll
         ${File} libADM_UIGtk.dll
         ${File} libatk-1.0-0.dll
@@ -352,6 +352,7 @@ SectionGroup /e "User interfaces" SecGrpUI
         ${File} libpangoft2-1.0-0.dll
         ${File} libpangowin32-1.0-0.dll
         ${File} libpng14-14.dll
+		${File} SDL.dll
     ${MementoSectionEnd}
 !endif
 
@@ -420,12 +421,6 @@ SectionGroup Plugins SecGrpPlugin
 		${MementoSectionEnd}
 	SectionGroupEnd
 	SectionGroup "Audio Devices" SecGrpAudioDevice
-		${MementoUnselectedSection} SDL SecAudDevSdl
-			SectionIn 2
-			SetOverwrite on
-			SetOutPath $INSTDIR\plugins\audioDevices
-			${File} plugins\audioDevices\libADM_av_sdl.dll
-		${MementoSectionEnd}
 		${MementoSection} "MS Windows (Waveform)" SecAudDevWaveform
 			SectionIn 1 2
 			SetOverwrite on
