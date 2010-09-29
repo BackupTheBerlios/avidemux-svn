@@ -291,11 +291,21 @@ void x264Options::setGopMinimumSize(unsigned int gopSize)
 
 unsigned int x264Options::getGopMaximumSize(void)
 {
+#if X264_BUILD > 101
+	if (_param.i_keyint_max == X264_KEYINT_MAX_INFINITE)
+		return 0;
+	else
+#endif
 	return _param.i_keyint_max;
 }
 
 void x264Options::setGopMaximumSize(unsigned int gopSize)
 {
+#if X264_BUILD > 101
+	if (gopSize == 0)
+		_param.i_keyint_max = X264_KEYINT_MAX_INFINITE;
+	else
+#endif
 	if (gopSize <= 1000)
 		_param.i_keyint_max = gopSize;
 }

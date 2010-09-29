@@ -1847,9 +1847,6 @@
               </item>
               <item>
                <widget class="QSpinBox" name="maxGopSizeSpinBox">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
                 <property name="maximum">
                  <number>1000</number>
                 </property>
