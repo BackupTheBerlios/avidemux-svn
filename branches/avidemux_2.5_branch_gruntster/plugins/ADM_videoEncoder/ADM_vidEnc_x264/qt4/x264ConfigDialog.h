@@ -84,10 +84,8 @@ private slots:
 
 	// Frame tab
 	void loopFilterCheckBox_toggled(bool checked);
-	void cabacCheckBox_toggled(bool checked);
 
 	// Analysis tab
-	void trellisCheckBox_toggled(bool checked);
 	void matrixCustomEditButton_pressed();
 
 	// Quantiser tab

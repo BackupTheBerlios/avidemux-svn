@@ -96,7 +96,6 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
-	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
 #if X264_BUILD < 102
 	ui.openGopCheckBox->setVisible(false);
@@ -112,7 +111,6 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 #endif
 
 	// Analysis tab
-	connect(ui.trellisCheckBox, SIGNAL(toggled(bool)), this, SLOT(trellisCheckBox_toggled(bool)));
 	connect(ui.matrixCustomEditButton, SIGNAL(pressed()), this, SLOT(matrixCustomEditButton_pressed()));
 
 	// Quantiser tab
@@ -491,29 +489,6 @@ void x264ConfigDialog::loopFilterCheckBox_toggled(bool checked)
 	{
 		ui.alphaC0SpinBox->setValue(0);
 		ui.betaSpinBox->setValue(0);
-	}
-}
-
-void x264ConfigDialog::cabacCheckBox_toggled(bool checked)
-{
-	if (!disableGenericSlots && !checked && ui.trellisCheckBox->isChecked())
-	{
-		if (GUI_Question(tr("Trellis optimisation isn't possible without CABAC coding enabled.  Trellis optimisation will automatically be disabled.\n\nDo you wish to continue?").toUtf8().constData()))
-			ui.trellisCheckBox->setChecked(false);
-		else
-			ui.cabacCheckBox->setChecked(true);
-	}
-}
-
-// Analysis tab
-void x264ConfigDialog::trellisCheckBox_toggled(bool checked)
-{
-	if (!disableGenericSlots && checked && !ui.cabacCheckBox->isChecked())
-	{
-		if (GUI_Question(tr("Trellis optimisation requires CABAC coding to be enabled.  CABAC coding will automatically be enabled.\n\nDo you wish to continue?").toUtf8().constData()))
-			ui.cabacCheckBox->setChecked(true);
-		else
-			ui.trellisCheckBox->setChecked(false);
 	}
 }
 
