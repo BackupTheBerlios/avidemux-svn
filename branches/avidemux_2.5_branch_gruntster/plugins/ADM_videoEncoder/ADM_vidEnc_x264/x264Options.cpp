@@ -407,6 +407,19 @@ void x264Options::setCabac(bool cabac)
 	_param.b_cabac = cabac;
 }
 
+#if X264_BUILD > 101
+unsigned int x264Options::getOpenGopMode(void)
+{
+	return _param.i_open_gop;
+}
+
+void x264Options::setOpenGopMode(unsigned int openGopMode)
+{
+	if (openGopMode < 3)
+		_param.i_open_gop = openGopMode;
+}
+#endif
+
 unsigned int x264Options::getInterlaced(void)
 {
 #if X264_BUILD > 88
@@ -1260,6 +1273,21 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cabac", boolean2String(xmlBuffer, bufferSize, getCabac()));
 
+	switch (getOpenGopMode())
+	{
+		case 1:
+			strcpy((char*)xmlBuffer, "normal");
+			break;
+		case 2:
+			strcpy((char*)xmlBuffer, "bluray");
+			break;
+		default:
+			strcpy((char*)xmlBuffer, "disabled");
+			break;
+	}
+
+	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"openGop", xmlBuffer);
+
 	switch (getInterlaced())
 	{
 		case 1:
@@ -1572,6 +1600,19 @@ void x264Options::parseOptions(xmlNode *node)
 				setLoopFilterBeta(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "cabac") == 0)
 				setCabac(string2Boolean(content));
+#if X264_BUILD > 101
+			else if (strcmp((char*)xmlChild->name, "openGop") == 0)
+			{
+				int openGop = 0;
+
+				if (strcmp(content, "normal") == 0)
+					openGop = 1;
+				else if (strcmp(content, "bluray") == 0)
+					openGop = 2;
+
+				setOpenGopMode(openGop);
+			}
+#endif
 			else if (strcmp((char*)xmlChild->name, "interlaced") == 0)
 			{
 				int interlaced = 0;

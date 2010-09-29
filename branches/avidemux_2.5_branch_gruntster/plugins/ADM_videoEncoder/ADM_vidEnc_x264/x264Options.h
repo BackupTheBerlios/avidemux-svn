@@ -149,6 +149,11 @@ public:
 	bool getCabac(void);
 	void setCabac(bool cabac);
 
+#if X264_BUILD > 101
+	unsigned int getOpenGopMode(void);
+	void setOpenGopMode(unsigned int openGopMode);
+#endif
+
 	unsigned int getInterlaced(void);
 	void setInterlaced(unsigned int interlaced);
 

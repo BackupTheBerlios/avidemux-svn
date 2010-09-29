@@ -1368,59 +1368,13 @@
           <item>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="0">
-             <widget class="QCheckBox" name="interlacedCheckBox">
-              <property name="text">
-               <string>Interlaced:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <item>
-               <widget class="QComboBox" name="interlacedComboBox">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Bottom Field First</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Top Field First</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Fake Interlaced</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item row="1" column="0">
              <widget class="QCheckBox" name="loopFilterCheckBox">
               <property name="text">
                <string>Loop Filter:</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="0" column="1">
              <layout class="QHBoxLayout">
               <property name="spacing">
                <number>6</number>
@@ -1499,6 +1453,93 @@
                  <size>
                   <width>0</width>
                   <height>0</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QCheckBox" name="openGopCheckBox">
+              <property name="text">
+               <string>Open GOP:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QComboBox" name="openGopComboBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Normal Mode</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Blu-ray Mode</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <widget class="QCheckBox" name="interlacedCheckBox">
+              <property name="text">
+               <string>Interlaced:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QComboBox" name="interlacedComboBox">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Bottom Field First</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Top Field First</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fake Interlaced</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
@@ -4416,11 +4457,13 @@
   <tabstop>i8x8CheckBox</tabstop>
   <tabstop>i4x4CheckBox</tabstop>
   <tabstop>cabacCheckBox</tabstop>
-  <tabstop>interlacedCheckBox</tabstop>
-  <tabstop>interlacedComboBox</tabstop>
   <tabstop>loopFilterCheckBox</tabstop>
   <tabstop>alphaC0SpinBox</tabstop>
   <tabstop>betaSpinBox</tabstop>
+  <tabstop>openGopCheckBox</tabstop>
+  <tabstop>openGopComboBox</tabstop>
+  <tabstop>interlacedCheckBox</tabstop>
+  <tabstop>interlacedComboBox</tabstop>
   <tabstop>refFramesSpinBox</tabstop>
   <tabstop>maxBFramesSpinBox</tabstop>
   <tabstop>BFrameBiasSpinBox</tabstop>
@@ -4492,6 +4535,9 @@
   <tabstop>chromaSampleSpinBox</tabstop>
   <tabstop>fullRangeSamplesCheckBox</tabstop>
   <tabstop>buttonBox</tabstop>
+  <tabstop>maxCrfCheckBox</tabstop>
+  <tabstop>maxCrfSlider</tabstop>
+  <tabstop>maxCrfSpinBox</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -4892,6 +4938,22 @@
     <hint type="destinationlabel">
      <x>467</x>
      <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openGopCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>openGopComboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>151</x>
+     <y>177</y>
     </hint>
    </hints>
   </connection>

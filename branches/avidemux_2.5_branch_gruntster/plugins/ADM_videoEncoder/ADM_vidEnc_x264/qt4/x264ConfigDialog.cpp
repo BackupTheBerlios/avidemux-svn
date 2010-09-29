@@ -98,6 +98,11 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 	connect(ui.cabacCheckBox, SIGNAL(toggled(bool)), this, SLOT(cabacCheckBox_toggled(bool)));
 
+#if X264_BUILD < 102
+	ui.openGopCheckBox->setVisible(false);
+	ui.openGopComboBox->setVisible(false);
+#endif
+
 #if X264_BUILD < 96
 	ui.interlacedComboBox->removeItem(2);
 #endif
@@ -750,6 +755,16 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	// Frame tab
 	ui.cabacCheckBox->setChecked(options->getCabac());
 
+#if X264_BUILD > 101
+	if (options->getOpenGopMode())
+	{
+		ui.openGopCheckBox->setChecked(true);
+		ui.openGopComboBox->setCurrentIndex(options->getOpenGopMode() - 1);
+	}
+	else
+		ui.openGopCheckBox->setChecked(false);
+#endif
+
 	if (options->getInterlaced() > 0)
 	{
 		ui.interlacedCheckBox->setChecked(true);
@@ -981,6 +996,13 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 
 	// Frame tab
 	options->setCabac(ui.cabacCheckBox->isChecked());
+
+#if X264_BUILD > 101
+	if (ui.openGopCheckBox->isChecked())
+		options->setOpenGopMode(ui.openGopComboBox->currentIndex() + 1);
+	else
+		options->setOpenGopMode(0);
+#endif
 
 	if (ui.interlacedCheckBox->isChecked())
 		options->setInterlaced(ui.interlacedComboBox->currentIndex() + 1);
