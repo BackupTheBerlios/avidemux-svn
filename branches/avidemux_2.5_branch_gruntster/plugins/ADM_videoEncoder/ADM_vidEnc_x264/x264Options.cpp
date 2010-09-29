@@ -1283,6 +1283,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"loopFilterBeta", number2String(xmlBuffer, bufferSize, getLoopFilterBeta()));
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"cabac", boolean2String(xmlBuffer, bufferSize, getCabac()));
 
+#if X264_BUILD > 101
 	switch (getOpenGopMode())
 	{
 		case 1:
@@ -1297,6 +1298,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	}
 
 	xmlNewChild(xmlNodeRoot, NULL, (xmlChar*)"openGop", xmlBuffer);
+#endif
 
 	switch (getInterlaced())
 	{
