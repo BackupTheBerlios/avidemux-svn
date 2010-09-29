@@ -100,8 +100,12 @@ extern int check_leaks();
 
 int main(int argc, char *argv[])
 {
-#if defined(__WIN32) && defined(USE_SDL)
-	redirectStdoutToFile();
+	char uiDesc[15];
+	getUIDescription(uiDesc);
+
+#if defined(__WIN32)
+	if (strcmp(uiDesc, "CLI") != 0)
+		redirectStdoutToFile();
 #endif
 
 #if defined(ADM_DEBUG) && defined(FIND_LEAKS)
@@ -153,11 +157,7 @@ int main(int argc, char *argv[])
 	printf(" (PowerPC)");
 #endif
 
-	printf("\n");
-
-	char uiDesc[15];
-	getUIDescription(uiDesc);
-	printf("User Interface: %s\n", uiDesc);
+	printf("\nUser Interface: %s\n", uiDesc);
 
 #ifdef __WIN32
 	char version[250];
