@@ -3121,67 +3121,67 @@ Scegliere un nome diverso.</translation>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="396"/>
         <source>Scroll here</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri fino a qui</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="399"/>
         <source>Left edge</source>
-        <translation type="unfinished"></translation>
+        <translation>Margine sinistro</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="399"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>All&apos;inizio</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="401"/>
         <source>Right edge</source>
-        <translation type="unfinished"></translation>
+        <translation>Margine destro</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="401"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alla fine</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="404"/>
         <source>Page left</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina a sinistra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/rangecontrols.cpp" line="532"/>
         <source>Page up</source>
-        <translation type="unfinished"></translation>
+        <translation>PgSu</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="406"/>
         <source>Page right</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina a destra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/rangecontrols.cpp" line="536"/>
         <source>Page down</source>
-        <translation type="unfinished"></translation>
+        <translation>PgGiù</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="409"/>
         <source>Scroll left</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri a sinistra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="409"/>
         <source>Scroll up</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri verso l&apos;alto</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="411"/>
         <source>Scroll right</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri a destra</translation>
     </message>
     <message>
         <location filename="../src/gui/widgets/qscrollbar.cpp" line="411"/>
         <source>Scroll down</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri verso il basso</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/rangecontrols.cpp" line="530"/>
@@ -3840,12 +3840,12 @@ Scegliere un nome diverso.</translation>
     <message>
         <location filename="../src/plugins/accessible/widgets/complexwidgets.cpp" line="1068"/>
         <source>Scroll Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri a sinistra</translation>
     </message>
     <message>
         <location filename="../src/plugins/accessible/widgets/complexwidgets.cpp" line="1068"/>
         <source>Scroll Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorri a destra</translation>
     </message>
 </context>
 <context>
