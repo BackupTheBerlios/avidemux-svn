@@ -334,21 +334,23 @@ int x264Encoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 	_currentFrame++;
 	encodeParams->ptsFrame = picture_out.i_pts;	// In fact it is the picture number in out case
 
-	switch (picture_out.i_type)
+	if (picture_out.b_keyframe)
+		encodeParams->frameType = ADM_VIDENC_FRAMETYPE_IDR;
+	else
 	{
-		case X264_TYPE_IDR:
-			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_IDR;
-			break;
-		case X264_TYPE_I:
-		case X264_TYPE_P:
-			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_P;
-			break;
-		case X264_TYPE_B:
-		case X264_TYPE_BREF:
-			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_B;
-			break;
-		default:
-			encodeParams->frameType = ADM_VIDENC_FRAMETYPE_NULL;
+		switch (picture_out.i_type)
+		{
+			case X264_TYPE_I:
+			case X264_TYPE_P:
+				encodeParams->frameType = ADM_VIDENC_FRAMETYPE_P;
+				break;
+			case X264_TYPE_B:
+			case X264_TYPE_BREF:
+				encodeParams->frameType = ADM_VIDENC_FRAMETYPE_B;
+				break;
+			default:
+				encodeParams->frameType = ADM_VIDENC_FRAMETYPE_NULL;
+		}
 	}
 
 	encodeParams->quantiser = picture_out.i_qpplus1 - 1;
