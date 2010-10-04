@@ -86,7 +86,7 @@ uint8_t  ADMVideoSubtitle::loadSubTitle (void)
 	return 0;
 
   }
-  while (fgets (string, 200, _fd))
+  while (fgets (string, sizeof(string), _fd))
     {
       _line++;
     }
@@ -104,7 +104,7 @@ uint8_t  ADMVideoSubtitle::loadSubTitle (void)
 //
   for (uint32_t i = 0; i < _line; i++)
     {
-      fgets (string, ADM_RAW, _fd);
+      fgets (string, sizeof(string), _fd);
       //printf("\n in : %s ",string);
       if (string[0] != '{')
 	continue;
@@ -250,7 +250,7 @@ ADMVideoSubtitle::loadSRT (void)
   // first cound how many line
   line = 0;
   _line = 0;
-  while (fgets (string, 300, _fd))
+  while (fgets (string, sizeof(string), _fd))
     line++;
   printf ("\n subs : %ld lines\n", line);
   // rewind
@@ -272,7 +272,7 @@ ADMVideoSubtitle::loadSRT (void)
   for (uint32_t i = 0; i < line; i++)
     {
 	current=&_subs[_line];
-	fgets (string, ADM_RAW, _fd);
+	fgets (string, sizeof(string), _fd);
 	ADM_utfConv(final,string,strlen(string),&finallen);
 	// Purge cr/lf
 	switch (state)
