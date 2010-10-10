@@ -1710,13 +1710,11 @@ void x264Options::parseOptions(xmlNode *node)
 			else if (strcmp((char*)xmlChild->name, "sliceCount") == 0)
 				setSliceCount(atoi(content));
 #if X264_BUILD > 88
-			else if (strcmp((char*)xmlChild->name, "hdr") == 0)
+			else if (strcmp((char*)xmlChild->name, "hrd") == 0)
 			{
-				unsigned int hdr = 0;
+				unsigned int hdr = X264_NAL_HRD_NONE;
 
-				if (strcmp(content, "none") == 0)
-					hdr = X264_NAL_HRD_NONE;
-				else if (strcmp(content, "vbr") == 0)
+				if (strcmp(content, "vbr") == 0)
 					hdr = X264_NAL_HRD_VBR;
 				else if (strcmp(content, "cbr") == 0)
 					hdr = X264_NAL_HRD_CBR;
