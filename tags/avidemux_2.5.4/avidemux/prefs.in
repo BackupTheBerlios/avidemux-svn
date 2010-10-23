@@ -1,0 +1,84 @@
+#
+# this file will be used as input for pref.h and pref.cpp
+#
+
+# option_name :: name without '-'; the dot is the separator used for the xml tree
+#		 '.' will be changed to '_'
+#		 all letters will be changed to there upper case equivalents
+# type        :: ( UINT | INT | ULONG | LONG | FLOAT | STRING )
+# value       :: default value; used if no xml value available
+# minimum     :: the smallest value this option can have (ignored for STRING)
+# maximum     :: the largest  value this option can have (ignored for STRING)
+
+# option name				type	value	minimum	maximum (incl.)
+#ifdef __WIN32
+filters.subtitle.fontname,		FILENAME, "C:\\Windows\\Fonts\\arial.ttf"
+#else
+filters.subtitle.fontname,		FILENAME, "/usr/share/fonts/truetype/DejaVuSans.ttf"
+#endif
+filters.subtitle.charset,		STRING, "ISO-8859-1"
+filters.subtitle.fontsize,		UINT,	24,	1,	576
+filters.subtitle.ypercent,		INT,	255,	0,	255
+filters.subtitle.upercent,		INT,	0,	0,	255
+filters.subtitle.vpercent,		INT,	0,	0,	255
+filters.subtitle.selfadjustable,	UINT,	0,	0,	1
+filters.subtitle.usebackgroundcolor,	UINT,	0,	0,	1
+filters.avsfilter.avs_script,		FILENAME,	""
+filters.avsfilter.avs_loader,		FILENAME,	""
+filters.avsfilter.pipe_timeout,		UINT,	10,     1,       30
+filters.avsfilter.debug_msg,		UINT,	1,      0,       1
+#ifdef __WIN32
+device.audiodevice,			STRING,	WIN32
+#else
+device.audiodevice,			STRING,	ALSA
+#endif
+device.audio.alsa_device,               STRING, "dmix"
+device.videodevice,			UINT,	0,	0,	10
+# Posproc
+default.postproc_type,			UINT,	3,	0,	7
+default.postproc_value,			UINT,	3,	0,	5
+# lastfiles
+lastfiles.file1,			FILENAME,	""
+lastfiles.file2,			FILENAME,	""
+lastfiles.file3,			FILENAME,	""
+lastfiles.file4,			FILENAME,	""
+lastfiles.file5,			FILENAME,	""
+lastfiles.file6,			FILENAME,	""
+lastproject.file1,			FILENAME,	""
+lastproject.file2,			FILENAME,	""
+lastproject.file3,			FILENAME,	""
+lastproject.file4,			FILENAME,	""
+lastproject.file5,			FILENAME,	""
+lastproject.file6,			FILENAME,	""
+lastdir_read,				FILENAME,	""
+lastdir_write,				FILENAME,	""
+# 0 - no messages, 1 - only error messages, 2 - all messages
+message_level,				UINT,	2,	0,	2
+# feature
+feature.swap_if_A_greater_than_B,	UINT,   1,      0,      1
+feature.svcdres.preferedsourceratio,	STRING, "1:1"
+feature.saveprefsonexit,		UINT,	1,	0,	1
+feature.ignoresavedmarkers,		UINT,	0,	0,	1
+feature.disable_nuv_resync,		UINT,	0,	0,	1
+feature.tryautoidx,			UINT,	0,	0,	1
+feature.use_odml,                       UINT,   0,      0,      1
+feature.use_systray,                    UINT,   0,      0,      1
+feature.reuse_2pass_log,                UINT,   0,      0,      1
+feature.audiobar_uses_master,           UINT,   0,      0,      1
+feature.threading.lavc,                 UINT,   0,      0,      32
+feature.cpu_caps,  		                UINT,   4294967295,      0,      4294967295
+feature.mpeg_no_limit,                  UINT,   0,      0,      1
+feature.auto_buildmap,                  UINT,   0,      0,      1
+feature.auto_rebuildindex,              UINT,   0,      0,      1
+feature.auto_unpack,                    UINT,   0,      0,      1
+# prologic 1/2
+downmixing.prologic,			UINT,	2,	0,	2
+feature.alternate_mp3_tag,              UINT,   1,      0,      1
+# Global glyphset file
+feature.global_glyph.active,            UINT,   1,      0,      1
+feature.global_glyph.name,              STRING, ""
+# priority
+priority.encoding,          UINT,   3,      0,      4
+priority.indexing,          UINT,   3,      0,      4
+priority.playback,          UINT,   0,      0,      4
+plugin.order,               STRING, "<?xml version=\"1.0\"?><pluginOrder><videoEncoder><plugin id=\"Copy\" enabled=\"true\" default=\"true\"/><plugin id=\"32BCB447-21C9-4210-AE9A-4FCE6C8588AE\" enabled=\"true\" default=\"false\"/><plugin id=\"92B544BE-59A3-4720-86F0-6AD5A2526FD2\" enabled=\"true\" default=\"false\"/><plugin id=\"0E7C20E3-FF92-4bb2-A9A9-55B7F713C45A\" enabled=\"true\" default=\"false\"/><plugin id=\"DBAECD8B-CF29-4846-AF57-B596427FE7D3\" enabled=\"true\" default=\"false\"/><plugin id=\"C16E9CCE-D9B3-4fbe-B0C5-8B1BEBF2178E\" enabled=\"true\" default=\"false\"/><plugin id=\"REQUANT\" enabled=\"true\" default=\"false\"/><plugin id=\"85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E\" enabled=\"true\" default=\"false\"/><plugin id=\"056FE919-C1D3-4450-A812-A767EAB07786\" enabled=\"true\" default=\"false\"/><plugin id=\"075E8A4E-5B3D-47c6-9F70-853D6B855106\" enabled=\"true\" default=\"false\"/><plugin id=\"4279DF66-ECEF-4d3d-AFEA-1BFCCB79E219\" enabled=\"true\" default=\"false\"/><plugin id=\"134AA23B-A1FE-4d7b-AC99-85E440BA4595\" enabled=\"true\" default=\"false\"/><plugin id=\"D5118154-0B9A-4e9a-BEC6-95DA343E7215\" enabled=\"true\" default=\"false\"/><plugin id=\"970CB80B-5713-445c-A187-5C6F4A76FA76\" enabled=\"true\" default=\"false\"/><plugin id=\"E5D8EAC6-71C1-4f3e-A975-B655232271FB\" enabled=\"true\" default=\"false\"/><plugin id=\"4828D06D-B555-4d72-94EC-34F04F97E501\" enabled=\"true\" default=\"false\"/><plugin id=\"YV12\" enabled=\"true\" default=\"false\"/></videoEncoder></pluginOrder>"

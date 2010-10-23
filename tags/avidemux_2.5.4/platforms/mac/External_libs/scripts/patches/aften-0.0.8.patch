@@ -1,0 +1,26 @@
+diff -aur aften-0.0.8-orig/CMakeLists.txt aften-0.0.8/CMakeLists.txt
+--- CMakeLists.txt    2007-09-08 02:51:47.000000000 +0100
++++ CMakeLists.txt    2007-12-06 12:46:45.000000000 +0000
+@@ -85,6 +85,10 @@
+   ENDIF(CMAKE_SYSTEM MATCHES "Windows")
+ ENDIF(CMAKE_UNAME)
+ 
++IF (CROSS_SYSTEM_MACHINE)
++  SET(CMAKE_SYSTEM_MACHINE ${CROSS_SYSTEM_MACHINE})
++ENDIF (CROSS_SYSTEM_MACHINE)
++
+ DETECT_COMPILER()
+ 
+ CHECK_64BITS()
+diff -aur aften-0.0.8-orig/libaften/ppc/ppc_cpu_caps.h aften-0.0.8/libaften/ppc/ppc_cpu_caps.h
+--- libaften/ppc/ppc_cpu_caps.h    2007-07-28 13:26:23.000000000 +0100
++++ libaften/ppc/ppc_cpu_caps.h    2007-12-06 12:59:03.000000000 +0000
+@@ -20,7 +20,7 @@
+ #ifndef PPC_CPU_CAPS_H
+ #define PPC_CPU_CAPS_H
+ 
+-#include "common.h"
++#include "aften-types.h"
+ #include "cpu_caps.h"
+ 
+ extern int ppc_cpu_caps_altivec;

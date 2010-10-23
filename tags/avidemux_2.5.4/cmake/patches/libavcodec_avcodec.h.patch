@@ -1,0 +1,34 @@
+*** libavcodec/avcodec.h.old	Sun Sep  5 02:05:26 2010
+--- libavcodec/avcodec.h	Sun Sep  5 02:05:26 2010
+***************
+*** 626,631 ****
+--- 626,633 ----
+  #define CODEC_FLAG2_PSY           0x00080000 ///< Use psycho visual optimizations.
+  #define CODEC_FLAG2_SSIM          0x00100000 ///< Compute SSIM during encoding, error[] values are undefined.
+  #define CODEC_FLAG2_INTRA_REFRESH 0x00200000 ///< Use periodic insertion of intra blocks instead of keyframes.
++ //MEANX: NEVER EVER USE CLOSED GOP ?
++ #define CODEC_FLAG2_32_PULLDOWN   0x80000000
+  
+  /* Unsupported options :
+   *              Syntax Arithmetic coding (SAC)
+***************
+*** 1508,1513 ****
+--- 1510,1516 ----
+       * - decoding: unused
+       */
+      int rc_max_rate;
++     int rc_max_rate_header; /*< That one is set in the header MEANX */
+  
+      /**
+       * minimum bitrate
+***************
+*** 1522,1527 ****
+--- 1525,1532 ----
+       * - decoding: unused
+       */
+      int rc_buffer_size;
++     int rc_buffer_size_header;  /*< That one is set in the header MEANX*/
++ 
+      float rc_buffer_aggressivity;
+  
+      /**

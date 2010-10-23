@@ -1,0 +1,158 @@
+<ui version="4.0" >
+ <class>CurveDialog</class>
+ <widget class="QDialog" name="CurveDialog" >
+  <property name="windowModality" >
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>305</width>
+    <height>100</height>
+   </rect>
+  </property>
+  <property name="focusPolicy" >
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="windowTitle" >
+   <string>Curve Editor</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainVerticalLayout" >
+   <item>
+    <layout class="QHBoxLayout" name="curveToolsLayout" >
+     <item>
+      <widget class="QComboBox" name="channelComboBox" >
+       <property name="toolTip" >
+        <string>Choose channel for editing</string>
+       </property>
+       <property name="currentIndex" >
+        <number>0</number>
+       </property>
+       <property name="maxCount" >
+        <number>4</number>
+       </property>
+       <item>
+        <property name="text" >
+         <string>Luma (Y)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>Chroma (U)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>Chroma (V)</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="defaultButton" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip" >
+        <string>Sets default curve</string>
+       </property>
+       <property name="text" >
+        <string>Refresh</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType" >
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>10</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="helpButton" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text" >
+        <string>Help</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="layoutDirection" >
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons" >
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons" >
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>CurveDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>257</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>CurveDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>264</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>273</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
