@@ -97,7 +97,7 @@ ENDIF (APPLE)
 ########################################
 # Standard Avidemux defines
 ########################################
-SET(VERSION 2.5.3)
+SET(VERSION 2.5.4)
 
 # Define internal flags for GTK+ and Qt4 builds.  These are turned off
 # if a showstopper is found.  CLI is automatically assumed as possible
@@ -115,20 +115,20 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 ########################################
 # Subversion
 ########################################
-OPTION(SVN "" ON)
+#OPTION(SVN "" ON)
 SET(ADM_SUBVERSION 0)
 
-IF (SVN)
-	MESSAGE(STATUS "Checking for SCM Revision")
-	MESSAGE(STATUS "*************************")
+#IF (SVN)
+	#MESSAGE(STATUS "Checking for SCM Revision")
+	#MESSAGE(STATUS "*************************")
 
-	SET(Subversion_FIND_REQUIRED OFF)
-	include(admGetRevision)
-	admGetRevision(${PROJECT_SOURCE_DIR} ADM_SUBVERSION)
-	MESSAGE(STATUS "  revision: ${ADM_SUBVERSION}")
+	#SET(Subversion_FIND_REQUIRED OFF)
+	#include(admGetRevision)
+	#admGetRevision(${PROJECT_SOURCE_DIR} ADM_SUBVERSION)
+	#MESSAGE(STATUS "  revision: ${ADM_SUBVERSION}")
 
-	MESSAGE("")
-ENDIF (SVN)
+#	MESSAGE("")
+#ENDIF (SVN)
 
 ########################################
 # Check for libraries
