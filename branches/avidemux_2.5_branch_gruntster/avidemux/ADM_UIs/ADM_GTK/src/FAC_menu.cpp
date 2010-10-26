@@ -183,7 +183,7 @@ void diaElemMenuDynamic::getMe(void)
 {
   GtkWidget *widget=(GtkWidget *)myWidget;
   int rank = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
-  
+  if(rank==-1) rank=0; 
   if (!nbMenu)
 	  return;
 
@@ -226,6 +226,7 @@ void   diaElemMenuDynamic::finalize(void)
   
   
   rank=gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
+  if(-1==rank) rank=0;
   ADM_assert(rank<this->nbMenu);
   val=this->menu[rank]->val;
   /* Now search through the linked list to see if something happens ...*/
