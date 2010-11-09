@@ -66,6 +66,7 @@ static opt_def opt_defs [] = {
 	{"filters.subtitle.vpercent",		INT,	"0",	NULL,	"0",	"255"	},
 	{"filters.subtitle.selfadjustable",		UINT,	"0",	NULL,	"0",	"1"	},
 	{"filters.subtitle.usebackgroundcolor",		UINT,	"0",	NULL,	"0",	"1"	},
+	{"filters.avsfilter.wine_app",		FILENAME,"",	NULL, NULL, NULL },
 	{"filters.avsfilter.avs_script",		FILENAME,"",	NULL, NULL, NULL },
 	{"filters.avsfilter.avs_loader",		FILENAME,"",	NULL, NULL, NULL },
 	{"filters.avsfilter.pipe_timeout",		UINT,	"10",	NULL,	"1",	"30"	},
@@ -120,7 +121,7 @@ static opt_def opt_defs [] = {
 	{"plugin.order",	STRING,"<?xml version=\"1.0\"?><pluginOrder><videoEncoder><plugin id=\"Copy\" enabled=\"true\" default=\"true\"/><plugin id=\"32BCB447-21C9-4210-AE9A-4FCE6C8588AE\" enabled=\"true\" default=\"false\"/><plugin id=\"92B544BE-59A3-4720-86F0-6AD5A2526FD2\" enabled=\"true\" default=\"false\"/><plugin id=\"0E7C20E3-FF92-4bb2-A9A9-55B7F713C45A\" enabled=\"true\" default=\"false\"/><plugin id=\"DBAECD8B-CF29-4846-AF57-B596427FE7D3\" enabled=\"true\" default=\"false\"/><plugin id=\"C16E9CCE-D9B3-4fbe-B0C5-8B1BEBF2178E\" enabled=\"true\" default=\"false\"/><plugin id=\"REQUANT\" enabled=\"true\" default=\"false\"/><plugin id=\"85FC9CAC-CE6C-4aa6-9D5F-352D6349BA3E\" enabled=\"true\" default=\"false\"/><plugin id=\"056FE919-C1D3-4450-A812-A767EAB07786\" enabled=\"true\" default=\"false\"/><plugin id=\"075E8A4E-5B3D-47c6-9F70-853D6B855106\" enabled=\"true\" default=\"false\"/><plugin id=\"4279DF66-ECEF-4d3d-AFEA-1BFCCB79E219\" enabled=\"true\" default=\"false\"/><plugin id=\"134AA23B-A1FE-4d7b-AC99-85E440BA4595\" enabled=\"true\" default=\"false\"/><plugin id=\"D5118154-0B9A-4e9a-BEC6-95DA343E7215\" enabled=\"true\" default=\"false\"/><plugin id=\"970CB80B-5713-445c-A187-5C6F4A76FA76\" enabled=\"true\" default=\"false\"/><plugin id=\"E5D8EAC6-71C1-4f3e-A975-B655232271FB\" enabled=\"true\" default=\"false\"/><plugin id=\"4828D06D-B555-4d72-94EC-34F04F97E501\" enabled=\"true\" default=\"false\"/><plugin id=\"YV12\" enabled=\"true\" default=\"false\"/></videoEncoder></pluginOrder>",NULL, NULL, NULL }
 };
 
-int num_opts = 56;
+int num_opts = 57;
 // </prefs_gen>
 
 #ifdef USE_LIBXML2

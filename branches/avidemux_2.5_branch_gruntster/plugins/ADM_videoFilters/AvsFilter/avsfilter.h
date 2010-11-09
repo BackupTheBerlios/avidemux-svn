@@ -32,10 +32,11 @@ typedef struct
 
 typedef struct
 {
-  ADM_filename *avs_script;
-  ADM_filename *avs_loader;
-  uint32_t script_mtime, script_ctime; // script timestamp
-  uint32_t pipe_timeout;
+ ADM_filename *wine_app;
+ ADM_filename *avs_script;
+ ADM_filename *avs_loader;
+ uint32_t script_mtime, script_ctime; // script timestamp
+ uint32_t pipe_timeout;
 } AVS_PARAM;
 
 typedef struct

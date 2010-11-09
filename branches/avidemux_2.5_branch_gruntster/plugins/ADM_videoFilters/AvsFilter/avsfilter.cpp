@@ -16,6 +16,9 @@
  ***************************************************************************/
 
 //#include "config.h"
+#ifndef AVS_WINE_BINARY_PATH
+#error "AVS_WINE_BINARY_PATH not set!!!"
+#endif
 
 #ifdef VERSION_2_5
 #include "ADM_default.h"
@@ -56,7 +59,9 @@
 #include "cdebug.h"
 #include "ADM_plugin_translate.h"
 
-static FILTER_PARAM avsParam={3,{"avs_script", "avs_loader","pipe_timeout"}};
+#define AVSFILTER_VERSION_INFO "AvsFilter, ver 0.8a"
+
+static FILTER_PARAM avsParam={4,{"wine_app", "avs_script", "avs_loader", "pipe_timeout"}};
 static WINE_LOADER *first_loader = NULL;
 static AVSTerminate term;
 
@@ -89,23 +94,23 @@ WINE_LOADER *find_object(int order,
           res->input_info.nb_frames == input_info->nb_frames &&
           res->input_info.orgFrame == input_info->orgFrame)
       {
-        printf("find_object : find %s %s\n",
-               (char*)res->_param.avs_loader,
-               (char*)res->_param.avs_script);
+/*        DEBUG_PRINTF("find_object : find %s %s\n",
+                     (char*)res->_param.avs_loader,
+                     (char*)res->_param.avs_script);*/
         if (full) *full = true;
       }
       else
       {
-        printf("find_object fail: %s %s %dx%d [%d - %d] ftime %lX:%lX != %s %s %dx%d [%d - %d] ftime %lX:%lX\n",
-               (char*)res->_param.avs_loader,
-               (char*)res->_param.avs_script,
-               res->input_info.width,
-               res->input_info.height,
-               res->input_info.orgFrame, res->input_info.orgFrame + res->input_info.nb_frames,
-               res->_param.script_ctime, res->_param.script_mtime,
-               avs_loader, avs_script, input_info->width, input_info->height,
-               input_info->orgFrame, input_info->orgFrame + input_info->nb_frames,
-               script_ctime, script_mtime);
+/*        DEBUG_PRINTF("find_object fail: %s %s %dx%d [%d - %d] ftime %X:%X != %s %s %dx%d [%d - %d] ftime %lX:%lX\n",
+                     (char*)res->_param.avs_loader,
+                     (char*)res->_param.avs_script,
+                     res->input_info.width,
+                     res->input_info.height,
+                     res->input_info.orgFrame, res->input_info.orgFrame + res->input_info.nb_frames,
+                     res->_param.script_ctime, res->_param.script_mtime,
+                     avs_loader, avs_script, input_info->width, input_info->height,
+                     input_info->orgFrame, input_info->orgFrame + input_info->nb_frames,
+                     script_ctime, script_mtime);*/
         if (full) *full = false;
       }
       break;
@@ -121,12 +126,12 @@ void print_objects(void)
 
   while (res != NULL)
   {
-    printf("print_objects : %s %s %dx%d [%d - %d]\n",
-           (char*)res->_param.avs_loader,
-           (char*)res->_param.avs_script,
-           res->input_info.width,
-           res->input_info.height,
-           res->input_info.orgFrame, res->input_info.orgFrame + res->input_info.nb_frames);
+/*    DEBUG_PRINTF("print_objects : %s %s %dx%d [%d - %d]\n",
+                 (char*)res->_param.avs_loader,
+                 (char*)res->_param.avs_script,
+                 res->input_info.width,
+                 res->input_info.height,
+                 res->input_info.orgFrame, res->input_info.orgFrame + res->input_info.nb_frames);*/
     res = (WINE_LOADER *)res->next_wine_loader;
   }
   return;
@@ -214,11 +219,11 @@ bool init_pipes (AVS_PIPES *avsp, int num, FILE *pfile)
   {
     char sname[MAX_PATH];
 
-    if (fscanf(pfile, "%s\n", sname) != 1) DEBUG_PRINTF("fscanf error\n");
-    else if (!(avsp[i].pipename = strnew(sname))) DEBUG_PRINTF("strnew error\n");
-    else if (remove(avsp[i].pipename)) DEBUG_PRINTF("error remove file\n");
+    if (fscanf(pfile, "%s\n", sname) != 1) DEBUG_PRINTF_RED("fscanf error\n");
+    else if (!(avsp[i].pipename = strnew(sname))) DEBUG_PRINTF_RED("strnew error\n");
+    else if (remove(avsp[i].pipename)) DEBUG_PRINTF_RED("error remove file\n");
     else if (mkfifo(avsp[i].pipename, 0600))
-     DEBUG_PRINTF("mkfifo error create fifo file %s, errno %d\n",
+     DEBUG_PRINTF_RED("mkfifo error create fifo file %s, errno %d\n",
 	         avsp[i].pipename, errno);
     else continue;
 
@@ -237,7 +242,7 @@ bool open_pipes(AVS_PIPES *avsp, int num)
     DEBUG_PRINTF("avsfilter : try to open %s fifo\n", avsp[i].pipename);
     if ((avsp[i].hpipe = open(avsp[i].pipename, avsp[i].flags)) == -1)
     {
-      DEBUG_PRINTF("avsfilter : failed open errno %d\n", errno);
+      DEBUG_PRINTF_RED("avsfilter : failed open errno %d\n", errno);
       deinit_pipe(&avsp[i]);
       deinit_pipes(avsp, i);
       return false;
@@ -279,24 +284,24 @@ AVSTerminate::~AVSTerminate()
 {
   WINE_LOADER *cur_loader = first_loader;
   int i = 0;
-  printf("Call terminate!!!\n");
+  DEBUG_PRINTF("Call terminate!!!\n");
 
   if (cur_loader)
     do {
-      printf("Count %d\n", i++);
+      DEBUG_PRINTF("Count %d\n", i++);
 
       if (cur_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe != -1)
       {
         send_cmd(cur_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe,
                  UNLOAD_AVS_SCRIPT, NULL, 0);
-        printf("UNLOAD_AVS_SCRIPT try\n");
+        DEBUG_PRINTF("UNLOAD_AVS_SCRIPT try\n");
       }
 
       if (cur_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe != -1)
       {
         send_cmd(cur_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe,
                  UNLOAD_AVS_LOADER, NULL, 0);
-        printf("UNLOAD_AVS_LOADER try\n");
+        DEBUG_PRINTF("UNLOAD_AVS_LOADER try\n");
       }
 
       deinit_pipes(cur_loader->avs_pipes, CMD_PIPE_NUM);
@@ -357,24 +362,24 @@ void *parse_wine_stdout(void *arg)
   }
 }
 
-bool wine_start(char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
+bool wine_start(char *wine_app, char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
 {
   char sname[MAX_PATH];
   struct stat st;
-  sprintf(sname, "wine %s %d", avsloader, pipe_timeout);
+  sprintf(sname, "%s %s %d", wine_app, avsloader, pipe_timeout);
 
   FILE *pfile = popen(sname, "r");
   if (!pfile)
   {
-    DEBUG_PRINTF("avsfilter : popen failed, errno %d\n", errno);
-    return false;
+   DEBUG_PRINTF_RED("avsfilter : popen failed, errno %d, failed start app is : [%s]\n", errno, sname);
+   return false;
   }
 
   if (fscanf(pfile, "%s\n", sname) != 1 ||
       stat(sname, &st) ||
       !S_ISDIR(st.st_mode))
   {
-    DEBUG_PRINTF("avsfilter : tmpdirname failed, errno %d[stat %d isdir %d]\n", errno, stat(sname, &st), S_ISDIR(st.st_mode));
+    DEBUG_PRINTF_RED("avsfilter : tmpdirname [%s] failed, errno %d[stat %d isdir %d]\n", sname, errno, stat(sname, &st), S_ISDIR(st.st_mode));
     pclose(pfile);
     return false;
   }
@@ -383,7 +388,7 @@ bool wine_start(char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
 
   if (!init_pipes(avs_pipes, CMD_PIPE_NUM, pfile))
   {
-    DEBUG_PRINTF("init_pipes failed\n");
+    DEBUG_PRINTF_RED("init_pipes failed\n");
     pclose(pfile);
     return false;
   }
@@ -398,7 +403,7 @@ bool wine_start(char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
 
   if (pthread_create(&thread, NULL, parse_wine_stdout, &tp))
   {
-    DEBUG_PRINTF("Cannot pthread started...Errno %d\n",errno);
+    DEBUG_PRINTF_RED("Cannot pthread started...Errno %d\n",errno);
     deinit_pipes(avs_pipes, CMD_PIPE_NUM);
     return false;
   }
@@ -410,7 +415,7 @@ bool wine_start(char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
   if (!open_pipes(avs_pipes, CMD_PIPE_NUM) || wine_loader_down)
   {
     open_pipes_ok = true;
-    DEBUG_PRINTF("open_pipes failed\n");
+    DEBUG_PRINTF_RED("open_pipes failed\n");
     deinit_pipes(avs_pipes, CMD_PIPE_NUM);
     return false;
   }
@@ -433,7 +438,7 @@ bool wine_start(char *avsloader, AVS_PIPES *avs_pipes, int pipe_timeout)
   else
   {
     error_pipe_test:
-    DEBUG_PRINTF("Error test read/write pipes\n");
+    DEBUG_PRINTF_RED("Error test read/write pipes\n");
     deinit_pipes(avs_pipes, CMD_PIPE_NUM);
     return false;
   }
@@ -452,7 +457,7 @@ bool avs_start(ADV_Info *info, ADV_Info *avisynth_info,
                 SET_CLIP_PARAMETER, info,
                 sizeof(ADV_Info)))
   {
-    DEBUG_PRINTF("avsfilter : cannot set script name or set clip parameters\n");
+    DEBUG_PRINTF_RED("avsfilter : cannot set script name or set clip parameters\n");
     deinit_pipes(avs_pipes, CMD_PIPE_NUM);
     return false;
   }
@@ -465,7 +470,7 @@ bool avs_start(ADV_Info *info, ADV_Info *avisynth_info,
       !receive_data(avs_pipes[PIPE_LOADER_READ].hpipe,
                     &msg, avisynth_info))
   {
-    DEBUG_PRINTF("avsfilter : cannot receive avisynth clip parameters\n");
+    DEBUG_PRINTF_RED("avsfilter : cannot receive avisynth clip parameters\n");
     deinit_pipes(avs_pipes, CMD_PIPE_NUM);
     return false;
   }
@@ -485,7 +490,7 @@ bool avs_start(ADV_Info *info, ADV_Info *avisynth_info,
 
 VF_DEFINE_FILTER(ADMVideoAVSfilter, avsParam,
                  avsfilter,
-                 QT_TR_NOOP("Avisynth script filter (avsfilter), ver 0.7a(internal)"),
+                 QT_TR_NOOP("Avisynth script filter ("AVSFILTER_VERSION_INFO")"),
                  1,
                  VF_MISC,
                  QT_TR_NOOP("Use avisynth script as video filter."));
@@ -493,13 +498,12 @@ VF_DEFINE_FILTER(ADMVideoAVSfilter, avsParam,
 #else
 extern "C"
 {
-
   SCRIPT_CREATE(FILTER_create_fromscript,ADMVideoAVSfilter,avsParam);
   BUILD_CREATE(FILTER_create,ADMVideoAVSfilter);
 
   char *FILTER_getName(void)
   {
-    return "AvsFilter, ver 0.7a";
+    return AVSFILTER_VERSION_INFO;
   }
 
   char *FILTER_getDesc(void)
@@ -522,9 +526,8 @@ char *ADMVideoAVSfilter::printConf( void )
 {
   static char buf[MAXPATHLEN];
 
-  sprintf((char *)buf, "loader : %s\n script : %s\npipe timeout %d",
-          _param->avs_loader ,_param->avs_script,
-          _param->pipe_timeout);
+  sprintf((char *)buf, "wine_app : %s\n loader : %s\n script : %s\npipe timeout %d",
+          _param->wine_app, _param->avs_loader, _param->avs_script, _param->pipe_timeout);
   return buf;
 }
 
@@ -534,6 +537,9 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
   print_objects();
 
 #define PX(x) &(_param->x)
+  diaElemFile wine_app(0,(char**)PX(wine_app),
+                       QT_TR_NOOP("_wine app file:"), NULL,
+                       QT_TR_NOOP("Select wine filename[wine/cedega/etc.]"));
   diaElemFile loaderfile(0,(char**)PX(avs_loader),
                          QT_TR_NOOP("_loader file:"), NULL,
                          QT_TR_NOOP("Select loader filename[avsload.exe]"));
@@ -542,9 +548,9 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
                       QT_TR_NOOP("Select avs filename[*.avs]"));
   diaElemUInteger pipe_timeout(PX(pipe_timeout),QT_TR_NOOP("_pipe timeout:"),1,30);
 
-  diaElem *elems[3]={&loaderfile, &avsfile, &pipe_timeout};
+  diaElem *elems[4]={&wine_app, &loaderfile, &avsfile, &pipe_timeout};
 
-  if( diaFactoryRun(QT_TR_NOOP("AvsFilter config"), 3, elems))
+  if( diaFactoryRun(QT_TR_NOOP("AvsFilter config"), 4, elems))
   {
     bool res = false;
 
@@ -552,12 +558,13 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
 
     // if script/loader names are exist, then taste config
     if (_param->avs_loader && strlen((const char*)_param->avs_loader) &&
-        _param->avs_script && strlen((const char*)_param->avs_script))
+        _param->avs_script && strlen((const char*)_param->avs_script) &&
+        _param->wine_app && strlen((const char*)_param->wine_app))
     {
       struct stat st;
       if (stat((char*)_param->avs_script, &st) != 0)
       {
-        DEBUG_PRINTF("avsfilter : cannot stat script file\n");
+        DEBUG_PRINTF_RED("avsfilter : cannot stat script file\n");
         return 0;
       }
 
@@ -573,9 +580,10 @@ uint8_t ADMVideoAVSfilter::configure(AVDMGenericVideoStream *in)
       // we store this parameters in filter preferences
       if (res && _param->avs_script && _param->avs_loader)
       {
-        prefs->set(FILTERS_AVSFILTER_AVS_SCRIPT, (ADM_filename*)_param->avs_script);
-        prefs->set(FILTERS_AVSFILTER_AVS_LOADER, (ADM_filename*)_param->avs_loader);
-        prefs->set(FILTERS_AVSFILTER_PIPE_TIMEOUT, _param->pipe_timeout);
+       prefs->set(FILTERS_AVSFILTER_WINE_APP, (ADM_filename*)_param->wine_app);
+       prefs->set(FILTERS_AVSFILTER_AVS_SCRIPT, (ADM_filename*)_param->avs_script);
+       prefs->set(FILTERS_AVSFILTER_AVS_LOADER, (ADM_filename*)_param->avs_loader);
+       prefs->set(FILTERS_AVSFILTER_PIPE_TIMEOUT, _param->pipe_timeout);
       }
       DEBUG_PRINTF("avsfilter : configure exit ok\n");
       return res;
@@ -610,9 +618,9 @@ bool ADMVideoAVSfilter::SetParameters(AVS_PARAM *newparam)
     loader->_param.avs_script = NULL;
     loader->_param.avs_loader = NULL;
 
-    if (!wine_start((char*)newparam->avs_loader, loader->avs_pipes, newparam->pipe_timeout))
+    if (!wine_start((char*)newparam->wine_app, (char*)newparam->avs_loader, loader->avs_pipes, newparam->pipe_timeout))
     {
-      DEBUG_PRINTF("avsfilter : wine_start unsuccessful start!\n");
+      DEBUG_PRINTF_RED("avsfilter : wine_start unsuccessful start!\n");
       delete loader;
       deref_wine_loader:
       if (wine_loader)
@@ -636,7 +644,7 @@ bool ADMVideoAVSfilter::SetParameters(AVS_PARAM *newparam)
     // matched only order (need reload with new script/geometry/etc)
     if (!avs_start(&_info, &loader->output_info, (char*)newparam->avs_script, loader->avs_pipes))
     {
-      DEBUG_PRINTF("avsfilter : SetParameters fail avs_start\n");
+      DEBUG_PRINTF_RED("avsfilter : SetParameters fail avs_start\n");
       delete_object(loader);
       goto deref_wine_loader;
     }
@@ -665,127 +673,12 @@ bool ADMVideoAVSfilter::SetParameters(AVS_PARAM *newparam)
 
   DEBUG_PRINTF("avsfilter : SetParameters return Ok\n");
   return true;
-
-#if 0
-  // if not change parameters
-/*  if (oldparam &&
-      !strcmp((char*)oldparam->avs_loader, (char*)newparam->avs_loader) &&
-      !strcmp((char*)oldparam->avs_script, (char*)newparam->avs_script))
-    return true;*/
-
-  avs_load = false;
-  wine_load = false;
-
-  // find corresponding loader/script
-  WINE_LOADER *loader = find_object((char*)newparam->avs_loader,
-                                    (char*)newparam->avs_script,
-                                    (time_t*)&newparam->script_ftime,
-                                    &wine_loader->input_info);
-  // if find itself
-  if (loader == wine_loader)
-  {
-    avs_load = true;
-    wine_load = true;
-    return true;
-  }
-
-  // replace old wine_loader with founded
-  if (loader)
-  {
-    DEBUG_PRINTF("avsfilter : SetParameters find loader!!!\n");
-
-    // copy pipe handles
-    SET_AVS(0,&pipe_loader_read,loader->avs_pipes[0].hpipe,O_RDONLY);
-    SET_AVS(1,&pipe_loader_write,loader->avs_pipes[1].hpipe,O_WRONLY);
-    SET_AVS(2,&pipe_filter_write,loader->avs_pipes[2].hpipe,O_WRONLY);
-
-    // set pipe names to NULL
-    pipe_loader_read = NULL;
-    pipe_loader_write = NULL;
-    pipe_filter_write = NULL;
-
-    // cleanup old names etc.
-    int i;
-    for (i = 0; i < CMD_PIPE_NUM; i++)
-      *wine_loader->avs_pipes->pipename = NULL;
-
-    memcpy(&wine_loader->temp_info, &loader->temp_info, sizeof(ADV_Info));
-    avs_load = true;
-    wine_load = true;
-  }
-  else
-  {
-    struct stat st;
-    DEBUG_PRINTF("avsfilter : SetParameters try to start new loader and script\n");
-
-    if (stat((char*)newparam->avs_script, &st) != 0)
-    {
-      DEBUG_PRINTF("avsfilter : cannot stat script file\n");
-      return false;
-    }
-
-    // try start wine (if exist loader filename)
-    wine_load = wine_start((char*)newparam->avs_loader, wine_loader->avs_pipes, newparam->pipe_timeout);
-    if (wine_load)
-      avs_load = avs_start(&wine_loader->input_info, &wine_loader->temp_info, (char*)newparam->avs_script, wine_loader->avs_pipes);
-    if (wine_load && avs_load)
-    {
-      wine_loader->_param.avs_script = (ADM_filename*)ADM_strdup ((char*)newparam->avs_script);
-      wine_loader->_param.avs_loader = (ADM_filename*)ADM_strdup ((char*)newparam->avs_loader);
-      wine_loader->_param.script_ftime[0] = st.st_mtime; // store timestamp
-      wine_loader->_param.script_ftime[1] = st.st_ctime;
-      add_object(wine_loader);
-      print_objects();
-    }
-  }
-
-  // if all is ok, set corresponding structures and vars
-  if (avs_load)
-  {
-    _info.width = wine_loader->temp_info.width;
-    _info.height = wine_loader->temp_info.height;
-    _info.fps1000 = wine_loader->temp_info.fps1000;
-    _info.nb_frames = wine_loader->temp_info.nb_frames;
-    _info.orgFrame = wine_loader->temp_info.orgFrame;
-    DEBUG_PRINTF("avsfilter : clip info : geom %d:%d fps1000 %d num_frames %d\n",
-           _info.width, _info.height, _info.fps1000, _info.nb_frames);
-    out_frame_sz = ((_info.width * _info.height) * 3) >>1;
-  }
-
-  return wine_load && avs_load;
-#else
-  DEBUG_PRINTF("avsfilter : SetParameters return false!\n");
-  return false;
-#endif
 }
 
 ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
                                      CONFcouple *couples)
 {
-  /*
-   * DEBUG CODE : to determine ORDER of filter in filter chain
-   */
-  uint32_t fcount = 0;
-  order = -1;
-  FILTER *z = getCurrentVideoFilterList (&fcount);
-  printf("fcount = %d\n", fcount);
-  if (z && fcount)
-  {
-    for (int i = 0; i < fcount ; i++)
-      // printf("Filter %X\n", z[i].filter);
-      if (z[i].filter == in)
-      {
-        printf("avsfilter : this filter is %d in list\n", i + 1);
-        order = i + 1;
-        break;
-      }
-  }
-  /*
-   * END DEBUG CODE
-   */
-
   ADM_assert(in);
-//  ADM_assert(order == -1);
 
   _in=in;
   DEBUG_PRINTF("Create AVSfilter(%X), AVDMGenericVideoStream %X\n", this, in);
@@ -799,28 +692,38 @@ ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
   // if parameters set
   if(couples)
   {
-    GET (avs_script);
-    GET (avs_loader);
-    GET (pipe_timeout);
-    GET (script_ctime);
-    GET (script_mtime);
-    DEBUG_PRINTF("avsfilter : avsloader %s avsscript %s\n",
-                 _param->avs_loader, _param->avs_script);
+   GET (wine_app);
+   GET (avs_script);
+   GET (avs_loader);
+   GET (pipe_timeout);
+   GET (script_ctime);
+   GET (script_mtime);
+   DEBUG_PRINTF("avsfilter : wine_app %s avsloader %s avsscript %s\n",
+                _param->wine_app, _param->avs_loader, _param->avs_script);
 
     if (!SetParameters(_param))
     {
-      DEBUG_PRINTF("avsfilter : SetParameters return false\n");
+      DEBUG_PRINTF_RED("avsfilter : SetParameters return false\n");
       return;
     }
   }
   else // default value (or value from config)
   {
     char *tmp_str;
+    _param->wine_app = (ADM_filename*)ADM_strdup("wine");
     _param->avs_script = NULL;
-    _param->avs_loader = NULL;
+    _param->avs_loader = (ADM_filename*)ADM_strdup(AVS_WINE_BINARY_PATH"/avsload.exe");
     _param->pipe_timeout = 10;
     _param->script_ctime = 0;
     _param->script_mtime = 0;
+
+    if (prefs->get(FILTERS_AVSFILTER_WINE_APP, &tmp_str) == RC_OK &&
+        strlen(tmp_str) > 0)
+    {
+      _param->wine_app = (ADM_filename*)ADM_strdup (tmp_str);
+      DEBUG_PRINTF("avsfilter : wine_app from config is %s\n", _param->wine_app);
+      ADM_dealloc(tmp_str);
+    }
 
     if (prefs->get(FILTERS_AVSFILTER_AVS_SCRIPT, &tmp_str) == RC_OK &&
         strlen(tmp_str) > 0)
@@ -843,7 +746,7 @@ ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
     if (_param->avs_script)
       if (stat((char*)_param->avs_script, &st) != 0)
       {
-        DEBUG_PRINTF("avsfilter : cannot stat script file\n");
+        DEBUG_PRINTF_RED("avsfilter : cannot stat script file\n");
         return;
       }
       else
@@ -856,68 +759,11 @@ ADMVideoAVSfilter::ADMVideoAVSfilter(AVDMGenericVideoStream *in,
   ADM_assert(_uncompressed);
   in_frame_sz = ((_uncompressed->_width * _uncompressed->_height) * 3) >>1;
 
-#if 0
-  // if param is not empty
-  if (_param->avs_loader && strlen((const char*)_param->avs_loader) &&
-      _param->avs_script && strlen((const char*)_param->avs_script))
-  {
-    struct stat st;
-    if (stat((char*)_param->avs_script, &st) != 0)
-    {
-      DEBUG_PRINTF("avsfilter : cannot stat script file\n");
-      return;
-    }
-
-    _param->script_ftime[0] = st.st_mtime; // store timestamp
-    _param->script_ftime[1] = st.st_ctime;
-
-    if (!SetParameters(_param))
-    {
-      DEBUG_PRINTF("avsfilter : SetParameters return false\n");
-      return;
-    }
-  }
-#endif
-
   vidCache=new VideoCache(16,_in);
 }
 
 ADMVideoAVSfilter::~ADMVideoAVSfilter()
 {
-#if 0
-  DEBUG_PRINTF("avsfilter : delete AVSFilter(%X)\n", this);
-
-  /**
-   * if loader work incorrectly (may be wrong parameter or other case),
-   * then simple down both loader and avisynth library
-   */
-  if (!wine_load || !avs_load)
-  {
-    DEBUG_PRINTF("avsfilter : partially UNLOAD check-> %d %d\n",
-                 avs_load, wine_load);
-    if (avs_load)
-      send_cmd(wine_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe,
-               UNLOAD_AVS_SCRIPT, NULL, 0);
-    if (wine_load)
-      send_cmd(wine_loader->avs_pipes[PIPE_LOADER_WRITE].hpipe,
-               UNLOAD_AVS_LOADER, NULL, 0);
-
-    delete_object(wine_loader);
-
-    ADM_dealloc(_param->avs_loader);
-    ADM_dealloc(_param->avs_script);
-    ADM_dealloc(wine_loader);
-  }
-  else
-  {
-    // all is ok, delete internal link from object
-    wine_loader->avs_pipes[0].pipename = NULL;
-    wine_loader->avs_pipes[1].pipename = NULL;
-    wine_loader->avs_pipes[2].pipename = NULL;
-  }
-
-#endif
-
   if (wine_loader)
   {
     wine_loader->RefCounter--;
@@ -933,10 +779,11 @@ ADMVideoAVSfilter::~ADMVideoAVSfilter()
 
 uint8_t ADMVideoAVSfilter::getCoupledConf( CONFcouple **couples)
 {
-  *couples=new CONFcouple(5);
+  *couples=new CONFcouple(6);
 
 //#define CSET(x)  (*couples)->setCouple((char *)#x,(_param.x))
   DEBUG_PRINTF("avsfilter : getCoupledConf\n");
+  CSET(wine_app);
   CSET(avs_script);
   CSET(avs_loader);
   CSET(pipe_timeout);
@@ -967,7 +814,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
                 GET_FRAME, (void*)&fd,
                 sizeof(FRAME_DATA)))
   {
-    DEBUG_PRINTF("avsfilter : error send GET_FRAME to avsloader\n");
+    DEBUG_PRINTF_RED("avsfilter : error send GET_FRAME to avsloader\n");
     return 0;
   }
 
@@ -983,7 +830,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
         if (!receive_data(wine_loader->avs_pipes[PIPE_LOADER_READ].hpipe,
                           &msg, &fd))
         {
-          DEBUG_PRINTF("\navsfilter : error receive data\n");
+          DEBUG_PRINTF_RED("\navsfilter : error receive data\n");
           return 0;
         }
 
@@ -1000,7 +847,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
                                   src->data, in_frame_sz))
 
         {
-          DEBUG_PRINTF("avsfilter : error send uncompressed frame to dll\n");
+          DEBUG_PRINTF_RED("avsfilter : error send uncompressed frame to dll\n");
           return 0;
         }
 
@@ -1011,7 +858,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
         DEBUG_PRINTF("avsfilter : receive PUT_FRAME, msg.sz %d\n", msg.sz);
         if (msg.sz != out_frame_sz + sizeof(FRAME_DATA))
         {
-          DEBUG_PRINTF("avsfilter : PUT_FRAME msg.sz [%lu] != out_frame_sz+sizeof(FRAME_DATA) [%lu,%d]\n",
+          DEBUG_PRINTF_RED("avsfilter : PUT_FRAME msg.sz [%lu] != out_frame_sz+sizeof(FRAME_DATA) [%lu,%d]\n",
                  msg.sz, out_frame_sz, sizeof(FRAME_DATA));
           return 0;
         }
@@ -1020,7 +867,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
         if (!receive_data_by_size(wine_loader->avs_pipes[PIPE_LOADER_READ].hpipe,
                                   &fd, sizeof(FRAME_DATA)))
         {
-          DEBUG_PRINTF("avsfilter : receive data error#1\n");
+          DEBUG_PRINTF_RED("avsfilter : receive data error#1\n");
           return 0;
         }
 
@@ -1031,7 +878,7 @@ uint8_t ADMVideoAVSfilter::getFrameNumberNoAlloc(uint32_t iframe,
         if (!receive_data_by_size(wine_loader->avs_pipes[PIPE_LOADER_READ].hpipe,
                                   data->data, msg.sz - sizeof(FRAME_DATA)))
         {
-          DEBUG_PRINTF("avsfilter : receive data error#2\n");
+          DEBUG_PRINTF_RED("avsfilter : receive data error#2\n");
           return 0;
         }
 
