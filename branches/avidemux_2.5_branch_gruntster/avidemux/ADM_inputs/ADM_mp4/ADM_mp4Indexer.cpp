@@ -147,7 +147,7 @@ uint32_t i,j,cur;
               // Normally they have all the same duration
               if(info->nbStts!=1) printf("WARNING: Same size, different duration\n");
 
-              float sampleDuration,totalDuration=0;
+              double sampleDuration,totalDuration=0;
               
                 sampleDuration=info->SttsC[0];
                 sampleDuration*=1000.*1000.;
@@ -198,7 +198,7 @@ uint32_t i,j,cur;
                           // The last one...
                                 newindex[w].offset=track->index[i].offset+part*one_go;
                                 newindex[w].size=sz;
-                                newindex[w].time=track->index[i].time+part*time_increment+((time_increment*sz)/one_go); 
+                                newindex[w].time=track->index[i].time+part*time_increment;
                                 w++;
                     }
                     delete [] track->index;
