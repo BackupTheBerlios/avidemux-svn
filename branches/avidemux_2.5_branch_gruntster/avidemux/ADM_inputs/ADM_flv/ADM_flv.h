@@ -88,7 +88,7 @@ class flvHeader         :public vidHeader
     uint8_t                 getAudioStreamsInfo(uint32_t *nbStreams, audioInfo **infos);
     flvAudio                *_audioStream;
     /* */
-    uint32_t                metaWidth,metaHeight,metaFps1000;
+    uint32_t                metaWidth,metaHeight,metaFps1000,videoCodec;
     
     uint8_t     read(uint32_t len, uint8_t *where);
     uint8_t     read8(void);
@@ -108,7 +108,7 @@ class flvHeader         :public vidHeader
     bool        parseOneMeta(const char *s,uint64_t endPos);
     void        setProperties(const char *name,float value);
     char        *readFlvString(void);
- 
+    bool        updateDimensionWithMeta(uint32_t codec);
 
   public:
 
