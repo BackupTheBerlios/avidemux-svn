@@ -24,9 +24,9 @@
 	#if defined(__MINGW64_VERSION_STR)
 		#if defined (__WIN64)
 			#include <intrin.h>
-		#else
-			#include <wchar.h>
 		#endif
+
+		#include <wchar.h>
 	#endif
 #endif
 
