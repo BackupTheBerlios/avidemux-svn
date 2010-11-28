@@ -94,6 +94,13 @@ x264ConfigDialog::x264ConfigDialog(vidEncConfigParameters *configParameters, vid
 	connect(ui.dct8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(dct8x8CheckBox_toggled(bool)));
 	connect(ui.p8x8CheckBox, SIGNAL(toggled(bool)), this, SLOT(p8x8CheckBox_toggled(bool)));
 
+#if X264_BUILD < 110
+	ui.weightedPPredictComboBox->clear();
+	ui.weightedPPredictComboBox->addItem(tr("Disabled"));
+	ui.weightedPPredictComboBox->addItem(tr("Blind Offset"));
+	ui.weightedPPredictComboBox->addItem(tr("Smart Analysis"));
+#endif
+
 	// Frame tab
 	connect(ui.loopFilterCheckBox, SIGNAL(toggled(bool)), this, SLOT(loopFilterCheckBox_toggled(bool)));
 

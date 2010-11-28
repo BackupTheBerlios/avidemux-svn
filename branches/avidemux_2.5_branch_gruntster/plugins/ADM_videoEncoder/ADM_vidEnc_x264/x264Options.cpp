@@ -1386,9 +1386,15 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 		case X264_WEIGHTP_NONE:
 			strcpy((char*)xmlBuffer, "none");
 			break;
+#if X264_BUILD < 110
 		case X264_WEIGHTP_BLIND:
 			strcpy((char*)xmlBuffer, "blind");
 			break;
+#else
+		case X264_WEIGHTP_SIMPLE:
+			strcpy((char*)xmlBuffer, "simple");
+			break;
+#endif
 		case X264_WEIGHTP_SMART:
 			strcpy((char*)xmlBuffer, "smart");
 			break;
@@ -1895,8 +1901,13 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 			{
 				int weightedPredPFrames = X264_WEIGHTP_NONE;
 
+#if X264_BUILD < 110
 				if (strcmp(content, "blind") == 0)
 					weightedPredPFrames = X264_WEIGHTP_BLIND;
+#else
+				if (strcmp(content, "simple") == 0)
+					weightedPredPFrames = X264_WEIGHTP_SIMPLE;
+#endif
 				else if (strcmp(content, "smart") == 0)
 					weightedPredPFrames = X264_WEIGHTP_SMART;
 

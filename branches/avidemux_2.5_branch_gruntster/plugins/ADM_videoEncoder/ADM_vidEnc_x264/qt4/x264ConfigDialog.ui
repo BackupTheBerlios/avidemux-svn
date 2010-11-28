@@ -1131,12 +1131,12 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Blind Offset</string>
+                  <string>Weighted References</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Smart Analysis</string>
+                  <string>Weighted References + Duplicates</string>
                  </property>
                 </item>
                </widget>

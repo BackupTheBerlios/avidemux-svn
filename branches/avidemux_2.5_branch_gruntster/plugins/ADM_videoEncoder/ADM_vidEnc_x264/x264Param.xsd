@@ -335,7 +335,9 @@
                       <xs:simpleType>
                         <xs:restriction base="xs:string">
                           <xs:enumeration value="none"/>
+						  <!-- blind deprecated core 110 -->
                           <xs:enumeration value="blind"/>
+						  <xs:enumeration value="simple"/>
                           <xs:enumeration value="smart"/>
                         </xs:restriction>
                       </xs:simpleType>
