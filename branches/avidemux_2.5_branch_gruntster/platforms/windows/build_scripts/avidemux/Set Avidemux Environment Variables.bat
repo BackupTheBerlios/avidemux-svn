@@ -33,16 +33,10 @@ if exist "%ProgramFiles32%\7-zip" (
 	goto error
 )
 
-if "%BuildBits%" == "32" (
-	set buildFolder=build
-	set buildPluginFolder=buildPlugins)
-
-if "%BuildBits%" == "64" (
-	set buildFolder=build64
-	set buildPluginFolder=buildPlugins64)
-
-set buildDir=%devDir%\avidemux_2.5_%buildFolder%
-set sdkBuildDir=%devDir%\avidemux_2.5_%buildFolder%_sdk
+set buildFolder=build%BuildBits%
+set buildPluginFolder=buildPlugins%BuildBits%
+set buildDir=%admBuildDir%
+set sdkBuildDir=%admSdkBuildDir%
 
 set curDir=%CD%
 cd ..\..\..\..
@@ -54,11 +48,9 @@ if not exist "%sourceDir%" (
 	goto error
 )
 
-if "%BuildBits%" == "32" (set jsFolder=js)
-if "%BuildBits%" == "64" (set jsFolder=js-64)
-
+set jsFolder=js-1.7.0-%BuildBits%
 set SpiderMonkeySourceDir=%devDir%\%jsFolder%\src
-set SpiderMonkeyLibDir=%devDir%\%jsFolder%\src\WINNT6.0_OPT.OBJ
+set SpiderMonkeyLibDir=%devDir%\%jsFolder%\src\WINNT6.1_OPT.OBJ
 
 goto end
 

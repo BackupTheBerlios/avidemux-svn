@@ -1,0 +1,13 @@
+--- libmp3lame/i386/nasm.h.orig	2010-11-27 20:30:25 +0000
++++ libmp3lame/i386/nasm.h	2010-11-27 20:28:15 +0000
+@@ -45,7 +45,9 @@
+ %endif
+ 
+ %ifdef WIN32
+-	%define _NAMING
++	%ifnidn __OUTPUT_FORMAT__,win64
++		%define _NAMING
++	%endif
+ %endif
+ 
+ %ifdef __tos__
