@@ -30,5 +30,6 @@ updatePatch libavcodec vc1dec.c
 updatePatch libavformat file.c
 updatePatch libavformat isom.c
 updatePatch libavformat matroskaenc.c
+updatePatch libavformat Makefile
 updatePatch libavutil avutil.h
 

@@ -1,8 +1,8 @@
-*** libavcodec/ffv1.c.old	Tue Jul  6 19:51:19 2010
---- libavcodec/ffv1.c	Tue Jul  6 19:51:19 2010
+*** libavcodec/ffv1.c.old	Fri Nov 26 17:53:32 2010
+--- libavcodec/ffv1.c	Fri Nov 26 17:53:32 2010
 ***************
-*** 1112,1117 ****
---- 1112,1119 ----
+*** 1734,1739 ****
+--- 1734,1741 ----
           clear_state(f);
       }else{
           p->key_frame= 0;
