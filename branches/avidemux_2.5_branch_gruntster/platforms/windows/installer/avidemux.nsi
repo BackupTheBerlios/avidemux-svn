@@ -15,17 +15,21 @@ SetCompressorDictSize 96
 ##########################
 # Defines
 ##########################
-!define DISPLAYNAME "Avidemux 2.5"
+
+!define PRODUCT_VERSION "2.5.4.${REVISION}"
+!define PRODUCT_NAME "Avidemux 2.5"
+!define PRODUCT_FULLNAME "Avidemux ${PRODUCT_VERSION} (${BUILD_BITS}-bit beta)"
 
 !if ${BUILD_BITS} == 64
-!define INTERNALNAME "Avidemux 2.5 (64-bit)"
+	!define SHORTCUT_NAME "${PRODUCT_NAME}"
+	!define REG_GROUPNAME "${PRODUCT_NAME} (${BUILD_BITS}-bit)"
 !else
-!define INTERNALNAME "Avidemux 2.5"
+	!define SHORTCUT_NAME "${PRODUCT_NAME} (${BUILD_BITS}-bit)"
+	!define REG_GROUPNAME "${PRODUCT_NAME}"
 !endif
 
-!define REGKEY "SOFTWARE\${INTERNALNAME}"
-!define UNINST_REGKEY "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${INTERNALNAME}"
-!define VERSION 2.5.3.${REVISION}
+!define REGKEY "SOFTWARE\${REG_GROUPNAME}"
+!define UNINST_REGKEY "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${REG_GROUPNAME}"
 !define COMPANY "Free Software Foundation"
 !define URL "http://www.avidemux.org"
 
@@ -43,14 +47,14 @@ SetCompressorDictSize 96
 !endif
 
 !ifdef INST_BOTH
-OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_full_win${BUILD_BITS}.exe
-Name "Avidemux 2.5.3 Full beta r${REVISION}"
+OutFile "${EXEDIR}\avidemux_2.5_r${REVISION}_full_win${BUILD_BITS}.exe"
+Name "${PRODUCT_FULLNAME} Full"
 !else ifdef INST_QT
-OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_win${BUILD_BITS}.exe
-Name "Avidemux 2.5.3 beta r${REVISION}"
+OutFile "${EXEDIR}\avidemux_2.5_r${REVISION}_win${BUILD_BITS}.exe"
+Name "${PRODUCT_FULLNAME}"
 !else ifdef INST_GTK
-OutFile ${EXEDIR}\avidemux_2.5_r${REVISION}_gtk_win${BUILD_BITS}.exe
-Name "Avidemux 2.5.3 GTK+ beta r${REVISION}"
+OutFile "${EXEDIR}\avidemux_2.5_r${REVISION}_gtk_win${BUILD_BITS}.exe"
+Name "${PRODUCT_FULLNAME} GTK+"
 !endif
 
 ##########################
@@ -98,6 +102,7 @@ Var ReinstallUninstall
 ##########################
 # Installer pages
 ##########################
+!define MUI_WELCOMEPAGE_TITLE "${PRODUCT_FULLNAME} Setup Wizard"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "${NSIDIR}\License.rtf"
  Page custom ReinstallPage ReinstallPageLeave
@@ -115,7 +120,7 @@ Page custom InstallOptionsPage
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_FUNCTION RunAvidemux
-!define MUI_FINISHPAGE_RUN_TEXT "Run ${DISPLAYNAME} now"
+!define MUI_FINISHPAGE_RUN_TEXT "Run ${PRODUCT_NAME} now"
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\Change Log.html"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "View Change Log now"
 !define MUI_FINISHPAGE_LINK "Visit the Avidemux Builds for Windows website"
@@ -137,14 +142,19 @@ Page custom InstallOptionsPage
 ##########################
 # Installer attributes
 ##########################
-InstallDir "$PROGRAMFILES\${DISPLAYNAME}"
+!if ${BUILD_BITS} == 64
+	InstallDir "$PROGRAMFILES64\${PRODUCT_NAME}"
+!else
+	InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
+!endif
+
 CRCCheck on
 XPStyle on
 ShowInstDetails nevershow
 ShowUninstDetails nevershow
-VIProductVersion 2.5.3.${REVISION}
+VIProductVersion ${PRODUCT_VERSION}
 VIAddVersionKey ProductName Avidemux
-VIAddVersionKey ProductVersion "${VERSION} (beta)"
+VIAddVersionKey ProductVersion "${PRODUCT_VERSION}"
 VIAddVersionKey FileVersion ""
 VIAddVersionKey FileDescription ""
 VIAddVersionKey LegalCopyright ""
@@ -271,26 +281,25 @@ Section "Avidemux Core" SecCore
     ${File} "Change Log.html"
     ${File} zlib1.dll
     ${File} libstdc++*.dll
-    
+
 !if ${BUILD_BITS} == 32
     ${File} freetype6.dll
-    ${File} libnspr4.dll
+	${File} pthreadGC2-w32.dll
 !endif
 
 !if ${BUILD_BITS} == 64
     ${File} libfreetype-6.dll
+	${File} pthreadGC2-w64.dll
 !endif
 
     ${File} libgcc_s_sjlj-1.dll
-    ${File} libogg-0.dll
+	${File} nspr4.dll
     ${File} libjs.dll
     ${File} libADM_core.dll
     ${File} libADM_coreAudio.dll
     ${File} libADM_coreImage.dll
     ${File} libADM_coreUI.dll
-    ${File} libaften.dll
     ${File} libxml2-*.dll
-    ${File} pthreadGC2.dll
     ${File} AUTHORS.
     ${File} COPYING.
     ${File} README.
@@ -396,6 +405,9 @@ SectionGroup Plugins SecGrpPlugin
 			SetOverwrite on
 			SetOutPath $INSTDIR\plugins\audioDecoder
 			${File} plugins\audioDecoder\libADM_ad_vorbis.dll
+			SetOutPath $INSTDIR
+			${File} libogg-0.dll
+			${File} libvorbis-0.dll
 		${MementoSectionEnd}
 		${MementoSection} "MAD (MPEG)" SecAudDecMad
 			SectionIn 1 2
@@ -435,7 +447,7 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioEncoders
 			${File} plugins\audioEncoders\libADM_ae_aften.dll
 			SetOutPath $INSTDIR
-			${File} libaften.dll
+			${File} aften.dll
 		${MementoSectionEnd}
 		${MementoSection} "FAAC (AAC)" SecAudEncFaac
 			SectionIn 1 2
@@ -471,6 +483,7 @@ SectionGroup Plugins SecGrpPlugin
 			SetOutPath $INSTDIR\plugins\audioEncoders
 			${File} plugins\audioEncoders\libADM_ae_vorbis.dll
 			SetOutPath $INSTDIR
+			${File} libogg-0.dll
 			${File} libvorbis-0.dll
 			${File} libvorbisenc-2.dll
 		${MementoSectionEnd}
@@ -1321,7 +1334,7 @@ ${MementoSection} "-Start menu GTK+" SecStartMenuGtk
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${SHORTCUT_NAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
     !insertmacro MUI_STARTMENU_WRITE_END
 !endif
 ${MementoSectionEnd}
@@ -1331,7 +1344,7 @@ ${MementoSection} "-Start menu Qt" SecStartMenuQt
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     SetOutPath $INSTDIR
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\${SHORTCUT_NAME}.lnk" $INSTDIR\avidemux2.exe
     !insertmacro MUI_STARTMENU_WRITE_END
 !endif
 ${MementoSectionEnd}
@@ -1347,28 +1360,28 @@ ${MementoSectionEnd}
 ${MementoSection} "-Quick Launch GTK+" SecQuickLaunchGtk
 !ifdef INST_GTK
     SetOutPath $INSTDIR
-    CreateShortcut "$QUICKLAUNCH\${DISPLAYNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
+    CreateShortcut "$QUICKLAUNCH\${SHORTCUT_NAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
 !endif
 ${MementoSectionEnd}
 
 ${MementoSection} "-Quick Launch Qt" SecQuickLaunchQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$QUICKLAUNCH\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
+    CreateShortcut "$QUICKLAUNCH\${SHORTCUT_NAME}.lnk" $INSTDIR\avidemux2.exe
 !endif
 ${MementoSectionEnd}
 
 ${MementoSection} "-Desktop GTK+" SecDesktopGtk
 !ifdef INST_GTK
     SetOutPath $INSTDIR
-    CreateShortcut "$DESKTOP\${DISPLAYNAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
+    CreateShortcut "$DESKTOP\${SHORTCUT_NAME} GTK+.lnk" $INSTDIR\avidemux2_gtk.exe
 !endif
 ${MementoSectionEnd}
 
 ${MementoSection} "-Desktop Qt" SecDesktopQt
 !ifdef INST_QT
     SetOutPath $INSTDIR
-    CreateShortcut "$DESKTOP\${DISPLAYNAME}.lnk" $INSTDIR\avidemux2.exe
+    CreateShortcut "$DESKTOP\${SHORTCUT_NAME}.lnk" $INSTDIR\avidemux2.exe
 !endif
 ${MementoSectionEnd}
 
@@ -1377,11 +1390,11 @@ ${MementoSectionDone}
 Section -post SecUninstaller
     SectionIn 1 2
     WriteRegStr HKLM "${REGKEY}" Path $INSTDIR
-    WriteRegStr HKLM "${REGKEY}" Version ${VERSION}
+    WriteRegStr HKLM "${REGKEY}" Version ${PRODUCT_VERSION}
     SetOutPath $INSTDIR
     WriteUninstaller $INSTDIR\uninstall.exe
-    WriteRegStr HKLM "${UNINST_REGKEY}" DisplayName "${DISPLAYNAME}"
-    WriteRegStr HKLM "${UNINST_REGKEY}" DisplayVersion "${VERSION}"
+    WriteRegStr HKLM "${UNINST_REGKEY}" DisplayName "${SHORTCUT_NAME}"
+    WriteRegStr HKLM "${UNINST_REGKEY}" DisplayVersion "${PRODUCT_VERSION}"
     WriteRegStr HKLM "${UNINST_REGKEY}" DisplayIcon $INSTDIR\uninstall.exe
     WriteRegStr HKLM "${UNINST_REGKEY}" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKLM "${UNINST_REGKEY}" NoModify 1
@@ -1397,15 +1410,15 @@ Section Uninstall
 	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuGroup	
 
 !ifdef INST_GTK
-	Delete /REBOOTOK "$QUICKLAUNCH\${DISPLAYNAME} GTK+.lnk"
-    Delete /REBOOTOK "$DESKTOP\${DISPLAYNAME} GTK+.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME} GTK+.lnk"
+	Delete /REBOOTOK "$QUICKLAUNCH\${SHORTCUT_NAME} GTK+.lnk"
+    Delete /REBOOTOK "$DESKTOP\${SHORTCUT_NAME} GTK+.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${SHORTCUT_NAME} GTK+.lnk"
 !endif
 
 !ifdef INST_QT
-    Delete /REBOOTOK "$QUICKLAUNCH\${DISPLAYNAME}.lnk"
-    Delete /REBOOTOK "$DESKTOP\${DISPLAYNAME}.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${DISPLAYNAME}.lnk"
+    Delete /REBOOTOK "$QUICKLAUNCH\${SHORTCUT_NAME}.lnk"
+    Delete /REBOOTOK "$DESKTOP\${SHORTCUT_NAME}.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\${SHORTCUT_NAME}.lnk"
 !endif
 
 	Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Change Log.lnk"
@@ -1445,7 +1458,7 @@ Function .onInit
 	ReadRegStr $PreviousVersion HKLM "${REGKEY}" Version
 
 	${If} $PreviousVersion != ""
-		${VersionCompare} ${VERSION} $PreviousVersion $PreviousVersionState
+		${VersionCompare} ${PRODUCT_VERSION} $PreviousVersion $PreviousVersionState
 	${EndIf}
 	
     InitPluginsDir
@@ -1733,7 +1746,7 @@ Function ReinstallPage
 	Pop $0
 
 	${If} $PreviousVersionState == 1
-		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${DISPLAYNAME}."
+		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${PRODUCT_FULLNAME}."
 		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "An older version of Avidemux is installed on your system.  Select the operation you want to perform and click Next to continue."
 		Pop $R0
 		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Upgrade Avidemux using previous settings (recommended)"
@@ -1745,7 +1758,7 @@ Function ReinstallPage
 			StrCpy $ReinstallUninstall 1
 		${EndIf}
 	${ElseIf} $PreviousVersionState == 2
-		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${DISPLAYNAME}."
+		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose how you want to install ${PRODUCT_FULLNAME}."
 		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "A newer version of Avidemux is already installed! It is not recommended that you downgrade to an older version. Select the operation you want to perform and click Next to continue."
 		Pop $R0
 		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Downgrade Avidemux using previous settings (recommended)"
@@ -1758,7 +1771,7 @@ Function ReinstallPage
 		${EndIf}
 	${ElseIf} $PreviousVersionState == 0
 		!insertmacro MUI_HEADER_TEXT "Already Installed" "Choose the maintenance option to perform."
-		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "Avidemux ${VERSION} is already installed. Select the operation you want to perform and click Next to continue."
+		nsDialogs::CreateItem /NOUNLOAD STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 0 0 100% 40 "${PRODUCT_FULLNAME} is already installed. Select the operation you want to perform and click Next to continue."
 		Pop $R0
 		nsDialogs::CreateItem /NOUNLOAD BUTTON ${BS_AUTORADIOBUTTON}|${BS_VCENTER}|${BS_MULTILINE}|${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${WS_GROUP}|${WS_TABSTOP} 0 10 55 100% 30 "Add/Remove/Reinstall components"
 		Pop $R0
