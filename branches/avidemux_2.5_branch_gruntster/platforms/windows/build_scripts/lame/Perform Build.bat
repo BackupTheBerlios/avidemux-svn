@@ -47,17 +47,11 @@ for /f "delims=" %%a in ('dir /b %tarFolder%') do (
   move "%CD%\%tarFolder%\%%a" "%CD%"
 )
 
-if "%BuildBits%" == "64" (
-	echo.
-	echo Patching
-	patch -p0 -i "%curDir%\configure.patch"
-	patch -p0 -i "%curDir%\nasm.h.patch"
-)
-
 echo.
 echo Configuring
 
-sh ./configure --prefix="%usrLocalDir%" --disable-static --enable-nasm
+if "%BuildBits%" == "32" sh ./configure --prefix="%usrLocalDir%" --disable-static --enable-nasm
+if "%BuildBits%" == "64" sh ./configure --prefix="%usrLocalDir%" --disable-static
 
 if errorlevel 1 goto end
 echo.
