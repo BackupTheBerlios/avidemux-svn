@@ -143,12 +143,23 @@ int frameType;
               {
                     // Our first frame is here
                     // Important to initialize the mpeg decoder !
-                      uint8_t buffer[60] ; // should be enough
                       uint64_t xA,xR;
                       _run->demuxer->getPos(&xA,&xR);
-                      _run->demuxer->read(buffer,60);
+                      #define SPS_BUFFER_SIZE 512
+                      uint8_t sps[SPS_BUFFER_SIZE];
+                      uint32_t code=0xffff+0xffff0000;
+                      uint8_t *p=sps;
+                        while((code!=1) /*&& pkt->stillOk()*/)
+                        {
+                                uint8_t r=demuxer->read8i();
+                                code=(code<<8)+r;
+                                *p=r;p++;
+                        }
+                        //if(!pkt->stillOk()) break;;
+
+                      int dex=p-sps-3;
                       memset(&spsInfo,0,sizeof(spsInfo));
-                      if (extractSPSInfo(buffer, 60, &spsInfo))
+                      if (extractSPSInfo(sps, dex, &spsInfo))
                       {
 						  _run->imageW = spsInfo.width;
 						  _run->imageH = spsInfo.height;
