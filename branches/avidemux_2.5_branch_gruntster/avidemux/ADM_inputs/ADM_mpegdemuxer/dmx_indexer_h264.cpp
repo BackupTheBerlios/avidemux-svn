@@ -149,7 +149,7 @@ int frameType;
                       uint8_t sps[SPS_BUFFER_SIZE];
                       uint32_t code=0xffff+0xffff0000;
                       uint8_t *p=sps;
-                        while((code!=1) /*&& pkt->stillOk()*/)
+                        while(((code&0xffffff)!=1) /*&& pkt->stillOk()*/)
                         {
                                 uint8_t r=demuxer->read8i();
                                 code=(code<<8)+r;
