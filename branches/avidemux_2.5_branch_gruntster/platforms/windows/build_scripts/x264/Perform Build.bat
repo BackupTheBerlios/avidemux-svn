@@ -34,8 +34,8 @@ if errorlevel 1 goto end
 
 cd "%devDir%/%sourceFolder%"
 
-if "%BuildBits%" == "32" sh ./configure --prefix=%usrLocalDir% --enable-shared
-if "%BuildBits%" == "64" sh ./configure --prefix=%usrLocalDir% --enable-shared --host=x86_64-pc-mingw32
+if "%BuildBits%" == "32" sh ./configure --prefix=%usrLocalDir% --enable-shared --enable-win32thread
+if "%BuildBits%" == "64" sh ./configure --prefix=%usrLocalDir% --enable-shared --enable-win32thread --host=x86_64-pc-mingw32
 
 if errorlevel 1 goto end
 
