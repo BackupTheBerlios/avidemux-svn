@@ -1,8 +1,6 @@
-Index: libavcodec/h264_parser.c
-===================================================================
---- libavcodec/h264_parser.c	(revision 25831)
-+++ libavcodec/h264_parser.c	(working copy)
-@@ -30,9 +30,54 @@
+--- libavcodec/h264_parser.c.old	2010-12-20 13:49:23 +0000
++++ libavcodec/h264_parser.c	2010-12-20 13:49:23 +0000
+@@ -30,7 +30,52 @@
  #include "h264data.h"
  #include "golomb.h"
  
@@ -40,7 +38,7 @@ Index: libavcodec/h264_parser.c
 +    int f=ctx->sps.nal_hrd_parameters_present_flag | ctx->sps.vcl_hrd_parameters_present_flag;
 +    info->hasStructInfo=f | ctx->sps.pic_struct_present_flag;;
 +    // While decoding SEI, if CpbDpbDelaysPresentFlags is there we skip cpb_removal_delay + dpb_output_delay
- 
++
 +    info->CpbDpbToSkip=0;
 +    if(f)
 +    {
@@ -53,7 +51,5 @@ Index: libavcodec/h264_parser.c
 +}
 +// /MEANX
  
-+
+ 
  int ff_h264_find_frame_end(H264Context *h, const uint8_t *buf, int buf_size)
- {
-     int i;
