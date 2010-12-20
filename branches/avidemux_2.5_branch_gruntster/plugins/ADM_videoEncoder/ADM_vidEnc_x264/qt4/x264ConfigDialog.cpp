@@ -785,6 +785,7 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.fastPSkipCheckBox->setChecked(options->getFastPSkip());
 	ui.dctDecimateCheckBox->setChecked(options->getDctDecimate());
 	ui.psychoRdoSpinBox->setValue(options->getPsychoRdo());
+	ui.psychoTrellisSpinBox->setValue(options->getPsychoTrellis());
 
 	ui.noiseReductionSpinBox->setValue(options->getNoiseReduction());
 	ui.interLumaSpinBox->setValue(options->getInterLumaDeadzone());
@@ -821,8 +822,9 @@ void x264ConfigDialog::loadSettings(vidEncOptions *encodeOptions, x264Options *o
 	ui.quantiserCurveCompressSpinBox->setValue((int)floor(options->getQuantiserCurveCompression() * 100 + .5));
 	ui.quantiserBeforeCompressSpinBox->setValue(options->getReduceFluxBeforeCurveCompression());
 	ui.quantiserAfterCompressSpinBox->setValue(options->getReduceFluxAfterCurveCompression());
-	ui.aqVarianceCheckBox->setChecked(options->getAdaptiveQuantiserMode() == X264_AQ_VARIANCE);
+	ui.aqVarianceCheckBox->setChecked(options->getAdaptiveQuantiserMode() > X264_AQ_NONE);
 	ui.aqStrengthSpinBox->setValue(options->getAdaptiveQuantiserStrength());
+	ui.aqAlgoComboBox->setCurrentIndex(options->getAdaptiveQuantiserMode() == X264_AQ_AUTOVARIANCE);
 
 	// Advanced tab
 	ui.vbvMaxBitrateSpinBox->setValue(options->getVbvMaximumBitrate());
@@ -1017,6 +1019,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setFastPSkip(ui.fastPSkipCheckBox->isChecked());
 	options->setDctDecimate(ui.dctDecimateCheckBox->isChecked());
 	options->setPsychoRdo(ui.psychoRdoSpinBox->value());
+	options->setPsychoTrellis(ui.psychoTrellisSpinBox->value());
 	options->setNoiseReduction(ui.noiseReductionSpinBox->value());
 	options->setInterLumaDeadzone(ui.interLumaSpinBox->value());
 	options->setIntraLumaDeadzone(ui.intraLumaSpinBox->value());
@@ -1050,7 +1053,7 @@ void x264ConfigDialog::saveSettings(vidEncOptions *encodeOptions, x264Options *o
 	options->setReduceFluxAfterCurveCompression(ui.quantiserAfterCompressSpinBox->value());
 
 	if (ui.aqVarianceCheckBox->isChecked())
-		options->setAdaptiveQuantiserMode(X264_AQ_VARIANCE);
+		options->setAdaptiveQuantiserMode((ui.aqAlgoComboBox->currentIndex() > 0) ? X264_AQ_AUTOVARIANCE : X264_AQ_VARIANCE);
 	else
 		options->setAdaptiveQuantiserMode(X264_AQ_NONE);
 

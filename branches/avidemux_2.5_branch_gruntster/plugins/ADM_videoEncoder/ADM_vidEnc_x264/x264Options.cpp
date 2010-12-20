@@ -715,7 +715,7 @@ unsigned int x264Options::getSubpixelRefinement(void)
 
 void x264Options::setSubpixelRefinement(unsigned int subpixelRefinement)
 {
-	if (subpixelRefinement >= 1 && subpixelRefinement <= 9)
+	if (subpixelRefinement >= 1 && subpixelRefinement <= 10)
 		_param.analyse.i_subpel_refine = subpixelRefinement;
 }
 
@@ -777,8 +777,19 @@ float x264Options::getPsychoRdo(void)
 
 void x264Options::setPsychoRdo(float psychoRdo)
 {
-	if (psychoRdo >= 0 && psychoRdo <= 10)
+	if (psychoRdo >= 0.0f && psychoRdo <= 10.0f)
 		_param.analyse.f_psy_rd = psychoRdo;
+}
+
+float x264Options::getPsychoTrellis(void)
+{
+	return _param.analyse.f_psy_trellis;
+}
+
+void x264Options::setPsychoTrellis(float psychoTrellis)
+{
+	if (psychoTrellis >= 0.0f && psychoTrellis <= 10.0f)
+		_param.analyse.f_psy_trellis = psychoTrellis;
 }
 
 unsigned int x264Options::getNoiseReduction(void)
@@ -933,7 +944,7 @@ unsigned int x264Options::getAdaptiveQuantiserMode(void)
 
 void x264Options::setAdaptiveQuantiserMode(unsigned int adaptiveQuantiserMode)
 {
-	if (adaptiveQuantiserMode <= 1)
+	if (adaptiveQuantiserMode <= X264_AQ_AUTOVARIANCE)
 		_param.rc.i_aq_mode = adaptiveQuantiserMode;
 }
 
@@ -1467,6 +1478,7 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"fastPSkip", boolean2String(xmlBuffer, bufferSize, getFastPSkip()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"dctDecimate", boolean2String(xmlBuffer, bufferSize, getDctDecimate()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"psychoRdo", number2String(xmlBuffer, bufferSize, getPsychoRdo()));
+	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"psychoTrellis", number2String(xmlBuffer, bufferSize, getPsychoTrellis()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"noiseReduction", number2String(xmlBuffer, bufferSize, getNoiseReduction()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"interLumaDeadzone", number2String(xmlBuffer, bufferSize, getInterLumaDeadzone()));
 	xmlNewChild(xmlNodeChild, NULL, (xmlChar*)"intraLumaDeadzone", number2String(xmlBuffer, bufferSize, getIntraLumaDeadzone()));
@@ -1492,6 +1504,9 @@ void x264Options::addOptionsToXml(xmlNodePtr xmlNodeRoot)
 			break;
 		case X264_AQ_VARIANCE:
 			strcpy((char*)xmlBuffer, "variance");
+			break;
+		case X264_AQ_AUTOVARIANCE:
+			strcpy((char*)xmlBuffer, "autoVariance");
 			break;
 	}
 
@@ -1980,6 +1995,8 @@ void x264Options::parseAnalyseOptions(xmlNode *node)
 				setDctDecimate(string2Boolean(content));
 			else if (strcmp((char*)xmlChild->name, "psychoRdo") == 0)
 				setPsychoRdo(string2Float(content));
+			else if (strcmp((char*)xmlChild->name, "psychoTrellis") == 0)
+				setPsychoTrellis(string2Float(content));
 			else if (strcmp((char*)xmlChild->name, "noiseReduction") == 0)
 				setNoiseReduction(atoi(content));
 			else if (strcmp((char*)xmlChild->name, "interLumaDeadzone") == 0)
@@ -2030,6 +2047,8 @@ void x264Options::parseRateControlOptions(xmlNode *node)
 					adaptiveQuantiserMode = X264_AQ_NONE;
 				else if (strcmp(content, "variance") == 0)
 					adaptiveQuantiserMode = X264_AQ_VARIANCE;
+				else if (strcmp(content, "autoVariance") == 0)
+					adaptiveQuantiserMode = X264_AQ_AUTOVARIANCE;
 
 				setAdaptiveQuantiserMode(adaptiveQuantiserMode);
 			}

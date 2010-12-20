@@ -244,6 +244,9 @@ public:
 	float getPsychoRdo(void);
 	void setPsychoRdo(float psychoRdo);
 
+	float getPsychoTrellis(void);
+	void setPsychoTrellis(float psychoTrellis);
+	
 	unsigned int getNoiseReduction(void);
 	void setNoiseReduction(unsigned int noiseReduction);
 
