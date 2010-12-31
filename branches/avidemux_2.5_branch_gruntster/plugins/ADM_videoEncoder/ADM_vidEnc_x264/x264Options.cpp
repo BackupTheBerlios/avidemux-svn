@@ -832,7 +832,7 @@ unsigned int x264Options::getQuantiserMinimum(void)
 
 void x264Options::setQuantiserMinimum(unsigned int quantiserMinimum)
 {
-	if (quantiserMinimum >= 10 && quantiserMinimum <= 51)
+	if (quantiserMinimum <= 51)
 		_param.rc.i_qp_min = quantiserMinimum;
 }
 
@@ -843,7 +843,7 @@ unsigned int x264Options::getQuantiserMaximum(void)
 
 void x264Options::setQuantiserMaximum(unsigned int quantiserMaximum)
 {
-	if (quantiserMaximum >= 10 && quantiserMaximum <= 51)
+	if (quantiserMaximum <= 51)
 		_param.rc.i_qp_max = quantiserMaximum;
 }
 

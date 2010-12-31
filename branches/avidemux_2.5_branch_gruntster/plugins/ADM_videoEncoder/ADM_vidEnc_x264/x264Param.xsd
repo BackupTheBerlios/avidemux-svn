@@ -473,7 +473,7 @@
                     <xs:element name="quantiserMinimum" minOccurs="0">
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="10"/>
+                          <xs:minInclusive value="0"/>
                           <xs:maxInclusive value="51"/>
                         </xs:restriction>
                       </xs:simpleType>
@@ -481,7 +481,7 @@
                     <xs:element name="quantiserMaximum" minOccurs="0">
                       <xs:simpleType>
                         <xs:restriction base="xs:integer">
-                          <xs:minInclusive value="10"/>
+                          <xs:minInclusive value="0"/>
                           <xs:maxInclusive value="51"/>
                         </xs:restriction>
                       </xs:simpleType>
