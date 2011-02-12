@@ -240,7 +240,9 @@ AvcodecEncoder::~AvcodecEncoder(void)
 
 const char* AvcodecEncoder::getEncoderName(void)
 {
-	return "avcodec";
+	//return "avcodec";
+	AVCodec *codec=getAvCodec();
+	return codec->name;
 }
 
 int AvcodecEncoder::getEncoderRequirements(void)
