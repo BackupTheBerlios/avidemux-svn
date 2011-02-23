@@ -5,12 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Avidemux_SVN_6512\n"
+"Project-Id-Version: Avidemux_SVN_6997\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-14 19:03+0100\n"
-"PO-Revision-Date: 2010-08-09 08:41+0100\n"
+"PO-Revision-Date: 2011-02-16 09:29+0100\n"
 "Last-Translator: Andrássy László <andrassy.laszlo@gmail.com>\n"
 "Language-Team: Hungarian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3853,7 +3854,7 @@ msgstr "Mellette"
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:97
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:83
 msgid "Top"
-msgstr "Fölötte"
+msgstr "Felső"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_bindings.cpp:551
 msgid "Separate"
@@ -4075,7 +4076,7 @@ msgstr "_Bitsebesség hisztogram"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:723
 msgid "_Scan for Black Frames..."
-msgstr "Bla_ck képkockák keresése..."
+msgstr "_Fekete képkockák keresése..."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:732
 msgid "_VOB -> VobSub"
@@ -4107,7 +4108,7 @@ msgstr "Nav_igálás"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:768
 msgid "_Play/Stop"
-msgstr "_Lejátszás/Stop"
+msgstr "_Lejátszás/Megállítás"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:779
 msgid "P_revious Frame"
@@ -4151,7 +4152,7 @@ msgstr "»_B« jelzőhöz ugrás"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:877
 msgid "Go to Fra_me..."
-msgstr "Fra_me-hez ugrás..."
+msgstr "_Ugrás képkockához..."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:888
 msgid "Go to _Time..."
@@ -5514,12 +5515,12 @@ msgstr "_Macroblock döntéshozatal módja:"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:231
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:231
 msgid "Mi_nimum Quantiser:"
-msgstr "Mi_nimum Kvantálás:"
+msgstr "Mi_nimum kvantálás:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:232
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:232
 msgid "Ma_ximum Quantiser:"
-msgstr "Ma_ximum Kvantálás:"
+msgstr "Ma_ximum kvantálás:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:233
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:233
@@ -5651,7 +5652,7 @@ msgstr "avcodec MPEG-2 beállítása"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp:71
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:100
 msgid "New sequence every (MB):"
-msgstr "Új sorozat minden (MB):"
+msgstr "Új szekvencia minden (MB):"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp:81
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:114
@@ -6516,7 +6517,7 @@ msgstr "Pixel méretarány"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1104
 msgid "Quantization type:"
-msgstr "_Kvantálás típusa:"
+msgstr "Kvantálás típusa:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1108
 msgid "_H.263"
@@ -6586,7 +6587,7 @@ msgstr "B-képkockákhoz megengedett maximális kvantálás"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1256
 msgid "Quantizer restrictions"
-msgstr "_Kvantálási korlátozások"
+msgstr "Kvantálási korlátozások"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1260
 msgid "_Trellis quantization"
@@ -6671,7 +6672,7 @@ msgstr "0 = alapértelmezés a magból (XviD dönti el), egyébként túlcsordul
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1399
 msgid "Curve compression"
-msgstr "_Görbe tömörítés"
+msgstr "Görbe tömörítés"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1403
 msgid "Second Pass"
@@ -7137,7 +7138,7 @@ msgstr ""
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:388
 msgid "AutoGain"
-msgstr "AutoErősítés"
+msgstr "Auto erősítés"
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:392
 msgid "Display Stats"
@@ -7161,7 +7162,7 @@ msgstr "Fényesség"
 
 #: plugins/ADM_videoFilters/Contrast/gtk/DIA_contrast.cpp:224
 msgid "Chroma v"
-msgstr "Színesség v"
+msgstr "Színesség V"
 
 #: plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp:53
 msgid "Crop"
@@ -7169,7 +7170,7 @@ msgstr "Vágás"
 
 #: plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp:56
 msgid "Remove lines from top/bottom/left/right."
-msgstr "Sorok eltávolítása /felső/alsó/bal/jobb."
+msgstr "Sorok eltávolítása felső/alsó/bal/jobb."
 
 #: plugins/ADM_videoFilters/Crop/gtk/DIA_crop.cpp:245
 msgid "Crop Settings"
@@ -8333,11 +8334,11 @@ msgstr "Összes képko_cka kiértékelése"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:94
 msgid "Motion threshold, l_uma:"
-msgstr "Motion határérték, _Fényesség:"
+msgstr "Motion határérték, _fényesség:"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:95
 msgid "Motion threshold, c_hroma:"
-msgstr "Motion határérték, _Színesség:"
+msgstr "Motion határérték, _színesség:"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:96
 msgid "Area com_bing threshold:"
