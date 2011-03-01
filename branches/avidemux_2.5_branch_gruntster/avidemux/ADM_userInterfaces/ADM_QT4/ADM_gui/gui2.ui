@@ -1450,6 +1450,7 @@
    <addaction name="separator" />
    <addaction name="actionOpen" />
    <addaction name="actionSave_video" />
+   <addaction name="actionAppend" />
    <addaction name="actionProperties" />
    <addaction name="separator" />
    <addaction name="actionLoad_run_project" />
@@ -1485,6 +1486,9 @@
    </property>
   </action>
   <action name="actionAppend" >
+   <property name="icon" >
+    <iconset resource="avidemux.qrc" >:/new/prefix1/pics/fileappend.png</iconset>
+   </property>
    <property name="text" >
     <string>&amp;Append...</string>
    </property>
