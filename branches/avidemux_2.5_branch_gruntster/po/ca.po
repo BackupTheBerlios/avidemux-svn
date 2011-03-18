@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-13 21:49+0100\n"
-"PO-Revision-Date: 2009-12-27 12:57+0100\n"
-"Last-Translator: Joan Farrerons <jfarrerons@economistes.com>\n"
+"PO-Revision-Date: 2011-01-16 18:43+0100\n"
+"Last-Translator: Joan Farrerons i Herrero <jfarrerons@economistes.cat>\n"
 "Language-Team: catala <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,7 @@ msgstr "MP4"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:62
 msgid "MP4 (PSP)"
-msgstr ""
+msgstr "MP4 (PSP)"
 
 #: avidemux/ADM_editor/ADM_outputfmt.h:63
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:108
@@ -134,27 +134,21 @@ msgstr "S'ha produït un error de còdec"
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:288
 msgid ""
-"The number of channels is greater than what the selected audio codec can "
-"do.\n"
+"The number of channels is greater than what the selected audio codec can do.\n"
 "Either change codec or use the mixer filter to have less channels."
 msgstr ""
-"El nombre de canals és més gran que el que pot tractar el còdec d'àudio "
-"seleccionat.\n"
+"El nombre de canals és més gran que el que pot tractar el còdec d'àudio seleccionat.\n"
 "Canvieu el còdec o utilitzeu el filtre mesclador per tenir menys canals."
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:300
-#, fuzzy
 msgid "[BuildChain] Encoder initialization failed"
-msgstr "S'ha produït un error en inicialitzar el codificador"
+msgstr "[BuildChain] S'ha produït un error en inicialitzar el codificador"
 
 #: avidemux/ADM_audiofilter/audiofilter_buildchain.cpp:300
-msgid ""
-"Not activated, make sure number of channels and bitrate are compatible with "
-"encoder!"
-msgstr ""
+msgid "Not activated, make sure number of channels and bitrate are compatible with encoder!"
+msgstr "No s'ha activat, assegureu-vos que el nombre de canals i la taxa de bits són compatibles amb el codificador."
 
 #: avidemux/ADM_codecs/ADM_ffmp43.cpp:44
-#, fuzzy
 msgid "Internal error finding codec"
 msgstr "S'ha produït un error intern en la cerca del còdec"
 
@@ -170,12 +164,14 @@ msgstr "S'ha produït un error intern en la cerca del còdec"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:227
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:234
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp:243
-#: avidemux/gtk_gui.cpp:944 avidemux/gtk_gui.cpp:1554
+#: avidemux/gtk_gui.cpp:944
+#: avidemux/gtk_gui.cpp:1554
 #: avidemux/gtk_gui.cpp:2688
 msgid "File error"
 msgstr "S'ha produït un error de fitxer"
 
-#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127 avidemux/gtk_gui.cpp:941
+#: avidemux/ADM_coreUI/src/DIA_fileSel.cpp:127
+#: avidemux/gtk_gui.cpp:941
 #, c-format
 msgid "Cannot open \"%s\"."
 msgstr "No es pot obrir \"%s\"."
@@ -227,22 +223,17 @@ msgstr "S'ha cancel·lat"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:71
 msgid ""
-"Avidemux detected VBR MP3 audio in this file. For keeping audio/video in "
-"sync, time map is needed. Build it now?\n"
+"Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?\n"
 "\n"
 "You can do it later with \"Audio -> Build VBR Time Map\"."
 msgstr ""
-"L'Avidemux ha detectat àudio MP3 VBR en aquest fitxer. Per mantenir la "
-"sincronització entre àudio i vídeo, es necessita un mapa de temps. El "
-"construeixo ara?\n"
+"L'Avidemux ha detectat àudio MP3 VBR en aquest fitxer. Per mantenir la sincronització entre àudio i vídeo, es necessita un mapa de temps. El construeixo ara?\n"
 "\n"
 "El podeu construir més tard amb \"Àudio -> Construeix mapa de temps VBR\"."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:419
 msgid "File type identified but no loader support detected..."
-msgstr ""
-"S'ha identificat el tipus de fitxer però no se n'ha detectat suport de "
-"carregador..."
+msgstr "S'ha identificat el tipus de fitxer però no se n'ha detectat suport de carregador..."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:420
 msgid "May be related to an old index file."
@@ -255,23 +246,18 @@ msgstr "Ha fallat l'intent d'obrir %s"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:443
 msgid "Video dimensions don't match."
-msgstr ""
+msgstr "Les dimensions del vídeo no concorden."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:443
-#, fuzzy
 msgid ""
-"You cannot mix different video dimensions yet. Using the partial video "
-"filter later will not work around this problem. The workaround is:\n"
+"You cannot mix different video dimensions yet. Using the partial video filter later will not work around this problem. The workaround is:\n"
 "\n"
-"1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same "
-"resolution\n"
+"1) \"Resize\" / \"Add Border\" / \"Crop\" each stream to the same resolution\n"
 "2) Concatenate them together"
 msgstr ""
-"Encara no es poden barrejar diferents mides de vídeo. L'ús posterior del "
-"filtre parcial de vídeo no evitarà pas aquest problema. El remei és:\n"
-"1.) \"redimensionar\" / \"afegir vora\" / \"retallar\" cada flux a la "
-"mateixa resolució\n"
-"2.) concatenar-los"
+"Encara no es poden barrejar diferents mides de vídeo. L'ús posterior del filtre parcial de vídeo no evitarà pas aquest problema. La solució provisional és:\n"
+"1.) \"Redimensiona\" / \"Afegeix vora\" / \"Retalla\" cada flux a la mateixa resolució\n"
+"2.) Concatena'ls"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:555
 msgid "Build Time Map"
@@ -291,16 +277,12 @@ msgstr "S'ha detectat un H.264"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:589
 msgid ""
-"If the file is using B-frames as reference it can lead to a crash or "
-"stuttering.\n"
-"Avidemux can use another mode which is safe but YOU WILL LOSE FRAME "
-"ACCURACY.\n"
+"If the file is using B-frames as reference it can lead to a crash or stuttering.\n"
+"Avidemux can use another mode which is safe but YOU WILL LOSE FRAME ACCURACY.\n"
 "Do you want to use that mode?"
 msgstr ""
-"El fet que el fitxer utilitzi fotogrames-B com a referència pot ocasionar "
-"una fallada o bé una tremolor.\n"
-"L'Avidemux pot usar un altre mètode més segur, però <b>PERDREU PRECISIÓ DE "
-"FOTOGRAMA</b>.\n"
+"El fet que el fitxer utilitzi fotogrames-B com a referència pot ocasionar una fallada o bé una tremolor.\n"
+"L'Avidemux pot usar un altre mètode més segur, però <b>PERDREU PRECISIÓ DE FOTOGRAMA</b>.\n"
 "Voleu utilitzar aquell mètode ?"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:719
@@ -317,8 +299,7 @@ msgstr "No s'ha pogut desempaquetar el vídeo"
 
 #: avidemux/ADM_editor/ADM_edit.cpp:740
 msgid "Using backup decoder - not frame accurate."
-msgstr ""
-"S'està usant 'backup decoder' - no és acurat pel que fa als fotogrames."
+msgstr "S'està usant 'backup decoder' - no és acurat pel que fa als fotogrames."
 
 #: avidemux/ADM_editor/ADM_edit.cpp:744
 msgid "Weird"
@@ -385,12 +366,8 @@ msgid "Compute Average"
 msgstr "Compute Average"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:50
-msgid ""
-"Compute average luma value for each pixel throughout all frames, and save to "
-"file"
-msgstr ""
-"Calcula el valor mitjà de la luminància per a cada pixel a través de totes "
-"les imatges, i el desa en un fitxer"
+msgid "Compute average luma value for each pixel throughout all frames, and save to file"
+msgstr "Calcula el valor mitjà de la luminància per a cada pixel a través de totes les imatges, i el desa en un fitxer"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:51
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:395
@@ -424,12 +401,8 @@ msgid "Swiss Army Knife"
 msgstr "Swiss Army Knife"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:54
-msgid ""
-"Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling "
-"average, image from file, or constant"
-msgstr ""
-"Aplica una operació de la forma P'=P*A, P-A, P+A, etc., usant una "
-"circumvolució, una mitjana mòbil, una imatge des d'un fitxer, o una constant"
+msgid "Apply operation like P'=P*A, P-A, P+A, etc. using a convolution, rolling average, image from file, or constant"
+msgstr "Aplica una operació de la forma P'=P*A, P-A, P+A, etc., usant una circumvolució, una mitjana mòbil, una imatge des d'un fitxer, o una constant"
 
 #: avidemux/ADM_filter/filter_declaration.cpp:57
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:109
@@ -616,7 +589,8 @@ msgstr "S'ha produït un error en el fitxer de sortida"
 msgid "Could not open \"%s\" for writing."
 msgstr "No es pot obrir el fitxer \"%s\" per a escriptura."
 
-#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:83 avidemux/ADM_ocr/ADM_ocrEngine.cpp:89
+#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:83
+#: avidemux/ADM_ocr/ADM_ocrEngine.cpp:89
 msgid "Input file error"
 msgstr "S'ha produït un error en el fitxer d'entrada"
 
@@ -679,24 +653,24 @@ msgstr ""
 "(Sigui com sigui s'esborrarà, i si el voleu conservar l'haureu de desar)."
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:17
-#, fuzzy, c-format
+#, c-format
 msgid "%u minutes"
-msgstr "%lu minuts"
+msgstr "%u minuts"
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:21
-#, fuzzy, c-format
+#, c-format
 msgid "%u minute"
-msgstr "%lu minut"
+msgstr "%u minut"
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:29
-#, fuzzy, c-format
+#, c-format
 msgid "%u second"
-msgstr "%lu segon"
+msgstr "%u segon"
 
 #: avidemux/ADM_osSupport/ADM_misc.cpp:33
-#, fuzzy, c-format
+#, c-format
 msgid "%u seconds"
-msgstr "%lu segons"
+msgstr "%u segons"
 
 #: avidemux/ADM_outputs/ADM_lavformat.cpp:373
 msgid "Incompatible frame rate"
@@ -757,7 +731,8 @@ msgstr "S'ha produït un error en inicialitzar els filtres de vídeo"
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:555
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:570
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vobsub.cpp:206
-#: avidemux/gtk_gui.cpp:2057 avidemux/gtk_gui.cpp:2156
+#: avidemux/gtk_gui.cpp:2057
+#: avidemux/gtk_gui.cpp:2156
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:197
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:197
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1182
@@ -823,9 +798,8 @@ msgid "AMR-NB"
 msgstr "AMR-NB"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:497
-#, fuzzy
 msgid "AMR-WB"
-msgstr "AMR-NB"
+msgstr "AMR-WB"
 
 #: avidemux/ADM_outputs/oplug_avi/op_avisave.cpp:498
 msgid "MSADPCM"
@@ -866,11 +840,8 @@ msgstr ""
 #: avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp:168
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:194
 #: avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp:78
-#, fuzzy
 msgid "Reuse the existing log file?"
-msgstr ""
-"\n"
-"Voleu reutilitzar el fitxer de bitàcola existent?"
+msgstr "Voleu reutilitzar el fitxer de registre existent?"
 
 #: avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp:100
 #: avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp:138
@@ -1010,9 +981,7 @@ msgstr "El primer fotograma no és un fotograma-I"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:91
 msgid "Use the &lt;&lt; and the &gt;&gt; buttons to move using Intra frames."
-msgstr ""
-"Useu els botons de &lt;&lt; i els de &gt;&gt; per moure-us a través de "
-"fotogrames-I."
+msgstr "Useu els botons de &lt;&lt; i els de &gt;&gt; per moure-us a través de fotogrames-I."
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:103
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:134
@@ -1021,9 +990,7 @@ msgstr "La pista d'àudio no éstà disponible"
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:135
 msgid "For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo)."
-msgstr ""
-"Per a DVD l'àudio ha de ser 48 kHz MP2 (estèreo), AC3, DTS o bé LPCM "
-"(estèreo)."
+msgstr "Per a DVD l'àudio ha de ser 48 kHz MP2 (estèreo), AC3, DTS o bé LPCM (estèreo)."
 
 #: avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp:174
 msgid "---"
@@ -1054,9 +1021,8 @@ msgid "For VCD, audio must be 44.1 kHz MP2."
 msgstr "Per a VCD l'àudio ha de ser 44.1 kHz MP2."
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:159
-#, fuzzy
 msgid "For SVCD, audio must be 44.1 kHz MP2."
-msgstr "Per a VCD l'àudio ha de ser 44.1 kHz MP2."
+msgstr "Per a SVCD l'àudio ha de ser MP2 de 44.1 kHz."
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:171
 msgid "For DVD, audio must be 48 kHz MP2, AC3 or LPCM."
@@ -1075,7 +1041,8 @@ msgid "Pass 1/2"
 msgstr "Passada 1/2"
 
 #: avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp:326
-#: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101 avidemux/gtk_gui.cpp:1554
+#: avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp:101
+#: avidemux/gtk_gui.cpp:1554
 #: avidemux/gtk_gui.cpp:2688
 #, c-format
 msgid "Cannot open \"%s\" for writing."
@@ -1180,36 +1147,33 @@ msgid "Single pass - same qz as input"
 msgstr "Passada única - mateix quant. entrada"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:173
-#, fuzzy
 msgid "Single pass - Average quantiser"
-msgstr "Passada única - quantificador mitjà"
+msgstr "Passada única - quantificador de mitjana"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:176
 msgid "Two pass - video size"
-msgstr "Dues passades - mida vídeo"
+msgstr "Dues passades - mida del vídeo"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:178
 msgid "Two pass - average bitrate"
-msgstr "Dues passades - taxa bits mitjana"
+msgstr "Dues passades - taxa de bits mitjana"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:287
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp:85
-#, fuzzy
 msgid "_Quantiser:"
 msgstr "_Quantificador:"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:292
-#, fuzzy
 msgid "A_vg Quantiser:"
-msgstr "Quantific. mitjà: "
+msgstr "Quantific. de _mitjana: "
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:297
 msgid "_Video size (MB):"
-msgstr "_Mida vídeo (MB): "
+msgstr "_Mida del vídeo (MB): "
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:302
 msgid "_Average bitrate (kb/s):"
-msgstr "_Taxa bits mitjana (kb/s): "
+msgstr "_Taxa de bits mitjana (kb/s): "
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_bitrate.cpp:307
 msgid "-"
@@ -1217,36 +1181,30 @@ msgstr "-"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:86
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:92
-#, fuzzy
 msgid "<default>"
-msgstr "Predetermin."
+msgstr "<predetermin.>"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:87
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:93
-#, fuzzy
 msgid "<custom>"
-msgstr "Personalitzat"
+msgstr "<personalitzat>"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:158
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:312
-#, fuzzy
 msgid "Save As"
-msgstr "Desa la tasca"
+msgstr "Desa com"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:200
-#, fuzzy
 msgid "Are you sure you wish to delete the selected configuration?"
-msgstr "Esteu segur que voleu esborrar la tasca %s ?"
+msgstr "Esteu segur que voleu esborrar la configuració seleccionada?"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:302
-#, fuzzy
 msgid "Configuration:"
-msgstr "Configuració LAME"
+msgstr "Configuració:"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_configMenu.cpp:316
-#, fuzzy
 msgid "Delete"
-msgstr "S'ha esborrat"
+msgstr "Esborra"
 
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:106
 #: avidemux/ADM_UIs/ADM_GTK/src/FAC_hex.cpp:140
@@ -1314,11 +1272,11 @@ msgstr "Manual"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:79
 msgid "_Gain mode:"
-msgstr "Mode _guany: "
+msgstr "Mode de _guany: "
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:81
 msgid "G_ain value:"
-msgstr "Valor gu_any: "
+msgstr "Valor del gu_any: "
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp:83
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:184
@@ -1391,7 +1349,7 @@ msgstr "No hi ha dades"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp:210
 msgid "Max. bitrate:"
-msgstr "Taxa de bits mà_x.:"
+msgstr "Taxa de bits mà_xima:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp:211
 msgid "Average bitrate:"
@@ -1588,9 +1546,8 @@ msgid "Save GlyphSet"
 msgstr "Desa el glifset"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:45
-#, fuzzy
 msgid "Audio Plugins"
-msgstr "Filtres d'àudio"
+msgstr "Connectors d'àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:68
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:320
@@ -1598,42 +1555,37 @@ msgid "Audio"
 msgstr "Àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:74
-#, fuzzy
 msgid "Video Encoder Plugins"
-msgstr "Codificador vídeo"
+msgstr "Connectors del codificador de vídeo"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:98
-#, fuzzy
 msgid "Video Encoder"
-msgstr "Codificador vídeo"
+msgstr "Codificador de vídeo"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:103
 msgid "Audio Device Plugins"
-msgstr ""
+msgstr "Connectors del dispositiu d'àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:125
-#, fuzzy
 msgid "Audio Device"
-msgstr "Còdecs d'àudio"
+msgstr "Dispositiu d'àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:132
-#, fuzzy
 msgid "Audio Encoder Plugins"
-msgstr "Còdecs d'àudio"
+msgstr "Connectors del codificador d'àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:154
-#, fuzzy
 msgid "Audio Encoders"
-msgstr "Còdecs d'àudio"
+msgstr "Codificadors d'àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp:161
 msgid "Plugins Info"
-msgstr ""
+msgstr "Informació sobre els connectors"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:21
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:44
 msgid "_Filter strength:"
-msgstr "_Força del filtre:"
+msgstr "_Intensitat del filtre:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:32
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:287
@@ -1650,7 +1602,7 @@ msgstr "Desbloqueig _vertical"
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:34
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:58
 msgid "_Deringing"
-msgstr "Eliminac. _oscil·lac. paràsit."
+msgstr "Eliminació efecte \"_ringing\""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp:38
 msgid "Postprocessing"
@@ -1768,7 +1720,7 @@ msgstr "Prioritat _indexació/desempaquet.:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:222
 msgid "_Playback priority:"
-msgstr "_Prioritat de playback: "
+msgstr "_Prioritat de reproducció: "
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:224
 msgid "Prioritisation"
@@ -1812,7 +1764,7 @@ msgstr "Mostra tots els avisos"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:253
 msgid "_Message level:"
-msgstr "_Missatges a mostrar"
+msgstr "_Missatges a mostrar:"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:259
 msgid "Master"
@@ -1839,19 +1791,18 @@ msgid "_Local playback downmixing:"
 msgstr "_Reduc. pistes en reproduc. local: "
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:284
-#, fuzzy
 msgid "_AudioDevice"
-msgstr "_Àudio"
+msgstr "Dispositiu d'_àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:289
 msgid "De_ringing"
-msgstr "_Eliminació oscil·lacions paràsites"
+msgstr "Eliminació efecte \"_ringing\""
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:290
 #: plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp:159
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:184
 msgid "_Strength:"
-msgstr "_Força: "
+msgstr "_Intensitat: "
 
 #: avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp:291
 msgid "Default Postprocessing"
@@ -1963,8 +1914,7 @@ msgid ""
 "\t\t       Version 2, June 1991\n"
 "\n"
 " Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
-"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
-"USA\n"
+"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
 " Everyone is permitted to copy and distribute verbatim copies\n"
 " of this license document, but changing it is not allowed.\n"
 "\n"
@@ -2099,8 +2049,7 @@ msgid ""
 "\n"
 "    a) Accompany it with the complete corresponding machine-readable\n"
 "    source code, which must be distributed under the terms of Sections\n"
-"    1 and 2 above on a medium customarily used for software interchange; "
-"or,\n"
+"    1 and 2 above on a medium customarily used for software interchange; or,\n"
 "\n"
 "    b) Accompany it with a written offer, valid for at least three\n"
 "    years, to give any third party, for a charge no more than your\n"
@@ -2207,8 +2156,7 @@ msgid ""
 "later version\", you have the option of following the terms and conditions\n"
 "either of that version or of any later version published by the Free\n"
 "Software Foundation.  If the Program does not specify a version number of\n"
-"this License, you may choose any version ever published by the Free "
-"Software\n"
+"this License, you may choose any version ever published by the Free Software\n"
 "Foundation.\n"
 "\n"
 "  10. If you wish to incorporate parts of the Program into other free\n"
@@ -2224,8 +2172,7 @@ msgid ""
 "  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
 "FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
 "OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
-"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER "
-"EXPRESSED\n"
+"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED\n"
 "OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
 "MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
 "TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
@@ -2270,8 +2217,7 @@ msgid ""
 "\n"
 "    You should have received a copy of the GNU General Public License\n"
 "    along with this program; if not, write to the Free Software\n"
-"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
-"USA\n"
+"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
 "\n"
 "\n"
 "Also add information on how to contact you by electronic and paper mail.\n"
@@ -2280,8 +2226,7 @@ msgid ""
 "when it starts in an interactive mode:\n"
 "\n"
 "    Gnomovision version 69, Copyright (C) year name of author\n"
-"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show "
-"w'.\n"
+"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
 "    This is free software, and you are welcome to redistribute it\n"
 "    under certain conditions; type `show c' for details.\n"
 "\n"
@@ -2314,8 +2259,7 @@ msgstr ""
 "\t\t       Version 2, June 1991\n"
 "\n"
 " Copyright (C) 1989, 1991 Free Software Foundation, Inc.\n"
-"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
-"USA\n"
+"                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
 " Everyone is permitted to copy and distribute verbatim copies\n"
 " of this license document, but changing it is not allowed.\n"
 "\n"
@@ -2450,8 +2394,7 @@ msgstr ""
 "\n"
 "    a) Accompany it with the complete corresponding machine-readable\n"
 "    source code, which must be distributed under the terms of Sections\n"
-"    1 and 2 above on a medium customarily used for software interchange; "
-"or,\n"
+"    1 and 2 above on a medium customarily used for software interchange; or,\n"
 "\n"
 "    b) Accompany it with a written offer, valid for at least three\n"
 "    years, to give any third party, for a charge no more than your\n"
@@ -2558,8 +2501,7 @@ msgstr ""
 "later version\", you have the option of following the terms and conditions\n"
 "either of that version or of any later version published by the Free\n"
 "Software Foundation.  If the Program does not specify a version number of\n"
-"this License, you may choose any version ever published by the Free "
-"Software\n"
+"this License, you may choose any version ever published by the Free Software\n"
 "Foundation.\n"
 "\n"
 "  10. If you wish to incorporate parts of the Program into other free\n"
@@ -2575,8 +2517,7 @@ msgstr ""
 "  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY\n"
 "FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN\n"
 "OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES\n"
-"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER "
-"EXPRESSED\n"
+"PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED\n"
 "OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF\n"
 "MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS\n"
 "TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE\n"
@@ -2621,8 +2562,7 @@ msgstr ""
 "\n"
 "    You should have received a copy of the GNU General Public License\n"
 "    along with this program; if not, write to the Free Software\n"
-"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  "
-"USA\n"
+"    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n"
 "\n"
 "\n"
 "Also add information on how to contact you by electronic and paper mail.\n"
@@ -2631,8 +2571,7 @@ msgstr ""
 "when it starts in an interactive mode:\n"
 "\n"
 "    Gnomovision version 69, Copyright (C) year name of author\n"
-"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show "
-"w'.\n"
+"    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.\n"
 "    This is free software, and you are welcome to redistribute it\n"
 "    under certain conditions; type `show c' for details.\n"
 "\n"
@@ -2709,7 +2648,7 @@ msgstr "Mida total (person.)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:478
 msgid "_Custom size (MB):"
-msgstr "_Mida person. (MB):"
+msgstr "_Mida personal. (MB):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:492
 msgid "Output container format"
@@ -2751,9 +2690,7 @@ msgstr "Pista _1:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:564
 msgid "Audio bitrate in kb/s for track 1 (0 for no audio)"
-msgstr ""
-"Taxa de bits d'àudio en kb/s per a la pista 1. El valor 0 indica que no hi "
-"ha àudio"
+msgstr "Taxa de bits de l'àudio en kb/s per a la pista 1. El valor 0 indica que no hi ha àudio"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:571
 msgid "Track _2: "
@@ -2761,15 +2698,15 @@ msgstr "Pista _2:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:579
 msgid "Audio bitrate in kb/s for track 2 (optional)"
-msgstr "Taxa de bits d'àudio en kb/s per a la pista 2 (opcional)"
+msgstr "Taxa de bits de l'àudio en kb/s per a la pista 2 (opcional)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:583
 msgid "<b>Audio Bitrate</b>"
-msgstr "<b>Taxa bits àudio</b>"
+msgstr "<b>Taxa de bits de l'àudio</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:609
 msgid "Audio size (MB):"
-msgstr "Mida àudio (MB):"
+msgstr "Mida de l'àudio (MB):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:617
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:633
@@ -2796,7 +2733,7 @@ msgstr "0"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:625
 msgid "Video size (MB):"
-msgstr "Mida vídeo (MB):"
+msgstr "Mida del vídeo (MB):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:641
 msgid "Total size (MB):"
@@ -2804,7 +2741,7 @@ msgstr "Mida total (MB):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:663
 msgid "Video bitrate:"
-msgstr "Taxa bits vídeo:"
+msgstr "Taxa de bits del vídeo:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_calculator.cpp:671
 msgid "Bits per pixel:"
@@ -2879,7 +2816,7 @@ msgstr "<b>Quantificador: </b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:633
 msgid "<b>Average Bitrate:</b>"
-msgstr "<b>Taxa bits mitjana: </b>"
+msgstr "<b>Taxa de bits mitjana: </b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:641
 msgid "0 kB/s"
@@ -2887,11 +2824,11 @@ msgstr "0 kB/s"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:686
 msgid "<b>Video Size:</b>"
-msgstr "<b>Mida vídeo:</b>"
+msgstr "<b>Mida del vídeo:</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:694
 msgid "<b>Audio Size:</b>"
-msgstr "<b>Mida àudio:</b>"
+msgstr "<b>Mida de l'àudio:</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_encoding.cpp:702
 msgid "<b>Total Size:</b>"
@@ -2937,14 +2874,12 @@ msgid "Pause / Abort"
 msgstr "Atura / Cancel·la"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:815
-#, fuzzy
 msgid "First Frame"
-msgstr "_Primer fotograma"
+msgstr "Primer fotograma"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:820
-#, fuzzy
 msgid "Last Frame"
-msgstr "_Darrer fotograma"
+msgstr "Darrer fotograma"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1181
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:257
@@ -2952,14 +2887,12 @@ msgid "Eraser Configuration"
 msgstr "Configuració de l'esborrador"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1212
-#, fuzzy
 msgid "Brush _Mode:  "
-msgstr "Mode _brotxa:"
+msgstr "Mode _brotxa:  "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1224
-#, fuzzy
 msgid "Brush _Size:  "
-msgstr "_Mida brotxa:"
+msgstr "_Mida brotxa:  "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1236
 #: avidemux/ADM_videoFilter/ADM_vidEraser.cpp:240
@@ -2972,63 +2905,50 @@ msgid "Eraser _Data File:"
 msgstr "Fitxer de _dades de l'esborrador:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1269
-msgid ""
-"File in which eraser mask information (the list below and the pixels erased "
-"for each range) will be stored"
-msgstr ""
+msgid "File in which eraser mask information (the list below and the pixels erased for each range) will be stored"
+msgstr "Fitxer on s'ha de desar la informació de màscara de l'esborrador (la llista anterior i els píxels esborrats per a cada rang)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1285
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:699
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1537
-#, fuzzy
 msgid "_Debugging settings (bits):   "
-msgstr "Configs. _debug (bits):   "
+msgstr "Configuracions _depuració (bits):   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1303
-#, fuzzy
 msgid "_First frame:   "
-msgstr "Primer fotograma"
+msgstr "_Primer fotograma:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1311
-msgid ""
-"First frame to which currently selected eraser mask applies; 0 means first "
-"frame of video"
-msgstr ""
+msgid "First frame to which currently selected eraser mask applies; 0 means first frame of video"
+msgstr "Primer fotograma al qual s'aplica la màscara actual d'esborrat seleccionada; 0 vol dir primer fotograma del vídeo"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1318
-#, fuzzy
 msgid "_Last frame:   "
-msgstr "Últim fotograma"
+msgstr "_Últim fotograma:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1326
-msgid ""
-"Last frame to which currently selected eraser mask applies; use e.g. "
-"99999999 to represent the last frame of video"
-msgstr ""
+msgid "Last frame to which currently selected eraser mask applies; use e.g. 99999999 to represent the last frame of video"
+msgstr "Últim fotograma al qual s'aplica la màscara actual d'esborrat seleccionada; useu p. ex., 99999999 per representar l'últim fotograma del vídeo"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1351
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplica"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1355
-msgid ""
-"Make a copy of the currently selected eraser mask and insert it as the "
-"following row"
-msgstr ""
+msgid "Make a copy of the currently selected eraser mask and insert it as the following row"
+msgstr "Fes una còpia de la màscara d'esborrat seleccionada actualment i insereix-la com a següent fila"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1372
-#, fuzzy
 msgid "Last Frame in Range"
-msgstr "_Darrer fotograma"
+msgstr "Darrer fotograma de l'interval"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1377
-#, fuzzy
 msgid "First Frame in Range"
-msgstr "_Primer fotograma"
+msgstr "Primer fotograma de l'interval"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1382
 msgid "Jump to:  "
-msgstr ""
+msgstr "Salta a:  "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_eraser.cpp:1418
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:745
@@ -3236,11 +3156,11 @@ msgstr "<b>Bitmap</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:123
 msgid "Start frame for partial :"
-msgstr "Fotogr. inicial per a parcial:"
+msgstr "Fotograma inicial per al parcial:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:130
 msgid "End frame for partial :"
-msgstr "Fotogr. final per a parcial:"
+msgstr "Fotograma final per al parcial:"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_partial.cpp:153
 msgid "Configure partialized filter"
@@ -3251,43 +3171,36 @@ msgid "Particle Analysis Configuration"
 msgstr "Config. de l'anàlisi de les partícules"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:536
-#, fuzzy
 msgid "Particle Detection"
-msgstr "Decisió sobre partició"
+msgstr "Detecció de partícules"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:563
-#, fuzzy
 msgid "Mi_nimum area for a particle to be detected:    "
-msgstr "Àrea mí_nima per a la individualització d'una partícula:"
+msgstr "Àrea mí_nima per a la individualització d'una partícula:    "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:577
-#, fuzzy
 msgid "Ma_ximum area for a particle to be detected:   "
-msgstr "Àrea mà_xima per a la individualització d'una partícula:"
+msgstr "Àrea mà_xima per a la individualització d'una partícula:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:595
-#, fuzzy
 msgid "_Left side crop (ignore this many pixels on the left):        "
-msgstr "Retall later. _esquerre (se n'ignoren les partícules):"
+msgstr "Retall later. _esquerre (ignora tants píxels de l'esquerra):      "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:609
-#, fuzzy
 msgid "_Right side crop (ignore this many pixels on the right):     "
-msgstr "Retall later. _dret (se n'ignoren les partícules):"
+msgstr "Retall later. _dret (ignora tants píxels de la dreta):      "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:623
 msgid "_Top crop (ignore this many pixels on the top):                  "
-msgstr ""
+msgstr "Retall _superior (ignora tants píxels del damunt):         "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:637
-#, fuzzy
 msgid "_Bottom crop (ignore this many pixels on the bottom):   "
-msgstr "Retall _inferior (se n'ignoren les partícules):"
+msgstr "Retall _inferior (ignora tants píxels de sota):         "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:655
-#, fuzzy
 msgid "Output _Format:   "
-msgstr "Format _sortida:"
+msgstr "Format de _sortida:."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:667
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:179
@@ -3297,7 +3210,7 @@ msgstr "Fitxer _sortida: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_particle.cpp:685
 msgid "_Camera Number for output file:      "
-msgstr ""
+msgstr "Núm. de _càmera per al fitxer de sortida:      "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_pause.cpp:76
 msgid "Paused"
@@ -3376,11 +3289,11 @@ msgstr "Propietats"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:214
 msgid "Frame Rate:"
-msgstr "Veloc. imatge: "
+msgstr "Velocitat d'imatge: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:221
 msgid "Frame Count:"
-msgstr "Nombre fotog.: "
+msgstr "Nombre fotogrames: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:228
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:406
@@ -3389,7 +3302,7 @@ msgstr "Durada total: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:249
 msgid "Image Size:"
-msgstr "Mida imatge: "
+msgstr "Mida de la imatge: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:270
 msgid "Codec 4CC:"
@@ -3397,7 +3310,7 @@ msgstr "Còdec 4CC: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:284
 msgid "Aspect Ratio:"
-msgstr "Rel. aspecte: "
+msgstr "Relació d'aspecte: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:298
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1024
@@ -3443,7 +3356,7 @@ msgstr "Mida del fitxer: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:462
 msgid "Variable Bitrate:"
-msgstr "Taxa bits variable: "
+msgstr "Taxa de bits variable: "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_properties.cpp:476
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1064
@@ -3471,7 +3384,7 @@ msgstr "Fitxers recents"
 #: plugins/ADM_videoFilters/AvisynthResize/gtk/gtk_resize.cpp:300
 #: plugins/ADM_videoFilters/MplayerResize/gtk/gtk_resize.cpp:300
 msgid "Resize"
-msgstr "Redimensiona"
+msgstr "Resize"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_resize.cpp:319
 #: plugins/ADM_videoFilters/AvisynthResize/gtk/gtk_resize.cpp:314
@@ -3537,7 +3450,7 @@ msgstr "Error en Y: "
 #: plugins/ADM_videoFilters/AvisynthResize/gtk/gtk_resize.cpp:428
 #: plugins/ADM_videoFilters/MplayerResize/gtk/gtk_resize.cpp:428
 msgid "16 round up"
-msgstr "16 round up"
+msgstr "arrodoneix a 16 (per excés)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_resize.cpp:447
 #: plugins/ADM_videoFilters/AvisynthResize/gtk/gtk_resize.cpp:442
@@ -3563,139 +3476,125 @@ msgid "Swiss Army Knife Configuration"
 msgstr "Config. de la navalla suïssa"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1111
-#, fuzzy
 msgid "Select _Operation on each pixel P and input A:   "
-msgstr "Tria _operació sobre cada píxel P i entrada A: "
+msgstr "Tria _operació sobre cada píxel P i entrada A:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1123
-#, fuzzy
 msgid "Input _Type:   "
-msgstr "Tipus _entrada:"
+msgstr "Tipus d'_entrada:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1142
-#, fuzzy
 msgid "Input _File (convolution kernel):   "
-msgstr "_Fitxer d'entrada (imatge o nucli de convolució): "
+msgstr "_Fitxer d'entrada (nucli de convolució):   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1146
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1161
-#, fuzzy
 msgid "Select Convolution Kernel File"
-msgstr "Seleccioneu el fitxer de subtítols"
+msgstr "Seleccioneu el fitxer de nucli de convolució"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1157
-#, fuzzy
 msgid "Input _File (image file):   "
-msgstr "_Fitxer d'entrada (imatge o nucli de convolució): "
+msgstr "_Fitxer d'entrada (fitxer d'imatge):   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1183
 msgid "First, _add to each float pixel value:   "
-msgstr ""
+msgstr "Primer, afegeix a cada valor real de píxel:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1197
 msgid "Then, _multiply each float pixel value by:   "
-msgstr ""
+msgstr "Després, multiplica cada valor real de píxel per:     "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1211
 msgid "Mi_nimum loaded pixel value (will be scaled to 0):"
-msgstr ""
+msgstr "Valor mí_nim de píxel carregat (s'escalarà a 0):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1237
 msgid "Ma_ximum loaded pixel value (will be scaled to 255):"
-msgstr ""
+msgstr "Valor mà_xim de píxel carregat (s'escalarà a 255):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1259
 msgid "Pixel Value Scaling as Image File is Loaded"
-msgstr ""
+msgstr "Escalat del valor del píxel en carregar el fitxer d'imatge"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1271
-#, fuzzy
 msgid "Input _Constant:      "
-msgstr "_Constant entrada:"
+msgstr "_Constant d'entrada:     "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1288
 msgid "Memory constant _alpha:   "
-msgstr ""
+msgstr "Constant de memòria _alfa:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1298
-#, fuzzy
 msgid " = 1 / "
-msgstr "P' = P / A"
+msgstr " = 1 / "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1312
-#, fuzzy
 msgid "_Look ahead "
-msgstr "Look ahead _N fotogrames:"
+msgstr "_Examina posteriors ('Look ahead') "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1323
 msgid " frames.  (Anything > 0 will be slower.)"
-msgstr ""
+msgstr " fotogrames. (Valors > 0 comportaran més lentitud)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1335
 msgid "_Initial average (\"head start\") is "
-msgstr ""
+msgstr "La mitjana _inicial (\"avantatge inicial\") és "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1342
 msgid "straight"
-msgstr ""
+msgstr "directa"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1343
-#, fuzzy
 msgid "rolling"
-msgstr "Coring"
+msgstr "mòbil"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1345
-#, fuzzy
 msgid " average"
-msgstr "Compute Average"
+msgstr " mitjana"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1353
-#, fuzzy
 msgid "      of frames "
-msgstr "7 - RD sobre tots els fotogrames"
+msgstr "      de fotogrames "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1363
 msgid " through "
-msgstr ""
+msgstr "a través de"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1381
-#, fuzzy
 msgid "Integer _Bias (will be added to result of selected operation):"
-msgstr "_Polarització (s'afegirà al resultat): "
+msgstr "_Biaix enter (s'afegirà al resultat de l'operació seleccionada):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1421
 msgid "First, _add to each pixel result value:   "
-msgstr ""
+msgstr "Primer, _afegeix a cada valor resultant de píxel:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1435
 msgid "Then, _multiply each pixel result value by:   "
-msgstr ""
+msgstr "Després, _multiplica cada valor resultant de píxel per:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1449
 msgid "Mi_nimum result value (will be scaled to 0):"
-msgstr ""
+msgstr "Valor mí_nim del resultat (s'escalarà a 0):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1475
 msgid "Ma_ximum result value (will be scaled to 255):"
-msgstr ""
+msgstr "Valor mà_xim del resultat (s'escalarà a 255):"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1497
 msgid "Pixel Value Scaling on Result of Selected Operation"
-msgstr ""
+msgstr "Escalat del valor del píxel al resultat de l'operació seleccionada"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1506
 msgid "(description of current config will go here)"
-msgstr ""
+msgstr "(la descripció de la configuració actual anirà aquí)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1523
-#, fuzzy
 msgid "_Histogram every N frames (0 to disable):   "
-msgstr "_Histograma cada N fotogr. (0: deshabilita):"
+msgstr "_Histograma cada N fotogr. (0: deshabilita):   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_SwissArmyKnife.cpp:1594
-#, fuzzy
 msgid "Enable Preview"
-msgstr "Previsualitza"
+msgstr "Habilita vista prèvia"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:194
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:152
@@ -3716,17 +3615,15 @@ msgstr "Valors sortida:   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:488
 msgid "In-range values go black, out-of-range values go white"
-msgstr ""
-"Els valors interiors de l'interval esdevenen negres, els exteriors, blancs"
+msgstr "Els valors interiors de l'interval esdevenen negres, els exteriors, blancs"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:489
 msgid "In-range values go white, out-of-range values go black"
-msgstr ""
-"Els valors interiors de l'interval esdevenen blancs, els exteriors, negres"
+msgstr "Els valors interiors de l'interval esdevenen blancs, els exteriors, negres"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_threshold.cpp:495
 msgid "Debugging settings (bits):   "
-msgstr "Configs. _debug (bits):   "
+msgstr "Configs. _depuració (bits):   "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_dialog/DIA_vcodec.cpp:74
 msgid "Video encoder"
@@ -3841,7 +3738,7 @@ msgstr "Subtítols"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filterlist.cpp:250
 msgid "Miscellaneous"
-msgstr "Miscel·lània"
+msgstr "Variats"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager.cpp:197
 msgid "The filter is already partial"
@@ -3874,9 +3771,8 @@ msgid "Add selected filter to the Active Filters list"
 msgstr "Afegeix filtre seleccionat a llista de filtres actius"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:162
-#, fuzzy
 msgid "<b>Active Filters</b>"
-msgstr "<b >Filtres Actius</b>"
+msgstr "<b>Filtres Actius</b>"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:197
 msgid "Remove filter"
@@ -3891,14 +3787,12 @@ msgid "Move filter up"
 msgstr "Mou filtre amunt"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:224
-#, fuzzy
 msgid "Open filter list"
-msgstr "Obre una llista de filtres [Ctrl-O]"
+msgstr "Obre una llista de filtres"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:233
-#, fuzzy
 msgid "Save filter list"
-msgstr "Desa la llista de filtres [Ctrl-S]"
+msgstr "Desa la llista de filtres"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_filters/gui_filtermanager_dialog.cpp:239
 msgid "P_artial"
@@ -4107,7 +4001,7 @@ msgstr "_Postprocessament"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:595
 msgid "Select postprocessing level"
-msgstr "Seleccioneu el nivell de postprocessament."
+msgstr "Seleccioneu el nivell de postprocessament"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:605
 msgid "P_review"
@@ -4268,7 +4162,7 @@ msgstr "Aj_uda"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:910
 msgid "_Plugins"
-msgstr ""
+msgstr "_Connectors"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:914
 msgid "_Built-in Support"
@@ -4325,11 +4219,11 @@ msgstr "Habilita el desplaçament de temps."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1125
 msgid "Audio/video time shift (ms)"
-msgstr "Desplaçament de temps àudio/vídeo (ms)."
+msgstr "Desplaçament de temps àudio/vídeo (ms)"
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1128
 msgid "ms"
-msgstr "ms"
+msgstr "ms "
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:1136
 msgid "<b>Format</b>"
@@ -4510,11 +4404,8 @@ msgid "Select output file"
 msgstr "Seleccioneu el fitxer de sortida"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:182
-msgid ""
-"_Bias (only for display; use 0 for average, 128 for frame minus average):"
-msgstr ""
-"_Polarització (només per visualització; usa 0 per mitjana, 128 per fotograma "
-"menys mitjana):"
+msgid "_Bias (only for display; use 0 for average, 128 for frame minus average):"
+msgstr "_Polarització (només per visualització; usa 0 per mitjana, 128 per fotograma menys mitjana):"
 
 #: avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp:186
 msgid "Current frame minus average so far"
@@ -4593,7 +4484,7 @@ msgstr "Seleccioneu el fitxer de dades "
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:375
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:148
 msgid "_Debugging settings (bits):"
-msgstr "Configs. _debug (bits):"
+msgstr "Paràmetres _depuració (bits):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:131
 msgid "New format, preferred, good for Tracker3D"
@@ -4641,7 +4532,8 @@ msgstr "Retall _inferior (se n'ignoren les partícules):"
 
 #: avidemux/ADM_videoFilter/ADM_vidParticle.cpp:187
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:321
-#: avidemux/gtk_gui.cpp:2068 avidemux/gtk_gui.cpp:2165
+#: avidemux/gtk_gui.cpp:2068
+#: avidemux/gtk_gui.cpp:2165
 msgid "Select file"
 msgstr "Seleccioneu el fitxer"
 
@@ -4762,12 +4654,8 @@ msgid "Init _End Frame (last frame # to use for head start):"
 msgstr "Init. fogr. _final (últim # fotog. a usar com a head start):"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:356
-msgid ""
-"Init By _Rolling (compute head start using a rolling average rather than a "
-"straight average)"
-msgstr ""
-"Init. per _mitjana mòbil (calcula el head start usant una mitjana mòbil en "
-"lloc d'una mitjana \"directa\")"
+msgid "Init By _Rolling (compute head start using a rolling average rather than a straight average)"
+msgstr "Init. per _mitjana mòbil (calcula el head start usant una mitjana mòbil en lloc d'una mitjana \"directa\")"
 
 #: avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp:361
 msgid "_Bias (will be added to result):"
@@ -4799,13 +4687,11 @@ msgstr "Valor mà_xim de l'interval: "
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:139
 msgid "In-range values go white, out-of-range go black"
-msgstr ""
-"Els valors interiors de l'interval esdevenen blancs, els exteriors, negres"
+msgstr "Els valors interiors de l'interval esdevenen blancs, els exteriors, negres"
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:140
 msgid "In-range values go black, out-of-range go white"
-msgstr ""
-"Els valors interiors de l'interval esdevenen negres, els exteriors, blancs"
+msgstr "Els valors interiors de l'interval esdevenen negres, els exteriors, blancs"
 
 #: avidemux/ADM_videoFilter/ADM_vidThreshold.cpp:145
 msgid "Output values:"
@@ -4816,13 +4702,12 @@ msgid "Select ECMAScript to Run"
 msgstr "Seleccioneu un ECMAScript per executar."
 
 #: avidemux/gtk_gui.cpp:291
-#, fuzzy
 msgid "Audio filters cannot be applied in Copy mode"
-msgstr "L'àudio dual només es pot utilitzar en mode de còpia"
+msgstr "Els filtres d'àudio no es poden aplicar en mode de còpia"
 
 #: avidemux/gtk_gui.cpp:291
 msgid "To apply filters the audio must be transcoded."
-msgstr ""
+msgstr "Per aplicar-hi filtres, l'àudio s'ha de recodificar."
 
 #: avidemux/gtk_gui.cpp:347
 msgid "Obsolete"
@@ -4833,11 +4718,11 @@ msgid "Not coded in this version"
 msgstr "No s'ha codificat en aquesta versió"
 
 #: avidemux/gtk_gui.cpp:390
-#, fuzzy
 msgid "Select Video/Image File..."
-msgstr "Selecciona fitxer AVI"
+msgstr "Seleccioneu un fitxer de vídeo / d'imatge"
 
-#: avidemux/gtk_gui.cpp:434 avidemux/gtk_gui.cpp:446
+#: avidemux/gtk_gui.cpp:434
+#: avidemux/gtk_gui.cpp:446
 msgid "Select Workbench to Save"
 msgstr "Seleccioneu una tasca per desar."
 
@@ -4869,7 +4754,8 @@ msgstr "Seleccioneu un fitxer de BMP per desar."
 msgid "Select JPEG to Save"
 msgstr "Seleccioneu un fitxer de JPEG per desar."
 
-#: avidemux/gtk_gui.cpp:599 avidemux/gtk_gui.cpp:722
+#: avidemux/gtk_gui.cpp:599
+#: avidemux/gtk_gui.cpp:722
 msgid "Select File to Save"
 msgstr "Seleccioneu un fitxer per desar."
 
@@ -4897,18 +4783,16 @@ msgstr "Salta al _fotograma..."
 msgid "Out of bounds"
 msgstr "S'ha produït una sortida dels límits"
 
-#: avidemux/gtk_gui.cpp:720 avidemux/gtk_gui.cpp:728 avidemux/gtk_gui.cpp:775
+#: avidemux/gtk_gui.cpp:720
+#: avidemux/gtk_gui.cpp:728
+#: avidemux/gtk_gui.cpp:775
 #: avidemux/gtk_gui.cpp:1967
 msgid "Marker A > B"
 msgstr "Marcador A > B"
 
 #: avidemux/gtk_gui.cpp:720
-msgid ""
-"An invalid frame range has been selected.  Make sure marker A is placed "
-"before marker B."
-msgstr ""
-"S'ha seleccionat un rang invàlid.  Assegureu-vos que el marcador A està "
-"posicionat abans del marcador B."
+msgid "An invalid frame range has been selected.  Make sure marker A is placed before marker B."
+msgstr "S'ha seleccionat un rang invàlid.  Assegureu-vos que el marcador A està posicionat abans del marcador B."
 
 #: avidemux/gtk_gui.cpp:728
 msgid "Cannot copy."
@@ -4923,9 +4807,8 @@ msgid "Are you sure?"
 msgstr "N'esteu segur?"
 
 #: avidemux/gtk_gui.cpp:775
-#, fuzzy
 msgid "Cannot cut."
-msgstr "No es pot efectuar la còpia."
+msgstr "No es pot tallar."
 
 #: avidemux/gtk_gui.cpp:818
 msgid "Use custom value"
@@ -4933,7 +4816,7 @@ msgstr "Usa un valor personalitzat"
 
 #: avidemux/gtk_gui.cpp:819
 msgid "Frame Rate"
-msgstr "Veloc. imatge "
+msgstr "Velocitat d'imatge "
 
 #: avidemux/gtk_gui.cpp:819
 msgid "_Frames per second"
@@ -4944,24 +4827,20 @@ msgid "PAL - 25 FPS"
 msgstr "PAL - 25 FPS"
 
 #: avidemux/gtk_gui.cpp:823
-#, fuzzy
 msgid "FILM - 24 FPS"
-msgstr "FILM- 24 FPS"
+msgstr "FILM - 24 FPS"
 
 #: avidemux/gtk_gui.cpp:824
-#, fuzzy
 msgid "NTSC - 30 FPS"
-msgstr "NTSC- 30 FPS"
+msgstr "NTSC - 30 FPS"
 
 #: avidemux/gtk_gui.cpp:826
-#, fuzzy
 msgid "Standard Frame Rate:"
-msgstr "Veloc. imatge estàndard: "
+msgstr "Veloc. imatge estàndard:"
 
 #: avidemux/gtk_gui.cpp:832
-#, fuzzy
 msgid "Change Frame Rate"
-msgstr "Canvia veloc. imatge"
+msgstr "Canvia veloc. d'imatge"
 
 #: avidemux/gtk_gui.cpp:868
 msgid "Width is not a multiple of 8"
@@ -4973,11 +4852,11 @@ msgstr "Això suposarà un problema per al fitxers d'AVI."
 
 #: avidemux/gtk_gui.cpp:880
 msgid "Video filters cannot be applied in Copy mode"
-msgstr ""
+msgstr "Els filtres de vídeo no es poden aplicar en mode de còpia"
 
 #: avidemux/gtk_gui.cpp:880
 msgid "To apply filters the video must be transcoded."
-msgstr ""
+msgstr "Per aplicar-hi filtres el vídeo s'ha de recodificar."
 
 #: avidemux/gtk_gui.cpp:885
 msgid "Rebuild all Keyframes?"
@@ -5031,14 +4910,14 @@ msgstr "No s'ha trobat descodificador d'àudio per a aquest fitxer."
 
 #: avidemux/gtk_gui.cpp:1083
 msgid "Save (A+V) will generate bad AVI. Save audio will work."
-msgstr ""
-"El desament de (A+V) generarà un AVI defectuós. El desament d'àudio anirà bé."
+msgstr "El desament de (A+V) generarà un AVI defectuós. El desament d'àudio anirà bé."
 
 #: avidemux/gtk_gui.cpp:1142
 msgid "Something failed when appending"
 msgstr "Alguna cosa ha fallat en afegir."
 
-#: avidemux/gtk_gui.cpp:1153 avidemux/gtk_gui.cpp:1986
+#: avidemux/gtk_gui.cpp:1153
+#: avidemux/gtk_gui.cpp:1986
 msgid "Something bad happened (II)"
 msgstr "Alguna cosa ha falalt (II)."
 
@@ -5047,13 +4926,11 @@ msgid "Cannot save the audio in copy mode"
 msgstr "No es pot desar l'àudio en mode de \"Copiat\"."
 
 #: avidemux/gtk_gui.cpp:1217
-msgid ""
-"Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
-msgstr ""
-"Seleccioneu WAV PCM com a còdec d'àudio. Altrament el fitxer d'àudio serà de "
-"PCM cru."
+msgid "Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM."
+msgstr "Seleccioneu WAV PCM com a còdec d'àudio. Altrament el fitxer d'àudio serà de PCM cru."
 
-#: avidemux/gtk_gui.cpp:1225 avidemux/gtk_gui.cpp:1593
+#: avidemux/gtk_gui.cpp:1225
+#: avidemux/gtk_gui.cpp:1593
 msgid "Saving audio"
 msgstr "S'està desant l'àudio."
 
@@ -5085,7 +4962,8 @@ msgstr "No es pot descodificar el fotograma."
 msgid "Aborting."
 msgstr "S'està cancel·lant."
 
-#: avidemux/gtk_gui.cpp:1366 avidemux/gtk_gui.cpp:1385
+#: avidemux/gtk_gui.cpp:1366
+#: avidemux/gtk_gui.cpp:1385
 #: avidemux/gtk_gui.cpp:2330
 msgid "Done"
 msgstr "Fet"
@@ -5117,11 +4995,13 @@ msgstr "Ha fallat l'operació de BMP."
 msgid "Saving %s as a BMP file failed."
 msgstr "El desament de %s com a fitxer de BMP ha fallat."
 
-#: avidemux/gtk_gui.cpp:1409 avidemux/gtk_gui.cpp:1475
+#: avidemux/gtk_gui.cpp:1409
+#: avidemux/gtk_gui.cpp:1475
 msgid "Failed to open the file"
 msgstr "Ha fallat l'obertura del fitxer."
 
-#: avidemux/gtk_gui.cpp:1409 avidemux/gtk_gui.cpp:1475
+#: avidemux/gtk_gui.cpp:1409
+#: avidemux/gtk_gui.cpp:1475
 msgid "Not a WAV file?"
 msgstr "No és un fitxer de WAV?"
 
@@ -5178,7 +5058,8 @@ msgstr "No podeu esborrar la selecció"
 msgid "You can't remove all frames"
 msgstr "No podeu esborrar tots els fotogrames."
 
-#: avidemux/gtk_gui.cpp:1979 avidemux/gtk_gui.cpp:2601
+#: avidemux/gtk_gui.cpp:1979
+#: avidemux/gtk_gui.cpp:2601
 msgid "Something bad happened"
 msgstr "Alguna cosa no ha funcionat"
 
@@ -5190,46 +5071,55 @@ msgstr "No s'ha pogut obtenir informació sobre les pistes."
 msgid "Take audio from video file"
 msgstr "Pren l'àudio del fitxer de vídeo"
 
-#: avidemux/gtk_gui.cpp:2057 avidemux/gtk_gui.cpp:2156
+#: avidemux/gtk_gui.cpp:2057
+#: avidemux/gtk_gui.cpp:2156
 msgid "No audio"
 msgstr "No hi ha àudio"
 
-#: avidemux/gtk_gui.cpp:2058 avidemux/gtk_gui.cpp:2157
+#: avidemux/gtk_gui.cpp:2058
+#: avidemux/gtk_gui.cpp:2157
 msgid "External AC3"
 msgstr "AC3 extern"
 
-#: avidemux/gtk_gui.cpp:2058 avidemux/gtk_gui.cpp:2157
+#: avidemux/gtk_gui.cpp:2058
+#: avidemux/gtk_gui.cpp:2157
 msgid "Take audio from external AC3 file"
 msgstr "Pren l'àudio de fitxer d'AC3 extern."
 
-#: avidemux/gtk_gui.cpp:2059 avidemux/gtk_gui.cpp:2158
+#: avidemux/gtk_gui.cpp:2059
+#: avidemux/gtk_gui.cpp:2158
 msgid "External MP3"
 msgstr "MP3 extern"
 
-#: avidemux/gtk_gui.cpp:2059 avidemux/gtk_gui.cpp:2158
+#: avidemux/gtk_gui.cpp:2059
+#: avidemux/gtk_gui.cpp:2158
 msgid "Take audio from external MP3 file"
 msgstr "Pren l'àudio de fitxer d'MP3 extern."
 
-#: avidemux/gtk_gui.cpp:2060 avidemux/gtk_gui.cpp:2159
+#: avidemux/gtk_gui.cpp:2060
+#: avidemux/gtk_gui.cpp:2159
 msgid "External WAV"
 msgstr "WAV extern"
 
-#: avidemux/gtk_gui.cpp:2060 avidemux/gtk_gui.cpp:2159
+#: avidemux/gtk_gui.cpp:2060
+#: avidemux/gtk_gui.cpp:2159
 msgid "Take audio from external WAV file"
 msgstr "Pren l'àudio de fitxer de WAV extern."
 
-#: avidemux/gtk_gui.cpp:2064 avidemux/gtk_gui.cpp:2164
+#: avidemux/gtk_gui.cpp:2064
+#: avidemux/gtk_gui.cpp:2164
 msgid "_Audio source:"
 msgstr "Font d'_àudio: "
 
-#: avidemux/gtk_gui.cpp:2068 avidemux/gtk_gui.cpp:2165
+#: avidemux/gtk_gui.cpp:2068
+#: avidemux/gtk_gui.cpp:2165
 msgid "_External file:"
 msgstr "Nom del fitxer _extern: "
 
 #: avidemux/gtk_gui.cpp:2077
 #, c-format
 msgid "Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)"
-msgstr ""
+msgstr "Pista d'àudio %d (%s/%d canals/%d kbit per s/%d ms despl.)"
 
 #: avidemux/gtk_gui.cpp:2083
 msgid "_Track from video:"
@@ -5239,11 +5129,13 @@ msgstr "_Pista des del vídeo: "
 msgid "Main Audio Track"
 msgstr "Pista principal d'àudio"
 
-#: avidemux/gtk_gui.cpp:2099 avidemux/gtk_gui.cpp:2177
+#: avidemux/gtk_gui.cpp:2099
+#: avidemux/gtk_gui.cpp:2177
 msgid "Cannot load"
 msgstr "No es pot carregar."
 
-#: avidemux/gtk_gui.cpp:2099 avidemux/gtk_gui.cpp:2177
+#: avidemux/gtk_gui.cpp:2099
+#: avidemux/gtk_gui.cpp:2177
 msgid "The selected audio file does not exist."
 msgstr "El fitxer d'àudio seleccionat no existeix."
 
@@ -5255,7 +5147,8 @@ msgstr "Pista secundària d'àudio"
 msgid "Error loading the MP3 file"
 msgstr "S'ha produït un error en carregar el fitxer de MP3."
 
-#: avidemux/gtk_gui.cpp:2215 avidemux/gtk_gui.cpp:2237
+#: avidemux/gtk_gui.cpp:2215
+#: avidemux/gtk_gui.cpp:2237
 #: avidemux/gtk_gui.cpp:2259
 msgid "Second track loaded"
 msgstr "S'ha carregat la segona pista."
@@ -5274,9 +5167,7 @@ msgstr "Ha fallat el desament."
 
 #: avidemux/gtk_gui.cpp:2318
 msgid "Saving the job failed. Maybe you have permission issue with ~/.avidemux"
-msgstr ""
-"S'està desant la tasca fallida. Potser teniu un problema de permisos amb ~/."
-"avidemux "
+msgstr "S'està desant la tasca fallida. Potser teniu un problema de permisos amb ~/.avidemux "
 
 #: avidemux/gtk_gui.cpp:2330
 #, c-format
@@ -5329,9 +5220,8 @@ msgid "Cannot encode the frame"
 msgstr "No es pot codificar el fotograma."
 
 #: avidemux/gtk_gui.cpp:2698
-#, fuzzy
 msgid "Cannot initialise JPEG encoder"
-msgstr "No es pot inicialitzar el flux de vídeo"
+msgstr "No es pot inicialitzar el codificador de JPEG"
 
 #: avidemux/guiplay.cpp:352
 msgid "Trouble initializing audio device"
@@ -5349,8 +5239,10 @@ msgstr "S'ha produït un error molt greu en construir la llista de tasques."
 msgid "There are no jobs stored"
 msgstr "No hi ha cap tasca desada"
 
-#: avidemux/gui_navigate.cpp:74 avidemux/gui_navigate.cpp:112
-#: avidemux/gui_navigate.cpp:394 avidemux/gui_navigate.cpp:430
+#: avidemux/gui_navigate.cpp:74
+#: avidemux/gui_navigate.cpp:112
+#: avidemux/gui_navigate.cpp:394
+#: avidemux/gui_navigate.cpp:430
 msgid "Decompressing error"
 msgstr "S'ha produït un error en descomprimir"
 
@@ -5358,7 +5250,8 @@ msgstr "S'ha produït un error en descomprimir"
 msgid "Cannot decode next frame."
 msgstr "No es pot descodificar el següent fotograma"
 
-#: avidemux/gui_navigate.cpp:112 avidemux/gui_navigate.cpp:430
+#: avidemux/gui_navigate.cpp:112
+#: avidemux/gui_navigate.cpp:430
 msgid "Cannot decode keyframe."
 msgstr "No es pot descodificar el següent fotograma clau"
 
@@ -5382,7 +5275,8 @@ msgstr "L'àudio dual només es pot utilitzar en mode de còpia"
 msgid "Select Copy as the video codec."
 msgstr "Seleccioneu \"Copiat\" com a còdec de vídeo."
 
-#: avidemux/gui_savenew.cpp:198 avidemux/gui_savenew.cpp:214
+#: avidemux/gui_savenew.cpp:198
+#: avidemux/gui_savenew.cpp:214
 #: avidemux/gui_savenew.cpp:227
 msgid "Incompatible output format"
 msgstr "El format de sortida és incompatible"
@@ -5399,26 +5293,27 @@ msgstr "Seleccioneu una segona pista d'àudio al menú d'Àudio."
 msgid "Select dual audio AVI to write"
 msgstr "Seleccioneu àudio dual AVI per escriure."
 
-#: avidemux/gui_savenew.cpp:274 avidemux/gui_savenew.cpp:292
+#: avidemux/gui_savenew.cpp:274
+#: avidemux/gui_savenew.cpp:292
 msgid "This cannot have packed VOP"
 msgstr "No pot ser que tingui empaquetat un VOP"
 
-#: avidemux/gui_savenew.cpp:274 avidemux/gui_savenew.cpp:292
+#: avidemux/gui_savenew.cpp:274
+#: avidemux/gui_savenew.cpp:292
 msgid "It is not MPEG-4 video. File will not be saved."
 msgstr "No és un vídeo MPEG-4. El fitxer no es pot desar."
 
 #: avidemux/gui_savenew.cpp:338
-#, fuzzy
 msgid ""
 "You may need smart copy.\n"
 "Enable it?"
 msgstr ""
-"Pot ser que necessiteu una còpia intel·ligent.\n"
+"Podríeu necessitar una còpia intel·ligent.\n"
 "La voleu habilitar?"
 
 #: avidemux/gui_savenew.cpp:341
 msgid "_Q factor (set 4):"
-msgstr ""
+msgstr "Factor _Q (4 és el predeterminat):"
 
 #: plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp:244
 #: plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp:273
@@ -5427,14 +5322,13 @@ msgstr ""
 #: plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp:227
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:310
 msgid "_Bitrate:"
-msgstr "Taxa _bits: "
+msgstr "Taxa de _bits: "
 
 #: plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp:250
 #: plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp:276
 #: plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp:223
-#, fuzzy
 msgid "Aften Configuration"
-msgstr "Configuració LAME"
+msgstr "Configuració d'Aften"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:289
 #: plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp:212
@@ -5444,7 +5338,7 @@ msgstr "Joint estèreo"
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:293
 #: plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp:228
 msgid "C_hannel mode:"
-msgstr "Mode _canal: "
+msgstr "Mode de _canal: "
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:297
 msgid "CBR"
@@ -5460,7 +5354,7 @@ msgstr "Extrema"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:303
 msgid "Bit_rate mode:"
-msgstr "Mode _taxa bits: "
+msgstr "Mode _taxa de bits: "
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:323
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:311
@@ -5474,12 +5368,11 @@ msgstr "_Desactiva bit reserva"
 
 #: plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp:329
 msgid "LAME Configuration"
-msgstr "Configuració LAME"
+msgstr "Configuració de LAME"
 
 #: plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp:231
-#, fuzzy
 msgid "TwoLame Configuration"
-msgstr "Configuració de l'esborrador"
+msgstr "Configuració de TwoLame"
 
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:295
 msgid "VBR"
@@ -5499,11 +5392,11 @@ msgstr "_Mode:"
 
 #: plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp:314
 msgid "Vorbis Configuration"
-msgstr "Configuració Vorbis "
+msgstr "Configuració de Vorbis "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/dvEncoder.cpp:74
 msgid "The DV encoder only accepts the following profiles:"
-msgstr ""
+msgstr "El codificador de DV només accepta els següents perfils:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/dvEncoder.cpp:85
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:479
@@ -5514,7 +5407,7 @@ msgstr "La configuració és incompatible."
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:248
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:269
 msgid "_GOP size:"
-msgstr "Mida _GOP: "
+msgstr "Mida del _GOP: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp:97
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp:92
@@ -5522,14 +5415,12 @@ msgstr "Mida _GOP: "
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:277
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp:78
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:111
-#, fuzzy
 msgid "Settings"
-msgstr "Configuració del tall"
+msgstr "Paràmetres"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp:100
-#, fuzzy
 msgid "avcodec Sorenson Spark Configuration"
-msgstr "Configuració del libavcodec d'MPEG-2"
+msgstr "Configuració de l'avcodec Sorenson Spark"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:198
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:198
@@ -5559,17 +5450,15 @@ msgstr "H.263"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:208
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:208
 msgid "Sum of Absolute Differences"
-msgstr ""
+msgstr "Sum of Absolute Differences"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:209
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:209
-#, fuzzy
 msgid "Fewest Bits"
-msgstr "Bits mínims (vhq)"
+msgstr "Bits mínims"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:210
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:210
-#, fuzzy
 msgid "Rate Distortion"
 msgstr "Distorsió de taxa"
 
@@ -5581,33 +5470,28 @@ msgstr "Mode de codificació"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:219
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:219
-#, fuzzy
 msgid "Motion Estimation Method:"
-msgstr "Estimac. moviment"
+msgstr "Mètode Motion Estimation:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:220
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:220
-#, fuzzy
 msgid "_Maximum Consecutive B-frames:"
-msgstr "Màx. consecutius"
+msgstr "_Màx. fotog.-B consecutius:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:221
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:221
-#, fuzzy
 msgid "4 _Motion Vector"
-msgstr "Mostra _vectors moviment"
+msgstr "4 _Vector moviment"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:222
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:222
-#, fuzzy
 msgid "_Quarter Pixel"
 msgstr "_Quart de píxel"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:223
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:223
-#, fuzzy
 msgid "_Global Motion Compensation"
-msgstr "Compensació global de moviment: "
+msgstr "Compensació _global de moviment"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:226
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:226
@@ -5616,72 +5500,61 @@ msgstr "Estimac. moviment"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:229
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:229
-#, fuzzy
 msgid "_Quantisation Type:"
-msgstr "Tipus _quantificació: "
+msgstr "Tipus _quantificació:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:230
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:230
-#, fuzzy
 msgid "_Macroblock Decision Mode:"
-msgstr "Decisió de _macrobloc: "
+msgstr "Mode de decisió de _macrobloc:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:231
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:231
-#, fuzzy
 msgid "Mi_nimum Quantiser:"
 msgstr "Quantificador mí_n.: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:232
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:232
-#, fuzzy
 msgid "Ma_ximum Quantiser:"
 msgstr "Quantificador mà_x.: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:233
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:233
-#, fuzzy
 msgid "Maximum Quantiser _Difference:"
-msgstr "_Difer. màx. quantificador: "
+msgstr "_Diferència. màx. quantificador: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:234
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:234
-#, fuzzy
 msgid "_Quantiser Compression:"
-msgstr "Quantific. _compressió: "
+msgstr "_Compressió quantificador:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:235
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:235
-#, fuzzy
 msgid "Quantiser _Blur:"
-msgstr "Quantific. _desenfocam.: "
+msgstr "_Desenfocam. quantificador:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:236
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:236
-#, fuzzy
 msgid "_Trellis Quantisation"
 msgstr "Quantificació de _Trellis"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:239
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:239
-#, fuzzy
 msgid "Quantisation"
 msgstr "Quantificació"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:263
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp:263
-#, fuzzy
 msgid "avcodec H.263 Configuration"
-msgstr "Configuració del libavcodec d'MPEG-2"
+msgstr "Configuració de l'avcodec H.263"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp:471
 msgid "The H.263 encoder only accepts the following resolutions:"
-msgstr ""
+msgstr "El codificador d'H.263 només accepta les següents resolucions:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mjpegEncoder.cpp:95
-#, fuzzy
 msgid "avcodec M-JPEG Configuration"
-msgstr "Configuració del libavcodec d'MPEG-2"
+msgstr "Configuració de l'avcodec M-JPEG"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:229
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:250
@@ -5729,12 +5602,12 @@ msgstr "Entrellaçat TFF"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:263
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:99
 msgid "Ma_x. bitrate:"
-msgstr "Taxa de bits mà_x.: "
+msgstr "Taxa de bits mà_xima: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:243
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:264
 msgid "Mi_n. bitrate:"
-msgstr "Taxa de bits mí_n.: "
+msgstr "Taxa de bits mí_nima: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:244
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:265
@@ -5744,13 +5617,13 @@ msgstr "_Usa el control de taxa de l'Xvid"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:245
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:266
 msgid "_Buffer size:"
-msgstr "Mida _buffer: "
+msgstr "Mida mem. _intermèdia: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:246
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:267
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:102
 msgid "Aspect _ratio:"
-msgstr "_Rel. aspecte:  "
+msgstr "_Relació d'aspecte:  "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:247
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:268
@@ -5765,25 +5638,22 @@ msgid "_Interlacing:"
 msgstr "_Entrellaçat: "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp:259
-#, fuzzy
 msgid "avcodec MPEG-1 Configuration"
-msgstr "Configuració del libavcodec d'MPEG-2"
+msgstr "Configuració de l'avcodec MPEG-1"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp:280
-#, fuzzy
 msgid "avcodec MPEG-2 Configuration"
-msgstr "Configuració del libavcodec d'MPEG-2"
+msgstr "Configuració de l'avcodec MPEG-2"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp:71
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:100
 msgid "New sequence every (MB):"
-msgstr ""
+msgstr "Nova seqüència cada (MB):"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg1Encoder.cpp:81
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:114
-#, fuzzy
 msgid "mpeg2enc Configuration"
-msgstr "Configuració x264"
+msgstr "Configuració del mpeg2enc"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:78
 #: scripts/auto/Optical Disc/translate_dummy.cpp:4
@@ -5793,30 +5663,26 @@ msgstr "DVD"
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:79
 #: scripts/auto/Optical Disc/translate_dummy.cpp:5
 msgid "Super Video CD"
-msgstr ""
+msgstr "Super Video CD"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp:101
-#, fuzzy
 msgid "Stream _type:"
-msgstr "Tipus fotograma: "
+msgstr "_Tipus de flux:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:177
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:397
-#, fuzzy
 msgid "Target bitrate (kb/s)"
-msgstr "Taxa bits sortida (kbps): "
+msgstr "Taxa de bits sortida (kb/s)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:181
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:405
-#, fuzzy
 msgid "Target video size (MB)"
-msgstr "Mida vídeo sortida (MBytes):"
+msgstr "Mida del vídeo de sortida (MB)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:185
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:409
-#, fuzzy
 msgid "Average bitrate (kb/s)"
-msgstr "Taxa bits mitjana (kb/s): "
+msgstr "Taxa de bits mitjana (kb/s)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:599
 msgid "x264 Configuration"
@@ -5831,17 +5697,12 @@ msgid "Target Size"
 msgstr "Mida a obtenir"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:647
-msgid ""
-"Constant Quantizer - Each frame will have the same compression. Low numbers "
-"equal higher quality while high numbers equal lower quality."
-msgstr ""
-"Quantificador constant - Cada fotograma tindrà la mateixa compressió. "
-"Nombres baixos comporten qualitat més alta mentre que nombres alts comporten "
-"qualitat més baixa"
+msgid "Constant Quantizer - Each frame will have the same compression. Low numbers equal higher quality while high numbers equal lower quality."
+msgstr "Quantificador constant - Cada fotograma tindrà la mateixa compressió. Nombres baixos comporten qualitat més alta mentre que nombres alts comporten qualitat més baixa"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:655
 msgid "Target bitrate or file size"
-msgstr "Taxa bits / mida del fitxer de sortida"
+msgstr "Taxa de bits / mida del fitxer de sortida"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:663
 msgid "Single Pass - Quality Quantizer (Average)"
@@ -5942,21 +5803,12 @@ msgid "Range"
 msgstr "Rang"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:768
-msgid ""
-"Define how many pixels are analysed for motion estimation. The higher the "
-"range the more accurate the analysis but the slower the encoding time."
-msgstr ""
-"Defineix quants píxels s'analitzen per a l'estimació del moviment. Com més "
-"alt és el rang, més acurada és l'anàlisi, però més lenta és la codificació."
+msgid "Define how many pixels are analysed for motion estimation. The higher the range the more accurate the analysis but the slower the encoding time."
+msgstr "Defineix quants píxels s'analitzen per a l'estimació del moviment. Com més alt és el rang, més acurada és l'anàlisi, però més lenta és la codificació."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:777
-msgid ""
-"Set how many previous frames can be referenced by a P/B-frame. Numbers above "
-"5 do not seem to improve quality greatly. Numbers 3 to 5 are recommended."
-msgstr ""
-"Estableix quants fotogrames previs pot referenciar un fotograma-P/B. Els "
-"valors per sobre de 5 no semblen millorar molt la qualitat. Es recomanen "
-"valors de 3 a 5."
+msgid "Set how many previous frames can be referenced by a P/B-frame. Numbers above 5 do not seem to improve quality greatly. Numbers 3 to 5 are recommended."
+msgstr "Estableix quants fotogrames previs pot referenciar un fotograma-P/B. Els valors per sobre de 5 no semblen millorar molt la qualitat. Es recomanen valors de 3 a 5."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:780
 msgid "Chroma ME"
@@ -5964,9 +5816,7 @@ msgstr "Chroma ME"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:785
 msgid "Use color information for detecting motion to improve quality"
-msgstr ""
-"Usa la informació del color per detectar el moviment per tal de millorar la "
-"qualitat"
+msgstr "Usa la informació del color per detectar el moviment per tal de millorar la qualitat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:788
 msgid "Mixed Refs"
@@ -5981,12 +5831,8 @@ msgid "Fast P-Skip"
 msgstr "Fast P-Skip"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:802
-msgid ""
-"Early skip detection on P-frames to speedup encoding. Quality will be "
-"slightly reduced."
-msgstr ""
-"Detecció anticipada del salt en els fotogrames-P per tal d'accelerar la "
-"codificació. La qualitat es veurà lleugerament reduïda."
+msgid "Early skip detection on P-frames to speedup encoding. Quality will be slightly reduced."
+msgstr "Detecció anticipada del salt en els fotogrames-P per tal d'accelerar la codificació. La qualitat es veurà lleugerament reduïda."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:805
 msgid "DCT Decimate"
@@ -6006,12 +5852,8 @@ msgstr "<b>Estimació del moviment</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:844
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:855
-msgid ""
-"Enforce the size of a decoded pixel decoded to a certain value. Set this to "
-"1:1 for non-anamorphic video."
-msgstr ""
-"Força un valor per a la mida d'un determinat píxel descodificat. Deixeu "
-"aquest valor a 1:1 per als vídeos no anamòrfics."
+msgid "Enforce the size of a decoded pixel decoded to a certain value. Set this to 1:1 for non-anamorphic video."
+msgstr "Força un valor per a la mida d'un determinat píxel descodificat. Deixeu aquest valor a 1:1 per als vídeos no anamòrfics."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:845
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:856
@@ -6025,15 +5867,12 @@ msgid ":"
 msgstr ":"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:864
-msgid ""
-"Set a custom aspect ratio. The default 1:1 is recommended for most video."
-msgstr ""
-"Estableix una relació d'aspecte personalitzada. El valor predeterminat (1:1) "
-"és el que es recomana per a la majoria dels vídeos."
+msgid "Set a custom aspect ratio. The default 1:1 is recommended for most video."
+msgstr "Estableix una relació d'aspecte personalitzada. El valor predeterminat (1:1) és el que es recomana per a la majoria dels vídeos."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:869
 msgid "Predefined Aspect Ratio"
-msgstr "Relac. aspecte predeterminada"
+msgstr "Relació d'aspecte predeterminada"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:874
 msgid "Set a common predefined aspect ratio"
@@ -6046,33 +5885,23 @@ msgstr "Com a l'entrada"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:899
 msgid "<b>Sample Aspect Ratio</b>"
-msgstr "<b>Relac. aspecte de mostra</b>"
+msgstr "<b>Relació d'aspecte de la mostra</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:926
 msgid "CABAC"
 msgstr "CABAC"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:929
-msgid ""
-"Lossless compression technique that reduces bitrate by approximately 10%. "
-"Increases encoding and decoding time."
-msgstr ""
-"Tècnica de compressió sense pèrdua que redueix la taxa de bits més o menys "
-"en un 10%. Augmenta els temps de codificació i de descodificació."
+msgid "Lossless compression technique that reduces bitrate by approximately 10%. Increases encoding and decoding time."
+msgstr "Tècnica de compressió sense pèrdua que redueix la taxa de bits més o menys en un 10%. Augmenta els temps de codificació i de descodificació."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:936
 msgid "Trellis"
 msgstr "Trellis"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:945
-msgid ""
-"Use Trellis Rate Distortion Optimisation to find optimal encoding for each "
-"block. Level 0 equals disabled, level 1 equals normal and level 2 equals "
-"high."
-msgstr ""
-"Utilitza una optimització de la distorsió de la taxa de Trellis per trobar "
-"la codificació òptima per a cada bloc. El nivell 0 significa deshabilitat, "
-"el nivell 1 significa normal i el nivell 2 significa alt."
+msgid "Use Trellis Rate Distortion Optimisation to find optimal encoding for each block. Level 0 equals disabled, level 1 equals normal and level 2 equals high."
+msgstr "Utilitza una optimització de la distorsió de la taxa de Trellis per trobar la codificació òptima per a cada bloc. El nivell 0 significa deshabilitat, el nivell 1 significa normal i el nivell 2 significa alt."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:952
 msgid "Noise Reduction"
@@ -6092,15 +5921,11 @@ msgstr "Habilita el filtre antiblocs in-loop per al vídeo."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:988
 msgid "Strength"
-msgstr "Força"
+msgstr "Intensitat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1002
-msgid ""
-"Threshold for block detection. Positive values will detect more blocks, "
-"negative values will detect less."
-msgstr ""
-"Llindar per a la detecció de blocs. Els valors positius detectaran més "
-"blocs, els negatius en detectaran menys."
+msgid "Threshold for block detection. Positive values will detect more blocks, negative values will detect less."
+msgstr "Llindar per a la detecció de blocs. Els valors positius detectaran més blocs, els negatius en detectaran menys."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1011
 msgid "Positive values will soften the video, negative values will sharpen"
@@ -6161,9 +5986,7 @@ msgstr "Cerca fotog-I 4x4"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1077
 msgid "Further enable DCT Intra block search to improve quality"
-msgstr ""
-"Habilitació addicional de la cerca Intra block DCT per tal de millorar "
-"encara més la qualitat"
+msgstr "Habilitació addicional de la cerca Intra block DCT per tal de millorar encara més la qualitat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1080
 msgid "<b>Partition Macroblocks</b>"
@@ -6178,22 +6001,12 @@ msgid "Max Consecutive"
 msgstr "Màx. consecutius"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1124
-msgid ""
-"Increase / decrease probability for how often B-frames are used. It will not "
-"violate the maximum consecutive frame limit."
-msgstr ""
-"Augmenta / disminueix la probabilitat d'ús freqüent dels fotogrames-B. No "
-"vulnerarà el límit màxim de fotogrames consecutius."
+msgid "Increase / decrease probability for how often B-frames are used. It will not violate the maximum consecutive frame limit."
+msgstr "Augmenta / disminueix la probabilitat d'ús freqüent dels fotogrames-B. No vulnerarà el límit màxim de fotogrames consecutius."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1133
-msgid ""
-"Set the maximum number of consecutive B-frames. This defines how many "
-"duplicate frames can be dropped. Numbers 2 to 5 are recommended. This "
-"greatly improves the use of bitrate and quality."
-msgstr ""
-"Estableix el nombre màxim de fotogrames-B consecutius. Defineix quants "
-"fotogrames duplicats es poden descartar. Es recomanen els valors de 2 a 5. "
-"Millora enormement tant l'ús de la taxa de bits com la qualitat."
+msgid "Set the maximum number of consecutive B-frames. This defines how many duplicate frames can be dropped. Numbers 2 to 5 are recommended. This greatly improves the use of bitrate and quality."
+msgstr "Estableix el nombre màxim de fotogrames-B consecutius. Defineix quants fotogrames duplicats es poden descartar. Es recomanen els valors de 2 a 5. Millora enormement tant l'ús de la taxa de bits com la qualitat."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1147
 msgid "Weighted Biprediction"
@@ -6201,33 +6014,23 @@ msgstr "Weighted Biprediction"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1152
 msgid "Enables weighting of B-frames to help fades"
-msgstr ""
-"Habilita la ponderació de fotogrames-B per facilitar els efectes de fosa "
-"(fades)."
+msgstr "Habilita la ponderació de fotogrames-B per facilitar els efectes de fosa (fades)."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1155
 msgid "Adaptative DCT"
 msgstr "DCT adaptativa"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1160
-msgid ""
-"Use fewer B-frames if needed. This is always recommended. If not enabled, "
-"the codec will always use the maximum number of consecutive B-frames."
-msgstr ""
-"Usa menys fotogrames-B. Això sempre és recomanable. Si no s'habilita, el "
-"còdec sempre usarà el màxim nombre de fotogrames-B consecutius."
+msgid "Use fewer B-frames if needed. This is always recommended. If not enabled, the codec will always use the maximum number of consecutive B-frames."
+msgstr "Usa menys fotogrames-B. Això sempre és recomanable. Si no s'habilita, el còdec sempre usarà el màxim nombre de fotogrames-B consecutius."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1163
 msgid "Use as Reference"
 msgstr "Usa com a referència"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1168
-msgid ""
-"Allow B-frames to make references non-linearly to another B-frame (instead "
-"of creating a duplicate copy)"
-msgstr ""
-"Permet als fotogrames-B fer referències no linealment a un altre fotograma-B "
-"(en comptes de crear-ne un duplicat)."
+msgid "Allow B-frames to make references non-linearly to another B-frame (instead of creating a duplicate copy)"
+msgstr "Permet als fotogrames-B fer referències no linealment a un altre fotograma-B (en comptes de crear-ne un duplicat)."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1174
 msgid "B-Frame Direct Mode"
@@ -6255,26 +6058,15 @@ msgstr "Particions i fotogrames"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1227
 msgid "Set how much \"bitrate bonus\" a keyframe can get"
-msgstr ""
-"Estableix quants \"bons de taxa de bits\" pot obtenir un fotograma clau."
+msgstr "Estableix quants \"bons de taxa de bits\" pot obtenir un fotograma clau."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1236
-msgid ""
-"Set how much bitrate is deducted from a B-frame as compared to the previous "
-"P-frame"
-msgstr ""
-"Estableix quina taxa de bits es resta d'un fotograma-B amb comparació amb el "
-"fotograma-P anterior."
+msgid "Set how much bitrate is deducted from a B-frame as compared to the previous P-frame"
+msgstr "Estableix quina taxa de bits es resta d'un fotograma-B amb comparació amb el fotograma-P anterior."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1245
-msgid ""
-"Define how much the bitrate can fluctuate over the entire video. 0% results "
-"in a constant bitrate stream, while 100% results in a pure quality based "
-"bitrate stream."
-msgstr ""
-"Defineix en quina mesura la taxa de bits pot fluctuar al llarg de tot el "
-"vídeo. Un 0% suposa un flux constant, mentre que un 100% suposa una taxa de "
-"bits basada únicament en la qualitat."
+msgid "Define how much the bitrate can fluctuate over the entire video. 0% results in a constant bitrate stream, while 100% results in a pure quality based bitrate stream."
+msgstr "Defineix en quina mesura la taxa de bits pot fluctuar al llarg de tot el vídeo. Un 0% suposa un flux constant, mentre que un 100% suposa una taxa de bits basada únicament en la qualitat."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1248
 msgid "Keyframe Boost (%)"
@@ -6286,7 +6078,7 @@ msgstr "Reducció fotogrames-B (%)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1262
 msgid "Bitrate Variability (%)"
-msgstr "Variabilitat taxa bits (%)"
+msgstr "Variabilitat taxa de bits (%)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1269
 msgid "<b>Bitrate</b>"
@@ -6302,7 +6094,7 @@ msgstr "QP màx."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1303
 msgid "Max QP Step"
-msgstr "Salt màx. QP"
+msgstr "Esglaó màx. QP"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1317
 msgid "Enforce a minimum quantizer level"
@@ -6313,51 +6105,32 @@ msgid "Enforce a maximum quantizer level"
 msgstr "Força un nivell màxim de quantificador"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1335
-msgid ""
-"Define how much the quantizer rate can change between two consecutive frames"
-msgstr ""
-"Defineix en quina mesura la taxa del quantificador pot canviar entre dos "
-"fotogrames consecutius."
+msgid "Define how much the quantizer rate can change between two consecutive frames"
+msgstr "Defineix en quina mesura la taxa del quantificador pot canviar entre dos fotogrames consecutius."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1338
 msgid "<b>Quantization Limits</b>"
 msgstr "<b>Límits quantificació</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1365
-msgid ""
-"Increase / decrease sensitivity for detecting scene changes. Improves I-"
-"frame usage and quality."
-msgstr ""
-"És l'increment o decrement de la sensibilitat per detectar canvis d'escena. "
-"Millora l'ús dels fotogrames-I i afavoreix la qualitat."
+msgid "Increase / decrease sensitivity for detecting scene changes. Improves I-frame usage and quality."
+msgstr "És l'increment o decrement de la sensibilitat per detectar canvis d'escena. Millora l'ús dels fotogrames-I i afavoreix la qualitat."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1368
 msgid "Scene Cut Threshold"
-msgstr "Llindar tall escena"
+msgstr "Llindar tall d'escena"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1375
 msgid "Min IDR Frame Interval"
 msgstr "Interval mín. fotog.-IDR"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1388
-msgid ""
-"Set minimum frame interval between IDR frames. Defines the minimum amount a "
-"frame can be reused and referenced by other frames before a new IDR frame is "
-"established."
-msgstr ""
-"Estableix l'interval mínim entre els fotogrames-IDR. Defineix el mínim de "
-"cops que es pot reutilitzar i referenciar un fotograma per altres fotogrames "
-"abans que s'estableixi un nou fotograma-IDR."
+msgid "Set minimum frame interval between IDR frames. Defines the minimum amount a frame can be reused and referenced by other frames before a new IDR frame is established."
+msgstr "Estableix l'interval mínim entre els fotogrames-IDR. Defineix el mínim de cops que es pot reutilitzar i referenciar un fotograma per altres fotogrames abans que s'estableixi un nou fotograma-IDR."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1397
-msgid ""
-"Set maximum frame interval between IDR frames. Defines the maximum amount a "
-"frame can be reused and referenced by other frames before a new IDR frame is "
-"established."
-msgstr ""
-"Estableix l'interval màxim entre fotogrames-IDR. Defineix el màxim nombre de "
-"cops que es pot reusar i referenciar un fotograma per altres fotogrames "
-"abans que s'estableixi un nou fotograma-IDR."
+msgid "Set maximum frame interval between IDR frames. Defines the maximum amount a frame can be reused and referenced by other frames before a new IDR frame is established."
+msgstr "Estableix l'interval màxim entre fotogrames-IDR. Defineix el màxim nombre de cops que es pot reusar i referenciar un fotograma per altres fotogrames abans que s'estableixi un nou fotograma-IDR."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1400
 msgid "Max IDR Frame Interval"
@@ -6369,19 +6142,19 @@ msgstr "<b>Més configs. taxa</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1427
 msgid "VBV Buffer Size"
-msgstr "Mida buffer VBV"
+msgstr "Mida mem. interm. VBV"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1434
 msgid "Initial VBV Buffer (%)"
-msgstr "Buffer VBV inicial (%)"
+msgstr "Mem. interm. VBV inicial (%)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1441
 msgid "Maximum Local Bitrate"
-msgstr "Taxa de bits local màx."
+msgstr "Taxa de bits local màxima"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1472
 msgid "<b>Video Buffer Verifier</b>"
-msgstr "<b>Verificador de la mida del vídeo</b>"
+msgstr "<b>Verificador de la mem. interm. del vídeo</b>"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1477
 msgid "Rate Control"
@@ -6389,31 +6162,19 @@ msgstr "Control taxa"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1505
 msgid "Bitrate Variance"
-msgstr "Variància taxa bits "
+msgstr "Variància taxa de bits "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1518
-msgid ""
-"Allowed variance of average bitrate. Lower values mean less variance. Higher "
-"values mean more variance."
-msgstr ""
-"Variància permesa de la mitjana de la taxa de bits. Els valors baixos "
-"suposen menys variància, i els alts suposen més variància."
+msgid "Allowed variance of average bitrate. Lower values mean less variance. Higher values mean more variance."
+msgstr "Variància permesa de la mitjana de la taxa de bits. Els valors baixos suposen menys variància, i els alts suposen més variància."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1527
-msgid ""
-"Allowed variance of average quantizer or quality. Lower values mean less "
-"variance. Higher values mean more variance. Note that 0 means constant "
-"quality while 1 means constant fluctuation. Recommended 0.6."
-msgstr ""
-"Variància permesa de la mitjana del quantificador o de la qualitat. Els "
-"valors baixos suposen menys variància, i els alts més variància. Noteu que 0 "
-"suposa una qualitat constant, mentre que 1 suposa fluctuació constant. El "
-"valor recomanat és 0.6."
+msgid "Allowed variance of average quantizer or quality. Lower values mean less variance. Higher values mean more variance. Note that 0 means constant quality while 1 means constant fluctuation. Recommended 0.6."
+msgstr "Variància permesa de la mitjana del quantificador o de la qualitat. Els valors baixos suposen menys variància, i els alts més variància. Noteu que 0 suposa una qualitat constant, mentre que 1 suposa fluctuació constant. El valor recomanat és 0.6."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1536
 msgid "Reduced fluctuations in Quantizer (before curve compression)"
-msgstr ""
-"Fluctuacions reduïdes en el quantificador (abans de la corba de compressió)"
+msgstr "Fluctuacions reduïdes en el quantificador (abans de la corba de compressió)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1547
 msgid "Quantizer Compression"
@@ -6441,9 +6202,7 @@ msgstr "Quantificació usada entre fotogrames-P i B"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1612
 msgid "Quantization difference between chroma (color) and luma (brightness)"
-msgstr ""
-"Diferència de quantificació entre crominància (color) i luminància "
-"(lluminositat)"
+msgstr "Diferència de quantificació entre crominància (color) i luminància (lluminositat)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_x264/gtk/x264ConfigDialog.cpp:1615
 msgid "Factor between I and P-frame Quants"
@@ -6510,8 +6269,7 @@ msgstr "S'ha produït un error en la càrrega"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:110
 msgid "Error loadind the custom matrix file."
-msgstr ""
-"S'ha produït un error en carregar el fitxer de la matriu personalitzada."
+msgstr "S'ha produït un error en carregar el fitxer de la matriu personalitzada."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:132
 msgid "Matrix Loaded"
@@ -6534,9 +6292,8 @@ msgid "Error writing the custom matrix file."
 msgstr "S'ha produït un error en escriure el fitxer de matriu personalitzada"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:756
-#, fuzzy
 msgid "Xvid Configuration"
-msgstr "Configuració de l'àudio"
+msgstr "Configuració de l'Xvid"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:790
 msgid "Encoding type:"
@@ -6564,12 +6321,11 @@ msgstr "Passada única - quantificador"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:837
 msgid "Target video bitrate"
-msgstr "Taxa bits vídeo sortida"
+msgstr "Taxa de bits vídeo sortida"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:844
 msgid "Constant quantizer - each frame will get the same compression"
-msgstr ""
-"Quantificador constant - cada fotograma se sotmetrà a la mateixa compressió"
+msgstr "Quantificador constant - cada fotograma se sotmetrà a la mateixa compressió"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:846
 msgid "Variable bitrate mode"
@@ -6580,13 +6336,8 @@ msgid "_Interlaced"
 msgstr "_Entrellaçat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:861
-msgid ""
-"Enables interlaced frame support - use only if your source contains "
-"interlacing artifacts (i.e. fields instead of progressive frames)"
-msgstr ""
-"Habilita el suport de fotograma entrellaçat. Utilitzeu-lo només si la font "
-"conté entrellaçaments (com per ex., camps en comptes de fotogrames "
-"progressius)."
+msgid "Enables interlaced frame support - use only if your source contains interlacing artifacts (i.e. fields instead of progressive frames)"
+msgstr "Habilita el suport de fotograma entrellaçat. Utilitzeu-lo només si la font conté entrellaçaments (com per ex., camps en comptes de fotogrames progressius)."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:863
 msgid "_Greyscale"
@@ -6602,9 +6353,7 @@ msgstr "Mode _dibuixos animats "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:875
 msgid "Enables special motion estimation features for cartoons/anime"
-msgstr ""
-"Habilita les característiques especials d'estimació de moviment per a "
-"caricatures/animacions."
+msgstr "Habilita les característiques especials d'estimació de moviment per a caricatures/animacions."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:877
 msgid "C_hroma optimizer"
@@ -6628,9 +6377,7 @@ msgstr "Flux bits empaquetat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:894
 msgid "Enables Divx like packed vop, DO NOT SET, it is ugly"
-msgstr ""
-"Habilita el vop empaquetat com a Divx. No seleccioneu aquesta opció: queda "
-"lleig."
+msgstr "Habilita el vop empaquetat com a Divx. No seleccioneu aquesta opció: queda lleig."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:896
 msgid "Main"
@@ -6645,35 +6392,28 @@ msgid "VHQ mode:"
 msgstr "Mode VHQ:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:932
-msgid ""
-"Higher settings give higher quality results, at the cost of slower encoding"
-msgstr ""
-"Uns valors més elevats donen millor qualitat, però a canvi d'una "
-"descodificació més lenta."
+msgid "Higher settings give higher quality results, at the cost of slower encoding"
+msgstr "Uns valors més elevats donen millor qualitat, però a canvi d'una descodificació més lenta."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:936
 msgid "0 - None"
 msgstr "0 - Cap"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:940
-#, fuzzy
 msgid "1 - Low"
 msgstr "2 - Baixa"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:944
-#, fuzzy
 msgid "2 - Medium"
 msgstr "3 - Mitjana"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:948
-#, fuzzy
 msgid "3 - High"
 msgstr "4 - Alta"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:957
 msgid "VHQ enables an additional search process to increase quality"
-msgstr ""
-"El VHQ habilita un procés de cerca addicional per augmentar la qualitat."
+msgstr "El VHQ habilita un procés de cerca addicional per augmentar la qualitat."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:961
 msgid "0 - Off"
@@ -6709,13 +6449,11 @@ msgstr "_4MV"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:995
 msgid "Use 4 motion vectors per macroblock, might give better compression"
-msgstr ""
-"Usa 4 vectors de moviment per macrobloc, pot ser que doni millor compressió"
+msgstr "Usa 4 vectors de moviment per macrobloc, pot ser que doni millor compressió"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1001
-#, fuzzy
 msgid "Max I-frame interval:"
-msgstr "Màx. interval fotog-I"
+msgstr "Màx. interval fotog-I:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1009
 msgid "Maximum number of frames allowed between I-frames"
@@ -6726,12 +6464,8 @@ msgid "Number of B-frames:"
 msgstr "Nombre de fotog-B:"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1032
-msgid ""
-"Maximum number of sequential B-frames (when set to 0, the original I/P "
-"encoder is used)"
-msgstr ""
-"Màxim nombre de fotogrames-B seqüencials. Quan es fixa a 0, s'utilitza el "
-"codificador original d'I/P."
+msgid "Maximum number of sequential B-frames (when set to 0, the original I/P encoder is used)"
+msgstr "Màxim nombre de fotogrames-B seqüencials. Quan es fixa a 0, s'utilitza el codificador original d'I/P."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1038
 msgid "_Qpel"
@@ -6739,20 +6473,15 @@ msgstr "_Qpel"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1041
 msgid "Use Quarter pixel resolution for a more precise motion estimation"
-msgstr ""
-"Usa la resolució de quart de píxel per a una estimació del moviment més "
-"precisa."
+msgstr "Usa la resolució de quart de píxel per a una estimació del moviment més precisa."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1043
 msgid "_GMC"
 msgstr "_GMC (compensació global de moviment)"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1046
-msgid ""
-"Global Motion Compensation can save bits on camera pans, zooming and rotation"
-msgstr ""
-"La Compensació Global de Moviment pot estalviar bits en panoràmiques de "
-"càmera, zooming i rotació."
+msgid "Global Motion Compensation can save bits on camera pans, zooming and rotation"
+msgstr "La Compensació Global de Moviment pot estalviar bits en panoràmiques de càmera, zooming i rotació."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1048
 msgid "_BVHQ"
@@ -6768,9 +6497,7 @@ msgstr "Perfil simple avançat"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1068
 msgid "Get PAR from input video file"
-msgstr ""
-"Obté la PAR (relació d'aspecte de píxel) a partir d'un fitxer d'entrada de "
-"vídeo."
+msgstr "Obté la PAR (relació d'aspecte de píxel) a partir d'un fitxer d'entrada de vídeo."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1074
 msgid "Pixel Width"
@@ -6782,7 +6509,7 @@ msgstr "Alçària píxel"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1086
 msgid "Pixel Aspect Ratio"
-msgstr "Relació aspecte píxel"
+msgstr "Relació d'aspecte del píxel"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1104
 msgid "Quantization type:"
@@ -6794,21 +6521,15 @@ msgstr "_H.263"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1111
 msgid "H.263 quantizers smooth the picture (useful at lower bitrates)"
-msgstr ""
-"Els quantificadors d'H.263 suavitzen la imatge. Són útils en els supòsits de "
-"les taxes de bit més baixes."
+msgstr "Els quantificadors d'H.263 suavitzen la imatge. Són útils en els supòsits de les taxes de bit més baixes."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1115
 msgid "_MPEG"
 msgstr "_MPEG"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1118
-msgid ""
-"MPEG quantizers (slightly slower) produce sharper picture (useful at higher "
-"bitrates)"
-msgstr ""
-"Quantificadors MPEG: (lleugerament més lents) produeixen una imatge més "
-"nítida. Són útils quan les taxes de bits són més altes."
+msgid "MPEG quantizers (slightly slower) produce sharper picture (useful at higher bitrates)"
+msgstr "Quantificadors MPEG: (lleugerament més lents) produeixen una imatge més nítida. Són útils quan les taxes de bits són més altes."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1122
 msgid "_Custom Matrix"
@@ -6870,9 +6591,7 @@ msgstr "Quantificació de _Trellis"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1263
 msgid "Rate distortion quantization, will find optimal encoding for each block"
-msgstr ""
-"Quantificació de l'alteració de la taxa. Trobarà la codificació òptima per a "
-"cada bloc."
+msgstr "Quantificació de l'alteració de la taxa. Trobarà la codificació òptima per a cada bloc."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1265
 msgid "Quantization"
@@ -6904,37 +6623,20 @@ msgid "A value of 20 will give 20% more bits to every I-frame"
 msgstr "Un valor de 20 aportarà un 20% més de bits a cada fotograma-I."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1331
-msgid ""
-"I-frames appearing in the range below this value will be treated as "
-"consecutive keyframes"
-msgstr ""
-"Els fotogrames-I que apareguin en el rang per sota d'aquest valor es "
-"tractaran com a fotogrames clau consecutius."
+msgid "I-frames appearing in the range below this value will be treated as consecutive keyframes"
+msgstr "Els fotogrames-I que apareguin en el rang per sota d'aquest valor es tractaran com a fotogrames clau consecutius."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1336
-msgid ""
-"Reduction of bitrate for the first consecutive I-frames. The last I-frame "
-"will get treated normally"
-msgstr ""
-"Reducció de la taxa de bits per als primers fotogrames-I consecutius. "
-"L'últim fotograma-I es tractarà normalment."
+msgid "Reduction of bitrate for the first consecutive I-frames. The last I-frame will get treated normally"
+msgstr "Reducció de la taxa de bits per als primers fotogrames-I consecutius. L'últim fotograma-I es tractarà normalment."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1341
-msgid ""
-"How much of the overflow the codec can eat into during undersized sections - "
-"larger values will bridge the gap faster"
-msgstr ""
-"Valor del desbordament que el còdec pot tractar en les seccions "
-"sotadimensionades. Els valors més elevats tancaran l'escletxa més ràpidament."
+msgid "How much of the overflow the codec can eat into during undersized sections - larger values will bridge the gap faster"
+msgstr "Valor del desbordament que el còdec pot tractar en les seccions sotadimensionades. Els valors més elevats tancaran l'escletxa més ràpidament."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1346
-msgid ""
-"How much of the overflow the codec can eat into during oversized sections - "
-"larger values will bridge the gap faster"
-msgstr ""
-"Valor del desbordament que el còdec pot tractar en les seccions "
-"sobredimensionades. Els valors més elevats tancaran l'escletxa més "
-"ràpidament."
+msgid "How much of the overflow the codec can eat into during oversized sections - larger values will bridge the gap faster"
+msgstr "Valor del desbordament que el còdec pot tractar en les seccions sobredimensionades. Els valors més elevats tancaran l'escletxa més ràpidament."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1348
 msgid "Two pass tuning"
@@ -6942,39 +6644,27 @@ msgstr "Personalització segona passada"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1365
 msgid "High bitrate scenes (%):"
-msgstr "Escenes taxa bits alta (%):"
+msgstr "Escenes taxa de bits alta (%):"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1370
 msgid "Low bitrate scenes (%):"
-msgstr "Escenes taxa bits baixa (%):"
+msgstr "Escenes taxa de bits baixa (%):"
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1375
 msgid "Overflow control strength (%):"
 msgstr "Poder control desbordament (%): "
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1387
-msgid ""
-"The higher this value, the more bits get taken from frames larger than the "
-"average size, and redistributed to others"
-msgstr ""
-"Com més alt sigui aquest valor, més bits es prendran dels fotogrames amb "
-"mida superior a la mitjana i es distribuiran cap als altres."
+msgid "The higher this value, the more bits get taken from frames larger than the average size, and redistributed to others"
+msgstr "Com més alt sigui aquest valor, més bits es prendran dels fotogrames amb mida superior a la mitjana i es distribuiran cap als altres."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1392
-msgid ""
-"The higher this value, the more bits get assigned to frames below the "
-"average frame size"
-msgstr ""
-"Com més alt sigui aquest valor, més bits s'assignaran als fotogrames amb "
-"mida inferior a la mitjana."
+msgid "The higher this value, the more bits get assigned to frames below the average frame size"
+msgstr "Com més alt sigui aquest valor, més bits s'assignaran als fotogrames amb mida inferior a la mitjana."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1397
-msgid ""
-"0 = default from core (let XviD decide), else overflow payback percent per "
-"frame"
-msgstr ""
-"El valor 0 (predeterminat) suposa deixar que l'XviD decideixi. Altrament, "
-"aquest valor és el del percentatge de desbordament per fotograma."
+msgid "0 = default from core (let XviD decide), else overflow payback percent per frame"
+msgstr "El valor 0 (predeterminat) suposa deixar que l'XviD decideixi. Altrament, aquest valor és el del percentatge de desbordament per fotograma."
 
 #: plugins/ADM_videoEncoder/ADM_vidEnc_xvid/gtk/xvidConfigDialog.cpp:1399
 msgid "Curve compression"
@@ -6994,12 +6684,11 @@ msgstr "<b>Matriu Inter</b>"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:30
 msgid "Add black borders"
-msgstr "Afegeix vores negres"
+msgstr "Add black borders"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:33
-#, fuzzy
 msgid "Add pure black border(s)."
-msgstr "Afegeix vores negres"
+msgstr "Afegeix vores completament negres"
 
 #: plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp:212
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:212
@@ -7053,9 +6742,8 @@ msgid "Select background image"
 msgstr "Seleccioneu una imatge de fons"
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:38
-#, fuzzy
 msgid "_NTSC (default is PAL):"
-msgstr "_NTSC (PAL és el predet.): "
+msgstr "_NTSC (PAL és el predet.):"
 
 #: plugins/ADM_videoFilters/Animated/DIA_animated.cpp:39
 msgid "Vignette _Width:"
@@ -7075,7 +6763,7 @@ msgstr "Temps reprod.: "
 
 #: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:61
 msgid "asharp"
-msgstr "asharp"
+msgstr "Asharp"
 
 #: plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp:64
 msgid "Adaptative sharpener by MarcFD."
@@ -7095,7 +6783,7 @@ msgstr "Llindar:"
 
 #: plugins/ADM_videoFilters/ASharp/gtk/DIA_asharp.cpp:194
 msgid "Strength :"
-msgstr "Força:"
+msgstr "Intensitat:"
 
 #: plugins/ADM_videoFilters/ASharp/gtk/DIA_asharp.cpp:202
 msgid "Block Adaptative :"
@@ -7103,7 +6791,7 @@ msgstr "Bloc adaptatiu:"
 
 #: plugins/ADM_videoFilters/ASharp/gtk/DIA_asharp.cpp:210
 msgid "High Quality Block Filtering :"
-msgstr ""
+msgstr "Filtre de bloc d'alta qualitat:"
 
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:47
 #: plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp:92
@@ -7140,9 +6828,8 @@ msgid "Botto_m margin"
 msgstr "Marge _inferior:"
 
 #: plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp:39
-#, fuzzy
 msgid "Picture resizer ported from Avisynth (C Version, slow)."
-msgstr "Redimensionador d'imatges portat de l'Avisynth."
+msgstr "Redimensionador d'imatges portat de l'Avisynth. (Versió C, lent)."
 
 #: plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp:240
 #: plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp:130
@@ -7156,43 +6843,39 @@ msgstr "Ni l'amplada ni l'alçària no poden ser senars"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:488
 msgid "Avisynth script filter (avsfilter), ver 0.7a(internal)"
-msgstr ""
+msgstr "Avisynth script filter (avsfilter), ver 0.7a(intern)"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:491
 msgid "Use avisynth script as video filter."
-msgstr ""
+msgstr "Usa l'script avisynth com a filtre de vídeo."
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:538
-#, fuzzy
 msgid "_loader file:"
-msgstr "Fitxer de _subtítols:"
+msgstr "Fitxer _carregador:"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:539
 msgid "Select loader filename[avsload.exe]"
-msgstr ""
+msgstr "Seleccioneu el fitxer carregador [avsload.exe]"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:541
-#, fuzzy
 msgid "_avs file:"
-msgstr "Fitxer de recuperació de petada"
+msgstr "Fitxer d'_avs:"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:542
-#, fuzzy
 msgid "Select avs filename[*.avs]"
-msgstr "Seleccioneu el fitxer de dades "
+msgstr "Seleccioneu el fitxer d'avs [*.avs]"
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:543
 msgid "_pipe timeout:"
-msgstr ""
+msgstr "_Temps d'espera de la canonada ('pipe'): "
 
 #: plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp:547
-#, fuzzy
 msgid "AvsFilter config"
-msgstr "Fontconfig"
+msgstr "Configuració de l'AvsFilter"
 
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:59
 msgid "Blacken borders"
-msgstr "Ennegreix les vores"
+msgstr "Blacken borders"
 
 #: plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp:62
 msgid "Fill borders with pure black. Doesn't alter size."
@@ -7209,7 +6892,7 @@ msgstr "Blend Removal"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:62
 msgid "Try to remove blending."
-msgstr ""
+msgstr "Intenta suprimir l'efecte \"blending\"."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:71
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:78
@@ -7221,12 +6904,8 @@ msgid "_Threshold:"
 msgstr "_Llindar: "
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:72
-msgid ""
-"If value is smaller than threshold it is considered valid.Smaller value "
-"might mean more false positive."
-msgstr ""
-"Si el valor és més petit que el llindar es considera vàlid. Valors més "
-"baixos del llindar suposen més deteccions falses."
+msgid "If value is smaller than threshold it is considered valid.Smaller value might mean more false positive."
+msgstr "Si el valor és més petit que el llindar es considera vàlid. Valors més baixos del llindar suposen més deteccions falses."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:74
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:81
@@ -7236,29 +6915,26 @@ msgstr "_Soroll:"
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:74
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:81
 msgid "If pixels are closer than noise, they are considered to be the same"
-msgstr ""
-"Si els píxels són més propers que el llindar de soroll es consideren idèntics"
+msgstr "Si els píxels són més propers que el llindar de soroll es consideren idèntics"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:75
 msgid "I_dentical:"
-msgstr "_Idèntic: "
+msgstr "Llindar d'_identitat: "
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:75
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
 msgid "If metric is less than identical, images are considered identical"
-msgstr ""
-"Si els mesuraments difereixen menys que el llindar d'identitat, els "
-"fotogrames es consideren idèntics"
+msgstr "Si els mesuraments difereixen menys que el llindar d'identitat, els fotogrames es consideren idèntics"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:76
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:83
 msgid "_Show metrics"
-msgstr "_Mostra mesuram."
+msgstr "_Mostra mesuraments"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp:76
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:83
 msgid "Show metric in image (debug)"
-msgstr "Mostra els mesuraments en imatge (debug)"
+msgstr "Mostra els mesuraments en imatge (depuració)"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:66
 msgid "Hard pulldown removal"
@@ -7266,20 +6942,15 @@ msgstr "Hard pulldown removal"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:69
 msgid "Remove IVTC that has been analog captured or resized."
-msgstr ""
-"Elimina l'Inverse Telecine que ha estat capturat o redimensionat en analògic."
+msgstr "Elimina l'Inverse Telecine que ha estat capturat o redimensionat en analògic."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:79
-msgid ""
-"If value is smaller than threshold it is considered valid. Smaller value "
-"might mean more false positive"
-msgstr ""
-"Si el valor és més petit que el llindar es considera vàlid. Valors més "
-"baixos del llindar suposen més deteccions falses."
+msgid "If value is smaller than threshold it is considered valid. Smaller value might mean more false positive"
+msgstr "Si el valor és més petit que el llindar es considera vàlid. Valors més baixos del llindar suposen més deteccions falses."
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:82
 msgid "_Identical:"
-msgstr "_Idèntic:"
+msgstr "Llindar d'_identitat:"
 
 #: plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp:87
 msgid "Hard IVTC Removal"
@@ -7289,22 +6960,20 @@ msgstr "Hard IVTC Removal"
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:198
 #: plugins/ADM_videoFilters/Contrast/gtk/DIA_contrast.cpp:220
 msgid "Chroma U"
-msgstr "Crominància en U"
+msgstr "Chroma U"
 
 #: plugins/ADM_videoFilters/Chroma/ADM_vidChromaU.cpp:30
-#, fuzzy
 msgid "Keep chroma U only."
-msgstr "Chroma U only"
+msgstr "Manté només la crominància en U"
 
 #: plugins/ADM_videoFilters/Chroma/ADM_vidChromaV.cpp:27
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:205
 msgid "Chroma V"
-msgstr "Crominància en V"
+msgstr "Chroma V"
 
 #: plugins/ADM_videoFilters/Chroma/ADM_vidChromaV.cpp:30
-#, fuzzy
 msgid "Keep chroma V only."
-msgstr "Chroma V only"
+msgstr "Manté només la crominància en V."
 
 #: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:36
 msgid "Chroma shift"
@@ -7312,9 +6981,7 @@ msgstr "Chroma shift"
 
 #: plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp:39
 msgid "Shift chroma U/V to fix badly synced luma/chroma."
-msgstr ""
-"Desplaça la crominància en U i V per reparar una luminància/crominància mal "
-"sincronitzada."
+msgstr "Desplaça la crominància en U i V per reparar una luminància/crominància mal sincronitzada."
 
 #: plugins/ADM_videoFilters/ChromaShift/gtk/DIA_chromaShift.cpp:62
 msgid "Chroma Shift"
@@ -7341,7 +7008,6 @@ msgid "Cnr2"
 msgstr "Cnr2"
 
 #: plugins/ADM_videoFilters/CNR2/ADM_vidCNR2.cpp:86
-#, fuzzy
 msgid "Chroma noise reduction filter by MarcFD/Tritical.."
 msgstr "Filtre de reducció del soroll de la crominància de MarcFD/Tritical."
 
@@ -7351,7 +7017,7 @@ msgstr "Reduc. soroll crominància 2"
 
 #: plugins/ADM_videoFilters/CNR2/gtk/DIA_cnr2.cpp:148
 msgid "<b>Scene change Treshold</b>"
-msgstr "<b>Llindar canvi escena</b>"
+msgstr "<b>Llindar canvi d'escena</b>"
 
 #: plugins/ADM_videoFilters/CNR2/gtk/DIA_cnr2.cpp:167
 msgid "Sensibility"
@@ -7395,9 +7061,7 @@ msgstr "Avisynth ColorYUV"
 
 #: plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp:72
 msgid "Alter colors (auto white balance etc...). Ported from Avisynth."
-msgstr ""
-"Modifica els colors (equilibri automàtic dels blancs, etc.). Portat de "
-"l'Avisynth."
+msgstr "Modifica els colors (equilibri automàtic dels blancs, etc.). Portat de l'Avisynth."
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:139
 msgid "ColorYuv (From avisynth)"
@@ -7478,7 +7142,7 @@ msgstr "Mostra estadístiques"
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:396
 msgid "AutoWhite"
-msgstr "Equilibri autom. dels blancs"
+msgstr "Equilibra automàticament els blancs"
 
 #: plugins/ADM_videoFilters/colorYUV/gtk/DIA_coloryuv.cpp:400
 msgid "<b>frame2</b>"
@@ -7498,7 +7162,7 @@ msgstr "Crominància en V"
 
 #: plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp:53
 msgid "Crop"
-msgstr "Talla"
+msgstr "Crop"
 
 #: plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp:56
 msgid "Remove lines from top/bottom/left/right."
@@ -7530,16 +7194,16 @@ msgstr "Tall automàtic"
 
 #: plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp:48
 msgid "Color Curve Editor"
-msgstr ""
+msgstr "Color Curve Editor"
 
 #: plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp:51
 msgid "Color adjustment by color curves in YUV color space."
-msgstr ""
+msgstr "Ajustament del color per corbes de color en l'espai de color YUV."
 
 #: plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp:152
 #, c-format
 msgid "Control points count: Y:%d, U:%d, V:%d"
-msgstr ""
+msgstr "Comput dels punts de control: Y:%d, U:%d, V:%d"
 
 #: plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp:155
 #: plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp:192
@@ -7632,17 +7296,15 @@ msgstr "Llindar _crominància:"
 
 #: plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp:385
 msgid "_Scene change:"
-msgstr "Canvi e_scena:"
+msgstr "Canvi d'e_scena:"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:65
-#, fuzzy
 msgid "DG Bob"
-msgstr "DGBob"
+msgstr "DG Bob"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:68
-#, fuzzy
 msgid "Donald Graft Bob."
-msgstr "MSmooth by Donald Graft"
+msgstr "Filtre Bob, de Donald Graft."
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:78
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:70
@@ -7668,7 +7330,7 @@ msgstr "Dobla # fotog. (ralentí)"
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:78
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:104
 msgid "_Field order:"
-msgstr "_Ordre camps"
+msgstr "_Ordre dels camps"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:89
 msgid "_Extra"
@@ -7676,7 +7338,7 @@ msgstr "_Extra"
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:89
 msgid "Extra check, avoid using it"
-msgstr "Compr. extra (s'ha d'evitar el seu ús) "
+msgstr "Comprovació extra (s'ha d'evitar el seu ús) "
 
 #: plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp:92
 msgid "DGBob"
@@ -7688,15 +7350,15 @@ msgstr "Drop"
 
 #: plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp:34
 msgid "Drop damaged fields (e.g. from VHS capture)."
-msgstr "Salta els camps danyats (per ex., de captures d'VHS)."
+msgstr "Descarta els camps danyats (per ex., de captures d'VHS)."
 
 #: plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp:53
 msgid "DropOut Threshold"
-msgstr "Llindar pèrdua "
+msgstr "Llindar descart "
 
 #: plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp:56
 msgid "Drop Out"
-msgstr "Pèrdua"
+msgstr "Drop Out"
 
 #: plugins/ADM_videoFilters/Eq2/ADM_vidEq2.cpp:59
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:193
@@ -7725,7 +7387,7 @@ msgstr "_Inicial: "
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:314
 msgid "_Red:"
-msgstr "_Roig: "
+msgstr "Ve_rmell: "
 
 #: plugins/ADM_videoFilters/Eq2/gtk/DIA_eq2.cpp:331
 msgid "_Green:"
@@ -7758,7 +7420,7 @@ msgstr "Equalitzador"
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:42
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:65
 msgid "Fade"
-msgstr "Efecte de fosa"
+msgstr "Fade"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:45
 msgid "Fade in/out."
@@ -7786,11 +7448,11 @@ msgstr "_Tipus de fosa:"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:59
 msgid "_Start frame:"
-msgstr "Fotogr. _inicial:"
+msgstr "Fotograma _inicial:"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:60
 msgid "_End frame:"
-msgstr "Fotogr. _final:"
+msgstr "Fotograma _final:"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:61
 msgid "Fade to _black"
@@ -7802,8 +7464,7 @@ msgstr "S'ha produït un error de paràmetre"
 
 #: plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp:70
 msgid "Start must be before end, and both within video # of frames."
-msgstr ""
-"L'inici ha d'estar abans del final, i ambdós dins del # de fotogr. del vídeo."
+msgstr "L'inici ha d'estar abans del final, i ambdós dins del # de fotogr. del vídeo."
 
 #: plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp:172
 #: plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp:294
@@ -7879,12 +7540,11 @@ msgstr "Llindar _espacial:"
 
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:32
 msgid "Forced postprocessing"
-msgstr "Postprocessament forçat"
+msgstr "Forced postprocessing"
 
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:35
-#, fuzzy
 msgid "Apply blind postprocessing.."
-msgstr "Aplica un postprocessament cec."
+msgstr "Aplica un postprocessament a cegues"
 
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:45
 msgid "_Quantizer:"
@@ -7892,7 +7552,7 @@ msgstr "_Quantificador:"
 
 #: plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp:65
 msgid "Forced Postprocessing"
-msgstr "Postprocessament forçat"
+msgstr "Forced Postprocessing"
 
 #: plugins/ADM_videoFilters/Hue/ADM_vidHue.cpp:53
 msgid "MPlayer hue"
@@ -7919,12 +7579,10 @@ msgid "<b>Saturation:</b>"
 msgstr "<b>Saturació:</b>"
 
 #: plugins/ADM_videoFilters/KeepField/ADM_vidHzStackField.cpp:34
-#, fuzzy
 msgid "Horizontal Stack Field"
-msgstr "Empilament _horitz.:"
+msgstr "Horizontal Stack Field"
 
 #: plugins/ADM_videoFilters/KeepField/ADM_vidHzStackField.cpp:37
-#, fuzzy
 msgid "Put both fields side by side."
 msgstr "Posa els dos camps costat per costat."
 
@@ -7937,9 +7595,8 @@ msgid "Merge two pictures as if they were two fields."
 msgstr "Combina dues imatges com si fossin dos camps."
 
 #: plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp:32
-#, fuzzy
 msgid "Separate Fields"
-msgstr "Separate fields"
+msgstr "Separate Fields"
 
 #: plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp:35
 msgid "Each field becomes full picture, half sized."
@@ -7987,7 +7644,7 @@ msgstr "_Sharper engine:"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:77
 msgid "T_woway"
-msgstr "Dues _Vies"
+msgstr "Dues _vies"
 
 #: plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp:77
 msgid "Extrapolate better (better not to use it)"
@@ -8017,7 +7674,7 @@ msgstr "Large Median 5x5"
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:91
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:122
 msgid "libavcodec deinterlacer"
-msgstr "libavcodec deinterlacer"
+msgstr "Libavcodec deinterlacer"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:94
 msgid "All FFmpeg deinterlace filters (bicubic, median, ...)."
@@ -8045,7 +7702,7 @@ msgstr "Desentrell. FFmpeg"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:113
 msgid "Lowpass5 deint"
-msgstr ""
+msgstr "Lowpass5 deint"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:117
 msgid "_Deinterlacing:"
@@ -8053,7 +7710,7 @@ msgstr "_Desentrellaçat:"
 
 #: plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp:118
 msgid "_Autolevel"
-msgstr "Niv. _auto:"
+msgstr "Nivell _automàtic"
 
 #: plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp:65
 #: plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp:87
@@ -8120,14 +7777,13 @@ msgstr "Extra lent (com [3] + fotogr. referèn. múltiple)"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:102
 msgid "_Field dominance:"
-msgstr "_Dominància camp:"
+msgstr "_Dominància de camp:"
 
 #: plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp:103
 msgid "_Qp:"
 msgstr "_QP:"
 
 #: plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp:63
-#, fuzzy
 msgid "mosaic"
 msgstr "Mosaic"
 
@@ -8199,17 +7855,17 @@ msgstr "Versió del denoise3d d'alta qualitat. Més lent però més precís."
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:60
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:60
 msgid "_Spatial luma strength:"
-msgstr "Força e_spacial luminància:"
+msgstr "Intensitat _luminància espacial:"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:61
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:61
 msgid "S_patial chroma strength:"
-msgstr "Força e_spacial crominància:"
+msgstr "Intensitat _crominància espacial:"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp:62
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:62
 msgid "_Temporal strength:"
-msgstr "Força _temporal:"
+msgstr "Intensitat _temporal:"
 
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:33
 #: plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp:66
@@ -8222,7 +7878,7 @@ msgstr "Redueix el soroll, suavitza la imatge, augmenta la compressibilitat."
 
 #: plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp:83
 msgid "MPlayer resize"
-msgstr "Redimensionador MPlayer"
+msgstr "MPlayer resize"
 
 #: plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp:86
 msgid "Change image size. Faster than Avisynth's Resize."
@@ -8251,9 +7907,7 @@ msgstr "MSmooth by Donald Graft"
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:106
 msgid "Smooth the image, don't blur edges. Useful on anime."
-msgstr ""
-"Suavitza la imatge però no desdibuixa els contorns. Útil per als dibuixos "
-"animats."
+msgstr "Suavitza la imatge però no desdibuixa els contorns. Útil per als dibuixos animats."
 
 #: plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp:181
 msgid "_High quality"
@@ -8277,7 +7931,7 @@ msgstr "Desfasa els camps en un. Útil per a algunes pel·lícules en PAL."
 
 #: plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp:68
 msgid "_Try reverse"
-msgstr "In_tenta reversió"
+msgstr "In_tenta la reversió"
 
 #: plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp:72
 msgid "Pal Field Shift"
@@ -8310,7 +7964,7 @@ msgstr "Voleu mostrar els mesuraments en pantalla?"
 #: plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp:54
 #: plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp:77
 msgid "Resample fps"
-msgstr "Remostreja fps"
+msgstr "Resample fps"
 
 #: plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp:57
 msgid "Change framerate while keeping duration."
@@ -8326,7 +7980,7 @@ msgstr "_Fusiona "
 
 #: plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp:33
 msgid "Reverse"
-msgstr "Posa de l'inrevés"
+msgstr "Reverse"
 
 #: plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp:36
 msgid "Play video backward."
@@ -8335,7 +7989,7 @@ msgstr "Reprodueix el vídeo a l'inrevés."
 #: plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp:54
 #: plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp:267
 msgid "Rotate"
-msgstr "Rota"
+msgstr "Rotate"
 
 #: plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp:57
 msgid "Rotate the picture by 90, 180 or 270 degrees."
@@ -8380,7 +8034,7 @@ msgstr "Una variant de l'stabilize."
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:69
 msgid "_Luma threshold:"
-msgstr "Llindar _liminància:"
+msgstr "Llindar _luminància:"
 
 #: plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp:70
 msgid "C_hroma threshold:"
@@ -8485,7 +8139,7 @@ msgstr "Estableix mida i _posició"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:105
 msgid "_Auto split"
-msgstr "_Autodivisió"
+msgstr "_Divisió automàtica"
 
 #: plugins/ADM_videoFilters/Srt/DIA_srt.cpp:106
 msgid "_Delay (ms):"
@@ -8498,16 +8152,16 @@ msgstr "Mida i posició subtítols"
 
 #: plugins/ADM_videoFilters/Srt/gtk/DIA_srt.cpp:207
 msgid "Font Size:"
-msgstr "Mida lletra: "
+msgstr "Mida de la lletra: "
 
 #: plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp:31
 #: plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp:34
 msgid "Light denoiser."
-msgstr "Eliminador de soroll lleuger."
+msgstr "Light denoiser"
 
 #: plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp:70
 msgid "Stabilize Threshold"
-msgstr "Estabilitza llindar"
+msgstr "Llindar de l'Stabilize"
 
 #: plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp:73
 msgid "Stabilize"
@@ -8518,7 +8172,6 @@ msgid "Keep even fields"
 msgstr "Keep even fields"
 
 #: plugins/ADM_videoFilters/SwapField/ADM_vidKeepEvenFields.cpp:37
-#, fuzzy
 msgid "Keep top fields. Gives a half height picture.."
 msgstr "Manté els camps superiors. Dóna una imatge la meitat d'alta."
 
@@ -8527,7 +8180,6 @@ msgid "Keep odd fields"
 msgstr "Keep odd fields"
 
 #: plugins/ADM_videoFilters/SwapField/ADM_vidKeepOddFields.cpp:38
-#, fuzzy
 msgid "Keep bottom fields. Gives a half height picture.."
 msgstr "Manté els camps inferiors. Dóna una imatge la meitat d'alta."
 
@@ -8545,9 +8197,7 @@ msgstr "Smart swap fields"
 
 #: plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp:38
 msgid "Smartly swap fields. Needed when field order changes."
-msgstr ""
-"Intercanvia intel·ligentment els camps. És necessari quan canvia l'ordre "
-"dels camps."
+msgstr "Intercanvia intel·ligentment els camps. És necessari quan canvia l'ordre dels camps."
 
 #: plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp:28
 msgid "Swap U and V"
@@ -8668,7 +8318,7 @@ msgstr "Usa la c_rominància per avaluar"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:88
 msgid "Try _weave"
-msgstr "Prova entretei_xir"
+msgstr "Prova d'intercalar camps"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:89
 msgid "_Denoise"
@@ -8676,7 +8326,7 @@ msgstr "Filtra _soroll"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:91
 msgid "_Evalute all frames"
-msgstr "_Avalua tots els fotogr."
+msgstr "_Avalua tots els fotogrames"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:94
 msgid "Motion threshold, l_uma:"
@@ -8688,11 +8338,11 @@ msgstr "Llindar movim., _crominància:"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:96
 msgid "Area com_bing threshold:"
-msgstr "Llindar zona pe_ntinat"
+msgstr "Llindar _zona de l'efecte \"pinta\":"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:97
 msgid "Combe_d threshold:"
-msgstr "Llindar pen_tinat:"
+msgstr "Llindar _nivell de l'efecte \"pinta\":"
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:98
 msgid "Artefact _protection threshold:"
@@ -8700,7 +8350,7 @@ msgstr "Llindar protecció artefactes: "
 
 #: plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp:99
 msgid "Debug:"
-msgstr "Debug: "
+msgstr "Depuració: "
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:54
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:124
@@ -8729,7 +8379,7 @@ msgstr "Mai"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:89
 msgid "If still combed"
-msgstr "Si encara pentinat"
+msgstr "Si es manté l'efecte \"pinta\""
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:90
 msgid "Always"
@@ -8745,7 +8395,7 @@ msgstr "Postproc. sobre la millor correspondència"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:97
 msgid "Postproc and show zones (debug)"
-msgstr "Postproc. i mostra zones (debug) "
+msgstr "Postproc. i mostra zones (depuració) "
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:98
 msgid "Process image (not fields)"
@@ -8753,7 +8403,7 @@ msgstr "Processa fotograma (no camps)"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:99
 msgid "Process image (not fields), debug"
-msgstr "Processa fotograma, (no camps), debug"
+msgstr "Processa fotograma, (no camps), depuració"
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:103
 msgid "_Strategy:"
@@ -8769,7 +8419,7 @@ msgstr "_Prova enrere: "
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:108
 msgid "_Direct threshold:"
-msgstr "Lllindar _directe: "
+msgstr "Llindar _directe: "
 
 #: plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp:109
 msgid "_Backward threshold:"
@@ -8806,8 +8456,7 @@ msgstr "Temporal Cleaner"
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:74
 msgid "Vlad59's Avisynth port of Jim Casaburi's denoiser."
-msgstr ""
-"Eliminador de soroll de Jim Casaburi, portat de l'Avisynth per Vlad59. "
+msgstr "Eliminador de soroll de Jim Casaburi, portat de l'Avisynth per Vlad59. "
 
 #: plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp:90
 msgid "_Luma temporal threshold:"
@@ -8819,53 +8468,47 @@ msgstr "Llindar temporal c_roma: "
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:46
 msgid "TIsophote"
-msgstr ""
+msgstr "TIsophote"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:49
 msgid "Port of TIsophote by tritical ."
-msgstr ""
+msgstr "Port de Tlsopthote per Tritical."
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:60
-#, fuzzy
 msgid "Simple"
-msgstr "Al costat"
+msgstr "Simple"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:62
 msgid "Slow"
-msgstr ""
+msgstr "Lent"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:67
-#, fuzzy
 msgid "_Iterations:"
-msgstr "_Saturació: "
+msgstr "_Iteracions:"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:68
-#, fuzzy
 msgid "_Chroma:"
-msgstr "Crominància en U:"
+msgstr "_Crominància:"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:68
-#, fuzzy
 msgid "Process chroma."
-msgstr "Processament _crominància"
+msgstr "Processament de la crominància."
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:69
-#, fuzzy
 msgid "_Step:"
-msgstr "_Força: "
+msgstr "_Esglaó:"
 
 #: plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp:69
-#, fuzzy
 msgid "Step."
-msgstr "Atura"
+msgstr "Esglaó."
 
 #: plugins/ADM_videoFilters/Unblend/ADM_vidUnblend.cpp:50
 msgid "Unblend by Bach"
-msgstr ""
+msgstr "Unblend, per Bach"
 
 #: plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp:48
 msgid "Vertical flip"
-msgstr "Trabuca verticalment"
+msgstr "Vertical flip"
 
 #: plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp:51
 msgid "Vertically flip the picture."
@@ -8882,7 +8525,7 @@ msgstr "Efecte de remolí inútil."
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:77
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:152
 msgid "yadif"
-msgstr "yadif"
+msgstr "Yadif"
 
 #: plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp:80
 msgid "Yet Another DeInterlacer. Ported from MPlayer."
@@ -8908,47 +8551,43 @@ msgstr "Bob, salta compr. temp. espac."
 msgid "_Order:"
 msgstr "_Ordre:"
 
-#: scripts/auto/Optical Disc/DVD.js:9 Disc/Super Video CD.js:9 Disc/Video
+#: scripts/auto/Optical Disc/DVD.js:9
+#: Disc/Super Video CD.js:9
+#: Disc/Video
 msgid "A video file must be open to use this Auto Wizard."
-msgstr ""
+msgstr "S'ha d'obrir un fitxer de vídeo per utilitzar aquest auxiliar de configuració."
 
 #: scripts/auto/Optical Disc/DVD.js:12
-#, fuzzy
 msgid "DVD Auto Wizard"
-msgstr "Configuració automàtica"
+msgstr "Auxiliar de config. de DVD"
 
 #: scripts/auto/Optical Disc/Super Video CD.js:12
 msgid "Super Video CD Auto Wizard"
-msgstr ""
+msgstr "Auxiliar de config. de Super Video CD"
 
 #: scripts/auto/Optical Disc/Video CD.js:12
-#, fuzzy
 msgid "Video CD Auto Wizard"
-msgstr "Configuració automàtica"
+msgstr "Auxiliar de config. de Video CD"
 
 #: scripts/video/autoWizard.js:4
-#, fuzzy
 msgid "Resolution:"
-msgstr "Distorsió de taxa"
+msgstr "Resolució: "
 
 #: scripts/video/autoWizard.js:5
-#, fuzzy
 msgid "Source Aspect Ratio:"
-msgstr "Relac. a_specte origen:"
+msgstr "Relació d'aspecte d'origen:"
 
 #: scripts/video/autoWizard.js:6
-#, fuzzy
 msgid "Destination Aspect Ratio:"
-msgstr "Relac. aspecte a _obtenir: "
+msgstr "Relació d'aspecte a obtenir: "
 
 #: scripts/auto/Optical Disc/translate_dummy.cpp:3
 msgid "Optical Disc"
-msgstr ""
+msgstr "Disc òptic"
 
 #: scripts/auto/Optical Disc/translate_dummy.cpp:6
-#, fuzzy
 msgid "Video CD"
-msgstr "Vídeo"
+msgstr "Video CD"
 
 #~ msgid "H.263 (lavc)"
 #~ msgstr "H.263 (lavc)"
