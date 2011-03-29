@@ -61,7 +61,7 @@
 
 #define AVSFILTER_VERSION_INFO "AvsFilter, ver 0.8a"
 
-static FILTER_PARAM avsParam={4,{"wine_app", "avs_script", "avs_loader", "pipe_timeout"}};
+static FILTER_PARAM avsParam={6,{"wine_app", "avs_script", "avs_loader", "pipe_timeout", "script_mtime", "script_ctime"}};
 static WINE_LOADER *first_loader = NULL;
 static AVSTerminate term;
 
