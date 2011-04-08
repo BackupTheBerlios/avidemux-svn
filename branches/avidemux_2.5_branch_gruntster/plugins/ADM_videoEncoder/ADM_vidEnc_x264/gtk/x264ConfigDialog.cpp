@@ -75,6 +75,7 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 	loadOptions(dialog, options);
 	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
 	updateDeblockingFilter(dialog);
+	updateInterlacedTFF(dialog);
 
 	// Fill in A/R
 	for(int i = 0; i < NB_X264_AR; i++)
@@ -91,6 +92,9 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 
 	// Connect signal for deblocking filter
 	gtk_signal_connect(GTK_OBJECT(WID(checkbuttonDeblockingFilter)), "toggled", GTK_SIGNAL_FUNC(signalReceiver), dialog);
+
+	// Connect signal for interlace checkbox
+	gtk_signal_connect(GTK_OBJECT(WID(checkbuttoninterlaced)), "toggled", GTK_SIGNAL_FUNC(signalReceiver), dialog);	
 
 	int reply = 0;
 
@@ -202,6 +206,12 @@ void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter)
 	gtk_widget_set_sensitive(WID(entryTarget), !quantiser);
 }
 
+void updateInterlacedTFF(GtkWidget *dialog)
+{
+	int toggled = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)));
+	gtk_widget_set_sensitive(WID(checkbuttoninterlacedtff), toggled);
+}
+
 void updateDeblockingFilter(GtkWidget *dialog)
 {
 	int toggled = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDeblockingFilter)));
@@ -241,6 +251,8 @@ void signalReceiver(GtkObject* object, gpointer user_data)
 	}
 	else if (object == GTK_OBJECT(WID(checkbuttonDeblockingFilter)))
 		updateDeblockingFilter(dialog);
+	else if (object == GTK_OBJECT(WID(checkbuttoninterlaced)))
+		updateInterlacedTFF(dialog);
 }
 
 void entryTarget_changed(GtkObject* object, gpointer user_data)
@@ -258,6 +270,7 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonfastPSkip)), options->getFastPSkip());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate)), options->getDctDecimate());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)), options->getInterlaced());
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlacedtff)), options->getInterlaced() == 2);	
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference)), options->getBFrameReferences());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative)), options->getAdaptiveBFrameDecision());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted)), options->getWeightedPrediction());
@@ -313,7 +326,7 @@ void saveOptions(GtkWidget *dialog, x264Options *options)
 {
 	options->setFastPSkip(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonfastPSkip))));
 	options->setDctDecimate(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate))));
-	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced))));
+	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced))) ? (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlacedtff))) ? 2 : 1) : 0);
 	options->setBFrameReferences(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference))));
 	options->setAdaptiveBFrameDecision(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative))));
 	options->setWeightedPrediction(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted))));
@@ -415,6 +428,7 @@ create_dialog1 (void)
   GtkWidget *checkbuttonfastPSkip;
   GtkWidget *checkbuttonDCTDecimate;
   GtkWidget *checkbuttoninterlaced;
+  GtkWidget *checkbuttoninterlacedtff;  
   GtkWidget *label24;
   GtkWidget *frameSampleAR;
   GtkWidget *alignment12;
@@ -811,6 +825,11 @@ create_dialog1 (void)
   gtk_widget_show (checkbuttoninterlaced);
   gtk_box_pack_start (GTK_BOX (hbox8), checkbuttoninterlaced, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, checkbuttoninterlaced, QT_TR_NOOP("Input video is interlaced"), NULL);
+
+  checkbuttoninterlacedtff = gtk_check_button_new_with_mnemonic (QT_TR_NOOP("TFF"));
+  gtk_widget_show (checkbuttoninterlacedtff);
+  gtk_box_pack_start (GTK_BOX (hbox8), checkbuttoninterlacedtff, FALSE, FALSE, 0);
+  gtk_tooltips_set_tip (tooltips, checkbuttoninterlacedtff, QT_TR_NOOP("If checked, field order is top field first,otherwise is bottom field first"), NULL);
 
   label24 = gtk_label_new (QT_TR_NOOP("<b>Motion Estimation</b>"));
   gtk_widget_show (label24);
@@ -1751,6 +1770,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttonfastPSkip, "checkbuttonfastPSkip");
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttonDCTDecimate, "checkbuttonDCTDecimate");
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttoninterlaced, "checkbuttoninterlaced");
+  GLADE_HOOKUP_OBJECT (dialog1, checkbuttoninterlacedtff, "checkbuttoninterlacedtff");  
   GLADE_HOOKUP_OBJECT (dialog1, label24, "label24");
   GLADE_HOOKUP_OBJECT (dialog1, frameSampleAR, "frameSampleAR");
   GLADE_HOOKUP_OBJECT (dialog1, alignment12, "alignment12");

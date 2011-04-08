@@ -14,6 +14,7 @@ static GtkWidget *create_dialog1(void);
 static int getCurrentEncodeMode(GtkWidget *dialog);
 static void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter);
 static void updateDeblockingFilter(GtkWidget *dialog);
+static void updateInterlacedTFF(GtkWidget *dialog);
 static void signalReceiver(GtkObject* object, gpointer user_data);
 static void entryTarget_changed(GtkObject* object, gpointer user_data);
 static void loadOptions(GtkWidget *dialog, x264Options *options);
