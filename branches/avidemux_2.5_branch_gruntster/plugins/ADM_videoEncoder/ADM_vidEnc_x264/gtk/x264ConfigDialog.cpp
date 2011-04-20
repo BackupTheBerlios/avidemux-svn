@@ -75,7 +75,7 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 	loadOptions(dialog, options);
 	updateMode(dialog, encodeOptions->encodeMode, encodeOptions->encodeModeParameter);
 	updateDeblockingFilter(dialog);
-	updateInterlacedTFF(dialog);
+	updateInterlace(dialog, options->getInterlaced());
 
 	// Fill in A/R
 	for(int i = 0; i < NB_X264_AR; i++)
@@ -92,10 +92,8 @@ extern "C" int showX264ConfigDialog(vidEncConfigParameters *configParameters, vi
 
 	// Connect signal for deblocking filter
 	gtk_signal_connect(GTK_OBJECT(WID(checkbuttonDeblockingFilter)), "toggled", GTK_SIGNAL_FUNC(signalReceiver), dialog);
-
-	// Connect signal for interlace checkbox
-	gtk_signal_connect(GTK_OBJECT(WID(checkbuttoninterlaced)), "toggled", GTK_SIGNAL_FUNC(signalReceiver), dialog);	
-
+        // Connect signal for interlace checkbox
+        gtk_signal_connect(GTK_OBJECT(WID(checkbuttoninterlaced)), "toggled", GTK_SIGNAL_FUNC(signalReceiver), dialog);
 	int reply = 0;
 
 	while (1)
@@ -206,10 +204,11 @@ void updateMode(GtkWidget *dialog, int encodeMode, int encodeModeParameter)
 	gtk_widget_set_sensitive(WID(entryTarget), !quantiser);
 }
 
-void updateInterlacedTFF(GtkWidget *dialog)
+void updateInterlace(GtkWidget *dialog, int interlacetype)
 {
-	int toggled = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)));
-	gtk_widget_set_sensitive(WID(checkbuttoninterlacedtff), toggled);
+        int toggled = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)));
+        gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxinterlacetype)), (toggled || (interlacetype != 0)) ? interlacetype - 1 : 0);
+        gtk_widget_set_sensitive(WID(comboboxinterlacetype), toggled);
 }
 
 void updateDeblockingFilter(GtkWidget *dialog)
@@ -251,8 +250,11 @@ void signalReceiver(GtkObject* object, gpointer user_data)
 	}
 	else if (object == GTK_OBJECT(WID(checkbuttonDeblockingFilter)))
 		updateDeblockingFilter(dialog);
-	else if (object == GTK_OBJECT(WID(checkbuttoninterlaced)))
-		updateInterlacedTFF(dialog);
+        else if (object == GTK_OBJECT(WID(checkbuttoninterlaced)))
+               {
+                 int interlaceIndex = gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxinterlacetype)));
+                 updateInterlace(dialog, interlaceIndex + 1);
+               }
 }
 
 void entryTarget_changed(GtkObject* object, gpointer user_data)
@@ -270,7 +272,6 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonfastPSkip)), options->getFastPSkip());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate)), options->getDctDecimate());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced)), options->getInterlaced());
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlacedtff)), options->getInterlaced() == 2);	
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference)), options->getBFrameReferences());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative)), options->getAdaptiveBFrameDecision());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted)), options->getWeightedPrediction());
@@ -310,7 +311,9 @@ void loadOptions(GtkWidget *dialog, x264Options *options)
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(WID(spinbuttonRange)), options->getMotionVectorSearchRange());
 
 	gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxMethod)), options->getMotionEstimationMethod());
-	gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxDirectMode)), options->getDirectPredictionMode());
+        gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxDirectMode)), options->getDirectPredictionMode());
+        if (options->getInterlaced())
+          gtk_combo_box_set_active(GTK_COMBO_BOX(WID(comboboxinterlacetype)), options->getInterlaced() - 1);
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbutton8x8)), options->getDct8x8());
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(WID(checkbutton8x8P)), options->getPartitionP8x8());
@@ -326,7 +329,7 @@ void saveOptions(GtkWidget *dialog, x264Options *options)
 {
 	options->setFastPSkip(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonfastPSkip))));
 	options->setDctDecimate(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonDCTDecimate))));
-	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced))) ? (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlacedtff))) ? 2 : 1) : 0);
+	options->setInterlaced(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttoninterlaced))) ? (gtk_combo_box_get_active(GTK_COMBO_BOX(WID(comboboxinterlacetype))) + 1) : 0);
 	options->setBFrameReferences(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonBasReference))));
 	options->setAdaptiveBFrameDecision(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonAdaptative))));
 	options->setWeightedPrediction(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(WID(checkbuttonWeighted))));
@@ -428,7 +431,7 @@ create_dialog1 (void)
   GtkWidget *checkbuttonfastPSkip;
   GtkWidget *checkbuttonDCTDecimate;
   GtkWidget *checkbuttoninterlaced;
-  GtkWidget *checkbuttoninterlacedtff;  
+  GtkWidget *comboboxinterlacetype;
   GtkWidget *label24;
   GtkWidget *frameSampleAR;
   GtkWidget *alignment12;
@@ -826,10 +829,17 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (hbox8), checkbuttoninterlaced, FALSE, FALSE, 0);
   gtk_tooltips_set_tip (tooltips, checkbuttoninterlaced, QT_TR_NOOP("Input video is interlaced"), NULL);
 
-  checkbuttoninterlacedtff = gtk_check_button_new_with_mnemonic (QT_TR_NOOP("TFF"));
-  gtk_widget_show (checkbuttoninterlacedtff);
-  gtk_box_pack_start (GTK_BOX (hbox8), checkbuttoninterlacedtff, FALSE, FALSE, 0);
-  gtk_tooltips_set_tip (tooltips, checkbuttoninterlacedtff, QT_TR_NOOP("If checked, field order is top field first,otherwise is bottom field first"), NULL);
+  comboboxinterlacetype = gtk_combo_box_new_text ();
+  gtk_widget_show (comboboxinterlacetype);
+  gtk_box_pack_start (GTK_BOX (hbox8), comboboxinterlacetype, FALSE, FALSE, 0);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxinterlacetype), QT_TR_NOOP("Bottom Field First"));
+#if !(X264_BUILD < 89)
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxinterlacetype), QT_TR_NOOP("Top Field First"));
+#endif
+#if !(X264_BUILD < 96)
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxinterlacetype), QT_TR_NOOP("Fake Interlace"));
+#endif
+  gtk_tooltips_set_tip (tooltips, comboboxinterlacetype, QT_TR_NOOP("Select type of interlace"), NULL);
 
   label24 = gtk_label_new (QT_TR_NOOP("<b>Motion Estimation</b>"));
   gtk_widget_show (label24);
@@ -1770,7 +1780,7 @@ create_dialog1 (void)
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttonfastPSkip, "checkbuttonfastPSkip");
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttonDCTDecimate, "checkbuttonDCTDecimate");
   GLADE_HOOKUP_OBJECT (dialog1, checkbuttoninterlaced, "checkbuttoninterlaced");
-  GLADE_HOOKUP_OBJECT (dialog1, checkbuttoninterlacedtff, "checkbuttoninterlacedtff");  
+  GLADE_HOOKUP_OBJECT (dialog1, comboboxinterlacetype, "comboboxinterlacetype");
   GLADE_HOOKUP_OBJECT (dialog1, label24, "label24");
   GLADE_HOOKUP_OBJECT (dialog1, frameSampleAR, "frameSampleAR");
   GLADE_HOOKUP_OBJECT (dialog1, alignment12, "alignment12");
