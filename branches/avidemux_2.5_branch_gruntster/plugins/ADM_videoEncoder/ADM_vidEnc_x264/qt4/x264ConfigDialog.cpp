@@ -350,7 +350,8 @@ void x264ConfigDialog::saveAsButton_pressed(void)
 		delete [] xml;
 
 		fillConfigurationComboBox();
-		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), PLUGIN_CONFIG_USER);
+		QString qs=QFileInfo(configFileName).completeBaseName();
+		selectConfiguration(&qs, PLUGIN_CONFIG_USER);
 	}
 
 	delete [] configDirectory;
@@ -586,8 +587,8 @@ bool x264ConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, x264Opti
 
 	disableGenericSlots = true;
 	options->getPresetConfiguration(&configurationName, &configurationType);
-
-	bool foundConfig = selectConfiguration(&QString(configurationName), configurationType);
+	QString qs=QString(configurationName);
+	bool foundConfig = selectConfiguration(&qs, configurationType);
 
 	if (!foundConfig)
 		printf("Configuration %s (type %d) could not be found.  Using snapshot.\n", configurationName, configurationType);
