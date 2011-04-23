@@ -210,7 +210,8 @@ namespace ADM_Qt4Factory
 				delete [] configData;
 
 				fillConfigurationComboBox();
-				selectConfiguration(&QFileInfo(configFileName).completeBaseName(), CONFIG_MENU_USER);
+				QString qs=QFileInfo(configFileName).completeBaseName();
+				selectConfiguration(&qs, CONFIG_MENU_USER);
 			}
 		}
 	}
@@ -315,8 +316,8 @@ namespace ADM_Qt4Factory
 	void diaElemConfigMenu::updateMe(void)
 	{
 		ADM_QconfigMenu *configMenu = (ADM_QconfigMenu*)myWidget;
-
-		configMenu->selectConfiguration(&QString(configName), *configType);
+		QString qs=QString(configName);
+		configMenu->selectConfiguration(&qs, *configType);
 	}
 
 	void diaElemConfigMenu::finalize(void)
@@ -355,8 +356,8 @@ namespace ADM_Qt4Factory
 				while (parentWidget != NULL);
 			}
 		}
-
-		configMenu->selectConfiguration(&QString(configName), *configType);
+		QString qs=QString(configName);
+		configMenu->selectConfiguration(&(qs), *configType);
 	}
 }
 
