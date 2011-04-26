@@ -350,7 +350,10 @@ bool receivedFrame = false;
 					  muxerType,
 					  &info, videoExtraDataSize, videoExtraData,
 					  audioinfo, extraDataSize, extraData))
-					  break;
+                                          {
+                                                r=0;
+					        break;
+                                          }
 			  }
 
 			  while (muxer->needAudio())

@@ -210,6 +210,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                                    if(!ADM_4cc_to_lavcodec((const char *)&(info->fcc),&(c->codec_id)))
                                    {
                                       printf("[lavFormat] Cannot map  this\n");
+                                      GUI_Error_HIG(QT_TR_NOOP("Can't mux that video codec into MKV"), NULL);
                                       return 0;
                                    }
 
