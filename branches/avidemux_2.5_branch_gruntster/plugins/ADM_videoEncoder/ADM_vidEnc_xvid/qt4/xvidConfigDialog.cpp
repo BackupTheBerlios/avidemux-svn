@@ -233,7 +233,9 @@ void XvidConfigDialog::saveAsButton_pressed(void)
 		delete [] xml;
 
 		fillConfigurationComboBox();
-		selectConfiguration(&QFileInfo(configFileName).completeBaseName(), PLUGIN_CONFIG_USER);
+
+                QString qs=QFileInfo(configFileName).completeBaseName();
+		selectConfiguration(&qs, PLUGIN_CONFIG_USER);
 	}
 
 	delete [] configDirectory;
@@ -373,7 +375,8 @@ bool XvidConfigDialog::loadPresetSettings(vidEncOptions *encodeOptions, XvidOpti
 	disableGenericSlots = true;
 	options->getPresetConfiguration(&configurationName, &configurationType);		
 
-	bool foundConfig = selectConfiguration(&QString(configurationName), configurationType);
+        QString qs=QString(configurationName);
+	bool foundConfig = selectConfiguration(&qs, configurationType);
 
 	if (!foundConfig)
 		printf("Configuration %s (type %d) could not be found.  Using snapshot.\n", configurationName, configurationType);
