@@ -279,8 +279,7 @@ ADD_LIB_ALL_TARGETS(
 	ADM_libpostproc
 	ADM_libswscale
 	ADM_libavcodec
-	ADM_libavformat
-	ADM_libavcore)
+	ADM_libavformat)
 
 if (USE_SYSTEM_SPIDERMONKEY)
 	ADD_LIB_ALL_TARGETS(${SPIDERMONKEY_LIBRARY_DIR})

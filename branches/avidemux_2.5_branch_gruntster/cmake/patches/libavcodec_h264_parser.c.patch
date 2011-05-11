@@ -1,6 +1,6 @@
---- libavcodec/h264_parser.c.old	2010-12-20 13:49:23 +0000
-+++ libavcodec/h264_parser.c	2010-12-20 13:49:23 +0000
-@@ -30,7 +30,52 @@
+--- libavcodec/h264_parser.c.orig	2011-05-10 22:40:29 +0100
++++ libavcodec/h264_parser.c	2011-05-10 22:40:29 +0100
+@@ -29,7 +29,52 @@
  #include "h264data.h"
  #include "golomb.h"
  
@@ -52,4 +52,4 @@
 +// /MEANX
  
  
- int ff_h264_find_frame_end(H264Context *h, const uint8_t *buf, int buf_size)
+ static int ff_h264_find_frame_end(H264Context *h, const uint8_t *buf, int buf_size)

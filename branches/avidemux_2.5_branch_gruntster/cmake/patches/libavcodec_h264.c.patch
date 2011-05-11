@@ -1,8 +1,8 @@
---- libavcodec/h264.c.old	2010-12-20 13:49:22 +0000
-+++ libavcodec/h264.c	2010-12-20 13:49:22 +0000
-@@ -3395,6 +3395,19 @@
-     return 0;
- }
+--- libavcodec/h264.c.orig	2011-04-26 23:58:23 +0100
++++ libavcodec/h264.c	2011-05-10 22:34:57 +0100
+@@ -3458,6 +3458,20 @@
+     { FF_PROFILE_UNKNOWN },
+ };
  
 +/* MEANX */
 +int av_getAVCStreamInfo(AVCodecContext *avctx, uint32_t  *nalSize, uint32_t *isAvc);
@@ -17,6 +17,7 @@
 +
 +  }
 +/* MeanX */
- 
- AVCodec h264_decoder = {
++
+ AVCodec ff_h264_decoder = {
      "h264",
+     AVMEDIA_TYPE_VIDEO,

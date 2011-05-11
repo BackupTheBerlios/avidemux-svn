@@ -1,6 +1,6 @@
---- libavformat/isom.c.old	2010-12-20 13:49:29 +0000
-+++ libavformat/isom.c	2010-12-20 13:49:29 +0000
-@@ -222,7 +222,10 @@
+--- libavformat/isom.c.orig	2011-05-10 22:40:30 +0100
++++ libavformat/isom.c	2011-05-10 22:40:30 +0100
+@@ -234,7 +234,10 @@
      { CODEC_ID_MP1, MKTAG('.', 'm', 'p', '1') }, /* MPEG layer 1 */
      { CODEC_ID_MP2, MKTAG('.', 'm', 'p', '2') }, /* MPEG layer 2 */
  

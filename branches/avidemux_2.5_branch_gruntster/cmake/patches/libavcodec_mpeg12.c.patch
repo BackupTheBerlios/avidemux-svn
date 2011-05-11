@@ -1,6 +1,6 @@
---- libavcodec/mpeg12.c.old	2010-12-20 13:49:23 +0000
-+++ libavcodec/mpeg12.c	2010-12-20 13:49:23 +0000
-@@ -1948,6 +1948,11 @@
+--- libavcodec/mpeg12.c.orig	2011-05-10 22:40:29 +0100
++++ libavcodec/mpeg12.c	2011-05-10 22:40:29 +0100
+@@ -1999,6 +1999,11 @@
          ff_er_frame_end(s);
  
          MPV_frame_end(s);

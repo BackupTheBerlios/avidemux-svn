@@ -1,15 +1,15 @@
---- libavformat/matroskaenc.c.old	2010-12-20 13:49:30 +0000
-+++ libavformat/matroskaenc.c	2010-12-20 13:49:30 +0000
+--- libavformat/matroskaenc.c.orig	2011-05-10 22:40:30 +0100
++++ libavformat/matroskaenc.c	2011-05-10 22:40:30 +0100
 @@ -410,6 +410,7 @@
  
- static int put_xiph_codecpriv(AVFormatContext *s, ByteIOContext *pb, AVCodecContext *codec)
+ static int put_xiph_codecpriv(AVFormatContext *s, AVIOContext *pb, AVCodecContext *codec)
  {
 +#if 0 // MEANX avidemux does thing differently
      uint8_t *header_start[3];
      int header_len[3];
      int first_header_size;
 @@ -434,6 +435,28 @@
-         put_buffer(pb, header_start[j], header_len[j]);
+         avio_write(pb, header_start[j], header_len[j]);
  
      return 0;
 +#else
@@ -37,7 +37,7 @@
  }
  
  static void get_aac_sample_rates(AVFormatContext *s, AVCodecContext *codec, int *sample_rate, int *output_sample_rate)
-@@ -552,6 +575,24 @@
+@@ -538,6 +561,24 @@
          put_ebml_uint (pb, MATROSKA_ID_TRACKUID        , i + 1);
          put_ebml_uint (pb, MATROSKA_ID_TRACKFLAGLACING , 0);    // no lacing (yet)
  

@@ -1,16 +1,20 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 25041)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=2be4fa05c5528073bcfc472d1c23f2d77b679a9d;sf=tgz
-set(SWSCALE_VERSION 32049)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=d1a43021d9198868fa7a023a30e5ee9e09a907d3;sf=tgz
+set(FFMPEG_VERSION 0.7-rc1)
+set(FFMPEG_SOURCE_ARCHIVE "ffmpeg-${FFMPEG_VERSION}.tar.gz")
+set(FFMPEG_SOURCE_ARCHIVE_DIR "ffmpeg-${FFMPEG_VERSION}")
+
+#set(FFMPEG_VERSION 26061)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=2be4fa05c5528073bcfc472d1c23f2d77b679a9d;sf=tgz
+#set(SWSCALE_VERSION 32724)	# http://git.ffmpeg.org/?p=libswscale;a=snapshot;h=d1a43021d9198868fa7a023a30e5ee9e09a907d3;sf=tgz
 
 set(LIBRARY_SOURCE_DIR "${CMAKE_SOURCE_DIR}/avidemux/ADM_libraries")
 set(FFMPEG_SOURCE_DIR "${LIBRARY_SOURCE_DIR}/ffmpeg")
 set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 
-set(FFMPEG_DECODERS  adpcm_ima_amv  amv  bmp  cinepak  cyuv  dca  dvbsub  dvvideo  ffv1  ffvhuff  flv  fraps  h263  h264  huffyuv  mjpeg
-					 mjpegb  mpeg2video  mpeg4  msmpeg4v2  msmpeg4v3  msvideo1  nellymoser  png  qdm2  rawvideo  snow  svq3  theora  tscc
-					 vc1  vp3  vp6  vp6a  vp6f  wmav2  wmv1  wmv2  wmv3)
-set(FFMPEG_ENCODERS  ac3  dvvideo  ffv1  ffvhuff  flv  h263  huffyuv  mjpeg  mp2  mpeg1video  mpeg2video  mpeg4  snow)
+set(FFMPEG_DECODERS  adpcm_ima_amv  amv  bmp  cinepak  cyuv  dca  dvbsub  dvvideo  ffv1  ffvhuff  flac  flv  fraps  h263  h264  huffyuv
+					 mjpeg  mjpegb  mpeg2video  mpeg4  msmpeg4v2  msmpeg4v3  msvideo1  nellymoser  png  qdm2  rawvideo  snow  svq3
+					 theora  tscc  vc1  vp3  vp6  vp6a  vp6f  wmav2  wmv1  wmv2  wmv3)
+set(FFMPEG_ENCODERS  ac3  ac3_fixed  ac3_float  dvvideo  ffv1  ffvhuff  flv  h263  huffyuv  mjpeg  mp2  mpeg1video  mpeg2video  mpeg4  snow)
 set(FFMPEG_MUXERS  flv  matroska  mpeg1vcd  mpeg2dvd  mpeg2svcd  mpegts  mov  mp4  psp)
 set(FFMPEG_PARSERS  ac3  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
@@ -20,9 +24,9 @@ set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-everything --enable
 include(admFFmpegPatch)
 include(admFFmpegPrepareTar)
 
-if (NOT FFMPEG_PREPARED)
-	include(admFFmpegPrepareSvn)
-endif (NOT FFMPEG_PREPARED)
+#if (NOT FFMPEG_PREPARED)
+	#include(admFFmpegPrepareSvn)
+#endif (NOT FFMPEG_PREPARED)
 
 if (NOT VERBOSE)
 	set(ffmpegBuildOutput OUTPUT_VARIABLE FFMPEG_CONFIGURE_OUTPUT)
@@ -204,10 +208,6 @@ install(${FFMPEG_SHLIB_INSTALL_TYPE} "${FFMPEG_BINARY_DIR}/libavcodec/${LIBAVCOD
 add_library(ADM_libavformat UNKNOWN IMPORTED)
 set_property(TARGET ADM_libavformat PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}")
 install(${FFMPEG_SHLIB_INSTALL_TYPE} "${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
-
-add_library(ADM_libavcore UNKNOWN IMPORTED)
-set_property(TARGET ADM_libavcore PROPERTY IMPORTED_LOCATION "${FFMPEG_BINARY_DIR}/libavcore/${LIBAVCORE_LIB}")
-install(${FFMPEG_SHLIB_INSTALL_TYPE} "${FFMPEG_BINARY_DIR}/libavcore/${LIBAVCORE_LIB}" DESTINATION "${FFMPEG_INSTALL_DIR}")
 
 include_directories("${FFMPEG_SOURCE_DIR}")
 include_directories("${FFMPEG_SOURCE_DIR}/libavutil")

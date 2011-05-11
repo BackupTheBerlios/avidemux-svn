@@ -4,15 +4,22 @@ export curDir=$PWD
 export ffmpegPath=../../avidemux/ADM_libraries/ffmpeg
 
 function updatePatch {
+	#cd $ffmpegPath
+	#cp $1/$2 $1/$2.new
+	#svn revert $1/$2
+	#unix2dos $1/$2
+	#unix2dos $1/$2.new
+	#mv $1/$2 $1/$2.old
+	#mv $1/$2.new $1/$2
+	#diff -u $1/$2.old $1/$2 > $curDir/$1_$2.patch
+	#rm $1/$2.old
+	#cd $curDir
+	#dos2unix $1_$2.patch
+
 	cd $ffmpegPath
-	cp $1/$2 $1/$2.new
-	svn revert $1/$2
 	unix2dos $1/$2
-	unix2dos $1/$2.new
-	mv $1/$2 $1/$2.old
-	mv $1/$2.new $1/$2
-	diff -u $1/$2.old $1/$2 > $curDir/$1_$2.patch
-	rm $1/$2.old
+	unix2dos $1/$2.orig
+	diff -u $1/$2.orig $1/$2 > $curDir/$1_$2.patch
 	cd $curDir
 	dos2unix $1_$2.patch
 }
