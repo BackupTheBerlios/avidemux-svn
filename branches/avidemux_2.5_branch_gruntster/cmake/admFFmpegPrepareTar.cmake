@@ -9,7 +9,7 @@ if (EXISTS "${LIBRARY_SOURCE_DIR}/${FFMPEG_SOURCE_ARCHIVE}") # AND EXISTS "${LIB
 	if (NOT EXISTS "${FFMPEG_SOURCE_DIR}/ffmpeg.c" OR NOT ${LAST_FFMPEG_VERSION} EQUAL ${FFMPEG_VERSION})
 		find_package(Tar)
 
-		execute_process(COMMAND ${CMAKE_COMMAND} -E remove "ffmpeg"
+		execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory "ffmpeg"
 					WORKING_DIRECTORY "${LIBRARY_SOURCE_DIR}")
 
 		execute_process(COMMAND ${TAR_EXECUTABLE} xvf ${FFMPEG_SOURCE_ARCHIVE}
