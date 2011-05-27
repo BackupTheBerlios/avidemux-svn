@@ -121,11 +121,8 @@ decoderFF::decoderMultiThread (void)
   if (threads)
   {
       printf ("[lavc] Enabling MT decoder with %u threads\n", threads);
-
-      if (avcodec_thread_init (_context, threads) == -1)
-	      printf ("[lavc] Failed!!\n");
-	  else
-          _usingMT = 1;
+      _context->thread_count=threads;
+      _usingMT = 1;
   }
 }
 uint8_t decoderFF::getPARWidth (void)
@@ -225,7 +222,6 @@ decoderFF::~decoderFF ()
   if (_usingMT)
     {
       printf ("[lavc] Killing decoding threads\n");
-      avcodec_thread_free (_context);
       _usingMT = 0;
     }
 
