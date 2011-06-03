@@ -1,0 +1,14 @@
+--- libavcodec/vc1dec.c.orig	2011-04-26 23:58:23 +0100
++++ libavcodec/vc1dec.c	2011-05-10 21:01:54 +0100
+@@ -3390,6 +3390,11 @@
+         int mby_start;
+     } *slices = NULL;
+ 
++	/** MEANX **/
++	if(s->flags & CODEC_FLAG_LOW_DELAY)
++		s->low_delay = 1;
++	/** /MEANX **/
++
+     /* no supplementary picture */
+     if (buf_size == 0 || (buf_size == 4 && AV_RB32(buf) == VC1_CODE_ENDOFSEQ)) {
+         /* special case for last picture */
