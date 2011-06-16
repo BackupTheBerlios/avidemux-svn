@@ -428,11 +428,6 @@ ENDIF (ADM_UI_QT4)
 ###########################################
 IF (WIN32)
 	ADD_ADMLIB_ALL_TARGETS(ADM_osSupport)
-
-	IF (MINGW)
-		ADD_LIB_ALL_TARGETS(-mno-cygwin)
-	ENDIF (MINGW)
-
 	ADD_LIB_ALL_TARGETS(winmm)
 
 	ADD_TARGET_LDFLAGS(avidemux2_cli "-Wl,-subsystem,console")
@@ -457,7 +452,6 @@ ENDIF (APPLE)
 # Install
 ###########################################
 SET(ADM_EXES avidemux2_cli)
-
 
 IF (ADM_UI_QT4)
 	SET(ADM_EXES ${ADM_EXES} avidemux2_qt4)
