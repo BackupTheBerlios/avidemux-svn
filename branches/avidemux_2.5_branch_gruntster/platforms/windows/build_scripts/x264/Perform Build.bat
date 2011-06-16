@@ -29,7 +29,7 @@ rm -r -f %sourceFolder%
 if errorlevel 1 goto end
 
 echo Downloading from git
-git clone git://git.videolan.org/x264.git %sourceFolder%
+call git clone git://git.videolan.org/x264.git %sourceFolder%
 if errorlevel 1 goto end
 
 cd "%devDir%/%sourceFolder%"

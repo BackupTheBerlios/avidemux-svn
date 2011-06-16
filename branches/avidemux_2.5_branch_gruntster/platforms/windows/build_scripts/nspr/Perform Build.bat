@@ -20,15 +20,15 @@ verify >nul
 call "../Set Common Environment Variables"
 if errorlevel 1 goto end
 
-set package=nspr-4.8.6.tar.gz
-set sourceFolder=nspr-4.8.6-%BuildBits%
-set tarFolder=nspr-4.8.6
+set package=nspr-4.8.8.tar.gz
+set sourceFolder=nspr-4.8.8-%BuildBits%
+set tarFolder=nspr-4.8.8
 set curDir=%CD%
 
 if not exist %package% (
 	echo.
 	echo Downloading
-	wget ftp://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.8.6/src/%package%
+	wget ftp://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.8.8/src/%package%
 )
 
 if errorlevel 1 goto end
@@ -49,6 +49,10 @@ cd "%devDir%\%sourceFolder%"
 for /f "delims=" %%a in ('dir /b %tarFolder%') do (
 	move "%CD%\%tarFolder%\%%a" "%CD%"
 )
+
+echo.
+echo Patching
+patch -p0 -i "%curDir%\configure.patch"
 
 echo.
 echo Configuring
