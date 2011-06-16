@@ -420,13 +420,34 @@ void x264Options::setCabac(bool cabac)
 #if X264_BUILD > 101
 unsigned int x264Options::getOpenGopMode(void)
 {
+#if X264_BUILD > 114
+	if (_param.b_open_gop == 1)
+	{
+		if (_param.b_bluray_compat == 1)
+		{
+			return 2;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+
+	return 0;
+#else
 	return _param.i_open_gop;
+#endif
 }
 
 void x264Options::setOpenGopMode(unsigned int openGopMode)
 {
+#if X264_BUILD > 114
+	_param.b_open_gop = (openGopMode > 0 ? 1 : 0);
+	_param.b_bluray_compat = (openGopMode == 2 ? 1 : 0);
+#else
 	if (openGopMode < 3)
 		_param.i_open_gop = openGopMode;
+#endif
 }
 #endif
 

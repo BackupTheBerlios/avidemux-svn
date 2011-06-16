@@ -488,7 +488,10 @@ void x264Encoder::printParam(x264_param_t *x264Param)
 	printf("[x264] analyse.b_transform_8x8 = %d\n", x264Param->analyse.b_transform_8x8);
 	printf("[x264] analyse.inter = %d\n", x264Param->analyse.inter);
 	printf("[x264] b_cabac = %d\n", x264Param->b_cabac);
-#if X264_BUILD > 101
+#if X264_BUILD > 114
+	printf("[x264] b_open_gop = %d\n", x264Param->b_open_gop);
+	printf("[x264] b_bluray_compat = %d\n", x264Param->b_bluray_compat);
+#elif X264_BUILD > 101
 	printf("[x264] i_open_gop = %d\n", x264Param->i_open_gop);
 #endif
 	printf("[x264] b_interlaced = %d\n", x264Param->b_interlaced);
