@@ -10,6 +10,8 @@
 //
 //
 #include "config.h"
+#include "ADM_default.h"
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -26,7 +28,6 @@
 #include <string>
 #include "ADM_JSAvidemux.h"
 #include "ADM_JSGlobal.h"
-#include "ADM_default.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_editor/ADM_outputfmt.h"
 #include "ADM_audiofilter/audioeng_buildfilters.h"
