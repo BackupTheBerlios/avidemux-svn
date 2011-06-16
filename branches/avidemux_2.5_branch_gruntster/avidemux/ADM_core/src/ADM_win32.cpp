@@ -387,7 +387,7 @@ bool getWindowsVersion(char* version)
 
 	if (hKernel)
 	{
-		typedef bool (*funcIsWow64Process)(void*, bool*);  
+		typedef bool (__stdcall *funcIsWow64Process)(void*, bool*);  
 
 	    funcIsWow64Process pIsWow64Process = (funcIsWow64Process)GetProcAddress(hKernel, "IsWow64Process"); 
 
