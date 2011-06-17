@@ -1,7 +1,14 @@
 SET(ADM_core_SRCS 
 	ADM_cpuCap.cpp  ADM_memcpy.cpp  ADM_memsupport.cpp  ADM_threads.cpp  ADM_win32.cpp  ADM_translate.cpp
-	ADM_memory.cpp  ADM_misc.cpp  TLK_clock.cpp  ADM_crashdump.cpp  ADM_fileio.cpp ADM_dynamicLoading.cpp
-)
+	ADM_memory.cpp  ADM_misc.cpp  TLK_clock.cpp  ADM_fileio.cpp ADM_dynamicLoading.cpp)
+
+IF (MINGW)
+	SET(ADM_core_SRCS ${ADM_core_SRCS} ADM_crashdump_mswin.cpp)
+ELSEIF (APPLE)
+	SET(ADM_core_SRCS ${ADM_core_SRCS} ADM_crashdump_apple.cpp)
+ELSE (MINGW)
+	SET(ADM_core_SRCS ${ADM_core_SRCS} ADM_crashdump_unix.cpp)
+ENDIF (MINGW)
 
 ADD_LIBRARY(ADM_core SHARED ${ADM_core_SRCS})
 ADD_TARGET_DEFINITIONS(ADM_core ADM_DEBUG FIND_LEAKS)

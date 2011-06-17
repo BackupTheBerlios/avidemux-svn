@@ -14,20 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-#include <math.h>
-
-#ifdef __MINGW32__
 #include <windows.h>
-#include <excpt.h>
 #include <imagehlp.h>
-#else
-#include <cxxabi.h>
-#endif
 
 #include "ADM_default.h"
 
@@ -44,27 +32,6 @@ void ADM_setCrashHook(ADM_saveFunction *save, ADM_fatalFunction *fatal)
         myFatalFunction=fatal;
 }
 
-extern char *ADM_getBaseDir(void);
-extern void A_parseECMAScript(const char *name);
-
-#ifdef __APPLE__
-void installSigHandler() {}
-
-void ADM_backTrack(const char *info,int lineno,const char *file)
-{
-	char bfr[1024];
-
-	if (mysaveFunction)
-		mysaveFunction();
-
-	snprintf(bfr,1024,"%s\n file %s, line %d\n", info, file, lineno);
-
-	if(myFatalFunction)
-		myFatalFunction("Crash",bfr);
-
-	exit(-1);
-}
-#elif defined(__MINGW32__)
 typedef struct STACK_FRAME
 {
     STACK_FRAME* ebp;	// address of the calling function frame
@@ -278,86 +245,3 @@ EXCEPTION_DISPOSITION exceptionHandler(struct _EXCEPTION_RECORD* pExceptionRec, 
 
 	exit(1);
 }
-#else
-#include <signal.h>
-
-#ifndef __CYGWIN__
-#include <execinfo.h>
-#endif
-
-void sig_segfault_handler(int signo);
-void installSigHandler()
-{
-    signal(11, sig_segfault_handler); // show stacktrace on default
-}
-
-
-/**
-      \fn sig_segfault_handler
-      \brief our segfault handler
-
-*/
-void sig_segfault_handler(int signo)
-{
-     
-     static int running=0;
-      if(running) 
-      {
-        signo=0;
-        exit(1);
-      }
-      running=0; 
-      ADM_backTrack("Segfault",0,"??");
-}
-
-void ADM_backTrack(const char *info,int lineno,const char *file)
-{
-	char wholeStuff[2048];
-    char buffer[2048];
-    char in[2048];
-	void *stack[20];
-	char **functions;
-	int count, i;
-
-	wholeStuff[0]=0;
-
-	if(mysaveFunction)
-		mysaveFunction();
-
-#ifndef __CYGWIN__
-	printf("\n*********** BACKTRACK **************\n");
-
-	count = backtrace(stack, 20);
-	functions = backtrace_symbols(stack, count);
-	sprintf(wholeStuff,"%s\n at line %d, file %s",info,lineno,file);
-    int status;
-    size_t size=2047;
-    // it looks like that xxxx (functionName+0x***) XXXX
-	for (i=0; i < count; i++) 
-	{
-        char *s=strstr(functions[i],"(");
-        buffer[0]=0;
-        if(s && strstr(s+1,"+"))
-        {
-            strcpy(in,s+1);
-            char *e=strstr(in,"+");
-            *e=0;                
-            __cxxabiv1::__cxa_demangle(in,buffer,&size,&status);
-            if(status) strcpy(buffer,in);
-        }else       
-            strcpy(buffer,functions[i]);
-        printf("%s:%d:<%s>:%d\n",functions[i],i,buffer,status);
-		strcat(wholeStuff,buffer);
-		strcat(wholeStuff,"\n");
-	}
-
-	printf("*********** BACKTRACK **************\n");
-
-	if(myFatalFunction)
-		myFatalFunction("Crash", wholeStuff); // FIXME
-#endif	//__CYGWIN__
-
-	exit(-1); // _exit(1) ???
-}
-#endif
-//EOF
