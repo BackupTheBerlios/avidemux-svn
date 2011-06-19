@@ -428,7 +428,7 @@ ENDIF (ADM_UI_QT4)
 ###########################################
 IF (WIN32)
 	ADD_ADMLIB_ALL_TARGETS(ADM_osSupport)
-	ADD_LIB_ALL_TARGETS(winmm)
+	ADD_LIB_ALL_TARGETS(winmm -Wl,--export-all-symbols)
 
 	ADD_TARGET_LDFLAGS(avidemux2_cli "-Wl,-subsystem,console")
 

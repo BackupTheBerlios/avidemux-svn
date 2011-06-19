@@ -17,11 +17,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifdef __MINGW32__
-#include <windows.h>
-#include <excpt.h>
-#endif
-
 #include "config.h"
 #include "ADM_default.h"
 #include "ADM_threads.h"
@@ -47,9 +42,7 @@ extern "C" {
 #include "ADM_userInterfaces/ADM_render/GUI_sdlRender.h"
 #endif
 
-
 void onexit( void );
-//extern void automation(int argc, char **argv);
 
 extern void registerVideoFilters( void );
 extern void filterCleanUp( void );
@@ -69,13 +62,16 @@ extern uint8_t ADM_ae_loadPlugins(const char *path);
 extern void loadPlugins(void);
 extern void InitFactory(void);
 extern void InitCoreToolkit(void);
-#ifdef __MINGW32__
-extern EXCEPTION_DISPOSITION exceptionHandler(struct _EXCEPTION_RECORD* pExceptionRec, void* pEstablisherFrame, struct _CONTEXT* pContextRecord, void* pDispatcherContext);
+
+#if defined(_WIN64)
+extern LONG WINAPI ExceptionFilter(struct _EXCEPTION_POINTERS *exceptionInfo);
+#elif defined(_WIN32)
+extern EXCEPTION_DISPOSITION ExceptionHandler(struct _EXCEPTION_RECORD *exceptionRecord, void *establisherFrame, struct _CONTEXT *contextRecord, void *dispatcherContext);
 #else
 extern void installSigHandler(void);
 #endif
 
-#ifdef __WIN32
+#ifdef _WIN32
 extern bool getWindowsVersion(char* version);
 extern void redirectStdoutToFile(void);
 #endif
@@ -103,7 +99,7 @@ int main(int argc, char *argv[])
 	char uiDesc[15];
 	getUIDescription(uiDesc);
 
-#if defined(__WIN32)
+#if defined(_WIN32)
 	if (strcmp(uiDesc, "CLI") != 0)
 		redirectStdoutToFile();
 #endif
@@ -112,7 +108,7 @@ int main(int argc, char *argv[])
 	new_progname = argv[0];
 #endif
 
-#ifndef __MINGW32__
+#ifndef _WIN32
 	// thx smurf uk :)
     installSigHandler();
 #endif
@@ -141,7 +137,7 @@ int main(int argc, char *argv[])
 
 	printf("Build Target: ");
 
-#if defined(__WIN32)
+#if defined(_WIN32)
 	printf("Microsoft Windows");
 #elif defined(__APPLE__)
 	printf("Apple");
@@ -159,7 +155,7 @@ int main(int argc, char *argv[])
 
 	printf("\nUser Interface: %s\n", uiDesc);
 
-#ifdef __WIN32
+#ifdef _WIN32
 	char version[250];
 
 	if (getWindowsVersion(version))
@@ -188,7 +184,7 @@ int main(int argc, char *argv[])
 
 	atexit(onexit);
 
-#ifdef __MINGW32__
+#ifdef _WIN32
     win32_netInit();
 #endif
 
@@ -270,14 +266,16 @@ int main(int argc, char *argv[])
     else
 		ADM_assert(0); 
 
-#ifdef __MINGW32__
-	__try1(exceptionHandler);
+#if defined(_WIN64)
+	SetUnhandledExceptionFilter(ExceptionFilter);
+#elif defined(_WIN32)
+	__try1(ExceptionHandler);
 #endif
 
     UI_RunApp();
 
-#ifdef __MINGW32__
-	__except1(exceptionHandler);
+#if defined(_WIN32) && defined(_X86_)
+	__except1;
 #endif
 
     printf("Normal exit\n");
