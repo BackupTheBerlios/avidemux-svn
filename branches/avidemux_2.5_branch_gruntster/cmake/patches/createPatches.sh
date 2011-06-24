@@ -2,6 +2,7 @@
 
 export curDir=$PWD
 export ffmpegPath=../../avidemux/ADM_libraries/ffmpeg
+export origFfmpegPath=../ffmpeg-0.8
 
 function updatePatch {
 	#cd $ffmpegPath
@@ -18,8 +19,8 @@ function updatePatch {
 
 	cd $ffmpegPath
 	unix2dos $1/$2
-	unix2dos $1/$2.orig
-	diff -u $1/$2.orig $1/$2 > $curDir/$1_$2.patch
+	unix2dos $origFfmpegPath/$1/$2
+	diff -u $origFfmpegPath/$1/$2 $1/$2 > $curDir/$1_$2.patch
 	cd $curDir
 	dos2unix $1_$2.patch
 }

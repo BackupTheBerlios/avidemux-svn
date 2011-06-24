@@ -1,5 +1,5 @@
---- libavcodec/mpeg12enc.c.old	2010-12-20 13:49:24 +0000
-+++ libavcodec/mpeg12enc.c	2010-12-20 13:49:24 +0000
+--- ../ffmpeg-0.8/libavcodec/mpeg12enc.c	2011-06-23 20:23:54 +0100
++++ libavcodec/mpeg12enc.c	2011-06-23 20:23:54 +0100
 @@ -127,10 +127,19 @@
              s->frame_rate_index= i;
          }
@@ -156,7 +156,7 @@
 +
          put_header(s, EXT_START_CODE);
          put_bits(&s->pb, 4, 8); //pic ext
-         if (s->pict_type == FF_P_TYPE || s->pict_type == FF_B_TYPE) {
+         if (s->pict_type == AV_PICTURE_TYPE_P || s->pict_type == AV_PICTURE_TYPE_B) {
 @@ -393,11 +481,16 @@
  
          assert(s->picture_structure == PICT_FRAME);

@@ -375,32 +375,6 @@ static void *linux_kernel_memcpy(void *to, const void *from, size_t len) {
 }
 #endif /* ARCH_X86 */
 
-static struct {
-  const char *name;
-  void *(* function)(void *to, const void *from, size_t len);
-
-  uint64_t time; /* This type could be used for non-MSC build too! */
-
-  uint32_t cpu_require;
-} memcpy_method[] =
-{
-  { NULL, NULL, 0, 0 },
-  { "libc memcpy()", memcpy, 0, 0 },
-#if defined(ADM_CPU_X86)
-  { "linux kernel memcpy()", linux_kernel_memcpy, 0, 0 },
-#if defined(ADM_CPU_X86)
-  { "MMX optimized memcpy()", mmx_memcpy, 0, FF_MM_MMX },
-  { "MMXEXT optimized memcpy()", mmx2_memcpy, 0, FF_MM_MMXEXT },
-  { "SSE optimized memcpy()", sse_memcpy, 0, FF_MM_MMXEXT|FF_MM_SSE },
-#endif
-#endif /* ARCH_X86 */
-#if 0 && defined(ADM_CPU_PPC) && !defined (__APPLE__)
-  { "ppcasm_memcpy()", ppcasm_memcpy, 0, 0 },
-  { "ppcasm_cacheable_memcpy()", ppcasm_cacheable_memcpy, 0, FF_MM_ACCEL_PPC_CACHE32 },
-#endif /* ARCH_PPC && !HOST_OS_DARWIN */
-  { NULL, NULL, 0, 0 }
-};
-
 #if defined(ADM_CPU_X86)
 static unsigned long long int rdtsc(void)
 {

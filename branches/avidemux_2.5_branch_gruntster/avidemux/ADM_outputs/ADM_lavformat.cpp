@@ -190,8 +190,9 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 
 					 break;
                 case MUXER_MATROSKA:
-                        strcpy(oc->title,"Avidemux");
-                        strcpy(oc->author,"Avidemux");
+						av_dict_set(&oc->metadata, "title", "Avidemux", 0);
+						av_dict_set(&oc->metadata, "author", "Avidemux", 0);
+
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
@@ -225,11 +226,9 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                 case MUXER_MP4:
                 case MUXER_PSP:
                 {
-                        // probably a memeleak here
-                        char *foo=ADM_strdup(filename);
+                        av_dict_set(&oc->metadata, "title", ADM_GetFileName(filename), 0);
+						av_dict_set(&oc->metadata, "author", "Avidemux", 0);
 
-                        strcpy(oc->title,ADM_GetFileName(foo));
-                        strcpy(oc->author,"Avidemux");
                         if(isMpeg4Compatible(info->fcc))
                         {
                                 c->codec_id = CODEC_ID_MPEG4;
@@ -335,7 +334,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 			ADM_assert(0);
 	}
 
-	c->codec_type = CODEC_TYPE_VIDEO;
+	c->codec_type = AVMEDIA_TYPE_VIDEO;
 	c->flags=CODEC_FLAG_QSCALE;
 	c->width = info->width;
 	c->height = info->height;
@@ -442,7 +441,7 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
                           return 0;
                           break;
           }
-          c->codec_type = CODEC_TYPE_AUDIO;
+          c->codec_type = AVMEDIA_TYPE_AUDIO;
 
           c->bit_rate = audioheader->byterate*8;
           c->rc_buffer_size=(c->bit_rate/(2*8)); // 500 ms worth
@@ -546,7 +545,7 @@ uint8_t lavMuxer::writeAudioPacket(uint32_t len, uint8_t *buf,uint32_t sample)
             aprintf("Adm audio dts: %"LLU"\n",pkt.dts);
             //printf("F:%f Q:%u D=%u\n",f,pkt.pts,timeInUs-_lastAudioDts);
 
-            pkt.flags |= PKT_FLAG_KEY;
+            pkt.flags |= AV_PKT_FLAG_KEY;
             pkt.data= buf;
             pkt.size= len;
             pkt.stream_index=1;
@@ -640,12 +639,12 @@ uint8_t lavMuxer::writeVideoPacket(ADMBitstream *bitstream)
         if(_type==MUXER_MP4 || _type==MUXER_PSP || _type==MUXER_FLV || _type==MUXER_MATROSKA)
         {
             if(bitstream->flags & AVI_KEY_FRAME)
-                        pkt.flags |= PKT_FLAG_KEY;
+                        pkt.flags |= AV_PKT_FLAG_KEY;
         }else
             if(!bitstream->data[0] &&  !bitstream->data[1] && bitstream->data[2]==1)
 	{
             if(bitstream->data[3]==0xb3 || bitstream->data[3]==0xb8 ) // Seq start or gop start
-		pkt.flags |= PKT_FLAG_KEY;
+		pkt.flags |= AV_PKT_FLAG_KEY;
 		//printf("Intra\n");
 	}
     //printf("Adm video dts=:%u\n",pkt.dts);

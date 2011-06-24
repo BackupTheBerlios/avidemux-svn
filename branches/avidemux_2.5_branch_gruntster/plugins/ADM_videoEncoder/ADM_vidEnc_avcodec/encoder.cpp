@@ -358,7 +358,7 @@ int AvcodecEncoder::encodeFrame(vidEncEncodeParameters *encodeParams)
 		return ADM_VIDENC_ERR_CLOSED;
 
 	_frame.key_frame = 0;
-	_frame.pict_type = 0;
+	_frame.pict_type = (AVPictureType)0;
 
 	if (_supportedCsps[0] == ADM_CSP_YV12)
 	{
@@ -433,7 +433,6 @@ void AvcodecEncoder::printContext(void)
 	printf("height: %d\n", _context->height);
 	printf("gop_size: %d\n", _context->gop_size);
 	printf("pix_fmt: %d\n", _context->pix_fmt);
-	printf("rate_emu: %d\n", _context->rate_emu);
 	printf("frame_size: %d\n", _context->frame_size);
 	printf("frame_number: %d\n", _context->frame_number);
 	printf("delay: %d\n", _context->delay);
@@ -446,7 +445,7 @@ void AvcodecEncoder::printContext(void)
 	printf("b_quant_factor: %f\n", _context->b_quant_factor);
 	printf("rc_strategy: %d\n", _context->rc_strategy);
 	printf("b_frame_strategy: %d\n", _context->b_frame_strategy);
-	printf("hurry_up: %d\n", _context->hurry_up);
+	printf("skip_frame: %d\n", _context->skip_frame);
 	printf("rtp_payload_size: %d\n", _context->rtp_payload_size);
 	printf("mv_bits: %d\n", _context->mv_bits);
 	printf("header_bits: %d\n", _context->header_bits);
@@ -501,8 +500,6 @@ void AvcodecEncoder::printContext(void)
 	printf("sample_aspect_ratio: %d, %d\n", _context->sample_aspect_ratio.num, _context->sample_aspect_ratio.den);
 	printf("debug: %d\n", _context->debug);
 	printf("debug_mv: %d\n", _context->debug_mv);
-	printf("mb_qmin: %d\n", _context->mb_qmin);
-	printf("mb_qmax: %d\n", _context->mb_qmax);
 	printf("me_cmp: %d\n", _context->me_cmp);
 	printf("me_sub_cmp: %d\n", _context->me_sub_cmp);
 	printf("mb_cmp: %d\n", _context->mb_cmp);
@@ -578,7 +575,6 @@ void AvcodecEncoder::printContext(void)
 	printf("mv0_threshold: %d\n", _context->mv0_threshold);
 	printf("b_sensitivity: %d\n", _context->b_sensitivity);
 	printf("compression_level: %d\n", _context->compression_level);
-	printf("use_lpc: %d\n", _context->use_lpc);
 	printf("lpc_coeff_precision: %d\n", _context->lpc_coeff_precision);
 	printf("min_prediction_order: %d\n", _context->min_prediction_order);
 	printf("max_prediction_order: %d\n", _context->max_prediction_order);

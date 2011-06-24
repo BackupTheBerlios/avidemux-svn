@@ -60,7 +60,7 @@ uint8_t scratchPad[SCRATCH_PAD_SIZE];
     _channels=info->channels;
     _blockalign=_context->block_align = info->blockalign;
     _context->bit_rate = info->byterate*8;
-    _context->codec_type=CODEC_TYPE_AUDIO;
+    _context->codec_type = AVMEDIA_TYPE_AUDIO;
     switch(fourcc)
     {
       case WAV_WMA:

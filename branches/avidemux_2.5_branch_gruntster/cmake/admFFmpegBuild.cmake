@@ -1,7 +1,7 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 0.7-rc1)
-set(FFMPEG_SOURCE_ARCHIVE "ffmpeg-${FFMPEG_VERSION}.tar.gz")
+set(FFMPEG_VERSION 0.8)
+set(FFMPEG_SOURCE_ARCHIVE "ffmpeg-${FFMPEG_VERSION}.tar.bz2")
 set(FFMPEG_SOURCE_ARCHIVE_DIR "ffmpeg-${FFMPEG_VERSION}")
 
 #set(FFMPEG_VERSION 26061)	# http://git.ffmpeg.org/?p=ffmpeg;a=snapshot;h=2be4fa05c5528073bcfc472d1c23f2d77b679a9d;sf=tgz
@@ -18,6 +18,7 @@ set(FFMPEG_ENCODERS  ac3  ac3_fixed  ac3_float  dvvideo  ffv1  ffvhuff  flv  h26
 set(FFMPEG_MUXERS  flv  matroska  mpeg1vcd  mpeg2dvd  mpeg2svcd  mpegts  mov  mp4  psp)
 set(FFMPEG_PARSERS  ac3  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
+set(FFMPEG_FILTERS  buffersink)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-everything --enable-hwaccels --enable-postproc --enable-gpl 
 				  --enable-runtime-cpudetect --disable-network --disable-ffplay --disable-ffprobe --prefix=${CMAKE_INSTALL_PREFIX})
 
@@ -69,6 +70,10 @@ endforeach (parser)
 foreach (protocol ${FFMPEG_PROTOCOLS})
 	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-protocol=${protocol})
 endforeach (protocol)
+
+foreach (filter ${FFMPEG_FILTERS})
+	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-filter=${filter})
+endforeach (filter)
 
 if (WIN32)
 	if (ADM_CPU_X86_32)

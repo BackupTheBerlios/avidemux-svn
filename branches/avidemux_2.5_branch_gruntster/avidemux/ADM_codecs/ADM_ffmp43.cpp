@@ -278,16 +278,15 @@ uint32_t decoderFF::frameType (void)
 }
 uint8_t decoderFF::decodeHeaderOnly (void)
 {
-  if (codecId == CODEC_ID_H264)
-    _context->hurry_up = 4;
-  else
-    _context->hurry_up = 5;
-  printf ("\n[lavc] Hurry up\n");
+  _context->skip_frame = AVDISCARD_ALL;
+
+  printf ("\n[lavc] decode header only\n");
   return 1;
 }
 uint8_t decoderFF::decodeFull (void)
 {
-  _context->hurry_up = 0;
+  _context->skip_frame = AVDISCARD_DEFAULT;
+
   printf ("\n[lavc] full decoding\n");
   return 1;
 }
@@ -340,13 +339,13 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
 
   ret = avcodec_decode_video2(_context, &_frame, &got_picture, &avpkt);
   out->_qStride = 0;		//Default = no quant
-  if (0 > ret && !_context->hurry_up)
+  if (0 > ret && _context->skip_frame <= AVDISCARD_DEFAULT)
     {
       printf ("\n[lavc] error in FFMP43/mpeg4!\n");
       printf ("[lavc] Err: %d, size :%d\n", ret, in->dataLength);
       return 0;
     }
-  if (!got_picture && !_context->hurry_up)
+  if (!got_picture && _context->skip_frame <= AVDISCARD_DEFAULT)
     {
       // Some encoder code a vop header with the 
       // vop flag set to 0
@@ -385,7 +384,7 @@ uint8_t   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
       //return 1;
       return 0;
     }
-  if (_context->hurry_up)
+  if (_context->skip_frame > AVDISCARD_DEFAULT)
     {
       out->flags = frameType ();
       return 1;
@@ -601,7 +600,8 @@ extern "C" {int av_getAVCStreamInfo(AVCodecContext *avctx, uint32_t  *nalSize, u
 
 uint8_t   decoderFFH264::uncompress (ADMCompressedImage * in, ADMImage * out)
 {
-  if(!_context->hurry_up) return decoderFF::uncompress (in, out);
+  if (_context->skip_frame <= AVDISCARD_DEFAULT)
+	  return decoderFF::uncompress (in, out);
   
   uint32_t nalSize, isAvc;
   av_getAVCStreamInfo(_context,&nalSize,&isAvc);

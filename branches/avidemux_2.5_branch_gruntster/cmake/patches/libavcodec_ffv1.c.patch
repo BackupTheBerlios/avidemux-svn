@@ -1,6 +1,6 @@
---- libavcodec/ffv1.c.old	2010-12-20 13:49:20 +0000
-+++ libavcodec/ffv1.c	2010-12-20 13:49:20 +0000
-@@ -1734,6 +1734,8 @@
+--- ../ffmpeg-0.8/libavcodec/ffv1.c	2011-06-23 20:23:53 +0100
++++ libavcodec/ffv1.c	2011-06-23 20:23:53 +0100
+@@ -1783,6 +1783,8 @@
          clear_state(f);
      }else{
          p->key_frame= 0;

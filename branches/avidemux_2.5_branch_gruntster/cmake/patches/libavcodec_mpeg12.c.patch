@@ -1,6 +1,6 @@
---- libavcodec/mpeg12.c.orig	2011-05-10 22:40:29 +0100
-+++ libavcodec/mpeg12.c	2011-05-10 22:40:29 +0100
-@@ -1999,6 +1999,11 @@
+--- ../ffmpeg-0.8/libavcodec/mpeg12.c	2011-06-23 20:23:54 +0100
++++ libavcodec/mpeg12.c	2011-06-23 20:23:54 +0100
+@@ -1998,6 +1998,11 @@
          ff_er_frame_end(s);
  
          MPV_frame_end(s);
@@ -10,5 +10,5 @@
 +/* MEANX */
 +
  
-         if (s->pict_type == FF_B_TYPE || s->low_delay) {
+         if (s->pict_type == AV_PICTURE_TYPE_B || s->low_delay) {
              *pict= *(AVFrame*)s->current_picture_ptr;
