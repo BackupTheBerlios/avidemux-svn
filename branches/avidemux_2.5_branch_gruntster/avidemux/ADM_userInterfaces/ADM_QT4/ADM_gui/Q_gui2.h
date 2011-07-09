@@ -2,6 +2,7 @@
 #define Q_gui2_h
 
 #include <QtCore/QFileInfo>
+#include <QtCore/QUrl>
 #include <QtGui/QSlider>
 #include <QtGui/QWidget>
 #include <QtGui/QMenu>
@@ -53,5 +54,6 @@ protected:
 	void dropEvent(QDropEvent *event);
 	void closeEvent(QCloseEvent *event);
 	void addDirEntryToMenu(QMenu *parentMenu, QString path);
+	void openFiles(QList<QUrl>);
 };
 #endif	// Q_gui2_h

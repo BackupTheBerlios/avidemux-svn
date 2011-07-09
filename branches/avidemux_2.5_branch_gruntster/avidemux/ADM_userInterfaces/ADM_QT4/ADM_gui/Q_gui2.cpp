@@ -14,7 +14,6 @@
 #include "config.h"
 #undef QT_TR_NOOP
 
-#include <QtCore/QUrl>
 #include <QtCore/QDir>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QGraphicsView>
@@ -106,10 +105,17 @@ int UI_readCurTime(uint16_t &hh, uint16_t &mm, uint16_t &ss, uint16_t &ms);
 void UI_updateFrameCount(uint32_t curFrame);
 void UI_updateTimeCount(uint32_t curFrame,uint32_t fps);
 extern void UI_purge(void);
-/*
-    Declare the class that will be our main window
 
-*/
+class FileDropEvent : public QEvent
+{
+public:
+	QList<QUrl> files;
+
+	FileDropEvent(QList<QUrl> files) : QEvent(QEvent::User)
+	{
+		this->files = files;
+	}
+};
 
 void MainWindow::comboChanged(int z)
 {
@@ -480,6 +486,9 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 			}
 
 			break;
+		case QEvent::User:
+			this->openFiles(((FileDropEvent*)event)->files);
+			break;
 	}
 
 	return QObject::eventFilter(watched, event);
@@ -498,30 +507,31 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 
 void MainWindow::dropEvent(QDropEvent *event)
 {
-	QList<QUrl> urlList;
-	QString fileName;
-	QFileInfo info;
-
 	if (event->mimeData()->hasUrls())
 	{
-		urlList = event->mimeData()->urls();
+		QCoreApplication::postEvent(this, new FileDropEvent(event->mimeData()->urls()));
 
-		for (int fileIndex = 0; fileIndex < urlList.size(); fileIndex++)
+		event->acceptProposedAction();
+	}
+}
+
+void MainWindow::openFiles(QList<QUrl> urlList)
+{
+	QFileInfo info;
+
+	for (int fileIndex = 0; fileIndex < urlList.size(); fileIndex++)
+	{
+		QString fileName = urlList[fileIndex].toLocalFile();
+		QFileInfo info(fileName);
+
+		if (info.isFile())
 		{
-			fileName = urlList[fileIndex].toLocalFile();
-			info.setFile(fileName);
-
-			if (info.isFile())
-			{
-				if (avifileinfo)
-					FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
-				else
-					FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_openAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
-			}
+			if (avifileinfo)
+				FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
+			else
+				FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_openAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
 		}
 	}
-
-	event->acceptProposedAction();
 }
 
 void MainWindow::previousIntraFrame(void)
