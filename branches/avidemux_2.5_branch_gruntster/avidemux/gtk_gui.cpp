@@ -70,9 +70,9 @@ void A_saveImg (const char *name);
 void A_saveBunchJpg( const char *name);
 void A_requantize(void);
 int A_saveJpg (char *name);
-int A_loadWave (char *name);
-int A_loadAC3 (char *name);
-int A_loadMP3 (char *name);
+int A_loadWave (const char *name);
+int A_loadAC3 (const char *name);
+int A_loadMP3 (const char *name);
 int A_loadNone( void );
 void A_saveAudioDecodedTest (char *name);
 int A_openAvi2 (const char *name, uint8_t mode);
@@ -95,7 +95,6 @@ uint8_t GUI_getDoubleValue (double *valye, float min, float max,
 			    const char *title);
 extern void GUI_setMarks (uint32_t a, uint32_t b);
 extern void saveMpegFile (char *name);
-//static void A_selectEncoder ( void );
 extern uint8_t A_SaveAudioDualAudio (const char *a);
 
 void A_Resync(void);
@@ -341,15 +340,6 @@ int nw;
       cleanUp (); 
       exit (0);
       break;
-/*			case ACT_SelectEncoder:
-				
-						A_selectEncoder();
-  	  			return;
-						break;*/
-    case ACT_SelectEncoder:
-      GUI_Error_HIG (QT_TR_NOOP("Obsolete"), NULL);
-      break;
-
     default:
       break;
 
@@ -1390,14 +1380,7 @@ void A_saveImg (const char *name)
         GUI_Error_HIG (QT_TR_NOOP("BMP op failed"),QT_TR_NOOP( "Saving %s as a BMP file failed."), ADM_GetFileName(name));
 }
 
-//_____________________________________________________________
-//
-//              Load AC3
-//
-//
-//_____________________________________________________________
-int
-A_loadAC3 (char *name)
+int A_loadAC3 (const char *name)
 {
 	char *path = ADM_fixupPath(name);
 
@@ -1409,13 +1392,13 @@ A_loadAC3 (char *name)
 
   if (ac3->open (path) == 0)
     {
-      GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not a WAV file?"));
-      printf ("%s", QT_TR_NOOP("WAV open file failed..."));
+      GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not an AC3 file?"));
+      printf("AC3 open file failed...");
       delete ac3;
 	  delete [] path;
       return 0;
     }
-  //currentaudiostream=wav;
+
   A_changeAudioStream (ac3, AudioAC3,path);
   wavinfo = currentaudiostream->getInfo ();
   delete [] path;
@@ -1426,13 +1409,7 @@ int A_loadNone( void )
  	A_changeAudioStream ((AVDMGenericAudioStream *) NULL, AudioNone,NULL);
 }
 
-//_____________________________________________________________
-//
-//              Load MP3 and identify wavfmt infos to fill avi header
-//              -> use mad ?
-//
-//_____________________________________________________________
-int A_loadMP3(char *name)
+int A_loadMP3(const char *name)
 {
 	char *path = ADM_fixupPath(name);
 
@@ -1442,27 +1419,20 @@ int A_loadMP3(char *name)
 
     if (mp3->open(path) == 0)
       {
+		  GUI_Error_HIG (QT_TR_NOOP("Failed to open the file"), QT_TR_NOOP("Not an MP3 file?"));
           printf("MP3 open file failed...");
           delete mp3;
 		  delete [] path;
           return 0;
       }
 
-    //currentaudiostream=mp3;
     A_changeAudioStream(mp3, AudioMP3,path);
     wavinfo = currentaudiostream->getInfo();
 	delete [] path;
     return 1;
 }
-//_____________________________________________________________
-//
-//              Load wave
-//              
-//
-//_____________________________________________________________
 
-int
-A_loadWave (char *name)
+int A_loadWave (const char *name)
 {
 	char *path = ADM_fixupPath(name);
 
@@ -1487,6 +1457,48 @@ A_loadWave (char *name)
   delete [] path;
   return 1;
 }
+
+bool loadAudio(const char *filename)
+{
+	AudioSource audioType = AudioInvalid;
+	bool loaded = false;
+
+	if (avifileinfo)
+	{
+		AVDMMP3AudioStream *mp3 = new AVDMMP3AudioStream();
+		AVDMAC3AudioStream *ac3 = new AVDMAC3AudioStream();
+		AVDMWavAudioStream *wav = new AVDMWavAudioStream();	
+
+		if (audioType == AudioInvalid && mp3->open(filename))
+			audioType = AudioMP3;
+
+		if (audioType == AudioInvalid && ac3->open(filename))
+			audioType = AudioAC3;
+
+		if (audioType == AudioInvalid && wav->open(filename))
+			audioType = AudioWav;
+
+		delete mp3;
+		delete ac3;
+		delete wav;
+	}
+
+	switch (audioType)
+	{
+		case AudioMP3:
+			loaded = A_loadMP3(filename);
+			break;
+		case AudioAC3:
+			loaded = A_loadAC3(filename);
+			break;
+		case AudioWav:
+			loaded = A_loadWave(filename);
+			break;
+	}
+
+	return loaded;
+}
+
 AudioSource getCurrentAudioSource(char **name)
 {
         *name=currentAudioName;

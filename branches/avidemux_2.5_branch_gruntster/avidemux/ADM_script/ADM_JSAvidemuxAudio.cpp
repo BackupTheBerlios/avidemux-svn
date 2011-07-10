@@ -21,9 +21,9 @@
 #include "ADM_JSAudioTrackInfo.h"
 
 extern int A_audioSave(char *name);
-extern int A_loadAC3 (char *name);
-extern int A_loadMP3 (char *name);
-extern int A_loadWave (char *name);
+extern int A_loadAC3 (const char *name);
+extern int A_loadMP3 (const char *name);
+extern int A_loadWave (const char *name);
 extern AudioSource currentAudioSource;
 extern AudioSource secondAudioSource;
 extern void HandleAction(Action act);

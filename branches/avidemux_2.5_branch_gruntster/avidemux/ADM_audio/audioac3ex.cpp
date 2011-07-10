@@ -19,17 +19,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <sstream>
-#include "ADM_assert.h"
-#include <math.h>
 
+#include "ADM_assert.h"
 #include "avifmt.h"
 #include "aviaudio.hxx"
 #include "ADM_audio/audioex.h"
 
 #include "ADM_audio/ADM_a52info.h"
 
-uint8_t AVDMAC3AudioStream::open(char *name)
+uint8_t AVDMAC3AudioStream::open(const char *name)
 {
 uint8_t syncbuff[10*1024];
 uint32_t fq,br,l,chan;

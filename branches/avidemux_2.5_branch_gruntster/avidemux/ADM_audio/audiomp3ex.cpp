@@ -18,17 +18,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <stream.h>
-#include "ADM_assert.h"
-#include <math.h>
 
+#include "ADM_assert.h"
 #include "avifmt.h"
 #include "aviaudio.hxx"
 #include "ADM_audio/audioex.h"      
 
-
-
-uint8_t AVDMMP3AudioStream::open(char *name)
+uint8_t AVDMMP3AudioStream::open(const char *name)
 {
     //int a, b, c;
 	uint8_t buffer[2048],*ptr;

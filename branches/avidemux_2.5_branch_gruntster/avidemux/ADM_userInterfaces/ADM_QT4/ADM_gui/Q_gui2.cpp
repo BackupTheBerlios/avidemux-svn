@@ -32,6 +32,7 @@
 #include "gtkgui.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_userInterfaces/ADM_render/GUI_renderInternal.h"
+#include "ADM_audiofilter/audioeng_buildfilters.h"
 
 extern int global_argc;
 extern char **global_argv;
@@ -57,6 +58,7 @@ extern char *actual_workbench_file;
 extern void FileSel_ReadWrite(SELFILE_CB *cb, int rw, const char *name, const char *actual_workbench_file);
 extern bool A_parseECMAScript(const char *name);
 extern void saveCrashProject(void);
+extern bool loadAudio(const char *filename);
 
 int SliderIsShifted=0;
 static void setupMenus(void);
@@ -527,9 +529,16 @@ void MainWindow::openFiles(QList<QUrl> urlList)
 		if (info.isFile())
 		{
 			if (avifileinfo)
-				FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
+			{
+				if (!loadAudio(fileName.toUtf8().constData()))
+				{
+					FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
+				}
+			}
 			else
+			{
 				FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_openAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
+			}
 		}
 	}
 }

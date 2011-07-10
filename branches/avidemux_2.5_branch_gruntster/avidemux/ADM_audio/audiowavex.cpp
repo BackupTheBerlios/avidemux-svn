@@ -39,7 +39,7 @@
   	Try to open the Wav file
 		Gather informations
 _________________________________________*/
-uint8_t AVDMWavAudioStream::open(char *name)
+uint8_t AVDMWavAudioStream::open(const char *name)
 {
     uint32_t t32;
     fd = fopen(name, "rb");

@@ -22,7 +22,7 @@ class AVDMMP3AudioStream  : public AVDMFileStream
  public:
  			     AVDMMP3AudioStream( void ) :  AVDMFileStream() {};
          		~AVDMMP3AudioStream() { abort();}
-           	virtual uint8_t open(char *name);
+           	virtual uint8_t open(const char *name);
 } ;
 
 class AVDMWavAudioStream  : public AVDMFileStream
@@ -30,7 +30,7 @@ class AVDMWavAudioStream  : public AVDMFileStream
  public:
  			     AVDMWavAudioStream( void ) :  AVDMFileStream() {};
          		~AVDMWavAudioStream() { abort();}
-           	virtual uint8_t open(char *name);
+           	virtual uint8_t open(const char *name);
 }  ;
 
 class AVDMAC3AudioStream  : public AVDMFileStream
@@ -38,6 +38,6 @@ class AVDMAC3AudioStream  : public AVDMFileStream
  public:
  			     AVDMAC3AudioStream( void ) :  AVDMFileStream() {};
          		~AVDMAC3AudioStream() { abort();}
-           	virtual uint8_t open(char *name);
+           	virtual uint8_t open(const char *name);
 }  ;
 
