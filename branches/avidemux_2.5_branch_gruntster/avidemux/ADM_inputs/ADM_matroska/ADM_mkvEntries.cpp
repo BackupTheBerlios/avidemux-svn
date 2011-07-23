@@ -179,7 +179,11 @@ entryDesc entry;
       {
          uint32_t  streamIndex;
          mkvTrak *t=&(_tracks[1+_nbAudioTrack]);
-
+         if(!entry.fq)
+         {
+            printf("Warning : Zero frequency! Replacing it by 48000 hz, that might be incorrect\n");
+            entry.fq=48000; 
+         }
          t->wavHeader.encoding=entry.fcc;
          t->wavHeader.channels=entry.chan;
          t->wavHeader.frequency=entry.fq;
