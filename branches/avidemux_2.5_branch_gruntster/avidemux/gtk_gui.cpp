@@ -76,7 +76,7 @@ int A_loadMP3 (const char *name);
 int A_loadNone( void );
 void A_saveAudioDecodedTest (char *name);
 int A_openAvi2 (const char *name, uint8_t mode);
-int A_appendAvi (const char *name);
+int A_appendAvi (const char *name, bool silent = 0);
 void A_externalAudioTrack( void );
 
 void HandleAction (Action action);
@@ -1121,35 +1121,42 @@ void  updateLoaded ()
 //___________________________________________
 //  Append an AVI to the existing one
 //___________________________________________
-int
-A_appendAvi (const char *name)
+int	A_appendAvi (const char *name, bool silent)
 {
 	char *path = ADM_fixupPath(name);
 
-  if (playing)
-    return 0;
-  DIA_StartBusy ();
-  if (!video_body->addFile (path))
-    {
-      DIA_StopBusy ();
-      GUI_Error_HIG (QT_TR_NOOP("Something failed when appending"), NULL);
-	  delete [] path;
-      return 0;
-    }
-  delete [] path;
-  DIA_StopBusy ();
+	if (playing)
+		return 0;
 
+	DIA_StartBusy ();
 
-  video_body->dumpSeg ();
-  if (!video_body->updateVideoInfo (avifileinfo))
-    {
-      GUI_Error_HIG (QT_TR_NOOP("Something bad happened (II)"), NULL);
-      return 0;
-    }
+	if (!video_body->addFile (path))
+	{
+		DIA_StopBusy ();
 
-  ReSync ();
-  UI_setMarkers (frameStart, frameEnd);
-  return 1;
+		if (!silent)
+			GUI_Error_HIG (QT_TR_NOOP("Something failed when appending"), NULL);
+
+		delete [] path;
+		return 0;
+	}
+
+	delete [] path;
+	DIA_StopBusy ();
+
+	video_body->dumpSeg ();
+	if (!video_body->updateVideoInfo (avifileinfo))
+	{
+		if (!silent)
+			GUI_Error_HIG (QT_TR_NOOP("Something bad happened (II)"), NULL);
+
+		return 0;
+	}
+
+	ReSync ();
+	UI_setMarkers (frameStart, frameEnd);
+
+	return 1;
 }
 
 //

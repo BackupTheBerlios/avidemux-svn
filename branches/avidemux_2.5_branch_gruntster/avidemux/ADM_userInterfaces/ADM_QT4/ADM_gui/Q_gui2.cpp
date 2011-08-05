@@ -53,7 +53,7 @@ extern void initTranslator(void);
 extern void destroyTranslator(void);
 extern ADM_RENDER_TYPE UI_getPreferredRender(void);
 extern int A_openAvi(const char *name);
-extern int A_appendAvi(const char *name);
+extern int A_appendAvi(const char *name, bool silent);
 extern char *actual_workbench_file;
 extern void FileSel_ReadWrite(SELFILE_CB *cb, int rw, const char *name, const char *actual_workbench_file);
 extern bool A_parseECMAScript(const char *name);
@@ -530,9 +530,9 @@ void MainWindow::openFiles(QList<QUrl> urlList)
 		{
 			if (avifileinfo)
 			{
-				if (!loadAudio(fileName.toUtf8().constData()))
+				if (!A_appendAvi(fileName.toUtf8().constData(), 1))
 				{
-					FileSel_ReadWrite(reinterpret_cast <void (*)(const char *)> (A_appendAvi), 0, fileName.toUtf8().data(), actual_workbench_file);
+					loadAudio(fileName.toUtf8().constData());
 				}
 			}
 			else

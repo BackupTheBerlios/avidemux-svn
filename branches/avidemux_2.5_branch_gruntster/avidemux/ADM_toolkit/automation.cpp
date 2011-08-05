@@ -49,7 +49,7 @@ extern void filterListAll(void );
 extern uint8_t loadVideoCodecConf( const char *name);
 extern int A_saveBunchJpg(const char *name);
 extern void filterLoadXml(const char *n);
-extern int A_appendAvi (const char *name);
+extern int A_appendAvi (const char *name, bool silent = 0);
 extern void A_saveAudio(char *name);
 extern int A_loadNone( void );
 extern void A_saveAudioDecodedTest(char *name);

@@ -76,7 +76,7 @@ static std::stack<gchar*> autoWizardStack;
 static uint32_t ADM_nbCustom=0;
 // Needed for DND
 // extern int A_openAvi (char *name);
-extern int A_appendAvi (const char *name);
+extern int A_appendAvi (const char *name, bool silent = 0);
 extern bool A_parseECMAScript(const char *name);
 
 static void on_audio_change(void);

@@ -26,7 +26,7 @@
 
 extern int A_openAvi (const char *name);
 extern int A_Save (const char *name);
-extern int A_appendAvi (const char *name);
+extern int A_appendAvi (const char *name, bool silent = 0);
 extern uint8_t ogmSave(char *name);
 extern int GUI_GoToFrame(uint32_t frame);
 extern int filterLoadXml(const char *docname,uint8_t silent);
