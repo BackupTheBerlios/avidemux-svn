@@ -18,7 +18,6 @@ set(FFMPEG_ENCODERS  ac3  ac3_fixed  ac3_float  dvvideo  ffv1  ffvhuff  flv  h26
 set(FFMPEG_MUXERS  flv  matroska  mpeg1vcd  mpeg2dvd  mpeg2svcd  mpegts  mov  mp4  psp)
 set(FFMPEG_PARSERS  ac3  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
-set(FFMPEG_FILTERS  buffersink)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-everything --enable-hwaccels --enable-postproc --enable-gpl 
 				  --enable-runtime-cpudetect --disable-network --disable-ffplay --disable-ffprobe --prefix=${CMAKE_INSTALL_PREFIX})
 
@@ -70,10 +69,6 @@ endforeach (parser)
 foreach (protocol ${FFMPEG_PROTOCOLS})
 	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-protocol=${protocol})
 endforeach (protocol)
-
-foreach (filter ${FFMPEG_FILTERS})
-	set(FFMPEG_FLAGS ${FFMPEG_FLAGS} --enable-filter=${filter})
-endforeach (filter)
 
 if (WIN32)
 	if (ADM_CPU_X86_32)
