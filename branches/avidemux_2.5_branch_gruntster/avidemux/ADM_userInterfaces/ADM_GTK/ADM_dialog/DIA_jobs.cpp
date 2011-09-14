@@ -108,7 +108,7 @@ GtkCellRenderer *renderer;
         //
          
         int running=1;
-        gtk_widget_set_usize(WID(treeview1), 180, 300);
+        //gtk_widget_set_usize(WID(treeview1), -1, -1);
         while(running)
         {
                 int sel=0,event;
@@ -260,6 +260,7 @@ create_dialog1 (void)
   gtk_box_pack_start (GTK_BOX (dialog_vbox1), hbox1, TRUE, TRUE, 0);
 
   scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_set_size_request (dialog1, 500, 250);
   gtk_widget_show (scrolledwindow1);
   gtk_box_pack_start (GTK_BOX (hbox1), scrolledwindow1, TRUE, TRUE, 0);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -268,7 +269,7 @@ create_dialog1 (void)
   treeview1 = gtk_tree_view_new ();
   gtk_widget_show (treeview1);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
-  //gtk_widget_set_size_request (treeview1, 300, -1);
+  gtk_widget_set_size_request (treeview1, 500, 250);
 
   vbuttonbox1 = gtk_vbutton_box_new ();
   gtk_widget_show (vbuttonbox1);
