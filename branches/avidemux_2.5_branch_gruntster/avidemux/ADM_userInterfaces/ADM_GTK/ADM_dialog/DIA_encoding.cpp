@@ -496,7 +496,7 @@ create_dialog1 (void)
   GtkWidget *label67;
 
   dialog1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_widget_set_size_request (dialog1, 500, -1);
+  gtk_widget_set_size_request (dialog1, -1, -1);
   gtk_container_set_border_width (GTK_CONTAINER (dialog1), 12);
   gtk_window_set_title (GTK_WINDOW (dialog1), QT_TR_NOOP("Encoding..."));
   gtk_window_set_position (GTK_WINDOW (dialog1), GTK_WIN_POS_CENTER_ON_PARENT);
