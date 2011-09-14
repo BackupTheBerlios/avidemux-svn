@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="el_GR" sourcelanguage="en">
 <context>
     <name></name>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="69"/>
         <source>0</source>
-        <translation type="unfinished">0</translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="11"/>
@@ -37,14 +37,14 @@
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="177"/>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="339"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="124"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="172"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="140"/>
         <source>Cannot initialize the video stream</source>
-        <translation type="unfinished">Αδύνατη η  αρχικοποίηση της ροής βίντεο</translation>
+        <translation>Αδύνατη η  αρχικοποίηση της ροής βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="129"/>
@@ -62,14 +62,14 @@
         <location filename="../avidemux/gtk_gui.cpp" line="2057"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2156"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="138"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="186"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="175"/>
         <source>Filter init failed</source>
-        <translation type="unfinished">Η αρχικοποίηση του φίλτρου απέτυχε</translation>
+        <translation>Η αρχικοποίηση του φίλτρου απέτυχε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="142"/>
@@ -88,7 +88,7 @@
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="266"/>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="444"/>
         <source>Error while encoding</source>
-        <translation type="unfinished">Σφάλμα κατά την κωδικοποίηση</translation>
+        <translation>Σφάλμα κατά την κωδικοποίηση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="202"/>
@@ -105,108 +105,102 @@
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="456"/>
         <source>The beginning frame is not a key frame.
 Please move the A marker.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="166"/>
         <source>_Use systray while encoding</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="167"/>
         <source>_Accept non-standard audio frequency for DVD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="168"/>
         <source>Create _OpenDML files</source>
-        <translation type="unfinished">Δημιουργία αρχείων _OpenDML</translation>
+        <translation>Δημιουργία αρχείων _OpenDML</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="169"/>
         <source>Automatically _index MPEG files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="170"/>
         <source>Automatically _swap A and B if A&gt;B</source>
-        <translation type="unfinished">Αυτόματη _εναλλαγή A και B, αν A&gt;B</translation>
+        <translation>Αυτόματη _εναλλαγή A και B, αν A&gt;B</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="171"/>
         <source>_Disable NUV audio sync</source>
-        <translation type="unfinished">_Απενεργοποίηση συγχρονισμού ήχου NUV</translation>
+        <translation>_Απενεργοποίηση συγχρονισμού ήχου NUV</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="173"/>
         <source>Automatically _build VBR map</source>
-        <translation type="unfinished">Αυτόματο χτίσιμο του χάρτη VBR</translation>
+        <translation>Αυτόματο χτίσιμο του χάρτη VBR</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="174"/>
         <source>Automatically _rebuild index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="175"/>
         <source>Automatically remove _packed bitstream</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="177"/>
         <source>SIMD</source>
-        <translation type="unfinished">SIMD</translation>
+        <translation>SIMD</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="179"/>
         <source>Enable all SIMD</source>
-        <translation type="unfinished">Ενεργοποίηση όλων των SIMD</translation>
+        <translation>Ενεργοποίηση όλων των SIMD</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="180"/>
         <source>Enable MMX</source>
-        <translation type="unfinished">Ενεργοποίηση MMX</translation>
+        <translation>Ενεργοποίηση MMX</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="181"/>
         <source>Enable MMXEXT</source>
-        <translation type="unfinished">Ενεργοποίηση MMXEXT</translation>
+        <translation>Ενεργοποίηση MMXEXT</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="182"/>
         <source>Enable 3DNOW</source>
-        <translation type="unfinished">Ενεργοποίηση 3DNOW</translation>
+        <translation>Ενεργοποίηση 3DNOW</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="183"/>
         <source>Enable 3DNOWEXT</source>
-        <translation type="unfinished">Ενεργοποίηση 3DNOWEXT</translation>
+        <translation>Ενεργοποίηση 3DNOWEXT</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="184"/>
         <source>Enable SSE</source>
-        <translation type="unfinished">Ενεργοποίηση SSE</translation>
+        <translation>Ενεργοποίηση SSE</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="185"/>
         <source>Enable SSE2</source>
-        <translation type="unfinished">Ενεργοποίηση SSE2</translation>
+        <translation>Ενεργοποίηση SSE2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="186"/>
         <source>Enable SSE3</source>
-        <translation type="unfinished">Ενεργοποίηση SSE3</translation>
+        <translation>Ενεργοποίηση SSE3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="187"/>
         <source>Enable SSSE3</source>
-        <translation type="unfinished">Ενεργοποίηση SSSE3</translation>
+        <translation>Ενεργοποίηση SSSE3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="208"/>
@@ -221,48 +215,47 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="215"/>
         <source>Above normal</source>
-        <translation type="unfinished">Πάνω από το κανονικό</translation>
+        <translation>Πάνω από το κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="217"/>
         <source>Below normal</source>
-        <translation type="unfinished">Κάτω από το κανονικό</translation>
+        <translation>Κάτω από το κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="218"/>
         <source>Low</source>
-        <translation type="unfinished">Χαμηλή</translation>
+        <translation>Χαμηλή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="220"/>
         <source>_Encoding priority:</source>
-        <translation type="unfinished">_Προτεραιότητα κωδικοποίησης:</translation>
+        <translation>_Προτεραιότητα κωδικοποίησης:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="221"/>
         <source>_Indexing/unpacking priority:</source>
-        <translation type="unfinished">Προτεραιότητα δημιουργίας ευρετηρίου/απο-πακεταρίσματος:</translation>
+        <translation>Προτεραιότητα δημιουργίας ε_υρετηρίου/απο-πακεταρίσματος:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="222"/>
         <source>_Playback priority:</source>
-        <translation type="unfinished">Προτεραιότητα _αναπαραγωγής:</translation>
+        <translation>Προτεραιότητα _αναπαραγωγής:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="224"/>
         <source>Prioritisation</source>
-        <translation type="unfinished">Ορισμός Προτεραιοτήτων</translation>
+        <translation>Ορισμός Προτεραιοτήτων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="229"/>
         <source>_Use alternative tag for MP3 in .mp4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="233"/>
         <source>XVideo (best)</source>
-        <translation type="unfinished">XVideo (καλύτερο)</translation>
+        <translation>XVideo (καλύτερο)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="237"/>
@@ -277,27 +270,27 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="240"/>
         <source>SDL (good)</source>
-        <translation type="unfinished">SDL (καλό)</translation>
+        <translation>SDL (καλό)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="244"/>
         <source>Video _display:</source>
-        <translation type="unfinished">_Εμφάνιση βίντεο:</translation>
+        <translation>_Εμφάνιση βίντεο:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="249"/>
         <source>No alerts</source>
-        <translation type="unfinished">Χωρίς ειδοποιήσεις</translation>
+        <translation>Χωρίς ειδοποιήσεις</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="250"/>
         <source>Display only error alerts</source>
-        <translation type="unfinished">Προβολή μόνο των ειδοποιήσεων σφάλματος</translation>
+        <translation>Προβολή μόνο των ειδοποιήσεων σφάλματος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="251"/>
         <source>Display all alerts</source>
-        <translation type="unfinished">Προβολή όλων των ειδοποιήσεων</translation>
+        <translation>Προβολή όλων των ειδοποιήσεων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="253"/>
@@ -307,12 +300,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="259"/>
         <source>Master</source>
-        <translation type="unfinished">Πρωτεύων</translation>
+        <translation>Πρωτεύων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="260"/>
         <source>_Volume control:</source>
-        <translation type="unfinished">_Έλεγχος Έντασης Ήχου:</translation>
+        <translation>_Έλεγχος Έντασης Ήχου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="265"/>
@@ -322,12 +315,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="267"/>
         <source>Pro Logic</source>
-        <translation type="unfinished">Pro Logic</translation>
+        <translation>Pro Logic</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="268"/>
         <source>Pro Logic II</source>
-        <translation type="unfinished">Pro Logic II</translation>
+        <translation>Pro Logic II</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="270"/>
@@ -347,12 +340,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="290"/>
         <source>_Strength:</source>
-        <translation type="unfinished">_Ισχύς:</translation>
+        <translation>_Ισχύς:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="291"/>
         <source>Default Postprocessing</source>
-        <translation type="unfinished">Προεπιλεγμένη Μετεπεξεργασία</translation>
+        <translation>Προεπιλεγμένη Μετεπεξεργασία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="298"/>
@@ -362,34 +355,33 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="299"/>
         <source>Gl_yphSet:</source>
-        <translation type="unfinished">Gl_yphSet:</translation>
+        <translation>Gl_yphSet:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="308"/>
         <source>Automation</source>
-        <translation type="unfinished">Αυτοματοποίηση</translation>
+        <translation>Αυτοματοποίηση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="312"/>
         <source>Input</source>
-        <translation type="unfinished">Είσοδος</translation>
+        <translation>Είσοδος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="316"/>
         <source>Output</source>
-        <translation type="unfinished">Έξοδος</translation>
+        <translation>Έξοδος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="324"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2056"/>
         <source>Video</source>
-        <translation type="unfinished">Βίντεο</translation>
+        <translation>Βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="332"/>
         <source>Threading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="336"/>
@@ -399,22 +391,22 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="340"/>
         <source>Preferences</source>
-        <translation type="unfinished">Προτιμήσεις</translation>
+        <translation>Προτιμήσεις</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="214"/>
         <source>High</source>
-        <translation type="unfinished">Υψηλή</translation>
+        <translation>Υψηλή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="37"/>
         <source>_Background Image:</source>
-        <translation type="unfinished">_Εικόνα Παρασκηνίου:</translation>
+        <translation>_Εικόνα Παρασκηνίου:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="37"/>
         <source>Select background image</source>
-        <translation type="unfinished">Επιλογή Εικόνας Παρασκηνίου</translation>
+        <translation>Επιλογή Εικόνας Παρασκηνίου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="38"/>
@@ -424,73 +416,72 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="39"/>
         <source>Vignette _Width:</source>
-        <translation type="unfinished">_Πλάτος Διακοσμητικού Πλαισίου:</translation>
+        <translation>_Πλάτος Διακοσμητικού Πλαισίου:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="40"/>
         <source>Vignette _Height:</source>
-        <translation type="unfinished">_Ύψος Διακοσμητικού Πλαισίου:</translation>
+        <translation>_Ύψος Διακοσμητικού Πλαισίου:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="43"/>
         <source>Vignette frame number</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="47"/>
         <source>Timecode:</source>
-        <translation type="unfinished">Χρόνος:</translation>
+        <translation>Χρόνος:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="48"/>
         <source>_Dynamic range compression</source>
-        <translation type="unfinished">Συμπίεση _Δυναμικής Περιοχής</translation>
+        <translation>Συμπίεση _Δυναμικής Περιοχής</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="50"/>
         <source>_Time shift (ms):</source>
-        <translation type="unfinished">_Χρονική Μετατόπιση (ms):</translation>
+        <translation>_Χρονική Μετατόπιση (ms):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="50"/>
         <source>Time shift value (ms)</source>
-        <translation type="unfinished">Μέγεθος χρονικής μετατόπισης (ms)</translation>
+        <translation>Μέγεθος χρονικής μετατόπισης (ms)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="58"/>
         <source>R_esampling (Hz):</source>
-        <translation type="unfinished">Ε_παναδειγματοληψία (Hz):</translation>
+        <translation>Ε_παναδειγματοληψία (Hz):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="58"/>
         <source>Resampling frequency (Hz)</source>
-        <translation type="unfinished">Συχνότητα επανακωδικοποίησης (Hz)</translation>
+        <translation>Συχνότητα επανακωδικοποίησης (Hz)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="67"/>
         <source>Film to PAL</source>
-        <translation type="unfinished">Από Film σε PAL</translation>
+        <translation>Από Film σε PAL</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="68"/>
         <source>PAL to Film</source>
-        <translation type="unfinished">Από PAL σε Film</translation>
+        <translation>Από PAL σε Film</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="71"/>
         <source>_Frame rate change:</source>
-        <translation type="unfinished">Αλλαγή _ταχύτητας καρέ:</translation>
+        <translation>Αλλαγή _ταχύτητας καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="76"/>
         <source>Automatic (max -3 dB)</source>
-        <translation type="unfinished">Αυτόματο (μέγιστο -3 dB)</translation>
+        <translation>Αυτόματο (μέγιστο -3 dB)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="77"/>
         <source>Manual</source>
-        <translation type="unfinished">Με το χέρι</translation>
+        <translation>Με το χέρι</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="79"/>
@@ -500,24 +491,24 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="81"/>
         <source>G_ain value:</source>
-        <translation type="unfinished">Τιμή _κέρδους:</translation>
+        <translation>Τιμή _κέρδους:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="83"/>
         <source>Gain</source>
-        <translation type="unfinished">Κέρδος</translation>
+        <translation>Κέρδος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="88"/>
         <source>No change</source>
-        <translation type="unfinished">Καμία αλαγή</translation>
+        <translation>Καμία αλαγή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="89"/>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="290"/>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="213"/>
         <source>Mono</source>
-        <translation type="unfinished">Μονοφωνικό</translation>
+        <translation>Μονοφωνικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="90"/>
@@ -525,57 +516,57 @@ Please move the A marker.</source>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="288"/>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="211"/>
         <source>Stereo</source>
-        <translation type="unfinished">Στέρεο</translation>
+        <translation>Στέρεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="91"/>
         <source>Stereo+surround</source>
-        <translation type="unfinished">Στέρεο+τετρακάναλος</translation>
+        <translation>Στέρεο+περιμετρικός</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="92"/>
         <source>Stereo+center</source>
-        <translation type="unfinished">Στέρεο+κέντρο</translation>
+        <translation>Στέρεο+κέντρο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="93"/>
         <source>Stereo+center+surround</source>
-        <translation type="unfinished">Στέρεο+κέντρο+τετρακάναλος</translation>
+        <translation>Στέρεο+κέντρο+περιμετρικός</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="94"/>
         <source>Stereo front+stereo rear</source>
-        <translation type="unfinished">Στέρεο εμπρός + στέρεο πίσω</translation>
+        <translation>Στέρεο εμπρός + στέρεο πίσω</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="95"/>
         <source>5 channels</source>
-        <translation type="unfinished">5 κανάλια</translation>
+        <translation>5 κανάλια</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="96"/>
         <source>5.1</source>
-        <translation type="unfinished">5.1</translation>
+        <translation>5.1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="97"/>
         <source>Dolby Pro Logic</source>
-        <translation type="unfinished">Dolby Pro Logic</translation>
+        <translation>Dolby Pro Logic</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="98"/>
         <source>Dolby Pro Logic II</source>
-        <translation type="unfinished">Dolby Pro Logic II</translation>
+        <translation>Dolby Pro Logic II</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="101"/>
         <source>_Mixer:</source>
-        <translation type="unfinished">_Μίκτης: </translation>
+        <translation>_Μίκτης: </translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="105"/>
         <source>Audio Filters</source>
-        <translation type="unfinished">Φίλτρα Ήχου</translation>
+        <translation>Φίλτρα Ήχου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp" line="244"/>
@@ -585,7 +576,7 @@ Please move the A marker.</source>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="227"/>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="310"/>
         <source>_Bitrate:</source>
-        <translation type="unfinished">_Ρυθμός bit:</translation>
+        <translation>_Ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp" line="250"/>
@@ -598,17 +589,17 @@ Please move the A marker.</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="55"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="124"/>
         <source>No data</source>
-        <translation type="unfinished">Δεν υπάρχουν δεδομένα</translation>
+        <translation>Δεν υπάρχουν δεδομένα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="210"/>
         <source>Max. bitrate:</source>
-        <translation type="unfinished">Μέγιστος ρυθμός bit:</translation>
+        <translation>Μέγιστος ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="211"/>
         <source>Average bitrate:</source>
-        <translation type="unfinished">Μέσος όρος ρυθμού bit:</translation>
+        <translation>Μέσος όρος ρυθμού bit:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="212"/>
@@ -633,88 +624,88 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="228"/>
         <source>Bitrate Histogram</source>
-        <translation type="unfinished">Ιστόγραμμα Ρυθμού Bit</translation>
+        <translation>Ιστόγραμμα Ρυθμού Bit</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="80"/>
         <source>Fontconfig</source>
-        <translation type="unfinished">Ρύθμιση γραμματοσειράς (Fontconfig)</translation>
+        <translation>Ρύθμιση γραμματοσειράς (Fontconfig)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="81"/>
         <source>Gettext</source>
-        <translation type="unfinished">Gettext</translation>
+        <translation>Gettext</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="82"/>
         <source>SDL</source>
-        <translation type="unfinished">SDL</translation>
+        <translation>SDL</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="83"/>
         <source>XVideo</source>
-        <translation type="unfinished">XVideo</translation>
+        <translation>XVideo</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="85"/>
         <source>AltiVec</source>
-        <translation type="unfinished">AltiVec</translation>
+        <translation>AltiVec</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="86"/>
         <source>PowerPC</source>
-        <translation type="unfinished">PowerPC</translation>
+        <translation>PowerPC</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="87"/>
         <source>x86</source>
-        <translation type="unfinished">x86</translation>
+        <translation>x86</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="88"/>
         <source>x86-64</source>
-        <translation type="unfinished">x86-64</translation>
+        <translation>x86-64</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="95"/>
         <source>Libraries</source>
-        <translation type="unfinished">Βιβλιοθήκες</translation>
+        <translation>Βιβλιοθήκες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="96"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="328"/>
         <source>CPU</source>
-        <translation type="unfinished">CPU</translation>
+        <translation>CPU</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="100"/>
         <source>Built-in Support</source>
-        <translation type="unfinished">Ενσωματωμένη Υποστήριξη</translation>
+        <translation>Ενσωματωμένη Υποστήριξη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="9"/>
         <source>_Hours:</source>
-        <translation type="unfinished">_Ώρες:</translation>
+        <translation>_Ώρες:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="10"/>
         <source>_Minutes:</source>
-        <translation type="unfinished">_Λεπτά:</translation>
+        <translation>_Λεπτά:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="11"/>
         <source>_Seconds:</source>
-        <translation type="unfinished">_Δευτερόλεπτα:</translation>
+        <translation>_Δευτερόλεπτα:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="14"/>
         <source>Go to Time</source>
-        <translation type="unfinished">Μετάβαση στο Χρόνο</translation>
+        <translation>Μετάβαση στο Χρόνο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="7"/>
         <source>_Job name:</source>
-        <translation type="unfinished">_Όνομα διαδικασίας:</translation>
+        <translation>_Όνομα διαδικασίας:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="8"/>
@@ -729,13 +720,13 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="11"/>
         <source>Save Job</source>
-        <translation type="unfinished">Αποθήκευση διαδικασίας</translation>
+        <translation>Αποθήκευση διαδικασίας</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="27"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="22"/>
         <source>_Swap U and V</source>
-        <translation type="unfinished">_Εναλλαγή U και V</translation>
+        <translation>_Εναλλαγή U και V</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="28"/>
@@ -745,50 +736,50 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="30"/>
         <source>Decoder Options</source>
-        <translation type="unfinished">Επιλογές Αποκωδικοποιητή</translation>
+        <translation>Επιλογές Αποκωδικοποιητή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="304"/>
         <source>User Interface</source>
-        <translation type="unfinished">Περιβάλλον Εργασίας</translation>
+        <translation>Περιβάλλον Εργασίας</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="289"/>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="212"/>
         <source>Joint stereo</source>
-        <translation type="unfinished">Ενωμένο στέρεο</translation>
+        <translation>Ενωμένο στέρεο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="293"/>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="228"/>
         <source>C_hannel mode:</source>
-        <translation type="unfinished">Κατάσταση λειτουργίας C_hannel:</translation>
+        <translation>Κατάσταση λειτουργίας C_hannel:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="297"/>
         <source>CBR</source>
-        <translation type="unfinished">CBR</translation>
+        <translation>CBR</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="298"/>
         <source>ABR</source>
-        <translation type="unfinished">ABR</translation>
+        <translation>ABR</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="300"/>
         <source>Extreme</source>
-        <translation type="unfinished">Ακραίο</translation>
+        <translation>Ακραίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="303"/>
         <source>Bit_rate mode:</source>
-        <translation type="unfinished">Κατάσταση Λειτουργίας _Ρυθμού Bit:</translation>
+        <translation>Κατάσταση Λειτουργίας _Ρυθμού Bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="323"/>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="311"/>
         <source>_Quality:</source>
-        <translation type="unfinished">_Ποιότητα:</translation>
+        <translation>_Ποιότητα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="325"/>
@@ -798,29 +789,29 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="329"/>
         <source>LAME Configuration</source>
-        <translation type="unfinished">Ρύθμιση LAME</translation>
+        <translation>Ρύθμιση LAME</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="21"/>
         <source>_Filter strength:</source>
-        <translation type="unfinished">Ένταση _φίλτρου:</translation>
+        <translation>Ένταση _φίλτρου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="32"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="287"/>
         <source>_Horizontal deblocking</source>
-        <translation type="unfinished">Οριζόντια αφαίρεση κομματιών</translation>
+        <translation>Οριζόντια αφαίρεση κομματιών</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="33"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="288"/>
         <source>_Vertical deblocking</source>
-        <translation type="unfinished">Κατακόρυφη αφαίρεση κομματιών</translation>
+        <translation>Κατακόρυφη αφαίρεση κομματιών</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="34"/>
         <source>_Deringing</source>
-        <translation type="unfinished">Φίλτρο αφαίρεσης δακτυλίων</translation>
+        <translation>Φίλτρο αφαίρεσης δακτυλίων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="38"/>
@@ -830,7 +821,7 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="32"/>
         <source>_Shrink Factor:</source>
-        <translation type="unfinished">_Συντελεστής σμίκρυνσης:</translation>
+        <translation>_Συντελεστής σμίκρυνσης:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="35"/>
@@ -840,59 +831,59 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="322"/>
         <source>NTSC 4:3</source>
-        <translation type="unfinished">NTSC 4:3</translation>
+        <translation>NTSC 4:3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="323"/>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="324"/>
         <source>NTSC 16:9</source>
-        <translation type="unfinished">NTSC 16:9</translation>
+        <translation>NTSC 16:9</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="325"/>
         <source>PAL 4:3</source>
-        <translation type="unfinished">PAL 4:3</translation>
+        <translation>PAL 4:3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="326"/>
         <source>PAL 16:9</source>
-        <translation type="unfinished">PAL 16:9</translation>
+        <translation>PAL 16:9</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="327"/>
         <source>1:1</source>
-        <translation type="unfinished">1:1</translation>
+        <translation>1:1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="329"/>
         <source>Unknown</source>
-        <translation type="unfinished">Άγνωστο</translation>
+        <translation>Άγνωστο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="32"/>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="38"/>
         <source>Auto (might not work)</source>
-        <translation type="unfinished">Αυτόματο (ίσως να μη λειτουργήσει)</translation>
+        <translation>Αυτόματο (ίσως να μη λειτουργήσει)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="33"/>
         <source>Top field first</source>
-        <translation type="unfinished">Πρώτα το επάνω πεδίο</translation>
+        <translation>Πρώτα το επάνω πεδίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="34"/>
         <source>Bottom field first</source>
-        <translation type="unfinished">Πρώτα το κάτω πεδίο</translation>
+        <translation>Πρώτα το κάτω πεδίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="39"/>
         <source>Bottom field (keep top)</source>
-        <translation type="unfinished">Κάτω πεδίο (διατήρηση του πάνω)</translation>
+        <translation>Κάτω πεδίο (διατήρηση του πάνω)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="40"/>
         <source>Top field (keep bottom)</source>
-        <translation type="unfinished">Πάνω πεδίο (διατήρηση του κάτω)</translation>
+        <translation>Πάνω πεδίο (διατήρηση του κάτω)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="45"/>
@@ -902,7 +893,7 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="46"/>
         <source>Modified ELA</source>
-        <translation type="unfinished">Μεταποιημένη ELA</translation>
+        <translation>Μεταποιημένη ELA</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="47"/>
@@ -912,7 +903,7 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="48"/>
         <source>Modified ELA-2</source>
-        <translation type="unfinished">Μεταποιημένη ELA-2</translation>
+        <translation>Μεταποιημένη ELA-2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="53"/>
@@ -927,14 +918,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="55"/>
         <source>4 fields check (no avg)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="56"/>
         <source>5 fields check (no avg)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="62"/>
@@ -949,22 +938,22 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="64"/>
         <source>Y to UV</source>
-        <translation type="unfinished">από Y σε UV</translation>
+        <translation>από Y σε UV</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="65"/>
         <source>UV to Y</source>
-        <translation type="unfinished">από UV σε Y</translation>
+        <translation>από UV σε Y</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="70"/>
         <source>1</source>
-        <translation type="unfinished">1</translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="71"/>
         <source>2</source>
-        <translation type="unfinished">2</translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="78"/>
@@ -979,27 +968,27 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="81"/>
         <source>_Type:</source>
-        <translation type="unfinished">_Τύπος:</translation>
+        <translation>_Τύπος:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="82"/>
         <source>_MntMode:</source>
-        <translation type="unfinished">_ΛειτουργίαMnt:</translation>
+        <translation>_ΛειτουργίαMnt:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="83"/>
         <source>_Link:</source>
-        <translation type="unfinished">_Δεσμός:</translation>
+        <translation>_Δεσμός:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="84"/>
         <source>_AP type:</source>
-        <translation type="unfinished">Τύπος _AP:</translation>
+        <translation>Τύπος _AP:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="87"/>
         <source>Use ch_roma to evalute</source>
-        <translation type="unfinished">Χρήση του ch_roma για να γίνει εκτίμηση</translation>
+        <translation>Χρήση του ch_roma για να γίνει εκτίμηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="88"/>
@@ -1009,29 +998,27 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="89"/>
         <source>_Denoise</source>
-        <translation type="unfinished">_Αοπθορυβοποίηση</translation>
+        <translation>_Αοπθορυβοποίηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="90"/>
         <source>_Sharp</source>
-        <translation type="unfinished">_Οξύ</translation>
+        <translation>_Οξύ</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="91"/>
         <source>_Evalute all frames</source>
-        <translation type="unfinished">_Εκτίμηση όλων των καρέ</translation>
+        <translation>_Εκτίμηση όλων των καρέ</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="94"/>
         <source>Motion threshold, l_uma:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="95"/>
         <source>Motion threshold, c_hroma:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="96"/>
@@ -1046,59 +1033,58 @@ Please move the A marker.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="98"/>
         <source>Artefact _protection threshold:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="99"/>
         <source>Debug:</source>
-        <translation type="unfinished">Αποσφαλμάτωση:</translation>
+        <translation>Αποσφαλμάτωση:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/ADM_vidTdeint.cpp" line="154"/>
         <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="108"/>
         <source>TDeint</source>
-        <translation type="unfinished">TDeint</translation>
+        <translation>TDeint</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Tdeint/ADM_vidTdeint.cpp" line="157"/>
         <source>Motion adaptative deinterlacer by Tritical.</source>
-        <translation type="unfinished">Προσαρμοζώμενος αποπλεκτής κίνησης από τον Tritical.</translation>
+        <translation>Προσαρμοζώμενος αποπλεκτής κίνησης από τον Tritical.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="35"/>
         <source>_VOB file(s):</source>
-        <translation type="unfinished">Αρχείο(-α) _VOB:</translation>
+        <translation>Αρχείο(-α) _VOB:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="35"/>
         <source>Select VOB file(s)</source>
-        <translation type="unfinished">Επιλογή αρχείου(-ων) VOB</translation>
+        <translation>Επιλογή αρχείου(-ων) VOB</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="36"/>
         <source>_IFO file:</source>
-        <translation type="unfinished">_Αρχείο IFO:</translation>
+        <translation>_Αρχείο IFO:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="36"/>
         <source>Select IFO file</source>
-        <translation type="unfinished">Επιλογή αρχείου IFO</translation>
+        <translation>Επιλογή αρχείου IFO</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="37"/>
         <source>VobSub file:</source>
-        <translation type="unfinished">Αρχείο VobSub:</translation>
+        <translation>Αρχείο VobSub:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="37"/>
         <source>Select VobSub file</source>
-        <translation type="unfinished">Επιλογή αρχείου VobSub</translation>
+        <translation>Επιλογή αρχείου VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="42"/>
         <source>VOB to VobSub</source>
-        <translation type="unfinished">από VOB σε VobSub</translation>
+        <translation>από VOB σε VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="46"/>
@@ -1109,12 +1095,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="56"/>
         <source>Please select a correct VobSub path/dir</source>
-        <translation type="unfinished">Παρακαλώ επέλεξε τη σωστή διαδρομή/κατάλογο για VobSub</translation>
+        <translation>Παρακαλώ επέλεξε τη σωστή διαδρομή/κατάλογο για VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="260"/>
         <source>Select ECMAScript to Run</source>
-        <translation type="unfinished">Επέλεξε ECMAScript προς Εκτέλεση</translation>
+        <translation>Επέλεξε ECMAScript προς Εκτέλεση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="291"/>
@@ -1129,12 +1115,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="347"/>
         <source>Obsolete</source>
-        <translation type="unfinished">Ξεπερασμένο</translation>
+        <translation>Ξεπερασμένο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="375"/>
         <source>Not coded in this version</source>
-        <translation type="unfinished">Δεν κωδικοποιήθηκε σε αυτή την έκδοση</translation>
+        <translation>Δεν κωδικοποιήθηκε σε αυτή την έκδοση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="390"/>
@@ -1145,78 +1131,78 @@ Please move the A marker.</source>
         <location filename="../avidemux/gtk_gui.cpp" line="434"/>
         <location filename="../avidemux/gtk_gui.cpp" line="446"/>
         <source>Select Workbench to Save</source>
-        <translation type="unfinished">Επέλεξε Workbench για Αποθήκευση</translation>
+        <translation>Επέλεξε Workbench για Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="476"/>
         <source>Select Raw File to Save</source>
-        <translation type="unfinished">Επέλεξε Ανεπεξέργαστο Αρχείο για Αποθήκευση</translation>
+        <translation>Επέλεξε Ανεπεξέργαστο Αρχείο για Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="486"/>
         <source>Select AVI File...</source>
-        <translation type="unfinished">Επιλέξτε αρχείο AVI...</translation>
+        <translation>Επιλέξτε αρχείο AVI...</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="489"/>
         <source>Select AVI File to Append...</source>
-        <translation type="unfinished">Επιλέξτε ένα αρχείο AVI για προσκόλληση...</translation>
+        <translation>Επιλέξτε ένα αρχείο AVI για προσκόλληση...</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="493"/>
         <source>Select File to Save Audio</source>
-        <translation type="unfinished">Επέλεξε Αρχείο για την Αποθήκευση του Ήχου</translation>
+        <translation>Επέλεξε Αρχείο για την Αποθήκευση του Ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="527"/>
         <source>Select JPEG Sequence to Save</source>
-        <translation type="unfinished">Επέλεξε την Ακολουθία JPEG για Αποθήκευση</translation>
+        <translation>Επέλεξε την Ακολουθία JPEG για Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="530"/>
         <source>Select BMP to Save</source>
-        <translation type="unfinished">Επιλογή BMP για να Φορτωθεί</translation>
+        <translation>Επιλογή BMP για να Φορτωθεί</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="534"/>
         <source>Select JPEG to Save</source>
-        <translation type="unfinished">Επέλεξε JPEG για Αποθήκευση</translation>
+        <translation>Επέλεξε JPEG για Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="599"/>
         <location filename="../avidemux/gtk_gui.cpp" line="722"/>
         <source>Select File to Save</source>
-        <translation type="unfinished">Επιλογή αρχείου για να Φορτωθεί</translation>
+        <translation>Επιλογή αρχείου για να Φορτωθεί</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="663"/>
         <source>Select MP3 to Load</source>
-        <translation type="unfinished">Επιλογή MP3 για να Φορτωθεί</translation>
+        <translation>Επιλογή MP3 για να Φορτωθεί</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="666"/>
         <source>Select AC3 to Load</source>
-        <translation type="unfinished">Επιλογή AC3 για να Φορτωθεί</translation>
+        <translation>Επιλογή AC3 για να Φορτωθεί</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="669"/>
         <source>Select WAV to Load</source>
-        <translation type="unfinished">Επιλογή WAV για να Φορτωθεί</translation>
+        <translation>Επιλογή WAV για να Φορτωθεί</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="709"/>
         <source>Go to Frame</source>
-        <translation type="unfinished">Μετάβαση στο Καρέ</translation>
+        <translation>Μετάβαση στο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="709"/>
         <source>_Go to frame:</source>
-        <translation type="unfinished">_Μετάβαση στο Καρέ:</translation>
+        <translation>_Μετάβαση στο Καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="714"/>
         <source>Out of bounds</source>
-        <translation type="unfinished">Εκτός ορίων</translation>
+        <translation>Εκτός ορίων</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="720"/>
@@ -1224,7 +1210,7 @@ Please move the A marker.</source>
         <location filename="../avidemux/gtk_gui.cpp" line="775"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1967"/>
         <source>Marker A &gt; B</source>
-        <translation type="unfinished">Δείκτης Α &gt; B</translation>
+        <translation>Δείκτης Α &gt; B</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="720"/>
@@ -1234,17 +1220,17 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="728"/>
         <source>Cannot copy.</source>
-        <translation type="unfinished">Αδύνατη η αντιγραφή</translation>
+        <translation>Αδύνατη η αντιγραφή.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="740"/>
         <source>Something bad happened (II))</source>
-        <translation type="unfinished">Κάτι στραβό έχει γίνει (II))</translation>
+        <translation>Κάτι στραβό έχει γίνει (II))</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="754"/>
         <source>Are you sure?</source>
-        <translation type="unfinished">Είσαι σίγουρος/η;</translation>
+        <translation>Είσαι σίγουρος/η;</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="775"/>
@@ -1259,7 +1245,7 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="819"/>
         <source>Frame Rate</source>
-        <translation type="unfinished">Ταχύτητα Καρέ</translation>
+        <translation>Ταχύτητα Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="819"/>
@@ -1294,12 +1280,12 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="868"/>
         <source>Width is not a multiple of 8</source>
-        <translation type="unfinished">Το πλάτος δεν είναι πολλαπλάσιο του 8</translation>
+        <translation>Το πλάτος δεν είναι πολλαπλάσιο του 8</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="869"/>
         <source>This will make trouble for AVI files.</source>
-        <translation type="unfinished">Αυτό θα δημιουργήσει προβλήματα στα αρχεία AVI.</translation>
+        <translation>Αυτό θα δημιουργήσει προβλήματα στα αρχεία AVI.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="880"/>
@@ -1319,12 +1305,16 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="941"/>
         <source>Permission error</source>
-        <translation type="unfinished">Σφάλμα δικαιωμάτων   </translation>
+        <translation>Σφάλμα δικαιωμάτων   </translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="944"/>
         <source>&quot;%s&quot; does not exist.</source>
-        <translation type="unfinished">&quot;%s&quot; δεν υπάρχει.</translation>
+        <translation variants="yes">
+            <lengthvariant>Δεν υπάρχει το αρχείο
+ &quot;%s&quot;</lengthvariant>
+            <lengthvariant></lengthvariant>
+        </translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="947"/>
@@ -1339,108 +1329,109 @@ Please move the A marker.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="991"/>
         <source>Cannot open project using the video loader.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα της εργασίας με τη χρήση του φορτωτή βίντεο.</translation>
+        <translation>Αδύνατο το άνοιγμα της εργασίας με τη χρήση του φορτωτή βίντεο.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="992"/>
         <source>Try &apos;File&apos; -&gt; &apos;Load/Run Project...&apos;</source>
-        <translation type="unfinished">Δοκίμασε «Αρχείο» -&gt; «Φόρτωση/Εκτέλεση Εργασίας...»</translation>
+        <translation>Δοκίμασε «Αρχείο» -&gt; «Φόρτωση/Εκτέλεση Εργασίας...»</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="994"/>
         <source>Could not open the file</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα του αρχείου</translation>
+        <translation>Αδύνατο το άνοιγμα του αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1028"/>
         <source>Multiple Audio Tracks</source>
-        <translation type="unfinished">Πολλαπλά Κανάλια Ήχου</translation>
+        <translation>Πολλαπλά Κανάλια Ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1028"/>
         <source>The file you just loaded contains several audio tracks.
 Go to Audio-&gt;MainTrack to select the active one.</source>
-        <translation type="unfinished">Το αρχείο που μόλις φορτώθηκε περιέχει διάφορα κανάλια ήχου.
+        <translation>Το αρχείο που μόλις φορτώθηκε περιέχει διάφορα κανάλια ήχου.
 Πήγαινε στο «Ήχος» -&gt; «Κύριο Κανάλι» για να επιλέξεις πιο θα είναι ενεργό.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1082"/>
         <source>No audio decoder found for this file</source>
-        <translation type="unfinished">Δεν βρέθηκε αποκωδικοποιητής ήχου για αυτό το αρχείο</translation>
+        <translation>Δεν βρέθηκε αποκωδικοποιητής ήχου για αυτό το αρχείο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1083"/>
         <source>Save (A+V) will generate bad AVI. Save audio will work.</source>
-        <translation type="unfinished">Η αποθήκευση (ήχος+βίντεο) θα δημιουργήσει προβληματικό AVI. Η αποθήκευση ήχου θα λειτουργήσει.</translation>
+        <translation>Η αποθήκευση (ήχος+βίντεο) θα δημιουργήσει προβληματικό AVI.
+Η αποθήκευση ήχου θα λειτουργήσει.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1142"/>
         <source>Something failed when appending</source>
-        <translation type="unfinished">Κάτι απέτυχε στην προσκόληση</translation>
+        <translation>Κάτι απέτυχε στην προσκόληση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1153"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1986"/>
         <source>Something bad happened (II)</source>
-        <translation type="unfinished">Κάτι στραβό συνέβη (II)</translation>
+        <translation>Κάτι στραβό συνέβη (II)</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1217"/>
         <source>Cannot save the audio in copy mode</source>
-        <translation type="unfinished">Αδύνατη η αποθήκευση του ήχου σε λειτουργία κατάστασης αντιγραφής</translation>
+        <translation>Αδύνατη η αποθήκευση του ήχου σε λειτουργία κατάστασης αντιγραφής</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1217"/>
         <source>Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.</source>
-        <translation type="unfinished">Επέλεξε το WAV PCM ως κώδικα ήχου, διαφορετικά το αρχείο ήχου θα είναι ανεπεξέργαστο PCM.</translation>
+        <translation>Επέλεξε το WAV PCM ως κώδικα ήχου, διαφορετικά το αρχείο ήχου θα είναι ανεπεξέργαστο PCM.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1225"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1593"/>
         <source>Saving audio</source>
-        <translation type="unfinished">Αποθήκευση ήχου</translation>
+        <translation>Αποθήκευση ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1302"/>
         <source>Get Frame</source>
-        <translation type="unfinished">Λήψη Καρέ</translation>
+        <translation>Λήψη Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1302"/>
         <source>Cannot get this frame to save</source>
-        <translation type="unfinished">Δεν μπορεί να επιτευχθεί η αποθήκευση αυτού του καρέ</translation>
+        <translation>Δεν μπορεί να επιτευχθεί η αποθήκευση αυτού του καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1340"/>
         <source>Mark A &gt; B</source>
-        <translation type="unfinished">Δείκτης A &gt; B</translation>
+        <translation>Δείκτης A &gt; B</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1340"/>
         <source>Set your markers correctly.</source>
-        <translation type="unfinished">Όρισε τους δείκτες σου σωστά.</translation>
+        <translation>Όρισε τους δείκτες σου σωστά.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1349"/>
         <source>Saving as set of jpegs</source>
-        <translation type="unfinished">Αποθήκευση ως μια ομάδα από jpeg</translation>
+        <translation>Αποθήκευση ως μια ομάδα από jpeg</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1355"/>
         <source>Cannot decode frame</source>
-        <translation type="unfinished">Αδύνατη η αποκωδικοποίηση του καρέ</translation>
+        <translation>Αδύνατη η αποκωδικοποίηση του καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1355"/>
         <source>Aborting.</source>
-        <translation type="unfinished">Εγκατάλειψη.</translation>
+        <translation>Εγκατάλειψη.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1366"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1385"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2330"/>
         <source>Done</source>
-        <translation type="unfinished">Έγινε</translation>
+        <translation>Έγινε</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1366"/>
@@ -1450,179 +1441,179 @@ Go to Audio-&gt;MainTrack to select the active one.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1368"/>
         <source>Error</source>
-        <translation type="unfinished">Σφάλμα</translation>
+        <translation>Σφάλμα</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1368"/>
         <source>Could not save all images.</source>
-        <translation type="unfinished">Δεν ήταν δυνατή η αποθήκευση όλων των εικόνων.</translation>
+        <translation>Δεν ήταν δυνατή η αποθήκευση όλων των εικόνων.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1385"/>
         <source>Saved &quot;%s&quot;.</source>
-        <translation type="unfinished">Αποθηκεύτηκε &quot;%s&quot;.</translation>
+        <translation>Αποθηκεύτηκε &quot;%s&quot;.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1387"/>
         <source>BMP op failed</source>
-        <translation type="unfinished">Η BMP op απέτυχε</translation>
+        <translation>Η BMP op απέτυχε</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1387"/>
         <source>Saving %s as a BMP file failed.</source>
-        <translation type="unfinished">Η αποθήκευση του %s ως BMP απέτυχε.</translation>
+        <translation>Η αποθήκευση του %s ως BMP απέτυχε.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1409"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1475"/>
         <source>Failed to open the file</source>
-        <translation type="unfinished">Αποτυχία ανοίγματος αρχείου</translation>
+        <translation>Αποτυχία ανοίγματος αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1409"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1475"/>
         <source>Not a WAV file?</source>
-        <translation type="unfinished">Δεν είναι αρχείο WAV;</translation>
+        <translation>Δεν είναι αρχείο WAV;</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1410"/>
         <source>WAV open file failed...</source>
-        <translation type="unfinished">Απέτυχε το άνοιγμα του αρχείου WAV...</translation>
+        <translation>Απέτυχε το άνοιγμα του αρχείου WAV...</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1547"/>
         <source>Cannot decompress audio frame</source>
-        <translation type="unfinished">Αδύνατη η αποσυμπίεση του καρέ ήχου</translation>
+        <translation>Αδύνατη η αποσυμπίεση του καρέ ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1561"/>
         <source>Memory Error</source>
-        <translation type="unfinished">Σφάλμα μνήμης</translation>
+        <translation>Σφάλμα μνήμης</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1614"/>
         <source>No frames to encode</source>
-        <translation type="unfinished">Δεν υπάρχουν καρέ για κωδικοποίηση</translation>
+        <translation>Δεν υπάρχουν καρέ για κωδικοποίηση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1614"/>
         <source>Please check markers. Is &quot;A&gt;&quot; == &quot;&gt;B&quot;?</source>
-        <translation type="unfinished">Παρακαλώ έλεγξε τους δείκτες. Είναι το &quot;A&gt;&quot; == &quot;&gt;B&quot;;</translation>
+        <translation>Παρακαλώ έλεγξε τους δείκτες. Είναι το &quot;A&gt;&quot; == &quot;&gt;B&quot;;</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1753"/>
         <source>Saving raw video stream</source>
-        <translation type="unfinished">Αποθήκευση ανεπεξέργαστης ροής βίντεο</translation>
+        <translation>Αποθήκευση ανεπεξέργαστης ροής βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1902"/>
         <source>Checking video</source>
-        <translation type="unfinished">Έλεγχος βίντεο</translation>
+        <translation>Έλεγχος βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1918"/>
         <source>No error found</source>
-        <translation type="unfinished">Δεν βρέθηκαν σφάλματα</translation>
+        <translation>Δεν βρέθηκαν σφάλματα</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1922"/>
         <source>Errors found in %u frames</source>
-        <translation type="unfinished">Βρέθηκαν σφάλματα σε %u καρέ</translation>
+        <translation>Βρέθηκαν σφάλματα σε %u καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1940"/>
         <source>Cannot decompress the audio stream</source>
-        <translation type="unfinished">Αδύνατη η αποσυμπίεση της ροής ήχου</translation>
+        <translation>Αδύνατη η αποσυμπίεση της ροής ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1940"/>
         <source>Switch audio codec to Copy.</source>
-        <translation type="unfinished">Εναλλαγή του κώδικα ήχου σε Αντιγραφή.</translation>
+        <translation>Εναλλαγή του κώδικα ήχου σε Αντιγραφή.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1967"/>
         <source>Cannot delete the selection.</source>
-        <translation type="unfinished">Αδύνατη η διαγραφή της επιλογής.</translation>
+        <translation>Αδύνατη η διαγραφή της επιλογής.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1972"/>
         <source>You can&apos;t remove all frames</source>
-        <translation type="unfinished">Δεν μπορείς να μετακινήσεις όλα τα καρέ</translation>
+        <translation>Δεν μπορείς να μετακινήσεις όλα τα καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="1979"/>
         <source>Something bad happened</source>
-        <translation type="unfinished">Κάτι στραβό έγινε</translation>
+        <translation>Κάτι στραβό έγινε</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2048"/>
         <source>Could not get tracks info</source>
-        <translation type="unfinished">Αδύνατη η ανεύρεση των πληροφοριών των καναλιών</translation>
+        <translation>Αδύνατη η ανεύρεση των πληροφοριών των καναλιών</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2056"/>
         <source>Take audio from video file</source>
-        <translation type="unfinished">Λήψη του ήχου από το αρχείο βίντεο</translation>
+        <translation>Λήψη του ήχου από το αρχείο βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2057"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2156"/>
         <source>No audio</source>
-        <translation type="unfinished">Χωρίς ήχο</translation>
+        <translation>Χωρίς ήχο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2058"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2157"/>
         <source>External AC3</source>
-        <translation type="unfinished">Εξωτερικό AC3</translation>
+        <translation>Εξωτερικό AC3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2058"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2157"/>
         <source>Take audio from external AC3 file</source>
-        <translation type="unfinished">Λήψη του ήχου από εξωτερικό αρχείο AC3</translation>
+        <translation>Λήψη του ήχου από εξωτερικό αρχείο AC3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2059"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2158"/>
         <source>External MP3</source>
-        <translation type="unfinished">Εξωτερικό MP3</translation>
+        <translation>Εξωτερικό MP3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2059"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2158"/>
         <source>Take audio from external MP3 file</source>
-        <translation type="unfinished">Λήψη του ήχου από εξωτερικό αρχείο MP3</translation>
+        <translation>Λήψη του ήχου από εξωτερικό αρχείο MP3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2060"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2159"/>
         <source>External WAV</source>
-        <translation type="unfinished">Εξωτερικό WAV</translation>
+        <translation>Εξωτερικό WAV</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2060"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2159"/>
         <source>Take audio from external WAV file</source>
-        <translation type="unfinished">Λήψη του ήχου από εξωτερικό αρχείο WAV</translation>
+        <translation>Λήψη του ήχου από εξωτερικό αρχείο WAV</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2064"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2164"/>
         <source>_Audio source:</source>
-        <translation type="unfinished">Πηγή ήχου:</translation>
+        <translation>Πηγή _ήχου:</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2068"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2165"/>
         <source>_External file:</source>
-        <translation type="unfinished">_Εξωτερικό αρχείο:</translation>
+        <translation>_Εξωτερικό αρχείο:</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2068"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2165"/>
         <source>Select file</source>
-        <translation type="unfinished">Επιλογή Αρχείου</translation>
+        <translation>Επιλογή Αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2077"/>
@@ -1632,141 +1623,138 @@ Go to Audio-&gt;MainTrack to select the active one.</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2083"/>
         <source>_Track from video:</source>
-        <translation type="unfinished">_Κανάλι από το βίντεο</translation>
+        <translation>_Κανάλι από το βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2093"/>
         <source>Main Audio Track</source>
-        <translation type="unfinished">Κύριο Κανάλι Ήχου</translation>
+        <translation>Κύριο Κανάλι Ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2099"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2177"/>
         <source>Cannot load</source>
-        <translation type="unfinished">Αδύνατη η φόρτωση</translation>
+        <translation>Αδύνατη η φόρτωση</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2099"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2177"/>
         <source>The selected audio file does not exist.</source>
-        <translation type="unfinished">Το επιλεγμένο αρχείο ήχου δεν υπάρχει.</translation>
+        <translation>Το επιλεγμένο αρχείο ήχου δεν υπάρχει.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2174"/>
         <source>Second Audio Track</source>
-        <translation type="unfinished">Δεύτερο Κανάλι Ήχου</translation>
+        <translation>Δεύτερο Κανάλι Ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2206"/>
         <source>Error loading the MP3 file</source>
-        <translation type="unfinished">Σφάλμα στη φόρτωση του αρχείου MP3</translation>
+        <translation>Σφάλμα στη φόρτωση του αρχείου MP3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2215"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2237"/>
         <location filename="../avidemux/gtk_gui.cpp" line="2259"/>
         <source>Second track loaded</source>
-        <translation type="unfinished">Φορτώθηκε το δεύτερο κανάλι</translation>
+        <translation>Φορτώθηκε το δεύτερο κανάλι</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2229"/>
         <source>Error loading the AC3 file</source>
-        <translation type="unfinished">Σφάλμα στη φόρτωση του αρχείου AC3</translation>
+        <translation>Σφάλμα στη φόρτωση του αρχείου AC3</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2251"/>
         <source>Error loading the WAV file</source>
-        <translation type="unfinished">Σφάλμα στη φόρτωση του αρχείου WAV</translation>
+        <translation>Σφάλμα στη φόρτωση του αρχείου WAV</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2318"/>
         <source>Saving failed</source>
-        <translation type="unfinished">Η αποθήκευση απέτυχε</translation>
+        <translation>Η αποθήκευση απέτυχε</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2318"/>
         <source>Saving the job failed. Maybe you have permission issue with ~/.avidemux</source>
-        <translation type="unfinished">Αδύνατη η αποθήκευση της διαδικασίας. Ίσως να υπάρχει θέμα με τις άδειες  του ~/.avidemux</translation>
+        <translation>Αδύνατη η αποθήκευση της διαδικασίας. Ίσως να υπάρχει θέμα με τις άδειες  του ~/.avidemux</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2330"/>
         <source>File %s has been successfully saved.</source>
-        <translation type="unfinished">Το αρχείο %s αποθηκεύτηκε με επιτυχία.</translation>
+        <translation>Το αρχείο %s αποθηκεύτηκε με επιτυχία.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2334"/>
         <source>File %s was NOT saved correctly.</source>
-        <translation type="unfinished">Το αρχείο %s ΔΕΝ αποθηκεύτηκε σωστά.</translation>
+        <translation>Το αρχείο %s ΔΕΝ αποθηκεύτηκε σωστά.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2500"/>
         <source>AvsProxy</source>
-        <translation type="unfinished">AvsProxy</translation>
+        <translation>AvsProxy</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2500"/>
         <source>Failed to connect to avsproxy.
 Is it running ?</source>
-        <translation type="unfinished">Αποτυχία σύνδεσης με το avsproxy.
+        <translation>Αποτυχία σύνδεσης με το avsproxy.
 Είναι σε κατάσταση λειτουργίας;</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2505"/>
         <source>avsproxy</source>
-        <translation type="unfinished">AvsProxy</translation>
+        <translation>AvsProxy</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2533"/>
         <source>Frame type:</source>
-        <translation type="unfinished">Τύπος καρέ:</translation>
+        <translation>Τύπος καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2534"/>
         <source>Frame size:</source>
-        <translation type="unfinished">Μέγεθος καρέ:</translation>
+        <translation>Μέγεθος καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2536"/>
         <source>Frame Hex Dump</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="38"/>
         <source>Denoise</source>
-        <translation type="unfinished">Αποθορυβοποίηση</translation>
+        <translation>Αποθορυβοποίηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="41"/>
         <source>Port of Transcode DNR.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp" line="31"/>
         <source>Drop</source>
-        <translation type="unfinished">Απόρυψη</translation>
+        <translation>Απόρυψη</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp" line="34"/>
         <source>Drop damaged fields (e.g. from VHS capture).</source>
-        <translation type="unfinished">Αποβολή κατεστραμένων πεδίων (πχ από σύλληψη VHS).</translation>
+        <translation>Αποβολή κατεστραμένων πεδίων (πχ από σύλληψη VHS).</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp" line="57"/>
         <source>FluxSmooth</source>
-        <translation type="unfinished">FluxSmooth</translation>
+        <translation>FluxSmooth</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp" line="60"/>
         <source>Spatio-temporal cleaner by Ross Thomas.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="32"/>
         <source>Forced postprocessing</source>
-        <translation type="unfinished">Εξαναγκασμένη μετεπεξεργασία</translation>
+        <translation>Εξαναγκασμένη μετεπεξεργασία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="35"/>
@@ -1776,25 +1764,23 @@ Is it running ?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="48"/>
         <source>KernelDeint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="51"/>
         <source>Kernel deinterlacer by Donald Graft.</source>
-        <translation type="unfinished">Αποπλεκτής πυρήνααπό τον Donald Graft.</translation>
+        <translation>Αποπλεκτής πυρήνα από τον Donald Graft.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="34"/>
         <location filename="../plugins/ADM_videoFilters/Unblend/ADM_vidUnblend.cpp" line="47"/>
         <source>Median (5x5)</source>
-        <translation type="unfinished">Μέσος (5x5)</translation>
+        <translation>Μέσος (5x5)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="37"/>
         <source>Median kernel 5x5. Good for reducing chroma noise.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="91"/>
@@ -1804,50 +1790,47 @@ Is it running ?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="94"/>
         <source>All FFmpeg deinterlace filters (bicubic, median, ...).</source>
-        <translation type="unfinished">Όλα τα φίλτρα απόπλεξης FFmpeg (δικυβικό, μέσο, ...).</translation>
+        <translation>Όλα τα φίλτρα απόπλεξης FFmpeg (δικυβικό, μέσο, ...).</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="65"/>
         <source>Logo</source>
-        <translation type="unfinished">Λογότυπο</translation>
+        <translation>Λογότυπο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="68"/>
         <source>Add a png as logo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="32"/>
         <source>MPlayer hqdn3d</source>
-        <translation type="unfinished">MPlayer hqdn3d</translation>
+        <translation>MPlayer hqdn3d</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="35"/>
         <source>High quality version of denoise3d. Slower but more precise.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="33"/>
         <source>MPlayer denoise3d</source>
-        <translation type="unfinished">Αποθορυβοποιητής3d MPlayer </translation>
+        <translation>Αποθορυβοποιητής3d MPlayer </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="36"/>
         <source>Reduce noise, smooth image, increase compressibility.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="55"/>
         <source>Soften</source>
-        <translation type="unfinished">Απαλότερο</translation>
+        <translation>Απαλότερο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="58"/>
         <source>A variant of stabilize.</source>
-        <translation type="unfinished">Μία παραλλαγή του σταθεροποιητή.</translation>
+        <translation>Μία παραλλαγή του σταθεροποιητή.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="63"/>
@@ -1857,76 +1840,74 @@ Is it running ?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="66"/>
         <source>Split the picture into tiny thumbnails.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp" line="32"/>
         <source>PAL field shift</source>
-        <translation type="unfinished">Μετατόπιση πεδίου PAL</translation>
+        <translation>Μετατόπιση πεδίου PAL</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp" line="35"/>
         <source>Shift fields by one. Useful for some PAL movies.</source>
-        <translation type="unfinished">Μετατόπιση των πεδίων κατά ένα. Χρήσιμο σε κάποιες ταινίες PAL.</translation>
+        <translation>Μετατόπιση των πεδίων κατά ένα. Χρήσιμο σε κάποιες ταινίες PAL.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="54"/>
         <source>Resample fps</source>
-        <translation type="unfinished">Επαναδειγματοληψία fps</translation>
+        <translation>Επαναδειγματοληψία fps</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="57"/>
         <source>Change framerate while keeping duration.</source>
-        <translation type="unfinished">Αλλαγή του ρυθμού των καρέ, ενώ διατηρείται η διάρκεια.</translation>
+        <translation>Αλλαγή του ρυθμού των καρέ, ενώ διατηρείται η διάρκεια.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="54"/>
         <source>Rotate</source>
-        <translation type="unfinished">Περιστροφή</translation>
+        <translation>Περιστροφή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="57"/>
         <source>Rotate the picture by 90, 180 or 270 degrees.</source>
-        <translation type="unfinished">Περιστροφή της εικόνας κατά 90, 180, ή 270 μοίρες.</translation>
+        <translation>Περιστροφή της εικόνας κατά 90, 180, ή 270 μοίρες.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="31"/>
         <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="34"/>
         <source>Light denoiser.</source>
-        <translation type="unfinished">Αποθορυβοποιητής φωτός.</translation>
+        <translation>Αποθορυβοποιητής φωτός.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="47"/>
         <source>ASS</source>
-        <translation type="unfinished">ASS</translation>
+        <translation>ASS</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="50"/>
         <source>Add ASS/SSA subtitles to the picture.</source>
-        <translation type="unfinished">Προσθήκη υποτίτλων ASS/SSA στην εικόνα.</translation>
+        <translation>Προσθήκη υποτίτλων ASS/SSA στην εικόνα.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="35"/>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="109"/>
         <source>Subtitler</source>
-        <translation type="unfinished">Υποτιτλιστής</translation>
+        <translation>Υποτιτλιστής</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="38"/>
         <source>Add srt/sub subtitles to the picture.</source>
-        <translation type="unfinished">Προσθήκη υποτίτλων srt/sub στην εικόνα.</translation>
+        <translation>Προσθήκη υποτίτλων srt/sub στην εικόνα.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="77"/>
         <source>yadif</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="80"/>
         <source>Yet Another DeInterlacer. Ported from MPlayer.</source>
-        <translation type="unfinished">Ακόμη Ένας Αποπλεκτής. Εισήχθηκε και Προσαρμόσθηκε από τον MPlayer.</translation>
+        <translation>Ακόμη Ένας Αποπλεκτής. Εισήχθηκε και Προσαρμόσθηκε από τον MPlayer.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="71"/>
@@ -1938,7 +1919,7 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="30"/>
         <source>Add black borders</source>
-        <translation type="unfinished">Προσθήκη μαύρων ορίων</translation>
+        <translation>Προσθήκη μαύρων ορίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="33"/>
@@ -1948,43 +1929,42 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="76"/>
         <source>mcDeinterlace</source>
-        <translation type="unfinished">Πεπλεγμένη</translation>
+        <translation>Πεπλεγμένη</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="79"/>
         <source>Motion compensation deinterlacer. Ported from MPlayer.</source>
-        <translation type="unfinished">Αποπλεκτής αποζημίωσης κίνησης. Εισήχθηκε και Προσαρμόσθηκε από τον MPlayer.</translation>
+        <translation>Αποπλεκτής αποζημίωσης κίνησης. Εισήχθηκε και Προσαρμόσθηκε από τον MPlayer.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="59"/>
         <source>Blacken borders</source>
-        <translation type="unfinished">Μαύρισμα των ορίων</translation>
+        <translation>Μαύρισμα των ορίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="62"/>
         <source>Fill borders with pure black. Doesn&apos;t alter size.</source>
-        <translation type="unfinished">Γέμιση των ορίων με απόλυτο μαύρο. Δεν αλλάζουν οι διαστάσεις.</translation>
+        <translation>Γέμιση των ορίων με απόλυτο μαύρο. Δεν αλλάζουν οι διαστάσεις.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp" line="71"/>
         <source>Temporal Cleaner</source>
-        <translation type="unfinished">Χρονικός Καθαριστής</translation>
+        <translation>Χρονικός Καθαριστής</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp" line="74"/>
         <source>Vlad59&apos;s Avisynth port of Jim Casaburi&apos;s denoiser.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="42"/>
         <source>Fade</source>
-        <translation type="unfinished">Ομαλή μετάβαση</translation>
+        <translation>Ομαλή μετάβαση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="45"/>
         <source>Fade in/out.</source>
-        <translation type="unfinished">Ομαλή είσοδος/έξοδος.</translation>
+        <translation>Ομαλή είσοδος/έξοδος.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="65"/>
@@ -1999,20 +1979,18 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="155"/>
         <source>Decomb Decimate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="158"/>
         <source>Useful to remove dupes left by Telecide.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="63"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="216"/>
         <source>Normal</source>
-        <translation type="unfinished">Κανονικό</translation>
+        <translation>Κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="64"/>
@@ -2022,8 +2000,7 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="65"/>
         <source>Mux by packet size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="68"/>
@@ -2033,7 +2010,7 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="69"/>
         <source>_Split every MB:</source>
-        <translation type="unfinished">_Χωρισμός  ανά MB:</translation>
+        <translation>_Χωρισμό ανά MB:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="71"/>
@@ -2043,13 +2020,12 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="72"/>
         <source>Mux in _blocks of x bytes:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="79"/>
         <source>AVI Muxer Options</source>
-        <translation type="unfinished">Επιλογές AVI Muxer</translation>
+        <translation>Επιλογές AVI Muxer</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="485"/>
@@ -2060,17 +2036,17 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="486"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="258"/>
         <source>PCM</source>
-        <translation type="unfinished">PCM</translation>
+        <translation>PCM</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="487"/>
         <source>MP2</source>
-        <translation type="unfinished">MP2</translation>
+        <translation>MP2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="488"/>
         <source>MP3</source>
-        <translation type="unfinished">MP3</translation>
+        <translation>MP3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="489"/>
@@ -2140,41 +2116,37 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="80"/>
         <source>MSharpen</source>
-        <translation type="unfinished">MSharpen (οξύτητα)</translation>
+        <translation>MSharpen (οξύτητα)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="83"/>
         <source>Sharpen edges without amplifying noise. By Donald Graft.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="103"/>
         <source>MSmooth by Donald Graft</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="106"/>
         <source>Smooth the image, don&apos;t blur edges. Useful on anime.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="54"/>
         <source>Decomb Telecide</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="57"/>
         <source>Great deinterlacing package including IVTC.</source>
-        <translation type="unfinished">Σπουδαίο πακέτο απόπλεξης που περιέχει IVTC.</translation>
+        <translation>Σπουδαίο πακέτο απόπλεξης που περιέχει IVTC.</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2334"/>
         <source>Failed</source>
-        <translation type="unfinished">Αποτυχεία</translation>
+        <translation>Αποτυχεία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="59"/>
@@ -2189,19 +2161,18 @@ You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="69"/>
         <source>Remove IVTC that has been analog captured or resized.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="288"/>
         <source>Codec Error</source>
-        <translation type="unfinished">Σφάλμα Κώδικα</translation>
+        <translation>Σφάλμα Κώδικα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="288"/>
         <source>The number of channels is greater than what the selected audio codec can do.
 Either change codec or use the mixer filter to have less channels.</source>
-        <translation type="unfinished">Ο αριθμός των καναλιών είναι μεγαλύτερος από αυτά που μπορεί να επιτύχει ο κώδικας ήχου.
+        <translation>Ο αριθμός των καναλιών είναι μεγαλύτερος από αυτά που μπορεί να επιτύχει ο κώδικας ήχου.
 Είτε άλλαξε κώδικα, είτε χρησιμοποίησε το φίλτρο μίξης, για να έχεις λιγότερα κανάλια.</translation>
     </message>
     <message>
@@ -2217,7 +2188,7 @@ Either change codec or use the mixer filter to have less channels.</source>
     <message>
         <location filename="../avidemux/ADM_codecs/ADM_ffmp43.cpp" line="44"/>
         <source>Internal error finding codec</source>
-        <translation type="unfinished">Εσωτερικό σφάλμα στην εύρεση του κώδικα</translation>
+        <translation>Εσωτερικό σφάλμα στην εύρεση του κώδικα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="127"/>
@@ -2234,13 +2205,14 @@ Either change codec or use the mixer filter to have less channels.</source>
         <location filename="../avidemux/gtk_gui.cpp" line="944"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1554"/>
         <source>File error</source>
-        <translation type="unfinished">Σφάλμα αρχείου</translation>
+        <translation>Σφάλμα αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="127"/>
         <location filename="../avidemux/gtk_gui.cpp" line="941"/>
         <source>Cannot open &quot;%s&quot;.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα του &quot;%s&quot;.</translation>
+        <translation>Αδύνατο το άνοιγμα του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="140"/>
@@ -2253,61 +2225,60 @@ Do you want to replace it?</source>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="167"/>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="181"/>
         <source>It is possible that you are trying to overwrite an input file!</source>
-        <translation type="unfinished">Είναι πιθανό να προσπαθείς να επαναγράψεις ένα αρχείο δεδομένων εισόδου!</translation>
+        <translation>Είναι πιθανό να προσπαθείς να επαναγράψεις ένα αρχείο δεδομένων εισόδου!</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="192"/>
         <source>Cannot write the file</source>
-        <translation type="unfinished">Αδύνατη η εγγραφή του αρχείου</translation>
+        <translation>Αδύνατη η εγγραφή του αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="192"/>
         <source>No write access to &quot;%s&quot;.</source>
-        <translation type="unfinished">Χωρίς πρόσβαση εγγραφής στο &quot;%s&quot;.</translation>
+        <translation>Χωρίς πρόσβαση εγγραφής στο
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="54"/>
         <source>AVI</source>
-        <translation type="unfinished">AVI</translation>
+        <translation>AVI</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="55"/>
         <source>AVI, dual audio</source>
-        <translation type="unfinished">AVI, διπλού ήχου</translation>
+        <translation>AVI, διπλού ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="56"/>
         <source>AVI, pack VOP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="57"/>
         <source>AVI, unpack VOP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="58"/>
         <source>MPEG-PS (A+V)</source>
-        <translation type="unfinished">MPEG-PS (A+V)</translation>
+        <translation>MPEG-PS (A+V)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="59"/>
         <source>MPEG-TS (A+V)</source>
-        <translation type="unfinished">MPEG-TS (A+V)</translation>
+        <translation>MPEG-TS (A+V)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="60"/>
         <source>MPEG video</source>
-        <translation type="unfinished">Βίντεο MPEG</translation>
+        <translation>Βίντεο MPEG</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="61"/>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="493"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="116"/>
         <source>MP4</source>
-        <translation type="unfinished">MP4</translation>
+        <translation>MP4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="62"/>
@@ -2317,105 +2288,100 @@ Do you want to replace it?</source>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="63"/>
         <source>OGM</source>
-        <translation type="unfinished">OGM</translation>
+        <translation>OGM</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="64"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="177"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="244"/>
         <source>FLV</source>
-        <translation type="unfinished">FLV</translation>
+        <translation>FLV</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="65"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="117"/>
         <source>MKV</source>
-        <translation type="unfinished">MKV</translation>
+        <translation>MKV</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="66"/>
         <source>DUMMY</source>
-        <translation type="unfinished">ΕΙΚΟΝΙΚΟ</translation>
+        <translation>ΕΙΚΟΝΙΚΟ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="46"/>
         <source>VobSub</source>
-        <translation type="unfinished">VobSub</translation>
+        <translation>VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="46"/>
         <source>Embed VobSub subtitles into picture.</source>
-        <translation type="unfinished">Ενσωμάτωση υποτίτλων VobSub στην εικόνα.</translation>
+        <translation>Ενσωμάτωση υποτίτλων VobSub στην εικόνα.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="47"/>
         <source>DVB sub</source>
-        <translation type="unfinished">DVB sub</translation>
+        <translation>DVB sub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="47"/>
         <source>Embed DVB-T subtitle.</source>
-        <translation type="unfinished">Ενσωμάτωση υποτίτλων DVB-T.</translation>
+        <translation>Ενσωμάτωση υποτίτλων DVB-T.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="50"/>
         <source>Compute Average</source>
-        <translation type="unfinished">Υπολογισμός Μέσου Όρου</translation>
+        <translation>Υπολογισμός Μέσου Όρου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="50"/>
         <source>Compute average luma value for each pixel throughout all frames, and save to file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="51"/>
         <source>Threshold</source>
-        <translation type="unfinished">Κατώφλι</translation>
+        <translation>Κατώφλι</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="51"/>
         <source>Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="52"/>
         <source>Particle List</source>
-        <translation type="unfinished">Λίστα Στοιχείων</translation>
+        <translation>Λίστα Στοιχείων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="52"/>
         <source>Identify &apos;particles&apos; (groups of pixels)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="53"/>
         <source>Eraser</source>
-        <translation type="unfinished">Σβηστήρας</translation>
+        <translation>Σβηστήρας</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="53"/>
         <source>&quot;Erase&quot; arbitrary areas of each frame</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="54"/>
         <source>Swiss Army Knife</source>
-        <translation type="unfinished">Ελβετικός Σουγιάς</translation>
+        <translation>Ελβετικός Σουγιάς</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="54"/>
         <source>Apply operation like P&apos;=P*A, P-A, P+A, etc. using a convolution, rolling average, image from file, or constant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="57"/>
         <source>Partial</source>
-        <translation type="unfinished">Μερικό</translation>
+        <translation>Μερικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="58"/>
@@ -2430,37 +2396,37 @@ Do you want to replace it?</source>
     <message>
         <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="149"/>
         <source>Problem reading XML filters</source>
-        <translation type="unfinished">Πρόβλημα στην ανάγνωση των XML φίλτρων</translation>
+        <translation>Πρόβλημα στην ανάγνωση των XML φίλτρων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="157"/>
         <source>No filter found</source>
-        <translation type="unfinished">Δεν βρέθηκε φίλτρο</translation>
+        <translation>Δεν βρέθηκε φίλτρο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="193"/>
         <source>Could not find a filter</source>
-        <translation type="unfinished">Δεν βρέθηκε κάποιο φίλτρο</translation>
+        <translation>Δεν βρέθηκε κάποιο φίλτρο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="201"/>
         <source>No tag found</source>
-        <translation type="unfinished">Δε βρέθηκε ετικέτα</translation>
+        <translation>Δε βρέθηκε ετικέτα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="281"/>
         <source>Node not found</source>
-        <translation type="unfinished">Δε βρέθηκε κόμβος</translation>
+        <translation>Δε βρέθηκε κόμβος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_indexer.cpp" line="144"/>
         <source>There is several mpeg file, append them ?</source>
-        <translation type="unfinished">Υπάρχουν διάφορα αρχεία mpeg, να προσκολληθούν ;</translation>
+        <translation>Υπάρχουν διάφορα αρχεία mpeg· να προσκολληθούν ;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_indexer.cpp" line="239"/>
         <source>Can&apos;t determine aspect ratio</source>
-        <translation type="unfinished">Αδύνατος ο προσδιορισμός της αναλογίας οθόνης</translation>
+        <translation>Αδύνατος ο προσδιορισμός της αναλογίας οθόνης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/ADM_imageLoader.cpp" line="184"/>
@@ -2470,17 +2436,18 @@ Do you want to replace it?</source>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_utilities/ADM_imageLoader.cpp" line="184"/>
         <source>Only YV12/I420 or YUY2/I422 JPegs are supported</source>
-        <translation type="unfinished">Υποστηρίζονται μόνο YV12/I420 ή YUY2/I422 JPeg</translation>
+        <translation>Υποστηρίζονται μόνο YV12/I420 ή YUY2/I422 JPeg</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="75"/>
         <source>Output file error</source>
-        <translation type="unfinished">Σφάλμα αρχείου εξόδου</translation>
+        <translation>Σφάλμα αρχείου εξόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="75"/>
         <source>Could not open &quot;%s&quot; for writing.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα του &quot;%s&quot; για εγγραφή.</translation>
+        <translation>Αδύνατο το άνοιγμα, για εγγραφή, του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="83"/>
@@ -2501,7 +2468,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="97"/>
         <source>Problem loading sub</source>
-        <translation type="unfinished">Πρόβλημα στη φόρτωση του sub</translation>
+        <translation>Πρόβλημα στη φόρτωση του sub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="97"/>
@@ -2511,98 +2478,99 @@ Do you want to replace it?</source>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="250"/>
         <source>Ifo error</source>
-        <translation type="unfinished">Σφάλμα Ifo</translation>
+        <translation>Σφάλμα Ifo</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="250"/>
         <source>Error reading ifo file, aborting.</source>
-        <translation type="unfinished">Σφάλμα στην ανάγνωση του αρχείου ifo, εγκατάλειψη.</translation>
+        <translation>Σφάλμα στην ανάγνωση του αρχείου ifo, εγκατάλειψη.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="258"/>
         <source>Cannot write .idx</source>
-        <translation type="unfinished">Αδύνατη η εγγραφή .idx</translation>
+        <translation>Αδύνατη η εγγραφή .idx</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="271"/>
         <source>Cannot write .sub</source>
-        <translation type="unfinished">Αδύνατη η εγγραφή .sub</translation>
+        <translation>Αδύνατη η εγγραφή .sub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="283"/>
         <source>Problem opening the mpeg files</source>
-        <translation type="unfinished">Πρόβλημα στο άνοιγμα των αρχείων mpeg</translation>
+        <translation>Πρόβλημα στο άνοιγμα των αρχείων mpeg</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="296"/>
         <source>Generating VobSub file</source>
-        <translation type="unfinished">Δημιουργία αρχείου VobSub</translation>
+        <translation>Δημιουργία αρχείου VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/adm_glyph.cpp" line="169"/>
         <source>Could not write the file</source>
-        <translation type="unfinished">Αδύνατη η εγγραφή του αρχείου</translation>
+        <translation>Αδύνατη η εγγραφή του αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_ocr/adm_glyph.cpp" line="217"/>
         <source>Could not read &quot;%s&quot;.</source>
-        <translation type="unfinished">Αδύνατη η ανάγνωση  &quot;%s&quot;.</translation>
+        <translation>Αδύνατη η ανάγνωση του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="64"/>
         <source>Load it</source>
-        <translation type="unfinished">Να γίνει φόρτωση</translation>
+        <translation>Να γίνει φόρτωση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="64"/>
         <source>Crash file</source>
-        <translation type="unfinished">Αρχείο κατάρευσης</translation>
+        <translation>Αρχείο κατάρευσης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="65"/>
         <source>I have detected a crash file. 
 Do you want to load it  ?
 (It will be deleted in all cases, you should save it if you want to keep it)</source>
-        <translation type="unfinished">Έχω ανιχνεύσει ένα αρχείο κατάρρευσης. 
+        <translation>Έχω ανιχνεύσει ένα αρχείο κατάρρευσης. 
 Θέλεις να φορτωθεί ;
 (σε κάθε περίπτωση, θα διαγραφεί, θα πρέπει να το αποθηκεύσεις αν θες να το διατηρήσεις)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="134"/>
         <source>Unsupported video</source>
-        <translation type="unfinished">Μη υποστηριζόμενο βίντεο</translation>
+        <translation>Μη υποστηριζόμενο βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="134"/>
         <source>Only FLV1 and VP6 video are supported</source>
-        <translation type="unfinished">Υποστηρίζονται μόνο βίντεο FLV1 και VP6</translation>
+        <translation>Υποστηρίζονται μόνο βίντεο FLV1 και VP6</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="156"/>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="161"/>
         <source>Unsupported audio</source>
-        <translation type="unfinished">Μη υποστηριζόμενος ήχος</translation>
+        <translation>Μη υποστηριζόμενος ήχος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="156"/>
         <source>Audio must be mp3 for flv output.</source>
-        <translation type="unfinished">Για μορφή εξόδου flv, ο ήχος πρέπει να είναι mp3.</translation>
+        <translation>Για μορφή εξόδου flv, ο ήχος πρέπει να είναι mp3.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="161"/>
         <source>Frequency must be 44100, 22050 or 11025 Hz.</source>
-        <translation type="unfinished">Η συχνότητα πρέπει να είναι 44100, 22050 ή 11025 Hz.</translation>
+        <translation>Η συχνότητα πρέπει να είναι 44100, 22050 ή 11025 Hz.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="215"/>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="211"/>
         <source>Cannot initialize the audio stream</source>
-        <translation type="unfinished">Αδύνατη η  αρχικοποίηση της ροής ήχου</translation>
+        <translation>Αδύνατη η αρχικοποίηση της ροής ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="115"/>
         <source>PSP</source>
-        <translation type="unfinished">PSP</translation>
+        <translation>PSP</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="168"/>
@@ -2635,42 +2603,40 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="79"/>
         <source>This is not MPEG compatible</source>
-        <translation type="unfinished">Αυτό δεν είναι συμβατό με MPEG</translation>
+        <translation>Αυτό δεν είναι συμβατό με MPEG</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="79"/>
         <source>You can&apos;t use the Copy codec.</source>
-        <translation type="unfinished">Δεν μπορείς να χρησιμοποιήσεις την επιλογή κώδικα Αντιγραφή.</translation>
+        <translation>Δεν μπορείς να χρησιμοποιήσεις την επιλογή κώδικα Αντιγραφή.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="84"/>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="113"/>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="124"/>
         <source>There is no audio track</source>
-        <translation type="unfinished">Δεν υπάρχει κανάλι ήχου</translation>
+        <translation>Δεν υπάρχει κανάλι ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="91"/>
         <source>The first frame is not intra frame</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="91"/>
         <source>Use the &amp;lt;&amp;lt; and the &amp;gt;&amp;gt; buttons to move using Intra frames.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="103"/>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="134"/>
         <source>Audio track is not suitable</source>
-        <translation type="unfinished">Το κανάλι ήχου δεν είναι κατάλληλο</translation>
+        <translation>Το κανάλι ήχου δεν είναι κατάλληλο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="135"/>
         <source>For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo).</source>
-        <translation type="unfinished">Για DVD, ο ήχος πρέπει να είναι 48 kHz MP2(στέρεο), AC3, DTS or LPCM (στέρεο).</translation>
+        <translation>Για DVD, ο ήχος πρέπει να είναι 48 kHz MP2(στέρεο), AC3, DTS or LPCM (στέρεο).</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="174"/>
@@ -2709,7 +2675,7 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="147"/>
         <source>For VCD, audio must be 44.1 kHz MP2.</source>
-        <translation type="unfinished">Για VCD, ο ήχος πρέπει να είναι 44.1 kHz MP2.</translation>
+        <translation>Για VCD, ο ήχος πρέπει να είναι 44.1 kHz MP2.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="159"/>
@@ -2719,7 +2685,7 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="171"/>
         <source>For DVD, audio must be 48 kHz MP2, AC3 or LPCM.</source>
-        <translation type="unfinished">Για DVD, ο ήχος πρέπει να είναι 48 kHz MP2, AC3 ή LPCM.</translation>
+        <translation>Για DVD, ο ήχος πρέπει να είναι 48 kHz MP2, AC3 ή LPCM.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="211"/>
@@ -2740,7 +2706,8 @@ Continue anyway?</source>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="326"/>
         <location filename="../avidemux/gtk_gui.cpp" line="1554"/>
         <source>Cannot open &quot;%s&quot; for writing.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα &quot;%s&quot; για εγγραφή.</translation>
+        <translation>Αδύνατο το άνοιγμα, για εγγραφή, του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="331"/>
@@ -2750,59 +2717,57 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="243"/>
         <source>Select a directory</source>
-        <translation type="unfinished">Επιλογή ενός καταλόγου</translation>
+        <translation>Επιλογή ενός καταλόγου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="514"/>
         <source>Uinteger</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="517"/>
         <source>Test uinteger</source>
-        <translation type="unfinished">Δοκιμή Κρυπτογράφησης</translation>
+        <translation>Δοκιμή Κρυπτογράφησης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="529"/>
         <source>Float</source>
-        <translation type="unfinished">Κινητής υποδιαστολής</translation>
+        <translation>Κινητής υποδιαστολής</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="547"/>
         <source>Toggle</source>
-        <translation type="unfinished">Εναλλαγή</translation>
+        <translation>Εναλλαγή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="569"/>
         <source>No Strategy</source>
-        <translation type="unfinished">Μη έγκυρη στρατηγική &apos;%s&apos;</translation>
+        <translation>Μη έγκυρη στρατηγική &apos;%s&apos;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="570"/>
         <source>3:2 Pulldown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="571"/>
         <source>Pal/Secam</source>
-        <translation type="unfinished">Pal/Secam</translation>
+        <translation>Pal/Secam</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="572"/>
         <source>NTSC converted from PAL</source>
-        <translation type="unfinished">NTSC τροποποιημένο από PAL</translation>
+        <translation>NTSC τροποποιημένο από PAL</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="574"/>
         <source>menu</source>
-        <translation type="unfinished">μενού</translation>
+        <translation>μενού</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="81"/>
         <source>Select idx file:</source>
-        <translation type="unfinished">Επιλογή Αρχείου Idx:</translation>
+        <translation>Επιλογή Αρχείου Idx:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="82"/>
@@ -2821,32 +2786,32 @@ Continue anyway?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="83"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="199"/>
         <source>Output SRT file</source>
-        <translation type="unfinished">Αρχείο αποτελέσματος εξόδου SRT</translation>
+        <translation>Αρχείο αποτελέσματος εξόδου SRT</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="83"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="199"/>
         <source>Save SRT file</source>
-        <translation type="unfinished">Αποθήκευση αρχείου SRT</translation>
+        <translation>Αποθήκευση αρχείου SRT</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="93"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="210"/>
         <source>Select input and ouput files</source>
-        <translation type="unfinished">Επέλεξε αρχεία εισόδου και εξόδου</translation>
+        <translation>Επέλεξε αρχεία εισόδου και εξόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="103"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="115"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="234"/>
         <source>The idx/sub file does not exist.</source>
-        <translation type="unfinished">Το αρχείο idx/sub δεν υπάρχει.</translation>
+        <translation>Το αρχείο idx/sub δεν υπάρχει.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="108"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="227"/>
         <source>Please Select a valid output SRT file.</source>
-        <translation type="unfinished">Παρακαλώ επέλεξε ένα έγκυρο αποτέλεσμα εξόδου αρχείου SRT.</translation>
+        <translation>Παρακαλώ επέλεξε ένα έγκυρο αποτέλεσμα εξόδου αρχείου SRT.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="124"/>
@@ -2870,27 +2835,27 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="145"/>
         <source>Save Glyph</source>
-        <translation type="unfinished">Αποθήκευση Ανάγλυφου</translation>
+        <translation>Αποθήκευση Ανάγλυφου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="196"/>
         <source>Input TS:</source>
-        <translation type="unfinished">Διακοπή	S</translation>
+        <translation type="unfinished">Διακοπή   S</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="196"/>
         <source>Select TS file</source>
-        <translation type="unfinished">Επιλογή Αρχείου TS</translation>
+        <translation>Επιλογή Αρχείου TS</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="197"/>
         <source>Subtitle PID:</source>
-        <translation type="unfinished">Υπότιτλοι PID:</translation>
+        <translation>Υπότιτλοι PID:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="221"/>
         <source>Please Select a valid TS file.</source>
-        <translation type="unfinished">Παρακαλώ, επέλεξε ένα έγκυρο TS αρχείο.</translation>
+        <translation>Παρακαλώ, επέλεξε ένα έγκυρο TS αρχείο.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="266"/>
@@ -2906,7 +2871,7 @@ Continue anyway?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="68"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="320"/>
         <source>Audio</source>
-        <translation type="unfinished">Ήχος</translation>
+        <translation>Ήχος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="74"/>
@@ -2946,7 +2911,7 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/GUI_jobs.cpp" line="37"/>
         <source>Oops</source>
-        <translation type="unfinished">Ουπς</translation>
+        <translation>Ουπς</translation>
     </message>
     <message>
         <location filename="../avidemux/GUI_jobs.cpp" line="37"/>
@@ -2956,7 +2921,7 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/GUI_jobs.cpp" line="42"/>
         <source>There are no jobs stored</source>
-        <translation type="unfinished">Δεν υπάρχουν αποθηκευμένες διαδικασίες</translation>
+        <translation>Δεν υπάρχουν αποθηκευμένες διαδικασίες</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="74"/>
@@ -2964,12 +2929,12 @@ Continue anyway?</source>
         <location filename="../avidemux/gui_navigate.cpp" line="394"/>
         <location filename="../avidemux/gui_navigate.cpp" line="430"/>
         <source>Decompressing error</source>
-        <translation type="unfinished">Λάθος στην αποσυμπίεση</translation>
+        <translation>Λάθος στην αποσυμπίεση</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="74"/>
         <source>Cannot decode next frame.</source>
-        <translation type="unfinished">Αδύνατη η αποκωδικοποίηση του επόμενου καρέ</translation>
+        <translation>Αδύνατη η αποκωδικοποίηση του επόμενου καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="112"/>
@@ -2980,62 +2945,61 @@ Continue anyway?</source>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="238"/>
         <source>Seeking</source>
-        <translation type="unfinished">Αναζήτηση</translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="319"/>
         <source>Finding black frames</source>
-        <translation type="unfinished">Αναζήτηση μαύρων καρέ</translation>
+        <translation>Αναζήτηση μαύρων καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_navigate.cpp" line="394"/>
         <source>Cannot decode the frame.</source>
-        <translation type="unfinished">Αδύνατη η αποκωδικοποίηση του καρέ</translation>
+        <translation>Αδύνατη η αποκωδικοποίηση του καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="78"/>
         <source>Dual audio can only be used in copy mode</source>
-        <translation type="unfinished">Ο διπλός ήχος μπορεί να χρησιμοποιηθεί μόνο στη κατάσταση λειτουργίας αντιγραφής</translation>
+        <translation>Ο διπλός ήχος μπορεί να χρησιμοποιηθεί μόνο στη κατάσταση λειτουργίας αντιγραφής</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="78"/>
         <source>Select Copy as the video codec.</source>
-        <translation type="unfinished">Επέλεξε Αντιγραφή σαν κώδικα βίντεο.</translation>
+        <translation>Επέλεξε Αντιγραφή σαν κώδικα βίντεο.</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="198"/>
         <location filename="../avidemux/gui_savenew.cpp" line="214"/>
         <location filename="../avidemux/gui_savenew.cpp" line="227"/>
         <source>Incompatible output format</source>
-        <translation type="unfinished">Ασύμβατη μορφή αποτελέσματος εξόδου</translation>
+        <translation>Ασύμβατη μορφή αποτελέσματος εξόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="248"/>
         <source>There is no second track</source>
-        <translation type="unfinished">Δεν υπάρχει δεύτερο κανάλι</translation>
+        <translation>Δεν υπάρχει δεύτερο κανάλι</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="248"/>
         <source>Select a second audio track in the Audio menu.</source>
-        <translation type="unfinished">Επέλεξε ένα δεύτερο κανάλι ήχου, από το μενού Ήχος.</translation>
+        <translation>Επέλεξε ένα δεύτερο κανάλι ήχου, από το μενού Ήχος.</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="252"/>
         <source>Select dual audio AVI to write</source>
-        <translation type="unfinished">Επέλεξε ένα AVI διπλού ήχου για αντιγραφή</translation>
+        <translation>Επέλεξε ένα AVI διπλού ήχου για αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="274"/>
         <location filename="../avidemux/gui_savenew.cpp" line="292"/>
         <source>This cannot have packed VOP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="274"/>
         <location filename="../avidemux/gui_savenew.cpp" line="292"/>
         <source>It is not MPEG-4 video. File will not be saved.</source>
-        <translation type="unfinished">Δεν είναι βίντεο MPEG-4. Το αρχείο δεν θα αποθηκευθεί.</translation>
+        <translation>Δεν είναι βίντεο MPEG-4. Το αρχείο δεν θα αποθηκευθεί.</translation>
     </message>
     <message>
         <location filename="../avidemux/gui_savenew.cpp" line="338"/>
@@ -3056,7 +3020,7 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/guiplay.cpp" line="352"/>
         <source>Trouble initializing audio device</source>
-        <translation type="unfinished">Πρόβλημα στην αρχικοποίηση της συσκευής ήχου</translation>
+        <translation>Πρόβλημα στην αρχικοποίηση της συσκευής ήχου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="231"/>
@@ -3066,49 +3030,48 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="295"/>
         <source>VBR</source>
-        <translation type="unfinished">VBR</translation>
+        <translation>VBR</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="296"/>
         <source>Quality based</source>
-        <translation type="unfinished">Με βάση την ποιότητα</translation>
+        <translation>Με βάση την ποιότητα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="298"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Λειτουργία: </translation>
+        <translation>_Λειτουργία: </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="314"/>
         <source>Vorbis Configuration</source>
-        <translation type="unfinished">Ρύθμιση Vorbis</translation>
+        <translation>Ρύθμιση Vorbis</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="61"/>
         <source>asharp</source>
-        <translation type="unfinished">asharp (οξύτητα)</translation>
+        <translation>asharp (οξύτητα)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="64"/>
         <source>Adaptative sharpener by MarcFD.</source>
-        <translation type="unfinished">Προσαρμοζώμενος οξυντής από τον MarcFD.</translation>
+        <translation>Προσαρμοζώμενος οξυντής από τον MarcFD.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/ADM_vidAnimated.cpp" line="36"/>
         <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="54"/>
         <source>Animated Menu</source>
-        <translation type="unfinished">Επεξεργασία μενού</translation>
+        <translation>Επεξεργασία μενού</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Animated/ADM_vidAnimated.cpp" line="39"/>
         <source>Create a video made of 6 mini windows, very useful to do DVD menus.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="36"/>
         <source>Resize</source>
-        <translation type="unfinished">Αλλαγή μεγέθους</translation>
+        <translation>Αλλαγή μεγέθους</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="39"/>
@@ -3119,7 +3082,7 @@ Enable it?</source>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="240"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="130"/>
         <source>Width and height cannot be 0</source>
-        <translation type="unfinished">Το πλάτος και το ύψος δεν μπορούν να είναι 0</translation>
+        <translation>Το πλάτος και το ύψος δεν μπορούν να είναι 0</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="242"/>
@@ -3140,7 +3103,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/ADM_vidCNR2.cpp" line="83"/>
         <source>Cnr2</source>
-        <translation type="unfinished">Cnr2</translation>
+        <translation>Cnr2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/ADM_vidCNR2.cpp" line="86"/>
@@ -3170,35 +3133,32 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="36"/>
         <source>Chroma shift</source>
-        <translation type="unfinished">Μετατόπιση χρωματικού τόνου</translation>
+        <translation>Μετατόπιση χρωματικού τόνου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="39"/>
         <source>Shift chroma U/V to fix badly synced luma/chroma.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/ADM_vidContrast.cpp" line="34"/>
         <source>Contrast</source>
-        <translation type="unfinished">Αντίθεση</translation>
+        <translation>Αντίθεση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/ADM_vidContrast.cpp" line="37"/>
         <source>Adjust contrast, brightness and colors.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp" line="53"/>
         <source>Crop</source>
-        <translation type="unfinished">Περιτομή</translation>
+        <translation>Περιτομή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp" line="56"/>
         <source>Remove lines from top/bottom/left/right.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp" line="48"/>
@@ -3213,13 +3173,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Deinterlace/ADM_vidDeinterlace.cpp" line="36"/>
         <source>Deinterlace</source>
-        <translation type="unfinished">Απεδιεμπλοκή (deinterlace)</translation>
+        <translation>Απεδιεμπλοκή (deinterlace)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Deinterlace/ADM_vidDeinterlace.cpp" line="39"/>
         <source>Mask interlacing artifacts. Port of Smart deinterlace.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Delta/ADM_vidDelta.cpp" line="39"/>
@@ -3229,19 +3188,17 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Delta/ADM_vidDelta.cpp" line="42"/>
         <source>Difference between current and previous picture.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/ADM_vidEq2.cpp" line="59"/>
         <source>MPlayer eq2</source>
-        <translation type="unfinished">MPlayer eq2</translation>
+        <translation>MPlayer eq2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/ADM_vidEq2.cpp" line="62"/>
         <source>Adjust contrast, brightness, saturation and gamma.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/ADM_vidEqualizer.cpp" line="44"/>
@@ -3251,8 +3208,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Equalizer/ADM_vidEqualizer.cpp" line="47"/>
         <source>Luma correction filter with histogram.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Gauss.cpp" line="27"/>
@@ -3264,20 +3220,19 @@ Enable it?</source>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Gauss.cpp" line="30"/>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="26"/>
         <source>Gaussian smooth. Blur the picture.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="27"/>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Median.cpp" line="27"/>
         <source>Median</source>
-        <translation type="unfinished">Μέσος</translation>
+        <translation>Μέσος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="27"/>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Median.cpp" line="30"/>
         <source>Median kernel 3x3. Remove high frequency noise.</source>
-        <translation type="unfinished">Μέσος πυρήνας 3x3. Αφαιρεί θόρυβο υψηλών συχνοτήτων.</translation>
+        <translation>Μέσος πυρήνας 3x3. Αφαιρεί θόρυβο υψηλών συχνοτήτων.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="31"/>
@@ -3292,23 +3247,22 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Sharpen.cpp" line="27"/>
         <source>Sharpen</source>
-        <translation type="unfinished">Όξυνση</translation>
+        <translation>Όξυνση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/Sharpen.cpp" line="30"/>
         <source>Enhance difference between near pixels.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/ADM_vidHue.cpp" line="53"/>
         <source>MPlayer hue</source>
-        <translation type="unfinished">Απόχρωση του MPlayer</translation>
+        <translation>Απόχρωση του MPlayer</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/ADM_vidHue.cpp" line="56"/>
         <source>Adjust hue and saturation.</source>
-        <translation type="unfinished">Ρύθμιση της απόχρωσης και του κορεσμού.</translation>
+        <translation>Ρύθμιση της απόχρωσης και του κορεσμού.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidHzStackField.cpp" line="34"/>
@@ -3323,12 +3277,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidMergeField.cpp" line="36"/>
         <source>Merge fields</source>
-        <translation type="unfinished">Συγχώνευση πεδίων</translation>
+        <translation>Συγχώνευση πεδίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidMergeField.cpp" line="39"/>
         <source>Merge two pictures as if they were two fields.</source>
-        <translation type="unfinished">Συγχώνευση δύο εικόνων σαν να ήταν δύο πεδία.</translation>
+        <translation>Συγχώνευση δύο εικόνων σαν να ήταν δύο πεδία.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp" line="32"/>
@@ -3338,28 +3292,27 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp" line="35"/>
         <source>Each field becomes full picture, half sized.</source>
-        <translation type="unfinished">Κάθε πεδίο γίνεται πλήρης εικόνα, με το μισό μέγεθος.</translation>
+        <translation>Κάθε πεδίο γίνεται πλήρης εικόνα, με το μισό μέγεθος.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidStackField.cpp" line="35"/>
         <source>Stack fields</source>
-        <translation type="unfinished">Στοίβαγμα πεδίων</translation>
+        <translation>Στοίβαγμα πεδίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidStackField.cpp" line="38"/>
         <source>Put two fields on top of one another.</source>
-        <translation type="unfinished">Τοποθέτηση δύο πεδίων το ένα πάνω στο άλλο.</translation>
+        <translation>Τοποθέτηση δύο πεδίων το ένα πάνω στο άλλο.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidUnstackField.cpp" line="34"/>
         <source>Unstack fields</source>
-        <translation type="unfinished">Από-στοίβαγμα πεδίων</translation>
+        <translation>Από-στοίβαγμα πεδίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidUnstackField.cpp" line="37"/>
         <source>Interleave top and bottom part of the picture.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/LumaOnly/ADM_vidLuma.cpp" line="28"/>
@@ -3369,62 +3322,57 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/LumaOnly/ADM_vidLuma.cpp" line="31"/>
         <source>Convert picture to greyscale (black and white).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/ADM_vidMPdelogo.cpp" line="44"/>
         <source>MPlayer delogo</source>
-        <translation type="unfinished">MPlayer αφαιρετής λογότυπου</translation>
+        <translation>MPlayer αφαιρετής λογότυπου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MPDelogo/ADM_vidMPdelogo.cpp" line="47"/>
         <source>Blend a logo by interpolating its surrounding box.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="83"/>
         <source>MPlayer resize</source>
-        <translation type="unfinished">Αλλαγή διαστάσεων MPlayer</translation>
+        <translation>Αλλαγή διαστάσεων MPlayer</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="86"/>
         <source>Change image size. Faster than Avisynth&apos;s Resize.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalSmart.cpp" line="41"/>
         <source>PAL smart</source>
-        <translation type="unfinished">Έξυπνο PAL</translation>
+        <translation>Έξυπνο PAL</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalSmart.cpp" line="44"/>
         <source>Smartly revert non constant PAL field shift.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp" line="38"/>
         <source>Pulldown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp" line="41"/>
         <source>Convert 24 fps to 30 fps by repeating fields.</source>
-        <translation type="unfinished">Μετατροπή των 24 fps στα 30 fps, με την επανάληψη πεδίων.</translation>
+        <translation>Μετατροπή των 24 fps στα 30 fps, με την επανάληψη πεδίων.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp" line="33"/>
         <source>Reverse</source>
-        <translation type="unfinished">Αναστροφή</translation>
+        <translation>Αναστροφή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp" line="36"/>
         <source>Play video backward.</source>
-        <translation type="unfinished">Ανάστροφη αναπαραγωγή του βίντεο.</translation>
+        <translation>Ανάστροφη αναπαραγωγή του βίντεο.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="38"/>
@@ -3494,47 +3442,47 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="85"/>
         <source>_Subtitle file:</source>
-        <translation type="unfinished">_Αρχείο  Υποτίτλων:</translation>
+        <translation>_Αρχείο  Υποτίτλων:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="85"/>
         <source>Select Subtitle file</source>
-        <translation type="unfinished">Επιλογή αρχείου  Υποτίτλων</translation>
+        <translation>Επιλογή αρχείου Υποτίτλων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="86"/>
         <source>_Font (TTF):</source>
-        <translation type="unfinished">_Γραμματοσειρά (TTF):</translation>
+        <translation>_Γραμματοσειρά (TTF):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="86"/>
         <source>Select TTF file</source>
-        <translation type="unfinished">Επιλογή αρχείου TTF</translation>
+        <translation>Επιλογή αρχείου TTF</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="101"/>
         <source>_Encoding:</source>
-        <translation type="unfinished">_Κωδικοποίηση:</translation>
+        <translation>_Κωδικοποίηση:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="103"/>
         <source>S_elect C_olor</source>
-        <translation type="unfinished">Ε_πιλογή _Χρώματος</translation>
+        <translation>Ε_πιλογή _Χρώματος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="104"/>
         <source>Set Size and _Position</source>
-        <translation type="unfinished">Ορισμός του Μεγέθους και της _Θέσης</translation>
+        <translation>Ορισμός του Μεγέθους και της _Θέσης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="105"/>
         <source>_Auto split</source>
-        <translation type="unfinished">_Αυτόματος διαχωρισμός</translation>
+        <translation>_Αυτόματος διαχωρισμός</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="106"/>
         <source>_Delay (ms):</source>
-        <translation type="unfinished">_Καθυστέρηση (ms):</translation>
+        <translation>_Καθυστέρηση (ms):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidKeepEvenFields.cpp" line="34"/>
@@ -3559,27 +3507,27 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapFields.cpp" line="31"/>
         <source>Swap fields</source>
-        <translation type="unfinished">Εναλλαγή πεδίων</translation>
+        <translation>Εναλλαγή πεδίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapFields.cpp" line="34"/>
         <source>Swap top and bottom fields.</source>
-        <translation type="unfinished">Εναλλαγή του πάνω και του κάτω πεδίου.</translation>
+        <translation>Εναλλαγή του πάνω και του κάτω πεδίου.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp" line="35"/>
         <source>Smart swap fields</source>
-        <translation type="unfinished">Έξυπνη εναλλαγή πεδίων</translation>
+        <translation>Έξυπνη εναλλαγή πεδίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp" line="38"/>
         <source>Smartly swap fields. Needed when field order changes.</source>
-        <translation type="unfinished">Έξυπνη εναλλαγή πεδίων. Χρήσιμη όταν αλλάζει η σειρά των πεδίων.</translation>
+        <translation>Έξυπνη εναλλαγή πεδίων. Χρήσιμη όταν αλλάζει η σειρά των πεδίων.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp" line="28"/>
         <source>Swap U and V</source>
-        <translation type="unfinished">Εναλλαγή U και V</translation>
+        <translation>Εναλλαγή U και V</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp" line="31"/>
@@ -3604,41 +3552,37 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp" line="48"/>
         <source>Vertical flip</source>
-        <translation type="unfinished">Κατακόρυφη Αναστροφή</translation>
+        <translation>Κατακόρυφη Αναστροφή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp" line="51"/>
         <source>Vertically flip the picture.</source>
-        <translation type="unfinished">Κατακόρυφη αναστροφή της εικόνας.</translation>
+        <translation>Κατακόρυφη αναστροφή της εικόνας.</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Whirl/ADM_vidWhirl.cpp" line="59"/>
         <source>Whirl</source>
-        <translation type="unfinished">Δίνη</translation>
+        <translation>Δίνη</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Whirl/ADM_vidWhirl.cpp" line="62"/>
         <source>Useless whirlwind effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp" line="69"/>
         <source>Avisynth ColorYUV</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp" line="72"/>
         <source>Alter colors (auto white balance etc...). Ported from Avisynth.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="66"/>
         <source>Hard pulldown removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="17"/>
@@ -3666,32 +3610,33 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2587"/>
         <source>Memory error</source>
-        <translation type="unfinished">Σφάλμα μνήμης</translation>
+        <translation>Σφάλμα μνήμης</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2594"/>
         <source>Error converting to BMP</source>
-        <translation type="unfinished">Σφάλμα στην μετατροπή σε BMP</translation>
+        <translation>Σφάλμα στην μετατροπή σε BMP</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2601"/>
         <source>Something bad happened</source>
-        <translation type="unfinished">Κάτι στραβό έγινε</translation>
+        <translation>Κάτι στραβό έγινε</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2691"/>
         <source>Cannot encode the frame</source>
-        <translation type="unfinished">Αδύνατη η κωδικοποίηση του καρέ</translation>
+        <translation>Αδύνατη η κωδικοποίηση του καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2688"/>
         <source>File error</source>
-        <translation type="unfinished">Σφάλμα αρχείου</translation>
+        <translation>Σφάλμα αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2688"/>
         <source>Cannot open &quot;%s&quot; for writing.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα &quot;%s&quot; για εγγραφή.</translation>
+        <translation>Αδύνατο το άνοιγμα, για εγγραφή, του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/gtk_gui.cpp" line="2698"/>
@@ -3737,53 +3682,52 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="171"/>
         <source>_Start Frame (first frame # to include in average):</source>
-        <translation type="unfinished">_Καρέ Εκκίνησης (το πρώτο καρέ # που περιλαμβάνεται στο μέσο όρο)</translation>
+        <translation>_Καρέ Εκκίνησης (το πρώτο καρέ # που περιλαμβάνεται στο μέσο όρο)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="175"/>
         <source>_End Frame (last frame # to include), -1 = last:</source>
-        <translation type="unfinished">_Καρέ Τέλους (το τελευταίο καρέ # που περιλαμβάνεται), -1 = τελευταίο:</translation>
+        <translation>_Καρέ Τέλους (το τελευταίο καρέ # που περιλαμβάνεται), -1 = τελευταίο:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="179"/>
         <source>_Output File:</source>
-        <translation type="unfinished">_Αρχείο εξόδου:</translation>
+        <translation>_Αρχείο εξόδου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="179"/>
         <source>Select output file</source>
-        <translation type="unfinished">Επιλέξτε το αρχείο αποτελέσματος εξόδου</translation>
+        <translation>Επιλέξτε το αρχείο αποτελέσματος εξόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="182"/>
         <source>_Bias (only for display; use 0 for average, 128 for frame minus average):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="186"/>
         <source>Current frame minus average so far</source>
-        <translation type="unfinished">Το τωρινό καρέ, μείον το μέχρι τώρα μέσο όρο</translation>
+        <translation>Το τωρινό καρέ, μείον το μέχρι τώρα μέσο όρο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="187"/>
         <source>Average so far</source>
-        <translation type="unfinished">Μέσος όρος μέχρι τώρα</translation>
+        <translation>Μέσος όρος μέχρι τώρα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="189"/>
         <source>Display nothing (fast for batch processing)</source>
-        <translation type="unfinished">Χωρίς προβολή κανενός (γρήγορο για ομαδική επεξεργασία)</translation>
+        <translation>Χωρίς προβολή κανενός (γρήγορο για ομαδική επεξεργασία)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="193"/>
         <source>Display _Mode:</source>
-        <translation type="unfinished">Κατάσταση _Λειτουργίας Προβολής:</translation>
+        <translation>Κατάσταση _Λειτουργίας Προβολής:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidComputeAverage.cpp" line="198"/>
         <source>ComputeAverage</source>
-        <translation type="unfinished">ΥπολογισμόςΜέσουΌρου</translation>
+        <translation>ΥπολογισμόςΜέσουΌρου</translation>
     </message>
 </context>
 <context>
@@ -3811,12 +3755,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="385"/>
         <source>_Scene change:</source>
-        <translation type="unfinished">Αλλαγή _Σκηνής:</translation>
+        <translation>Αλλαγή _Σκηνής:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="391"/>
         <source>Denoise</source>
-        <translation type="unfinished">Αποθορυβοποίηση</translation>
+        <translation>Αποθορυβοποίηση</translation>
     </message>
 </context>
 <context>
@@ -3837,52 +3781,52 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="187"/>
         <source>Erase</source>
-        <translation type="unfinished">Σβήσιμο</translation>
+        <translation>Σβήσιμο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="188"/>
         <source>Un-Erase</source>
-        <translation type="unfinished">Από-σβήσιμο</translation>
+        <translation>Από-σβήσιμο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="192"/>
         <source>1x1</source>
-        <translation type="unfinished">1x1</translation>
+        <translation>1x1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="193"/>
         <source>3x3</source>
-        <translation type="unfinished">3x3</translation>
+        <translation>3x3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="194"/>
         <source>5x5</source>
-        <translation type="unfinished">5x5</translation>
+        <translation>5x5</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="195"/>
         <source>7x7</source>
-        <translation type="unfinished">7x7</translation>
+        <translation>7x7</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="196"/>
         <source>9x9</source>
-        <translation type="unfinished">9x9</translation>
+        <translation>9x9</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="197"/>
         <source>11x11</source>
-        <translation type="unfinished">11x11</translation>
+        <translation>11x11</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="198"/>
         <source>15x15</source>
-        <translation type="unfinished">15x15</translation>
+        <translation>15x15</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="199"/>
         <source>21x21</source>
-        <translation type="unfinished">21x21</translation>
+        <translation>21x21</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="203"/>
@@ -3892,19 +3836,17 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="207"/>
         <source>Brush _Size:</source>
-        <translation type="unfinished">_Μέγεθος Πινέλου:</translation>
+        <translation>_Μέγεθος Πινέλου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="240"/>
         <source>Output &quot;_Color&quot; for all masked pixels:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="246"/>
         <source>Eraser _Data File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="246"/>
@@ -3914,7 +3856,7 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="251"/>
         <source>_Debugging settings (bits):</source>
-        <translation type="unfinished">Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
+        <translation>Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidEraser.cpp" line="257"/>
@@ -3937,7 +3879,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp" line="134"/>
         <source>FluxSmooth</source>
-        <translation type="unfinished">FluxSmooth</translation>
+        <translation>FluxSmooth</translation>
     </message>
 </context>
 <context>
@@ -3945,32 +3887,32 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="44"/>
         <source>_Filter strength:</source>
-        <translation type="unfinished">Ένταση _φίλτρου:</translation>
+        <translation>Ένταση _φίλτρου:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="45"/>
         <source>_Quantizer:</source>
-        <translation type="unfinished">_Συμπιεστής Χρώματος (Quantizer):</translation>
+        <translation>_Συμπιεστής Χρώματος (Quantizer):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="56"/>
         <source>_Horizontal deblocking</source>
-        <translation type="unfinished">Οριζόντια αφαίρεση κομματιών</translation>
+        <translation>_Οριζόντια αφαίρεση τμημάτων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="57"/>
         <source>_Vertical deblocking</source>
-        <translation type="unfinished">Κατακόρυφη αφαίρεση κομματιών</translation>
+        <translation>_Κατακόρυφη αφαίρεση τμημάτων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="58"/>
         <source>_Deringing</source>
-        <translation type="unfinished">Φίλτρο αφαίρεσης δακτυλίων</translation>
+        <translation>Φίλτρο αφαίρεσης _δακτυλίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="65"/>
         <source>Forced Postprocessing</source>
-        <translation type="unfinished">Εξαναγκασμένη Μετεπεξεργασία</translation>
+        <translation>Εξαναγκασμένη Μετεπεξεργασία</translation>
     </message>
 </context>
 <context>
@@ -3983,7 +3925,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="70"/>
         <source>Bottom</source>
-        <translation type="unfinished">Κάτω</translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="74"/>
@@ -3993,51 +3935,47 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="75"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="75"/>
         <source>Smaller means more deinterlacing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="76"/>
         <source>_Sharp</source>
-        <translation type="unfinished">_Οξύ</translation>
+        <translation>_Οξύ</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="76"/>
         <source>_Sharper engine:</source>
-        <translation type="unfinished">_Μηχανή οξύτητας:</translation>
+        <translation>_Μηχανή οξύτητας:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="77"/>
         <source>T_woway</source>
-        <translation type="unfinished">_Διπλής Κατεύθυνσης</translation>
+        <translation>_Διπλής Κατεύθυνσης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="77"/>
         <source>Extrapolate better (better not to use it)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="78"/>
         <source>_Map</source>
-        <translation type="unfinished">_Χαρτογράφηση</translation>
+        <translation>_Χαρτογράφηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="78"/>
         <source>Show interlaced areas (for test!)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="82"/>
         <source>KernelDeint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4050,8 +3988,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="294"/>
         <source>Process luma plane</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="295"/>
@@ -4061,7 +3998,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="299"/>
         <source>Large Median 5x5</source>
-        <translation type="unfinished">Μεγάλος Μέσος 5x5</translation>
+        <translation>Μεγάλος Μέσος 5x5</translation>
     </message>
 </context>
 <context>
@@ -4069,12 +4006,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="107"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="108"/>
         <source>Linear blend</source>
-        <translation type="unfinished">Γραμμική ανάμειξη</translation>
+        <translation>Γραμμική ανάμειξη</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="109"/>
@@ -4094,7 +4031,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="112"/>
         <source>FFmpeg deint</source>
-        <translation type="unfinished">Απόπλεξη FFmpeg</translation>
+        <translation>Απόπλεξη FFmpeg</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="113"/>
@@ -4104,7 +4041,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="117"/>
         <source>_Deinterlacing:</source>
-        <translation type="unfinished">_Απόπλεξη:</translation>
+        <translation>_Απόπλεξη:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="118"/>
@@ -4122,32 +4059,32 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="80"/>
         <source>_Logo (jpg file):</source>
-        <translation type="unfinished">_Λογότυπο (αρχείο jpg):</translation>
+        <translation>_Λογότυπο (αρχείο jpg):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="80"/>
         <source>Select JPEG file</source>
-        <translation type="unfinished">Επιλογή Αρχείου JPEG</translation>
+        <translation>Επιλογή Αρχείου JPEG</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="81"/>
         <source>_X Position:</source>
-        <translation type="unfinished">Θέση _X:</translation>
+        <translation>Θέση _X:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="82"/>
         <source>_Y Position:</source>
-        <translation type="unfinished">Θέση _Y:</translation>
+        <translation>Θέση _Y:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="83"/>
         <source>_Alpha:</source>
-        <translation type="unfinished">Άλφα</translation>
+        <translation>_Άλφα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="87"/>
         <source>Logo</source>
-        <translation type="unfinished">Λογότυπο</translation>
+        <translation>Λογότυπο</translation>
     </message>
 </context>
 <context>
@@ -4155,14 +4092,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="60"/>
         <source>_Spatial luma strength:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="61"/>
         <source>S_patial chroma strength:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="62"/>
@@ -4172,7 +4107,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="66"/>
         <source>MPlayer hqdn3d</source>
-        <translation type="unfinished">MPlayer hqdn3d</translation>
+        <translation>MPlayer hqdn3d</translation>
     </message>
 </context>
 <context>
@@ -4180,14 +4115,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="60"/>
         <source>_Spatial luma strength:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="61"/>
         <source>S_patial chroma strength:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="62"/>
@@ -4197,7 +4130,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="66"/>
         <source>MPlayer denoise3d</source>
-        <translation type="unfinished">Αποθορυβοποιητής3d MPlayer </translation>
+        <translation>Αποθορυβοποιητής3d MPlayer </translation>
     </message>
 </context>
 <context>
@@ -4205,7 +4138,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="69"/>
         <source>_Luma threshold:</source>
-        <translation type="unfinished">_Κατώφλι φωτεινότητας:</translation>
+        <translation>_Κατώφλι φωτεινότητας:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="70"/>
@@ -4215,12 +4148,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="71"/>
         <source>_Radius:</source>
-        <translation type="unfinished">_Ακτίνα:</translation>
+        <translation>_Ακτίνα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="75"/>
         <source>Soften</source>
-        <translation type="unfinished">Απαλότερο</translation>
+        <translation>Απαλότερο</translation>
     </message>
 </context>
 <context>
@@ -4238,17 +4171,17 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="77"/>
         <source>_Shrink factor:</source>
-        <translation type="unfinished">_Συντελεστής σμίκρυνσης:</translation>
+        <translation>_Συντελεστής σμίκρυνσης:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="78"/>
         <source>Show _frame</source>
-        <translation type="unfinished">Εμφάνιση _καρέ</translation>
+        <translation>Εμφάνιση _καρέ</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="83"/>
         <source>Mosaic</source>
-        <translation type="unfinished">Μωσαϊκό</translation>
+        <translation>Μωσαϊκό</translation>
     </message>
 </context>
 <context>
@@ -4269,77 +4202,77 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="131"/>
         <source>New format, preferred, good for Tracker3D</source>
-        <translation type="unfinished">Νέα μορφή, προτιμότερη, καλή για Tracker3D</translation>
+        <translation>Νέα μορφή, προτιμότερη, καλή για Tracker3D</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="133"/>
         <source>DG@UWA format (includes shape info &amp; bounding box)</source>
-        <translation type="unfinished">Μορφή DG@UWA (εμπερικλείει πληροφορίες σχήματος &amp; κουτί ορίων)</translation>
+        <translation>Μορφή DG@UWA (εμπερικλείει πληροφορίες σχήματος &amp; κουτί ορίων)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="135"/>
         <source>AB@ODU format (includes shape info)</source>
-        <translation type="unfinished">Μορφή AB@ODU (εμπερικλείει πληροφορίες σχήματος)</translation>
+        <translation>Μορφή AB@ODU (εμπερικλείει πληροφορίες σχήματος)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="137"/>
         <source>Old format that Tracker3D can&apos;t read directly</source>
-        <translation type="unfinished">Παλαιότερη μορφή, που ο Tracker3D δεν μπορεί απευθείας να διαβάσει</translation>
+        <translation>Παλαιότερη μορφή, που ο Tracker3D δεν μπορεί απευθείας να διαβάσει</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="141"/>
         <source>Output _Format:</source>
-        <translation type="unfinished">Μορφή αποτελέσματος _εξόδου:</translation>
+        <translation>Μορφή αποτελέσματος _εξόδου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="166"/>
         <source>Mi_nimum area for a particle to be detected:</source>
-        <translation type="unfinished">_Ελάχιστη περιοχή για την ανίχνευση ενός στοιχείου:</translation>
+        <translation>_Ελάχιστη περιοχή για την ανίχνευση ενός στοιχείου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="169"/>
         <source>Ma_ximum area for a particle to be detected:</source>
-        <translation type="unfinished">_Μέγιστη περιοχή για την ανίχνευση ενός στοιχείου:</translation>
+        <translation>_Μέγιστη περιοχή για την ανίχνευση ενός στοιχείου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="173"/>
         <source>_Left side crop (ignore particles in):</source>
-        <translation type="unfinished">Περιτομή _αριστερής πλευράς (αγνόηση στοιχείων στην):</translation>
+        <translation>Περιτομή _αριστερής πλευράς (αγνόηση στοιχείων στην):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="176"/>
         <source>_Right side crop (ignore particles in):</source>
-        <translation type="unfinished">Περιτομή _δεξίας πλευράς (αγνόηση στοιχείων στην):</translation>
+        <translation>Περιτομή _δεξίας πλευράς (αγνόηση στοιχείων στην):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="179"/>
         <source>_Top crop (ignore particles in):</source>
-        <translation type="unfinished">Περιτομή _επάνω πλευράς (αγνόηση στοιχείων στην):</translation>
+        <translation>Περιτομή _επάνω πλευράς (αγνόηση στοιχείων στην):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="182"/>
         <source>_Bottom crop (ignore particles in):</source>
-        <translation type="unfinished">Περιτομή _κάτω πλευράς (αγνόηση στοιχείων στην):</translation>
+        <translation>Περιτομή _κάτω πλευράς (αγνόηση στοιχείων στην):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="187"/>
         <source>_Output File:</source>
-        <translation type="unfinished">_Αρχείο εξόδου:</translation>
+        <translation>_Αρχείο εξόδου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="187"/>
         <source>Select file</source>
-        <translation type="unfinished">Επιλογή Αρχείου</translation>
+        <translation>Επιλογή Αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="190"/>
         <source>_Camera number:</source>
-        <translation type="unfinished">Αριθμός _κάμερας:</translation>
+        <translation>Αριθμός _κάμερας:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidParticle.cpp" line="192"/>
         <source>_Debugging settings (bits):</source>
-        <translation type="unfinished">Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
+        <translation>Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
     </message>
 </context>
 <context>
@@ -4347,17 +4280,17 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="72"/>
         <source>_New frame rate:</source>
-        <translation type="unfinished">_Νέα ταχύτητα καρέ:</translation>
+        <translation>_Νέα ταχύτητα καρέ:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="73"/>
         <source>_Blend</source>
-        <translation type="unfinished">Ανά_μιξη</translation>
+        <translation>Ανά_μιξη</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="77"/>
         <source>Resample fps</source>
-        <translation type="unfinished">Επαναδειγματοληψία fps</translation>
+        <translation>Επαναδειγματοληψία fps</translation>
     </message>
 </context>
 <context>
@@ -4365,12 +4298,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="260"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="261"/>
         <source>90 degrees</source>
-        <translation type="unfinished">90 μοίρες</translation>
+        <translation>90 μοίρες</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="261"/>
@@ -4380,7 +4313,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="262"/>
         <source>180 degrees</source>
-        <translation type="unfinished">180 μοίρες</translation>
+        <translation>180 μοίρες</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="262"/>
@@ -4390,7 +4323,7 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="263"/>
         <source>270 degrees</source>
-        <translation type="unfinished">270 μοίρες</translation>
+        <translation>270 μοίρες</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="263"/>
@@ -4400,12 +4333,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="265"/>
         <source>_Angle:</source>
-        <translation type="unfinished">_Γωνία:</translation>
+        <translation>_Γωνία:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="267"/>
         <source>Rotate</source>
-        <translation type="unfinished">Περιστροφή</translation>
+        <translation>Περιστροφή</translation>
     </message>
 </context>
 <context>
@@ -4413,12 +4346,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="70"/>
         <source>Stabilize Threshold</source>
-        <translation type="unfinished">Σταθεροποίηση του Κατωφλιού</translation>
+        <translation>Σταθεροποίηση του Κατωφλιού</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="73"/>
         <source>Stabilize</source>
-        <translation type="unfinished">Σταθεροποίηση</translation>
+        <translation>Σταθεροποίηση</translation>
     </message>
 </context>
 <context>
@@ -4426,37 +4359,37 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="84"/>
         <source>_Subtitle file (ASS/SSA):</source>
-        <translation type="unfinished">Αρχείο _υποτίτλων (ASS/SSA):</translation>
+        <translation>Αρχείο _υποτίτλων (ASS/SSA):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="84"/>
         <source>Select Subtitle file</source>
-        <translation type="unfinished">Επιλογή αρχείου  Υποτίτλων</translation>
+        <translation>Επιλογή αρχείου  Υποτίτλων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="85"/>
         <source>_Line spacing:</source>
-        <translation type="unfinished">Απόσταση μεταξύ γρα&amp;μμών:</translation>
+        <translation>Απόσταση μεταξύ γρα&amp;μμών:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="86"/>
         <source>_Font scale:</source>
-        <translation type="unfinished">Μέγεθος _γραμματοσειράς:</translation>
+        <translation>Μέγεθος _γραμματοσειράς:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="87"/>
         <source>_Top margin:</source>
-        <translation type="unfinished">Άνω περιθώριο:</translation>
+        <translation>Άνω περιθώριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="88"/>
         <source>Botto_m margin</source>
-        <translation type="unfinished">_Κάτω περιθώριο</translation>
+        <translation>_Κάτω περιθώριο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="92"/>
         <source>ASS</source>
-        <translation type="unfinished">ASS</translation>
+        <translation>ASS</translation>
     </message>
 </context>
 <context>
@@ -4464,12 +4397,12 @@ Enable it?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="189"/>
         <source>Could not open subtitle file</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα του αρχείου υποτίτλων</translation>
+        <translation>Αδύνατο το άνοιγμα του αρχείου υποτίτλων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="209"/>
         <source>Cannot identify subtitle format</source>
-        <translation type="unfinished">Αδύνατη η αναγνώριση της μορφής των υποτίτλων</translation>
+        <translation>Αδύνατη η αναγνώριση της μορφής των υποτίτλων</translation>
     </message>
 </context>
 <context>
@@ -4477,70 +4410,67 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="258"/>
         <source>P&apos; = A</source>
-        <translation type="unfinished">P&apos; = A</translation>
+        <translation>P&apos; = A</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="259"/>
         <source>P&apos; = P</source>
-        <translation type="unfinished">P&apos; = P</translation>
+        <translation>P&apos; = P</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="260"/>
         <source>P&apos; = P - A</source>
-        <translation type="unfinished">P&apos; = P - A</translation>
+        <translation>P&apos; = P - A</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="261"/>
         <source>P&apos; = A - P</source>
-        <translation type="unfinished">P&apos; = A - P</translation>
+        <translation>P&apos; = A - P</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="262"/>
         <source>P&apos; = P + A</source>
-        <translation type="unfinished">P&apos; = P + A</translation>
+        <translation>P&apos; = P + A</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="263"/>
         <source>P&apos; = P * A</source>
-        <translation type="unfinished">P&apos; = P * A</translation>
+        <translation>P&apos; = P * A</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="264"/>
         <source>P&apos; = P / A</source>
-        <translation type="unfinished">P&apos; = P / A</translation>
+        <translation>P&apos; = P / A</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="265"/>
         <source>P&apos; = A / P</source>
-        <translation type="unfinished">P&apos; = A / P</translation>
+        <translation>P&apos; = A / P</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="266"/>
         <source>P&apos; = min (P, A)</source>
-        <translation type="unfinished">P&apos; = ελάχιστο (P, A)</translation>
+        <translation>P&apos; = ελάχιστο (P, A)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="267"/>
         <source>P&apos; = max (P, A)</source>
-        <translation type="unfinished">P&apos; = μέγιστο (P, A)</translation>
+        <translation>P&apos; = μέγιστο (P, A)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="272"/>
         <source>A = convolve(P); Load convolution kernel from file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="274"/>
         <source>A = pixel from image file as float; Load image from file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="276"/>
         <source>A = pixel from image file as integer; Load image from file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="278"/>
@@ -4550,44 +4480,39 @@ Enable it?</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="280"/>
         <source>A = rolling average of pixel: A = A*(1-alpha)+(P*alpha)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="285"/>
         <source>Select _Operation on each pixel P and input A:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="290"/>
         <source>Input _Type:</source>
-        <translation type="unfinished">_Τύπος Εισόδου:</translation>
+        <translation>_Τύπος Εισόδου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="321"/>
         <source>Input _File (image or convolution kernel):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="321"/>
         <source>Select file</source>
-        <translation type="unfinished">Επιλογή Αρχείου</translation>
+        <translation>Επιλογή Αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="324"/>
         <source>_Load Bias (added to each pixel
 in file image when loaded):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="329"/>
         <source>Load _Multiplier (each pixel in
 file image mult. by this when loaded):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="335"/>
@@ -4598,66 +4523,58 @@ file image mult. by this when loaded):</source>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="339"/>
         <source>Memory constant _alpha
 (where A = (1-alpha)*A + alpha*(curr_frame + lookahead)):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="344"/>
         <source>Look ahead _N frames:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="348"/>
         <source>Init _Start Frame (first frame # to use for head start):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="352"/>
         <source>Init _End Frame (last frame # to use for head start):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="356"/>
         <source>Init By _Rolling (compute head start using a rolling average rather than a straight average)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="361"/>
         <source>_Bias (will be added to result):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="364"/>
         <source>_Result Bias (added to each result pixel):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="368"/>
         <source>Result _Multiplier (each result pixel
 multiplied by this):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="373"/>
         <source>_Histogram every N frames (0 to disable):</source>
-        <translation type="unfinished">_Ιστόγραμμα κάθε Ν καρέ (0 για απενεργοποίηση):</translation>
+        <translation>_Ιστόγραμμα κάθε Ν καρέ (0 για απενεργοποίηση):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="375"/>
         <source>_Debugging settings (bits):</source>
-        <translation type="unfinished">Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
+        <translation>Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidSwissArmyKnife.cpp" line="385"/>
         <source>Swiss Army Knife Configuration</source>
-        <translation type="unfinished">Ρύθμιση Ελβετικού Σουγιά</translation>
+        <translation>Ρύθμιση Ελβετικού Σουγιά</translation>
     </message>
 </context>
 <context>
@@ -4670,7 +4587,7 @@ multiplied by this):</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="61"/>
         <source>Medium</source>
-        <translation type="unfinished">Μεσαίο</translation>
+        <translation>Μεσαίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="62"/>
@@ -4680,7 +4597,7 @@ multiplied by this):</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="66"/>
         <source>_Type:</source>
-        <translation type="unfinished">_Τύπος:</translation>
+        <translation>_Τύπος:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="67"/>
@@ -4690,8 +4607,7 @@ multiplied by this):</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="67"/>
         <source>Smaller means more deinterlacing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="68"/>
@@ -4716,8 +4632,7 @@ multiplied by this):</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="73"/>
         <source>KernelDeint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4725,37 +4640,37 @@ multiplied by this):</source>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="135"/>
         <source>Mi_nimum value to be in-range:</source>
-        <translation type="unfinished">_Ελάχιστη τιμή, εντός των ορίων:</translation>
+        <translation>_Ελάχιστη τιμή, εντός των ορίων:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="136"/>
         <source>Ma_ximum value to be in-range:</source>
-        <translation type="unfinished">_Μέγιστη τιμή, εντός των ορίων:</translation>
+        <translation>_Μέγιστη τιμή, εντός των ορίων:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="139"/>
         <source>In-range values go white, out-of-range go black</source>
-        <translation type="unfinished">Οι εντός των ορίων τιμές γίνονται λευκές, οι εκτός των ορίων γίνονται μαύρες</translation>
+        <translation>Οι εντός των ορίων τιμές γίνονται λευκές, οι εκτός των ορίων γίνονται μαύρες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="140"/>
         <source>In-range values go black, out-of-range go white</source>
-        <translation type="unfinished">Οι εντός των ορίων τιμές γίνονται μαύρες, οι εκτός των ορίων γίνονται λευκές</translation>
+        <translation>Οι εντός των ορίων τιμές γίνονται μαύρες, οι εκτός των ορίων γίνονται λευκές</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="145"/>
         <source>Output values:</source>
-        <translation type="unfinished">Τιμές αποτελέσματος εξόδου:</translation>
+        <translation>Τιμές αποτελέσματος εξόδου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="148"/>
         <source>_Debugging settings (bits):</source>
-        <translation type="unfinished">Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
+        <translation>Ρυθμίσεις _αποσφαλμάτωσης (bit):</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_videoFilter/ADM_vidThreshold.cpp" line="152"/>
         <source>Threshold Configuration</source>
-        <translation type="unfinished">Ρύθμιση Κατωφλιού</translation>
+        <translation>Ρύθμιση Κατωφλιού</translation>
     </message>
 </context>
 <context>
@@ -4763,50 +4678,47 @@ multiplied by this):</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="137"/>
         <source>Temporal &amp; spatial check</source>
-        <translation type="unfinished">Χρονικός και χωρικός έλεγχος</translation>
+        <translation>Χρονικός και χωρικός έλεγχος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="138"/>
         <source>Bob, temporal &amp; spatial check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="139"/>
         <source>Skip spatial temporal check</source>
-        <translation type="unfinished">Παράβλεψη χωρικού και χρονικού ελέγχου</translation>
+        <translation>Παράβλεψη χωρικού και χρονικού ελέγχου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="140"/>
         <source>Bob, skip spatial temporal check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="143"/>
         <source>Bottom field first</source>
-        <translation type="unfinished">Πρώτα το κάτω πεδίο</translation>
+        <translation>Πρώτα το κάτω πεδίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="144"/>
         <source>Top field first</source>
-        <translation type="unfinished">Πρώτα το επάνω πεδίο</translation>
+        <translation>Πρώτα το επάνω πεδίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="147"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Λειτουργία: </translation>
+        <translation>_Λειτουργία: </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="148"/>
         <source>_Order:</source>
-        <translation type="unfinished">_Σειρά:</translation>
+        <translation>_Σειρά:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="152"/>
         <source>yadif</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4814,12 +4726,12 @@ multiplied by this):</source>
     <message>
         <location filename="../avidemux/ADM_audiocodec/ADM_codecwma.cpp" line="93"/>
         <source>Internal error</source>
-        <translation type="unfinished">Εσωτερικό σφάλμα</translation>
+        <translation>Εσωτερικό σφάλμα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_audiocodec/ADM_codecwma.cpp" line="93"/>
         <source>Cannot open WMA2 codec.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα του κώδικα WMA2 .</translation>
+        <translation>Αδύνατο το άνοιγμα του κώδικα WMA2 .</translation>
     </message>
 </context>
 <context>
@@ -4827,68 +4739,67 @@ multiplied by this):</source>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edFrameType.cpp" line="56"/>
         <source>No video loaded</source>
-        <translation type="unfinished">Δεν φορτώθηκε βίντεο</translation>
+        <translation>Δεν φορτώθηκε βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edFrameType.cpp" line="61"/>
         <source>Not indexable</source>
-        <translation type="unfinished">Χωρίς δυνατότητα ευρετηρίου</translation>
+        <translation>Χωρίς δυνατότητα ευρετηρίου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edFrameType.cpp" line="61"/>
         <source>DivX 5 + packed?</source>
-        <translation type="unfinished">DivX 5 +πακετοποιημένο;</translation>
+        <translation>DivX 5 +πακετοποιημένο;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edFrameType.cpp" line="91"/>
         <source>Rebuilding Frames</source>
-        <translation type="unfinished">Επαναχτίσιμο των Καρέ</translation>
+        <translation>Επαναχτίσιμο των Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edFrameType.cpp" line="127"/>
         <source>Aborted</source>
-        <translation type="unfinished">Διεκόπη</translation>
+        <translation>Εγκαταλείφθηκε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edLoadSave.cpp" line="72"/>
         <source>Unsupported</source>
-        <translation type="unfinished">Μη υποστηριζόμενη</translation>
+        <translation>Μη υποστηριζόμενη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edLoadSave.cpp" line="323"/>
         <source>Old format project file</source>
-        <translation type="unfinished">Αρχείο εργασίας παλιάς μορφής</translation>
+        <translation>Αρχείο εργασίας παλιάς μορφής</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edLoadSave.cpp" line="323"/>
         <source>No more supported.</source>
-        <translation type="unfinished">Δεν υποστηρίζεται πια.</translation>
+        <translation>Δεν υποστηρίζεται πια.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="419"/>
         <source>File type identified but no loader support detected...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="420"/>
         <source>May be related to an old index file.</source>
-        <translation type="unfinished">Ίσως να συνδέεται με ένα παλαιότερο αρχείο ευρετηρίου.</translation>
+        <translation>Ίσως να συνδέεται με ένα παλαιότερο αρχείο ευρετηρίου.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="427"/>
         <source>Attempt to open %s failed!</source>
-        <translation type="unfinished">Η προσπάθεια ανοίγματος του %s απέτυχε!</translation>
+        <translation>Η προσπάθεια ανοίγματος του %s απέτυχε.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="555"/>
         <source>Build Time Map</source>
-        <translation type="unfinished">Χτίσιμο Χάρτη Χρόνου</translation>
+        <translation>Χτίσιμο Χάρτη Χρόνου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="555"/>
         <source>Build VBR time map?</source>
-        <translation type="unfinished">Να χτιστεί ο χάρτης χρόνου VBR;</translation>
+        <translation>Να χτιστεί ο χάρτης χρόνου VBR;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="589"/>
@@ -4923,59 +4834,54 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="719"/>
         <source>Packed Bitstream detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="720"/>
         <source>Do you want me to unpack it ?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="740"/>
         <source>Could not unpack the video</source>
-        <translation type="unfinished">Αδύνατο το αποπακετάρισμα του βίντεο</translation>
+        <translation>Αδύνατο το αποπακετάρισμα του βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="740"/>
         <source>Using backup decoder - not frame accurate.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="744"/>
         <source>Weird</source>
-        <translation type="unfinished">Αλλόκοτο</translation>
+        <translation>Αλλόκοτο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="744"/>
         <source>The unpacking succeedeed but the index is still not up to date.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="757"/>
         <source>Index is not up to date</source>
-        <translation type="unfinished">Το ευρετήριο δεν είναι ενημερωμένο</translation>
+        <translation>Το ευρετήριο δεν είναι ενημερωμένο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="757"/>
         <source>You should use Tool-&gt;Rebuild frame. Do it now ?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="1526"/>
         <source>This looks like mpeg
  Do you want to index it?</source>
-        <translation type="unfinished">Αυτό φαίνεται να είναι mpeg
+        <translation>Αυτό φαίνεται να είναι mpeg
  Να δημιουργηθεί ευρετήριο;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="1578"/>
         <source>Indexing failed</source>
-        <translation type="unfinished">Η δημιουργία ευρετηρίου απέτυχε</translation>
+        <translation>Η δημιουργία ευρετηρίου απέτυχε</translation>
     </message>
 </context>
 <context>
@@ -5003,12 +4909,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="52"/>
         <source>Two Pass - Video Size</source>
-        <translation type="unfinished">Δύο Περάσματα - Μέγεθος Αρχείου</translation>
+        <translation>Δύο Περάσματα - Μέγεθος Αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="53"/>
         <source>Two Pass - Average Bitrate</source>
-        <translation type="unfinished">Δύο Περάσματα - Μέσος Όρος Ρυθμού Bit</translation>
+        <translation>Δύο Περάσματα - Μέσος Όρος Ρυθμού Bit</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="55"/>
@@ -5018,7 +4924,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="60"/>
         <source>Bitrate</source>
-        <translation type="unfinished">Ρυθμός bit</translation>
+        <translation>Ρυθμός bit</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="161"/>
@@ -5044,7 +4950,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_bitrate.cpp" line="181"/>
         <source>-</source>
-        <translation type="unfinished">-</translation>
+        <translation>-</translation>
     </message>
 </context>
 <context>
@@ -5091,37 +4997,38 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogaudio.cpp" line="66"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogaudio.cpp" line="86"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp" line="101"/>
         <source>File error</source>
-        <translation type="unfinished">Σφάλμα αρχείου</translation>
+        <translation>Σφάλμα αρχείου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp" line="101"/>
         <source>Cannot open &quot;%s&quot; for writing.</source>
-        <translation type="unfinished">Αδύνατο το άνοιγμα &quot;%s&quot; για εγγραφή.</translation>
+        <translation>Αδύνατο το άνοιγμα, για εγγραφή, του
+ &quot;%s&quot;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp" line="108"/>
         <source>OGM</source>
-        <translation type="unfinished">OGM</translation>
+        <translation>OGM</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp" line="115"/>
         <source>Could not initialize video</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση του βίντεο</translation>
+        <translation>Αδύνατη η αρχικοποίηση του βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsave.cpp" line="123"/>
         <source>Could not initialize audio</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση του ήχου</translation>
+        <translation>Αδύνατη η αρχικοποίηση του ήχου</translation>
     </message>
 </context>
 <context>
@@ -5129,7 +5036,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsavecopy.cpp" line="55"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsavecopy.cpp" line="56"/>
@@ -5142,7 +5049,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp" line="87"/>
         <source>Filter init failed</source>
-        <translation type="unfinished">Η αρχικοποίηση του φίλτρου απέτυχε</translation>
+        <translation>Η αρχικοποίηση του φίλτρου απέτυχε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_ogm/op_ogsaveprocess.cpp" line="78"/>
@@ -5175,12 +5082,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="46"/>
         <source>Auto-detect</source>
-        <translation type="unfinished">Αυτόματη ανίχνευση</translation>
+        <translation>Αυτόματη ανίχνευση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_UIs/ADM_QT4/src/T_threadCount.cpp" line="47"/>
         <source>Custom</source>
-        <translation type="unfinished">Προσαρμοσμένο</translation>
+        <translation>Προσαρμοσμένο</translation>
     </message>
 </context>
 <context>
@@ -5201,8 +5108,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp" line="172"/>
         <source>Process luma plane</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/FastConvolution/ADM_vidFastConvolution.cpp" line="173"/>
@@ -5221,7 +5127,7 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_audio/audiotimeline.cpp" line="78"/>
         <location filename="../avidemux/ADM_audio/audiotimeline.cpp" line="89"/>
         <source>Building VBR map</source>
-        <translation type="unfinished">Χτίσιμο χάρτη VBR</translation>
+        <translation>Χτίσιμο χάρτη VBR</translation>
     </message>
 </context>
 <context>
@@ -5229,32 +5135,32 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="212"/>
         <source>_Left border:</source>
-        <translation type="unfinished">_Αριστερό όριο:</translation>
+        <translation>_Αριστερό όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="213"/>
         <source>_Right border:</source>
-        <translation type="unfinished">_Δεξί όριο:</translation>
+        <translation>_Δεξί όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="214"/>
         <source>_Top border:</source>
-        <translation type="unfinished">_Επάνω όριο:</translation>
+        <translation>_Επάνω όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="215"/>
         <source>_Bottom border:</source>
-        <translation type="unfinished">_Κάτω όριο:</translation>
+        <translation>_Κάτω όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="218"/>
         <source>Add Borders</source>
-        <translation type="unfinished">Προσθήκη Ορίων</translation>
+        <translation>Προσθήκη Ορίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="222"/>
         <source>Incorrect parameters</source>
-        <translation type="unfinished">Εσφαλμένες παράμετροι</translation>
+        <translation>Εσφαλμένες παράμετροι</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="222"/>
@@ -5267,23 +5173,22 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="92"/>
         <source>Fast</source>
-        <translation type="unfinished">Γρήγορο</translation>
+        <translation>Γρήγορο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="93"/>
         <source>Medium</source>
-        <translation type="unfinished">Μεσαίο</translation>
+        <translation>Μεσαίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="94"/>
         <source>Slow iterative motion search</source>
-        <translation type="unfinished">Αργή αναζήτηση επαναληπτικής κίνησης</translation>
+        <translation>Αργή αναζήτηση επαναληπτικής κίνησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="95"/>
         <source>Extra slow (same as 3+multiple reference frames)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="97"/>
@@ -5293,12 +5198,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="98"/>
         <source>Bottom</source>
-        <translation type="unfinished">Κάτω</translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="101"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Λειτουργία: </translation>
+        <translation>_Λειτουργία: </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="102"/>
@@ -5308,7 +5213,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="103"/>
         <source>_Qp:</source>
-        <translation type="unfinished">_Qp:</translation>
+        <translation>_Qp:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="107"/>
@@ -5321,37 +5226,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="212"/>
         <source>_Left border:</source>
-        <translation type="unfinished">_Αριστερό όριο:</translation>
+        <translation>_Αριστερό όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="213"/>
         <source>_Right border:</source>
-        <translation type="unfinished">_Δεξί όριο:</translation>
+        <translation>_Δεξί όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="214"/>
         <source>_Top border:</source>
-        <translation type="unfinished">_Επάνω όριο:</translation>
+        <translation>_Επάνω όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="215"/>
         <source>_Bottom border:</source>
-        <translation type="unfinished">_Κάτω όριο:</translation>
+        <translation>_Κάτω όριο:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="218"/>
         <source>Blacken Borders</source>
-        <translation type="unfinished">Μαύρισμα των Ορίων</translation>
+        <translation>Μαύρισμα των Ορίων</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="223"/>
         <source>Incorrect parameters</source>
-        <translation type="unfinished">Εσφαλμένες παράμετροι</translation>
+        <translation>Εσφαλμένες παράμετροι</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="223"/>
         <source>All parameters must be even and within range.</source>
-        <translation type="unfinished">Όλες οι παράμετροι πρέπει να είναι ίσες και μέσα στα όρια.</translation>
+        <translation>Όλες οι παράμετροι πρέπει να είναι ίσες και μέσα στα όρια.</translation>
     </message>
 </context>
 <context>
@@ -5369,7 +5274,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp" line="95"/>
         <source>Temporal Cleaner</source>
-        <translation type="unfinished">Χρονικός Καθαριστής</translation>
+        <translation>Χρονικός Καθαριστής</translation>
     </message>
 </context>
 <context>
@@ -5377,57 +5282,57 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="52"/>
         <source>Out</source>
-        <translation type="unfinished">Έξοδος</translation>
+        <translation>Έξοδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="52"/>
         <source>Fade out</source>
-        <translation type="unfinished">Φθίνουσα έξοδος</translation>
+        <translation>Φθίνουσα έξοδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="52"/>
         <source>In</source>
-        <translation type="unfinished">Είσοδος</translation>
+        <translation>Είσοδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="52"/>
         <source>Fade in</source>
-        <translation type="unfinished">Αύξουσα είσοδος</translation>
+        <translation>Αύξουσα είσοδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="58"/>
         <source>_Fade type:</source>
-        <translation type="unfinished">_Τύπος μετάβασης:</translation>
+        <translation>_Τύπος μετάβασης:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="59"/>
         <source>_Start frame:</source>
-        <translation type="unfinished">_Αρχικό καρέ</translation>
+        <translation>_Αρχικό καρέ:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="60"/>
         <source>_End frame:</source>
-        <translation type="unfinished">_Τελικό καρέ</translation>
+        <translation>_Τελικό καρέ:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="61"/>
         <source>Fade to _black</source>
-        <translation type="unfinished">Φθίνουσα μετάβαση στο _μαύρο</translation>
+        <translation>Φθίνουσα μετάβαση στο _μαύρο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="65"/>
         <source>Fade</source>
-        <translation type="unfinished">Ομαλή μετάβαση</translation>
+        <translation>Ομαλή μετάβαση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="70"/>
         <source>Parameter Error</source>
-        <translation type="unfinished">Σφάλμα Παραμέτρου</translation>
+        <translation>Σφάλμα Παραμέτρου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="70"/>
         <source>Start must be before end, and both within video # of frames.</source>
-        <translation type="unfinished">Η αρχή πρέπει να είναι πριν το τέλος, και τα δύο εντός του βίντεο # των καρέ.</translation>
+        <translation>Η αρχή πρέπει να είναι πριν το τέλος, και τα δύο εντός του βίντεο # των καρέ.</translation>
     </message>
 </context>
 <context>
@@ -5435,7 +5340,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="13"/>
         <source>Calculator</source>
-        <translation type="unfinished">Υπολογιστής</translation>
+        <translation>Υπολογιστής</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="25"/>
@@ -5445,22 +5350,22 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="53"/>
         <source>00:00:00</source>
-        <translation type="unfinished">00:00:00</translation>
+        <translation>00:00:00</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="61"/>
         <source>AVI</source>
-        <translation type="unfinished">AVI</translation>
+        <translation>AVI</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="66"/>
         <source>OGM</source>
-        <translation type="unfinished">OGM</translation>
+        <translation>OGM</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="71"/>
         <source>MPEG</source>
-        <translation type="unfinished">MPEG</translation>
+        <translation>MPEG</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="79"/>
@@ -5475,7 +5380,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="93"/>
         <source>Duration:</source>
-        <translation type="unfinished">Διάρκεια:</translation>
+        <translation>Διάρκεια:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="101"/>
@@ -5505,7 +5410,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="126"/>
         <source>Custom</source>
-        <translation type="unfinished">Προσαρμοσμένο</translation>
+        <translation>Προσαρμοσμένο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="184"/>
@@ -5564,7 +5469,7 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="524"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="542"/>
         <source>0</source>
-        <translation type="unfinished">0</translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/calculator.ui" line="441"/>
@@ -5631,7 +5536,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="257"/>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="305"/>
         <source>Narrow</source>
-        <translation type="unfinished">Στενό</translation>
+        <translation>Στενό</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="197"/>
@@ -5661,8 +5566,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/CNR2/qt4/cnr2.ui" line="334"/>
         <source>Sensibility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5670,8 +5574,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="13"/>
         <source>Avisynth ColorYUV</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="25"/>
@@ -5681,7 +5584,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="55"/>
         <source>Contrast</source>
-        <translation type="unfinished">Αντίθεση</translation>
+        <translation>Αντίθεση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="92"/>
@@ -5701,17 +5604,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="183"/>
         <source>Brightness</source>
-        <translation type="unfinished">Φωτεινότητα</translation>
+        <translation>Φωτεινότητα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="200"/>
         <source>Gain</source>
-        <translation type="unfinished">Κέρδος</translation>
+        <translation>Κέρδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="207"/>
         <source>Gamma</source>
-        <translation type="unfinished">Γάμμα</translation>
+        <translation>Γάμμα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="268"/>
@@ -5733,7 +5636,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="337"/>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="351"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="311"/>
@@ -5758,7 +5661,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="342"/>
         <source>Rec.709</source>
-        <translation type="unfinished">Rec.709</translation>
+        <translation>Rec.709</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/colorYUV/qt4/coloryuv.ui" line="356"/>
@@ -5826,7 +5729,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/CurveEditor/qt4/CurveDialog.ui" line="93"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Βοήθεια</translation>
     </message>
 </context>
 <context>
@@ -5847,12 +5750,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="78"/>
         <source>Bottom</source>
-        <translation type="unfinished">Κάτω</translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="81"/>
         <source>Keep nb of frames and fps</source>
-        <translation type="unfinished">Διατήρηση του αριθμού των καρέ και την ταχύτητά τους (fps)</translation>
+        <translation>Διατήρηση του αριθμού των καρέ και την ταχύτητά τους (fps)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="82"/>
@@ -5862,7 +5765,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="83"/>
         <source>Double nb of frames (slow motion)</source>
-        <translation type="unfinished">Διπλός αριθμός καρέ (αργή κίνηση)</translation>
+        <translation>Διπλός αριθμός καρέ (αργή κίνηση)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="86"/>
@@ -5872,27 +5775,27 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="87"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Λειτουργία: </translation>
+        <translation>_Λειτουργία: </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="88"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="89"/>
         <source>_Extra</source>
-        <translation type="unfinished">_Επιπλέον</translation>
+        <translation>_Επιπλέον</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="89"/>
         <source>Extra check, avoid using it</source>
-        <translation type="unfinished">Επιπλέον έλεγχος, απέφυγε τη χρήση του</translation>
+        <translation>Επιπλέον έλεγχος, απέφυγε τη χρήση του</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="92"/>
         <source>DGBob</source>
-        <translation type="unfinished">DGBob</translation>
+        <translation>DGBob</translation>
     </message>
 </context>
 <context>
@@ -5918,7 +5821,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/dvEncoder.cpp" line="85"/>
         <source>Incompatible settings</source>
-        <translation type="unfinished">Ασυμβίβαστες ρυθμίσεις</translation>
+        <translation>Ασυμβίβαστες ρυθμίσεις</translation>
     </message>
 </context>
 <context>
@@ -5926,7 +5829,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="171"/>
         <source>Discard closer</source>
-        <translation type="unfinished">Απόρριψη κοντινότερου</translation>
+        <translation>Απόρριψη κοντινότερου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="172"/>
@@ -5941,52 +5844,47 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="174"/>
         <source>Pulldown dupe removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="177"/>
         <source>Fastest (no chroma, partial luma)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="178"/>
         <source>Fast (partial luma and chroma)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="179"/>
         <source>Medium (full luma, no chroma)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="180"/>
         <source>Slow (full luma and chroma)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="184"/>
         <source>_Mode:</source>
-        <translation type="unfinished">_Λειτουργία: </translation>
+        <translation>_Λειτουργία: </translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="185"/>
         <source>_Quality:</source>
-        <translation type="unfinished">_Ποιότητα:</translation>
+        <translation>_Ποιότητα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="186"/>
         <source>_Threshold 1:</source>
-        <translation type="unfinished">_Κατώφλι 1:</translation>
+        <translation>_Κατώφλι 1:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="187"/>
         <source>T_hreshold 2:</source>
-        <translation type="unfinished">_Κατώφλι 2:</translation>
+        <translation>Κα_τώφλι 2:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="188"/>
@@ -5996,8 +5894,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="192"/>
         <source>Decomb Decimate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6020,17 +5917,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="47"/>
         <source>Skip Glyph</source>
-        <translation type="unfinished">Παράβλεψη Ανάγλυφου</translation>
+        <translation>Παράβλεψη Ανάγλυφου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="54"/>
         <source>Ignore</source>
-        <translation type="unfinished">Αγνόησε</translation>
+        <translation>Αγνόησε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="74"/>
         <source>Ok</source>
-        <translation type="unfinished">Εντάξει</translation>
+        <translation>Εντάξει</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="92"/>
@@ -6040,17 +5937,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="102"/>
         <source>00:00:00/000</source>
-        <translation type="unfinished">00:00:00/000</translation>
+        <translation>00:00:00/000</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="109"/>
         <source>Timecode:</source>
-        <translation type="unfinished">Χρόνος:</translation>
+        <translation>Χρόνος:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="116"/>
         <source>0/0</source>
-        <translation type="unfinished">0/0</translation>
+        <translation>0/0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/ocr.ui" line="123"/>
@@ -6063,7 +5960,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_encoder/adm_encCopy.cpp" line="85"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
 </context>
 <context>
@@ -6105,17 +6002,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="89"/>
         <source>_Bitrate (kb/s):</source>
-        <translation type="unfinished">_Ρυθμός bit (kb/s):</translation>
+        <translation>_Ρυθμός bit (kb/s):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="90"/>
         <source>_GOP size:</source>
-        <translation type="unfinished">Μέ_γεθος GOP:</translation>
+        <translation>Μέ_γεθος GOP:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="97"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/flv1Encoder.cpp" line="100"/>
@@ -6128,33 +6025,33 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="178"/>
         <source>Error initalizing audio filters</source>
-        <translation type="unfinished">Σφάλμα στην αρχικοποίηση των φίλτρων του ήχου</translation>
+        <translation>Σφάλμα στην αρχικοποίηση των φίλτρων του ήχου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="187"/>
         <source>Error initalizing video filters</source>
-        <translation type="unfinished">Σφάλμα στην αρχικοποίηση των φίλτρων του βίντεο</translation>
+        <translation>Σφάλμα στην αρχικοποίηση των φίλτρων του βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="256"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="271"/>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="367"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="369"/>
         <source>AVI</source>
-        <translation type="unfinished">AVI</translation>
+        <translation>AVI</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="446"/>
         <source>Cannot initiate save</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
+        <translation>Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
     </message>
 </context>
 <context>
@@ -6162,12 +6059,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp" line="89"/>
         <source>Cannot initiate save</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
+        <translation>Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy.cpp" line="102"/>
         <source>Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
 </context>
 <context>
@@ -6175,12 +6072,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="128"/>
         <source>Cannot initiate save</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
+        <translation>Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_pack.cpp" line="141"/>
         <source>Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
 </context>
 <context>
@@ -6188,12 +6085,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp" line="91"/>
         <source>Cannot initiate save</source>
-        <translation type="unfinished">Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
+        <translation>Αδύνατη η αρχικοποίηση της αποθήκευσης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisavecopy_unpack.cpp" line="104"/>
         <source>Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
 </context>
 <context>
@@ -6202,7 +6099,7 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="66"/>
         <source>Width is not a multiple of 8
  continue anyway ?</source>
-        <translation type="unfinished">Το πλάτος δεν είναι πολλαπλάσιο  του 8
+        <translation>Το πλάτος δεν είναι πολλαπλάσιο του 8
  να συνεχιστεί η διαδικασία, έτσι κι αλλιώς;</translation>
     </message>
     <message>
@@ -6213,7 +6110,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="100"/>
         <source>Filter init failed</source>
-        <translation type="unfinished">Η αρχικοποίηση του φίλτρου απέτυχε</translation>
+        <translation>Η αρχικοποίηση του φίλτρου απέτυχε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="131"/>
@@ -6223,12 +6120,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="146"/>
         <source>Aborting</source>
-        <translation type="unfinished">Εγκατάλειψη</translation>
+        <translation>Εγκατάλειψη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="261"/>
         <source>Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Κωδικοποίηση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_outputs/oplug_avi/op_saveprocess.cpp" line="263"/>
@@ -6254,7 +6151,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/glypheditor.ui" line="172"/>
         <source>Prev. Empty</source>
-        <translation type="unfinished">Προηγούμενο Κενό</translation>
+        <translation>Προηγούμενο Κενό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/glypheditor.ui" line="179"/>
@@ -6279,7 +6176,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/glypheditor.ui" line="207"/>
         <source>Next Empty</source>
-        <translation type="unfinished">Επόμενο Κενό</translation>
+        <translation>Επόμενο Κενό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/glypheditor.ui" line="214"/>
@@ -6292,35 +6189,35 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="151"/>
         <source>Head reached</source>
-        <translation type="unfinished">Έφτασε στην αρχή</translation>
+        <translation>Έφτασε στην αρχή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="151"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="170"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="212"/>
         <source>No more glyphs</source>
-        <translation type="unfinished">Όχι άλλα ανάγλυφα</translation>
+        <translation>Όχι άλλα ανάγλυφα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="170"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="212"/>
         <source>End reached</source>
-        <translation type="unfinished">Έφτασε στο τέλος</translation>
+        <translation>Έφτασε στο τέλος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="185"/>
         <source>String</source>
-        <translation type="unfinished">Αλφαριθμητικό</translation>
+        <translation>Αλφαριθμητικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="188"/>
         <source>Search string</source>
-        <translation type="unfinished">Εύρεση αλφαριθμητικού</translation>
+        <translation>Εύρεση αλφαριθμητικού</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_ocr/Q_glypheditor.cpp" line="248"/>
         <source>Select GlyphFile to edit</source>
-        <translation type="unfinished">Επιλογή GlyphFile για επεξεργασία</translation>
+        <translation>Επιλογή GlyphFile για επεξεργασία</translation>
     </message>
 </context>
 <context>
@@ -6328,37 +6225,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="197"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="198"/>
         <source>Full</source>
-        <translation type="unfinished">Πλήρες</translation>
+        <translation>Πλήρες</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="199"/>
         <source>Log</source>
-        <translation type="unfinished">Καταγραφή</translation>
+        <translation>Καταγραφή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="200"/>
         <source>Phods</source>
-        <translation type="unfinished">Phods</translation>
+        <translation>Phods</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="201"/>
         <source>EPZS</source>
-        <translation type="unfinished">EPZS</translation>
+        <translation>EPZS</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="204"/>
         <source>H.263</source>
-        <translation type="unfinished">H.263</translation>
+        <translation>H.263</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="205"/>
         <source>MPEG</source>
-        <translation type="unfinished">MPEG</translation>
+        <translation>MPEG</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="208"/>
@@ -6378,7 +6275,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="216"/>
         <source>Encoding Mode</source>
-        <translation type="unfinished">Κατάσταση Λειτουργίας Κωδικοποίησης</translation>
+        <translation>Κατάσταση Λειτουργίας Κωδικοποίησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="219"/>
@@ -6408,7 +6305,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="226"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Εκτίμηση κίνησης</translation>
+        <translation>Εκτίμηση κίνησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="229"/>
@@ -6468,7 +6365,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/h263Encoder.cpp" line="479"/>
         <source>Incompatible settings</source>
-        <translation type="unfinished">Ασυμβίβαστες ρυθμίσεις</translation>
+        <translation>Ασυμβίβαστες ρυθμίσεις</translation>
     </message>
 </context>
 <context>
@@ -6476,7 +6373,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="67"/>
         <source>Indexing</source>
-        <translation type="unfinished">Δημιουργία ευρετηρίου</translation>
+        <translation>Δημιουργία ευρετηρίου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/T_index_pg.cpp" line="68"/>
@@ -6504,12 +6401,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mp4/ADM_mp4Analyzer.cpp" line="626"/>
         <source>Problem reading SVQ3 headers</source>
-        <translation type="unfinished">Πρόβλημα στην ανάγνωση των κεφαλίδων SVQ3</translation>
+        <translation>Πρόβλημα στην ανάγνωση των κεφαλίδων SVQ3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mp4/ADM_mp4Indexer.cpp" line="341"/>
         <source>No stts table</source>
-        <translation type="unfinished">Χωρίς πίνακα sstts</translation>
+        <translation type="unfinished">Χωρίς πίνακα stts</translation>
     </message>
 </context>
 <context>
@@ -6550,25 +6447,25 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="14"/>
         <source>Avidemux</source>
-        <translation type="unfinished">Avidemux</translation>
+        <translation>Avidemux</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="87"/>
         <source>&lt;b&gt;Video&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Βίντεο&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Βίντεο&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="167"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="295"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="175"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="303"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="481"/>
         <source>Configure</source>
-        <translation type="unfinished">Ρύθμιση</translation>
+        <translation>Ρύθμιση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="182"/>
@@ -6576,22 +6473,22 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1779"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1782"/>
         <source>Filters</source>
-        <translation type="unfinished">Φίλτρα</translation>
+        <translation>Φίλτρα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="215"/>
         <source>&lt;b&gt;Audio&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Ήχος&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ήχος&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="334"/>
         <source>&amp;Shift:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Μετατόπιση:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="398"/>
         <source>&lt;b&gt;Format&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Μορφή&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Μορφή&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="633"/>
@@ -6607,522 +6504,523 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="823"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="842"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="921"/>
         <source>Frame:</source>
-        <translation type="unfinished"></translation>
+        <translation>Καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="946"/>
         <source>0</source>
-        <translation type="unfinished">0</translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="968"/>
         <source>/ 0</source>
-        <translation type="unfinished">/ 0</translation>
+        <translation>/ 0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1003"/>
         <source>Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρόνος:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1022"/>
         <source>00:00:00.000</source>
-        <translation type="unfinished">00:00:00.000</translation>
+        <translation>00:00:00.000</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1038"/>
         <source>/ 00:00:00.000</source>
-        <translation type="unfinished">/ 00:00:00.000</translation>
+        <translation>/ 00:00:00.000</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1067"/>
         <source>Frame Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1080"/>
         <source>?</source>
-        <translation type="unfinished"></translation>
+        <translation>;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1134"/>
         <source>Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1150"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1164"/>
         <source>000000</source>
-        <translation type="unfinished">000000</translation>
+        <translation>000000</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1398"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Βοή&amp;θεια</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1260"/>
         <source>Vi&amp;deo</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1270"/>
         <source>&amp;Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ήχος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1341"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αρχείο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1345"/>
         <source>&amp;Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Πρόσφατα Αρχεία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1356"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Απο&amp;θήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1412"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Ε&amp;ργαλεία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1281"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1295"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Προβολή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1299"/>
         <source>&amp;Preview Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Λειτουργία Προεπισκόπησης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1316"/>
         <source>&amp;Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Προ&amp;σαρμοσμένο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1321"/>
         <source>&amp;Go</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Μετάβαση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1407"/>
         <source>A&amp;uto</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυ&amp;τόματο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1480"/>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Άνοιγμα...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1483"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Ο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1488"/>
         <source>&amp;Append...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Προσάρτηση...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1491"/>
         <source>Ctrl+Alt+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+Α</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1501"/>
         <source>Cu&amp;t</source>
-        <translation type="unfinished"></translation>
+        <translation>Απο&amp;κοπή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1504"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Χ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1509"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1512"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1517"/>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επικόληση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1520"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Ω</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1525"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Διαγραφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1528"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγρ.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1536"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1539"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1542"/>
         <source>Set Marker A</source>
-        <translation type="unfinished"></translation>
+        <translation>Όρισε το δείκτη Α</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1545"/>
         <source>[</source>
-        <translation type="unfinished"></translation>
+        <translation>[</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1553"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1556"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1559"/>
         <source>Set Marker B</source>
-        <translation type="unfinished"></translation>
+        <translation>Όρισε το δείκτη Β</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1562"/>
         <source>]</source>
-        <translation type="unfinished"></translation>
+        <translation>]</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1570"/>
         <source>&amp;Information...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Πληροφορίες...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1573"/>
         <source>Alt+Return</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+Return</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1581"/>
         <source>Save &amp;Video...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση του &amp;Βίντεο...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1584"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1587"/>
         <source>Save Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση του Βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1590"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Σ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1595"/>
         <source>Save &amp;BMP Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση Εικόνας &amp;BMP</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1598"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1601"/>
         <source>Save BMP Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση Εικόνας BMP</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1606"/>
         <source>Save &amp;JPEG Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση Εικόνας &amp;JPEG...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1609"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1612"/>
         <source>Save JPEG Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση Εικόνας JPEG</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1620"/>
         <source>&amp;Load/Run Project...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Φόρτωση/Εκτέλεση Εργασίας...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1623"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1626"/>
         <source>Load/Run Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση/Εκτέλεση Εργασίας</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1634"/>
         <source>Save &amp;Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση &amp;Σεναρίου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1637"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1640"/>
         <source>Save Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση Σεναρίου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1648"/>
         <source>Save P&amp;roject As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση του Σεναρίου &amp;Ως...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1651"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1654"/>
         <source>Save Project As</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση του Σεναρίου Ως</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1662"/>
         <source>&amp;Zoom 1:4</source>
-        <translation type="unfinished"></translation>
+        <translation>Σμίκρυνση 1:&amp;4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1665"/>
         <source>Ctrl+Shift+4</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1673"/>
         <source>Z&amp;oom 1:2</source>
-        <translation type="unfinished"></translation>
+        <translation>Σμίκρ&amp;υνση 1:2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1676"/>
         <source>Ctrl+Shift+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1687"/>
         <source>Zoom &amp;1:1</source>
-        <translation type="unfinished"></translation>
+        <translation>Προβολή &amp;1:1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1690"/>
         <source>Ctrl+Alt+1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1698"/>
         <source>Zoom &amp;2:1</source>
-        <translation type="unfinished"></translation>
+        <translation>Μεγέθυνση &amp;2:1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1701"/>
         <source>Ctrl+Alt+2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1706"/>
         <source>&amp;Decoder Options...</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογές Απο&amp;κωδικοποιητή...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1709"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1712"/>
         <source>Decoder Options</source>
-        <translation type="unfinished">Επιλογές Αποκωδικοποιητή</translation>
+        <translation>Επιλογές Αποκωδικοποιητή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1715"/>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1720"/>
         <source>&amp;Postprocessing...</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετεπε&amp;ξεργασία...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1723"/>
         <source>F4</source>
-        <translation type="unfinished"></translation>
+        <translation>F4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1728"/>
         <source>&amp;Frame Rate...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ταχύτητα Καρέ...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1731"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1734"/>
         <source>Frame Rate</source>
-        <translation type="unfinished">Ταχύτητα Καρέ</translation>
+        <translation>Ταχύτητα Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1739"/>
         <source>Fil&amp;ters...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Φίλτρα...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1742"/>
         <source>Ctrl+Alt+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1747"/>
         <source>&amp;Main Track...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Κύριο Κανάλι...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1752"/>
         <source>&amp;Secondary Track...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Δευτερεύων Κανάλι...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1757"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1760"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1763"/>
         <source>Build VBR Time Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Χτίσιμο Χάρτη Χρόνου VBR</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1768"/>
         <source>S&amp;ave...</source>
-        <translation type="unfinished"></translation>
+        <translation>Απο&amp;θήκευση...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1771"/>
         <source>Ctrl+Alt+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+S</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1776"/>
         <source>&amp;Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Φίλτρα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1793"/>
         <source>&amp;Calculator...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Υπολογιστής...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1796"/>
         <source>F7</source>
-        <translation type="unfinished"></translation>
+        <translation>F7</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1801"/>
         <source>&amp;Rebuild I &amp;&amp; B Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Επανα&amp;χτίσιμο των Καρέ I &amp; B</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1804"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1807"/>
         <source>Rebuild I &amp; B Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Επανα&amp;χτίσιμο των Καρέ I &amp; B</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1812"/>
         <source>&amp;Bitrate Histogram...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιστόγραμμα &amp;Ρυθμού Bit...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1815"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1818"/>
         <source>Bitrate Histogram</source>
-        <translation type="unfinished">Ιστόγραμμα Ρυθμού Bit</translation>
+        <translation>Ιστόγραμμα Ρυθμού Bit</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1823"/>
         <source>&amp;Scan for Black Frames...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση για Μα&amp;ύρα Καρέ...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1826"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1829"/>
         <source>Scan for Black Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναζήτηση για Μαύρα Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1834"/>
         <source>&amp;VOB -&gt; VobSub...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;VOB -&gt; VobSub...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1837"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1840"/>
         <source>VOB -&gt; VobSub</source>
-        <translation type="unfinished"></translation>
+        <translation>VOB -&gt; VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1845"/>
         <source>&amp;OCR (VobSub -&gt; srt)...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;OCR (VobSub -&gt; srt)...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1848"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1851"/>
         <source>OCR (VobSub -&gt; srt)</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR (VobSub -&gt; srt)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2046"/>
         <source>P</source>
-        <translation type="unfinished"></translation>
+        <translation>P</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1859"/>
         <source>P&amp;revious Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Προη&amp;γούμενο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="363"/>
         <source>ms</source>
-        <translation type="unfinished"></translation>
+        <translation>χιλδευτ.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1143"/>
         <source>A:</source>
-        <translation type="unfinished">A:</translation>
+        <translation>A:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1157"/>
         <source>B:</source>
-        <translation type="unfinished">B:</translation>
+        <translation>B:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1366"/>
         <source>Recent Projects</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατες Εργασίες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1496"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ξοδος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1862"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Αριστερά</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1870"/>
         <source>&amp;Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επόμενο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1873"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>μήπως πλήκτρο;</translatorcomment>
+        <translation>Δεξιά</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1881"/>
@@ -7138,7 +7036,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1890"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1898"/>
@@ -7154,334 +7052,335 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1907"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Επάνω</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1915"/>
         <source>Previou&amp;s Black Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Προ&amp;ηγούμενο Μαύρο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1918"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1921"/>
         <source>Previous Black Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Προηγούμενο Μαύρο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1929"/>
         <source>Ne&amp;xt Black Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Ε&amp;πόμενο Μαύρο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1932"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1935"/>
         <source>Next Black Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Επόμενο Μαύρο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1943"/>
         <source>&amp;First Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρ&amp;ώτο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1946"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>το πλήκτρο</translatorcomment>
+        <translation>Home</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1954"/>
         <source>&amp;Last Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Τελευταίο Καρέ</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1957"/>
         <source>End</source>
-        <translation type="unfinished"></translation>
+        <translation>Τέλος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1965"/>
         <source>Jump to Marker &amp;A</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο δείκτη &amp;Α</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1968"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1971"/>
         <source>Jump to Marker A</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο δείκτη Α</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1974"/>
         <source>Ctrl+[</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1982"/>
         <source>Jump to Marker &amp;B</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο δείκτη &amp;Β</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1985"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1988"/>
         <source>Jump to Marker B</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο δείκτη Β</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1991"/>
         <source>Ctrl+]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+]</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1996"/>
         <source>Jump to Fra&amp;me...</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο &amp;Καρέ...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1999"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2004"/>
         <source>Jump to &amp;Time...</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάβαση στο &amp;Χρόνο...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2007"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2012"/>
         <source>&amp;Built-in Support...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενσ&amp;ωματωμένη Υποστήριξη...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2015"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2018"/>
         <source>Built-in Support</source>
-        <translation type="unfinished">Ενσωματωμένη Υποστήριξη</translation>
+        <translation>Ενσωματωμένη Υποστήριξη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2023"/>
         <source>&amp;About Avidemux...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Σχετικά με το Avidemux...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2026"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2029"/>
         <source>About Avidemux</source>
-        <translation type="unfinished"></translation>
+        <translation>Σχετικά με το Avidemux</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2037"/>
         <source>&amp;Play/Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανα&amp;παραγωγή/Σταμάτημα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2040"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2043"/>
         <source>Play/Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναπαραγωγή/Σταμάτημα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2051"/>
         <source>Recent0</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2056"/>
         <source>Recent1</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2061"/>
         <source>Recent2</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2066"/>
         <source>Recent3</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2192"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Κλείσιμο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2195"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2200"/>
         <source>Save Selection as JPEG Images...</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση της Επιλογής ως Εικόνες JPEG...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2205"/>
         <source>&amp;Preferences...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Προτιμήσεις...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2210"/>
         <source>&amp;Plugins...</source>
-        <translation type="unfinished"></translation>
+        <translation>Εν&amp;θέματα...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2215"/>
         <source>Recent4</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2220"/>
         <source>Recent5</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσφατο5</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2225"/>
         <source>RecentProject0</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2230"/>
         <source>RecentProject1</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες1</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2235"/>
         <source>RecentProject2</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες2</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2240"/>
         <source>RecentProject3</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες3</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2245"/>
         <source>RecentProject4</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες4</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2250"/>
         <source>RecentProject5</source>
-        <translation type="unfinished"></translation>
+        <translation>ΠρόσφατεςΕργασίες5</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2071"/>
         <source>Add to &amp;Joblist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη στη &amp;Λίστα Διαδικασιών...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2074"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2077"/>
         <source>Add to Joblist</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη στη Λίστα Διαδικασιών</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2082"/>
         <source>View &amp;Joblist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση της Λίστας &amp;Διαδικασιών...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2085"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2088"/>
         <source>View Joblist</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση της Λίστας Διαδικασιών</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2091"/>
         <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2096"/>
         <source>Co&amp;nnect to avsproxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύ&amp;νδεση στο avsproxy</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2099"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2102"/>
         <source>Connect to avsproxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύνδεση στο avsproxy</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2107"/>
         <source>&amp;Reset Edits</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσ&amp;φατες Επεξεργασίες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2112"/>
         <source>OCR (&amp;TS -&gt; srt)...</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR (&amp;TS -&gt; srt)...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2115"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2118"/>
         <source>OCR (TS -&gt; srt)</source>
-        <translation type="unfinished"></translation>
+        <translation>OCR (TS -&gt; srt)</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2123"/>
         <source>Edit &amp;Glyphs...</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία των Ανάγλυ&amp;φων...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2126"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2129"/>
         <source>Edit Glyphs</source>
-        <translation type="unfinished"></translation>
+        <translation>Επεξεργασία των Ανάγλυφων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2143"/>
         <source>&amp;Input</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Δεδομένα εισόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2154"/>
         <source>&amp;Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεδομένα ε&amp;ξόδου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2165"/>
         <source>Si&amp;de</source>
-        <translation type="unfinished"></translation>
+        <translation>Δίπ&amp;λα δίπλα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2176"/>
         <source>&amp;Top</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Κορυφή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2187"/>
         <source>&amp;Separate</source>
-        <translation type="unfinished"></translation>
+        <translation>Δια&amp;χωρισμός</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp" line="1018"/>
         <source>%1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="3"/>
         <source>Optical Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Οπτικός Δίσκος</translation>
     </message>
     <message>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="4"/>
         <source>DVD</source>
-        <translation type="unfinished">DVD</translation>
+        <translation>DVD</translation>
     </message>
     <message>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="5"/>
         <source>Super Video CD</source>
-        <translation type="unfinished"></translation>
+        <translation>Super Video CD</translation>
     </message>
     <message>
         <location filename="../scripts/auto/Optical Disc/translate_dummy.cpp" line="6"/>
         <source>Video CD</source>
-        <translation type="unfinished"></translation>
+        <translation>Video CD</translation>
     </message>
 </context>
 <context>
@@ -7507,72 +7406,72 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="225"/>
         <source>4:3</source>
-        <translation type="unfinished">4:3</translation>
+        <translation>4:3</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="226"/>
         <source>16:9</source>
-        <translation type="unfinished">16:9</translation>
+        <translation>16:9</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="229"/>
         <source>Default</source>
-        <translation type="unfinished">Προεπιλεγμένο</translation>
+        <translation>Προεπιλεγμένο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="230"/>
         <source>TMPGEnc</source>
-        <translation type="unfinished">TMPGEnc</translation>
+        <translation>TMPGEnc</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="231"/>
         <source>Anime</source>
-        <translation type="unfinished">Κινούμενα σχέδια</translation>
+        <translation>Κινούμενα σχέδια</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="232"/>
         <source>KVCD</source>
-        <translation type="unfinished">KVCD</translation>
+        <translation>KVCD</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="236"/>
         <source>Progressive</source>
-        <translation type="unfinished">Προοδευτικό</translation>
+        <translation>Προοδευτικό</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="237"/>
         <source>Interlaced BFF</source>
-        <translation type="unfinished">Πεπλεγμένη</translation>
+        <translation>Πεπλεγμένη BFF</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="238"/>
         <source>Interlaced TFF</source>
-        <translation type="unfinished">Πεπλεγμένη</translation>
+        <translation>Πεπλεγμένη TFF</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="242"/>
         <source>Ma_x. bitrate:</source>
-        <translation type="unfinished">_Μέγιστος ρυθμός bit</translation>
+        <translation>_Μέγιστος ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="243"/>
         <source>Mi_n. bitrate:</source>
-        <translation type="unfinished">Ε_λάχιστος Ρυθμός bit</translation>
+        <translation>Ε_λάχιστος Ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="244"/>
         <source>_Use Xvid rate control</source>
-        <translation type="unfinished">_Χρήση ελέγχου ρυθμού Xvid</translation>
+        <translation>_Χρήση ελέγχου ρυθμού Xvid</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="245"/>
         <source>_Buffer size:</source>
-        <translation type="unfinished">_Μέγεθος μικροαποθήκευσης (buffer)</translation>
+        <translation>_Μέγεθος μικροαποθήκευσης (buffer):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="246"/>
         <source>Aspect _ratio:</source>
-        <translation type="unfinished">Λόγος διαστάσεων:</translation>
+        <translation>Λόγος διαστάσεων:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="247"/>
@@ -7582,12 +7481,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="248"/>
         <source>_GOP size:</source>
-        <translation type="unfinished">Μέ_γεθος GOP:</translation>
+        <translation>Μέ_γεθος GOP:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="249"/>
         <source>_Interlacing:</source>
-        <translation type="unfinished">Πλέξη</translation>
+        <translation type="unfinished">Πλέ_ξη:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg1Encoder.cpp" line="256"/>
@@ -7617,82 +7516,82 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="246"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="82"/>
         <source>4:3</source>
-        <translation type="unfinished">4:3</translation>
+        <translation>4:3</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="247"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="83"/>
         <source>16:9</source>
-        <translation type="unfinished">16:9</translation>
+        <translation>16:9</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="250"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="86"/>
         <source>Default</source>
-        <translation type="unfinished">Προεπιλεγμένο</translation>
+        <translation>Προεπιλεγμένο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="251"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="87"/>
         <source>TMPGEnc</source>
-        <translation type="unfinished">TMPGEnc</translation>
+        <translation>TMPGEnc</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="252"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="88"/>
         <source>Anime</source>
-        <translation type="unfinished">Κινούμενα σχέδια</translation>
+        <translation>Κινούμενα σχέδια</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="253"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="89"/>
         <source>KVCD</source>
-        <translation type="unfinished">KVCD</translation>
+        <translation>KVCD</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="257"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="93"/>
         <source>Progressive</source>
-        <translation type="unfinished">Προοδευτικό</translation>
+        <translation>Προοδευτικό</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="258"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="94"/>
         <source>Interlaced BFF</source>
-        <translation type="unfinished">Πεπλεγμένη</translation>
+        <translation>Πεπλεγμένη BFF</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="259"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="95"/>
         <source>Interlaced TFF</source>
-        <translation type="unfinished">Πεπλεγμένη</translation>
+        <translation>Πεπλεγμένη TFF</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="263"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="99"/>
         <source>Ma_x. bitrate:</source>
-        <translation type="unfinished">_Μέγιστος ρυθμός bit</translation>
+        <translation>_Μέγιστος ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="264"/>
         <source>Mi_n. bitrate:</source>
-        <translation type="unfinished">Ε_λάχιστος Ρυθμός bit</translation>
+        <translation>Ε_λάχιστος Ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="265"/>
         <source>_Use Xvid rate control</source>
-        <translation type="unfinished">_Χρήση ελέγχου ρυθμού Xvid</translation>
+        <translation>_Χρήση ελέγχου ρυθμού Xvid</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="266"/>
         <source>_Buffer size:</source>
-        <translation type="unfinished">_Μέγεθος μικροαποθήκευσης (buffer)</translation>
+        <translation>_Μέγεθος μικροαποθήκευσης (buffer):</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="267"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="102"/>
         <source>Aspect _ratio:</source>
-        <translation type="unfinished">Λόγος διαστάσεων:</translation>
+        <translation>Λόγος διαστάσεων:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="268"/>
@@ -7703,13 +7602,13 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="269"/>
         <source>_GOP size:</source>
-        <translation type="unfinished">Μέ_γεθος GOP:</translation>
+        <translation>Μέ_γεθος GOP:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="270"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="104"/>
         <source>_Interlacing:</source>
-        <translation type="unfinished">Πλέξη</translation>
+        <translation>Πλέ_ξη:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg2Encoder.cpp" line="277"/>
@@ -7725,7 +7624,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="78"/>
         <source>DVD</source>
-        <translation type="unfinished">DVD</translation>
+        <translation>DVD</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_mpeg2enc/mpeg2Encoder.cpp" line="79"/>
@@ -7753,37 +7652,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="197"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="198"/>
         <source>Full</source>
-        <translation type="unfinished">Πλήρες</translation>
+        <translation>Πλήρες</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="199"/>
         <source>Log</source>
-        <translation type="unfinished">Καταγραφή</translation>
+        <translation>Καταγραφή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="200"/>
         <source>Phods</source>
-        <translation type="unfinished">Phods</translation>
+        <translation>Phods</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="201"/>
         <source>EPZS</source>
-        <translation type="unfinished">EPZS</translation>
+        <translation>EPZS</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="204"/>
         <source>H.263</source>
-        <translation type="unfinished">H.263</translation>
+        <translation>H.263</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="205"/>
         <source>MPEG</source>
-        <translation type="unfinished">MPEG</translation>
+        <translation>MPEG</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="208"/>
@@ -7803,7 +7702,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="216"/>
         <source>Encoding Mode</source>
-        <translation type="unfinished">Κατάσταση Λειτουργίας Κωδικοποίησης</translation>
+        <translation>Κατάσταση Λειτουργίας Κωδικοποίησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="219"/>
@@ -7833,7 +7732,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="226"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Εκτίμηση κίνησης</translation>
+        <translation>Εκτίμηση κίνησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_avcodec/mpeg4aspEncoder.cpp" line="229"/>
@@ -7891,17 +7790,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_lvemux/ADM_muxer.cpp" line="75"/>
         <source>Incompatible audio</source>
-        <translation type="unfinished">Ασύμβατος ήχος</translation>
+        <translation>Ασύμβατος ήχος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_lvemux/ADM_muxer.cpp" line="75"/>
         <source>For DVD, audio must be MP2 or AC3.</source>
-        <translation type="unfinished">Για DVD, ο ήχος θα πρέπει να είναι MP2 ή AC3.</translation>
+        <translation>Για DVD, ο ήχος θα πρέπει να είναι MP2 ή AC3.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_libraries/ADM_lvemux/ADM_muxer.cpp" line="82"/>
         <source>lvemux init failed</source>
-        <translation type="unfinished">Αποτυχία αρχικοποίησης lvemux </translation>
+        <translation>Αποτυχία αρχικοποίησης lvemux </translation>
     </message>
 </context>
 <context>
@@ -7914,22 +7813,22 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="156"/>
         <source>_High Q</source>
-        <translation type="unfinished">_Υψηλό Q</translation>
+        <translation>_Υψηλό Q</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="158"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="159"/>
         <source>_Strength:</source>
-        <translation type="unfinished">_Ισχύς:</translation>
+        <translation>_Ισχύς:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="164"/>
         <source>MSharpen</source>
-        <translation type="unfinished">MSharpen (οξύτητα)</translation>
+        <translation>MSharpen (οξύτητα)</translation>
     </message>
 </context>
 <context>
@@ -7937,27 +7836,27 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="181"/>
         <source>_High quality</source>
-        <translation type="unfinished">_Υψηλή Ποιότητα</translation>
+        <translation>_Υψηλή Ποιότητα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="182"/>
         <source>Show _mask</source>
-        <translation type="unfinished">Εμφάνιση μάσκας</translation>
+        <translation>Εμφάνιση _μάσκας</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="183"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="184"/>
         <source>_Strength:</source>
-        <translation type="unfinished">_Ισχύς:</translation>
+        <translation>_Ισχύς:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="188"/>
         <source>MSmooth</source>
-        <translation type="unfinished">MSmooth</translation>
+        <translation>MSmooth</translation>
     </message>
 </context>
 <context>
@@ -7967,17 +7866,17 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="352"/>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDML.cpp" line="518"/>
         <source>Malformed header</source>
-        <translation type="unfinished">Παραμορφωμένη κεφαλίδα</translation>
+        <translation>Παραμορφωμένη κεφαλίδα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_openDMLDepack.cpp" line="75"/>
         <source>Unpacking bitstream</source>
-        <translation type="unfinished">Αποπακετάρισμα ροής δεδομένων</translation>
+        <translation>Αποπακετάρισμα ροής δεδομένων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_openDML/ADM_opendml_reindex.cpp" line="60"/>
         <source>Indexing</source>
-        <translation type="unfinished">Δημιουργία ευρετηρίου</translation>
+        <translation>Δημιουργία ευρετηρίου</translation>
     </message>
 </context>
 <context>
@@ -7985,7 +7884,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="32"/>
         <source>Alert</source>
-        <translation type="unfinished">Συναγερμός</translation>
+        <translation>Συναγερμός</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/alert_qt4.cpp" line="40"/>
@@ -8035,18 +7934,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="77"/>
         <source>3:2 pulldown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="78"/>
         <source>PAL/SECAM</source>
-        <translation type="unfinished">PAL/SECAM</translation>
+        <translation>PAL/SECAM</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="79"/>
         <source>NTSC converted from PAL</source>
-        <translation type="unfinished">NTSC τροποποιημένο από PAL</translation>
+        <translation>NTSC τροποποιημένο από PAL</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="83"/>
@@ -8056,58 +7954,57 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="84"/>
         <source>Bottom</source>
-        <translation type="unfinished">Κάτω</translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="88"/>
         <source>Never</source>
-        <translation type="unfinished">Ποτέ</translation>
+        <translation>Ποτέ</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="89"/>
         <source>If still combed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="90"/>
         <source>Always</source>
-        <translation type="unfinished">Πάντα</translation>
+        <translation>Πάντα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="94"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="95"/>
         <source>None but compute</source>
-        <translation type="unfinished">Κανένα αλλά υπολόγισε</translation>
+        <translation>Κανένα αλλά υπολόγισε</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="96"/>
         <source>Postproc on best match</source>
-        <translation type="unfinished">Μετεπεξεργασία και καλύτερο ταίριασμα</translation>
+        <translation>Μετεπεξεργασία και καλύτερο ταίριασμα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="97"/>
         <source>Postproc and show zones (debug)</source>
-        <translation type="unfinished">Μετεπεξεργασία και προβολή ζωνών (απασφαλμάτωση)</translation>
+        <translation>Μετεπεξεργασία και προβολή ζωνών (απασφαλμάτωση)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="98"/>
         <source>Process image (not fields)</source>
-        <translation type="unfinished">Επεξεργασία εικόνας (όχι πεδία)</translation>
+        <translation>Επεξεργασία εικόνας (όχι πεδία)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="99"/>
         <source>Process image (not fields), debug</source>
-        <translation type="unfinished">Επεξεργασία εικόνας (όχι πεδία), απασφαλμάτωση</translation>
+        <translation>Επεξεργασία εικόνας (όχι πεδία), απασφαλμάτωση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="103"/>
         <source>_Strategy:</source>
-        <translation type="unfinished">Σ_τρατηγική:</translation>
+        <translation>Σ_τρατηγική:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="104"/>
@@ -8117,7 +8014,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="105"/>
         <source>_Postprocessing:</source>
-        <translation type="unfinished">_Μεταεπεξεργασία:</translation>
+        <translation>_Μεταεπεξεργασία:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="106"/>
@@ -8137,27 +8034,27 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="110"/>
         <source>_Noise threshold:</source>
-        <translation type="unfinished">Κατώφλι _Θορύβου:</translation>
+        <translation>Κατώφλι _Θορύβου:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="111"/>
         <source>Postp_rocessing threshold:</source>
-        <translation type="unfinished">Κατώφλι _μετεπεξεργασίας:</translation>
+        <translation>Κατώφλι _μετεπεξεργασίας:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="113"/>
         <source>_Use chroma to decide</source>
-        <translation type="unfinished">_Επέλεξε chroma για να αποφασίσει</translation>
+        <translation>_Επέλεξε chroma για να αποφασίσει</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="114"/>
         <source>Sho_w info</source>
-        <translation type="unfinished">Προβολή _πληροφοριών</translation>
+        <translation>Προβολή _πληροφοριών</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="115"/>
         <source>Debu_g</source>
-        <translation type="unfinished">_Απασφαλμάτωση</translation>
+        <translation>_Απασφαλμάτωση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="116"/>
@@ -8167,8 +8064,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="124"/>
         <source>Decomb Telecide</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8284,7 +8180,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="128"/>
         <source>Rate Control</source>
-        <translation type="unfinished">Έλεγχος Ρυθμού</translation>
+        <translation>Έλεγχος Ρυθμού</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="167"/>
@@ -8330,7 +8226,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="432"/>
         <source>Pixel Aspect Ratio</source>
-        <translation type="unfinished">Λόγος Διαστάσεων σε Εικονοστοιχεία</translation>
+        <translation>Λόγος Διαστάσεων σε Εικονοστοιχεία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="452"/>
@@ -8341,12 +8237,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="462"/>
         <source>As Input</source>
-        <translation type="unfinished">Ώς δεδομένα εισόδου</translation>
+        <translation>Ώς δεδομένα εισόδου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="523"/>
         <source>:</source>
-        <translation type="unfinished">:</translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="558"/>
@@ -8381,12 +8277,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="640"/>
         <source>Disable</source>
-        <translation type="unfinished">Απενεργοποίηση</translation>
+        <translation>Απενεργοποίηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="647"/>
         <source>Auto-detect</source>
-        <translation type="unfinished">Αυτόματη ανίχνευση</translation>
+        <translation>Αυτόματη ανίχνευση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="719"/>
@@ -8396,7 +8292,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="731"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Εκτίμηση κίνησης</translation>
+        <translation>Εκτίμηση κίνησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="751"/>
@@ -8406,17 +8302,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="773"/>
         <source>Low</source>
-        <translation type="unfinished">Χαμηλή</translation>
+        <translation>Χαμηλή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="778"/>
         <source>Medium</source>
-        <translation type="unfinished">Μεσαίο</translation>
+        <translation>Μεσαίο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="783"/>
         <source>High</source>
-        <translation type="unfinished">Υψηλή</translation>
+        <translation>Υψηλή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="816"/>
@@ -8466,7 +8362,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="912"/>
         <source>Turbo Mode</source>
-        <translation type="unfinished">Κατάσταση Λειτουργίας Υπερτροφοδότησης</translation>
+        <translation>Κατάσταση Λειτουργίας Υπερτροφοδότησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="936"/>
@@ -8616,7 +8512,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1699"/>
         <source>Custom Matrix</source>
-        <translation type="unfinished">Προσαρμοσμένο Πλαίσιο</translation>
+        <translation>Προσαρμοσμένο Πλαίσιο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1709"/>
@@ -8831,7 +8727,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/about.ui" line="125"/>
         <source>http://www.avidemux.org</source>
-        <translation type="unfinished">http://www.avidemux.org</translation>
+        <translation>http://www.avidemux.org</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/about.ui" line="161"/>
@@ -8849,12 +8745,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="109"/>
         <source>Strength</source>
-        <translation type="unfinished">_Ισχύς:</translation>
+        <translation>Ισχύς</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="116"/>
         <source>Threshold</source>
-        <translation type="unfinished">Κατώφλι</translation>
+        <translation>Κατώφλι</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/ASharp/qt4/asharp.ui" line="123"/>
@@ -8887,7 +8783,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../scripts/video/autoWizard.js" line="24"/>
         <source>Codec:</source>
-        <translation type="unfinished">Κώδικας:</translation>
+        <translation>Κώδικας:</translation>
     </message>
 </context>
 <context>
@@ -8913,17 +8809,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="13"/>
         <source>Contrast</source>
-        <translation type="unfinished">Αντίθεση</translation>
+        <translation>Αντίθεση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="41"/>
         <source>Contrast:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντίθεση:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="97"/>
         <source>Brightness:</source>
-        <translation type="unfinished"></translation>
+        <translation>Φωτεινότητα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Contrast/qt4/contrast.ui" line="195"/>
@@ -8951,7 +8847,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="13"/>
         <source>Crop</source>
-        <translation type="unfinished">Περιτομή</translation>
+        <translation>Περιτομή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="33"/>
@@ -8966,7 +8862,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="83"/>
         <source>Reset</source>
-        <translation type="unfinished">Επαναφορά</translation>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Crop/qt4/crop.ui" line="104"/>
@@ -8989,17 +8885,17 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_video.cpp" line="348"/>
         <source>Out of memory</source>
-        <translation type="unfinished">Μνήμη υπερπλήρης</translation>
+        <translation>Μνήμη υπερπλήρης</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_video.cpp" line="363"/>
         <source>Opening MPEG</source>
-        <translation type="unfinished">Άνοιγμα MPEG</translation>
+        <translation>Άνοιγμα MPEG</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_video.cpp" line="532"/>
         <source>MPEG renumbering error</source>
-        <translation type="unfinished">Σφάλμα στην επαναρίθμηση MPEG</translation>
+        <translation>Σφάλμα στην επαναρίθμηση MPEG</translation>
     </message>
 </context>
 <context>
@@ -9007,7 +8903,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="13"/>
         <source>Encoding...</source>
-        <translation type="unfinished">Κωδικοποίηση...</translation>
+        <translation>Κωδικοποίηση...</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="113"/>
@@ -9024,13 +8920,13 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="140"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="167"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="147"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="233"/>
         <source>Unknown</source>
-        <translation type="unfinished">Άγνωστο</translation>
+        <translation>Άγνωστο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="160"/>
@@ -9048,12 +8944,12 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="483"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="503"/>
         <source>0</source>
-        <translation type="unfinished">0</translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="240"/>
         <source>00:00:00</source>
-        <translation type="unfinished">00:00:00</translation>
+        <translation>00:00:00</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="253"/>
@@ -9075,7 +8971,7 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="345"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="365"/>
         <source>0 MB</source>
-        <translation type="unfinished">0 MB</translation>
+        <translation>0 MB</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="338"/>
@@ -9105,7 +9001,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="463"/>
         <source>0 kB/s</source>
-        <translation type="unfinished">0 kB/s</translation>
+        <translation>0 kB/s</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="476"/>
@@ -9120,37 +9016,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="568"/>
         <source>Shut down computer when finished</source>
-        <translation type="unfinished">Κλείσιμο του υπολογιστή όταν τελειώσει</translation>
+        <translation>Κλείσιμο του υπολογιστή όταν τελειώσει</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="588"/>
         <source>Priority:</source>
-        <translation type="unfinished">Προτεραιότητα:</translation>
+        <translation>Προτεραιότητα:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="599"/>
         <source>High</source>
-        <translation type="unfinished">Υψηλή</translation>
+        <translation>Υψηλή</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="604"/>
         <source>Above Normal</source>
-        <translation type="unfinished">Πάνω από το κανονικό</translation>
+        <translation>Πάνω από το κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="609"/>
         <source>Normal</source>
-        <translation type="unfinished">Κανονικό</translation>
+        <translation>Κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="614"/>
         <source>Below Normal</source>
-        <translation type="unfinished">Κάτω από το κανονικό</translation>
+        <translation>Κάτω από το κανονικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/encoding.ui" line="619"/>
         <source>Low</source>
-        <translation type="unfinished">Χαμηλή</translation>
+        <translation>Χαμηλή</translation>
     </message>
 </context>
 <context>
@@ -9158,7 +9054,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="47"/>
         <source>Pause / Abort</source>
-        <translation type="unfinished">Παύση / Εγκατάληψη</translation>
+        <translation>Παύση / Εγκατάληψη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="95"/>
@@ -9168,29 +9064,29 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
         <source>Resume</source>
-        <translation type="unfinished">Συνέχιση</translation>
+        <translation>Συνέχιση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="96"/>
         <source>Abort</source>
-        <translation type="unfinished">Εγκατάληψη</translation>
+        <translation>Εγκατάληψη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Privileges Required</source>
-        <translation type="unfinished">Απαιτούνται Δικαιώματα</translation>
+        <translation>Απαιτούνται Δικαιώματα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="122"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="140"/>
         <source>Root privileges are required to perform this operation.</source>
-        <translation type="unfinished">Απαιτούνται δικαιώματα Υπερχρήστη για να εκτελεστεί αυτή η λειτουργία.</translation>
+        <translation>Απαιτούνται δικαιώματα Υπερχρήστη για να εκτελεστεί αυτή η λειτουργία.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_encoding.cpp" line="223"/>
         <source>Shutting down</source>
-        <translation type="unfinished">Τερματίζεται</translation>
+        <translation>Τερματίζεται</translation>
     </message>
 </context>
 <context>
@@ -9198,7 +9094,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="13"/>
         <source>MPlayer eq2</source>
-        <translation type="unfinished">MPlayer eq2</translation>
+        <translation>MPlayer eq2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="41"/>
@@ -9218,7 +9114,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="245"/>
         <source>Gamma</source>
-        <translation type="unfinished">Γάμμα</translation>
+        <translation>Γάμμα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Eq2/qt4/eq2.ui" line="472"/>
@@ -9251,22 +9147,22 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="497"/>
         <source>The filter is already partial</source>
-        <translation type="unfinished">Το φίλτρο είναι ήδη μερικό</translation>
+        <translation>Το φίλτρο είναι ήδη μερικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="534"/>
         <source>Load set of filters</source>
-        <translation type="unfinished">Φόρτωση ομάδας φίλτρων</translation>
+        <translation>Φόρτωση ομάδας φίλτρων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="548"/>
         <source>Nothing to save</source>
-        <translation type="unfinished">Τίποτα για αποθήκευση</translation>
+        <translation>Τίποτα για αποθήκευση</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="551"/>
         <source>Save set of filters</source>
-        <translation type="unfinished">Αποθήκευση ομάδας φίλτρων</translation>
+        <translation>Αποθήκευση ομάδας φίλτρων</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/Q_mainfilter.cpp" line="713"/>
@@ -9294,7 +9190,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_h263/ADM_h263.cpp" line="256"/>
         <source>Size is not (s)QCIF</source>
-        <translation type="unfinished">Το μέγεθος δεν είναι (s)QCIF</translation>
+        <translation>Το μέγεθος δεν είναι (s)QCIF</translation>
     </message>
 </context>
 <context>
@@ -9303,7 +9199,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="103"/>
         <source>Hue</source>
-        <translation type="unfinished">Απόχρωση</translation>
+        <translation>Απόχρωση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Hue/qt4/hue.ui" line="123"/>
@@ -9316,7 +9212,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui" line="13"/>
         <source>Jobs</source>
-        <translation type="unfinished">Διαδικασίες</translation>
+        <translation>Διαδικασίες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui" line="50"/>
@@ -9326,7 +9222,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui" line="57"/>
         <source>Delete All Jobs</source>
-        <translation type="unfinished">Διαγραφή Όλων των Διαδικασιών</translation>
+        <translation>Διαγραφή Όλων των Διαδικασιών</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/jobs.ui" line="64"/>
@@ -9344,27 +9240,27 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <source>Ready</source>
-        <translation type="unfinished">Έτοιμο</translation>
+        <translation>Έτοιμο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <source>Succeeded</source>
-        <translation type="unfinished">Επιτεύχθηκε</translation>
+        <translation>Επιτεύχθηκε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <source>Failed</source>
-        <translation type="unfinished">Αποτυχεία</translation>
+        <translation>Αποτυχεία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <source>Deleted</source>
-        <translation type="unfinished">Διαγράφηκε</translation>
+        <translation>Διαγράφηκε</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="12"/>
         <source>Running</source>
-        <translation type="unfinished">Εκτελείται</translation>
+        <translation>Εκτελείται</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="36"/>
@@ -9396,12 +9292,12 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="107"/>
         <source>Sure!</source>
-        <translation type="unfinished">Σίγουρα!</translation>
+        <translation>Σίγουρα!</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
         <source>Delete job</source>
-        <translation type="unfinished">Διαγραφή διαδικασίας</translation>
+        <translation>Διαγραφή διαδικασίας</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_jobs.cpp" line="93"/>
@@ -9434,7 +9330,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_outputs/ADM_lavformat.cpp" line="373"/>
         <source>Incompatible frame rate</source>
-        <translation type="unfinished">Ασύμβατη ταχύτητα καρέ</translation>
+        <translation>Ασύμβατη ταχύτητα καρέ</translation>
     </message>
 </context>
 <context>
@@ -9450,7 +9346,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="19"/>
         <source>Video Filter Manager</source>
-        <translation type="unfinished">Διαχειριστής Φίλτρων Βίντεο</translation>
+        <translation>Διαχειριστής Φίλτρων Βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="84"/>
@@ -9485,7 +9381,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="179"/>
         <source>Save Script</source>
-        <translation type="unfinished">Αποθήκευση σεναρίου</translation>
+        <translation>Αποθήκευση σεναρίου</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="189"/>
@@ -9530,42 +9426,42 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="302"/>
         <source>Transform</source>
-        <translation type="unfinished">Μετασχηματισμός</translation>
+        <translation>Μετασχηματισμός</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="310"/>
         <source>Interlacing</source>
-        <translation type="unfinished">Πλέξη</translation>
+        <translation>Πλέξη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="318"/>
         <source>Colors</source>
-        <translation type="unfinished">Χρώματα</translation>
+        <translation>Χρώματα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="326"/>
         <source>Noise</source>
-        <translation type="unfinished">Θόρυβος</translation>
+        <translation>Θόρυβος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="334"/>
         <source>Sharpness</source>
-        <translation type="unfinished">Οξύτητα</translation>
+        <translation>Οξύτητα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="342"/>
         <source>Subtitles</source>
-        <translation type="unfinished">Υπότιτλοι</translation>
+        <translation>Υπότιτλοι</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="350"/>
         <source>Miscellaneous</source>
-        <translation type="unfinished">Διάφορα</translation>
+        <translation>Διάφορα</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="358"/>
         <source>External</source>
-        <translation type="unfinished">Εξωτερικό</translation>
+        <translation>Εξωτερικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/mainfilter.ui" line="369"/>
@@ -9584,27 +9480,27 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="538"/>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="567"/>
         <source>Opening Nuppel video</source>
-        <translation type="unfinished">Άνοιγμα βίντεο Nuppel</translation>
+        <translation>Άνοιγμα βίντεο Nuppel</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="543"/>
         <source>Sure you want to abort ?</source>
-        <translation type="unfinished">Σίγουρα θέλεις να εγκαταλείψεις ;</translation>
+        <translation>Σίγουρα θέλεις να εγκαταλείψεις ;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="754"/>
         <source>Size mismatch</source>
-        <translation type="unfinished">Αραίριαστα μεγέθη</translation>
+        <translation>Αταίριαστα μεγέθη</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="754"/>
         <source>Expect a crash.</source>
-        <translation type="unfinished">Αναμένεται κατάρευση.</translation>
+        <translation>Αναμένεται κατάρευση.</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_nuv/ADM_nuv.cpp" line="1046"/>
         <source>Do you want to save an index ?</source>
-        <translation type="unfinished">Θέλεις να αποθηκεύσεις ένα ευρετήριο ;</translation>
+        <translation>Θέλεις να αποθηκεύσεις ένα ευρετήριο ;</translation>
     </message>
 </context>
 <context>
@@ -9612,12 +9508,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_ogm/ADM_ogm.cpp" line="340"/>
         <source>Take second track ?</source>
-        <translation type="unfinished">Λήψη δεύτερου καναλιού;</translation>
+        <translation>Λήψη δεύτερου καναλιού;</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_inputs/ADM_ogm/ADM_ogm.cpp" line="420"/>
         <source>Scanning OGM</source>
-        <translation type="unfinished">Σάρωση OGM</translation>
+        <translation>Σάρωση OGM</translation>
     </message>
 </context>
 <context>
@@ -9625,7 +9521,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/preview.ui" line="13"/>
         <source>Preview</source>
-        <translation type="unfinished">Προεπισκόπηση</translation>
+        <translation>Προεπισκόπηση</translation>
     </message>
 </context>
 <context>
@@ -9633,12 +9529,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
         <source>No</source>
-        <translation type="unfinished">Όχι</translation>
+        <translation>Όχι</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="27"/>
         <source>Yes</source>
-        <translation type="unfinished">Ναι</translation>
+        <translation>Ναι</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="45"/>
@@ -9669,12 +9565,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="77"/>
         <source>Mono</source>
-        <translation type="unfinished">Μονοφωνικό</translation>
+        <translation>Μονοφωνικό</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="80"/>
         <source>Stereo</source>
-        <translation type="unfinished">Στέρεο</translation>
+        <translation>Στέρεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/Q_props.cpp" line="87"/>
@@ -9697,12 +9593,12 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="13"/>
         <source>Properties</source>
-        <translation type="unfinished">Ιδιότητες</translation>
+        <translation>Ιδιότητες</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="25"/>
         <source>Video</source>
-        <translation type="unfinished">Βίντεο</translation>
+        <translation>Βίντεο</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="40"/>
@@ -9720,7 +9616,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="47"/>
         <source>Frame Rate:</source>
-        <translation type="unfinished">Ταχύτητα Καρέ:</translation>
+        <translation>Ταχύτητα Καρέ:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="61"/>
@@ -9731,22 +9627,22 @@ Do you want to use that mode?</source>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="75"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="220"/>
         <source>Total Duration:</source>
-        <translation type="unfinished">ΣυνολικήΔιάρκεια</translation>
+        <translation>Συνολική Διάρκεια:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="89"/>
         <source>Aspect Ratio:</source>
-        <translation type="unfinished">Λόγος Διαστάσεων:</translation>
+        <translation>Λόγος Διαστάσεων:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="103"/>
         <source>Image Size:</source>
-        <translation type="unfinished">Μέγεθος εικόνας:</translation>
+        <translation>Μέγεθος εικόνας:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="117"/>
         <source>Codec 4CC:</source>
-        <translation type="unfinished">Κώδικας 4CC:</translation>
+        <translation>Κώδικας 4CC:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="127"/>
@@ -9756,8 +9652,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="139"/>
         <source>Global Motion Compensation:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="153"/>
@@ -9772,37 +9667,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="184"/>
         <source>Audio</source>
-        <translation type="unfinished">Ήχος</translation>
+        <translation>Ήχος</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="206"/>
         <source>File Size:</source>
-        <translation type="unfinished">Μέγεθος Αρχείου:</translation>
+        <translation>Μέγεθος Αρχείου:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="227"/>
         <source>Frequency:</source>
-        <translation type="unfinished">Συχνότητα:</translation>
+        <translation>Συχνότητα:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="241"/>
         <source>Variable Bitrate:</source>
-        <translation type="unfinished">Μεταβλητός Ρυθμός bit:</translation>
+        <translation>Μεταβλητός Ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="262"/>
         <source>Bitrate:</source>
-        <translation type="unfinished">Ρυθμός bit:</translation>
+        <translation>Ρυθμός bit:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="276"/>
         <source>Channels:</source>
-        <translation type="unfinished">Κανάλια:</translation>
+        <translation>Κανάλια:</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/props.ui" line="290"/>
         <source>Codec:</source>
-        <translation type="unfinished">Κώδικας:</translation>
+        <translation>Κώδικας:</translation>
     </message>
 </context>
 <context>
@@ -9811,7 +9706,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="13"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="13"/>
         <source>Resize</source>
-        <translation type="unfinished">Αλλαγή μεγέθους</translation>
+        <translation>Αλλαγή μεγέθους</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="25"/>
@@ -9837,7 +9732,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="63"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="105"/>
         <source>1:1</source>
-        <translation type="unfinished">1:1</translation>
+        <translation>1:1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="68"/>
@@ -9845,7 +9740,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="68"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="110"/>
         <source>4:3</source>
-        <translation type="unfinished">4:3</translation>
+        <translation>4:3</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="73"/>
@@ -9853,7 +9748,7 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="73"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="115"/>
         <source>16:9</source>
-        <translation type="unfinished">16:9</translation>
+        <translation>16:9</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="97"/>
@@ -9925,13 +9820,13 @@ Do you want to use that mode?</source>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="443"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="443"/>
         <source>Bilinear</source>
-        <translation type="unfinished">Διγραμμικός</translation>
+        <translation>Διγραμμικός</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="448"/>
         <location filename="../plugins/ADM_videoFilters/MplayerResize/qt4/resizing.ui" line="448"/>
         <source>Bicubic</source>
-        <translation type="unfinished">Δικυβικός</translation>
+        <translation>Δικυβικός</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/AvisynthResize/qt4/resizing.ui" line="453"/>
@@ -9954,7 +9849,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_filters/seekablePreview.ui" line="13"/>
         <source>Preview</source>
-        <translation type="unfinished">Προεπισκόπηση</translation>
+        <translation>Προεπισκόπηση</translation>
     </message>
 </context>
 <context>
@@ -9975,35 +9870,32 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="71"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="72"/>
         <source>If value is smaller than threshold it is considered valid.Smaller value might mean more false positive.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="74"/>
         <source>_Noise:</source>
-        <translation type="unfinished">_Θόρυβος:</translation>
+        <translation>_Θόρυβος:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="74"/>
         <source>If pixels are closer than noise, they are considered to be the same</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="75"/>
         <source>I_dentical:</source>
-        <translation type="unfinished">_Όμοια:</translation>
+        <translation>_Όμοια:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="75"/>
         <source>If metric is less than identical, images are considered identical</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="76"/>
@@ -10013,8 +9905,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="76"/>
         <source>Show metric in image (debug)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="80"/>
@@ -10032,41 +9923,37 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/PulldownRemoval/ADM_vidFieldUnblend.cpp" line="73"/>
         <source>Do you want to print metrics on screen ?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="78"/>
         <source>_Threshold:</source>
-        <translation type="unfinished">_Κατώφλι:</translation>
+        <translation>_Κατώφλι:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="79"/>
         <source>If value is smaller than threshold it is considered valid. Smaller value might mean more false positive</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="81"/>
         <source>_Noise:</source>
-        <translation type="unfinished">_Θόρυβος:</translation>
+        <translation>_Θόρυβος:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="81"/>
         <source>If pixels are closer than noise, they are considered to be the same</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="82"/>
         <source>_Identical:</source>
-        <translation type="unfinished">_Πανομοιότυπα:</translation>
+        <translation>_Πανομοιότυπα:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="82"/>
         <source>If metric is less than identical, images are considered identical</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="83"/>
@@ -10076,8 +9963,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="83"/>
         <source>Show metric in image (debug)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="87"/>
@@ -10090,7 +9976,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/vobsub.ui" line="13"/>
         <source>VobSub Settings</source>
-        <translation type="unfinished">Ρυθμίσεις VobSub</translation>
+        <translation>Ρυθμίσεις VobSub</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/vobsub.ui" line="33"/>
@@ -10113,7 +9999,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/working.ui" line="13"/>
         <source>Processing</source>
-        <translation type="unfinished">Επεξεργασία</translation>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/working.ui" line="74"/>
@@ -10128,7 +10014,7 @@ Do you want to use that mode?</source>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_dialog/working.ui" line="119"/>
         <source>00:00:00</source>
-        <translation type="unfinished">00:00:00</translation>
+        <translation>00:00:00</translation>
     </message>
 </context>
 <context>
@@ -10255,7 +10141,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="128"/>
         <source>Rate Control</source>
-        <translation type="unfinished">Έλεγχος Ρυθμού</translation>
+        <translation>Έλεγχος Ρυθμού</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="167"/>
@@ -10322,12 +10208,12 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="509"/>
         <source>Disable</source>
-        <translation type="unfinished">Απενεργοποίηση</translation>
+        <translation>Απενεργοποίηση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="516"/>
         <source>Auto-detect</source>
-        <translation type="unfinished">Αυτόματη ανίχνευση</translation>
+        <translation>Αυτόματη ανίχνευση</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="571"/>
@@ -10352,7 +10238,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="664"/>
         <source>Motion Estimation</source>
-        <translation type="unfinished">Εκτίμηση κίνησης</translation>
+        <translation>Εκτίμηση κίνησης</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="684"/>
@@ -10454,23 +10340,23 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1145"/>
         <source>None</source>
-        <translation type="unfinished">Καμία</translation>
+        <translation>Καμία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1150"/>
         <source>Spatial</source>
-        <translation type="unfinished">Χωρικός</translation>
+        <translation>Χωρικός</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1155"/>
         <source>Temporal</source>
-        <translation type="unfinished">Χρονικός</translation>
+        <translation>Χρονικός</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1160"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3390"/>
         <source>Auto</source>
-        <translation type="unfinished">Αυτόματο</translation>
+        <translation>Αυτόματο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1185"/>
@@ -10535,7 +10421,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1333"/>
         <source>CABAC</source>
-        <translation type="unfinished">CABAC</translation>
+        <translation>CABAC</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1340"/>
@@ -10586,7 +10472,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1625"/>
         <source>Fast</source>
-        <translation type="unfinished">Γρήγορο</translation>
+        <translation>Γρήγορο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1630"/>
@@ -10723,17 +10609,17 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2254"/>
         <source>Flat Matrix</source>
-        <translation type="unfinished">Επίπεδο Πλαίσιο</translation>
+        <translation>Επίπεδο Πλαίσιο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2264"/>
         <source>JVT Matrix</source>
-        <translation type="unfinished">Πλαίσιο JVT</translation>
+        <translation>Πλαίσιο JVT</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2279"/>
         <source>Custom Matrix</source>
-        <translation type="unfinished">Προσαρμοσμένο Πλαίσιο</translation>
+        <translation>Προσαρμοσμένο Πλαίσιο</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2289"/>
@@ -10821,7 +10707,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2953"/>
         <source>Advanced</source>
-        <translation type="unfinished">Προχωρημένα</translation>
+        <translation>Προχωρημένα</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2973"/>
@@ -10887,13 +10773,13 @@ Do you wish to continue?</source>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3346"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3358"/>
         <source>Output</source>
-        <translation type="unfinished">Έξοδος</translation>
+        <translation>Έξοδος</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3395"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3516"/>
         <source>1</source>
-        <translation type="unfinished">1</translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3400"/>
@@ -10913,7 +10799,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3415"/>
         <source>2</source>
-        <translation type="unfinished">2</translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3420"/>
@@ -10964,7 +10850,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3465"/>
         <source>5.1</source>
-        <translation type="unfinished">5.1</translation>
+        <translation>5.1</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3488"/>
@@ -10979,7 +10865,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3511"/>
         <source>0</source>
-        <translation type="unfinished">0</translation>
+        <translation>0</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3526"/>
@@ -11004,7 +10890,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3571"/>
         <source>Pixel Aspect Ratio</source>
-        <translation type="unfinished">Λόγος Διαστάσεων σε Εικονοστοιχεία</translation>
+        <translation>Λόγος Διαστάσεων σε Εικονοστοιχεία</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3591"/>
@@ -11015,12 +10901,12 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3601"/>
         <source>As Input</source>
-        <translation type="unfinished">Ώς δεδομένα εισόδου</translation>
+        <translation>Ώς δεδομένα εισόδου</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3662"/>
         <source>:</source>
-        <translation type="unfinished">:</translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3697"/>
@@ -11126,7 +11012,7 @@ Do you wish to continue?</source>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3911"/>
         <source>Crop</source>
-        <translation type="unfinished">Περιτομή</translation>
+        <translation>Περιτομή</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3953"/>
