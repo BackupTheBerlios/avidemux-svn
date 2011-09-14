@@ -4841,7 +4841,7 @@ msgstr "_Externe Datei:"
 #: avidemux/gtk_gui.cpp:2077
 #, c-format
 msgid "Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)"
-msgstr "Audio Stur %d (%s/%d Kanäle/%d kbit pro s/%d ms Verschiebung)"
+msgstr "Audio Spur %d (%s/%d Kanäle/%d kbit pro s/%d ms Verschiebung)"
 
 #: avidemux/gtk_gui.cpp:2083
 msgid "_Track from video:"
