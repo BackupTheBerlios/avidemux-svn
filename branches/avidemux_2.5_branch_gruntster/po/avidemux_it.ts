@@ -4,3642 +4,2806 @@
 <context>
     <name></name>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="124"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="172"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="140"/>
         <source>Cannot initialize the video stream</source>
-        <translation>Impossibile inizializzare il flusso video</translation>
+        <translation type="obsolete">Impossibile inizializzare il flusso video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="129"/>
         <source>Dummy</source>
-        <translation>Fittizio</translation>
+        <translation type="obsolete">Fittizio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="130"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="178"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="230"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="148"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="242"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="66"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="75"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2060"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2159"/>
         <source>None</source>
-        <translation>Nessuno</translation>
+        <translation type="obsolete">Nessuno</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="138"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="186"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="175"/>
         <source>Filter init failed</source>
-        <translation>Inizializzazione filtro fallita</translation>
+        <translation type="obsolete">Inizializzazione filtro fallita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="142"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="190"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="186"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="333"/>
         <source>Encoding</source>
-        <translation>Codifica</translation>
+        <translation type="obsolete">Codifica</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="195"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="311"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="297"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="449"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="304"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="266"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="444"/>
         <source>Error while encoding</source>
-        <translation>Errore durante la codifica</translation>
+        <translation type="obsolete">Errore durante la codifica</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="202"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="318"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="304"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="456"/>
         <source>KeyFrame error</source>
-        <translation>Errore fotogramma chiave</translation>
+        <translation type="obsolete">Errore fotogramma chiave</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="202"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="318"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="304"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="456"/>
         <source>The beginning frame is not a key frame.
 Please move the A marker.</source>
-        <translation>Il fotogramma iniziale non è un fotogramma chiave.
+        <translation type="obsolete">Il fotogramma iniziale non è un fotogramma chiave.
 Spostare il segnalibro A.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="48"/>
         <source>_Dynamic range compression</source>
-        <translation>Compressione intervallo _dinamico</translation>
+        <translation type="obsolete">Compressione intervallo _dinamico</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="50"/>
         <source>_Time shift (ms):</source>
-        <translation>_Ritardo (ms):</translation>
+        <translation type="obsolete">_Ritardo (ms):</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="50"/>
         <source>Time shift value (ms)</source>
-        <translation>Ritardo (ms)</translation>
+        <translation type="obsolete">Ritardo (ms)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="58"/>
         <source>R_esampling (Hz):</source>
-        <translation>Ricampionam_ento (Hz):</translation>
+        <translation type="obsolete">Ricampionam_ento (Hz):</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="58"/>
         <source>Resampling frequency (Hz)</source>
-        <translation>Frequenza di ricampionamento (Hz)</translation>
+        <translation type="obsolete">Frequenza di ricampionamento (Hz)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="67"/>
         <source>Film to PAL</source>
-        <translation>Da film a PAL</translation>
+        <translation type="obsolete">Da film a PAL</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="68"/>
         <source>PAL to Film</source>
-        <translation>Da PAL a film</translation>
+        <translation type="obsolete">Da PAL a film</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="71"/>
         <source>_Frame rate change:</source>
-        <translation>Variazione _frame rate:</translation>
+        <translation type="obsolete">Variazione _frame rate:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="76"/>
         <source>Automatic (max -3 dB)</source>
-        <translation>Automatico (massimo -3 dB)</translation>
+        <translation type="obsolete">Automatico (massimo -3 dB)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="77"/>
         <source>Manual</source>
-        <translation>Manuale</translation>
+        <translation type="obsolete">Manuale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="79"/>
         <source>_Gain mode:</source>
-        <translation>Modalità _guadagno:</translation>
+        <translation type="obsolete">Modalità _guadagno:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="81"/>
         <source>G_ain value:</source>
-        <translation>V_alore guadagno:</translation>
+        <translation type="obsolete">V_alore guadagno:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="83"/>
         <source>Gain</source>
-        <translation>Amplificazione</translation>
+        <translation type="obsolete">Amplificazione</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="88"/>
         <source>No change</source>
-        <translation>Nessun cambiamento</translation>
+        <translation type="obsolete">Nessun cambiamento</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="89"/>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="290"/>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="213"/>
         <source>Mono</source>
-        <translation>Mono</translation>
+        <translation type="obsolete">Mono</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="90"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="266"/>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="288"/>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="211"/>
         <source>Stereo</source>
-        <translation>Stereo</translation>
+        <translation type="obsolete">Stereo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="91"/>
         <source>Stereo+surround</source>
-        <translation>Stereo + surround</translation>
+        <translation type="obsolete">Stereo + surround</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="92"/>
         <source>Stereo+center</source>
-        <translation>Stereo + centro</translation>
+        <translation type="obsolete">Stereo + centro</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="93"/>
         <source>Stereo+center+surround</source>
-        <translation>Stereo + centro + surround</translation>
+        <translation type="obsolete">Stereo + centro + surround</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="94"/>
         <source>Stereo front+stereo rear</source>
-        <translation>Stereo frontale + stereo posteriore</translation>
+        <translation type="obsolete">Stereo frontale + stereo posteriore</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="95"/>
         <source>5 channels</source>
-        <translation>5 canali</translation>
+        <translation type="obsolete">5 canali</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="96"/>
         <source>5.1</source>
-        <translation>5.1</translation>
+        <translation type="obsolete">5.1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="97"/>
         <source>Dolby Pro Logic</source>
-        <translation>Dolby Pro Logic</translation>
+        <translation type="obsolete">Dolby Pro Logic</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="98"/>
         <source>Dolby Pro Logic II</source>
-        <translation>Dolby Pro Logic II</translation>
+        <translation type="obsolete">Dolby Pro Logic II</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="101"/>
         <source>_Mixer:</source>
-        <translation>_Mixer:</translation>
+        <translation type="obsolete">_Mixer:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_audioFilter.cpp" line="105"/>
         <source>Audio Filters</source>
-        <translation>Filtri audio</translation>
+        <translation type="obsolete">Filtri audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="55"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="124"/>
         <source>No data</source>
-        <translation>Nessun dato</translation>
+        <translation type="obsolete">Nessun dato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="228"/>
         <source>Bitrate Histogram</source>
-        <translation>Istogramma bitrate</translation>
+        <translation type="obsolete">Istogramma bitrate</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="80"/>
         <source>Fontconfig</source>
-        <translation>Fontconfig</translation>
+        <translation type="obsolete">Fontconfig</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="82"/>
         <source>SDL</source>
-        <translation>SDL</translation>
+        <translation type="obsolete">SDL</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="83"/>
         <source>XVideo</source>
-        <translation>XVideo</translation>
+        <translation type="obsolete">XVideo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="85"/>
         <source>AltiVec</source>
-        <translation>AltiVec</translation>
+        <translation type="obsolete">AltiVec</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="86"/>
         <source>PowerPC</source>
-        <translation>PowerPC</translation>
+        <translation type="obsolete">PowerPC</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="87"/>
         <source>x86</source>
-        <translation>x86</translation>
+        <translation type="obsolete">x86</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="88"/>
         <source>x86-64</source>
-        <translation>x86-64</translation>
+        <translation type="obsolete">x86-64</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="95"/>
         <source>Libraries</source>
-        <translation>Librerie</translation>
+        <translation type="obsolete">Librerie</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="96"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="328"/>
         <source>CPU</source>
-        <translation>CPU</translation>
+        <translation type="obsolete">CPU</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="100"/>
         <source>Built-in Support</source>
-        <translation>Supporto incorporato</translation>
+        <translation type="obsolete">Supporto incorporato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="9"/>
         <source>_Hours:</source>
-        <translation>O_re:</translation>
+        <translation type="obsolete">O_re:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="10"/>
         <source>_Minutes:</source>
-        <translation>_Minuti:</translation>
+        <translation type="obsolete">_Minuti:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="11"/>
         <source>_Seconds:</source>
-        <translation>_Secondi:</translation>
+        <translation type="obsolete">_Secondi:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="27"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="22"/>
         <source>_Swap U and V</source>
-        <translation>_Inverti U e V</translation>
+        <translation type="obsolete">_Inverti U e V</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="28"/>
         <source>Show motion _vectors</source>
-        <translation>Mostra _vettori movimento</translation>
+        <translation type="obsolete">Mostra _vettori movimento</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_lavDecoder.cpp" line="30"/>
         <source>Decoder Options</source>
-        <translation>Opzioni decoder</translation>
+        <translation type="obsolete">Opzioni decoder</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="164"/>
         <source>_Use systray while encoding</source>
-        <translation>Rid_uci nell&apos;area di notifica durante la codifica</translation>
+        <translation type="obsolete">Rid_uci nell&apos;area di notifica durante la codifica</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="165"/>
         <source>_Accept non-standard audio frequency for DVD</source>
-        <translation>_Accetta frequenze audio non standard per DVD</translation>
+        <translation type="obsolete">_Accetta frequenze audio non standard per DVD</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="166"/>
         <source>Create _OpenDML files</source>
-        <translation>_Crea file OpenDML</translation>
+        <translation type="obsolete">_Crea file OpenDML</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="167"/>
         <source>Automatically _index MPEG files</source>
-        <translation>_Indicizza automaticamente i file MPEG</translation>
+        <translation type="obsolete">_Indicizza automaticamente i file MPEG</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="168"/>
         <source>Automatically _swap A and B if A&gt;B</source>
-        <translation>In_verti automaticamente A e B se A&gt;B</translation>
+        <translation type="obsolete">In_verti automaticamente A e B se A&gt;B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="169"/>
         <source>_Disable NUV audio sync</source>
-        <translation>_Disattiva sincronizzazione audio NUV</translation>
+        <translation type="obsolete">_Disattiva sincronizzazione audio NUV</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="171"/>
         <source>Automatically _build VBR map</source>
-        <translation>_Crea automaticamente la mappa VBR</translation>
+        <translation type="obsolete">_Crea automaticamente la mappa VBR</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="172"/>
         <source>Automatically _rebuild index</source>
-        <translation>_Ricostrusci automaticamente l&apos;indice</translation>
+        <translation type="obsolete">_Ricostrusci automaticamente l&apos;indice</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="173"/>
         <source>Automatically remove _packed bitstream</source>
-        <translation>Rimuovi automaticamente il _flusso di bit compresso</translation>
+        <translation type="obsolete">Rimuovi automaticamente il _flusso di bit compresso</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="175"/>
         <source>SIMD</source>
-        <translation>SIMD</translation>
+        <translation type="obsolete">SIMD</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="177"/>
         <source>Enable all SIMD</source>
-        <translation>Attiva tutti</translation>
+        <translation type="obsolete">Attiva tutti</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="178"/>
         <source>Enable MMX</source>
-        <translation>Attiva MMX</translation>
+        <translation type="obsolete">Attiva MMX</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="179"/>
         <source>Enable MMXEXT</source>
-        <translation>Attiva MMXEXT</translation>
+        <translation type="obsolete">Attiva MMXEXT</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="180"/>
         <source>Enable 3DNOW</source>
-        <translation>Attiva 3DNOW</translation>
+        <translation type="obsolete">Attiva 3DNOW</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="181"/>
         <source>Enable 3DNOWEXT</source>
-        <translation>Attiva 3DNOWEXT</translation>
+        <translation type="obsolete">Attiva 3DNOWEXT</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="182"/>
         <source>Enable SSE</source>
-        <translation>Attiva SSE</translation>
+        <translation type="obsolete">Attiva SSE</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="183"/>
         <source>Enable SSE2</source>
-        <translation>Attiva SSE2</translation>
+        <translation type="obsolete">Attiva SSE2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="184"/>
         <source>Enable SSE3</source>
-        <translation>Attiva SSE3</translation>
+        <translation type="obsolete">Attiva SSE3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="185"/>
         <source>Enable SSSE3</source>
-        <translation>Attiva SSSE3</translation>
+        <translation type="obsolete">Attiva SSSE3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="206"/>
         <source>_lavc threads:</source>
-        <translation>Thread _lavc:</translation>
+        <translation type="obsolete">Thread _lavc:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="208"/>
         <source>Multi-threading</source>
-        <translation>Multi-threading</translation>
+        <translation type="obsolete">Multi-threading</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="212"/>
         <source>High</source>
-        <translation>Alta</translation>
+        <translation type="obsolete">Alta</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="213"/>
         <source>Above normal</source>
-        <translation>Al di sopra del normale</translation>
+        <translation type="obsolete">Al di sopra del normale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="215"/>
         <source>Below normal</source>
-        <translation>Al di sotto del normale</translation>
+        <translation type="obsolete">Al di sotto del normale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="216"/>
         <source>Low</source>
-        <translation>Bassa</translation>
+        <translation type="obsolete">Bassa</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="218"/>
         <source>_Encoding priority:</source>
-        <translation>Priorità di _codifica:</translation>
+        <translation type="obsolete">Priorità di _codifica:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="219"/>
         <source>_Indexing/unpacking priority:</source>
-        <translation>Priorità di _indicizzazione/decompressione:</translation>
+        <translation type="obsolete">Priorità di _indicizzazione/decompressione:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="220"/>
         <source>_Playback priority:</source>
-        <translation>_Priorità riproduzione:</translation>
+        <translation type="obsolete">_Priorità riproduzione:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="222"/>
         <source>Prioritisation</source>
-        <translation>Prioritizzazione</translation>
+        <translation type="obsolete">Prioritizzazione</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="227"/>
         <source>_Use alternative tag for MP3 in .mp4</source>
-        <translation>_Usa etichette alternative per gli MP3 in file .mp4</translation>
+        <translation type="obsolete">_Usa etichette alternative per gli MP3 in file .mp4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="231"/>
         <source>Qt (OpenGL)</source>
-        <translation>Qt (OpenGL)</translation>
+        <translation type="obsolete">Qt (OpenGL)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="234"/>
         <source>XVideo (best)</source>
-        <translation>XVideo (migliore)</translation>
+        <translation type="obsolete">XVideo (migliore)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="238"/>
         <source>SDL (MS Windows GDI)</source>
-        <translation>SDL (MS Windows GDI)</translation>
+        <translation type="obsolete">SDL (MS Windows GDI)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="239"/>
         <source>SDL (MS Windows DirectX)</source>
-        <translation>SDL (MS Windows DirectX)</translation>
+        <translation type="obsolete">SDL (MS Windows DirectX)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="241"/>
         <source>SDL (good)</source>
-        <translation>SDL (buono)</translation>
+        <translation type="obsolete">SDL (buono)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="246"/>
         <source>Video _display:</source>
-        <translation>_Visualizzazione video:</translation>
+        <translation type="obsolete">_Visualizzazione video:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="249"/>
         <source>No alerts</source>
-        <translation>Nessun avviso</translation>
+        <translation type="obsolete">Nessun avviso</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="250"/>
         <source>Display only error alerts</source>
-        <translation>Visualizza solo gli avvisi di errore</translation>
+        <translation type="obsolete">Visualizza solo gli avvisi di errore</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="251"/>
         <source>Display all alerts</source>
-        <translation>Visualizza tutti gli avvisi</translation>
+        <translation type="obsolete">Visualizza tutti gli avvisi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="253"/>
         <source>_Message level:</source>
-        <translation>Livello _messaggio:</translation>
+        <translation type="obsolete">Livello _messaggio:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="259"/>
         <source>Master</source>
-        <translation>Master</translation>
+        <translation type="obsolete">Master</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="260"/>
         <source>_Volume control:</source>
-        <translation>Controllo _volume:</translation>
+        <translation type="obsolete">Controllo _volume:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="265"/>
         <source>No downmixing</source>
-        <translation>Nessun downmixing</translation>
+        <translation type="obsolete">Nessun downmixing</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="267"/>
         <source>Pro Logic</source>
-        <translation>Pro Logic</translation>
+        <translation type="obsolete">Pro Logic</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="268"/>
         <source>Pro Logic II</source>
-        <translation>Pro Logic II</translation>
+        <translation type="obsolete">Pro Logic II</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="270"/>
         <source>_Local playback downmixing:</source>
-        <translation>Downmixing riproduzione _locale:</translation>
+        <translation type="obsolete">Downmixing riproduzione _locale:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="284"/>
         <source>_AudioDevice</source>
-        <translation>Dispositivo _audio</translation>
+        <translation type="obsolete">Dispositivo _audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="289"/>
         <source>De_ringing</source>
-        <translation>_Deringing</translation>
+        <translation type="obsolete">_Deringing</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="290"/>
         <source>_Strength:</source>
-        <translation>_Intensità:</translation>
+        <translation type="obsolete">_Intensità:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="291"/>
         <source>Default Postprocessing</source>
-        <translation>Postprocessing predefinito</translation>
+        <translation type="obsolete">Postprocessing predefinito</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="298"/>
         <source>Use _Global GlyphSet</source>
-        <translation>Usa set di _glifi globale</translation>
+        <translation type="obsolete">Usa set di _glifi globale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="299"/>
         <source>Gl_yphSet:</source>
-        <translation>Set di gl_ifi:</translation>
+        <translation type="obsolete">Set di gl_ifi:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="304"/>
         <source>User Interface</source>
-        <translation>Interfaccia utente</translation>
+        <translation type="obsolete">Interfaccia utente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="308"/>
         <source>Automation</source>
-        <translation>Automazione</translation>
+        <translation type="obsolete">Automazione</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="312"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation type="obsolete">Input</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="316"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation type="obsolete">Output</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="324"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2059"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation type="obsolete">Video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="332"/>
         <source>Threading</source>
-        <translation>Threading</translation>
+        <translation type="obsolete">Threading</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="336"/>
         <source>Global GlyphSet</source>
-        <translation>Set di glifi globale</translation>
+        <translation type="obsolete">Set di glifi globale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="340"/>
         <source>Preferences</source>
-        <translation>Preferenze</translation>
+        <translation type="obsolete">Preferenze</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="289"/>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="212"/>
         <source>Joint stereo</source>
-        <translation>Joint stereo</translation>
+        <translation type="obsolete">Joint stereo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="293"/>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="228"/>
         <source>C_hannel mode:</source>
-        <translation>Modalità _canali:</translation>
+        <translation type="obsolete">Modalità _canali:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="297"/>
         <source>CBR</source>
-        <translation>CBR</translation>
+        <translation type="obsolete">CBR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="298"/>
         <source>ABR</source>
-        <translation>ABR</translation>
+        <translation type="obsolete">ABR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="300"/>
         <source>Extreme</source>
-        <translation>Estremo</translation>
+        <translation type="obsolete">Estremo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="303"/>
         <source>Bit_rate mode:</source>
-        <translation>Modalità bit_rate:</translation>
+        <translation type="obsolete">Modalità bit_rate:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="323"/>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="311"/>
         <source>_Quality:</source>
-        <translation>_Qualità:</translation>
+        <translation type="obsolete">_Qualità:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="325"/>
         <source>_Disable reservoir</source>
-        <translation>_Disattiva riserva</translation>
+        <translation type="obsolete">_Disattiva riserva</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="329"/>
         <source>LAME Configuration</source>
-        <translation>Configurazione LAME</translation>
+        <translation type="obsolete">Configurazione LAME</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="21"/>
         <source>_Filter strength:</source>
-        <translation>Intensità _filtro:</translation>
+        <translation type="obsolete">Intensità _filtro:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="32"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="287"/>
         <source>_Horizontal deblocking</source>
-        <translation>Deblocking o_rizzontale</translation>
+        <translation type="obsolete">Deblocking o_rizzontale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="33"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="288"/>
         <source>_Vertical deblocking</source>
-        <translation>Deblocking _verticale</translation>
+        <translation type="obsolete">Deblocking _verticale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="34"/>
         <source>_Deringing</source>
-        <translation>_Deringing</translation>
+        <translation type="obsolete">_Deringing</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="32"/>
         <source>_Shrink Factor:</source>
-        <translation>Fattore di _compressione:</translation>
+        <translation type="obsolete">Fattore di _compressione:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="35"/>
         <source>_VOB file(s):</source>
-        <translation>File _VOB:</translation>
+        <translation type="obsolete">File _VOB:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="36"/>
         <source>_IFO file:</source>
-        <translation>File _IFO:</translation>
+        <translation type="obsolete">File _IFO:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="42"/>
         <source>VOB to VobSub</source>
-        <translation>Da VOB a VobSub</translation>
+        <translation type="obsolete">Da VOB a VobSub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="46"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="51"/>
         <source>The selected vobfile does not exist</source>
-        <translation>Il file vob selezionato non esiste</translation>
+        <translation type="obsolete">Il file vob selezionato non esiste</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="56"/>
         <source>Please select a correct VobSub path/dir</source>
-        <translation>Seleziona un percorso VobSub corretto</translation>
+        <translation type="obsolete">Seleziona un percorso VobSub corretto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="210"/>
         <source>Max. bitrate:</source>
-        <translation>Bitrate massimo:</translation>
+        <translation type="obsolete">Bitrate massimo:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="211"/>
         <source>Average bitrate:</source>
-        <translation>Bitrate medio:</translation>
+        <translation type="obsolete">Bitrate medio:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="212"/>
         <source>Number of I frames:</source>
-        <translation>Numero di fotogrammi I:</translation>
+        <translation type="obsolete">Numero di fotogrammi I:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="213"/>
         <source>Number of P frames:</source>
-        <translation>Numero di fotogrammi P:</translation>
+        <translation type="obsolete">Numero di fotogrammi P:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="214"/>
         <source>Number of B frames:</source>
-        <translation>Numero di fotogrammi B:</translation>
+        <translation type="obsolete">Numero di fotogrammi B:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_bitrateHisto.cpp" line="215"/>
         <source>Max. B frames:</source>
-        <translation>Numero massimo di fotogrammi B:</translation>
+        <translation type="obsolete">Numero massimo di fotogrammi B:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_gototime.cpp" line="14"/>
         <source>Go to Time</source>
-        <translation>Vai al tempo</translation>
+        <translation type="obsolete">Vai al tempo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_requant.cpp" line="35"/>
         <source>Requant Configuration</source>
-        <translation>Configurazione Requant</translation>
+        <translation type="obsolete">Configurazione Requant</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="322"/>
         <source>NTSC 4:3</source>
-        <translation>NTSC 4:3</translation>
+        <translation type="obsolete">NTSC 4:3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="323"/>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="324"/>
         <source>NTSC 16:9</source>
-        <translation>NTSC 16:9</translation>
+        <translation type="obsolete">NTSC 16:9</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="325"/>
         <source>PAL 4:3</source>
-        <translation>PAL 4:3</translation>
+        <translation type="obsolete">PAL 4:3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="326"/>
         <source>PAL 16:9</source>
-        <translation>PAL 16:9</translation>
+        <translation type="obsolete">PAL 16:9</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="327"/>
         <source>1:1</source>
-        <translation>1:1</translation>
+        <translation type="obsolete">1:1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/avidemutils.cpp" line="329"/>
         <source>Unknown</source>
-        <translation>Sconosciuto</translation>
+        <translation type="obsolete">Sconosciuto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="35"/>
         <source>Select VOB file(s)</source>
-        <translation>Seleziona file VOB</translation>
+        <translation type="obsolete">Seleziona file VOB</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="36"/>
         <source>Select IFO file</source>
-        <translation>Seleziona file IFO</translation>
+        <translation type="obsolete">Seleziona file IFO</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="37"/>
         <source>VobSub file:</source>
-        <translation>File VobSub:</translation>
+        <translation type="obsolete">File VobSub:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_v2v.cpp" line="37"/>
         <source>Select VobSub file</source>
-        <translation>Seleziona file VobSub</translation>
+        <translation type="obsolete">Seleziona file VobSub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_builtin.cpp" line="81"/>
         <source>Gettext</source>
-        <translation>Gettext</translation>
+        <translation type="obsolete">Gettext</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="7"/>
         <source>_Job name:</source>
-        <translation>Nome _attività:</translation>
+        <translation type="obsolete">Nome _attività:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="8"/>
         <source>Output _File:</source>
-        <translation>_File in uscita:</translation>
+        <translation type="obsolete">_File in uscita:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="8"/>
         <source>Select Video To Write</source>
-        <translation>Seleziona il video da scrivere</translation>
+        <translation type="obsolete">Seleziona il video da scrivere</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_jobs_save.cpp" line="11"/>
         <source>Save Job</source>
-        <translation>Salva attività</translation>
+        <translation type="obsolete">Salva attività</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_postproc.cpp" line="38"/>
         <source>Postprocessing</source>
-        <translation>Postprocessing</translation>
+        <translation type="obsolete">Postprocessing</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="264"/>
         <source>Select ECMAScript to Run</source>
-        <translation>Seleziona uno script ECMA da eseguire</translation>
+        <translation type="obsolete">Seleziona uno script ECMA da eseguire</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="295"/>
         <source>Audio filters cannot be applied in Copy mode</source>
-        <translation>I filtri audio non possono essere applicati in modalità Copia</translation>
+        <translation type="obsolete">I filtri audio non possono essere applicati in modalità Copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="295"/>
         <source>To apply filters the audio must be transcoded.</source>
-        <translation>Per applicare i filtri l&apos;audio deve essere convertito.</translation>
+        <translation type="obsolete">Per applicare i filtri l&apos;audio deve essere convertito.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="350"/>
         <source>Obsolete</source>
-        <translation>Obsoleto</translation>
+        <translation type="obsolete">Obsoleto</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="378"/>
         <source>Not coded in this version</source>
-        <translation>Non incluso in questa versione</translation>
+        <translation type="obsolete">Non incluso in questa versione</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="393"/>
         <source>Select Video/Image File...</source>
-        <translation>Seleziona un file video/immagine...</translation>
+        <translation type="obsolete">Seleziona un file video/immagine...</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="437"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="449"/>
         <source>Select Workbench to Save</source>
-        <translation>Seleziona il progetto da salvare</translation>
+        <translation type="obsolete">Seleziona il progetto da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="479"/>
         <source>Select Raw File to Save</source>
-        <translation>Seleziona il file Raw da salvare</translation>
+        <translation type="obsolete">Seleziona il file Raw da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="489"/>
         <source>Select AVI File...</source>
-        <translation>Seleziona un file video...</translation>
+        <translation type="obsolete">Seleziona un file video...</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="492"/>
         <source>Select AVI File to Append...</source>
-        <translation>Seleziona il file video da aggiungere...</translation>
+        <translation type="obsolete">Seleziona il file video da aggiungere...</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="496"/>
         <source>Select File to Save Audio</source>
-        <translation>Seleziona il file audio da salvare</translation>
+        <translation type="obsolete">Seleziona il file audio da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="530"/>
         <source>Select JPEG Sequence to Save</source>
-        <translation>Seleziona la sequenza JPEG da salvare</translation>
+        <translation type="obsolete">Seleziona la sequenza JPEG da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="533"/>
         <source>Select BMP to Save</source>
-        <translation>Seleziona il file BMP da salvare</translation>
+        <translation type="obsolete">Seleziona il file BMP da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="537"/>
         <source>Select JPEG to Save</source>
-        <translation>Seleziona il file JPEG da salvare</translation>
+        <translation type="obsolete">Seleziona il file JPEG da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="602"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="725"/>
         <source>Select File to Save</source>
-        <translation>Seleziona il file da salvare</translation>
+        <translation type="obsolete">Seleziona il file da salvare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="666"/>
         <source>Select MP3 to Load</source>
-        <translation>Seleziona il file MP3 da caricare</translation>
+        <translation type="obsolete">Seleziona il file MP3 da caricare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="669"/>
         <source>Select AC3 to Load</source>
-        <translation>Seleziona il file AC3 da caricare</translation>
+        <translation type="obsolete">Seleziona il file AC3 da caricare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="672"/>
         <source>Select WAV to Load</source>
-        <translation>Seleziona il file WAV da caricare</translation>
+        <translation type="obsolete">Seleziona il file WAV da caricare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="712"/>
         <source>Go to Frame</source>
-        <translation>Vai al fotogramma</translation>
+        <translation type="obsolete">Vai al fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="712"/>
         <source>_Go to frame:</source>
-        <translation>_Vai al fotogramma:</translation>
+        <translation type="obsolete">_Vai al fotogramma:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="717"/>
         <source>Out of bounds</source>
-        <translation>Oltre i limiti</translation>
+        <translation type="obsolete">Oltre i limiti</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="723"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="731"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="778"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1970"/>
         <source>Marker A &gt; B</source>
-        <translation>Segnalibro A &gt; B</translation>
+        <translation type="obsolete">Segnalibro A &gt; B</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="723"/>
         <source>An invalid frame range has been selected.  Make sure marker A is placed before marker B.</source>
-        <translation>L&apos;intervallo di fotogrammi selezionato non è valido. Assicurati che il segnalibro A preceda il segnalibro B.</translation>
+        <translation type="obsolete">L&apos;intervallo di fotogrammi selezionato non è valido. Assicurati che il segnalibro A preceda il segnalibro B.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="731"/>
         <source>Cannot copy.</source>
-        <translation>Impossibile copiare.</translation>
+        <translation type="obsolete">Impossibile copiare.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="743"/>
         <source>Something bad happened (II))</source>
-        <translation>C&apos;è stato qualche errore (II)</translation>
+        <translation type="obsolete">C&apos;è stato qualche errore (II)</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="757"/>
         <source>Are you sure?</source>
-        <translation>Sei sicuro?</translation>
+        <translation type="obsolete">Sei sicuro?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="778"/>
         <source>Cannot cut.</source>
-        <translation>Impossibile tagliare.</translation>
+        <translation type="obsolete">Impossibile tagliare.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="821"/>
         <source>Use custom value</source>
-        <translation>Usa valore personalizzato</translation>
+        <translation type="obsolete">Usa valore personalizzato</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="822"/>
         <source>Frame Rate</source>
-        <translation>Frame rate</translation>
+        <translation type="obsolete">Frame rate</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="822"/>
         <source>_Frames per second</source>
-        <translation>_Fotogrammi al secondo</translation>
+        <translation type="obsolete">_Fotogrammi al secondo</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="825"/>
         <source>PAL - 25 FPS</source>
-        <translation>PAL - 25 FPS</translation>
+        <translation type="obsolete">PAL - 25 FPS</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="826"/>
         <source>FILM - 24 FPS</source>
-        <translation>FILM - 24 FPS</translation>
+        <translation type="obsolete">FILM - 24 FPS</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="827"/>
         <source>NTSC - 30 FPS</source>
-        <translation>NTSC - 30 FPS</translation>
+        <translation type="obsolete">NTSC - 30 FPS</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="829"/>
         <source>Standard Frame Rate:</source>
-        <translation>Frame rate standard:</translation>
+        <translation type="obsolete">Frame rate standard:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="835"/>
         <source>Change Frame Rate</source>
-        <translation>Cambia frame rate</translation>
+        <translation type="obsolete">Cambia frame rate</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="871"/>
         <source>Width is not a multiple of 8</source>
-        <translation>La larghezza non è un multiplo di 8</translation>
+        <translation type="obsolete">La larghezza non è un multiplo di 8</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="872"/>
         <source>This will make trouble for AVI files.</source>
-        <translation>Questo causerà un problema per i file AVI.</translation>
+        <translation type="obsolete">Questo causerà un problema per i file AVI.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="883"/>
         <source>Video filters cannot be applied in Copy mode</source>
-        <translation>I filtri video non possono essere applicati in modalità Copia</translation>
+        <translation type="obsolete">I filtri video non possono essere applicati in modalità Copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="883"/>
         <source>To apply filters the video must be transcoded.</source>
-        <translation>Per applicare i filtri il video deve essere convertito.</translation>
+        <translation type="obsolete">Per applicare i filtri il video deve essere convertito.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="888"/>
         <source>Rebuild all Keyframes?</source>
-        <translation>Ricostruire tutti i fotogrammi chiave?</translation>
+        <translation type="obsolete">Ricostruire tutti i fotogrammi chiave?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="944"/>
         <source>Permission error</source>
-        <translation>Errore di permesso</translation>
+        <translation type="obsolete">Errore di permesso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="947"/>
         <source>&quot;%s&quot; does not exist.</source>
-        <translation>&quot;%s&quot; non esiste.</translation>
+        <translation type="obsolete">&quot;%s&quot; non esiste.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="950"/>
         <source>Error opening file</source>
-        <translation>Errore nell&apos;apertura del file</translation>
+        <translation type="obsolete">Errore nell&apos;apertura del file</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="950"/>
         <source>Error opening &quot;%s&quot;.</source>
-        <translation>Errore nell&apos;apertura di &quot;%s&quot;.</translation>
+        <translation type="obsolete">Errore nell&apos;apertura di &quot;%s&quot;.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="994"/>
         <source>Cannot open project using the video loader.</source>
-        <translation>Impossibile aprire il progetto usando il caricatore video.</translation>
+        <translation type="obsolete">Impossibile aprire il progetto usando il caricatore video.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="995"/>
         <source>Try &apos;File&apos; -&gt; &apos;Load/Run Project...&apos;</source>
-        <translation>Prova &apos;File&apos; -&gt; &apos;Carica/esegui progetto...&apos;</translation>
+        <translation type="obsolete">Prova &apos;File&apos; -&gt; &apos;Carica/esegui progetto...&apos;</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="997"/>
         <source>Could not open the file</source>
-        <translation>Impossibile aprire il file</translation>
+        <translation type="obsolete">Impossibile aprire il file</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1031"/>
         <source>Multiple Audio Tracks</source>
-        <translation>Tracce audio multiple</translation>
+        <translation type="obsolete">Tracce audio multiple</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1031"/>
         <source>The file you just loaded contains several audio tracks.
 Go to Audio-&gt;MainTrack to select the active one.</source>
-        <translation>Il file appena caricato contiene diverse tracce audio.
+        <translation type="obsolete">Il file appena caricato contiene diverse tracce audio.
 Vai a &apos;Audio&apos; -&gt; &apos;Traccia principale&apos; per selezionare la traccia attiva.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1085"/>
         <source>No audio decoder found for this file</source>
-        <translation>Nessun decoder trovato per questo file</translation>
+        <translation type="obsolete">Nessun decoder trovato per questo file</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1086"/>
         <source>Save (A+V) will generate bad AVI. Save audio will work.</source>
-        <translation>Salvare (A+V) genererà un file AVI difettoso. Salvare l&apos;audio funzionerà.</translation>
+        <translation type="obsolete">Salvare (A+V) genererà un file AVI difettoso. Salvare l&apos;audio funzionerà.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1145"/>
         <source>Something failed when appending</source>
-        <translation>Errore durante l&apos;aggiunta</translation>
+        <translation type="obsolete">Errore durante l&apos;aggiunta</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1156"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1989"/>
         <source>Something bad happened (II)</source>
-        <translation>C&apos;è stato qualche errore (II)</translation>
+        <translation type="obsolete">C&apos;è stato qualche errore (II)</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1220"/>
         <source>Cannot save the audio in copy mode</source>
-        <translation>Impossibile salvare l&apos;audio in modalità copia</translation>
+        <translation type="obsolete">Impossibile salvare l&apos;audio in modalità copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1220"/>
         <source>Select WAV PCM as the audio codec, otherwise the audio file would be raw PCM.</source>
-        <translation>Seleziona il codec audio WAV PCM, altrimenti il file audio sarà PCM grezzo.</translation>
+        <translation type="obsolete">Seleziona il codec audio WAV PCM, altrimenti il file audio sarà PCM grezzo.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1228"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1596"/>
         <source>Saving audio</source>
-        <translation>Salvataggio audio in corso</translation>
+        <translation type="obsolete">Salvataggio audio in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1305"/>
         <source>Get Frame</source>
-        <translation>Prendi fotogramma</translation>
+        <translation type="obsolete">Prendi fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1305"/>
         <source>Cannot get this frame to save</source>
-        <translation>Impossibile salvare questo fotogramma</translation>
+        <translation type="obsolete">Impossibile salvare questo fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1343"/>
         <source>Mark A &gt; B</source>
-        <translation>Segnalibro A &gt; B</translation>
+        <translation type="obsolete">Segnalibro A &gt; B</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1343"/>
         <source>Set your markers correctly.</source>
-        <translation>Imposta i tuoi segnalibri correttamente.</translation>
+        <translation type="obsolete">Imposta i tuoi segnalibri correttamente.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1352"/>
         <source>Saving as set of jpegs</source>
-        <translation>Salvataggio come gruppo di jpeg in corso</translation>
+        <translation type="obsolete">Salvataggio come gruppo di jpeg in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1358"/>
         <source>Cannot decode frame</source>
-        <translation>Impossibile decodificare il fotogramma</translation>
+        <translation type="obsolete">Impossibile decodificare il fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1358"/>
         <source>Aborting.</source>
-        <translation>Annullamento in corso.</translation>
+        <translation type="obsolete">Annullamento in corso.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1369"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1388"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2333"/>
         <source>Done</source>
-        <translation>Fatto</translation>
+        <translation type="obsolete">Fatto</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1369"/>
         <source>Saved %d images.</source>
-        <translation>%d immagini salvate.</translation>
+        <translation type="obsolete">%d immagini salvate.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1371"/>
         <source>Error</source>
-        <translation>Errore</translation>
+        <translation type="obsolete">Errore</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1371"/>
         <source>Could not save all images.</source>
-        <translation>Impossibile salvare tutte le immagini.</translation>
+        <translation type="obsolete">Impossibile salvare tutte le immagini.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1388"/>
         <source>Saved &quot;%s&quot;.</source>
-        <translation>&quot;%s&quot; salvato.</translation>
+        <translation type="obsolete">&quot;%s&quot; salvato.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1390"/>
         <source>BMP op failed</source>
-        <translation>Op. BMP fallita</translation>
+        <translation type="obsolete">Op. BMP fallita</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1390"/>
         <source>Saving %s as a BMP file failed.</source>
-        <translation>Salvataggio di %s come file BMP fallito.</translation>
+        <translation type="obsolete">Salvataggio di %s come file BMP fallito.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1412"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1478"/>
         <source>Failed to open the file</source>
-        <translation>L&apos;apertura del file è fallita</translation>
+        <translation type="obsolete">L&apos;apertura del file è fallita</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1412"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1478"/>
         <source>Not a WAV file?</source>
-        <translation>Non è un file WAV?</translation>
+        <translation type="obsolete">Non è un file WAV?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1413"/>
         <source>WAV open file failed...</source>
-        <translation>L&apos;apertura del file WAV è fallita...</translation>
+        <translation type="obsolete">L&apos;apertura del file WAV è fallita...</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1550"/>
         <source>Cannot decompress audio frame</source>
-        <translation>Impossibile decomprimere il segmento audio</translation>
+        <translation type="obsolete">Impossibile decomprimere il segmento audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1564"/>
         <source>Memory Error</source>
-        <translation>Errore di memoria</translation>
+        <translation type="obsolete">Errore di memoria</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1617"/>
         <source>No frames to encode</source>
-        <translation>Nessun fotogramma da codificare</translation>
+        <translation type="obsolete">Nessun fotogramma da codificare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1617"/>
         <source>Please check markers. Is &quot;A&gt;&quot; == &quot;&gt;B&quot;?</source>
-        <translation>Controlla i segnalibri. È &quot;A&gt;&quot; == &quot;&gt;B&quot;?</translation>
+        <translation type="obsolete">Controlla i segnalibri. È &quot;A&gt;&quot; == &quot;&gt;B&quot;?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1756"/>
         <source>Saving raw video stream</source>
-        <translation>Salvataggio flusso video grezzo in corso</translation>
+        <translation type="obsolete">Salvataggio flusso video grezzo in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1905"/>
         <source>Checking video</source>
-        <translation>Verifica video in corso</translation>
+        <translation type="obsolete">Verifica video in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1921"/>
         <source>No error found</source>
-        <translation>Nessun errore trovato</translation>
+        <translation type="obsolete">Nessun errore trovato</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1925"/>
         <source>Errors found in %u frames</source>
-        <translation>Errori trovati in %u fotogrammi</translation>
+        <translation type="obsolete">Errori trovati in %u fotogrammi</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1943"/>
         <source>Cannot decompress the audio stream</source>
-        <translation>Impossibile decomprimere il flusso audio</translation>
+        <translation type="obsolete">Impossibile decomprimere il flusso audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1943"/>
         <source>Switch audio codec to Copy.</source>
-        <translation>Sposta la codifica audio su Copia.</translation>
+        <translation type="obsolete">Sposta la codifica audio su Copia.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1970"/>
         <source>Cannot delete the selection.</source>
-        <translation>Impossibile eliminare la selezione.</translation>
+        <translation type="obsolete">Impossibile eliminare la selezione.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1975"/>
         <source>You can&apos;t remove all frames</source>
-        <translation>Non puoi rimuovere tutti i fotogrammi</translation>
+        <translation type="obsolete">Non puoi rimuovere tutti i fotogrammi</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="1982"/>
         <source>Something bad happened</source>
-        <translation>C&apos;è stato qualche errore</translation>
+        <translation type="obsolete">C&apos;è stato qualche errore</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2051"/>
         <source>Could not get tracks info</source>
-        <translation>Impossibile ottenere informazioni sulla traccia</translation>
+        <translation type="obsolete">Impossibile ottenere informazioni sulla traccia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2059"/>
         <source>Take audio from video file</source>
-        <translation>Recupera audio dal file video</translation>
+        <translation type="obsolete">Recupera audio dal file video</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2060"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2159"/>
         <source>No audio</source>
-        <translation>Nessuna traccia audio</translation>
+        <translation type="obsolete">Nessuna traccia audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2061"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2160"/>
         <source>External AC3</source>
-        <translation>AC3 esterno</translation>
+        <translation type="obsolete">AC3 esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2061"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2160"/>
         <source>Take audio from external AC3 file</source>
-        <translation>Prendi l&apos;audio da un file AC3 esterno</translation>
+        <translation type="obsolete">Prendi l&apos;audio da un file AC3 esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2062"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2161"/>
         <source>External MP3</source>
-        <translation>MP3 esterno</translation>
+        <translation type="obsolete">MP3 esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2062"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2161"/>
         <source>Take audio from external MP3 file</source>
-        <translation>Prendi l&apos;audio da un file MP3 esterno</translation>
+        <translation type="obsolete">Prendi l&apos;audio da un file MP3 esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2063"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2162"/>
         <source>External WAV</source>
-        <translation>WAV esterno</translation>
+        <translation type="obsolete">WAV esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2063"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2162"/>
         <source>Take audio from external WAV file</source>
-        <translation>Prendi l&apos;audio da un file WAV esterno</translation>
+        <translation type="obsolete">Prendi l&apos;audio da un file WAV esterno</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2067"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2167"/>
         <source>_Audio source:</source>
-        <translation>Sorgente _audio:</translation>
+        <translation type="obsolete">Sorgente _audio:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2071"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2168"/>
         <source>_External file:</source>
-        <translation>File _esterno:</translation>
+        <translation type="obsolete">File _esterno:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2071"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2168"/>
         <source>Select file</source>
-        <translation>Seleziona un file</translation>
+        <translation type="obsolete">Seleziona un file</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2080"/>
         <source>Audio track %d (%s/%d channels/%d kbit per s/%d ms shift)</source>
-        <translation>Traccia audio %d (%s / %d canali / %d kbps / ritardo %d ms)</translation>
+        <translation type="obsolete">Traccia audio %d (%s / %d canali / %d kbps / ritardo %d ms)</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2086"/>
         <source>_Track from video:</source>
-        <translation>_Traccia dal video:</translation>
+        <translation type="obsolete">_Traccia dal video:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2096"/>
         <source>Main Audio Track</source>
-        <translation>Traccia audio principale</translation>
+        <translation type="obsolete">Traccia audio principale</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2102"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2180"/>
         <source>Cannot load</source>
-        <translation>Impossibile caricare</translation>
+        <translation type="obsolete">Impossibile caricare</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2102"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2180"/>
         <source>The selected audio file does not exist.</source>
-        <translation>Il file audio selezionato non esiste.</translation>
+        <translation type="obsolete">Il file audio selezionato non esiste.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2177"/>
         <source>Second Audio Track</source>
-        <translation>Traccia audio secondaria</translation>
+        <translation type="obsolete">Traccia audio secondaria</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2209"/>
         <source>Error loading the MP3 file</source>
-        <translation>Errore nel caricamento del file MP3</translation>
+        <translation type="obsolete">Errore nel caricamento del file MP3</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2218"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2240"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="2262"/>
         <source>Second track loaded</source>
-        <translation>Seconda traccia caricata</translation>
+        <translation type="obsolete">Seconda traccia caricata</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2232"/>
         <source>Error loading the AC3 file</source>
-        <translation>Errore nel caricamento del file AC3</translation>
+        <translation type="obsolete">Errore nel caricamento del file AC3</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2254"/>
         <source>Error loading the WAV file</source>
-        <translation>Errore nel caricamento del file WAV</translation>
+        <translation type="obsolete">Errore nel caricamento del file WAV</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2321"/>
         <source>Saving failed</source>
-        <translation>Salvataggio fallito</translation>
+        <translation type="obsolete">Salvataggio fallito</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2321"/>
         <source>Saving the job failed. Maybe you have permission issue with ~/.avidemux</source>
-        <translation>Il salvataggio dell&apos;attività è fallito. Forse c&apos;è un problema di permesso con ~/.avidemux</translation>
+        <translation type="obsolete">Il salvataggio dell&apos;attività è fallito. Forse c&apos;è un problema di permesso con ~/.avidemux</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2333"/>
         <source>File %s has been successfully saved.</source>
-        <translation>Il file %s è stato salvato con successo.</translation>
+        <translation type="obsolete">Il file %s è stato salvato con successo.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2337"/>
         <source>File %s was NOT saved correctly.</source>
-        <translation>Il file %s non è stato salvato correttamente.</translation>
+        <translation type="obsolete">Il file %s non è stato salvato correttamente.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2503"/>
         <source>AvsProxy</source>
-        <translation>AvsProxy</translation>
+        <translation type="obsolete">AvsProxy</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2503"/>
         <source>Failed to connect to avsproxy.
 Is it running ?</source>
-        <translation>Connessione a avsproxy fallita.
+        <translation type="obsolete">Connessione a avsproxy fallita.
 È in esecuzione?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2508"/>
         <source>avsproxy</source>
-        <translation>avsproxy</translation>
+        <translation type="obsolete">avsproxy</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2536"/>
         <source>Frame type:</source>
-        <translation>Tipo di fotogramma:</translation>
+        <translation type="obsolete">Tipo di fotogramma:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2537"/>
         <source>Frame size:</source>
-        <translation>Dimensione fotogramma:</translation>
+        <translation type="obsolete">Dimensione fotogramma:</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2539"/>
         <source>Frame Hex Dump</source>
-        <translation>Hex Dump fotogramma</translation>
+        <translation type="obsolete">Hex Dump fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_edit.cpp" line="71"/>
         <source>Avidemux detected VBR MP3 audio in this file. For keeping audio/video in sync, time map is needed. Build it now?
 
 You can do it later with &quot;Audio -&gt; Build VBR Time Map&quot;.</source>
-        <translation>Avidemux ha rilevato un audio MP3 VBR in questo file. Per mantenere la sincronizzazione audio/video, è necessaria la time map. Crearla ora?
+        <translation type="obsolete">Avidemux ha rilevato un audio MP3 VBR in questo file. Per mantenere la sincronizzazione audio/video, è necessaria la time map. Crearla ora?
 
 Puoi farlo successivamente con \&quot;Audio -&gt; Crea time map VBR\&quot;.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="63"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="214"/>
         <source>Normal</source>
-        <translation>Normale</translation>
+        <translation type="obsolete">Normale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="64"/>
         <source>Mux every N video frames</source>
-        <translation>Esegui muxing ogni N fotogrammi</translation>
+        <translation type="obsolete">Esegui muxing ogni N fotogrammi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="65"/>
         <source>Mux by packet size</source>
-        <translation>Esegui muxing per dimensione pacchetto</translation>
+        <translation type="obsolete">Esegui muxing per dimensione pacchetto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="68"/>
         <source>Muxing _type:</source>
-        <translation>_Tipo di muxing:</translation>
+        <translation type="obsolete">_Tipo di muxing:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="69"/>
         <source>_Split every MB:</source>
-        <translation>_Dividi ogni MB:</translation>
+        <translation type="obsolete">_Dividi ogni MB:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="71"/>
         <source>Mux _every x video frames:</source>
-        <translation>_Esegui muxing ogni N fotogrammi:</translation>
+        <translation type="obsolete">_Esegui muxing ogni N fotogrammi:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="72"/>
         <source>Mux in _blocks of x bytes:</source>
-        <translation>Esegui muxing in _blocchi di X byte:</translation>
+        <translation type="obsolete">Esegui muxing in _blocchi di X byte:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="79"/>
         <source>AVI Muxer Options</source>
-        <translation>Opzioni Muxer AVI</translation>
+        <translation type="obsolete">Opzioni Muxer AVI</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="485"/>
         <source>DTS</source>
-        <translation>DTS</translation>
+        <translation type="obsolete">DTS</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="486"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="258"/>
         <source>PCM</source>
-        <translation>PCM</translation>
+        <translation type="obsolete">PCM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="487"/>
         <source>MP2</source>
-        <translation>MP2</translation>
+        <translation type="obsolete">MP2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="488"/>
         <source>MP3</source>
-        <translation>MP3</translation>
+        <translation type="obsolete">MP3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="489"/>
         <source>WMA</source>
-        <translation>WMA</translation>
+        <translation type="obsolete">WMA</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="490"/>
         <source>LPCM</source>
-        <translation>LPCM</translation>
+        <translation type="obsolete">LPCM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="491"/>
         <source>AC3</source>
-        <translation>AC3</translation>
+        <translation type="obsolete">AC3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="492"/>
         <source>Ogg Vorbis</source>
-        <translation>Ogg Vorbis</translation>
+        <translation type="obsolete">Ogg Vorbis</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="494"/>
         <source>AAC</source>
-        <translation>AAC</translation>
+        <translation type="obsolete">AAC</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="495"/>
         <source>QDM2</source>
-        <translation>QDM2</translation>
+        <translation type="obsolete">QDM2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="496"/>
         <source>AMR-NB</source>
-        <translation>AMR-NB</translation>
+        <translation type="obsolete">AMR-NB</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="497"/>
         <source>AMR-WB</source>
-        <translation>AMR-WB</translation>
+        <translation type="obsolete">AMR-WB</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="498"/>
         <source>MSADPCM</source>
-        <translation>MSADPCM</translation>
+        <translation type="obsolete">MSADPCM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="499"/>
         <source>ULAW</source>
-        <translation>ULAW</translation>
+        <translation type="obsolete">ULAW</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="500"/>
         <source>IMA ADPCM</source>
-        <translation>IMA ADPCM</translation>
+        <translation type="obsolete">IMA ADPCM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="501"/>
         <source>8-bit PCM</source>
-        <translation>PCM 8-bit</translation>
+        <translation type="obsolete">PCM 8-bit</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="503"/>
         <source>Unknown codec</source>
-        <translation>Codec sconosciuto</translation>
+        <translation type="obsolete">Codec sconosciuto</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2337"/>
         <source>Failed</source>
-        <translation>Fallito</translation>
+        <translation type="obsolete">Fallito</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="288"/>
         <source>Codec Error</source>
-        <translation>Errore codec</translation>
+        <translation type="obsolete">Errore codec</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="288"/>
         <source>The number of channels is greater than what the selected audio codec can do.
 Either change codec or use the mixer filter to have less channels.</source>
-        <translation>Il numero di canali è maggiore di quello supportato dal codec audio selezionato.
+        <translation type="obsolete">Il numero di canali è maggiore di quello supportato dal codec audio selezionato.
 Cambia il codec o usa il filtro mixer per ridurre i canali.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="300"/>
         <source>[BuildChain] Encoder initialization failed</source>
-        <translation>[BuildChain] Inizializzazione encoder fallita</translation>
+        <translation type="obsolete">[BuildChain] Inizializzazione encoder fallita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_audiofilter/audiofilter_buildchain.cpp" line="300"/>
         <source>Not activated, make sure number of channels and bitrate are compatible with encoder!</source>
-        <translation>Non attivo, assicurarsi che il numero di canali e il bitrate siano compatibili con l&apos;encoder!</translation>
+        <translation type="obsolete">Non attivo, assicurarsi che il numero di canali e il bitrate siano compatibili con l&apos;encoder!</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_codecs/ADM_ffmp43.cpp" line="44"/>
         <source>Internal error finding codec</source>
-        <translation>Errore interno nel cercare il codec</translation>
+        <translation type="obsolete">Errore interno nel cercare il codec</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="127"/>
-        <location filename="../avidemux/ADM_ocr/adm_glyph.cpp" line="217"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="326"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="103"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="108"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="115"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="124"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="221"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="227"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="234"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="243"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="947"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1557"/>
         <source>File error</source>
-        <translation>Errore file</translation>
+        <translation type="obsolete">Errore file</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="127"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="944"/>
         <source>Cannot open &quot;%s&quot;.</source>
-        <translation>Impossibile aprire &quot;%s&quot;.</translation>
+        <translation type="obsolete">Impossibile aprire &quot;%s&quot;.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="140"/>
         <source>%s already exists.
 
 Do you want to replace it?</source>
-        <translation>%s già esiste.
+        <translation type="obsolete">%s già esiste.
 
 Vuoi sostituirlo?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="167"/>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="181"/>
         <source>It is possible that you are trying to overwrite an input file!</source>
-        <translation>È possibile che tu stia provando a sovrascrivere un file di ingresso!</translation>
+        <translation type="obsolete">È possibile che tu stia provando a sovrascrivere un file di ingresso!</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="192"/>
         <source>Cannot write the file</source>
-        <translation>Impossibile scrivere il file</translation>
+        <translation type="obsolete">Impossibile scrivere il file</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_coreUI/src/DIA_fileSel.cpp" line="192"/>
         <source>No write access to &quot;%s&quot;.</source>
-        <translation>Divieto di scrittura per &quot;%s&quot;.</translation>
+        <translation type="obsolete">Divieto di scrittura per &quot;%s&quot;.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="54"/>
         <source>AVI</source>
-        <translation>AVI</translation>
+        <translation type="obsolete">AVI</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="55"/>
         <source>AVI, dual audio</source>
-        <translation>AVI, doppio audio</translation>
+        <translation type="obsolete">AVI, doppio audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="56"/>
         <source>AVI, pack VOP</source>
-        <translation>AVI, compr. VOP</translation>
+        <translation type="obsolete">AVI, compr. VOP</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="57"/>
         <source>AVI, unpack VOP</source>
-        <translation>AVI, decompr. VOP</translation>
+        <translation type="obsolete">AVI, decompr. VOP</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="58"/>
         <source>MPEG-PS (A+V)</source>
-        <translation>MPEG-PS (A+V)</translation>
+        <translation type="obsolete">MPEG-PS (A+V)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="59"/>
         <source>MPEG-TS (A+V)</source>
-        <translation>MPEG-TS (A+V)</translation>
+        <translation type="obsolete">MPEG-TS (A+V)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="60"/>
         <source>MPEG video</source>
-        <translation>MPEG video</translation>
+        <translation type="obsolete">MPEG video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="61"/>
-        <location filename="../avidemux/ADM_outputs/oplug_avi/op_avisave.cpp" line="493"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="116"/>
         <source>MP4</source>
-        <translation>MP4</translation>
+        <translation type="obsolete">MP4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="62"/>
         <source>MP4 (PSP)</source>
-        <translation>MP4 (PSP)</translation>
+        <translation type="obsolete">MP4 (PSP)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="63"/>
         <source>OGM</source>
-        <translation>OGM</translation>
+        <translation type="obsolete">OGM</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="64"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="177"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="244"/>
         <source>FLV</source>
-        <translation>FLV</translation>
+        <translation type="obsolete">FLV</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="65"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="117"/>
         <source>MKV</source>
-        <translation>MKV</translation>
+        <translation type="obsolete">MKV</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_editor/ADM_outputfmt.h" line="66"/>
         <source>DUMMY</source>
-        <translation>FITTIZIO</translation>
+        <translation type="obsolete">FITTIZIO</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="9"/>
         <source>YV12 (raw)</source>
-        <translation>YV12 (raw)</translation>
+        <translation type="obsolete">YV12 (raw)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="31"/>
         <source>MPEG-2 requant</source>
-        <translation>MPEG-2 requant</translation>
+        <translation type="obsolete">MPEG-2 requant</translation>
     </message>
     <message>
         <source>dummy</source>
         <translation type="obsolete">fittizio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_encoder/ADM_encCodecDesc.h" line="51"/>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="132"/>
-        <location filename="../avidemux/ADM_outputs/oplug_dummy/oplug_dummy.cpp" line="164"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="180"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="226"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="247"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="150"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="238"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="250"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="173"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="177"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="339"/>
         <source>Copy</source>
-        <translation>Copia</translation>
+        <translation type="obsolete">Copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="46"/>
         <source>VobSub</source>
-        <translation>VobSub</translation>
+        <translation type="obsolete">VobSub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="46"/>
         <source>Embed VobSub subtitles into picture.</source>
-        <translation>Incorpora sottotitoli VobSub nell&apos;immagine.</translation>
+        <translation type="obsolete">Incorpora sottotitoli VobSub nell&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="47"/>
         <source>DVB sub</source>
-        <translation>Sottotitoli DVB</translation>
+        <translation type="obsolete">Sottotitoli DVB</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="47"/>
         <source>Embed DVB-T subtitle.</source>
-        <translation>Incorpora sottotitoli DVB-T.</translation>
+        <translation type="obsolete">Incorpora sottotitoli DVB-T.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="50"/>
         <source>Compute Average</source>
-        <translation>Calcolo media</translation>
+        <translation type="obsolete">Calcolo media</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="50"/>
         <source>Compute average luma value for each pixel throughout all frames, and save to file</source>
-        <translation>Calcola il valore medio di luma per ogni pixel su tutti i fotogrammi, e salva su file.</translation>
+        <translation type="obsolete">Calcola il valore medio di luma per ogni pixel su tutti i fotogrammi, e salva su file.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="51"/>
         <source>Threshold</source>
-        <translation>Threshold</translation>
+        <translation type="obsolete">Threshold</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="51"/>
         <source>Force too-bright/too-dim pixels to 0 and the rest to 255 or vice-versa</source>
-        <translation>Forza i pixel troppo luminosi/scuri a 0 e il resto a 255 o viceversa.</translation>
+        <translation type="obsolete">Forza i pixel troppo luminosi/scuri a 0 e il resto a 255 o viceversa.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="52"/>
         <source>Particle List</source>
-        <translation>Lista particelle</translation>
+        <translation type="obsolete">Lista particelle</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="52"/>
         <source>Identify &apos;particles&apos; (groups of pixels)</source>
-        <translation>Identifica le &apos;particelle&apos; (gruppi di pixel).</translation>
+        <translation type="obsolete">Identifica le &apos;particelle&apos; (gruppi di pixel).</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="53"/>
         <source>Eraser</source>
-        <translation>Gomma</translation>
+        <translation type="obsolete">Gomma</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="53"/>
         <source>&quot;Erase&quot; arbitrary areas of each frame</source>
-        <translation>&quot;Cancella&quot; aree arbitrarie di ogni fotogramma.</translation>
+        <translation type="obsolete">&quot;Cancella&quot; aree arbitrarie di ogni fotogramma.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="54"/>
         <source>Swiss Army Knife</source>
-        <translation>Swiss Army Knife</translation>
+        <translation type="obsolete">Swiss Army Knife</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="54"/>
         <source>Apply operation like P&apos;=P*A, P-A, P+A, etc. using a convolution, rolling average, image from file, or constant</source>
-        <translation>Applica operazioni come P&apos;=P*A, P-A, P+A, ecc. usando convoluzione, media mobile, immagine da file, o costante.</translation>
+        <translation type="obsolete">Applica operazioni come P&apos;=P*A, P-A, P+A, ecc. usando convoluzione, media mobile, immagine da file, o costante.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="57"/>
         <source>Partial</source>
-        <translation>Parziale</translation>
+        <translation type="obsolete">Parziale</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="58"/>
         <source>Add Framenumber</source>
-        <translation>Aggiungi numero fotogramma</translation>
+        <translation type="obsolete">Aggiungi numero fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_declaration.cpp" line="58"/>
         <source>Print frame number directly in image</source>
-        <translation>Stampa numero fotogramma direttamente sull&apos;immagine.</translation>
+        <translation type="obsolete">Stampa numero fotogramma direttamente sull&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="149"/>
         <source>Problem reading XML filters</source>
-        <translation>Problema di lettura dei filtri XML</translation>
+        <translation type="obsolete">Problema di lettura dei filtri XML</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="157"/>
         <source>No filter found</source>
-        <translation>Nessun filtro trovato</translation>
+        <translation type="obsolete">Nessun filtro trovato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="193"/>
         <source>Could not find a filter</source>
-        <translation>Impossibile trovare un filtro</translation>
+        <translation type="obsolete">Impossibile trovare un filtro</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="201"/>
         <source>No tag found</source>
-        <translation>Nessuna etichetta trovata</translation>
+        <translation type="obsolete">Nessuna etichetta trovata</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_filter/filter_saveload.cpp" line="281"/>
         <source>Node not found</source>
-        <translation>Nodo non trovato</translation>
+        <translation type="obsolete">Nodo non trovato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_indexer.cpp" line="145"/>
         <source>There is several mpeg file, append them ?</source>
-        <translation>Ci sono diversi file mpeg, vuoi unirli?</translation>
+        <translation type="obsolete">Ci sono diversi file mpeg, vuoi unirli?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_inputs/ADM_mpegdemuxer/dmx_indexer.cpp" line="244"/>
         <source>Can&apos;t determine aspect ratio</source>
-        <translation>Impossibile determinare le proporzioni</translation>
+        <translation type="obsolete">Impossibile determinare le proporzioni</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/ADM_imageLoader.cpp" line="184"/>
         <source>Wrong Colorspace</source>
-        <translation>Spazio di colore errato</translation>
+        <translation type="obsolete">Spazio di colore errato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_libraries/ADM_utilities/ADM_imageLoader.cpp" line="184"/>
         <source>Only YV12/I420 or YUY2/I422 JPegs are supported</source>
-        <translation>Sono supportate solo le immagini JPeg YV12/I420 o YUY2/I422</translation>
+        <translation type="obsolete">Sono supportate solo le immagini JPeg YV12/I420 o YUY2/I422</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="75"/>
         <source>Output file error</source>
-        <translation>Errore file di uscita</translation>
+        <translation type="obsolete">Errore file di uscita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="75"/>
         <source>Could not open &quot;%s&quot; for writing.</source>
-        <translation>Impossibile aprire &quot;%s&quot; per la scrittura.</translation>
+        <translation type="obsolete">Impossibile aprire &quot;%s&quot; per la scrittura.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="83"/>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="89"/>
         <source>Input file error</source>
-        <translation>Errore file di ingresso</translation>
+        <translation type="obsolete">Errore file di ingresso</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="83"/>
         <source>Unknown source type</source>
-        <translation>Tipo di sorgente sconosciuto</translation>
+        <translation type="obsolete">Tipo di sorgente sconosciuto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="89"/>
         <source>Bitmap source failed</source>
-        <translation>Sorgente bitmap fallita</translation>
+        <translation type="obsolete">Sorgente bitmap fallita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="97"/>
         <source>Problem loading sub</source>
-        <translation>Problema di caricamento sottotitoli</translation>
+        <translation type="obsolete">Problema di caricamento sottotitoli</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_ocrEngine.cpp" line="97"/>
         <source>No subs</source>
-        <translation>Nessun sottotitolo</translation>
+        <translation type="obsolete">Nessun sottotitolo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="250"/>
         <source>Ifo error</source>
-        <translation>Errore file ifo</translation>
+        <translation type="obsolete">Errore file ifo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="250"/>
         <source>Error reading ifo file, aborting.</source>
-        <translation>Errore di lettura del file ifo, annullamento in corso.</translation>
+        <translation type="obsolete">Errore di lettura del file ifo, annullamento in corso.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="258"/>
         <source>Cannot write .idx</source>
-        <translation>Impossibile scrivere il file .idx</translation>
+        <translation type="obsolete">Impossibile scrivere il file .idx</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="271"/>
         <source>Cannot write .sub</source>
-        <translation>Impossibile scrivere il file .sub</translation>
+        <translation type="obsolete">Impossibile scrivere il file .sub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="283"/>
         <source>Problem opening the mpeg files</source>
-        <translation>Problema apertura file mpeg</translation>
+        <translation type="obsolete">Problema apertura file mpeg</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/ADM_vob2vobsub.cpp" line="296"/>
         <source>Generating VobSub file</source>
-        <translation>Creazione file VobSub</translation>
+        <translation type="obsolete">Creazione file VobSub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/adm_glyph.cpp" line="169"/>
         <source>Could not write the file</source>
-        <translation>Impossibile scrivere il file</translation>
+        <translation type="obsolete">Impossibile scrivere il file</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_ocr/adm_glyph.cpp" line="217"/>
         <source>Could not read &quot;%s&quot;.</source>
-        <translation>Impossibile leggere &quot;%s&quot;.</translation>
+        <translation type="obsolete">Impossibile leggere &quot;%s&quot;.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="64"/>
         <source>Load it</source>
-        <translation>Carica</translation>
+        <translation type="obsolete">Carica</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="64"/>
         <source>Crash file</source>
-        <translation>File di crash</translation>
+        <translation type="obsolete">File di crash</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_crashHook.cpp" line="65"/>
         <source>I have detected a crash file. 
 Do you want to load it  ?
 (It will be deleted in all cases, you should save it if you want to keep it)</source>
-        <translation>Rilevato un file di crash.
+        <translation type="obsolete">Rilevato un file di crash.
 Vuoi caricarlo?
 (Sarà eliminato in ogni caso se non lo salvi)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="134"/>
         <source>Unsupported video</source>
-        <translation>Video non supportato</translation>
+        <translation type="obsolete">Video non supportato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="134"/>
         <source>Only FLV1 and VP6 video are supported</source>
-        <translation>Sono supportati solo i video FLV1 e VP6</translation>
+        <translation type="obsolete">Sono supportati solo i video FLV1 e VP6</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="156"/>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="161"/>
         <source>Unsupported audio</source>
-        <translation>Audio non supportato</translation>
+        <translation type="obsolete">Audio non supportato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="156"/>
         <source>Audio must be mp3 for flv output.</source>
-        <translation>L&apos;audio di un video flv deve essere mp3.</translation>
+        <translation type="obsolete">L&apos;audio di un video flv deve essere mp3.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="161"/>
         <source>Frequency must be 44100, 22050 or 11025 Hz.</source>
-        <translation>La frequenza deve essere 44100, 22050 o 11025 Hz.</translation>
+        <translation type="obsolete">La frequenza deve essere 44100, 22050 o 11025 Hz.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_flv/oplug_flv.cpp" line="215"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="211"/>
         <source>Cannot initialize the audio stream</source>
-        <translation>Impossibile inizializzare il flusso audio</translation>
+        <translation type="obsolete">Impossibile inizializzare il flusso audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="115"/>
         <source>PSP</source>
-        <translation>PSP</translation>
+        <translation type="obsolete">PSP</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="168"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="194"/>
         <source>Reuse the existing log file?</source>
-        <translation>Riutilizzare il file log esistente?</translation>
+        <translation type="obsolete">Riutilizzare il file log esistente?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="229"/>
         <source>Invalid audio stream detected</source>
-        <translation>Rilevato flusso audio non valido</translation>
+        <translation type="obsolete">Rilevato flusso audio non valido</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="229"/>
         <source>The audio stream may be invalid for this container.
 
 Continue anyway?</source>
-        <translation>Il flusso audio potrebbe non essere giusto per questo contenitore.
+        <translation type="obsolete">Il flusso audio potrebbe non essere giusto per questo contenitore.
 
 Continuare comunque?</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="415"/>
         <source>1st Pass</source>
-        <translation>1a passata</translation>
+        <translation type="obsolete">1a passata</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mp4/oplug_mp4.cpp" line="488"/>
         <source>2nd Pass</source>
-        <translation>2a passata</translation>
+        <translation type="obsolete">2a passata</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="79"/>
         <source>This is not MPEG compatible</source>
-        <translation>Non è compatibile con MPEG</translation>
+        <translation type="obsolete">Non è compatibile con MPEG</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="79"/>
         <source>You can&apos;t use the Copy codec.</source>
-        <translation>Non puoi usare il codec Copia.</translation>
+        <translation type="obsolete">Non puoi usare il codec Copia.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="84"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="113"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="124"/>
         <source>There is no audio track</source>
-        <translation>Non ci sono tracce audio</translation>
+        <translation type="obsolete">Non ci sono tracce audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="91"/>
         <source>The first frame is not intra frame</source>
-        <translation>Il primo fotogramma non è un fotogramma chiave</translation>
+        <translation type="obsolete">Il primo fotogramma non è un fotogramma chiave</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="91"/>
         <source>Use the &amp;lt;&amp;lt; and the &amp;gt;&amp;gt; buttons to move using Intra frames.</source>
-        <translation>Usa i pulsanti &amp;lt;&amp;lt; e &amp;gt;&amp;gt; per spostarti sui fotogrammi chiave.</translation>
+        <translation type="obsolete">Usa i pulsanti &amp;lt;&amp;lt; e &amp;gt;&amp;gt; per spostarti sui fotogrammi chiave.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="103"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="134"/>
         <source>Audio track is not suitable</source>
-        <translation>La traccia audio non è adatta</translation>
+        <translation type="obsolete">La traccia audio non è adatta</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="135"/>
         <source>For DVD, audio must be 48 kHz MP2(stereo), AC3, DTS or LPCM (stereo).</source>
-        <translation>Per un DVD, l&apos;audio deve essere MP2 (stereo), AC3, DTS o LPCM (stereo) a 48 kHz.</translation>
+        <translation type="obsolete">Per un DVD, l&apos;audio deve essere MP2 (stereo), AC3, DTS o LPCM (stereo) a 48 kHz.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="174"/>
         <source>---</source>
-        <translation>---</translation>
+        <translation type="obsolete">---</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="175"/>
         <source>Saving</source>
-        <translation>Salvataggio in corso</translation>
+        <translation type="obsolete">Salvataggio in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="182"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="222"/>
         <source>MPEG TS</source>
-        <translation>MPEG TS</translation>
+        <translation type="obsolete">MPEG TS</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="183"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="223"/>
         <source>MPEG VCD</source>
-        <translation>MPEG VCD</translation>
+        <translation type="obsolete">MPEG VCD</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="184"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="224"/>
         <source>MPEG SVCD</source>
-        <translation>MPEG SVCD</translation>
+        <translation type="obsolete">MPEG SVCD</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpeg/op_mpegpass.cpp" line="185"/>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="225"/>
         <source>MPEG DVD</source>
-        <translation>MPEG DVD</translation>
+        <translation type="obsolete">MPEG DVD</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="147"/>
         <source>For VCD, audio must be 44.1 kHz MP2.</source>
-        <translation>Per un VCD, l&apos;audio deve essere MP2 a 44.1 kHz.</translation>
+        <translation type="obsolete">Per un VCD, l&apos;audio deve essere MP2 a 44.1 kHz.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="159"/>
         <source>For SVCD, audio must be 44.1 kHz MP2.</source>
-        <translation>Per un SVCD, l&apos;audio deve essere MP2 a 44.1 kHz.</translation>
+        <translation type="obsolete">Per un SVCD, l&apos;audio deve essere MP2 a 44.1 kHz.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="171"/>
         <source>For DVD, audio must be 48 kHz MP2, AC3 or LPCM.</source>
-        <translation>Per un DVD, l&apos;audio deve essere MP2, AC3 o LPCM a 48 kHz.</translation>
+        <translation type="obsolete">Per un DVD, l&apos;audio deve essere MP2, AC3 o LPCM a 48 kHz.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="211"/>
         <source>MPEG Requantizer</source>
-        <translation>MPEG Requantizer</translation>
+        <translation type="obsolete">MPEG Requantizer</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="221"/>
         <source>MPEG ES</source>
-        <translation>MPEG ES</translation>
+        <translation type="obsolete">MPEG ES</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="235"/>
         <source>Pass 1/2</source>
-        <translation>Passata 1/2</translation>
+        <translation type="obsolete">Passata 1/2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="326"/>
-        <location filename="../avidemux/gtk_gui.cpp" line="1557"/>
         <source>Cannot open &quot;%s&quot; for writing.</source>
-        <translation>Impossibile aprire &quot;%s&quot; per la scrittura.</translation>
+        <translation type="obsolete">Impossibile aprire &quot;%s&quot; per la scrittura.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_outputs/oplug_mpegFF/oplug_vcdff.cpp" line="331"/>
         <source>Pass 2/2</source>
-        <translation>Passata 2/2</translation>
+        <translation type="obsolete">Passata 2/2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="243"/>
         <source>Select a directory</source>
-        <translation>Seleziona una cartella</translation>
+        <translation type="obsolete">Seleziona una cartella</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="514"/>
         <source>Uinteger</source>
-        <translation>Uinteger</translation>
+        <translation type="obsolete">Uinteger</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="517"/>
         <source>Test uinteger</source>
-        <translation>Prova uinteger</translation>
+        <translation type="obsolete">Prova uinteger</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="529"/>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation type="obsolete">Float</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="547"/>
         <source>Toggle</source>
-        <translation>Commuta</translation>
+        <translation type="obsolete">Commuta</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="569"/>
         <source>No Strategy</source>
-        <translation>Nessuna strategia</translation>
+        <translation type="obsolete">Nessuna strategia</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="570"/>
         <source>3:2 Pulldown</source>
-        <translation>3:2 Pulldown</translation>
+        <translation type="obsolete">3:2 Pulldown</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="571"/>
         <source>Pal/Secam</source>
-        <translation>Pal/Secam</translation>
+        <translation type="obsolete">Pal/Secam</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="572"/>
         <source>NTSC converted from PAL</source>
-        <translation>NTSC convertito da PAL</translation>
+        <translation type="obsolete">NTSC convertito da PAL</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_script/ADM_JSFunctions.cpp" line="574"/>
         <source>menu</source>
-        <translation>menu</translation>
+        <translation type="obsolete">menu</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="81"/>
         <source>Select idx file:</source>
-        <translation>Seleziona un file idx:</translation>
+        <translation type="obsolete">Seleziona un file idx:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="82"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="198"/>
         <source>Use GlyphSet (optional):</source>
-        <translation>Usa set di glifi (opzionale):</translation>
+        <translation type="obsolete">Usa set di glifi (opzionale):</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="82"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="198"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="299"/>
         <source>Select GlyphSet file</source>
-        <translation>Seleziona il set di glifi</translation>
+        <translation type="obsolete">Seleziona il set di glifi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="83"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="199"/>
         <source>Output SRT file</source>
-        <translation>File SRT in uscita</translation>
+        <translation type="obsolete">File SRT in uscita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="83"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="199"/>
         <source>Save SRT file</source>
-        <translation>Salva il file SRT</translation>
+        <translation type="obsolete">Salva il file SRT</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="93"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="210"/>
         <source>Select input and ouput files</source>
-        <translation>Seleziona file di ingresso e di uscita</translation>
+        <translation type="obsolete">Seleziona file di ingresso e di uscita</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="103"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="115"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="234"/>
         <source>The idx/sub file does not exist.</source>
-        <translation>Il file idx/sub non esiste.</translation>
+        <translation type="obsolete">Il file idx/sub non esiste.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="108"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="227"/>
         <source>Please Select a valid output SRT file.</source>
-        <translation>Seleziona un file SRT in uscita valido.</translation>
+        <translation type="obsolete">Seleziona un file SRT in uscita valido.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="124"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="243"/>
         <source>Cannot load the glyphset file.</source>
-        <translation>Impossibile caricare il set di glifi.</translation>
+        <translation type="obsolete">Impossibile caricare il set di glifi.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="143"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="264"/>
         <source>GlyphSet filename</source>
-        <translation>Nome file del set di glifi</translation>
+        <translation type="obsolete">Nome file del set di glifi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="143"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="264"/>
         <source>Save GlyphSet file</source>
-        <translation>Salva il set di glifi</translation>
+        <translation type="obsolete">Salva il set di glifi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="145"/>
         <source>Save Glyph</source>
-        <translation>Salva glifo</translation>
+        <translation type="obsolete">Salva glifo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="196"/>
         <source>Input TS:</source>
-        <translation>TS in ingresso:</translation>
+        <translation type="obsolete">TS in ingresso:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="196"/>
         <source>Select TS file</source>
-        <translation>Seleziona un file TS</translation>
+        <translation type="obsolete">Seleziona un file TS</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="197"/>
         <source>Subtitle PID:</source>
-        <translation>PID sottotitoli:</translation>
+        <translation type="obsolete">PID sottotitoli:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="221"/>
         <source>Please Select a valid TS file.</source>
-        <translation>Seleziona un file TS valido.</translation>
+        <translation type="obsolete">Seleziona un file TS valido.</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_ocr.cpp" line="266"/>
         <source>Save GlyphSet</source>
-        <translation>Salva il set di glifi</translation>
+        <translation type="obsolete">Salva il set di glifi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="45"/>
         <source>Audio Plugins</source>
-        <translation>Plugin audio</translation>
+        <translation type="obsolete">Plugin audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="68"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_prefs.cpp" line="320"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation type="obsolete">Audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="74"/>
         <source>Video Encoder Plugins</source>
-        <translation>Plugin encoder video</translation>
+        <translation type="obsolete">Plugin encoder video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="98"/>
         <source>Video Encoder</source>
-        <translation>Encoder video</translation>
+        <translation type="obsolete">Encoder video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="103"/>
         <source>Audio Device Plugins</source>
-        <translation>Plugin dispositivo audio</translation>
+        <translation type="obsolete">Plugin dispositivo audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="125"/>
         <source>Audio Device</source>
-        <translation>Dispositivo audio</translation>
+        <translation type="obsolete">Dispositivo audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="132"/>
         <source>Audio Encoder Plugins</source>
-        <translation>Plugin encoder audio</translation>
+        <translation type="obsolete">Plugin encoder audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="154"/>
         <source>Audio Encoders</source>
-        <translation>Encoder audio</translation>
+        <translation type="obsolete">Encoder audio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_commonUI/DIA_plugins.cpp" line="161"/>
         <source>Plugins Info</source>
-        <translation>Info plugin</translation>
+        <translation type="obsolete">Info plugin</translation>
     </message>
     <message>
-        <location filename="../avidemux/GUI_jobs.cpp" line="37"/>
         <source>Oops</source>
-        <translation>Ops</translation>
+        <translation type="obsolete">Ops</translation>
     </message>
     <message>
-        <location filename="../avidemux/GUI_jobs.cpp" line="37"/>
         <source>Something very wrong happened when building joblist.</source>
-        <translation>Errore grave durante la costruzione della lista attività.</translation>
+        <translation type="obsolete">Errore grave durante la costruzione della lista attività.</translation>
     </message>
     <message>
-        <location filename="../avidemux/GUI_jobs.cpp" line="42"/>
         <source>There are no jobs stored</source>
-        <translation>Non ci sono attività immagazzinate</translation>
+        <translation type="obsolete">Non ci sono attività immagazzinate</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="74"/>
-        <location filename="../avidemux/gui_navigate.cpp" line="112"/>
-        <location filename="../avidemux/gui_navigate.cpp" line="394"/>
-        <location filename="../avidemux/gui_navigate.cpp" line="430"/>
         <source>Decompressing error</source>
-        <translation>Errore decompressione</translation>
+        <translation type="obsolete">Errore decompressione</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="74"/>
         <source>Cannot decode next frame.</source>
-        <translation>Impossibile decodificare il prossimo fotogramma.</translation>
+        <translation type="obsolete">Impossibile decodificare il prossimo fotogramma.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="112"/>
-        <location filename="../avidemux/gui_navigate.cpp" line="430"/>
         <source>Cannot decode keyframe.</source>
-        <translation>Impossibile decodificare il fotogramma chiave.</translation>
+        <translation type="obsolete">Impossibile decodificare il fotogramma chiave.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="238"/>
         <source>Seeking</source>
-        <translation>Ricerca in corso</translation>
+        <translation type="obsolete">Ricerca in corso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="319"/>
         <source>Finding black frames</source>
-        <translation>Ricerca fotogrammi neri</translation>
+        <translation type="obsolete">Ricerca fotogrammi neri</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_navigate.cpp" line="394"/>
         <source>Cannot decode the frame.</source>
-        <translation>Impossibile decodificare il fotogramma.</translation>
+        <translation type="obsolete">Impossibile decodificare il fotogramma.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="78"/>
         <source>Dual audio can only be used in copy mode</source>
-        <translation>Il doppio audio può essere usato solo in modalità copia</translation>
+        <translation type="obsolete">Il doppio audio può essere usato solo in modalità copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="78"/>
         <source>Select Copy as the video codec.</source>
-        <translation>Seleziona Copia come codec video.</translation>
+        <translation type="obsolete">Seleziona Copia come codec video.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="198"/>
-        <location filename="../avidemux/gui_savenew.cpp" line="214"/>
-        <location filename="../avidemux/gui_savenew.cpp" line="227"/>
         <source>Incompatible output format</source>
-        <translation>Formato in uscita incompatibile</translation>
+        <translation type="obsolete">Formato in uscita incompatibile</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="248"/>
         <source>There is no second track</source>
-        <translation>Non c&apos;è una seconda traccia</translation>
+        <translation type="obsolete">Non c&apos;è una seconda traccia</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="248"/>
         <source>Select a second audio track in the Audio menu.</source>
-        <translation>Seleziona una seconda traccia nel menu Audio.</translation>
+        <translation type="obsolete">Seleziona una seconda traccia nel menu Audio.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="252"/>
         <source>Select dual audio AVI to write</source>
-        <translation>Seleziona il file AVI con doppio audio da scrivere</translation>
+        <translation type="obsolete">Seleziona il file AVI con doppio audio da scrivere</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="274"/>
-        <location filename="../avidemux/gui_savenew.cpp" line="292"/>
         <source>This cannot have packed VOP</source>
-        <translation>Non può avere VOP compresso</translation>
+        <translation type="obsolete">Non può avere VOP compresso</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="274"/>
-        <location filename="../avidemux/gui_savenew.cpp" line="292"/>
         <source>It is not MPEG-4 video. File will not be saved.</source>
-        <translation>Non è un video MPEG-4. Il file non verrà salvato.</translation>
+        <translation type="obsolete">Non è un video MPEG-4. Il file non verrà salvato.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="338"/>
         <source>You may need smart copy.
 Enable it?</source>
-        <translation>Potresti avere bisogno di una copia intelligente.
+        <translation type="obsolete">Potresti avere bisogno di una copia intelligente.
 Attivarla?</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="341"/>
         <source>Smart Copy</source>
-        <translation>Copia intelligente</translation>
+        <translation type="obsolete">Copia intelligente</translation>
     </message>
     <message>
-        <location filename="../avidemux/gui_savenew.cpp" line="341"/>
         <source>_Q factor (set 4):</source>
-        <translation>Fattore _Q (4 predefinito):</translation>
+        <translation type="obsolete">Fattore _Q (4 predefinito):</translation>
     </message>
     <message>
-        <location filename="../avidemux/guiplay.cpp" line="352"/>
         <source>Trouble initializing audio device</source>
-        <translation>Problema nell&apos;inizializzare il dispositivo audio</translation>
+        <translation type="obsolete">Problema nell&apos;inizializzare il dispositivo audio</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp" line="244"/>
-        <location filename="../plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp" line="273"/>
-        <location filename="../plugins/ADM_audioEncoders/lame/audioencoder_lame.cpp" line="321"/>
-        <location filename="../plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp" line="220"/>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="227"/>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="310"/>
         <source>_Bitrate:</source>
-        <translation>_Bitrate:</translation>
+        <translation type="obsolete">_Bitrate:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/aften/audioencoder_aften.cpp" line="250"/>
-        <location filename="../plugins/ADM_audioEncoders/faac/audioencoder_faac.cpp" line="276"/>
-        <location filename="../plugins/ADM_audioEncoders/lavcodec/audioencoder_lavcodec.cpp" line="223"/>
         <source>Aften Configuration</source>
-        <translation>Configurazione Aften</translation>
+        <translation type="obsolete">Configurazione Aften</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/twolame/audioencoder_twolame.cpp" line="231"/>
         <source>TwoLame Configuration</source>
-        <translation>Configurazione TwoLame</translation>
+        <translation type="obsolete">Configurazione TwoLame</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="295"/>
         <source>VBR</source>
-        <translation>VBR</translation>
+        <translation type="obsolete">VBR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="296"/>
         <source>Quality based</source>
-        <translation>Basato sulla qualità</translation>
+        <translation type="obsolete">Basato sulla qualità</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="298"/>
         <source>_Mode:</source>
-        <translation>_Modalità:</translation>
+        <translation type="obsolete">_Modalità:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_audioEncoders/vorbis/audioencoder_vorbis.cpp" line="314"/>
         <source>Vorbis Configuration</source>
-        <translation>Configurazione Vorbis</translation>
+        <translation type="obsolete">Configurazione Vorbis</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="61"/>
         <source>asharp</source>
-        <translation>asharp</translation>
+        <translation type="obsolete">asharp</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ASharp/ADM_vidAsharp.cpp" line="64"/>
         <source>Adaptative sharpener by MarcFD.</source>
-        <translation>Nitidizzatore adattativo di MarcFD.</translation>
+        <translation type="obsolete">Nitidizzatore adattativo di MarcFD.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="30"/>
         <source>Add black borders</source>
-        <translation>Aggiunta bordi neri</translation>
+        <translation type="obsolete">Aggiunta bordi neri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AddBorders/ADM_vidAddBorder.cpp" line="33"/>
         <source>Add pure black border(s).</source>
-        <translation>Aggiunge bordi neri.</translation>
+        <translation type="obsolete">Aggiunge bordi neri.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/ADM_vidAnimated.cpp" line="36"/>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="54"/>
         <source>Animated Menu</source>
-        <translation>Menu animato</translation>
+        <translation type="obsolete">Menu animato</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/ADM_vidAnimated.cpp" line="39"/>
         <source>Create a video made of 6 mini windows, very useful to do DVD menus.</source>
-        <translation>Crea un video fatto di 6 piccole finestre, molto utile per fare menu di DVD.</translation>
+        <translation type="obsolete">Crea un video fatto di 6 piccole finestre, molto utile per fare menu di DVD.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="37"/>
         <source>_Background Image:</source>
-        <translation>Immagine di _sfonfo:</translation>
+        <translation type="obsolete">Immagine di _sfonfo:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="37"/>
         <source>Select background image</source>
-        <translation>Seleziona immagine di sfonfo</translation>
+        <translation type="obsolete">Seleziona immagine di sfonfo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="38"/>
         <source>_NTSC (default is PAL):</source>
-        <translation>N_TSC (predefinito è Pal):</translation>
+        <translation type="obsolete">N_TSC (predefinito è Pal):</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="39"/>
         <source>Vignette _Width:</source>
-        <translation>_Larghezza vignetta:</translation>
+        <translation type="obsolete">_Larghezza vignetta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="40"/>
         <source>Vignette _Height:</source>
-        <translation>_Altezza vignetta:</translation>
+        <translation type="obsolete">_Altezza vignetta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="43"/>
         <source>Vignette frame number</source>
-        <translation>Numero di fotogrammi vignetta</translation>
+        <translation type="obsolete">Numero di fotogrammi vignetta</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Animated/DIA_animated.cpp" line="47"/>
         <source>Timecode:</source>
-        <translation>Timecode:</translation>
+        <translation type="obsolete">Timecode:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="47"/>
         <source>ASS</source>
-        <translation>ASS</translation>
+        <translation type="obsolete">ASS</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Ass/ADM_vidASS.cpp" line="50"/>
         <source>Add ASS/SSA subtitles to the picture.</source>
-        <translation>Aggiunge sottotitoli ASS/SSA all&apos;immagine.</translation>
+        <translation type="obsolete">Aggiunge sottotitoli ASS/SSA all&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="36"/>
         <source>Resize</source>
-        <translation>Ridimensionamento</translation>
+        <translation type="obsolete">Ridimensionamento</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="39"/>
         <source>Picture resizer ported from Avisynth (C Version, slow).</source>
-        <translation>Ridimensionatore immagini di Avisynth (versione C, lento).</translation>
+        <translation type="obsolete">Ridimensionatore immagini di Avisynth (versione C, lento).</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="240"/>
-        <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="130"/>
         <source>Width and height cannot be 0</source>
-        <translation>Larghezza e altezza non possono essere 0</translation>
+        <translation type="obsolete">Larghezza e altezza non possono essere 0</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvisynthResize/ADM_vidResize.cpp" line="242"/>
-        <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="132"/>
         <source>Width and height cannot be odd</source>
-        <translation>Larghezza e altezza non possono essere dispari</translation>
+        <translation type="obsolete">Larghezza e altezza non possono essere dispari</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="488"/>
         <source>Avisynth script filter (avsfilter), ver 0.7a(internal)</source>
-        <translation>Filtro script di Avisynth (avsfilter), ver 0.7a(interno)</translation>
+        <translation type="obsolete">Filtro script di Avisynth (avsfilter), ver 0.7a(interno)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="491"/>
         <source>Use avisynth script as video filter.</source>
-        <translation>Utilizza uno script di Avisynth come filtro video.</translation>
+        <translation type="obsolete">Utilizza uno script di Avisynth come filtro video.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="59"/>
         <source>Blacken borders</source>
-        <translation>Annerimento bordi</translation>
+        <translation type="obsolete">Annerimento bordi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlackenBorders/ADM_vidBlackenBorders.cpp" line="62"/>
         <source>Fill borders with pure black. Doesn&apos;t alter size.</source>
-        <translation>Annerisce i bordi. Non altera le dimensioni.</translation>
+        <translation type="obsolete">Annerisce i bordi. Non altera le dimensioni.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="59"/>
         <source>Blend Removal</source>
-        <translation>Rimozione miscela</translation>
+        <translation type="obsolete">Rimozione miscela</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidBlendRemoval.cpp" line="62"/>
         <source>Try to remove blending.</source>
-        <translation>Tenta rimozione blending.</translation>
+        <translation type="obsolete">Tenta rimozione blending.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="69"/>
         <source>Remove IVTC that has been analog captured or resized.</source>
-        <translation>Rimouve IVTC che è stato catturato analogicamente o ridimensionato.</translation>
+        <translation type="obsolete">Rimouve IVTC che è stato catturato analogicamente o ridimensionato.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/CNR2/ADM_vidCNR2.cpp" line="83"/>
         <source>Cnr2</source>
-        <translation>Cnr2</translation>
+        <translation type="obsolete">Cnr2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/CNR2/ADM_vidCNR2.cpp" line="86"/>
         <source>Chroma noise reduction filter by MarcFD/Tritical..</source>
-        <translation>Filtro di riduzione rumore croma di MarcFD/Tritical.</translation>
+        <translation type="obsolete">Filtro di riduzione rumore croma di MarcFD/Tritical.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Chroma/ADM_vidChromaU.cpp" line="27"/>
         <source>Chroma U</source>
-        <translation>Croma U</translation>
+        <translation type="obsolete">Croma U</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Chroma/ADM_vidChromaU.cpp" line="30"/>
         <source>Keep chroma U only.</source>
-        <translation>Mantiene solo croma U.</translation>
+        <translation type="obsolete">Mantiene solo croma U.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Chroma/ADM_vidChromaV.cpp" line="27"/>
         <source>Chroma V</source>
-        <translation>Croma V</translation>
+        <translation type="obsolete">Croma V</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Chroma/ADM_vidChromaV.cpp" line="30"/>
         <source>Keep chroma V only.</source>
-        <translation>Mantiene solo croma V.</translation>
+        <translation type="obsolete">Mantiene solo croma V.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="36"/>
         <source>Chroma shift</source>
-        <translation>Traslazione croma</translation>
+        <translation type="obsolete">Traslazione croma</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ChromaShift/ADM_vidChromaShift.cpp" line="39"/>
         <source>Shift chroma U/V to fix badly synced luma/chroma.</source>
-        <translation>Trasla croma U/V per correggere luma/croma mal sincronizzate.</translation>
+        <translation type="obsolete">Trasla croma U/V per correggere luma/croma mal sincronizzate.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Contrast/ADM_vidContrast.cpp" line="34"/>
         <source>Contrast</source>
-        <translation>Contrasto</translation>
+        <translation type="obsolete">Contrasto</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Contrast/ADM_vidContrast.cpp" line="37"/>
         <source>Adjust contrast, brightness and colors.</source>
-        <translation>Regola contrasto, luminosità e colori.</translation>
+        <translation type="obsolete">Regola contrasto, luminosità e colori.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp" line="53"/>
         <source>Crop</source>
-        <translation>Crop</translation>
+        <translation type="obsolete">Crop</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Crop/ADM_vidCrop.cpp" line="56"/>
         <source>Remove lines from top/bottom/left/right.</source>
-        <translation>Rimuove righe in alto, in basso, a sinistra, a destra.</translation>
+        <translation type="obsolete">Rimuove righe in alto, in basso, a sinistra, a destra.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp" line="48"/>
         <source>Color Curve Editor</source>
-        <translation>Editor curva colore</translation>
+        <translation type="obsolete">Editor curva colore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/CurveEditor/ADM_vidCurveEditor.cpp" line="51"/>
         <source>Color adjustment by color curves in YUV color space.</source>
-        <translation>Regolazione del colore con curve di colore nello spazio colori YUV.</translation>
+        <translation type="obsolete">Regolazione del colore con curve di colore nello spazio colori YUV.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="155"/>
         <source>Decomb Decimate</source>
-        <translation>Decimazione Decomb</translation>
+        <translation type="obsolete">Decimazione Decomb</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="158"/>
         <source>Useful to remove dupes left by Telecide.</source>
-        <translation>Utile per rimuovere duplicati lasciati da Telecide.</translation>
+        <translation type="obsolete">Utile per rimuovere duplicati lasciati da Telecide.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Deinterlace/ADM_vidDeinterlace.cpp" line="36"/>
         <source>Deinterlace</source>
-        <translation>Deinterlacciamento</translation>
+        <translation type="obsolete">Deinterlacciamento</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Deinterlace/ADM_vidDeinterlace.cpp" line="39"/>
         <source>Mask interlacing artifacts. Port of Smart deinterlace.</source>
-        <translation>Maschera artefatti interlacciati. Da Smart deinterlace.</translation>
+        <translation type="obsolete">Maschera artefatti interlacciati. Da Smart deinterlace.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Delta/ADM_vidDelta.cpp" line="39"/>
         <source>Luma delta</source>
-        <translation>Delta luma</translation>
+        <translation type="obsolete">Delta luma</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Delta/ADM_vidDelta.cpp" line="42"/>
         <source>Difference between current and previous picture.</source>
-        <translation>Differenza tra immagine corrente e precedente.</translation>
+        <translation type="obsolete">Differenza tra immagine corrente e precedente.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="38"/>
         <source>Denoise</source>
-        <translation>Rimozione rumore</translation>
+        <translation type="obsolete">Rimozione rumore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Denoise/ADM_vidDenoise.cpp" line="41"/>
         <source>Port of Transcode DNR.</source>
-        <translation>Port di Transcode DNR.</translation>
+        <translation type="obsolete">Port di Transcode DNR.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="65"/>
         <source>DG Bob</source>
-        <translation>DG Bob</translation>
+        <translation type="obsolete">DG Bob</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/DgBob/ADM_vidDGbob.cpp" line="68"/>
         <source>Donald Graft Bob.</source>
-        <translation>Filtro Bob di Donald Graft.</translation>
+        <translation type="obsolete">Filtro sdoppiamento di Donald Graft.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp" line="31"/>
         <source>Drop</source>
-        <translation>Drop</translation>
+        <translation type="obsolete">Drop</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/DropOut/ADM_vidDropOut.cpp" line="34"/>
         <source>Drop damaged fields (e.g. from VHS capture).</source>
-        <translation>Elimina semiquadri danneggiati (per esempio da cattura VHS).</translation>
+        <translation type="obsolete">Elimina semiquadri danneggiati (per esempio da cattura VHS).</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Eq2/ADM_vidEq2.cpp" line="59"/>
         <source>MPlayer eq2</source>
-        <translation>MPlayer eq2</translation>
+        <translation type="obsolete">MPlayer eq2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Eq2/ADM_vidEq2.cpp" line="62"/>
         <source>Adjust contrast, brightness, saturation and gamma.</source>
-        <translation>Regola contrasto, luminosità, saturazione e gamma.</translation>
+        <translation type="obsolete">Regola contrasto, luminosità, saturazione e gamma.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Equalizer/ADM_vidEqualizer.cpp" line="44"/>
         <source>Luma equalizer</source>
-        <translation>Equalizzatore luma</translation>
+        <translation type="obsolete">Equalizzatore luma</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Equalizer/ADM_vidEqualizer.cpp" line="47"/>
         <source>Luma correction filter with histogram.</source>
-        <translation>Filtro correzione luma con istogramma.</translation>
+        <translation type="obsolete">Filtro correzione luma con istogramma.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="42"/>
         <source>Fade</source>
-        <translation>Dissolvenza</translation>
+        <translation type="obsolete">Dissolvenza</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Fade/ADM_vidFade.cpp" line="45"/>
         <source>Fade in/out.</source>
-        <translation>Dissolvenza in ingresso/uscita.</translation>
+        <translation type="obsolete">Dissolvenza in ingresso/uscita.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Gauss.cpp" line="27"/>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="26"/>
         <source>Gauss smooth</source>
-        <translation>Nitidizzazione gaussiana</translation>
+        <translation type="obsolete">Attenuazione gaussiana</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Gauss.cpp" line="30"/>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="26"/>
         <source>Gaussian smooth. Blur the picture.</source>
-        <translation>Nitidizza in modo gaussiano. Sfoca l&apos;immagine.</translation>
+        <translation type="obsolete">Attenua in modo gaussiano. Sfoca l&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="27"/>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Median.cpp" line="27"/>
         <source>Median</source>
-        <translation>Median</translation>
+        <translation type="obsolete">Median</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="27"/>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Median.cpp" line="30"/>
         <source>Median kernel 3x3. Remove high frequency noise.</source>
-        <translation>Kernel mediana 3x3. Rimuove rumore ad alta frequenza.</translation>
+        <translation type="obsolete">Kernel mediana 3x3. Rimuove rumore ad alta frequenza.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="31"/>
         <source>Mean</source>
-        <translation>Mean</translation>
+        <translation type="obsolete">Mean</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Mean.cpp" line="34"/>
         <source>Mean (blur) kernel.</source>
-        <translation>Kernel media (sfocatura).</translation>
+        <translation type="obsolete">Kernel media (sfocatura).</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Sharpen.cpp" line="27"/>
         <source>Sharpen</source>
-        <translation>Nitidizzazione</translation>
+        <translation type="obsolete">Nitidizzazione</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FastConvolution/Sharpen.cpp" line="30"/>
         <source>Enhance difference between near pixels.</source>
-        <translation>Aumenta differenza tra pixel vicini.</translation>
+        <translation type="obsolete">Aumenta differenza tra pixel vicini.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp" line="57"/>
         <source>FluxSmooth</source>
-        <translation>FluxSmooth</translation>
+        <translation type="obsolete">FluxSmooth</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/FluxSmooth/ADM_vidFlux.cpp" line="60"/>
         <source>Spatio-temporal cleaner by Ross Thomas.</source>
-        <translation>Pulizia spazio-temporale di Ross Thomas.</translation>
+        <translation type="obsolete">Pulizia spazio-temporale di Ross Thomas.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="32"/>
         <source>Forced postprocessing</source>
-        <translation>Postprocessing forzato</translation>
+        <translation type="obsolete">Postprocessing forzato</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ForcedPP/ADM_vidForcedPP.cpp" line="35"/>
         <source>Apply blind postprocessing..</source>
-        <translation>Forza postprocessing.</translation>
+        <translation type="obsolete">Forza postprocessing.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Hue/ADM_vidHue.cpp" line="53"/>
         <source>MPlayer hue</source>
-        <translation>MPlayer hue</translation>
+        <translation type="obsolete">MPlayer hue</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Hue/ADM_vidHue.cpp" line="56"/>
         <source>Adjust hue and saturation.</source>
-        <translation>Regola tonalità e saturazione.</translation>
+        <translation type="obsolete">Regola tonalità e saturazione.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidHzStackField.cpp" line="34"/>
         <source>Horizontal Stack Field</source>
-        <translation>Impilamento orizzontale</translation>
+        <translation type="obsolete">Impilamento orizzontale</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidHzStackField.cpp" line="37"/>
         <source>Put both fields side by side.</source>
-        <translation>Mette due semiquadri uno accanto all&apos;altro.</translation>
+        <translation type="obsolete">Mette due semiquadri uno accanto all&apos;altro.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidMergeField.cpp" line="36"/>
         <source>Merge fields</source>
-        <translation>Fusione semiquadri</translation>
+        <translation type="obsolete">Fusione semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidMergeField.cpp" line="39"/>
         <source>Merge two pictures as if they were two fields.</source>
-        <translation>Unisce due immagini come se fossero due semiquadri.</translation>
+        <translation type="obsolete">Unisce due immagini come se fossero due semiquadri.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp" line="32"/>
         <source>Separate Fields</source>
-        <translation>Separazione semiquadri</translation>
+        <translation type="obsolete">Separazione semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidSeparateField.cpp" line="35"/>
         <source>Each field becomes full picture, half sized.</source>
-        <translation>Ogni semiquadro diventa un&apos;immagine intera, dimezzata.</translation>
+        <translation type="obsolete">Ogni semiquadro diventa un&apos;immagine intera, dimezzata.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidStackField.cpp" line="35"/>
         <source>Stack fields</source>
-        <translation>Impilamento semiquadri</translation>
+        <translation type="obsolete">Impilamento semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidStackField.cpp" line="38"/>
         <source>Put two fields on top of one another.</source>
-        <translation>Mette due semiquadri uno sopra l&apos;altro.</translation>
+        <translation type="obsolete">Mette due semiquadri uno sopra l&apos;altro.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidUnstackField.cpp" line="34"/>
         <source>Unstack fields</source>
-        <translation>Disimpilamento semiquadri</translation>
+        <translation type="obsolete">Disimpilamento semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KeepField/ADM_vidUnstackField.cpp" line="37"/>
         <source>Interleave top and bottom part of the picture.</source>
-        <translation>Interconnette le parti superiore e inferiore dell&apos;immagine.</translation>
+        <translation type="obsolete">Interconnette le parti superiore e inferiore dell&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="48"/>
         <source>KernelDeint</source>
-        <translation>KernelDeint</translation>
+        <translation type="obsolete">KernelDeint</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/KernelDeint/ADM_vidKernelDeint.cpp" line="51"/>
         <source>Kernel deinterlacer by Donald Graft.</source>
-        <translation>Deinterlacciatore kernel di Donald Graft.</translation>
+        <translation type="obsolete">Deinterlacciatore kernel di Donald Graft.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="34"/>
-        <location filename="../plugins/ADM_videoFilters/Unblend/ADM_vidUnblend.cpp" line="47"/>
         <source>Median (5x5)</source>
-        <translation>Median (5x5)</translation>
+        <translation type="obsolete">Median (5x5)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/LargeMedian/ADM_vidLargeMedian.cpp" line="37"/>
         <source>Median kernel 5x5. Good for reducing chroma noise.</source>
-        <translation>Kernel mediana 5x5. Riduce rumore croma.</translation>
+        <translation type="obsolete">Kernel mediana 5x5. Riduce rumore croma.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="65"/>
         <source>Logo</source>
-        <translation>Logo</translation>
+        <translation type="obsolete">Logo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Logo/ADM_vidLogo.cpp" line="68"/>
         <source>Add a png as logo.</source>
-        <translation>Aggiunge un&apos;immagine png come logo.</translation>
+        <translation type="obsolete">Aggiunge un&apos;immagine png come logo.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/LumaOnly/ADM_vidLuma.cpp" line="28"/>
         <source>Luma only</source>
-        <translation>Solo luma</translation>
+        <translation type="obsolete">Solo luma</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/LumaOnly/ADM_vidLuma.cpp" line="31"/>
         <source>Convert picture to greyscale (black and white).</source>
-        <translation>Converte l&apos;immagine in scala di grigi (bianco e nero).</translation>
+        <translation type="obsolete">Converte l&apos;immagine in scala di grigi (bianco e nero).</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MPDelogo/ADM_vidMPdelogo.cpp" line="44"/>
         <source>MPlayer delogo</source>
-        <translation>MPlayer delogo</translation>
+        <translation type="obsolete">MPlayer delogo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MPDelogo/ADM_vidMPdelogo.cpp" line="47"/>
         <source>Blend a logo by interpolating its surrounding box.</source>
-        <translation>Nasconde un logo interpolando la casella circostante.</translation>
+        <translation type="obsolete">Nasconde un logo interpolando la casella circostante.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="80"/>
         <source>MSharpen</source>
-        <translation>MSharpen</translation>
+        <translation type="obsolete">MSharpen</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MSharpen/ADM_vidMSharpen.cpp" line="83"/>
         <source>Sharpen edges without amplifying noise. By Donald Graft.</source>
-        <translation>Rende nitidi i margini senza amplificare il rumore. Di Donald Graft.</translation>
+        <translation type="obsolete">Rende nitidi i margini senza amplificare il rumore. Di Donald Graft.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="103"/>
         <source>MSmooth by Donald Graft</source>
-        <translation>MSmooth di Donald Graft</translation>
+        <translation type="obsolete">MSmooth di Donald Graft</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MSmooth/ADM_vidMsmooth.cpp" line="106"/>
         <source>Smooth the image, don&apos;t blur edges. Useful on anime.</source>
-        <translation>Leviga l&apos;immagine, non sfoca i margini. Utile per l&apos;anime.</translation>
+        <translation type="obsolete">Attenua l&apos;immagine, non sfoca i margini. Utile per l&apos;anime.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="76"/>
         <source>mcDeinterlace</source>
-        <translation>mcDeinterlace</translation>
+        <translation type="obsolete">mcDeinterlace</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/McDeint/ADM_vidMcDeint.cpp" line="79"/>
         <source>Motion compensation deinterlacer. Ported from MPlayer.</source>
-        <translation>Deinterlacciatore compensazione movimento. Da MPlayer.</translation>
+        <translation type="obsolete">Deinterlacciatore compensazione movimento. Da MPlayer.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="63"/>
         <source>mosaic</source>
-        <translation>Mosaico</translation>
+        <translation type="obsolete">Mosaico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Mosaic/ADM_vidMosaic.cpp" line="66"/>
         <source>Split the picture into tiny thumbnails.</source>
-        <translation>Divide l&apos;immagine in piccole miniature.</translation>
+        <translation type="obsolete">Divide l&apos;immagine in piccole miniature.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="32"/>
         <source>MPlayer hqdn3d</source>
-        <translation>MPlayer hqdn3d</translation>
+        <translation type="obsolete">MPlayer hqdn3d</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3D.cpp" line="35"/>
         <source>High quality version of denoise3d. Slower but more precise.</source>
-        <translation>Versione ad alta qualità di denoise3d. Più lenta ma più precisa.</translation>
+        <translation type="obsolete">Versione ad alta qualità di denoise3d. Più lenta ma più precisa.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="33"/>
         <source>MPlayer denoise3d</source>
-        <translation>MPlayer denoise3d</translation>
+        <translation type="obsolete">MPlayer denoise3d</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerDenoise3D/ADM_vidMPLD3Dlow.cpp" line="36"/>
         <source>Reduce noise, smooth image, increase compressibility.</source>
-        <translation>Riduce il rumore, leviga le immagini, aumenta la comprimibilità.</translation>
+        <translation type="obsolete">Riduce il rumore, attenua l&apos;immagine, aumenta la comprimibilità.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="83"/>
         <source>MPlayer resize</source>
-        <translation>Ridimensionamento MPlayer</translation>
+        <translation type="obsolete">Ridimensionamento MPlayer</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/MplayerResize/ADM_vidMPLResize.cpp" line="86"/>
         <source>Change image size. Faster than Avisynth&apos;s Resize.</source>
-        <translation>Cambia la dimensione dell&apos;immagine. Più veloce del ridimensionamento di Avisynth.</translation>
+        <translation type="obsolete">Cambia la dimensione dell&apos;immagine. Più veloce del ridimensionamento di Avisynth.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp" line="32"/>
         <source>PAL field shift</source>
-        <translation>PAL Field Shift</translation>
+        <translation type="obsolete">PAL Field Shift</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalShift.cpp" line="35"/>
         <source>Shift fields by one. Useful for some PAL movies.</source>
-        <translation>Trasla semiquadri di uno. Utile per alcuni film Pal.</translation>
+        <translation type="obsolete">Trasla semiquadri di uno. Utile per alcuni film Pal.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalSmart.cpp" line="41"/>
         <source>PAL smart</source>
-        <translation>PAL Smart</translation>
+        <translation type="obsolete">PAL Smart</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/PalShift/ADM_vidPalSmart.cpp" line="44"/>
         <source>Smartly revert non constant PAL field shift.</source>
-        <translation>Annulla intelligentemente le traslazioni di semiquadri Pal non costanti.</translation>
+        <translation type="obsolete">Annulla intelligentemente le traslazioni di semiquadri Pal non costanti.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp" line="38"/>
         <source>Pulldown</source>
-        <translation>Pulldown</translation>
+        <translation type="obsolete">Pulldown</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Pulldown/ADM_vidPulldown.cpp" line="41"/>
         <source>Convert 24 fps to 30 fps by repeating fields.</source>
-        <translation>Converte da 24 fps a 30 fps ripetendo i semiquadri.</translation>
+        <translation type="obsolete">Converte da 24 fps a 30 fps ripetendo i semiquadri.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="54"/>
         <source>Resample fps</source>
-        <translation>Ricampionamento fps</translation>
+        <translation type="obsolete">Ricampionamento fps</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/ResampleFps/ADM_vidResampleFPS.cpp" line="57"/>
         <source>Change framerate while keeping duration.</source>
-        <translation>Cambia frame rate mantenendo la durata.</translation>
+        <translation type="obsolete">Cambia frame rate mantenendo la durata.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp" line="33"/>
         <source>Reverse</source>
-        <translation>Al contrario</translation>
+        <translation type="obsolete">Al contrario</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Reverse/ADM_vidReverse.cpp" line="36"/>
         <source>Play video backward.</source>
-        <translation>Riproduce il video all&apos;indietro.</translation>
+        <translation type="obsolete">Riproduce il video all&apos;indietro.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="54"/>
         <source>Rotate</source>
-        <translation>Rotazione</translation>
+        <translation type="obsolete">Rotazione</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="57"/>
         <source>Rotate the picture by 90, 180 or 270 degrees.</source>
-        <translation>Ruota l&apos;immagine di 90, 180 o 270 gradi.</translation>
+        <translation type="obsolete">Ruota l&apos;immagine di 90, 180 o 270 gradi.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="55"/>
         <source>Soften</source>
-        <translation>Attenuazione</translation>
+        <translation type="obsolete">Attenuazione</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Soften/ADM_vidSoften.cpp" line="58"/>
         <source>A variant of stabilize.</source>
-        <translation>Una variante di stabilizzazione.</translation>
+        <translation type="obsolete">Una variante di stabilizzazione.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="35"/>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="109"/>
         <source>Subtitler</source>
-        <translation>Sottotitolatore</translation>
+        <translation type="obsolete">Sottotitolatore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/ADM_vidSRT.cpp" line="38"/>
         <source>Add srt/sub subtitles to the picture.</source>
-        <translation>Aggiunge sottotitoli srt/sub all&apos;immagine.</translation>
+        <translation type="obsolete">Aggiunge sottotitoli srt/sub all&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="38"/>
         <source>Arabic</source>
-        <translation>Arabo</translation>
+        <translation type="obsolete">Arabo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="39"/>
         <source>Baltic</source>
-        <translation>Baltico</translation>
+        <translation type="obsolete">Baltico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="40"/>
         <source>Chinese Simplified (GB2312)</source>
-        <translation>Cinese semplificato (GB2312)</translation>
+        <translation type="obsolete">Cinese semplificato (GB2312)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="41"/>
         <source>Chinese Traditional (Big5)</source>
-        <translation>Cinese tradizionale (Big5)</translation>
+        <translation type="obsolete">Cinese tradizionale (Big5)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="42"/>
         <source>Cyrillic</source>
-        <translation>Cirillico</translation>
+        <translation type="obsolete">Cirillico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="43"/>
         <source>Latin-1 (Western European)</source>
-        <translation>Latino-1 (Europa occidentale)</translation>
+        <translation type="obsolete">Latino-1 (Europa occidentale)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="44"/>
         <source>Latin-2 (Central European)</source>
-        <translation>Latino-2 (Europa centrale)</translation>
+        <translation type="obsolete">Latino-2 (Europa centrale)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="45"/>
         <source>Greek</source>
-        <translation>Greco</translation>
+        <translation type="obsolete">Greco</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="46"/>
         <source>Hebrew</source>
-        <translation>Ebraico</translation>
+        <translation type="obsolete">Ebraico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="47"/>
         <source>Slovene</source>
-        <translation>Sloveno</translation>
+        <translation type="obsolete">Sloveno</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="48"/>
         <source>Turkish</source>
-        <translation>Turco</translation>
+        <translation type="obsolete">Turco</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="49"/>
         <source>UTF-8</source>
-        <translation>UTF-8</translation>
+        <translation type="obsolete">UTF-8</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="50"/>
         <source>UTF-16</source>
-        <translation>UTF-16</translation>
+        <translation type="obsolete">UTF-16</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="85"/>
         <source>_Subtitle file:</source>
-        <translation>File _sottotitoli:</translation>
+        <translation type="obsolete">File _sottotitoli:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="85"/>
         <source>Select Subtitle file</source>
-        <translation>Seleziona un file sottotitoli</translation>
+        <translation type="obsolete">Seleziona un file sottotitoli</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="86"/>
         <source>_Font (TTF):</source>
-        <translation>Carattere (_TTF):</translation>
+        <translation type="obsolete">Carattere (_TTF):</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="86"/>
         <source>Select TTF file</source>
-        <translation>Seleziona un file TTF</translation>
+        <translation type="obsolete">Seleziona un file TTF</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="101"/>
         <source>_Encoding:</source>
-        <translation>Co_difica:</translation>
+        <translation type="obsolete">Co_difica:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="103"/>
         <source>S_elect C_olor</source>
-        <translation>Seleziona co_lore</translation>
+        <translation type="obsolete">Seleziona co_lore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="104"/>
         <source>Set Size and _Position</source>
-        <translation>Imposta dimensione e _posizione</translation>
+        <translation type="obsolete">Imposta dimensione e _posizione</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="105"/>
         <source>_Auto split</source>
-        <translation>A capo _automatico</translation>
+        <translation type="obsolete">A capo _automatico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Srt/DIA_srt.cpp" line="106"/>
         <source>_Delay (ms):</source>
-        <translation>_Ritardo (ms):</translation>
+        <translation type="obsolete">_Ritardo (ms):</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="31"/>
-        <location filename="../plugins/ADM_videoFilters/Stabilize/ADM_vidStabilize.cpp" line="34"/>
         <source>Light denoiser.</source>
-        <translation>Rimozione rumore leggera</translation>
+        <translation type="obsolete">Rimozione rumore leggera</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidKeepEvenFields.cpp" line="34"/>
         <source>Keep even fields</source>
-        <translation>Mantenimento fotogrammi pari</translation>
+        <translation type="obsolete">Mantenimento fotogrammi pari</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidKeepEvenFields.cpp" line="37"/>
         <source>Keep top fields. Gives a half height picture..</source>
-        <translation>Mantiene i fotogrammi superiori. Restituisce un&apos;immagine dimezzata.</translation>
+        <translation type="obsolete">Mantiene i fotogrammi superiori. Restituisce un&apos;immagine dimezzata.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidKeepOddFields.cpp" line="35"/>
         <source>Keep odd fields</source>
-        <translation>Mantenimento fotogrammi dispari</translation>
+        <translation type="obsolete">Mantenimento fotogrammi dispari</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidKeepOddFields.cpp" line="38"/>
         <source>Keep bottom fields. Gives a half height picture..</source>
-        <translation>Mantiene i fotogrammi inferiori. Restituisce un&apos;immagine dimezzata.</translation>
+        <translation type="obsolete">Mantiene i fotogrammi inferiori. Restituisce un&apos;immagine dimezzata.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapFields.cpp" line="31"/>
         <source>Swap fields</source>
-        <translation>Inversione semiquadri</translation>
+        <translation type="obsolete">Inversione semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapFields.cpp" line="34"/>
         <source>Swap top and bottom fields.</source>
-        <translation>Inverte semiquadri superiore e inferiore.</translation>
+        <translation type="obsolete">Inverte semiquadri superiore e inferiore.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp" line="35"/>
         <source>Smart swap fields</source>
-        <translation>Inversione semiquadri intelligente</translation>
+        <translation type="obsolete">Inversione semiquadri intelligente</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapField/ADM_vidSwapSmart.cpp" line="38"/>
         <source>Smartly swap fields. Needed when field order changes.</source>
-        <translation>Inverte semiquadri intelligentemente. Necessario quando l&apos;ordine semiquadri cambia.</translation>
+        <translation type="obsolete">Inverte semiquadri intelligentemente. Necessario quando l&apos;ordine semiquadri cambia.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp" line="28"/>
         <source>Swap U and V</source>
-        <translation>Inversione U e V</translation>
+        <translation type="obsolete">Inversione U e V</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/SwapUV/ADM_vidUVSwap.cpp" line="31"/>
         <source>Invert chroma U and chroma V.</source>
-        <translation>Inverte croma U e croma V.</translation>
+        <translation type="obsolete">Inverte croma U e croma V.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="46"/>
         <source>TIsophote</source>
-        <translation>TIsophote</translation>
+        <translation type="obsolete">TIsophote</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/TIsophote/ADM_vidTisophote.cpp" line="49"/>
         <source>Port of TIsophote by tritical .</source>
-        <translation>Port di TIsophote di tritical.</translation>
+        <translation type="obsolete">Port di TIsophote di tritical.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/ADM_vidTdeint.cpp" line="154"/>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="108"/>
         <source>TDeint</source>
-        <translation>TDeint</translation>
+        <translation type="obsolete">TDeint</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/ADM_vidTdeint.cpp" line="157"/>
         <source>Motion adaptative deinterlacer by Tritical.</source>
-        <translation>Deinterlacciatore movimento adattativo di Tritical.</translation>
+        <translation type="obsolete">Deinterlacciatore movimento adattativo di Tritical.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="32"/>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="38"/>
         <source>Auto (might not work)</source>
-        <translation>Automatico (potrebbe non funzionare)</translation>
+        <translation type="obsolete">Automatico (potrebbe non funzionare)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="33"/>
         <source>Top field first</source>
-        <translation>Prima il semiquadro superiore</translation>
+        <translation type="obsolete">Prima il semiquadro superiore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="34"/>
         <source>Bottom field first</source>
-        <translation>Prima il semiquadro inferiore</translation>
+        <translation type="obsolete">Prima il semiquadro inferiore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="39"/>
         <source>Bottom field (keep top)</source>
-        <translation>Semiquadro inferiore (mantieni superiore)</translation>
+        <translation type="obsolete">Semiquadro inferiore (mantieni superiore)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="40"/>
         <source>Top field (keep bottom)</source>
-        <translation>Semiquadro superiore (mantieni inferiore)</translation>
+        <translation type="obsolete">Semiquadro superiore (mantieni inferiore)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="45"/>
         <source>Cubic interpolation</source>
-        <translation>Interpolazione cubica</translation>
+        <translation type="obsolete">Interpolazione cubica</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="46"/>
         <source>Modified ELA</source>
-        <translation>ELA modificato</translation>
+        <translation type="obsolete">ELA modificato</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="47"/>
         <source>Kernel interpolation</source>
-        <translation>Interpolazione Kernel</translation>
+        <translation type="obsolete">Interpolazione Kernel</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="48"/>
         <source>Modified ELA-2</source>
-        <translation>ELA-2 modificato</translation>
+        <translation type="obsolete">ELA-2 modificato</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="53"/>
         <source>4 fields check</source>
-        <translation>Controllo 4 semiquadri</translation>
+        <translation type="obsolete">Controllo 4 semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="54"/>
         <source>5 fields check</source>
-        <translation>Controllo 5 semiquadri</translation>
+        <translation type="obsolete">Controllo 5 semiquadri</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="55"/>
         <source>4 fields check (no avg)</source>
-        <translation>Controllo 4 semiquadri (no media)</translation>
+        <translation type="obsolete">Controllo 4 semiquadri (no media)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="56"/>
         <source>5 fields check (no avg)</source>
-        <translation>Controllo 5 semiquadri (no media)</translation>
+        <translation type="obsolete">Controllo 5 semiquadri (no media)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="62"/>
         <source>No link</source>
-        <translation>Nessun collegamento</translation>
+        <translation type="obsolete">Nessun collegamento</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="63"/>
         <source>Full link</source>
-        <translation>Collegamento completo</translation>
+        <translation type="obsolete">Collegamento completo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="64"/>
         <source>Y to UV</source>
-        <translation>Da Y a UV</translation>
+        <translation type="obsolete">Da Y a UV</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="65"/>
         <source>UV to Y</source>
-        <translation>Da UV a Y</translation>
+        <translation type="obsolete">Da UV a Y</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="69"/>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="obsolete">0</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="70"/>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="obsolete">1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="71"/>
         <source>2</source>
-        <translation>2</translation>
+        <translation type="obsolete">2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="78"/>
         <source>_Field order:</source>
-        <translation>Ordine _semiquadri:</translation>
+        <translation type="obsolete">Ordine _semiquadri:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="79"/>
         <source>_Interpolate:</source>
-        <translation>_Interpola:</translation>
+        <translation type="obsolete">_Interpola:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="81"/>
         <source>_Type:</source>
-        <translation>_Tipo:</translation>
+        <translation type="obsolete">_Tipo:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="82"/>
         <source>_MntMode:</source>
-        <translation>_MntMode:</translation>
+        <translation type="obsolete">_MntMode:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="83"/>
         <source>_Link:</source>
-        <translation>_Collegamento:</translation>
+        <translation type="obsolete">_Collegamento:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="84"/>
         <source>_AP type:</source>
-        <translation>Tipo _AP:</translation>
+        <translation type="obsolete">Tipo _AP:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="87"/>
         <source>Use ch_roma to evalute</source>
-        <translation>Usa c_roma per valutare</translation>
+        <translation type="obsolete">Usa c_roma per valutare</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="88"/>
         <source>Try _weave</source>
-        <translation>Prova _intreccio</translation>
+        <translation type="obsolete">Prova _intreccio</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="89"/>
         <source>_Denoise</source>
-        <translation>_Rimuovi rumore</translation>
+        <translation type="obsolete">_Rimuovi rumore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="90"/>
         <source>_Sharp</source>
-        <translation>_Nitido</translation>
+        <translation type="obsolete">_Nitido</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="91"/>
         <source>_Evalute all frames</source>
-        <translation>_Valuta tutti i fotogrammi</translation>
+        <translation type="obsolete">_Valuta tutti i fotogrammi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="94"/>
         <source>Motion threshold, l_uma:</source>
-        <translation>Soglia movimento, l_uma:</translation>
+        <translation type="obsolete">Soglia movimento, l_uma:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="95"/>
         <source>Motion threshold, c_hroma:</source>
-        <translation>Soglia movimento, c_roma:</translation>
+        <translation type="obsolete">Soglia movimento, c_roma:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="96"/>
         <source>Area com_bing threshold:</source>
-        <translation>Soglia area com_bing:</translation>
+        <translation type="obsolete">Soglia area com_bing:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="97"/>
         <source>Combe_d threshold:</source>
-        <translation>Soglia _combing:</translation>
+        <translation type="obsolete">Soglia _combing:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="98"/>
         <source>Artefact _protection threshold:</source>
-        <translation>Soglia di _protezione artefatto:</translation>
+        <translation type="obsolete">Soglia di _protezione artefatto:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Tdeint/DIA_tdeint.cpp" line="99"/>
         <source>Debug:</source>
-        <translation>Debug:</translation>
+        <translation type="obsolete">Debug:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="54"/>
         <source>Decomb Telecide</source>
-        <translation>Decomb Telecide</translation>
+        <translation type="obsolete">Decomb Telecide</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Telecide/ADM_vidDecTelecide.cpp" line="57"/>
         <source>Great deinterlacing package including IVTC.</source>
-        <translation>Grande pacchetto di deinterlacciamento comprendente IVTC.</translation>
+        <translation type="obsolete">Grande pacchetto di deinterlacciamento comprendente IVTC.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp" line="71"/>
         <source>Temporal Cleaner</source>
-        <translation>Temporal Cleaner</translation>
+        <translation type="obsolete">Temporal Cleaner</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/TemporalCleaner/ADM_vidVlad.cpp" line="74"/>
         <source>Vlad59&apos;s Avisynth port of Jim Casaburi&apos;s denoiser.</source>
-        <translation>Port Avisynth di Vlad59 del filtro di rimozione del rumore di Jim Casaburi.</translation>
+        <translation type="obsolete">Port Avisynth di Vlad59 del filtro di rimozione del rumore di Jim Casaburi.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Unblend/ADM_vidUnblend.cpp" line="50"/>
         <source>Unblend by Bach</source>
-        <translation>Unblend di Bach</translation>
+        <translation type="obsolete">Unblend di Bach</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp" line="48"/>
         <source>Vertical flip</source>
-        <translation>Capovolgimento verticale</translation>
+        <translation type="obsolete">Capovolgimento verticale</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/VerticalFlip/ADM_vidFlipV.cpp" line="51"/>
         <source>Vertically flip the picture.</source>
-        <translation>Capovolge verticalmente l&apos;immagine.</translation>
+        <translation type="obsolete">Capovolge verticalmente l&apos;immagine.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Whirl/ADM_vidWhirl.cpp" line="59"/>
         <source>Whirl</source>
-        <translation>Effetto vortice</translation>
+        <translation type="obsolete">Effetto vortice</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Whirl/ADM_vidWhirl.cpp" line="62"/>
         <source>Useless whirlwind effect.</source>
-        <translation>Inutile effetto vortice.</translation>
+        <translation type="obsolete">Inutile effetto vortice.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="77"/>
         <source>yadif</source>
-        <translation>yadif</translation>
+        <translation type="obsolete">yadif</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="80"/>
         <source>Yet Another DeInterlacer. Ported from MPlayer.</source>
-        <translation>Un&apos;altro deinterlacciatore. Da MPlayer.</translation>
+        <translation type="obsolete">Un&apos;altro deinterlacciatore. Da MPlayer.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp" line="69"/>
         <source>Avisynth ColorYUV</source>
-        <translation>Avisynth ColorYUV</translation>
+        <translation type="obsolete">Avisynth ColorYUV</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/colorYUV/ADM_vidColorYuv.cpp" line="72"/>
         <source>Alter colors (auto white balance etc...). Ported from Avisynth.</source>
-        <translation>Corregge colori (bilanciamento automatico del bianco, ecc.). Da Avisynth.</translation>
+        <translation type="obsolete">Corregge colori (bilanciamento automatico del bianco, ecc.). Da Avisynth.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="91"/>
         <source>libavcodec deinterlacer</source>
-        <translation>Deinterlacciatore libavcodec</translation>
+        <translation type="obsolete">Deinterlacciatore libavcodec</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/lavDeinterlace/ADM_lavpp_deint.cpp" line="94"/>
         <source>All FFmpeg deinterlace filters (bicubic, median, ...).</source>
-        <translation>Tutti i filtri di deinterlacciamento FFmpeg (bicubico, mediano, ...).</translation>
+        <translation type="obsolete">Tutti i filtri di deinterlacciamento FFmpeg (bicubico, mediano, ...).</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/BlendRemover/ADM_vidHardIvtcRemoval.cpp" line="66"/>
         <source>Hard pulldown removal</source>
-        <translation>Rimozione pulldown forte</translation>
+        <translation type="obsolete">Rimozione pulldown forte</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="17"/>
         <source>%u minutes</source>
-        <translation>%u minuti</translation>
+        <translation type="obsolete">%u minuti</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="21"/>
         <source>%u minute</source>
-        <translation>%u minuto</translation>
+        <translation type="obsolete">%u minuto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="29"/>
         <source>%u second</source>
-        <translation>%u secondo</translation>
+        <translation type="obsolete">%u secondo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_osSupport/ADM_misc.cpp" line="33"/>
         <source>%u seconds</source>
-        <translation>%u secondi</translation>
+        <translation type="obsolete">%u secondi</translation>
     </message>
 </context>
 <context>
     <name>ADMImage</name>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2590"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2602"/>
         <source>Memory error</source>
         <translation>Errore di memoria</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2597"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2609"/>
         <source>Error converting to BMP</source>
         <translation>Errore conversione in BMP</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2604"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2616"/>
         <source>Something bad happened</source>
         <translation>C&apos;è stato qualche errore</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2694"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2706"/>
         <source>Cannot encode the frame</source>
         <translation>Impossibile codificare il fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2691"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2703"/>
         <source>File error</source>
         <translation>Errore file</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2691"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2703"/>
         <source>Cannot open &quot;%s&quot; for writing.</source>
         <translation>Impossibile aprire &quot;%s&quot; per la scrittura.</translation>
     </message>
     <message>
-        <location filename="../avidemux/gtk_gui.cpp" line="2701"/>
+        <location filename="../avidemux/gtk_gui.cpp" line="2713"/>
         <source>Cannot initialise JPEG encoder</source>
         <translation>Impossibile avviare l&apos;encoder JPEG</translation>
     </message>
@@ -3647,32 +2811,42 @@ Attivarla?</translation>
 <context>
     <name>ADMVideoAVSfilter</name>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="538"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="541"/>
+        <source>_wine app file:</source>
+        <translation>File applicazione _wine:</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="542"/>
+        <source>Select wine filename[wine/cedega/etc.]</source>
+        <translation>Seleziona il nome file di wine [wine/cedega/etc.]</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="544"/>
         <source>_loader file:</source>
         <translation>File _loader:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="539"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="545"/>
         <source>Select loader filename[avsload.exe]</source>
-        <translation>Seleziona il nome del file loader [avsload.exe]</translation>
+        <translation>Seleziona il nome file del loader [avsload.exe]</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="541"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="547"/>
         <source>_avs file:</source>
         <translation>File _avs:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="542"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="548"/>
         <source>Select avs filename[*.avs]</source>
         <translation>Seleziona il nome del file avs [*.avs]</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="543"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="549"/>
         <source>_pipe timeout:</source>
         <translation>_Pipe timeout:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="547"/>
+        <location filename="../plugins/ADM_videoFilters/AvsFilter/avsfilter.cpp" line="553"/>
         <source>AvsFilter config</source>
         <translation>Configurazione AvsFilter</translation>
     </message>
@@ -4307,8 +3481,22 @@ Attivarla?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="261"/>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="262"/>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="263"/>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
         <source>90Â°</source>
-        <translation>90Â°</translation>
+        <translation type="obsolete">90Â°</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="262"/>
@@ -4316,9 +3504,8 @@ Attivarla?</translation>
         <translation>180 gradi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="262"/>
         <source>180Â°</source>
-        <translation>180Â°</translation>
+        <translation type="obsolete">180Â°</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="263"/>
@@ -4326,9 +3513,8 @@ Attivarla?</translation>
         <translation>270 gradi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="263"/>
         <source>270Â°</source>
-        <translation>270Â°</translation>
+        <translation type="obsolete">270Â°</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Rotate/ADM_vidRotate.cpp" line="265"/>
@@ -4690,7 +3876,7 @@ moltiplicato per questo valore):</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="138"/>
         <source>Bob, temporal &amp; spatial check</source>
-        <translation>Bob, verifica temporale e spaziale</translation>
+        <translation>Sdoppia, verifica temporale e spaziale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="139"/>
@@ -4700,7 +3886,7 @@ moltiplicato per questo valore):</translation>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="140"/>
         <source>Bob, skip spatial temporal check</source>
-        <translation>Bob, salta verifica temporale spaziale</translation>
+        <translation>Sdoppia, salta verifica temporale e spaziale</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Yadif/ADM_vidYadif.cpp" line="143"/>
@@ -5860,9 +5046,13 @@ Vuoi usare questa modalità?</translation>
         <translation>Sostituisci (interpola)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="173"/>
         <source>Discard longer dupe (animÃ©s)</source>
-        <translation>Scarta duplicati più lunghi</translation>
+        <translation type="obsolete">Scarta duplicati più lunghi</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="173"/>
+        <source>Discard longer dupe (animés)</source>
+        <translation>Scarta duplicati più lunghi (anime)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoFilters/Decimate/ADM_vidDecDec.cpp" line="174"/>
@@ -6422,7 +5612,7 @@ Vuoi usare questa modalità?</translation>
 <context>
     <name>MP4Header</name>
     <message>
-        <location filename="../avidemux/ADM_inputs/ADM_mp4/ADM_mp4Analyzer.cpp" line="626"/>
+        <location filename="../avidemux/ADM_inputs/ADM_mp4/ADM_mp4Analyzer.cpp" line="634"/>
         <source>Problem reading SVQ3 headers</source>
         <translation>Problema di lettura delle intestazioni SVQ3</translation>
     </message>
@@ -6493,8 +5683,8 @@ Vuoi usare questa modalità?</translation>
     <message>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="182"/>
         <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="310"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1780"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1783"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1784"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1787"/>
         <source>Filters</source>
         <translation>Filtri</translation>
     </message>
@@ -6646,361 +5836,361 @@ Vuoi usare questa modalità?</translation>
         <translation>A&amp;uto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1481"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1482"/>
         <source>&amp;Open...</source>
         <translation>&amp;Apri...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1484"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1485"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1489"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1493"/>
         <source>&amp;Append...</source>
         <translation>A&amp;ggiungi...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1492"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1496"/>
         <source>Ctrl+Alt+A</source>
         <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1502"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1506"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Taglia</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1505"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1509"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1510"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1514"/>
         <source>&amp;Copy</source>
         <translation>&amp;Copia</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1513"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1517"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1518"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1522"/>
         <source>&amp;Paste</source>
         <translation>&amp;Incolla</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1521"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1525"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1526"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1530"/>
         <source>&amp;Delete</source>
         <translation>&amp;Elimina</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1529"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1533"/>
         <source>Del</source>
         <translation>Canc</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1537"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1540"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1543"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1541"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1544"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1547"/>
         <source>Set Marker A</source>
         <translation>Imposta segnalibro A</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1546"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1550"/>
         <source>[</source>
         <translation>[</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1554"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1557"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1560"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1558"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1561"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1564"/>
         <source>Set Marker B</source>
         <translation>Imposta segnalibro B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1563"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1567"/>
         <source>]</source>
         <translation>]</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1571"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1575"/>
         <source>&amp;Information...</source>
         <translation>&amp;Informazioni...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1574"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1578"/>
         <source>Alt+Return</source>
         <translation>Alt+Invio</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1582"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1586"/>
         <source>Save &amp;Video...</source>
         <translation>Salva &amp;video...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1585"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1588"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1589"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1592"/>
         <source>Save Video</source>
         <translation>Salva video</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1596"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1600"/>
         <source>Save &amp;BMP Image...</source>
         <translation>Salva immagine &amp;BMP...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1599"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1602"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1603"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1606"/>
         <source>Save BMP Image</source>
         <translation>Salva immagine BMP</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1607"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1611"/>
         <source>Save &amp;JPEG Image...</source>
         <translation>Salva immagine &amp;JPEG...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1610"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1613"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1614"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1617"/>
         <source>Save JPEG Image</source>
         <translation>Salva immagine JPEG</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1621"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1625"/>
         <source>&amp;Load/Run Project...</source>
         <translation>&amp;Carica/esegui progetto...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1624"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1627"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1628"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1631"/>
         <source>Load/Run Project</source>
         <translation>Carica/esegui progetto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1635"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1639"/>
         <source>Save &amp;Project</source>
         <translation>Salva &amp;progetto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1638"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1641"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1642"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1645"/>
         <source>Save Project</source>
         <translation>Salva progetto</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1591"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1595"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1649"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1653"/>
         <source>Save P&amp;roject As...</source>
         <translation>Salva p&amp;rogetto con nome...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1652"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1655"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1656"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1659"/>
         <source>Save Project As</source>
         <translation>Salva progetto con nome</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1663"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1667"/>
         <source>&amp;Zoom 1:4</source>
         <translation>&amp;Zoom 1:4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1666"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1670"/>
         <source>Ctrl+Shift+4</source>
         <translation>Ctrl+Shift+4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1674"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1678"/>
         <source>Z&amp;oom 1:2</source>
         <translation>Z&amp;oom 1:2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1677"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1681"/>
         <source>Ctrl+Shift+2</source>
         <translation>Ctrl+Shift+2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1688"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1692"/>
         <source>Zoom &amp;1:1</source>
         <translation>Zoom &amp;1:1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1691"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1695"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1699"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1703"/>
         <source>Zoom &amp;2:1</source>
         <translation>Zoom &amp;2:1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1702"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1706"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1707"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1711"/>
         <source>&amp;Decoder Options...</source>
         <translation>Opzioni &amp;decoder...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1710"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1713"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1714"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1717"/>
         <source>Decoder Options</source>
         <translation>Opzioni decoder</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1716"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1720"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1721"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1725"/>
         <source>&amp;Postprocessing...</source>
         <translation>&amp;Postprocessing...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1724"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1728"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1729"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1733"/>
         <source>&amp;Frame Rate...</source>
         <translation>&amp;Frame rate...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1732"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1735"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1736"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1739"/>
         <source>Frame Rate</source>
         <translation>Frame rate</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1740"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1744"/>
         <source>Fil&amp;ters...</source>
         <translation>Fil&amp;tri...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1743"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1747"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1748"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1752"/>
         <source>&amp;Main Track...</source>
         <translation>Traccia &amp;principale...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1753"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1757"/>
         <source>&amp;Secondary Track...</source>
         <translation>Traccia &amp;secondaria...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1758"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1761"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1764"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1762"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1765"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1768"/>
         <source>Build VBR Time Map</source>
         <translation>Crea time map VBR</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1769"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1773"/>
         <source>S&amp;ave...</source>
         <translation>S&amp;alva...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1772"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1776"/>
         <source>Ctrl+Alt+S</source>
         <translation>Ctrl+Alt+S</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1777"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1781"/>
         <source>&amp;Filters</source>
         <translation>&amp;Filtri</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1794"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1798"/>
         <source>&amp;Calculator...</source>
         <translation>&amp;Calcolatrice...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1797"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1801"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1802"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1806"/>
         <source>&amp;Rebuild I &amp;&amp; B Frames</source>
         <translation>&amp;Ricostruisci fotogrammi I &amp;&amp; B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1805"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1808"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1809"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1812"/>
         <source>Rebuild I &amp; B Frames</source>
         <translation>Ricostruisci fotogrammi I &amp; B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1813"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1817"/>
         <source>&amp;Bitrate Histogram...</source>
         <translation>Istogramma &amp;bitrate...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1816"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1819"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1820"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1823"/>
         <source>Bitrate Histogram</source>
         <translation>Istogramma bitrate</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1824"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1828"/>
         <source>&amp;Scan for Black Frames...</source>
         <translation>C&amp;erca fotogrammi neri...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1827"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1830"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1831"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1834"/>
         <source>Scan for Black Frames</source>
         <translation>Cerca fotogrammi neri</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1835"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1839"/>
         <source>&amp;VOB -&gt; VobSub...</source>
         <translation>&amp;VOB -&gt; VobSub...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1838"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1841"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1842"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1845"/>
         <source>VOB -&gt; VobSub</source>
         <translation>VOB -&gt; VobSub</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1846"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1850"/>
         <source>&amp;OCR (VobSub -&gt; srt)...</source>
         <translation>&amp;OCR (VobSub -&gt; srt)...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1849"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1852"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1853"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1856"/>
         <source>OCR (VobSub -&gt; srt)</source>
         <translation>OCR (VobSub -&gt; srt)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2047"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2051"/>
         <source>P</source>
         <translation>P</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1860"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1864"/>
         <source>P&amp;revious Frame</source>
         <translation>Fotogramma p&amp;recedente</translation>
     </message>
@@ -7010,351 +6200,351 @@ Vuoi usare questa modalità?</translation>
         <translation>Progetti recenti</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1497"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1501"/>
         <source>E&amp;xit</source>
         <translation>&amp;Esci</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1863"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1867"/>
         <source>Left</source>
         <translation>Sinistra</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1871"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1875"/>
         <source>&amp;Next Frame</source>
         <translation>Fotogramma &amp;successivo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1874"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1878"/>
         <source>Right</source>
         <translation>Destra</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1882"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1886"/>
         <source>Pr&amp;evious Intra Frame</source>
         <translation>Fotogramma chiave pr&amp;ecedente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1885"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1888"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1889"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1892"/>
         <source>Previous Intra Frame</source>
         <translation>Fotogramma chiave precedente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1891"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1895"/>
         <source>Down</source>
         <translation>Giù</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1899"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1903"/>
         <source>Next &amp;Intra Frame</source>
         <translation>Fotogramma ch&amp;iave successivo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1902"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1905"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1906"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1909"/>
         <source>Next Intra Frame</source>
         <translation>Fotogramma chiave successivo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1908"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1912"/>
         <source>Up</source>
         <translation>Su</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1916"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1920"/>
         <source>Previou&amp;s Black Frame</source>
         <translation>Fotogramma nero pre&amp;cedente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1919"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1922"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1923"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1926"/>
         <source>Previous Black Frame</source>
         <translation>Fotogramma nero precedente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1930"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1934"/>
         <source>Ne&amp;xt Black Frame</source>
         <translation>Fotogramma nero successi&amp;vo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1933"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1936"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1937"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1940"/>
         <source>Next Black Frame</source>
         <translation>Fotogramma nero successivo</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1944"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1948"/>
         <source>&amp;First Frame</source>
         <translation>Primo &amp;fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1947"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1951"/>
         <source>Home</source>
         <translation>Home</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1955"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1959"/>
         <source>&amp;Last Frame</source>
         <translation>&amp;Ultimo fotogramma</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1958"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1962"/>
         <source>End</source>
         <translation>Fine</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1966"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1970"/>
         <source>Jump to Marker &amp;A</source>
         <translation>Vai al segnalibro &amp;A</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1969"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1972"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1973"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1976"/>
         <source>Jump to Marker A</source>
         <translation>Vai al segnalibro A</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1975"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1979"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1983"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1987"/>
         <source>Jump to Marker &amp;B</source>
         <translation>Vai al segnalibro &amp;B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1986"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1989"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1990"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1993"/>
         <source>Jump to Marker B</source>
         <translation>Vai al segnalibro B</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1992"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1996"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="1997"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2001"/>
         <source>Jump to Fra&amp;me...</source>
         <translation>Vai al fotogra&amp;mma...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2000"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2004"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2005"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2009"/>
         <source>Jump to &amp;Time...</source>
         <translation>Vai al &amp;tempo...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2008"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2012"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2013"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2017"/>
         <source>&amp;Built-in Support...</source>
         <translation>&amp;Supporto incorporato...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2016"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2019"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2020"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2023"/>
         <source>Built-in Support</source>
         <translation>Supporto incorporato</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2024"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2028"/>
         <source>&amp;About Avidemux...</source>
         <translation>Informazioni su &amp;Avidemux...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2027"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2030"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2031"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2034"/>
         <source>About Avidemux</source>
         <translation>Informazioni su Avidemux</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2038"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2042"/>
         <source>&amp;Play/Stop</source>
         <translation>&amp;Play/Stop</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2041"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2044"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2045"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2048"/>
         <source>Play/Stop</source>
         <translation>Play/Stop</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2052"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2056"/>
         <source>Recent0</source>
         <translation>Recent0</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2057"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2061"/>
         <source>Recent1</source>
         <translation>Recent1</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2062"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2066"/>
         <source>Recent2</source>
         <translation>Recent2</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2067"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2071"/>
         <source>Recent3</source>
         <translation>Recent3</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2072"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2076"/>
         <source>Add to &amp;Joblist...</source>
         <translation>Aggiungi alla &amp;lista attività...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2075"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2078"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2079"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2082"/>
         <source>Add to Joblist</source>
         <translation>Aggiungi alla lista attività</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2083"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2087"/>
         <source>View &amp;Joblist...</source>
         <translation>Mostra &amp;lista attività...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2086"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2089"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2090"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2093"/>
         <source>View Joblist</source>
         <translation>Mostra lista attività</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2092"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2096"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2097"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2101"/>
         <source>Co&amp;nnect to avsproxy</source>
         <translation>Co&amp;nnetti a avsproxy</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2100"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2103"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2104"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2107"/>
         <source>Connect to avsproxy</source>
         <translation>Connetti a avsproxy</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2108"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2112"/>
         <source>&amp;Reset Edits</source>
         <translation>A&amp;nnulla modifiche</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2211"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2215"/>
         <source>P&amp;lugins...</source>
         <translation>P&amp;lugin...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2216"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2220"/>
         <source>Recent4</source>
         <translation>Recent4</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2221"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2225"/>
         <source>Recent5</source>
         <translation>Recent5</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2226"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2230"/>
         <source>RecentProject0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2231"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2235"/>
         <source>RecentProject1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2236"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2240"/>
         <source>RecentProject2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2241"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2245"/>
         <source>RecentProject3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2246"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2250"/>
         <source>RecentProject4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2251"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2255"/>
         <source>RecentProject5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2256"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2260"/>
         <source>&amp;Plugin Manager...</source>
         <translation>Gestore &amp;plugin...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2113"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2117"/>
         <source>OCR (&amp;TS -&gt; srt)...</source>
         <translation>OCR (&amp;TS -&gt; srt)...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2116"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2119"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2120"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2123"/>
         <source>OCR (TS -&gt; srt)</source>
         <translation>OCR (TS -&gt; srt)</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2124"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2128"/>
         <source>Edit &amp;Glyphs...</source>
         <translation>Modifica &amp;glifi...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2127"/>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2130"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2131"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2134"/>
         <source>Edit Glyphs</source>
         <translation>Modifica glifi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2144"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2148"/>
         <source>&amp;Input</source>
         <translation>&amp;Input</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2155"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2159"/>
         <source>&amp;Output</source>
         <translation>&amp;Output</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2166"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2170"/>
         <source>Si&amp;de</source>
         <translation>&amp;Affiancati lateralmente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2177"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2181"/>
         <source>&amp;Top</source>
         <translation>Affiancati ver&amp;ticalmente</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2188"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2192"/>
         <source>&amp;Separate</source>
         <translation>&amp;Separati</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2193"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2197"/>
         <source>&amp;Close</source>
         <translation>&amp;Chiudi</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2196"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2200"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
@@ -7364,7 +6554,7 @@ Vuoi usare questa modalità?</translation>
         <translation>ms</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2201"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2205"/>
         <source>Save Selection as JPEG Images...</source>
         <translation>Salva selezione in immagini JPEG...</translation>
     </message>
@@ -7379,7 +6569,7 @@ Vuoi usare questa modalità?</translation>
         <translation>B:</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2206"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/gui2.ui" line="2210"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Preferenze...</translation>
     </message>
@@ -7388,7 +6578,7 @@ Vuoi usare questa modalità?</translation>
         <translation type="obsolete">&amp;Plugin...</translation>
     </message>
     <message>
-        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp" line="1022"/>
+        <location filename="../avidemux/ADM_userInterfaces/ADM_QT4/ADM_gui/Q_gui2.cpp" line="1041"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
@@ -8630,8 +7820,8 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <translation>&lt;personalizzato&gt;</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="216"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="67"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="216"/>
         <source>Save As</source>
         <translation>Salva con nome</translation>
     </message>
@@ -8641,40 +7831,40 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
         <translation>File di configurazione Xvid (*.xml)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="251"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="253"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
         <translation>Sei sicuro di voler eliminare la configurazione selezionata?</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="271"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="273"/>
         <source>Target Bitrate:</source>
         <translation>Bitrate finale:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="272"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="292"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="274"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="294"/>
         <source>kbit/s</source>
         <translation>kbit/s</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="278"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="280"/>
         <source>Quantiser:</source>
         <translation>Quantizzatore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="284"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="148"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="286"/>
         <source>Target Video Size:</source>
         <translation>Dimensione video finale:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="285"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="233"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="287"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="291"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.cpp" line="293"/>
         <source>Average Bitrate:</source>
         <translation>Bitrate medio:</translation>
     </message>
@@ -9049,7 +8239,7 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1772"/>
         <source>Smoother:</source>
-        <translation>Livellamento:</translation>
+        <translation>Attenuazione:</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_xvid/qt4/xvidConfigDialog.ui" line="1779"/>
@@ -9849,6 +9039,11 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
 <context>
     <name>lavMuxer</name>
     <message>
+        <location filename="../avidemux/ADM_outputs/ADM_lavformat.cpp" line="214"/>
+        <source>Can&apos;t mux that video codec into MKV</source>
+        <translation>Impossibile inserire quel codec video in MKV</translation>
+    </message>
+    <message>
         <location filename="../avidemux/ADM_outputs/ADM_lavformat.cpp" line="373"/>
         <source>Incompatible frame rate</source>
         <translation>Frame rate incompatibile</translation>
@@ -10579,72 +9774,72 @@ DEI TERMINI E DELLE CONDIZIONI&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
 <context>
     <name>x264ConfigDialog</name>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="198"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="205"/>
         <source>&lt;default&gt;</source>
         <translation>&lt;predefinito&gt;</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="199"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="206"/>
         <source>&lt;custom&gt;</source>
         <translation>&lt;personalizzato&gt;</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="326"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="62"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="333"/>
         <source>Save As</source>
         <translation>Salva con nome</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="326"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="333"/>
         <source>x264 Configuration File (*.xml)</source>
         <translation>File di configurazione x264 (*.xml)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="361"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="369"/>
         <source>Are you sure you wish to delete the selected configuration?</source>
         <translation>Sei sicuro di voler eliminare la configurazione selezionata?</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="379"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="387"/>
         <source>Target Bitrate:</source>
         <translation>Bitrate finale:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="380"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="399"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3089"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3119"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="388"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="407"/>
         <source>kbit/s</source>
         <translation>kbit/s</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="384"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="392"/>
         <source>Quantiser:</source>
         <translation>Quantizzatore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="388"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="396"/>
         <source>Quality:</source>
         <translation>Qualità:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="393"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="137"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="401"/>
         <source>Target Video Size:</source>
         <translation>Dimensione video finale:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="394"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="227"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="402"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="398"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="406"/>
         <source>Average Bitrate:</source>
         <translation>Bitrate medio:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="452"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="460"/>
         <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Variance Adaptive Quantisation will automatically be enabled.
 
 Do you wish to continue?</source>
@@ -10669,7 +9864,7 @@ Do you wish to continue?</source>
 Continuare?</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="511"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="519"/>
         <source>Macroblock-Tree optimisation requires Variance Adaptive Quantisation to be enabled.  Macroblock-Tree optimisation will automatically be disabled.
 
 Do you wish to continue?</source>
@@ -10678,7 +9873,7 @@ Do you wish to continue?</source>
 Continuare?</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="535"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="543"/>
         <source>Are you sure you wish to delete the selected zone?</source>
         <translation>Sei sicuro di voler eliminare la zona selezionata?</translation>
     </message>
@@ -10694,7 +9889,7 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="69"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3296"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3326"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
@@ -10747,7 +9942,7 @@ Continuare?</translation>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="341"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="514"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2322"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2348"/>
         <source>Quantiser</source>
         <translation>Quantizzatore</translation>
     </message>
@@ -10764,42 +9959,57 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="658"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3454"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3484"/>
         <source>frames</source>
         <translation>fotogrammi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2945"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2866"/>
+        <source>Variance AQ:</source>
+        <translation>QA a varianza:</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2879"/>
+        <source>Normal</source>
+        <translation>Normale</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2884"/>
+        <source>Auto Variance AQ</source>
+        <translation>QA a varianza automatica</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2975"/>
         <source>Advanced 1</source>
         <translation>Avanzate 1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3330"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3360"/>
         <source>Multithreading</source>
         <translation>Multithreading</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3350"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3380"/>
         <source>Disable</source>
         <translation>Disattiva</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3357"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3387"/>
         <source>Auto-detect</source>
         <translation>Rilevamento automatico</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3412"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3442"/>
         <source>Enforce Repeatability</source>
         <translation>Applica ripetibilità</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3419"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3449"/>
         <source>Slice-based Threading</source>
         <translation>Multithreading sulle fette</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3434"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3464"/>
         <source>Custom Threaded Lookahead Buffer:</source>
         <translation>Buffer suddiviso personalizzato sui successivi</translation>
     </message>
@@ -10859,9 +10069,8 @@ Continuare?</translation>
         <translation>Accuratezza sotto-pixel</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="865"/>
         <source>9 (Best)</source>
-        <translation>9 (migliore)</translation>
+        <translation type="obsolete">9 (migliore)</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="943"/>
@@ -10892,16 +10101,17 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1129"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1632"/>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1674"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="99"/>
         <source>Disabled</source>
         <translation>Disattivata</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1134"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="100"/>
         <source>Blind Offset</source>
         <translation>Compensazione alla cieca</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1139"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.cpp" line="101"/>
         <source>Smart Analysis</source>
         <translation>Analisi intelligente</translation>
     </message>
@@ -10917,7 +10127,7 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1188"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4308"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4338"/>
         <source>None</source>
         <translation>Nessuna</translation>
     </message>
@@ -10933,7 +10143,7 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1203"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3537"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3567"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
@@ -11012,7 +10222,7 @@ Continuare?</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1391"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2887"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2910"/>
         <source>Strength:</source>
         <translation>Intensità:</translation>
     </message>
@@ -11100,7 +10310,7 @@ Continuare?</translation>
         <translation>Controllo bitrate ramificato a macroblocchi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3375"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3405"/>
         <source>Custom:</source>
         <comment>multithreading</comment>
         <translation>Personalizzato:</translation>
@@ -11109,6 +10319,21 @@ Continuare?</translation>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1918"/>
         <source>Periodic Intra Refresh</source>
         <translation>Aggiornamento periodico fotogrammi chiave</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="865"/>
+        <source>10 (Best)</source>
+        <translation>10 (migliore)</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1134"/>
+        <source>Weighted References</source>
+        <translation>Riferimenti pesati</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1139"/>
+        <source>Weighted References + Duplicates</source>
+        <translation>Riferimenti e duplicati pesati</translation>
     </message>
     <message>
         <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1373"/>
@@ -11172,584 +10397,588 @@ Continuare?</translation>
         <translation>Analisi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1966"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1960"/>
         <source>Mixed References</source>
         <translation>Riferimenti misti</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1973"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1967"/>
         <source>Chroma Motion Estimation</source>
         <translation>Stima movimento croma</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1988"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1982"/>
         <source>Trellis Quantization:</source>
         <translation>Quantizzazione Trellis:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1999"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1993"/>
         <source>Final Macroblock Only</source>
         <translation>Solo macroblocco finale</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2004"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="1998"/>
         <source>Always On</source>
         <translation>Sempre attiva</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2027"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2021"/>
         <source>Fast Skip Detection on P-frames</source>
         <translation>Rilevamento sommario sui fotogrammi P</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2034"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2028"/>
         <source>DCT Decimation on P-frames</source>
         <translation>Decimazione DCT sui fotogrammi P</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2049"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2037"/>
         <source>Psychovisual Rate Distortion Optimisation:</source>
         <translation>Ottimizzazione psicovisuale distorsione bitrate:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2089"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2074"/>
+        <source>Psychovisual Trellis:</source>
+        <translation>Trellis psicovisuale:</translation>
+    </message>
+    <message>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2111"/>
         <source>Noise Reduction:</source>
         <translation>Riduzione rumore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2121"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2147"/>
         <source>Luma Quantisation Deadzone</source>
         <translation>Quantizzazione luma a zona morta</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2141"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2167"/>
         <source>Intra Luma Quantisation Deadzone:</source>
         <translation>Quantizzazione Intra luma a zona morta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2148"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2174"/>
         <source>Inter Luma Quantisation Deadzone:</source>
         <translation>Quantizzazione Inter luma a zona morta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2226"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2252"/>
         <source>Quantisation Matrix</source>
         <translation>Matrice di quantizzazione</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2246"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2272"/>
         <source>Flat Matrix</source>
         <translation>Matrice piana</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2256"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2282"/>
         <source>JVT Matrix</source>
         <translation>Matrice JVT</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2271"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2297"/>
         <source>Custom Matrix</source>
         <translation>Matrice personalizzata</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2281"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3289"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2307"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3319"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2334"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2354"/>
         <source>Quantiser Control</source>
         <translation>Controllo quantizzatore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2387"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2407"/>
         <source>Maximum Quantiser:</source>
         <translation>Quantizzatore massimo:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2394"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2414"/>
         <source>I and P-frame Quantiser Ratio:</source>
         <translation>Rapporto quantizzatore fotogrammi I e P:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2497"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2715"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3052"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2517"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2732"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3082"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2519"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2539"/>
         <source>Maximum Quantiser Step:</source>
         <translation>Massima variazione quantizzatore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2559"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2579"/>
         <source>P and B-frame Quantiser Ratio:</source>
         <translation>Rapporto quantizzatore fotogrammi P e B:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2566"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2586"/>
         <source>Average Bitrate Tolerance:</source>
         <translation>Tolleranza bitrate medio:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2573"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2593"/>
         <source>Chroma to Luma Quantiser Offset:</source>
         <translation>Compensazione quantizzatore croma rispetto a luma:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2616"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2633"/>
         <source>Minimum Quantiser:</source>
         <translation>Quantizzatore minimo:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2670"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2687"/>
         <source>Quantiser Curve Compression</source>
         <translation>Compressione curva quantizzatore</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2690"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2707"/>
         <source>Quantiser Curve Compression:</source>
         <translation>Compressione curva quantizzatore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2747"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2764"/>
         <source>Reduce Fluctuation Before Curve Compression:</source>
         <translation>Riduci fluttuazioni prima di compressione curva:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2829"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2846"/>
         <source>Reduce Fluctuation After Curve Compression:</source>
         <translation>Riduci fluttuazioni dopo compressione curva:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2841"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2858"/>
         <source>Adaptive Quantisation</source>
         <translation>Quantizzazione adattiva</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2861"/>
         <source>Variance AQ</source>
-        <translation>QA a varianza</translation>
+        <translation type="obsolete">QA a varianza</translation>
     </message>
     <message>
         <source>Advanced</source>
         <translation type="obsolete">Avanzate</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2963"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2993"/>
         <source>Video Buffer Verifier</source>
         <translation>Verifica buffer video</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2983"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3013"/>
         <source>Maximum VBV Bitrate:</source>
         <translation>Massimo bitrate VBV:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="2990"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3020"/>
         <source>Initial VBV Buffer Occupancy:</source>
         <translation>Occupazione iniziale buffer VBV:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3012"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3042"/>
         <source>kbit</source>
         <translation>kbit</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3111"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3141"/>
         <source>VBV Buffer Size:</source>
         <translation>Dimensione buffer VBV:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3123"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3153"/>
         <source>Slicing</source>
         <translation>Suddivisione in fette</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3135"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3165"/>
         <source>Slices per Frame:</source>
         <translation>Fette per fotogramma:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3142"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3172"/>
         <source>Maximum Size per Slice:</source>
         <translation>Dimensione massima di una fetta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3164"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3194"/>
         <source>bytes</source>
         <translation>byte</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3186"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3216"/>
         <source>Maximum Macroblocks per Slice:</source>
         <translation>Massimo numero di macroblocchi per fetta:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3256"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3286"/>
         <source>Zones</source>
         <translation>Zone</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3282"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3312"/>
         <source>Add</source>
         <translation>Aggiungi</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3324"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3354"/>
         <source>Advanced 2</source>
         <translation>Avanzate 2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3493"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3523"/>
         <source>Output 1</source>
         <translation>Output 1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3505"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3535"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3542"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3663"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3572"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3693"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3547"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3577"/>
         <source>1.1</source>
         <translation>1.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3552"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3582"/>
         <source>1.2</source>
         <translation>1.2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3557"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3587"/>
         <source>1.3</source>
         <translation>1.3</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3562"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3592"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3567"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3597"/>
         <source>2.1</source>
         <translation>2.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3572"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3602"/>
         <source>2.2</source>
         <translation>2.2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3577"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3668"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3607"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3698"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3582"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3612"/>
         <source>3.1</source>
         <translation>3.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3587"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3617"/>
         <source>3.2</source>
         <translation>3.2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3592"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3622"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3597"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3627"/>
         <source>4.1</source>
         <translation>4.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3602"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3632"/>
         <source>4.2</source>
         <translation>4.2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3607"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3637"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3612"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3642"/>
         <source>5.1</source>
         <translation>5.1</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3635"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3665"/>
         <source>Sequence Parameter Set Identifer:</source>
         <translation>Identificatore set di parametri di sequenza:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3642"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3672"/>
         <source>IDC Level:</source>
         <translation>Livello IDC:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3658"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3688"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3673"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3703"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3678"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3708"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3683"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3713"/>
         <source>31</source>
         <translation>31</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3708"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3738"/>
         <source>Generate Access Unit Delimiters</source>
         <translation>Genera delimitatori di unità di accesso</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3718"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3748"/>
         <source>Pixel Aspect Ratio</source>
         <translation>Proporzioni pixel</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3738"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3768"/>
         <source>Custom:</source>
         <comment>PAR</comment>
         <translation>Personalizzato:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3748"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3778"/>
         <source>As Input</source>
         <translation>Come in ingresso</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3809"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3839"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3844"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3874"/>
         <source>Predefined Aspect Ratio:</source>
         <translation>Proporzioni predefinite:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3863"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3893"/>
         <source>16:15 (PAL 4:3)</source>
         <translation>16:15 (PAL 4:3)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3868"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3898"/>
         <source>64:45 (PAL 16:9)</source>
         <translation>64:45 (PAL 16:9)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3873"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3903"/>
         <source>8:9 (NTSC 4:3)</source>
         <translation>8:9 (NTSC 4:3)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3878"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3908"/>
         <source>32:27 (NTSC 16:9)</source>
         <translation>32:27 (NTSC 16:9)</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3920"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3950"/>
         <source>Output 2</source>
         <translation>Output 2</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3926"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3956"/>
         <source>Video Usability Information</source>
         <translation>Informazioni usabilità video</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3932"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3962"/>
         <source>These settings are only suggestions for the playback equipment.  Use at your own risk.</source>
         <translation>Queste impostazioni sono solo suggerimenti per il dispositivo di riproduzione. Utilizzarle a proprio rischio.</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3976"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4028"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4092"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4161"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4240"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4006"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4058"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4122"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4191"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4270"/>
         <source>Undefined</source>
         <translation>Non definito</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4097"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4166"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4245"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4127"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4196"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4275"/>
         <source>BT709</source>
         <translation>BT709</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4102"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4171"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4132"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4201"/>
         <source>BT470M</source>
         <translation>BT470M</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4107"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4176"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4255"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4137"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4206"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4285"/>
         <source>BT470BG</source>
         <translation>BT470BG</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4181"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4211"/>
         <source>Linear</source>
         <translation>Lineare</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4186"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4216"/>
         <source>LOG100</source>
         <translation>LOG100</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4191"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4221"/>
         <source>LOG316</source>
         <translation>LOG316</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4196"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4226"/>
         <source>SMPTEL170M</source>
         <translation>SMPTEL170M</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4117"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4201"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4265"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4147"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4231"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4295"/>
         <source>SMPTE240M</source>
         <translation>SMPTE240M</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4076"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4106"/>
         <source>Colour Primaries:</source>
         <translation>Colori primari:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3981"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4011"/>
         <source>Show</source>
         <translation>Mostra</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3986"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4016"/>
         <source>Crop</source>
         <translation>Crop</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4250"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4280"/>
         <source>FCC</source>
         <translation>FCC</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4112"/>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4260"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4142"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4290"/>
         <source>SMPTE170M</source>
         <translation>SMPTE170M</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4270"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4300"/>
         <source>GBR</source>
         <translation>GBR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4275"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4305"/>
         <source>YCgCo</source>
         <translation>YCgCo</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4224"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4254"/>
         <source>Colour Matrix:</source>
         <translation>Matrice colore:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4033"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4063"/>
         <source>Component</source>
         <translation>Component</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4038"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4068"/>
         <source>PAL</source>
         <translation>PAL</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4043"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4073"/>
         <source>NTSC</source>
         <translation>NTSC</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4048"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4078"/>
         <source>SECAM</source>
         <translation>SECAM</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4053"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4083"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4122"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4152"/>
         <source>Film</source>
         <translation>Film</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4145"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4175"/>
         <source>Transfer Characteristics:</source>
         <translation>Caratteristiche di trasferimento:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4298"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4328"/>
         <source>HRD Parameters:</source>
         <translation>Parametri HRD:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4313"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4343"/>
         <source>VBR</source>
         <translation>VBR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4318"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4348"/>
         <source>CBR</source>
         <translation>CBR</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4341"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4371"/>
         <source>Chroma Sample Location:</source>
         <translation>Posizione campione croma:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4009"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4039"/>
         <source>Video Format:</source>
         <translation>Formato video:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3960"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="3990"/>
         <source>Overscan:</source>
         <translation>Overscan:</translation>
     </message>
     <message>
-        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4380"/>
+        <location filename="../plugins/ADM_videoEncoder/ADM_vidEnc_x264/qt4/x264ConfigDialog.ui" line="4410"/>
         <source>Full Range Samples</source>
         <translation>Campioni a gamma completa</translation>
     </message>
