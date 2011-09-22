@@ -1,6 +1,6 @@
---- ../ffmpeg-0.8/libavformat/isom.c	2011-06-23 20:23:55 +0100
-+++ libavformat/isom.c	2011-06-23 20:23:55 +0100
-@@ -237,7 +237,10 @@
+--- ../ffmpeg-0.8.4/libavformat/isom.c	2011-09-22 20:39:59 +0100
++++ libavformat/isom.c	2011-09-22 20:39:59 +0100
+@@ -239,7 +239,10 @@
      { CODEC_ID_MP1, MKTAG('.', 'm', 'p', '1') }, /* MPEG layer 1 */
      { CODEC_ID_MP2, MKTAG('.', 'm', 'p', '2') }, /* MPEG layer 2 */
  

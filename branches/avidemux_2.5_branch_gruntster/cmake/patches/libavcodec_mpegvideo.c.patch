@@ -1,6 +1,6 @@
---- ../ffmpeg-0.8/libavcodec/mpegvideo.c	2011-06-23 20:23:54 +0100
-+++ libavcodec/mpegvideo.c	2011-06-23 20:23:54 +0100
-@@ -736,7 +736,11 @@
+--- ../ffmpeg-0.8.4/libavcodec/mpegvideo.c	2011-09-22 20:39:59 +0100
++++ libavcodec/mpegvideo.c	2011-09-22 20:39:59 +0100
+@@ -737,7 +737,11 @@
      FF_ALLOCZ_OR_GOTO(s->avctx, s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE, fail);
  
      s->parse_context.state= -1;
