@@ -243,6 +243,10 @@ MainWindow::MainWindow() : QMainWindow()
 	qtRegisterDialog(this);
 	ui.setupUi(this);
 
+#ifdef __WIN32
+	mswin.init(this->winId());
+#endif
+
 	this->setStatusBar(0);
 	this->adjustSize();
 
@@ -692,6 +696,14 @@ MainWindow::~MainWindow()
 	clearCustomMenu();
 	renderDestroy();
 }
+
+#ifdef __WIN32
+bool MainWindow::winEvent(MSG *message, long *result)
+{
+    return mswin.winEvent(message, result);
+}
+#endif
+
 static const UI_FUNCTIONS_T UI_Hooks=
     {
         ADM_RENDER_API_VERSION_NUMBER,

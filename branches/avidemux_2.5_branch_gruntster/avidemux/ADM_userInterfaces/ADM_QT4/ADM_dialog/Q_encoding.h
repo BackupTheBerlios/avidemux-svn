@@ -17,6 +17,7 @@ class encodingWindow : public QDialog
  public:
      encodingWindow(QWidget *parent, bool useTray);
      Ui_encodingDialog ui;
+	 int _phase;
 
  public slots:
 	void buttonPressed(void);

@@ -24,14 +24,17 @@
 #include "ADM_video/ADM_vidMisc.h"
 #include "../ADM_gui/ADM_qtray.h"
 #include "ADM_toolkitQt.h"
+#include "Q_gui2.h"
 
 extern void UI_iconify(void);
 extern void UI_deiconify(void);
 extern void UI_purge(void);
+extern MainWindow *QuiMainWindows;
 static int stopReq=0;
 
 encodingWindow::encodingWindow(QWidget *parent, bool useTray) : QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint)
 {
+	this->_phase = 0;
 	this->useTray = useTray;
 	ui.setupUi(this);
 
@@ -92,9 +95,16 @@ void encodingWindow::changeEvent(QEvent *event)
 
 void encodingWindow::closeEvent(QCloseEvent *event)
 {
+#ifdef __WIN32
+	QuiMainWindows->mswin.setProgressState(TBPF_PAUSED);
+#endif
+
 	if (GUI_Alternate((char*)encodingWindow::tr("The encoding is paused. Do you want to resume or abort?").toUtf8().constData(),
 		(char*)encodingWindow::tr("Resume").toUtf8().constData(), (char*)encodingWindow::tr("Abort").toUtf8().constData()))
 	{
+#ifdef __WIN32
+		QuiMainWindows->mswin.setProgressState(TBPF_NORMAL);
+#endif
 		stopReq = 0;
 		event->ignore();
 	}
@@ -149,7 +159,7 @@ void encodingWindow::shutdownChanged(int state)
 /*************************************/
 static char string[80];
 static encodingWindow *window=NULL;
-extern QDialog *QuiMainWindows;
+
 DIA_encoding::DIA_encoding( uint32_t fps1000 )
 {
 	uint32_t useTray = 0;
@@ -209,6 +219,10 @@ void DIA_stop( void)
 }
 DIA_encoding::~DIA_encoding( )
 {
+#ifdef __WIN32
+	QuiMainWindows->mswin.setProgressState(TBPF_NOPROGRESS);
+#endif
+
 	bool shutdownRequired = (window->ui.checkBoxShutdown->checkState() == Qt::Checked);
 
 	setpriority(PRIO_PROCESS, 0, _originalPriority);
@@ -255,6 +269,14 @@ void DIA_encoding::setPhasis(const char *n)
           ADM_assert(window);
           WRITEM(labelPhasis,n);
 
+		  if (strcmp(n, QT_TR_NOOP("1st Pass")) == 0)
+		  {
+			  window->_phase = 1;
+		  }
+		  else if (strcmp(n, QT_TR_NOOP("2nd Pass")) == 0)
+		  {
+			  window->_phase = 2;
+		  }
 }
 /**
     \fn setAudioCodec(const char *n)
@@ -434,6 +456,17 @@ uint32_t tim;
             float f=_lastnb*100;
             f=f/_total;
             WIDGET(progressBar)->setValue((int)f);
+
+#ifdef __WIN32
+			if (window->_phase == 0)
+			{
+				QuiMainWindows->mswin.setProgressValue((int)(f * 100), 10000);
+			}
+			else
+			{
+				QuiMainWindows->mswin.setProgressValue(((int)(f * 50)) + ((window->_phase - 1) * 5000), 10000);
+			}
+#endif
 
 			if(tray)
 				tray->setPercent((int)f);

@@ -11,6 +11,10 @@
 #include "T_thumbSlider.h"
 #include "ui_gui2.h"
 
+#ifdef __WIN32
+#include "Q_mswin.h"
+#endif
+
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -22,6 +26,11 @@ public:
 	void buildAutoMenu(void);
 
 	Ui_MainWindow ui;
+
+#ifdef __WIN32
+	Q_mswin mswin;
+	bool winEvent(MSG *message, long *result);
+#endif
 
 public slots:
 	void timeChanged(int);
