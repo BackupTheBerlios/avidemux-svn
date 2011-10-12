@@ -1,5 +1,22 @@
 <?xml version="1.0"?>
 <log>
+  <buildentry revision="7573" date="2011-09-22">
+    <comment>Updated x264 to r2085.</comment>
+  </buildentry>
+  <buildentry revision="7515" date="2011-09-12">
+    <comment>Updated Qt to version 4.7.4.</comment>
+    <comment>Updated x264 to r2074.</comment>
+  </buildentry>
+  <buildentry revision="7428" date="2011-08-18">
+    <comment>Updated libvpx to version 0.9.7-p1.</comment>
+    <comment>Updated NSPR to version 4.8.9.</comment>
+    <comment>Updated x264 to r2057.</comment>
+  </buildentry>
+  <buildentry revision="7389" date="2011-08-05">
+    <comment>Updated libogg to version 1.3.0.</comment>
+    <comment>Updated libvpx to version 0.9.7.</comment>
+    <comment>Updated x264 to r2044.</comment>
+  </buildentry>
   <buildentry revision="7317" date="2011-07-10">
     <comment>Compiled with GCC 4.6.1.</comment>
     <comment>Updated x264 to r2019.</comment>

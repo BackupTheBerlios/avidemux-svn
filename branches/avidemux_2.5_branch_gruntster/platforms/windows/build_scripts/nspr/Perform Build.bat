@@ -20,15 +20,15 @@ verify >nul
 call "../Set Common Environment Variables"
 if errorlevel 1 goto end
 
-set package=nspr-4.8.8.tar.gz
-set sourceFolder=nspr-4.8.8-%BuildBits%
-set tarFolder=nspr-4.8.8
+set package=nspr-4.8.9.tar.gz
+set sourceFolder=nspr-4.8.9-%BuildBits%
+set tarFolder=nspr-4.8.9
 set curDir=%CD%
 
 if not exist %package% (
 	echo.
 	echo Downloading
-	wget ftp://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.8.8/src/%package%
+	wget ftp://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.8.9/src/%package%
 )
 
 if errorlevel 1 goto end
@@ -52,7 +52,7 @@ for /f "delims=" %%a in ('dir /b %tarFolder%') do (
 
 echo.
 echo Patching
-patch -p0 -i "%curDir%\configure.patch"
+patch -p0 -i "%curDir%\configure%BuildBits%.patch"
 
 echo.
 echo Configuring
@@ -73,7 +73,8 @@ move "%usrLocalDir%\lib\nspr4.dll" "%usrLocalDir%\bin"
 copy "%usrLocalDir%\bin\nspr4.dll" "%admBuildDir%"
 
 pexports "%usrLocalDir%/bin/nspr4.dll" > nspr4.def
-dlltool -d nspr4.def -l "%usrLocalDir%/lib/nspr4.dll.a"
+if "%BuildBits%" == "32" dlltool -d nspr4.def -l "%usrLocalDir%/lib/nspr4.dll.a" -m i386 --as-flags=--32
+if "%BuildBits%" == "64" dlltool -d nspr4.def -l "%usrLocalDir%/lib/nspr4.dll.a"
 
 goto end
 

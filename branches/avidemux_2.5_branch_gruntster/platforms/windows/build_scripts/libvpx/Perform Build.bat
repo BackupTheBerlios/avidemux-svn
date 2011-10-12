@@ -17,9 +17,9 @@ verify >nul
 call "../Set Common Environment Variables"
 if errorlevel 1 goto end
 
-set package=libvpx-v0.9.7.tar.bz2
-set sourceFolder=libvpx-0.9.7-%BuildBits%
-set tarFolder=libvpx-v0.9.7
+set package=libvpx-v0.9.7-p1.tar.bz2
+set sourceFolder=libvpx-0.9.7-p1-%BuildBits%
+set tarFolder=libvpx-v0.9.7-p1
 set curDir=%CD%
 
 if not exist %package% (
@@ -55,7 +55,7 @@ patch -p0 -i "%curDir%\configure.sh.patch"
 echo.
 echo Configuring
 
-if "%BuildBits%" == "32" sh ./configure --prefix="%usrLocalDir%" --disable-vp8-encoder
+if "%BuildBits%" == "32" sh ./configure --prefix="%usrLocalDir%" --disable-vp8-encoder --target=x86-win32-gcc
 if "%BuildBits%" == "64" sh ./configure --prefix="%usrLocalDir%" --disable-vp8-encoder --target=x86_64-win64-gcc
 
 if errorlevel 1 goto end
