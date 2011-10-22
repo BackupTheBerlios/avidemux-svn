@@ -14,7 +14,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#include "config.h"
 
 #ifdef __APPLE__
 #include <stdio.h>
@@ -25,10 +24,13 @@
 #include "ADM_default.h"
 #include "ADM_assert.h"
 #include "ADM_audiodevice.h"
-#include "ADM_audiodevice/ADM_deviceAudioCore.h"
+#include "ADM_audioDeviceInternal.h"
+#include "ADM_deviceAudioCore.h"
 #include "ADM_osSupport/ADM_debugID.h"
 #define MODULE_NAME  MODULE_ADEVICE
 #include "ADM_osSupport/ADM_debug.h"
+
+ADM_DECLARE_AUDIODEVICE(CoreAudio,coreAudioDevice,1,0,0,"CoreAudio audio device (c) mean");
 
 #define BUFFER_SIZE (500*48000)
 
@@ -135,7 +137,7 @@ OSStatus MyRenderer(void *inRefCon, AudioUnitRenderActionFlags *inActionFlags, c
         return 0; \
     }
 
-uint8_t coreAudioDevice::init(uint8_t channels, uint32_t fq) 
+uint8_t coreAudioDevice::init(uint32_t channels, uint32_t fq) 
 {
 	_channels = channels;
 
