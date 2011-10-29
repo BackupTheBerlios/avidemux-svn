@@ -1,19 +1,19 @@
 # Translation of Avidemux to Hungarian
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the Avidemux package.
-# László Andrássy <andrassy.laszlo@gmail.com>, 2009-2010.
+# László Andrássy <andrassy.laszlo@gmail.com>, 2009-2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Avidemux_SVN_6997\n"
+"Project-Id-Version: Avidemux_SVN_7629\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-14 19:03+0100\n"
-"PO-Revision-Date: 2011-02-16 09:29+0100\n"
+"PO-Revision-Date: 2011-10-28 08:40+0100\n"
 "Last-Translator: Andrássy László <andrassy.laszlo@gmail.com>\n"
-"Language-Team: Hungarian\n"
+"Language-Team: Hungarian <andrassy.laszlo@gmail.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Creation-Date: 2009-10-19 09:25+0100\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -4156,7 +4156,7 @@ msgstr "_Ugrás képkockához..."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:888
 msgid "Go to _Time..."
-msgstr "Időponthoz _ugrás..."
+msgstr "Ugrás _időponthoz..."
 
 #: avidemux/ADM_userInterfaces/ADM_GTK/ADM_gui2/GUI_main2.cpp:899
 msgid "_Custom"
