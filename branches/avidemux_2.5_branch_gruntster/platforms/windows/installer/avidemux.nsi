@@ -16,7 +16,7 @@ SetCompressorDictSize 96
 # Defines
 ##########################
 
-!define PRODUCT_VERSION "2.5.4.${REVISION}"
+!define PRODUCT_VERSION "2.5.5.${REVISION}"
 !define PRODUCT_NAME "Avidemux 2.5"
 !define PRODUCT_FULLNAME "Avidemux ${PRODUCT_VERSION} (${BUILD_BITS}-bit beta)"
 
