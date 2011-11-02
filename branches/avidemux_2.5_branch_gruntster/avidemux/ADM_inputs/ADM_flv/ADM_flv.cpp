@@ -85,13 +85,27 @@ uint32_t flvHeader::read32(void)
     \fn     readFlvString
     \brief  read pascal like string
 */
+#define FLV_MAX_STRING 255
 char *flvHeader::readFlvString(void)
 {
-static char stringz[255];
+static uint8_t stringz[FLV_MAX_STRING+1];
     int size=read16();
-    read(size,(uint8_t *)stringz);
+    if(size>FLV_MAX_STRING)
+    {
+        int pre=FLV_MAX_STRING;
+        read(pre,stringz);
+        printf("String way too large :%d\n",size);
+        mixDump(stringz,pre);
+        stringz[0]='X';
+        stringz[1]='X';
+        stringz[2]=0;
+        stringz[FLV_MAX_STRING]=0;
+        Skip(size-FLV_MAX_STRING);
+        return (char *)stringz;
+    }
+    read(size,stringz);
     stringz[size]=0;
-    return stringz;
+    return (char *)stringz;
 }
 
 extern "C" {
@@ -212,24 +226,18 @@ xxer:
 uint8_t flvHeader::parseMetaData(uint32_t remaining)
 {
     uint32_t endPos=ftello(_fd)+remaining;
+    // Check the first one is onMetaData...
+    uint8_t type=read8();
+    char *z;
+    if(type!=AMF_DATA_TYPE_STRING) // String!
+        goto endit;
+    z=readFlvString();
+    printf("[FlashString] %s\n",z);
+    if(z && strncmp(z,"onMetaData",10)) goto endit;
+    // Normally the next one is mixed array
+    while(ftello(_fd)<endPos-4)
     {
-        // Check the first one is onMetaData...
-        uint8_t type=read8();
-        if(type!=AMF_DATA_TYPE_STRING) // String!
-            goto endit;
-        char *z=readFlvString();
-        printf("[FlashString] %s\n",z);
-        if(z && strncmp(z,"onMetaData",10)) goto endit;
-        // Normally the next one is mixed array
-        Skip(4);
-        Skip(1);
-        while(ftello(_fd)<endPos-4)
-        {
-            char *s=readFlvString();
-            printf("[FlvType]  String : %s ",s);
-            
-            if(false==parseOneMeta(s,endPos)) goto endit;
-        }
+         if(false==parseOneMeta("meta",endPos)) goto endit;
     }
 endit:
     fseeko(_fd,endPos,SEEK_SET);
