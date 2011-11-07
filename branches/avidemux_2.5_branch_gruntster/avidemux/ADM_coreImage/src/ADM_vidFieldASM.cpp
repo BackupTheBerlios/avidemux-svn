@@ -141,8 +141,8 @@ void myDeintASM(void)
                             "add 	$4,	"REG_ax"\n\t"
                             "add 	$4,	"REG_bx"\n\t"
                             "add 	$4,	"REG_cx"\n\t"
-                            "add 	$4,	"Mangle(_l_e)"\n\t"
-                            "add 	$4,	"Mangle(_l_e2)"\n\t"
+                            "addl 	$4,	"Mangle(_l_e)"\n\t"
+                            "addl 	$4,	"Mangle(_l_e2)"\n\t"
                             "sub 	$1,	"REG_si"\n\t"
                             "jnz 7b\n\t"
                             "pop "REG_bx"\n\t" // Dont clobber ebx for macOsX
