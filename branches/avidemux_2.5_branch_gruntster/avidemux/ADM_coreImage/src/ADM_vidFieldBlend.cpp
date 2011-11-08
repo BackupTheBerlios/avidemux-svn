@@ -163,7 +163,7 @@ void myBlendASM(void)
 "add       $4,"REG_di" \n\t"
 "sub       $1,"REG_dx"	\n\t"
 "jne        DHLineB%= \n\t"   // next
-"sub       $1,"Mangle(_l_h)"  \n\t" // next line
+"subl       $1,"Mangle(_l_h)"  \n\t" // next line
 "jne        DHCOLB%= \n\t"
 "pop 				"REG_ax"\n\t"
 "pop 				"REG_si"\n\t"
