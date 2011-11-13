@@ -2,7 +2,7 @@
 
 export curDir=$PWD
 export ffmpegPath=../../avidemux/ADM_libraries/ffmpeg
-export origFfmpegPath=../ffmpeg-0.8.5
+export origFfmpegPath=../ffmpeg-0.8.6
 
 function updatePatch {
 	#cd $ffmpegPath
@@ -36,7 +36,6 @@ updatePatch libavcodec mpegvideo.c
 updatePatch libavcodec mpegvideo_enc.c
 updatePatch libavcodec utils.c
 updatePatch libavcodec vc1dec.c
-updatePatch libavformat file.c
 updatePatch libavformat isom.c
 updatePatch libavformat matroskaenc.c
 updatePatch libavutil avutil.h

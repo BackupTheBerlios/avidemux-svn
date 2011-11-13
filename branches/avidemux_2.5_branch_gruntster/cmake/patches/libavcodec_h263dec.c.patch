@@ -1,5 +1,5 @@
---- ../ffmpeg-0.8/libavcodec/h263dec.c	2011-06-23 20:23:53 +0100
-+++ libavcodec/h263dec.c	2011-06-23 20:23:53 +0100
+--- ../ffmpeg-0.8.6/libavcodec/h263dec.c	2011-11-13 16:42:33 +0000
++++ libavcodec/h263dec.c	2011-11-13 16:42:33 +0000
 @@ -115,6 +115,25 @@
  
      return 0;
@@ -26,29 +26,3 @@
  
  av_cold int ff_h263_decode_end(AVCodecContext *avctx)
  {
-@@ -431,6 +450,12 @@
-     } else {
-         ret = h263_decode_picture_header(s);
-     }
-+	//MEANX we need to do it here also for quicktime file / ctts atom 
-+        // we need the correct frame type, and qt file may contain 
-+        // vop not coded frame.
-+        pict->pict_type=s->current_picture.pict_type= s->pict_type;
-+        pict->key_frame=s->current_picture.key_frame= s->pict_type == FF_I_TYPE;
-+        //MEANX
- 
-     if(ret==FRAME_SKIPPED) return get_consumed_bytes(s, buf_size);
- 
-@@ -715,6 +740,12 @@
- 
- assert(s->current_picture.pict_type == s->current_picture_ptr->pict_type);
- assert(s->current_picture.pict_type == s->pict_type);
-+
-+/* MEANX */
-+    if(s->current_picture_ptr)
-+        s->current_picture_ptr->opaque=pict->opaque;
-+/* MEANX */
-+
-     if (s->pict_type == AV_PICTURE_TYPE_B || s->low_delay) {
-         *pict= *(AVFrame*)s->current_picture_ptr;
-     } else if (s->last_picture_ptr != NULL) {
