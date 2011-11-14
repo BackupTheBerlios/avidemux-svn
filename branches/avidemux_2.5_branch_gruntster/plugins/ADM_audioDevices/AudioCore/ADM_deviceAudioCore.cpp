@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <AudioUnit/AudioUnit.h>
+#include <CoreAudio/AudioHardware.h>
 #include <CoreServices/CoreServices.h>
 
 #include "ADM_default.h"
