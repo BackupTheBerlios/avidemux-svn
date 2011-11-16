@@ -487,19 +487,14 @@ uint8_t lavMuxer::open(const char *filename,uint32_t inbitrate, ADM_MUXER_TYPE t
 	oc->preload=AV_TIME_BASE/10; // 100 ms preloading
 	oc->max_delay=200*1000; // 500 ms
 
-	if (av_set_parameters(oc, NULL) < 0)
+	if (avio_open(&(oc->pb), filename, AVIO_FLAG_WRITE) < 0)
 	{
-		printf("Lav: set param failed \n");
+		printf("Lav: Failed to open file :%s\n",filename);
 		return 0;
 	}
-	 if (url_fopen(&(oc->pb), filename, URL_WRONLY) < 0)
-	 {
-	 	printf("Lav: Failed to open file :%s\n",filename);
-		return 0;
-        }
 
-	ADM_assert(av_write_header(oc)>=0);
-	dump_format(oc, 0, filename, 1);
+	ADM_assert(avformat_write_header(oc, NULL)>=0);
+	av_dump_format(oc, 0, filename, 1);
 
 
 	printf("lavformat mpeg muxer initialized\n");
@@ -672,7 +667,7 @@ uint8_t lavMuxer::close( void )
 		// Flush
 		// Cause deadlock :
 		av_write_trailer(oc);
-		url_fclose((oc->pb));
+		avio_close(oc->pb);
 
 	}
 	if(audio_st)

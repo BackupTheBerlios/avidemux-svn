@@ -23,6 +23,7 @@
 extern "C"
 {
 #include "libavcodec/avcodec.h"
+#include "libavutil/pixdesc.h"
 #include "libswscale/swscale.h"
 }
 
@@ -139,7 +140,7 @@ uint8_t externalEncoder::configure(AVDMGenericVideoStream *instream, int useExis
 			_resampleBuffer = new uint8_t[_resampleSize];
 		}
 
-		printf("[externalEncoder] Target colourspace: %s\n", _pixFmt == PIX_FMT_YUV420P ? "yv12" : avcodec_get_pix_fmt_name(_pixFmt));
+		printf("[externalEncoder] Target colourspace: %s\n", _pixFmt == PIX_FMT_YUV420P ? "yv12" : av_get_pix_fmt_name(_pixFmt));
 
 		return (startPass() == ADM_VIDENC_ERR_SUCCESS);
 	}
