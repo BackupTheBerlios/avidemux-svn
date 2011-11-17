@@ -168,7 +168,9 @@ int main(int argc, char *argv[])
 
 	// Start counting memory
 	ADM_memStatInit();
+#ifndef __APPLE__
     ADM_InitMemcpy();
+#endif
 	printf("\nInitialising prefs\n");
 	initPrefs();
 	prefs->load();
