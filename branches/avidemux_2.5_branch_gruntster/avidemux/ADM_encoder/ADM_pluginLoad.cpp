@@ -189,8 +189,8 @@ static bool comparePlugins(ADM_vidEnc_plugin* plugin1, ADM_vidEnc_plugin* plugin
 {
 	int firstLen = strlen(plugin1->getEncoderType(plugin1->encoderId)) + strlen(plugin1->getEncoderName(plugin1->encoderId));
 	int secondLen = strlen(plugin2->getEncoderType(plugin2->encoderId)) + strlen(plugin2->getEncoderName(plugin2->encoderId));
-	char first[firstLen];
-	char second[secondLen];
+	char first[firstLen+1];
+	char second[secondLen+1];
 	int i = 0;
 
 	strcpy(first, plugin1->getEncoderType(plugin1->encoderId));
