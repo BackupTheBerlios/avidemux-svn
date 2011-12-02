@@ -1,6 +1,6 @@
---- ../ffmpeg-0.8.5/libavcodec/utils.c	2011-10-11 22:27:47 +0100
-+++ libavcodec/utils.c	2011-10-11 22:27:47 +0100
-@@ -792,10 +792,12 @@
+--- ../ffmpeg-0.8.7/libavcodec/utils.c	2011-12-01 17:17:55 +0000
++++ libavcodec/utils.c	2011-12-01 17:17:55 +0000
+@@ -814,10 +814,12 @@
  
      if((avctx->codec->capabilities & CODEC_CAP_DELAY) || avpkt->size){
          //FIXME remove the check below _after_ ensuring that all audio check that the available space is enough

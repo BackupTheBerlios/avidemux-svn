@@ -1,6 +1,6 @@
---- ../ffmpeg-0.8/libavcodec/avcodec.h	2011-06-23 20:23:53 +0100
-+++ libavcodec/avcodec.h	2011-06-23 20:23:53 +0100
-@@ -619,6 +619,8 @@
+--- ../ffmpeg-0.8.7/libavcodec/avcodec.h	2011-12-01 17:17:54 +0000
++++ libavcodec/avcodec.h	2011-12-01 17:17:54 +0000
+@@ -620,6 +620,8 @@
  #define CODEC_FLAG2_PSY           0x00080000 ///< Use psycho visual optimizations.
  #define CODEC_FLAG2_SSIM          0x00100000 ///< Compute SSIM during encoding, error[] values are undefined.
  #define CODEC_FLAG2_INTRA_REFRESH 0x00200000 ///< Use periodic insertion of intra blocks instead of keyframes.
@@ -9,7 +9,7 @@
  
  /* Unsupported options :
   *              Syntax Arithmetic coding (SAC)
-@@ -1594,6 +1596,7 @@
+@@ -1595,6 +1597,7 @@
       * - decoding: unused
       */
      int rc_max_rate;
@@ -17,7 +17,7 @@
  
      /**
       * minimum bitrate
-@@ -1608,6 +1611,8 @@
+@@ -1609,6 +1612,8 @@
       * - decoding: unused
       */
      int rc_buffer_size;
