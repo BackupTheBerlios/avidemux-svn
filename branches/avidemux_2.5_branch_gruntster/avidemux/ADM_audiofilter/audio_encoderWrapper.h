@@ -14,13 +14,13 @@ protected:
 public:
                             ADM_audioEncoderWrapper( AUDMEncoder *coder);
         virtual             ~ADM_audioEncoderWrapper();
-        virtual	uint8_t		getPacket(uint8_t *dest, uint32_t *len, uint32_t *samples);
+        virtual	uint8_t		getPacket(uint8_t *dest, uint32_t *len, uint32_t *samples) __attribute__((force_align_arg_pointer));
 		virtual uint8_t     packetPerFrame( void);
 
         virtual uint8_t		goTo(uint32_t offset) {ADM_assert(0);return 0;} // Not supposed to seek..
         virtual uint32_t	read(uint32_t size,uint8_t *ptr);
         virtual uint8_t		extraData(uint32_t *l,uint8_t **d);
-        virtual uint8_t  	isVBR(void ) ;
+        virtual uint8_t  	isVBR(void );
 };
 
 #endif
