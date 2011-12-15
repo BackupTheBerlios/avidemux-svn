@@ -1,15 +1,24 @@
---- ../ffmpeg-0.8.4/libavcodec/mpegvideo.c	2011-09-22 20:39:59 +0100
-+++ libavcodec/mpegvideo.c	2011-09-22 20:39:59 +0100
-@@ -737,7 +737,11 @@
-     FF_ALLOCZ_OR_GOTO(s->avctx, s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE, fail);
+--- ../ffmpeg-0.9/libavcodec/mpegvideo.c	2011-12-14 15:00:29 +0000
++++ libavcodec/mpegvideo.c	2011-12-14 15:00:29 +0000
+@@ -840,15 +840,18 @@
+         FF_ALLOCZ_OR_GOTO(s->avctx, s->prev_pict_types, PREV_PICT_TYPES_BUFFER_SIZE, fail);
  
-     s->parse_context.state= -1;
--    if((s->avctx->debug&(FF_DEBUG_VIS_QP|FF_DEBUG_VIS_MB_TYPE)) || (s->avctx->debug_mv)){
-+ //MEANX: Allocate them always, as they may be free when we decode 1st image
+         s->parse_context.state = -1;
+-        if ((s->avctx->debug & (FF_DEBUG_VIS_QP | FF_DEBUG_VIS_MB_TYPE)) ||
+-            s->avctx->debug_mv) {
 +
-+    // MEANXif((s->avctx->debug&(FF_DEBUG_VIS_QP|FF_DEBUG_VIS_MB_TYPE)) || (s->avctx->debug_mv)){
-+if(1){ // MEANX
++        //MEANX: Allocate them always, as they may be free when we decode 1st image
 +
-        s->visualization_buffer[0] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
-        s->visualization_buffer[1] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
-        s->visualization_buffer[2] = av_malloc((s->mb_width*16 + 2*EDGE_WIDTH) * s->mb_height*16 + 2*EDGE_WIDTH);
++        //if ((s->avctx->debug & (FF_DEBUG_VIS_QP | FF_DEBUG_VIS_MB_TYPE)) ||
++        //  s->avctx->debug_mv) {
+             s->visualization_buffer[0] = av_malloc((s->mb_width * 16 +
+                         2 * EDGE_WIDTH) * s->mb_height * 16 + 2 * EDGE_WIDTH);
+             s->visualization_buffer[1] = av_malloc((s->mb_width * 16 +
+                         2 * EDGE_WIDTH) * s->mb_height * 16 + 2 * EDGE_WIDTH);
+             s->visualization_buffer[2] = av_malloc((s->mb_width * 16 +
+                         2 * EDGE_WIDTH) * s->mb_height * 16 + 2 * EDGE_WIDTH);
+-        }
++        //}
+ 
+         s->context_initialized = 1;
+         s->thread_context[0]   = s;

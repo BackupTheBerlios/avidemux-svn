@@ -1,8 +1,8 @@
---- ../ffmpeg-0.8/libavcodec/vc1dec.c	2011-06-23 20:23:55 +0100
-+++ libavcodec/vc1dec.c	2011-06-23 20:23:55 +0100
-@@ -3587,6 +3587,11 @@
-         int mby_start;
-     } *slices = NULL;
+--- ../ffmpeg-0.9/libavcodec/vc1dec.c	2011-12-14 15:00:29 +0000
++++ libavcodec/vc1dec.c	2011-12-14 15:00:29 +0000
+@@ -5437,6 +5437,11 @@
+     if(s->flags & CODEC_FLAG_LOW_DELAY)
+         s->low_delay = 1;
  
 +	/** MEANX **/
 +	if(s->flags & CODEC_FLAG_LOW_DELAY)

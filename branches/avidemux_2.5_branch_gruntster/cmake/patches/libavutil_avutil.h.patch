@@ -1,7 +1,7 @@
---- libavutil/avutil.h.old	2010-12-20 13:49:31 +0000
-+++ libavutil/avutil.h	2010-12-20 13:49:31 +0000
-@@ -26,6 +26,13 @@
-  * external API header
+--- ../ffmpeg-0.9/libavutil/avutil.h	2011-12-14 15:00:29 +0000
++++ libavutil/avutil.h	2011-12-14 15:00:29 +0000
+@@ -107,6 +107,13 @@
+  * @}
   */
  
 +/* MEANX
@@ -12,5 +12,5 @@
 +
 +
  
- #define AV_STRINGIFY(s)         AV_TOSTRING(s)
- #define AV_TOSTRING(s) #s
+ /**
+  * @defgroup preproc_misc Preprocessor String Macros

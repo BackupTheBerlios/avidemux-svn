@@ -1,6 +1,6 @@
 include(admFFmpegUtil)
 
-set(FFMPEG_VERSION 0.8.7)
+set(FFMPEG_VERSION 0.9)
 set(FFMPEG_SOURCE_ARCHIVE "ffmpeg-${FFMPEG_VERSION}.tar.bz2")
 set(FFMPEG_SOURCE_ARCHIVE_DIR "ffmpeg-${FFMPEG_VERSION}")
 

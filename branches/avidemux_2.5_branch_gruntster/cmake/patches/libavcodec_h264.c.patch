@@ -1,7 +1,7 @@
---- ../ffmpeg-0.8.6/libavcodec/h264.c	2011-11-13 16:42:34 +0000
-+++ libavcodec/h264.c	2011-11-13 16:42:33 +0000
-@@ -4250,6 +4250,20 @@
-     { FF_PROFILE_UNKNOWN },
+--- ../ffmpeg-0.9/libavcodec/h264.c	2011-12-14 15:00:28 +0000
++++ libavcodec/h264.c	2011-12-14 15:00:28 +0000
+@@ -4276,6 +4276,20 @@
+     LIBAVUTIL_VERSION_INT,
  };
  
 +/* MEANX */
@@ -19,5 +19,5 @@
 +/* MeanX */
 +
  AVCodec ff_h264_decoder = {
-     "h264",
-     AVMEDIA_TYPE_VIDEO,
+     .name           = "h264",
+     .type           = AVMEDIA_TYPE_VIDEO,
