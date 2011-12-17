@@ -335,10 +335,16 @@ create_mainWindow (void)
   save_image1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("Save _BMP Image..."));
   gtk_widget_show (save_image1);
   gtk_container_add (GTK_CONTAINER (save_stuff_menu), save_image1);
+  gtk_widget_add_accelerator (save_image1, "activate", accel_group,
+                              GDK_M, (GdkModifierType)( GDK_CONTROL_MASK),
+                              GTK_ACCEL_VISIBLE);
 
   save_jpg_image1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("Save _JPEG Image..."));
   gtk_widget_show (save_jpg_image1);
   gtk_container_add (GTK_CONTAINER (save_stuff_menu), save_jpg_image1);
+  gtk_widget_add_accelerator (save_jpg_image1, "activate", accel_group,
+                              GDK_E, (GdkModifierType)( GDK_CONTROL_MASK),
+                              GTK_ACCEL_VISIBLE);
 
   save_selection_as_jpegs1 = gtk_menu_item_new_with_mnemonic (QT_TR_NOOP("Save _Selection as JPEG Images..."));
   gtk_widget_show (save_selection_as_jpegs1);

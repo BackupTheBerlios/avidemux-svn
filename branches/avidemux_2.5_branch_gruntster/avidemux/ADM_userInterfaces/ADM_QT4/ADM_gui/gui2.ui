@@ -1605,6 +1605,9 @@
    <property name="toolTip" >
     <string>Save BMP Image</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+M</string>
+   </property>
   </action>
   <action name="actionSave_jpeg" >
    <property name="text" >
@@ -1615,6 +1618,9 @@
    </property>
    <property name="toolTip" >
     <string>Save JPEG Image</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+E</string>
    </property>
   </action>
   <action name="actionLoad_run_project" >

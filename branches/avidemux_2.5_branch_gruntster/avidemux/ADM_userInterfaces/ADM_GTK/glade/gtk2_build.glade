@@ -122,6 +122,7 @@
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Save _BMP Image...</property>
 			      <property name="use_underline">True</property>
+			      <accelerator key="M" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 			    </widget>
 			  </child>
 
@@ -130,6 +131,7 @@
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Save _JPEG Image...</property>
 			      <property name="use_underline">True</property>
+			      <accelerator key="E" modifiers="GDK_CONTROL_MASK" signal="activate"/>
 			    </widget>
 			  </child>
 
