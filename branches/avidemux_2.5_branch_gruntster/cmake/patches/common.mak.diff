@@ -1,11 +1,11 @@
---- common.mak.orig	2011-06-21 21:29:25.000000000 +0200
-+++ common.mak	2011-07-23 08:46:48.027417188 +0200
-@@ -61,7 +61,7 @@
+--- common.mak.orig	2011-12-11 21:27:17.000000000 +0100
++++ common.mak	2011-12-17 10:24:21.135638772 +0100
+@@ -79,7 +79,7 @@
  FFLIBS    := $(FFLIBS-yes) $(FFLIBS)
  TESTPROGS += $(TESTPROGS-yes)
  
--FFEXTRALIBS := $(addprefix -l,$(addsuffix $(BUILDSUF),$(FFLIBS))) $(EXTRALIBS)
-+FFEXTRALIBS := $(addprefix -lADM5,$(addsuffix $(BUILDSUF),$(FFLIBS))) $(EXTRALIBS)
- FFLDFLAGS   := $(addprefix -Llib,$(ALLFFLIBS)) $(LDFLAGS)
+-FFEXTRALIBS := $(FFLIBS:%=-l%$(BUILDSUF)) $(EXTRALIBS)
++FFEXTRALIBS := $(FFLIBS:%=-lADM5%$(BUILDSUF)) $(EXTRALIBS)
  
- EXAMPLES  := $(addprefix $(SUBDIR),$(addsuffix -example$(EXESUF),$(EXAMPLES)))
+ EXAMPLES  := $(EXAMPLES:%=$(SUBDIR)%-example$(EXESUF))
+ OBJS      := $(sort $(OBJS:%=$(SUBDIR)%))
