@@ -25,7 +25,7 @@
 #        define FUNNY_MANGLE_ARRAY(x, y) x[y] asm(MANGLE(x))
 #    else
 #        define MANGLE(a) "_" #a
-#        define FUNNY_MANGLE(x) x asm(MANGLE(x))
+#        define FUNNY_MANGLE(x) __attribute__((used)) x asm(MANGLE(x))
 #        define FUNNY_MANGLE_ARRAY(x, y) x[y] asm(MANGLE(x))
 #    endif
 #else
@@ -35,7 +35,7 @@
 #        define FUNNY_MANGLE_ARRAY(x, y)  x[y] asm(#x)
 #    else
 #        define MANGLE(a) #a
-#        define FUNNY_MANGLE(x) x asm(MANGLE(x))
+#        define FUNNY_MANGLE(x) __attribute__((used)) x asm(MANGLE(x))
 #        define FUNNY_MANGLE_ARRAY(x, y) x[y] asm(MANGLE(x))
 #    endif
 #endif
