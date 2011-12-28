@@ -152,7 +152,13 @@ uint8_t AUDMEncoder_Lavcodec::initialize(void)
 
   
   codecID=makeName(CODEC_ID);
+
+#ifdef ADM_LAV_AC3
+  codec = avcodec_find_encoder_by_name("ac3_fixed");
+#else
   codec = avcodec_find_encoder(codecID);
+#endif
+
   ADM_assert(codec);
   
   ret = avcodec_open(CONTEXT, codec);

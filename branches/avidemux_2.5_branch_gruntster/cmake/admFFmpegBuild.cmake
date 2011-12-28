@@ -14,7 +14,7 @@ set(FFMPEG_BINARY_DIR "${CMAKE_BINARY_DIR}/avidemux/ADM_libraries/ffmpeg")
 set(FFMPEG_DECODERS  adpcm_ima_amv  amv  bmp  cinepak  cyuv  dca  dvbsub  dvvideo  ffv1  ffvhuff  flac  flv  fraps  h263  h264  huffyuv
 					 mjpeg  mjpegb  mpeg2video  mpeg4  msmpeg4v2  msmpeg4v3  msvideo1  nellymoser  png  qdm2  rawvideo  snow  svq3
 					 theora  tscc  vc1  vp3  vp6  vp6a  vp6f  wmav2  wmv1  wmv2  wmv3)
-set(FFMPEG_ENCODERS  ac3  ac3_fixed  ac3_float  dvvideo  ffv1  ffvhuff  flv  h263  huffyuv  mjpeg  mp2  mpeg1video  mpeg2video  mpeg4  snow)
+set(FFMPEG_ENCODERS  ac3_fixed  dvvideo  ffv1  ffvhuff  flv  h263  huffyuv  mjpeg  mp2  mpeg1video  mpeg2video  mpeg4  snow)
 set(FFMPEG_MUXERS  flv  matroska  mpeg1vcd  mpeg2dvd  mpeg2svcd  mpegts  mov  mp4  psp)
 set(FFMPEG_PARSERS  ac3  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
