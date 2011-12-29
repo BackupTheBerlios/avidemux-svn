@@ -1,0 +1,16 @@
+--- ../ffmpeg-0.9/libavutil/avutil.h	2011-12-14 15:00:29 +0000
++++ libavutil/avutil.h	2011-12-14 15:00:29 +0000
+@@ -107,6 +107,13 @@
+  * @}
+  */
+ 
++/* MEANX
++ * - */
++#define ASMALIGN(ZEROBITS) ".p2align " #ZEROBITS "\n\t"
++/* /MEANX
++ */
++
++
+ 
+ /**
+  * @defgroup preproc_misc Preprocessor String Macros

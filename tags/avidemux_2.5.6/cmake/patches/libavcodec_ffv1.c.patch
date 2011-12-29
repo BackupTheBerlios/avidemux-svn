@@ -1,0 +1,11 @@
+--- ../ffmpeg-0.9/libavcodec/ffv1.c	2011-12-14 15:00:28 +0000
++++ libavcodec/ffv1.c	2011-12-14 15:00:28 +0000
+@@ -1724,6 +1724,8 @@
+         clear_state(f);
+     }else{
+         p->key_frame= 0;
++         p->pict_type= FF_P_TYPE; // MEANX : looks more like a P to me as user
++
+     }
+     if(f->ac>1){
+         int i;

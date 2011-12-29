@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="XvidConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="presetConfiguration" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="default"/>
+                    <xs:enumeration value="user"/>
+                    <xs:enumeration value="system"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="encodeOptions" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="CBR"/>
+                    <xs:enumeration value="CQP"/>
+                    <xs:enumeration value="AQP"/>
+                    <xs:enumeration value="2PASS SIZE"/>
+                    <xs:enumeration value="2PASS ABR"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="parameter" type="uint"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="XvidOptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="threads" type="uint" minOccurs="0"/>
+              <xs:element name="vui" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="sarAsInput" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="sarHeight" type="uint" minOccurs="0"/>
+                    <xs:element name="sarWidth" type="uint" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="motionEstimation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="low"/>
+                    <xs:enumeration value="medium"/>
+                    <xs:enumeration value="high"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rdo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="dct"/>
+                    <xs:enumeration value="hpelQpel16"/>
+                    <xs:enumeration value="hpelQpel8"/>
+                    <xs:enumeration value="square"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bFrameRdo" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="chromaMotionEstimation" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="qPel" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="gmc" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="turboMode" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="chromaOptimiser" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="fourMv" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="cartoon" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="greyscale" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="interlaced" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="bff"/>
+                    <xs:enumeration value="tff"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="frameDropRatio" type="percentage" minOccurs="0"/>
+              <xs:element name="maxIframeInterval" type="uint" minOccurs="0"/>
+              <xs:element name="maxBframes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bFrameSensitivity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="-255"/>
+                    <xs:maxInclusive value="255"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="closedGop" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="packed" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="quantImin" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantPmin" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantBmin" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantImax" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantPmax" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantBmax" type="quantiser" minOccurs="0"/>
+              <xs:element name="quantBratio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="200"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantBoffset" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="200"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="h.263"/>
+                    <xs:enumeration value="mpeg"/>
+                    <xs:enumeration value="custom"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="intraMatrix" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" type="uint8" minOccurs="64" maxOccurs="64"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interMatrix" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" type="uint8" minOccurs="64" maxOccurs="64"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="trellis" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="singlePass" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="reactionDelayFactor" type="percentage" minOccurs="0"/>
+                    <xs:element name="averagingQuantiserPeriod" type="uint" minOccurs="0"/>
+                    <xs:element name="smoother" type="uint" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="twoPass" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="keyFrameBoost" type="percentage" minOccurs="0"/>
+                    <xs:element name="maxKeyFrameReduceBitrate" type="percentage" minOccurs="0"/>
+                    <xs:element name="keyFrameBitrateThreshold" type="uint" minOccurs="0"/>
+                    <xs:element name="overflowControlStrength" type="percentage" minOccurs="0"/>
+                    <xs:element name="maxOverflowImprovement" type="percentage" minOccurs="0"/>
+                    <xs:element name="maxOverflowDegradation" type="percentage" minOccurs="0"/>
+                    <xs:element name="aboveAverageCurveCompression" type="percentage" minOccurs="0"/>
+                    <xs:element name="belowAverageCurveCompression" type="percentage" minOccurs="0"/>
+                    <xs:element name="vbvBufferSize" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="6291456"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="maxVbvBitrate" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="9708400"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="vbvPeakBitrate" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="16000000"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="uint">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uint8">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="percentage">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="quantiser">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="31"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
