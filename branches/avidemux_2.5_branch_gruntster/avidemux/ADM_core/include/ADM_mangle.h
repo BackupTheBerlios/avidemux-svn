@@ -31,11 +31,11 @@
 #else
 #    if defined(ADM_CPU_X86_64) && defined(PIC)
 #        define MANGLE(a) #a"(%%rip)"
-#        define FUNNY_MANGLE(x) x asm(#x)
-#        define FUNNY_MANGLE_ARRAY(x, y)  x[y] asm(#x)
+#        define FUNNY_MANGLE(x) __attribute__((used)) x asm(#x)
+#        define FUNNY_MANGLE_ARRAY(x, y) __attribute__((used)) x[y] asm(#x)
 #    else
 #        define MANGLE(a) #a
-#        define FUNNY_MANGLE(x) __attribute__((used)) x asm(MANGLE(x))
+#        define FUNNY_MANGLE(x) x asm(MANGLE(x))
 #        define FUNNY_MANGLE_ARRAY(x, y) x[y] asm(MANGLE(x))
 #    endif
 #endif
