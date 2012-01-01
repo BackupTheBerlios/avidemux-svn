@@ -361,7 +361,10 @@ uint8_t getAudioExtraConf(uint32_t *bitrate,uint32_t *extraDataSize, uint8_t **e
     }
      ADM_assert(currentEncoder<ListOfAudioEncoder.size());
      ADM_audioEncoder *encoder= ListOfAudioEncoder[currentEncoder];
-     *bitrate=encoder->getBitrate();
+     if(encoder->getBitrate)
+        *bitrate=encoder->getBitrate();
+     else
+        *bitrate=128;
      if(encoder->getConfigurationData)
         return encoder->getConfigurationData(extraDataSize,extradata);
      else return 1;
