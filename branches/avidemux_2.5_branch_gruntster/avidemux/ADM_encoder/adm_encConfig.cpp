@@ -360,30 +360,39 @@ const char *videoCodecGetMode(void)
 	uint8_t *data;
 	uint32_t nbData = 0;
 	static char string[90];
-	COMPRES_PARAMS *mode = &AllVideoCodec[currentCodecIndex];
 
-	switch (mode->mode)
+	if (videoProcessMode())
 	{
-	case COMPRESS_AQ:
-		sprintf (string, "AQ=%d", mode->qz);
-		break;
-	case COMPRESS_CQ:
-		sprintf (string, "CQ=%d", mode->qz);
-		break;
-	case COMPRESS_CBR:
-		sprintf (string, "CBR=%d", mode->bitrate);
-		break;
-	case COMPRESS_2PASS:
-		sprintf (string, "2PASS=%d", mode->finalsize);
-		break;
-	case COMPRESS_2PASS_BITRATE:
-		sprintf (string, "2PASSBITRATE=%d", mode->avg_bitrate);
-		break;
-	case COMPRESS_SAME:
-		sprintf (string, "FOLLOW=0");
-		break;
-	default:
-		ADM_assert (0);
+		COMPRES_PARAMS *mode = &AllVideoCodec[currentCodecIndex];
+
+		switch (mode->mode)
+		{
+		case COMPRESS_AQ:
+			sprintf (string, "AQ=%d", mode->qz);
+			break;
+		case COMPRESS_CQ:
+			sprintf (string, "CQ=%d", mode->qz);
+			break;
+		case COMPRESS_CBR:
+			sprintf (string, "CBR=%d", mode->bitrate);
+			break;
+		case COMPRESS_2PASS:
+			sprintf (string, "2PASS=%d", mode->finalsize);
+			break;
+		case COMPRESS_2PASS_BITRATE:
+			sprintf (string, "2PASSBITRATE=%d", mode->avg_bitrate);
+			break;
+		case COMPRESS_SAME:
+			sprintf (string, "FOLLOW=0");
+			break;
+		default:
+			ADM_assert (0);
+		}
+	}
+	else
+	{
+		// for video copy mode
+		sprintf (string, "CQ=4");
 	}
 
 	return string;
