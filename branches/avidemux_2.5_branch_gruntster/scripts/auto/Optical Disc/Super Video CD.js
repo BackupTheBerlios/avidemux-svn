@@ -17,7 +17,7 @@ else
         var fps1000 = props[2];
         var targetX = 480;
 
-        if (getColourEncodingSystem(fps1000) == "NTSC")
+        if (getColourEncodingSystem(fps1000) == "NTSC"  || getColourEncodingSystem(fps1000) == "FILM")
             targetY = 480;
         else
             targetY = 576;

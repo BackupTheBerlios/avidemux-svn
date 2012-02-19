@@ -18,7 +18,7 @@ else
         var targetX = 352;
         var targetY;
 
-        if (getColourEncodingSystem(fps1000) == "NTSC")
+        if (getColourEncodingSystem(fps1000) == "NTSC"  || getColourEncodingSystem(fps1000) == "FILM")
             targetY = 240;
         else
             targetY = 288;
