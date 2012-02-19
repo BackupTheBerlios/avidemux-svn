@@ -489,11 +489,11 @@ uint8_t ADM_mkdir(const char *dirname)
 		return 0;
 	}
 #else
-	char *sys = new char[strlen(dirname2) + strlen("mkdir ") + 2];
+	char *sys = new char[strlen("mkdir -p ") + strlen(dirname2) + 2];
 
-	strcpy(sys, "mkdir ");
+	strcpy(sys, "mkdir -p ");
 	strcat(sys, dirname2);
-	printf("Creating dir :%s\n", sys);
+	printf("Creating dir: %s\n", dirname2);
 	system(sys);
 
 	delete [] sys;
