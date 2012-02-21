@@ -162,35 +162,37 @@ AUDMEncoder_Lame::initialize (void)
   ret = lame_set_quality (MYFLAGS, lameConf->quality);	// 0 stereo 1 jstero
   ret = lame_set_disable_reservoir (MYFLAGS, lameConf->disableReservoir);
   printf ("[Lame]Using quality of %d\n", lame_get_quality (MYFLAGS));
-  ret = lame_init_params (MYFLAGS);
-  if (ret == -1)
-    return 0;
+
   // update bitrate in header
   _wavheader->byterate = (lameConf->bitrate >> 3) * 1000;
 #define BLOCK_SIZE 1152
   // configure CBR/ABR/...
-
   switch (lameConf->preset)
     {
     default:
     case ADM_LAME_PRESET_CBR:
+          printf("[Lame] setting VBR=off (CBR)\n");
           lame_set_VBR(MYFLAGS, vbr_off);
       break;
     case ADM_LAME_PRESET_ABR:
 
      // lame_set_preset (MYFLAGS, lameConf->bitrate);
-      _wavheader->blockalign = BLOCK_SIZE;
+       printf("[Lame] setting VBR=ABR\n");
+       _wavheader->blockalign = BLOCK_SIZE;
        lame_set_VBR(MYFLAGS, vbr_abr);
        lame_set_VBR_mean_bitrate_kbps(MYFLAGS, lameConf->bitrate);
 
       break;
     case ADM_LAME_PRESET_EXTREME:
+      printf("[Lame] setting EXTREME\n");
       _wavheader->blockalign = BLOCK_SIZE;
       lame_set_preset (MYFLAGS, EXTREME);
       break;
-
-
     }
+
+  ret = lame_init_params (MYFLAGS);
+  if (ret == -1)
+    return 0;
 
   lame_print_config (MYFLAGS);
   lame_print_internals (MYFLAGS);
