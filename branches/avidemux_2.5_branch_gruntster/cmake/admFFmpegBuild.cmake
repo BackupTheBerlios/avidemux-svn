@@ -19,7 +19,12 @@ set(FFMPEG_MUXERS  flv  matroska  mpeg1vcd  mpeg2dvd  mpeg2svcd  mpegts  mov  mp
 set(FFMPEG_PARSERS  ac3  h263  h264  mpeg4video)
 set(FFMPEG_PROTOCOLS  file)
 set(FFMPEG_FLAGS  --enable-shared --disable-static --disable-everything --enable-hwaccels --enable-postproc --enable-gpl 
-				  --enable-runtime-cpudetect --disable-network --disable-ffplay --disable-ffprobe --prefix=${CMAKE_INSTALL_PREFIX})
+                  --enable-runtime-cpudetect --disable-network --disable-ffplay --disable-ffprobe --prefix=${CMAKE_INSTALL_PREFIX})
+set(FFMPEG_FLAGS ${FFMPEG_FLAGS}  --cc=${CMAKE_C_COMPILER} --ld=${CMAKE_C_COMPILER} --ar=${CMAKE_AR})
+
+MESSAGE(STATUS "Building ffmpeg with CC=${CMAKE_C_COMPILER}")
+MESSAGE(STATUS "Building ffmpeg with LD=${CMAKE_C_COMPILER}")
+MESSAGE(STATUS "Building ffmpeg with AR=${CMAKE_AR}")
 
 include(admFFmpegPatch)
 include(admFFmpegPrepareTar)
