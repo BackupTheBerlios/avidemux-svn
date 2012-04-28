@@ -26,7 +26,7 @@
 #    else
 #        define MANGLE(a) "_" #a
 #        define FUNNY_MANGLE(x) __attribute__((used)) x asm(MANGLE(x))
-#        define FUNNY_MANGLE_ARRAY(x, y) x[y] asm(MANGLE(x))
+#        define FUNNY_MANGLE_ARRAY(x, y)  __attribute__((used)) x[y] asm(MANGLE(x))
 #    endif
 #else
 #    if defined(ADM_CPU_X86_64) && defined(PIC)
