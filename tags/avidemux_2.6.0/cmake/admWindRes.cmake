@@ -1,5 +1,0 @@
-        IF(CROSS)
-                SET(WINDRES ${CMAKE_WINDRES})
-        ELSE(CROSS)
-                SET(WINDRES windres.exe)
-        ENDIF(CROSS)
