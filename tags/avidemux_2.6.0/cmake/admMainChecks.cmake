@@ -106,9 +106,7 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 ########################################
 
 MESSAGE("")
-MESSAGE(STATUS "Checking for SCM")
-MESSAGE(STATUS "****************")
-admGetRevision( ${AVIDEMUX_TOP_SOURCE_DIR} ADM_SUBVERSION)
+SET(ADM_SUBVERSION 0)
 MESSAGE("")
 
 
