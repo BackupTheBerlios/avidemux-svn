@@ -28,6 +28,9 @@ INITIALISE_SUMMARY_LISTS()
 include(admMainChecks)
 include(admCheckFtello)
 include(admAsNeeded)
+include(admFFmpegUtil)
+
+registerFFmpeg("${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg" "${AVIDEMUX_SEARCH_LIB_DIR}")
 
 #########################################
 # Debug Summary
@@ -70,11 +73,6 @@ MESSAGE("")
 ########################################
 set(EXCLUDE_ADM_INCLUDE TRUE)
 include(admCoreIncludes)
-
-########################################
-# Build FFmpeg
-########################################
-include(admFFmpegBuild)
 
 ########################################
 # Directories to build

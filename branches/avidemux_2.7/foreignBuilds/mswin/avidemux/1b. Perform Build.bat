@@ -1,14 +1,35 @@
-set INCLUDE_MSYS_PATH=false
 set BuildGenerator=CodeBlocks - MinGW Makefiles
 
 if "%BuildGenerator%" == "CodeBlocks - MinGW Makefiles" copy "%curDir%\Tools\avidemux.workspace" "%SourceDir%\%buildFolder%"
+
+rem ## FFmpeg ##
+set _PATH=%PATH%
+set _CFLAGS=%CFLAGS%
+set _LDFLAGS=%LDFLAGS%
+
+SET PATH=%msysDir%/bin;%PATH%
+set CFLAGS=-m%BuildBits%
+set LDFLAGS=-shared-libgcc -m%BuildBits%
+
+cd "%sourceDir%\%buildFFmpegFolder%"
+cmake -G"MSYS Makefiles" -DCMAKE_INSTALL_PREFIX="%buildDir%" %DebugFlags% ../../avidemux_ffmpeg
+
+if errorlevel 1 goto error
+pause
+
+make install
+if errorlevel 1 goto error
+
+set PATH=%_PATH%
+set CFLAGS=%_CFLAGS%
+set LDFLAGS=%_LDFLAGS%
 
 rem ## Core ##
 if "%Debug%" EQU "1" (
 	set LeakFlags=-DFIND_LEAKS=ON	)
 
 cd "%sourceDir%\%buildCoreFolder%"
-cmake -G"%BuildGenerator%" -DCMAKE_INSTALL_PREFIX="%buildDir%" -DBASH_DIR="%msysDir%\bin" -DGNUMAKE_DIR="%msysDir%\bin" -DFF_ENV_PATH="/usr/bin" %DebugFlags% %LeakFlags% ../../avidemux_core
+cmake -G"%BuildGenerator%" -DCMAKE_INSTALL_PREFIX="%buildDir%" %DebugFlags% %LeakFlags% ../../avidemux_core
 
 if errorlevel 1 goto error
 if "%BuildGenerator%" == "CodeBlocks - MinGW Makefiles" copy "%curDir%\Tools\avidemux.layout" admCore.layout

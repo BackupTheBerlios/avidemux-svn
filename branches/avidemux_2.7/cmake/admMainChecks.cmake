@@ -54,11 +54,6 @@ ENDIF (NOT CMAKE_BUILD_TYPE)
 ########################################
 INCLUDE(admDetermineSystem)
 
-IF (ADM_CPU_ALTIVEC)
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${ADM_ALTIVEC_FLAGS}")
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ADM_ALTIVEC_FLAGS}")
-ENDIF (ADM_CPU_ALTIVEC)
-
 IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
 	# jog shuttle is only available on Linux due to its interface
 	SET(USE_JOG 1)

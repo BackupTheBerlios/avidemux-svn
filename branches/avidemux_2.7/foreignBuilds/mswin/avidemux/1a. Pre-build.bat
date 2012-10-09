@@ -8,6 +8,7 @@ rmdir /s /q "%sdkBuildDir%" 2> NUL
 if exist "%buildFolder%" goto removalFailure
 if exist "%sdkBuildDir%" goto removalFailure
 
+mkdir "%buildFFmpegFolder%"
 mkdir "%buildCoreFolder%"
 mkdir "%buildCliFolder%"
 mkdir "%buildGtkFolder%"

@@ -3,6 +3,7 @@
 # (c) Mean 2009
 #
 packages_ext=""
+do_ffmpeg=1
 do_core=1
 do_cli=0
 do_gtk=0
@@ -58,6 +59,7 @@ config()
         if [ "x$debug" = "x1" ] ; then echo   "Debug build"
         else echo   "Release build"
         fi
+		printModule $do_ffmpeg FFmpeg
         printModule $do_core Core
         printModule $do_gtk Gtk
         printModule $do_qt4 Qt4
@@ -135,6 +137,9 @@ while [ $# != 0 ] ;do
          --without-core)
                 do_core=0
              ;;
+         --without-ffmpeg)
+                do_ffmpeg=0
+             ;;
          --with-qt4)
                 do_qt4=1
              ;;
@@ -149,6 +154,9 @@ while [ $# != 0 ] ;do
              ;;
          --with-core)
                 do_core=1
+             ;;
+         --with-ffmpeg)
+                do_ffmpeg=1
              ;;
         *)
                 echo "unknown parameter $1"
@@ -176,15 +184,23 @@ else
 	mkdir -p $FAKEROOT_DIR
 fi
 
+export PARAL="$O_PARAL"
+
+if [ "x$do_ffmpeg" = "x1" ] ; then 
+        echo "** FFmpeg **"
+        cd $TOP
+        Process buildFFmpeg ../avidemux_ffmpeg
+        echo " Installing FFmpeg"
+        cd $TOP/buildFFmpeg${POSTFIX} 
+fi
 if [ "x$do_core" = "x1" ] ; then 
         echo "** CORE **"
         cd $TOP
-        export PARAL=""
         Process buildCore ../avidemux_core
         echo " Installing core"
         cd $TOP/buildCore${POSTFIX} 
 fi
-export PARAL="$O_PARAL"
+
 if [ "x$do_qt4" = "x1" ] ; then 
         echo "** QT4 **"
         cd $TOP

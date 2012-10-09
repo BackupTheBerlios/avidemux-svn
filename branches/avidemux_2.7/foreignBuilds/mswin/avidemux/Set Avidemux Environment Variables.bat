@@ -37,6 +37,7 @@ set buildFolder=build%BuildBits%
 
 if "%Debug%" == "1" set buildFolder=%buildFolder%-dbg
 
+set buildFFmpegFolder=%buildFolder%\ffmpeg
 set buildCoreFolder=%buildFolder%\core
 set buildCliFolder=%buildFolder%\cli
 set buildGtkFolder=%buildFolder%\gtk
