@@ -1,0 +1,1 @@
+@powershell -file "Build UI.ps1"

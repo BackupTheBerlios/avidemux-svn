@@ -68,10 +68,10 @@
   <xsl:template match="buildentry">
     <p>
       <b>
-        <xsl:text>Revision&#160;</xsl:text>
+        <xsl:text disable-output-escaping="yes">Revision&amp;#160;</xsl:text>
         <xsl:value-of select="@revision"/>
       </b>
-      <xsl:text>&#160;(</xsl:text>
+      <xsl:text disable-output-escaping="yes">&amp;#160;(</xsl:text>
       <xsl:call-template name="FormatDate">
         <xsl:with-param name="Date" select="@date" />
       </xsl:call-template>
@@ -91,20 +91,16 @@
 
     <!-- Day -->
     <xsl:value-of select="substring($Date, 9, 2)" />
-    <xsl:text>&#160;</xsl:text>
+    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
 
     <!-- Month -->
     <xsl:call-template name="FormatMonth">
       <xsl:with-param name="Month" select="substring($Date, 6, 2)" />
     </xsl:call-template>
-    <xsl:text>&#160;</xsl:text>
+    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
 
     <!-- Year -->
     <xsl:value-of select="substring($Date, 1, 4)"/>
-    <!-- <xsl:text>&#160;</xsl:text>-->
-
-    <!-- Time -->
-    <!-- <xsl:value-of select="substring($Date, 12, 8)"/>-->
   </xsl:template>
 
   <xsl:template name="FormatMonth">

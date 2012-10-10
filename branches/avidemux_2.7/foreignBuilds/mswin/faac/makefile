@@ -1,4 +1,4 @@
-CFLAGS =-s -O3 -shared -I../include -Wl,--out-implib,libfaac.a
+CFLAGS =-s -O3 -shared -I../include -Wl,--out-implib,libfaac.dll.a
 SRC=$(wildcard *.c)
 
 libfaac.dll: $(SRC)

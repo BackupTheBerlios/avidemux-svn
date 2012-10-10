@@ -1,0 +1,1 @@
+@powershell -command "& { . '.\Build.ps1'; Start-UI }"

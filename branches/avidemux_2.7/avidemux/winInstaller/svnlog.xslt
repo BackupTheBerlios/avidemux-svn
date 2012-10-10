@@ -3,6 +3,8 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:output method="html" />
+
   <xsl:template match="log">
     <html>
       <head>
@@ -96,13 +98,13 @@
     
     <!-- Day -->
     <xsl:value-of select="substring($Date, 9, 2)" />
-    <xsl:text>&#160;</xsl:text>
+    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
 
     <!-- Month -->
     <xsl:call-template name="FormatMonth">
       <xsl:with-param name="Month" select="substring($Date, 6, 2)" />
     </xsl:call-template>
-    <xsl:text>&#160;</xsl:text>
+    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
 
     <!-- Year -->
     <xsl:value-of select="substring($Date, 1, 4)"/>
