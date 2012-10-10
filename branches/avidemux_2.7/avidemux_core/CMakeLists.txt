@@ -30,7 +30,15 @@ include(admCheckFtello)
 include(admAsNeeded)
 include(admFFmpegUtil)
 
-registerFFmpeg("${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg" "${AVIDEMUX_SEARCH_LIB_DIR}")
+if (NOT ADM_FFMPEG_INCLUDE_DIR)
+	set(ADM_FFMPEG_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg")
+endif (NOT ADM_FFMPEG_INCLUDE_DIR)
+
+if (NOT ADM_FFMPEG_LIB_DIR)
+	set(ADM_FFMPEG_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
+endif (NOT ADM_FFMPEG_LIB_DIR)
+
+registerFFmpeg("${ADM_FFMPEG_INCLUDE_DIR}" "${ADM_FFMPEG_LIB_DIR}")
 
 #########################################
 # Debug Summary

@@ -34,17 +34,15 @@ include(admInstallDir)
 # Get regular stuff from main app
 #########################################
 include(admCoreIncludes)
-LINK_DIRECTORIES("${AVIDEMUX_SEARCH_LIB_DIR}")
-INCLUDE_DIRECTORIES("${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6")
 
-
-IF (FRESH_BUILD)
-	MESSAGE("")
-ENDIF (FRESH_BUILD)
 ########################################
 # retrieve core config, needed to get USE_VDPAU and friends
 ########################################
-include(${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ADM_coreConfig.cmake)
+if (NOT ADM_CORE_INCLUDE_DIR)
+    set(ADM_CORE_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6")
+endif (NOT ADM_CORE_INCLUDE_DIR)
+
+include(${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.cmake)
 
 ########################################
 # Global options
@@ -92,20 +90,52 @@ MESSAGE("")
 ########################################
 # Check for UI libraries
 ########################################
-MACRO(CHECK_ADM_CONFIG_H flavor result)
-    MESSAGE(STATUS "Checking for avidemux/${flavor} includes and lib...")
-    MESSAGE(STATUS "It should be ${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/${flavor}/config.h")
+MACRO(CHECK_ADM_CONFIG_H flavour result)
+    set(adm_include_dir "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/${flavour}")
+    set(adm_lib_dir "${AVIDEMUX_SEARCH_LIB_DIR}")
+
+    if ("${flavour}" STREQUAL "cli")
+        if (ADM_CLI_INCLUDE_DIR)
+            set(adm_include_dir "${ADM_CLI_INCLUDE_DIR}")
+        endif (ADM_CLI_INCLUDE_DIR)
+
+        if (ADM_CLI_LIB_DIR)
+            set(adm_lib_dir "${ADM_CLI_LIB_DIR}")
+        endif (ADM_CLI_LIB_DIR)
+    elseif ("${flavour}" STREQUAL "gtk")
+        if (ADM_GTK_INCLUDE_DIR)
+            set(adm_include_dir "${ADM_GTK_INCLUDE_DIR}")
+        endif (ADM_GTK_INCLUDE_DIR)
+
+        if (ADM_GTK_LIB_DIR)
+            set(adm_lib_dir "${ADM_GTK_LIB_DIR}")
+        endif (ADM_GTK_LIB_DIR)
+    elseif ("${flavour}" STREQUAL "qt4")
+        if (ADM_QT_INCLUDE_DIR)
+            set(adm_include_dir "${ADM_QT_INCLUDE_DIR}")
+        endif (ADM_QT_INCLUDE_DIR)
+        
+        if (ADM_QT_LIB_DIR)
+            set(adm_lib_dir "${ADM_QT_LIB_DIR}")
+        endif (ADM_QT_LIB_DIR)
+    endif ("${flavour}" STREQUAL "cli")
+
+    MESSAGE(STATUS "Checking for ${flavour} includes and lib...")
+    MESSAGE(STATUS "It should be ${adm_include_dir}/config.h")
     set(ADM_INC "NOTFOUND")
-    FIND_PATH(ADM_INC config.h "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/${flavor}")
-    #MESSAGE(STATUS "result : ${ADM_INC_NOT_FOUND},${ADM_INC}")
-    IF(${ADM_INC} MATCHES "NOTFOUND")
+    FIND_PATH(ADM_INC config.h "${adm_include_dir}")
+
+    if (${ADM_INC} MATCHES "NOTFOUND")
         SET(${result} 0)
-        MESSAGE(STATUS "Include for ${flavor} not found")
-    ELSE(${ADM_INC} MATCHES "NOTFOUND")
+        MESSAGE(STATUS "Include for ${flavour} not found")
+    else (${ADM_INC} MATCHES "NOTFOUND")
         SET(${result} 1)
-        MESSAGE(STATUS "Include for ${flavor} found")
-    ENDIF(${ADM_INC} MATCHES "NOTFOUND")
-ENDMACRO(CHECK_ADM_CONFIG_H flavor result)
+        MESSAGE(STATUS "Include for ${flavour} found")
+
+        link_directories("${adm_lib_dir}")
+        include_directories("${adm_include_dir}")
+    endif (${ADM_INC} MATCHES "NOTFOUND")
+ENDMACRO(CHECK_ADM_CONFIG_H flavour result)
 
 APPEND_SUMMARY_LIST("User Interface" "Common" "${DO_COMMON}")
 

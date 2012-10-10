@@ -25,18 +25,46 @@ include(admMainChecks)
 ########################################
 # Add include dirs
 ########################################
-include(admCoreIncludes)
 # Add ffmpeg to resolve ADM_libavcodec to the actual name, needed for vdpau
 include(admFFmpegUtil)
-registerFFmpeg("${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg" "${AVIDEMUX_SEARCH_LIB_DIR}")
+
+if (NOT ADM_FFMPEG_INCLUDE_DIR)
+	set(ADM_FFMPEG_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg")
+endif (NOT ADM_FFMPEG_INCLUDE_DIR)
+
+if (NOT ADM_FFMPEG_LIB_DIR)
+	set(ADM_FFMPEG_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
+endif (NOT ADM_FFMPEG_LIB_DIR)
+
+registerFFmpeg("${ADM_FFMPEG_INCLUDE_DIR}" "${ADM_FFMPEG_LIB_DIR}")
+
+if (NOT ADM_FFMPEG_INCLUDE_DIR)
+	set(ADM_FFMPEG_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ffmpeg")
+endif (NOT ADM_FFMPEG_INCLUDE_DIR)
+
+if (NOT ADM_FFMPEG_LIB_DIR)
+	set(ADM_FFMPEG_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
+endif (NOT ADM_FFMPEG_LIB_DIR)
 
 # Verify ADM_coreConfig is there
-if(NOT EXISTS "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ADM_coreConfig.h")
-        MESSAGE(FATAL_ERROR "CMAKE_INSTALL_PREFIX does not contain include/avidemux/2.6/ADM_coreConfig.h (${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ADM_coreConfig.h)")
-endif(NOT EXISTS "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/ADM_coreConfig.h")
+if (ADM_CORE_INCLUDE_DIR)
+	set(EXCLUDE_ADM_INCLUDE 1)
+	include_directories("${ADM_CORE_INCLUDE_DIR}")
+else (ADM_CORE_INCLUDE_DIR)
+	set(ADM_CORE_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6")
+endif (ADM_CORE_INCLUDE_DIR)
 
-LINK_DIRECTORIES("${AVIDEMUX_SEARCH_LIB_DIR}")
-#
+if (NOT ADM_CORE_LIB_DIR)
+	set(ADM_CORE_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
+endif (NOT ADM_CORE_LIB_DIR)
+
+if (NOT EXISTS "${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h")
+	MESSAGE(FATAL_ERROR "CMAKE_INSTALL_PREFIX does not contain ADM_coreConfig.h (${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h)")
+endif (NOT EXISTS "${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h")
+
+include(admCoreIncludes)
+LINK_DIRECTORIES("${ADM_CORE_LIB_DIR}")
+
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_muxerGate/include/")
 
 IF (GETTEXT_FOUND)
