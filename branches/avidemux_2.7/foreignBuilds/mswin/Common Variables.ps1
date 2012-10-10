@@ -81,7 +81,7 @@ else
     "USE_SYSTEM_SPIDERMONKEY:BOOL=ON"
 
 # == Avidemux installation directory ==
-[string] $admVersion = "2.6"
+[string] $admVersion = "2.7"
 
 [string] $admInstallDirPattern = "..\..\..\install_`${compiler}_`${arch}`${debug}"
 [string] $admSdkInstallDirPattern = "..\..\..\install_`${compiler}_`${arch}`${debug}_sdk"

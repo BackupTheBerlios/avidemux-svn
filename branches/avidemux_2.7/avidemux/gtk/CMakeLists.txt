@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-SET(VERSION 2.6.0)
 SET(ADM_PROJECT Avidemux_gtk)
 
 MESSAGE("")
@@ -143,5 +142,5 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(gtkPackage)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/gtk/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/gtk") 
+INSTALL(FILES ${CMAKE_BINARY_DIR}/config/gtk/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/gtk") 
 MESSAGE("")

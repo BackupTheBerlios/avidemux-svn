@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-SET(VERSION 2.6.0)
 SET(ADM_PROJECT Avidemux_qt4)
 
 MESSAGE("")
@@ -204,5 +203,5 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(qt4Package)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/qt4/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/qt4") 
+INSTALL(FILES ${CMAKE_BINARY_DIR}/config/qt4/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/qt4") 
 MESSAGE("")

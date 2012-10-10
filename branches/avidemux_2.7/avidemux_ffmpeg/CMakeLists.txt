@@ -23,6 +23,7 @@ IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	SET(ADM_DEBUG 1)
 ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
+include(admVersion)
 include(admInstallDir)
 include(admFFmpegUtil)
 message("")
@@ -118,17 +119,17 @@ ADM_INSTALL_LIB_FILES("${FFMPEG_BINARY_DIR}/libavutil/${LIBAVUTIL_SHARED_LIB}")
 ADM_INSTALL_LIB_FILES("${FFMPEG_BINARY_DIR}/libavcodec/${LIBAVCODEC_SHARED_LIB}")
 ADM_INSTALL_LIB_FILES("${FFMPEG_BINARY_DIR}/libavformat/${LIBAVFORMAT_SHARED_LIB}")
 
-install(FILES "${FFMPEG_BINARY_DIR}/libavutil/avconfig.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libavutil") 
+install(FILES "${FFMPEG_BINARY_DIR}/libavutil/avconfig.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libavutil") 
 install(FILES "${FFMPEG_SOURCE_DIR}/libavcodec/ac3.h" "${FFMPEG_SOURCE_DIR}/libavcodec/ac3_parser.h"
 	"${FFMPEG_SOURCE_DIR}/libavcodec/ac3tab.h" "${FFMPEG_SOURCE_DIR}/libavcodec/avcodec.h"
 	"${FFMPEG_SOURCE_DIR}/libavcodec/ff_spsinfo.h" "${FFMPEG_SOURCE_DIR}/libavcodec/get_bits.h"
 	"${FFMPEG_SOURCE_DIR}/libavcodec/golomb.h" "${FFMPEG_SOURCE_DIR}/libavcodec/mathops.h"
 	"${FFMPEG_SOURCE_DIR}/libavcodec/old_codec_ids.h" "${FFMPEG_SOURCE_DIR}/libavcodec/parser.h"
 	"${FFMPEG_SOURCE_DIR}/libavcodec/put_bits.h" "${FFMPEG_SOURCE_DIR}/libavcodec/vdpau.h"
-	"${FFMPEG_SOURCE_DIR}/libavcodec/version.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libavcodec")
+	"${FFMPEG_SOURCE_DIR}/libavcodec/version.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libavcodec")
 install(FILES "${FFMPEG_SOURCE_DIR}/libavformat/avformat.h" "${FFMPEG_SOURCE_DIR}/libavformat/avio.h"
 	"${FFMPEG_SOURCE_DIR}/libavformat/flv.h" "${FFMPEG_SOURCE_DIR}/libavformat/url.h" "${FFMPEG_SOURCE_DIR}/libavformat/version.h" 
-	 DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libavformat")
+	 DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libavformat")
 install(FILES "${FFMPEG_SOURCE_DIR}/libavutil/attributes.h" "${FFMPEG_SOURCE_DIR}/libavutil/audioconvert.h"
 	"${FFMPEG_SOURCE_DIR}/libavutil/avassert.h"	"${FFMPEG_SOURCE_DIR}/libavutil/avutil.h" "${FFMPEG_SOURCE_DIR}/libavutil/bswap.h"
 	"${FFMPEG_SOURCE_DIR}/libavutil/common.h" "${FFMPEG_SOURCE_DIR}/libavutil/cpu.h" "${FFMPEG_SOURCE_DIR}/libavutil/dict.h"
@@ -137,9 +138,9 @@ install(FILES "${FFMPEG_SOURCE_DIR}/libavutil/attributes.h" "${FFMPEG_SOURCE_DIR
 	"${FFMPEG_SOURCE_DIR}/libavutil/log.h" "${FFMPEG_SOURCE_DIR}/libavutil/mathematics.h" "${FFMPEG_SOURCE_DIR}/libavutil/mem.h"
 	"${FFMPEG_SOURCE_DIR}/libavutil/opt.h" "${FFMPEG_SOURCE_DIR}/libavutil/pixfmt.h" "${FFMPEG_SOURCE_DIR}/libavutil/rational.h"
 	"${FFMPEG_SOURCE_DIR}/libavutil/samplefmt.h" "${FFMPEG_SOURCE_DIR}/libavutil/time.h" "${FFMPEG_SOURCE_DIR}/libavutil/version.h"
-	DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libavutil")
-install(FILES "${FFMPEG_SOURCE_DIR}/libpostproc/postprocess.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libpostproc")
+	DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libavutil")
+install(FILES "${FFMPEG_SOURCE_DIR}/libpostproc/postprocess.h" DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libpostproc")
 install(FILES "${FFMPEG_SOURCE_DIR}/libswscale/swscale.h" "${FFMPEG_SOURCE_DIR}/libswscale/version.h"
-	DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/ffmpeg/libswscale")
+	DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/ffmpeg/libswscale")
 
 message("")

@@ -81,7 +81,6 @@ function Build-AdmFFmpeg([string] $sourceDir, [string] $buildDir, [string] $inst
     }
 
     if ((Execute-ProcessToHost "$buildDir" (Join-Path $msysDir "bin\sh.exe") "-c" "make.exe install") -ne 0)
-    #if ((Execute-ProcessToHost $buildDir (Join-Path $msysDir "bin\make.exe") install) -ne 0)
     {
         throw "Make failed"
     }

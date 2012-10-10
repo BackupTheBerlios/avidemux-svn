@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-SET(VERSION 2.6.0)
 SET(ADM_PROJECT Avidemux_cli)
 
 MESSAGE("")
@@ -137,5 +136,5 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(cliPackage)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/cli/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/2.6/cli") 
+INSTALL(FILES ${CMAKE_BINARY_DIR}/config/cli/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAJOR_VERSION}/cli") 
 MESSAGE("")
