@@ -2,28 +2,25 @@ $ErrorActionPreference = "Stop"
 
 . "..\Common Functions.ps1"
 
-[string] $libraryName = "libvorbis"
+[string] $libraryName = "winpthread"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "1.3.3"
-	[string] $tarballFile = "libvorbis-$version.tar.gz"
-	[string] $url = "http://downloads.xiph.org/releases/vorbis/$tarballFile"
-    [string] $configureParams = "`"--disable-static`" `"--disable-examples`" `"--disable-docs`""
+    [bool] $skipConfigure = $true
+    [bool] $skipMake = $true
 
     . "..\Common Build.ps1"
 
-    [string] $libPath = Join-Path $externalLibDir "lib"
+    Create-MsvcLib (Join-Path $mingwBinDir "libwinpthread-1.dll") (Join-Path (Get-ExternalLibPrefix $arch) "lib") $arch "pthread"
 
-    Create-MsvcLib (Join-Path $externalLibDir "bin\libvorbis-0.dll") $libPath $arch "vorbis"
-    Create-MsvcLib (Join-Path $externalLibDir "bin\libvorbisenc-2.dll") $libPath $arch "vorbisenc"
+    Copy-Item -Path "$mingwIncludeDir\pthread*.h" -Destination (Join-Path (Get-ExternalLibPrefix $arch) "include") -Force
 }
 
 function Start-UI
 {
 	. "..\Common UI.ps1"
 
-	$null = $compilerComboBox.Items.Add("GCC")
+	$null = $compilerComboBox.Items.Add("MSVC 10")
 	$compilerComboBox.SelectedIndex = 0;
 
 	$debugCheckBox.Visible = $false

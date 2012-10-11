@@ -12,6 +12,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     [string] $configureParams = "`"--disable-static`" `"--disable-docs`""
 
     . "..\Common Build.ps1"
+
+	Create-MsvcLib (Join-Path $externalLibDir "bin\libfontconfig-1.dll") (Join-Path $externalLibDir "lib") $arch "fontconfig"
 }
 
 function Start-UI

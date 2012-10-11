@@ -15,6 +15,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     [string] $makeParams = "CFLAGS='$env:CFLAGS -O3 -DLIBTWOLAME_DLL_EXPORTS' LDFLAGS='$env:LDFLAGS -no-undefined' install-strip"
 
     . "..\Common Build.ps1"
+
+    Create-MsvcLib (Join-Path $externalLibDir "bin\libtwolame-0.dll") (Join-Path $externalLibDir "lib") $arch "twolame"
 }
 
 function Start-UI

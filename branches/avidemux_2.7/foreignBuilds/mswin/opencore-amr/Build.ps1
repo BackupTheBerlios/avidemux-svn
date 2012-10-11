@@ -11,6 +11,9 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 	[string] $url = "http://sourceforge.net/projects/opencore-amr/files/opencore-amr/$tarballFile/download"
 
     . "..\Common Build.ps1"
+
+    Create-MsvcLib (Join-Path $externalLibDir "bin\libopencore-amrnb-0.dll") (Join-Path $externalLibDir "lib") $arch "opencore-amrnb"
+    Create-MsvcLib (Join-Path $externalLibDir "bin\libopencore-amrwb-0.dll") (Join-Path $externalLibDir "lib") $arch "opencore-amrwb"
 }
 
 function Start-UI

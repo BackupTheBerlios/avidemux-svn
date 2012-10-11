@@ -25,7 +25,7 @@ else
 
 [string] $cmakePath = Join-Path $devDir "cmake\bin\cmake.exe"
 [string] $gitPath = Join-Path $devDir "git\bin\git.exe"    # required for Aften & x264
-[string] $sevenZipPath = Join-Path $env:ProgramFiles "7-Zip\7z.exe"  #required to extract tar files
+[string] $sevenZipPath = Join-Path $env:ProgramFiles "7-Zip\7z.exe"  # required to extract tar files
 
 # == Packaging tools ==
 [string] $svnPath = Join-Path $env:ProgramFiles "TortoiseSVN\bin\svn.exe"
@@ -33,16 +33,16 @@ else
 [string] $advZipPath = Join-Path $externalToolsDir "advzip.exe"
 
 # == Qt directories ==
-[string] $qtVersion = "4.8.2"
+[string] $qtVersion = "4.8.3"
 [string] $qtPrefix_gcc_x86 = Join-Path $devDir "qt-$qtVersion-gcc-x86"
 [string] $qtPrefix_gcc_x86_dbg = Join-Path $devDir "qt-$qtVersion-gcc-x86-dbg"
 [string] $qtPrefix_gcc_x86_64 = Join-Path $devDir "qt-$qtVersion-gcc-x86-64"
 [string] $qtPrefix_gcc_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-gcc-x86-64-dbg"
 
 [string] $qtPrefix_msvc10_x86 = Join-Path $devDir "qt-$qtVersion-msvc10-x86"
-[string] $qtPrefix_msvc10_x86_dbg = $qt_msvc10_x86
+[string] $qtPrefix_msvc10_x86_dbg = $qtPrefix_msvc10_x86
 [string] $qtPrefix_msvc10_x86_64 = Join-Path $devDir "qt-$qtVersion-msvc10-x86-64"
-[string] $qtPrefix_msvc10_x86_64_dbg = $qt_msvc10_x86_64
+[string] $qtPrefix_msvc10_x86_64_dbg = $qtPrefix_msvc10_x86_64
 
 # == SpiderMonkey ==
 [bool] $spiderMonkey_useSystemVersion_gcc = $true
@@ -78,7 +78,7 @@ else
     "SUMMARY_Scripting:INTERNAL=QtScript=1;QtScript Debugger=1;SpiderMonkey=1;TinyPy=1`|" +`
     "SUMMARY_User_Interface:INTERNAL=Common=1;GTK+=0;Qt 4=1;CLI=1`|" +`
     "SUMMARY_Video_Encoder:INTERNAL=Xvid=1;x264=1`|" +`
-    "USE_SYSTEM_SPIDERMONKEY:BOOL=ON"
+    "USE_SYSTEM_SPIDERMONKEY:BOOL=OFF"
 
 # == Avidemux installation directory ==
 [string] $admVersion = "2.7"

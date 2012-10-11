@@ -7,6 +7,13 @@ MACRO(checkFontConfig)
 
 		IF (FONTCONFIG)
 			PKG_CHECK_MODULES(FONTCONFIG fontconfig)
+
+			if (NOT FONTCONFIG_FOUND)
+				message("Checking for header and lib")
+				unset(FONTCONFIG_FOUND CACHE)
+				FIND_HEADER_AND_LIB(FONTCONFIG fontconfig/fontconfig.h fontconfig FcGetVersion)
+			endif (NOT FONTCONFIG_FOUND)
+
 			PRINT_LIBRARY_INFO("FontConfig" FONTCONFIG_FOUND "${FONTCONFIG_CFLAGS}" "${FONTCONFIG_LDFLAGS}")
 
 			IF (FONTCONFIG_FOUND)

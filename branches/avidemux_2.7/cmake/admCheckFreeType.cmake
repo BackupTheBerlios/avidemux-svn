@@ -9,6 +9,13 @@ MESSAGE(STATUS "**********************")
 
 IF (FREETYPE2)
 	PKG_CHECK_MODULES(FREETYPE2 freetype2)
+
+	if (NOT FREETYPE2_FOUND)
+		message("Checking for header and lib")
+		unset(FREETYPE2_FOUND CACHE)
+		FIND_HEADER_AND_LIB(FREETYPE2 freetype2/freetype/freetype.h freetype FT_Init_FreeType)
+	endif (NOT FREETYPE2_FOUND)
+
 	PRINT_LIBRARY_INFO("FreeType2" FREETYPE2_FOUND "${FREETYPE2_CFLAGS}" "${FREETYPE2_LDFLAGS}")
 
 	IF (FREETYPE2_FOUND)

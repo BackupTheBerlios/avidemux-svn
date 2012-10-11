@@ -21,7 +21,10 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 
     . "..\Common Build.ps1"
 
-    Strip-File (Join-Path $externalLibDir "bin\libmp3lame-0.dll")
+    [string] $dllPath = Join-Path $externalLibDir "bin\libmp3lame-0.dll"
+
+    Strip-File $dllPath
+    Create-MsvcLib $dllPath (Join-Path $externalLibDir "lib") $arch "mp3lame"
 }
 
 function Start-UI

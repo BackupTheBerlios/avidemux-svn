@@ -31,6 +31,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     }
 
     . "..\Common Build.ps1"
+
+    Create-MsvcLib (Get-Item -Path (Join-Path $externalLibDir "bin\libx264-*.dll")) (Join-Path $externalLibDir "lib") $arch "x264"
 }
 
 function Start-UI

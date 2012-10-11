@@ -26,6 +26,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     Copy-Item (Join-Path $sourceDir "libfaac.dll") (Join-Path $externalLibDir "bin")
     Copy-Item (Join-Path $sourceDir "libfaac.dll.a") (Join-Path $externalLibDir "lib")
     Copy-Item (Join-Path $sourceDir "..\include\*.h") (Join-Path $externalLibDir "include")
+
+    Create-MsvcLib (Join-Path $externalLibDir "bin\libfaac.dll") (Join-Path $externalLibDir "lib") $arch "faac"
 }
 
 function Start-UI

@@ -47,8 +47,7 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 
     Move-Item (Join-Path $externalLibDir "lib\xvidcore.dll") (Join-Path $externalLibDir "bin") -Force
     Copy-Item (Join-Path $sourceDir "=build\xvidcore.dll.a") (Join-Path $externalLibDir "lib") -Force
-
-    #Strip-File (Join-Path $externalLibDir "bin\libfribidi-0.dll")
+    Create-MsvcLib (Join-Path $externalLibDir "bin\xvidcore.dll") (Join-Path $externalLibDir "lib") $arch
 }
 
 function Start-UI

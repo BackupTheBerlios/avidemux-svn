@@ -22,6 +22,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     }
 
     . "..\Common Build.ps1"
+
+    Copy-Item -Path (Join-Path $externalLibDir "lib\libvpx.a") -Destination (Join-Path $externalLibDir "lib\vpx.lib") -Force
 }
 
 function Start-UI
