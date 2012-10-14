@@ -145,7 +145,7 @@ function Build-AdmPlugins( `
     [string] $avidemuxSourceDir = Resolve-Path (Join-Path $sourceDir "..")
     [string] $spiderMonkeyParameter = ""
     
-    if (Get-Variable -Name "spiderMonkey_useSystemVersion_$compiler" -valueOnly)
+    if ($spiderMonkey_useSystemVersion)
     {
         $spiderMonkeyParameter = "-DUSE_SYSTEM_SPIDERMONKEY:BOOL=ON"
     }
@@ -246,11 +246,7 @@ function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, 
 
     Copy-Item -Path (Join-Path $avsProxyDir "avsproxy.exe") -Destination $mainInstallDir -Force
     Copy-Item -Path (Join-Path $externalToolsDir "avsproxy_gui.exe") -Destination $mainInstallDir -Force
-
-    if (($compiler -eq "gcc") -and $spiderMonkey_useSystemVersion_gcc)
-    {
-        Copy-Item -Path (Join-Path (Get-Variable -Name "spiderMonkey_libDir_gcc_$arch".Replace("-", "_") -valueOnly) "libjs.dll") -Destination $mainInstallDir -Force
-    }
+    Copy-Item -Path (Join-Path (Get-Variable -Name "spiderMonkey_libDir_$arch".Replace("-", "_") -valueOnly) "libjs.dll") -Destination $mainInstallDir -Force
 }
 
 function Create-Installer(`

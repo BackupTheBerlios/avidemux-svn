@@ -245,10 +245,10 @@ function Setup-MingwEnvironment([string] $arch, [bool] $debug)
     $env:CMAKE_LIBRARY_PATH = (Join-Path $externalLibPrefix "lib") + ";$env:CMAKE_LIBRARY_PATH"
     $env:PKG_CONFIG_PATH = (Join-Path $externalLibPrefix "lib\pkgconfig") + ";$env:PKG_CONFIG_PATH"    
 
-    if ($spiderMonkey_useSystemVersion_gcc)
+    if ($spiderMonkey_useSystemVersion)
     {
-        $env:CMAKE_INCLUDE_PATH = "$env:CMAKE_INCLUDE_PATH;" + (Get-Variable -Name "spiderMonkey_includeDir_gcc_$arch".Replace("-", "_") -valueOnly)
-        $env:CMAKE_LIBRARY_PATH = "$env:CMAKE_LIBRARY_PATH;" + (Get-Variable -Name "spiderMonkey_libDir_gcc_$arch".Replace("-", "_") -valueOnly)
+        $env:CMAKE_INCLUDE_PATH = "$env:CMAKE_INCLUDE_PATH;" + (Get-Variable -Name "spiderMonkey_includeDir_$arch".Replace("-", "_") -valueOnly)
+        $env:CMAKE_LIBRARY_PATH = "$env:CMAKE_LIBRARY_PATH;" + (Get-Variable -Name "spiderMonkey_libDir_$arch".Replace("-", "_") -valueOnly)
     }
 
     $env:LDFLAGS = "$env:LDFLAGS -shared-libgcc"
@@ -289,6 +289,12 @@ function Setup-Msvc10Environment([string] $arch, [bool] $debug)
     $env:CMAKE_INCLUDE_PATH = (Join-Path $externalLibPrefix "include") + ";$devDir\pthread;$env:CMAKE_INCLUDE_PATH"
     $env:CMAKE_LIBRARY_PATH = (Join-Path $externalLibPrefix "lib") + ";$env:CMAKE_LIBRARY_PATH"
     $env:QTDIR = (Get-QtDirectory "msvc10" $arch $debug)
+
+    if ($spiderMonkey_useSystemVersion)
+    {
+        $env:CMAKE_INCLUDE_PATH = "$env:CMAKE_INCLUDE_PATH;" + (Get-Variable -Name "spiderMonkey_includeDir_$arch".Replace("-", "_") -valueOnly)
+        $env:CMAKE_LIBRARY_PATH = "$env:CMAKE_LIBRARY_PATH;" + (Get-Variable -Name "spiderMonkey_libDir_$arch".Replace("-", "_") -valueOnly)
+    }
 }
 
 function Get-CmakeBuildType([bool] $debug)

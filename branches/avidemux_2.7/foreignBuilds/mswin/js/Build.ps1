@@ -43,7 +43,10 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 		throw "Error building ($arch)"
 	}
 
-    Strip-File (Join-Path $sourceDir "src\WINNT6.1_OPT.OBJ\libjs.dll")
+	[string] $dllPath = Join-Path $sourceDir "src\WINNT6.1_OPT.OBJ\libjs.dll"
+
+    Strip-File $dllPath
+	Create-MsvcLib $dllPath (Join-Path $sourceDir "src\WINNT6.1_OPT.OBJ") $arch "js"
 }
 
 function Start-UI
