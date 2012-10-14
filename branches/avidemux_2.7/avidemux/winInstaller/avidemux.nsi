@@ -865,7 +865,7 @@ End:
 			SectionIn 1 2
 			SetOverwrite on
 			SetOutPath $INSTDIR\plugins\videoFilters
-			${File} plugins\videoFilters\libADM_hf_hflip.dll
+			${File} plugins\videoFilters\libADM_vf_hflip.dll
 		${MementoSectionEnd}
 		${MementoSection} "libswscale Resize" SecVidFltSwscaleResize
 			SectionIn 1 2
