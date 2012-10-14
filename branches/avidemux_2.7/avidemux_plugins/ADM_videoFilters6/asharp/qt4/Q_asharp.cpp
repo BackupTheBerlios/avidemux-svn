@@ -106,6 +106,8 @@ uint8_t flyASharp::download(void)
        
        //w->spinBoxBottom->setValue(bottom);
        param.bf=w->checkBox->isChecked();
+
+	   return 1;
 }
 
 /**

@@ -130,6 +130,7 @@ unsigned char chan;
         extraDataSize=l;
     }
     
+	return true;
 }
 /**
     \fn ctor

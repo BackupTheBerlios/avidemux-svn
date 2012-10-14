@@ -73,6 +73,8 @@ bool Telecide::CachePurge(void)
 			cache[i].frame = 0xffffffff;
 			cache[i].chosen = 0xff;
 		}
+
+	return true;
 }
 /**
     \fn CacheQuery

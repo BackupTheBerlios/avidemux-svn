@@ -124,6 +124,8 @@ bool xvid4Encoder::query(void)
   CPUF (3DNOW);
   CPUF (3DNOWEXT);
 #endif
+
+	return true;
 }
 /**
     \fn setupPass
