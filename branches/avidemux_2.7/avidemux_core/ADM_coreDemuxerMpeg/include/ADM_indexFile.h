@@ -17,7 +17,10 @@
 
 #ifndef ADM_INDEXFILE_H
 #define ADM_INDEXFILE_H
+
+#include "ADM_coreDemuxerMpeg6_export.h"
 #include <BVector.h>
+
 /**
     \class indexFile
     \brief Read a index file easily
@@ -49,7 +52,7 @@ public:
     \class indexFile
 */
 
-class indexFile
+class ADM_COREDEMUXERMPEG6_EXPORT indexFile
 {
 protected:
     uint8_t         buffer[ADM_INDEX_BUFFER];

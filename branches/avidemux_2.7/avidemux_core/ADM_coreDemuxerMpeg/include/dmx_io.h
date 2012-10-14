@@ -17,6 +17,8 @@
 #ifndef FPARSER_
 #define FPARSER_
 #define DMX_BUFFER 1024*100
+
+#include "ADM_coreDemuxerMpeg6_export.h"
 #include <BVector.h>
 
 /*
@@ -48,7 +50,7 @@ public:
     \class fileParser
     \brief helper class to read one logical file over several physical ones
 */
- class fileParser
+class ADM_COREDEMUXERMPEG6_EXPORT fileParser
 {
         private:
          
