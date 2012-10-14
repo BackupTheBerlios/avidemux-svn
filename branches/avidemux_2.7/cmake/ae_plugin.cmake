@@ -2,12 +2,14 @@
 #  Macro to declare an audio encoder plugin
 #
 include(admAsNeeded)
+
 MACRO(INIT_AUDIO_ENCODER _lib)
 	INCLUDE_DIRECTORIES("${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/common/ADM_audioFilter/include")
-
+	add_compiler_export_flags()
     ADD_DEFINITIONS("-DADM_MINIMAL_UI_INTERFACE")
-
+	add_definitions(-DADM_audioEncoder_plugin_EXPORTS)
 ENDMACRO(INIT_AUDIO_ENCODER)
+
 MACRO(ADD_AUDIO_ENCODER name)
         ADM_ADD_SHARED_LIBRARY(${name} ${ARGN})
 ENDMACRO(ADD_AUDIO_ENCODER name)

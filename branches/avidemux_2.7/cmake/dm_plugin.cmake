@@ -1,4 +1,6 @@
 MACRO(INIT_DEMUXER _lib)
+	add_compiler_export_flags()
+	add_definitions(-DADM_demuxer_plugin_EXPORTS)
 ENDMACRO(INIT_DEMUXER)
 
 MACRO(INSTALL_DEMUXER _lib)

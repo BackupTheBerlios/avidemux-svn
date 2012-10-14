@@ -18,6 +18,7 @@
 #define ADM_AUDIO_ENCODER_API_VERSION 7
 #include <stddef.h>
 
+#include "ADM_ae_plugin_export.h"
 #include "ADM_coreAudioEncoder6_export.h"
 #include "audioencoder.h"
 #include "ADM_paramList.h"
@@ -70,7 +71,7 @@ static void destroy (ADM_AudioEncoder * in) \
 //******************************************************
 #define ADM_DECLARE_AUDIO_ENCODER_CONFIG() \
 \
-extern "C" ADM_audioEncoder *getInfo (void) \
+extern "C" ADM_AUDIOENCODER_PLUGIN_EXPORT ADM_audioEncoder *getInfo (void) \
 { \
   return &encoderDesc; \
 }

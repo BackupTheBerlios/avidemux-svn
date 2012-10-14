@@ -40,11 +40,8 @@ static ADM_audioEncoder encoderDesc = {
   NULL   // Defined by macro automatically
 
 };
-//ADM_DECLARE_AUDIO_ENCODER_CONFIG(NULL);
-extern "C" ADM_audioEncoder *getInfo (void)
-{
-  return &encoderDesc;
-}
+
+ADM_DECLARE_AUDIO_ENCODER_CONFIG();
 
 /******************* / Declare plugin*******************************************************/
 

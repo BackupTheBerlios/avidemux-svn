@@ -4,10 +4,11 @@
 */
 #ifndef ADM_ad_plugin_h
 #define ADM_ad_plugin_h
+
+#include "ADM_ad_plugin_export.h"
 #include "ADM_default.h"
 #include "ADM_coreAudio.h"
 #include "ADM_audiocodec.h"
-
 
 #define AD_API_VERSION 4
 /* These are the 6 functions exported by each plugin ...*/
@@ -36,35 +37,35 @@ typedef struct
 
 #define DECLARE_AUDIO_DECODER(Class,Major,Minor,Patch,Formats,Desc) \
 	extern "C" { \
-	ADM_Audiocodec *create(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData)\
+	ADM_AUDIODECODER_PLUGIN_EXPORT ADM_Audiocodec *create(uint32_t fourcc,	WAVHeader *info,uint32_t extraLength,uint8_t *extraData)\
 	{ \
 		return new Class(fourcc,	info,extraLength,extraData);\
 	} \
-	ADM_Audiocodec *destroy(ADM_Audiocodec *codec) \
+	ADM_AUDIODECODER_PLUGIN_EXPORT ADM_Audiocodec *destroy(ADM_Audiocodec *codec) \
 	{ \
 		Class *a=(Class *)codec;\
 		delete a;\
         return NULL;\
 	}\
-	int supportedFormat(uint32_t audioFourcc) \
+	ADM_AUDIODECODER_PLUGIN_EXPORT int supportedFormat(uint32_t audioFourcc) \
 	{ \
 		for(int i=0;i<sizeof(Formats)/sizeof(ad_supportedFormat);i++)\
 			if(Formats[i].fourcc==audioFourcc) \
 				return Formats[i].priority; \
 		return 0; \
 	} \
-	uint32_t getApiVersion(void)\
+	ADM_AUDIODECODER_PLUGIN_EXPORT uint32_t getApiVersion(void)\
 	{\
 			return AD_API_VERSION;\
 	}\
-	bool getDecoderVersion(uint32_t *major,uint32_t *minor, uint32_t *patch)\
+	ADM_AUDIODECODER_PLUGIN_EXPORT bool getDecoderVersion(uint32_t *major,uint32_t *minor, uint32_t *patch)\
 	{\
 		*major=Major;\
 		*minor=Minor;\
 		*patch=Patch;\
 		return true;\
 	}\
-	const char *getInfo(void)\
+	ADM_AUDIODECODER_PLUGIN_EXPORT const char *getInfo(void)\
 	{\
 		return Desc; \
 	}\

@@ -8,7 +8,9 @@ MACRO(INIT_VIDEO_FILTER_INTERNAL _lib)
 	INCLUDE_DIRECTORIES("${AVIDEMUX_TOP_SOURCE_DIR}/avidemux_core/ADM_coreUtils/include/")
 	INCLUDE_DIRECTORIES("${AVIDEMUX_TOP_SOURCE_DIR}/avidemux_core/ADM_coreVideoFilter/include/")
 	INCLUDE_DIRECTORIES("${AVIDEMUX_TOP_SOURCE_DIR}/avidemux_core/ADM_coreImage/include/")
-        ADD_DEFINITIONS("-DADM_MINIMAL_UI_INTERFACE")
+	add_compiler_export_flags()
+	add_definitions(-DADM_videoFilter_plugin_EXPORTS)
+    ADD_DEFINITIONS("-DADM_MINIMAL_UI_INTERFACE")
 ENDMACRO(INIT_VIDEO_FILTER_INTERNAL)
 
 ############## INIT_VIDEO_FILTER ###################"

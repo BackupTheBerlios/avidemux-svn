@@ -17,8 +17,11 @@
 #define  ADM_videoInternal_H
 
 #define ADM_DEMUXER_API_VERSION 3
+
+#include "ADM_dm_plugin_export.h"
 #include "ADM_dynamicLoading.h"
 #include "ADM_Video.h"
+
 class ADM_demuxer :public ADM_LibWrapper
 {
 public:
@@ -68,13 +71,14 @@ public:
 
 #define ADM_DEMUXER_BEGIN( Class,prio,maj,mn,pat,name,desc) \
 extern "C" {\
-vidHeader   *create(void){ return new Class; } \
-void         destroy(vidHeader *h){ Class *z=(Class *)h;delete z;} \
-uint8_t      getVersion(uint32_t *major,uint32_t *minor,uint32_t *patch) {*major=maj;*minor=mn;*patch=pat;return 1;} \
-uint32_t     getApiVersion(void) {return ADM_DEMUXER_API_VERSION;} \
-const char  *getName(void) {return name;} \
-const char  *getDescriptor(void) {return desc;} \
-uint32_t     getPriority(void) {return prio;} \
+ADM_DEMUXER_PLUGIN_EXPORT vidHeader   *create(void){ return new Class; } \
+ADM_DEMUXER_PLUGIN_EXPORT void         destroy(vidHeader *h){ Class *z=(Class *)h;delete z;} \
+ADM_DEMUXER_PLUGIN_EXPORT uint8_t      getVersion(uint32_t *major,uint32_t *minor,uint32_t *patch) {*major=maj;*minor=mn;*patch=pat;return 1;} \
+ADM_DEMUXER_PLUGIN_EXPORT uint32_t     getApiVersion(void) {return ADM_DEMUXER_API_VERSION;} \
+ADM_DEMUXER_PLUGIN_EXPORT const char  *getName(void) {return name;} \
+ADM_DEMUXER_PLUGIN_EXPORT const char  *getDescriptor(void) {return desc;} \
+ADM_DEMUXER_PLUGIN_EXPORT uint32_t     getPriority(void) {return prio;} \
+ADM_DEMUXER_PLUGIN_EXPORT uint32_t     probe(uint32_t magic, const char *fileName); \
 }
 
 #endif

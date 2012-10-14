@@ -1,6 +1,9 @@
 include(admAsNeeded)
+
 MACRO(INIT_AUDIO_PLUGIN _lib)
 	INCLUDE_DIRECTORIES("${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/common/ADM_audiocodec")
+	add_compiler_export_flags()
+	add_definitions(-DADM_audioDecoder_plugin_EXPORTS)
 ENDMACRO(INIT_AUDIO_PLUGIN)
 
 MACRO(INSTALL_AUDIODECODER _lib)
@@ -12,8 +15,8 @@ MACRO(INSTALL_AUDIODECODER _lib)
 
 	INSTALL(TARGETS ${_lib} DESTINATION "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/audioDecoder/")
 ENDMACRO(INSTALL_AUDIODECODER)
-############## ADD_VIDEO_FILTER ###################"
+
 MACRO(ADD_AUDIO_DECODER name)
-        ADM_ADD_SHARED_LIBRARY(${name} ${ARGN})
+	ADM_ADD_SHARED_LIBRARY(${name} ${ARGN})
 ENDMACRO(ADD_AUDIO_DECODER name)
 

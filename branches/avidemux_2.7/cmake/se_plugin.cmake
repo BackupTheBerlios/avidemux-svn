@@ -1,6 +1,8 @@
 include(admAsNeeded)
 
 macro (ADD_SCRIPT_ENGINE name)
+	add_compiler_export_flags()
+	add_definitions(-DADM_scriptEngine_plugin_EXPORTS)
     ADM_ADD_SHARED_LIBRARY(${name} ${ARGN})
 endmacro (ADD_SCRIPT_ENGINE name)
 

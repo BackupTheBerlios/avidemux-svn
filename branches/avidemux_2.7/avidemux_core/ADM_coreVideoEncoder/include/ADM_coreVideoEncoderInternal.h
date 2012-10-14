@@ -17,6 +17,7 @@
 
 #define ADM_VIDEO_ENCODER_API_VERSION 5
 
+#include "ADM_ve_plugin_export.h"
 #include "ADM_coreVideoEncoder6_export.h"
 #include "BVector.h"
 #include "ADM_coreVideoEncoder.h"
@@ -125,7 +126,7 @@ bool setConfigurationData (CONFcouple *c,bool full)\
 	if(full) return ADM_paramLoad(c,confTemplate,confVar); \
 	return ADM_paramLoadPartial(c,confTemplate,confVar); \
 } \
-extern "C" ADM_videoEncoderDesc *getInfo (void) \
+extern "C" ADM_VIDEOENCODER_PLUGIN_EXPORT ADM_videoEncoderDesc *getInfo (void) \
 { \
   return &encoderDesc; \
 }  \

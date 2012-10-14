@@ -1,6 +1,7 @@
 #ifndef IScriptEngine_h
 #define IScriptEngine_h
 
+#include "ADM_se_plugin_export.h"
 #include <string>
 #include "IScriptWriter.h"
 #include "ADM_editor/include/IEditor.h"
@@ -56,4 +57,5 @@ public:
     virtual void unregisterEventHandler(eventHandlerFunc *func) = 0;
 };
 
+extern "C" ADM_SCRIPTENGINE_PLUGIN_EXPORT IScriptEngine* createEngine();
 #endif

@@ -1,5 +1,8 @@
 include(admAsNeeded)
+
 MACRO(INIT_MUXER _lib)
+	add_compiler_export_flags()
+	add_definitions(-DADM_muxer_plugin_EXPORTS)
 ENDMACRO(INIT_MUXER)
 
 MACRO(INSTALL_MUXER _lib)
