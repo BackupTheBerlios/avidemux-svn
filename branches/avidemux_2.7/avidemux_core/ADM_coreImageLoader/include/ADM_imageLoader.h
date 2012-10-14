@@ -5,7 +5,9 @@
 #ifndef ADM_IMAGE_LOADER
 #define ADM_IMAGE_LOADER
 
+#include "ADM_coreImageLoader6_export.h"
 #include "ADM_image.h"
+
 typedef enum 
 {
 		ADM_PICTURE_UNKNOWN=0,
@@ -16,6 +18,6 @@ typedef enum
         
 } ADM_PICTURE_TYPE;
 
-ADMImage *createImageFromFile(const char *filename);
+ADM_COREIMAGELOADER6_EXPORT ADMImage *createImageFromFile(const char *filename);
 ADM_PICTURE_TYPE ADM_identifyImageFile(const char *filename,uint32_t *w,uint32_t *h);
 #endif
