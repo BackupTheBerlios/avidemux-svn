@@ -14,6 +14,8 @@ MACRO(checkFridibi minVersion)
 
 			if (FRIDIBI_FOUND)
 				set(FRIDIBI_VERSION ${minVersion})
+				set(FRIDIBI_LDFLAGS ${FRIDIBI_LIBRARY_DIR})
+				set(FRIDIBI_CFLAGS "-I${FRIDIBI_INCLUDE_DIR}")
 			endif (FRIDIBI_FOUND)
 		endif (NOT FRIDIBI_FOUND)
 

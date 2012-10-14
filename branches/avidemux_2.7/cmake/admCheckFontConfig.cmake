@@ -12,6 +12,11 @@ MACRO(checkFontConfig)
 				message("Checking for header and lib")
 				unset(FONTCONFIG_FOUND CACHE)
 				FIND_HEADER_AND_LIB(FONTCONFIG fontconfig/fontconfig.h fontconfig FcGetVersion)
+
+				if (FONTCONFIG_FOUND)
+					set(FONTCONFIG_LDFLAGS ${FONTCONFIG_LIBRARY_DIR})
+					set(FONTCONFIG_CFLAGS "-I${FONTCONFIG_INCLUDE_DIR}")
+				endif (FONTCONFIG_FOUND)
 			endif (NOT FONTCONFIG_FOUND)
 
 			PRINT_LIBRARY_INFO("FontConfig" FONTCONFIG_FOUND "${FONTCONFIG_CFLAGS}" "${FONTCONFIG_LDFLAGS}")
