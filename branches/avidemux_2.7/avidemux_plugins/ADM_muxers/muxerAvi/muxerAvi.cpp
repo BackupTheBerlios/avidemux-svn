@@ -121,11 +121,11 @@ bool muxerAvi::fillAudio(uint64_t targetDts)
                             aprintf("[Audio] Packet size %"PRIu32" sample:%"PRIu32" dts:%"PRIu64" target :%"PRIu64"\n",
                                             aPacket->sizeInBytes,aPacket->nbSamples,aPacket->dts,targetDts);
                             if(aPacket->dts!=ADM_NO_PTS)
-                                if( abs(aPacket->dts-clk->getTimeUs())>32000)
+                                if (aPacket->dts-clk->getTimeUs() > 32000)
                                 {
                                     ADM_warning("[AviMuxer] Audio skew!\n");
                                     clk->setTimeUs(aPacket->dts);
-#warning FIXME add padding
+//#warning FIXME add padding
                                 }
                             aPacket->present=true;
                     }

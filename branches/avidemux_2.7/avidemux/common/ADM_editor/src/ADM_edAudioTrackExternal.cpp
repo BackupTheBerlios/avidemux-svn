@@ -25,10 +25,6 @@
 #include "ADM_audioAccessFile.h"
 #include "ADM_vidMisc.h"
 
-#ifdef _MSC_VER
-#define abs(x) _abs64(x)
-#endif
-
 #if 0
 #define vprintf ADM_info
 #else
@@ -205,7 +201,7 @@ again:
     decodedSample/=wavHeader.channels;
     if(!decodedSample) goto again;
 #define ADM_MAX_JITTER 5000  // in samples, due to clock accuracy, it can be +er, -er, + er, -er etc etc
-    if(abs(decodedSample-packetBufferSamples)>ADM_MAX_JITTER)
+    if(abs((int64_t)(decodedSample-packetBufferSamples))>ADM_MAX_JITTER)
     {
         ADM_warning("[PCMPacketExt::getPCMPacket] Track %d:%x Demuxer was wrong %d vs %d samples!\n",
                     0,0,packetBufferSamples,decodedSample);
