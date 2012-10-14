@@ -19,7 +19,11 @@ include_directories(../../ADM_coreScript/include)
 include_directories(${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/common)
 include_directories(${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/common/ADM_editor/include)
 
-target_link_libraries(ADM_script_tinyPy ADM_coreScript ADM_coreUtils6 ADM_core6 ADM_coreUI6 m)
+target_link_libraries(ADM_script_tinyPy ADM_coreScript ADM_coreUtils6 ADM_core6 ADM_coreUI6)
+
+if (UNIX)
+	target_link_libraries(ADM_script_tinyPy m)
+endif (UNIX)
 
 if (NOT APPLE)
 	target_link_libraries(ADM_script_tinyPy -Wl,--version-script,"${CMAKE_CURRENT_SOURCE_DIR}/ADM_script_tinyPy.v")

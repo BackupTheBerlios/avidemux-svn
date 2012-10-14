@@ -7,6 +7,15 @@
 #include "ADM_default.h"
 
 // MEANX : Switch to our own wrappers
+#ifdef _MSC_VER
+#ifndef S_ISDIR
+#define S_ISDIR(mode)  (((mode) & S_IFMT) == S_IFDIR)
+#endif
+
+#ifndef S_ISREG
+#define S_ISREG(mode)  (((mode) & S_IFMT) == S_IFREG)
+#endif
+#endif
 
 namespace mp4v2 { namespace platform { namespace io {
 

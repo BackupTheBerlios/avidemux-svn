@@ -215,7 +215,7 @@ again:
                if(_useFloat==false)
                     dither16(&(tmpbuffer[tmphead]),left,channels);
                ADM_assert(tmptail>=tmphead);
-#warning buffer overread
+//#warning buffer overread
                nbout = avcodec_encode_audio(CONTEXT, dest, 5000, (short *) &(tmpbuffer[tmphead]));
                tmphead=tmptail;
                *samples = left/channels;

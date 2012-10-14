@@ -319,7 +319,7 @@ bool muxerMp4v2::close(void)
     if(handle)
     {
             MP4Close(handle,ADM_MP4_OPTIONS_CLOSE);
-#warning run MP4Optimize
+//#warning run MP4Optimize
     }
     handle=NULL;
     if(audioTrackIds) delete [] audioTrackIds;

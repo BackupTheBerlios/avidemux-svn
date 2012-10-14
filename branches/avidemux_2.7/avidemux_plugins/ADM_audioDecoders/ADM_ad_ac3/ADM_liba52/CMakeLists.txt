@@ -9,6 +9,10 @@ IF (WIN32 OR APPLE)
 	TARGET_LINK_LIBRARIES(${ADM_LIB} ADM_core6)
 ENDIF (WIN32 OR APPLE)
 
+if (MSVC)
+	add_definitions(-Dinline=__inline)
+endif (MSVC)
+
 IF (UNIX)
 	ADD_TARGET_CFLAGS(${ADM_LIB} -fPIC)
 ENDIF (UNIX)

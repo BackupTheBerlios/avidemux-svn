@@ -11,6 +11,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+#define _USE_MATH_DEFINES	// MSVC
+
 #include <math.h>
 #include "DIA_flyDialog.h"
 #include "ADM_default.h"

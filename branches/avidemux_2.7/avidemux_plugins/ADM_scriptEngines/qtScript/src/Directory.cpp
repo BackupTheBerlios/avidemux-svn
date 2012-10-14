@@ -69,7 +69,7 @@ namespace ADM_qtScript
 				return engine->newQObject(
 						   new Directory(
 							   context->argument(0).toString(), context->argument(1).toString(),
-							   (Directory::Sort)context->argument(2).toNumber()),
+							   (Directory::Sort)static_cast<int>(context->argument(2).toNumber())),
 						   QScriptEngine::ScriptOwnership);
 			}
 			else if (context->argumentCount() == 4 && context->argument(2).isNumber() &&
@@ -78,8 +78,8 @@ namespace ADM_qtScript
 				return engine->newQObject(
 						   new Directory(
 							   context->argument(0).toString(), context->argument(1).toString(),
-							   (Directory::Sort)context->argument(2).toNumber(),
-							   (Directory::Filter)context->argument(3).toNumber()),
+							   (Directory::Sort)static_cast<int>(context->argument(2).toNumber()),
+							   (Directory::Filter)static_cast<int>(context->argument(3).toNumber())),
 						   QScriptEngine::ScriptOwnership);
 			}
 			else

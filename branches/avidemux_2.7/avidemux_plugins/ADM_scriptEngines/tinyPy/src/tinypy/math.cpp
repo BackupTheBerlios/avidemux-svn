@@ -8,6 +8,10 @@
 
 #include <errno.h>
 
+#ifdef _MSC_VER
+#	define __func__ __FUNCTION__
+#endif
+
 /*
  * template for tinypy math functions
  * with one parameter. 

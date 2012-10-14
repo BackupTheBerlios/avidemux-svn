@@ -34,8 +34,8 @@
 #define MP4_DEBUG MP4_DETAILS_ALL
 #endif
 
-#warning add audioDelay
-#warning fix audio not starting at 0
+//#warning add audioDelay
+//#warning fix audio not starting at 0
 /**
     \fn addAC3
     \brief Setup AC3 audio track
@@ -78,7 +78,7 @@ bool muxerMp4v2::addAc3(int index, WAVHeader *header)
                 case 1: acmod=1;break;
                 case 2: acmod=2;break;
                 case 5: acmod=7;lfe=0;break; 
-#warning Check!
+//#warning Check!
                 case 6: acmod=7;lfe=1;break;
                 default: 
                         {
@@ -258,7 +258,7 @@ bool muxerMp4v2::fillAudio(uint64_t targetDts)
                             bprintf("Current audio Dts=%"PRId64"\n",currentDts);
                             bprintf("Incoming block, dts=%"PRId64"\n",currentBlock->dts);
                             bprintf("Delta =%d ms\n",(int)(currentDts-currentBlock->dts));
-                            if( abs(currentBlock->dts-currentDts)>MP4V2_MAX_JITTER)
+                            if (currentBlock->dts-currentDts > MP4V2_MAX_JITTER)
                             {
                                 if(currentBlock->dts<currentDts)
                                     {
@@ -294,7 +294,7 @@ nextOne:
                         if(false==loadAndToggleAudioSlot(audioIndex))
                         {
                             ADM_warning("End of audio stream %d\n",audioIndex);
-                            #warning Purge other slot
+//                            #warning Purge other slot
                             pkt->eos=true;
                         }
                 }

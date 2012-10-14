@@ -27,7 +27,10 @@ include_directories(
 	../include
 	"${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/common")
 
-add_definitions(-Werror -Wall)
+if (NOT MSVC)
+	add_definitions(-Werror -Wall)
+endif (NOT MSVC)
+
 ADD_SCRIPT_ENGINE(ADM_script_qt SHARED ${ADM_qtScript_SRCS})
 target_link_libraries(
 	ADM_script_qt  ADM_coreAudioEncoder6  ADM_core6  ADM_coreDemuxer6  ADM_coreMuxer6

@@ -17,6 +17,9 @@
 #include "ADM_cpp.h"
 #include "ADM_muxer.h"
 #include "ADM_audioClock.h"
+
+#define MP4V2_NO_STDINT_DEFS
+
 #include "mp4v2/mp4v2.h"
 #include "ADM_paramList.h"
 #include "mp4v2_muxer.h"

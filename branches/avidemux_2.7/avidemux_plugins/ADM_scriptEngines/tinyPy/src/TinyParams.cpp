@@ -136,12 +136,16 @@ bool    TinyParams::makeCouples(CONFcouple **c)
 		return true;
 	}
 
-	const char *s[nb];
+	const char **s = new const char*[nb];
 
 	for (int i = 0; i < nb; i++)
 	{
 		s[i] = asString();
 	}
 
-	return stringsToConfCouple(nb, c, s);
+	bool ret = stringsToConfCouple(nb, c, s);
+
+	delete [] s;
+
+	return ret;
 }

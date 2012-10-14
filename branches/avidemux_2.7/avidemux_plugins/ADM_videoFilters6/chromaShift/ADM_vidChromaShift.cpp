@@ -222,7 +222,7 @@ uint32_t line;
 	return true;
 }
 // UI
-bool DIA_getChromaShift( ADM_coreVideoFilter *instream,chromashift    *param );
+uint8_t DIA_getChromaShift( ADM_coreVideoFilter *instream,chromashift    *param );
 bool ADMVideoChromaShift::configure( )
 
 {

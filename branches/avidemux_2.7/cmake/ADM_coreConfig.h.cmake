@@ -32,6 +32,33 @@
 #	define fseeko _fseeki64
 #	define snprintf _snprintf
 #	define strcasecmp(x, y) _stricmp(x, y)
+#	define strtoll _strtoi64
+#	define lrint rint
+#	define inline __inline
+#	define getcwd _getcwd
+
+#if (defined(_WIN64))
+#	include <emmintrin.h>
+#	include <mmintrin.h>
+
+	__inline int rint(double flt)
+	{
+		return _mm_cvtsd_si32(_mm_load_sd(&flt));
+	}
+#else
+	__inline int rint (double value)
+	{
+		int intValue;
+
+		_asm
+		{
+			fld value
+			fistp intValue
+		};
+
+		return intValue;
+	}
+#endif
 #elif defined(__MINGW32__)
 #	define rindex strrchr
 #	define index strchr

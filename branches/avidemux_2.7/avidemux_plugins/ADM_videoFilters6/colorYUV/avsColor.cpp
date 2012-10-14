@@ -59,7 +59,7 @@ bool         vidColorYuv::getNextFrame(uint32_t *fn,ADMImage *image)
 	int i,j,wby4;
 	int modulo;
 
-#ifdef _DEBUG
+#if 0 //ifdef _DEBUG
 	COUNT y0,u0,v0;
 	COUNT y,u,v;
 	COUNT r,g,b;
@@ -239,7 +239,7 @@ bool         vidColorYuv::getNextFrame(uint32_t *fn,ADMImage *image)
 	  MakeGammaLUT();
   }
 
-#ifdef _DEBUG
+#if 0//ifdef _DEBUG
 	total = wby4 * h;
 	totalby2 = total / 2;
 
@@ -521,7 +521,7 @@ void vidColorYuv::MakeGammaLUT(void)
 		LUT_V[i] = (unsigned char)val;
     }
 
-#ifdef _DEBUG
+#if 0//ifdef _DEBUG
 	DumpLUT();
 #endif
 

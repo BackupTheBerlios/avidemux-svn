@@ -276,7 +276,7 @@ namespace ADM_qtScript
 
         if (this->verifyTrack() && validateResult.isUndefined())
         {
-            this->_track->audioEncodingConfig.gainParam.mode = _mapper->toAdmValue((GainMode)gainMode.toNumber());
+            this->_track->audioEncodingConfig.gainParam.mode = _mapper->toAdmValue((GainMode)static_cast<int>(gainMode.toNumber()));
         }
     }
 
@@ -307,7 +307,7 @@ namespace ADM_qtScript
 
         if (this->verifyTrack() && validateResult.isUndefined())
         {
-            this->_track->audioEncodingConfig.mixerConf = _mapper->toAdmValue((MixerMode)mixer.toNumber());
+            this->_track->audioEncodingConfig.mixerConf = _mapper->toAdmValue((MixerMode)static_cast<int>(mixer.toNumber()));
             this->_track->audioEncodingConfig.mixerEnabled = (this->_track->audioEncodingConfig.mixerConf != CHANNEL_INVALID);
         }
     }
@@ -343,7 +343,7 @@ namespace ADM_qtScript
 
         if (this->verifyTrack() && validateResult.isUndefined())
         {
-            this->_track->audioEncodingConfig.film2pal = _mapper->toAdmValue((StretchAudioMode)stretchAudioMode.toNumber());
+            this->_track->audioEncodingConfig.film2pal = _mapper->toAdmValue((StretchAudioMode)static_cast<int>(stretchAudioMode.toNumber()));
         }
     }
 

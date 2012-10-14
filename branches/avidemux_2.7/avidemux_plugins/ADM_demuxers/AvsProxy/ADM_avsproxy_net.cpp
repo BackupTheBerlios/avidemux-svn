@@ -14,7 +14,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifdef __MINGW32__
+#ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
 #include <io.h>
@@ -84,7 +84,7 @@ bool avsNet::close(void)
     if(mySocket)
     {
         int er;
-#ifdef __MINGW32__
+#ifdef _WIN32
 		er=shutdown(mySocket,SD_BOTH);
 #else
         er=shutdown(mySocket,SHUT_RDWR);

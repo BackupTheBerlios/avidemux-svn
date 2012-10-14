@@ -119,7 +119,7 @@ entryDesc entry;
 
         }
 
-        _mainaviheader.dwMicroSecPerFrame=(uint32_t)floor(50);;
+        _mainaviheader.dwMicroSecPerFrame= 50;
         _videostream.fccType=fourCC::get((uint8_t *)"vids");
         _video_bih.biBitCount=24;
         _videostream.dwInitialFrames= 0;
@@ -257,7 +257,7 @@ uint8_t entryWalk(ADM_ebml_file *head,uint32_t headlen,entryDesc *entry)
       switch(id)
       {
         case  MKV_CONTENT_COMPRESSION_SETTINGS: 
-#warning todo: check it is stripping
+//#warning todo: check it is stripping
                     if(len<=MKV_MAX_REPEAT_HEADER_SIZE)
                     {
                         father.readBin(entry->headerRepeat,len);
