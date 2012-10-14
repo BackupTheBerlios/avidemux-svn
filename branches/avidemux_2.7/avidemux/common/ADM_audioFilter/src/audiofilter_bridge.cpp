@@ -20,10 +20,13 @@ using std::string;
 
 #include "ADM_audioFilter.h"
 #include "audiofilter_bridge.h"
+#include "ADM_vidMisc.h"
 
-#include "ADM_debugID.h"
-#define MODULE_NAME MODULE_AUDIO_FILTER
-#include "ADM_debug.h"
+#if 1
+#define aprintf(...) {}
+#else
+#define aprintf printf
+#endif
 
 /**
     \fn AUDMAudioFilter_Bridge
@@ -128,6 +131,7 @@ uint8_t AUDMAudioFilter_Bridge::fillIncomingBuffer(AUD_Status *status)
   uint64_t dts;
   static bool endMet=false;
   *status=AUD_OK;
+  double sampleToUs=1000000./(_wavHeader.frequency*_wavHeader.channels*sizeof(float));
   // Hysteresis
   if((_tail-_head)<(AUD_PROCESS_BUFFER_SIZE>>2)) // Less than 1/4 full
   {
@@ -137,15 +141,28 @@ uint8_t AUDMAudioFilter_Bridge::fillIncomingBuffer(AUD_Status *status)
       // don't ask too much front.
       asked = (3*AUD_PROCESS_BUFFER_SIZE)/4-_tail;
       asked/=_wavHeader.channels; // float->samples
-      _incoming->getPCMPacket(&(_incomingBuffer[_tail]), asked, &got,&dts);
+      if(false==_incoming->getPCMPacket(&(_incomingBuffer[_tail]), asked, &got,&dts))
+      {
+          got=0;
+          dts=ADM_NO_PTS;
+      }
+      uint64_t endDts=dts+got*sampleToUs;
+      aprintf("StartTime : %s\n",ADM_us2plain(_startTime*1000));
+      aprintf("packet start : %s\n",ADM_us2plain(dts));
+      aprintf("packet end : %s\n",ADM_us2plain(endDts));
+      
+      if(dts!=ADM_NO_PTS && endDts < _startTime*1000)
+      {
+          ADM_info("Packet too early, dropping it... :%s",ADM_us2plain(dts));
+          ADM_info("/ start is at :%s\n",ADM_us2plain(_startTime*1000));
+          continue;
+      }
       got*=_wavHeader.channels; // sample->float
       if (!got )
       {
         *status=AUD_END_OF_STREAM;
         if(endMet==false) ADM_warning("[Bridge] End of stream\n");
         endMet=true;
-    
-    
         break;
       }
       endMet=false;
