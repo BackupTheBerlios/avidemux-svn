@@ -47,6 +47,8 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 	{
 		throw "Error generating import library ($arch)"
 	}
+
+	Create-MsvcLib (Join-Path "$externalLibDir" "bin\aften.dll") (Join-Path "$externalLibDir" "lib") $arch
 }
 
 function Start-UI
