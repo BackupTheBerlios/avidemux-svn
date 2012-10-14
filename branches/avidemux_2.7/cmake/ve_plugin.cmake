@@ -15,7 +15,11 @@ ENDMACRO(INIT_VIDEO_ENCODER)
 
 MACRO(INSTALL_VIDEO_ENCODER _lib)
 	INSTALL(TARGETS ${_lib} DESTINATION "${VE_PLUGIN_DIR}")
-	TARGET_LINK_LIBRARIES(${_lib} ADM_core6 ADM_coreUI6 ADM_coreVideoEncoder6 ADM_coreImage6 ADM_coreUtils6 m)
+	TARGET_LINK_LIBRARIES(${_lib} ADM_core6 ADM_coreUI6 ADM_coreVideoEncoder6 ADM_coreImage6 ADM_coreUtils6)
+
+	if (UNIX)
+		target_link_libraries(${_lib} m)
+	endif (UNIX)
 ENDMACRO(INSTALL_VIDEO_ENCODER)
 
 MACRO(ADD_VIDEO_ENCODER name)
