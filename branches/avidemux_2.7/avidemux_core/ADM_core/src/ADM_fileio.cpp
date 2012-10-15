@@ -304,7 +304,7 @@ static void AddSeparator(char *path)
 static char *ADM_getRelativePath(const char *base0, const char *base1, const char *base2, const char *base3)
 {
 	char *result;
-	int length = strlen(base0) + 2;
+	size_t length = strlen(base0) + 2;
 
 	if (base1)
 		length += strlen(base1) + 1;
@@ -564,8 +564,8 @@ uint8_t buildDirectoryContent(uint32_t *outnb, const char *base, char *jobName[]
 {
 	DIR *dir;
 	struct dirent *direntry;
-	int dirmax = 0, len;
-	int extlen = strlen(ext);
+	int dirmax = 0;
+	size_t len, extlen = strlen(ext);
 
 	ADM_assert(extlen);
 
@@ -611,7 +611,7 @@ uint8_t buildDirectoryContent(uint32_t *outnb, const char *base, char *jobName[]
 		if (len < (extlen + 1))
 			continue;
 
-		int xbase = len - extlen;
+		size_t xbase = len - extlen;
 
 		if (memcmp(d_name + xbase, ext, extlen))
 		{
@@ -646,12 +646,15 @@ uint8_t buildDirectoryContent(uint32_t *outnb, const char *base, char *jobName[]
 */
 uint8_t    clearDirectoryContent(const uint32_t nb, char *jobName[])
 {
-    for(int i=0;i<nb;i++)
-        if(jobName[i])
-        {
-            ADM_dealloc(jobName[i]);
-            jobName[i]=NULL;
-        }
+	for (uint32_t i = 0; i < nb; i++)
+	{
+		if(jobName[i])
+		{
+			ADM_dealloc(jobName[i]);
+			jobName[i]=NULL;
+		}
+	}
+
     return true;
 }
 //------------------------------------------------------------------
@@ -750,7 +753,7 @@ char *ADM_PathCanonize(const char *tmpname)
 */
 void ADM_PathStripName(char *str)
 {
-	int len = strlen(str);
+	size_t len = strlen(str);
 
 	if (len <= 1)
 		return;
@@ -804,7 +807,7 @@ const char *ADM_GetFileName(const char *str)
 void ADM_PathSplit(const char *str, char **root, char **ext)
 {
 	char *full;
-	uint32_t l;
+	size_t l;
 
 	full = ADM_PathCanonize(str);
 	// Search the last
@@ -828,7 +831,7 @@ void ADM_PathSplit(const char *str, char **root, char **ext)
 	}
 	// else we do get an extension
 	// starting at l+1
-	uint32_t suff;
+	size_t suff;
 
 	suff = strlen(full) - l - 1;
 	*ext = new char[suff + 1];
@@ -857,7 +860,7 @@ uint8_t ADM_copyFile(const char *source, const char *target)
     uint8_t buffer[1024];
     while(!feof(fin))
     {
-        int r=fread(buffer,1,1024,fin);
+        size_t r=fread(buffer,1,1024,fin);
         fwrite(buffer,1,r,fout);
         if(r!=1024) break;
     }

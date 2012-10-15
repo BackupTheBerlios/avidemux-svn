@@ -102,13 +102,13 @@ void  indexFile::purgeTokens(void)
 */
 dmxToken        *indexFile::searchToken(const char *name)
 {
-    for(int i=0;i<ListOfTokens.size();i++)
+    for(unsigned int i=0;i<ListOfTokens.size();i++)
     {
         dmxToken *tk=ListOfTokens[i];
         if(!strcasecmp(name,tk->getName())) return tk;
     }
     printf("[indexFile] Token %s not found\n",name);
-    for(int i=0;i<ListOfTokens.size();i++)
+    for(unsigned int i=0;i<ListOfTokens.size();i++)
         printf("  [%d]%s\n",i,ListOfTokens[i]->getName());
     return NULL;
 }
@@ -261,7 +261,7 @@ bool  indexFile::readString(uint32_t maxLen,uint8_t *buffer)
     if(buffer[0])
         while(1)
         {
-            int l=strlen((char *)buffer);
+            size_t l=strlen((char *)buffer);
             if(!l) break;
             char c=buffer[l-1];
             if(c==0xa || c==0xd)

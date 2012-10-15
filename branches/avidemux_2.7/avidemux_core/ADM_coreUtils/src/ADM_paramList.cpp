@@ -57,7 +57,7 @@ void getCoupleFromString(CONFcouple **couples, const char *str,const ADM_paramLi
     *couples=new CONFcouple(nb);
     s=str;
     const char *n;
-    for(int i=0;i<nb;i++)
+    for(uint32_t i=0;i<nb;i++)
     {
         if(*s!=':')
         {
@@ -102,7 +102,7 @@ void lavCoupleToString(CONFcouple *couples, char **str)
 	*str = s;
 	uint32_t nb = couples->getSize();
 
-	for (int i = 0; i < nb; i++)
+	for (uint32_t i = 0; i < nb; i++)
 	{
 		char *name, *value;
 		couples->getInternalName(i, &name, &value);

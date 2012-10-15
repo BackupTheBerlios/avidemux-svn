@@ -80,11 +80,15 @@ void indirect_printf_long(int level,const char *modname,int entity,const char *p
 	}
 }
 
-
+#ifdef _WIN32
+#define ADM_COLOR_YELLOW ""
+#define ADM_COLOR_RED ""
+#define ADM_DEFAULT_COLOR ""
+#else
 #define ADM_COLOR_YELLOW  "\e[33m"
 #define ADM_COLOR_RED     "\e[31m"
 #define ADM_DEFAULT_COLOR "\e[32m"
-
+#endif
 
 static void ADM_prettyPrint(const char *func,const char *color, const char *p)
 {

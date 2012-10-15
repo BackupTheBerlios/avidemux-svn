@@ -38,11 +38,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <sqlite3.h>
 #include "libsqlitewrapped.h"
 
-#ifdef _WIN32
-#define strncasecmp strnicmp
-#define strcasecmp stricmp
-#endif // _WIN32
-
 /**
  **  Class 'Version' and 'cVersion'
  **/
@@ -57,7 +52,7 @@ public:
 	~Version();
 	Database& GetDatabase() { return *database; }
 
-	unsigned long long int insert();
+	sqlite_int64 insert();
 	void save();
 	std::string xml();
 	std::string xml(const std::string& ,const std::string& );
@@ -96,7 +91,7 @@ public:
 	~Jobs();
 	Database& GetDatabase() { return *database; }
 
-	unsigned long long int insert();
+	sqlite_int64 insert();
 	void update();
 	void save();
 	void erase();

@@ -27,7 +27,7 @@ ADM_audioStreamMP3::ADM_audioStreamMP3(WAVHeader *header,ADM_audioAccess *access
     if(access->isCBR()==true && access->canSeekOffset()==true)
     {
         // We can compute the duration from the length
-        float size=access->getLength();
+        double size=access->getLength();
               size/=header->byterate; // Result is in second
               size*=1000;
               size*=1000; // s->us
@@ -59,11 +59,11 @@ ADM_audioStreamMP3::ADM_audioStreamMP3(WAVHeader *header,ADM_audioAccess *access
 ADM_audioStreamMP3::~ADM_audioStreamMP3()
 {
     // Delete our map if needed...
-   for(int i=0;i<seekPoints.size();i++)
-   {
-        delete seekPoints[i];
-        seekPoints[i]=NULL;
-    }
+	for (unsigned int i = 0; i < seekPoints.size(); i++)
+	{
+		delete seekPoints[i];
+		seekPoints[i] = NULL;
+	}
 }
 /**
     \fn goToTime
@@ -99,7 +99,7 @@ bool         ADM_audioStreamMP3::goToTime(uint64_t nbUs)
             return true;
     }
     // Search the switching point..
-    for(int i=0;i<seekPoints.size()-1;i++)
+    for (unsigned int i = 0; i < seekPoints.size() - 1; i++)
     {
         //printf("[%d]Target %u * %u * %u *\n",i,nbUs,seekPoints[i]->timeStamp,seekPoints[i+1]->timeStamp);
         if(seekPoints[i]->timeStamp<=nbUs && seekPoints[i+1]->timeStamp>=nbUs)
@@ -216,7 +216,7 @@ DIA_workingBase *work=createWorking("Building time map");
         uint32_t now=clk->getElapsedMS();
         if(now>nextUpdate)
         {
-            work->update(pos,access->getLength());
+            work->update((uint32_t)pos,access->getLength());
             nextUpdate=now+TIME_BETWEEN_UPDATE;
         }
         

@@ -66,8 +66,8 @@ bool riffWritter::end(void)
     fseeko(_ff,_begin,SEEK_SET);
     b=tell();
 	len=e-b-8;	// is this causing trouble? 'list' content has to include any padding
-    write32((_fcc));
-    write32((len));
+    write32(_fcc);
+    write32((uint32_t)len);
     fseeko(_ff,e,SEEK_SET);
     return 1;
 }

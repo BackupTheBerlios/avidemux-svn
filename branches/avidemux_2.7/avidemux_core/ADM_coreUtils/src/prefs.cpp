@@ -123,7 +123,7 @@ preferences::preferences()
                                     *(int32_t *)(dummyPointer+offset)=atoi(opt->defaultValue);
                                     break;
                 case ADM_param_float:
-                                    *(float *)(dummyPointer+offset)=atof(opt->defaultValue);
+                                    *(float *)(dummyPointer+offset)=(float)atof(opt->defaultValue);
                                     break;
                 case ADM_param_bool:
                                     *(bool *)(dummyPointer+offset)=atoi(opt->defaultValue);

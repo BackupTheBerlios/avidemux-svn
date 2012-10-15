@@ -23,7 +23,8 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-#include <sqlJobs.h>
+#include "ADM_default.h"
+#include "sqlJobs.h"
 
 namespace db {
 
@@ -66,7 +67,7 @@ void Version::select(const std::string& sql)
 }
 
 
-unsigned long long int Version::insert()
+sqlite_int64 Version::insert()
 {
 	Query q(*database);
 	std::string sql;
@@ -80,8 +81,8 @@ unsigned long long int Version::insert()
 	sql += ")";
 	q.execute(sql);
 	new_object = 0;
-	unsigned long long int inserted_id = q.insert_id();
-	value = inserted_id;
+	sqlite_int64 inserted_id = q.insert_id();
+	this->value = (long)inserted_id;
 	return inserted_id;
 }
 
@@ -219,7 +220,7 @@ void Jobs::select(const std::string& sql)
 }
 
 
-unsigned long long int Jobs::insert()
+sqlite_int64 Jobs::insert()
 {
 	Query q(*database);
 	std::string sql;
@@ -246,8 +247,8 @@ unsigned long long int Jobs::insert()
 	sql += ")";
 	q.execute(sql);
 	new_object = 0;
-	unsigned long long int inserted_id = q.insert_id();
-	id = inserted_id;
+	sqlite_int64 inserted_id = q.insert_id();
+	id = (long)inserted_id;
 	return inserted_id;
 }
 

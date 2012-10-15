@@ -121,7 +121,7 @@ void DIA_encodingBase::refresh(void)
                     if(deltaTime>1000)
                     {
                         float delta;
-                        delta=deltaSize;
+                        delta=(float)deltaSize;
                         delta/=deltaTime;
                         delta*=8; // byte -> bit
                         delta*=1000; // b/us -> kb/s
@@ -136,9 +136,9 @@ void DIA_encodingBase::refresh(void)
                     thisAverage=((float)deltaFrame);
                     thisAverage/=deltaTime;
                     thisAverage*=1000;
-                    _fps_average=_fps_average*0.5+0.5*thisAverage;
+                    _fps_average=_fps_average*0.5f+0.5f*thisAverage;
                     //printf("************** Fps:%d\n",(int)_fps_average);
-                    setFps(_fps_average);
+                    setFps((uint32_t)_fps_average);
                     float percent=(float)_currentDts/(float)_totalDurationUs;
                     if(percent>1.0) percent=1.0;
                     percent*=100;
@@ -148,17 +148,17 @@ void DIA_encodingBase::refresh(void)
                 }
                 if(deltaDts )
                 {
-                    float dtsPerSec=deltaDts;
+                    float dtsPerSec=(float)deltaDts;
                     dtsPerSec/=deltaTime;
                     dtsPerSec/=1000.;  // dts advance per second
-                    float leftDts=_totalDurationUs-_currentDts;
+                    float leftDts=(float)(_totalDurationUs-_currentDts);
                     //printf("***************%u to encoding\n",(int)(leftDts/1000000));
                     //printf("Advanc=%d ms/sec\n",(int)(dtsPerSec*1000));
                     if(dtsPerSec>0.01)
                     {
                         leftDts=leftDts/dtsPerSec;
                         _remainingTimeUs=(_remainingTimeUs/2)+(leftDts/2);
-                        leftDts=_remainingTimeUs;
+                        leftDts=(float)_remainingTimeUs;
                         leftDts/=1000.; // us -> ms
                         //printf("***************%u s left\n",(int)(leftDts/1000));
                         setRemainingTimeMS((uint32_t)leftDts);

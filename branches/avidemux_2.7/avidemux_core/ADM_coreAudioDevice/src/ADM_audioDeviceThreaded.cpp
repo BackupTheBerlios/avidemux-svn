@@ -106,7 +106,7 @@ uint8_t audioDeviceThreaded::init(uint32_t channel, uint32_t fq ,CHANNEL_TYPE *c
 uint32_t   audioDeviceThreaded:: getBufferFullness(void)
 {
     mutex.lock();
-    float nbBytes=wrIndex-rdIndex;
+    float nbBytes=(float)(wrIndex-rdIndex);
     mutex.unlock();
     nbBytes/=sizeOf10ms;
     return 1+(uint32_t)nbBytes;
@@ -230,8 +230,8 @@ bool        audioDeviceThreaded::getVolumeStats(uint32_t *vol)
 #define USE_MEAN_SQUARE
     uint8_t *base8=rdIndex+audioBuffer;
     int16_t *base=(int16_t *)(base8);
-    for(int i=0;i<samples;i++)
-        for(int chan=0;chan<_channels;chan++)
+    for(uint32_t i=0;i<samples;i++)
+        for(uint32_t chan=0;chan<_channels;chan++)
         {
 #ifdef USE_MEAN_SQUARE
                 f[chan]+=base[0]*base[0];
@@ -261,7 +261,7 @@ bool        audioDeviceThreaded::getVolumeStats(uint32_t *vol)
     for(int i=0;i<6;i++)
     {
         CHANNEL_TYPE wanted=output[i];
-        for(int j=0;j<_channels;j++)
+        for(uint32_t j=0;j<_channels;j++)
         {
             if(chans[j]==wanted)
             {

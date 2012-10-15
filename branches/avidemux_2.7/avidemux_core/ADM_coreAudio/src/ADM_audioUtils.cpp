@@ -21,7 +21,7 @@ void AUDMEncoder_initDither(void)
 	for (int c = 0; c < DITHER_CHANNELS; c++) {
 		dp = 0;
 		for (int i = 0; i < DITHER_SIZE-1; i++) {
-			d = rand() / (float)RAND_MAX - 0.5;
+			d = rand() / (float)RAND_MAX - 0.5f;
 			rand_table[c][i] = d - dp;
 			dp = d;
 		}
@@ -36,7 +36,7 @@ void dither16(float *start, uint32_t len, uint8_t channels)
 	float *data = start;
 
 	len /= channels;
-	for (int i = 0; i < len; i++) {
+	for (uint32_t i = 0; i < len; i++) {
 		for (int c = 0; c < channels; c++) {
 			*data = roundf(*data * 32766 + rand_table[c][nr]);
 			if (*data > 32767.0f) *data = 32767;
@@ -65,9 +65,9 @@ bool   ADM_audioReorderChannels(uint32_t channels,float *data, uint32_t nb,CHANN
 		{
 			int j = 0;
 
-			for (int i = 0; i < channels; i++) 
+			for (uint32_t i = 0; i < channels; i++) 
 			{
-				for (int c = 0; c < channels; c++) 
+				for (uint32_t c = 0; c < channels; c++) 
 				{
 					if (input[c] == output[i]) 
 					{
@@ -84,10 +84,10 @@ bool   ADM_audioReorderChannels(uint32_t channels,float *data, uint32_t nb,CHANN
 	{
 		float *tmp = new float[channels];
 
-		for (int i = 0; i < nb; i++) 
+		for (uint32_t i = 0; i < nb; i++) 
         {
 			memcpy(tmp, data, sizeof(tmp));
-			for (int c = 0; c < channels; c++)
+			for (uint32_t c = 0; c < channels; c++)
 				*data++ = tmp[reorder[c]];
 		}
 

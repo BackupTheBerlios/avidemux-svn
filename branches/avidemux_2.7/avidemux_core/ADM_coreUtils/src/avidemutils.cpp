@@ -250,7 +250,7 @@ char *ADM_escape(const ADM_filename *incoming)
 {
 char *out,*cur;
 int to_escape=0;
-int l=0;
+size_t l=0;
 
     if(incoming)     l=strlen((char *)incoming);
     if(!l)
@@ -311,7 +311,7 @@ bool ADM_computeAverageBitrateFromDuration(uint64_t duration, uint32_t sizeInMB,
         ADM_error("[ADM_computeBitrateFromDuration] No source duration!\n");
         return false;
     }
-    f=sizeInMB; 
+    f=(float)sizeInMB; 
     f=f*1024*1024*8; // in bits
     f*=1000*1000;
     f/=duration; // bit/s
@@ -343,7 +343,7 @@ uint32_t ADM_Fps1000FromUs(uint64_t us)
 {
     if(us<1000) return 1000;
     double f;
-    f=us;
+    f=(double)us;
     f=1000000./f;
     f*=1000;
     return (uint32_t)(f+0.5);

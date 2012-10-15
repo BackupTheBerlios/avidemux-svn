@@ -49,7 +49,7 @@ bool  ADM_audioStream::goToTime(uint64_t nbUs)
     }
     ADM_assert(true==access->canSeekOffset());
     // Convert time to offset in bytes
-    float f=nbUs*wavHeader.byterate;
+    float f=(float)(nbUs*wavHeader.byterate);
     f/=1000;
     f/=1000; // in bytes
     if(access->setPos( (uint32_t)(f+0.5)))
@@ -58,10 +58,10 @@ bool  ADM_audioStream::goToTime(uint64_t nbUs)
         // it is better to undershoot in most case
         uint64_t pos=access->getPos();
         // compute dts from pos & byterate
-        float r=pos;
+        float r=(float)pos;
             r*=1000*1000;
             r/=wavHeader.byterate;
-            setDts(r);
+            setDts((uint64_t)r);
         return 1;
     }
     return false;
@@ -88,7 +88,7 @@ uint64_t dts=0;
         return 1;
     }
     //printf("[ADM_audioStream::get Packet : Size %u dts:%lu\n",size,dts);
-    float f=dts-lastDts;
+    float f=(float)(dts-lastDts);
     f*=wavHeader.frequency;
     f/=1000;
     f/=1000;
@@ -123,7 +123,7 @@ void  ADM_audioStream::setDts(uint64_t newDts)
 bool    ADM_audioStream::advanceDtsBySample(uint32_t samples)
 {
         sampleElapsed+=samples;
-        float f=sampleElapsed*1000;
+        float f=(float)(sampleElapsed*1000);
             f/=wavHeader.frequency;
             f*=1000;
             lastDts=lastDtsBase+(uint64_t)(f+0.5);
@@ -135,7 +135,7 @@ bool    ADM_audioStream::advanceDtsBySample(uint32_t samples)
 bool    ADM_audioStream::advanceDtsByCustomSample(uint32_t samples,uint32_t fq)
 {
         sampleElapsed+=samples;
-        float f=sampleElapsed*1000;
+        float f=(float)(sampleElapsed*1000);
             f/=fq;
             f*=1000;
             lastDts=lastDtsBase+(uint64_t)(f+0.5);

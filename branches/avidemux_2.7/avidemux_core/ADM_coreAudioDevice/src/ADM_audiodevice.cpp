@@ -117,7 +117,7 @@ uint8_t ADM_av_loadPlugins(const char *path)
 		return 0;
 	}
 
-	for(int i=0;i<nbFile;i++)
+	for(uint32_t i=0;i<nbFile;i++)
 		tryLoadingFilterPlugin(files[i]);
 
 	printf("[ADM_av_plugin] Scanning done\n");

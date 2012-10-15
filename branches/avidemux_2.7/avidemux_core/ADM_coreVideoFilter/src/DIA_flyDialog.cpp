@@ -184,7 +184,7 @@ uint8_t    ADM_flyDialog::sliderChanged(void)
     time=fn;
     time/=ADM_FLY_SLIDER_MAX;
     time*=_in->getInfo()->totalDuration;
-    _in->goToTime(time);
+    _in->goToTime((uint64_t)time);
    
 
    return nextImage();

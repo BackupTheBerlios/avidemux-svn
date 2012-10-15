@@ -114,9 +114,9 @@ bool BitBlitAlpha(uint8_t *dst, uint32_t pitchDst,uint8_t *src,uint32_t pitchSrc
 		uint32_t width, uint32_t height,uint32_t alpha)
 {
 
-    for(int y=0;y<height;y++)
+    for(uint32_t y=0;y<height;y++)
     {
-    	for(int x=0;x<width;x++)
+    	for(uint32_t x=0;x<width;x++)
     	{
     		uint32_t s=src[x],d=dst[x];
 
@@ -133,7 +133,7 @@ bool BitBlitAlpha(uint8_t *dst, uint32_t pitchDst,uint8_t *src,uint32_t pitchSrc
 bool BitBlit(uint8_t *dst, uint32_t pitchDst,uint8_t *src,uint32_t pitchSrc,uint32_t width, uint32_t height)
 {
 
-    for(int y=0;y<height;y++)
+    for(uint32_t y=0;y<height;y++)
     {
         memcpy(dst,src,width);
         src+=pitchSrc;

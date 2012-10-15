@@ -92,7 +92,7 @@ bool  ADMImage::saveAsBmp(const char *filename)
         uint8_t *up=out;
         uint8_t *down=out+(hh-1)*ww*3;
         
-        for(int y=0;y<hh>>1;y++)
+        for(uint32_t y=0;y<hh>>1;y++)
         {
             SwapMe(swap,up,ww); 
             SwapMe(up,down,ww);

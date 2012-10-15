@@ -230,8 +230,8 @@ uint32_t ms=(uint32_t)(ams/1000);
 */
 void  ADM_LowerCase(char *string)
 {
-  int l=strlen(string)-1;
-        for(int i=l;i>=0;i--)
+  size_t l=strlen(string)-1;
+        for(size_t i=l;i>=0;i--)
         {
                 string[i]=tolower(string[i]);
         }
@@ -258,8 +258,7 @@ FILE *file;
 extern char *ADM_slashToBackSlash(const char *in)
 {
     char *out,*cout;
-    int n;
-    n=strlen(in);
+    size_t n = strlen(in);
     cout=out=(char *)ADM_alloc(n+1);   
     for(int i=0;i<n+1;i++)
     {

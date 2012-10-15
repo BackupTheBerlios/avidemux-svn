@@ -136,7 +136,7 @@ vidHeader *ADM_demuxerSpawn(uint32_t magic,const char *name)
 int found=-1;
 uint32_t score=0;
 uint32_t mark;
-    for(int i=0;i<ListOfDemuxers.size();i++)
+    for(unsigned int i=0;i<ListOfDemuxers.size();i++)
     {
         mark=ListOfDemuxers[i]->probe(magic,name);
         if(mark>score)

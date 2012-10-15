@@ -15,7 +15,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#define __STDC_CONSTANT_MACROS
+
 #include "ADM_default.h"
 #include "ADM_coreVideoEncoderFFmpeg.h"
 #include "prefs.h"
@@ -171,8 +171,7 @@ bool             ADM_coreVideoEncoderFFmpeg::prolog(ADMImage *img)
 */
 int64_t          ADM_coreVideoEncoderFFmpeg::timingToLav(uint64_t val)
 {
-  int64_t v= floor( ((float)val+timeScaler/2.) /timeScaler);
-  return v;
+  return (int64_t)floor( ((float)val+timeScaler/2.) /timeScaler);
 }
 /**
     \fn lavToTiming
@@ -180,7 +179,7 @@ int64_t          ADM_coreVideoEncoderFFmpeg::timingToLav(uint64_t val)
 uint64_t         ADM_coreVideoEncoderFFmpeg::lavToTiming(int64_t val)
 {
     float v=(float)val;
-    return floor(v*timeScaler);
+    return (uint64_t)floor(v*timeScaler);
 }
 
 /**

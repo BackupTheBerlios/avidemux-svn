@@ -16,7 +16,7 @@ ADM_audioStreamAC3::ADM_audioStreamAC3(WAVHeader *header,ADM_audioAccess *access
     if(access->canGetDuration()==false)
     {
         // We can compute the duration from the length
-        float size=access->getLength();
+        float size=(float)access->getLength();
               size/=header->byterate; // Result is in second
               size*=1000;
               size*=1000; // s->us

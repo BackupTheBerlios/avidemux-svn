@@ -118,7 +118,7 @@ uint64_t vidHeader::estimatePts(uint32_t frame)
         count++;
         frame--;
     }
-    float f=_videostream.dwScale;
+    float f=(float)_videostream.dwScale;
     f*=1000*1000;
     f/=_videostream.dwRate;
     f*=count;

@@ -37,7 +37,7 @@ ADM_audioStreamConstantChunk::ADM_audioStreamConstantChunk(WAVHeader *header,ADM
     if(access->isCBR()==true && access->canSeekOffset()==true)
     {
         // We can compute the duration from the length
-        float size=access->getLength();
+        float size=(float)access->getLength();
               size/=header->byterate; // Result is in second
               size*=1000;
               size*=1000; // s->us

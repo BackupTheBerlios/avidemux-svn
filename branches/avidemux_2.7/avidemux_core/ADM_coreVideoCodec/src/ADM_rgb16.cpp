@@ -45,7 +45,6 @@ bool decoderRGB16::uncompress(ADMCompressedImage * in, ADMImage * out)
 {
 	int lineSize = (_w *bytePerPixel + 3) & ~3; // 4 bytes aligned ?
 	ADM_colorspace colorspace;
-	int i, j;
 	uint8_t *src = in->data;
 	uint8_t *dst = decoded;
     int      outBytePerPixel=bytePerPixel;
@@ -71,12 +70,12 @@ bool decoderRGB16::uncompress(ADMCompressedImage * in, ADMImage * out)
 	if (_bpp == 32) // 32 -> 24
 	{
         outBytePerPixel=3;
-		for(i = 0; i < _h; i++)
+		for(uint32_t i = 0; i < _h; i++)
 		{
 			uint8_t *buf = src;
 			uint8_t *ptr = dst;
 
-			for(j = 0; j < _w; j++)
+			for(uint32_t j = 0; j < _w; j++)
 			{
 				ptr[0] = buf[0];
 				ptr[1] = buf[1];
@@ -100,7 +99,7 @@ bool decoderRGB16::uncompress(ADMCompressedImage * in, ADMImage * out)
 		else
 		{
 			// strip extra junk from scanlines (due to 4 byte alignment)
-			for(i = 0; i < _h; i++)
+			for(uint32_t i = 0; i < _h; i++)
 			{
 				memcpy(dst, src, _w * bytePerPixel);
 				src += lineSize;

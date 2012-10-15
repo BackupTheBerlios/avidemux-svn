@@ -303,7 +303,7 @@ char *ADM_strdup(const char *in)
 	if(!in)
 		return NULL;
 
-	uint32_t l = strlen(in);
+	size_t l = strlen(in);
 	char *out;
 
 	out = (char*)ADM_alloc(l + 1);

@@ -38,7 +38,7 @@ bool           audioClock::advanceBySample(uint32_t samples)
  * */
 uint64_t       audioClock::getTimeUs(void)
 {
-        float f=_nbSamples;
+        float f=(float)_nbSamples;
                 f=f*1000*1000;
                 f/=_frequency;
                 return _baseClock+(uint64_t)(f+0.5);

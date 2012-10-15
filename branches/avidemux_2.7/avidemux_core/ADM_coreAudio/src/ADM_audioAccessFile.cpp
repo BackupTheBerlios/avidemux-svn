@@ -55,8 +55,8 @@ bool    ADM_audioAccessFile::getPacket(uint8_t *buffer, uint32_t *size, uint32_t
 {
     if(!getPos()) *dts=0;
         else      *dts=ADM_NO_PTS;
-    int n=fread(buffer,1,maxSize,_fd);
-    *size=n;
+    size_t n=fread(buffer,1,maxSize,_fd);
+    *size=(uint32_t)n;
  //   ADM_info("ExternalTrack : Request for %d bytes, maxSize=%d\n",*size,maxSize);
     if(n>0) return true;
         return false;

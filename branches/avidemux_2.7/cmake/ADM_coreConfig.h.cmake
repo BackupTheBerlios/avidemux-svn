@@ -32,10 +32,13 @@
 #	define fseeko _fseeki64
 #	define snprintf _snprintf
 #	define strcasecmp(x, y) _stricmp(x, y)
+#	define strncasecmp(x, y, z) _strnicmp(x, y, z)
 #	define strtoll _strtoi64
 #	define lrint rint
 #	define inline __inline
 #	define getcwd _getcwd
+#	define unlink _unlink
+#	define write _write
 
 #if (defined(_WIN64))
 #	include <emmintrin.h>
@@ -60,8 +63,8 @@
 	}
 #endif
 #elif defined(__MINGW32__)
-#	define rindex strrchr
-#	define index strchr
+#	define strcasecmp(x, y) stricmp(x, y)
+#	define strncasecmp(x, y, z) strnicmp(x, y, z)
 
 #	if !${USE_FTELLO}
 #		define ftello ftello64 // not defined on every mingw64_w32 version (e.g. set 2011-11-03 does not have it)

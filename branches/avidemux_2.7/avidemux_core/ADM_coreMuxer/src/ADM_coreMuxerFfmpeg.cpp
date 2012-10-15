@@ -297,7 +297,7 @@ bool muxerFFmpeg::initAudio(uint32_t nbAudioTrack,ADM_audioStream **audio)
         return true;
     }
     
-    for(int i=0;i<nbAudioTrack;i++)
+    for(uint32_t i=0;i<nbAudioTrack;i++)
     {
           uint32_t audioextraSize;
           uint8_t  *audioextraData;
@@ -396,7 +396,7 @@ bool muxerFFmpeg::saveLoop(const char *title)
     int missingPts=0;
     
     float f=(float)vStream->getAvgFps1000();
-    f=1000./f;
+    f=1000.0f/f;
     f*=1000000;
     videoIncrement=(uint64_t)f;
 
@@ -474,7 +474,7 @@ bool muxerFFmpeg::saveLoop(const char *title)
             }
             written++;
             // Now send audio until they all have DTS > lastVideoDts+increment
-            for(int audio=0;audio<nbAStreams;audio++)
+            for(uint32_t audio=0;audio<nbAStreams;audio++)
             {
                 MuxAudioPacket *audioTrack=&(audioPackets[audio]);
                 ADM_audioStream*a=aStreams[audio];

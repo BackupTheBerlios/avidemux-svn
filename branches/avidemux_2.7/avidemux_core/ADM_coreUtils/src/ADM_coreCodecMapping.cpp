@@ -70,7 +70,7 @@ const ffVideoCodec ffCodec[]=
 const ffVideoCodec *getCodecIdFromFourcc(uint32_t fcc)
 {
     uint32_t n=sizeof(ffCodec)/sizeof(ffVideoCodec);
-    for(int i=0;i<n;i++)
+    for(uint32_t i=0;i<n;i++)
     {
         const ffVideoCodec *c=ffCodec+i;
         if(fourCC::check(fcc,(const uint8_t*)c->string))
@@ -105,7 +105,7 @@ CodecID ADM_codecIdFindByFourcc(const char *fcc)
     }
 
     uint32_t nb=sizeof(ffCodec)/sizeof(ffVideoCodec);
-    for(int i=0;i<nb;i++)
+    for(uint32_t i=0;i<nb;i++)
     {
         if(!strcmp(fcc,ffCodec[i].string)) return ffCodec[i].codecId;
     }

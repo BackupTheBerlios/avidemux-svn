@@ -124,15 +124,15 @@ public:
         *@brief Append a value
         *@param other the vector to append
         */
-        virtual void append ( const BVector<T> & other ){
+		virtual void append ( const BVector<T> & other )
+		{
+			setCapacity(size() + other.size());
 
-                setCapacity(size() + other.size());
-
-                for(int index = 0 ; index < other.currentIndex ; ++index )
-                {
-                        this->buffer[this->currentIndex++]=other.buffer[index];
-                }
-        }
+			for(unsigned int index = 0; index < other.currentIndex; ++index )
+			{
+				this->buffer[this->currentIndex++]=other.buffer[index];
+			}
+		}
 
         /**
         *@brief delete all, then size = 0

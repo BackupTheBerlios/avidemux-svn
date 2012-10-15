@@ -160,7 +160,7 @@ bool ADM_latm2aac::AudioSpecificConfig(getBits &bits,int &bitsConsumed)
             extraData[i]=myBits.get(8);
     }
 #else // pad right
-    for(int i=0;i<extraLen;i++)
+    for(uint32_t i=0;i<extraLen;i++)
     {
             int rd=consumed;
             if(rd>8) rd=8;

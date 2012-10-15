@@ -23,7 +23,7 @@ struct _wdirent
 {
 	long		d_ino;		/* Always zero. */
 	unsigned short	d_reclen;	/* Always zero. */
-	unsigned short	d_namlen;	/* Length of name in d_name. */
+	size_t	d_namlen;	/* Length of name in d_name. */
 	wchar_t		d_name[260]; /* [FILENAME_MAX] */ /* File name. */
 };
 

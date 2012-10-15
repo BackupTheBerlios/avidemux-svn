@@ -253,7 +253,7 @@ bool ADM_listFile(const std::string& path,const std::string& extension,vector <s
         return true;
     }
     size_t lastDot;
-    for(int i=0;i<nb;i++)
+    for(uint32_t i=0;i<nb;i++)
     {
         std::string s=std::string(list[i]);
         std::string file;
