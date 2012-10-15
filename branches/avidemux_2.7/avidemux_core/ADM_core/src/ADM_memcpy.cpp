@@ -419,8 +419,6 @@ uint8_t probe(adm_fast_memcpy func,char *name)
 */
 uint8_t ADM_InitMemcpy(void)
 {
-  uint64_t          t;
-
 #undef memcpy
         myAdmMemcpy=memcpy;
 #if defined(ADM_CPU_X86)

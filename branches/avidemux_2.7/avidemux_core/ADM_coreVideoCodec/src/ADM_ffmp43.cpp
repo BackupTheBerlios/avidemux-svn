@@ -330,8 +330,8 @@ bool    decoderFF::flush(void)
 bool   decoderFF::uncompress (ADMCompressedImage * in, ADMImage * out)
 {
   int got_picture = 0;
-  uint8_t *oBuff[3];
   int ret = 0;
+
   out->_noPicture = 0;
   if (decoderFF_params.showMv)
     {

@@ -53,7 +53,7 @@ ADM_CORE6_EXPORT const char      *ADM_epochToString(uint64_t epoch);
 
 	extern "C"
 	{
-		typedef struct timespec
+		struct timespec
 		{
 			time_t tv_sec;
 			long int tv_nsec;

@@ -60,7 +60,6 @@ uint8_t ADM_audioStreamAC3::getPacket(uint8_t *obuffer,uint32_t *osize, uint32_t
 {
 #define ADM_LOOK_AHEAD 6 // Need 6 bytes...
 uint8_t data[ADM_LOOK_AHEAD];
-uint32_t offset;
 int size;
 int flags,sample_rate,bit_rate;
 

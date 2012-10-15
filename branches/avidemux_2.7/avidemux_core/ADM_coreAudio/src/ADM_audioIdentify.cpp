@@ -163,7 +163,6 @@ static bool idWAV(int bufferSize,const uint8_t *data,WAVHeader &info,uint32_t &o
 	          }
 	       }
 
-	    uint32_t length;
 	    wRead32(t32);
 	    ADM_info(" %lu bytes data \n", totalSize);
 	    info.blockalign=1;

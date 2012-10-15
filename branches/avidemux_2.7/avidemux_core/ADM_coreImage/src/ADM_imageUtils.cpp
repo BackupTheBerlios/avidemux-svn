@@ -27,7 +27,7 @@ int a1,a2;
         s2=src2;
         
         d1=dst;
-          for(int y=0;y<l;y++)
+          for(uint32_t y=0;y<l;y++)
                 {
                         a1=*s1;
                         a2=*s2;
@@ -291,10 +291,8 @@ static uint32_t computeDiff(uint8_t  *s1,uint8_t *s2,uint32_t noise,uint32_t l)
 {
 uint32_t df=0;
 uint32_t delta;
-uint32_t ww,hh;
 
-
-        for(int x=0;x<l;x++)
+        for(uint32_t x=0;x<l;x++)
         {
                 delta=abs(*s1-*s2);
                 if(delta>noise)
@@ -409,7 +407,6 @@ uint32_t r1,r2;
 // so srcR=2*src-srcP
 static uint8_t tinySubstract(uint8_t *dst, uint8_t *src1, uint8_t *src2,uint32_t l)
 {
-uint32_t ww,hh;
 uint8_t *s1,*s2,*d1;
 int a1,a2;
         s1=src1;
@@ -418,7 +415,7 @@ int a1,a2;
         d1=dst;
        
 
-          for(int y=0;y<l;y++)
+          for(uint32_t y=0;y<l;y++)
                
                 {
                         a1=*s1;

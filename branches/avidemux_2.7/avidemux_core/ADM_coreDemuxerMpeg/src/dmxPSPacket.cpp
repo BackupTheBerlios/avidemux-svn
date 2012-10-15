@@ -179,7 +179,7 @@ uint8_t psPacket::getPacketInfo(uint8_t stream,uint8_t *substream,uint32_t *olen
 
 //uint32_t un ,deux;
 uint64_t size=0;
-uint8_t c,d;
+uint8_t c;
 uint8_t align=0;
                         
                 *substream=0xff;

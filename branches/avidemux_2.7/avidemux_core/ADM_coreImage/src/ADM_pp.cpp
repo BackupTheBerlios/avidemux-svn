@@ -187,7 +187,7 @@ uint32_t border;
         {
               
                 uint8_t *src,*dst;
-                uint32_t stridein,strideout,right;
+                uint32_t right;
 
                 right=ww;
                 // Luma

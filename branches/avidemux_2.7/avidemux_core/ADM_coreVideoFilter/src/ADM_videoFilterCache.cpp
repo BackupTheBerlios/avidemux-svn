@@ -152,7 +152,6 @@ ADMImage *VideoCache::getImageBase(uint32_t frame)
 {
 int32_t i;
 uint32_t tryz=nbEntry;
-uint32_t len,flags;
 
 	// Already there ?
 	if((i=searchFrame(frame))>=0)

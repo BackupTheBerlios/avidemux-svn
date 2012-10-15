@@ -22,7 +22,6 @@ extern "C"
 */
 bool     ADM_EAC3GetInfo(uint8_t *buf, uint32_t len, uint32_t *syncoff,ADM_EAC3_INFO *info)
 {
-uint32_t l;
 uint32_t of=0;
 
 	*syncoff=of=0;

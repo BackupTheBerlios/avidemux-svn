@@ -16,7 +16,10 @@
 
 #ifndef _ADM_scriptDF_H
 #define _ADM_scriptDF_H
+
+#include "ADM_coreScript_export.h"
 #include "ADM_default.h"
+
 /**
     \class ADM_scriptBaseHelper
 */

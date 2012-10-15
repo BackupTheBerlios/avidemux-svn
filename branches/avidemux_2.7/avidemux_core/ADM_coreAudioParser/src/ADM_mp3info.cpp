@@ -55,7 +55,7 @@ uint8_t	getMpegFrameInfo(const uint8_t *stream,uint32_t maxSearch, MpegAudioInfo
 {
 uint32_t start=0,found=0;
 uint8_t  a[4];
-uint32_t nfq,fqindex,brindex,index;
+uint32_t fqindex,brindex,index;
 			memcpy(a+1,stream,3);
 			do
 			{

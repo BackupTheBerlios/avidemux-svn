@@ -461,8 +461,6 @@ uint8_t extractH264FrameType (uint32_t nalSize, uint8_t * buffer, uint32_t len, 
   uint8_t *head = buffer, *tail = buffer + len;
   uint8_t stream;
 
-  uint32_t val, hnt;
-
   while (head + 4 < tail)
     {
 
@@ -805,7 +803,7 @@ int index=0;
 */
 int ADM_findNalu(uint32_t nalu,uint32_t maxNalu,NALU_descriptor *desc)
 {
-    for(int i=0;i<maxNalu;i++)
+    for(uint32_t i=0;i<maxNalu;i++)
     {
             if((desc[i].nalu&0x1f) == (nalu&0x1f))
                 return i;

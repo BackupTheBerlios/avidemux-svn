@@ -127,7 +127,7 @@ uint8_t ADM_mx_loadPlugins(const char *path)
 		return 0;
 	}
 
-	for(int i=0;i<nbFile;i++)
+	for(uint32_t i=0;i<nbFile;i++)
 		tryLoadingMuxerPlugin(files[i]);
 
 	printf("[ADM_mx_plugin] Scanning done\n");
@@ -225,7 +225,7 @@ ADM_muxer *ADM_MuxerSpawn(const char *name)
 {
 int found=-1;
 uint32_t score=0;
-uint32_t mark;
+
     found=ADM_MuxerIndexFromName(name);
     if(score && found!=-1)
     {

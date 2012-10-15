@@ -175,8 +175,6 @@ ADM_flyDialog::~ADM_flyDialog(void)
 uint8_t    ADM_flyDialog::sliderChanged(void)
 {
   uint32_t fn= sliderGet();
-  uint32_t frameNumber;
-  uint32_t len,flags;
   
     ADM_assert(_yuvBuffer);
     ADM_assert(_in);

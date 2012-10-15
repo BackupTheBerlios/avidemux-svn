@@ -112,7 +112,6 @@ uint8_t fileParser::open( const char *filename,FP_TYPE *multi )
         // ____________________
         // Multi loading
         // ____________________
-        uint32_t tabSize;
         std::string leftPart(left);
         std::string rightPart(right);
         delete [] left;
@@ -211,7 +210,7 @@ uint8_t fileParser::forward(uint64_t jmp)
                         }
                 _off+=jmp;  // final location
                 int nb=listOfFd.size();
-                for(uint32_t i=_curFd;i<nb;i++)
+                for(int i=_curFd;i<nb;i++)
                 {
                         if(_off>=listOfFd[i].fileSizeCumul && _off<(listOfFd[i].fileSizeCumul
                                                                     +listOfFd[i].fileSize))
@@ -236,7 +235,7 @@ uint8_t fileParser::setpos(uint64_t o)
                         return 1;
                 }
                 int nb=listOfFd.size();
-                for(uint32_t i=0;i<nb;i++)
+                for(int i=0;i<nb;i++)
                         {
                                 if( (o>=listOfFd[i].fileSizeCumul) && o<(listOfFd[i].fileSizeCumul+listOfFd[i].fileSize))
                                         {
@@ -334,9 +333,7 @@ uint8_t fileParser::getpos(uint64_t *o)
 ----------------------------------------------------*/
 uint32_t fileParser::read32(uint32_t len, uint8_t *buffer)
 {
-uint32_t r;
-
-uint64_t remain,begin,mx,last;
+uint64_t remain,begin,mx;
 
         ADM_assert(_off>=_head);
         ADM_assert(_off<=_tail);
