@@ -27,7 +27,7 @@
                         computation when access does not provide it.
 */
 #define ADM_AUDIO_NO_DTS ((uint64_t)-1)
-class ADM_audioAccess
+class ADM_COREAUDIO6_EXPORT ADM_audioAccess
 {
 protected:
                         /// must be allocated/freed if needed by derived class

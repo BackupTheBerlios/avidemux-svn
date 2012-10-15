@@ -33,7 +33,7 @@
     \class decoders
     \brief base class for video decoders
 */
-class decoders
+class ADM_COREVIDEOCODEC6_EXPORT decoders
 {
 protected:
   uint32_t _w;

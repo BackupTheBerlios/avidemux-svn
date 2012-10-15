@@ -20,7 +20,7 @@
 /**
     \class ADM_scriptBaseHelper
 */
-class ADM_scriptDFBaseHelper
+class ADM_CORESCRIPT_EXPORT ADM_scriptDFBaseHelper
 {
 public:
                         ADM_scriptDFBaseHelper() {};
