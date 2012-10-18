@@ -38,10 +38,6 @@ target_link_libraries(
 	${QT_QTSCRIPT_LIBRARY}  ${QT_QTCORE_LIBRARY})
 INSTALL_SCRIPT_ENGINE(ADM_script_qt)
 
-if (NOT APPLE)
-	target_link_libraries(ADM_script_qt -Wl,--version-script,"${CMAKE_CURRENT_SOURCE_DIR}/ADM_script_qt.v")
-endif (NOT APPLE)
-
 if (QT_QTSCRIPTTOOLS_FOUND)
     add_definitions(-DQT_SCRIPTTOOLS)
     target_link_libraries(ADM_script_qt ${QT_QTSCRIPTTOOLS_LIBRARY} ${QT_QTGUI_LIBRARY})

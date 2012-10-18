@@ -5,7 +5,6 @@ SET(admScriptPython_SRCS
 	PythonEngine.cpp
 	PythonScriptWriter.cpp
 	TinyParams.cpp
-	ADM_script_tinyPy.v
 )
 
 ADD_SCRIPT_ENGINE(ADM_script_tinyPy ${admScriptPython_SRCS})
@@ -25,8 +24,6 @@ if (UNIX)
 	target_link_libraries(ADM_script_tinyPy m)
 endif (UNIX)
 
-if (NOT APPLE)
-	target_link_libraries(ADM_script_tinyPy -Wl,--version-script,"${CMAKE_CURRENT_SOURCE_DIR}/ADM_script_tinyPy.v")
-elseif (NOT ADM_CPU_X86_64)
+if (APPLE AND NOT ADM_CPU_X86_64)
 	target_link_libraries(ADM_script_tinyPy -Wl,-read_only_relocs,suppress)
-endif (NOT APPLE)
+endif (APPLE AND NOT ADM_CPU_X86_64)

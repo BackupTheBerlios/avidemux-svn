@@ -16,7 +16,6 @@ SET(admScriptSpiderMonkey_SRCS
 	ADM_jsUtils.cpp
 	SpiderMonkeyEngine.cpp
 	SpiderMonkeyScriptWriter.cpp
-	ADM_script_spiderMonkey.v
 )
 
 IF (WIN32)
@@ -44,7 +43,3 @@ else (USE_SYSTEM_SPIDERMONKEY)
 endif (USE_SYSTEM_SPIDERMONKEY)
 
 target_link_libraries(ADM_script_spiderMonkey ADM_coreUI6 ADM_coreUtils6 ADM_scriptDF ADM_coreScript ADM_core6)
-
-if (NOT APPLE)
-    target_link_libraries(ADM_script_spiderMonkey -Wl,--version-script,"${CMAKE_CURRENT_SOURCE_DIR}/ADM_script_spiderMonkey.v")
-endif (NOT APPLE)
