@@ -38,7 +38,6 @@
 #	define inline __inline
 #	define getcwd _getcwd
 #	define unlink _unlink
-#	define write _write
 
 #if (defined(_WIN64))
 #	include <emmintrin.h>

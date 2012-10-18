@@ -120,17 +120,18 @@ ENDIF(NOT PLUGINS)
 ########################################
 # Check functions and includes
 ########################################
+if (MSVC)
+	set(msvc_include_dir "${AVIDEMUX_TOP_SOURCE_DIR}/avidemux_core/ADM_core/include/msvc") 
+	include_directories(${msvc_include_dir})
+	set(CMAKE_REQUIRED_INCLUDES ${CMAKE_REQUIRED_INCLUDES} ${msvc_include_dir})
+endif (MSVC)
+
 IF (NOT SYSTEM_HEADERS_CHECKED)
 	MESSAGE(STATUS "Checking system headers")
 	MESSAGE(STATUS "***********************")
 
 	INCLUDE(CheckIncludeFiles)
 	INCLUDE(CheckFunctionExists)
-
-	if (MSVC)
-		include_directories("${AVIDEMUX_TOP_SOURCE_DIR}/foreignBuilds/msvc/include")
-		set(CMAKE_REQUIRED_INCLUDES ${CMAKE_REQUIRED_INCLUDES} "${AVIDEMUX_TOP_SOURCE_DIR}/foreignBuilds/msvc/include")
-	endif (MSVC)
 
 	set(CMAKE_REQUIRED_INCLUDES ${CMAKE_REQUIRED_INCLUDES} ${CMAKE_INCLUDE_PATH})
 	CHECK_FUNCTION_EXISTS(gettimeofday HAVE_GETTIMEOFDAY)
