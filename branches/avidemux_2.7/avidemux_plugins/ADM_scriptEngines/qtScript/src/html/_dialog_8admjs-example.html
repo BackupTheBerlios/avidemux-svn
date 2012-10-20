@@ -76,37 +76,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <p>This is an example script that demonstrates all the dialog controls that are available to the scripting environment. </p>
 <div class="image">
-<img src="Dialog.jpg" alt="Dialog.jpg"/>
+<img src="Dialog1.jpg" alt="Dialog1.jpg"/>
 </div>
-<div class="fragment"><div class="line">var dialog = <span class="keyword">new</span> <a name="_a0"></a><a class="code" href="class_dialog.html" title="The Dialog class represents a dialog window with an OK and Cancel button.">Dialog</a>(<span class="stringliteral">&quot;Test Window&quot;</span>);</div>
-<div class="line">var checkBox = <span class="keyword">new</span> <a name="_a1"></a><a class="code" href="class_check_box_control.html" title="The CheckBoxControl class provides a checkbox widget with a text label.">CheckBoxControl</a>(<span class="stringliteral">&quot;Test CheckBox&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line">var spinBox = <span class="keyword">new</span> <a name="_a2"></a><a class="code" href="class_spin_box_control.html" title="The SpinBoxControl class provides a spin box widget that takes integers.">SpinBoxControl</a>(<span class="stringliteral">&quot;Test SpinBox:&quot;</span>, 0, 100, 43);</div>
-<div class="line">var doubleSpinBox = <span class="keyword">new</span> <a name="_a3"></a><a class="code" href="class_double_spin_box_control.html" title="The DoubleSpinBoxControl class provides a spin box widget that takes doubles.">DoubleSpinBoxControl</a>(<span class="stringliteral">&quot;Test DoubleSpinBox:&quot;</span>, 0, 100, 48.3);</div>
-<div class="line">var lineEdit = <span class="keyword">new</span> <a name="_a4"></a><a class="code" href="class_line_edit_control.html" title="The LineEditControl class provides a one-line edit widget.">LineEditControl</a>(<span class="stringliteral">&quot;Test LineEdit:&quot;</span>, <span class="stringliteral">&quot;text&quot;</span>);</div>
-<div class="line">var slider = <span class="keyword">new</span> <a name="_a5"></a><a class="code" href="class_slider_control.html" title="The SliderControl class provides a horizontal slider widget that is linked to a spin box widget...">SliderControl</a>(<span class="stringliteral">&quot;Test Slider:&quot;</span>, 0, 100, 13, 5);</div>
-<div class="line">var comboBox = <span class="keyword">new</span> <a name="_a6"></a><a class="code" href="class_combo_box_control.html" title="The ComboBoxControl class provides a combobox widget with a text label.">ComboBoxControl</a>(<span class="stringliteral">&quot;Test ComboBox:&quot;</span>);</div>
+ <dl class="section user"><dt></dt><dd><div class="image">
+<img src="Dialog2.jpg" alt="Dialog2.jpg"/>
+</div>
+</dd></dl>
+<div class="fragment"><div class="line">var showTestWindow = <span class="keyword">function</span>()</div>
+<div class="line">{</div>
+<div class="line">        var dialog = <span class="keyword">new</span> <a name="_a0"></a><a class="code" href="class_dialog.html" title="The Dialog class represents a dialog window with an OK and Cancel button.">Dialog</a>(<span class="stringliteral">&quot;Test Window&quot;</span>);</div>
+<div class="line">        var checkBox = <span class="keyword">new</span> <a name="_a1"></a><a class="code" href="class_check_box_control.html" title="The CheckBoxControl class provides a checkbox widget with a text label.">CheckBoxControl</a>(<span class="stringliteral">&quot;Test CheckBox&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line">        var spinBox = <span class="keyword">new</span> <a name="_a2"></a><a class="code" href="class_spin_box_control.html" title="The SpinBoxControl class provides a spin box widget that takes integers.">SpinBoxControl</a>(<span class="stringliteral">&quot;Test SpinBox:&quot;</span>, 0, 100, 43);</div>
+<div class="line">        var doubleSpinBox = <span class="keyword">new</span> <a name="_a3"></a><a class="code" href="class_double_spin_box_control.html" title="The DoubleSpinBoxControl class provides a spin box widget that takes doubles.">DoubleSpinBoxControl</a>(<span class="stringliteral">&quot;Test DoubleSpinBox:&quot;</span>, 0, 100, 48.3);</div>
+<div class="line">        var lineEdit = <span class="keyword">new</span> <a name="_a4"></a><a class="code" href="class_line_edit_control.html" title="The LineEditControl class provides a one-line edit widget.">LineEditControl</a>(<span class="stringliteral">&quot;Test LineEdit:&quot;</span>, <span class="stringliteral">&quot;text&quot;</span>);</div>
+<div class="line">        var slider = <span class="keyword">new</span> <a name="_a5"></a><a class="code" href="class_slider_control.html" title="The SliderControl class provides a horizontal slider widget that is linked to a spin box widget...">SliderControl</a>(<span class="stringliteral">&quot;Test Slider:&quot;</span>, 0, 100, 13, 5);</div>
+<div class="line">        var comboBox = <span class="keyword">new</span> <a name="_a6"></a><a class="code" href="class_combo_box_control.html" title="The ComboBoxControl class provides a combobox widget with a text label.">ComboBoxControl</a>(<span class="stringliteral">&quot;Test ComboBox:&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">comboBox.items.add(<span class="stringliteral">&quot;item 1&quot;</span>, <span class="stringliteral">&quot;value 1&quot;</span>);</div>
-<div class="line">comboBox.items.add(<span class="keyword">new</span> <a name="_a7"></a><a class="code" href="class_combo_box_item.html" title="The ComboBoxItem class represents an item to be displayed in a combobox widget.">ComboBoxItem</a>(<span class="stringliteral">&quot;item 2&quot;</span>, <span class="stringliteral">&quot;value 2&quot;</span>));</div>
-<div class="line">comboBox.selectedItemIndex = 1;</div>
+<div class="line">        comboBox.items.add(<span class="stringliteral">&quot;item 1&quot;</span>, <span class="stringliteral">&quot;value 1&quot;</span>);</div>
+<div class="line">        comboBox.items.add(<span class="keyword">new</span> <a name="_a7"></a><a class="code" href="class_combo_box_item.html" title="The ComboBoxItem class represents an item to be displayed in a combobox widget.">ComboBoxItem</a>(<span class="stringliteral">&quot;item 2&quot;</span>, <span class="stringliteral">&quot;value 2&quot;</span>));</div>
+<div class="line">        comboBox.selectedItemIndex = 1;</div>
 <div class="line"></div>
-<div class="line">dialog.controls.add(checkBox);</div>
-<div class="line">dialog.controls.add(spinBox);</div>
-<div class="line">dialog.controls.add(doubleSpinBox);</div>
-<div class="line">dialog.controls.add(lineEdit);</div>
-<div class="line">dialog.controls.add(slider);</div>
-<div class="line">dialog.controls.add(comboBox);</div>
+<div class="line">        dialog.controls.add(checkBox);</div>
+<div class="line">        dialog.controls.add(spinBox);</div>
+<div class="line">        dialog.controls.add(doubleSpinBox);</div>
+<div class="line">        dialog.controls.add(lineEdit);</div>
+<div class="line">        dialog.controls.add(slider);</div>
+<div class="line">        dialog.controls.add(comboBox);</div>
 <div class="line"></div>
-<div class="line"><a name="a8"></a><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;Dialog Result: &quot;</span> + dialog.show());</div>
+<div class="line">        <a name="a8"></a><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;Dialog Result: &quot;</span> + dialog.show());</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;CheckBox - Value: &quot;</span> + checkBox.checked);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;SpinBox - Value: &quot;</span> + spinBox.value);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;DoubleSpinBox - Value: &quot;</span> + doubleSpinBox.value);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;LineEdit - Value: &quot;</span> + lineEdit.value);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;Slider - Value: &quot;</span> + slider.value);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Index: &quot;</span> + comboBox.selectedItemIndex);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Item Title: &quot;</span> + comboBox.selectedItem.title);</div>
-<div class="line"><a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Item Value: &quot;</span> + comboBox.selectedItem.value);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;CheckBox - Value: &quot;</span> + checkBox.checked);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;SpinBox - Value: &quot;</span> + spinBox.value);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;DoubleSpinBox - Value: &quot;</span> + doubleSpinBox.value);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;LineEdit - Value: &quot;</span> + lineEdit.value);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;Slider - Value: &quot;</span> + slider.value);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Index: &quot;</span> + comboBox.selectedItemIndex);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Item Title: &quot;</span> + comboBox.selectedItem.title);</div>
+<div class="line">        <a class="code" href="group__global_functions.html#ga428513e838de3670e09b242cde1f0f6b" title="Writes the passed arguments to the standard output and the Debug Output widget of the script debugger...">print</a>(<span class="stringliteral">&quot;ComboBox - Selected Item Value: &quot;</span> + comboBox.selectedItem.value);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">var testDialog = <span class="keyword">new</span> <a class="code" href="class_dialog.html" title="The Dialog class represents a dialog window with an OK and Cancel button.">Dialog</a>(<span class="stringliteral">&quot;Test Window&quot;</span>);</div>
+<div class="line">var button = <span class="keyword">new</span> <a name="_a9"></a><a class="code" href="class_button_control.html" title="The ButtonControl class provides a push button control.">ButtonControl</a>(<span class="stringliteral">&quot;Show Test Controls&quot;</span>, showTestWindow);</div>
+<div class="line"></div>
+<div class="line">testDialog.controls.add(button);</div>
+<div class="line"></div>
+<div class="line">testDialog.show();</div>
 </div><!-- fragment --> </div><!-- contents -->
 
 <hr class="footer"/><address class="footer"><small>

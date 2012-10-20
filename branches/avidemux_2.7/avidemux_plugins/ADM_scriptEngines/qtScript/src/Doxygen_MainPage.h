@@ -2,7 +2,7 @@
  *
  * \section intro_sec Introduction
  *
- * Avidemux uses the <a href="http://doc.qt.digia.com/4.5/qtscript.html"/>QtScript scripting engine</a>
+ * Avidemux uses the <a href="http://doc.qt.digia.com/4.5/qtscript.html">QtScript scripting engine</a>
  * to provide scripting support for the
  * <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a> language.  
  * This allows users to execute scripts that query and control the Avidemux environment.  Scripts can either be

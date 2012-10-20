@@ -3,5 +3,7 @@
  *
  * \example "Dialog.admjs"
  * This is an example script that demonstrates all the dialog controls that are available to the scripting environment.
- * \image html "Dialog.jpg"
+ * \image html "Dialog1.jpg"
+ * \par
+ * \image html "Dialog2.jpg"
  */
