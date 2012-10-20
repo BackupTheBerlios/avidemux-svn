@@ -46,6 +46,18 @@ function Get-PackageFileName([string] $pattern, [string] $arch, [string] $revisi
     $pattern.Replace("`${arch}", "$arch").Replace("`${revision}", "$revision").Replace("`${bits}", "$archBits")
 }
 
+function Get-ComponentPath([string] $component, [string] $rootDir, [string] $compiler, [bool] $debug)
+{
+    if ($debug)
+    {
+        Join-Path $rootDir "$compiler-install"
+    }
+    else
+    {
+        Join-Path $rootDir "$compiler-$component-install"
+    }
+}
+
 function Build
 {
 	# == Perform Build ==
@@ -75,14 +87,14 @@ function Build
 
 		$rootBuildDirs += $rootBuildDir
     
-		if ($createInstallCheckBox.CheckState -eq $checked)
+		if ($createInstallCheckBox.CheckState -eq $checked -and !$debug)
 		{
 			[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
         
 			Create-FreshDirectory($mainInstallDir)
 		}
     
-		if ($createSdkCheckBox.CheckState -eq $checked)
+		if ($createSdkCheckBox.CheckState -eq $checked -and !$debug)
 		{
 			[string] $sdkInstallDir = Get-AdmSdkInstallDir $compiler $arch $debug
         
@@ -102,7 +114,7 @@ function Build
 
 		[string] $rootBuildDir = $rootBuildDirs[$archIndex]
 		[string] $ffmpegBuildDir = Join-Path $rootBuildDir "$compiler-ffmpeg"
-		[string] $ffmpegInstallDir = Join-Path $rootBuildDir "$compiler-ffmpeg-install"
+		[string] $ffmpegInstallDir = Get-ComponentPath "ffmpeg" $rootBuildDir $compiler $debug
 		[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
 		[string] $sdkInstallDir = Get-AdmSdkInstallDir $compiler $arch $debug
 
@@ -117,7 +129,7 @@ function Build
 			}
 		}
 
-		if ($success -and `
+		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$ffmpegInstallDir' '$mainInstallDir' }") -ne 0) -or `
 			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$ffmpegInstallDir' '$sdkInstallDir' }") -ne 0)))
 		{
@@ -141,9 +153,9 @@ function Build
 		$arch = $arches[$archIndex]
 
 		[string] $rootBuildDir = $rootBuildDirs[$archIndex]
-		[string] $ffmpegInstallDir = Join-Path $rootBuildDir "$compiler-ffmpeg-install"
+		[string] $ffmpegInstallDir = Get-ComponentPath "ffmpeg" $rootBuildDir $compiler $debug
 		[string] $coreBuildDir = Join-Path $rootBuildDir "$compiler-core"
-		[string] $coreInstallDir = Join-Path $rootBuildDir "$compiler-core-install"
+		[string] $coreInstallDir = Get-ComponentPath "core" $rootBuildDir $compiler $debug
 		[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
 		[string] $sdkInstallDir = Get-AdmSdkInstallDir $compiler $arch $debug
 
@@ -158,7 +170,7 @@ function Build
 			}
 		}
     
-		if ($success -and `
+		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$coreInstallDir' '$mainInstallDir' }") -ne 0) -or `
 			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$coreInstallDir' '$sdkInstallDir' }") -ne 0)))
 		{
@@ -182,10 +194,10 @@ function Build
 		$arch = $arches[$archIndex]
 
 		[string] $rootBuildDir = $rootBuildDirs[$archIndex]
-		[string] $ffmpegInstallDir = Join-Path $rootBuildDir "$compiler-ffmpeg-install"
-		[string] $coreInstallDir = Join-Path $rootBuildDir "$compiler-core-install"
+		[string] $ffmpegInstallDir = Get-ComponentPath "ffmpeg" $rootBuildDir $compiler $debug
+		[string] $coreInstallDir = Get-ComponentPath "core" $rootBuildDir $compiler $debug
 		[string] $qtBuildDir = Join-Path $rootBuildDir "$compiler-qt"
-		[string] $qtInstallDir = Join-Path $rootBuildDir "$compiler-qt-install"
+		[string] $qtInstallDir = Get-ComponentPath "qt" $rootBuildDir $compiler $debug
 		[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
 		[string] $sdkInstallDir = Get-AdmSdkInstallDir $compiler $arch $debug
 
@@ -200,7 +212,7 @@ function Build
 			}
 		}
     
-		if ($success -and `
+		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$qtInstallDir' '$mainInstallDir' }") -ne 0) -or `
 			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$qtInstallDir' '$sdkInstallDir' }") -ne 0)))
 		{
@@ -224,10 +236,10 @@ function Build
 		$arch = $arches[$archIndex]
 
 		[string] $rootBuildDir = $rootBuildDirs[$archIndex]
-		[string] $ffmpegInstallDir = Join-Path $rootBuildDir "$compiler-ffmpeg-install"
-		[string] $coreInstallDir = Join-Path $rootBuildDir "$compiler-core-install"
+		[string] $ffmpegInstallDir = Get-ComponentPath "ffmpeg" $rootBuildDir $compiler $debug
+		[string] $coreInstallDir = Get-ComponentPath "core" $rootBuildDir $compiler $debug
 		[string] $cliBuildDir = Join-Path $rootBuildDir "$compiler-cli"
-		[string] $cliInstallDir = Join-Path $rootBuildDir "$compiler-cli-install"
+		[string] $cliInstallDir = Get-ComponentPath "cli" $rootBuildDir $compiler $debug
 		[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
 		[string] $sdkInstallDir = Get-AdmSdkInstallDir $compiler $arch $debug
 
@@ -242,7 +254,7 @@ function Build
 			}
 		}
     
-		if ($success -and `
+		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$cliInstallDir' '$mainInstallDir' }") -ne 0) -or `
 			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$cliInstallDir' '$sdkInstallDir' }") -ne 0)))
 		{
@@ -266,12 +278,12 @@ function Build
 		$arch = $arches[$archIndex]
 
 		[string] $rootBuildDir = $rootBuildDirs[$archIndex]
-		[string] $ffmpegInstallDir = Join-Path $rootBuildDir "$compiler-ffmpeg-install"
-		[string] $coreInstallDir = Join-Path $rootBuildDir "$compiler-core-install"
-		[string] $qtInstallDir = Join-Path $rootBuildDir "$compiler-qt-install"
-		[string] $cliInstallDir = Join-Path $rootBuildDir "$compiler-cli-install"
+		[string] $ffmpegInstallDir = Get-ComponentPath "ffmpeg" $rootBuildDir $compiler $debug
+		[string] $coreInstallDir = Get-ComponentPath "core" $rootBuildDir $compiler $debug
+		[string] $qtInstallDir = Get-ComponentPath "qt" $rootBuildDir $compiler $debug
+		[string] $cliInstallDir = Get-ComponentPath "cli" $rootBuildDir $compiler $debug
 		[string] $pluginBuildDir = Join-Path $rootBuildDir "$compiler-plugin"
-		[string] $pluginInstallDir = Join-Path $rootBuildDir "$compiler-plugin-install"
+		[string] $pluginInstallDir = Get-ComponentPath "plugin" $rootBuildDir $compiler $debug
 		[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
 
 		if (($pluginCheckBox.CheckState -eq $checked) -and $success)
@@ -285,7 +297,7 @@ function Build
 			}
 		}
     
-		if ($success -and `
+		if ($success -and !$debug -and `
 			($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$pluginInstallDir' '$mainInstallDir' }") -ne 0))
 		{
 			Write-Host "Failed installing Plugins ($arch)" -foregroundcolor Red
@@ -307,8 +319,17 @@ function Build
 		{
 			$arch = $arches[$archIndex]
         
-			[string] $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
-        
+			[string] $mainInstallDir = $null
+
+            if ($debug)
+            {
+                $mainInstallDir = Get-ComponentPath "" $rootBuildDirs[$archIndex] $compiler $debug
+            }
+            else
+            {
+                $mainInstallDir = Get-AdmInstallDir $compiler $arch $debug
+            }
+
 			if ((Execute-ProcessToHost `
 				"." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmDependencies '$rootSourceDir' '$mainInstallDir' '$compiler' '$arch' `$$debug }") -ne 0)
 			{

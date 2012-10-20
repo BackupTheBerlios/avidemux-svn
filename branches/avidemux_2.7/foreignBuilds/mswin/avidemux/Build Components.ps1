@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 . "..\Common Functions.ps1"
 
-function PrepareBuildDirectories([string] $sourceDir, [string] $buildDir, [string] $installDir)
+function PrepareBuildDirectories([string] $sourceDir, [string] $buildDir, [string] $installDir, [bool] $debug)
 {
     if (!(Test-Path $sourceDir))
     {
@@ -10,7 +10,11 @@ function PrepareBuildDirectories([string] $sourceDir, [string] $buildDir, [strin
     }
 
     Create-FreshDirectory($buildDir)
-    Create-FreshDirectory($installDir)
+
+    if (!$debug)
+    {
+        Create-FreshDirectory($installDir)
+    }
 }
 
 function SetupEnvironment([string] $compiler, [string] $arch, [bool] $debug)
@@ -72,7 +76,7 @@ function Build-AdmFFmpeg([string] $sourceDir, [string] $buildDir, [string] $inst
     Setup-Msvc10Environment $arch $debug    # to generate libs
     Setup-MsysEnvironment $arch $debug
     
-    PrepareBuildDirectories $sourceDir $buildDir $installDir
+    PrepareBuildDirectories $sourceDir $buildDir $installDir $debug
     
     if ((Execute-ProcessToHost `
         $buildDir $cmakePath "-G$cmakeGenerator" "-DCMAKE_INSTALL_PREFIX=$installDir" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
@@ -90,7 +94,7 @@ function Build-AdmCore(`
     [string] $sourceDir, [string] $buildDir, [string] $installDir, [string] $ffmpegInstallDir, `
     [string] $compiler, [string] $arch, [bool] $debug)
 {
-    PrepareBuildDirectories $sourceDir $buildDir $installDir
+    PrepareBuildDirectories $sourceDir $buildDir $installDir $debug
     SetupEnvironment $compiler $arch $debug
 
     if ((Execute-ProcessToHost `
@@ -109,7 +113,7 @@ function Build-AdmUI( `
     [string] $sourceDir, [string] $buildDir, [string] $installDir, [string] $ffmpegInstallDir, `
     [string] $coreInstallDir, [string] $compiler, [string] $arch, [bool] $debug)
 {
-    PrepareBuildDirectories $sourceDir $buildDir $installDir
+    PrepareBuildDirectories $sourceDir $buildDir $installDir $debug
     SetupEnvironment $compiler $arch $debug
 
     if ((Execute-ProcessToHost `
@@ -139,7 +143,7 @@ function Build-AdmPlugins( `
     [string] $coreInstallDir, [string] $qtInstallDir, [string] $cliInstallDir, [string] $compiler, `
     [string] $arch, [bool] $debug)
 {
-    PrepareBuildDirectories $sourceDir $buildDir $installDir
+    PrepareBuildDirectories $sourceDir $buildDir $installDir $debug
     SetupEnvironment $compiler $arch $debug
 
     [string] $avidemuxSourceDir = Resolve-Path (Join-Path $sourceDir "..")
@@ -189,7 +193,6 @@ function Install-AdmSdk([string] $componentInstallDir, [string] $sdkInstallDir)
     Copy-Item -Path "$componentInstallDir\*" -Destination "$sdkInstallDir" -Force -Recurse -Include @('include', '*.dll.a', '*.lib')
 }
 
-
 function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, [string] $compiler, [string] $arch, [bool] $debug)
 {
     [string] $mingwLibDir = Get-MingwLibPath $arch
@@ -233,7 +236,7 @@ function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, 
     
     [string] $qtFileTag = ""
 
-    if ($debug)
+    if ($debug -and $compiler -eq "gcc")
     {
         $qtFileTag = "d"
     }

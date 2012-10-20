@@ -317,7 +317,7 @@ function Get-MsvcBuildType([bool] $debug)
     }
     else
     {
-        "/p:Configuration=Debug"
+        "/p:Configuration=Release"
     }
 }
 
