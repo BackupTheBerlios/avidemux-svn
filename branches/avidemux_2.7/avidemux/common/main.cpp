@@ -151,12 +151,17 @@ int startAvidemux(int argc, char *argv[])
     printf(" Audio     : Mihail Zenkov\n");
     printf(" Mac OS X  : Kuisathaverat, Harry van der Wolf\n");
     printf(" Win32     : Grant Pedersen\n\n");
+	printf("Compiler: ");
 
-#ifdef __GNUC__
-	printf("Compiler: GCC %s\n", __VERSION__);
+#if defined(__GNUC__)
+	printf("GCC %s", __VERSION__);
+#elif defined(_MSC_VER)
+	printf("Microsoft Visual C++ %d.%d", _MSC_VER / 100, _MSC_VER % 100);
+#else
+	printf("Unknown");
 #endif
 
-	printf("Build Target: ");
+	printf("\nBuild Target: ");
 
 #if defined(_WIN32)
 	printf("Microsoft Windows");
