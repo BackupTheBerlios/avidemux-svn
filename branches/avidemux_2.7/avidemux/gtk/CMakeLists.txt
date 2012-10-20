@@ -63,7 +63,11 @@ endif (WIN32)
 ###########################################
 # Executable
 ###########################################
-ADD_EXECUTABLE(avidemux3_gtk ${ADM_EXE_SRCS})
+if (MSVC)
+	ADD_EXECUTABLE(avidemux3_gtk WIN32 ${ADM_EXE_SRCS})
+else (MSVC)
+	ADD_EXECUTABLE(avidemux3_gtk ${ADM_EXE_SRCS})
+endif (MSVC)
 
 ###########################################
 # Construct common libraries

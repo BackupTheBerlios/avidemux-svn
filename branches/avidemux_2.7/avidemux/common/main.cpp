@@ -98,15 +98,6 @@ bool isPortableMode(int argc, char *argv[]);
 
 int main(int _argc, char *_argv[])
 {
-	ADM_initBaseDir(isPortableMode(_argc, _argv));
-
-#if defined(_WIN32) && (ADM_UI_TYPE_BUILD == ADM_UI_GTK || ADM_UI_TYPE_BUILD == ADM_UI_QT4)
-	// redirect output before registering exception handler so error dumps are captured
-	redirectStdoutToFile();
-#endif
-
-	installSigHandler();
-
 	char **argv;
 	int argc;
 
@@ -116,6 +107,15 @@ int main(int _argc, char *_argv[])
 	argv = _argv;
 	argc = _argc;
 #endif
+
+	ADM_initBaseDir(isPortableMode(argc, argv));
+
+#if defined(_WIN32) && (ADM_UI_TYPE_BUILD == ADM_UI_GTK || ADM_UI_TYPE_BUILD == ADM_UI_QT4)
+	// redirect output before registering exception handler so error dumps are captured
+	redirectStdoutToFile();
+#endif
+
+	installSigHandler();
 
 #if !defined(NDEBUG) && defined(FIND_LEAKS)
 	new_progname = argv[0];
@@ -320,7 +320,14 @@ int startAvidemux(int argc, char *argv[])
     printf("Normal exit\n");
     return 0;
 }
-extern uint8_t GUI_close(void);
+
+#ifdef _MSC_VER
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+{
+	return main(0, NULL);
+}
+#endif
+
 void onexit( void )
 {
 	printf("Cleaning up\n");
