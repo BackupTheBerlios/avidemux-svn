@@ -1,5 +1,5 @@
 set(ADM_script_headers
-	AudioEncoder.h  AudioOutput.h  AudioOutputCollectionPrototype.h  AudioProperties.h  CheckBoxControl.h
+	AudioEncoder.h  AudioOutput.h  AudioOutputCollectionPrototype.h  AudioProperties.h  ButtonControl.h  CheckBoxControl.h
 	ComboBoxControl.h  ComboBoxItem.h  ComboBoxItemCollectionPrototype.h  Control.h  ControlCollectionPrototype.h
 	Dialog.h  Directory.h  DoubleSpinBoxControl.h  Editor.h  File.h  FileInformation.h  FrameProperties.h  LineEditControl.h
 	Muxer.h  	Segment.h  SegmentCollectionPrototype.h  SliderControl.h  SpinBoxControl.h  VideoDecoder.h  VideoEncoder.h
@@ -14,12 +14,12 @@ set(ADM_script_headers
 set(ADM_qtScript_SRCS
 	${ADM_qtScript_SRCS}  QtScriptEngine.cpp  QtScriptObject.cpp  QtScriptConfigObject.cpp
 	QtScriptWriter.cpp  AdmScriptMapper.cpp  AudioEncoder.cpp  AudioOutput.cpp
-	AudioOutputCollection.cpp  AudioOutputCollectionPrototype.cpp  AudioProperties.cpp  CheckBoxControl.cpp
-	ComboBoxControl.cpp  ComboBoxItem.cpp  Control.cpp  Dialog.cpp  Directory.cpp  DoubleSpinBoxControl.cpp
-	Editor.cpp  File.cpp  FileInformation.cpp  FrameProperties.cpp  LineEditControl.cpp  Muxer.cpp  Segment.cpp
-	SegmentCollection.cpp  SegmentCollectionPrototype.cpp  SliderControl.cpp  SpinBoxControl.cpp  VideoDecoder.cpp
-	VideoEncoder.cpp  VideoFileProperties.cpp  VideoFilter.cpp  VideoFilterCollection.cpp  VideoFilterCollectionPrototype.cpp
-	VideoOutput.cpp)
+	AudioOutputCollection.cpp  AudioOutputCollectionPrototype.cpp  AudioProperties.cpp  ButtonControl.cpp
+	CheckBoxControl.cpp  ComboBoxControl.cpp  ComboBoxItem.cpp  Control.cpp  Dialog.cpp  Directory.cpp
+	DoubleSpinBoxControl.cpp  Editor.cpp  File.cpp  FileInformation.cpp  FrameProperties.cpp  LineEditControl.cpp  Muxer.cpp
+	Segment.cpp  SegmentCollection.cpp  SegmentCollectionPrototype.cpp  SliderControl.cpp  SpinBoxControl.cpp
+	VideoDecoder.cpp  VideoEncoder.cpp  VideoFileProperties.cpp  VideoFilter.cpp  VideoFilterCollection.cpp
+	VideoFilterCollectionPrototype.cpp  VideoOutput.cpp)
 
 include_directories(
 	"${CMAKE_CURRENT_BINARY_DIR}"

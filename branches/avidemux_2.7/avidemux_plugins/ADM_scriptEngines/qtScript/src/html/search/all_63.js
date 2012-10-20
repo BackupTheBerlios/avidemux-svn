@@ -21,7 +21,7 @@ var searchData=
   ['comboboxitemcollection',['ComboBoxItemCollection',['../class_combo_box_item_collection.html',1,'']]],
   ['completebasename',['completeBaseName',['../class_file_information.html#ae4ddb58f73040e3e335ce605f058c2a8',1,'FileInformation']]],
   ['completesuffix',['completeSuffix',['../class_file_information.html#ad4f1f70122c77c4dac15268f77a7cb3d',1,'FileInformation']]],
-  ['configuration',['configuration',['../class_audio_encoder.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'AudioEncoder::configuration()'],['../class_muxer.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'Muxer::configuration()'],['../class_video_decoder.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoDecoder::configuration()'],['../class_video_encoder.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoEncoder::configuration()'],['../class_video_filter.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoFilter::configuration()']]],
+  ['configuration',['configuration',['../class_muxer.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'Muxer::configuration()'],['../class_video_decoder.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoDecoder::configuration()'],['../class_video_encoder.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoEncoder::configuration()'],['../class_video_filter.html#a49744db9307e84cecc06f1a65ccb7ca0',1,'VideoFilter::configuration()']]],
   ['control',['Control',['../class_control.html',1,'']]],
   ['controlcollection',['ControlCollection',['../class_control_collection.html',1,'']]],
   ['controls',['controls',['../class_dialog.html#a04ae312ceed4d76b7399beecb8261dfa',1,'Dialog']]],

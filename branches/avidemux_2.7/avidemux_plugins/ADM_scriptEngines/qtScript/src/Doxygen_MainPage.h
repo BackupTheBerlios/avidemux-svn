@@ -12,7 +12,7 @@
  * \section audience_sec Audience
  *
  * This reference guide is intended for users that are familiar with scripting languages.
- * For more information on the ECMAScript langage, refer to the
+ * For more information on the ECMAScript language, refer to the
  * <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262 standard</a>.
  *
  * \section create_script_sec Creating a Script
@@ -30,7 +30,7 @@
  * \section run_script_sec Running a Script
  *
  * Scripts can be executed through the Avidemux user interface by choosing the <i>QtScript Project</i> -> 
- * <i>Run Project</i> menu item from the <i>%File</i> menu.  Scripts can also be executed on startup of Avidemux by
+ * <i>Run Project</i> menu item from the <i>%File</i> menu.  Scripts can also be executed on start-up of Avidemux by
  * specifying the <i>run</i> parameter along with the path of the script to run.  Note: Dialog related 
  * commands will be ignored when using the command line interface (avidemux_cli.exe or avidemux3_cli).
  *
@@ -50,7 +50,7 @@
  *
  * \section language_sec Core Script Classes
  *
- * Most of Avidemux's functionalitiy for inspecting and manipulating video is exposed by the Editor object.
+ * Most of Avidemux's functionality for inspecting and manipulating video is exposed by the Editor object.
  * The Directory, File and FileInformation classes provide basic file and directory support.
  * The Dialog and Control classes provide the functionality to display custom dialog boxes.
  *

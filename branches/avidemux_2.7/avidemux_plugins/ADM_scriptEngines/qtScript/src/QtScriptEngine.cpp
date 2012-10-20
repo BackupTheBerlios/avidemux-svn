@@ -15,6 +15,7 @@
 
 #include "AudioEncoder.h"
 #include "AudioOutput.h"
+#include "ButtonControl.h"
 #include "CheckBoxControl.h"
 #include "ComboBoxControl.h"
 #include "ComboBoxItem.h"
@@ -237,6 +238,11 @@ namespace ADM_qtScript
         QScriptValue dialogObject = engine->newFunction(Dialog::constructor);
 
         engine->globalObject().setProperty("Dialog", dialogObject);
+
+		// Register ButtonControl class
+        QScriptValue buttonObject = engine->newFunction(ButtonControl::constructor);
+
+        engine->globalObject().setProperty("ButtonControl", buttonObject);
 
 		// Register CheckBoxControl class
         QScriptValue checkBoxObject = engine->newFunction(CheckBoxControl::constructor);

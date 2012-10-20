@@ -14,7 +14,6 @@ var searchData=
   ['appendvideo',['appendVideo',['../class_editor.html#adfe66891f2d4be283055d226bad09653',1,'Editor']]],
   ['appliedvideofilters',['appliedVideoFilters',['../class_editor.html#abd26413f45dbcebeebe6514ff0dc5226',1,'Editor']]],
   ['atend',['atEnd',['../class_file.html#acefde778e2c17e6e037f8ff30fdc2f39',1,'File']]],
-  ['audioencoder',['AudioEncoder',['../class_audio_encoder.html',1,'']]],
   ['audioinputfile',['audioInputFile',['../class_audio_output.html#ae4a27e8d691940a51ad348af84381c6a',1,'AudioOutput']]],
   ['audioinputindex',['audioInputIndex',['../class_audio_output.html#a496fad6fda9161eb675b2c9239ef7ff9',1,'AudioOutput']]],
   ['audioinputtype',['audioInputType',['../class_audio_output.html#ad4cd394258d5092f25f9ec6c8c48fc86',1,'AudioOutput::audioInputType()'],['../class_audio_output.html#a11da5f516a5f7fdea1b2dd3aa58183ae',1,'AudioOutput::AudioInputType()']]],

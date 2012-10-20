@@ -11,6 +11,6 @@ var searchData=
   ['removepath',['removePath',['../class_directory.html#a45d3127ff16cd2d89e998d8507dd360b',1,'Directory']]],
   ['rename',['rename',['../class_directory.html#a31796e231123929c01e9fe9e45c20f21',1,'Directory::rename()'],['../class_file.html#a890899fa2dc85c4c5f9a5e3ceb536982',1,'File::rename()']]],
   ['reset',['reset',['../class_file.html#adc35b24cfbfb0939f1fba8af36dc79d0',1,'File']]],
-  ['resetconfiguration',['resetConfiguration',['../class_audio_encoder.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'AudioEncoder::resetConfiguration()'],['../class_muxer.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'Muxer::resetConfiguration()'],['../class_video_decoder.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoDecoder::resetConfiguration()'],['../class_video_encoder.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoEncoder::resetConfiguration()'],['../class_video_filter.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoFilter::resetConfiguration()']]],
+  ['resetconfiguration',['resetConfiguration',['../class_muxer.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'Muxer::resetConfiguration()'],['../class_video_decoder.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoDecoder::resetConfiguration()'],['../class_video_encoder.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoEncoder::resetConfiguration()'],['../class_video_filter.html#a9081872e9bdc07e4f5b1c28e86eafed7',1,'VideoFilter::resetConfiguration()']]],
   ['resize',['resize',['../class_file.html#a1ce4b319eb0a6042cf7867e5191cec5b',1,'File']]]
 ];
