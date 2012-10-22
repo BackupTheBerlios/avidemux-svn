@@ -17,13 +17,20 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
     Extract-Zip $zipFile $sourceDir
 
     if ((Execute-ProcessToHost `
-        "$sourceDir" (Join-Path $mingwBinDir "gcc.exe") "$env:CFLAGS" "-O3" "-o" "win_iconv.win64.o" "-c" "src\tml\win_iconv\win_iconv.c") -ne 0)
+        "$sourceDir" (Join-Path $mingwBinDir "gcc.exe") "$env:CFLAGS" "-O3" "-o" "win_iconv.o" "-c" "src\tml\win_iconv\win_iconv.c") -ne 0)
     {
 	    throw "Error building ($arch)"
     }
 
+    [string] $libPath = Join-Path $externalLibDir "lib\libiconv.a"
+
+    if (Test-Path -Path $libPath)
+    {
+        Remove-Item -Path $libPath
+    }
+
     if ((Execute-ProcessToHost `
-        "$sourceDir" (Join-Path $mingwBinDir "ar.exe") "crv" (Join-Path $externalLibDir "lib\libiconv.a") "win_iconv.win64.o") -ne 0)
+        "$sourceDir" (Join-Path $mingwBinDir "ar.exe") "crv" $libPath "win_iconv.o") -ne 0)
     {
 	    throw "Error generating library ($arch)"
     }

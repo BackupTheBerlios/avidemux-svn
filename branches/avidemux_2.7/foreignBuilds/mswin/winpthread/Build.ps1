@@ -13,6 +13,18 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 
     Create-MsvcLib (Join-Path $mingwBinDir "libwinpthread-1.dll") (Join-Path (Get-ExternalLibPrefix $arch) "lib") $arch "pthread"
 
+    [string] $mingwLibDir = $null
+
+    if ($arch -eq "x86-64")
+    {
+        $mingwLibDir = "$mingwDir\i686-w64-mingw32\lib64"
+    }
+    elseif ($arch -eq "x86")
+    {
+        $mingwLibDir = "$mingwDir\i686-w64-mingw32\lib"
+    }
+
+    Copy-Item -Path "$mingwLibDir\libpthread.dll.a" -Destination (Join-Path (Get-ExternalLibPrefix $arch) "lib") -Force
     Copy-Item -Path "$mingwIncludeDir\pthread*.h" -Destination (Join-Path (Get-ExternalLibPrefix $arch) "include") -Force
 }
 

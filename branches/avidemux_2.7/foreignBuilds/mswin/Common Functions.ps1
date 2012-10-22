@@ -286,7 +286,7 @@ function Setup-Msvc10Environment([string] $arch, [bool] $debug)
 
     $env:PATH = (Join-Path $externalLibPrefix "bin") + ";$env:PATH;$mingwLibPath"
     $env:CMAKE_PROGRAM_PATH = "$externalToolsDir"
-    $env:CMAKE_INCLUDE_PATH = (Join-Path $externalLibPrefix "include") + ";$devDir\pthread;$env:CMAKE_INCLUDE_PATH"
+    $env:CMAKE_INCLUDE_PATH = (Join-Path $externalLibPrefix "include") + ";$env:CMAKE_INCLUDE_PATH"
     $env:CMAKE_LIBRARY_PATH = (Join-Path $externalLibPrefix "lib") + ";$env:CMAKE_LIBRARY_PATH"
     $env:QTDIR = (Get-QtDirectory "msvc10" $arch $debug)
 
