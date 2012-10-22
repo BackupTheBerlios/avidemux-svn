@@ -225,6 +225,8 @@ bool openGlDistort::buildVertex(int phase)
 
     glEnd();
     glEndList();
+
+	return true;
 }
 
 /**
