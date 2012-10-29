@@ -208,5 +208,5 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(qt4Package)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/qt4/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}/qt4") 
+ADM_INSTALL_QT_HEADER_FILES(${CMAKE_BINARY_DIR}/config/qt4/config.h)
 MESSAGE("")

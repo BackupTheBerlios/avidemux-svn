@@ -86,9 +86,6 @@ endif (CMAKE_COMPILER_IS_GNUCC)
 # if a showstopper is found.  CLI is automatically assumed as possible
 # since it uses the minimum set of required libraries and CMake will 
 # fail if these aren't met.
-
-SET(AVIDEMUX_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
-MARK_AS_ADVANCED(AVIDEMUX_INSTALL_DIR)
 include(admInstallDir)
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")

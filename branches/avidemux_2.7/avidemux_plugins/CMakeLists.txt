@@ -26,8 +26,6 @@ include(${AVIDEMUX_TOP_SOURCE_DIR}/avidemux/commonCmakeApplication.cmake)
 ########################################
 # Add include dirs
 ########################################
-SET(AVIDEMUX_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
-MARK_AS_ADVANCED(AVIDEMUX_INSTALL_DIR)
 include(admInstallDir)
 
 #########################################
@@ -38,11 +36,7 @@ include(admCoreIncludes)
 ########################################
 # retrieve core config, needed to get USE_VDPAU and friends
 ########################################
-if (NOT ADM_CORE_INCLUDE_DIR)
-    set(ADM_CORE_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6")
-endif (NOT ADM_CORE_INCLUDE_DIR)
-
-include(${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.cmake)
+include(${ADM_CORE_INCLUDE_PATH}/ADM_coreConfig.cmake)
 
 ########################################
 # Global options
@@ -91,33 +85,15 @@ MESSAGE("")
 # Check for UI libraries
 ########################################
 MACRO(CHECK_ADM_CONFIG_H flavour result)
-    set(adm_include_dir "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/2.6/${flavour}")
-    set(adm_lib_dir "${AVIDEMUX_SEARCH_LIB_DIR}")
-
     if ("${flavour}" STREQUAL "cli")
-        if (ADM_CLI_INCLUDE_DIR)
-            set(adm_include_dir "${ADM_CLI_INCLUDE_DIR}")
-        endif (ADM_CLI_INCLUDE_DIR)
-
-        if (ADM_CLI_LIB_DIR)
-            set(adm_lib_dir "${ADM_CLI_LIB_DIR}")
-        endif (ADM_CLI_LIB_DIR)
+        set(adm_include_dir "${ADM_CLI_INCLUDE_PATH}")
+        set(adm_lib_dir "${ADM_CLI_LIBRARY_PATH}")
     elseif ("${flavour}" STREQUAL "gtk")
-        if (ADM_GTK_INCLUDE_DIR)
-            set(adm_include_dir "${ADM_GTK_INCLUDE_DIR}")
-        endif (ADM_GTK_INCLUDE_DIR)
-
-        if (ADM_GTK_LIB_DIR)
-            set(adm_lib_dir "${ADM_GTK_LIB_DIR}")
-        endif (ADM_GTK_LIB_DIR)
+        set(adm_include_dir "${ADM_GTK_INCLUDE_PATH}")
+        set(adm_lib_dir "${ADM_GTK_LIBRARY_PATH}")
     elseif ("${flavour}" STREQUAL "qt4")
-        if (ADM_QT_INCLUDE_DIR)
-            set(adm_include_dir "${ADM_QT_INCLUDE_DIR}")
-        endif (ADM_QT_INCLUDE_DIR)
-        
-        if (ADM_QT_LIB_DIR)
-            set(adm_lib_dir "${ADM_QT_LIB_DIR}")
-        endif (ADM_QT_LIB_DIR)
+        set(adm_include_dir "${ADM_QT_INCLUDE_PATH}")
+        set(adm_lib_dir "${ADM_QT_LIBRARY_PATH}")
     endif ("${flavour}" STREQUAL "cli")
 
     MESSAGE(STATUS "Checking for ${flavour} includes and lib...")

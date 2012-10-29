@@ -99,8 +99,8 @@ function Build-AdmCore(`
 
     if ((Execute-ProcessToHost `
         $buildDir $cmakePath "-G$cmakeGenerator" "-DCMAKE_INSTALL_PREFIX=$installDir" `
-        "-DADM_FFMPEG_INCLUDE_DIR:FILEPATH=$ffmpegInstallDir\include\avidemux\$admVersion\ffmpeg" `
-        "-DADM_FFMPEG_LIB_DIR:FILEPATH=$ffmpegInstallDir" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
+        "-DADM_FFMPEG_INCLUDE_PATH:FILEPATH=$ffmpegInstallDir\include\ffmpeg" `
+        "-DADM_FFMPEG_LIBRARY_PATH:FILEPATH=$ffmpegInstallDir" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
     {
         throw "Configure failed"
     }
@@ -118,10 +118,10 @@ function Build-AdmUI( `
 
     if ((Execute-ProcessToHost `
         $buildDir $cmakePath "-G$cmakeGenerator" "-DCMAKE_INSTALL_PREFIX=$installDir" `
-        "-DADM_FFMPEG_INCLUDE_DIR:FILEPATH=$ffmpegInstallDir\include\avidemux\$admVersion\ffmpeg" `
-        "-DADM_FFMPEG_LIB_DIR:FILEPATH=$ffmpegInstallDir" `
-        "-DADM_CORE_INCLUDE_DIR:FILEPATH=$coreInstallDir\include\avidemux\$admVersion" `
-        "-DADM_CORE_LIB_DIR:FILEPATH=$coreInstallDir" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
+        "-DADM_FFMPEG_INCLUDE_PATH:FILEPATH=$ffmpegInstallDir\include\ffmpeg" `
+        "-DADM_FFMPEG_LIBRARY_PATH:FILEPATH=$ffmpegInstallDir" `
+        "-DADM_CORE_INCLUDE_PATH:FILEPATH=$coreInstallDir\include\core" `
+        "-DADM_CORE_LIBRARY_PATH:FILEPATH=$coreInstallDir" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
     {
         throw "Configure failed"
     }
@@ -157,14 +157,14 @@ function Build-AdmPlugins( `
     if ((Execute-ProcessToHost `
         $buildDir $cmakePath "-G$cmakeGenerator" "-DCMAKE_INSTALL_PREFIX=$installDir" `
         "-DAVIDEMUX_SOURCE_DIR:FILEPATH=$avidemuxSourceDir" "-DPLUGIN_UI=ALL" `
-        "-DADM_FFMPEG_INCLUDE_DIR:FILEPATH=$ffmpegInstallDir\include\avidemux\$admVersion\ffmpeg" `
-        "-DADM_FFMPEG_LIB_DIR:FILEPATH=$ffmpegInstallDir" `
-        "-DADM_CORE_INCLUDE_DIR:FILEPATH=$coreInstallDir\include\avidemux\$admVersion" `
-        "-DADM_CORE_LIB_DIR:FILEPATH=$coreInstallDir" `
-        "-DADM_CLI_INCLUDE_DIR:FILEPATH=$cliInstallDir\include\avidemux\$admVersion\cli" `
-        "-DADM_CLI_LIB_DIR:FILEPATH=$cliInstallDir" `
-        "-DADM_QT_INCLUDE_DIR:FILEPATH=$qtInstallDir\include\avidemux\$admVersion\qt4" `
-        "-DADM_QT_LIB_DIR:FILEPATH=$qtInstallDir" "$spiderMonkeyParameter" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
+        "-DADM_FFMPEG_INCLUDE_PATH:FILEPATH=$ffmpegInstallDir\include\ffmpeg" `
+        "-DADM_FFMPEG_LIBRARY_PATH:FILEPATH=$ffmpegInstallDir" `
+        "-DADM_CORE_INCLUDE_PATH:FILEPATH=$coreInstallDir\include\core" `
+        "-DADM_CORE_LIBRARY_PATH:FILEPATH=$coreInstallDir" `
+        "-DADM_CLI_INCLUDE_PATH:FILEPATH=$cliInstallDir\include\cli" `
+        "-DADM_CLI_LIBRARY_PATH:FILEPATH=$cliInstallDir" `
+        "-DADM_QT_INCLUDE_PATH:FILEPATH=$qtInstallDir\include\qt" `
+        "-DADM_QT_LIBRARY_PATH:FILEPATH=$qtInstallDir" "$spiderMonkeyParameter" (Get-CmakeBuildType $debug) "$sourceDir") -ne 0)
     {
         throw "Configure failed"
     }

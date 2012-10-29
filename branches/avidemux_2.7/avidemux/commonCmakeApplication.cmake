@@ -31,35 +31,16 @@ include(admMainChecks)
 ########################################
 # Add ffmpeg to resolve ADM_libavcodec to the actual name, needed for vdpau
 include(admFFmpegUtil)
-
-if (NOT ADM_FFMPEG_INCLUDE_DIR)
-	set(ADM_FFMPEG_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}/ffmpeg")
-endif (NOT ADM_FFMPEG_INCLUDE_DIR)
-
-if (NOT ADM_FFMPEG_LIB_DIR)
-	set(ADM_FFMPEG_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
-endif (NOT ADM_FFMPEG_LIB_DIR)
-
-registerFFmpeg("${ADM_FFMPEG_INCLUDE_DIR}" "${ADM_FFMPEG_LIB_DIR}")
+registerFFmpeg("${ADM_FFMPEG_INCLUDE_PATH}" "${ADM_FFMPEG_LIBRARY_PATH}")
 
 # Verify ADM_coreConfig is there
-if (ADM_CORE_INCLUDE_DIR)
-	set(EXCLUDE_ADM_INCLUDE 1)
-	include_directories("${ADM_CORE_INCLUDE_DIR}")
-else (ADM_CORE_INCLUDE_DIR)
-	set(ADM_CORE_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}")
-endif (ADM_CORE_INCLUDE_DIR)
+if (NOT EXISTS "${ADM_CORE_INCLUDE_PATH}/ADM_coreConfig.h")
+	MESSAGE(FATAL_ERROR "ADM_CORE_INCLUDE_PATH does not contain ADM_coreConfig.h (${ADM_CORE_INCLUDE_PATH}/ADM_coreConfig.h)")
+endif (NOT EXISTS "${ADM_CORE_INCLUDE_PATH}/ADM_coreConfig.h")
 
-if (NOT ADM_CORE_LIB_DIR)
-	set(ADM_CORE_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
-endif (NOT ADM_CORE_LIB_DIR)
-
-if (NOT EXISTS "${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h")
-	MESSAGE(FATAL_ERROR "CMAKE_INSTALL_PREFIX does not contain ADM_coreConfig.h (${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h)")
-endif (NOT EXISTS "${ADM_CORE_INCLUDE_DIR}/ADM_coreConfig.h")
-
+include_directories("${ADM_CORE_INCLUDE_PATH}")
 include(admCoreIncludes)
-LINK_DIRECTORIES("${ADM_CORE_LIB_DIR}")
+LINK_DIRECTORIES("${ADM_CORE_LIBRARY_PATH}")
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/ADM_muxerGate/include/")
 

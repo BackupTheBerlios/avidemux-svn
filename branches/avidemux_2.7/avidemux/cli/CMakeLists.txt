@@ -136,5 +136,5 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(cliPackage)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/cli/config.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}/cli") 
+ADM_INSTALL_CLI_HEADER_FILES(${CMAKE_BINARY_DIR}/config/cli/config.h) 
 MESSAGE("")

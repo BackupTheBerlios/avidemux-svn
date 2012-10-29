@@ -31,15 +31,7 @@ include(admCheckFtello)
 include(admAsNeeded)
 include(admFFmpegUtil)
 
-if (NOT ADM_FFMPEG_INCLUDE_DIR)
-	set(ADM_FFMPEG_INCLUDE_DIR "${AVIDEMUX_SEARCH_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}/ffmpeg")
-endif (NOT ADM_FFMPEG_INCLUDE_DIR)
-
-if (NOT ADM_FFMPEG_LIB_DIR)
-	set(ADM_FFMPEG_LIB_DIR "${AVIDEMUX_SEARCH_LIB_DIR}")
-endif (NOT ADM_FFMPEG_LIB_DIR)
-
-registerFFmpeg("${ADM_FFMPEG_INCLUDE_DIR}" "${ADM_FFMPEG_LIB_DIR}")
+registerFFmpeg("${ADM_FFMPEG_INCLUDE_PATH}" "${ADM_FFMPEG_LIBRARY_PATH}")
 
 #########################################
 # Debug Summary
@@ -118,11 +110,14 @@ DISPLAY_SUMMARY_LIST()
 
 include(admPackager)
 admPackager(corePackage)
-IF(USE_VDPAU)
-        FILE(WRITE  ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake "SET(USE_VDPAU 1)")
-ELSE(USE_VDPAU)
-        FILE(WRITE  ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake "")
-ENDIF(USE_VDPAU)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.h DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}")
-INSTALL(FILES ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake DESTINATION "${AVIDEMUX_INCLUDE_DIR}/avidemux/${ADM_MAIN_VERSION}")
+
+IF (USE_VDPAU)
+	FILE(WRITE ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake "SET(USE_VDPAU 1)")
+ELSE (USE_VDPAU)
+	FILE(WRITE ${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake "")
+ENDIF (USE_VDPAU)
+
+ADM_INSTALL_CORE_HEADER_FILES(
+	"${CMAKE_BINARY_DIR}/config/ADM_coreConfig.h" "${CMAKE_BINARY_DIR}/config/ADM_coreConfig.cmake")
+
 MESSAGE("")
