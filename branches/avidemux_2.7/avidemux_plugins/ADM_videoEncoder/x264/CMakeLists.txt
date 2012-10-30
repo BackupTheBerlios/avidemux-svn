@@ -35,11 +35,9 @@ IF(X264_FOUND)
   endif((DO_GTK) OR (DO_CLI))
   # ------------- PRESET -----------
   if((DO_GTK) OR (DO_CLI) OR (DO_QT4))
-    SET(PRESET_DIR "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/pluginSettings/x264/1/")
-
     FILE(GLOB json_files ${CMAKE_CURRENT_SOURCE_DIR}/preset/*.json)
     message(STATUS "Presets found : ${json_files}")
-    install(FILES ${json_files} DESTINATION "${PRESET_DIR}")
+	ADM_INSTALL_PLUGIN_FILES(pluginSettings/x264/1 ${json_files})
   endif((DO_GTK) OR (DO_CLI) OR (DO_QT4))
 ELSE(X264_FOUND)
   MESSAGE(STATUS "x264 disabled.")

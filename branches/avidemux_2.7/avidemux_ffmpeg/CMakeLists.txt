@@ -21,6 +21,8 @@ IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	SET(ADM_DEBUG 1)
 ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
+include(admConfigHelper)
+include(admDetermineSystem)
 include(admVersion)
 include(admInstallDir)
 include(admFFmpegUtil)

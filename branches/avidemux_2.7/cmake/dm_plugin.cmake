@@ -10,7 +10,7 @@ MACRO(INSTALL_DEMUXER _lib)
 		target_link_libraries(${_lib} m)
 	endif (UNIX)
 
-	INSTALL(TARGETS ${_lib} DESTINATION "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/demuxers/")
+	ADM_INSTALL_PLUGIN_LIB(demuxers ${_lib})
 ENDMACRO(INSTALL_DEMUXER)
 
 MACRO(ADD_DEMUXER name)

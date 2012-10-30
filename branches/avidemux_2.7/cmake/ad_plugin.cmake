@@ -13,7 +13,7 @@ MACRO(INSTALL_AUDIODECODER _lib)
 		target_link_libraries(${_lib} m)
 	endif (UNIX)
 
-	INSTALL(TARGETS ${_lib} DESTINATION "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/audioDecoder/")
+	ADM_INSTALL_PLUGIN_LIB(audioDecoder ${_lib})
 ENDMACRO(INSTALL_AUDIODECODER)
 
 MACRO(ADD_AUDIO_DECODER name)

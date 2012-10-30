@@ -7,7 +7,7 @@ macro (ADD_SCRIPT_ENGINE name)
 endmacro (ADD_SCRIPT_ENGINE name)
 
 macro (INSTALL_SCRIPT_ENGINE _lib)
-	install(TARGETS ${_lib} DESTINATION "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/scriptEngines/")
+	ADM_INSTALL_PLUGIN_LIB(scriptEngines ${_lib})
 endmacro (INSTALL_SCRIPT_ENGINE)
 
 macro (INSTALL_SCRIPT_ENGINE_HELP _engineName _sourceDirectory)

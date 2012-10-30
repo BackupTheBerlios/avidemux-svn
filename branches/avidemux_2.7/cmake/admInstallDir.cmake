@@ -4,6 +4,7 @@ IF (WIN32)
 	SET(avidemux_bin_path ${CMAKE_INSTALL_PREFIX})
 	SET(avidemux_lib_path ${CMAKE_INSTALL_PREFIX})
 	set(avidemux_include_path ${CMAKE_INSTALL_PREFIX}/include)
+	set(pluginLibraryPath "${avidemux_lib_path}/plugins")
 ELSE (WIN32)
 	IF (CMAKE_C_IMPLICIT_LINK_DIRECTORIES MATCHES "\\/lib64([; ]|$)")
 		SET(relative_lib_dir lib64)
@@ -16,6 +17,7 @@ ELSE (WIN32)
 	SET(avidemux_bin_path ${CMAKE_INSTALL_PREFIX}/bin)
 	SET(avidemux_lib_path ${CMAKE_INSTALL_PREFIX}/${relative_lib_dir})
 	set(avidemux_include_path ${CMAKE_INSTALL_PREFIX}/include/avidemux/${ADM_MAIN_VERSION})
+	set(pluginLibraryPath "${avidemux_lib_path}/ADM_plugins6")
 ENDIF(WIN32)
 
 if (NOT FAKEROOT)
@@ -59,6 +61,10 @@ if (NOT ADM_GTK_LIBRARY_PATH)
 	set(ADM_GTK_LIBRARY_PATH "${AVIDEMUX_SEARCH_LIB_PATH}")
 endif (NOT ADM_GTK_LIBRARY_PATH)
 
+if (NOT ADM_GLADE_LIBRARY_PATH)
+	set(ADM_GLADE_LIBRARY_PATH "${AVIDEMUX_SEARCH_LIB_PATH}/ADM_glade")
+endif (NOT ADM_GLADE_LIBRARY_PATH)
+
 if (NOT ADM_QT_INCLUDE_PATH)
 	set(ADM_QT_INCLUDE_PATH "${AVIDEMUX_SEARCH_INCLUDE_PATH}/qt")
 endif (NOT ADM_QT_INCLUDE_PATH)
@@ -84,6 +90,18 @@ ENDMACRO (ADM_INSTALL_LIB)
 MACRO (ADM_INSTALL_LIB_FILES files)
 	INSTALL(FILES ${files} DESTINATION ${avidemux_lib_path})
 ENDMACRO (ADM_INSTALL_LIB_FILES)
+
+MACRO (ADM_INSTALL_GLADE_LIB_FILES subDirectory)
+	INSTALL(FILES ${ARGN} DESTINATION ${avidemux_lib_path}/ADM_glade/${subDirectory})
+ENDMACRO (ADM_INSTALL_GLADE_LIB_FILES)
+
+MACRO (ADM_INSTALL_PLUGIN_LIB subDirectory lib)
+	install(TARGETS ${lib} DESTINATION ${pluginLibraryPath}/${subDirectory})
+ENDMACRO (ADM_INSTALL_PLUGIN_LIB)
+
+MACRO (ADM_INSTALL_PLUGIN_FILES subDirectory)
+	install(FILES ${ARGN} DESTINATION ${pluginLibraryPath}/${subDirectory})
+ENDMACRO (ADM_INSTALL_PLUGIN_FILES)
 
 #
 # MACRO TO INSTALL REGULAR BIN

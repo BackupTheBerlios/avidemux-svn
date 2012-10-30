@@ -1,5 +1,5 @@
 include(admAsNeeded)
-SET(VF_PLUGIN_DIR "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/videoFilters/")
+
 ############## INIT_VIDEO_FILTER_INTERNAL ###################"
 MACRO(INIT_VIDEO_FILTER_INTERNAL _lib)
     INCLUDE_DIRECTORIES(.)
@@ -22,7 +22,7 @@ MACRO(INIT_VIDEO_FILTER _lib)
 ENDMACRO(INIT_VIDEO_FILTER _lib)
 ############## INSTALL_VIDEO_FILTER_INTERNAL ###################"
 MACRO(INSTALL_VIDEO_FILTER_INTERNAL _lib)
-	INSTALL(TARGETS ${_lib} DESTINATION "${VF_PLUGIN_DIR}")
+	ADM_INSTALL_PLUGIN_LIB(videoFilters ${_lib})
 	TARGET_LINK_LIBRARIES(${_lib} ADM_core6 ADM_coreUI6 ADM_coreVideoFilter6 ADM_coreImage6 ADM_coreUtils6)
 
 	if (UNIX)

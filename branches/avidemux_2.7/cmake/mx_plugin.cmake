@@ -12,7 +12,7 @@ MACRO(INSTALL_MUXER _lib)
 		target_link_libraries(${_lib} m)
 	endif (UNIX)
 
-	INSTALL(TARGETS ${_lib} DESTINATION "${AVIDEMUX_LIB_DIR}/${ADM_PLUGIN_DIR}/muxers/")
+	ADM_INSTALL_PLUGIN_LIB(muxers ${_lib})
 ENDMACRO(INSTALL_MUXER)
 
 MACRO(ADD_MUXER name)

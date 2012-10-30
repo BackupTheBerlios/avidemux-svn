@@ -8,4 +8,5 @@ encoding.gtkBuilder
 properties.gtkBuilder
 ${AVIDEMUX_TOP_SOURCE_DIR}/avidemux_icon.png
 )
-INSTALL(FILES ${ADM_glade} DESTINATION "${AVIDEMUX_LIB_DIR}/ADM_glade/")
+
+ADM_INSTALL_GLADE_LIB_FILES("" ${ADM_glade})
