@@ -8,7 +8,11 @@ MESSAGE(STATUS "Checking for FreeType2")
 MESSAGE(STATUS "**********************")
 
 IF (FREETYPE2)
-	PKG_CHECK_MODULES(FREETYPE2 freetype2)
+	include(admCheckPkgConfig)
+
+	if (PKG_CONFIG_FOUND)
+		PKG_CHECK_MODULES(FREETYPE2 freetype2)
+	endif (PKG_CONFIG_FOUND)
 
 	if (NOT FREETYPE2_FOUND)
 		message("Checking for header and lib")

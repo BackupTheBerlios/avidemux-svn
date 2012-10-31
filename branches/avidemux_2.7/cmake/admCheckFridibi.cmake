@@ -5,7 +5,11 @@ MACRO(checkFridibi minVersion)
 	MESSAGE(STATUS "**************************************")
 
 	IF (FRIDIBI)
-		PKG_CHECK_MODULES(FRIDIBI fribidi)
+		include(admCheckPkgConfig)
+
+		if (PKG_CONFIG_FOUND)
+			PKG_CHECK_MODULES(FRIDIBI fribidi)
+		endif (PKG_CONFIG_FOUND)
 
 		if (NOT FRIDIBI_FOUND)
 			message("Checking for header and lib")

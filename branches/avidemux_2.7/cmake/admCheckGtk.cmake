@@ -2,6 +2,10 @@ MACRO(checkGtk)
 	IF (NOT GTK_CHECKED)
 		OPTION(GTK "" ON)
 
+		if (GTK)
+			include(admCheckPkgConfig)
+		endif (GTK)
+
 		MESSAGE(STATUS "Checking for GTK+")
 		MESSAGE(STATUS "*****************")
 

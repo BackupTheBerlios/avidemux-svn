@@ -6,7 +6,11 @@ MACRO(checkFontConfig)
 		MESSAGE(STATUS "***********************")
 
 		IF (FONTCONFIG)
-			PKG_CHECK_MODULES(FONTCONFIG fontconfig)
+			include(admCheckPkgConfig)
+
+			if (PKG_CONFIG_FOUND)
+				PKG_CHECK_MODULES(FONTCONFIG fontconfig)
+			endif (PKG_CONFIG_FOUND)
 
 			if (NOT FONTCONFIG_FOUND)
 				message("Checking for header and lib")
