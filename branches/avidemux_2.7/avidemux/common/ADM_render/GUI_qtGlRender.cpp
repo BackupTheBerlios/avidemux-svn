@@ -34,7 +34,7 @@
 #include "GUI_accelRender.h"
 #include "GUI_qtGlRender.h"
 
-static const char *yuvToRgb =
+const char *QtGlAccelWidget::yuvToRgb =
 	"#extension GL_ARB_texture_rectangle: enable\n"
 	"uniform sampler2DRect texY, texU, texV;\n"
 	"uniform float height;\n"
@@ -62,78 +62,113 @@ static const char *yuvToRgb =
 	"  gl_FragColor = outx;\n"
 	"}\n";
 
-typedef void (*_glActiveTexture) (GLenum);
-static _glActiveTexture myGlActiveTexture=NULL;
-
-static bool initedOnced=false;
-static bool initedValue=false;
 /**
     \fn checkGlError
 */
-static bool checkGlError(const char *op)
+bool QtGlAccelWidget::checkGlError(const char *op)
 {
-#if 1
-    GLenum er=glGetError();
-    if(!er) return true;
-    ADM_error("[GLERROR]%s: %d => %s\n",op,er,gluErrorString(er));
-    return false;
-#else
+    GLenum er = glGetError();
 
-    return true;
-#endif
+	if(!er)
+	{
+		return true;
+	}
+
+    ADM_error("[GLERROR]%s: %d => %s\n", op, er, gluErrorString(er));
+
+    return false;
 }          
 
-
 /**
-    \fn initOnce
+    \fn ctor
 */
-static bool initOnce(QGLWidget *widget)
+QtGlAccelWidget::QtGlAccelWidget(QWidget *parent, int w, int h) : QGLWidget(parent)
 {
-    if(initedOnced) return initedValue;
+	this->_initialised = true;
 
-	myGlActiveTexture = (_glActiveTexture)widget->context()->getProcAddress(QLatin1String("glActiveTexture"));
-    initedOnced=true;
-	if (!myGlActiveTexture)
-	{
-		initedValue = false;
-		printf("[GL Render] Active Texture function not found!\n");
-        return false;
-	}
-    initedValue=true;
+	memset(this->_textureRealWidths, 0, sizeof(this->_textureRealWidths));
+	memset(this->_textureStrides, 0, sizeof(this->_textureStrides));
+	memset(this->_textureHeights, 0, sizeof(this->_textureHeights));
+	memset(this->_textureOffsets, 0, sizeof(this->_textureOffsets));
+
+	this->_imageWidth = w;
+	this->_imageHeight = h;
+	this->_firstRun = true;
+	this->_glProgram = NULL;
+	this->_textureName[0] = this->_textureName[1] = this->_textureName[2] = 0;
+
+	if (!QGLFormat::hasOpenGL())
+    {
+		ADM_warning("OpenGL not supported on this system\n");
+        this->_initialised = false;
+    }
+
+	this->makeCurrent();
+
 	printf("[GL Render] OpenGL Vendor: %s\n", glGetString(GL_VENDOR));
 	printf("[GL Render] OpenGL Renderer: %s\n", glGetString(GL_RENDERER));
 	printf("[GL Render] OpenGL Version: %s\n", glGetString(GL_VERSION));
 	printf("[GL Render] OpenGL Extensions: %s\n", glGetString(GL_EXTENSIONS));
-    return true;
-}
-/**
-    \fn ctor
-*/
 
-QtGlAccelWidget::QtGlAccelWidget(QWidget *parent, int w, int h) : QGLWidget(parent)
+	if (this->_initialised)
+	{
+		this->_activeTexture = reinterpret_cast<PFNGLACTIVETEXTUREPROC>(
+			this->context()->getProcAddress(QLatin1String("glActiveTexture")));
+
+		if (this->_activeTexture == NULL)
+		{
+			ADM_warning("OpenGL implementation doesn't support ActiveTexture\n");
+			this->_initialised = false;
+		}
+	}
+	else
+	{
+		this->_activeTexture = NULL;
+	}
+
+	if (this->_initialised && !QGLShaderProgram::hasOpenGLShaderPrograms(this->context()))
+	{
+		ADM_warning("OpenGL implementation doesn't support OpenGL shader programs\n");
+		this->_initialised = false;
+	}
+
+	if (this->_initialised)
+	{
+		this->_glProgram = new QGLShaderProgram(this);
+
+		ADM_info("Creating glWidget\n");
+		glGenTextures(3, this->_textureName);
+	}
+}
+
+bool QtGlAccelWidget::initialised()
 {
-    ADM_info("\t Creating glWidget\n");
-	memset(textureRealWidths, 0, sizeof(textureRealWidths));
-    memset(textureStrides, 0, sizeof(textureStrides));
-	memset(textureHeights, 0, sizeof(textureHeights));
-	memset(textureOffsets, 0, sizeof(textureOffsets));
-
-	imageWidth = w;
-	imageHeight = h;
-	firstRun = true;
-	glProgram = NULL;
-    textureName[0]=textureName[1]=textureName[2]=0;
-    glGenTextures(3,textureName);
+	return this->_initialised;
 }
+
+QtGlAccelWidget* QtGlAccelWidget::create(QWidget *parent, int imagew, int imageh)
+{
+	QtGlAccelWidget* widget = new QtGlAccelWidget(parent, imagew, imageh);
+
+	if (!widget->initialised())
+	{
+		delete widget;
+		widget = NULL;
+	}
+
+	return widget;
+}
+
 /**
     \fn setDisplaySize
 */
-bool QtGlAccelWidget::setDisplaySize(int width,int height)
+bool QtGlAccelWidget::setDisplaySize(int width, int height)
 {
-    displayWidth=width;
-    displayHeight=height;
-    resize(displayWidth,displayHeight);
-    firstRun = true;
+    this->_displayWidth = width;
+    this->_displayHeight = height;
+    this->resize(this->_displayWidth, this->_displayHeight);
+    this->_firstRun = true;
+
     return true;
 }
 /**
@@ -142,40 +177,36 @@ bool QtGlAccelWidget::setDisplaySize(int width,int height)
 QtGlAccelWidget::~QtGlAccelWidget()
 {
     ADM_info("\t Deleting glWidget\n");
-    if(glProgram) 
-    {
-        
-        glProgram->release();
-        delete glProgram;
-    }
-    glProgram=NULL;
-    if(textureName[0])
-        glDeleteTextures(3,textureName);
-    textureName[0]=0;
+
+    if (this->_initialised)
+	{
+        glDeleteTextures(3, this->_textureName);
+	}
+
+    this->_textureName[0] = 0;
 }
+
 /**
     \fn setImage
 */
 
 bool QtGlAccelWidget::setImage(ADMImage *pic)
 {
-    int imageWidth=pic->_width;
-    int imageHeight=pic->_height;
+	this->_imageWidth = pic->_width;
+	this->_imageHeight = pic->_height;
 
-    
-	this->imageWidth = imageWidth;
-	this->imageHeight = imageHeight;
-
-    for(int i=0;i<3;i++)
+    for (int i = 0; i < 3; i++)
     {
         ADM_PLANE plane=(ADM_PLANE)i;
-        textureRealWidths[i] = pic->GetWidth(plane);
-        textureStrides[i]    = pic->GetPitch(plane);
-        textureHeights[i]    = pic->GetHeight(plane);
-        textureOffsets[i]    = pic->GetReadPtr(plane);
 
+        this->_textureRealWidths[i] = pic->GetWidth(plane);
+        this->_textureStrides[i] = pic->GetPitch(plane);
+        this->_textureHeights[i] = pic->GetHeight(plane);
+        this->_textureOffsets[i] = pic->GetReadPtr(plane);
     }
+
     updateTexture();
+
     return true;
 }
 /**
@@ -183,129 +214,119 @@ bool QtGlAccelWidget::setImage(ADMImage *pic)
 */
 void QtGlAccelWidget::initializeGL()
 {
-	int success = 1;
+	bool success = true;
 
-    if(!initOnce(this))
-    {
-        ADM_warning("No QtGl support\n");
-        success=false;
-        
-    }
-	glProgram = new QGLShaderProgram(this);
-
-	if (success && !glProgram->addShaderFromSourceCode(QGLShader::Fragment, yuvToRgb))
+	if (!this->_glProgram->addShaderFromSourceCode(QGLShader::Fragment, yuvToRgb))
 	{
-		success = 0;
-		printf("[GL Render] Fragment log: %s\n", glProgram->log().toUtf8().constData());
+		success = false;
+		printf("[GL Render] Fragment log: %s\n", this->_glProgram->log().toUtf8().constData());
 	}
 
-	if (success && !glProgram->link())
+	if (success && !this->_glProgram->link())
 	{
-		success = 0;
-		printf("[GL Render] Link log: %s\n", glProgram->log().toUtf8().constData());
+		success = false;
+		printf("[GL Render] Link log: %s\n", this->_glProgram->log().toUtf8().constData());
 	}
 
-	if (success && !glProgram->bind())
+	if (success && !this->_glProgram->bind())
 	{
-		success = 0;
+		success = false;
 		printf("[GL Render] Binding FAILED\n");
 	}
 
-	glProgram->setUniformValue("texY", 0);
-	glProgram->setUniformValue("texU", 2);
-	glProgram->setUniformValue("texV", 1);
-    if(success==1)
+	this->_glProgram->setUniformValue("texY", 0);
+	this->_glProgram->setUniformValue("texU", 2);
+	this->_glProgram->setUniformValue("texV", 1);
+
+    if (success)
+	{
         printf("[GL Render] Init successful\n");
+	}
 }
 /**
     \fn updateTexture
 */
 void QtGlAccelWidget::updateTexture()
 {
-    checkGlError("Entering UpdateTexture");
-	if (!textureOffsets[0])
+	checkGlError("Entering UpdateTexture");
+
+	if (!this->_textureOffsets[0])
 	{
 		printf("[Render] Buffer not set\n");
 		return;
 	}
-    if(!myGlActiveTexture)
-    {
-        ADM_error("No glActiveTexture\n");
-        return;
-    }
-	if (firstRun)
+
+	if (this->_firstRun)
 	{
 		glViewport(0, 0, width(), height());
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0, width(), 0, height(), -1, 1);
-		glProgram->setUniformValue("height", (float)imageHeight);
+		this->_glProgram->setUniformValue("height", (float)this->_imageHeight);
 	}
 
-//--
-        
-      // Activate texture unit "tex"
-        for(int xplane=2;xplane>=0;xplane--)
-        {
-            myGlActiveTexture(GL_TEXTURE0+xplane);
-            ADM_PLANE plane=(ADM_PLANE)xplane;
-            glBindTexture(GL_TEXTURE_RECTANGLE_NV, textureName[xplane]); // Use tex engine "texNum"
-            glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-
-                if(firstRun)
-                {
-                    glTexImage2D(GL_TEXTURE_RECTANGLE_NV, 0, GL_LUMINANCE, 
-                                    textureStrides[xplane],
-                                    textureHeights[xplane],
-                                    0, GL_LUMINANCE, GL_UNSIGNED_BYTE, 
-                                    textureOffsets[xplane]);
-                    checkGlError("texImage2D");
-                }else
-                {
-                    glTexSubImage2D(GL_TEXTURE_RECTANGLE_NV, 0, 0, 0, 
-                        textureStrides[xplane],
-                        textureHeights[xplane],
-                        GL_LUMINANCE, GL_UNSIGNED_BYTE, 
-                        textureOffsets[xplane]);
-                    checkGlError("subImage2D");
-                }
-        }
-        
-	if (firstRun)
+	// Activate texture unit "tex"
+	for(int xplane=2;xplane>=0;xplane--)
 	{
-		firstRun = false;
+		this->_activeTexture(GL_TEXTURE0+xplane);
+		ADM_PLANE plane=(ADM_PLANE)xplane;
+		glBindTexture(GL_TEXTURE_RECTANGLE_NV, this->_textureName[xplane]); // Use tex engine "texNum"
+		glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_RECTANGLE_NV, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+
+		if (this->_firstRun)
+		{
+			glTexImage2D(
+				GL_TEXTURE_RECTANGLE_NV, 0, GL_LUMINANCE, this->_textureStrides[xplane],
+				this->_textureHeights[xplane], 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, this->_textureOffsets[xplane]);
+
+			this->checkGlError("texImage2D");
+		}
+		else
+		{
+			glTexSubImage2D(
+				GL_TEXTURE_RECTANGLE_NV, 0, 0, 0, this->_textureStrides[xplane], this->_textureHeights[xplane],
+				GL_LUMINANCE, GL_UNSIGNED_BYTE, this->_textureOffsets[xplane]);
+
+			this->checkGlError("subImage2D");
+		}
 	}
-    
+
+	if (this->_firstRun)
+	{
+		this->_firstRun = false;
+	}    
 }
+
 /**
     \fn paintGL
 */
 void QtGlAccelWidget::paintGL()
 {
-	glProgram->setUniformValue("texY", 0);
-	glProgram->setUniformValue("texU", 2);
-	glProgram->setUniformValue("texV", 1);
-    glProgram->setUniformValue("height", (float)imageHeight);
-    checkGlError("setUniformValue");
+	this->_glProgram->setUniformValue("texY", 0);
+	this->_glProgram->setUniformValue("texU", 2);
+	this->_glProgram->setUniformValue("texV", 1);
+    this->_glProgram->setUniformValue("height", (float)this->_imageHeight);
+    this->checkGlError("setUniformValue");
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0);
 	glVertex2i(0, 0);
-	glTexCoord2i(imageWidth, 0);
+	glTexCoord2i(this->_imageWidth, 0);
 	glVertex2i(width(), 0);
-	glTexCoord2i(imageWidth, imageHeight);
-	glVertex2i(width(), height());
-	glTexCoord2i(0, imageHeight);
-	glVertex2i(0, height());
+	glTexCoord2i(this->_imageWidth, this->_imageHeight);
+	glVertex2i(this->width(), this->height());
+	glTexCoord2i(0, this->_imageHeight);
+	glVertex2i(0, this->height());
 	glEnd();
-    checkGlError("draw");
-    
+
+    this->checkGlError("draw");
 }
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /**
     \fn ctor
@@ -314,7 +335,6 @@ QtGlRender::QtGlRender(void)
 {
     ADM_info("Creating GL Renderer\n");
 	glWidget = NULL;
-
 }
 /**
     \fn dtor
@@ -322,7 +342,7 @@ QtGlRender::QtGlRender(void)
 QtGlRender::~QtGlRender(void)
 {
     ADM_info("Destroying GL Renderer\n");
-	stop();
+	this->stop();
 }
 
 /**
@@ -332,52 +352,47 @@ QtGlRender::~QtGlRender(void)
 bool QtGlRender::stop(void)
 {
 	ADM_info("[GL Render] Renderer closed\n");
+
 	if (glWidget)
     {
         glWidget->setParent(NULL);
 		delete glWidget;
+		glWidget=NULL;
     }
-    glWidget=NULL;
+
     return true;
 }
 /**
     \fn init
 */
-
-bool QtGlRender::init( GUI_WindowInfo *  window, uint32_t w, uint32_t h,renderZoom zoom)
+bool QtGlRender::init(GUI_WindowInfo* window, uint32_t w, uint32_t h, renderZoom zoom)
 {
 	printf("[GL Render] Initialising renderer\n");
-    baseInit(w,h,zoom);
-    glWidget=NULL;
-    if(false==QGLFormat::hasOpenGL())
+    baseInit(w, h, zoom);
+
+	glWidget = QtGlAccelWidget::create((QWidget*)window->widget, w, h);
+
+    if (glWidget == NULL)
     {
-        ADM_warning("This platform has no openGL support \n");
-        return false;
-    }
-    glWidget = new QtGlAccelWidget((QWidget*)window->widget, w, h);
-	bool status= QGLShaderProgram::hasOpenGLShaderPrograms(glWidget->context());
-    if(false==status)
-    {
-        delete glWidget;
-        glWidget=NULL;
-        ADM_warning("[GL Render] Init failed : OpenGL Shader Program support\n");
+		ADM_warning("[GL Render] Init failed\n");
         return false;
     }
 
 	printf("[GL Render] Setting widget display size to %d x %d\n",imageWidth,imageHeight);
     glWidget->setDisplaySize(displayWidth,displayHeight);
 	glWidget->show();
+
     return true;
 }
+
 /**
     \fn displayImage
 */
 bool QtGlRender::displayImage(ADMImage *pic)
 {
-    glWidget->makeCurrent();
 	glWidget->setImage(pic);
 	glWidget->repaint();
-    glWidget->doneCurrent();
+
 	return true;
 }
 /**
@@ -386,12 +401,13 @@ bool QtGlRender::displayImage(ADMImage *pic)
 bool QtGlRender::changeZoom(renderZoom newZoom)
 {
     ADM_info("changing zoom, qtGl render.\n");
-    glWidget->makeCurrent();
+
     calcDisplayFromZoom(newZoom);
     currentZoom=newZoom;
-    glWidget->setDisplaySize(displayWidth,displayHeight);
+
+	glWidget->setDisplaySize(displayWidth,displayHeight);
     glWidget->repaint();
-    glWidget->doneCurrent();
+
     return true;
 }
 /**
@@ -402,6 +418,7 @@ bool    QtGlRender::refresh(void)
     glWidget->repaint();
 	return true;
 }
+
 VideoRenderBase *RenderSpawnQtGl(void)
 {
     return new QtGlRender();

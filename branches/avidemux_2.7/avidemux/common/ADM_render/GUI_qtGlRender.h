@@ -25,26 +25,34 @@
 class QtGlAccelWidget : public QGLWidget
 {
 private:
-	int             imageWidth, imageHeight;
-    int             displayWidth,displayHeight;
-	bool            firstRun;
-    
+	static const char *yuvToRgb;
 
-	QGLShaderProgram *glProgram;
-	GLsizei textureRealWidths[3];
-    GLsizei textureStrides[3];
-	GLsizei textureHeights[3];
-	uint8_t *textureOffsets[3];
-    GLuint  textureName[3];
+	bool _initialised;
+	PFNGLACTIVETEXTUREPROC _activeTexture;
+
+	int _imageWidth, _imageHeight;
+    int _displayWidth, _displayHeight;
+	bool _firstRun;
+
+	QGLShaderProgram *_glProgram;
+	GLsizei _textureRealWidths[3];
+    GLsizei _textureStrides[3];
+	GLsizei _textureHeights[3];
+	uint8_t *_textureOffsets[3];
+    GLuint  _textureName[3];
 
 protected:
+	QtGlAccelWidget(QWidget *parent, int imagew, int imageh);
+
 	void initializeGL();
 	void paintGL() attribute_align_arg;
     void updateTexture(void);
+	bool checkGlError(const char *op);
+	bool initialised();
 
 public:
-	QtGlAccelWidget(QWidget *parent, int imagew, int imageh);
     ~QtGlAccelWidget();
+	static QtGlAccelWidget* create(QWidget *parent, int imagew, int imageh);
 	bool setImage(ADMImage *pic);
     bool setDisplaySize(int width,int height);
 };
@@ -54,19 +62,19 @@ public:
 */
 class QtGlRender: public VideoRenderBase
 {
-      protected:
-                            
-                            GUI_WindowInfo  info;
-                            QtGlAccelWidget *glWidget;
-      public:
-                             QtGlRender( void ) ;
-              virtual        ~QtGlRender();
-              virtual	bool init( GUI_WindowInfo *  window, uint32_t w, uint32_t h,renderZoom zoom);
-              virtual	bool stop(void);				
-              virtual   bool displayImage(ADMImage *pic);
-              virtual   bool changeZoom(renderZoom newzoom);
-              virtual   bool refresh(void);
-              virtual   bool usingUIRedraw(void) {return false;}; // We can! redraw by ourself
+protected:
+	GUI_WindowInfo  info;
+	QtGlAccelWidget *glWidget;
+
+public:
+	QtGlRender( void ) ;
+	virtual ~QtGlRender();
+	virtual	bool init( GUI_WindowInfo *  window, uint32_t w, uint32_t h,renderZoom zoom);
+	virtual	bool stop(void);				
+	virtual bool displayImage(ADMImage *pic);
+	virtual bool changeZoom(renderZoom newzoom);
+	virtual bool refresh(void);
+	virtual bool usingUIRedraw(void) {return false;}; // We can! redraw by ourself
 };
 
 #endif
