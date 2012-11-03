@@ -1,1 +1,1 @@
-@powershell -file "Build UI.ps1"
+@powershell -ExecutionPolicy RemoteSigned -file "Build UI.ps1"

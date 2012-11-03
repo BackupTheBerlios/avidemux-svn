@@ -1,1 +1,1 @@
-@powershell -command "& { . '.\Build.ps1'; Start-UI }"
+@powershell -ExecutionPolicy RemoteSigned -command "& { . '.\Build.ps1'; Start-UI }"

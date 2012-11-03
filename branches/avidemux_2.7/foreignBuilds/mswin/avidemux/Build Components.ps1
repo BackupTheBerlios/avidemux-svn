@@ -236,7 +236,7 @@ function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, 
     
     [string] $qtFileTag = ""
 
-    if ($debug -and $compiler -eq "gcc")
+    if ($debug)
     {
         $qtFileTag = "d"
     }

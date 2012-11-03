@@ -40,9 +40,9 @@ else
 [string] $qtPrefix_gcc_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-gcc-x86-64-dbg"
 
 [string] $qtPrefix_msvc10_x86 = Join-Path $devDir "qt-$qtVersion-msvc10-x86"
-[string] $qtPrefix_msvc10_x86_dbg = $qtPrefix_msvc10_x86
+[string] $qtPrefix_msvc10_x86_dbg = Join-Path $devDir "qt-$qtVersion-msvc10-x86-dbg"
 [string] $qtPrefix_msvc10_x86_64 = Join-Path $devDir "qt-$qtVersion-msvc10-x86-64"
-[string] $qtPrefix_msvc10_x86_64_dbg = $qtPrefix_msvc10_x86_64
+[string] $qtPrefix_msvc10_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-msvc10-x86-64-dbg"
 
 # == SpiderMonkey ==
 [bool] $spiderMonkey_useSystemVersion = $true

@@ -1,1 +1,1 @@
-@powershell Start-Process -Verb RunAs powershell '-Command "& { Set-Location ''%~dp0''; . ''%~dp0Build.ps1''; Start-UI; }"'
+@powershell Start-Process -Verb RunAs powershell '-ExecutionPolicy RemoteSigned -Command "& { Set-Location ''%~dp0''; . ''%~dp0Build.ps1''; Start-UI; }"'
