@@ -23,9 +23,13 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 include(admConfigHelper)
 include(admDetermineSystem)
+include(admGetRevision)
 include(admVersion)
 include(admInstallDir)
 include(admFFmpegUtil)
+message("")
+
+admGetRevision(${AVIDEMUX_TOP_SOURCE_DIR} ADM_SUBVERSION)
 message("")
 
 set(FFMPEG_VERSION "1.0.0")
