@@ -29,7 +29,7 @@ class ADM_UIQT46_EXPORT ADM_coreVideoFilterQtGl:  public ADM_coreVideoFilter
 {
 protected:
                             GLuint                bufferARB   ;
-                            QGLWidget            *widget;
+                            QGLFilterWidget      *widget;
                     const   QGLContext           *context;
                             QGLFramebufferObject *fboY;
                             QGLFramebufferObject *fboUV;

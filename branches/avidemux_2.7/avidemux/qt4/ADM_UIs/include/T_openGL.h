@@ -42,32 +42,34 @@ typedef void (* PFNGLBUFFERDATAARBPROC) (GLenum target, GLsizeiptrARB size, cons
 #endif
 
 #include <QtOpenGL/QtOpenGL>
-/**
-    \class ADM_glExt
-*/
-class ADM_UIQT46_EXPORT ADM_glExt
+
+class QGLFilterWidget : public QGLWidget
 {
+private:
+	PFNGLACTIVETEXTUREPROC _activeTexture;
+	PFNGLBINDBUFFERPROC    _bindBuffer;
+	PFNGLDELETEBUFFERSPROC _deleteBuffers;
+	PFNGLGENBUFFERSPROC    _genBuffers;
+	PFNGLMAPBUFFERPROC     _mapBuffer;
+	PFNGLUNMAPBUFFERPROC   _unmapBuffer;
+	PFNGLBUFFERDATAARBPROC _bufferData;
+
+	bool initialised();
+	QGLFilterWidget(QWidget *parent = 0);
+
 public:
- static       void setActivateTexture(void *func);
- static       void setBindBuffer(void *func);
- static       void setGenBuffers(void *func);
- static       void setDeleteBuffers(void *func);
- static       void setMapBuffer(void *func);
- static       void setUnmapBuffer(void *func);
- static       void setBufferData(void *func);
-public:
- static       void activeTexture  (GLenum texture);
- static       void bindBuffer     (GLenum target, GLuint buffer);
- static       void genBuffers     (GLsizei n, GLuint *buffers);
- static       void deleteBuffers  (GLsizei n, const GLuint *buffers);
- static       void *mapBuffer     (GLenum target, GLenum access);
- static       void unmapBuffer    (GLenum target);
- static       void bufferData     (GLenum target,GLsizeiptr size, const GLvoid *data,GLenum usage);
+	static QGLFilterWidget* create(QWidget *parent = 0);
+	bool hasArbFunctions();
+	void activeTexture(GLenum texture);
+	void bindBuffer(GLenum target, GLuint buffer);
+	void genBuffers(GLsizei n, GLuint* buffers);
+	void deleteBuffers(GLsizei n, const GLuint* buffers);
+	GLvoid* mapBuffer(GLenum target, GLenum access);
+	void unmapBuffer(GLenum target);
+	void bufferData(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage);
 };
 
 
 ADM_UIQT46_EXPORT bool ADM_glHasActiveTexture(void);
 ADM_UIQT46_EXPORT bool ADM_glHasARB(void);
 #endif
-
-

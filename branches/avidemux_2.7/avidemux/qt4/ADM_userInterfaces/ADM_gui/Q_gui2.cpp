@@ -1265,7 +1265,7 @@ bool UI_hasOpenGl(void)
 #ifndef USE_OPENGL
     return false;
 #else
-    if(!ADM_glHasActiveTexture()) return false; // ADM_setActiveTexure
+    //if(!ADM_glHasActiveTexture()) return false; // ADM_setActiveTexure
     bool enabled;
     prefs->get(FEATURES_ENABLE_OPENGL,&enabled);
     return enabled;
