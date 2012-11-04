@@ -5,7 +5,7 @@ QT4_WRAP_CPP(${ADM_LIB}_source  Q_gui2.h  T_preview.h T_vumeter.h T_thumbSlider.
 QT4_ADD_RESOURCES(${ADM_LIB}_resource  avidemux.qrc)
 
 SET(${ADM_LIB}_SRCS
-	Q_gui2.cpp   Q_gui2GL.cpp
+	Q_gui2.cpp
 	Q_gui2_menu.cpp  
         T_preview.cpp  
         T_vumeter.cpp  
@@ -13,8 +13,7 @@ SET(${ADM_LIB}_SRCS
         T_thumbSlider.cpp
         file_qt4.cpp  gui_none.cpp  ADM_qslider.cpp
 	ADM_qtray.cpp
-        Q_dummyWidget.cpp
-		FileAction.cpp
+	FileAction.cpp
 	${${ADM_LIB}_header}  ${${ADM_LIB}_source}  ${${ADM_LIB}_resource})
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}  ${CMAKE_CURRENT_SOURCE_DIR})

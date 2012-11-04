@@ -69,7 +69,4 @@ public:
 	void bufferData(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage);
 };
 
-
-ADM_UIQT46_EXPORT bool ADM_glHasActiveTexture(void);
-ADM_UIQT46_EXPORT bool ADM_glHasARB(void);
 #endif

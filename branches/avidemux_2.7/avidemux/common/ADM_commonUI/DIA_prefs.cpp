@@ -70,11 +70,6 @@ uint32_t pp_value=5;
 bool     bvdpau=false;
 bool     hzd,vzd,dring;
 bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,capsSSSE3,capsAll;
-bool     hasOpenGl=false;
-
-#ifdef USE_OPENGL
-          prefs->get(FEATURES_ENABLE_OPENGL,&hasOpenGl);
-#endif
 
 	olddevice=newdevice=AVDM_getCurrentDevice();
 
@@ -163,11 +158,6 @@ bool     hasOpenGl=false;
         // Audio device
         /************************ Build diaelems ****************************************/
         diaElemToggle useVdpau(&bvdpau,QT_TR_NOOP("Decode video using VDPAU"));
-        diaElemToggle useOpenGl(&hasOpenGl,QT_TR_NOOP("Enable openGl support"));
-#ifndef USE_OPENGL
-        //useOpenGl.enable(0);
-#endif
-        
         diaElemToggle useSysTray(&useTray,QT_TR_NOOP("_Use systray while encoding"));
         diaElemToggle allowAnyMpeg(&mpeg_no_limit,QT_TR_NOOP("_Accept non-standard audio frequency for DVD"));
         diaElemToggle openDml(&use_odml,QT_TR_NOOP("Create _OpenDML files"));
@@ -331,11 +321,10 @@ bool     hasOpenGl=false;
         diaElem *diaAudio[]={&menuMixer,&menuAudio};
         diaElemTabs tabAudio(QT_TR_NOOP("Audio"),2,(diaElem **)diaAudio);
 #endif
-
         
         /* Video */
-        diaElem *diaVideo[]={&menuVideoMode,&framePP,&useVdpau,&useOpenGl};
-        diaElemTabs tabVideo(QT_TR_NOOP("Video"),4,(diaElem **)diaVideo);
+        diaElem *diaVideo[]={&menuVideoMode,&framePP,&useVdpau};
+        diaElemTabs tabVideo(QT_TR_NOOP("Video"),3,(diaElem **)diaVideo);
         
         /* CPU tab */
 		diaElem *diaCpu[]={&frameSimd};
@@ -352,10 +341,6 @@ bool     hasOpenGl=false;
         diaElemTabs *tabs[]={&tabUser,&tabOutput,&tabAudio,&tabVideo,&tabCpu,&tabThreading};
         if( diaFactoryRunTabs(QT_TR_NOOP("Preferences"),6,tabs))
 	{
-        	//
-#ifdef USE_OPENGL
-          prefs->set(FEATURES_ENABLE_OPENGL,hasOpenGl);
-#endif
         	// cpu caps
         		if(capsAll)
         		{

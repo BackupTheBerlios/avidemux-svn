@@ -33,15 +33,10 @@
 #include "ADM_muxerProto.h"
 #include "T_vumeter.h"
 #include "DIA_coreToolkit.h"
+#include "ADM_coreVideoFilterFunc.h"
 #include "GUI_ui.h"
 #include "config.h"
 using namespace std;
-
-#ifdef USE_OPENGL
-extern bool ADM_glHasActiveTexture(void);
-void UI_Qt4InitGl(void);
-void UI_Qt4CleanGl(void);
-#endif
 
 extern int global_argc;
 extern char **global_argv;
@@ -636,6 +631,12 @@ void MainWindow::dropEvent(QDropEvent *event)
 	}
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+	ADM_vf_clearFilters();
+	event->accept();
+}
+
 void MainWindow::openFiles(QList<QUrl> urlList)
 {
 	QFileInfo info;
@@ -832,38 +833,14 @@ static void FatalFunctionQt(const char *title, const char *info)
 */
 int UI_RunApp(void)
 {
-
 	setupMenus();
     ADM_setCrashHook(&saveCrashProject, &FatalFunctionQt);
 	checkCrashFile();
-    // Create an openGL context
-#ifdef USE_OPENGL
-    ADM_info("OpenGL enabled at built time, checking if we should run it..\n");
-    bool enabled;
-    prefs->get(FEATURES_ENABLE_OPENGL,&enabled);
 
-    if(enabled)
-    {
-        ADM_info("OpenGL activated, initializing... \n");
-        UI_Qt4InitGl();
-    }else
-    {
-        ADM_info("OpenGL not activated, not initialized\n");
-    }
-#else
-        ADM_info("OpenGL: Not enabled at built time.\n");
-#endif
 	if (global_argc >= 2)
 		automation();
 
     myApplication->exec();
-#ifdef USE_OPENGL
-    if(enabled)
-    {
-        ADM_info("OpenGL: Cleaning up\n");
-        UI_Qt4CleanGl();
-    }
-#endif
 	destroyTranslator();
 
 	delete QuiMainWindows;
@@ -1257,20 +1234,7 @@ bool UI_setDecoderName(const char *name)
     WIDGET(labelVideoDecoder)->setText(name);
     return true;
 }
-/**
-    \fn UI_hasOpengl
-*/
-bool UI_hasOpenGl(void)
-{
-#ifndef USE_OPENGL
-    return false;
-#else
-    //if(!ADM_glHasActiveTexture()) return false; // ADM_setActiveTexure
-    bool enabled;
-    prefs->get(FEATURES_ENABLE_OPENGL,&enabled);
-    return enabled;
-#endif
-}
+
 /**
     \fn UI_iconify
 */

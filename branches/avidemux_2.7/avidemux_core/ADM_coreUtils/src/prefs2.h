@@ -15,7 +15,6 @@ struct  {
 	bool mpeg_no_limit;
 	bool alternate_mp3_tag;
 	bool vdpau;
-	bool enable_opengl;
 }features;
 struct  {
 	char * lastdir_read;

@@ -57,9 +57,6 @@ public:
                             static bool checkGlError(const char *op);
 protected:
 };
-// Hooks
-// Get our top widget
-ADM_UIQT46_EXPORT bool ADM_setGlWidget(QGLWidget *w);
-QGLWidget *ADM_getGlWidget(void);
+
 #endif
 
