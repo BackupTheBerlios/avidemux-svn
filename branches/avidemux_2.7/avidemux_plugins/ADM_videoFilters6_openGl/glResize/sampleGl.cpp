@@ -31,7 +31,7 @@ bench : 1280*720, null shader, 20 ms, 95% of it in download texture.
 #include "sampleGl.h"
 #include "ADM_clock.h"
 #include "DIA_factory.h"
-
+#include "DIA_coreToolkit.h"
 
 #include "resize.h"
 #include "resize_desc.cpp"
@@ -75,6 +75,12 @@ DECLARE_VIDEO_FILTER(   openGlResize,   // Class
 */
 openGlResize::openGlResize(  ADM_coreVideoFilter *in,CONFcouple *setup) : ADM_coreVideoFilterQtGl(in,setup)
 {
+	if (widget == NULL)
+	{
+		original = NULL;
+		return;
+	}
+
 UNUSED_ARG(setup);
         if(!setup || !ADM_paramLoad(setup,gl_resize_param,&configuration))
         {
@@ -118,8 +124,11 @@ UNUSED_ARG(setup);
 */
 openGlResize::~openGlResize()
 {
+	if (original)
+	{
         delete original;
         original=NULL;
+	}
 }
 
 /**
@@ -213,7 +222,11 @@ bool openGlResize::render(ADMImage *image,ADM_PLANE plane,QGLFramebufferObject *
 */
 bool openGlResize::configure( void) 
 {
-    
+	if (widget == NULL)
+	{
+		GUI_Error_HIG("OpenGL", "Unable to initialise OpenGL");
+		return false;
+	}
      
      diaElemUInteger  tWidth(&(configuration.width),QT_TR_NOOP("Width :"),16,2048);
      diaElemUInteger  tHeight(&(configuration.height),QT_TR_NOOP("Height :"),16,2048);

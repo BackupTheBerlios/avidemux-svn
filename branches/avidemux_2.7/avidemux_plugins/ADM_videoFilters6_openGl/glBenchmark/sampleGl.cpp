@@ -30,7 +30,7 @@ bench : 1280*720, null shader, 20 ms, 95% of it in download texture.
 #include "T_openGLFilter.h"
 #include "sampleGl.h"
 #include "ADM_clock.h"
-
+#include "DIA_coreToolkit.h"
 
 /**
     \class openGlBenchmark
@@ -50,7 +50,7 @@ public:
         virtual bool         getNextFrame(uint32_t *fn,ADMImage *image);    /// Return the next image
         virtual bool         getCoupledConf(CONFcouple **couples) ;   /// Return the current filter configuration
 		virtual void setCoupledConf(CONFcouple *couples);
-        virtual bool         configure(void) {return true;}             /// Start graphical user interface
+        virtual bool         configure(void);             /// Start graphical user interface
 };
 
 // Add the hook to make it valid plugin
@@ -64,12 +64,28 @@ DECLARE_VIDEO_FILTER(   openGlBenchmark,   // Class
                     );
 
 // Now implements the interesting parts
+bool openGlBenchmark::configure(void)
+{
+	if (widget == NULL)
+	{
+		GUI_Error_HIG("OpenGL", "Unable to initialise OpenGL");
+		return false;
+	}
+
+	return true;
+}
+
 /**
     \fn openGlBenchmark
     \brief constructor
 */
 openGlBenchmark::openGlBenchmark(  ADM_coreVideoFilter *in,CONFcouple *setup) : ADM_coreVideoFilterQtGl(in,setup)
 {
+	if (widget == NULL)
+	{
+		return;
+	}
+
 UNUSED_ARG(setup);
         widget->makeCurrent();
         fboY->bind();

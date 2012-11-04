@@ -26,6 +26,8 @@
 #include "rotate.h"
 #include "rotate_desc.cpp"
 #include "DIA_factory.h"
+#include "DIA_coreToolkit.h"
+
 /**
     \class rotateGl
 */
@@ -66,6 +68,12 @@ DECLARE_VIDEO_FILTER(   rotateGl,   // Class
 */
 rotateGl::rotateGl(  ADM_coreVideoFilter *in,CONFcouple *setup) : ADM_coreVideoFilterQtGl(in,setup)
 {
+	if (widget == NULL)
+	{
+		original = NULL;
+		return;
+	}
+
 UNUSED_ARG(setup);
         original=new ADMImageDefault(in->getInfo()->width,in->getInfo()->height);
         if(!setup || !ADM_paramLoad(setup,gl_rotate_param,&params))
@@ -106,9 +114,12 @@ UNUSED_ARG(setup);
 */
 rotateGl::~rotateGl()
 {
-    if(original) delete original;
-    original=NULL;
-    glDeleteLists(glList,1);
+    if(original)
+	{
+		delete original;
+		original=NULL;
+		glDeleteLists(glList,1);
+	}
 }
 
 /**
@@ -174,7 +185,11 @@ const char *rotateGl::getConfiguration(void)
 */
 bool rotateGl::configure( void) 
 {
-    
+	if (widget == NULL)
+	{
+		GUI_Error_HIG("OpenGL", "Unable to initialise OpenGL");
+		return false;
+	}
      
      diaElemInteger  tAngle(&(params.angle),QT_TR_NOOP("Angle (°):"),-190,190);
    
