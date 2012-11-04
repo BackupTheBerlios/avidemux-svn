@@ -1162,38 +1162,38 @@ End:
 			${Folder} etc\fonts
 		${MementoSectionEnd}
 	SectionGroupEnd
-	#SectionGroup "OpenGL Filters" SecGrpVideoFilterOpenGl
+	SectionGroup "OpenGL Filters" SecGrpVideoFilterOpenGl
 		#${MementoSection} "Fragment Shader" SecVidFltOpenGlFragmentShader
 			#SectionIn 1 2
 			#SetOverwrite on
 			#SetOutPath $INSTDIR\plugins\videoFilters
 			#${File} plugins\videoFilters\libADM_vf_sampleGlFrag2.dll
 		#${MementoSectionEnd}
-		#${MementoSection} "Read Back Benchmark" SecVidFltOpenGlReadBack
-			#SectionIn 1 2
-			#SetOverwrite on
-			#SetOutPath $INSTDIR\plugins\videoFilters
-			#${File} plugins\videoFilters\libADM_vf_glBenchmark.dll
-		#${MementoSectionEnd}
-		#${MementoSection} "Resize" SecVidFltOpenGlResize
-			#SectionIn 1 2
-			#SetOverwrite on
-			#SetOutPath $INSTDIR\plugins\videoFilters
-			#${File} plugins\videoFilters\libADM_vf_glResize.dll
-		#${MementoSectionEnd}
-		#${MementoSection} "Rotate" SecVidFltOpenGlRotate
-			#SectionIn 1 2
-			#SetOverwrite on
-			#SetOutPath $INSTDIR\plugins\videoFilters
-			#${File} plugins\videoFilters\libADM_vf_rotateGlFrag2.dll
-		#${MementoSectionEnd}
+		${MementoSection} "Read Back Benchmark" SecVidFltOpenGlReadBack
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\videoFilters
+			${File} plugins\videoFilters\libADM_vf_glBenchmark.dll
+		${MementoSectionEnd}
+		${MementoSection} "Resize" SecVidFltOpenGlResize
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\videoFilters
+			${File} plugins\videoFilters\libADM_vf_glResize.dll
+		${MementoSectionEnd}
+		${MementoSection} "Rotate" SecVidFltOpenGlRotate
+			SectionIn 1 2
+			SetOverwrite on
+			SetOutPath $INSTDIR\plugins\videoFilters
+			${File} plugins\videoFilters\libADM_vf_rotateGlFrag2.dll
+		${MementoSectionEnd}
 		#${MementoSection} "Wave" SecVidFltOpenGlWave
 			#SectionIn 1 2
 			#SetOverwrite on
 			#SetOutPath $INSTDIR\plugins\videoFilters
 			#${File} plugins\videoFilters\libADM_vf_sampleGlVertex.dll
 		#${MementoSectionEnd}
-	#SectionGroupEnd
+	SectionGroupEnd
 	SectionGroup "Miscellaneous Filters" SecGrpVideoFilterMiscellaneous
 		${MementoSection} "Print Information" SecVidFltPrintInfo
 			SectionIn 1 2
