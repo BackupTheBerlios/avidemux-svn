@@ -101,6 +101,8 @@ int main(int _argc, char *_argv[])
 	char **argv;
 	int argc;
 
+	installSigHandler();
+
 #ifdef _WIN32
 	getUtf8CommandLine(&argc, &argv);
 #else
@@ -114,8 +116,6 @@ int main(int _argc, char *_argv[])
 	// redirect output before registering exception handler so error dumps are captured
 	redirectStdoutToFile();
 #endif
-
-	installSigHandler();
 
 #if !defined(NDEBUG) && defined(FIND_LEAKS)
 	new_progname = argv[0];

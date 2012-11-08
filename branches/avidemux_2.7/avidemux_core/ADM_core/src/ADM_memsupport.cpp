@@ -87,7 +87,7 @@ void *ADM_calloc(size_t nbElm, size_t elSize)
 
 void *ADM_alloc(size_t size)
 {
-#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__)
+#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__) || defined(_MSC_VER)
 	return malloc(size);
 #else
 	char *c;
@@ -124,7 +124,7 @@ void *ADM_alloc(size_t size)
 
 void ADM_dezalloc(void *ptr)
 {
-#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__)
+#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__) || defined(_MSC_VER)
 	if (!ptr)
 		return;
 
@@ -164,6 +164,7 @@ void ADM_dezalloc(void *ptr)
 #endif
 }
 
+#ifndef _MSC_VER
 void *operator new( size_t t)
 {
 	return ADM_alloc(t);
@@ -183,6 +184,8 @@ void operator delete[] (void *c)
 {
 	ADM_dezalloc(c);
 }
+#endif
+
 //********************************
 // lavcodec wrapper
 //********************************
@@ -235,7 +238,7 @@ extern "C"
  */
 void *ADM_realloc(void *ptr, size_t newsize)
 {
-#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__)
+#if defined(__APPLE__) || defined(_WIN64) || defined(__HAIKU__) || defined(_MSC_VER)
 	if(!ptr)
 		return ADM_alloc(newsize);
 

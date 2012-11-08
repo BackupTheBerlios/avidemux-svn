@@ -78,7 +78,7 @@ ADM_CORE6_EXPORT void            ADM_usleep(unsigned long us);
 #define fopen   ADM_fopen
 #define fclose  ADM_fclose
 
-#if !defined(__APPLE__) && !defined(_WIN64) 
+#if !defined(__APPLE__) && !defined(_WIN64) && !defined(_MSC_VER)
 #ifndef ADM_LEGACY_PROGGY
   #define malloc #error
   #define realloc #error
