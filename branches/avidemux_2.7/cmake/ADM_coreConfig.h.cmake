@@ -35,7 +35,9 @@
 #	define strncasecmp(x, y, z) _strnicmp(x, y, z)
 #	define strtoll _strtoi64
 #	define lrint rint
+#ifndef __cplusplus
 #	define inline __inline
+#endif
 #	define getcwd _getcwd
 #	define unlink _unlink
 
@@ -62,9 +64,6 @@
 	}
 #endif
 #elif defined(__MINGW32__)
-#	define strcasecmp(x, y) stricmp(x, y)
-#	define strncasecmp(x, y, z) strnicmp(x, y, z)
-
 #	if !${USE_FTELLO}
 #		define ftello ftello64 // not defined on every mingw64_w32 version (e.g. set 2011-11-03 does not have it)
 #		define fseeko fseeko64
