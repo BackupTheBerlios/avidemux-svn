@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0 30px 30px 30px;
+        }
+
+        h2, h3 {
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-family: "Segoe UI Semibold", Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.53em;
+        }
+
+        h3 {
+            font-size: 1em;
+        }
+
+        p, ol, li, .normal {
+            font-size: 13px;
+        }
+
+        .important {
+            background-color: rgb(246, 246, 205);
+            font-size: 13px;
+            padding: 6px;
+            margin-left: 10px;
+            border: 1px dotted rgb(210, 210, 210);
+        }
+
+        .note {
+            font-weight: bold;
+        }
+
+        .filePath {
+            font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+            display: inline-block;
+        }
+
+        .codeblock {
+            font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+            border: 1px dotted;
+            padding: 6px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .codeline {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+    </style>
+    <title>Building Avidemux 2.7 for Windows</title>
+</head>
+<body>
+    <h1>Building Avidemux 2.7 for Windows
+    </h1>
+    <p>
+        This document details how to build Avidemux for the Microsoft Windows platform using
+        a GCC or Microsoft Visual C++ compiler and the Avidemux 32-bit SDK.  The sections of this document are intended to be read as follows:
+        <ol>
+            <li><a href="#prerequisites">Pre-requisites</a></li>
+            <li><a href="#compile_gcc">Compiling Avidemux with the GCC compiler</a> and/or <a href="#compile_msvc">Compiling Avidemux with the Microsoft Visual C++ compiler</a></li>
+            <li><a href="#finalise">Finalise the Avidemux installation</a></li>
+        </ol>
+    </p>
+    <h2><a name="prerequisites">Pre-requisites</a>
+    </h2>
+    <div class="important">
+        <div class="note">
+            Note:
+        </div>
+        It's important to download the same versions of components as quoted below to ensure
+        compatibility with the Avidemux source code, binaries and SDK.
+    </div>
+    <ol>
+        <li>Download the following components:
+            <ol>
+                <li><a href="http://avidemux.razorbyte.com.au/">Avidemux 32-bit installer and corresponding
+                    SDK</a></li>
+                <li>Matching <a href="http://www.avidemux.org/">Avidemux source code</a></li>
+                <li><a href="http://www.cmake.org/">CMake 2.8.10.1</a> zip file</li>
+                <li><a href="http://www.microsoft.com/">Microsoft Visual Studio Express 2012 for Windows Desktop</a> installer (MSVC builds only)</li>
+                <li><a href="http://sourceforge.net/projects/mingwbuilds/">MinGW / GCC 4.7.2 32-bit SJLJ</a>
+                    7z file (GCC builds only)</li>
+                <li>OpenGL headers <a href="http://www.opengl.org/registry/api/glext.h">glext.h</a>,
+                    <a href="http://www.opengl.org/registry/api/glxext.h">glxext.h</a> and <a href="http://www.opengl.org/registry/api/wglext.h">wglext.h</a></li>
+                <li><a href="http://qt-project.org/">Qt 4.8.3</a> source code gzip file</li>
+                <li><a href="http://tortoisesvn.net/">TortoiseSVN</a> installer (if using Avidemux source code from SVN repository)</li>
+            </ol>
+        </li>
+        <li>Install Avidemux</li>
+        <li>Extract the Avidemux SDK to
+            <div class="filePath">c:\dev\admSdk</div>
+        </li>
+        <li>Extract CMake to
+            <div class="filePath">c:\dev\cmake</div>
+        </li>
+        <li>Install Microsoft Visual Studio</li>
+        <li>Extract MinGW / GCC bundle to
+            <div class="filePath">c:\dev\mingw</div>
+        </li>
+        <li>Copy OpenGL headers to
+            <div class="filePath">c:\dev\mingw\i686-w64-mingw32\include\GL</div>
+        </li>
+        <li>Copy OpenGL headers to
+            <div class="filePath">C:\Program Files\Windows Kits\8.0\Include\um\gl</div>
+            for 32-bit Windows or
+            <div class="filePath">C:\Program Files (x86)\Windows Kits\8.0\Include\um\gl</div>
+            for 64-bit Windows
+        </li>
+        <li>Perform a custom installation of TortoiseSVN and include the Command Line Client
+            Tools.</li>
+    </ol>
+    <h2><a name="compile_gcc">Compiling Avidemux with the GCC compiler</a>
+    </h2>
+    <h3>Prepare the environment
+    </h3>
+    <ol>
+        <li>Extract the Qt source code to 
+            <div class="filePath">c:\dev\qt-gcc</div>
+        </li>
+        <li>Change the directory to the Qt source code directory
+            <div class="filePath">c:\dev\qt-gcc</div>
+        </li>
+        <li>Open a Command Prompt and execute the following commands:
+            <div class="codeblock">
+                <div class="codeline">set PATH=c:\dev\mingw\bin</div>
+                <div class="codeline">
+                    configure -confirm-license -opensource -release
+                </div>
+                <div class="codeline">
+                    mingw32-make
+                </div>
+            </div>
+        </li>
+        <li>Execute the following command in the Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">set PATH=c:\dev\mingw\bin;c:\dev\cmake\bin;%ProgramFiles%\TortoiseSVN\bin</div>
+                <div class="codeline">set CMAKE_INCLUDE_PATH=c:\dev\mingw\i686-w64-mingw32\include;c:\dev\admSdk\external\include</div>
+                <div class="codeline">set CMAKE_LIBRARY_PATH=c:\dev\admSdk\external\lib</div>
+                <div class="codeline">set QTDIR=c:\dev\qt-gcc</div>
+            </div>
+        </li>
+    </ol>
+    <h3>Build Core libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-gcc-core</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-gcc-core</div>
+            subdirectory in the Command Prompt.</li>
+        <li>Execute the following commands in the Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-gcc-install" -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_FFMPEG_LIBRARY_PATH:PATH="c:\dev\admSdk\avidemux\lib\ffmpeg" ..\avidemux_core
+                </div>
+                <div class="codeline">mingw32-make install</div>
+            </div>
+        </li>
+        <li>The core libraries will be installed in an
+            <div class="filePath">adm-gcc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h3>Build Qt User Interface libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-gcc-qt</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-gcc-qt</div>
+            subdirectory in the Command Prompt.</li>
+        <li>Execute the following commands in the Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-gcc-install" -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_CORE_INCLUDE_PATH:PATH="c:\dev\adm-gcc-install\include\core" -DADM_CORE_LIBRARY_PATH:PATH="c:\dev\adm-gcc-install"
+            ..\avidemux\qt4
+                </div>
+                <div class="codeline">mingw32-make install</div>
+            </div>
+        </li>
+        <li>The Qt UI libraries will be installed in an
+            <div class="filePath">adm-gcc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h3>Build Plug-in libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-gcc-plugins</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-gcc-plugins</div>
+            subdirectory in the Command Prompt.</li>
+        <li>Execute the following commands in the Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"MinGW Makefiles" -DPLUGIN_UI=ALL -DSPIDERMONKEY=OFF -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-gcc-install"
+            -DAVIDEMUX_SOURCE_DIR:PATH="%CD%\.." -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_FFMPEG_LIBRARY_PATH:PATH="c:\dev\admSdk\avidemux\lib\ffmpeg" -DADM_CORE_INCLUDE_PATH:PATH="c:\dev\adm-gcc-install\include\core"
+            -DADM_CORE_LIBRARY_PATH:PATH="c:\dev\adm-gcc-install" ../avidemux_plugins
+                </div>
+                <div class="codeline">mingw32-make install</div>
+            </div>
+        </li>
+        <li>The plug-in libraries will be installed in an
+            <div class="filePath">adm-gcc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h2><a name="compile_msvc">Compiling Avidemux with the Microsoft Visual C++ compiler</a>
+    </h2>
+    <h3>Prepare the environment
+    </h3>
+    <ol>
+        <li>Extract the Qt source code to 
+            <div class="filePath">c:\dev\qt-msvc</div>
+        </li>
+        <li>Change the directory to the Qt source code directory
+            <div class="filePath">c:\dev\qt-msvc</div>
+        </li>
+        <li>Open a Visual Studio x86 Command Prompt and execute the following commands:
+            <div class="codeblock">
+                <div class="codeline">
+                    configure -confirm-license -opensource -release
+                </div>
+                <div class="codeline">
+                    nmake
+                </div>
+            </div>
+        </li>
+        <li>Execute the following command in the Visual Studio Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">set PATH=%PATH%;c:\dev\cmake\bin;%ProgramFiles%\TortoiseSVN\bin</div>
+                <div class="codeline">set CMAKE_INCLUDE_PATH=c:\dev\admSdk\external\include</div>
+                <div class="codeline">set CMAKE_LIBRARY_PATH=c:\dev\admSdk\external\lib</div>
+                <div class="codeline">set QTDIR=c:\dev\qt-msvc</div>
+            </div>
+        </li>
+    </ol>
+    <h3>Build Core libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-msvc-core</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-msvc-core</div>
+            subdirectory in the Visual Studio Command Prompt.</li>
+        <li>Execute the following command in the Visual Studio Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"Visual Studio 11" -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-msvc-install" -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_FFMPEG_LIBRARY_PATH:PATH="c:\dev\admSdk\avidemux\lib\ffmpeg" ..\avidemux_core
+                </div>
+            </div>
+        </li>
+        <li>Open the solution file in the
+            <div class="filePath">build-msvc-core</div>
+            subdirectory with Visual Studio 2012 and build the INSTALL project.</li>
+        <li>The core libraries will be installed in an
+            <div class="filePath">adm-msvc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h3>Build Qt User Interface libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-msvc-qt</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-msvc-qt</div>
+            subdirectory in the Visual Studio Command Prompt.</li>
+        <li>Execute the following command in the Visual Studio Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"Visual Studio 11" -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-msvc-install" -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_CORE_INCLUDE_PATH:PATH="c:\dev\adm-msvc-install\include\core" -DADM_CORE_LIBRARY_PATH:PATH="c:\dev\adm-msvc-install"
+            ..\avidemux\qt4
+                </div>
+            </div>
+        </li>
+        <li>Open the solution file in the
+                    <div class="filePath">build-msvc-qt</div>
+            subdirectory with Visual Studio 2012 and build the INSTALL project.</li>
+        <li>The Qt UI libraries will be installed in an
+            <div class="filePath">adm-msvc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h3>Build Plug-in libraries
+    </h3>
+    <ol>
+        <li>Create a
+            <div class="filePath">build-msvc-plugins</div>
+            subdirectory under the source code folder.</li>
+        <li>Change the directory to the newly created
+            <div class="filePath">build-msvc-plugins</div>
+            subdirectory in the Visual Studio Command Prompt.</li>
+        <li>Execute the following commands in the Visual Studio Command Prompt:
+            <div class="codeblock">
+                <div class="codeline">
+                    cmake -G"Visual Studio 11" -DPLUGIN_UI=ALL -DSPIDERMONKEY=OFF -DCMAKE_INSTALL_PREFIX:PATH="c:\dev\adm-msvc-install"
+            -DAVIDEMUX_SOURCE_DIR:PATH="%CD%\.." -DADM_FFMPEG_INCLUDE_PATH:PATH="c:\dev\admSdk\avidemux\include\ffmpeg"
+            -DADM_FFMPEG_LIBRARY_PATH:PATH="c:\dev\admSdk\avidemux\lib\ffmpeg" -DADM_CORE_INCLUDE_PATH:PATH="c:\dev\adm-msvc-install\include\core"
+            -DADM_CORE_LIBRARY_PATH:PATH="c:\dev\adm-msvc-install" ../avidemux_plugins
+                </div>
+                <li>Open the solution file in the
+                    <div class="filePath">build-msvc-plugins</div>
+                    subdirectory with Visual Studio 2012 and build the INSTALL project.</li>
+            </div>
+        </li>
+        <li>The plug-in libraries will be installed in an
+            <div class="filePath">adm-msvc-install</div>
+            subdirectory under the source code folder</li>
+    </ol>
+    <h2><a name="finalise">Finalise the Avidemux installation</a>
+    </h2>
+    <h3>Copy library dependencies</h3>
+    <ol>
+        <li>Copy the following files to 
+        <div class="filePath">c:\dev\adm-gcc-install</div>
+            or
+        <div class="filePath">
+            c:\dev\adm-msvc-install
+        </div>
+            depending on the compiler used:
+            <ul>
+                <li>from
+    <div class="filePath">c:\dev\mingw\i686-w64-mingw32\lib</div>
+                    <ol>
+                        <li>
+                            <div class="filePath">libgcc_s_sjlj-1.dll</div>
+                        </li>
+                        <li>
+                            <div class="filePath">libstdc++-6.dll</div>
+                        </li>
+                        <li>
+                            <div class="filePath">libwinpthread-1.dll</div>
+                        </li>
+                    </ol>
+                </li>
+                <li>from
+    <div class="filePath">c:\dev\qt-gcc\bin</div>
+                    or
+    <div class="filePath">c:\dev\qt-msvc\bin</div>
+                    depending on the compiler used
+            <ol>
+                <li>
+                    <div class="filePath">QtCore4.dll</div>
+                </li>
+                <li>
+                    <div class="filePath">QtGui4.dll</div>
+                </li>
+                <li>
+                    <div class="filePath">QtOpenGL4.dll</div>
+                </li>
+                <li>
+                    <div class="filePath">QtScript4.dll</div>
+                </li>
+                <li>
+                    <div class="filePath">QtScriptTools4.dll</div>
+                </li>
+            </ol>
+                </li>
+                <li>from the Avidemux 32-bit installation
+    <ol>
+        <li>
+            <div class="filePath">avcodec-*.dll</div>
+        </li>
+        <li>
+            <div class="filePath">avformat-*.dll</div>
+        </li>
+        <li>
+            <div class="filePath">avutil-*.dll</div>
+        </li>
+        <li>
+            <div class="filePath">libsqlite3-0.dll</div>
+        </li>
+        <li>
+            <div class="filePath">postproc-*.dll</div>
+        </li>
+        <li>
+            <div class="filePath">swscale-*.dll</div>
+        </li>
+    </ol>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</body>
+</html>

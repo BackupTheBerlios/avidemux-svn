@@ -200,6 +200,7 @@ function Install-AdmSdk([string] $componentInstallDir, [string] $sdkInstallDir, 
         $null = New-Item "$admSdkLibInstallDir" -Type Directory
     }
 
+    Copy-Item -Path "Tools\Readme.html" -Destination "$sdkInstallDir" -Force -Recurse
     Copy-Item -Path "$componentInstallDir\*" -Destination "$admSdkInstallDir" -Force -Recurse -Include @('include')
     Copy-Item -Path "$componentInstallDir\*" -Destination "$admSdkLibInstallDir" -Force -Recurse -Include @('*.dll.a', '*.lib')
 }
