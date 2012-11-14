@@ -131,7 +131,7 @@ function Build
 
 		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$ffmpegInstallDir' '$mainInstallDir' }") -ne 0) -or `
-			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$ffmpegInstallDir' '$sdkInstallDir' }") -ne 0)))
+			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$ffmpegInstallDir' '$sdkInstallDir' 'ffmpeg' }") -ne 0)))
 		{
 			Write-Host "Failed installing FFmpeg ($arch)" -foregroundcolor Red
 			$success = $false
@@ -172,7 +172,7 @@ function Build
     
 		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$coreInstallDir' '$mainInstallDir' }") -ne 0) -or `
-			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$coreInstallDir' '$sdkInstallDir' }") -ne 0)))
+			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$coreInstallDir' '$sdkInstallDir' 'core' }") -ne 0)))
 		{
 			Write-Host "Failed installing Core ($arch)" -foregroundcolor Red
 			$success = $false
@@ -214,7 +214,7 @@ function Build
     
 		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$qtInstallDir' '$mainInstallDir' }") -ne 0) -or `
-			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$qtInstallDir' '$sdkInstallDir' }") -ne 0)))
+			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$qtInstallDir' '$sdkInstallDir' 'qt' }") -ne 0)))
 		{
 			Write-Host "Failed installing Qt UI ($arch)" -foregroundcolor Red
 			$success = $false
@@ -256,7 +256,7 @@ function Build
     
 		if ($success -and !$debug -and `
 			(($createInstallCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmComponent '$cliInstallDir' '$mainInstallDir' }") -ne 0) -or `
-			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$cliInstallDir' '$sdkInstallDir' }") -ne 0)))
+			($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-AdmSdk '$cliInstallDir' '$sdkInstallDir' 'cli' }") -ne 0)))
 		{
 			Write-Host "Failed installing CLI ($arch)" -foregroundcolor Red
 			$success = $false
@@ -311,6 +311,15 @@ function Build
 		$pluginCheckBox.CheckState = [System.Windows.Forms.CheckState]::Unchecked
 		[System.Windows.Forms.Application]::DoEvents()
 	}
+    
+	if ($success -and 
+		($createSdkCheckBox.CheckState -eq $checked -and (Execute-ProcessToHost "." "powershell" -command "& { . '.\Build Components.ps1'; Install-ExternalSdk '$sdkInstallDir' '$arch' }") -ne 0))
+	{
+		Write-Host "Failed installing external SDK components ($arch)" -foregroundcolor Red
+		$success = $false
+		break
+	}
+
 
 	# == Install dependencies ==
 	if ($createInstallCheckBox.CheckState -eq $checked -and $success)

@@ -183,14 +183,72 @@ function Install-AdmComponent([string] $componentInstallDir, [string] $mainInsta
     Get-ChildItem $componentInstallDir -Recurse -Exclude @('*.dll.a', '*.lib') | Where {$_ -notmatch 'include'} | Copy-Item -Destination {Join-Path $mainInstallDir $_.FullName.Substring($componentInstallDir.length)} -Force
 }
 
-function Install-AdmSdk([string] $componentInstallDir, [string] $sdkInstallDir)
+function Install-AdmSdk([string] $componentInstallDir, [string] $sdkInstallDir, [string] $libFolderName)
 {
+    [string] $admSdkInstallDir = Join-Path $sdkInstallDir "avidemux"
+	[string] $admSdkLibInstallDir = "$admSdkInstallDir\lib\$libFolderName"
+
     if (!(Test-Path $sdkInstallDir))
     {
         $null = New-Item $sdkInstallDir -Type Directory
     }
 
-    Copy-Item -Path "$componentInstallDir\*" -Destination "$sdkInstallDir" -Force -Recurse -Include @('include', '*.dll.a', '*.lib')
+    Create-SdkDirectories $admSdkInstallDir
+
+    if (!(Test-Path "$admSdkLibInstallDir"))
+    {
+        $null = New-Item "$admSdkLibInstallDir" -Type Directory
+    }
+
+    Copy-Item -Path "$componentInstallDir\*" -Destination "$admSdkInstallDir" -Force -Recurse -Include @('include')
+    Copy-Item -Path "$componentInstallDir\*" -Destination "$admSdkLibInstallDir" -Force -Recurse -Include @('*.dll.a', '*.lib')
+}
+
+function Install-ExternalSdk([string] $sdkInstallDir, [string] $arch)
+{
+    [string] $externalIncludeDir = Join-Path (Get-ExternalLibPrefix $arch) "include"
+    [string] $externalLibDir = Join-Path (Get-ExternalLibPrefix $arch) "lib"
+    [string] $extraSdkInstallDir = Join-Path $sdkInstallDir "external"
+
+    if (!(Test-Path $sdkInstallDir))
+    {
+        $null = New-Item $sdkInstallDir -Type Directory
+    }
+
+    Create-SdkDirectories $extraSdkInstallDir
+
+    Copy-Item -Path (Join-Path $externalIncludeDir "zlib.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $externalLibDir "libz.dll.a") -Destination "$extraSdkInstallDir\lib\" -Force
+    Copy-Item -Path (Join-Path $externalLibDir "zdll.lib") -Destination "$extraSdkInstallDir\lib\" -Force
+
+    Copy-Item -Path (Join-Path $externalIncludeDir "sqlite3.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $externalIncludeDir "sqlite3ext.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $externalLibDir "libsqlite3.dll.a") -Destination "$extraSdkInstallDir\lib\" -Force
+    Copy-Item -Path (Join-Path $externalLibDir "sqlite3.lib") -Destination "$extraSdkInstallDir\lib\" -Force
+
+    Copy-Item -Path (Join-Path $mingwIncludeDir "pthread.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $mingwIncludeDir "pthread_compat.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $mingwIncludeDir "pthread_time.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $mingwIncludeDir "pthread_unistd.h") -Destination "$extraSdkInstallDir\include\" -Force
+    Copy-Item -Path (Join-Path $externalLibDir "pthread.lib") -Destination "$extraSdkInstallDir\lib\" -Force
+}
+
+function Create-SdkDirectories([string] $sdkDirectory)
+{
+    if (!(Test-Path $sdkDirectory))
+    {
+        $null = New-Item $sdkDirectory -Type Directory
+    }
+
+    if (!(Test-Path "$sdkDirectory\lib"))
+    {
+        $null = New-Item "$sdkDirectory\lib" -Type Directory
+    }
+
+    if (!(Test-Path "$sdkDirectory\include"))
+    {
+        $null = New-Item "$sdkDirectory\include" -Type Directory
+    }
 }
 
 function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, [string] $compiler, [string] $arch, [bool] $debug)
@@ -204,12 +262,8 @@ function Install-AdmDependencies([string] $sourceDir, [string] $mainInstallDir, 
     Copy-Item -Path (Join-Path $sourceDir "COPYING") -Destination $mainInstallDir -Force
     Copy-Item -Path (Join-Path $sourceDir "README") -Destination $mainInstallDir -Force
 
-    if ($compiler -eq "gcc")
-    {
-        Copy-Item -Path (Join-Path $mingwLibDir "libgcc_s_sjlj-1.dll") -Destination $mainInstallDir -Force
-        Copy-Item -Path (Join-Path $mingwLibDir "libstdc++-6.dll") -Destination $mainInstallDir -Force
-    }
-    
+    Copy-Item -Path (Join-Path $mingwLibDir "libgcc_s_sjlj-1.dll") -Destination $mainInstallDir -Force
+    Copy-Item -Path (Join-Path $mingwLibDir "libstdc++-6.dll") -Destination $mainInstallDir -Force    
     Copy-Item -Path (Join-Path $mingwLibDir "libwinpthread-1.dll") -Destination $mainInstallDir -Force
 
     Copy-Item -Path (Join-Path $externalBinDir "aften.dll") -Destination $mainInstallDir -Force
