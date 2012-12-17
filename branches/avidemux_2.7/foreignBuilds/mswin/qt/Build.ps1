@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "4.8.3"
+	[string] $version = "4.8.4"
 	[string] $tarballFile = "qt-everywhere-opensource-src-$version.tar.gz"
 	[string] $url = "http://releases.qt-project.org/qt4/source/$tarballFile"
     [bool] $skipConfigure = $true

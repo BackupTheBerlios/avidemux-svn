@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "2.10.1"
+	[string] $version = "2.10.2"
 	[string] $tarballFile = "fontconfig-$version.tar.gz"
 	[string] $url = "http://fontconfig.org/release/$tarballFile"
     [string] $configureParams = "`"--disable-static`" `"--disable-docs`""

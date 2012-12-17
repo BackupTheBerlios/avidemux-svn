@@ -33,7 +33,7 @@ else
 [string] $advZipPath = Join-Path $externalToolsDir "advzip.exe"
 
 # == Qt directories ==
-[string] $qtVersion = "4.8.3"
+[string] $qtVersion = "4.8.4"
 [string] $qtPrefix_gcc_x86 = Join-Path $devDir "qt-$qtVersion-gcc-x86"
 [string] $qtPrefix_gcc_x86_dbg = Join-Path $devDir "qt-$qtVersion-gcc-x86-dbg"
 [string] $qtPrefix_gcc_x86_64 = Join-Path $devDir "qt-$qtVersion-gcc-x86-64"

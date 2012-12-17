@@ -6,8 +6,8 @@ $ErrorActionPreference = "Stop"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "3.7.14"
-	[string] $tarballFile = "sqlite-autoconf-3071400.tar.gz"
+	[string] $version = "3.7.15.0"
+	[string] $tarballFile = "sqlite-autoconf-3071500.tar.gz"
 	[string] $url = "http://www.sqlite.org/$tarballFile"
     [string] $makeParams = "install"
 

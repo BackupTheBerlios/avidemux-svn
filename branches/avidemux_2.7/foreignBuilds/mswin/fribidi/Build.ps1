@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "0.19.4"
+	[string] $version = "0.19.5"
 	[string] $tarballFile = "fribidi-$version.tar.bz2"
 	[string] $url = "http://fribidi.org/download/$tarballFile"
     [string] $makeParams = "install"

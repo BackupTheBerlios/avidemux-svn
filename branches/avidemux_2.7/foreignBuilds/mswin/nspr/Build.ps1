@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
-	[string] $version = "4.9.2"
+	[string] $version = "4.9.4"
 	[string] $tarballFile = "nspr-$version.tar.gz"
 	[string] $url = "ftp://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v$version/src/$tarballFile"
     [bool] $skipConfigure = $true
