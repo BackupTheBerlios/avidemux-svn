@@ -1,0 +1,28 @@
+--- /d/admDev/adm_all_dev/avidemux_2.6_branch_mean/avidemux_core/ffmpeg_package/patches/ffmpeg/libavcodec/h263dec.c	2012-12-06 12:26:23 +1100
++++ libavcodec/h263dec.c	2012-12-06 12:26:23 +1100
+@@ -125,6 +125,25 @@
+ 
+     return 0;
+ }
++/* MeanX : Ugly patch to detect vo ppacked stuff ... */
++int av_is_voppacked(AVCodecContext *avctx, int *vop_packed, int *gmc, int *qpel);
++
++int av_is_voppacked(AVCodecContext *avctx, int *vop_packed, int *gmc, int *qpel)
++{
++    MpegEncContext *s = avctx->priv_data;
++    // set sane default
++    *vop_packed=0;
++    *gmc=0;
++    *qpel=0;
++    if(avctx->codec->id!=CODEC_ID_MPEG4) return 0;
++    	
++  	*vop_packed=(s->divx_packed);
++	*qpel=s->quarter_sample;
++	*gmc=0;	// FIXME
++	return 1;
++
++  }
++  /* MeanX */
+ 
+ av_cold int ff_h263_decode_end(AVCodecContext *avctx)
+ {
