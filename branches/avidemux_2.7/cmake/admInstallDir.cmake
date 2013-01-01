@@ -87,6 +87,10 @@ MESSAGE(STATUS "AVIDEMUX_SEARCH_LIB_PATH    : ${AVIDEMUX_SEARCH_LIB_PATH}")
 #
 MACRO (ADM_INSTALL_LIB lib)
 	INSTALL(TARGETS ${lib} RUNTIME DESTINATION ${avidemux_bin_path}  LIBRARY DESTINATION ${avidemux_lib_path}  ARCHIVE DESTINATION ${avidemux_lib_path})
+
+	if (MSVC)
+		ADD_DEPENDENCIES(install_after_all ${lib})
+	endif (MSVC)
 ENDMACRO (ADM_INSTALL_LIB)
 
 MACRO (ADM_INSTALL_LIB_FILES files)
@@ -99,6 +103,10 @@ ENDMACRO (ADM_INSTALL_GLADE_LIB_FILES)
 
 MACRO (ADM_INSTALL_PLUGIN_LIB subDirectory lib)
 	install(TARGETS ${lib} DESTINATION ${pluginLibraryPath}/${subDirectory})
+
+	if (MSVC)
+		ADD_DEPENDENCIES(install_after_all ${lib})
+	endif (MSVC)
 ENDMACRO (ADM_INSTALL_PLUGIN_LIB)
 
 MACRO (ADM_INSTALL_PLUGIN_FILES subDirectory)
@@ -110,6 +118,10 @@ ENDMACRO (ADM_INSTALL_PLUGIN_FILES)
 #
 MACRO (ADM_INSTALL_BIN lib)
 	INSTALL(TARGETS ${lib} RUNTIME DESTINATION ${avidemux_bin_path}  LIBRARY DESTINATION ${avidemux_lib_path}  ARCHIVE DESTINATION ${avidemux_lib_path})
+
+	if (MSVC)
+		ADD_DEPENDENCIES(install_after_all ${lib})
+	endif (MSVC)
 ENDMACRO (ADM_INSTALL_BIN)
 
 MACRO (ADM_INSTALL_FFMPEG_HEADER_FILES library)

@@ -26,7 +26,7 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 
     if ($compiler -eq "gcc")
     {
-        $patchFiles = @("Platform.h.patch")
+        $patchFiles = @()
         $platform = "win32-g++-4.6"
 
         if ($arch -eq "x86")

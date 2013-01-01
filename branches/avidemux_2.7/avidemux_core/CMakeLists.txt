@@ -63,6 +63,14 @@ include_directories( "${CMAKE_BINARY_DIR}/config")
 MESSAGE(STATUS "ADM_coreConfig.h generated")
 MESSAGE("")
 
+###########################################
+# MSVC install hack
+###########################################
+if (MSVC)
+	ADD_CUSTOM_TARGET(install_after_all ALL COMMAND ${CMAKE_COMMAND} -DCMAKE_INSTALL_CONFIG_NAME=$<CONFIGURATION> -P ${CMAKE_BINARY_DIR}/cmake_install.cmake)
+	CONFIGURE_FILE("${AVIDEMUX_TOP_SOURCE_DIR}/cmake/ALL_BUILD.vcxproj.user.cmake" "${CMAKE_BINARY_DIR}/ALL_BUILD.vcxproj.user")
+endif (MSVC)
+
 ########################################
 # Add include dirs
 ########################################
