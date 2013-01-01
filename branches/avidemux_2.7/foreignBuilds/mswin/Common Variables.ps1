@@ -39,10 +39,10 @@ else
 [string] $qtPrefix_gcc_x86_64 = Join-Path $devDir "qt-$qtVersion-gcc-x86-64"
 [string] $qtPrefix_gcc_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-gcc-x86-64-dbg"
 
-[string] $qtPrefix_msvc10_x86 = Join-Path $devDir "qt-$qtVersion-msvc10-x86"
-[string] $qtPrefix_msvc10_x86_dbg = Join-Path $devDir "qt-$qtVersion-msvc10-x86-dbg"
-[string] $qtPrefix_msvc10_x86_64 = Join-Path $devDir "qt-$qtVersion-msvc10-x86-64"
-[string] $qtPrefix_msvc10_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-msvc10-x86-64-dbg"
+[string] $qtPrefix_msvc11_x86 = Join-Path $devDir "qt-$qtVersion-msvc11-x86"
+[string] $qtPrefix_msvc11_x86_dbg = Join-Path $devDir "qt-$qtVersion-msvc11-x86-dbg"
+[string] $qtPrefix_msvc11_x86_64 = Join-Path $devDir "qt-$qtVersion-msvc11-x86-64"
+[string] $qtPrefix_msvc11_x86_64_dbg = Join-Path $devDir "qt-$qtVersion-msvc11-x86-64-dbg"
 
 # == SpiderMonkey ==
 [bool] $spiderMonkey_useSystemVersion = $true
@@ -66,10 +66,10 @@ else
     "SUMMARY_Video_Encoder:INTERNAL=Xvid=1;x264=1`|" +`
     "USE_SYSTEM_SPIDERMONKEY:BOOL=ON"
 
-[string] $admCore_msvc10_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL="
-[string] $admQt_msvc10_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL=;OpenGL=1"
-[string] $admCli_msvc10_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL="
-[string] $admPlugin_msvc10_CmakeCheck =
+[string] $admCore_msvc11_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL="
+[string] $admQt_msvc11_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL=;OpenGL=1"
+[string] $admCli_msvc11_CmakeCheck = "SUMMARY_Miscellaneous:INTERNAL=gettext=;SDL="
+[string] $admPlugin_msvc11_CmakeCheck =
     "SUMMARY_Audio_Decoder:INTERNAL=FAAD=1;Vorbis=1;libdca=;opencore-amrwb=1;opencore-amrnb=1;libvpx=0`|" +`
     "SUMMARY_Audio_Encoder:INTERNAL=Aften=1;TWOLAME=1;LAME=1;DCAENC=;FAAC=1;Vorbis=1`|" +`
     "SUMMARY_Miscellaneous:INTERNAL=gettext=;OpenGL=1`|" +`
@@ -88,4 +88,4 @@ else
 [string] $admPackagePattern = "avidemux_${admVersion}_r`${revision}_win`${bits}"
 [string] $admSdkPackagePattern = "avidemux_sdk_${admVersion}_r`${revision}_win`${bits}"
 
-[string] $avsProxyDir = Join-Path $devDir "avsproxy-$admVersion-msvc10-x86"
+[string] $avsProxyDir = Join-Path $devDir "avsproxy-$admVersion-msvc11-x86"

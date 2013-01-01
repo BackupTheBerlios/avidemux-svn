@@ -38,9 +38,9 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
             $patchFiles += "qmake64.conf.patch"
         }
     }
-    elseif ($compiler -eq "msvc10")
+    elseif ($compiler -eq "msvc11")
     {
-        $platform = "win32-msvc2010"
+        $platform = "win32-msvc2012"
     }
 
     . "..\Common Build.ps1"
@@ -65,7 +65,7 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 	        throw "Error building ($arch)"
         }
     }
-    elseif ($compiler -eq "msvc10")
+    elseif ($compiler -eq "msvc11")
     {
         if ((Execute-ProcessToHost "$sourceDir" "nmake.exe") -ne 0)
         {
@@ -78,7 +78,7 @@ function Start-UI
 {
 	. "..\Common UI.ps1"
 
-	$null = $compilerComboBox.Items.AddRange(@("GCC", "MSVC 10"))
+	$null = $compilerComboBox.Items.AddRange(@("GCC", "MSVC 11"))
 	$compilerComboBox.SelectedIndex = 0;
 
 	$form.Text = "Build $libraryName"

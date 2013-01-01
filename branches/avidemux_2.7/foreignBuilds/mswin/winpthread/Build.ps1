@@ -32,7 +32,7 @@ function Start-UI
 {
 	. "..\Common UI.ps1"
 
-	$null = $compilerComboBox.Items.Add("MSVC 10")
+	$null = $compilerComboBox.Items.Add("MSVC 11")
 	$compilerComboBox.SelectedIndex = 0;
 
 	$debugCheckBox.Visible = $false

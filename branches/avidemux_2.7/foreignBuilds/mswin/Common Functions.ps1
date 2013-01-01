@@ -266,29 +266,29 @@ function Setup-MsysEnvironment([string] $arch, [bool] $debug)
     $env:PATH = "$msysDir\bin;$externalToolsDir;$env:PATH"
 }
 
-function Setup-Msvc10Environment([string] $arch, [bool] $debug)
+function Setup-Msvc11Environment([string] $arch, [bool] $debug)
 {
     [string] $externalLibPrefix = Get-ExternalLibPrefix $arch
     [string] $mingwLibPath = Get-MingwLibPath $arch
 
     if ($arch -eq "x86-64")
     {
-        [string] $global:cmakeGenerator = "Visual Studio 10 Win64"
+        [string] $global:cmakeGenerator = "Visual Studio 11 Win64"
 
-        Invoke-BatchFile "$programFiles32\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" "amd64"
+        Invoke-BatchFile "$programFiles32\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" "amd64"
     }
     elseif ($arch -eq "x86")
     {
-        [string] $global:cmakeGenerator = "Visual Studio 10"
+        [string] $global:cmakeGenerator = "Visual Studio 11"
 
-        Invoke-BatchFile "$programFiles32\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" "x86"
+        Invoke-BatchFile "$programFiles32\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" "x86"
     }
 
     $env:PATH = (Join-Path $externalLibPrefix "bin") + ";$env:PATH;$mingwLibPath"
     $env:CMAKE_PROGRAM_PATH = "$externalToolsDir"
     $env:CMAKE_INCLUDE_PATH = (Join-Path $externalLibPrefix "include") + ";$env:CMAKE_INCLUDE_PATH"
     $env:CMAKE_LIBRARY_PATH = (Join-Path $externalLibPrefix "lib") + ";$env:CMAKE_LIBRARY_PATH"
-    $env:QTDIR = (Get-QtDirectory "msvc10" $arch $debug)
+    $env:QTDIR = (Get-QtDirectory "msvc11" $arch $debug)
 
     if ($spiderMonkey_useSystemVersion)
     {

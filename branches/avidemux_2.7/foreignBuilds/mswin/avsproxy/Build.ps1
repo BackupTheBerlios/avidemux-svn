@@ -8,7 +8,7 @@ function Spawn-Build([string] $compiler, [string] $arch, [bool] $debug)
 {
     [string] $sourceDir = Join-Path $devDir "$libraryName-$admVersion-$compiler-$arch"
 
-    Setup-Msvc10Environment $arch $debug
+    Setup-Msvc11Environment $arch $debug
     Create-FreshDirectory $sourceDir
     Copy-Item "..\..\..\addons\avisynthproxy\*" "$sourceDir"
 
@@ -27,7 +27,7 @@ function Start-UI
 {
 	. "..\Common UI.ps1"
 
-	$null = $compilerComboBox.Items.Add("MSVC 10")
+	$null = $compilerComboBox.Items.Add("MSVC 11")
 	$compilerComboBox.SelectedIndex = 0;
 
     $arch64CheckBox.CheckState = [System.Windows.Forms.CheckState]::Unchecked

@@ -103,9 +103,9 @@ function GetCompilerTag
     {
         "gcc"
     }
-    elseif ($compilerComboBox.SelectedItem -eq "MSVC 10")
+    elseif ($compilerComboBox.SelectedItem -eq "MSVC 11")
     {
-        "msvc10"
+        "msvc11"
     }
     else
     {

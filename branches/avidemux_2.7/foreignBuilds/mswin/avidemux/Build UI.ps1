@@ -93,7 +93,7 @@ $form.ClientSize = New-Object System.Drawing.Size(281, 465)
 $form.Text = "Build Avidemux"
 
 $arch32CheckBox.CheckState = [System.Windows.Forms.CheckState]::Unchecked
-$compilerComboBox.Items.AddRange(@("GCC", "MSVC 10"));
+$compilerComboBox.Items.AddRange(@("GCC", "MSVC 11"));
 $compilerComboBox.SelectedIndex = 0;
 
 LayoutWindows

@@ -12,7 +12,7 @@ function Get-SourceDir([string] $arch, [bool] $debug)
 
 function Create-MsvcLib([string] $dllPath, [string] $outputDir, [string] $arch, [string] $libName)
 {
-    Setup-Msvc10Environment $arch $false
+    Setup-Msvc11Environment $arch $false
 
     [string] $basePath = Join-Path $outputDir ([System.IO.Path]::GetFileNameWithoutExtension($dllPath))
     [string] $outputLibName = $null
@@ -43,9 +43,9 @@ if ($compiler -eq "gcc")
 {
     Setup-MsysEnvironment $arch $debug
 }
-elseif ($compiler -eq "msvc10")
+elseif ($compiler -eq "msvc11")
 {
-    Setup-Msvc10Environment $arch $debug
+    Setup-Msvc11Environment $arch $debug
 }
 
 [string] $sourceDir = Get-SourceDir $arch $debug
@@ -116,7 +116,7 @@ if ($skipMake -ne $true)
 	        throw "Error building ($arch)"
         }
     }
-    elseif ($compiler -eq "msvc10")
+    elseif ($compiler -eq "msvc11")
     {
         if ($null -eq $makeParams)
         {

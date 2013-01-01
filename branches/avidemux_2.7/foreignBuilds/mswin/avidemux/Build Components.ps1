@@ -23,9 +23,9 @@ function SetupEnvironment([string] $compiler, [string] $arch, [bool] $debug)
     {
         Setup-MingwEnvironment $arch $debug
     }
-    elseif ($compiler -eq "msvc10")
+    elseif ($compiler -eq "msvc11")
     {
-        Setup-Msvc10Environment $arch $debug
+        Setup-Msvc11Environment $arch $debug
     }
     else
     {
@@ -62,7 +62,7 @@ function Perform-Make([string] $compiler, [string] $buildDir, [bool] $debug)
             throw "Make failed"
         }
     }
-    elseif ($compiler -eq "msvc10")
+    elseif ($compiler -eq "msvc11")
     {
         if ((Execute-ProcessToHost $buildDir "msbuild" "INSTALL.vcxproj" (Get-MsvcBuildType $debug) ) -ne 0)
         {
@@ -73,7 +73,7 @@ function Perform-Make([string] $compiler, [string] $buildDir, [bool] $debug)
 
 function Build-AdmFFmpeg([string] $sourceDir, [string] $buildDir, [string] $installDir, [string] $arch, [bool] $debug)
 {
-    Setup-Msvc10Environment $arch $debug    # to generate libs
+    Setup-Msvc11Environment $arch $debug    # to generate libs
     Setup-MsysEnvironment $arch $debug
     
     PrepareBuildDirectories $sourceDir $buildDir $installDir $debug
