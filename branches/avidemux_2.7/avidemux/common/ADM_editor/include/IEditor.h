@@ -6,7 +6,7 @@
 #include "ADM_confCouple.h"
 #include "audiofilter_normalize_param.h"
 #include "ADM_segment.h"
-#include "ADM_muxerInternal.h"
+#include "IMuxerPlugin.h"
 #include "ADM_coreVideoEncoderInternal.h"
 #include "ADM_edActiveAudioTracks.h"
 #include "ADM_edPoolOfAudioTracks.h"
@@ -59,7 +59,7 @@ public:
 	virtual int saveImageBmp(const char *filename) = 0;
 	virtual int saveImageJpg(const char *filename) = 0;
 	virtual int saveFile(const char *name) = 0;
-	virtual ADM_dynMuxer* getCurrentMuxer() = 0;
+	virtual IMuxerPlugin* getCurrentMuxer() = 0;
 	virtual bool setContainer(const char *cont, CONFcouple *c) = 0;
 	virtual bool setCurrentFramePts(uint64_t pts) = 0;
 	virtual bool setMarkerAPts(uint64_t pts) = 0;

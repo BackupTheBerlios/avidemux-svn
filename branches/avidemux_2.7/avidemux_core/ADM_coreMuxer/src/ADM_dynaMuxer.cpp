@@ -16,6 +16,7 @@
 
 #include "BVector.h"
 #include "ADM_default.h"
+#include "ADM_dynMuxer.h"
 #include "ADM_muxerInternal.h"
 #include "ADM_muxerProto.h"
 
@@ -27,7 +28,7 @@ void ADM_MuxersCleanup(void);
 
 ADM_muxer *ADM_muxerSpawn(uint32_t magic,const char *name);
 
-BVector <ADM_dynMuxer *> ListOfMuxers;
+BVector <IMuxerPlugin*> ListOfMuxers;
 /**
     \fn ADM_mux_configure
     \brief 
@@ -53,7 +54,7 @@ uint32_t ADM_mx_getNbMuxers(void)
 const char *ADM_mx_getDisplayName(uint32_t i)
 {
     ADM_assert(i<ListOfMuxers.size());
-    return ListOfMuxers[i]->displayName;
+    return ListOfMuxers[i]->name();
 }
 /**
     \fn ADM_MuxerGetDefaultExtension
@@ -62,7 +63,7 @@ const char *ADM_mx_getDisplayName(uint32_t i)
 const char *ADM_MuxerGetDefaultExtension(int i)
 {
     ADM_assert(i<ListOfMuxers.size());
-    return ListOfMuxers[i]->defaultExtension;
+    return ListOfMuxers[i]->defaultExtension();
 }
 /**
     \fn ADM_mx_getName
@@ -71,7 +72,7 @@ const char *ADM_MuxerGetDefaultExtension(int i)
 const char *ADM_mx_getName(uint32_t i)
 {
     ADM_assert(i<ListOfMuxers.size());
-    return ListOfMuxers[i]->name;
+    return ListOfMuxers[i]->id();
 }
 
 /**
@@ -81,8 +82,14 @@ const char *ADM_mx_getName(uint32_t i)
 bool     ADM_mx_getMuxerInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch)
 {
     ADM_assert(filter<ListOfMuxers.size());
-    ListOfMuxers[filter]->getVersion(major,minor,patch);
-    *name=ListOfMuxers[filter]->descriptor;
+
+	PluginVersion *version = ListOfMuxers[filter]->version();
+
+	*major = version->majorVersion;
+	*minor = version->minorVersion;
+	*patch = version->patchVersion;
+    *name = ListOfMuxers[filter]->descriptor();
+
     return true;
 }
 /**
@@ -93,12 +100,13 @@ bool     ADM_mx_getMuxerInfo(int filter, const char **name, uint32_t *major,uint
 #define Fail(x) {printf("%s:"#x"\n",file);goto er;}
 static bool tryLoadingMuxerPlugin(const char *file)
 {
-	ADM_dynMuxer *dll=new ADM_dynMuxer(file);
-    if(!dll->initialised) Fail(CannotLoad);
-    if(dll->apiVersion!=ADM_MUXER_API_VERSION) Fail(WrongApiVersion);
+	IMuxerPlugin *dll = ADM_dynMuxer::loadPlugin(file);
+
+    if (dll == NULL) Fail(CannotLoad);
+    if(dll->apiVersion() != ADM_MUXER_API_VERSION) Fail(WrongApiVersion);
 
     ListOfMuxers.append(dll); // Needed for cleanup. FIXME TODO Delete it.
-    printf("[Muxers] Registered filter %s as  %s\n",file,dll->descriptor);
+    printf("[Muxers] Registered filter %s as  %s\n",file,dll->descriptor());
     return true;
 	// Fail!
 er:
@@ -136,10 +144,10 @@ uint8_t ADM_mx_loadPlugins(const char *path)
     for(int i=0;i<nb;i++)
         for(int j=i+1;j<nb;j++)
         {
-             ADM_dynMuxer *a,*b;
+             IMuxerPlugin *a,*b;
              a=ListOfMuxers[i];
              b=ListOfMuxers[j];
-             if(strcmp(a->displayName,b->displayName)>0)
+             if(strcmp(a->name(),b->name())>0)
              {
                 ListOfMuxers[j]=a;
                 ListOfMuxers[i]=b;
@@ -168,7 +176,7 @@ bool ADM_mx_getExtraConf(int index,CONFcouple **c)
         ADM_error("Given index exceeds muxer list\n",index);
         return false;
     }
-    ADM_dynMuxer *mux=ListOfMuxers[index];
+    IMuxerPlugin *mux=ListOfMuxers[index];
     return mux->getConfiguration(c);
     
 }
@@ -184,7 +192,7 @@ bool ADM_mx_setExtraConf(int index,CONFcouple *c)
         ADM_error("Given index exceeds muxer list\n",index);
         return false;
     }
-    ADM_dynMuxer *mux=ListOfMuxers[index];
+    IMuxerPlugin *mux=ListOfMuxers[index];
     return mux->setConfiguration(c);
     
 }
@@ -211,8 +219,8 @@ int ADM_MuxerIndexFromName(const char *name)
     int n=ListOfMuxers.size();
     for(int i=0;i<n;i++)
     {
-        ADM_dynMuxer *mux=ListOfMuxers[i];
-        if(!strcasecmp(mux->name,name)) return i;
+        IMuxerPlugin *mux=ListOfMuxers[i];
+        if(!strcasecmp(mux->id(),name)) return i;
     }
     return -1;
 }
@@ -229,7 +237,7 @@ uint32_t score=0;
     found=ADM_MuxerIndexFromName(name);
     if(score && found!=-1)
     {
-        return ListOfMuxers[found]->createmuxer();
+        return ListOfMuxers[found]->createMuxer();
     }
     return NULL;
 }
@@ -242,7 +250,7 @@ uint32_t score=0;
 ADM_muxer *ADM_MuxerSpawnFromIndex(int index)
 {
     ADM_assert(index<ListOfMuxers.size());
-    return ListOfMuxers[index]->createmuxer();
+    return ListOfMuxers[index]->createMuxer();
 }
 
 

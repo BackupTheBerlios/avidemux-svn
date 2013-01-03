@@ -18,67 +18,9 @@
 
 #define ADM_MUXER_API_VERSION 8
 
-#include <stddef.h>
 #include "ADM_mx_plugin_export.h"
-#include "ADM_dynamicLoading.h"
-#include "ADM_muxer.h"
+#include "ADM_confCouple.h"
 #include "ADM_paramList.h"
-
-class ADM_dynMuxer :public ADM_LibWrapper
-{
-public:
-        int         initialised;
-        ADM_muxer    *(*createmuxer)();
-        void         (*deletemuxer)(ADM_muxer *muxer);
-        uint8_t      (*getVersion)(uint32_t *major,uint32_t *minor,uint32_t *patch);
-        const char    *name;
-        const char    *displayName;
-        const char    *descriptor;
-        const char    *defaultExtension;
-        uint32_t      apiVersion;
-        bool  (*configure)(void);
-        bool  (*getConfiguration)(CONFcouple **conf);
-        bool  (*resetConfiguration)();
-        bool  (*setConfiguration)(CONFcouple *conf);
-
-        ADM_dynMuxer(const char *file) : ADM_LibWrapper()
-        {
-        const char   *(*getDescriptor)();
-        uint32_t     (*getApiVersion)();
-        const char  *(*getMuxerName)();
-        const char  *(*getDisplayName)();
-        const char  *(*getDefaultExtension)();
-
-
-
-			initialised = (loadLibrary(file) && getSymbols(8+4,
-				&createmuxer, "create",
-				&deletemuxer, "destroy",
-				&getMuxerName, "getName",
-                &getDisplayName, "getDisplayName",
-				&getApiVersion,  "getApiVersion",
-				&getVersion,     "getVersion",
-				&getDescriptor,  "getDescriptor",
-                &configure,"configure",
-                &setConfiguration,"setConfiguration",
-                &getConfiguration,"getConfiguration",
-				&resetConfiguration,"resetConfiguration",
-                &getDefaultExtension,"getDefaultExtension"
-                ));
-                if(initialised)
-                {
-                    name=getMuxerName();
-                    displayName=getDisplayName();
-                    apiVersion=getApiVersion();
-                    descriptor=getDescriptor();
-                    defaultExtension=getDefaultExtension();
-                    printf("[Muxer]Name :%s ApiVersion :%d Description :%s\n",name,apiVersion,descriptor);
-                }else
-                {
-                    printf("[Muxer]Symbol loading failed for %s\n",file);
-                }
-        }
-};
 
 #define ADM_MUXER_BEGIN( Ext,Class,maj,mn,pat,name,desc,displayName,configureFunc,confTemplate,confVar,confSize) \
 extern "C" {\
@@ -125,5 +67,3 @@ ADM_MUXER_PLUGIN_EXPORT bool  configure(void) \
 }
 
 #endif
-//EOF
-

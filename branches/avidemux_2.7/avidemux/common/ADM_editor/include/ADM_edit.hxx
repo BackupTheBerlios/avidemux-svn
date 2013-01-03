@@ -257,7 +257,7 @@ public:
 /******************************** Info ************************************/
                     const char          *getVideoDecoderName(void);
 /********************************* IEditor **********************************/
-		ADM_dynMuxer* getCurrentMuxer();
+		IMuxerPlugin* getCurrentMuxer();
         bool        setContainer(const char *cont, CONFcouple *c);
 		ADM_videoEncoder6* getCurrentVideoEncoder();
         int         setVideoCodec(const char *codec, CONFcouple *c);

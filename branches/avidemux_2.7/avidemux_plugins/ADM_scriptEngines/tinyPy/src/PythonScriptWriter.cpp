@@ -120,13 +120,13 @@ void PythonScriptWriter::setMarkers(uint64_t markerA, uint64_t markerB)
     *(this->_stream) << "adm.markerB = " << markerB << std::endl;
 }
 
-void PythonScriptWriter::setMuxer(ADM_dynMuxer *muxer)
+void PythonScriptWriter::setMuxer(IMuxerPlugin *muxer)
 {
 	CONFcouple *configuration;
 
 	muxer->getConfiguration(&configuration);
 
-	*(this->_stream) << "adm.setContainer(\"" << muxer->name << "\"";
+	*(this->_stream) << "adm.setContainer(\"" << muxer->id() << "\"";
     this->dumpConfCouple(configuration);
     *(this->_stream) << ")" << std::endl;
 

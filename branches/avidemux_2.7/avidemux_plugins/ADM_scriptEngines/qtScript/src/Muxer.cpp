@@ -2,7 +2,7 @@
 
 namespace ADM_qtScript
 {
-	Muxer::Muxer(QScriptEngine *engine, IEditor *editor, ADM_dynMuxer *muxer) : QtScriptConfigObject(editor)
+	Muxer::Muxer(QScriptEngine *engine, IEditor *editor, IMuxerPlugin *muxer) : QtScriptConfigObject(editor)
 	{
 		this->muxerPlugin = muxer;
 		this->_configObject = this->createConfigContainer(engine);
@@ -10,12 +10,12 @@ namespace ADM_qtScript
 
 	QScriptValue Muxer::getName(void)
 	{
-		return this->muxerPlugin->displayName;
+		return this->muxerPlugin->name();
 	}
 
 	QScriptValue Muxer::getDefaultExtension(void)
 	{
-		return this->muxerPlugin->defaultExtension;
+		return this->muxerPlugin->defaultExtension();
 	}
 
 	QScriptValue Muxer::getConfiguration(void)

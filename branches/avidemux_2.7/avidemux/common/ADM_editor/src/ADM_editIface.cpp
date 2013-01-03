@@ -150,7 +150,7 @@ int ADM_Composer::saveFile(const char *name)
 	return A_Save(name);
 }
 
-ADM_dynMuxer* ADM_Composer::getCurrentMuxer()
+IMuxerPlugin* ADM_Composer::getCurrentMuxer()
 {
 	return ListOfMuxers[UI_GetCurrentFormat()];
 }

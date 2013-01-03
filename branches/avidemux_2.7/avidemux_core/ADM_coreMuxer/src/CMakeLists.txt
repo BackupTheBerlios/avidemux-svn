@@ -4,6 +4,8 @@ ADM_dynaMuxer.cpp
 ADM_muxerUtils.cpp
 ADM_audioClock.cpp
 ADM_coreMuxerFfmpeg.cpp
+ADM_dynMuxer.cpp
+IMuxerPlugin.cpp
 )	
 
 add_compiler_export_flags()

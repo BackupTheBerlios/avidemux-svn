@@ -145,7 +145,7 @@ namespace ADM_qtScript
     {
         MyQScriptEngine engine(this);
 
-        map<ADM_dynMuxer*, Muxer*> muxers;
+        map<IMuxerPlugin*, Muxer*> muxers;
         map<ADM_videoEncoder6*, VideoEncoder*> videoEncoders;
 
 #ifdef QT_SCRIPTTOOLS
@@ -290,7 +290,7 @@ namespace ADM_qtScript
     }
 
     void QtScriptEngine::registerScriptClasses(
-        QScriptEngine *engine, map<ADM_dynMuxer*, Muxer*>* muxers, map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders)
+        QScriptEngine *engine, map<IMuxerPlugin*, Muxer*>* muxers, map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders)
     {
         // Register various enums
         this->registerScriptEnums(engine, "AudioOutput", &AudioOutput::staticMetaObject);
@@ -353,18 +353,18 @@ namespace ADM_qtScript
         }
     }
 
-    void QtScriptEngine::registerMuxerPlugins(QScriptEngine *engine, map<ADM_dynMuxer*, Muxer*>* muxers)
+    void QtScriptEngine::registerMuxerPlugins(QScriptEngine *engine, map<IMuxerPlugin*, Muxer*>* muxers)
     {
         muxers->clear();
 
         for (unsigned int muxerIndex = 0; muxerIndex < ListOfMuxers.size(); muxerIndex++)
         {
-            ADM_dynMuxer* muxerPlugin = ListOfMuxers[muxerIndex];
+            IMuxerPlugin* muxerPlugin = ListOfMuxers[muxerIndex];
             Muxer *muxer = new Muxer(engine, this->_editor, muxerPlugin);
 
             engine->globalObject().setProperty(
-                _mapper->getMuxerClassName(muxerPlugin->name), engine->newQObject(muxer, QScriptEngine::ScriptOwnership));
-            muxers->insert(pair<ADM_dynMuxer*, Muxer*>(muxerPlugin, muxer));
+                _mapper->getMuxerClassName(muxerPlugin->id()), engine->newQObject(muxer, QScriptEngine::ScriptOwnership));
+            muxers->insert(pair<IMuxerPlugin*, Muxer*>(muxerPlugin, muxer));
         }
     }
 

@@ -15,7 +15,7 @@
  ***************************************************************************/
 
 #include "ADM_default.h"
-#include "ADM_muxerInternal.h"
+#include "ADM_muxer.h"
 #include "ADM_muxerUtils.h"
 #include "fourcc.h"
 #include "ADM_vidMisc.h"

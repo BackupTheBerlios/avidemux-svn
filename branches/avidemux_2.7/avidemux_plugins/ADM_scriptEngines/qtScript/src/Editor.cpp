@@ -19,7 +19,7 @@
 namespace ADM_qtScript
 {
     Editor::Editor(
-        QScriptEngine *engine, IEditor * editor, std::map<ADM_dynMuxer*, Muxer*>* muxers,
+        QScriptEngine *engine, IEditor * editor, std::map<IMuxerPlugin*, Muxer*>* muxers,
         std::map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders) : QtScriptObject(editor)
     {
         this->_engine = engine;
@@ -359,7 +359,7 @@ namespace ADM_qtScript
 
     QScriptValue Editor::getMuxer(void)
     {
-        ADM_dynMuxer *muxerPlugin = this->_editor->getCurrentMuxer();
+        IMuxerPlugin *muxerPlugin = this->_editor->getCurrentMuxer();
 
         return this->engine()->newQObject(
                    this->_muxers->find(muxerPlugin)->second, QScriptEngine::ScriptOwnership);
@@ -371,7 +371,7 @@ namespace ADM_qtScript
 
         if (muxerObject != NULL)
         {
-            this->_editor->setContainer(muxerObject->muxerPlugin->name, NULL);
+            this->_editor->setContainer(muxerObject->muxerPlugin->id(), NULL);
 
             return muxer;
         }

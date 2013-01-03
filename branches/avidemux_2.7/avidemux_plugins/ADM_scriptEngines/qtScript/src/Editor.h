@@ -41,7 +41,7 @@ namespace ADM_qtScript
 		};
 
 	private:
-		std::map<ADM_dynMuxer*, Muxer*>* _muxers;
+		std::map<IMuxerPlugin*, Muxer*>* _muxers;
 		std::map<ADM_videoEncoder6*, VideoEncoder*>* _videoEncoders;
 		QScriptEngine *_engine;
 
@@ -72,7 +72,7 @@ namespace ADM_qtScript
 	public:
 		/** \cond */
 		Editor(
-			QScriptEngine *engine, IEditor *editor, std::map<ADM_dynMuxer*, Muxer*>* muxers,
+			QScriptEngine *engine, IEditor *editor, std::map<IMuxerPlugin*, Muxer*>* muxers,
 			std::map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders);
 		/** \endcond */
 

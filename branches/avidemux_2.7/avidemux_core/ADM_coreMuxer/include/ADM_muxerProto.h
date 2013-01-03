@@ -17,12 +17,12 @@
 
 #include "ADM_coreMuxer6_export.h"
 #include "BVector.h"
-#include "ADM_muxerInternal.h"
+#include "IMuxerPlugin.h"
 
 class ADM_muxer;
 class CONFcouple;
 
-extern ADM_COREMUXER6_EXPORT BVector <ADM_dynMuxer *> ListOfMuxers;
+extern ADM_COREMUXER6_EXPORT BVector <IMuxerPlugin *> ListOfMuxers;
 
 ADM_COREMUXER6_EXPORT void        ADM_lavFormatInit(void);
 ADM_COREMUXER6_EXPORT bool        ADM_mux_configure(int index);

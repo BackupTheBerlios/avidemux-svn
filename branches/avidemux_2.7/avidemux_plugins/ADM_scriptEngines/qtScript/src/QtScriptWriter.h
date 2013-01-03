@@ -31,7 +31,7 @@ namespace ADM_qtScript
 		void setAudioMixer(int trackIndex, CHANNEL_CONF mixer);
 		void setAudioResample(int trackIndex, uint32_t resample);
 		void setMarkers(uint64_t markerA, uint64_t markerB);
-		void setMuxer(ADM_dynMuxer *muxer);
+		void setMuxer(IMuxerPlugin *muxer);
 		void setPostProcessing(uint32_t type, uint32_t strength, uint32_t swapUv);
 		void setVideoEncoder(ADM_videoEncoder6* videoEncoder);
 		void stretchAudio(int trackIndex, FILMCONV fps);

@@ -41,9 +41,9 @@ namespace ADM_qtScript
 
 	public:
 		/** \cond */
-		ADM_dynMuxer *muxerPlugin;
+		IMuxerPlugin *muxerPlugin;
 
-		Muxer(QScriptEngine *engine, IEditor *editor, ADM_dynMuxer *muxer);
+		Muxer(QScriptEngine *engine, IEditor *editor, IMuxerPlugin *muxer);
 		/** \endcond */
 
 		/** \brief Gets an object that holds parameters used to configure the muxer.

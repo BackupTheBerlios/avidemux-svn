@@ -140,9 +140,9 @@ namespace ADM_qtScript
         *(this->_stream) << "Editor.setMarkers(" << markerA << ", " << markerB << ");" << std::endl;
     }
 
-    void QtScriptWriter::setMuxer(ADM_dynMuxer *muxer)
+    void QtScriptWriter::setMuxer(IMuxerPlugin *muxer)
     {
-        QString muxerClassName = _mapper.getMuxerClassName(muxer->name);
+        QString muxerClassName = _mapper.getMuxerClassName(muxer->id());
 		CONFcouple *configuration, *defaultConfiguration;
 
         *(this->_stream) << std::endl;
