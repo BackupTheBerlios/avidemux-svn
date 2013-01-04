@@ -17,6 +17,8 @@ private:
 	const char *(*_getDisplayName)();
 	const char *(*_getDefaultExtension)();
 	uint8_t (*_getVersion)(uint32_t *major, uint32_t *minor, uint32_t *patch);
+	const char *(*_getUnderlyingLibraryName)();
+	const char *(*_getUnderlyingLibraryVersion)();
 
 	ADM_muxer    *(*_createmuxer)();
 	void         (*_deletemuxer)(ADM_muxer *muxer);

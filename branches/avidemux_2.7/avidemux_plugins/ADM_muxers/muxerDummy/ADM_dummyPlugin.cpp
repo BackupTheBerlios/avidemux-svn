@@ -25,10 +25,17 @@ ADM_MUXER_BEGIN( "dummy",muxerDummy,
                     1,0,0,
                     "dummy",    // Internal name
                     "dummy2 muxer plugin (c) Mean 2008",
-                    "Dummy Muxer", // Display name
+                    "Dummy", // Display name
+					NULL,
                     confDummy, //conf func
                     NULL, // template
                     NULL,  // conf data
                     0
                 );
 
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		return NULL;
+	}
+}

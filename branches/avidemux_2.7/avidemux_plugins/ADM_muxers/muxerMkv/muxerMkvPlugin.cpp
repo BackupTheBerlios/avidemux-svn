@@ -25,10 +25,25 @@ ADM_MUXER_BEGIN( "mkv",muxerMkv,
                     1,0,0,
                     "MKV",    // Internal name
                     "Matroska muxer plugin (c) Mean 2009",
-                    "Mkv Muxer", // DIsplay name
+                    "Matroska", // DIsplay name
+					"FFmpeg",
                     mkvConfigure,
                     mkv_muxer_param, //template
                     &mkvMuxerConfig, //config
                     sizeof(mkv_muxer)
                 );
 
+static char* version = NULL;
+
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avformat_version());
+		}
+
+		return version;
+	}
+}

@@ -24,11 +24,17 @@ ADM_MUXER_BEGIN( "mp4",muxerMp4v2,
                     1,0,0,
                     "MP4V2",    // Internal name
                     "MP4V2 muxer plugin (c) Mean 2011",
-                    "MP4v2 Muxer", // DIsplay name
+                    "MP4", // DIsplay name
+					"MP4v2",
                     mp4v2Configure,
                     mp4v2_muxer_param, //template
                     &muxerConfig,
                     sizeof(mp4v2_muxer)
                 );
 
-
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		return MP4V2_PROJECT_version;
+	}
+}

@@ -25,10 +25,25 @@ ADM_MUXER_BEGIN( "flv",muxerFlv,
                     1,0,0,
                     "FLV",    // Internal name
                     "FLV muxer plugin (c) Mean 2008",
-                    "FLV Muxer", // DIsplay name
+                    "Flash Video", // DIsplay name
+					"FFmpeg",
                     flvConfigure,
                     NULL,
                     NULL,
                     0
                 );
 
+static char* version = NULL;
+
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avformat_version());
+		}
+
+		return version;
+	}
+}

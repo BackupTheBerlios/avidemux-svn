@@ -24,11 +24,26 @@
 ADM_MUXER_BEGIN( "ts",muxerffTS,
                     1,0,1,
                     "ffTS",    // Internal name
-                    "ffMpeg TS muxer plugin (c) Mean 2009",
-                    "Mpeg TS Muxer (ff)", // DIsplay name
+                    "FFmpeg TS muxer plugin (c) Mean 2009",
+                    "MPEG-TS", // DIsplay name
+					"FFmpeg",
                     ffTSConfigure,
                     ts_muxer_param, //template
                     &tsMuxerConfig, //config
                     sizeof(ts_muxer)
                 );
 
+static char* version = NULL;
+
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avformat_version());
+		}
+
+		return version;
+	}
+}

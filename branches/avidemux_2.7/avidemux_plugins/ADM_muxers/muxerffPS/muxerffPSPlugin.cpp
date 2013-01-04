@@ -24,11 +24,26 @@
 ADM_MUXER_BEGIN( "mpg",muxerffPS,
                     1,0,0,
                     "ffPS",    // Internal name
-                    "ffMpeg PS muxer plugin (c) Mean 2009",
-                    "Mpeg-PS Muxer( ff)", // DIsplay name
+                    "FFmpeg PS muxer plugin (c) Mean 2009",
+                    "MPEG-PS", // DIsplay name
+					"FFmpeg",
                     ffPSConfigure,
                     ps_muxer_param, //template
                     &psMuxerConfig, //config
                     sizeof(ps_muxer)
                 );
 
+static char* version = NULL;
+
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avformat_version());
+		}
+
+		return version;
+	}
+}

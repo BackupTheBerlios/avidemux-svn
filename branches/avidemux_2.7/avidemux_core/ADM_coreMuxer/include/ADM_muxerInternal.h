@@ -16,13 +16,13 @@
 #ifndef  ADM_muxerInternal_H
 #define  ADM_muxerInternal_H
 
-#define ADM_MUXER_API_VERSION 8
+#define ADM_MUXER_API_VERSION 9
 
 #include "ADM_mx_plugin_export.h"
 #include "ADM_confCouple.h"
 #include "ADM_paramList.h"
 
-#define ADM_MUXER_BEGIN( Ext,Class,maj,mn,pat,name,desc,displayName,configureFunc,confTemplate,confVar,confSize) \
+#define ADM_MUXER_BEGIN( Ext,Class,maj,mn,pat,name,desc,displayName,engineName,configureFunc,confTemplate,confVar,confSize) \
 extern "C" {\
 	static void *defaultConfig = NULL; \
 \
@@ -63,7 +63,11 @@ ADM_MUXER_PLUGIN_EXPORT bool  configure(void) \
 { \
 	snapshotDefaultConfiguration(); \
  if(configureFunc==NULL) return true;\
- return configureFunc();}\
+ return configureFunc();\
+} \
+ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryName(void) \
+{ \
+	return engineName; \
+} \
 }
-
 #endif

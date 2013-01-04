@@ -25,8 +25,15 @@ ADM_MUXER_BEGIN( "raw",muxerRaw,
                     "RAW",    // Internal name
                     "RAW muxer plugin (c) Mean 2008",
                     "Video Only", // DIsplay name
+					NULL,
                     rawConfigure,
                     NULL,0,
                     0
                 );
 
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		return NULL;
+	}
+}

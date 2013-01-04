@@ -16,17 +16,27 @@
 #include "ADM_default.h"
 #include "ADM_muxerInternal.h"
 #include "muxerAvi.h"
-#include "avi_muxer_desc.cpp"
 #include "fourcc.h"
+
+#include <stddef.h>
+#include "avi_muxer_desc.cpp"
+
  extern "C" bool AviConfigure(void);
 extern avi_muxer muxerConfig;
 ADM_MUXER_BEGIN( "avi",muxerAvi,
                     1,0,0,
                     "AVI",    // Internal name
                     "AVI muxer plugin (c) Mean 2008",
-                    "AVI Muxer", // DIsplay name
+                    "AVI", // DIsplay name
+					NULL,
                     AviConfigure,
                     avi_muxer_param, //template
                     &muxerConfig,sizeof(muxerConfig)
                 );
 
+extern "C" {
+	ADM_MUXER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		return NULL;
+	}
+}

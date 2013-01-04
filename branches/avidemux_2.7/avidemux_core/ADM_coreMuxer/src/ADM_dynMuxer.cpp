@@ -17,7 +17,7 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 	ADM_dynMuxer *muxer = new ADM_dynMuxer(pluginWrapper);
 
 	bool initialised = pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(
-		8 + 4,
+		14,
 		&muxer->_createmuxer, "create",
 		&muxer->_deletemuxer, "destroy",
 		&muxer->_getMuxerName, "getName",
@@ -29,13 +29,15 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 		&muxer->_setConfiguration,"setConfiguration",
 		&muxer->_getConfiguration,"getConfiguration",
 		&muxer->_resetConfiguration,"resetConfiguration",
-		&muxer->_getDefaultExtension,"getDefaultExtension");
+		&muxer->_getDefaultExtension,"getDefaultExtension",
+		&muxer->_getUnderlyingLibraryName, "getUnderlyingLibraryName",
+		&muxer->_getUnderlyingLibraryVersion, "getUnderlyingLibraryVersion");
 
 	if (initialised)
 	{
 		printf(
-			"[Muxer] Name: %s ApiVersion: %d Description: %s\n", 
-			muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getDescriptor());
+			"[Muxer] Name: %s, API version: %d, Underlying library: %s %s\n", 
+			muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getUnderlyingLibraryName(), muxer->_getUnderlyingLibraryVersion());
 	}
 	else
 	{
@@ -69,12 +71,12 @@ PluginVersion* ADM_dynMuxer::version()
 
 const char* ADM_dynMuxer::underlyingLibraryName()
 {
-	return NULL;
+	return this->_getUnderlyingLibraryName();
 }
 
 const char* ADM_dynMuxer::underlyingLibraryVersion()
 {
-	return NULL;
+	return this->_getUnderlyingLibraryVersion();
 }
 
 ADM_dynMuxer::~ADM_dynMuxer()
