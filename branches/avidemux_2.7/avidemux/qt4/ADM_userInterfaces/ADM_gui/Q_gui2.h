@@ -32,6 +32,7 @@ public:
 	void buildCustomMenu(void);
 	void buildRecentMenu(void);
 	void buildRecentProjectMenu(void);
+	void setupMenus(void);
 
 protected:
     QMenu *jsMenu;
@@ -97,5 +98,6 @@ protected:
 	void dropEvent(QDropEvent *event);
 	void closeEvent(QCloseEvent *event);
 	void openFiles(QList<QUrl>);
+	void addPluginToList(QComboBox* comboBox, IAdmPlugin* plugin, IAdmPlugin* previousPlugin, IAdmPlugin* nextPlugin);
 };
 #endif	// Q_gui2_h

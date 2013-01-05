@@ -52,6 +52,7 @@ json.addUint32("postproc_value",key->Default.postproc_value);
 json.addUint32("downmixing",key->Default.downmixing);
 json.endNode();
 json.addUint32("mpegsplit_autosplit",key->mpegsplit_autosplit);
+json.addUint32("plugin_list_style",key->plugin_list_style);
 return json.dumpToFile(file);
 };
 bool  my_prefs_struct_jdeserialize(const char *file, const ADM_paramList *tmpl,my_prefs_struct *key){

@@ -35,5 +35,6 @@ extern const ADM_paramList my_prefs_struct_param[]={
  {"Default.postproc_value",offsetof(my_prefs_struct,Default.postproc_value),"uint32_t",ADM_param_uint32_t},
  {"Default.downmixing",offsetof(my_prefs_struct,Default.downmixing),"uint32_t",ADM_param_uint32_t},
  {"mpegsplit_autosplit",offsetof(my_prefs_struct,mpegsplit_autosplit),"uint32_t",ADM_param_uint32_t},
+ {"plugin_list_style",offsetof(my_prefs_struct,plugin_list_style),"uint32_t",ADM_param_uint32_t},
 {NULL,0,NULL}
 };

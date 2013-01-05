@@ -57,7 +57,6 @@ extern int A_openAvi(const char *name);
 extern int A_appendAvi(const char *name);
 
 int SliderIsShifted=0;
-static void setupMenus(void);
 static int shiftKeyHeld=0;
 static ADM_QSlider *slider=NULL;
 static int _upd_in_progres=0;
@@ -477,6 +476,11 @@ void MainWindow::searchMenu(QAction * action,MenuEntry *menu, int nb)
         if(m->cookie==(void*)action)
         {
             HandleAction (m->event);
+
+			if (m->event == ACT_PREFERENCES)
+			{
+				this->setupMenus();
+			}
         }
     }
 }
@@ -831,7 +835,7 @@ static void FatalFunctionQt(const char *title, const char *info)
 */
 int UI_RunApp(void)
 {
-	setupMenus();
+	((MainWindow*)QuiMainWindows)->setupMenus();
     ADM_setCrashHook(&saveCrashProject, &FatalFunctionQt);
 	checkCrashFile();
 
@@ -883,43 +887,75 @@ void UI_updateRecentProjectMenu()
   \fn    setupMenus(void)
   \brief Fill in video & audio co
 */
-void setupMenus(void)
+void MainWindow::setupMenus(void)
 {
-	uint32_t nbVid;
-    uint32_t maj,mn,pa;
+	uint32_t nbVid = ADM_ve6_getNbEncoders();
+    uint32_t maj, mn, pa;
 	const char *name;
+	int currentIndex = ui.comboBoxVideo->currentIndex();
 
-	nbVid=ADM_ve6_getNbEncoders();
-	printf("Found %d video encoder(s)\n",nbVid);
-	for(uint32_t i=1;i<nbVid;i++)
+	ui.comboBoxVideo->clear();
+
+	for( uint32_t i = 0; i < nbVid; i++)
 	{
-		ADM_ve6_getEncoderInfo(i,&name,&maj,&mn,&pa);
-		WIDGET(comboBoxVideo)->addItem(name);
+		ADM_ve6_getEncoderInfo(i, &name, &maj, &mn, &pa);
+		ui.comboBoxVideo->addItem(name);
 	}
+
+	ui.comboBoxVideo->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 
 	// And A codec
+	uint32_t nbAud = audioEncoderGetNumberOfEncoders();
+	
+	currentIndex = ui.comboBoxAudio->currentIndex();
+	ui.comboBoxAudio->clear();
 
-	uint32_t nbAud;
-
-    nbAud=audioEncoderGetNumberOfEncoders();
-	printf("Found %d audio encoder(s)\n",nbAud);
-	for(uint32_t i=1;i<nbAud;i++)
+	for (uint32_t i = 0; i < nbAud; i++)
 	{
-		name=audioEncoderGetDisplayName(i);
-		WIDGET(comboBoxAudio)->addItem(name);
+		name = audioEncoderGetDisplayName(i);
+		ui.comboBoxAudio->addItem(name);
 	}
+
+	ui.comboBoxAudio->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 
 	/*   Fill in output format window */
-	uint32_t nbFormat=ADM_mx_getNbMuxers();
+	currentIndex = ui.comboBoxFormat->currentIndex();
+	ui.comboBoxFormat->clear();
 
-	printf("Found %d format(s)\n",nbFormat);
-	for(uint32_t i=0;i<nbFormat;i++)
+	for (unsigned int muxerIndex = 0; muxerIndex < ListOfMuxers.size(); muxerIndex++)
 	{
-        const char *name=ADM_mx_getDisplayName(i);
-		WIDGET(comboBoxFormat)->addItem(name);
+		this->addPluginToList(
+			ui.comboBoxFormat, ListOfMuxers[muxerIndex], muxerIndex > 0 ? ListOfMuxers[muxerIndex - 1] : NULL,
+			muxerIndex < ListOfMuxers.size() - 2 ? ListOfMuxers[muxerIndex + 1] : NULL);
 	}
 
+	ui.comboBoxFormat->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 }
+
+void MainWindow::addPluginToList(
+	QComboBox* comboBox, IAdmPlugin* plugin, IAdmPlugin* previousPlugin, IAdmPlugin* nextPlugin)
+{
+	uint32_t style;
+	QString itemName;
+
+	prefs->get(PLUGIN_LIST_STYLE, &style);
+
+	itemName = plugin->name();
+
+	if (style == 1 && plugin->underlyingLibraryName() != NULL && 
+		((previousPlugin != NULL && itemName == previousPlugin->name()) || 
+		(nextPlugin != NULL && itemName == nextPlugin->name())))
+	{
+		itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
+	}
+	else if (style == 2 && plugin->underlyingLibraryName() != NULL)
+	{
+		itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
+	}
+
+	comboBox->addItem(itemName);
+}
+
 /*
     Return % of scale (between 0 and 1)
 */

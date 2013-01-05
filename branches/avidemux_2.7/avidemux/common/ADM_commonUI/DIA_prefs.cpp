@@ -57,7 +57,7 @@ uint32_t playbackPriority=0;
 uint32_t downmix;
 bool     mpeg_no_limit=0;
 uint32_t msglevel=2;
-
+uint32_t pluginListSetting=1;
 uint32_t mixer=0;
 
 char     *alsaDevice=NULL;
@@ -114,6 +114,9 @@ bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,cap
         // SysTray
         if(!prefs->get(FEATURES_USE_SYSTRAY,&useTray)) 
                 useTray=0;
+
+		prefs->get(PLUGIN_LIST_STYLE, &pluginListSetting);
+
         // Accept mpeg for DVD when fq!=48 kHz
         if(!prefs->get(FEATURES_MPEG_NO_LIMIT,&mpeg_no_limit)) mpeg_no_limit=0;
 
@@ -157,12 +160,23 @@ bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,cap
         olddevice=newdevice=AVDM_getCurrentDevice();
         // Audio device
         /************************ Build diaelems ****************************************/
-        diaElemToggle useVdpau(&bvdpau,QT_TR_NOOP("Decode video using VDPAU"));
-        diaElemToggle useSysTray(&useTray,QT_TR_NOOP("_Use systray while encoding"));
+		diaElemToggle useSysTray(&useTray, QT_TR_NOOP("_Use systray while encoding"));
+		diaMenuEntry msgEntries[] = {
+			{0, QT_TR_NOOP("No alerts"), NULL},
+			{1, QT_TR_NOOP("Display only error alerts"), NULL},
+			{2, QT_TR_NOOP("Display all alerts"), NULL}
+		};
+        diaElemMenu menuMessage(&msglevel, QT_TR_NOOP("_Message level:"), sizeof(msgEntries) / sizeof(diaMenuEntry), msgEntries);
+		diaMenuEntry pluginListEntries[] = {
+			{0, QT_TR_NOOP("Name only"), NULL},
+			{1, QT_TR_NOOP("Only include underlying library for same names"), NULL},
+			{2, QT_TR_NOOP("Always include underlying library"), NULL}
+		};
+		diaElemMenu plugListMenu(&pluginListSetting, QT_TR_NOOP("_Plugin list style:"), sizeof(pluginListEntries) / sizeof(diaMenuEntry), pluginListEntries);
+
+		diaElemToggle useVdpau(&bvdpau,QT_TR_NOOP("Decode video using VDPAU"));
         diaElemToggle allowAnyMpeg(&mpeg_no_limit,QT_TR_NOOP("_Accept non-standard audio frequency for DVD"));
         diaElemToggle openDml(&use_odml,QT_TR_NOOP("Create _OpenDML files"));
-
-        
 
         diaElemFrame frameSimd(QT_TR_NOOP("SIMD"));
 
@@ -241,17 +255,7 @@ bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,cap
 #endif
 #endif
         };        
-        diaElemMenu menuVideoMode(&render,QT_TR_NOOP("Video _display:"), sizeof(videoMode)/sizeof(diaMenuEntry),videoMode,"");
-        
-        
-        
-        diaMenuEntry msgEntries[]={
-                             {0,       QT_TR_NOOP("No alerts"),NULL}
-                             ,{1,      QT_TR_NOOP("Display only error alerts"),NULL}
-                             ,{2,      QT_TR_NOOP("Display all alerts"),NULL}
-        };
-        diaElemMenu menuMessage(&msglevel,QT_TR_NOOP("_Message level:"), sizeof(msgEntries)/sizeof(diaMenuEntry),msgEntries,"");
-        
+        diaElemMenu menuVideoMode(&render,QT_TR_NOOP("Video _display:"), sizeof(videoMode)/sizeof(diaMenuEntry),videoMode,"");        
         
 #if defined(ALSA_SUPPORT) || defined (OSS_SUPPORT)
         diaMenuEntry volumeEntries[]={
@@ -297,8 +301,8 @@ bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,cap
      
 
         /* User Interface */
-        diaElem *diaUser[]={&useSysTray,&menuMessage};
-        diaElemTabs tabUser(QT_TR_NOOP("User Interface"),2,diaUser);
+        diaElem *diaUser[]={&useSysTray,&menuMessage,&plugListMenu};
+        diaElemTabs tabUser(QT_TR_NOOP("User Interface"),3,diaUser);
         
          /* Automation */
         
@@ -419,6 +423,7 @@ bool     capsMMX,capsMMXEXT,caps3DNOW,caps3DNOWEXT,capsSSE,capsSSE2,capsSSE3,cap
                 prefs->set(MESSAGE_LEVEL,msglevel);
                 // Use tray while encoding
                 prefs->set(FEATURES_USE_SYSTRAY,useTray);
+				prefs->set(PLUGIN_LIST_STYLE, pluginListSetting);
 
                 // VDPAU
                 prefs->set(FEATURES_VDPAU,bvdpau);

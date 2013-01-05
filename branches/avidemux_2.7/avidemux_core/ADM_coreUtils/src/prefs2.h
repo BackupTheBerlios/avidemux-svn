@@ -49,5 +49,6 @@ struct  {
 	uint32_t downmixing;
 }Default;
 uint32_t mpegsplit_autosplit;
+uint32_t plugin_list_style;
 }my_prefs_struct;
 #endif

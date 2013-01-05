@@ -46,5 +46,6 @@ static optionDesc myOptions[]={
 { DEFAULT_POSTPROC_VALUE,"Default.postproc_value"                     ,ADM_param_uint32_t	,"3",	0,	5},
 { DEFAULT_DOWNMIXING,"Default.downmixing"                             ,ADM_param_uint32_t	,"2",	0,	3},
 { MPEGSPLIT_AUTOSPLIT,"mpegsplit_autosplit"                           ,ADM_param_uint32_t	,"790",	400,	5000},
+{ PLUGIN_LIST_STYLE,"plugin_list_style"                               ,ADM_param_uint32_t	,"1",	0,	2},
 };
 
