@@ -17,6 +17,7 @@
 #include "ADM_default.h"
 #include "DIA_factory.h"
 #include "ADM_coreDemuxer.h"
+#include "ADM_muxerProto.h"
 
 /* Functions we need to get infos */
 uint32_t ADM_ad_getNbFilters(void);
@@ -27,8 +28,6 @@ uint32_t ADM_ve_getNbEncoders(void);
 bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_ae_getPluginNbEncoders(void);
 bool     ADM_ae_getAPluginEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
-uint32_t ADM_mx_getNbMuxers(void);
-bool     ADM_mx_getMuxerInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_ve6_getNbEncoders(void);
 uint32_t ADM_vd6_getNbEncoders(void);
@@ -47,7 +46,7 @@ uint8_t DIA_pluginsInfo(void)
     uint32_t avNbPlugin=ADM_av_getNbDevices();
     uint32_t aeNbPlugin=ADM_ae_getPluginNbEncoders();
     uint32_t dmNbPlugin=ADM_dm_getNbDemuxers();
-    uint32_t mxNbPlugin=ADM_mx_getNbMuxers();
+    uint32_t mxNbPlugin=ADM_mx_getMuxerCount();
     uint32_t ve6NbPlugin=ADM_ve6_getNbEncoders();
     uint32_t vd6NbPlugin=ADM_vd6_getNbEncoders();
 
@@ -232,25 +231,19 @@ uint8_t DIA_pluginsInfo(void)
     diaElemReadOnlyText **mxText=new diaElemReadOnlyText*[mxNbPlugin];
     diaElemFrame frameMX(QT_TR_NOOP("Muxer Plugins"));
     
- for(int i=0;i<mxNbPlugin;i++)
-    {
-        const char *name;
-        uint32_t major,minor,patch;
-        char versionString[256];
-        char infoString[256];
-        char *end;
-            ADM_mx_getMuxerInfo(i, &name,&major,&minor,&patch);
-            snprintf(versionString,255,"%02d.%02d.%02d",major,minor,patch);
-            strncpy(infoString,name,255);
-            if(*(infoString))
-            {
-                end=strlen(infoString)+infoString-1;
-                // Remove trailing line feed
-                while(*end==0x0a || *end==0x0d) *end--=0;
-            }
-            mxText[i]=new diaElemReadOnlyText(infoString,versionString);
-            frameMX.swallow(mxText[i]);
-    }
+	for(int i = 0; i < mxNbPlugin; i++)
+	{
+		char versionString[256];
+		IMuxerPlugin *muxerPlugin = ADM_mx_getMuxerPlugin(i);
+
+		snprintf(
+			versionString, 255, "%02d.%02d.%02d.%02d", muxerPlugin->version()->majorVersion, 
+			muxerPlugin->version()->minorVersion, muxerPlugin->version()->patchVersion, muxerPlugin->version()->buildNumber);
+
+		mxText[i] = new diaElemReadOnlyText(muxerPlugin->descriptor(), versionString);
+		frameMX.swallow(mxText[i]);
+	}
+
     diaElem *diaMX[]={&frameMX};
     diaElemTabs tabMX(QT_TR_NOOP("Muxers"),1,diaMX);
 

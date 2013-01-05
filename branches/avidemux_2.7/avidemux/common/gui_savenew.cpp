@@ -383,17 +383,14 @@ bool admSaver::setupAudio()
 
 bool admSaver::save(void)
 {
-
-
     int ret=false;
-    
     
     ADM_info("Audio starting time %s\n",ADM_us2plain(startAudioTime));
     ADM_info("[A_Save] Saving..\n");
-    
-    const char *defaultExtension=ADM_MuxerGetDefaultExtension(muxerIndex);
+
+	IMuxerPlugin *muxerPlugin = ADM_mx_getMuxerPlugin(muxerIndex);
     EditableAudioTrack *ed=NULL;
-    ADM_info("Muxer default extension %s\n",defaultExtension);
+    ADM_info("Muxer default extension %s\n", muxerPlugin->defaultExtension());
     if(!videoEncoderIndex) 
     {
         if(false==video_body-> checkCutsAreOnIntra())
@@ -407,7 +404,7 @@ bool admSaver::save(void)
         }
     }
 
-    if(!(muxer=ADM_MuxerSpawnFromIndex(muxerIndex)))
+	if(!(muxer=muxerPlugin->createMuxer()))
     {
         GUI_Error_HIG("Muxer","Cannot instantiante muxer");
         return 0;
@@ -433,12 +430,11 @@ bool admSaver::save(void)
     }
    
     // Check if we need to add an extension....
-    if(defaultExtension)
+    if(muxerPlugin->defaultExtension())
     {
         if(!strstr(fileName.c_str(),"."))
         {
-            
-            fileName=fileName+std::string(".")+std::string(defaultExtension);
+            fileName=fileName+std::string(".")+std::string(muxerPlugin->defaultExtension());
             ADM_info("Adding extension, filename is now %s\n",fileName.c_str());
         }
 

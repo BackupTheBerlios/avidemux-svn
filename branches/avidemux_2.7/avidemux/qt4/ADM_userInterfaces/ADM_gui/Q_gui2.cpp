@@ -921,12 +921,13 @@ void MainWindow::setupMenus(void)
 	/*   Fill in output format window */
 	currentIndex = ui.comboBoxFormat->currentIndex();
 	ui.comboBoxFormat->clear();
+	int muxerCount = ADM_mx_getMuxerCount();
 
-	for (unsigned int muxerIndex = 0; muxerIndex < ListOfMuxers.size(); muxerIndex++)
+	for (unsigned int muxerIndex = 0; muxerIndex < muxerCount; muxerIndex++)
 	{
 		this->addPluginToList(
-			ui.comboBoxFormat, ListOfMuxers[muxerIndex], muxerIndex > 0 ? ListOfMuxers[muxerIndex - 1] : NULL,
-			muxerIndex < ListOfMuxers.size() - 2 ? ListOfMuxers[muxerIndex + 1] : NULL);
+			ui.comboBoxFormat, ADM_mx_getMuxerPlugin(muxerIndex), muxerIndex > 0 ? ADM_mx_getMuxerPlugin(muxerIndex - 1) : NULL,
+			muxerIndex < muxerCount - 2 ? ADM_mx_getMuxerPlugin(muxerIndex + 1) : NULL);
 	}
 
 	ui.comboBoxFormat->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);

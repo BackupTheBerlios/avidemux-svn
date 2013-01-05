@@ -152,7 +152,7 @@ int ADM_Composer::saveFile(const char *name)
 
 IMuxerPlugin* ADM_Composer::getCurrentMuxer()
 {
-	return ListOfMuxers[UI_GetCurrentFormat()];
+	return ADM_mx_getMuxerPlugin(UI_GetCurrentFormat());
 }
 
 ADM_videoEncoder6* ADM_Composer::getCurrentVideoEncoder()
@@ -162,27 +162,24 @@ ADM_videoEncoder6* ADM_Composer::getCurrentVideoEncoder()
 
 bool ADM_Composer::setContainer(const char *cont, CONFcouple *c)
 {
-	int idx = ADM_MuxerIndexFromName(cont);
+	int index;
+	IMuxerPlugin *plugin = ADM_mx_getMuxerPlugin(cont, &index);
 
-	if (idx == -1)
+	if (plugin == NULL)
 	{
 		ADM_error("Cannot find muxer for format=%s\n",cont);
 		return false;
 	}
 
-	ADM_info("setting container as index %d\n",idx);
-	UI_SetCurrentFormat(idx);
-	idx = ADM_MuxerIndexFromName(cont);
+	ADM_info("setting container as index %d\n", index);
+	UI_SetCurrentFormat(index);
 
-	bool r = false;
-
-	if(idx != -1)
-	{
-		r = ADM_mx_setExtraConf(idx, c);
-	}
+	bool r = plugin->setConfiguration(c);
 
 	if (c)
+	{
 		delete c;
+	}
 
 	return r;
 }

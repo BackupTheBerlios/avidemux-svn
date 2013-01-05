@@ -357,9 +357,9 @@ namespace ADM_qtScript
     {
         muxers->clear();
 
-        for (unsigned int muxerIndex = 0; muxerIndex < ListOfMuxers.size(); muxerIndex++)
+        for (int muxerIndex = 0; muxerIndex < ADM_mx_getMuxerCount(); muxerIndex++)
         {
-            IMuxerPlugin* muxerPlugin = ListOfMuxers[muxerIndex];
+			IMuxerPlugin* muxerPlugin = ADM_mx_getMuxerPlugin(muxerIndex);
             Muxer *muxer = new Muxer(engine, this->_editor, muxerPlugin);
 
             engine->globalObject().setProperty(

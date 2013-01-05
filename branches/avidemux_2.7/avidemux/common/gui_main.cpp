@@ -39,6 +39,7 @@
 #include "ADM_coreVideoEncoder.h"
 #include "ADM_videoEncoderApi.h"
 #include "ADM_audioFilter/include/ADM_audioFilterInterface.h"
+#include "ADM_muxerProto.h"
 
 #include "avi_vars.h"
 #include "prototype.h" // FIXME
@@ -82,7 +83,6 @@ void        updateLoaded (void);
 extern void GUI_OpenApplicationLog();
 extern void GUI_OpenApplicationDataFolder();
 
-extern bool ADM_mux_configure(int index);
 void brokenAct(void);
 //
 //  Sub gui files...
@@ -229,7 +229,7 @@ void HandleAction (Action action)
     case ACT_ContainerConfigure:
             {
             int index=UI_GetCurrentFormat();
-            ADM_mux_configure(index);
+            ADM_mx_getMuxerPlugin(index)->configure();
             return;
             }
     case ACT_VIDEO_CODEC_CHANGED:
