@@ -49,7 +49,7 @@ static bool tryLoadingMuxerPlugin(const char *file)
     if(dll->apiVersion() != ADM_MUXER_API_VERSION) Fail(WrongApiVersion);
 
     ListOfMuxers.append(dll); // Needed for cleanup. FIXME TODO Delete it.
-    printf("[Muxers] Registered filter %s as  %s\n",file,dll->descriptor());
+    printf("[Muxers] Registered filter %s as  %s\n",file,dll->description());
     return true;
 	// Fail!
 er:

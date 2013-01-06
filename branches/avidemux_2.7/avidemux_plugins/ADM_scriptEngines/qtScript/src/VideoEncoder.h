@@ -42,9 +42,9 @@ namespace ADM_qtScript
 
 	public:
 		/** \cond */
-		ADM_videoEncoder6 *encoderPlugin;
+		IVideoEncoderPlugin *encoderPlugin;
 
-		VideoEncoder(QScriptEngine *engine, IEditor *editor, ADM_videoEncoder6* encoder);
+		VideoEncoder(QScriptEngine *engine, IEditor *editor, IVideoEncoderPlugin* encoder);
 		/** \endcond */
 
 		/** \brief Gets an object that holds parameters used to configure the video encoder.

@@ -30,6 +30,7 @@
 #include "ADM_coreVideoFilterFunc.h"
 #include "ADM_coreDemuxer.h"
 #include "ADM_muxerProto.h"
+#include "ADM_videoEncoderApi.h"
 
 #define __DECLARE__
 #include "avi_vars.h"
@@ -66,12 +67,10 @@ extern uint8_t ADM_vf_loadPlugins(const char *path);
 extern uint8_t ADM_vd6_loadPlugins(const char *path);
 extern uint8_t ADM_av_loadPlugins(const char *path);
 extern uint8_t ADM_ae_loadPlugins(const char *path);
-extern uint8_t ADM_ve6_loadPlugins(const char *path);
 
 extern bool ADM_ad_cleanup(void);
 extern bool ADM_ae_cleanup(void);
 extern bool ADM_vf_cleanup(void);
-extern void ADM_ve6_cleanup(void);
 
 extern bool vdpauProbe(void);
 extern bool vdpauCleanup(void);
@@ -272,7 +271,7 @@ int startAvidemux(int argc, char *argv[])
 	ADM_dm_loadPlugins(dmPlugins);
     delete [] dmPlugins;
 
-    ADM_ve6_loadPlugins(vePlugins);
+	ADM_ve6_loadPlugins(vePlugins, ADM_UI_TYPE_BUILD);
     delete [] vePlugins;
 
     ADM_vf_loadPlugins(vfPlugins);

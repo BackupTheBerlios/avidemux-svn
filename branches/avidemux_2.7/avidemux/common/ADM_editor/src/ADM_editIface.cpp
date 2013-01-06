@@ -155,7 +155,7 @@ IMuxerPlugin* ADM_Composer::getCurrentMuxer()
 	return ADM_mx_getMuxerPlugin(UI_GetCurrentFormat());
 }
 
-ADM_videoEncoder6* ADM_Composer::getCurrentVideoEncoder()
+IVideoEncoderPlugin* ADM_Composer::getCurrentVideoEncoder()
 {
 	return ListOfEncoders[videoEncoder6_GetIndexFromName(videoEncoder6_GetCurrentEncoderName())];
 }

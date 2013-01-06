@@ -20,7 +20,7 @@ namespace ADM_qtScript
 {
     Editor::Editor(
         QScriptEngine *engine, IEditor * editor, std::map<IMuxerPlugin*, Muxer*>* muxers,
-        std::map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders) : QtScriptObject(editor)
+		std::map<IVideoEncoderPlugin*, VideoEncoder*>* videoEncoders) : QtScriptObject(editor)
     {
         this->_engine = engine;
         this->_muxers = muxers;
@@ -381,7 +381,7 @@ namespace ADM_qtScript
 
     QScriptValue Editor::getVideoEncoder(void)
     {
-        ADM_videoEncoder6 *encoderPlugin = this->_editor->getCurrentVideoEncoder();
+        IVideoEncoderPlugin *encoderPlugin = this->_editor->getCurrentVideoEncoder();
 
         return this->engine()->newQObject(
                    this->_videoEncoders->find(encoderPlugin)->second, QScriptEngine::ScriptOwnership);
@@ -393,7 +393,7 @@ namespace ADM_qtScript
 
         if (encoderObject != NULL)
         {
-            this->_editor->setVideoCodec(encoderObject->encoderPlugin->desc->encoderName, NULL);
+            this->_editor->setVideoCodec(encoderObject->encoderPlugin->name(), NULL);
             return encoder;
         }
 

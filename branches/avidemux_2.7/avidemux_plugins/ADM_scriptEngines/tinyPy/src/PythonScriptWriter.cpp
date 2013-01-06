@@ -138,16 +138,13 @@ void PythonScriptWriter::setPostProcessing(uint32_t type, uint32_t strength, uin
     *(this->_stream) << "adm.setPostProc(" << type << ", " << strength << ", " << swapUv << ")" << std::endl;
 }
 
-void PythonScriptWriter::setVideoEncoder(ADM_videoEncoder6* videoEncoder)
+void PythonScriptWriter::setVideoEncoder(IVideoEncoderPlugin* videoEncoder)
 {
 	CONFcouple *configuration = NULL;
 
-	if (videoEncoder->desc->getConfigurationData)
-    {
-        videoEncoder->desc->getConfigurationData(&configuration);
-    }
+    videoEncoder->getConfiguration(&configuration);
 
-    *(this->_stream) << "adm.videoCodec(\"" << videoEncoder->desc->encoderName << "\"";
+    *(this->_stream) << "adm.videoCodec(\"" << videoEncoder->name() << "\"";
     this->dumpConfCouple(configuration);
 	*(this->_stream) << ")" << std::endl;
 

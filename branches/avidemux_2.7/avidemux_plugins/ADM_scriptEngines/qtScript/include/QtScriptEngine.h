@@ -39,11 +39,11 @@ namespace ADM_qtScript
 		void registerDialogClasses(QScriptEngine *engine);
         void registerScriptClasses(
             QScriptEngine *engine, std::map<IMuxerPlugin*, ADM_qtScript::Muxer*>* muxers,
-            std::map<ADM_videoEncoder6*, ADM_qtScript::VideoEncoder*>* videoEncoders);
+			std::map<IVideoEncoderPlugin*, ADM_qtScript::VideoEncoder*>* videoEncoders);
         void registerScriptEnums(
             QScriptEngine *engine, const QString& parentPropertyName, const QMetaObject* metaObject);
         void registerVideoEncoderPlugins(
-            QScriptEngine *engine, std::map<ADM_videoEncoder6*, ADM_qtScript::VideoEncoder*>* encoders);
+            QScriptEngine *engine, std::map<IVideoEncoderPlugin*, ADM_qtScript::VideoEncoder*>* encoders);
         void registerVideoFilterPlugins(QScriptEngine *engine);
         bool runScript(const QString& script, const QString& name, RunMode mode);
 

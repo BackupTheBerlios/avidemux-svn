@@ -259,7 +259,7 @@ public:
 /********************************* IEditor **********************************/
 		IMuxerPlugin* getCurrentMuxer();
         bool        setContainer(const char *cont, CONFcouple *c);
-		ADM_videoEncoder6* getCurrentVideoEncoder();
+		IVideoEncoderPlugin* getCurrentVideoEncoder();
         int         setVideoCodec(const char *codec, CONFcouple *c);
         int         addVideoFilter(const char *filter, CONFcouple *c);
         void        clearFilters();

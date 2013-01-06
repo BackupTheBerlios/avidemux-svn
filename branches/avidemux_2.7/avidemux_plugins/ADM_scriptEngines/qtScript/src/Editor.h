@@ -42,7 +42,7 @@ namespace ADM_qtScript
 
 	private:
 		std::map<IMuxerPlugin*, Muxer*>* _muxers;
-		std::map<ADM_videoEncoder6*, VideoEncoder*>* _videoEncoders;
+		std::map<IVideoEncoderPlugin*, VideoEncoder*>* _videoEncoders;
 		QScriptEngine *_engine;
 
         QScriptValue getAppliedVideoFilters(void);
@@ -73,7 +73,7 @@ namespace ADM_qtScript
 		/** \cond */
 		Editor(
 			QScriptEngine *engine, IEditor *editor, std::map<IMuxerPlugin*, Muxer*>* muxers,
-			std::map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders);
+			std::map<IVideoEncoderPlugin*, VideoEncoder*>* videoEncoders);
 		/** \endcond */
 
 		/** \brief Gets the video decoders currently being used to decode the video files that are open in the editor.

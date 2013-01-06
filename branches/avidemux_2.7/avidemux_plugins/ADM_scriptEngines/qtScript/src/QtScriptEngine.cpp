@@ -146,7 +146,7 @@ namespace ADM_qtScript
         MyQScriptEngine engine(this);
 
         map<IMuxerPlugin*, Muxer*> muxers;
-        map<ADM_videoEncoder6*, VideoEncoder*> videoEncoders;
+        map<IVideoEncoderPlugin*, VideoEncoder*> videoEncoders;
 
 #ifdef QT_SCRIPTTOOLS
         QScriptEngineDebugger debugger;
@@ -290,7 +290,7 @@ namespace ADM_qtScript
     }
 
     void QtScriptEngine::registerScriptClasses(
-        QScriptEngine *engine, map<IMuxerPlugin*, Muxer*>* muxers, map<ADM_videoEncoder6*, VideoEncoder*>* videoEncoders)
+		QScriptEngine *engine, map<IMuxerPlugin*, Muxer*>* muxers, map<IVideoEncoderPlugin*, VideoEncoder*>* videoEncoders)
     {
         // Register various enums
         this->registerScriptEnums(engine, "AudioOutput", &AudioOutput::staticMetaObject);
@@ -369,18 +369,18 @@ namespace ADM_qtScript
     }
 
     void QtScriptEngine::registerVideoEncoderPlugins(
-        QScriptEngine *engine, map<ADM_videoEncoder6*, VideoEncoder*>* encoders)
+		QScriptEngine *engine, map<IVideoEncoderPlugin*, VideoEncoder*>* encoders)
     {
         encoders->clear();
 
         for (unsigned int encoderIndex = 0; encoderIndex < ListOfEncoders.size(); encoderIndex++)
         {
-            ADM_videoEncoder6* encoderPlugin = ListOfEncoders[encoderIndex];
+			IVideoEncoderPlugin* encoderPlugin = ListOfEncoders[encoderIndex];
             VideoEncoder *encoder = new VideoEncoder(engine, this->_editor, encoderPlugin);
 
             engine->globalObject().setProperty(
-                _mapper->getVideoEncoderClassName(encoderPlugin->desc->encoderName), engine->newQObject(encoder, QScriptEngine::ScriptOwnership));
-            encoders->insert(pair<ADM_videoEncoder6*, VideoEncoder*>(encoderPlugin, encoder));
+                _mapper->getVideoEncoderClassName(encoderPlugin->name()), engine->newQObject(encoder, QScriptEngine::ScriptOwnership));
+			encoders->insert(pair<IVideoEncoderPlugin*, VideoEncoder*>(encoderPlugin, encoder));
         }
     }
 

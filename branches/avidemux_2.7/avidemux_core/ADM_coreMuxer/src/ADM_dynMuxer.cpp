@@ -1,21 +1,16 @@
 #include "ADM_dynMuxer.h"
 
 ADM_dynMuxer::ADM_dynMuxer(ADM_LibWrapper *pluginWrapper)
-{
+{	
 	this->_pluginWrapper = pluginWrapper;
 	this->_pluginVersion = new PluginVersion();
-
-	this->_pluginVersion->majorVersion = 1;
-	this->_pluginVersion->minorVersion = 0;
-	this->_pluginVersion->patchVersion = 0;
-	this->_pluginVersion->buildNumber = 0;
+	memset(this->_pluginVersion, 0, sizeof(PluginVersion));
 }
 
 ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 {
 	ADM_LibWrapper *pluginWrapper = new ADM_LibWrapper();
 	ADM_dynMuxer *muxer = new ADM_dynMuxer(pluginWrapper);
-
 	bool initialised = pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(
 		14,
 		&muxer->_createmuxer, "create",
@@ -38,6 +33,14 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 		printf(
 			"[Muxer] Name: %s, API version: %d, Underlying library: %s %s\n", 
 			muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getUnderlyingLibraryName(), muxer->_getUnderlyingLibraryVersion());
+
+		uint32_t majorVersion, minorVersion, patchVersion;
+
+		muxer->_getVersion(&majorVersion, &minorVersion, &patchVersion);
+		muxer->_pluginVersion->majorVersion = majorVersion;
+		muxer->_pluginVersion->minorVersion = minorVersion;
+		muxer->_pluginVersion->patchVersion = patchVersion;
+		muxer->_pluginVersion->buildNumber = 0;
 	}
 	else
 	{
@@ -99,12 +102,12 @@ const char* ADM_dynMuxer::defaultExtension()
 	return this->_getDefaultExtension();
 }
 
-void ADM_dynMuxer::deleteMuxer(ADM_muxer *muxer)
+void ADM_dynMuxer::destroyMuxer(ADM_muxer *muxer)
 {
 	return this->_deletemuxer(muxer);
 }
 
-const char* ADM_dynMuxer::descriptor()
+const char* ADM_dynMuxer::description()
 {
 	return this->_getDescriptor();
 }

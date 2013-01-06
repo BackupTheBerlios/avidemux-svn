@@ -111,7 +111,6 @@ ADM_coreJobs
 ADM_osSupport6
 ADM_requant6
 ADM_script6
-ADM_videoEncoder6
 ADM_internalVideoFilter6
 ADM_toolkit6
 )

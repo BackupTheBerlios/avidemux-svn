@@ -22,6 +22,7 @@
 #include "DIA_uiTypes.h"
 #include "ADM_videoEncoderApi.h"
 #include "BVector.h"
+#include "ADM_videoEncoder6.h"
 
 static int currentVideoCodec=0;
 
@@ -57,12 +58,14 @@ uint32_t ADM_ve6_getNbEncoders(void)
 bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch)
 {
     ADM_assert(filter<ListOfEncoders.size());
-    ADM_videoEncoderDesc *desc=ListOfEncoders[filter]->desc;
-    ADM_assert(desc);
-    *name=desc->menuName;
-    *major=desc->major;
-    *minor=desc->minor;
-    *patch=desc->patch;
+
+	PluginVersion *pluginVersion = ListOfEncoders[filter]->version();
+
+	*name = ListOfEncoders[filter]->name();
+	*major = pluginVersion->majorVersion;
+	*minor = pluginVersion->minorVersion;
+	*patch = pluginVersion->patchVersion;
+
     return true;
 }
 /**
@@ -71,15 +74,15 @@ bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,u
 
 */
 #define Fail(x) {printf("%s:"#x"\n",file);goto er;}
-static bool tryLoadingEncoderPlugin(const char *file)
+static bool tryLoadingEncoderPlugin(const char *file, ADM_UI_TYPE uiType)
 {
-	ADM_videoEncoder6 *dll=new ADM_videoEncoder6(file);
-    if(!dll->initialised) Fail(CannotLoad);
-    if(dll->desc->apiVersion!=ADM_VIDEO_ENCODER_API_VERSION) Fail(WrongApiVersion);
-	if((dll->desc->UIType & ADM_UI_TYPE_BUILD) != ADM_UI_TYPE_BUILD) Fail(WrongUI);
+	IVideoEncoderPlugin *dll = ADM_videoEncoder6::loadPlugin(file);
+    if(dll == NULL) Fail(CannotLoad);
+    if(dll->apiVersion() != ADM_VIDEO_ENCODER_API_VERSION) Fail(WrongApiVersion);
+	if((dll->UIType() & uiType) != uiType) Fail(WrongUI);
 
     ListOfEncoders.append(dll); // Needed for cleanup. FIXME TODO Delete it.
-    printf("[VideoEncoder6] Registered filter %s as  %s\n",file,dll->desc->description);
+    printf("[VideoEncoder6] Registered filter %s as  %s\n",file,dll->description());
     return true;
 	// Fail!
 er:
@@ -91,7 +94,7 @@ er:
  * 	\fn ADM_ve6_loadPlugins
  *  \brief load all audio device plugins
  */
-uint8_t ADM_ve6_loadPlugins(const char *path)
+uint8_t ADM_ve6_loadPlugins(const char *path, ADM_UI_TYPE uiType)
 {
 #define MAX_EXTERNAL_FILTER 100
 // FIXME Factorize
@@ -108,22 +111,21 @@ uint8_t ADM_ve6_loadPlugins(const char *path)
 		return 0;
 	}
     // Add our copy encoder....
-    ADM_videoEncoder6 *dll=new ADM_videoEncoder6("copyADM");
-    dll->desc=&copyDesc;
+    ADM_videoEncoder6 *dll=new ADM_videoEncoder6(&copyDesc);
     ListOfEncoders.append(dll);
 
 	for(int i=0;i<nbFile;i++)
-		tryLoadingEncoderPlugin(files[i]);
+		tryLoadingEncoderPlugin(files[i], uiType);
 
 	printf("[ADM_ve6_plugin] Scanning done\n");
     int nb=ListOfEncoders.size();
     for(int i=1;i<nb;i++)
         for(int j=i+1;j<nb;j++)
         {
-             ADM_videoEncoder6 *a,*b;
+			 IVideoEncoderPlugin *a,*b;
              a=ListOfEncoders[i];
              b=ListOfEncoders[j];
-             if(strcmp(a->desc->menuName,b->desc->menuName)>0)
+			 if(strcmp(a->name(),b->name())>0)
              {
                 ListOfEncoders[j]=a;
                 ListOfEncoders[i]=b;
@@ -158,7 +160,7 @@ const char *ADM_ve6_getMenuName(uint32_t i)
 
 	ADM_assert(i < nb);
 
-	return ListOfEncoders[i]->desc->menuName;
+	return ListOfEncoders[i]->name();
 }
 /**
     \fn ADM_ve6_Changed
@@ -180,9 +182,9 @@ ADM_coreVideoEncoder *createVideoEncoderFromIndex(ADM_coreVideoFilter *chain,int
     int nb=ListOfEncoders.size();
 	ADM_assert(index < nb);
     ADM_assert(index); // 0 is for copy, should not get it through here
-    ADM_videoEncoder6 *plugin=ListOfEncoders[index];
+    IVideoEncoderPlugin *plugin=ListOfEncoders[index];
 
-    ADM_coreVideoEncoder *enc=plugin->desc->create(chain,globalHeader);
+    ADM_coreVideoEncoder *enc=plugin->createEncoder(chain,globalHeader);
     return enc;
 }
 /**
@@ -202,9 +204,7 @@ bool videoEncoder6SelectByName(const char *name)
 */
 bool                  videoEncoder6Configure(void)
 {
-    ADM_videoEncoderDesc *desc=ListOfEncoders[currentVideoCodec]->desc;
-    if(desc->configure) return desc->configure();
-    return true;
+    return ListOfEncoders[currentVideoCodec]->configure();
 }
 /**
     \fn videoEncoder6_SetCurrentEncoder
@@ -223,8 +223,8 @@ bool                  videoEncoder6_SetCurrentEncoder(uint32_t index)
 const char            *videoEncoder6_GetCurrentEncoderName(void)
 {
     ADM_assert(currentVideoCodec<ListOfEncoders.size());
-    ADM_videoEncoder6 *e=ListOfEncoders[currentVideoCodec];
-    return e->desc->encoderName;
+    
+	return ListOfEncoders[currentVideoCodec]->id();
 }
 /**
     \fn videoEncoder6_SetPartialConfiguration
@@ -233,8 +233,8 @@ bool                  videoEncoder6_SetConfiguration(CONFcouple *c,bool full)
 {
     if(!c) return true;
     ADM_assert(currentVideoCodec<ListOfEncoders.size());
-    ADM_videoEncoder6 *e=ListOfEncoders[currentVideoCodec];
-    return e->desc->setConfigurationData(c,full);
+    
+	return ListOfEncoders[currentVideoCodec]->setConfiguration(c, full);
 }
 
 /**
@@ -244,14 +244,8 @@ bool                  videoEncoder6_SetConfiguration(CONFcouple *c,bool full)
 bool                  videoEncoder6_GetConfiguration(CONFcouple **c)
 {
     ADM_assert(currentVideoCodec<ListOfEncoders.size());
-    ADM_videoEncoder6 *e=ListOfEncoders[currentVideoCodec];
-    if(!e->desc->getConfigurationData)
-    {
-        ADM_warning("No configuration data for this encoder\n");
-        *c=NULL;
-        return true;
-    }
-    return e->desc->getConfigurationData(c);
+    
+	return ListOfEncoders[currentVideoCodec]->getConfiguration(c);
 }
 /**
     \fn videoEncoder6_GetIndexFromName
@@ -259,12 +253,11 @@ bool                  videoEncoder6_GetConfiguration(CONFcouple **c)
 int                   videoEncoder6_GetIndexFromName(const char *name)
 {
     int nb=ListOfEncoders.size();
+
     for(int i=0;i<nb;i++)
     {
-        ADM_videoEncoderDesc *desc=ListOfEncoders[i]->desc;
-        if(!strcasecmp(name,desc->encoderName))
+        if(!strcasecmp(name,ListOfEncoders[i]->id()))
         {
-
             return i;
         }
     }

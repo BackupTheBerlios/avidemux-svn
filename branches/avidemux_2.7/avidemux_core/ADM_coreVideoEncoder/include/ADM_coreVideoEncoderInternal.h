@@ -24,64 +24,10 @@
 #include "ADM_dynamicLoading.h"
 #include "DIA_uiTypes.h"
 #include "ADM_paramList.h"
+#include "IVideoEncoderPlugin.h"
+#include "ADM_videoEncoder6.h"
 
-/*!
-  This structure defines a video encoder
-  \param encoder Encoder attached to this descriptor
-  \param name The name of the codec
-  \param configure Function to call to configure the codec
-  \param param : An opaque structure that contains the codec specific configuration datas
-*/
-typedef struct
-{
-    const char   *encoderName;        // Internal name (tag)
-    const char   *menuName;         // Displayed name (in menu)
-    const char   *description;      // Short description
-
-    uint32_t     apiVersion;            // const
-    ADM_coreVideoEncoder *(*create)(ADM_coreVideoFilter *head,bool globalHeader);
-    void         (*destroy)(ADM_coreVideoEncoder *codec);
-    bool         (*configure)(void);                                // Call UI to set it up
-    bool         (*getConfigurationData)(CONFcouple **c); // Get the encoder private conf
-    bool         (*setConfigurationData)(CONFcouple *c,bool full);   // Set the encoder private conf
-	void         (*resetConfigurationData)();
-
-    ADM_UI_TYPE  UIType;                // Type of UI
-    uint32_t     major,minor,patch;     // Version of the plugin
-
-    void         *opaque;               // Hide stuff in here
-}ADM_videoEncoderDesc;
-
-/**
-    \class ADM_videoEncoder6
-    \brief Plugin Wrapper Class
-
-*/
-class ADM_videoEncoder6 :public ADM_LibWrapper
-{
-public:
-        int                  initialised;
-        ADM_videoEncoderDesc *desc;
-        ADM_videoEncoderDesc  *(*getInfo)();
-        ADM_videoEncoder6(const char *file) : ADM_LibWrapper()
-        {
-			initialised = (loadLibrary(file) && getSymbols(1,
-				&getInfo, "getInfo"));
-                if(initialised)
-                {
-                    desc=getInfo();
-                    printf("[videoEncoder6]Name :%s ApiVersion :%d Description :%s\n",
-                                                        desc->encoderName,
-                                                        desc->apiVersion,
-                                                        desc->description);
-                }else
-                {
-                    printf("[videoEncoder6]Symbol loading failed for %s\n",file);
-                }
-        }
-};
-
-extern ADM_COREVIDEOENCODER6_EXPORT BVector <ADM_videoEncoder6 *> ListOfEncoders;
+extern ADM_COREVIDEOENCODER6_EXPORT BVector <IVideoEncoderPlugin*> ListOfEncoders;
 
 // Macros to declare audio encoder
 /**************************************************************************/

@@ -43,6 +43,8 @@
 #include "GUI_glade.h"
 #include "A_functions.h"
 #include "IScriptEngine.h"
+#include "ADM_muxerProto.h"
+#include "ADM_videoEncoderApi.h"
 
 #define MKICON(x) NULL
 #define MENU_DECLARE
@@ -96,9 +98,6 @@ static int update_ui=0;
 
 uint32_t audioEncoderGetNumberOfEncoders(void);
 const char  *audioEncoderGetDisplayName(uint32_t i);
-
-extern uint32_t ADM_mx_getNbMuxers(void);
-extern const char *ADM_mx_getDisplayName(uint32_t i);
 
 extern const char *ADM_ve6_getMenuName(uint32_t index);
 extern uint32_t    ADM_ve6_getNbEncoders(void);
@@ -376,6 +375,11 @@ void destroyGUI(void)
 #endif
 }
 
+static IAdmPlugin* getMuxerPluginName(int rank)
+{
+	return ADM_mx_getMuxerPlugin(rank);
+}
+
 /**
     \fn populateCombobox
 */
@@ -395,6 +399,23 @@ static bool populateCombobox(int nb,const char *widgetName, listCallback *listEn
 
         return true;
 }
+
+typedef IAdmPlugin *pluginListCallback(int rank);
+static bool populateCombobox2(int nb, const char *widgetName, pluginListCallback *listEntry)
+{
+        GtkComboBoxText *combo_box;
+
+        combo_box=GTK_COMBO_BOX_TEXT(glade.getWidget(widgetName));
+        gtk_combo_box_text_remove_all(combo_box);
+
+        for(uint32_t i=0;i<nb;i++)
+        {
+                gtk_combo_box_text_append_text(combo_box, listEntry(i)->name());
+        }
+
+        return true;
+}
+
 /**
      \fn bindGUI
      \brief Bind the GUI to our handling functions/callbacks
@@ -503,7 +524,7 @@ uint8_t  bindGUI( void )
         gtk_combo_box_set_active(GTK_COMBO_BOX(glade.getWidget(AUDIO_WIDGET)),0);
         on_audio_change();
     // and container
-        populateCombobox(ADM_mx_getNbMuxers(),FORMAT_WIDGET, ADM_mx_getDisplayName);
+        populateCombobox2(ADM_mx_getMuxerCount(),FORMAT_WIDGET, getMuxerPluginName);
         gtk_combo_box_set_active(GTK_COMBO_BOX(glade.getWidget(FORMAT_WIDGET)),0);
         on_audio_change();
 

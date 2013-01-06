@@ -9,8 +9,8 @@
 #include "audioencoderInternal.h"
 #include "ADM_coreVideoFilter.h"
 #include "IMuxerPlugin.h"
+#include "IVideoEncoderPlugin.h"
 
-class ADM_videoEncoder6;
 class EditableAudioTrack;
 
 class IScriptWriter
@@ -32,7 +32,7 @@ public:
     virtual void setMarkers(uint64_t markerA, uint64_t markerB) = 0;
     virtual void setMuxer(IMuxerPlugin *muxer) = 0;
     virtual void setPostProcessing(uint32_t type, uint32_t strength, uint32_t swapUv) = 0;
-    virtual void setVideoEncoder(ADM_videoEncoder6* videoEncoder) = 0;
+    virtual void setVideoEncoder(IVideoEncoderPlugin* videoEncoder) = 0;
     virtual void stretchAudio(int trackIndex, FILMCONV fps) = 0;
     virtual void setAudioDrc(int trackIndex, bool active) = 0;
     virtual void setAudioShift(int trackIndex, bool active,int32_t shiftMs) = 0;

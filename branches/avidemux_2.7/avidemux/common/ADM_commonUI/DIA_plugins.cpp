@@ -240,7 +240,7 @@ uint8_t DIA_pluginsInfo(void)
 			versionString, 255, "%02d.%02d.%02d.%02d", muxerPlugin->version()->majorVersion, 
 			muxerPlugin->version()->minorVersion, muxerPlugin->version()->patchVersion, muxerPlugin->version()->buildNumber);
 
-		mxText[i] = new diaElemReadOnlyText(muxerPlugin->descriptor(), versionString);
+		mxText[i] = new diaElemReadOnlyText(muxerPlugin->description(), versionString);
 		frameMX.swallow(mxText[i]);
 	}
 

@@ -65,7 +65,7 @@ public:
 	virtual bool setMarkerAPts(uint64_t pts) = 0;
 	virtual bool setMarkerBPts(uint64_t pts) = 0;
 	virtual uint8_t setPostProc(uint32_t type, uint32_t strength, bool swapuv) = 0;
-	virtual ADM_videoEncoder6* getCurrentVideoEncoder() = 0;
+	virtual IVideoEncoderPlugin* getCurrentVideoEncoder() = 0;
 	virtual int setVideoCodec(const char *codec, CONFcouple *c) = 0;
     /* Audio related */
     virtual bool    clearAudioTracks(void)=0; /// remove all audio tracks

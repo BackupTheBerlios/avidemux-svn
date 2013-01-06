@@ -4,7 +4,7 @@
 namespace ADM_qtScript
 {
 	VideoEncoder::VideoEncoder(
-		QScriptEngine *engine, IEditor *editor, ADM_videoEncoder6* encoder) : QtScriptConfigObject(editor)
+		QScriptEngine *engine, IEditor *editor, IVideoEncoderPlugin* encoder) : QtScriptConfigObject(editor)
 	{
 		std::map<const QString, QScriptEngine::FunctionSignature> configSubGroups;
 
@@ -19,7 +19,7 @@ namespace ADM_qtScript
 
 	QScriptValue VideoEncoder::getName(void)
 	{
-		return this->encoderPlugin->desc->menuName;
+		return this->encoderPlugin->name();
 	}
 
 	QScriptValue VideoEncoder::getConfiguration(void)
@@ -29,20 +29,20 @@ namespace ADM_qtScript
 
 	void VideoEncoder::resetConfiguration(void)
 	{
-		this->encoderPlugin->desc->resetConfigurationData();
+		this->encoderPlugin->resetConfiguration();
 	}
 
 	void VideoEncoder::getConfCouple(CONFcouple** conf, const QString& containerName)
 	{
-		if (this->encoderPlugin->desc->getConfigurationData && containerName == "")
+		if (containerName == "")
 		{
-			this->encoderPlugin->desc->getConfigurationData(conf);
+			this->encoderPlugin->getConfiguration(conf);
 		}
 		else if (containerName == "lavcSettings")
 		{
 			char *configData;
 
-			this->encoderPlugin->desc->getConfigurationData(conf);
+			this->encoderPlugin->getConfiguration(conf);
 			(*conf)->readAsString("lavcSettings", &configData);
 			delete *conf;
 
@@ -57,9 +57,9 @@ namespace ADM_qtScript
 
 	void VideoEncoder::setConfCouple(CONFcouple* conf, const QString& containerName)
 	{
-		if (this->encoderPlugin->desc->setConfigurationData && containerName == "")
+		if (containerName == "")
 		{
-			this->encoderPlugin->desc->setConfigurationData(conf, true);
+			this->encoderPlugin->setConfiguration(conf, true);
 		}
 		else if (containerName == "lavcSettings")
 		{
@@ -67,10 +67,10 @@ namespace ADM_qtScript
 			CONFcouple *mainConf;
 
 			lavCoupleToString(conf, &confString);
-			this->encoderPlugin->desc->getConfigurationData(&mainConf);
+			this->encoderPlugin->getConfiguration(&mainConf);
 
 			mainConf->updateValue(mainConf->lookupName("lavcSettings"), confString);
-			this->encoderPlugin->desc->setConfigurationData(mainConf, true);
+			this->encoderPlugin->setConfiguration(mainConf, true);
 
 			delete [] confString;
 			delete mainConf;

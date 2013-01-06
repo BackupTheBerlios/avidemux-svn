@@ -21,8 +21,8 @@ public:
 	virtual bool configure(void) = 0;
 	virtual ADM_muxer* createMuxer() = 0;
 	virtual const char* defaultExtension() = 0;
-	virtual void deleteMuxer(ADM_muxer *muxer) = 0;
-	virtual const char* descriptor() = 0;
+	virtual void destroyMuxer(ADM_muxer *muxer) = 0;
+	virtual const char* description() = 0;
 	virtual bool getConfiguration(CONFcouple **conf) = 0;
 	virtual bool setConfiguration(CONFcouple *conf) = 0;
 	virtual bool resetConfiguration() = 0;

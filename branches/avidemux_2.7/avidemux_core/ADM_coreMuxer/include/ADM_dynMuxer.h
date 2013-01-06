@@ -45,8 +45,8 @@ public:
 	bool configure(void);
 	ADM_muxer* createMuxer();
 	const char* defaultExtension();
-	void deleteMuxer(ADM_muxer *muxer);
-	const char* descriptor();
+	void destroyMuxer(ADM_muxer *muxer);
+	const char* description();
 	bool getConfiguration(CONFcouple **conf);
 	bool setConfiguration(CONFcouple *conf);
 	bool resetConfiguration();
