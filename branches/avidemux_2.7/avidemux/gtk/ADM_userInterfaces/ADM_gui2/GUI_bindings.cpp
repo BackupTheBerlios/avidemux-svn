@@ -43,8 +43,8 @@
 #include "GUI_glade.h"
 #include "A_functions.h"
 #include "IScriptEngine.h"
-#include "ADM_muxerProto.h"
 #include "ADM_videoEncoderApi.h"
+#include "IPluginManager.h"
 
 #define MKICON(x) NULL
 #define MENU_DECLARE
@@ -95,6 +95,7 @@ static void on_video_change(void);
 static void on_preview_change(void);
 static void on_format_change(void);
 static int update_ui=0;
+static IPluginManager* _pluginManager;
 
 uint32_t audioEncoderGetNumberOfEncoders(void);
 const char  *audioEncoderGetDisplayName(uint32_t i);
@@ -306,8 +307,9 @@ void jogRing (void *, gfloat angle) // angle is -1.0 to 0 to +1.0
         \fn initGUI
         \brief Create main window and bind to it
 */
-uint8_t initGUI(const vector<IScriptEngine*>& scriptEngines)
+uint8_t initGUI(const vector<IScriptEngine*>& scriptEngines, IPluginManager* pluginManager)
 {
+	_pluginManager = pluginManager;
 uint8_t ret=0;
 uint32_t w,h;
         glade.init();
@@ -377,7 +379,7 @@ void destroyGUI(void)
 
 static IAdmPlugin* getMuxerPluginName(int rank)
 {
-	return ADM_mx_getMuxerPlugin(rank);
+	return _pluginManager->muxers()[rank];
 }
 
 /**
@@ -524,7 +526,7 @@ uint8_t  bindGUI( void )
         gtk_combo_box_set_active(GTK_COMBO_BOX(glade.getWidget(AUDIO_WIDGET)),0);
         on_audio_change();
     // and container
-        populateCombobox2(ADM_mx_getMuxerCount(),FORMAT_WIDGET, getMuxerPluginName);
+        populateCombobox2(_pluginManager->muxers().size(), FORMAT_WIDGET, getMuxerPluginName);
         gtk_combo_box_set_active(GTK_COMBO_BOX(glade.getWidget(FORMAT_WIDGET)),0);
         on_audio_change();
 

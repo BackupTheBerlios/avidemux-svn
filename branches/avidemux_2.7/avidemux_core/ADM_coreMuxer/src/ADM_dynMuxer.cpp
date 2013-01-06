@@ -119,7 +119,14 @@ bool ADM_dynMuxer::getConfiguration(CONFcouple **conf)
 
 bool ADM_dynMuxer::setConfiguration(CONFcouple *conf)
 {
-	return this->_setConfiguration(conf);
+	if (!conf)
+	{
+		return true;
+	}
+	else
+	{
+		return this->_setConfiguration(conf);
+	}
 }
 
 bool ADM_dynMuxer::resetConfiguration()

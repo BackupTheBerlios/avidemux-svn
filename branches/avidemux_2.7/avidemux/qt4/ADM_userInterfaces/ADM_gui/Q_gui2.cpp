@@ -30,7 +30,6 @@
 
 #include "ADM_render/GUI_renderInternal.h"
 #include "ADM_coreVideoEncoderInternal.h"
-#include "ADM_muxerProto.h"
 #include "T_vumeter.h"
 #include "DIA_coreToolkit.h"
 #include "ADM_coreVideoFilterFunc.h"
@@ -216,7 +215,9 @@ void MainWindow::currentTimeChanged(void)
 /**
     \fn ctor
 */
-MainWindow::MainWindow(const vector<IScriptEngine*>& scriptEngines) : _scriptEngines(scriptEngines), QMainWindow()
+MainWindow::MainWindow(
+	const vector<IScriptEngine*>& scriptEngines, IPluginManager* pluginManager) : 
+	_scriptEngines(scriptEngines), _pluginManager(pluginManager), QMainWindow()
 {
 	qtRegisterDialog(this);
 	ui.setupUi(this);
@@ -715,9 +716,9 @@ int UI_Init(int nargc, char **nargv)
 	return 1;
 }
 
-uint8_t initGUI(const vector<IScriptEngine*>& scriptEngines)
+uint8_t initGUI(const vector<IScriptEngine*>& scriptEngines, IPluginManager* pluginManager)
 {
-	MainWindow *mw = new MainWindow(scriptEngines);
+	MainWindow *mw = new MainWindow(scriptEngines, pluginManager);
 	mw->show();
 
 	QuiMainWindows = (QWidget*)mw;
@@ -921,13 +922,13 @@ void MainWindow::setupMenus(void)
 	/*   Fill in output format window */
 	currentIndex = ui.comboBoxFormat->currentIndex();
 	ui.comboBoxFormat->clear();
-	int muxerCount = ADM_mx_getMuxerCount();
+	int muxerCount = this->_pluginManager->muxers().size();
 
 	for (unsigned int muxerIndex = 0; muxerIndex < muxerCount; muxerIndex++)
 	{
 		this->addPluginToList(
-			ui.comboBoxFormat, ADM_mx_getMuxerPlugin(muxerIndex), muxerIndex > 0 ? ADM_mx_getMuxerPlugin(muxerIndex - 1) : NULL,
-			muxerIndex < muxerCount - 2 ? ADM_mx_getMuxerPlugin(muxerIndex + 1) : NULL);
+			ui.comboBoxFormat, this->_pluginManager->muxers()[muxerIndex], muxerIndex > 0 ? this->_pluginManager->muxers()[muxerIndex - 1] : NULL,
+			muxerIndex < muxerCount - 2 ? this->_pluginManager->muxers()[muxerIndex + 1] : NULL);
 	}
 
 	ui.comboBoxFormat->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);

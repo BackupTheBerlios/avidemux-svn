@@ -17,15 +17,14 @@
 #include "ADM_default.h"
 #include "DIA_factory.h"
 #include "ADM_coreDemuxer.h"
-#include "ADM_muxerProto.h"
+#include "IPluginManager.h"
+#include "IMuxerPlugin.h"
 
 /* Functions we need to get infos */
 uint32_t ADM_ad_getNbFilters(void);
 bool     ADM_ad_getFilterInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_av_getNbDevices(void);
 bool     ADM_av_getDeviceInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
-uint32_t ADM_ve_getNbEncoders(void);
-bool     ADM_ve_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_ae_getPluginNbEncoders(void);
 bool     ADM_ae_getAPluginEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
@@ -40,13 +39,12 @@ bool     ADM_vd6_getEncoderInfo(int filter, const char **name, uint32_t *major,u
         \brief Display loaded plugin infos        
 
 */
-uint8_t DIA_pluginsInfo(void)
+uint8_t DIA_pluginsInfo(IPluginManager* pluginManager)
 {
     uint32_t aNbPlugin=ADM_ad_getNbFilters();
     uint32_t avNbPlugin=ADM_av_getNbDevices();
     uint32_t aeNbPlugin=ADM_ae_getPluginNbEncoders();
     uint32_t dmNbPlugin=ADM_dm_getNbDemuxers();
-    uint32_t mxNbPlugin=ADM_mx_getMuxerCount();
     uint32_t ve6NbPlugin=ADM_ve6_getNbEncoders();
     uint32_t vd6NbPlugin=ADM_vd6_getNbEncoders();
 
@@ -227,14 +225,14 @@ uint8_t DIA_pluginsInfo(void)
 
 
  // muxer Encoder
-    printf("[Muxers Plugins] Found %u plugins\n",mxNbPlugin);
-    diaElemReadOnlyText **mxText=new diaElemReadOnlyText*[mxNbPlugin];
+	printf("[Muxers Plugins] Found %u plugins\n", pluginManager->muxers().size());
+    diaElemReadOnlyText **mxText=new diaElemReadOnlyText*[pluginManager->muxers().size()];
     diaElemFrame frameMX(QT_TR_NOOP("Muxer Plugins"));
     
-	for(int i = 0; i < mxNbPlugin; i++)
+	for(int i = 0; i < pluginManager->muxers().size(); i++)
 	{
 		char versionString[256];
-		IMuxerPlugin *muxerPlugin = ADM_mx_getMuxerPlugin(i);
+		IMuxerPlugin *muxerPlugin = (IMuxerPlugin*)pluginManager->muxers()[i];
 
 		snprintf(
 			versionString, 255, "%02d.%02d.%02d.%02d", muxerPlugin->version()->majorVersion, 
@@ -264,7 +262,7 @@ uint8_t DIA_pluginsInfo(void)
         delete aeText[i];
     for(int i=0;i<dmNbPlugin;i++)
         delete dmText[i];
-    for(int i=0;i<mxNbPlugin;i++)
+	for(int i=0;i<pluginManager->muxers().size();i++)
         delete mxText[i];
 
     delete [] aText;

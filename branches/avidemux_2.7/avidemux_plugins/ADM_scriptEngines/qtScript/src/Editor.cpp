@@ -393,7 +393,7 @@ namespace ADM_qtScript
 
         if (encoderObject != NULL)
         {
-            this->_editor->setVideoCodec(encoderObject->encoderPlugin->name(), NULL);
+            this->_editor->setVideoCodec(encoderObject->encoderPlugin->id(), NULL);
             return encoder;
         }
 

@@ -31,6 +31,7 @@
 #include "ADM_coreDemuxer.h"
 #include "ADM_muxerProto.h"
 #include "ADM_videoEncoderApi.h"
+#include "ADM_plugin/PluginManager.h"
 
 #define __DECLARE__
 #include "avi_vars.h"
@@ -58,7 +59,7 @@ extern void registerVideoFilters( void );
 extern void filterCleanUp( void );
 extern void register_Encoders( void )  ;
 
-extern uint8_t initGUI(const vector<IScriptEngine*>& engines);
+extern uint8_t initGUI(const vector<IScriptEngine*>& scriptEngines, IPluginManager* pluginManager);
 extern void destroyGUI(void);
 extern void initFileSelector(void);
 extern void getUIDescription(char*);
@@ -86,6 +87,7 @@ extern bool UI_End(void);
 extern bool ADM_jobInit(void);
 extern bool ADM_jobShutDown(void);
 extern void cleanUp (void);
+extern void UI_SetPluginManager(IPluginManager *manager);
 
 #if !defined(NDEBUG) && defined(FIND_LEAKS)
 extern const char* new_progname;
@@ -224,8 +226,12 @@ int startAvidemux(int argc, char *argv[])
 #ifdef _WIN32
     win32_netInit();
 #endif
+	IPluginManager *pluginManager = new PluginManager();
 
-	video_body = new ADM_Composer;
+	pluginManager->loadAll();
+	UI_SetPluginManager(pluginManager);
+
+	video_body = new ADM_Composer(pluginManager);
 
 	UI_Init(argc, argv);
     AUDMEncoder_initDither();
@@ -239,6 +245,7 @@ int startAvidemux(int argc, char *argv[])
     quotaInit();
 
     ADM_lavFormatInit();
+
 	//***************Plugins *********************
 	// Load system wide audio decoder plugin
 #ifdef __APPLE__
@@ -250,14 +257,10 @@ int startAvidemux(int argc, char *argv[])
     char *avPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "audioDevices");
     char *aePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "audioEncoders");
     char *dmPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "demuxers");
-    char *mxPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "muxers");
     char *vePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoEncoders");
     char *vdPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoDecoders");
     char *vfPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoFilters");
 	char *sePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "scriptEngines");
-
-    ADM_mx_loadPlugins(mxPlugins);
-    delete [] mxPlugins;
 
 	ADM_ad_loadPlugins(adPlugins);
 	delete [] adPlugins;
@@ -294,7 +297,7 @@ int startAvidemux(int argc, char *argv[])
 
 	//***************Plugins *********************
 
-	if(!initGUI(initialiseScriptEngines(sePlugins, video_body)))
+	if(!initGUI(initialiseScriptEngines(sePlugins, video_body, pluginManager), pluginManager))
 	{
 		printf("\n Fatal : could not init GUI\n");
 		exit(-1);
@@ -320,6 +323,8 @@ int startAvidemux(int argc, char *argv[])
 
     UI_RunApp();
     cleanUp();
+
+	delete pluginManager;
 
     printf("Normal exit\n");
     return 0;
@@ -358,7 +363,6 @@ void onexit( void )
 
     ADM_ad_cleanup();
     ADM_ae_cleanup();
-    ADM_mx_cleanup();
     ADM_vf_clearFilters();
     ADM_vf_cleanup();
     ADM_dm_cleanup();

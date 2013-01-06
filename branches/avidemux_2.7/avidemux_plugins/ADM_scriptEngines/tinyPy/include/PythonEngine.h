@@ -18,6 +18,7 @@ class PythonEngine : public IScriptEngine
 {
 private:
 	IEditor *_editor;
+	IPluginManager *_pluginManager;
 	tp_vm *_vm;
 
 	std::vector<pyClassDescriptor> _pyClasses;
@@ -39,7 +40,7 @@ public:
 	IScriptWriter* createScriptWriter();
 	std::string defaultFileExtension();
 	IEditor* editor();
-	void initialise(IEditor *videoBody);
+	void initialise(IEditor *videoBody, IPluginManager *pluginManager);
 	int maturityRanking();
 	std::string name();
 	void openDebuggerShell();

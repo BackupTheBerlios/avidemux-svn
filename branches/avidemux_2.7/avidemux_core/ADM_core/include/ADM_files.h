@@ -18,6 +18,7 @@
 #define ADM_FILES_H
 
 #include "ADM_core6_export.h"
+#include "ADM_inttype.h"
 
 #ifdef __cplusplus
 ADM_CORE6_EXPORT void ADM_initBaseDir(bool portableMode);

@@ -53,11 +53,13 @@ string SpiderMonkeyEngine::name()
     return "SpiderMonkey";
 }
 
-void SpiderMonkeyEngine::initialise(IEditor *editor)
+void SpiderMonkeyEngine::initialise(IEditor *editor, IPluginManager *pluginManager)
 {
     ADM_assert(editor);
+	ADM_assert(pluginManager);
 
     _editor = editor;
+	_pluginManager = pluginManager;
 
     _jsRuntime = JS_NewRuntime(1000000L);
     ADM_assert(_jsRuntime);

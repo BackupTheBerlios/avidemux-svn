@@ -45,6 +45,7 @@
  #include "audiofilter_internal.h"
  #include "audiofilter_conf.h"
  #include "audioencoderInternal.h"
+#include "IPluginManager.h"
 
 #define ADM_EDITOR_AUDIO_BUFFER_SIZE (128*1024*6*sizeof(float))
 #define AVS_PROXY_DUMMY_FILE "::ADM_AVS_PROXY::"
@@ -110,6 +111,7 @@ protected:
 
 //******************************************************************************************
   private:
+                    IPluginManager *_pluginManager;
                     ADM_EditorSegment _segments;
                     uint8_t     dupe(ADMImage *src,ADMImage *dst,_VIDEOS *vid);
                     uint32_t	_internalFlags;  // Flags :
@@ -158,7 +160,7 @@ protected:
                     uint32_t    getPARWidth(void);
                     uint32_t    getPARHeight(void);
                     bool        rebuildDuration(void);
-                                ADM_Composer();
+                                ADM_Composer(IPluginManager *pluginManager);
 virtual                         ~ADM_Composer();
                     void        clean( void );
                     uint8_t     resetSeg( void );

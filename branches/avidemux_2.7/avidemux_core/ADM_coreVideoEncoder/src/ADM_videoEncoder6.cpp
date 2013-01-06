@@ -17,7 +17,6 @@ ADM_videoEncoder6::ADM_videoEncoder6(ADM_videoEncoderDesc *encoderDesc)
 	this->_pluginVersion->majorVersion = this->_encoderDesc->major;
 	this->_pluginVersion->minorVersion = this->_encoderDesc->minor;
 	this->_pluginVersion->patchVersion = this->_encoderDesc->patch;
-
 }
 
 ADM_videoEncoder6::~ADM_videoEncoder6()

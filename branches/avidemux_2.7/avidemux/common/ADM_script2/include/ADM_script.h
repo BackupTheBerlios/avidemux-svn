@@ -3,8 +3,9 @@
 
 #include <vector>
 #include "IScriptEngine.h"
+#include "IPluginManager.h"
 
-const std::vector<IScriptEngine*>& initialiseScriptEngines(const char *path, IEditor *editor);
+const std::vector<IScriptEngine*>& initialiseScriptEngines(const char *path, IEditor *editor, IPluginManager *pluginManager);
 void destroyScriptEngines();
 const std::vector<IScriptEngine*>& getScriptEngines();
 IScriptEngine* getDefaultScriptEngine();

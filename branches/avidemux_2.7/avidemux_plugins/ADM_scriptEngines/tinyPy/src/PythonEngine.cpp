@@ -84,10 +84,13 @@ string PythonEngine::name()
     return "Tinypy";
 }
 
-void PythonEngine::initialise(IEditor *editor)
+void PythonEngine::initialise(IEditor *editor, IPluginManager *pluginManager)
 {
 	ADM_assert(editor);
+	ADM_assert(pluginManager);
+
 	_editor = editor;
+	_pluginManager = pluginManager;
 
 	string sysLib = string(ADM_getAutoDir()) + string("/lib");
 

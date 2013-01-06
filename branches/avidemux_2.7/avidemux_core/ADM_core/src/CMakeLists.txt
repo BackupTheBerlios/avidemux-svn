@@ -1,5 +1,5 @@
 SET(ADM_core_SRCS
-	IAdmPlugin.cpp
+	IAdmPlugin.cpp  IPluginManager.cpp
 	ADM_cpuCap.cpp  ADM_memsupport.cpp  ADM_threads.cpp  ADM_win32.cpp  ADM_misc.cpp  ADM_debug.cpp
 	TLK_clock.cpp  ADM_fileio.cpp  ADM_dynamicLoading.cpp  ADM_queue.cpp  ADM_benchmark.cpp)
 

@@ -4,7 +4,6 @@
 #include "ADM_edAudioTrackExternal.h"
 #include "audioEncoderApi.h"
 #include "GUI_ui.h"
-#include "ADM_muxerProto.h"
 #include "ADM_coreVideoFilterFunc.h"
 
 ADM_ScriptGenerator::ADM_ScriptGenerator(IEditor *editor, IScriptWriter* scriptWriter)

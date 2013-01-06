@@ -28,6 +28,7 @@ private:
 	JSObject  *_jsObject;
 	JSRuntime *_jsRuntime;
 	IEditor *_editor;
+	IPluginManager *_pluginManager;
 
 	std::set<eventHandlerFunc*> _eventHandlerSet;
 
@@ -45,7 +46,7 @@ public:
 	IScriptWriter* createScriptWriter();
 	std::string defaultFileExtension();
 	IEditor* editor();
-	void initialise(IEditor *videoBody);
+	void initialise(IEditor *videoBody, IPluginManager *pluginManager);
 	int maturityRanking();
 	std::string name();
 	void openDebuggerShell();

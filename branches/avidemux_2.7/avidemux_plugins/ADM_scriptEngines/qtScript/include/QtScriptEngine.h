@@ -27,6 +27,7 @@ namespace ADM_qtScript
     {
     private:
         IEditor *_editor;
+		IPluginManager *_pluginManager;
         std::set<eventHandlerFunc*> _eventHandlerSet;
         ADM_qtScript::AdmScriptMapper *_mapper;
 
@@ -56,7 +57,7 @@ namespace ADM_qtScript
         IScriptWriter* createScriptWriter();
 		std::string defaultFileExtension();
         IEditor* editor();
-        void initialise(IEditor *videoBody);
+        void initialise(IEditor *videoBody, IPluginManager *pluginManager);
         std::string name();
         int maturityRanking();
 		void openDebuggerShell();

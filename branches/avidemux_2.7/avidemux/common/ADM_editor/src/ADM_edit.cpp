@@ -19,7 +19,6 @@
 #include "A_functions.h"
 #include "ADM_audioFilterInterface.h"
 #include "audioEncoderApi.h"
-#include "ADM_muxerProto.h"
 #include "GUI_ui.h"
 #include "ADM_coreVideoFilterFunc.h"
 
@@ -51,7 +50,7 @@
     \fn ADM_Composer
 
 */
-ADM_Composer::ADM_Composer (void)
+ADM_Composer::ADM_Composer (IPluginManager *pluginManager) : _pluginManager(pluginManager)
 {
 uint32_t type,value;
 

@@ -40,7 +40,7 @@ bool compareEngineRank(IScriptEngine *engine1, IScriptEngine *engine2)
 	return engine1->maturityRanking() > engine2->maturityRanking();
 }
 
-const vector<IScriptEngine*>& initialiseScriptEngines(const char* path, IEditor *editor)
+const vector<IScriptEngine*>& initialiseScriptEngines(const char* path, IEditor *editor, IPluginManager *pluginManager)
 {
     ADM_assert(engines.size() == 0);
 
@@ -67,7 +67,7 @@ const vector<IScriptEngine*>& initialiseScriptEngines(const char* path, IEditor 
             IScriptEngine *engine = loader->createEngine();
 
             engine->registerEventHandler(consoleEventHandler);
-            engine->initialise(editor);
+            engine->initialise(editor, pluginManager);
 
             engineLoaders.push_back(loader);
             engines.push_back(engine);

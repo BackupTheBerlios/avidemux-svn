@@ -34,7 +34,6 @@
 #include "VideoFilter.h"
 
 #include "BVector.h"
-#include "ADM_muxerProto.h"
 #include "ADM_coreVideoFilterInternal.h"
 
 using namespace std;
@@ -90,11 +89,14 @@ namespace ADM_qtScript
         return _editor;
     }
 
-    void QtScriptEngine::initialise(IEditor *editor)
+    void QtScriptEngine::initialise(IEditor *editor, IPluginManager *pluginManager)
     {
         ADM_assert(editor);
+		ADM_assert(pluginManager);
 
         this->_editor = editor;
+		this->_pluginManager = pluginManager;
+
         this->callEventHandlers(IScriptEngine::Information, NULL, -1, "Initialised");
     }
 
@@ -357,9 +359,9 @@ namespace ADM_qtScript
     {
         muxers->clear();
 
-        for (int muxerIndex = 0; muxerIndex < ADM_mx_getMuxerCount(); muxerIndex++)
+		for (unsigned int muxerIndex = 0; muxerIndex < _pluginManager->muxers().size(); muxerIndex++)
         {
-			IMuxerPlugin* muxerPlugin = ADM_mx_getMuxerPlugin(muxerIndex);
+			IMuxerPlugin* muxerPlugin = (IMuxerPlugin*)this->_pluginManager->muxers()[muxerIndex];
             Muxer *muxer = new Muxer(engine, this->_editor, muxerPlugin);
 
             engine->globalObject().setProperty(
@@ -379,7 +381,7 @@ namespace ADM_qtScript
             VideoEncoder *encoder = new VideoEncoder(engine, this->_editor, encoderPlugin);
 
             engine->globalObject().setProperty(
-                _mapper->getVideoEncoderClassName(encoderPlugin->name()), engine->newQObject(encoder, QScriptEngine::ScriptOwnership));
+                _mapper->getVideoEncoderClassName(encoderPlugin->id()), engine->newQObject(encoder, QScriptEngine::ScriptOwnership));
 			encoders->insert(pair<IVideoEncoderPlugin*, VideoEncoder*>(encoderPlugin, encoder));
         }
     }

@@ -19,7 +19,6 @@
 #include "A_functions.h"
 #include "ADM_audioFilterInterface.h"
 #include "audioEncoderApi.h"
-#include "ADM_muxerProto.h"
 #include "GUI_ui.h"
 #include "avi_vars.h"
 
@@ -152,7 +151,7 @@ int ADM_Composer::saveFile(const char *name)
 
 IMuxerPlugin* ADM_Composer::getCurrentMuxer()
 {
-	return ADM_mx_getMuxerPlugin(UI_GetCurrentFormat());
+	return (IMuxerPlugin*)this->_pluginManager->muxers()[UI_GetCurrentFormat()];
 }
 
 IVideoEncoderPlugin* ADM_Composer::getCurrentVideoEncoder()
@@ -162,8 +161,8 @@ IVideoEncoderPlugin* ADM_Composer::getCurrentVideoEncoder()
 
 bool ADM_Composer::setContainer(const char *cont, CONFcouple *c)
 {
-	int index;
-	IMuxerPlugin *plugin = ADM_mx_getMuxerPlugin(cont, &index);
+	int index = this->_pluginManager->muxerIndex(cont);
+	IMuxerPlugin *plugin = (IMuxerPlugin*)this->_pluginManager->muxers()[index];
 
 	if (plugin == NULL)
 	{

@@ -167,7 +167,7 @@ namespace ADM_qtScript
 
     void QtScriptWriter::setVideoEncoder(IVideoEncoderPlugin* videoEncoder)
     {
-        QString encoderClassName = _mapper.getVideoEncoderClassName(videoEncoder->name());
+        QString encoderClassName = _mapper.getVideoEncoderClassName(videoEncoder->id());
 		CONFcouple *configuration;
 
         *(this->_stream) << std::endl;

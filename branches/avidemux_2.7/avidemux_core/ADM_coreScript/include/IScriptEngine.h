@@ -1,10 +1,12 @@
 #ifndef IScriptEngine_h
 #define IScriptEngine_h
 
-#include "ADM_se_plugin_export.h"
 #include <string>
+
+#include "ADM_se_plugin_export.h"
 #include "IScriptWriter.h"
 #include "ADM_editor/include/IEditor.h"
+#include "IPluginManager.h"
 
 class IScriptEngine
 {
@@ -46,7 +48,7 @@ public:
     virtual IScriptWriter* createScriptWriter() = 0;
     virtual std::string defaultFileExtension() = 0;
     virtual IEditor* editor() = 0;
-    virtual void initialise(IEditor *videoBody) = 0;
+    virtual void initialise(IEditor *videoBody, IPluginManager *pluginManager) = 0;
     virtual int maturityRanking() = 0;
     virtual std::string name() = 0;
     virtual void openDebuggerShell() = 0;

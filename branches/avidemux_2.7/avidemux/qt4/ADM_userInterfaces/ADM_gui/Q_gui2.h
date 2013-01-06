@@ -15,6 +15,7 @@
 #include "myOwnMenu.h"
 #include "IScriptEngine.h"
 #include "prefs.h"
+#include "IPluginManager.h"
 
 /**
     \class MainWindow
@@ -26,7 +27,7 @@ class MainWindow : public QMainWindow
 public:
 	Ui_MainWindow ui;
 
-	MainWindow(const std::vector<IScriptEngine*>& scriptEngines);
+	MainWindow(const std::vector<IScriptEngine*>& scriptEngines, IPluginManager* pluginManager);
 	virtual ~MainWindow();
 
 	void buildCustomMenu(void);
@@ -82,6 +83,7 @@ public slots:
 
 protected:
 	const std::vector<IScriptEngine*>& _scriptEngines;
+	IPluginManager* _pluginManager;
 
 	void addScriptDirToMenu(QMenu* scriptMenu, const QString& dir, const QStringList& fileExts);
 	void addScriptEnginesToFileMenu(std::vector<MenuEntry>& fileMenu);

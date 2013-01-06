@@ -144,7 +144,7 @@ void PythonScriptWriter::setVideoEncoder(IVideoEncoderPlugin* videoEncoder)
 
     videoEncoder->getConfiguration(&configuration);
 
-    *(this->_stream) << "adm.videoCodec(\"" << videoEncoder->name() << "\"";
+    *(this->_stream) << "adm.videoCodec(\"" << videoEncoder->id() << "\"";
     this->dumpConfCouple(configuration);
 	*(this->_stream) << ")" << std::endl;
 

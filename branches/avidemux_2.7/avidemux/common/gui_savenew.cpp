@@ -19,6 +19,7 @@
 #include "ADM_default.h"
 #include "ADM_threads.h"
 
+#include "admSaver.h"
 #include "avi_vars.h"
 #include "prototype.h"
 #include "DIA_coreToolkit.h"
@@ -26,79 +27,24 @@
 #include "ADM_coreAudio.h"
 #include "ADM_encoderConf.h"
 
-#include "ADM_encoderConf.h"
-
-
 #include "DIA_fileSel.h"
 #include "ADM_commonUI/GUI_ui.h"
 #include "ADM_muxer.h"
 #include "ADM_muxerGate/include/ADM_videoCopy.h"
-#include "ADM_filterChain.h"
 #include "ADM_muxerGate/include/ADM_videoProcess.h"
 #include "ADM_bitstream.h"
-#include "ADM_filterChain.h"
 #include "ADM_videoEncoderApi.h"
 #include "ADM_vidMisc.h"
-#include "ADM_slave.h"
 
 #define ADM_MAX_AUDIO_STREAM 10
-/*
 
-*/
-//ADM_muxer               *ADM_MuxerSpawnFromIndex(int index);
-#include "ADM_muxerProto.h"
 extern ADM_audioStream  *audioCreateEncodingStream(EditableAudioTrack *ed,bool globalHeader,uint64_t startTime);
 extern ADM_audioStream  *audioCreateCopyStream(uint64_t startTime,int32_t shift,ADM_audioStream *input);
 
 /**
-    \class admSaver
-    \brief Wrapper for saving
-
-*/
-class admSaver
-{
-protected:
-        uint64_t             startAudioTime; // Actual start time (for both audio & video) can differ from markerA
-        std::string          fileName;
-        std::string          logFileName;
-        ADM_muxer            *muxer;
-        ADM_videoFilterChain *chain;
-        ADM_audioStream      *audio;
-        ADM_videoStream      *video;
-        uint64_t             markerA,markerB;
-        int                  muxerIndex;
-        int                  videoEncoderIndex;
-        ADM_coreVideoEncoder *handleFirstPass(ADM_coreVideoEncoder *pass1);
-        ADM_videoStream      *setupVideo(void);
-        bool                  setupAudio();
-        ADM_audioStream      *audioAccess[ADM_MAX_AUDIO_STREAM]; // audio tracks to feed to the muxer
-        int                   nbAudioTracks;
-        
-public:
-                              admSaver(const char *out);
-                              ~admSaver();
-        bool                  save(void);
-
-};
-
-
-/**
-    \fn A_Save
-    \brief Instantiate & initiate streams to feed muxer
-*/
-int A_Save(const char *name)
-{
-    admSaver *save=new admSaver(name);
-    bool r=save->save();
-    delete save;
-    ADM_slaveSendResult(r);
-    return (int)r;
-}
-
-/**
     \fn admSaver
 */
- admSaver::admSaver(const char *out)
+ admSaver::admSaver(IMuxerPlugin *muxerPlugin, const char *out) : _muxerPlugin(muxerPlugin)
 {
         nbAudioTracks=video_body->getNumberOfActiveAudioTracks();
         if(nbAudioTracks>=ADM_MAX_AUDIO_STREAM) 
@@ -118,7 +64,6 @@ int A_Save(const char *name)
         markerA=video_body->getMarkerAPts();
         markerB=video_body->getMarkerBPts();
         startAudioTime=markerA; // Actual start time (for both audio & video ), 
-        muxerIndex=UI_GetCurrentFormat();
         videoEncoderIndex=UI_getCurrentVCodec();
         ADM_info("[Save] Encoder index=%d\n",videoEncoderIndex);
 }
@@ -388,12 +333,11 @@ bool admSaver::save(void)
     ADM_info("Audio starting time %s\n",ADM_us2plain(startAudioTime));
     ADM_info("[A_Save] Saving..\n");
 
-	IMuxerPlugin *muxerPlugin = ADM_mx_getMuxerPlugin(muxerIndex);
     EditableAudioTrack *ed=NULL;
-    ADM_info("Muxer default extension %s\n", muxerPlugin->defaultExtension());
+    ADM_info("Muxer default extension %s\n", _muxerPlugin->defaultExtension());
     if(!videoEncoderIndex) 
     {
-        if(false==video_body-> checkCutsAreOnIntra())
+        if(false==video_body->checkCutsAreOnIntra())
         {
             if(!GUI_Question("The video is in copy mode but the cut points are not on keyframes.\n"
                             "The video will be saved but there will corruption at cut point(s).\n"
@@ -404,7 +348,7 @@ bool admSaver::save(void)
         }
     }
 
-	if(!(muxer=muxerPlugin->createMuxer()))
+	if(!(muxer=_muxerPlugin->createMuxer()))
     {
         GUI_Error_HIG("Muxer","Cannot instantiante muxer");
         return 0;
@@ -430,11 +374,11 @@ bool admSaver::save(void)
     }
    
     // Check if we need to add an extension....
-    if(muxerPlugin->defaultExtension())
+    if(_muxerPlugin->defaultExtension())
     {
         if(!strstr(fileName.c_str(),"."))
         {
-            fileName=fileName+std::string(".")+std::string(muxerPlugin->defaultExtension());
+            fileName=fileName+std::string(".")+std::string(_muxerPlugin->defaultExtension());
             ADM_info("Adding extension, filename is now %s\n",fileName.c_str());
         }
 

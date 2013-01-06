@@ -1,11 +1,12 @@
 #ifndef ADM_dynMuxer_h
 #define ADM_dynMuxer_h
 
+#include "ADM_coreMuxer6_export.h"
 #include "ADM_dynamicLoading.h"
 #include "ADM_muxer.h"
 #include "IMuxerPlugin.h"
 
-class ADM_dynMuxer : public IMuxerPlugin
+class ADM_COREMUXER6_EXPORT ADM_dynMuxer : public IMuxerPlugin
 {
 private:
 	ADM_LibWrapper *_pluginWrapper;

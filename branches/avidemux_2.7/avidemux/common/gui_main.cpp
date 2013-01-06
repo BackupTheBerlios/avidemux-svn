@@ -39,12 +39,14 @@
 #include "ADM_coreVideoEncoder.h"
 #include "ADM_videoEncoderApi.h"
 #include "ADM_audioFilter/include/ADM_audioFilterInterface.h"
-#include "ADM_muxerProto.h"
 
 #include "avi_vars.h"
 #include "prototype.h" // FIXME
 #include "ADM_script2/include/ADM_script.h"
 #include "ADM_edScriptGenerator.h"
+#include "admSaver.h"
+#include "ADM_slave.h"
+#include "IPluginManager.h"
 
 renderZoom currentZoom=ZOOM_1_1;
 #include "DIA_audioTracks.h"
@@ -74,7 +76,7 @@ extern uint8_t DIA_about( void );
 extern void    DIA_properties( void);
 extern uint8_t DIA_Preferences(void);
 extern uint8_t DIA_builtin(void);
-extern uint8_t DIA_pluginsInfo(void);
+extern uint8_t DIA_pluginsInfo(IPluginManager* pluginManager);
 
 static void ReSync (void);
 void cleanUp (void);
@@ -98,6 +100,12 @@ static bool parseScript(IScriptEngine *engine, const char *name, IScriptEngine::
 // Hacky functions because we currently don't have versatile
 // file dialogs
 static IScriptEngine *tempEngine;
+static IPluginManager *pluginManager;
+
+void UI_SetPluginManager(IPluginManager *manager)
+{
+	pluginManager = manager;
+}
 
 static void RunScript(const char *name)
 {
@@ -229,7 +237,7 @@ void HandleAction (Action action)
     case ACT_ContainerConfigure:
             {
             int index=UI_GetCurrentFormat();
-            ADM_mx_getMuxerPlugin(index)->configure();
+			((IMuxerPlugin*)pluginManager->muxers()[index])->configure();
             return;
             }
     case ACT_VIDEO_CODEC_CHANGED:
@@ -245,7 +253,7 @@ void HandleAction (Action action)
             return;
 	   }
     case ACT_PLUGIN_INFO:
-            DIA_pluginsInfo();
+            DIA_pluginsInfo(pluginManager);
             return;
 	case ACT_OPEN_APP_LOG:
 		GUI_OpenApplicationLog();
@@ -1281,5 +1289,19 @@ int value;
     ed->audioEncodingConfig.shiftInMs=value;
     update=0; 
 }
+
+/**
+    \fn A_Save
+    \brief Instantiate & initiate streams to feed muxer
+*/
+int A_Save(const char *name)
+{
+    admSaver *save=new admSaver((IMuxerPlugin*)pluginManager->muxers()[UI_GetCurrentFormat()], name);
+    bool r=save->save();
+    delete save;
+    ADM_slaveSendResult(r);
+    return (int)r;
+}
+
 //
 // EOF
