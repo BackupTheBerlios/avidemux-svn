@@ -1,6 +1,7 @@
 #ifndef ADM_videoEncoder6_h
 #define ADM_videoEncoder6_h
 
+#include "ADM_coreVideoEncoder6_export.h"
 #include "IVideoEncoderPlugin.h"
 
 /*!
@@ -35,22 +36,22 @@ typedef struct
     \brief Plugin Wrapper Class
 
 */
-class ADM_videoEncoder6 : public IVideoEncoderPlugin
+class ADM_COREVIDEOENCODER6_EXPORT ADM_videoEncoder6 : public IVideoEncoderPlugin
 {
 private:
 	ADM_LibWrapper *_pluginWrapper;
 	PluginVersion *_pluginVersion;
-	ADM_videoEncoderDesc *_encoderDesc;
+	const ADM_videoEncoderDesc *_encoderDesc;
 
 	ADM_videoEncoderDesc *(*_getInfo)();
 
 	ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper);
 
 public:
-	ADM_videoEncoder6(ADM_videoEncoderDesc *encoderDesc);
+	ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc);
 	~ADM_videoEncoder6();
 
-	static ADM_videoEncoder6* loadPlugin(const char *file);
+	static ADM_videoEncoder6* loadPlugin(const char *file, ADM_UI_TYPE uiType);
 
 	const char *id();
 	const char *name();

@@ -2,6 +2,7 @@
 #define admSaver_h
 
 #include "IMuxerPlugin.h"
+#include "IVideoEncoderPlugin.h"
 #include "ADM_filterChain.h"
 #include "ADM_coreMuxerFfmpeg.h"
 #include "ADM_coreVideoEncoder.h"
@@ -15,6 +16,7 @@ class admSaver
 {
 protected:
 		IMuxerPlugin *_muxerPlugin;
+		IVideoEncoderPlugin *_videoEncoderPlugin;
         uint64_t             startAudioTime; // Actual start time (for both audio & video) can differ from markerA
         std::string          fileName;
         std::string          logFileName;
@@ -31,7 +33,7 @@ protected:
         int                   nbAudioTracks;
         
 public:
-                              admSaver(IMuxerPlugin *muxerPlugin, const char *out);
+                              admSaver(IVideoEncoderPlugin *videoEncoderPlugin, IMuxerPlugin *muxerPlugin, const char *out);
                               ~admSaver();
         bool                  save(void);
 

@@ -27,8 +27,6 @@
 #include "IVideoEncoderPlugin.h"
 #include "ADM_videoEncoder6.h"
 
-extern ADM_COREVIDEOENCODER6_EXPORT BVector <IVideoEncoderPlugin*> ListOfEncoders;
-
 // Macros to declare audio encoder
 /**************************************************************************/
 #define ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(Class) \

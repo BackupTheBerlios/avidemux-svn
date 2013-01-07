@@ -1,4 +1,5 @@
 #include "ADM_videoEncoder6.h"
+#include "ADM_coreVideoEncoderInternal.h"
 
 ADM_videoEncoder6::ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper)
 {
@@ -7,7 +8,7 @@ ADM_videoEncoder6::ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper)
 	memset(this->_pluginVersion, 0, sizeof(PluginVersion));
 }
 
-ADM_videoEncoder6::ADM_videoEncoder6(ADM_videoEncoderDesc *encoderDesc)
+ADM_videoEncoder6::ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc)
 {
 	this->_pluginWrapper = NULL;
 	this->_pluginVersion = new PluginVersion();
@@ -27,7 +28,7 @@ ADM_videoEncoder6::~ADM_videoEncoder6()
 	}
 }
 
-ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file)
+ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file, ADM_UI_TYPE uiType)
 {
 	ADM_LibWrapper *pluginWrapper = new ADM_LibWrapper();
 	ADM_videoEncoder6 *encoder = new ADM_videoEncoder6(pluginWrapper);
@@ -36,17 +37,44 @@ ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file)
 	if (initialised)
 	{
 		encoder->_encoderDesc = encoder->_getInfo();
-		encoder->_pluginVersion->majorVersion = encoder->_encoderDesc->major;
-		encoder->_pluginVersion->minorVersion = encoder->_encoderDesc->minor;
-		encoder->_pluginVersion->patchVersion = encoder->_encoderDesc->patch;
 
-		printf(
-			"[VideoEncoder] Name: %s, API version: %d, Underlying library: %s %s\n", 
-			encoder->_encoderDesc->encoderName, encoder->_encoderDesc->apiVersion, NULL, NULL);
+		if (encoder->_encoderDesc->apiVersion == ADM_VIDEO_ENCODER_API_VERSION)
+		{
+			if ((encoder->_encoderDesc->UIType & uiType) == uiType)
+			{
+				printf(
+					"[VideoEncoder] Plugin loaded.  Name: %s, API version: %d, Underlying library: %s %s, Plugin: %s\n", 
+					encoder->_encoderDesc->encoderName, encoder->_encoderDesc->apiVersion, NULL, NULL, file);
+
+				encoder->_pluginVersion->majorVersion = encoder->_encoderDesc->major;
+				encoder->_pluginVersion->minorVersion = encoder->_encoderDesc->minor;
+				encoder->_pluginVersion->patchVersion = encoder->_encoderDesc->patch;
+			}
+			else
+			{
+				initialised = false;
+
+				printf(
+					"[VideoEncoder] Incorrect UI type.  Plugin: %s, UI type: %d, Expected UI type: %d\n",
+					file, encoder->_encoderDesc->UIType, uiType);
+			}
+		}
+		else
+		{
+			initialised = false;
+
+			printf(
+				"[VideoEncoder] Incorrect API version.  Plugin: %s, API version: %d, Expected API version: %d\n",
+				file, encoder->_encoderDesc->apiVersion, ADM_VIDEO_ENCODER_API_VERSION);
+		}
 	}
 	else
 	{
 		printf("[VideoEncoder] Symbol loading failed for %s\n", file);
+	}
+
+	if (!initialised)
+	{
 		delete encoder;
 		encoder = NULL;
 	}

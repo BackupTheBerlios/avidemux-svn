@@ -33,7 +33,6 @@
 #include "ADM_muxerGate/include/ADM_videoCopy.h"
 #include "ADM_muxerGate/include/ADM_videoProcess.h"
 #include "ADM_bitstream.h"
-#include "ADM_videoEncoderApi.h"
 #include "ADM_vidMisc.h"
 
 #define ADM_MAX_AUDIO_STREAM 10
@@ -44,7 +43,9 @@ extern ADM_audioStream  *audioCreateCopyStream(uint64_t startTime,int32_t shift,
 /**
     \fn admSaver
 */
- admSaver::admSaver(IMuxerPlugin *muxerPlugin, const char *out) : _muxerPlugin(muxerPlugin)
+ admSaver::admSaver(
+	 IVideoEncoderPlugin *videoEncoderPlugin, IMuxerPlugin *muxerPlugin, const char *out) : 
+	_videoEncoderPlugin(videoEncoderPlugin), _muxerPlugin(muxerPlugin)
 {
         nbAudioTracks=video_body->getNumberOfActiveAudioTracks();
         if(nbAudioTracks>=ADM_MAX_AUDIO_STREAM) 
@@ -160,7 +161,9 @@ uint64_t videoDuration=last->getInfo()->totalDuration;
                 int sz=chain->size();
                 ADM_assert(sz);
                 last=(*chain)[sz-1]; // Grab last filter
-                ADM_coreVideoEncoder *pass2=createVideoEncoderFromIndex(last,videoEncoderIndex,muxer->useGlobalHeader()); 
+
+				ADM_coreVideoEncoder *pass2 = this->_videoEncoderPlugin->createEncoder(last, muxer->useGlobalHeader()); 
+
                 if(!pass2)
                 {
                     printf("[Save] Cannot create encoder for pass 2\n");
@@ -249,7 +252,7 @@ ADM_videoStream *admSaver::setupVideo(void)
         ADM_assert(sz);
         ADM_coreVideoFilter  *last;
         last=(*chain)[sz-1]; // Grab last filter
-        ADM_coreVideoEncoder *encoder=createVideoEncoderFromIndex(last,videoEncoderIndex,muxer->useGlobalHeader()); // FIXME GLOBAL HEADERS
+		ADM_coreVideoEncoder *encoder = this->_videoEncoderPlugin->createEncoder(last, muxer->useGlobalHeader()); // FIXME GLOBAL HEADERS
         if(!encoder)
         {
            GUI_Error_HIG("Video","Cannot create encoder");

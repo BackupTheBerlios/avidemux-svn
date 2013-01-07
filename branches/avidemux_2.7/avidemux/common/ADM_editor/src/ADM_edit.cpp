@@ -40,7 +40,6 @@
 #include "ADM_vidMisc.h"
 #include "ADM_confCouple.h"
 #include "ADM_videoFilters.h"
-#include "ADM_videoEncoderApi.h"
 #include "ADM_videoFilterApi.h"
 #include "ADM_coreVideoFilterFunc.h"
 #include "ADM_coreDemuxer.h"

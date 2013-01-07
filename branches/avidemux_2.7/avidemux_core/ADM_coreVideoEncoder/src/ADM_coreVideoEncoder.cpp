@@ -37,8 +37,6 @@ const std::string slash=std::string("/");
 
 #define MAX_NB_PRESET 30
 
-BVector <IVideoEncoderPlugin*> ListOfEncoders;
-
 /**
     \fn ADM_coreVideoEncoder
 */

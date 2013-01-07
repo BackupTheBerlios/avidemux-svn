@@ -1,4 +1,5 @@
 #include "ADM_dynMuxer.h"
+#include "ADM_muxerInternal.h"
 
 ADM_dynMuxer::ADM_dynMuxer(ADM_LibWrapper *pluginWrapper)
 {	
@@ -30,21 +31,36 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 
 	if (initialised)
 	{
-		printf(
-			"[Muxer] Name: %s, API version: %d, Underlying library: %s %s\n", 
-			muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getUnderlyingLibraryName(), muxer->_getUnderlyingLibraryVersion());
+		if (muxer->_getApiVersion() == ADM_MUXER_API_VERSION)
+		{
+			printf(
+				"[Muxer] Name: %s, API version: %d, Underlying library: %s %s\n", 
+				muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getUnderlyingLibraryName(), muxer->_getUnderlyingLibraryVersion());
 
-		uint32_t majorVersion, minorVersion, patchVersion;
+			uint32_t majorVersion, minorVersion, patchVersion;
 
-		muxer->_getVersion(&majorVersion, &minorVersion, &patchVersion);
-		muxer->_pluginVersion->majorVersion = majorVersion;
-		muxer->_pluginVersion->minorVersion = minorVersion;
-		muxer->_pluginVersion->patchVersion = patchVersion;
-		muxer->_pluginVersion->buildNumber = 0;
+			muxer->_getVersion(&majorVersion, &minorVersion, &patchVersion);
+			muxer->_pluginVersion->majorVersion = majorVersion;
+			muxer->_pluginVersion->minorVersion = minorVersion;
+			muxer->_pluginVersion->patchVersion = patchVersion;
+			muxer->_pluginVersion->buildNumber = 0;
+		}
+		else
+		{
+			initialised = false;
+
+			printf(
+				"[Muxer] Incorrect API version.  Plugin: %s, API version: %d, Expected API version: %d\n",
+				file, muxer->_getApiVersion(), ADM_MUXER_API_VERSION);
+		}
 	}
 	else
 	{
 		printf("[Muxer] Symbol loading failed for %s\n", file);
+	}
+
+	if (!initialised)
+	{
 		delete muxer;
 		muxer = NULL;
 	}
@@ -119,14 +135,7 @@ bool ADM_dynMuxer::getConfiguration(CONFcouple **conf)
 
 bool ADM_dynMuxer::setConfiguration(CONFcouple *conf)
 {
-	if (!conf)
-	{
-		return true;
-	}
-	else
-	{
-		return this->_setConfiguration(conf);
-	}
+	return conf == NULL ? true : this->_setConfiguration(conf);
 }
 
 bool ADM_dynMuxer::resetConfiguration()

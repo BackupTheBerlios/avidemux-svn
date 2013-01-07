@@ -27,7 +27,6 @@
 #include "ADM_debug.h"
 
 #include "ADM_vidMisc.h"
-#include "ADM_videoEncoderApi.h"
 #include "DIA_factory.h"
 #include "ADM_slave.h"
 
@@ -323,7 +322,7 @@ void call_probePat(char *p)
 }
 void call_videocodec(char *p)
 {
-	videoEncoder6SelectByName(p);
+//	videoEncoder6SelectByName(p);
 
 }
 static void call_videoconf(char *p)

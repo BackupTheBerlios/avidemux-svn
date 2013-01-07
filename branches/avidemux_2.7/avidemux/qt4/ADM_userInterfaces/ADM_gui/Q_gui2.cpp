@@ -62,8 +62,6 @@ static int _upd_in_progres=0;
 static int currentFps = 0;
 static int frameCount = 0;
 static int currentFrame = 0;
-bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
-uint32_t ADM_ve6_getNbEncoders(void);
 void UI_refreshCustomMenu(void);
 QWidget *QuiMainWindows=NULL;
 QWidget *VuMeter=NULL;
@@ -128,7 +126,6 @@ void MainWindow::comboChanged(int z)
 		}
 		ui.pushButtonVideoConf->setEnabled(b);
 		ui.pushButtonVideoFilter->setEnabled(b);
-		HandleAction (ACT_VIDEO_CODEC_CHANGED) ;
 	}
 	else if (obj == ui.comboBoxAudio)
 	{
@@ -890,19 +887,10 @@ void UI_updateRecentProjectMenu()
 */
 void MainWindow::setupMenus(void)
 {
-	uint32_t nbVid = ADM_ve6_getNbEncoders();
-    uint32_t maj, mn, pa;
-	const char *name;
 	int currentIndex = ui.comboBoxVideo->currentIndex();
 
 	ui.comboBoxVideo->clear();
-
-	for( uint32_t i = 0; i < nbVid; i++)
-	{
-		ADM_ve6_getEncoderInfo(i, &name, &maj, &mn, &pa);
-		ui.comboBoxVideo->addItem(name);
-	}
-
+	this->addPluginToList(ui.comboBoxVideo, this->_pluginManager->videoEncoders());
 	ui.comboBoxVideo->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 
 	// And A codec
@@ -913,49 +901,44 @@ void MainWindow::setupMenus(void)
 
 	for (uint32_t i = 0; i < nbAud; i++)
 	{
-		name = audioEncoderGetDisplayName(i);
-		ui.comboBoxAudio->addItem(name);
+		ui.comboBoxAudio->addItem(audioEncoderGetDisplayName(i));
 	}
 
 	ui.comboBoxAudio->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 
 	/*   Fill in output format window */
 	currentIndex = ui.comboBoxFormat->currentIndex();
+
 	ui.comboBoxFormat->clear();
-	int muxerCount = this->_pluginManager->muxers().size();
-
-	for (unsigned int muxerIndex = 0; muxerIndex < muxerCount; muxerIndex++)
-	{
-		this->addPluginToList(
-			ui.comboBoxFormat, this->_pluginManager->muxers()[muxerIndex], muxerIndex > 0 ? this->_pluginManager->muxers()[muxerIndex - 1] : NULL,
-			muxerIndex < muxerCount - 2 ? this->_pluginManager->muxers()[muxerIndex + 1] : NULL);
-	}
-
+	this->addPluginToList(ui.comboBoxFormat, this->_pluginManager->muxers());
 	ui.comboBoxFormat->setCurrentIndex(currentIndex >= 0 ? currentIndex : 0);
 }
 
-void MainWindow::addPluginToList(
-	QComboBox* comboBox, IAdmPlugin* plugin, IAdmPlugin* previousPlugin, IAdmPlugin* nextPlugin)
+void MainWindow::addPluginToList(QComboBox* comboBox, std::vector<IAdmPlugin*> pluginList)
 {
+	int pluginCount = pluginList.size();
 	uint32_t style;
-	QString itemName;
 
 	prefs->get(PLUGIN_LIST_STYLE, &style);
 
-	itemName = plugin->name();
-
-	if (style == 1 && plugin->underlyingLibraryName() != NULL && 
-		((previousPlugin != NULL && itemName == previousPlugin->name()) || 
-		(nextPlugin != NULL && itemName == nextPlugin->name())))
+	for (unsigned int pluginIndex = 0; pluginIndex < pluginCount; pluginIndex++)
 	{
-		itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
-	}
-	else if (style == 2 && plugin->underlyingLibraryName() != NULL)
-	{
-		itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
-	}
+		IAdmPlugin *plugin = pluginList[pluginIndex];
+		QString itemName = plugin->name();		
 
-	comboBox->addItem(itemName);
+		if (style == 1 && plugin->underlyingLibraryName() != NULL && 
+			((pluginIndex > 0 && itemName == pluginList[pluginIndex - 1]->name()) || 
+			(pluginIndex + 1 < pluginCount && itemName == pluginList[pluginIndex + 1]->name())))
+		{
+			itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
+		}
+		else if (style == 2 && plugin->underlyingLibraryName() != NULL)
+		{
+			itemName = QString("%1 (%2)").arg(itemName).arg(plugin->underlyingLibraryName());
+		}
+
+		comboBox->addItem(itemName);
+	}
 }
 
 /*

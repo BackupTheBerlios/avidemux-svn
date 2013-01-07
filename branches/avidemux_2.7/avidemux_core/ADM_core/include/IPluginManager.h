@@ -15,6 +15,9 @@ public:
 
 	virtual const std::vector<IAdmPlugin*>& muxers(void) = 0;
 	virtual int muxerIndex(const char* id) = 0;
+
+	virtual const std::vector<IAdmPlugin*>& videoEncoders(void) = 0;
+	virtual int videoEncoderIndex(const char* id) = 0;
 };
 
 #endif

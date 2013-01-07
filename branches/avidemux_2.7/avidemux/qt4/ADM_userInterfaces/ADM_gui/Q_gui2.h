@@ -100,6 +100,6 @@ protected:
 	void dropEvent(QDropEvent *event);
 	void closeEvent(QCloseEvent *event);
 	void openFiles(QList<QUrl>);
-	void addPluginToList(QComboBox* comboBox, IAdmPlugin* plugin, IAdmPlugin* previousPlugin, IAdmPlugin* nextPlugin);
+	void addPluginToList(QComboBox* comboBox, std::vector<IAdmPlugin*> pluginList);
 };
 #endif	// Q_gui2_h

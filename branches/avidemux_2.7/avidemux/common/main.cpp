@@ -30,7 +30,6 @@
 #include "ADM_coreVideoFilterFunc.h"
 #include "ADM_coreDemuxer.h"
 #include "ADM_muxerProto.h"
-#include "ADM_videoEncoderApi.h"
 #include "ADM_plugin/PluginManager.h"
 
 #define __DECLARE__
@@ -257,7 +256,6 @@ int startAvidemux(int argc, char *argv[])
     char *avPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "audioDevices");
     char *aePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "audioEncoders");
     char *dmPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "demuxers");
-    char *vePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoEncoders");
     char *vdPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoDecoders");
     char *vfPlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "videoFilters");
 	char *sePlugins = ADM_getInstallRelativePath(startDir, ADM_PLUGIN_DIR, "scriptEngines");
@@ -273,9 +271,6 @@ int startAvidemux(int argc, char *argv[])
 
 	ADM_dm_loadPlugins(dmPlugins);
     delete [] dmPlugins;
-
-	ADM_ve6_loadPlugins(vePlugins, ADM_UI_TYPE_BUILD);
-    delete [] vePlugins;
 
     ADM_vf_loadPlugins(vfPlugins);
     delete [] vfPlugins;
@@ -351,9 +346,7 @@ void onexit( void )
 	quitSdl();
 #endif
 
-
 	AVDM_cleanup();
-
 
 	destroyGUI();
     destroyPrefs();
@@ -366,7 +359,6 @@ void onexit( void )
     ADM_vf_clearFilters();
     ADM_vf_cleanup();
     ADM_dm_cleanup();
-    ADM_ve6_cleanup();
 
 	ADM_jobShutDown();
     printf("--End of cleanup--\n");

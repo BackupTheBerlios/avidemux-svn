@@ -375,9 +375,9 @@ namespace ADM_qtScript
     {
         encoders->clear();
 
-        for (unsigned int encoderIndex = 0; encoderIndex < ListOfEncoders.size(); encoderIndex++)
+		for (unsigned int encoderIndex = 0; encoderIndex < _pluginManager->videoEncoders().size(); encoderIndex++)
         {
-			IVideoEncoderPlugin* encoderPlugin = ListOfEncoders[encoderIndex];
+			IVideoEncoderPlugin* encoderPlugin = (IVideoEncoderPlugin*)this->_pluginManager->videoEncoders()[encoderIndex];
             VideoEncoder *encoder = new VideoEncoder(engine, this->_editor, encoderPlugin);
 
             engine->globalObject().setProperty(

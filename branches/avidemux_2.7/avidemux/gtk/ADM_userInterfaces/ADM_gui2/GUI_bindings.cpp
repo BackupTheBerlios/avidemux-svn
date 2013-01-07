@@ -43,7 +43,6 @@
 #include "GUI_glade.h"
 #include "A_functions.h"
 #include "IScriptEngine.h"
-#include "ADM_videoEncoderApi.h"
 #include "IPluginManager.h"
 
 #define MKICON(x) NULL
@@ -99,9 +98,6 @@ static IPluginManager* _pluginManager;
 
 uint32_t audioEncoderGetNumberOfEncoders(void);
 const char  *audioEncoderGetDisplayName(uint32_t i);
-
-extern const char *ADM_ve6_getMenuName(uint32_t index);
-extern uint32_t    ADM_ve6_getNbEncoders(void);
 
 extern uint8_t AVDM_setVolume(int volume);
 extern void checkCrashFile(void);
@@ -382,6 +378,11 @@ static IAdmPlugin* getMuxerPluginName(int rank)
 	return _pluginManager->muxers()[rank];
 }
 
+static IAdmPlugin* getVideoEncoderPluginName(int rank)
+{
+	return _pluginManager->videoEncoders()[rank];
+}
+
 /**
     \fn populateCombobox
 */
@@ -515,7 +516,7 @@ uint8_t  bindGUI( void )
 
 
 	// Finally add video codec...
-        populateCombobox(ADM_ve6_getNbEncoders(),VIDEO_WIDGET, ADM_ve6_getMenuName);
+        populateCombobox2(_pluginManager->videoEncoders().size(), VIDEO_WIDGET, getVideoEncoderPluginName);
         gtk_combo_box_set_active(GTK_COMBO_BOX(glade.getWidget(VIDEO_WIDGET)),0);
         on_video_change();
     // And A codec
@@ -1063,7 +1064,6 @@ int enable;
         else enable=1;
         gtk_widget_set_sensitive(glade.getWidget("buttonConfV1"),enable);
         gtk_widget_set_sensitive(glade.getWidget("buttonFilters1"),enable);
-        HandleAction(ACT_VIDEO_CODEC_CHANGED);
 }
 /**
     \fn on_audio_change

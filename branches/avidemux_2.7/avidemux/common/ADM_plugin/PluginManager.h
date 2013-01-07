@@ -6,11 +6,13 @@
 
 #include "IAdmPlugin.h"
 #include "IPluginManager.h"
+#include "ADM_videoEncoder6.h"
 
 class PluginManager : public IPluginManager
 {
 private:
-	std::vector<IAdmPlugin*> _muxerList;
+	std::vector<IAdmPlugin*> _muxerList, _videoEncoderList;
+	static const ADM_videoEncoderDesc _copyVideoEncoderDesc;
 
 	void destroyPluginList(std::vector<IAdmPlugin*>& pluginList);
 	bool isValidPlugin(const char* pluginPath, IAdmPlugin* plugin, int expectedApiVersion);
@@ -25,9 +27,13 @@ public:
 
 	void loadAll();
 	void loadMuxers();
+	void loadVideoEncoders();
 
 	const std::vector<IAdmPlugin*>& muxers(void);
 	int muxerIndex(const char* id);
+
+	const std::vector<IAdmPlugin*>& videoEncoders(void);
+	int videoEncoderIndex(const char* id);
 };
 
 #endif

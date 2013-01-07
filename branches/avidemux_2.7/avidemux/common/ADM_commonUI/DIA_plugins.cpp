@@ -19,6 +19,7 @@
 #include "ADM_coreDemuxer.h"
 #include "IPluginManager.h"
 #include "IMuxerPlugin.h"
+#include "IVideoEncoderPlugin.h"
 
 /* Functions we need to get infos */
 uint32_t ADM_ad_getNbFilters(void);
@@ -27,8 +28,6 @@ uint32_t ADM_av_getNbDevices(void);
 bool     ADM_av_getDeviceInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 uint32_t ADM_ae_getPluginNbEncoders(void);
 bool     ADM_ae_getAPluginEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
-bool     ADM_ve6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
-uint32_t ADM_ve6_getNbEncoders(void);
 uint32_t ADM_vd6_getNbEncoders(void);
 bool     ADM_vd6_getEncoderInfo(int filter, const char **name, uint32_t *major,uint32_t *minor,uint32_t *patch);
 #define QT_TR_NOOP(x) x
@@ -45,7 +44,6 @@ uint8_t DIA_pluginsInfo(IPluginManager* pluginManager)
     uint32_t avNbPlugin=ADM_av_getNbDevices();
     uint32_t aeNbPlugin=ADM_ae_getPluginNbEncoders();
     uint32_t dmNbPlugin=ADM_dm_getNbDemuxers();
-    uint32_t ve6NbPlugin=ADM_ve6_getNbEncoders();
     uint32_t vd6NbPlugin=ADM_vd6_getNbEncoders();
 
     // Audio Plugins
@@ -79,30 +77,21 @@ uint8_t DIA_pluginsInfo(IPluginManager* pluginManager)
     // /Audio
 
     // Encoder
-    printf("[VideoEncoder6 Plugins] Found %u plugins\n",ve6NbPlugin);
-    diaElemReadOnlyText **veText=new diaElemReadOnlyText *[ve6NbPlugin];
+    diaElemReadOnlyText **veText=new diaElemReadOnlyText *[pluginManager->videoEncoders().size()];
     diaElemFrame frameVE(QT_TR_NOOP("Video Encoder Plugins"));
-        
-       
-    for(int i=0;i<ve6NbPlugin;i++)
-    {
-        const char *name;
-        uint32_t major,minor,patch;
-        char versionString[256];
-        char infoString[256];
-        char *end;
-            ADM_ve6_getEncoderInfo(i, &name,&major,&minor,&patch);
-            snprintf(versionString,255,"%02d.%02d.%02d",major,minor,patch);
-            strncpy(infoString,name,255);
-            if((*infoString))
-            {
-                end=strlen(infoString)+infoString-1;
-                // Remove trailing line feed
-                while(*end==0x0a || *end==0x0d) *end--=0;
-            }
-            veText[i]=new diaElemReadOnlyText(infoString,versionString);
-            frameVE.swallow(veText[i]);
-    }
+
+	for (int i = 0; i < pluginManager->videoEncoders().size(); i++)
+	{
+				char versionString[256];
+		IVideoEncoderPlugin *encoderPlugin = (IVideoEncoderPlugin*)pluginManager->videoEncoders()[i];
+
+		snprintf(
+			versionString, 255, "%02d.%02d.%02d.%02d", encoderPlugin->version()->majorVersion, 
+			encoderPlugin->version()->minorVersion, encoderPlugin->version()->patchVersion, encoderPlugin->version()->buildNumber);
+
+		veText[i] = new diaElemReadOnlyText(encoderPlugin->description(), versionString);
+		frameVE.swallow(veText[i]);
+	}
 
     diaElem *diaVE[]={&frameVE};
     diaElemTabs tabVE(QT_TR_NOOP("Video Encoder"),1,diaVE);
@@ -252,7 +241,7 @@ uint8_t DIA_pluginsInfo(IPluginManager* pluginManager)
 
     for(int i=0;i<aNbPlugin;i++)
         delete aText[i];
-    for(int i=0;i<ve6NbPlugin;i++)
+	for(int i=0;i<pluginManager->videoEncoders().size();i++)
         delete veText[i];
     for(int i=0;i<vd6NbPlugin;i++)
         delete vdText[i];

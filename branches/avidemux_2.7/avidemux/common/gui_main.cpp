@@ -37,7 +37,6 @@
 #include "ADM_vidMisc.h"
 #include "ADM_preview.h"
 #include "ADM_coreVideoEncoder.h"
-#include "ADM_videoEncoderApi.h"
 #include "ADM_audioFilter/include/ADM_audioFilterInterface.h"
 
 #include "avi_vars.h"
@@ -232,20 +231,11 @@ void HandleAction (Action action)
                 return;
 			}
 	case ACT_VIDEO_CODEC_CONFIGURE:
-    		videoEncoder6Configure();
-            return;
+		((IVideoEncoderPlugin*)pluginManager->videoEncoders()[UI_getCurrentVCodec()])->configure();
+        return;
     case ACT_ContainerConfigure:
-            {
-            int index=UI_GetCurrentFormat();
-			((IMuxerPlugin*)pluginManager->muxers()[index])->configure();
-            return;
-            }
-    case ACT_VIDEO_CODEC_CHANGED:
-		{
-    		int nw=UI_getCurrentVCodec();
-    		videoEncoder6_SetCurrentEncoder(nw);
-            return;
-		}
+		((IMuxerPlugin*)pluginManager->muxers()[UI_GetCurrentFormat()])->configure();
+        return;
    case ACT_AUDIO_CODEC_CHANGED:
 	   {
             int nw=UI_getCurrentACodec();
@@ -1296,7 +1286,9 @@ int value;
 */
 int A_Save(const char *name)
 {
-    admSaver *save=new admSaver((IMuxerPlugin*)pluginManager->muxers()[UI_GetCurrentFormat()], name);
+    admSaver *save = new admSaver(
+		(IVideoEncoderPlugin*)pluginManager->videoEncoders()[UI_getCurrentVCodec()],
+		(IMuxerPlugin*)pluginManager->muxers()[UI_GetCurrentFormat()], name);
     bool r=save->save();
     delete save;
     ADM_slaveSendResult(r);

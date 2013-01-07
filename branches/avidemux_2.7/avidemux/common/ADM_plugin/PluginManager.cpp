@@ -4,7 +4,12 @@
 #include "ADM_files.h"
 #include "ADM_dynamicLoading.h"
 #include "ADM_dynMuxer.h"
-#include "ADM_muxerInternal.h"
+#include "ADM_videoEncoder6.h"
+#include "ADM_coreVideoEncoderInternal.h"
+
+const ADM_videoEncoderDesc PluginManager::_copyVideoEncoderDesc = {
+	"Copy", "Copy", "Copy encoder", ADM_VIDEO_ENCODER_API_VERSION,
+	NULL, NULL, NULL, NULL, NULL, NULL, ADM_UI_ALL, 1, 0, 0, NULL };
 
 PluginManager::PluginManager() {}
 
@@ -19,27 +24,6 @@ void PluginManager::destroyPluginList(std::vector<IAdmPlugin*>& pluginList)
 	{
 		delete pluginList[pluginIndex];
 	}
-}
-
-bool PluginManager::isValidPlugin(const char* pluginPath, IAdmPlugin* plugin, int expectedApiVersion)
-{
-	if (plugin == NULL)
-	{
-		printf("Unable to load %s", pluginPath);
-
-		return false;
-	}
-
-	if (plugin->apiVersion() != expectedApiVersion)
-	{
-		printf(
-			"Plugin is using incorrect API version (%d vs %d): %s", 
-			plugin->apiVersion(), expectedApiVersion, pluginPath);
-
-		return false;
-	}
-
-	return true;
 }
 
 char* PluginManager::pluginDirectory(const char* folderName)
@@ -100,6 +84,7 @@ bool PluginManager::sortPlugins(IAdmPlugin* plugin1, IAdmPlugin* plugin2)
 void PluginManager::loadAll()
 {
 	this->loadMuxers();
+	this->loadVideoEncoders();
 }
 
 void PluginManager::loadMuxers()
@@ -114,13 +99,36 @@ void PluginManager::loadMuxers()
 		const char* pluginPath = pluginFileList[pluginFileIndex].c_str();
 		IAdmPlugin* plugin = ADM_dynMuxer::loadPlugin(pluginFileList[pluginFileIndex].c_str());
 
-		if (this->isValidPlugin(pluginPath, plugin, ADM_MUXER_API_VERSION))
+		if (plugin != NULL)
 		{
 			this->_muxerList.push_back(plugin);
 		}
-
-		std::sort(this->_muxerList.begin(), this->_muxerList.end(), PluginManager::sortPlugins);
 	}
+
+	std::sort(this->_muxerList.begin(), this->_muxerList.end(), PluginManager::sortPlugins);
+}
+
+void PluginManager::loadVideoEncoders()
+{
+	char *pluginDir = this->pluginDirectory("videoEncoders");
+	std::vector<std::string> pluginFileList = this->pluginFileList(pluginDir);
+
+	delete [] pluginDir;
+
+	for (int pluginFileIndex = 0; pluginFileIndex < pluginFileList.size(); pluginFileIndex++)
+	{
+		const char* pluginPath = pluginFileList[pluginFileIndex].c_str();
+		IAdmPlugin* plugin = ADM_videoEncoder6::loadPlugin(pluginFileList[pluginFileIndex].c_str(), ADM_UI_TYPE_BUILD);
+
+		if (plugin != NULL)
+		{
+			this->_videoEncoderList.push_back(plugin);
+		}
+	}
+
+	std::sort(this->_videoEncoderList.begin(), this->_videoEncoderList.end(), PluginManager::sortPlugins);
+
+	this->_videoEncoderList.insert(this->_videoEncoderList.begin(), new ADM_videoEncoder6(&PluginManager::_copyVideoEncoderDesc));
 }
 
 const std::vector<IAdmPlugin*>& PluginManager::muxers(void)
@@ -131,4 +139,14 @@ const std::vector<IAdmPlugin*>& PluginManager::muxers(void)
 int PluginManager::muxerIndex(const char* id)
 {
 	return this->pluginIndexById(id, this->_muxerList);
+}
+
+const std::vector<IAdmPlugin*>& PluginManager::videoEncoders(void)
+{
+	return this->_videoEncoderList;
+}
+
+int PluginManager::videoEncoderIndex(const char* id)
+{
+	return this->pluginIndexById(id, this->_videoEncoderList);
 }

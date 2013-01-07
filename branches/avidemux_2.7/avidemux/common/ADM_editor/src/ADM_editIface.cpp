@@ -40,7 +40,6 @@
 #include "ADM_vidMisc.h"
 #include "ADM_confCouple.h"
 #include "ADM_videoFilters.h"
-#include "ADM_videoEncoderApi.h"
 #include "ADM_videoFilterApi.h"
 #include "ADM_preview.h"
 #include "ADM_edAudioTrackExternal.h"
@@ -71,7 +70,7 @@ const char          *ADM_Composer::getVideoDecoderName(void)
 #endif
 int ADM_Composer::setVideoCodec(const char *codec, CONFcouple *c)
 {
-	int idx = videoEncoder6_GetIndexFromName(codec);
+	int idx = this->_pluginManager->videoEncoderIndex(codec);
 
 	if (idx == -1)
 	{
@@ -80,12 +79,12 @@ int ADM_Composer::setVideoCodec(const char *codec, CONFcouple *c)
 	}
 
 	// Select by index
-	videoEncoder6_SetCurrentEncoder(idx);
 	UI_setVideoCodec(idx);
 
 	if (c)
 	{
-		bool r = videoEncoder6_SetConfiguration(c, true);
+		bool r = ((IVideoEncoderPlugin*)this->_pluginManager->videoEncoders()[idx])->setConfiguration(c, true);
+
 		delete c;
 
 		return r;
@@ -156,7 +155,7 @@ IMuxerPlugin* ADM_Composer::getCurrentMuxer()
 
 IVideoEncoderPlugin* ADM_Composer::getCurrentVideoEncoder()
 {
-	return ListOfEncoders[videoEncoder6_GetIndexFromName(videoEncoder6_GetCurrentEncoderName())];
+	return (IVideoEncoderPlugin*)this->_pluginManager->videoEncoders()[UI_getCurrentVCodec()];
 }
 
 bool ADM_Composer::setContainer(const char *cont, CONFcouple *c)
