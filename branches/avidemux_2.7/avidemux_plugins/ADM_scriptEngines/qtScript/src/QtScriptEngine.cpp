@@ -1,3 +1,4 @@
+#include <QtCore/QCoreApplication>
 #include <QtCore/QFile>
 #include <QtCore/QMap>
 #include <QtCore/QMetaEnum>
@@ -145,6 +146,20 @@ namespace ADM_qtScript
 
     bool QtScriptEngine::runScript(const QString& script, const QString& name, RunMode mode)
     {
+		QCoreApplication *coreApplication = NULL;
+		int argc;
+		char **argv;
+
+		if (QCoreApplication::instance() == NULL)
+		{
+			argc = 1;
+			argv = new char*[1];
+			argv[0] = new char[1];
+			argv[0][0] = '\0';
+
+			coreApplication = new QCoreApplication(argc, argv);
+		}
+
         MyQScriptEngine engine(this);
 
         map<IMuxerPlugin*, Muxer*> muxers;
@@ -190,6 +205,13 @@ namespace ADM_qtScript
             this->callEventHandlers(IScriptEngine::Information, NULL, -1, (QString("Result: ") + result.toString()).toUtf8().constData());
             success = true;
         }
+
+		if (coreApplication)
+		{
+			delete argv[0];
+			delete argv;
+			delete coreApplication;
+		}
 
         return success;
     }
