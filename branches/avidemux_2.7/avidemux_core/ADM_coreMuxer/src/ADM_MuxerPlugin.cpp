@@ -1,17 +1,17 @@
-#include "ADM_dynMuxer.h"
+#include "ADM_MuxerPlugin.h"
 #include "ADM_muxerInternal.h"
 
-ADM_dynMuxer::ADM_dynMuxer(ADM_LibWrapper *pluginWrapper)
+ADM_MuxerPlugin::ADM_MuxerPlugin(ADM_LibWrapper *pluginWrapper)
 {	
 	this->_pluginWrapper = pluginWrapper;
 	this->_pluginVersion = new PluginVersion();
 	memset(this->_pluginVersion, 0, sizeof(PluginVersion));
 }
 
-ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
+ADM_MuxerPlugin* ADM_MuxerPlugin::loadPlugin(const char *file)
 {
 	ADM_LibWrapper *pluginWrapper = new ADM_LibWrapper();
-	ADM_dynMuxer *muxer = new ADM_dynMuxer(pluginWrapper);
+	ADM_MuxerPlugin *muxer = new ADM_MuxerPlugin(pluginWrapper);
 	bool initialised = pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(
 		14,
 		&muxer->_createmuxer, "create",
@@ -68,77 +68,77 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 	return muxer;
 }
 
-const char* ADM_dynMuxer::id()
+const char* ADM_MuxerPlugin::id()
 {
 	return this->_getMuxerName();
 }
 
-const char* ADM_dynMuxer::name()
+const char* ADM_MuxerPlugin::name()
 {
 	return this->_getDisplayName();
 }
 
-int ADM_dynMuxer::apiVersion()
+int ADM_MuxerPlugin::apiVersion()
 {
 	return this->_getApiVersion();
 }
 
-PluginVersion* ADM_dynMuxer::version()
+PluginVersion* ADM_MuxerPlugin::version()
 {
 	return this->_pluginVersion;
 }
 
-const char* ADM_dynMuxer::underlyingLibraryName()
+const char* ADM_MuxerPlugin::underlyingLibraryName()
 {
 	return this->_getUnderlyingLibraryName();
 }
 
-const char* ADM_dynMuxer::underlyingLibraryVersion()
+const char* ADM_MuxerPlugin::underlyingLibraryVersion()
 {
 	return this->_getUnderlyingLibraryVersion();
 }
 
-ADM_dynMuxer::~ADM_dynMuxer()
+ADM_MuxerPlugin::~ADM_MuxerPlugin()
 {
 	delete this->_pluginWrapper;
 }
 
-bool ADM_dynMuxer::configure(void)
+bool ADM_MuxerPlugin::configure(void)
 {
 	return this->_configure();
 }
 
-ADM_muxer* ADM_dynMuxer::createMuxer()
+ADM_muxer* ADM_MuxerPlugin::createMuxer()
 {
 	return this->_createmuxer();
 }
 
-const char* ADM_dynMuxer::defaultExtension()
+const char* ADM_MuxerPlugin::defaultExtension()
 {
 	return this->_getDefaultExtension();
 }
 
-void ADM_dynMuxer::destroyMuxer(ADM_muxer *muxer)
+void ADM_MuxerPlugin::destroyMuxer(ADM_muxer *muxer)
 {
 	return this->_deletemuxer(muxer);
 }
 
-const char* ADM_dynMuxer::description()
+const char* ADM_MuxerPlugin::description()
 {
 	return this->_getDescriptor();
 }
 
-bool ADM_dynMuxer::getConfiguration(CONFcouple **conf)
+bool ADM_MuxerPlugin::getConfiguration(CONFcouple **conf)
 {
 	return this->_getConfiguration(conf);
 }
 
-bool ADM_dynMuxer::setConfiguration(CONFcouple *conf)
+bool ADM_MuxerPlugin::setConfiguration(CONFcouple *conf)
 {
 	return conf == NULL ? true : this->_setConfiguration(conf);
 }
 
-bool ADM_dynMuxer::resetConfiguration()
+bool ADM_MuxerPlugin::resetConfiguration()
 {
 	return this->_resetConfiguration();
 }

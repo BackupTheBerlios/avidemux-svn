@@ -24,8 +24,7 @@
 #include "ADM_dynamicLoading.h"
 #include "DIA_uiTypes.h"
 #include "ADM_paramList.h"
-#include "IVideoEncoderPlugin.h"
-#include "ADM_videoEncoder6.h"
+#include "ADM_videoEncoderPlugin.h"
 
 // Macros to declare audio encoder
 /**************************************************************************/
@@ -57,8 +56,7 @@ static ADM_videoEncoderDesc encoderDesc={\
     setConfigurationData,\
     resetConfigurationData,\
     uiType,\
-    maj,minV,patch,\
-    NULL\
+    maj,minV,patch\
 };\
 bool getConfigurationData (CONFcouple **c)\
 {\

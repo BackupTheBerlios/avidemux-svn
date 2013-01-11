@@ -6,7 +6,7 @@
 
 #include "IAdmPlugin.h"
 #include "IPluginManager.h"
-#include "ADM_videoEncoder6.h"
+#include "ADM_videoEncoderPlugin.h"
 
 class PluginManager : public IPluginManager
 {

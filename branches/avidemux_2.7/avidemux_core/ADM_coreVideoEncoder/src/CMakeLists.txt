@@ -1,5 +1,5 @@
 SET(ADM_CoreVideoEncoder_SRCS 
-	ADM_coreVideoEncoder.cpp  ADM_coreVideoEncoderFFmpeg.cpp  IVideoEncoderPlugin.cpp  ADM_videoEncoder6.cpp
+	ADM_coreVideoEncoder.cpp  ADM_coreVideoEncoderFFmpeg.cpp  IVideoEncoderPlugin.cpp  ADM_videoEncoderPlugin.cpp
 )
 
 add_compiler_export_flags()

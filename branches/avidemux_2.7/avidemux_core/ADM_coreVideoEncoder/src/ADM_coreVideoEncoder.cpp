@@ -20,9 +20,7 @@
 
 #include "ADM_default.h"
 #include "ADM_coreVideoEncoder.h"
-#include "ADM_coreVideoEncoderInternal.h"
 #include "ADM_vidMisc.h"
-#include "BVector.h"
 
 extern "C"
 {

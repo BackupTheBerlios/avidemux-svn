@@ -25,7 +25,7 @@ void resetConfigurationData() {}
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_nullEncoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("null",
-                               "null",
+                               "None",
                                "Null Encoder (c) 2010 Mean",
 							   NULL,
                                 NULL, // No configuration

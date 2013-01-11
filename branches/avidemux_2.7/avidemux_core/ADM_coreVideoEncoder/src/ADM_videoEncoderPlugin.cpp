@@ -1,14 +1,14 @@
-#include "ADM_videoEncoder6.h"
+#include "ADM_videoEncoderPlugin.h"
 #include "ADM_coreVideoEncoderInternal.h"
 
-ADM_videoEncoder6::ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper)
+ADM_videoEncoderPlugin::ADM_videoEncoderPlugin(ADM_LibWrapper *pluginWrapper)
 {
 	this->_pluginWrapper = pluginWrapper;
 	this->_pluginVersion = new PluginVersion();
 	memset(this->_pluginVersion, 0, sizeof(PluginVersion));
 }
 
-ADM_videoEncoder6::ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc)
+ADM_videoEncoderPlugin::ADM_videoEncoderPlugin(const ADM_videoEncoderDesc *encoderDesc)
 {
 	this->_pluginWrapper = NULL;
 	this->_pluginVersion = new PluginVersion();
@@ -22,7 +22,7 @@ ADM_videoEncoder6::ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc)
 	this->_pluginVersion->patchVersion = this->_encoderDesc->patch;
 }
 
-ADM_videoEncoder6::~ADM_videoEncoder6()
+ADM_videoEncoderPlugin::~ADM_videoEncoderPlugin()
 {
 	if (this->_pluginWrapper)
 	{
@@ -30,10 +30,10 @@ ADM_videoEncoder6::~ADM_videoEncoder6()
 	}
 }
 
-ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file, ADM_UI_TYPE uiType)
+ADM_videoEncoderPlugin* ADM_videoEncoderPlugin::loadPlugin(const char *file, ADM_UI_TYPE uiType)
 {
 	ADM_LibWrapper *pluginWrapper = new ADM_LibWrapper();
-	ADM_videoEncoder6 *encoder = new ADM_videoEncoder6(pluginWrapper);
+	ADM_videoEncoderPlugin *encoder = new ADM_videoEncoderPlugin(pluginWrapper);
 	ADM_videoEncoderDesc *(*getInfo)();
 	bool initialised = 
 		(pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(
@@ -91,37 +91,37 @@ ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file, ADM_UI_TYPE u
 	return encoder;
 }
 
-const char *ADM_videoEncoder6::id()
+const char *ADM_videoEncoderPlugin::id()
 {
 	return this->_encoderDesc->encoderName;
 }
 
-const char *ADM_videoEncoder6::name()
+const char *ADM_videoEncoderPlugin::name()
 {
 	return this->_encoderDesc->menuName;
 }
 
-int ADM_videoEncoder6::apiVersion()
+int ADM_videoEncoderPlugin::apiVersion()
 {
 	return this->_encoderDesc->apiVersion;
 }
 
-PluginVersion *ADM_videoEncoder6::version()
+PluginVersion *ADM_videoEncoderPlugin::version()
 {
 	return this->_pluginVersion;
 }
 
-const char *ADM_videoEncoder6::underlyingLibraryName()
+const char *ADM_videoEncoderPlugin::underlyingLibraryName()
 {
 	return this->_getUnderlyingLibraryName == NULL ? NULL : this->_getUnderlyingLibraryName();
 }
 
-const char *ADM_videoEncoder6::underlyingLibraryVersion()
+const char *ADM_videoEncoderPlugin::underlyingLibraryVersion()
 {
 	return this->_getUnderlyingLibraryVersion == NULL ? NULL : this->_getUnderlyingLibraryVersion();
 }
 
-bool ADM_videoEncoder6::configure(void)
+bool ADM_videoEncoderPlugin::configure(void)
 {
 	if (this->_encoderDesc->configure)
 	{
@@ -133,22 +133,22 @@ bool ADM_videoEncoder6::configure(void)
 	}
 }
 
-ADM_coreVideoEncoder* ADM_videoEncoder6::createEncoder(ADM_coreVideoFilter *head, bool globalHeader)
+ADM_coreVideoEncoder* ADM_videoEncoderPlugin::createEncoder(ADM_coreVideoFilter *head, bool globalHeader)
 {
 	return this->_encoderDesc->create(head, globalHeader);
 }
 
-const char* ADM_videoEncoder6::description(void)
+const char* ADM_videoEncoderPlugin::description(void)
 {
 	return this->_encoderDesc->description;
 }
 
-void ADM_videoEncoder6::destroyEncoder(ADM_coreVideoEncoder *codec)
+void ADM_videoEncoderPlugin::destroyEncoder(ADM_coreVideoEncoder *codec)
 {
 	return this->_encoderDesc->destroy(codec);
 }
 
-bool ADM_videoEncoder6::getConfiguration(CONFcouple **c)
+bool ADM_videoEncoderPlugin::getConfiguration(CONFcouple **c)
 {
 	if (this->_encoderDesc->getConfigurationData)
 	{
@@ -161,7 +161,7 @@ bool ADM_videoEncoder6::getConfiguration(CONFcouple **c)
 	}
 }
 
-bool ADM_videoEncoder6::setConfiguration(CONFcouple *c, bool full)
+bool ADM_videoEncoderPlugin::setConfiguration(CONFcouple *c, bool full)
 {
 	if (this->_encoderDesc->setConfigurationData)
 	{
@@ -173,12 +173,12 @@ bool ADM_videoEncoder6::setConfiguration(CONFcouple *c, bool full)
 	}
 }
 
-void ADM_videoEncoder6::resetConfiguration(void)
+void ADM_videoEncoderPlugin::resetConfiguration(void)
 {
 	return this->_encoderDesc->resetConfigurationData();
 }
 
-ADM_UI_TYPE ADM_videoEncoder6::UIType(void)
+ADM_UI_TYPE ADM_videoEncoderPlugin::UIType(void)
 {
 	return this->_encoderDesc->UIType;
 }

@@ -27,8 +27,6 @@ typedef struct
 
     ADM_UI_TYPE  UIType;                // Type of UI
     uint32_t     major,minor,patch;     // Version of the plugin
-
-    void         *opaque;               // Hide stuff in here
 } ADM_videoEncoderDesc;
 
 /**
@@ -36,7 +34,7 @@ typedef struct
     \brief Plugin Wrapper Class
 
 */
-class ADM_COREVIDEOENCODER6_EXPORT ADM_videoEncoder6 : public IVideoEncoderPlugin
+class ADM_COREVIDEOENCODER6_EXPORT ADM_videoEncoderPlugin : public IVideoEncoderPlugin
 {
 private:
 	ADM_LibWrapper *_pluginWrapper;
@@ -45,13 +43,13 @@ private:
 	const char *(*_getUnderlyingLibraryName)();
 	const char *(*_getUnderlyingLibraryVersion)();
 
-	ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper);
+	ADM_videoEncoderPlugin(ADM_LibWrapper *pluginWrapper);
 
 public:
-	ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc);
-	~ADM_videoEncoder6();
+	ADM_videoEncoderPlugin(const ADM_videoEncoderDesc *encoderDesc);
+	~ADM_videoEncoderPlugin();
 
-	static ADM_videoEncoder6* loadPlugin(const char *file, ADM_UI_TYPE uiType);
+	static ADM_videoEncoderPlugin* loadPlugin(const char *file, ADM_UI_TYPE uiType);
 
 	const char *id();
 	const char *name();

@@ -3,13 +3,12 @@
 #include "PluginManager.h"
 #include "ADM_files.h"
 #include "ADM_dynamicLoading.h"
-#include "ADM_dynMuxer.h"
-#include "ADM_videoEncoder6.h"
+#include "ADM_MuxerPlugin.h"
 #include "ADM_coreVideoEncoderInternal.h"
 
 const ADM_videoEncoderDesc PluginManager::_copyVideoEncoderDesc = {
 	"Copy", "Copy", "Copy encoder", ADM_VIDEO_ENCODER_API_VERSION,
-	NULL, NULL, NULL, NULL, NULL, NULL, ADM_UI_ALL, 1, 0, 0, NULL };
+	NULL, NULL, NULL, NULL, NULL, NULL, ADM_UI_ALL, 1, 0, 0 };
 
 PluginManager::PluginManager() {}
 
@@ -97,7 +96,7 @@ void PluginManager::loadMuxers()
 	for (int pluginFileIndex = 0; pluginFileIndex < pluginFileList.size(); pluginFileIndex++)
 	{
 		const char* pluginPath = pluginFileList[pluginFileIndex].c_str();
-		IAdmPlugin* plugin = ADM_dynMuxer::loadPlugin(pluginFileList[pluginFileIndex].c_str());
+		IAdmPlugin* plugin = ADM_MuxerPlugin::loadPlugin(pluginFileList[pluginFileIndex].c_str());
 
 		if (plugin != NULL)
 		{
@@ -118,7 +117,7 @@ void PluginManager::loadVideoEncoders()
 	for (int pluginFileIndex = 0; pluginFileIndex < pluginFileList.size(); pluginFileIndex++)
 	{
 		const char* pluginPath = pluginFileList[pluginFileIndex].c_str();
-		IAdmPlugin* plugin = ADM_videoEncoder6::loadPlugin(pluginFileList[pluginFileIndex].c_str(), ADM_UI_TYPE_BUILD);
+		IAdmPlugin* plugin = ADM_videoEncoderPlugin::loadPlugin(pluginFileList[pluginFileIndex].c_str(), ADM_UI_TYPE_BUILD);
 
 		if (plugin != NULL)
 		{
@@ -128,7 +127,7 @@ void PluginManager::loadVideoEncoders()
 
 	std::sort(this->_videoEncoderList.begin(), this->_videoEncoderList.end(), PluginManager::sortPlugins);
 
-	this->_videoEncoderList.insert(this->_videoEncoderList.begin(), new ADM_videoEncoder6(&PluginManager::_copyVideoEncoderDesc));
+	this->_videoEncoderList.insert(this->_videoEncoderList.begin(), new ADM_videoEncoderPlugin(&PluginManager::_copyVideoEncoderDesc));
 }
 
 const std::vector<IAdmPlugin*>& PluginManager::muxers(void)

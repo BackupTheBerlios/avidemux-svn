@@ -6,7 +6,7 @@
 #include "ADM_muxer.h"
 #include "IMuxerPlugin.h"
 
-class ADM_COREMUXER6_EXPORT ADM_dynMuxer : public IMuxerPlugin
+class ADM_COREMUXER6_EXPORT ADM_MuxerPlugin : public IMuxerPlugin
 {
 private:
 	ADM_LibWrapper *_pluginWrapper;
@@ -29,12 +29,12 @@ private:
 	bool  (*_resetConfiguration)();
 	bool  (*_setConfiguration)(CONFcouple *conf);
 
-	ADM_dynMuxer(ADM_LibWrapper *pluginWrapper);
+	ADM_MuxerPlugin(ADM_LibWrapper *pluginWrapper);
 
 public:
-	~ADM_dynMuxer();
+	~ADM_MuxerPlugin();
 
-	static ADM_dynMuxer* loadPlugin(const char *file);
+	static ADM_MuxerPlugin* loadPlugin(const char *file);
 
 	const char *id();
 	const char *name();
