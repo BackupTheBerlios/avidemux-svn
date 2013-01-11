@@ -33,11 +33,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_jpegEncoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("Mjpeg",
-                               "Mjpeg Encoder",
-                               "Simple jpeg Encoder (c) 2009 Mean",
+                               "MJPEG",
+                               "Simple JPGEEncoder (c) 2009 Mean",
+								"FFmpeg",
                                 jpegConfigure, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 jpeg_encoder_param, // conf template
                                 &jpegConf // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avcodec_version());
+		}
+
+		return version;
+	}
+}

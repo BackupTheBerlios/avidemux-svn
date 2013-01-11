@@ -27,9 +27,17 @@ ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_nullEncoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("null",
                                "null",
                                "Null Encoder (c) 2010 Mean",
+							   NULL,
                                 NULL, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 NULL, // conf template
                                 NULL // conf var
 );
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{		
+		return NULL;
+	}
+}

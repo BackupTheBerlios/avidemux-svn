@@ -225,6 +225,8 @@ MainWindow::MainWindow(
 	ui.actionQuit->setMenuRole(QAction::NoRole);
 #endif
 
+	this->setupMenus();
+
 	// Preview modes
 	QActionGroup *groupPreviewModes = new QActionGroup(this);
 
@@ -833,7 +835,6 @@ static void FatalFunctionQt(const char *title, const char *info)
 */
 int UI_RunApp(void)
 {
-	((MainWindow*)QuiMainWindows)->setupMenus();
     ADM_setCrashHook(&saveCrashProject, &FatalFunctionQt);
 	checkCrashFile();
 

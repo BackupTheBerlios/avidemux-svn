@@ -32,11 +32,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_huffEncoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("HUFFYUV",
-                               "(FF)HuffYUV",
+                               "HuffYUV variant",
                                "FF Huffyuv (c) 2009 Mean",
+							   "FFmpeg",
                                 huffConfigure, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 huff_encoder_param, // conf template
                                 &huffType // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avcodec_version());
+		}
+
+		return version;
+	}
+}

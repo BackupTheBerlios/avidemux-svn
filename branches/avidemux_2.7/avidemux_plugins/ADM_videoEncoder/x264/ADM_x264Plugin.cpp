@@ -34,11 +34,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(x264Encoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("x264",
-                               "Mpeg4 AVC (x264)",
-                               "x264 based mpeg4 AVC Encoder (c) 2010 Mean/Gruntster",
+                               "MPEG-4 AVC / H.264",
+                               "x264 based MPEG-4 AVC Encoder / H.264 (c) 2010 Mean/Gruntster",
+							   "x264",
                                 x264Configure, // No configuration
                                 ADM_UI_TYPE_BUILD,
                                 1,0,0,
                                 x264_encoder_param, // conf template
                                 &x264Settings // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", X264_BUILD);
+		}
+
+		return version;
+	}
+}

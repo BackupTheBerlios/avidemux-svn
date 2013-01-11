@@ -23,11 +23,19 @@ void resetConfigurationData() {}
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_pngEncoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("PNG",
-                               "PNG Encoder",
+                               "PNG",
                                "Simple PNG Encoder (c) 2009 Mean",
+							   NULL,
                                 NULL, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 NULL, // conf template
                                 NULL // conf var
 );
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{		
+		return NULL;
+	}
+}

@@ -15,6 +15,8 @@ ADM_videoEncoder6::ADM_videoEncoder6(const ADM_videoEncoderDesc *encoderDesc)
 	memset(this->_pluginVersion, 0, sizeof(PluginVersion));
 
 	this->_encoderDesc = encoderDesc;
+	this->_getUnderlyingLibraryName = NULL;
+	this->_getUnderlyingLibraryVersion = NULL;
 	this->_pluginVersion->majorVersion = this->_encoderDesc->major;
 	this->_pluginVersion->minorVersion = this->_encoderDesc->minor;
 	this->_pluginVersion->patchVersion = this->_encoderDesc->patch;
@@ -32,19 +34,26 @@ ADM_videoEncoder6* ADM_videoEncoder6::loadPlugin(const char *file, ADM_UI_TYPE u
 {
 	ADM_LibWrapper *pluginWrapper = new ADM_LibWrapper();
 	ADM_videoEncoder6 *encoder = new ADM_videoEncoder6(pluginWrapper);
-	bool initialised = (pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(1, &encoder->_getInfo, "getInfo"));
+	ADM_videoEncoderDesc *(*getInfo)();
+	bool initialised = 
+		(pluginWrapper->loadLibrary(file) && pluginWrapper->getSymbols(
+		3,
+		&getInfo, "getInfo",
+		&encoder->_getUnderlyingLibraryName, "getUnderlyingLibraryName",
+		&encoder->_getUnderlyingLibraryVersion, "getUnderlyingLibraryVersion"));
 
 	if (initialised)
 	{
-		encoder->_encoderDesc = encoder->_getInfo();
+		encoder->_encoderDesc = getInfo();
 
 		if (encoder->_encoderDesc->apiVersion == ADM_VIDEO_ENCODER_API_VERSION)
 		{
 			if ((encoder->_encoderDesc->UIType & uiType) == uiType)
 			{
 				printf(
-					"[VideoEncoder] Plugin loaded.  Name: %s, API version: %d, Underlying library: %s %s, Plugin: %s\n", 
-					encoder->_encoderDesc->encoderName, encoder->_encoderDesc->apiVersion, NULL, NULL, file);
+					"[VideoEncoder] Name: %s, API version: %d, Underlying library: %s version %s\n", 
+					encoder->_encoderDesc->encoderName, encoder->_encoderDesc->apiVersion, 
+					encoder->_getUnderlyingLibraryName(), encoder->_getUnderlyingLibraryVersion());
 
 				encoder->_pluginVersion->majorVersion = encoder->_encoderDesc->major;
 				encoder->_pluginVersion->minorVersion = encoder->_encoderDesc->minor;
@@ -104,12 +113,12 @@ PluginVersion *ADM_videoEncoder6::version()
 
 const char *ADM_videoEncoder6::underlyingLibraryName()
 {
-	return NULL;
+	return this->_getUnderlyingLibraryName == NULL ? NULL : this->_getUnderlyingLibraryName();
 }
 
 const char *ADM_videoEncoder6::underlyingLibraryVersion()
 {
-	return NULL;
+	return this->_getUnderlyingLibraryVersion == NULL ? NULL : this->_getUnderlyingLibraryVersion();
 }
 
 bool ADM_videoEncoder6::configure(void)

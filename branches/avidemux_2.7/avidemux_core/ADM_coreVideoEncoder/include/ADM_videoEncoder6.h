@@ -42,8 +42,8 @@ private:
 	ADM_LibWrapper *_pluginWrapper;
 	PluginVersion *_pluginVersion;
 	const ADM_videoEncoderDesc *_encoderDesc;
-
-	ADM_videoEncoderDesc *(*_getInfo)();
+	const char *(*_getUnderlyingLibraryName)();
+	const char *(*_getUnderlyingLibraryVersion)();
 
 	ADM_videoEncoder6(ADM_LibWrapper *pluginWrapper);
 

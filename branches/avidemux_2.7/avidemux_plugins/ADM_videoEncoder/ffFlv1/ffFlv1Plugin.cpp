@@ -33,11 +33,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_ffFlv1Encoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("ffFlv1",
-                               "FLV1(flash)",
-                               "Simple ffmpeg based Flv1 Encoder (c) 2009 Mean",
+                               "Sorenson Spark",
+                               "Simple FFmpeg based FLV1 Encoder (c) 2009 Mean",
+							   "FFmpeg",
                                 ffFlv1Configure, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                  FFcodecSettings_param, // conf template
                                 &Flv1Settings // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avcodec_version());
+		}
+
+		return version;
+	}
+}

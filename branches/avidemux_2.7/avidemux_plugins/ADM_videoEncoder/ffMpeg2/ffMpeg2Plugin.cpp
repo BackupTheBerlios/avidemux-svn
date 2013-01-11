@@ -32,11 +32,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_ffMpeg2Encoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("ffMpeg2",
-                               "Mpeg2 (ff)",
-                               "Simple ffmpeg based Mpeg2 Encoder (c) 2009 Mean",
+                               "MPEG-2",
+                               "Simple FFmpeg based MPEG-2 Encoder (c) 2009 Mean",
+							   "FFmpeg",
                                 ffMpeg2Configure, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 mpeg2_encoder_param, // conf template
                                 &Mp2Settings // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avcodec_version());
+		}
+
+		return version;
+	}
+}

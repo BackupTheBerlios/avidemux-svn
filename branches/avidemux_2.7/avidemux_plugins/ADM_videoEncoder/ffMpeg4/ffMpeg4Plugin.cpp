@@ -32,11 +32,27 @@ void resetConfigurationData()
 
 ADM_DECLARE_VIDEO_ENCODER_PREAMBLE(ADM_ffMpeg4Encoder);
 ADM_DECLARE_VIDEO_ENCODER_MAIN("ffMpeg4",
-                               "Mpeg4 ASP (ff)",
-                               "Simple ffmpeg based mpeg4 Encoder (c) 2009 Mean",
+                               "MPEG-4 ASP",
+                               "Simple FFmpeg based MPEG-4 ASP Encoder (c) 2009 Mean",
+							   "FFmpeg",
                                 ffMpeg4Configure, // No configuration
                                 ADM_UI_ALL,
                                 1,0,0,
                                 FFcodecSettings_param, // conf template
                                 &Mp4Settings // conf var
 );
+
+static char* version = NULL;
+
+extern "C" {
+	ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryVersion()
+	{
+		if (version == NULL)
+		{
+			version = new char[10];
+			snprintf(version, 10, "%d", avcodec_version());
+		}
+
+		return version;
+	}
+}

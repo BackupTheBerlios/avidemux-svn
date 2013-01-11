@@ -34,7 +34,7 @@ ADM_dynMuxer* ADM_dynMuxer::loadPlugin(const char *file)
 		if (muxer->_getApiVersion() == ADM_MUXER_API_VERSION)
 		{
 			printf(
-				"[Muxer] Name: %s, API version: %d, Underlying library: %s %s\n", 
+				"[Muxer] Name: %s, API version: %d, Underlying library: %s version %s\n", 
 				muxer->_getMuxerName(), muxer->_getApiVersion(), muxer->_getUnderlyingLibraryName(), muxer->_getUnderlyingLibraryVersion());
 
 			uint32_t majorVersion, minorVersion, patchVersion;

@@ -15,7 +15,7 @@
 #ifndef VIDEOENCODERINTERNAL_H
 #define VIDEOENCODERINTERNAL_H
 
-#define ADM_VIDEO_ENCODER_API_VERSION 5
+#define ADM_VIDEO_ENCODER_API_VERSION 6
 
 #include "ADM_ve_plugin_export.h"
 #include "ADM_coreVideoEncoder6_export.h"
@@ -44,7 +44,7 @@ static void destroy (ADM_coreVideoEncoder * in) \
 }
 //******************************************************
 
-#define ADM_DECLARE_VIDEO_ENCODER_MAIN(name,menuName,desc,configure,uiType,maj,minV,patch,confTemplate,confVar) \
+#define ADM_DECLARE_VIDEO_ENCODER_MAIN(name,menuName,desc,engineName,configure,uiType,maj,minV,patch,confTemplate,confVar) \
 static ADM_videoEncoderDesc encoderDesc={\
     name,\
     menuName,\
@@ -73,7 +73,11 @@ bool setConfigurationData (CONFcouple *c,bool full)\
 extern "C" ADM_VIDEOENCODER_PLUGIN_EXPORT ADM_videoEncoderDesc *getInfo (void) \
 { \
   return &encoderDesc; \
-}  \
+} \
+extern "C" ADM_VIDEOENCODER_PLUGIN_EXPORT const char* getUnderlyingLibraryName(void) \
+{ \
+	return engineName; \
+}
 
 #ifndef QT_TR_NOOP
 #define QT_TR_NOOP(x) x
