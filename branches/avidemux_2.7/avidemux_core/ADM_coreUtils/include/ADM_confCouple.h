@@ -29,8 +29,8 @@ class ADM_COREUTILS6_EXPORT CONFcouple
             
 
 	public:
-static      CONFcouple *duplicate(CONFcouple *source);
-			int32_t lookupName(const char *myname);
+static      CONFcouple *duplicate(const CONFcouple *source);
+			int32_t lookupName(const char *myname) const;
 
 			CONFcouple(uint32_t nb);
 			~CONFcouple();
@@ -40,23 +40,21 @@ static      CONFcouple *duplicate(CONFcouple *source);
 			bool writeAsString(const char *name,const char *value);
 			bool writeAsFloat(const char *name,float value);
             bool writeAsBool(const char *name,bool value);
-			
 
+            bool readAsUint32(const char *name, uint32_t *value) const;
+			bool readAsInt32(const char *name, int32_t *value) const;
+			bool readAsString(const char *name, char **value) const;
+			bool readAsFloat(const char *name, float *value) const;
+            bool readAsBool(const char *name, bool *value) const;
 
-            bool readAsUint32(const char *name,uint32_t *value);    
-			bool readAsInt32(const char *name,int32_t *value);
-			bool readAsString(const char *name,char **value);
-			bool readAsFloat(const char *name,float *value);
-            bool readAsBool(const char *name,bool *value);
+            bool exist(const char *name) const;
 
-            bool exist(const char *name);
+			uint32_t getSize(void) const;
 
-			uint32_t getSize(void) { return nb;};
-
-			void	updateValue(int index, const char *val);
-            bool     setInternalName(const char *name, const char *key);
-			bool     getInternalName(uint32_t n, char **nm, char **val);
-			void dump(void );
+			void updateValue(int index, const char *val);
+            bool setInternalName(const char *name, const char *key);
+			bool getInternalName(uint32_t n, const char** nm, const char** val) const;
+			void dump(void) const;
 
 };
 ADM_COREUTILS6_EXPORT bool stringsToConfCouple(int nb,CONFcouple **conf,  const char **argv);

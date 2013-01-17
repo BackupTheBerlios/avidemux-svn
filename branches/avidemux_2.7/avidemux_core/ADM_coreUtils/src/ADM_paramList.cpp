@@ -104,7 +104,7 @@ void lavCoupleToString(CONFcouple *couples, char **str)
 
 	for (uint32_t i = 0; i < nb; i++)
 	{
-		char *name, *value;
+		const char *name, *value;
 		couples->getInternalName(i, &name, &value);
 		sprintf(tmp, ":%s=%s", name, value);
 		ADM_assert(strlen(tmp) < 255);

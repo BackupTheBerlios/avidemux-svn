@@ -32,7 +32,7 @@ namespace ADM_qtScript
 
             for (uint32_t coupleIndex = 0; coupleIndex < conf->getSize(); coupleIndex++)
             {
-                char *name, *value;
+                const char *name, *value;
 
                 conf->getInternalName(coupleIndex, &name, &value);
 
@@ -118,7 +118,7 @@ namespace ADM_qtScript
         }
         else
         {
-            char *coupleName, *coupleValue;
+            const char *coupleName, *coupleValue;
 
             containerConf->getInternalName(confIndex, &coupleName, &coupleValue);
 

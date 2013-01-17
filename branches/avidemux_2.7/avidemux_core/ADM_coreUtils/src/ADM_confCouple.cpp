@@ -50,12 +50,18 @@ CONFcouple::~CONFcouple()
 /**
     \fn exist
 */
-bool CONFcouple::exist(const char *name)
+bool CONFcouple::exist(const char *name) const
 {
     int i=lookupName(name);
     if(i==-1) return false;
     return true;
 }
+
+uint32_t CONFcouple::getSize(void) const
+{
+	return nb;
+}
+
 bool CONFcouple::writeAsUint32(const char *myname,uint32_t val)
 {
 	ADM_assert(cur<nb);
@@ -109,7 +115,7 @@ bool CONFcouple::writeAsBool(const char *myname,bool v)
 }
 
 // ******************************************
-bool CONFcouple::readAsBool(const char *myname,bool *v)
+bool CONFcouple::readAsBool(const char *myname,bool *v) const
 {
 	int32_t index=lookupName(myname);
 
@@ -120,7 +126,8 @@ bool CONFcouple::readAsBool(const char *myname,bool *v)
         else *v=false;
 	return 1;
 }
-bool CONFcouple::readAsUint32(const char *myname,uint32_t *val)
+
+bool CONFcouple::readAsUint32(const char *myname, uint32_t *val) const
 {
 	int32_t index=lookupName(myname);
 
@@ -129,7 +136,8 @@ bool CONFcouple::readAsUint32(const char *myname,uint32_t *val)
 	*val=(int)atoi(value[index]);
 	return 1;
 }
-bool CONFcouple::readAsInt32(const char *myname,int32_t *val)
+
+bool CONFcouple::readAsInt32(const char *myname,int32_t *val) const
 {
 	int32_t index=lookupName(myname);
 
@@ -138,7 +146,8 @@ bool CONFcouple::readAsInt32(const char *myname,int32_t *val)
 	*val=(int)atoi(value[index]);
 	return 1;
 }
-bool CONFcouple::readAsString(const char *myname,char **val)
+
+bool CONFcouple::readAsString(const char *myname,char **val) const
 {
 	int32_t index=lookupName(myname);
 //#warning TODO : unescape
@@ -148,7 +157,7 @@ bool CONFcouple::readAsString(const char *myname,char **val)
 	return 1;
 }
 
-bool CONFcouple::readAsFloat(const char *myname,float *val)
+bool CONFcouple::readAsFloat(const char *myname,float *val) const
 {
 	int32_t index=lookupName(myname);
 
@@ -161,7 +170,7 @@ bool CONFcouple::readAsFloat(const char *myname,float *val)
     \fn lookupName
     \brief Return index of name in the couples, -1 if not fount
 */
-int32_t CONFcouple::lookupName(const char *myname)
+int32_t CONFcouple::lookupName(const char *myname) const
 {
 	for(uint32_t i=0;i<nb;i++)
 	{
@@ -175,14 +184,14 @@ int32_t CONFcouple::lookupName(const char *myname)
     \fn duplicate
     \brief clone a conf couple
 */
-CONFcouple *CONFcouple::duplicate(CONFcouple *source)
+CONFcouple *CONFcouple::duplicate(const CONFcouple *source)
 {
     if(!source) return NULL;
     int nb=source->nb;
     CONFcouple *nw=new CONFcouple(nb);
     for(int i=0;i<nb;i++)
     {
-            char  *n,*v;
+            const char  *n,*v;
         	source->getInternalName(i,&n,&v);
             nw->setInternalName(n,v);
     }
@@ -192,7 +201,7 @@ CONFcouple *CONFcouple::duplicate(CONFcouple *source)
     \fn dump
     \brief dump
 */
-void CONFcouple::dump(void )
+void CONFcouple::dump(void) const
 {
 	for(uint32_t i=0;i<nb;i++)
 	{
@@ -219,7 +228,7 @@ void CONFcouple::updateValue(int index, const char *val)
 	cur++;
 	return 1;
 }
-bool  CONFcouple::getInternalName(uint32_t n, char **nm, char **val)
+bool  CONFcouple::getInternalName(uint32_t n, const char** nm, const char** val) const
 {
     assert(n<nb);
     *nm=name[n];

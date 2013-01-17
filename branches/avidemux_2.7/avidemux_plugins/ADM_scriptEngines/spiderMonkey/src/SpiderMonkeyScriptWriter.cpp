@@ -156,7 +156,7 @@ void SpiderMonkeyScriptWriter::dumpConfCouple(CONFcouple *c)
 
     for (unsigned int j = 0; j < c->getSize(); j++)
     {
-        char *name, *value;
+        const char *name, *value;
 
         c->getInternalName(j, &name, &value);
         *(this->_stream) << ", \"" << name << "=" << value << "\"";

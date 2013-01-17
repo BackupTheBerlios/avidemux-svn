@@ -205,7 +205,7 @@ namespace ADM_qtScript
 
 		for (unsigned int index = 0; index < newConf->getSize(); index++)
 		{
-			char *name, *newValue;
+			const char *name, *newValue;
 			int oldIndex = -1;
 
 			newConf->getInternalName(index, &name, &newValue);
@@ -217,7 +217,7 @@ namespace ADM_qtScript
 
 			if (oldIndex > -1)
 			{
-				char *oldValue;
+				const char *oldValue;
 
 				oldConf->getInternalName(oldIndex, &name, &oldValue);
 
