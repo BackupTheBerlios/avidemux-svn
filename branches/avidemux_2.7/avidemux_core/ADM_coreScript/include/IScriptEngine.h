@@ -57,6 +57,7 @@ public:
     virtual bool runScript(std::string script, RunMode mode) = 0;
     virtual bool runScriptFile(std::string name, RunMode mode) = 0;
     virtual void unregisterEventHandler(eventHandlerFunc *func) = 0;
+    virtual void raise(const char *exception) {printf("Exception : %s\n",exception);}
 };
 
 extern "C" ADM_SCRIPTENGINE_PLUGIN_EXPORT IScriptEngine* createEngine();
