@@ -1,0 +1,27 @@
+include (admCheckAudioEncoderLibs)
+ADD_SUBDIRECTORY(pcm)
+ADD_SUBDIRECTORY(lavcodec)
+
+if(USE_TWOLAME)
+ADD_SUBDIRECTORY(twolame)
+endif(USE_TWOLAME)
+
+if(USE_LAME)
+ADD_SUBDIRECTORY(lame)
+endif(USE_LAME)
+
+if(USE_AFTEN)
+ADD_SUBDIRECTORY(aften)
+endif(USE_AFTEN)
+
+if(USE_VORBIS)
+ADD_SUBDIRECTORY(vorbis)
+endif(USE_VORBIS)
+
+if(USE_FAAC)
+ADD_SUBDIRECTORY(faac)
+endif(USE_FAAC)
+# DISABLED FOR NOW
+if(USE_DCAENC)
+ADD_SUBDIRECTORY(dcaenc)
+endif(USE_DCAENC)
